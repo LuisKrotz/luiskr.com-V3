@@ -1,6 +1,18 @@
 <template>
   <div class="about">
-    <h1>Aboutmarco</h1>
+    <div style="
+      background-image: url('https://lorempixel.com/1920/1080/abstract'); 
+      position: relative;
+      text-align: right;
+      width: 95vw;
+      height: 90vh;
+      top: 5vh;
+      left: 2.5vw;
+      box-sizing: border-box;
+      padding: 32px 64px;
+      text-transform: uppercase">
+      <h1 style="font-size: 180px; color: white; font-weight: 900;">Marco Almeida</h1>
+    </div>
     <router-view/>
   </div>
   <div>INTERNAL FOOTER

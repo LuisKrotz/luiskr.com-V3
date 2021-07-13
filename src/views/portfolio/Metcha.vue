@@ -1,6 +1,19 @@
 <template>
   <div class="about">
-    <h1>METCHA</h1>
+    
+    <div style="
+      background-image: url('https://lorempixel.com/1920/1080/abstract'); 
+      position: relative;
+      text-align: right;
+      width: 95vw;
+      height: 90vh;
+      top: 5vh;
+      left: 2.5vw;
+      box-sizing: border-box;
+      padding: 64px;">
+      <h1 style="font-size: 280px; color: white;">METCHA</h1>
+    </div>
+
     <router-view/>
   </div>
   <div>INTERNAL FOOTER
