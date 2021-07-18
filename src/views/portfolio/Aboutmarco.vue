@@ -30,34 +30,41 @@
             <source :src="storage + 'aboutmarco/home/aboutmarco.com-mobile-mobile.mp4'" type="video/mp4">
           </video>
           <label>aboutmarco.com - mobile tour</label>
+          <button>Tap to open</button>
         </div>
 
         <div class="project-extra-item">
-          <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15-mozjpg-uncompressed.jpg'"/>
+          <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15-mozjpg-50.jpg'"/>
           <label>aboutmarco.com - melissa insider</label>
+          <button>Tap to open</button>
           <div class="project-extra-item-open">
-            <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15-mozjpg-uncompressed.jpg'"/>
+            <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15-mozjpg-50.jpg'"/>
           </div>
         </div>
         <div class="project-extra-item">
-          <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--melissa-2020-12-15-mozjpg-uncompressed.jpg'"/>
+          <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--melissa-2020-12-15-mozjpg-50.jpg'"/>
           <label>aboutmarco.com - melissa</label>
+          <button>Tap to open</button>
         </div>
         <div class="project-extra-item">
-          <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--coza-2020-12-15-mozjpg-uncompressed.jpg'"/>
+          <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--coza-2020-12-15-mozjpg-50.jpg'"/>
           <label>aboutmarco.com - coza</label>
+          <button>Tap to open</button>
         </div>
         <div class="project-extra-item">
-          <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--brazilian-leather-2020-12-15-mozjpg-uncompressed.jpg'"/>
+          <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--brazilian-leather-2020-12-15-mozjpg-50.jpg'"/>
           <label>aboutmarco.com - brazilian leather</label>
+          <button>Tap to open</button>
         </div>
         <div class="project-extra-item">
-          <img :src="storage + 'aboutmarco/about/aboutmarco.com-me-2020-12-15-23_29_35-mozjpg-uncompressed.jpg'"/>
+          <img :src="storage + 'aboutmarco/about/aboutmarco.com-me-2020-12-15-23_29_35-mozjpg-50.jpg'"/>
           <label>aboutmarco.com - me</label>
+          <button>Tap to open</button>
         </div>
         <div class="project-extra-item">
-          <img :src="storage + 'aboutmarco/about/aboutmarco.com-archive-2020-12-15-23_31_53-mozjpg-uncompressed.jpg'"/>
+          <img :src="storage + 'aboutmarco/about/aboutmarco.com-archive-2020-12-15-23_31_53-mozjpg-50.jpg'"/>
           <label>aboutmarco.com - archive</label>
+          <button>Tap to open</button>
         </div>
     </section>
     <router-view/>
@@ -67,7 +74,7 @@
       <!-- INTERNAL FOOTER -->
       <div class="project-footer-grid">
         <div>
-          <h2 class="project-footer-title">Related</h2>
+          <h2 class="project-footer-title">PROJECTS</h2>
           <ul class="project-footer-related">
             <li>
               <router-link class="project-footer-related-link" to="/portfolio/metcha">metcha</router-link>
@@ -185,16 +192,36 @@ export default {
         padding: 0 16px;
 
         video, img {
+          width: 320px;
           height: 568px;
+          object-fit: cover;
+          object-position: top center;
+          border-radius: 10px;
         }
 
         label {
           display: block;
           font-family: 'Raleway', sans-serif;
           text-transform: uppercase;
-          font-size: 10px;
+          font-size: 14px;
           text-align: left;
           margin: 0;
+        }
+
+        button {
+          box-sizing: border-box;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          border: 1px solid;
+          border-radius: 20px;
+          width: 80%;
+          height: 48px;
+          background-color: rgb(38, 38, 38);
+          color: white;
+          font-size: 10px;
+          line-height: 48px;
         }
 
         &-open {
