@@ -1,7 +1,12 @@
 <template>
   <div id="nav">
-    <router-link to="/">Luiskr.com</router-link>
-    <!-- <router-link to="/about">About</router-link> -->
+    <!-- <router-link to="/">Luiskr.com</router-link> -->
+    <!-- <a href="#welcome" to="/">Luiskr.com</a> -->
+    <!-- <div>
+      <a href="#portfolio">Portfolio</a> |
+      <a href="#about">About</a> |
+      <a href="#contact">Contact</a>
+    </div> -->
   </div>
   <router-view/>
 </template>
@@ -12,19 +17,18 @@
 
 body {
   margin: 0;
+  background-color: white;
 }
 
 #app {
-   font-family: 'Cambay', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 h1, h2 {
   font-family: 'Raleway', sans-serif;
-  font-weight: 700;
+  font-weight: 300;
 }
 
 p, span {
@@ -34,19 +38,22 @@ p, span {
 }
 
 #nav {
-  display: block;
-  left: 50%;
+  padding: 10px 104px;
+  left: 0;
   top: 0;
   position: fixed;
-  padding: 11px;
-  transform: translateX(-50%);
-  z-index: 1;
-  mix-blend-mode: difference;
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
 
 
   a {
+    font-family: 'Raleway', sans-serif;
     font-weight: bold;
     color: black;
+    text-decoration: none;
+    font-weight: 500;
 
     // &.router-link-exact-active {
     //   color: white;

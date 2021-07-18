@@ -1,16 +1,9 @@
 <template>
   <div class="about">
-    <div style="
-      background-image: url('https://lorempixel.com/1920/1080/abstract'); 
-      position: relative;
-      text-align: right;
-      width: 95vw;
-      height: 90vh;
-      top: 5vh;
-      left: 2.5vw;
-      box-sizing: border-box;
-      padding: 32px 64px;
-      text-transform: uppercase">
+    <div>
+      <video class="portfolio-cover" playsinline autoplay loop muted>
+        <source :src="storage + 'aboutmarco/home/aboutmarco.com-2020-full-page-home-tour.mp4-scaledown-4x.mp4'" type="video/mp4">
+      </video>
       <h1 style="font-size: 180px; color: white; font-weight: 900;">Marco Almeida</h1>
     </div>
     <router-view/>
@@ -31,3 +24,14 @@
     <div>Contact Form | Linkedin | Github | Instagram </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      storage: this.$store.getters.getStorage
+    }
+  },
+  name: 'Marco Almeida',
+}
+</script>
