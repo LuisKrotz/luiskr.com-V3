@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <!-- <router-link to="/">Luiskr.com</router-link> -->
+    <router-link to="/">Luiskr.com</router-link>
     <!-- <a href="#welcome" to="/">Luiskr.com</a> -->
     <!-- <div>
       <a href="#portfolio">Portfolio</a> |
@@ -46,6 +46,7 @@ p, span {
   display: flex;
   width: 100%;
   box-sizing: border-box;
+  mix-blend-mode: difference;
 
 
   a {
