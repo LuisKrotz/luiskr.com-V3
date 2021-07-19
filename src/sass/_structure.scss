@@ -1,0 +1,42 @@
+:root {
+    --white:    #{$color-white};
+    --black:    #{$color-black};
+    --grey:     #{$color-grey};
+    --shadow-1:     rgba(0,0,0, .1);
+    --shadow-2:     rgba(0,0,0, .05);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+label,
+ul,
+ol,
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}

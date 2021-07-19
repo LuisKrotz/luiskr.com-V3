@@ -1,0 +1,68 @@
+.ttl {
+    &-xl,
+    &-lg,
+    &-md,
+    &-sm,
+    &-xs {
+        font-family: 'Raleway', sans-serif;
+    }
+
+    &-xl,
+    &-lg,
+    &-md {
+        font-weight: 100;
+        letter-spacing: 10px;
+    }
+
+    &-xl {
+        font-size: 104px;
+        letter-spacing: 21px;
+    }
+
+    &-lg {
+        font-size: 64px;
+    }
+
+    &-md {
+        font-size: 32px;
+    }
+
+    &-sm,
+    &-xs {
+        font-weight: 200;
+    }
+
+    &-sm {
+        letter-spacing: 2.5px;
+        font-size: 21px;
+    }
+
+    &-xs {
+        font-size: 14px;
+    }
+}
+
+.txt {
+    &-lg,
+    &-md,
+    &-sm {
+        font-family: 'Montserrat Alternates', sans-serif;
+    }
+
+    &-lg {
+        font-weight: 200;
+        font-size: 32px;
+    }
+
+    &-md,
+    &-sm {
+        font-weight: 300;
+        font-size: 21px;
+    }
+
+
+    &-sm {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

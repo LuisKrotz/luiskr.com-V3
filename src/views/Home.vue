@@ -31,91 +31,89 @@
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/metcha">
             <video class="portfolio-item-link-media" playsinline autoplay loop muted>
-              <source :src="storage + 'aboutmarco/home/aboutmarco.com-2020-full-page-home-tour.mp4-scaledown-4x.mp4'" type="video/mp4">
+              <source :src="storage + 'metcha/feed/metcha.com-2020-2021-website-tour.mp4-scaledown-2x.mp4'" type="video/mp4">
             </video>
             <span class="portfolio-item-link-text">Metcha</span>
-            <span class="portfolio-item-link-icon">➕</span>
+            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/transa">
             <video class="portfolio-item-link-media" playsinline autoplay loop muted>
-              <source :src="storage + 'aboutmarco/home/aboutmarco.com-2020-full-page-home-tour.mp4-scaledown-4x.mp4'" type="video/mp4">
+              <source :src="storage + 'transainc/website-2021/transainc.com-feed-short-tour.mp4-scaledown-2x.mp4'" type="video/mp4">
             </video>
             <span class="portfolio-item-link-text">Transa</span>
-            <span class="portfolio-item-link-icon">➕</span>
+            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link"  to="/portfolio/aboutmarco">
             <video class="portfolio-item-link-media" playsinline autoplay loop muted>
-              <source :src="storage + 'aboutmarco/home/aboutmarco.com-2020-full-page-home-tour.mp4-scaledown-4x.mp4'" type="video/mp4">
+              <source :src="storage + 'aboutmarco/home/aboutmarco.com-2020-full-page-home-tour.mp4-scaledown-2x.mp4'" type="video/mp4">
             </video>
             <span class="portfolio-item-link-text">Marco Almeida</span>
-            <span class="portfolio-item-link-icon">➕</span>
+            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link"  to="/portfolio/melissa">
             <video class="portfolio-item-link-media" playsinline autoplay loop muted>
-              <source :src="storage + 'aboutmarco/home/aboutmarco.com-2020-full-page-home-tour.mp4-scaledown-4x.mp4'" type="video/mp4">
+              <source :src="storage + 'meliss/website/tour/melissa-website-2020-tour.mp4-scaledown-2x.mp4'" type="video/mp4">
             </video>
             <span class="portfolio-item-link-text">Melissa</span>
-            <span class="portfolio-item-link-icon">➕</span>
+            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link"  to="/portfolio/minimelissa">
             <video class="portfolio-item-link-media" playsinline autoplay loop muted>
-              <source :src="storage + 'aboutmarco/home/aboutmarco.com-2020-full-page-home-tour.mp4-scaledown-4x.mp4'" type="video/mp4">
+              <source :src="storage + 'minimelissa/website/minimelissa.com.br-31-03-19.mp4-scaledown-2x.mp4'" type="video/mp4">
             </video>
             <span class="portfolio-item-link-text">Mini Melissa</span>
-            <span class="portfolio-item-link-icon">➕</span>
+            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/mor">
             <video class="portfolio-item-link-media" playsinline autoplay loop muted>
-              <source :src="storage + 'aboutmarco/home/aboutmarco.com-2020-full-page-home-tour.mp4-scaledown-4x.mp4'" type="video/mp4">
+              <source :src="storage + 'mor/site/mor.com.br-31-03-19.mp4-scaledown-2x.mp4'" type="video/mp4">
             </video>
             <span class="portfolio-item-link-text">Mor</span>
-            <span class="portfolio-item-link-icon">➕</span>
+            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/coza">
             <video class="portfolio-item-link-media" playsinline autoplay loop muted>
-              <source :src="storage + 'aboutmarco/home/aboutmarco.com-2020-full-page-home-tour.mp4-scaledown-4x.mp4'" type="video/mp4">
+              <source :src="storage + 'coza/feed+shop/coza.com.br-feed-2019-tour.mp4-scaledown-2x.mp4'" type="video/mp4">
             </video>
             <span class="portfolio-item-link-text">Coza</span>
-            <span class="portfolio-item-link-icon">➕</span>
+            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/brazilian-leather">
             <video class="portfolio-item-link-media" playsinline autoplay loop muted>
-              <source :src="storage + 'aboutmarco/home/aboutmarco.com-2020-full-page-home-tour.mp4-scaledown-4x.mp4'" type="video/mp4">
+              <source :src="storage + 'brazilian leather/portal/brazilian-leather-cicb-cscb-leather-law-portal-full-tour.mp4-scaledown-2x.mp4'" type="video/mp4">
             </video>
             <span class="portfolio-item-link-text">Brazilian Leather</span>
-            <span class="portfolio-item-link-icon">➕</span>
+            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/vibra">
             <video class="portfolio-item-link-media" playsinline autoplay loop muted>
-              <source :src="storage + 'aboutmarco/home/aboutmarco.com-2020-full-page-home-tour.mp4-scaledown-4x.mp4'" type="video/mp4">
+              <source :src="storage + 'vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-tour.mp4-scaledown-2x.mp4'" type="video/mp4">
             </video>
             <span class="portfolio-item-link-text">Vibra</span>
-            <span class="portfolio-item-link-icon">➕</span>
+            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/genesysinf-sageweb">
-            <video class="portfolio-item-link-media" playsinline autoplay loop muted>
-              <source :src="storage + 'aboutmarco/home/aboutmarco.com-2020-full-page-home-tour.mp4-scaledown-4x.mp4'" type="video/mp4">
-            </video>
+            <img class="portfolio-item-link-media" :src="storage + 'genesysinf/genesysinf-sageweb-2015-relatórios-gerenciais-por-mes-mozjpg-50.jpg'" />
             <span class="portfolio-item-link-text">Genesysinf</span>
-            <span class="portfolio-item-link-icon">➕</span>
+            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
       </ul>
@@ -155,7 +153,7 @@
         </li>
         <li class="about-item">
           <h3 class="about-item-title">Styling</h3>
-          <p class="about-item-text">I work with any CSS pré-processor avalianble. I love CSS3 and generally work with SASS, but have worked with LESS and Stylus.</p>
+          <p class="about-item-text">I work with any CSS pre-processor avaliable. I love CSS3 and generally work with SASS, but have worked with LESS and Stylus.</p>
         </li>
         <li class="about-item">
           <h3 class="about-item-title">Programming</h3>
@@ -263,305 +261,5 @@ export default {
 
 
 <style lang="scss">
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .cover {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-
-      &-text {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        text-align: left;
-        width: 360px;
-        margin-left: -110px;
-        margin-top: -110px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        h2 {
-          letter-spacing: 10px;
-          font-size: 54px;
-          margin: 16px 0;
-          font-weight: 300;
-        }
-
-        span {
-          font-size: 22px;
-          font-weight: 200;
-        }
-      }
-
-      &-links {
-        color: rgb(38, 38 ,38);
-        box-sizing: border-box;
-        border: 1px solid rgba(38, 38 ,38, .25);
-        font-family: 'Raleway';
-        font-size: 22px;
-        width: 200px;
-        height: 200px;
-        border-radius: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        cursor: pointer;
-        text-decoration: none;
-        font-weight: 100;
-        letter-spacing: 2.5px;
-
-        &.lin {
-          top: 28px;
-          left: 20px;
-          width: 500px;
-          height: 500px;
-          animation: bounce-4 20s ease infinite;
-        }
-
-        &.git {
-          animation: bounce-5 10s linear infinite;
-          bottom: 120px;
-          left: 104px;
-        }
-
-        &.ptf {
-            animation: bounce-2 20s linear infinite;
-            bottom: 70px;
-            right: 490px;
-            width: 300px;
-            height: 300px;
-        }
-
-        &.cnt {
-          right: -60px;
-          top: -90px;
-          width: 700px;
-          height: 700px;
-            animation: bounce-1 40s linear infinite;
-        }
-
-        &.abt {
-          bottom: -80px;
-          right: 170px;
-          width: 300px;
-          height: 300px;
-          animation: bounce-3 30s linear infinite;
-        }
-      }
-    }
-
-    .awards,
-    .portfolio {
-      &-grid {
-        display: grid;
-        grid-template-columns: repeat(5, auto);
-        grid-gap: 39px;
-        padding: 0;
-        margin: 0;
-      }
-
-      &-item {
-        &-link {
-          font-size: 54px;
-          text-decoration: none;
-          box-sizing: border-box;
-          color: rgb(36, 36, 36);
-          display: grid;
-          border: 1px solid;
-          grid-template-rows: auto 30px;
-          grid-template-columns: auto 32px;
-          align-items: center;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-
-          &-icon {
-            border-top: 1px solid;
-            text-align: center;
-            font-size: 24px;
-            border-left: 1px solid;
-            margin: 0;
-          }
-
-          &-media {
-            width: 100%;
-            height: 100%;
-            grid-row: 1;
-            grid-column-start: 1;
-            grid-column-end: -1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 104px;
-            background: rgb(38, 38 ,38);
-            margin: 0;
-          }
-
-          &-text {
-            border-top: 1px solid;
-            padding: 5px 10px;
-            font-family: 'Raleway', sans-serif;
-            text-align: left;
-            font-weight: 400;
-            font-size: 18px;
-            margin: 0;
-          }
-        }
-      }
-    }
-
-    .awards {
-      &-item {
-        &-link {
-          grid-template-rows: repeat(3, auto);
-          grid-template-columns: auto;
-
-          &-text {
-            padding: 20px 10px;
-          }
-
-          &-media {
-            min-height: 240px;
-          }
-
-          &-year {
-            font-family: 'Montserrat Alternates', sans-serif;
-            text-align: center;
-            border-top: 1px solid;
-            font-size: 18px;
-            font-weight: 300;
-            padding: 10px;
-            margin: 0;
-          }
-        }
-      }
-    }
-
-    .about {
-      &-grid {
-        display: grid;
-        grid-template-columns: repeat(3, auto);
-        margin: 0;
-        padding: 0;
-        grid-gap: 64px;
-      }
-
-      &-item {
-        position: relative;
-        text-align: justify;
-        border: 1px solid;
-        padding: 20px 40px;
-
-
-        &-title {
-          font-family: 'Raleway', sans-serif;
-          font-size: 32px;
-          text-align: left;
-          font-weight: 100;
-        }
-
-        &-text {
-          font-family: 'Montserrat Alternates', sans-serif;
-          font-size: 16px;
-          line-height: 22px;
-        }
-      }
-    }
-
-    .portfolio,
-    .about,
-    .awards {
-      padding: 248px 104px 104px;
-
-      &-title {
-        font-size: 104px;
-        font-weight: 100;
-        letter-spacing: 20px;
-      }
-    }
-
-    .about,
-    .awards {
-      padding: 104px;
-    }
-
-    .contact {
-      font-family: 'Raleway', sans-serif;
-      padding: 64px;
-      background-color: rgb(38, 38 ,38);
-      margin-top: 104px;
-      color: white;
-
-      &-title {
-        text-transform: uppercase;
-        font-family: inherit;
-        color: inherit;
-        font-size: 64px;
-        margin: 0;
-        padding: 0 104px 32px;
-      }
-
-      &-social,
-      &-other {
-        font-family: inherit;
-        color: inherit;
-        padding: 0 104px;
-
-        &-link {
-          font-family: inherit;
-          color: inherit;
-          text-decoration: none;
-        }
-
-        &-separator {
-          padding: 0 5px;
-          font-weight: 200;
-        }
-      }
-
-      &-social {
-        font-size: 18px;
-        padding: 0 104px 12px;
-        border-bottom: 1px solid rgba(255, 255, 255, .05);
-      }
-
-      &-other {
-        text-transform: uppercase;
-        font-size: 14px;
-        padding: 12px 104px 0;
-      }
-    }
-
-    @keyframes bounce-1 {
-      50% {
-        transform: translate(20px, -50px);
-      }
-    }
-    @keyframes bounce-2 {
-      50% {
-        transform: translate(-20px, 20px);
-      }
-    }
-    @keyframes bounce-3 {
-      50% {
-        transform: translate(0, -10px)
-      }
-    }
-    @keyframes bounce-4 {
-      50% {
-         transform: translate(-20px, -10px);
-      }
-    }
-    @keyframes bounce-5 {
-      50% {
-        transform: translate(20px, 10px);
-      }
-    }
+@import '../sass/home';
 </style>
