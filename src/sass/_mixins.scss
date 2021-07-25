@@ -1,0 +1,185 @@
+// MIXINS
+// Decimal Round
+@function decimal-round ($number, $digits: 0, $mode: round) {
+    $n: 1;
+    // $number must be a number
+    @if type-of($number) != number {
+        @warn '#{ $number } is not a number.';
+        @return $number;
+    }
+
+    // $digits must be a unitless number
+    @if type-of($digits) != number {
+        @warn '#{ $digits } is not a number.';
+        @return $number;
+    } @else if not unitless($digits) {
+        @warn '#{ $digits } has a unit.';
+        @return $number;
+    }
+
+    @if $digits > 0 {
+        @for $i from 1 through $digits {
+            $n: $n * 10;
+        }
+    }
+
+    @if $mode == round {
+        @return round($number * $n) / $n;
+    } @else if $mode == ceil {
+        @return ceil($number * $n) / $n;
+    } @else if $mode == floor {
+        @return floor($number * $n) / $n;
+    } @else {
+        @warn '#{ $mode } is undefined keyword.';
+        @return $number;
+    }
+}
+
+@function to-vw($value, $viewport) {
+    @return #{decimal-round((($value / $viewport) * 100) , 3)}vw;
+}
+
+@function to-vmin($value, $height) {
+    @return #{decimal-round((($value / $height) * 100) , 3)}vmin;
+}
+
+@function to-rem($value) {
+    @return #{decimal-round(($value / 16), 3)}rem;
+}
+
+// Calculate percentual value related to the given area
+@function rel-to-area($value, $area) {
+    @return #{decimal-round((($value / $area) * 100%) , 3)};
+}
+
+@mixin ignore-br() {
+    br {
+        content: ' ';
+
+        &:after {
+            content: ' ';
+        }
+    }
+}
+
+// Create Pseudo Elements
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+// Typography
+@mixin proportional-line($font-size, $line-height) {
+    line-height: decimal-round($line-height / $font-size, 2) * 1rem;
+}
+
+// Reset list
+@mixin reset-list($padding: 0, $margin: 0) {
+    margin: $margin;
+    padding: $padding;
+    list-style-type: none;
+}
+
+// Media Queries
+@mixin layout-320 {
+    @media (min-width: #{$bk-320}) {
+        @content;
+    }
+}
+
+@mixin layout-375 {
+    @media (min-width: #{$bk-375}) {
+        @content;
+    }
+}
+
+@mixin layout-414 {
+    @media (min-width: #{$bk-414}) {
+        @content;
+    }
+}
+
+@mixin layout-540 {
+    @media (min-width: #{$bk-540}) {
+        @content;
+    }
+}
+
+@mixin layout-768 {
+    @media (min-width: #{$bk-768}) {
+        @content;
+    }
+}
+
+@mixin layout-960 {
+    @media (min-width: #{$bk-960}) {
+        @content;
+    }
+}
+
+@mixin layout-1024 {
+    @media (min-width: #{$bk-1024}) {
+        @content;
+    }
+}
+
+@mixin layout-1280 {
+    @media (min-width: #{$bk-1280}) {
+        @content;
+    }
+}
+
+@mixin layout-1360 {
+    @media (min-width: #{$bk-1360}) {
+        @content;
+    }
+}
+
+@mixin layout-1440 {
+    @media (min-width: #{$bk-1440}) {
+        @content;
+    }
+}
+
+@mixin layout-1560 {
+    @media (min-width: #{$bk-1560}) {
+        @content;
+    }
+}
+
+@mixin layout-1680 {
+    @media (min-width: #{$bk-1680}) {
+        @content;
+    }
+}
+
+@mixin layout-1920 {
+    @media (min-width: #{$bk-1920}) {
+        @content;
+    }
+}
+
+@mixin layout-2560 {
+    @media (min-width: #{$bk-2560}) {
+        @content;
+    }
+}
+
+@mixin layout-3840 {
+    @media (min-width: #{$bk-3840}) {
+        @content;
+    }
+}
+
+@mixin layout-5120 {
+    @media (min-width: #{$bk-5120}) {
+        @content;
+    }
+}
+
+@mixin layout-7680 {
+    @media (min-width: #{$bk-7680}) {
+        @content;
+    }
+}

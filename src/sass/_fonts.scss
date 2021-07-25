@@ -11,20 +11,20 @@
     &-lg,
     &-md {
         font-weight: 100;
-        letter-spacing: 10px;
+        letter-spacing: top-em(10);
     }
 
     &-xl {
-        font-size: 104px;
-        letter-spacing: 21px;
+        font-size: to-rem(104);
+        letter-spacing: to-rem(21);
     }
 
     &-lg {
-        font-size: 64px;
+        font-size: to-rem(64);
     }
 
     &-md {
-        font-size: 32px;
+        font-size: to-rem(32);
     }
 
     &-sm,
@@ -33,12 +33,12 @@
     }
 
     &-sm {
-        letter-spacing: 2.5px;
-        font-size: 21px;
+        letter-spacing: to-rem(2.5);
+        font-size: to-rem(21);
     }
 
     &-xs {
-        font-size: 14px;
+        font-size: to-rem(14);
     }
 }
 
@@ -51,18 +51,18 @@
 
     &-lg {
         font-weight: 200;
-        font-size: 32px;
+        font-size: to-rem(32);
     }
 
     &-md,
     &-sm {
         font-weight: 300;
-        font-size: 21px;
+        font-size: to-rem(21);
     }
 
 
     &-sm {
-        font-size: 16px;
-        line-height: 24px;
+        font-size: to-rem(16);
+        line-height: to-rem(24);
     }
 }

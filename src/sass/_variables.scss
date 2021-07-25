@@ -2,3 +2,140 @@ $color-white:               #FFF;
 $color-black:               #262626;
 $color-grey:                #A79E9E;
 $color-grey-2:              #e7e7e7;
+
+// Viewports
+// @type pixels
+// used for viewports
+$vw-272:                    272px; //x340
+$vw-320:                    320px;
+$vw-375:                    375px;
+$vw-414:                    414px;
+$vw-540:                    540px;
+$vw-768:                    768px;
+$vw-960:                    960px;
+$vw-1024:                   1024px;
+$vw-1280:                   1280px;
+$vw-1360:                   1360px;
+$vw-1440:                   1440px;
+$vw-1560:                   1560px;
+$vw-1680:                   1680px;
+$vw-1920:                   1920px;
+$vw-2560:                   2560px;
+$vw-3840:                   3840px;
+$vw-5120:                   5120px;
+$vw-7680:                   7680px;
+
+// @type number
+// used for convesions
+$un-272:                    272;
+$un-320:                    320;
+$un-375:                    375;
+$un-414:                    414;
+$un-540:                    540;
+$un-768:                    768;
+$un-960:                    960;
+$un-1024:                   1024;
+$un-1280:                   1280;
+$un-1360:                   1360;
+$un-1440:                   1440;
+$un-1560:                   1560;
+$un-1680:                   1680;
+$un-1920:                   1920;
+$un-2560:                   2560;
+$un-2560:                   2560;
+$un-3840:                   3840;
+$un-5120:                   5120;
+$un-7680:                   7680;
+
+
+$gap-272:                   16;
+$gap-320:                   16;
+$gap-375:                   16;
+$gap-414:                   16;
+$gap-540:                   24;
+$gap-768:                   40;
+$gap-960:                   40;
+$gap-1024:                  64;
+$gap-1280:                  64;
+$gap-1440:                  64;
+$gap-1680:                  104;
+$gap-1920:                  104;
+$gap-2560:                  168;
+$gap-3840:                  272;
+$gap-5120:                  272;
+$gap-7680:                  440;
+
+
+// Max area of the grid
+$grid-max-area-272: $un-272 - $gap-272 * 2;
+$grid-max-area-320: $un-320 - $gap-320 * 2;
+$grid-max-area-375: $un-375 - $gap-375 * 2;
+$grid-max-area-414: $un-414 - $gap-414 * 2;
+$grid-max-area-540: $un-540 - $gap-540 * 2;
+$grid-max-area-768: $un-768 - $gap-768 * 2;
+$grid-max-area-960: $un-960 - $gap-960 * 2;
+$grid-max-area-1024: $un-1024 - $gap-1024 * 2;
+$grid-max-area-1280: $un-1280 - $gap-1280 * 2;
+$grid-max-area-1440: $un-1440 - $gap-1440 * 2;
+$grid-max-area-1680: $un-1680 - $gap-1680 * 2;
+$grid-max-area-1920: $un-1920 - $gap-1920 * 2;
+$grid-max-area-2560: $un-2560 - $gap-2560 * 2;
+$grid-max-area-3840: $un-3840 - $gap-3840 * 2;
+$grid-max-area-5120: $un-5120 - $gap-5120 * 2;
+$grid-max-area-7680: $un-7680 - $gap-7680 * 2;
+
+
+// @type pixels
+// used for media queries
+$bk-320:                    $vw-320 - 1px;
+$bk-375:                    $vw-375 - 1px;
+$bk-414:                    $vw-414 - 1px;
+$bk-540:                    $vw-540 - 1px;
+$bk-768:                    $vw-768 - 1px;
+$bk-960:                    $vw-960 - 1px;
+$bk-1024:                   $vw-1024 - 1px;
+$bk-1280:                   $vw-1280 - 1px;
+$bk-1360:                   $vw-1360 - 1px;
+$bk-1560:                   $vw-1560 - 1px;
+$bk-1440:                   $vw-1440 - 1px;
+$bk-1680:                   $vw-1680 - 1px;
+$bk-1920:                   $vw-1920 - 1px;
+$bk-2560:                   $vw-2560 - 1px;
+$bk-3840:                   $vw-3840 - 1px;
+$bk-5120:                   $vw-5120 - 1px;
+$bk-7680:                   $vw-7680 - 1px;
+
+
+// Variables to be used in the layout
+// Fibonnaci sequence
+$F0:                        0;
+$F1:                        1;
+$F2:                        1;
+$F3:                        2;
+$F4:                        3;
+$F5:                        5;
+$F6:                        8;
+$F7:                        13;
+$F8:                        21;
+$F9:                        34;
+$F10:                       55;
+$F11:                       89;
+$F12:                       144;
+$F13:                       233;
+$F14:                       377;
+$F15:                       610;
+$F16:                       987;
+$F17:                       1597;
+$F18:                       2584;
+$F19:                       4181;
+$F21:                       10946;
+$F22:                       17711;
+$F23:                       28657;
+$F24:                       46368;
+$F25:                       75025;
+
+
+
+// Z-indexes
+$z-header:                  50;
+$z-loader:                  100;
