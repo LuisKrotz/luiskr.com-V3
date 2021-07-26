@@ -1,11 +1,15 @@
 @import '_variables';
 @import '_mixins';
 @import '_fonts';
+@import '_placeholders';
 
 .cover {
+    @extend %MAXAREA;
+
     position: relative;
     width: 100%;
     height: 100vh;
+
 
     &-text {
         position: absolute;
@@ -14,36 +18,31 @@
         align-items: flex-start;
         justify-content: center;
         text-align: left;
-        width: 360px;
-        margin-left: -110px;
-        margin-top: -110px;
+        width: to-rem($F14);
+        margin-left: to-rem($F8 * -1);
+        margin-top: to-rem($F11 * -1);
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
 
         h2 {
-            @extend .ttl-md;
-            letter-spacing: 10px;
-            font-size: 54px;
-            margin: 16px 0;
-            font-weight: 300;
+            @extend .ttl-lg;
+
+            margin: to-rem($F8) 0;
         }
 
         span {
             @extend .txt-md;
-            font-size: 22px;
-            font-weight: 200;
         }
     }
 
     &-links {
         @extend .ttl-sm;
 
-        color: var(--black);
         box-sizing: border-box;
-        border: 1px solid var(--grey-2);
-        width: 200px;
-        height: 200px;
+        border: to-rem($F1) solid var(--grey-2);
+        width: to-vw($F13 * 1px, $vw-1680);
+        height: to-vw($F13 * 1px, $vw-1680);
         border-radius: 100%;
         display: flex;
         align-items: center;
@@ -58,41 +57,53 @@
         }
 
         &.lin {
-            top: 28px;
-            left: 20px;
-            width: 500px;
-            height: 500px;
+            $color-blue: $color-blue;
+
+            border: to-rem($F1) solid $color-blue;
+            top: to-vw($F10 * -1px, $vw-1680);
+            left: to-vw($F10 * -1px, $vw-1680);
+            width: to-vw($F15 * 1px, $vw-1680);
+            height: to-vw($F15 * 1px, $vw-1680);
             animation: bounce-4 20s ease infinite;
+            color: $color-blue;
         }
 
         &.git {
+            border: to-rem($F1) solid $color-slate;
             animation: bounce-5 10s linear infinite;
-            bottom: 120px;
-            left: 104px;
+            bottom: to-vw($F10 * 1px, $vw-1680);
+            left: to-vw($F11 * 1px, $vw-1680);
+            color: $color-slate;;
         }
 
         &.ptf {
+            border: to-rem($F1) solid $color-turquoise;
             animation: bounce-2 20s linear infinite;
-            bottom: 70px;
-            right: 490px;
-            width: 300px;
-            height: 300px;
+            bottom: to-vw($F12 * 1px, $vw-1680);
+            right: to-vw($F15 * 1px, $vw-1680);
+            width: to-vw($F13 * 1px, $vw-1680);
+            height: to-vw($F13 * 1px, $vw-1680);
+            color: $color-turquoise;
         }
 
         &.cnt {
-            right: -60px;
-            top: -90px;
-            width: 700px;
-            height: 700px;
+            border: to-rem($F1) solid $color-orange;
+            top: to-vw($F2 * -1px, $vw-1680);
+            right: 0;
+            width: to-vw($F15 * 1px, $vw-1680);
+            height: to-vw($F15 * 1px, $vw-1680);
             animation: bounce-1 40s linear infinite;
+            color: $color-orange;
         }
 
         &.abt {
-            bottom: -80px;
-            right: 170px;
-            width: 300px;
-            height: 300px;
+            border: to-rem($F1) solid $color-pink;
+            bottom: to-vw($F8 * -1px, $vw-1680);
+            right: to-vw($F12 * 1px, $vw-1680);
+            width: to-vw($F13 * 1px, $vw-1680);
+            height: to-vw($F13 * 1px, $vw-1680);
             animation: bounce-3 30s linear infinite;
+            color: $color-pink;
         }
     }
 }
@@ -101,7 +112,7 @@
 .portfolio {
     &-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-gap: 40px;
         padding: 0;
         margin: 0;
@@ -162,6 +173,23 @@
                 .awards-item-link:focus & {
                     text-decoration: line-through;
                 }
+            }
+        }
+    }
+}
+
+.portfolio {
+    &-grid {
+        grid-gap: to-rem($F9);
+    }
+
+    &-item {
+        &-link {
+            background: var(--black);
+            color: var(--white);
+
+            &-icon {
+                font-weight: 700;
             }
         }
     }

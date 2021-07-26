@@ -3,6 +3,12 @@ $color-black:               #262626;
 $color-grey:                #A79E9E;
 $color-grey-2:              #e7e7e7;
 
+$color-blue:              #78b4ff;
+$color-slate:             #888;
+$color-turquoise:         #40e0d0;
+$color-orange:            #ffa500;
+$color-pink:              #ffc0cb;
+
 // Viewports
 // @type pixels
 // used for viewports
@@ -48,22 +54,22 @@ $un-5120:                   5120;
 $un-7680:                   7680;
 
 
-$gap-272:                   16;
-$gap-320:                   16;
-$gap-375:                   16;
-$gap-414:                   16;
-$gap-540:                   24;
-$gap-768:                   40;
-$gap-960:                   40;
-$gap-1024:                  64;
-$gap-1280:                  64;
-$gap-1440:                  64;
-$gap-1680:                  104;
-$gap-1920:                  104;
-$gap-2560:                  168;
-$gap-3840:                  272;
-$gap-5120:                  272;
-$gap-7680:                  440;
+$gap-272:                   13;
+$gap-320:                   21;
+$gap-375:                   21;
+$gap-414:                   21;
+$gap-540:                   34;
+$gap-768:                   55;
+$gap-960:                   55;
+$gap-1024:                  89;
+$gap-1280:                  89;
+$gap-1440:                  89;
+$gap-1680:                  144;
+$gap-1920:                  144;
+$gap-2560:                  233;
+$gap-3840:                  377;
+$gap-5120:                  377;
+$gap-7680:                  610;
 
 
 // Max area of the grid
