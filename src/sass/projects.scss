@@ -99,31 +99,6 @@
                 color: var(--white);
             }
 
-            button {
-                @extend .ttl-xs;
-
-                border: none;
-                box-sizing: border-box;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                border: 1px solid var(--grey-2);
-                border-radius: 30px;
-                max-width: 280px;
-                width: 80%;
-                height: 48px;
-                background-color: var(--black);
-                color: var(--white);
-                cursor: pointer;
-                line-height: 48px;
-
-                &:hover,
-                &:focus {
-                    text-decoration: line-through;
-                }
-            }
-
             &-open {
                 display: none;
                 top: 0;

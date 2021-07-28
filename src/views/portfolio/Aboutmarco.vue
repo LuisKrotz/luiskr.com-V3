@@ -1,5 +1,5 @@
 <template>
-  <div class="project">
+  <div id="#main" class="project">
     <h1 class="project-title">Marco Almeida</h1>
     <div class="project-main">
       <video class="project-main-item" playsinline autoplay loop muted controls>
@@ -35,37 +35,52 @@
             <button>Tap to open</button>
           </li>
           <li class="project-extra-item">
-            <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15-mozjpg-50.jpg'"/>
-            <label>aboutmarco.com - melissa insider</label>
-            <button>Tap to open</button>
-            <div class="project-extra-item-open">
-              <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15-mozjpg-50.jpg'"/>
-            </div>
+              <Image
+                src="aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15"
+                :width="800"
+                :height="1200"
+                :canExpand="true"
+                label="aboutmarco.com - melissa insider"/>
           </li>
           <li class="project-extra-item">
-            <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--melissa-2020-12-15-mozjpg-50.jpg'"/>
-            <label>aboutmarco.com - melissa</label>
-            <button>Tap to open</button>
+            <Image
+              src="aboutmarco/pages/aboutmarco.com-pages--melissa-2020-12-15"
+              :width="800"
+              :height="1200"
+              :canExpand="true"
+              label="aboutmarco.com - melissa"/>
           </li>
           <li class="project-extra-item">
-            <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--coza-2020-12-15-mozjpg-50.jpg'"/>
-            <label>aboutmarco.com - coza</label>
-            <button>Tap to open</button>
+            <Image
+              src="aboutmarco/pages/aboutmarco.com-pages--coza-2020-12-15"
+              :width="800"
+              :height="1200"
+              :canExpand="true"
+              label="aboutmarco.com - coza"/>
           </li>
           <li class="project-extra-item">
-            <img :src="storage + 'aboutmarco/pages/aboutmarco.com-pages--brazilian-leather-2020-12-15-mozjpg-50.jpg'"/>
-            <label>aboutmarco.com - brazilian leather</label>
-            <button>Tap to open</button>
+            <Image
+              src="aboutmarco/pages/aboutmarco.com-pages--brazilian-leather-2020-12-15"
+              :width="800"
+              :height="1200"
+              :canExpand="true"
+              label="aboutmarco.com - brazilian leather"/>
           </li>
           <li class="project-extra-item">
-            <img :src="storage + 'aboutmarco/about/aboutmarco.com-me-2020-12-15-23_29_35-mozjpg-50.jpg'"/>
-            <label>aboutmarco.com - me</label>
-            <button>Tap to open</button>
+            <Image
+              src="aboutmarco/about/aboutmarco.com-me-2020-12-15-23_29_35"
+              :width="800"
+              :height="1200"
+              :canExpand="true"
+              label="aboutmarco.com - me"/>
           </li>
           <li class="project-extra-item">
-            <img :src="storage + 'aboutmarco/about/aboutmarco.com-archive-2020-12-15-23_31_53-mozjpg-50.jpg'"/>
-            <label>aboutmarco.com - archive</label>
-            <button>Tap to open</button>
+            <Image
+              src="aboutmarco/about/aboutmarco.com-archive-2020-12-15-23_31_53"
+              :width="800"
+              :height="1200"
+              :canExpand="true"
+              label="aboutmarco.com - archive"/>
           </li>
         </ul>
     </section>
@@ -126,11 +141,16 @@
 </template>
 
 <script>
+import Image from'../../components/Image';
+
 export default {
   data() {
     return {
       storage: this.$store.getters.getStorage
     }
+  },
+  components: {
+    Image
   },
   methods: {
     openModal() {
