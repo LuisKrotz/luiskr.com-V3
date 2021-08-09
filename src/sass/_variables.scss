@@ -12,24 +12,25 @@ $color-pink:              #ffc0cb;
 // Viewports
 // @type pixels
 // used for viewports
-$vw-272:                    272px; //x340
-$vw-320:                    320px;
-$vw-375:                    375px;
-$vw-414:                    414px;
-$vw-540:                    540px;
-$vw-768:                    768px;
-$vw-960:                    960px;
-$vw-1024:                   1024px;
-$vw-1280:                   1280px;
-$vw-1360:                   1360px;
-$vw-1440:                   1440px;
-$vw-1560:                   1560px;
-$vw-1680:                   1680px;
-$vw-1920:                   1920px;
-$vw-2560:                   2560px;
-$vw-3840:                   3840px;
-$vw-5120:                   5120px;
-$vw-7680:                   7680px;
+$vw-272:                    272px;      //x340 // Watch OS
+$vw-320:                    320px;      // iphone SE
+$vw-375:                    375px;      // iphone 
+$vw-414:                    414px;      // Phablet
+$vw-540:                    540px;      // Phablet
+$vw-768:                    768px;      // iPad
+$vw-960:                    960px;      // Tablet
+$vw-1024:                   1024px;     // iPad
+$vw-1280:                   1280px;     // HD
+$vw-1360:                   1360px;     // HD
+$vw-1440:                   1440px;     // HD
+$vw-1560:                   1560px;     // HD
+$vw-1680:                   1680px;     // HD
+$vw-1920:                   1920px;     // FHD
+$vw-2560:                   2560px;     // 2K
+$vw-3840:                   3840px;     // 4K
+$vw-5120:                   5120px;     // 5K
+$vw-7680:                   7680px;     // 8K
+$vw-10240:                  10240px;    // 10K
 
 // @type number
 // used for convesions
@@ -52,6 +53,7 @@ $un-2560:                   2560;
 $un-3840:                   3840;
 $un-5120:                   5120;
 $un-7680:                   7680;
+$un-10240:                  10240;
 
 
 $gap-272:                   13;
@@ -70,6 +72,7 @@ $gap-2560:                  233;
 $gap-3840:                  377;
 $gap-5120:                  377;
 $gap-7680:                  610;
+$gap-10240:                 610;
 
 
 // Max area of the grid
