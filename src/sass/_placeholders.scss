@@ -14,7 +14,7 @@
     position: relative;
     box-sizing: border-box;
     padding: 0 to-rem(($un-272 - $grid-max-area-272) / 2) 0;
-    
+
     @include layout-320() {
         padding: 0 to-rem(($un-320 - $grid-max-area-320) / 2) 0;
     }
@@ -74,4 +74,10 @@
     @include layout-7680() {
         padding: 0 to-rem(($un-7680 - $grid-max-area-7680) / 2) 0;
     }
+}
+
+.max-area {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }

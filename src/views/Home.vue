@@ -1,28 +1,24 @@
 <template>
   <div>
     <div id="welcome" class="cover">
-      <div class="cover-text">
-        <h2>A DEV</h2>
-        <span>
-        With passion for UI/UX, JS, CSS and performance.
-        Focused on creating beautiful experiences.</span>
-      </div>
+      <div class="max-area">
+        <div class="cover-text">
+          <h2>A DEV</h2>
+          <span>
+          With passion for UI/UX, JS, CSS and performance.
+          Focused on creating beautiful experiences.</span>
+        </div>
 
-      <a href="#" class="cover-links lin">
-        Linkedin
-      </a>
-      <a href="#" class="cover-links git">
-        Github
-      </a>
-      <a href="#about" class="cover-links abt">
-        About
-      </a>
-      <a href="#portfolio" class="cover-links ptf">
-        Portfolio
-      </a>
-      <a href="#contact" class="cover-links cnt">
-        Contact
-      </a>
+        <a href="#about" class="cover-links abt">
+          About
+        </a>
+        <a href="#portfolio" class="cover-links ptf">
+          Portfolio
+        </a>
+        <a href="#contact" class="cover-links cnt">
+          Contact
+        </a>
+      </div>
     </div>
 
     <div id="portfolio" class="portfolio">
@@ -32,70 +28,60 @@
           <router-link class="portfolio-item-link" to="/portfolio/metcha">
             <img class="portfolio-item-link-media" :src="storage + 'covers/metcha.jpg'" />
             <span class="portfolio-item-link-text">Metcha</span>
-            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/transa">
             <img class="portfolio-item-link-media" :src="storage + 'covers/transa.jpg'" />
             <span class="portfolio-item-link-text">Transa</span>
-            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link"  to="/portfolio/aboutmarco">
             <img class="portfolio-item-link-media" :src="storage + 'covers/aboutmarco.jpg'" />
             <span class="portfolio-item-link-text">Marco Almeida</span>
-            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link"  to="/portfolio/melissa">
             <img class="portfolio-item-link-media" :src="storage + 'covers/melissa.jpg'" />
             <span class="portfolio-item-link-text">Melissa</span>
-            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link"  to="/portfolio/minimelissa">
             <img class="portfolio-item-link-media" :src="storage + 'covers/minimelissa-cropped.jpeg'" />
             <span class="portfolio-item-link-text">Mini Melissa</span>
-            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/brazilian-leather">
             <img class="portfolio-item-link-media" :src="storage + 'covers/brazilian-leather.jpg'" />
             <span class="portfolio-item-link-text">Brazilian Leather</span>
-            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/mor">
             <img class="portfolio-item-link-media" :src="storage + 'covers/mor.jpg'" />
             <span class="portfolio-item-link-text">Mor</span>
-            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/coza">
             <img class="portfolio-item-link-media" :src="storage + 'covers/coza.jpg'" />
             <span class="portfolio-item-link-text">Coza</span>
-            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/vibra">
             <img class="portfolio-item-link-media" :src="storage + 'covers/vibra.jpg'" />
             <span class="portfolio-item-link-text">Vibra</span>
-            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/genesysinf-sageweb">
             <img class="portfolio-item-link-media" :src="storage + 'covers/sageweb.jpg'" />
             <span class="portfolio-item-link-text">Genesysinf</span>
-            <span class="portfolio-item-link-icon">+</span>
           </router-link>
         </li>
       </ul>

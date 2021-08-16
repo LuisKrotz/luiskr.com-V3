@@ -5,8 +5,8 @@
 @import '_structure';
 
 #nav {
+    @extend %MAXAREA;
     z-index: 100;
-    padding: 10px 104px;
     left: 0;
     top: 0;
     position: fixed;
