@@ -199,6 +199,14 @@
     }
 }
 
+
+.carousel__pagination {
+    position: absolute;
+    bottom: to-rem($F10 * -1);
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .carousel__pagination-button {
     margin: to-rem($F6);
     width: to-rem($F7);
@@ -206,4 +214,9 @@
     border-radius: 100%;
     cursor: pointer;
     background-color: var(--grey-2);
+}
+
+.carousel__prev,
+carousel__next {
+    display: none;
 }
