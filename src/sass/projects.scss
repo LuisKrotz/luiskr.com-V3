@@ -198,3 +198,12 @@
         }
     }
 }
+
+.carousel__pagination-button {
+    margin: to-rem($F6);
+    width: to-rem($F7);
+    height: to-rem($F7);
+    border-radius: 100%;
+    cursor: pointer;
+    background-color: var(--grey-2);
+}
