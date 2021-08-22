@@ -34,7 +34,7 @@
         margin: 0 auto;
         padding: to-rem($F12);
 
-        h2, p {
+        &-text {
             @extend .txt-md;
 
             padding-bottom: to-rem($F8);
@@ -130,27 +130,32 @@
             padding-bottom: to-rem($F5);
             max-width: to-rem($F15);
             margin: 0 auto;
-            padding: to-rem($F12) to-rem($F12) 0 ;
+            padding: to-rem($F12) to-rem($F12) to-rem($F9) ;
         }
 
-      &-related {
-        @extend .txt-lg;
+        &-related {
+            @extend .txt-lg;
 
-        max-width: to-rem($F15);
-        margin: 0 auto;
-        padding: 0 to-rem($F12) to-rem($F12);
-        letter-spacing: to-rem(2);
-        text-align: left;
-        color: var(--black);
-        list-style: inside circle;
+            max-width: to-rem($F15);
+            margin: 0 auto;
+            padding: 0 to-rem($F12) to-rem($F12);
+            letter-spacing: to-rem(2);
+            text-align: left;
+            color: var(--black);
+            list-style: inside circle;
 
-        &-link {
+            &-link {
+                display: list-item;
                 color: inherit;
                 text-decoration: none;
 
                 &:hover,
                 &:focus {
                     text-decoration: line-through;
+                }
+
+                &.router-link-active {
+                    display: none;
                 }
             }
         }
@@ -163,6 +168,7 @@
             color: var(--white);
             padding: to-rem($F8) to-rem($F12);
             background: var(--black);
+
             &-separator {
                 padding: 0 to-rem($F5);
             }

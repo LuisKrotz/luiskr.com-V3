@@ -13,19 +13,19 @@
       </div>
 
       <section class="project-description">
-        <h2>
+        <h2 class="project-description-text">
           Marco's Portfolio was developed as a Freelancing project.
         </h2>
-        <p>
+        <p class="project-description-text">
           It uses Vue.JS and Sass.
         </p>
-        <p>
+        <p class="project-description-text">
           All animations are done in css.
         </p>
-        <p>
+        <p class="project-description-text">
           The main goal to achieve was to create a pixel perfect project, with smooth animations and a pixel perfect UI.
         </p>
-        <p>
+        <p class="project-description-text">
           I also did the server setup at Digital Ocean.
         </p>
       </section>
@@ -113,49 +113,9 @@
       <router-view/>
 
 
-      <footer class="project-footer">
-          <h2 class="project-footer-title">PROJECTS</h2>
-          <ul class="project-footer-related">
-            <li>
-              <router-link class="project-footer-related-link" to="/portfolio/metcha">metcha</router-link>
-            </li>
-            <li>
-              <router-link class="project-footer-related-link" to="/portfolio/transa">transa</router-link>
-            </li>
-            <li>
-              <router-link class="project-footer-related-link" to="/portfolio/melissa">melissa</router-link>
-            </li>
-            <li>
-              <router-link class="project-footer-related-link" to="/portfolio/minimelissa">minimelissa</router-link>
-            </li>
-            <li>
-              <router-link class="project-footer-related-link" to="/portfolio/mor">mor</router-link>
-            </li>
-            <li>
-              <router-link class="project-footer-related-link" to="/portfolio/coza">coza</router-link>
-            </li>
-            <li>
-              <router-link class="project-footer-related-link" to="/portfolio/brazilian-leather">brazilian leather</router-link>
-            </li>
-            <li>
-              <router-link class="project-footer-related-link" to="/portfolio/vibra">vibra</router-link>
-            </li>
-            <li>
-              <router-link class="project-footer-related-link" to="/portfolio/genesysinf-sageweb">genesysinf</router-link>
-            </li>
-          </ul>
-
-        <div class="project-footer-contact">
-            <a class="project-footer-contact-link">Mail</a>
-            <span class="project-footer-contact-separator">•</span>
-            <a class="project-footer-contact-link">Linkedin</a>
-            <span class="project-footer-contact-separator">•</span>
-            <a class="project-footer-contact-link">Github</a>
-            <span class="project-footer-contact-separator">•</span>
-            <a class="project-footer-contact-link">Instagram</a>
-          </div>
-      </footer>
+      <Related />
     </div>
+
     <aside id="#modal" class="modal-above" v-if="modal.open">
       <MediaExpanded
         :source="modal.media.source"
@@ -174,6 +134,7 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 
 import Media from'../../components/Media';
 import MediaExpanded from'../../components/MediaExpanded';
+import Related from'../../components/portfolio/Related';
 
 export default {
   data() {
@@ -184,12 +145,14 @@ export default {
   components: {
     Media,
     MediaExpanded,
+    Related,
     Carousel,
     Slide,
     Pagination,
     Navigation
   },
   mounted() {
+    window.scrollTo(0,0);
   },
   name: 'Marco Almeida',
 }
