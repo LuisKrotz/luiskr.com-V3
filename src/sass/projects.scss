@@ -25,6 +25,7 @@
         display: block;
         position: relative;
         margin: 0 auto;
+        object-fit: cover;
       }
     }
 
@@ -72,6 +73,7 @@
             display: inline-block;
             width: min-content;
             padding: 0 to-rem($F8);
+            min-height: 100%;
 
             &:first-of-type {
                 padding-left: 0;

@@ -1,8 +1,16 @@
-#main {
-    .modal-open & {
+.modal-open {
+    .modal-below {
+        top: 0;
+        left: 0;
+        width: 100%;
         position: fixed;
     }
+
+    .modal-above {
+        position: relative
+    }
 }
+
 
 .expand-modal {
     &-open {
