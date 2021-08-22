@@ -7,6 +7,9 @@
     }
 
     .modal-above {
+        min-height: 100vh;
+        min-width: 100%;
+        background: $color-black;
         position: relative
     }
 }
@@ -38,9 +41,16 @@
         }
     }
 
-    &-close {}
-
-    &-hq {}
+    &-close {
+        position: fixed;
+        top: 89px;
+        right: 89px;
+        color: $color-grey;
+        font-size: 104px;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        z-index: 1;
+    }
 
     &-content {
         box-sizing: border-box;
@@ -50,9 +60,18 @@
         padding: 104px;
     }
 
+    &-media {
+        border-radius: 5px;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+    }
+
     &-image,
     &-video {
-        position: relative;
         max-width: 100%;
     }
 }
