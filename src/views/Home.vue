@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="welcome" class="cover">
+    <div class="cover">
       <div class="max-area">
         <div class="cover-text">
           <h2>A DEV</h2>
@@ -9,20 +9,20 @@
           Focused on creating beautiful experiences.</span>
         </div>
 
-        <a href="#about" class="cover-links abt">
+        <a href="#about" class="cover-links abt" @click.prevent="scrollTo('about')">
           About
         </a>
-        <a href="#portfolio" class="cover-links ptf">
+        <a href="#portfolio" class="cover-links ptf" @click.prevent="scrollTo('portfolio')">
           Portfolio
         </a>
-        <a href="#contact" class="cover-links cnt">
+        <a href="#contact" class="cover-links cnt" @click.prevent="scrollTo('contact')">
           Contact
         </a>
       </div>
     </div>
 
-    <div id="portfolio" class="portfolio">
-      <h2 class="portfolio-title">PORTFOLIO</h2>
+    <div class="portfolio">
+      <h2 id="portfolio" class="portfolio-title" ref="portfolio">PORTFOLIO</h2>
       <ul class="portfolio-grid">
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/metcha">
@@ -88,8 +88,8 @@
       <router-view/>
     </div>
 
-    <div id="about" class="about">
-      <h2 class="about-title">ABOUT ME</h2>
+    <div class="about" >
+      <h2 id="about" class="about-title" ref="about">ABOUT ME</h2>
       <ul class="about-grid">
         <li class="about-item">
           <h3 class="about-item-title">Avaliability</h3>
@@ -143,8 +143,8 @@
       </ul>
     </div>
 
-    <div id="awards" class="awards">
-      <h2 class="awards-title">AWARDS</h2>
+    <div class="awards" >
+      <h2 id="awards" class="awards-title" ref="awards">AWARDS</h2>
       <ul  class="awards-grid">
         <li class="awards-item">
           <a class="awards-item-link" href="http://coral.ufsm.br/prpgp/images/fomularios-diversos/2013/40-MELHORES-JAI-2013.pdf">
@@ -184,8 +184,8 @@
       </ul>
     </div>
   
-    <div id="contact" class="contact">
-      <h2 class="contact-title">Contact</h2>
+    <div class="contact">
+      <h2 id="contact" class="contact-title" ref="contact">Contact</h2>
       <div class="contact-social">
         <a href="#" class="contact-social-link">Mail</a>
         <span class="contact-social-separator">•</span>
@@ -209,21 +209,24 @@
 </template>
 
 <script>
-// @ is an alias to /src
-//import HelloWorld from '@/components/HelloWorld.vue'
-
-// import store from '../store/'
-
-export default {
-  data() {
-    return {
-      storage: this.$store.getters.getStorage
+  export default {
+    data() {
+      return {
+        storage: this.$store.getters.getStorage,
+      }
+    },
+    name: 'Home',
+    methods: {
+      scrollTo(ref) {
+          this.$smoothScroll({
+            offset: -100,
+            duration: 1000,
+            updateHistory: true,
+            scrollTo: this.$refs[ref],  // scrollTo is also allowed to be number
+            hash: `#${ref}`,             // required if updateHistory is true
+          })
+      }
     }
-  },
-  name: 'Home',
-  components: {
-    //HelloWorld
-  },
 }
 </script>
 

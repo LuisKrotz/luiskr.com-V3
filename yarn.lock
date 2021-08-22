@@ -8968,6 +8968,11 @@ vue3-lazyload@^0.2.2-beta:
   resolved "https://registry.yarnpkg.com/vue3-lazyload/-/vue3-lazyload-0.2.2-beta.tgz#c75df1a8553b60fbfd8324d083cb0e71c94dd26d"
   integrity sha512-k198DjJmH8vmtPm90nzs/04MwMGpqmbhrp9foonWyPDCviQtCATYxlvloxRXroElcDRERZCs/+GRjeDVWsPtNw==
 
+vue3-smooth-scroll@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/vue3-smooth-scroll/-/vue3-smooth-scroll-0.8.1.tgz#c2de7dc33c0da8f195bbd70ac27b02c9cb1bd44c"
+  integrity sha512-9EN1aiBT2RtkIe1MoGiyGjUoLmqmlJ96R9/QVCylaiurHQ7oGu1SPzEoGJyxdhCa1q3qyMcX/pne1oTAn1UaoQ==
+
 vue@^3.0.0:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.1.4.tgz#120d6818c51eaa35d0879e5bc1cff60135bc69fd"

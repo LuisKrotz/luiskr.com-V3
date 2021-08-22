@@ -1,23 +1,29 @@
 <template>
-    <figure class="expand-modal-content" :style="styles">
-        <button class="expand-modal-close" @click="closeModal">X</button>
 
-        <img v-if="!isVideo"
-            class="expand-modal-media"
-            :width="width"
-            :height="height"
-            :alt="alt"
-            v-lazy="{ src: source, loading: thumb }" />
-        <video v-else
-            class="expand-modal-media"
-            :width="width"
-            :height="height"
-            :poster="thumb"
-            :alt="alt"
-            playsinline autoplay loop muted controls>
-                <source :src="source" type="video/mp4">
-        </video>
-    </figure>
+    <div class="expand-modal-content">
+            <div class="expand-modal-close-bar">
+        <button class="expand-modal-close-bar-button" @click="closeModal">[ close ]</button>
+    </div>
+        <div class="expand-modal-close-area" @click="closeModal"></div>
+        <figure>
+            <img v-if="!isVideo"
+                class="expand-modal-media"
+                :width="width"
+                :height="height"
+                :alt="alt"
+                v-lazy="{ src: source, loading: thumb }" />
+            <video v-else
+                class="expand-modal-media"
+                :width="width"
+                :height="height"
+                :poster="thumb"
+                :alt="alt"
+                playsinline autoplay loop muted controls>
+                    <source :src="source" type="video/mp4">
+            </video>
+        </figure>
+        <button class="expand-modal-close-bottom" @click="closeModal">[ close ]</button>
+    </div>
 </template>
 
 <script>

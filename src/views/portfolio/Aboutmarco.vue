@@ -114,44 +114,36 @@
 
 
       <footer class="project-footer">
-        <!-- INTERNAL FOOTER -->
-        <div class="project-footer-grid">
-          <div>
-            <h2 class="project-footer-title">PROJECTS</h2>
-            <ul class="project-footer-related">
-              <li>
-                <router-link class="project-footer-related-link" to="/portfolio/metcha">metcha</router-link>
-              </li>
-              <li>
-                <router-link class="project-footer-related-link" to="/portfolio/transa">transa</router-link>
-              </li>
-              <li>
-                <router-link class="project-footer-related-link" to="/portfolio/melissa">melissa</router-link>
-              </li>
-              <li>
-                <router-link class="project-footer-related-link" to="/portfolio/minimelissa">minimelissa</router-link>
-              </li>
-              <li>
-                <router-link class="project-footer-related-link" to="/portfolio/mor">mor</router-link>
-              </li>
-              <li>
-                <router-link class="project-footer-related-link" to="/portfolio/coza">coza</router-link>
-              </li>
-              <li>
-                <router-link class="project-footer-related-link" to="/portfolio/brazilian-leather">brazilian leather</router-link>
-              </li>
-              <li>
-                <router-link class="project-footer-related-link" to="/portfolio/vibra">vibra</router-link>
-              </li>
-              <li>
-                <router-link class="project-footer-related-link" to="/portfolio/genesysinf-sageweb">genesysinf</router-link>
-              </li>
-            </ul>
-          </div>
-          <div class="project-footer-decoration">
-            <img class="project-footer-decoration-media" :src="storage + 'melissa/collections/development/flygrl/flygrl.mp4-scaledown-2x.mp4.jpg'">
-          </div>
-        </div>
+          <h2 class="project-footer-title">PROJECTS</h2>
+          <ul class="project-footer-related">
+            <li>
+              <router-link class="project-footer-related-link" to="/portfolio/metcha">metcha</router-link>
+            </li>
+            <li>
+              <router-link class="project-footer-related-link" to="/portfolio/transa">transa</router-link>
+            </li>
+            <li>
+              <router-link class="project-footer-related-link" to="/portfolio/melissa">melissa</router-link>
+            </li>
+            <li>
+              <router-link class="project-footer-related-link" to="/portfolio/minimelissa">minimelissa</router-link>
+            </li>
+            <li>
+              <router-link class="project-footer-related-link" to="/portfolio/mor">mor</router-link>
+            </li>
+            <li>
+              <router-link class="project-footer-related-link" to="/portfolio/coza">coza</router-link>
+            </li>
+            <li>
+              <router-link class="project-footer-related-link" to="/portfolio/brazilian-leather">brazilian leather</router-link>
+            </li>
+            <li>
+              <router-link class="project-footer-related-link" to="/portfolio/vibra">vibra</router-link>
+            </li>
+            <li>
+              <router-link class="project-footer-related-link" to="/portfolio/genesysinf-sageweb">genesysinf</router-link>
+            </li>
+          </ul>
 
         <div class="project-footer-contact">
             <a class="project-footer-contact-link">Mail</a>

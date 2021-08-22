@@ -27,13 +27,13 @@
         transform: translate(-50%, -50%);
         border: 1px solid var(--grey-2);
         border-radius: 30px;
-        max-width: 280px;
-        width: 80%;
-        height: 48px;
+        max-width: to-rem($F14);
+        width: 89%;
+        height: to-rem($F10);
         background-color: var(--black);
         color: var(--white);
         cursor: pointer;
-        line-height: 48px;
+        line-height: to-rem($F10);
 
         &:hover,
         &:focus {
@@ -41,15 +41,49 @@
         }
     }
 
-    &-close {
+    &-close-bar {
+        @extend %MAXAREA;
+        left: 0;
+        top: to-rem($F7);
         position: fixed;
-        top: 89px;
-        right: 89px;
-        color: $color-grey;
-        font-size: 104px;
-        transform: translate(-50%, -50%);
+        justify-content: space-between;
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        z-index: 100;
+        justify-content: flex-end;
+
+
+        &-button {
+            @extend .ttl-xs;
+
+            color: var(--grey);
+            font-weight: 700;
+            cursor: pointer;
+            z-index: 1;
+        }
+    }
+
+
+    &-close-area {
+        @extend %MAXAREA;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &-close-bottom {
+        @extend .ttl-sm;
+
+        margin: to-rem($F8);
+        position: absolute;
+        color: var(--white);
+        left: 50%;
+        transform: translateX(-50%);
         cursor: pointer;
-        z-index: 1;
     }
 
     &-content {
@@ -57,11 +91,11 @@
         position: relative;
         overflow-x: scroll;
         background-color: var(--black);
-        padding: 104px;
+        padding: to-rem($F12);
     }
 
     &-media {
-        border-radius: 5px;
+        border-radius: to-rem($F5);
         width: auto;
         height: auto;
         max-width: 100%;
