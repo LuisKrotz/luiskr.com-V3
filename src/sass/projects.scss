@@ -91,6 +91,12 @@
                 border-radius: to-rem($F7);
             }
 
+            &.landscape {
+                video, img {
+                    width: to-rem($F16);
+                }
+            }
+
             label {
                 @extend .ttl-xs;
 
