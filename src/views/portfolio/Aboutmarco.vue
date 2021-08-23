@@ -31,7 +31,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel items-to-show="6.5" :wrapAround="true">
+        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 6.5, snapAlign: 'center'}}">
           <slide key="1">
             <div class="project-extra-item">
                 <Media
@@ -130,7 +130,7 @@
 
 
         <section class="project-extra">
-          <carousel items-to-show="5.5" :wrapAround="true">
+          <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 5.5, snapAlign: 'center'}}">
             <slide key="1">
               <div class="project-extra-item landscape">
                   <Media
