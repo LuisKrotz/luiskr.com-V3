@@ -31,7 +31,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel items-to-show="5.5" :wrapAround="true">
+        <carousel items-to-show="6.5" :wrapAround="true">
           <slide key="1">
             <div class="project-extra-item">
                 <Media
@@ -46,59 +46,69 @@
           <slide key="2">
             <div class="project-extra-item">
                 <Media
-                  src="aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15"
-                  :width="800"
-                  :height="1200"
+                  src="aboutmarco/home/aboutmarco.com-2020-home"
+                  :width="1920"
+                  :height="3003"
                   :canExpand="true"
-                  label="aboutmarco.com - melissa insider"/>
+                  label="aboutmarco.com - homepage"/>
             </div>
           </slide>
           <slide key="3">
             <div class="project-extra-item">
-              <Media
-                src="aboutmarco/pages/aboutmarco.com-pages--melissa-2020-12-15"
-                :width="800"
-                :height="1200"
-                :canExpand="true"
-                label="aboutmarco.com - melissa"/>
+                <Media
+                  src="aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15"
+                  :width="1920"
+                  :height="10094"
+                  :canExpand="true"
+                  label="aboutmarco.com - melissa insider"/>
             </div>
           </slide>
           <slide key="4">
             <div class="project-extra-item">
               <Media
-                src="aboutmarco/pages/aboutmarco.com-pages--coza-2020-12-15"
-                :width="800"
-                :height="1200"
+                src="aboutmarco/pages/aboutmarco.com-pages--melissa-2020-12-15"
+                :width="1920"
+                :height="10229"
                 :canExpand="true"
-                label="aboutmarco.com - coza"/>
+                label="aboutmarco.com - melissa"/>
             </div>
           </slide>
           <slide key="5">
             <div class="project-extra-item">
               <Media
-                src="aboutmarco/pages/aboutmarco.com-pages--brazilian-leather-2020-12-15"
-                :width="800"
-                :height="1200"
+                src="aboutmarco/pages/aboutmarco.com-pages--coza-2020-12-15"
+                :width="1920"
+                :height="26871"
                 :canExpand="true"
-                label="aboutmarco.com - brazilian leather"/>
+                label="aboutmarco.com - coza"/>
             </div>
           </slide>
           <slide key="6">
             <div class="project-extra-item">
               <Media
-                src="aboutmarco/about/aboutmarco.com-me-2020-12-15-23_29_35"
-                :width="800"
-                :height="1200"
+                src="aboutmarco/pages/aboutmarco.com-pages--brazilian-leather-2020-12-15"
+                :width="1920"
+                :height="16075"
                 :canExpand="true"
-                label="aboutmarco.com - me"/>
+                label="aboutmarco.com - brazilian leather"/>
             </div>
           </slide>
           <slide key="7">
             <div class="project-extra-item">
               <Media
+                src="aboutmarco/about/aboutmarco.com-me-2020-12-15-23_29_35"
+                :width="1920"
+                :height="7137"
+                :canExpand="true"
+                label="aboutmarco.com - me"/>
+            </div>
+          </slide>
+          <slide key="8">
+            <div class="project-extra-item">
+              <Media
                 src="aboutmarco/about/aboutmarco.com-archive-2020-12-15-23_31_53"
-                :width="800"
-                :height="1200"
+                :width="1920"
+                :height="3788"
                 :canExpand="true"
                 label="aboutmarco.com - archive"/>
             </div>
@@ -110,6 +120,80 @@
           </template>
         </carousel>
       </section>
+
+
+        <section class="project-description">
+          <h2 class="project-description-text">
+            Check below for some of the awards received by Marco's porfolio.
+          </h2>
+        </section>
+
+
+        <section class="project-extra">
+          <carousel items-to-show="5.5" :wrapAround="true">
+            <slide key="1">
+              <div class="project-extra-item landscape">
+                  <Media
+                    src="aboutmarco/awards/aboutmarco.com-awards--admiretheweb"
+                    :width="1440"
+                    :height="820"
+                    label="aboutmarco.com - admiretheweb"/>
+              </div>
+            </slide>
+            <slide key="2">
+              <div class="project-extra-item landscape">
+                  <Media
+                    src="aboutmarco/awards/aboutmarco.com-awards--cssawards"
+                    :width="1440"
+                    :height="740"
+                    label="aboutmarco.com - css awards"/>
+              </div>
+            </slide>
+            <slide key="3">
+              <div class="project-extra-item landscape">
+                  <Media
+                    src="aboutmarco/awards/aboutmarco.com-awards--csswinner"
+                    :width="1440"
+                    :height="652"
+                    label="aboutmarco.com - css awards winner"/>
+              </div>
+            </slide>
+            <slide key="4">
+              <div class="project-extra-item landscape">
+                  <Media
+                    src="aboutmarco/awards/aboutmarco.com-awards--hm"
+                    :width="920"
+                    :height="654"
+                    label="aboutmarco.com - Honorable Mention"/>
+              </div>
+            </slide>
+            <slide key="5">
+              <div class="project-extra-item landscape">
+                  <Media
+                    src="aboutmarco/awards/aboutmarco.com-awards--me"
+                    :width="1440"
+                    :height="652"
+                    label="aboutmarco.com - ME"/>
+              </div>
+            </slide>
+            <slide key="6">
+              <div class="project-extra-item landscape">
+                  <Media
+                    src="aboutmarco/awards/aboutmarco.com-awards--mindspark"
+                    :width="677"
+                    :height="722"
+                    label="aboutmarco.com - mindspark"/>
+              </div>
+            </slide>
+
+            <template #addons>
+              <navigation />
+              <pagination />
+            </template>
+          </carousel>
+        </section>
+
+
       <router-view/>
 
 
