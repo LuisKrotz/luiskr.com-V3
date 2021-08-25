@@ -83,6 +83,11 @@
                 padding-right: 0;
             }
 
+            div {
+                overflow: hidden;
+                border-radius: to-rem($F7);
+            }
+
             video, img {
                 width: to-rem($F14);
                 height: to-rem($F15);

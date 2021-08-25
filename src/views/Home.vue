@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="cover">
       <div class="max-area">
         <div class="cover-text">
@@ -205,7 +204,6 @@
         <router-link class="contact-other-link" to="/terms-of-use">Terms of use</router-link>
       </div>
     </div>
-  </div>
 </template>
 
 <script>

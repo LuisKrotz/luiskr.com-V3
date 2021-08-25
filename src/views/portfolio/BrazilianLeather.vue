@@ -34,8 +34,8 @@
             <div class="project-extra-item">
                 <Media
                   src="brazilian leather/portal/cicb.org.br-31-03-19-1-mobile"
-                  :width="830"
-                  :height="1712"
+                  :width="833"
+                  :height="1728"
                   :canExpand="true"
                   :isVideo="true"
                   label="Brazilian Leather - mobile tour"/>
@@ -45,8 +45,8 @@
             <div class="project-extra-item">
                 <Media
                   src="brazilian leather/portal/brazilian-leather-cicb-cscb-leather-law-portal-about-full-page-en-2020-12-15-23_21_33"
-                  :width="800"
-                  :height="1200"
+                  :width="1920"
+                  :height="12721"
                   :canExpand="true"
                   label="Brazilian Leather - home"/>
             </div>
@@ -55,8 +55,8 @@
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/portal/brazilian-leather-cicb-cscb-leather-law-portal-about-full-page"
-                :width="800"
-                :height="1200"
+                :width="1920"
+                :height="10257"
                 :canExpand="true"
                 label="Brazilian Leather - about"/>
             </div>
@@ -65,8 +65,8 @@
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/portal/brazilian-leather-cicb-cscb-leather-law-portal-brazilian-leather-mandarin-chinese-full-page"
-                :width="800"
-                :height="1200"
+                :width="1920"
+                :height="7451"
                 :canExpand="true"
                 label="Brazilian Leather - in Mandarin Chinese"/>
             </div>
@@ -75,8 +75,8 @@
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/portal/brazilian-leather-cicb-cscb-leather-law-portal-cicb-website-full-page"
-                :width="800"
-                :height="1200"
+                :width="1920"
+                :height="11726"
                 :canExpand="true"
                 label="CSCB - Home page"/>
             </div>
@@ -159,8 +159,8 @@
             <div class="project-extra-item landscape">
                 <Media
                   src="brazilian leather/forum-cicb/2017/fórum-cscb-fórum-2017-negócios-disruptivos-para-um-mundo-disruptivo-tour"
-                  :width="830"
-                  :height="1712"
+                  :width="1458"
+                  :height="768"
                   :canExpand="true"
                   :isVideo="true"
                   label="Fórum 2017 - Full tour"/>
@@ -170,8 +170,8 @@
             <div class="project-extra-item">
                 <Media
                   src="brazilian leather/forum-cicb/2017/fórum-cscb-fórum-2017-negócios-disruptivos-para-um-mundo-disruptivo-full-page"
-                  :width="800"
-                  :height="1200"
+                  :width="1920"
+                  :height="9774"
                   :canExpand="true"
                   label="Fórum 2017 - Full page"/>
             </div>
@@ -180,8 +180,8 @@
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/forum-cicb/2017/forum-2017-1-mobile"
-                :width="800"
-                :height="1200"
+                :width="834"
+                :height="1728"
                 :canExpand="true"
                 :isVideo="true"
                 label="Fórum 2017 - Mobile tour"/>
@@ -210,32 +210,32 @@
             <div class="project-extra-item landscape">
                 <Media
                   src="brazilian leather/forum-cicb/2018/fórum-cscb-fórum-2018-qual-o-retorno-do-investimento-sustentável-tour"
-                  :width="830"
-                  :height="1712"
+                  :width="1458"
+                  :height="768"
                   :canExpand="true"
                   :isVideo="true"
-                  label="Fórum 2017 - Full tour"/>
+                  label="Fórum 2018 - Full tour"/>
             </div>
           </slide>
           <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="fórum-cscb-fórum-2018-qual-o-retorno-do-investimento-sustentável-full-page"
-                  :width="800"
-                  :height="1200"
+                  :width="1920"
+                  :height="5600"
                   :canExpand="true"
-                  label="Fórum 2017 - Full page"/>
+                  label="Fórum 2018 - Full page"/>
             </div>
           </slide>
           <slide key="3">
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/forum-cicb/2018/forum-2018-1-mobile"
-                :width="800"
-                :height="1200"
+                :width="828"
+                :height="1712"
                 :canExpand="true"
                 :isVideo="true"
-                label="Fórum 2017 - Mobile tour"/>
+                label="Fórum 2018 - Mobile tour"/>
             </div>
           </slide>
 
