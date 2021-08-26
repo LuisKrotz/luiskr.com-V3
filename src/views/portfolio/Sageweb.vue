@@ -12,8 +12,9 @@
       </div>
 
       <section class="project-description">
-        <h2 class="project-description-text"></h2>
-        <p class="project-description-text"></p>
+        <h2 class="project-description-text">Sage is a project developed by Genesysinf, at the city of Santana do Livramento, in Brazil, and is a fiscal software.</h2>
+        <p class="project-description-text">I worked in the new version of Sage, the Sageweb in C# and Asp.net, in this Project I was working as fullstack developer, in the development team for a year. </p>
+        <p class="project-description-text">The project consisted of porting the Sage for desktop software code to a new Web Version, with challenges like connecting fiscal printer drivers to a web application, generating and printing custom fiscal reports and developing an interface similar to the Sage desktop. </p>
       </section>
 
       <section class="project-extra">
