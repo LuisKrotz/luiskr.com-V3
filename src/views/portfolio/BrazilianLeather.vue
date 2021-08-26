@@ -200,7 +200,7 @@
           2018' edition was called, "Qual o retorno do investimento sustentável?".
         </h2>
         <p class="project-description-text">
-          It was also developed using PHP, Jquery and Less for the CSS, I contributed as a Front end Developer, and work  closely with Renan Machado for the Back-end/Subscription submitting of the application.
+          It was also developed using PHP, Jquery and Less for the CSS, I contributed as a Front end Developer, and worked closely with Renan Machado for the Back-end/Subscription submitting of the application.
         </p>
       </section>
 
@@ -220,7 +220,7 @@
           <slide key="2">
             <div class="project-extra-item">
                 <Media
-                  src="fórum-cscb-fórum-2018-qual-o-retorno-do-investimento-sustentável-full-page"
+                  src="brazilian leather/forum-cicb/2018/fórum-cscb-fórum-2018-qual-o-retorno-do-investimento-sustentável-full-page"
                   :width="1920"
                   :height="5600"
                   :canExpand="true"
@@ -236,6 +236,141 @@
                 :canExpand="true"
                 :isVideo="true"
                 label="Fórum 2018 - Mobile tour"/>
+            </div>
+          </slide>
+
+          <template #addons>
+            <navigation />
+            <pagination />
+          </template>
+        </carousel>
+      </section>
+
+      <section class="project-description">
+        <h2 class="project-description-text">
+          2019' edition was called, "O couro no mundo hiperconectado".
+        </h2>
+        <p class="project-description-text">
+          Developed using PHP, Jquery and CSS, I contributed as a Front end Developer, and worked closely with Renan Machado for the Back-end/Subscription submitting of the application.
+        </p>
+      </section>
+
+      <section class="project-extra">
+        <carousel items-to-show="2.25" :wrapAround="true">
+          <slide key="1">
+            <div class="project-extra-item landscape">
+                <Media
+                  src="brazilian leather/forum-cicb/2019/fórum-cscb-fórum-2019-o-couro-no-mundo-hiperconectado-tour"
+                  :width="1441"
+                  :height="784"
+                  :canExpand="true"
+                  :isVideo="true"
+                  label="Fórum 2019 - Full tour"/>
+            </div>
+          </slide>
+          <slide key="2">
+            <div class="project-extra-item">
+                <Media
+                  src="brazilian leather/forum-cicb/2019/fórum-cscb-fórum-2019-o-couro-no-mundo-hiperconectado-full-page"
+                  :width="1920"
+                  :height="5063"
+                  :canExpand="true"
+                  label="Fórum 2019 - Full page"/>
+            </div>
+          </slide>
+          <slide key="3">
+            <div class="project-extra-item">
+              <Media
+                src="brazilian leather/forum-cicb/2019/forumcicb2019-mobile"
+                :width="834"
+                :height="1728"
+                :canExpand="true"
+                :isVideo="true"
+                label="Fórum 2019 - Mobile tour"/>
+            </div>
+          </slide>
+
+          <template #addons>
+            <navigation />
+            <pagination />
+          </template>
+        </carousel>
+      </section>
+
+      <section class="project-description">
+        <h2 class="project-description-text">
+          2020' was a challenge with two editions created from scratch, an online forum called "A sociedade somos todos nós" and a webinar called "Leather business and the future consumer", in english and portuguese.
+        </h2>
+        <p class="project-description-text">
+          Both pages where developed using PHP, Sass for the CSS and Vanilla JS with code created from scratch exclusively for this new pages,
+          I contributed as a Front end Developer, and worked with Renan Machado for the Back-end of the application.
+        </p>
+      </section>
+
+      <section class="project-extra">
+        <carousel items-to-show="4.5" :wrapAround="true">
+          <slide key="1">
+            <div class="project-extra-item landscape">
+                <Media
+                  src="brazilian leather/forum-cicb/2020/cicb.org.br-forum2020"
+                  :width="1464"
+                  :height="784"
+                  :canExpand="true"
+                  :isVideo="true"
+                  label="Fórum 2020 - Full tour"/>
+            </div>
+          </slide>
+          <slide key="2">
+            <div class="project-extra-item">
+                <Media
+                  src="brazilian leather/forum-cicb/2020/fórum-cscb-fórum-2020-a-sociedade-somos-todos-nós-full-page"
+                  :width="1920"
+                  :height="6309"
+                  :canExpand="true"
+                  label="Fórum 2020 - Full page"/>
+            </div>
+          </slide>
+          <slide key="3">
+            <div class="project-extra-item">
+              <Media
+                src="brazilian leather/forum-cicb/2020/forum-cscb-2020-mobile-mobile"
+                :width="831"
+                :height="1712"
+                :canExpand="true"
+                :isVideo="true"
+                label="Fórum 2020 - Mobile tour"/>
+            </div>
+          </slide>
+          <slide key="4">
+            <div class="project-extra-item landscape">
+                <Media
+                  src="brazilian leather/webinar-series/2020/brazilian-leather-webinar-series-2020-leather-business-and-future-consumer-the-world-is-changing-we-are-changing-join-us-in-shaping-the-future-to-come-tour"
+                  :width="1920"
+                  :height="928"
+                  :canExpand="true"
+                  :isVideo="true"
+                  label="Webinar 2020 - Full tour"/>
+            </div>
+          </slide>
+          <slide key="5">
+            <div class="project-extra-item">
+                <Media
+                  src="brazilian leather/webinar-series/2020/brazilian-leather-webinar-series-2020-leather-business-and-future-consumer-the-world-is-changing-we-are-changing-join-us-in-shaping-the-future-to-come-full-page"
+                  :width="1920"
+                  :height="19246"
+                  :canExpand="true"
+                  label="Fórum 2020 - Full page"/>
+            </div>
+          </slide>
+          <slide key="6">
+            <div class="project-extra-item">
+              <Media
+                src="brazilian leather/webinar-series/2020/brazilian-leather-webinar-series-2020-leather-business-and-future-consumer-the-world-is-changing-we-are-changing-join-us-in-shaping-the-future-to-come-mobile-mobile"
+                :width="828"
+                :height="1712"
+                :canExpand="true"
+                :isVideo="true"
+                label="Fórum 2020 - Mobile tour"/>
             </div>
           </slide>
 
