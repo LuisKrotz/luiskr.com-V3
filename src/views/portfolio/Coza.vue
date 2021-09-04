@@ -47,7 +47,7 @@
                   :width="1920"
                   :height="22418"
                   :canExpand="true"
-                  label="coza.com.br - mobile full tour"/>
+                  label="coza.com.br - full page screenshoot"/>
             </div>
           </slide>
           <slide key="3">
@@ -57,7 +57,7 @@
                   :width="1920"
                   :height="4861"
                   :canExpand="true"
-                  label="coza.com.br - mobile full tour"/>
+                  label="coza.com.br - english homepage"/>
             </div>
           </slide>
           <slide key="4">
@@ -67,7 +67,7 @@
                   :width="1920"
                   :height="2423"
                   :canExpand="true"
-                  label="coza.com.br - mobile full tour"/>
+                  label="coza.com.br - article - Organização com as dicas da maysa."/>
             </div>
           </slide>
           <slide key="5">
@@ -77,7 +77,7 @@
                   :width="1920"
                   :height="2249"
                   :canExpand="true"
-                  label="coza.com.br - mobile full tour"/>
+                  label="coza.com.br - image gallery - A cada instante da rotina. Mais coza + pantone."/>
             </div>
           </slide>
           <slide key="6">
@@ -87,7 +87,7 @@
                   :width="1920"
                   :height="2414"
                   :canExpand="true"
-                  label="coza.com.br - mobile full tour"/>
+                  label="coza.com.br - article - Seu banheiro cheio de beleza."/>
             </div>
           </slide>
 
@@ -116,7 +116,7 @@
                   :height="976"
                   :canExpand="true"
                   :isVideo="true"
-                  label="coza.com.br - mobile full tour"/>
+                  label="coza.com.br - where to find page on desktop"/>
             </div>
           </slide>
           <slide key="2">
@@ -127,7 +127,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label="coza.com.br - mobile full tour"/>
+                  label="coza.com.br - where to find page on mobile "/>
             </div>
           </slide>
 
