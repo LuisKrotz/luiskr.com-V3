@@ -18,8 +18,9 @@
       padding: to-rem($F12);
 
       &-item {
-        max-width: to-rem($F17);
+        max-width: 100%;
         width: auto;
+        height: auto;
         max-height: 100vh;
         border-radius: to-rem($F7);
         display: block;
