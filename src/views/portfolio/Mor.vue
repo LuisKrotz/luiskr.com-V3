@@ -97,6 +97,7 @@
                   :width="833"
                   :height="1728"
                   :canExpand="true"
+                  :isVideo="true"
                   label="mor.com.br - store mobile tour "/>
             </div>
           </slide>
