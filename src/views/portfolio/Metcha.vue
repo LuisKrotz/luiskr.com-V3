@@ -550,6 +550,50 @@
         </carousel>
       </section>
 
+      <section class="project-description">
+        <p class="project-description-text">
+         Made with Vue + Made with Laravel
+        </p>
+      </section>
+
+      <section class="project-extra">
+
+        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
+          <slide key="1">
+            <div class="project-extra-item landscape">
+                <Media
+                  src="metcha/mentions/metcha.com-featured-on-made-with-laravel"
+                  :width="1440"
+                  :height="504"
+                  label=""/>
+            </div>
+          </slide>
+          <slide key="2">
+            <div class="project-extra-item landscape">
+                <Media
+                  src="metcha/mentions/metcha.com-featured-on-made-with-vue"
+                  :width="1440"
+                  :height="1488"
+                  label=""/>
+            </div>
+          </slide>
+          <slide key="3">
+            <div class="project-extra-item landscape">
+                <Media
+                  src="metcha/mentions/metcha.com-featured-on-made-with-vue-twitter`s-account"
+                  :width="1439"
+                  :height="694"
+                  label=""/>
+            </div>
+          </slide>
+
+          <template #addons>
+            <navigation />
+            <pagination />
+          </template>
+        </carousel>
+      </section>
+
 
       <router-view/>
 
