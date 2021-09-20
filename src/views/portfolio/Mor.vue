@@ -136,7 +136,7 @@
         </p>
       </section>
 
-            <section class="project-extra">
+      <section class="project-extra">
         <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
           <slide key="1">
             <div class="project-extra-item landscape">
@@ -213,7 +213,7 @@ export default {
   mounted() {
     window.scrollTo(0,0);
   },
-  name: 'Coza',
+  name: 'Mor',
 }
 </script>
 
