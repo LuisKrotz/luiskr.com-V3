@@ -474,7 +474,7 @@
           <slide key="4">
             <div class="project-extra-item landscape">
                 <Media
-                  src="metcha/cms/metcha.com-cms-metcha-posts-editar.jpg"
+                  src="metcha/cms/metcha.com-cms-metcha-posts-editar"
                   :width="1920"
                   :height="1144"
                   :canExpand="true"
@@ -501,7 +501,7 @@
           <slide key="1">
             <div class="project-extra-item">
                 <Media
-                  src="metcha/cms/metcha-newsletter"
+                  src="metcha/newsletter/metcha-newsletter"
                   :width="831"
                   :height="1728"
                   :canExpand="true"
@@ -512,7 +512,7 @@
           <slide key="2">
             <div class="project-extra-item landscape">
                 <Media
-                  src="metcha/cms/metcha.com-cms-metcha-newsletter-generator"
+                  src="metcha/newsletter/metcha.com-cms-metcha-newsletter-generator"
                   :width="1455"
                   :height="768"
                   :canExpand="true"
@@ -523,7 +523,7 @@
           <slide key="3">
             <div class="project-extra-item">
                 <Media
-                  src="metcha/cms/newsletter-generator-mobile"
+                  src="metcha/newsletter/newsletter-generator-mobile"
                   :width="828"
                   :height="1712"
                   :canExpand="true"
@@ -534,11 +534,10 @@
           <slide key="4">
             <div class="project-extra-item">
                 <Media
-                  src="metcha/cms/metcha-newsletter-full-page"
+                  src="metcha/newsletter/metcha-newsletter-full-page"
                   :width="1920"
                   :height="7066"
                   :canExpand="true"
-                  :isVideo="true"
                   label=""/>
             </div>
           </slide>
