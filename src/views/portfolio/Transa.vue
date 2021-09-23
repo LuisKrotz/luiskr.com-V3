@@ -14,10 +14,13 @@
 
       <section class="project-description">
         <h2 class="project-description-text">
-           // TODO
-        </h2>
+            Transa's website, developed with VUE, CSS (Sass) and PHP (Laravel) in 2021.
+          </h2>
         <p class="project-description-text">
-          // TODO
+          I'm currently the Lead front end of Transa's website.
+        </p>
+        <p class="project-description-text">
+          Transa's website consists of a infinite scrolling feed, with many projects developed at Transa during the years.
         </p>
       </section>
       <section class="project-extra">
@@ -123,7 +126,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         ARTICLES
+         All the articles on the feed, open in a modal system, without any kind of refresh, with a bold, unique and pixel perfect style.
         </p>
       </section>
 
@@ -498,7 +501,10 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Join US / Muda
+         The website also features a Join-us page, in a conversational style all done in CSS and Javascript.
+        </p>
+        <p class="project-description-text">
+          Evolved from Transa's Muda project, where I also worked as the front end developer until the new 2021 version of Transa's website was created.
         </p>
       </section>
 

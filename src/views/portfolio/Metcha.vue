@@ -14,10 +14,21 @@
 
       <section class="project-description">
         <h2 class="project-description-text">
-           // TODO
+          METCHA is the oracle of leather design culture.
         </h2>
         <p class="project-description-text">
-          // TODO
+         Seeking to tell the most compelling stories within the worlds of design, art, fashion and lifestyle, shining a spotlight on the subjects and the individuals that make up the everyday lives of the people who shape the world of today.
+        </p>
+        <p class="project-description-text">
+          Through a bold, fresh and honest storytelling, METCHA hopes to encourage innovative thinking, inspiring people to continue to evolve the ever-expanding culture of creativity.
+        </p>
+        <p class="project-description-text">
+          METCHA's mission is to bring forward the best projects and curate the most stimulating stories, inspiring a generation of tastemakers, trendsetters & style-conscious individuals to also understand and see leather as an exciting creative partner.
+        </p>
+         <p class="project-description-text">
+          The project started in 2019 and I'm currently the Leading front end developer of the project.</p>
+         <p class="project-description-text">
+          To realize METCHA's project, VUE.js,  Sass and PHP (Laravel) where used on the development, specially VUE, to enable all the styling and the website identity while keeping a fast, dynamic and smooth experience.
         </p>
       </section>
       <section class="project-extra">
@@ -84,7 +95,10 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         ARTICLES
+         Speaking of a dynamic experiences, check out some of the incredible layouts created by a very talented team working on metcha.com
+        </p>
+        <p class="project-description-text">
+          Those articles where a real challenge to code, METCHA's uses CSS and typografy heavily to enable unique experinces and feels for every article.
         </p>
       </section>
 
@@ -434,7 +448,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         CMS
+         All those articles, and many more, powered by a powerfull CMS, developed by Renan Machado, and with the front end customized by myselft to the team at Transa.
         </p>
       </section>
 
@@ -491,7 +505,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         CMS Newsletter generator
+         Another callenge was METCHA's newsletter, created dynamically on the metcha CMS, and sent weekly with a unique identity.
         </p>
       </section>
 
@@ -551,7 +565,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Made with Vue + Made with Laravel
+          Check out some mentions of metcha.com on the Made with Laravel and Made with Vue websites. 
         </p>
       </section>
 
