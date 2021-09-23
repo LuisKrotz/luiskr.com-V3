@@ -14,7 +14,7 @@
 
       <section class="project-description">
         <h2 class="project-description-text">
-          Marco's Portfolio was developed as a Freelancing project.
+          Marco's Portfolio was developed as a Freelancing project in 2021.
         </h2>
         <p class="project-description-text">
           It uses Vue.JS and Sass.

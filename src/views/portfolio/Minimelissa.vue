@@ -14,10 +14,13 @@
 
       <section class="project-description">
         <h2 class="project-description-text">
-           // TODO
+           Minimelissa was a project developed at Transa for the Melissa brand as a channel for the Minimelissa brand.
         </h2>
         <p class="project-description-text">
-          // TODO
+          The project lasted from 2018 to 2020 and was made entirely with Jquery, CSS (Less) and PHP (Laravel). 
+        </p>
+        <p class="project-description-text">
+          The website consisted of a Content and a Social feed on the homepage with infinite scroll leading to many Minimelissa exclusive content.
         </p>
       </section>
       <section class="project-extra">
@@ -62,7 +65,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         WHERE TO FIND
+         The where to find page was developed with the Google Maps API, and was a central location to find all places where Mini Melissas where sold and Mini Melissa clubs in Brazil and aroud the world.
         </p>
       </section>
 
@@ -102,7 +105,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Candy
+         On minimelissa, I was the Leading front end developer, and created a CSS framework for the project, called candy with many ready to use and highly customizable componets to allow the fast development of collection and special pages.
         </p>
       </section>
 
@@ -141,10 +144,10 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Collections
+         Speaking of collections, check out some of Minimelissa's collections. 
         </p>
         <p class="project-description-text">
-         Color me
+         Color me, Spring Summer collection of 2020,  developed with the candy framework, CSS and HTML only.
         </p>
       </section>
 
@@ -183,7 +186,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Dance Machine
+         Dance Machine, Autumn Winter collection of 2016,  developed with the candy framework, CSS and HTML only.
         </p>
       </section>
 
@@ -222,7 +225,7 @@
   
       <section class="project-description">
         <p class="project-description-text">
-         Dreamers
+         Dreamers, Autumn Winter collection of 2020, developed with the candy framework, CSS and HTML only.
         </p>
       </section>
 
@@ -261,7 +264,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Family
+         Family, Spring Summer collection of 2019, developed with the candy framework, CSS and HTML only.
         </p>
       </section>
 
@@ -301,7 +304,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Flygrl
+         Flygrl, Autumn Winter collection of 2017, developed with the candy framework, CSS and HTML only.
         </p>
       </section>
 
@@ -340,7 +343,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Mapping
+         Mapping, Spring Summer collection of 2018, developed with the candy framework, CSS and HTML only.
         </p>
       </section>
 
@@ -378,7 +381,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Mashup
+         Mashup, Spring Summer collection of 2017, developed with the candy framework, CSS and HTML only.
         </p>
       </section>
 
@@ -416,7 +419,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Mirror
+         Mirror, Autumn Winter collection of 2019, developed with the candy framework, CSS and HTML only.
         </p>
       </section>
 
@@ -454,7 +457,10 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Open Vibes
+          Open Vibes, Autumn Winter collection of 2018, developed in CSS and HTML only, was the first collection page to be displayed on the Minimelissa website.
+        </p>
+        <p class="project-description-text">
+          Open Vibes, was the page that kickstarted the idea of Minimelissa's candy framework in response to the need to develop collectiob pages in a short space of time, keeping hight quality pixel perfect layouts, and fast pages.
         </p>
       </section>
 
@@ -493,7 +499,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Wanna be Carioca
+         Wanna be Carioca, Spring Summer collection of 2016, developed with the candy framework, CSS and HTML only.
         </p>
       </section>
 
