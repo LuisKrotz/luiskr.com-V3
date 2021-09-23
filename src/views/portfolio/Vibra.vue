@@ -14,10 +14,16 @@
 
       <section class="project-description">
         <h2 class="project-description-text">
-           // TODO
+           Vibra is a website developed at transa in 2016.
         </h2>
         <p class="project-description-text">
-          // TODO
+          Vibra's project was the first project I participated at Transa, guided by Cristiano Becker and with the help of Renan Machado.
+        </p>
+        <p class="project-description-text">
+          Vibra's project is a portal develped for the Vibra Brand.
+        </p>
+        <p class="project-description-text">
+          It was developed in node.js, CSS, Javascript and Html, with a pixel perfect layout and many svg's created programmatically to demonstrate the brand's processes.
         </p>
       </section>
       <section class="project-extra">
