@@ -29,9 +29,9 @@
           The website also had a where to find, connected to the Google maps API listing all places where the brand can be found.
         </p>
       </section>
+
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item">
                 <Media
                   src="melissa/website/tour/www.melissa.com.br-31-03-19-feed-1-mobile"
@@ -41,8 +41,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/website/tour/melissa-website-homepage-2020-full-page"
@@ -51,8 +50,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/website/where-to-find/melissa-website-onde-encontrar-tour"
@@ -62,8 +60,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/website/where-to-find/melissa.com.br-onde-encontrar-31-03-19-1-mobile"
@@ -73,8 +70,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="5">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/website/squad/melissa-website-squad-2020-full-page"
@@ -83,8 +79,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="6">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/website/squad/melissa-website-squad-2020-full-page"
@@ -93,12 +88,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -112,103 +102,88 @@
 
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 2.75, snapAlign: 'center'}}">
-          <slide key="1">
-            <div class="project-extra-item landscape">
+        <div class="project-extra-scroll">
+            <div class="project-extra-item">
                 <Media
-                  src="melissa/website/articles/melissa-website--articles--artigo-alerta-de-collab-inedita-2020-12-15-full-page-mozjpg-uncompressed"
+                  src="melissa/website/articles/melissa-website--articles--artigo-alerta-de-collab-inedita-2020-12-15-full-page"
                   :width="1920"
                   :height="6420"
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
+
             <div class="project-extra-item">
                 <Media
-                  src="melissa/website/articles/melissa-website--articles--artigo-ebulicao-de-cores-e-ideias-2020-12-15-full-page-mozjpg-uncompressed"
+                  src="melissa/website/articles/melissa-website--articles--artigo-ebulicao-de-cores-e-ideias-2020-12-15-full-page"
                   :width="1920"
                   :height="8011"
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
+
             <div class="project-extra-item">
                 <Media
-                  src="melissa/website/articles/melissa-website--articles--artigo-ebulicao-de-cores-e-ideias-2020-12-15-full-page-mozjpg-uncompressed"
+                  src="melissa/website/articles/melissa-website--articles--artigo-ebulicao-de-cores-e-ideias-2020-12-15-full-page"
                   :width="1920"
                   :height="8069"
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
+
             <div class="project-extra-item">
                 <Media
-                  src="melissa/website/articles/melissa-website--articles--artigo-reconexao-urbana-2020-12-15-full-page-mozjpg-uncompressed"
+                  src="melissa/website/articles/melissa-website--articles--artigo-reconexao-urbana-2020-12-15-full-page"
                   :width="1920"
                   :height="8960"
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="5">
+
             <div class="project-extra-item">
                 <Media
-                  src="melissa/website/articles/melissa-website--articles--galeria-e-lancamento-squad-2020-12-15-full-page-mozjpg-uncompressed"
+                  src="melissa/website/articles/melissa-website--articles--galeria-e-lancamento-squad-2020-12-15-full-page"
                   :width="1920"
                   :height="1629"
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="6">
+
             <div class="project-extra-item">
                 <Media
-                  src="melissa/website/articles/melissa-website--articles--video-extraordinary-x-ordinary-by-two-lost-kids-2020-12-15-full-page-mozjpg-uncompressed"
+                  src="melissa/website/articles/melissa-website--articles--video-extraordinary-x-ordinary-by-two-lost-kids-2020-12-15-full-page"
                   :width="1920"
                   :height="2292"
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="7">
+
             <div class="project-extra-item">
                 <Media
-                  src="melissa/website/articles/melissa-website--articles-melissa-hello-kitty-2020-12-15-16_05_44-mozjpg-uncompressed"
+                  src="melissa/website/articles/melissa-website--articles-melissa-hello-kitty-2020-12-15-16_05_44"
                   :width="1920"
                   :height="7389"
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="8">
+
             <div class="project-extra-item">
                 <Media
-                  src="melissa/website/articles/melissa-website--articles-viktor-and-rolf-is-coming-2020-12-15-15_54_00-mozjpg-uncompressed"
+                  src="melissa/website/articles/melissa-website--articles-viktor-and-rolf-is-coming-2020-12-15-15_54_00"
                   :width="1920"
                   :height="6941"
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="9">
+
             <div class="project-extra-item">
                 <Media
-                  src="melissa/website/articles/melissa-website--gallery-que-comecem-os-festivais-2020-12-15-18_24_48-mozjpg-uncompressed"
+                  src="melissa/website/articles/melissa-website--gallery-que-comecem-os-festivais-2020-12-15-18_24_48"
                   :width="1920"
                   :height="1359"
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -246,19 +221,17 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
-                  src="melissa/collections/development/color-me/www.melissa.com.br-colecoes-color-me-mobile"
+                  src="melissa/collections/development/color-me/www.melissa.com.br-colecoes-color-me"
                   :width="1451"
                   :height="736"
                   :canExpand="true"
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/development/color-me/www.melissa.com.br-colecoes-color-me-mobile"
@@ -268,8 +241,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/development/dreamers/melissa-dreamers-infinitos"
@@ -279,8 +251,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/development/dreamers/melissa-dreamers-infinitos-mobile"
@@ -290,8 +261,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="5">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/development/family/melissa.com.br-colecoes-family-31-03-19"
@@ -301,8 +271,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="6">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/development/family/melissa.com.br-colecoes-family-31-03-19-1-mobile"
@@ -312,8 +281,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="7">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/development/flygrl/flygrl"
@@ -323,8 +291,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="8">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/development/flygrl/www.melissa.com.br-colecoes-flygrl-31-03-19-1-mobile"
@@ -334,8 +301,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="9">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/development/mapping/melissa-colecoes-mapping-tour"
@@ -345,8 +311,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="10">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/development/mapping/melissa.com.br-colecoes-mapping-31-03-19-1-mobile"
@@ -356,8 +321,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="11">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/development/mashup/www.melissa.com.br-colecoes-mashup-31-03-19"
@@ -367,19 +331,17 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="12">
+
             <div class="project-extra-item">
                 <Media
-                  src="melissa/collections/development/mashup/www.melissa.com.br-colecoes-mashup-31-03-19-1-mobile.mp4"
+                  src="melissa/collections/development/mashup/www.melissa.com.br-colecoes-mashup-31-03-19-1-mobile"
                   :width="828"
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="13">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/development/mirror/melissa.com.br-colecoes-mirror-31-03-19"
@@ -389,8 +351,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="14">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/development/mirror/melissa.com.br-colecoes-mirror-31-03-19-1-mobile"
@@ -400,8 +361,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="15">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/development/open-vibes/melissa-colecoes-open-vibes-tour"
@@ -411,8 +371,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="16">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/development/open-vibes/melissa.com.br-colecoes-open-vibes-31-03-19-1-mobile"
@@ -422,13 +381,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -456,8 +409,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+          <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/development/a-la-garçonne/melissa-collab-a-la-garçonne-tour"
@@ -467,8 +419,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/development/a-la-garçonne/melissa.com.br-collabs-a-la-garconne-31-03-19-1-mobile"
@@ -478,8 +429,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/development/awaytomars/melissa.com.br-collabs-awaytomars-31-03-19"
@@ -489,8 +439,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/development/awaytomars/melissa.com.br-collabs-awaytomars-31-03-19-1-mobile"
@@ -500,8 +449,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="5">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/development/CSC/melissa.com.br-collabs-csc-31-03-19"
@@ -511,8 +459,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="6">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/development/CSC/melissa.com.br-collabs-csc-31-03-19-1-mobile"
@@ -522,8 +469,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="7">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/development/fabula/melissa-collab-fabula-tour"
@@ -533,8 +479,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="8">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/development/fabula/melissa.com.br-collabs-fabula-31-03-19-1-mobile"
@@ -544,8 +489,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="9">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/development/rider/melissa-collab-rider-tour"
@@ -555,8 +499,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="10">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/development/rider/melissa.com.br-collabs-rider-31-03-19-1-mobile"
@@ -566,13 +509,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+          </div>
       </section>
 
       <section class="project-description">
@@ -585,8 +522,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/specials/development/bike/melissa.com.br-specials-bike-31-03-19"
@@ -596,8 +532,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/specials/development/bike/melissa.com.br-specials-bike-31-03-19-1-mobile"
@@ -607,8 +542,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/specials/development/creatives/melissa.com.br-specials-creatives-31-03-19"
@@ -618,8 +552,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/specials/development/creatives/melissa.com.br-specials-creatives-31-03-19-1-mobile"
@@ -629,8 +562,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="5">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/specials/development/possession/melissa.com.br-specials-possession-31-03-19"
@@ -640,8 +572,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="6">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/specials/development/possession/melissa.com.br-specials-possession-31-03-19-1-mobile"
@@ -651,8 +582,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="7">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/specials/development/sk8/melissa.com.br-specials-melissa-sk8-31-03-19"
@@ -662,8 +592,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="8">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/specials/development/sk8/melissa.com.br-specials-melissa-sk8-31-03-19-1-mobile"
@@ -673,26 +602,21 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
         <p class="project-description-text">
-        On the version 2.0 of the website I also worked on improving many of the already existing collab and special pages, like Campana, Gaetano Pesce, J Maskrey, Gareth Pugh, Jason Wu, Jeremy Scott, Sebastian Errazuriz, Karl Lagerfeld, Vivienne Westwood, Vitorino Campos, Zaha Hadid and Roller Joy pages.
+          On the version 2.0 of the website I also worked on improving many of the already existing collab and special pages, like Campana, Gaetano Pesce, J Maskrey, Gareth Pugh, Jason Wu, Jeremy Scott, Sebastian Errazuriz, Karl Lagerfeld, Vivienne Westwood, Vitorino Campos, Zaha Hadid and Roller Joy pages.
         </p>
-        <p>The improvements mainly consisted in adapting to new mobile device sizes, and CSS optimizations for every page, improving the load and render times.</p>
+         <p class="project-description-text">
+           The improvements mainly consisted in adapting to new mobile device sizes, and CSS optimizations for every page, improving the load and render times.
+        </p>
       </section>
 
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/campana/melissa.com.br-collabs-campana-31-03-19"
@@ -702,8 +626,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/campana/melissa.com.br-collabs-campana-31-03-19-1-mobile"
@@ -713,8 +636,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/gaetano-pesce/melissa-collab-gaetano-pesce-tour"
@@ -724,8 +646,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/gaetano-pesce/melissa.com.br-collabs-gaetano-pesce-31-03-19-1-mobile"
@@ -735,8 +656,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="5">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/j-maskrey/melissa.com.br-collabs-j-maskrey-31-03-19"
@@ -746,8 +666,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="6">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/j-maskrey/melissa.com.br-collabs-j-maskrey-31-03-19-1-mobile"
@@ -757,8 +676,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="7">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/gareth-pugh/melissa.com.br-collabs-gareth-pugh"
@@ -768,8 +686,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="8">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/gareth-pugh/melissa.com.br-collabs-gareth-pugh-1-mobile"
@@ -779,8 +696,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="9">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/jason-wu/melissa.com.br-collabs-jason-wu-31-03-19"
@@ -790,8 +706,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="10">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/jason-wu/melissa.com.br-collabs-jason-wu-31-03-19-1-mobile"
@@ -801,8 +716,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="11">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/jeremy-scott/melissa.com.br-collabs-jeremy-scott-31-03-19"
@@ -812,8 +726,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="12">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/jeremy-scott/melissa.com.br-collabs-jeremy-scott-31-03-19-1-mobile"
@@ -823,8 +736,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="13">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/sebastian-errazuriz/melissa.com.br-collabs-sebastian-errazuriz-31-03-19"
@@ -834,8 +746,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="14">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/sebastian-errazuriz/melissa.com.br-collabs-sebastian-errazuriz-31-03-19-1-mobile"
@@ -845,8 +756,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="15">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/karl-lagerfeld/melissa.com.br-collabs-karl-lagerfeld-31-03-19"
@@ -856,8 +766,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="16">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/karl-lagerfeld/melissa.com.br-collabs-karl-lagerfeld-31-03-19-1-mobile"
@@ -867,8 +776,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="17">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/vivienne-westwood/melissa.com.br-collabs-vivienne-westwood-31-03-19"
@@ -878,8 +786,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="18">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/vivienne-westwood/melissa.com.br-collabs-vivienne-westwood-31-03-19-1-mobile"
@@ -889,8 +796,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="19">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/vitorino-campos/melissa.com.br-collabs-vitorino-campos-31-03-19"
@@ -900,8 +806,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="20">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/vitorino-campos/melissa.com.br-collabs-vitorino-campos-31-03-19-1-mobile"
@@ -911,8 +816,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="21">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/zaha-hadid/melissa.com.br-collabs-zaha-hadid-31-03-19"
@@ -922,8 +826,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="22">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/zaha-hadid/melissa.com.br-collabs-zaha-hadid-31-03-19-1-mobile"
@@ -933,8 +836,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="23">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/specials/maintenence/roller-joy/melissa-specials-roller-joy-tour"
@@ -944,8 +846,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="24">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/specials/maintenence/roller-joy/melissa.com.br-specials-roller-joy-31-03-19-1-mobile"
@@ -955,8 +856,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="25">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/specials/maintenence/tropico-surreal/melissa-specials-tropico-surreal-tour"
@@ -966,8 +866,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="26">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/specials/maintenence/tropico-surreal/melissa.com.br-specials-tropico-surreal-31-03-19-1-mobile"
@@ -977,14 +876,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -995,8 +887,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/cine-melissa/melissa-colecoes-cine-melissa-tour"
@@ -1006,8 +897,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/maintenence/cine-melissa/melissa.com.br-colecoes-cine-melissa-31-03-19-maintenence-1-mobile"
@@ -1017,8 +907,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/dance-machine/melissa-colecoes-dance-machine-tour"
@@ -1028,8 +917,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/maintenence/dance-machine/melissa.com.br-colecoes-dance-machine-31-03-19-manutencao-1-mobile"
@@ -1039,8 +927,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="5">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/eat-my-melissa/melissa.com.br-colecoes-eat-my-melissa-31-03-19-"
@@ -1050,8 +937,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="6">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/maintenence/eat-my-melissa/melissa.com.br-colecoes-eat-my-melissa-31-03-19-manutencao-1-mobile"
@@ -1061,8 +947,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="7">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/nation/melissa-colecoes-nation-tour"
@@ -1072,8 +957,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="8">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/maintenence/nation/melissa.com.br-colecoes-nation-31-01-19-maintenence-1-mobile"
@@ -1083,8 +967,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="9">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/star-walker/melissa-colecoes-starwalker-tour"
@@ -1094,8 +977,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="10">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/maintenence/star-walker/melissa.com.br-colecoes-starwalker-31-03-19-manutencao-1-mobile"
@@ -1105,8 +987,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="11">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/wanna-be-carioca/wanna-be-carioca"
@@ -1116,8 +997,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="12">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/maintenence/wanna-be-carioca/melissa.com.br-colecoes-wanna-be-carioca-31-03-19-manutencao-1-mobile"
@@ -1127,8 +1007,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="13">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/we-are-flowers/melissa-colecoes-we-are-flowers-tour"
@@ -1138,8 +1017,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="14">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/collections/maintenence/we-are-flowers/melissa.com.br-colecoes-we-are-flowers-31-03-19-manutencao-1-mobile"
@@ -1149,14 +1027,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -1166,8 +1037,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/guiding/baja-east/melissa.com.br-collabs-baja-east-31-03-19"
@@ -1177,8 +1047,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
+
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/collabs/guiding/baja-east/melissa.com.br-collabs-baja-east-31-03-19-1-mobile"
@@ -1188,13 +1057,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -1204,8 +1067,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/galleries/melissa-galleries-tour"
@@ -1215,8 +1077,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/galleries/melissa.com.br-galerias-31-03-19-1-mobile"
@@ -1226,13 +1087,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -1242,8 +1097,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+          <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/next/melissa-next-contest-tour"
@@ -1253,8 +1107,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/next/melissa-next-br-mobile"
@@ -1264,8 +1117,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/next/melissa-next-contest-2020-12-15-18_21_44"
@@ -1274,13 +1126,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+          </div>
       </section>
 
       <section class="project-description">
@@ -1290,8 +1136,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/pop/melissa-pop-2020"
@@ -1301,24 +1146,16 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
+
             <div class="project-extra-item">
                 <Media
-                  src="melissa/pop/melissa-pop-2020-full-page-mozjpg-uncompressed"
+                  src="melissa/pop/melissa-pop-2020-full-page"
                   :width="1920"
                   :height="6264"
                   :canExpand="true"
-                  :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -1328,8 +1165,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+          <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="melissa/sustainability/melissa-sustainability-tour"
@@ -1339,8 +1175,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/sustainability/https-www.melissa.com.br-sobre-sustentabilidade-17-10-19-mobile"
@@ -1350,24 +1185,16 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
+
             <div class="project-extra-item">
                 <Media
                   src="melissa/sustainability/melissa-sustainability-full-page"
                   :width="1920"
                   :height="23835"
                   :canExpand="true"
-                  :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+          </div>
       </section>
 
 
@@ -1390,8 +1217,6 @@
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 
 import Media from'../../components/Media';
 import MediaExpanded from'../../components/MediaExpanded';
@@ -1406,11 +1231,7 @@ export default {
   components: {
     Media,
     MediaExpanded,
-    Related,
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation
+    Related
   },
   mounted() {
     window.scrollTo(0,0);

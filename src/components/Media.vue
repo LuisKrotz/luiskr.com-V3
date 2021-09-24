@@ -4,10 +4,10 @@
             :class="classes"
             :width="width"
             :height="height"
-            v-lazy="{ src: storage + src + q50, loading: storage + src + thumb }" />
+            v-lazy="{   src: storage + src + q50, loading: storage + src + thumb }" />
         <video v-else
             :class="classes"
-            :poster="poster"
+            :poster="poster[0]"
             :width="width"
             :height="height"
             playsinline autoplay loop muted>

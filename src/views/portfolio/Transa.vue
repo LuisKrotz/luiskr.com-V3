@@ -24,8 +24,7 @@
         </p>
       </section>
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/transainc.com-tour"
@@ -35,8 +34,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/transainc.com-mobile-mobile"
@@ -46,10 +43,8 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
 
           <!-- Categories -->
-          <slide key="3">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/categories/transainc.com-category--brazilian-leather-tour"
@@ -59,8 +54,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/categories/transainc.com-category--coza-tour"
@@ -70,8 +63,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="5">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/categories/transainc.com-category--melissa-tour"
@@ -81,8 +72,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="6">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/categories/transainc.com-category--metcha-tour"
@@ -92,8 +81,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="7">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/categories/transainc.com-category--mini-melissa-tour"
@@ -103,8 +90,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="8">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/categories/transainc.com-category--mor-tour"
@@ -114,14 +99,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -132,8 +110,7 @@
 
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 15.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--o-que-e-familia-article-tour"
@@ -143,8 +120,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-articles-bem-vindos-a-venus-brasileira-short-tour"
@@ -154,8 +129,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-articles-DIRECT-FROM-PARIS FASHION-WEEK-short-tour"
@@ -165,8 +138,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-articles-parceria-arquitetura-naciona-painel-centro-sao-paulo-short-tour"
@@ -176,8 +147,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="5">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-articles-the-shoe-surgeon-short-tour"
@@ -187,9 +156,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
 
-          <slide key="6">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--134-minutos-com-vitorino-campos-2021-06-03-15"
@@ -198,8 +165,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="7">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--a-chat-with-the-sneakerhead-beija-marie-velez-2021-06-03"
@@ -208,8 +173,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="8">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--a-imperatriz-do-couro-patricia-vieira-2021-06-03"
@@ -218,8 +181,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="9">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--anitta-fala-sobre-a-sua-relacao-com-a-nossa-collab-2021-06-03"
@@ -228,8 +189,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="10">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--bem-vindos-a-venus-brasileira-2021-06-03"
@@ -238,8 +197,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="11">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--coza-construindo-amor-com-elen-maurmann-2021-06-03-15"
@@ -248,8 +205,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="12">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--coza-pantone-collab-2021-06-03-15"
@@ -258,8 +213,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="13">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--design-na-pele-2021-06-03-15"
@@ -268,8 +221,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="14">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--editorial-especial-canvas-2021-06-03-14"
@@ -278,8 +229,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="15">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--eiichi-katsukawa-incorporates-visionary-concepts-2021-06-03-15"
@@ -288,8 +237,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="16">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--em-parceria-com-a-arquitetura-nacional-painel-de-408m2-faz-pulsar-o-centro-de-sao-paulo-2021-06-03"
@@ -298,8 +245,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="17">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--exclusive-chat-with-dominic-the-shoe-surgeon-ciambrone-2021-06-03"
@@ -308,8 +253,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="18">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--fabrica-de-presentes-coza-2021-06-03"
@@ -318,8 +261,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="19">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--jeremy-scott-at-galeria-melissa-uk-2021-06-03"
@@ -328,8 +269,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="20">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--melissa-papete-platform-rider-2021-06-03"
@@ -338,8 +277,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="21">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--melissa-portraits-sarune-paulauskaite-2021-06-03"
@@ -348,8 +285,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="22">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--melissa-viktor-rolf-direct-from-paris-fashion-week-2021-06-03"
@@ -358,8 +293,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="23">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--meu-pote-coza-2021-06-03"
@@ -368,8 +301,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="24">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--mini-melissa-hello-kitty-2021-06-03"
@@ -378,8 +309,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="25">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--nova-colecao-coza-pantone-2021-06-03"
@@ -388,8 +317,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="26">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--novas-ideias-sempre-2021-06-03-15"
@@ -398,8 +325,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="27">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--o-brazilian-leather-convidou-patricia-a-assinar-um-ensaio-2021-06-03"
@@ -408,8 +333,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="28">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--o-que-e-familia-2021-06-03"
@@ -418,8 +341,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="29">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--quem-brilha-mais-o-cha-o-ou-o-mop-mor-2021-06-03"
@@ -428,8 +349,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="30">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--ruohan-wang-s-on-human-expression-and-nature-2021-06-03"
@@ -438,8 +357,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="31">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--sheron-barber-roots-and-passion-into-custom-pieces-2021-06-03"
@@ -448,8 +365,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="32">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--stefan-sagmeister-opens-up-about-his-new-project-2021-06-03"
@@ -458,8 +373,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="33">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--the-story-behind-the-metcha-x-tss-aj-xi-prototype-collab-2021-06-03"
@@ -468,8 +381,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="34">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--to-celebrate-mickey-s-birthday-a-collab-full-of-classics-2021-06-03"
@@ -478,8 +389,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="35">
             <div class="project-extra-item">
                 <Media
                   src="transainc/website-2021/articles/transainc.com-article--todo-brasileiro-tem-um-pouco-do-sertao-ronaldo-fraga-2021-06-03"
@@ -488,14 +397,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -509,8 +411,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/website-2021/join-us/transainc.com-join-us-short-tour"
@@ -520,8 +421,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item landscape">
                 <Media
                   src="transainc/muda/transainc-muda"
@@ -531,14 +430,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -560,9 +452,6 @@
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-
 import Media from'../../components/Media';
 import MediaExpanded from'../../components/MediaExpanded';
 import Related from'../../components/portfolio/Related';
@@ -576,11 +465,7 @@ export default {
   components: {
     Media,
     MediaExpanded,
-    Related,
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation
+    Related
   },
   mounted() {
     window.scrollTo(0,0);

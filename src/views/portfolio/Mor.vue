@@ -30,8 +30,7 @@
         </p>
       </section>
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item">
                 <Media
                   src="mor/site/mor.com.br-31-03-19-1-mobile"
@@ -41,8 +40,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="mor/site/mor-article--mor-explica-como-cuidar-da-sua-piscina"
@@ -51,8 +48,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
                 <Media
                   src="mor/site/mor-article--cada-doçura-da-linha-baby"
@@ -61,13 +56,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -78,8 +67,7 @@
 
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 2.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="mor/loja/mor-lojamor-tour"
@@ -89,8 +77,6 @@
                   :isVideo="true"
                   label="mor.com.br - store tour "/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="mor/loja/https-www.lojamor.com.br-mobile"
@@ -100,8 +86,6 @@
                   :isVideo="true"
                   label="mor.com.br - store mobile tour "/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
                 <Media
                   src="mor/loja/mor-lojamor--categoria-isotermicos-2020-12-15"
@@ -110,8 +94,6 @@
                   :canExpand="true"
                   label="mor.com.br - store - category page screenshoot"/>
             </div>
-          </slide>
-          <slide key="4">
             <div class="project-extra-item">
                 <Media
                   src="mor/loja/mor-lojamor--produto-sombrinha-joy-sortida-3778-verde-p-2020-12-15"
@@ -120,13 +102,7 @@
                   :canExpand="true"
                   label="mor.com.br - store - product page screenshoot"/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -137,8 +113,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="mor/where-to-find/mor-onde-encontrar"
@@ -148,8 +123,6 @@
                   :isVideo="true"
                   label="mor.com.br - where to find tour"/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="mor/where-to-find/mor.com.br-onde-encontrar-31-03-19-1-mobile"
@@ -159,13 +132,7 @@
                   :isVideo="true"
                   label="mor.com.br - where to find mobile tour"/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -188,9 +155,6 @@
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-
 import Media from'../../components/Media';
 import MediaExpanded from'../../components/MediaExpanded';
 import Related from'../../components/portfolio/Related';
@@ -204,11 +168,7 @@ export default {
   components: {
     Media,
     MediaExpanded,
-    Related,
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation
+    Related
   },
   mounted() {
     window.scrollTo(0,0);

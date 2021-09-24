@@ -28,8 +28,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 5.5, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item">
                 <Media
                   src="coza/feed+shop/coza.com.br-31-03-19-1-mobile"
@@ -39,8 +38,6 @@
                   :isVideo="true"
                   label="coza.com.br - mobile full tour"/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="coza/feed+shop/coza.com.br-feed-2019-full-page"
@@ -49,8 +46,6 @@
                   :canExpand="true"
                   label="coza.com.br - full page screenshoot"/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
                 <Media
                   src="coza/feed+shop/coza.com.br-en-2020-12-15-18-54"
@@ -59,8 +54,6 @@
                   :canExpand="true"
                   label="coza.com.br - english homepage"/>
             </div>
-          </slide>
-          <slide key="4">
             <div class="project-extra-item">
                 <Media
                   src="coza/articles+galleries+photo/coza-article--organização-coza-com-as-dicas-da-maysa"
@@ -69,8 +62,6 @@
                   :canExpand="true"
                   label="coza.com.br - article - Organização com as dicas da maysa."/>
             </div>
-          </slide>
-          <slide key="5">
             <div class="project-extra-item">
                 <Media
                   src="coza/articles+galleries+photo/coza-article--image-gallery-a-cada-instante-da-rotina-mais-coza+pantone"
@@ -79,8 +70,6 @@
                   :canExpand="true"
                   label="coza.com.br - image gallery - A cada instante da rotina. Mais coza + pantone."/>
             </div>
-          </slide>
-          <slide key="6">
             <div class="project-extra-item">
                 <Media
                   src="coza/articles+galleries+photo/coza-article--seu-banheiro-cheio-de-beleza"
@@ -89,13 +78,7 @@
                   :canExpand="true"
                   label="coza.com.br - article - Seu banheiro cheio de beleza."/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -107,8 +90,7 @@
 
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="coza/where-to-find/coza-onde-encontrar-tour"
@@ -118,8 +100,6 @@
                   :isVideo="true"
                   label="coza.com.br - where to find page on desktop"/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="coza/where-to-find/coza.com.br-onde-encontrar-31-03-19-1-mobile"
@@ -129,13 +109,7 @@
                   :isVideo="true"
                   label="coza.com.br - where to find page on mobile "/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
   
       <router-view/>
@@ -157,9 +131,6 @@
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-
 import Media from'../../components/Media';
 import MediaExpanded from'../../components/MediaExpanded';
 import Related from'../../components/portfolio/Related';
@@ -173,11 +144,7 @@ export default {
   components: {
     Media,
     MediaExpanded,
-    Related,
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation
+    Related
   },
   mounted() {
     window.scrollTo(0,0);

@@ -31,8 +31,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 6.5, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item">
                 <Media
                   src="aboutmarco/home/aboutmarco.com-mobile-mobile"
@@ -42,8 +41,6 @@
                   :isVideo="true"
                   label="aboutmarco.com - mobile tour"/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="aboutmarco/home/aboutmarco.com-2020-home"
@@ -52,8 +49,6 @@
                   :canExpand="true"
                   label="aboutmarco.com - homepage"/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
                 <Media
                   src="aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15"
@@ -62,8 +57,6 @@
                   :canExpand="true"
                   label="aboutmarco.com - melissa insider"/>
             </div>
-          </slide>
-          <slide key="4">
             <div class="project-extra-item">
               <Media
                 src="aboutmarco/pages/aboutmarco.com-pages--melissa-2020-12-15"
@@ -72,8 +65,6 @@
                 :canExpand="true"
                 label="aboutmarco.com - melissa"/>
             </div>
-          </slide>
-          <slide key="5">
             <div class="project-extra-item">
               <Media
                 src="aboutmarco/pages/aboutmarco.com-pages--coza-2020-12-15"
@@ -82,8 +73,6 @@
                 :canExpand="true"
                 label="aboutmarco.com - coza"/>
             </div>
-          </slide>
-          <slide key="6">
             <div class="project-extra-item">
               <Media
                 src="aboutmarco/pages/aboutmarco.com-pages--brazilian-leather-2020-12-15"
@@ -92,8 +81,6 @@
                 :canExpand="true"
                 label="aboutmarco.com - brazilian leather"/>
             </div>
-          </slide>
-          <slide key="7">
             <div class="project-extra-item">
               <Media
                 src="aboutmarco/about/aboutmarco.com-me-2020-12-15-23_29_35"
@@ -102,8 +89,6 @@
                 :canExpand="true"
                 label="aboutmarco.com - me"/>
             </div>
-          </slide>
-          <slide key="8">
             <div class="project-extra-item">
               <Media
                 src="aboutmarco/about/aboutmarco.com-archive-2020-12-15-23_31_53"
@@ -112,13 +97,7 @@
                 :canExpand="true"
                 label="aboutmarco.com - archive"/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -130,8 +109,7 @@
 
 
         <section class="project-extra">
-          <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 5.5, snapAlign: 'center'}}">
-            <slide key="1">
+          <div class="project-extra-scroll">
               <div class="project-extra-item landscape">
                   <Media
                     src="aboutmarco/awards/aboutmarco.com-awards--admiretheweb"
@@ -139,8 +117,6 @@
                     :height="820"
                     label="aboutmarco.com - admiretheweb"/>
               </div>
-            </slide>
-            <slide key="2">
               <div class="project-extra-item landscape">
                   <Media
                     src="aboutmarco/awards/aboutmarco.com-awards--cssawards"
@@ -148,8 +124,6 @@
                     :height="740"
                     label="aboutmarco.com - css awards"/>
               </div>
-            </slide>
-            <slide key="3">
               <div class="project-extra-item landscape">
                   <Media
                     src="aboutmarco/awards/aboutmarco.com-awards--csswinner"
@@ -157,8 +131,6 @@
                     :height="652"
                     label="aboutmarco.com - css awards winner"/>
               </div>
-            </slide>
-            <slide key="4">
               <div class="project-extra-item landscape">
                   <Media
                     src="aboutmarco/awards/aboutmarco.com-awards--hm"
@@ -166,8 +138,6 @@
                     :height="654"
                     label="aboutmarco.com - Honorable Mention"/>
               </div>
-            </slide>
-            <slide key="5">
               <div class="project-extra-item landscape">
                   <Media
                     src="aboutmarco/awards/aboutmarco.com-awards--me"
@@ -175,8 +145,6 @@
                     :height="652"
                     label="aboutmarco.com - ME"/>
               </div>
-            </slide>
-            <slide key="6">
               <div class="project-extra-item landscape">
                   <Media
                     src="aboutmarco/awards/aboutmarco.com-awards--mindspark"
@@ -184,13 +152,7 @@
                     :height="722"
                     label="aboutmarco.com - mindspark"/>
               </div>
-            </slide>
-
-            <template #addons>
-              <navigation />
-              <pagination />
-            </template>
-          </carousel>
+          </div>
         </section>
 
 
@@ -213,9 +175,6 @@
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-
 import Media from'../../components/Media';
 import MediaExpanded from'../../components/MediaExpanded';
 import Related from'../../components/portfolio/Related';
@@ -229,11 +188,7 @@ export default {
   components: {
     Media,
     MediaExpanded,
-    Related,
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation
+    Related
   },
   mounted() {
     window.scrollTo(0,0);

@@ -29,8 +29,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel items-to-show="4.25" :wrapAround="true">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item">
                 <Media
                   src="brazilian leather/portal/cicb.org.br-31-03-19-1-mobile"
@@ -40,8 +39,6 @@
                   :isVideo="true"
                   label="Brazilian Leather - mobile tour"/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="brazilian leather/portal/brazilian-leather-cicb-cscb-leather-law-portal-about-full-page-en-2020-12-15-23_21_33"
@@ -50,8 +47,6 @@
                   :canExpand="true"
                   label="Brazilian Leather - home"/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/portal/brazilian-leather-cicb-cscb-leather-law-portal-about-full-page"
@@ -60,8 +55,6 @@
                 :canExpand="true"
                 label="Brazilian Leather - about"/>
             </div>
-          </slide>
-          <slide key="4">
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/portal/brazilian-leather-cicb-cscb-leather-law-portal-brazilian-leather-mandarin-chinese-full-page"
@@ -70,8 +63,6 @@
                 :canExpand="true"
                 label="Brazilian Leather - in Mandarin Chinese"/>
             </div>
-          </slide>
-          <slide key="5">
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/portal/brazilian-leather-cicb-cscb-leather-law-portal-cicb-website-full-page"
@@ -80,13 +71,7 @@
                 :canExpand="true"
                 label="CSCB - Home page"/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -103,8 +88,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel items-to-show="2.25" :wrapAround="true">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="brazilian leather/forum-cicb/2016/fórum-cscb-fórum-2016-economia-circular-tour"
@@ -114,8 +98,6 @@
                   :isVideo="true"
                   label="Fórum 2016 - Full tour"/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="brazilian leather/forum-cicb/2016/fórum-cscb-fórum-2016-economia-circular-full-page"
@@ -124,8 +106,6 @@
                   :canExpand="true"
                   label="Fórum 2016 - Full page"/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/forum-cicb/2016/forum-2016-1-mobile"
@@ -135,13 +115,7 @@
                 :isVideo="true"
                 label="Fórum 2016 - Mobile tour"/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -154,8 +128,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel items-to-show="2.25" :wrapAround="true">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="brazilian leather/forum-cicb/2017/fórum-cscb-fórum-2017-negócios-disruptivos-para-um-mundo-disruptivo-tour"
@@ -165,8 +138,6 @@
                   :isVideo="true"
                   label="Fórum 2017 - Full tour"/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="brazilian leather/forum-cicb/2017/fórum-cscb-fórum-2017-negócios-disruptivos-para-um-mundo-disruptivo-full-page"
@@ -175,8 +146,6 @@
                   :canExpand="true"
                   label="Fórum 2017 - Full page"/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/forum-cicb/2017/forum-2017-1-mobile"
@@ -186,13 +155,7 @@
                 :isVideo="true"
                 label="Fórum 2017 - Mobile tour"/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -205,8 +168,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel items-to-show="2.25" :wrapAround="true">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="brazilian leather/forum-cicb/2018/fórum-cscb-fórum-2018-qual-o-retorno-do-investimento-sustentável-tour"
@@ -216,8 +178,6 @@
                   :isVideo="true"
                   label="Fórum 2018 - Full tour"/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="brazilian leather/forum-cicb/2018/fórum-cscb-fórum-2018-qual-o-retorno-do-investimento-sustentável-full-page"
@@ -226,8 +186,6 @@
                   :canExpand="true"
                   label="Fórum 2018 - Full page"/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/forum-cicb/2018/forum-2018-1-mobile"
@@ -237,13 +195,7 @@
                 :isVideo="true"
                 label="Fórum 2018 - Mobile tour"/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -256,8 +208,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel items-to-show="2.25" :wrapAround="true">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="brazilian leather/forum-cicb/2019/fórum-cscb-fórum-2019-o-couro-no-mundo-hiperconectado-tour"
@@ -267,8 +218,6 @@
                   :isVideo="true"
                   label="Fórum 2019 - Full tour"/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="brazilian leather/forum-cicb/2019/fórum-cscb-fórum-2019-o-couro-no-mundo-hiperconectado-full-page"
@@ -277,8 +226,6 @@
                   :canExpand="true"
                   label="Fórum 2019 - Full page"/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/forum-cicb/2019/forumcicb2019-mobile"
@@ -288,13 +235,7 @@
                 :isVideo="true"
                 label="Fórum 2019 - Mobile tour"/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -308,8 +249,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel items-to-show="4.5" :wrapAround="true">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="brazilian leather/forum-cicb/2020/cicb.org.br-forum2020"
@@ -319,8 +259,6 @@
                   :isVideo="true"
                   label="Fórum 2020 - Full tour"/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="brazilian leather/forum-cicb/2020/fórum-cscb-fórum-2020-a-sociedade-somos-todos-nós-full-page"
@@ -329,8 +267,6 @@
                   :canExpand="true"
                   label="Fórum 2020 - Full page"/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/forum-cicb/2020/forum-cscb-2020-mobile-mobile"
@@ -340,8 +276,6 @@
                 :isVideo="true"
                 label="Fórum 2020 - Mobile tour"/>
             </div>
-          </slide>
-          <slide key="4">
             <div class="project-extra-item landscape">
                 <Media
                   src="brazilian leather/webinar-series/2020/brazilian-leather-webinar-series-2020-leather-business-and-future-consumer-the-world-is-changing-we-are-changing-join-us-in-shaping-the-future-to-come-tour"
@@ -351,8 +285,6 @@
                   :isVideo="true"
                   label="Webinar 2020 - Full tour"/>
             </div>
-          </slide>
-          <slide key="5">
             <div class="project-extra-item">
                 <Media
                   src="brazilian leather/webinar-series/2020/brazilian-leather-webinar-series-2020-leather-business-and-future-consumer-the-world-is-changing-we-are-changing-join-us-in-shaping-the-future-to-come-full-page"
@@ -361,8 +293,6 @@
                   :canExpand="true"
                   label="Fórum 2020 - Full page"/>
             </div>
-          </slide>
-          <slide key="6">
             <div class="project-extra-item">
               <Media
                 src="brazilian leather/webinar-series/2020/brazilian-leather-webinar-series-2020-leather-business-and-future-consumer-the-world-is-changing-we-are-changing-join-us-in-shaping-the-future-to-come-mobile-mobile"
@@ -372,13 +302,7 @@
                 :isVideo="true"
                 label="Fórum 2020 - Mobile tour"/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -399,9 +323,6 @@
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-
 import Media from'../../components/Media';
 import MediaExpanded from'../../components/MediaExpanded';
 import Related from'../../components/portfolio/Related';
@@ -415,11 +336,7 @@ export default {
   components: {
     Media,
     MediaExpanded,
-    Related,
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation
+    Related
   },
   mounted() {
     window.scrollTo(0,0);

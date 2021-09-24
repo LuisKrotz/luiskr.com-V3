@@ -18,8 +18,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel items-to-show="11.25" :wrapAround="true">
-          <slide key="1">
+        <div class="project-extra-scroll">
           <div class="project-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-cadastros-sageweb"
@@ -28,8 +27,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-color-picker"
@@ -38,8 +35,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-filtros"
@@ -48,8 +43,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
             <div class="project-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-intro"
@@ -58,8 +51,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="5">
             <div class="project-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-mapa-sageweb"
@@ -68,8 +59,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="6">
             <div class="project-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-modulo-NFE"
@@ -78,8 +67,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="7">
             <div class="project-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-orndenar-atalhos"
@@ -88,8 +75,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="8">
             <div class="project-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-personalizar"
@@ -98,8 +83,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="9">
             <div class="project-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-relatórios-gerenciais"
@@ -108,8 +91,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="10">
             <div class="project-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-relatórios-gerenciais-por-mes"
@@ -118,8 +99,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="11">
             <div class="project-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-sistema-de-pesquisas-em-jquery"
@@ -128,8 +107,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="12">
             <div class="project-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-temas"
@@ -138,13 +115,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <router-view/>
@@ -164,9 +135,6 @@
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-
 import Media from'../../components/Media';
 import MediaExpanded from'../../components/MediaExpanded';
 import Related from'../../components/portfolio/Related';
@@ -180,11 +148,7 @@ export default {
   components: {
     Media,
     MediaExpanded,
-    Related,
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation
+    Related
   },
   mounted() {
     window.scrollTo(0,0);

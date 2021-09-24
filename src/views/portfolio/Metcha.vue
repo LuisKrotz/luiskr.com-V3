@@ -32,8 +32,7 @@
         </p>
       </section>
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item">
                 <Media
                   src="metcha/feed/metcha.com-2021-mobile-mobile"
@@ -43,8 +42,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="metcha/feed/metcha.com-2019-website-tour"
@@ -54,8 +51,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item landscape">
                 <Media
                   src="metcha/feed/metcha.com-mobile"
@@ -65,8 +60,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
                 <Media
                   src="metcha/feed/metcha.com-2020-2021-website-feed-full-page"
@@ -75,22 +68,16 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
             <div class="project-extra-item">
                 <Media
-                  src="metcha/acessibility/metcha.com-2020-2021-website-feed-full-page"
-                  :width="1920"
-                  :height="28800"
+                  src="metcha/acessibility/metcha-acessibility-jun-2021-mobile-mobile"
+                  :width="831"
+                  :height="1712"
+                  :isVideo="true"
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -104,8 +91,7 @@
 
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 12.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="metcha/articles/metcha.com--article-cruella-s-villainism-fashionism-is-premiering-next-week-2021-06-03-full-article-tour"
@@ -115,8 +101,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha-willow-smith-mobile-mobile"
@@ -126,8 +110,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-5-looks-to-steal-from-elsa-hosk-2021-04-25"
@@ -136,8 +118,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-a-very-special-project-the-lv-x-maison-tamboite-new-bike-2020-12-15"
@@ -146,8 +126,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="5">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-air-dior-1-and-the-sneaker-market-worth-us-79-billion-2021-06-03-13"
@@ -156,8 +134,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="6">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-apartment-13-by-studio-modektura-2021-06-03-13"
@@ -166,8 +142,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="7">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-ashya-is-revolutionizing-the-travel-goods-market-2021-04-25"
@@ -176,8 +150,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="8">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-behind-the-creation-of-the-aj-xi-prototype-2020-12-15"
@@ -186,8 +158,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="9">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-bill-amberg-studio-moore-giles-collection-2021-06-03-13"
@@ -196,8 +166,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="10">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-cruella-s-villainism-fashionism-is-premiering-next-week-2021-06-03-13"
@@ -206,8 +174,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="11">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-daniel-arsham-s-art-storage-space-2021-06-03-13"
@@ -216,8 +182,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="12">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-deston-isas-pics-of-la-s-automotive-scene-2021-06-03-13"
@@ -226,8 +190,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="13">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-dion-lee-ss21-the-need-for-new-sustainable-choices-2020-12-15"
@@ -236,8 +198,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="14">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-hunt-house-in-malibu-2021-06-03-13"
@@ -246,8 +206,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="15">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-kylie-jenner-for-tmrw-2021-06-03-13"
@@ -256,8 +214,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="16">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-maido-by-child-studio-2021-06-03-13"
@@ -266,8 +222,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="17">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-max-poglia-s-bags-are-never-alike-2021-06-03-13"
@@ -276,8 +230,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="18">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-mercedes-benz-eqs-interior-show-a-green-tech-statement-2021-04-25"
@@ -286,8 +238,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="19">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-new-bugatti-s-les-legendes-du-ciel-2021-06-03-13"
@@ -296,8 +246,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="19">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-niamh-algar-comments-on-working-with-her-idol-2020-12-15"
@@ -306,8 +254,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="20">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-niels-van-roij-x-heritage-customs-2021-06-03-13"
@@ -316,8 +262,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="21">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-off-white-x-nike-air-force-1-low-2021-06-03-13"
@@ -326,8 +270,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="22">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-rtfkt-studios-brings-the-future-of-kicks-2020-12-15"
@@ -336,8 +278,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="23">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-shahd-batal-s-sneaker-collection-2021-06-03-14"
@@ -346,8 +286,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="24">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-stephen-kenn-x-3sixteen-s-set-of-veg-tan-leather-couches-2021-06-03-13"
@@ -356,8 +294,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="25">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-the-7-best-new-balance-drops-from-may-2021-06-03-14"
@@ -366,8 +302,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="26">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-the-biggest-fits-of-the-week-2021-06-03-13"
@@ -376,8 +310,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="27">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-the-classic-ajs-arrived-in-april-2021-04-25"
@@ -386,8 +318,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="28">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-the-design-museum-london-the-past-and-future-of-sneakers-2021-04-25"
@@ -396,8 +326,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="29">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-the-new-mayze-is-coming-as-dua-lipa-makes-her-debut-at-puma-2021-04-25"
@@ -406,8 +334,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="30">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-troye-sivan-s-victorian-era-melbourne-house-2021-04-25"
@@ -416,8 +342,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="31">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-we-need-to-talk-about-this-ferrari-250-gt-berlinetta-competizione-2020-12-15"
@@ -426,8 +350,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="32">
             <div class="project-extra-item">
                 <Media
                   src="metcha/articles/metcha.com--article-you-gotta-see-croft-house-s-approach-to-leather-furn-2021-04-25"
@@ -436,13 +358,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+          </div>
       </section>
 
 
@@ -453,8 +369,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="metcha/cms/metcha.com-cms"
@@ -464,8 +379,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item landscape">
                 <Media
                   src="metcha/cms/metcha.com-cms-metcha-midia-editor"
@@ -474,8 +387,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item landscape">
                 <Media
                   src="metcha/cms/metcha.com-cms-metcha-posts-6-editar-feed"
@@ -484,8 +395,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
             <div class="project-extra-item landscape">
                 <Media
                   src="metcha/cms/metcha.com-cms-metcha-posts-editar"
@@ -494,13 +403,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -510,9 +413,7 @@
       </section>
 
       <section class="project-extra">
-
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item">
                 <Media
                   src="metcha/newsletter/metcha-newsletter"
@@ -522,8 +423,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item landscape">
                 <Media
                   src="metcha/newsletter/metcha.com-cms-metcha-newsletter-generator"
@@ -533,8 +432,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
                 <Media
                   src="metcha/newsletter/newsletter-generator-mobile"
@@ -544,8 +441,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="4">
             <div class="project-extra-item">
                 <Media
                   src="metcha/newsletter/metcha-newsletter-full-page"
@@ -554,13 +449,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -570,9 +459,7 @@
       </section>
 
       <section class="project-extra">
-
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="metcha/mentions/metcha.com-featured-on-made-with-laravel"
@@ -580,8 +467,6 @@
                   :height="504"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item landscape">
                 <Media
                   src="metcha/mentions/metcha.com-featured-on-made-with-vue"
@@ -589,8 +474,6 @@
                   :height="1488"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item landscape">
                 <Media
                   src="metcha/mentions/metcha.com-featured-on-made-with-vue-twitter`s-account"
@@ -598,13 +481,7 @@
                   :height="694"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -627,9 +504,6 @@
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-
 import Media from'../../components/Media';
 import MediaExpanded from'../../components/MediaExpanded';
 import Related from'../../components/portfolio/Related';
@@ -643,11 +517,7 @@ export default {
   components: {
     Media,
     MediaExpanded,
-    Related,
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation
+    Related
   },
   mounted() {
     window.scrollTo(0,0);

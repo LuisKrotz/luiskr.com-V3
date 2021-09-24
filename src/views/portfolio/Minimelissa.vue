@@ -24,8 +24,7 @@
         </p>
       </section>
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/website/minimelissa.com.br-31-03-19-1-mobile"
@@ -35,8 +34,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/website/mini-melissa-cover-2020"
@@ -45,8 +42,6 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="3">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/website/mini-melissa-feed-2020"
@@ -55,12 +50,7 @@
                   :canExpand="true"
                   label=""/>
             </div>
-          </slide>
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -71,8 +61,7 @@
 
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 2.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="minimelissa/where-to-find/mini-melissa-onde-encontrar-2020"
@@ -82,8 +71,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/where-to-find/https-www.lojamor.com.br-mobile"
@@ -93,13 +80,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -110,8 +91,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="minimelissa/collections/candy-framework/mini-melissa-candy-framework"
@@ -121,8 +101,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/collections/candy-framework/minimelissa.com.br-candy-31-03-19-1-mobile"
@@ -132,13 +110,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -152,9 +124,7 @@
       </section>
 
       <section class="project-extra">
-
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="minimelissa/collections/color-me-ss20/minimelissa-ss20"
@@ -164,8 +134,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/collections/color-me-ss20/minimelissa-ss20-mobile"
@@ -175,13 +143,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -191,9 +153,7 @@
       </section>
 
       <section class="project-extra">
-
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="minimelissa/collections/dance-machine-aw16/minimelissa.com.br-aw16-31-03-19"
@@ -203,8 +163,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/collections/dance-machine-aw16/minimelissa.com.br-aw16-31-03-19-1-mobile"
@@ -214,13 +172,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
   
       <section class="project-description">
@@ -230,9 +182,7 @@
       </section>
 
       <section class="project-extra">
-
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="minimelissa/collections/dreamers-aw20/minimelissa-aw20"
@@ -242,8 +192,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/collections/dreamers-aw20/minimelissa-aw20-mobile"
@@ -253,13 +201,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -269,8 +211,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="minimelissa/collections/family-ss19/minimelissa.com.br-SS19-31-03-19"
@@ -280,8 +221,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/collections/family-ss19/minimelissa.com.br-SS19-31-03-19-1-mobile"
@@ -292,13 +231,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -309,8 +242,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="minimelissa/collections/flygrl-aw17/minimelissa.com.br-aw17-31-03-19"
@@ -320,8 +252,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/collections/flygrl-aw17/minimelissa.com.br-aw17-31-03-19-1-mobile"
@@ -331,13 +261,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -348,8 +272,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="minimelissa/collections/mapping-ss18/minimelissa.com.br-ss18-31-03-19"
@@ -359,8 +282,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/collections/mapping-ss18/minimelissa.com.br-ss18-31-03-19-1-mobile"
@@ -370,13 +291,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -386,8 +301,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="minimelissa/collections/mashup-ss17/minimelissa.com.br-ss17-31-03-19"
@@ -397,8 +311,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/collections/mashup-ss17/minimelissa.com.br-ss17-31-03-19-1-mobile"
@@ -408,13 +320,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
       <section class="project-description">
@@ -424,8 +330,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="minimelissa/collections/mirror-aw19/minimelissa.com.br-aw19-31-03-19"
@@ -435,8 +340,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/collections/mirror-aw19/minimelissa.com.br-aw19-31-03-19-1-mobile"
@@ -446,13 +349,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+          </div>
       </section>
 
       <section class="project-description">
@@ -465,8 +362,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="minimelissa/collections/open-vibes-aw18/aw18"
@@ -476,8 +372,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/collections/open-vibes-aw18/minimelissa.com.br-aw18-31-03-19-1-mobile"
@@ -487,13 +381,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -504,8 +392,7 @@
       </section>
 
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
+        <div class="project-extra-scroll">
             <div class="project-extra-item landscape">
                 <Media
                   src="minimelissa/collections/wanna-be-carioca-ss16/minimelissa.com.br-ss16-31-03-19"
@@ -515,8 +402,6 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-          <slide key="2">
             <div class="project-extra-item">
                 <Media
                   src="minimelissa/collections/wanna-be-carioca-ss16/minimelissa.com.br-ss16-31-03-19-1-mobile"
@@ -526,13 +411,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        </div>
       </section>
 
 
@@ -555,9 +434,6 @@
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-
 import Media from'../../components/Media';
 import MediaExpanded from'../../components/MediaExpanded';
 import Related from'../../components/portfolio/Related';
@@ -571,11 +447,7 @@ export default {
   components: {
     Media,
     MediaExpanded,
-    Related,
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation
+    Related
   },
   mounted() {
     window.scrollTo(0,0);

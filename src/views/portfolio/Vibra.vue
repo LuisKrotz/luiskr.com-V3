@@ -27,53 +27,41 @@
         </p>
       </section>
       <section class="project-extra">
-        <carousel :wrapAround="true" :breakpoints="{180: {itemsToShow: 1, snapAlign: 'start'}, 768: {itemsToShow: 1.75, snapAlign: 'center'}}">
-          <slide key="1">
-            <div class="project-extra-item">
-                <Media
-                  src="vibra/https-www.vibra.com.br-mobile"
-                  :width="832"
-                  :height="1728"
-                  :canExpand="true"
-                  :isVideo="true"
-                  label=""/>
-            </div>
-          </slide>
-          <slide key="2">
-            <div class="project-extra-item">
-                <Media
-                  src="vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-production-and-distributuon-business-full-page"
-                  :width="1920"
-                  :height="2695"
-                  :canExpand="true"
-                  label=""/>
-            </div>
-          </slide>
-          <slide key="3">
-            <div class="project-extra-item">
-                <Media
-                  src="vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-our-brands-full-page"
-                  :width="1920"
-                  :height="32491"
-                  :canExpand="true"
-                  label=""/>
-            </div>
-          </slide>
-          <slide key="4">
-            <div class="project-extra-item">
-                <Media
-                  src="vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-more-than-five-decades-of-experience-and-tradition-in-aviculture-about-us-full-page"
-                  :width="1920"
-                  :height="7244"
-                  :canExpand="true"
-                  label=""/>
-            </div>
-          </slide>
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
+        <div class="project-extra-scroll">
+          <div class="project-extra-item">
+              <Media
+                src="vibra/https-www.vibra.com.br-mobile"
+                :width="832"
+                :height="1728"
+                :canExpand="true"
+                :isVideo="true"
+                label=""/>
+          </div>
+          <div class="project-extra-item">
+              <Media
+                src="vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-production-and-distributuon-business-full-page"
+                :width="1920"
+                :height="2695"
+                :canExpand="true"
+                label=""/>
+          </div>
+          <div class="project-extra-item">
+              <Media
+                src="vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-our-brands-full-page"
+                :width="1920"
+                :height="32491"
+                :canExpand="true"
+                label=""/>
+          </div>
+          <div class="project-extra-item">
+              <Media
+                src="vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-more-than-five-decades-of-experience-and-tradition-in-aviculture-about-us-full-page"
+                :width="1920"
+                :height="7244"
+                :canExpand="true"
+                label=""/>
+          </div>
+        </div>
       </section>
 
       <router-view/>
@@ -95,9 +83,6 @@
 </template>
 
 <script>
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
-
 import Media from'../../components/Media';
 import MediaExpanded from'../../components/MediaExpanded';
 import Related from'../../components/portfolio/Related';
@@ -111,11 +96,7 @@ export default {
   components: {
     Media,
     MediaExpanded,
-    Related,
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation
+    Related
   },
   mounted() {
     window.scrollTo(0,0);
