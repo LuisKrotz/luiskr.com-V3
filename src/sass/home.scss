@@ -87,8 +87,7 @@
     }
 }
 
-.awards,
-.portfolio {
+.awards {
     &-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -147,8 +146,6 @@
                 box-sizing: border-box;
                 text-align: center;
 
-                .portfolio-item-link:hover &,
-                .portfolio-item-link:focus &,
                 .awards-item-link:hover &,
                 .awards-item-link:focus & {
                     text-decoration: line-through;
@@ -159,8 +156,15 @@
 }
 
 .portfolio {
+    
+    display: grid;
+    padding: 0;
+    margin: 0;
+
     &-grid {
-        grid-gap: to-rem($F9);
+        @extend %MAXAREA;
+        display: grid;
+        grid-gap: to-rem(104);
     }
 
     &-item {
@@ -168,8 +172,40 @@
             background: var(--black);
             color: var(--white);
 
-            &-icon {
+            display: block;
+            position: relative;
+            box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, .25);
+            overflow: hidden;
+
+
+            &-text {
+                @extend .ttl-xl;
+                text-transform: uppercase;
+                display: block;
+                padding: 40px;
                 font-weight: 700;
+                font-size: to-rem(140);
+                padding-right: 30%;
+
+                .portfolio-item-link:hover &,
+                .portfolio-item-link:focus & {
+                    text-decoration: line-through;
+                }
+            }
+
+            &-media {
+                transition: transform .5s ease-in;
+                width: 20%;
+                height: 100%;
+                right: 0;
+                position: absolute;
+                object-fit: cover;
+                transform: translateX(100%);
+
+                .portfolio-item-link:hover &,
+                .portfolio-item-link:focus & {
+                    transform: translateX(0);
+                }
             }
         }
     }
