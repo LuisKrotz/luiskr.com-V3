@@ -22,18 +22,30 @@
         border: none;
         box-sizing: border-box;
         position: absolute;
-        top: 50%;
+        bottom: 0;
         left: 50%;
         transform: translate(-50%, -50%);
-        border: 1px solid var(--grey-2);
-        border-radius: 30px;
-        max-width: to-rem($F14);
-        width: 89%;
-        height: to-rem($F10);
+        text-transform: uppercase;
+        width: 55%;
         background-color: var(--black);
         color: var(--white);
         cursor: pointer;
-        line-height: to-rem($F10);
+        height: to-rem($F9);
+        line-height: to-rem($F9);
+
+        @include layout-1024() {
+            text-transform: initial;
+            max-width: to-rem($F14);
+            border: 1px solid var(--grey-2);
+            border-radius: to-rem($F8);
+        }
+
+        @include layout-1440() {
+            bottom: initial;
+            border-radius: to-rem($F9);
+            width: 89%;
+            top: 50%;
+        }
 
         &:hover,
         &:focus {
@@ -91,7 +103,11 @@
         position: relative;
         overflow-x: scroll;
         background-color: var(--black);
-        padding: to-rem($F12);
+        padding: to-rem($F10) to-rem($F8);
+
+        @include layout-1024() {
+            padding: to-rem($F12);
+        }
     }
 
     &-media {

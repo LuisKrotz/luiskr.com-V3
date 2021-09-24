@@ -156,7 +156,6 @@
 }
 
 .portfolio {
-    
     display: grid;
     padding: 0;
     margin: 0;
@@ -164,7 +163,11 @@
     &-grid {
         @extend %MAXAREA;
         display: grid;
-        grid-gap: to-rem(104);
+        grid-gap: to-rem($F8);
+
+        @include layout-1024() {
+            grid-gap: to-rem($F11);
+        }
     }
 
     &-item {
@@ -179,13 +182,15 @@
 
 
             &-text {
-                @extend .ttl-xl;
+                @extend .ttl-xxl;
                 text-transform: uppercase;
                 display: block;
-                padding: 40px;
                 font-weight: 700;
-                font-size: to-rem(140);
-                padding-right: 30%;
+
+                @include layout-1024() {
+                    padding: 40px;
+                    padding-right: 30%;
+                }
 
                 .portfolio-item-link:hover &,
                 .portfolio-item-link:focus & {
@@ -194,17 +199,28 @@
             }
 
             &-media {
-                transition: transform .5s ease-in;
-                width: 20%;
-                height: 100%;
-                right: 0;
-                position: absolute;
-                object-fit: cover;
-                transform: translateX(100%);
+                position: relative;
+                display: block;
+                width: 100%;
+                height: auto;
+                
+
+
+                @include layout-1024() {
+                    transition: transform .5s ease-in;
+                    width: 20%;
+                    height: 100%;
+                    right: 0;
+                    position: absolute;
+                    object-fit: cover;
+                    transform: translateX(100%);
+                }
 
                 .portfolio-item-link:hover &,
                 .portfolio-item-link:focus & {
-                    transform: translateX(0);
+                    @include layout-1024() {
+                        transform: translateX(0);
+                    }
                 }
             }
         }

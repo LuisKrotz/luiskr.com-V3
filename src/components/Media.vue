@@ -1,27 +1,42 @@
 <template>
-    <figure :style="styles">
+    <figure v-if="canExpand" @click="openModal" :style="styles + bg">
         <img v-if="!isVideo"
             :class="classes"
             :width="width"
             :height="height"
-            v-lazy="{   src: storage + src + q50, loading: storage + src + thumb }" />
+            v-lazy="{src: storage + src + q50, loading: storage + src + thumb }" />
         <video v-else
             :class="classes"
             :poster="poster[0]"
             :width="width"
             :height="height"
             playsinline autoplay loop muted>
-                <source :src="video[canExpand ? 1 : 0]" type="video/mp4">
+                <source :src="video[1]" type="video/mp4">
         </video>
         <label v-if="label !== ''">{{ label }}</label>
 
-        <template v-if="canExpand">
-            <button class="expand-modal-open" @click="openModal">Tap to open</button>
-        </template>
+        <button class="expand-modal-open" @click="openModal">Tap to open</button>
+    </figure>
+    <figure v-else :style="styles + bg">
+        <img v-if="!isVideo"
+            :class="classes"
+            :width="width"
+            :height="height"
+            v-lazy="{src: storage + src + q50, loading: storage + src + thumb }" />
+        <video v-else
+            :class="classes"
+            :poster="poster[0]"
+            :width="width"
+            :height="height"
+            playsinline autoplay loop muted>
+                <source :src="video[0]" type="video/mp4">
+        </video>
+        <label v-if="label !== ''">{{ label }}</label>
     </figure>
 </template>
 
 <script>
+
 const   moz = '-mozjpg',
         extension = '.jpg',
         placeholder = '.mp4.jpg-thumb.jpg',
@@ -38,8 +53,9 @@ export default {
                 q100:               moz + '-uncompressed' + extension,
                 high:               false,
                 styles:             '',
-                poster: [],
-                video: []
+                bg:                 '',
+                poster:             [],
+                video:              []
             }
         },
     props: {
@@ -91,8 +107,15 @@ export default {
             this.styles = {
                 position: 'relative'
             }
+
+        this.setBG();
+
+        window.addEventListener('resize', () => this.setBG());
     },
     methods: {
+        setBG() {
+            this.bg = window.outerWidth <= 1024 ? '; background-image: url('+ (!this.isVideo ? this.storage + this.src + this.thumb :  this.poster[0]) + ');' : '';
+        },
         openModal () {
             let y = window.scrollY;
 

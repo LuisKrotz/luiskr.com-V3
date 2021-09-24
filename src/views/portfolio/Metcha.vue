@@ -42,7 +42,7 @@
                   :isVideo="true"
                   label=""/>
             </div>
-            <div class="project-extra-item">
+            <div class="project-extra-item landscape">
                 <Media
                   src="metcha/feed/metcha.com-2019-website-tour"
                   :width="1463"
@@ -451,39 +451,6 @@
             </div>
         </div>
       </section>
-
-      <section class="project-description">
-        <p class="project-description-text">
-          Check out some mentions of metcha.com on the Made with Laravel and Made with Vue websites. 
-        </p>
-      </section>
-
-      <section class="project-extra">
-        <div class="project-extra-scroll">
-            <div class="project-extra-item landscape">
-                <Media
-                  src="metcha/mentions/metcha.com-featured-on-made-with-laravel"
-                  :width="1440"
-                  :height="504"
-                  label=""/>
-            </div>
-            <div class="project-extra-item landscape">
-                <Media
-                  src="metcha/mentions/metcha.com-featured-on-made-with-vue"
-                  :width="1440"
-                  :height="1488"
-                  label=""/>
-            </div>
-            <div class="project-extra-item landscape">
-                <Media
-                  src="metcha/mentions/metcha.com-featured-on-made-with-vue-twitter`s-account"
-                  :width="1439"
-                  :height="694"
-                  label=""/>
-            </div>
-        </div>
-      </section>
-
 
       <router-view/>
 
