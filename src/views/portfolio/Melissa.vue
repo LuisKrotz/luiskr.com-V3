@@ -9,7 +9,7 @@
             :width="1924"
             :height="960"
             :isVideo="true"
-            label=""/>
+            label="Melissa - Website 2020 tour"/>
       </div>
 
       <section class="project-description">
@@ -39,7 +39,7 @@
                   :height="28800"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Feed mobile 2020 tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -48,7 +48,7 @@
                   :width="1920"
                   :height="1001"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Homepage sreenshoot"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -58,7 +58,7 @@
                   :height="976"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Where to find tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -68,7 +68,7 @@
                   :height="1728"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Where to find mobile tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -77,16 +77,16 @@
                   :width="1920"
                   :height="7009"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Squad page 2020 screenshoot"/>
             </div>
 
             <div class="project-extra-item">
                 <Media
-                  src="melissa/website/squad/melissa-website-squad-2020-full-page"
+                  src="melissa/website/projects/melissa-website-projects-page-2020-full-page"
                   :width="1920"
                   :height="20990"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Projects page 2020 screenshoot"/>
             </div>
         </div>
       </section>
@@ -109,7 +109,7 @@
                   :width="1920"
                   :height="6420"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Article: Alerta de collab inedita"/>
             </div>
 
             <div class="project-extra-item">
@@ -118,16 +118,7 @@
                   :width="1920"
                   :height="8011"
                   :canExpand="true"
-                  label=""/>
-            </div>
-
-            <div class="project-extra-item">
-                <Media
-                  src="melissa/website/articles/melissa-website--articles--artigo-ebulicao-de-cores-e-ideias-2020-12-15-full-page"
-                  :width="1920"
-                  :height="8069"
-                  :canExpand="true"
-                  label=""/>
+                  label="Melissa - Article: Ebulicao de cores e ideias"/>
             </div>
 
             <div class="project-extra-item">
@@ -136,7 +127,7 @@
                   :width="1920"
                   :height="8960"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Article: Reconexao urbana"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -145,7 +136,7 @@
                   :width="1920"
                   :height="1629"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Gallery: Galeria e lancamento squad"/>
             </div>
 
             <div class="project-extra-item">
@@ -154,7 +145,7 @@
                   :width="1920"
                   :height="2292"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Video: Extraordinary x ordinary by two lost kids"/>
             </div>
 
             <div class="project-extra-item">
@@ -163,7 +154,7 @@
                   :width="1920"
                   :height="7389"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Article: Hello Kitty"/>
             </div>
 
             <div class="project-extra-item">
@@ -172,7 +163,7 @@
                   :width="1920"
                   :height="6941"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Article: Viktor and rolf is coming"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -181,7 +172,7 @@
                   :width="1920"
                   :height="1359"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Gallery: Que comecem os festivais"/>
             </div>
         </div>
       </section>
@@ -229,7 +220,7 @@
                   :height="736"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Color Me collection tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -239,7 +230,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Color Me mobile collection tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -249,7 +240,7 @@
                   :height="736"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Dreamers collection tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -259,7 +250,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa -  Dreamers mobile collection tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -269,7 +260,7 @@
                   :height="912"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Family collection tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -279,7 +270,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Family mobile collection tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -289,7 +280,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Flygrl collection tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -299,7 +290,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Flygrl mobile collection tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -309,7 +300,7 @@
                   :height="944"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Mapping collection tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -319,7 +310,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Mapping mobile collection tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -329,7 +320,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Mashup collection tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -339,7 +330,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Mashup mobile collection tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -349,7 +340,7 @@
                   :height="912"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Mirror collection tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -359,7 +350,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Mirror mobile collection tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -369,7 +360,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Open Vibes collection tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -379,7 +370,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Open Vibes mobile collection tour"/>
             </div>
         </div>
       </section>
@@ -417,7 +408,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: A La Garçonne mobile tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -427,7 +418,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: A La Garçonne mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -437,7 +428,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Awaytomars tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -447,7 +438,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Awaytomars mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -457,7 +448,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: CSC tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -467,7 +458,7 @@
                   :height="1792"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: CSC mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -477,7 +468,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Fabula tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -487,7 +478,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Fabula mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -497,7 +488,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Rider tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -507,7 +498,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Rider mobile tour"/>
             </div>
           </div>
       </section>
@@ -530,7 +521,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Special: Bike tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -540,7 +531,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Special: Bike mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -550,7 +541,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Special: Creatives tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -560,7 +551,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Special: Creatives mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -570,7 +561,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Special: Possession tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -580,7 +571,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Special: Possession mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -590,7 +581,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Special: SK8 tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -600,7 +591,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Special: SK8 mobile tour"/>
             </div>
         </div>
       </section>
@@ -624,7 +615,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Campana tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -634,7 +625,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Campana mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -644,7 +635,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Gaetano Pesce tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -654,7 +645,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Gaetano Pesce mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -664,7 +655,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: J Maskrey tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -674,7 +665,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: J Maskrey mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -684,7 +675,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Gareth Pugh tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -694,7 +685,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Gareth Pugh mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -704,7 +695,7 @@
                   :height="928"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Jason Wu tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -714,7 +705,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Jason Wu mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -724,7 +715,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Jeremy Scott tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -734,7 +725,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Jeremy Scott mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -744,7 +735,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Sebastian Errazuriz tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -754,7 +745,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Sebastian Errazuriz mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -764,7 +755,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Karl Lagerfeld tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -774,7 +765,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Karl Lagerfeld mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -784,7 +775,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Vivienne Westwood tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -794,7 +785,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Vivienne Westwood mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -804,7 +795,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Vitorino Campos tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -814,7 +805,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Vitorino Campos mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -824,7 +815,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Zaha Hadid tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -834,7 +825,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Zaha Hadid mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -844,7 +835,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Special: Roller Joy tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -854,7 +845,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Special: Roller Joy mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -864,7 +855,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Special: Tropico Surreal tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -874,7 +865,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Special: Tropico Surreal mobile tour"/>
             </div>
         </div>
       </section>
@@ -895,7 +886,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: Cine Melissa tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -905,7 +896,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: Cine Melissa mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -915,7 +906,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: Dance Machine tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -925,7 +916,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: Dance Machine mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -935,7 +926,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: Eat my Melissa tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -945,7 +936,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: Eat my Melissa mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -955,7 +946,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: Nation tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -965,7 +956,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: Nation mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -975,7 +966,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: Starwalker tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -985,7 +976,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: Starwalker mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -995,7 +986,7 @@
                   :height="880"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: Wanna be Carioca tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -1005,7 +996,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: Wanna be Carioca mobile tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -1015,7 +1006,7 @@
                   :height="896"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: We are flowers tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -1025,7 +1016,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collection: We are flowers mobile tour"/>
             </div>
         </div>
       </section>
@@ -1045,7 +1036,7 @@
                   :height="944"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Baja East tour"/>
             </div>
 
             <div class="project-extra-item landscape">
@@ -1055,7 +1046,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Collab: Baja East mobile tour"/>
             </div>
         </div>
       </section>
@@ -1075,7 +1066,7 @@
                   :height="912"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - LON/NYC/SP Galleries tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -1085,7 +1076,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - LON/NYC/SP Galleries mobile tour"/>
             </div>
         </div>
       </section>
@@ -1105,7 +1096,7 @@
                   :height="784"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Next contest BR tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -1115,7 +1106,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Next contest BR mobile tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -1124,7 +1115,7 @@
                   :width="1920"
                   :height="6971"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Next contest BR - Screenshoot"/>
             </div>
           </div>
       </section>
@@ -1144,7 +1135,7 @@
                   :height="720"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - POP tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -1153,7 +1144,7 @@
                   :width="1920"
                   :height="6264"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - POP - Screenshoot"/>
             </div>
         </div>
       </section>
@@ -1173,7 +1164,7 @@
                   :height="704"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Sustainability tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -1183,7 +1174,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Melissa - Sustainability mobile tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -1192,7 +1183,7 @@
                   :width="1920"
                   :height="23835"
                   :canExpand="true"
-                  label=""/>
+                  label="Melissa - Sustainability - Screenshoot"/>
             </div>
           </div>
       </section>
