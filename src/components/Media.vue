@@ -1,37 +1,39 @@
 <template>
-    <figure v-if="canExpand" @click="openModal" :style="styles">
+    <figure v-if="canExpand" @click="openModal" :style="styles" :title="label">
         <img v-if="!isVideo"
             :class="classes"
             :width="width"
             :height="height"
+            :alt="label"
             v-lazy="{src: storage + src + q50, loading: storage + src + thumb }" />
         <video v-else
             :class="classes"
             :poster="poster[0]"
             :width="width"
             :height="height"
+            :alt="label"
             playsinline autoplay loop muted>
                 <source :src="video[1]" type="video/mp4">
         </video>
-        <label v-if="label !== ''">{{ label }}</label>
 
         <button class="expand-modal-open" @click="openModal">Tap to open</button>
     </figure>
-    <figure v-else :style="styles">
+    <figure v-else :style="styles" :title="label">
         <img v-if="!isVideo"
             :class="classes"
             :width="width"
             :height="height"
+            :alt="label"
             v-lazy="{src: storage + src + q50, loading: storage + src + thumb }" />
         <video v-else
             :class="classes"
             :poster="poster[0]"
             :width="width"
             :height="height"
+            :alt="label"
             playsinline autoplay loop muted>
                 <source :src="video[0]" type="video/mp4">
         </video>
-        <label v-if="label !== ''">{{ label }}</label>
     </figure>
 </template>
 
