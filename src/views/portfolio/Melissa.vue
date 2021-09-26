@@ -51,7 +51,7 @@
                   label=""/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="project-extra-item landscape">
                 <Media
                   src="melissa/website/where-to-find/melissa-website-onde-encontrar-tour"
                   :width="1943"
@@ -139,7 +139,7 @@
                   label=""/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="project-extra-item landscape">
                 <Media
                   src="melissa/website/articles/melissa-website--articles--galeria-e-lancamento-squad-2020-12-15-full-page"
                   :width="1920"
@@ -175,7 +175,7 @@
                   label=""/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="project-extra-item landscape">
                 <Media
                   src="melissa/website/articles/melissa-website--gallery-que-comecem-os-festivais-2020-12-15-18_24_48"
                   :width="1920"

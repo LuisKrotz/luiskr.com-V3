@@ -27,11 +27,13 @@
         transform: translate(-50%, -50%);
         text-transform: uppercase;
         width: 55%;
+        padding: to-rem(0) to-rem($F8);
         background-color: var(--black);
         color: var(--white);
         cursor: pointer;
         height: to-rem($F9);
         line-height: to-rem($F9);
+        margin-bottom: to-rem($F7);
 
         @include layout-1024() {
             text-transform: initial;
@@ -43,8 +45,17 @@
         @include layout-1440() {
             bottom: initial;
             border-radius: to-rem($F9);
-            width: 89%;
+            max-width: to-rem($F13);
             top: 50%;
+        }
+
+        @include layout-1440() {
+            bottom: initial;
+            border-radius: to-rem($F9);
+            max-width: to-rem($F13);
+            top: 50%;
+            height: to-rem($F10);
+            line-height: to-rem($F10);
         }
 
         &:hover,

@@ -16,43 +16,65 @@
     }
 
     &-main {
-      box-sizing: border-box;
-      background-color: var(--black);
+        padding: to-rem($F8);
+        box-sizing: border-box;
+        background-color: var(--black);
 
-      @include layout-1024() {
-        padding: to-rem($F12);
-      }
-
-      &-item {
-        width: 100%;
-        height: auto;
-        display: block;
-        position: relative;
-        margin: 0 auto;
-        object-fit: cover;
-
-        @include layout-1024() {
-            border-radius: to-rem($F7);
-            max-width: 100%;
-            max-height: 100vh;
-            width: auto;
+        @include layout-768() {
+            padding: to-rem($F10);
         }
-      }
-    }
-
-    &-description {
-        max-width: to-rem($F15);
-        margin: 0 auto;
-        padding: to-rem($F10) to-rem($F8);
 
         @include layout-1024() {
             padding: to-rem($F12);
         }
 
+        &-item {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+            margin: 0 auto;
+            object-fit: cover;
+
+            @include layout-1024() {
+                border-radius: to-rem($F7);
+                max-width: 100%;
+                max-height: 100vh;
+                width: auto;
+            }
+        }
+    }
+
+    &-description {
+        margin: 0 auto;
+        padding: to-rem($F9) to-rem($F8);
+
+        @include layout-768() {
+            padding: to-rem($F12) to-rem($F10);
+        }
+
+        @include layout-1024() {
+            max-width: to-rem($F15);
+            padding: to-rem($F12);
+        }
+
+        @include layout-1920() {
+            max-width: to-rem($F16);
+        }
+
+
         &-text {
             @extend .txt-md;
 
             padding-bottom: to-rem($F8);
+
+            @include layout-1920() {
+                padding-bottom: to-rem($F9);
+            }
+
+            @include layout-2560() {
+                padding-bottom: to-rem($F10);
+            }
         }
 
         p::last-of-type {
@@ -69,7 +91,15 @@
 
         /* width */
         &::-webkit-scrollbar {
-            height: 16px;
+            height: to-rem($F6);
+
+            @include layout-1024() {
+                height: to-rem($F7);
+            }
+
+            @include layout-2560() {
+                height: to-rem($F8);
+            }
         }
         
         /* Track */
@@ -88,14 +118,30 @@
         }
 
         &-scroll {
-            padding: to-rem($F8);
+            padding: to-rem($F9) to-rem($F8) to-rem($F9 - $F6);
             display: block;
             white-space: nowrap;
             width: max-content;
             margin: 0 auto;
 
+            @include layout-768() {
+                padding: to-rem($F12) to-rem($F10) to-rem($F12 - $F7);
+            }
+
             @include layout-1024() {
-                padding: to-rem($F12);
+                padding: to-rem($F10) to-rem($F10) to-rem($F10 - $F7);
+            }
+
+            @include layout-1440() {
+                padding: to-rem($F11) to-rem($F11) to-rem($F11 - $F7);
+            }
+
+            @include layout-1920() {
+                padding: to-rem($F12) to-rem($F12) to-rem($F12 - $F7);
+            }
+
+            @include layout-2560() {
+                padding: to-rem($F12) to-rem($F12) to-rem($F12 - $F8);
             }
         }
 
@@ -105,9 +151,20 @@
             color: var(--grey);
             display: inline-block;
             width: min-content;
-            padding: 0 to-rem($F8);
+            padding: 0 to-rem($F7);
             min-height: 100%;
-           
+
+            @include layout-768() {
+                padding: 0 to-rem($F8);
+            }
+
+            @include layout-1440() {
+                padding: 0 to-rem($F9);
+            }
+
+            @include layout-1920() {
+                padding: 0 to-rem($F10);
+            }
 
             &:first-of-type {
                 padding-left: 0;
@@ -119,6 +176,8 @@
 
 
             figure {
+                display: block;
+                position: relative;
                 overflow: hidden;
                 border-radius: to-rem($F2);
 
@@ -134,8 +193,15 @@
                 object-fit: cover;
                 object-position: top center;
                 border-radius: to-rem($F2);
+                border: 1px solid rgba(255, 255 , 255, .15);
+
+                @include layout-768() {
+                    width: calc(90vw - #{to-rem($F9 * 2)});
+                    height: calc(70vh - #{to-rem($F9 * 2)});
+                }
 
                 @include layout-1024() {
+                    border: none;
                     border-radius: to-rem($F6);
                     width: to-rem($F13);
                     height: to-rem($F14);
@@ -154,12 +220,6 @@
             }
 
             &.landscape {
-                figure {
-                    background-position: center top;
-                    background-size: cover;
-                    backdrop-filter: blur(10px);
-                }
-
                 video, img {
                     object-fit: scale-down;
                     object-position: center;
@@ -168,6 +228,19 @@
                         width: auto;
                         object-fit: cover;
                         object-position: center;
+                        max-width: calc(100vw - #{to-rem($F10)});
+                    }
+
+                    @include layout-1280() {
+                        max-width: calc(100vw - #{to-rem($F11)})
+                    }
+
+                    @include layout-1440() {
+                        max-width: calc(100vw - #{to-rem($F14)})
+                    }
+
+                    @include layout-1920() {
+                        max-width: calc(100vw - #{to-rem($F13)})
                     }
                 }
             }

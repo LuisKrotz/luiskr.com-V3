@@ -16,10 +16,21 @@
     }
 
     &-xxl {
-        font-size: to-rem(32);
-        letter-spacing: to-rem(21);
+        font-weight: 700;
+        font-size: to-rem(13);
+        letter-spacing: to-rem(5);
 
-        @mixin layout-1680() {
+        @include layout-768() {
+            font-size: to-rem(21);
+            letter-spacing: to-rem(13);
+        }
+
+        @include layout-1024() {
+            font-size: to-rem(34);
+            letter-spacing: to-rem(21);
+        }
+
+        @include layout-1680() {
             font-size: to-rem(55);
         }
 
@@ -33,20 +44,51 @@
     }
 
     &-xl {
-        font-size: to-rem(89);
-        letter-spacing: to-rem(21);
+        font-weight: 400;
+        font-size: to-rem(21);
+        letter-spacing: to-rem(8);
+
+        @include layout-768() {
+            font-weight: 300;
+            font-size: to-rem(55);
+            letter-spacing: to-rem(13);
+        }
+
+        @include layout-1024() {
+            font-size: to-rem(89);
+            letter-spacing: to-rem(21);
+        }
+
+        @include layout-2560() {
+            font-size: to-rem(144);
+            letter-spacing: to-rem(34);
+        }
     }
 
     &-lg {
-        font-size: to-rem(34);
+        font-size: to-rem(21);
+
+        @include layout-768() {
+            font-size: to-rem(34);
+        }
 
         @include layout-1024() {
             font-size: to-rem(55);
         }
+
+        @include layout-1560() {
+            font-size: to-rem(89);
+        }
     }
 
     &-md {
-        font-size: to-rem(34);
+        font-weight: 400;
+        font-size: to-rem(21);
+
+        @include layout-768() {
+            font-weight: 300;
+            font-size: to-rem(34);
+        }
     }
 
     &-sm,
@@ -55,12 +97,30 @@
     }
 
     &-sm {
-        letter-spacing: to-rem(2.5);
-        font-size: to-rem(21);
+        font-weight: 400;
+        letter-spacing: to-rem(2);
+        font-size: to-rem(13);
+        text-transform: uppercase;
+
+        @include layout-768() {
+            font-weight: 300;
+            font-size: to-rem(21);
+            text-transform: initial;
+            letter-spacing: to-rem(3);
+        }
+
+        @include layout-2560() {
+            font-size: to-rem(34);
+            letter-spacing: to-rem(5);
+        }
     }
 
     &-xs {
         font-size: to-rem(13);
+
+        @include layout-2560() {
+            font-size: to-rem(21);
+        }
     }
 }
 
@@ -84,12 +144,30 @@
     &-md,
     &-sm {
         font-weight: 300;
-        font-size: to-rem(21);
+        font-size: to-rem(13);
+        line-height: to-rem(21);
+
+        @include layout-768() {
+            font-size: to-rem(21);
+            line-height: to-rem(34);
+        }
+    }
+
+    &-md {
+        @include layout-2560() {
+            font-size: to-rem(34);
+            line-height: to-rem(55);
+        }
     }
 
 
     &-sm {
         font-size: to-rem(13);
-        line-height: to-rem(24);
+        line-height: to-rem(21);
+
+        @include layout-2560() {
+            font-size: to-rem(21);
+            line-height: to-rem(34);
+        }
     }
 }

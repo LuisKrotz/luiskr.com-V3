@@ -8,7 +8,20 @@
 
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: auto;
+    aspect-ratio: 3/4;
+
+    @include layout-768() {
+        aspect-ratio: 1/1;
+    }
+
+    @include layout-1024() {
+        aspect-ratio: 16/10;
+    }
+
+    @include layout-1280() {
+        aspect-ratio: 16/9;
+    }
 
 
     &-text {
@@ -18,11 +31,22 @@
         align-items: flex-start;
         justify-content: center;
         text-align: left;
-        width: to-rem($F14);
-        margin-top: to-rem($F11 * -1);
+        width: 100%;
         top: 50%;
         left: 0;
         transform: translate(0, -50%);
+
+        @include layout-540() {
+            width: to-rem($F14);
+        }
+
+        @include layout-1024() {
+            margin-top: to-rem($F11 * -1);
+        }
+
+        @include layout-2560() {
+            width: to-rem($F15);
+        }
 
         h2 {
             @extend .ttl-lg;
@@ -40,8 +64,6 @@
 
         box-sizing: border-box;
         border: to-rem($F1) solid var(--grey-2);
-        width: to-vw($F13 * 1px, $vw-1680);
-        height: to-vw($F13 * 1px, $vw-1680);
         border-radius: 100%;
         display: flex;
         align-items: center;
@@ -49,6 +71,7 @@
         position: absolute;
         cursor: pointer;
         text-decoration: none;
+
 
         &:hover,
         &:focus {
@@ -58,31 +81,134 @@
         &.ptf {
             border: to-rem($F1) solid $color-turquoise;
             animation: bounce-2 20s linear infinite;
-            bottom: to-vw($F12 * 1px, $vw-1680);
-            right: to-vw($F15 * 1px, $vw-1680);
-            width: to-vw($F13 * 1px, $vw-1680);
-            height: to-vw($F13 * 1px, $vw-1680);
+            bottom: to-vw($F9 * -1px, $vw-320);
+            right: to-vw($F12 * 1px, $vw-320);
+            width: to-vw($F12 * 1px, $vw-320);
+            height: to-vw($F12 * 1px, $vw-320);
             color: $color-turquoise;
+
+            @include layout-768() {
+                bottom: to-vw($F12 * -1px, $vw-768);
+                right: to-vw($F14 * 1px, $vw-768);
+                width: to-vw($F14 * 1px, $vw-768);
+                height: to-vw($F14 * 1px, $vw-768);
+            }
+
+            @include layout-1024() {
+                bottom: to-vw($F2 * 1px, $vw-1024);
+                right: to-vw($F13 * 1px, $vw-1024);
+                width: to-vw($F13 * 1px, $vw-1024);
+                height: to-vw($F13 * 1px, $vw-1024);
+            }
+
+            @include layout-1280() {
+                bottom: to-vw($F12 * 1px, $vw-1280);
+                right: to-vw($F14 * 1px, $vw-1280);
+                width: to-vw($F13 * 1px, $vw-1280);
+                height: to-vw($F13 * 1px, $vw-1280);
+            }
+
+            @include layout-1440() {
+                bottom: to-vw($F12 * 1px, $vw-1440);
+                right: to-vw($F15 * 1px, $vw-1440);
+                width: to-vw($F13 * 1px, $vw-1440);
+                height: to-vw($F13 * 1px, $vw-1440);
+            }
+
+            @include layout-1680() {
+                bottom: to-vw($F12 * 1px, $vw-1680);
+                right: to-vw($F15 * 1px, $vw-1680);
+                width: to-vw($F13 * 1px, $vw-1680);
+                height: to-vw($F13 * 1px, $vw-1680);
+            }
         }
 
         &.cnt {
             border: to-rem($F1) solid $color-orange;
-            top: to-vw($F2 * -1px, $vw-1680);
-            right: 0;
-            width: to-vw($F15 * 1px, $vw-1680);
-            height: to-vw($F15 * 1px, $vw-1680);
+            right: to-vw($F9 * -1px, $vw-320);
+            top: to-vw($F9 * -1px, $vw-320);
+            width: to-vw($F13 * 1px, $vw-320);
+            height: to-vw($F13 * 1px, $vw-320);
             animation: bounce-1 40s linear infinite;
             color: $color-orange;
+
+            @include layout-768() {
+                right: to-vw($F11 * -1px, $vw-768);
+                top: to-vw($F9 * -1px, $vw-768);
+                width: to-vw($F14 * 1px, $vw-768);
+                height: to-vw($F14 * 1px, $vw-768);
+            }
+
+            @include layout-1024() {
+                right: to-vw($F10 * -1px, $vw-1024);
+                top: to-vw($F10 * 1px, $vw-1024);
+                width: to-vw($F14 * 1px, $vw-1024);
+                height: to-vw($F14 * 1px, $vw-1024);
+            }
+
+            @include layout-1280() {
+                right: 0;
+                top: to-vw($F10 * 1px, $vw-1280);
+                width: to-vw($F14 * 1px, $vw-1280);
+                height: to-vw($F14 * 1px, $vw-1280);
+            }
+
+            @include layout-1440() {
+                top: to-vw($F8 * -1px, $vw-1440);
+                width: to-vw($F15 * 1px, $vw-1440);
+                height: to-vw($F15 * 1px, $vw-1440);
+            }
+
+            @include layout-1680() {
+                top: to-vw($F2 * -1px, $vw-1680);
+                width: to-vw($F15 * 1px, $vw-1680);
+                height: to-vw($F15 * 1px, $vw-1680);
+            }
         }
 
         &.abt {
             border: to-rem($F1) solid $color-pink;
-            bottom: to-vw($F8 * -1px, $vw-1680);
-            right: to-vw($F12 * 1px, $vw-1680);
-            width: to-vw($F13 * 1px, $vw-1680);
-            height: to-vw($F13 * 1px, $vw-1680);
+            bottom: to-vw($F12 * -1px, $vw-320);
+            right: to-vw($F5 * -1px, $vw-320);
+            width: to-vw($F12 * 1px, $vw-320);
+            height: to-vw($F12 * 1px, $vw-320);
             animation: bounce-3 30s linear infinite;
             color: $color-pink;
+
+            @include layout-768() {
+                bottom: to-vw($F12 * -1px, $vw-768);
+                right: to-vw($F8 * -1px, $vw-768);
+                width: to-vw($F13 * 1px, $vw-768);
+                height: to-vw($F13 * 1px, $vw-768);
+            }
+
+            @include layout-1024() {
+                bottom: to-vw($F10 * -1px, $vw-1024);
+                right: to-vw($F10 * -1px, $vw-1024);
+                width: to-vw($F13 * 1px, $vw-1024);
+                height: to-vw($F13 * 1px, $vw-1024);
+            }
+
+            @include layout-1280() {
+                bottom: to-vw($F9 * 1px, $vw-1280);
+                right: to-vw($F10 * 1px, $vw-1280);
+                width: to-vw($F13 * 1px, $vw-1280);
+                height: to-vw($F13 * 1px, $vw-1280);
+            }
+
+            @include layout-1440() {
+                bottom: to-vw($F9 * -1px, $vw-1440);
+                right: to-vw($F12 * 1px, $vw-1440);
+                width: to-vw($F13 * 1px, $vw-1440);
+                height: to-vw($F13 * 1px, $vw-1440);
+            }
+
+            @include layout-1680() {
+                bottom: to-vw($F8 * -1px, $vw-1680);
+                right: to-vw($F12 * 1px, $vw-1680);
+                width: to-vw($F13 * 1px, $vw-1680);
+                height: to-vw($F13 * 1px, $vw-1680);
+            }
         }
     }
 }
@@ -164,20 +290,28 @@
         @extend %MAXAREA;
         display: grid;
         grid-gap: to-rem($F8);
+        max-width: 100vw;
 
         @include layout-1024() {
+            grid-gap: to-rem($F9);
+        }
+
+        @include layout-1440() {
+            grid-gap: to-rem($F10);
+        }
+
+        @include layout-2560() {
             grid-gap: to-rem($F11);
         }
     }
 
     &-item {
         &-link {
-            background: var(--black);
-            color: var(--white);
-
+            border-radius: to-rem($F5);
+            color: var(--black);
+            border: 1px solid var(--grey-2);
             display: block;
             position: relative;
-            box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, .25);
             overflow: hidden;
 
 
@@ -185,10 +319,19 @@
                 @extend .ttl-xxl;
                 text-transform: uppercase;
                 display: block;
-                font-weight: 700;
+                padding: to-rem($F7);
 
                 @include layout-1024() {
-                    padding: 40px;
+                    padding: to-rem($F8);
+                }
+
+                @include layout-1440() {
+                    padding: to-rem($F9);
+                    padding-right: 30%;
+                }
+
+                @include layout-2560() {
+                    padding: to-rem($F10);
                     padding-right: 30%;
                 }
 
@@ -203,22 +346,21 @@
                 display: block;
                 width: 100%;
                 height: auto;
-                
+                object-fit: cover;
 
-
-                @include layout-1024() {
+                @include layout-1280() {
                     transition: transform .5s ease-in;
                     width: 20%;
                     height: 100%;
                     right: 0;
                     position: absolute;
-                    object-fit: cover;
+
                     transform: translateX(100%);
                 }
 
                 .portfolio-item-link:hover &,
                 .portfolio-item-link:focus & {
-                    @include layout-1024() {
+                    @include layout-1280() {
                         transform: translateX(0);
                     }
                 }
@@ -229,10 +371,36 @@
 
 .awards {
     &-grid {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(1, 1fr);
+
+        @include layout-768() {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include layout-1280() {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @include layout-1560() {
+            grid-template-columns: repeat(5, 1fr);
+        }
     }
 
     &-item {
+        &:first-of-type {
+            @include layout-768() {
+                grid-column: 1 / span 2;
+            }
+
+            @include layout-1280() {
+                grid-column: 1 / span 4;
+            }
+
+            @include layout-1560() {
+                grid-column: 1 / span 1;
+            }
+        }
+
         &-link {
             position: relative;
             display: flex;
@@ -252,6 +420,22 @@
             &-media {
                 font-size: to-rem($F12);
                 height: to-rem($F14);
+
+                @include layout-1024() {
+                    height: to-rem($F15);
+                }
+
+                @include layout-1280() {
+                    height: to-rem($F14);
+                }
+
+                @include layout-2560() {
+                    height: to-rem($F15);
+                }
+
+                @include layout-3840() {
+                    height: to-rem($F16);
+                }
             }
 
             &-year {
@@ -273,22 +457,59 @@
 .about {
     &-grid {
         display: grid;
-        grid-template-columns: repeat(3, auto);
+        grid-template-columns: repeat(1, auto);
         margin: 0;
         padding: 0;
-        grid-gap: 64px;
+        grid-gap: to-rem($F8);
+
+        @include layout-768() {
+            grid-gap: to-rem($F8);
+        }
+
+        @include layout-1024() {
+            grid-template-columns: repeat(2, auto);
+            grid-gap: to-rem($F10);
+        }
+
+        @include layout-1440() {
+            grid-template-columns: repeat(3, auto);
+        }
+
+        @include layout-2560() {
+            grid-template-columns: repeat(4, auto);
+            grid-gap: to-rem($F11);
+        }
+
+        @include layout-3840() {
+            grid-template-columns: repeat(6, auto);
+        }
     }
 
     &-item {
+        box-sizing: border-box;
         position: relative;
-        text-align: justify;
-        padding: 20px 40px;
-        border-radius: 5px;
+        text-align: left;
+        padding: to-rem($F8) to-rem($F7);
+        border-radius: to-rem($F5);
         border: 1px solid var(--grey-2);
+
+        @include layout-768() {
+            padding: to-rem($F8) to-rem($F7);
+            text-align: justify;
+        }
+
+        @include layout-1024() {
+            text-align: justify;
+            padding: to-rem($F8) to-rem($F10);
+        }
 
         &-title {
             @extend .ttl-md;
-            padding-bottom: 32px;
+            padding-bottom: to-rem($F7);
+
+            @include layout-768() {
+                padding-bottom: to-rem($F9);
+            }
         }
 
         &-text {
@@ -301,31 +522,68 @@
 .about,
 .awards {
     @extend %MAXAREA;
-    padding-top: to-rem($F14);
+    padding-top: to-rem($F13);
+
+    @include layout-768() {
+        padding-top: to-rem($F14);
+    }
+
+    @include layout-2560() {
+        padding-top: to-rem($F15);
+    }
+
 
     &-title {
         @extend .ttl-xl;
 
         text-align: center;
-        padding-bottom: 104px;
+        padding-bottom: to-rem($F8);
+
+        @include layout-768() {
+            padding-bottom: to-rem($F11);
+        }
+
+        @include layout-1024() {
+            padding-bottom: to-rem($F12);
+        }
+    
     }
 }
 
 .about,
 .awards {
-    padding-top: to-rem($F13);
+    padding-top: to-rem($F11);
+
+    @include layout-768() {
+        padding-top: to-rem($F13);
+    }
+
+    @include layout-1440() {
+        padding-top: to-rem($F14);
+    }
+
+    @include layout-2560() {
+        padding-top: to-rem($F15);
+    }
 }
 
 .contact {
     @extend %MAXAREA;
 
-    margin-top: to-rem($F12);
-    padding-top: to-rem($F11);
+    margin-top: to-rem($F11);
+    padding-top: to-rem($F10);
     padding-bottom: to-rem($F10);
     background-color: var(--black);
     color: var(--white);
-    
+    display: block;
     text-align: center;
+    max-width: 100%;
+
+    @include layout-768() {
+        margin-top: to-rem($F12);
+        padding-top: to-rem($F11);
+        padding-bottom: to-rem($F10);
+    }
 
     &-title {
         @extend .ttl-lg;
@@ -333,7 +591,11 @@
         text-transform: uppercase;
         color: inherit;
         margin: 0;
-        padding: 0 to-rem($F12) to-rem($F9);
+        padding: 0 to-rem($F7) to-rem($F8);
+
+        @include layout-768() {
+            padding: 0 to-rem($F12) to-rem($F9);
+        }
     }
 
     &-social,
@@ -344,8 +606,6 @@
         color: inherit;
 
         &-link {
-           
-
             color: inherit;
             text-decoration: none;
 
@@ -358,23 +618,50 @@
         &-separator {
             padding: 0 to-rem($F5);
             font-weight: 200;
+            display: none;
+
+            @include layout-768() {
+                display: inline-block;
+            }
         }
     }
 
     &-social {
-        padding: 0 to-rem($F11) to-rem($F7);
+        padding: 0 to-rem($F7) to-rem($F9);
         border-bottom: 1px solid var(--grey);
+
+        @include layout-768() {
+            padding: 0 to-rem($F11) to-rem($F7);
+        }
 
         &-link {
             @extend .ttl-sm;
+
+            display: block;
+            line-height: to-rem($F10);
+
+            @include layout-768() {
+                display: inline-block;
+            }
         }
     }
 
     &-other {
-        padding: to-rem($F7) to-rem($F11) 0;
+        padding: to-rem($F9) to-rem($F7) 0;
+
+        @include layout-768() {
+            padding: to-rem($F7) to-rem($F11) 0;
+        }
 
         &-link {
             @extend .ttl-xs;
+
+            display: block;
+            line-height: to-rem($F10);
+
+            @include layout-768() {
+                display: inline-block;
+            }
         }
     }
 }

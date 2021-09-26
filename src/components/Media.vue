@@ -1,5 +1,5 @@
 <template>
-    <figure v-if="canExpand" @click="openModal" :style="styles + bg">
+    <figure v-if="canExpand" @click="openModal" :style="styles">
         <img v-if="!isVideo"
             :class="classes"
             :width="width"
@@ -17,7 +17,7 @@
 
         <button class="expand-modal-open" @click="openModal">Tap to open</button>
     </figure>
-    <figure v-else :style="styles + bg">
+    <figure v-else :style="styles">
         <img v-if="!isVideo"
             :class="classes"
             :width="width"
@@ -53,7 +53,6 @@ export default {
                 q100:               moz + '-uncompressed' + extension,
                 high:               false,
                 styles:             '',
-                bg:                 '',
                 poster:             [],
                 video:              []
             }
@@ -107,15 +106,8 @@ export default {
             this.styles = {
                 position: 'relative'
             }
-
-        this.setBG();
-
-        window.addEventListener('resize', () => this.setBG());
     },
     methods: {
-        setBG() {
-            this.bg = window.outerWidth <= 1024 ? '; background-image: url('+ (!this.isVideo ? this.storage + this.src + this.thumb :  this.poster[0]) + ');' : '';
-        },
         openModal () {
             let y = window.scrollY;
 
