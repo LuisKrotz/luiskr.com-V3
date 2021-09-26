@@ -4,7 +4,7 @@
       <h1 class="internal-title">Minimelissa</h1>
       <div class="internal-main">
           <Media
-            classes="project-main-item"
+            classes="internal-main-item"
             src="minimelissa/website/minimelissa.com.br-31-03-19"
             :width="1943"
             :height="976"

@@ -4,7 +4,7 @@
       <h1 class="internal-title">Transa</h1>
       <div class="internal-main">
           <Media
-            classes="project-main-item"
+            classes="internal-main-item"
             src="transainc/website-2021/transainc.com-feed-short-tour"
             :width="1929"
             :height="1008"

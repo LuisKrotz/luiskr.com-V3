@@ -4,7 +4,7 @@
       <h1 class="internal-title">Vibra</h1>
       <div class="internal-main">
           <Media
-            classes="project-main-item"
+            classes="internal-main-item"
             src="vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-tour"
             :width="1438"
             :height="784"

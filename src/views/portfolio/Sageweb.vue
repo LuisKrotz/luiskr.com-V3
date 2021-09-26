@@ -4,7 +4,7 @@
       <h1 class="internal-title">Sageweb</h1>
       <div class="internal-main">
         <Media
-          classes="project-main-item"
+          classes="internal-main-item"
           src="genesysinf/genesysinf-sageweb-2015-atalhos"
           :width="1366"
           :height="649"

@@ -4,7 +4,7 @@
       <h1 class="internal-title">MOR</h1>
       <div class="internal-main">
           <Media
-            classes="project-main-item"
+            classes="internal-main-item"
             src="mor/site/mor.com.br-31-03-19"
             :width="1947"
             :height="976"

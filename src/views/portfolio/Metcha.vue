@@ -4,7 +4,7 @@
       <h1 class="internal-title">METCHA</h1>
       <div class="internal-main">
           <Media
-            classes="project-main-item"
+            classes="internal-main-item"
             src="metcha/feed/metcha.com-2020-2021-website-tour"
             :width="1924"
             :height="928"
