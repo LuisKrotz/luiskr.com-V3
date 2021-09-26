@@ -313,11 +313,17 @@
             display: block;
             position: relative;
             overflow: hidden;
+            text-transform: uppercase;
+
+
+            @include layout-1680() {
+                text-transform: initial;
+                color: var(--grey);
+            }
 
 
             &-text {
                 @extend .ttl-xxl;
-                text-transform: uppercase;
                 display: block;
                 padding: to-rem($F7);
 

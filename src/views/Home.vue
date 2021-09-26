@@ -24,15 +24,21 @@
       <h2 id="portfolio" class="portfolio-title" ref="portfolio">PORTFOLIO</h2>
       <ul class="portfolio-grid">
         <li class="portfolio-item">
-          <router-link class="portfolio-item-link" to="/portfolio/metcha">
-            <img class="portfolio-item-link-media" :src="storage + 'covers/metcha.jpg'" />
-            <span class="portfolio-item-link-text">Metcha</span>
+          <router-link class="portfolio-item-link" to="/portfolio/brazilian-leather">
+            <img class="portfolio-item-link-media" :src="storage + 'covers/brazilian-leather.jpg'" />
+            <span class="portfolio-item-link-text">Brazilian Leather</span>
           </router-link>
         </li>
         <li class="portfolio-item">
-          <router-link class="portfolio-item-link" to="/portfolio/transa">
-            <img class="portfolio-item-link-media" :src="storage + 'covers/transa.jpg'" />
-            <span class="portfolio-item-link-text">Transa</span>
+          <router-link class="portfolio-item-link" to="/portfolio/coza">
+            <img class="portfolio-item-link-media" :src="storage + 'covers/coza.jpg'" />
+            <span class="portfolio-item-link-text">Coza</span>
+          </router-link>
+        </li>
+        <li class="portfolio-item">
+          <router-link class="portfolio-item-link" to="/portfolio/genesysinf-sageweb">
+            <img class="portfolio-item-link-media" :src="storage + 'covers/sageweb.jpg'" />
+            <span class="portfolio-item-link-text">Genesysinf</span>
           </router-link>
         </li>
         <li class="portfolio-item">
@@ -48,15 +54,15 @@
           </router-link>
         </li>
         <li class="portfolio-item">
-          <router-link class="portfolio-item-link"  to="/portfolio/minimelissa">
-            <img class="portfolio-item-link-media" :src="storage + 'covers/minimelissa-cropped.jpeg'" />
-            <span class="portfolio-item-link-text">Mini Melissa</span>
+          <router-link class="portfolio-item-link" to="/portfolio/metcha">
+            <img class="portfolio-item-link-media" :src="storage + 'covers/metcha.jpg'" />
+            <span class="portfolio-item-link-text">Metcha</span>
           </router-link>
         </li>
         <li class="portfolio-item">
-          <router-link class="portfolio-item-link" to="/portfolio/brazilian-leather">
-            <img class="portfolio-item-link-media" :src="storage + 'covers/brazilian-leather.jpg'" />
-            <span class="portfolio-item-link-text">Brazilian Leather</span>
+          <router-link class="portfolio-item-link"  to="/portfolio/minimelissa">
+            <img class="portfolio-item-link-media" :src="storage + 'covers/minimelissa-cropped.jpeg'" />
+            <span class="portfolio-item-link-text">Mini Melissa</span>
           </router-link>
         </li>
         <li class="portfolio-item">
@@ -66,21 +72,15 @@
           </router-link>
         </li>
         <li class="portfolio-item">
-          <router-link class="portfolio-item-link" to="/portfolio/coza">
-            <img class="portfolio-item-link-media" :src="storage + 'covers/coza.jpg'" />
-            <span class="portfolio-item-link-text">Coza</span>
+          <router-link class="portfolio-item-link" to="/portfolio/transa">
+            <img class="portfolio-item-link-media" :src="storage + 'covers/transa.jpg'" />
+            <span class="portfolio-item-link-text">Transa</span>
           </router-link>
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link" to="/portfolio/vibra">
             <img class="portfolio-item-link-media" :src="storage + 'covers/vibra.jpg'" />
             <span class="portfolio-item-link-text">Vibra</span>
-          </router-link>
-        </li>
-        <li class="portfolio-item">
-          <router-link class="portfolio-item-link" to="/portfolio/genesysinf-sageweb">
-            <img class="portfolio-item-link-media" :src="storage + 'covers/sageweb.jpg'" />
-            <span class="portfolio-item-link-text">Genesysinf</span>
           </router-link>
         </li>
       </ul>

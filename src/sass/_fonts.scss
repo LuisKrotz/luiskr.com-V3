@@ -16,7 +16,6 @@
     }
 
     &-xxl {
-        font-weight: 700;
         font-size: to-rem(13);
         letter-spacing: to-rem(5);
 
@@ -26,20 +25,22 @@
         }
 
         @include layout-1024() {
-            font-size: to-rem(34);
-            letter-spacing: to-rem(21);
+            font-weight: 100;
+            font-size: to-rem(21);
+            letter-spacing: to-rem(13);
         }
 
         @include layout-1680() {
             font-size: to-rem(55);
+            letter-spacing: to-rem(21);
         }
 
         @include layout-2560() {
-            font-size: to-rem(89);
+            font-size: to-rem(55);
         }
 
         @include layout-3840() {
-            font-size: to-rem(144);
+            font-size: to-rem(89);
         }
     }
 
