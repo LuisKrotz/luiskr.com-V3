@@ -61,11 +61,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "sageweb" */ '../views/portfolio/Sageweb.vue')
   },
   {
-    path: '/heritage',
-    name: 'Heritage',
-    component: () => import(/* webpackChunkName: "sageweb" */ '../views/Heritage.vue')
-  },
-  {
     path: '/privacy-policy',
     name: 'Privacy Policy',
     component: () => import(/* webpackChunkName: "sageweb" */ '../views/footer/PrivacyPolicy.vue')

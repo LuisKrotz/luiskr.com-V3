@@ -186,17 +186,15 @@
     <div class="contact">
       <h2 id="contact" class="contact-title" ref="contact">Contact</h2>
       <div class="contact-social">
-        <a href="#" class="contact-social-link">Mail</a>
+        <a href="mailto:luis.krotz@gmail.com" target="_blank" class="contact-social-link">Mail</a>
         <span class="contact-social-separator">•</span>
-        <a href="#" class="contact-social-link">Linkedin</a>
+        <a href="https://www.linkedin.com/in/luis-kr%C3%B6tz" target="_blank" class="contact-social-link">Linkedin</a>
         <span class="contact-social-separator">•</span>
-        <a href="#" class="contact-social-link">Github</a>
+        <a href="https://github.com/LuisKrotz" target="_blank" class="contact-social-link">Github</a>
         <span class="contact-social-separator">•</span>
-        <a href="#" class="contact-social-link">Instagram</a>
+        <a href="https://www.instagram.com/j_luiskrotz" target="_blank" class="contact-social-link">Instagram</a>
       </div>
       <div class="contact-other">
-        <router-link class="contact-other-link" to="/heritage">Heritage</router-link>
-        <span class="contact-other-separator">•</span>
         <router-link class="contact-other-link" to="/privacy-policy">Privacy Policy</router-link>
         <span class="contact-other-separator">•</span>
         <router-link class="contact-other-link" to="/GDPR">GDPR</router-link>

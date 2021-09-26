@@ -1,8 +1,8 @@
 <template>
   <div :class="modal.class">
     <div id="#main" class="project modal-below" :style="'transform: translateY(-' + modal.transform + 'px);'">
-      <h1 class="project-title">Sageweb</h1>
-      <div class="project-main">
+      <h1 class="internal-title">Sageweb</h1>
+      <div class="internal-main">
         <Media
           classes="project-main-item"
           src="genesysinf/genesysinf-sageweb-2015-atalhos"
@@ -11,15 +11,15 @@
           label="Sageweb: shortcuts screenshoot"/>
       </div>
 
-      <section class="project-description">
-        <h2 class="project-description-text">Sage is a project developed by Genesysinf, at the city of Santana do Livramento, in Brazil, and is a fiscal software.</h2>
-        <p class="project-description-text">I worked in the new version of Sage, the Sageweb in C# and Asp.net, in this Project I was working as fullstack developer, in the development team for a year. </p>
-        <p class="project-description-text">The project consisted of porting the Sage for desktop software code to a new Web Version, with challenges like connecting fiscal printer drivers to a web application, generating and printing custom fiscal reports and developing an interface similar to the Sage desktop. </p>
+      <section class="internal-description">
+        <h2 class="internal-description-text">Sage is a project developed by Genesysinf, at the city of Santana do Livramento, in Brazil, and is a fiscal software.</h2>
+        <p class="internal-description-text">I worked in the new version of Sage, the Sageweb in C# and Asp.net, in this Project I was working as fullstack developer, in the development team for a year. </p>
+        <p class="internal-description-text">The project consisted of porting the Sage for desktop software code to a new Web Version, with challenges like connecting fiscal printer drivers to a web application, generating and printing custom fiscal reports and developing an interface similar to the Sage desktop. </p>
       </section>
 
-      <section class="project-extra">
-        <div class="project-extra-scroll">
-          <div class="project-extra-item landscape">
+      <section class="internal-extra">
+        <div class="internal-extra-scroll">
+          <div class="internal-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-cadastros-sageweb"
                   :width="1352"
@@ -27,7 +27,7 @@
                   :canExpand="true"
                   label="Sageweb: 'Cadastros' screenshoot"/>
             </div>
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-color-picker"
                   :width="1353"
@@ -35,7 +35,7 @@
                   :canExpand="true"
                   label="Sageweb: color picker screenshoot"/>
             </div>
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-filtros"
                   :width="1352"
@@ -43,7 +43,7 @@
                   :canExpand="true"
                   label="Sageweb: filters screenshoot"/>
             </div>
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-intro"
                   :width="1351"
@@ -51,7 +51,7 @@
                   :canExpand="true"
                   label="Sageweb: intro screenshoot"/>
             </div>
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-mapa-sageweb"
                   :width="1366"
@@ -59,7 +59,7 @@
                   :canExpand="true"
                   label="Sageweb: 'mapa sageweb' screenshoot"/>
             </div>
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-modulo-NFE"
                   :width="1352"
@@ -67,7 +67,7 @@
                   :canExpand="true"
                   label="Sageweb: 'módulo NFE' screenshoot"/>
             </div>
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-orndenar-atalhos"
                   :width="1351"
@@ -75,7 +75,7 @@
                   :canExpand="true"
                   label="Sageweb: shortcuts ordering screenshoot"/>
             </div>
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-personalizar"
                   :width="1354"
@@ -83,7 +83,7 @@
                   :canExpand="true"
                   label="Sageweb: personalization screenshoot"/>
             </div>
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-relatórios-gerenciais"
                   :width="1351"
@@ -91,7 +91,7 @@
                   :canExpand="true"
                   label="Sageweb: 'Relatórios Gerenciais' screenshoot"/>
             </div>
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-relatórios-gerenciais-por-mes"
                   :width="1350"
@@ -99,7 +99,7 @@
                   :canExpand="true"
                   label="Sageweb: 'Relatórios Gerenciais por mês' screenshoot"/>
             </div>
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-sistema-de-pesquisas-em-jquery"
                   :width="1366"
@@ -107,7 +107,7 @@
                   :canExpand="true"
                   label="Sageweb: search system screenshoot"/>
             </div>
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="genesysinf/genesysinf-sageweb-2015-temas"
                   :width="1352"
@@ -158,6 +158,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../sass/projects';
+@import '../../sass/internals';
 @import '../../sass/modal';
 </style>

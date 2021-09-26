@@ -1,8 +1,8 @@
 <template>
   <div :class="modal.class">
     <div id="#main" class="project modal-below" :style="'transform: translateY(-' + modal.transform + 'px);'">
-      <h1 class="project-title">Vibra</h1>
-      <div class="project-main">
+      <h1 class="internal-title">Vibra</h1>
+      <div class="internal-main">
           <Media
             classes="project-main-item"
             src="vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-tour"
@@ -12,23 +12,23 @@
             label="Vibra: A empresa mais inovadora do segmento no brasil / tour"/>
       </div>
 
-      <section class="project-description">
-        <h2 class="project-description-text">
+      <section class="internal-description">
+        <h2 class="internal-description-text">
            Vibra is a website developed at transa in 2016.
         </h2>
-        <p class="project-description-text">
+        <p class="internal-description-text">
           Vibra's project was the first project I participated at Transa, guided by Cristiano Becker and with the help of Renan Machado.
         </p>
-        <p class="project-description-text">
+        <p class="internal-description-text">
           Vibra's project is a portal develped for the Vibra Brand.
         </p>
-        <p class="project-description-text">
+        <p class="internal-description-text">
           It was developed in node.js, CSS, Javascript and Html, with a pixel perfect layout and many svg's created programmatically to demonstrate the brand's processes.
         </p>
       </section>
-      <section class="project-extra">
-        <div class="project-extra-scroll">
-          <div class="project-extra-item">
+      <section class="internal-extra">
+        <div class="internal-extra-scroll">
+          <div class="internal-extra-item">
               <Media
                 src="vibra/https-www.vibra.com.br-mobile"
                 :width="832"
@@ -37,7 +37,7 @@
                 :isVideo="true"
                 label="Vibra: A empresa mais inovadora do segmento no brasil /  tour mobile"/>
           </div>
-          <div class="project-extra-item">
+          <div class="internal-extra-item">
               <Media
                 src="vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-production-and-distributuon-business-full-page"
                 :width="1920"
@@ -45,7 +45,7 @@
                 :canExpand="true"
                 label="Vibra: A empresa mais inovadora do segmento no brasil  / production and distributuon business full page"/>
           </div>
-          <div class="project-extra-item">
+          <div class="internal-extra-item">
               <Media
                 src="vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-our-brands-full-page"
                 :width="1920"
@@ -53,7 +53,7 @@
                 :canExpand="true"
                 label="Vibra: A empresa mais inovadora do segmento no brasil /  our brands full page"/>
           </div>
-          <div class="project-extra-item">
+          <div class="internal-extra-item">
               <Media
                 src="vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-more-than-five-decades-of-experience-and-tradition-in-aviculture-about-us-full-page"
                 :width="1920"
@@ -106,6 +106,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../sass/projects';
+@import '../../sass/internals';
 @import '../../sass/modal';
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div :class="modal.class">
     <div id="#main" class="project modal-below" :style="'transform: translateY(-' + modal.transform + 'px);'">
-      <h1 class="project-title">Melissa</h1>
-      <div class="project-main">
+      <h1 class="internal-title">Melissa</h1>
+      <div class="internal-main">
           <Media
-            classes="project-main-item"
+            classes="internal-main-item"
             src="melissa/website/tour/melissa-website-2020-tour"
             :width="1924"
             :height="960"
@@ -12,25 +12,25 @@
             label="Melissa - Website 2020 tour"/>
       </div>
 
-      <section class="project-description">
-        <h2 class="project-description-text">
+      <section class="internal-description">
+        <h2 class="internal-description-text">
            Melissa's website was a project developed by Transa.
         </h2>
-        <p class="project-description-text">
+        <p class="internal-description-text">
           I worked on the froject from 2016 to 2020, when the project was ended. Initially as a Jr. Front end Developer, guided by Cristiano Becker and ended as a Full Front End Developer by the end of the project.
         </p>
-        <p class="project-description-text">
+        <p class="internal-description-text">
           Melissa' website was a portal connecting all thigs related to the Melissa Brand. It had many feeds, connected with the brand social media and original content created at Transa.
         </p>
-        <p class="project-description-text">
+        <p class="internal-description-text">
           The project was developed in Vanilla JS (with prototype), CSS (Less) and PHP (Laravel).
         </p>
-        <p class="project-description-text">
+        <p class="internal-description-text">
           The website also had a where to find, connected to the Google maps API listing all places where the brand can be found.
         </p>
       </section>
 
-      <section class="project-extra">
+      <section class="internal-extra">
         <div class="project-extra-scroll">
             <div class="project-extra-item">
                 <Media
@@ -606,9 +606,9 @@
       </section>
 
 
-      <section class="project-extra">
-        <div class="project-extra-scroll">
-            <div class="project-extra-item landscape">
+      <section class="internal-extra">
+        <div class="internal-extra-scroll">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/campana/melissa.com.br-collabs-campana-31-03-19"
                   :width="1840"
@@ -618,7 +618,7 @@
                   label="Melissa - Collab: Campana tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/campana/melissa.com.br-collabs-campana-31-03-19-1-mobile"
                   :width="831"
@@ -628,7 +628,7 @@
                   label="Melissa - Collab: Campana mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/gaetano-pesce/melissa-collab-gaetano-pesce-tour"
                   :width="1838"
@@ -638,7 +638,7 @@
                   label="Melissa - Collab: Gaetano Pesce tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/gaetano-pesce/melissa.com.br-collabs-gaetano-pesce-31-03-19-1-mobile"
                   :width="834"
@@ -648,7 +648,7 @@
                   label="Melissa - Collab: Gaetano Pesce mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/j-maskrey/melissa.com.br-collabs-j-maskrey-31-03-19"
                   :width="1842"
@@ -658,7 +658,7 @@
                   label="Melissa - Collab: J Maskrey tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/j-maskrey/melissa.com.br-collabs-j-maskrey-31-03-19-1-mobile"
                   :width="833"
@@ -668,7 +668,7 @@
                   label="Melissa - Collab: J Maskrey mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/gareth-pugh/melissa.com.br-collabs-gareth-pugh"
                   :width="1814"
@@ -678,7 +678,7 @@
                   label="Melissa - Collab: Gareth Pugh tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/gareth-pugh/melissa.com.br-collabs-gareth-pugh-1-mobile"
                   :width="833"
@@ -688,7 +688,7 @@
                   label="Melissa - Collab: Gareth Pugh mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/jason-wu/melissa.com.br-collabs-jason-wu-31-03-19"
                   :width="1839"
@@ -698,7 +698,7 @@
                   label="Melissa - Collab: Jason Wu tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/jason-wu/melissa.com.br-collabs-jason-wu-31-03-19-1-mobile"
                   :width="834"
@@ -708,7 +708,7 @@
                   label="Melissa - Collab: Jason Wu mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/jeremy-scott/melissa.com.br-collabs-jeremy-scott-31-03-19"
                   :width="1844"
@@ -718,7 +718,7 @@
                   label="Melissa - Collab: Jeremy Scott tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/jeremy-scott/melissa.com.br-collabs-jeremy-scott-31-03-19-1-mobile"
                   :width="828"
@@ -728,7 +728,7 @@
                   label="Melissa - Collab: Jeremy Scott mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/sebastian-errazuriz/melissa.com.br-collabs-sebastian-errazuriz-31-03-19"
                   :width="1844"
@@ -738,7 +738,7 @@
                   label="Melissa - Collab: Sebastian Errazuriz tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/sebastian-errazuriz/melissa.com.br-collabs-sebastian-errazuriz-31-03-19-1-mobile"
                   :width="832"
@@ -748,7 +748,7 @@
                   label="Melissa - Collab: Sebastian Errazuriz mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/karl-lagerfeld/melissa.com.br-collabs-karl-lagerfeld-31-03-19"
                   :width="1842"
@@ -758,7 +758,7 @@
                   label="Melissa - Collab: Karl Lagerfeld tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/karl-lagerfeld/melissa.com.br-collabs-karl-lagerfeld-31-03-19-1-mobile"
                   :width="828"
@@ -768,7 +768,7 @@
                   label="Melissa - Collab: Karl Lagerfeld mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/vivienne-westwood/melissa.com.br-collabs-vivienne-westwood-31-03-19"
                   :width="1820"
@@ -778,7 +778,7 @@
                   label="Melissa - Collab: Vivienne Westwood tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/vivienne-westwood/melissa.com.br-collabs-vivienne-westwood-31-03-19-1-mobile"
                   :width="834"
@@ -788,7 +788,7 @@
                   label="Melissa - Collab: Vivienne Westwood mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/vitorino-campos/melissa.com.br-collabs-vitorino-campos-31-03-19"
                   :width="1836"
@@ -798,7 +798,7 @@
                   label="Melissa - Collab: Vitorino Campos tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/vitorino-campos/melissa.com.br-collabs-vitorino-campos-31-03-19-1-mobile"
                   :width="833"
@@ -808,7 +808,7 @@
                   label="Melissa - Collab: Vitorino Campos mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/maintenence/zaha-hadid/melissa.com.br-collabs-zaha-hadid-31-03-19"
                   :width="1840"
@@ -818,7 +818,7 @@
                   label="Melissa - Collab: Zaha Hadid tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collabs/maintenence/zaha-hadid/melissa.com.br-collabs-zaha-hadid-31-03-19-1-mobile"
                   :width="833"
@@ -828,7 +828,7 @@
                   label="Melissa - Collab: Zaha Hadid mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/specials/maintenence/roller-joy/melissa-specials-roller-joy-tour"
                   :width="1812"
@@ -838,7 +838,7 @@
                   label="Melissa - Special: Roller Joy tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/specials/maintenence/roller-joy/melissa.com.br-specials-roller-joy-31-03-19-1-mobile"
                   :width="833"
@@ -848,7 +848,7 @@
                   label="Melissa - Special: Roller Joy mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/specials/maintenence/tropico-surreal/melissa-specials-tropico-surreal-tour"
                   :width="1844"
@@ -858,7 +858,7 @@
                   label="Melissa - Special: Tropico Surreal tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/specials/maintenence/tropico-surreal/melissa.com.br-specials-tropico-surreal-31-03-19-1-mobile"
                   :width="833"
@@ -871,15 +871,15 @@
       </section>
 
 
-      <section class="project-description">
-        <p class="project-description-text">
+      <section class="internal-description">
+        <p class="internal-description-text">
           Like the special and collab pages, many collections also had to be optimized and got some fixes, like, Cine Melissa, Dance Machine, Eat my Melissa, Nation, Starwalker, Wanna be Carica and We are Flowers, with special care to the mobile layout and performance of these collections.
         </p>
       </section>
 
-      <section class="project-extra">
-        <div class="project-extra-scroll">
-            <div class="project-extra-item landscape">
+      <section class="internal-extra">
+        <div class="internal-extra-scroll">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/cine-melissa/melissa-colecoes-cine-melissa-tour"
                   :width="1836"
@@ -889,7 +889,7 @@
                   label="Melissa - Collection: Cine Melissa tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collections/maintenence/cine-melissa/melissa.com.br-colecoes-cine-melissa-31-03-19-maintenence-1-mobile"
                   :width="833"
@@ -899,7 +899,7 @@
                   label="Melissa - Collection: Cine Melissa mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/dance-machine/melissa-colecoes-dance-machine-tour"
                   :width="1840"
@@ -909,7 +909,7 @@
                   label="Melissa - Collection: Dance Machine tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collections/maintenence/dance-machine/melissa.com.br-colecoes-dance-machine-31-03-19-manutencao-1-mobile"
                   :width="834"
@@ -919,7 +919,7 @@
                   label="Melissa - Collection: Dance Machine mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/eat-my-melissa/melissa.com.br-colecoes-eat-my-melissa-31-03-19-"
                   :width="1816"
@@ -929,7 +929,7 @@
                   label="Melissa - Collection: Eat my Melissa tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collections/maintenence/eat-my-melissa/melissa.com.br-colecoes-eat-my-melissa-31-03-19-manutencao-1-mobile"
                   :width="833"
@@ -939,7 +939,7 @@
                   label="Melissa - Collection: Eat my Melissa mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/nation/melissa-colecoes-nation-tour"
                   :width="1836"
@@ -949,7 +949,7 @@
                   label="Melissa - Collection: Nation tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collections/maintenence/nation/melissa.com.br-colecoes-nation-31-01-19-maintenence-1-mobile"
                   :width="834"
@@ -959,7 +959,7 @@
                   label="Melissa - Collection: Nation mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/star-walker/melissa-colecoes-starwalker-tour"
                   :width="1812"
@@ -969,7 +969,7 @@
                   label="Melissa - Collection: Starwalker tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collections/maintenence/star-walker/melissa.com.br-colecoes-starwalker-31-03-19-manutencao-1-mobile"
                   :width="833"
@@ -979,7 +979,7 @@
                   label="Melissa - Collection: Starwalker mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/wanna-be-carioca/wanna-be-carioca"
                   :width="1834"
@@ -989,7 +989,7 @@
                   label="Melissa - Collection: Wanna be Carioca tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collections/maintenence/wanna-be-carioca/melissa.com.br-colecoes-wanna-be-carioca-31-03-19-manutencao-1-mobile"
                   :width="834"
@@ -999,7 +999,7 @@
                   label="Melissa - Collection: Wanna be Carioca mobile tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collections/maintenence/we-are-flowers/melissa-colecoes-we-are-flowers-tour"
                   :width="1838"
@@ -1009,7 +1009,7 @@
                   label="Melissa - Collection: We are flowers tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/collections/maintenence/we-are-flowers/melissa.com.br-colecoes-we-are-flowers-31-03-19-manutencao-1-mobile"
                   :width="832"
@@ -1021,15 +1021,15 @@
         </div>
       </section>
 
-      <section class="project-description">
-        <p class="project-description-text">
+      <section class="internal-description">
+        <p class="internal-description-text">
           I also played a role leading the front end team of the project in the late years of the project life-cycle, by guiding members of the Front end developer team in pages like Baja East.
         </p>
       </section>
 
-      <section class="project-extra">
-        <div class="project-extra-scroll">
-            <div class="project-extra-item landscape">
+      <section class="internal-extra">
+        <div class="internal-extra-scroll">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/guiding/baja-east/melissa.com.br-collabs-baja-east-31-03-19"
                   :width="1932"
@@ -1039,7 +1039,7 @@
                   label="Melissa - Collab: Baja East tour"/>
             </div>
 
-            <div class="project-extra-item landscape">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/collabs/guiding/baja-east/melissa.com.br-collabs-baja-east-31-03-19-1-mobile"
                   :width="832"
@@ -1051,15 +1051,15 @@
         </div>
       </section>
 
-      <section class="project-description">
-        <p class="project-description-text">
+      <section class="internal-description">
+        <p class="internal-description-text">
           During the website life-cycle, many pages got updated and where constanltly evolving, such is the case for the Gallerie pages, pages that showed melissas physical locations on the website.
         </p>
       </section>
 
-      <section class="project-extra">
-        <div class="project-extra-scroll">
-            <div class="project-extra-item landscape">
+      <section class="internal-extra">
+        <div class="internal-extra-scroll">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/galleries/melissa-galleries-tour"
                   :width="1928"
@@ -1069,7 +1069,7 @@
                   label="Melissa - LON/NYC/SP Galleries tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/galleries/melissa.com.br-galerias-31-03-19-1-mobile"
                   :width="834"
@@ -1081,15 +1081,15 @@
         </div>
       </section>
 
-      <section class="project-description">
-        <p class="project-description-text">
+      <section class="internal-description">
+        <p class="internal-description-text">
           Melissa's project was always creating something new, like the Melissa Next contest on UK and BR, and I coded the front end of both page of the contest.
         </p>
       </section>
 
-      <section class="project-extra">
-          <div class="project-extra-scroll">
-            <div class="project-extra-item landscape">
+      <section class="internal-extra">
+          <div class="internal-extra-scroll">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/next/melissa-next-contest-tour"
                   :width="1443"
@@ -1099,7 +1099,7 @@
                   label="Melissa - Next contest BR tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/next/melissa-next-br-mobile"
                   :width="832"
@@ -1109,7 +1109,7 @@
                   label="Melissa - Next contest BR mobile tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/next/melissa-next-contest-2020-12-15-18_21_44"
                   :width="1920"
@@ -1120,15 +1120,15 @@
           </div>
       </section>
 
-      <section class="project-description">
-        <p class="project-description-text">
+      <section class="internal-description">
+        <p class="internal-description-text">
           In the last year of the project, I also coded Melissa POP, a page to show many of the most popular Melissa shoes of all time.
         </p>
       </section>
 
-      <section class="project-extra">
-        <div class="project-extra-scroll">
-            <div class="project-extra-item landscape">
+      <section class="internal-extra">
+        <div class="internal-extra-scroll">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/pop/melissa-pop-2020"
                   :width="1452"
@@ -1138,7 +1138,7 @@
                   label="Melissa - POP tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/pop/melissa-pop-2020-full-page"
                   :width="1920"
@@ -1149,15 +1149,15 @@
         </div>
       </section>
 
-      <section class="project-description">
-        <p class="project-description-text">
+      <section class="internal-description">
+        <p class="internal-description-text">
           The last page I participated during the project life-cycle, was the sustainability page, a page with lots of animations, graphyc elements, and a cool vibe to aproach sustainability. All the code was done in Vanilla JS and CSS only.
         </p>
       </section>
 
-      <section class="project-extra">
-          <div class="project-extra-scroll">
-            <div class="project-extra-item landscape">
+      <section class="internal-extra">
+          <div class="internal-extra-scroll">
+            <div class="internal-extra-item landscape">
                 <Media
                   src="melissa/sustainability/melissa-sustainability-tour"
                   :width="1469"
@@ -1167,7 +1167,7 @@
                   label="Melissa - Sustainability tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/sustainability/https-www.melissa.com.br-sobre-sustentabilidade-17-10-19-mobile"
                   :width="831"
@@ -1177,7 +1177,7 @@
                   label="Melissa - Sustainability mobile tour"/>
             </div>
 
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="melissa/sustainability/melissa-sustainability-full-page"
                   :width="1920"
@@ -1232,6 +1232,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../sass/projects';
+@import '../../sass/internals';
 @import '../../sass/modal';
 </style>

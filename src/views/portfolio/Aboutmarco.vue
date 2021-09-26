@@ -1,10 +1,10 @@
 <template>
   <div :class="modal.class">
     <div id="#main" class="project modal-below" :style="'transform: translateY(-' + modal.transform + 'px);'">
-      <h1 class="project-title">Marco Almeida</h1>
-      <div class="project-main">
+      <h1 class="internal-title">Marco Almeida</h1>
+      <div class="internal-main">
             <Media
-              classes="project-main-item"
+              classes="internal-main-item"
               src="aboutmarco/home/aboutmarco.com-2020-full-page-home-tour"
               :width="1462"
               :height="784"
@@ -12,27 +12,27 @@
               label="aboutmarco.com - homepage full tour"/>
       </div>
 
-      <section class="project-description">
-        <h2 class="project-description-text">
+      <section class="internal-description">
+        <h2 class="internal-description-text">
           Marco's Portfolio was developed as a Freelancing project in 2021.
         </h2>
-        <p class="project-description-text">
+        <p class="internal-description-text">
           It uses Vue.JS and Sass.
         </p>
-        <p class="project-description-text">
+        <p class="internal-description-text">
           All animations are done in css.
         </p>
-        <p class="project-description-text">
+        <p class="internal-description-text">
           The main goal to achieve was to create a pixel perfect project, with smooth animations and a pixel perfect UI.
         </p>
-        <p class="project-description-text">
+        <p class="internal-description-text">
           I also did the server setup at Digital Ocean.
         </p>
       </section>
 
-      <section class="project-extra">
-        <div class="project-extra-scroll">
-            <div class="project-extra-item">
+      <section class="internal-extra">
+        <div class="internal-extra-scroll">
+            <div class="internal-extra-item">
                 <Media
                   src="aboutmarco/home/aboutmarco.com-mobile-mobile"
                   :width="830"
@@ -41,7 +41,7 @@
                   :isVideo="true"
                   label="aboutmarco.com - mobile tour"/>
             </div>
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="aboutmarco/home/aboutmarco.com-2020-home"
                   :width="1920"
@@ -49,7 +49,7 @@
                   :canExpand="true"
                   label="aboutmarco.com - homepage"/>
             </div>
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
                 <Media
                   src="aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15"
                   :width="1920"
@@ -57,7 +57,7 @@
                   :canExpand="true"
                   label="aboutmarco.com - melissa insider"/>
             </div>
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
               <Media
                 src="aboutmarco/pages/aboutmarco.com-pages--melissa-2020-12-15"
                 :width="1920"
@@ -65,7 +65,7 @@
                 :canExpand="true"
                 label="aboutmarco.com - melissa"/>
             </div>
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
               <Media
                 src="aboutmarco/pages/aboutmarco.com-pages--coza-2020-12-15"
                 :width="1920"
@@ -73,7 +73,7 @@
                 :canExpand="true"
                 label="aboutmarco.com - coza"/>
             </div>
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
               <Media
                 src="aboutmarco/pages/aboutmarco.com-pages--brazilian-leather-2020-12-15"
                 :width="1920"
@@ -81,7 +81,7 @@
                 :canExpand="true"
                 label="aboutmarco.com - brazilian leather"/>
             </div>
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
               <Media
                 src="aboutmarco/about/aboutmarco.com-me-2020-12-15-23_29_35"
                 :width="1920"
@@ -89,7 +89,7 @@
                 :canExpand="true"
                 label="aboutmarco.com - me"/>
             </div>
-            <div class="project-extra-item">
+            <div class="internal-extra-item">
               <Media
                 src="aboutmarco/about/aboutmarco.com-archive-2020-12-15-23_31_53"
                 :width="1920"
@@ -101,51 +101,51 @@
       </section>
 
 
-        <section class="project-description">
-          <h2 class="project-description-text">
+        <section class="internal-description">
+          <h2 class="internal-description-text">
             Check below for some of the awards received by Marco's porfolio.
           </h2>
         </section>
 
 
-        <section class="project-extra">
-          <div class="project-extra-scroll">
-              <div class="project-extra-item landscape">
+        <section class="internal-extra">
+          <div class="internal-extra-scroll">
+              <div class="internal-extra-item landscape">
                   <Media
                     src="aboutmarco/awards/aboutmarco.com-awards--admiretheweb"
                     :width="1440"
                     :height="820"
                     label="aboutmarco.com - admiretheweb"/>
               </div>
-              <div class="project-extra-item landscape">
+              <div class="internal-extra-item landscape">
                   <Media
                     src="aboutmarco/awards/aboutmarco.com-awards--cssawards"
                     :width="1440"
                     :height="740"
                     label="aboutmarco.com - css awards"/>
               </div>
-              <div class="project-extra-item landscape">
+              <div class="internal-extra-item landscape">
                   <Media
                     src="aboutmarco/awards/aboutmarco.com-awards--csswinner"
                     :width="1440"
                     :height="652"
                     label="aboutmarco.com - css awards winner"/>
               </div>
-              <div class="project-extra-item landscape">
+              <div class="internal-extra-item landscape">
                   <Media
                     src="aboutmarco/awards/aboutmarco.com-awards--hm"
                     :width="920"
                     :height="654"
                     label="aboutmarco.com - Honorable Mention"/>
               </div>
-              <div class="project-extra-item landscape">
+              <div class="internal-extra-item landscape">
                   <Media
                     src="aboutmarco/awards/aboutmarco.com-awards--me"
                     :width="1440"
                     :height="652"
                     label="aboutmarco.com - ME"/>
               </div>
-              <div class="project-extra-item landscape">
+              <div class="internal-extra-item landscape">
                   <Media
                     src="aboutmarco/awards/aboutmarco.com-awards--mindspark"
                     :width="677"
@@ -198,6 +198,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../sass/projects';
+@import '../../sass/internals';
 @import '../../sass/modal';
 </style>

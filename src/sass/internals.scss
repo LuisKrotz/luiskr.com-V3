@@ -3,7 +3,7 @@
 @import '_fonts';
 @import '_placeholders';
 
-.project {
+.internal {
     &-title {
         @extend .ttl-lg;
 
@@ -323,7 +323,7 @@
         }
 
 
-        &-contact {
+        &-items {
             @extend .ttl-xs;
     
             text-align: center;
@@ -353,7 +353,3 @@
         }
     }
 }
-
-// img[lazy=loading] {
-//     filter: blur(5px);
-// }

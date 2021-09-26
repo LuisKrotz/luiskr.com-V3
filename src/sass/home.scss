@@ -9,7 +9,7 @@
     position: relative;
     width: 100%;
     height: auto;
-    aspect-ratio: 3/4;
+    aspect-ratio: 2/3;
 
     @include layout-768() {
         aspect-ratio: 1/1;
@@ -31,12 +31,12 @@
         align-items: flex-start;
         justify-content: center;
         text-align: left;
-        width: 100%;
+        width: to-rem($F13);
         top: 50%;
         left: 0;
         transform: translate(0, -50%);
 
-        @include layout-540() {
+        @include layout-768() {
             width: to-rem($F14);
         }
 
@@ -81,7 +81,7 @@
         &.ptf {
             border: to-rem($F1) solid $color-turquoise;
             animation: bounce-2 20s linear infinite;
-            bottom: to-vw($F9 * -1px, $vw-320);
+            bottom: to-vw($F1 * 1px, $vw-320);
             right: to-vw($F12 * 1px, $vw-320);
             width: to-vw($F12 * 1px, $vw-320);
             height: to-vw($F12 * 1px, $vw-320);
@@ -168,7 +168,7 @@
 
         &.abt {
             border: to-rem($F1) solid $color-pink;
-            bottom: to-vw($F12 * -1px, $vw-320);
+            bottom: to-vw($F11 * -1px, $vw-320);
             right: to-vw($F5 * -1px, $vw-320);
             width: to-vw($F12 * 1px, $vw-320);
             height: to-vw($F12 * 1px, $vw-320);
@@ -546,10 +546,18 @@
         padding-bottom: to-rem($F8);
 
         @include layout-768() {
-            padding-bottom: to-rem($F11);
+            padding-bottom: to-rem($F9);
         }
 
         @include layout-1024() {
+            padding-bottom: to-rem($F10);
+        }
+
+        @include layout-1440() {
+            padding-bottom: to-rem($F11);
+        }
+
+        @include layout-2560() {
             padding-bottom: to-rem($F12);
         }
     
