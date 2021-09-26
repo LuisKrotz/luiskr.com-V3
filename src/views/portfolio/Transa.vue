@@ -9,7 +9,7 @@
             :width="1929"
             :height="1008"
             :isVideo="true"
-            label=""/>
+            label="Transa: feed short tour"/>
       </div>
 
       <section class="project-description">
@@ -32,7 +32,7 @@
                   :height="1008"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Transa: feed tour"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -41,7 +41,7 @@
                   :height="1712"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: feed mobile tour"/>
             </div>
 
           <!-- Categories -->
@@ -52,7 +52,7 @@
                   :height="1008"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Category - brazilian leather / tour"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -61,7 +61,7 @@
                   :height="1008"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Category - Coza / tour"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -70,7 +70,7 @@
                   :height="1008"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Category - Melissa / tour"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -79,7 +79,7 @@
                   :height="1008"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Category - METCHA / tour"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -88,7 +88,7 @@
                   :height="1008"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Category - Mini Melissa / tour"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -97,7 +97,7 @@
                   :height="1008"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Category - Mor / tour"/>
             </div>
         </div>
       </section>
@@ -118,7 +118,7 @@
                   :height="1008"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Transa: Article / o-que-e-familia-article / tour"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -127,7 +127,7 @@
                   :height="1008"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Transa: Article / bem-vindos-a-venus-brasileira / short tour"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -136,7 +136,7 @@
                   :height="1008"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article / DIRECT-FROM-PARIS FASHION-WEEK / short tour"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -145,7 +145,7 @@
                   :height="1008"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article / parceria-arquitetura-naciona-painel-centro-sao-paulo / short tour"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -154,7 +154,7 @@
                   :height="1008"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article / the-shoe-surgeon / short tour"/>
             </div>
 
             <div class="project-extra-item">
@@ -163,7 +163,7 @@
                   :width="1920"
                   :height="9989"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / 134-minutos-com-vitorino-campos-20 / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -171,7 +171,7 @@
                   :width="1920"
                   :height="19486"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / a-chat-with-the-sneakerhead-beija-marie-velez / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -179,7 +179,7 @@
                   :width="1920"
                   :height="9010"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / a-imperatriz-do-couro-patricia-vieira / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -187,7 +187,7 @@
                   :width="1920"
                   :height="4758"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / anitta-fala-sobre-a-sua-relacao-com-a-nossa-collab / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -195,7 +195,7 @@
                   :width="1920"
                   :height="7001"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / bem-vindos-a-venus-brasileira / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -203,7 +203,7 @@
                   :width="1920"
                   :height="8344"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / coza-construindo-amor-com-elen-maurmann-20 / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -211,7 +211,7 @@
                   :width="1920"
                   :height="7846"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / coza-pantone-collab-20 / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -219,7 +219,7 @@
                   :width="1920"
                   :height="4789"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / design-na-pele-20 / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -227,7 +227,7 @@
                   :width="1920"
                   :height="9693"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / editorial-especial-canvas-20 / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -235,7 +235,7 @@
                   :width="1920"
                   :height="17044"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / eiichi-katsukawa-incorporates-visionary-concepts-20 / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -243,7 +243,7 @@
                   :width="1920"
                   :height="7937"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / em-parceria-com-a-arquitetura-nacional-painel-de-408m2-faz-pulsar-o-centro-de-sao-paulo / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -251,7 +251,7 @@
                   :width="1920"
                   :height="14115"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / exclusive-chat-with-dominic-the-shoe-surgeon-ciambrone / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -259,7 +259,7 @@
                   :width="1920"
                   :height="3411"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / fabrica-de-presentes-coza / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -267,7 +267,7 @@
                   :width="1920"
                   :height="4689"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / jeremy-scott-at-galeria-melissa-uk / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -275,7 +275,7 @@
                   :width="1920"
                   :height="11317"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / melissa-papete-platform-rider / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -283,7 +283,7 @@
                   :width="1920"
                   :height="6989"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / melissa-portraits-sarune-paulauskaite / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -291,7 +291,7 @@
                   :width="1920"
                   :height="9294"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / melissa-viktor-rolf-direct-from-paris-fashion-week / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -299,7 +299,7 @@
                   :width="1920"
                   :height="6437"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / meu-pote-coza / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -307,7 +307,7 @@
                   :width="1920"
                   :height="6732"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / mini-melissa-hello-kitty / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -315,7 +315,7 @@
                   :width="1920"
                   :height="4720"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / nova-colecao-coza-pantone / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -323,7 +323,7 @@
                   :width="1920"
                   :height="4032"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / novas-ideias-sempre-20 / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -331,7 +331,7 @@
                   :width="1920"
                   :height="6613"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / o-brazilian-leather-convidou-patricia-a-assinar-um-ensaio / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -339,7 +339,7 @@
                   :width="1920"
                   :height="19952"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / o-que-e-familia / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -347,7 +347,7 @@
                   :width="1920"
                   :height="5677"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / quem-brilha-mais-o-cha-o-ou-o-mop-mor / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -355,7 +355,7 @@
                   :width="1920"
                   :height="17865"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / ruohan-wang-s-on-human-expression-and-nature / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -363,7 +363,7 @@
                   :width="1920"
                   :height="24302"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / sheron-barber-roots-and-passion-into-custom-pieces / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -371,7 +371,7 @@
                   :width="1920"
                   :height="22180"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / stefan-sagmeister-opens-up-about-his-new-project / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -379,7 +379,7 @@
                   :width="1920"
                   :height="15929"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / the-story-behind-the-metcha-x-tss-aj-xi-prototype-collab / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -387,7 +387,7 @@
                   :width="1920"
                   :height="11986"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / to-celebrate-mickey-s-birthday-a-collab-full-of-classics / screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -395,7 +395,7 @@
                   :width="1920"
                   :height="10126"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Article  / todo-brasileiro-tem-um-pouco-do-sertao-ronaldo-fraga / screenshoot"/>
             </div>
         </div>
       </section>
@@ -419,7 +419,7 @@
                   :height="1008"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Transa: Join Us page short tour"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -428,7 +428,7 @@
                   :height="784"
                   :isVideo="true"
                   :canExpand="true"
-                  label=""/>
+                  label="Transa: Muda page"/>
             </div>
         </div>
       </section>

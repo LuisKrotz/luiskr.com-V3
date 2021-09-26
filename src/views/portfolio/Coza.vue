@@ -9,7 +9,7 @@
             :width="1943"
             :height="976"
             :isVideo="true"
-            label="coza.com.br - homepage full tour"/>
+            label="Coza: homepage full tour"/>
       </div>
 
       <section class="project-description">
@@ -36,7 +36,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label="coza.com.br - mobile full tour"/>
+                  label="Coza: mobile full tour"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -44,7 +44,7 @@
                   :width="1920"
                   :height="22418"
                   :canExpand="true"
-                  label="coza.com.br - full page screenshoot"/>
+                  label="Coza: full page screenshoot"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -52,7 +52,7 @@
                   :width="1920"
                   :height="4861"
                   :canExpand="true"
-                  label="coza.com.br - english homepage"/>
+                  label="Coza: english homepage"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -60,7 +60,7 @@
                   :width="1920"
                   :height="2423"
                   :canExpand="true"
-                  label="coza.com.br - article - Organização com as dicas da maysa."/>
+                  label="Coza: article - Organização com as dicas da maysa."/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -68,7 +68,7 @@
                   :width="1920"
                   :height="2249"
                   :canExpand="true"
-                  label="coza.com.br - image gallery - A cada instante da rotina. Mais coza + pantone."/>
+                  label="Coza: image gallery - A cada instante da rotina. Mais coza + pantone."/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -76,7 +76,7 @@
                   :width="1920"
                   :height="2414"
                   :canExpand="true"
-                  label="coza.com.br - article - Seu banheiro cheio de beleza."/>
+                  label="Coza: article - Seu banheiro cheio de beleza."/>
             </div>
         </div>
       </section>
@@ -98,7 +98,7 @@
                   :height="976"
                   :canExpand="true"
                   :isVideo="true"
-                  label="coza.com.br - where to find page on desktop"/>
+                  label="Coza: where to find page on desktop"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -107,7 +107,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label="coza.com.br - where to find page on mobile "/>
+                  label="Coza: where to find page on mobile "/>
             </div>
         </div>
       </section>

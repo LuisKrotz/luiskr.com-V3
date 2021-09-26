@@ -9,7 +9,7 @@
             :width="1943"
             :height="976"
             :isVideo="true"
-            label="mor.com.br - homepage full tour"/>
+            label="Minimelissa: homepage full tour"/>
       </div>
 
       <section class="project-description">
@@ -32,7 +32,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Miminelissa: mobile tour"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -40,7 +40,7 @@
                   :width="1920"
                   :height="1001"
                   :canExpand="true"
-                  label=""/>
+                  label="Minimelissa: Feed cover"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -48,7 +48,7 @@
                   :width="1920"
                   :height="32491"
                   :canExpand="true"
-                  label=""/>
+                  label="Minimelissa: Feed screenshoot 2020"/>
             </div>
         </div>
       </section>
@@ -69,16 +69,16 @@
                   :height="944"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Where to find"/>
             </div>
             <div class="project-extra-item">
                 <Media
-                  src="minimelissa/where-to-find/https-www.lojamor.com.br-mobile"
+                  src="minimelissa/where-to-find/minimelissa.com.br-onde-encotrar-31-03-19-1-mobile"
                   :width="833"
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: where to find - mobile"/>
             </div>
         </div>
       </section>
@@ -99,7 +99,7 @@
                   :height="960"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Candy Framework"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -108,7 +108,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Candy Framework mobile"/>
             </div>
         </div>
       </section>
@@ -132,7 +132,7 @@
                   :height="784"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Color Me"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -141,7 +141,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Color Me mobile"/>
             </div>
         </div>
       </section>
@@ -161,7 +161,7 @@
                   :height="944"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Dance Machine"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -170,7 +170,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Dance Machine mobile"/>
             </div>
         </div>
       </section>
@@ -190,7 +190,7 @@
                   :height="784"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Dreamers"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -199,7 +199,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Dreamers mobile"/>
             </div>
         </div>
       </section>
@@ -219,7 +219,7 @@
                   :height="944"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Family"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -229,7 +229,7 @@
                   :canExpand="true"
 
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Family mobile"/>
             </div>
         </div>
       </section>
@@ -250,7 +250,7 @@
                   :height="944"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Flygrl"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -259,7 +259,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Flygrl mobile"/>
             </div>
         </div>
       </section>
@@ -280,7 +280,7 @@
                   :height="944"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Mapping"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -289,7 +289,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Mapping mobile"/>
             </div>
         </div>
       </section>
@@ -309,7 +309,7 @@
                   :height="944"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Mashup"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -318,7 +318,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Mashup mobile"/>
             </div>
         </div>
       </section>
@@ -338,7 +338,7 @@
                   :height="944"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Mirror"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -347,7 +347,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Mirror mobile"/>
             </div>
           </div>
       </section>
@@ -370,7 +370,7 @@
                   :height="928"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Open Vibes"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -379,7 +379,7 @@
                   :height="1712"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Open Vibes mobile"/>
             </div>
         </div>
       </section>
@@ -400,7 +400,7 @@
                   :height="944"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Wanna be Carioca"/>
             </div>
             <div class="project-extra-item">
                 <Media
@@ -409,7 +409,7 @@
                   :height="1728"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Minimelissa: Wanna be Carioca mobile"/>
             </div>
         </div>
       </section>

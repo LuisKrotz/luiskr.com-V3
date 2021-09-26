@@ -9,7 +9,7 @@
             :width="1438"
             :height="784"
             :isVideo="true"
-            label=""/>
+            label="Vibra: A empresa mais inovadora do segmento no brasil / tour"/>
       </div>
 
       <section class="project-description">
@@ -35,7 +35,7 @@
                 :height="1728"
                 :canExpand="true"
                 :isVideo="true"
-                label=""/>
+                label="Vibra: A empresa mais inovadora do segmento no brasil /  tour mobile"/>
           </div>
           <div class="project-extra-item">
               <Media
@@ -43,7 +43,7 @@
                 :width="1920"
                 :height="2695"
                 :canExpand="true"
-                label=""/>
+                label="Vibra: A empresa mais inovadora do segmento no brasil  / production and distributuon business full page"/>
           </div>
           <div class="project-extra-item">
               <Media
@@ -51,7 +51,7 @@
                 :width="1920"
                 :height="32491"
                 :canExpand="true"
-                label=""/>
+                label="Vibra: A empresa mais inovadora do segmento no brasil /  our brands full page"/>
           </div>
           <div class="project-extra-item">
               <Media
@@ -59,7 +59,7 @@
                 :width="1920"
                 :height="7244"
                 :canExpand="true"
-                label=""/>
+                label="Vibra: A empresa mais inovadora do segmento no brasil - more than five decades of experience and tradition in aviculture / About us full page"/>
           </div>
         </div>
       </section>

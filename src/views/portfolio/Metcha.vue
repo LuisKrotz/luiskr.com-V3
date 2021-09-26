@@ -408,7 +408,7 @@
 
       <section class="project-description">
         <p class="project-description-text">
-         Another callenge was METCHA's newsletter, created dynamically on the metcha CMS, and sent weekly with a unique identity.
+         Another challenge was METCHA's newsletter, created dynamically on the metcha CMS, and sent weekly with a unique identity.
         </p>
       </section>
 

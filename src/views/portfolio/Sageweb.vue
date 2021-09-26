@@ -8,7 +8,7 @@
           src="genesysinf/genesysinf-sageweb-2015-atalhos"
           :width="1366"
           :height="649"
-          label=""/>
+          label="Sageweb: shortcuts screenshoot"/>
       </div>
 
       <section class="project-description">
@@ -25,7 +25,7 @@
                   :width="1352"
                   :height="649"
                   :canExpand="true"
-                  label=""/>
+                  label="Sageweb: 'Cadastros' screenshoot"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -33,7 +33,7 @@
                   :width="1353"
                   :height="650"
                   :canExpand="true"
-                  label=""/>
+                  label="Sageweb: color picker screenshoot"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -41,7 +41,7 @@
                   :width="1352"
                   :height="650"
                   :canExpand="true"
-                  label=""/>
+                  label="Sageweb: filters screenshoot"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -49,7 +49,7 @@
                   :width="1351"
                   :height="651"
                   :canExpand="true"
-                  label=""/>
+                  label="Sageweb: intro screenshoot"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -57,7 +57,7 @@
                   :width="1366"
                   :height="650"
                   :canExpand="true"
-                  label=""/>
+                  label="Sageweb: 'mapa sageweb' screenshoot"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -65,7 +65,7 @@
                   :width="1352"
                   :height="650"
                   :canExpand="true"
-                  label=""/>
+                  label="Sageweb: 'módulo NFE' screenshoot"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -73,7 +73,7 @@
                   :width="1351"
                   :height="604"
                   :canExpand="true"
-                  label=""/>
+                  label="Sageweb: shortcuts ordering screenshoot"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -81,7 +81,7 @@
                   :width="1354"
                   :height="650"
                   :canExpand="true"
-                  label=""/>
+                  label="Sageweb: personalization screenshoot"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -89,7 +89,7 @@
                   :width="1351"
                   :height="650"
                   :canExpand="true"
-                  label=""/>
+                  label="Sageweb: 'Relatórios Gerenciais' screenshoot"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -97,7 +97,7 @@
                   :width="1350"
                   :height="649"
                   :canExpand="true"
-                  label=""/>
+                  label="Sageweb: 'Relatórios Gerenciais por mês' screenshoot"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -105,7 +105,7 @@
                   :width="1366"
                   :height="651"
                   :canExpand="true"
-                  label=""/>
+                  label="Sageweb: search system screenshoot"/>
             </div>
             <div class="project-extra-item landscape">
                 <Media
@@ -113,7 +113,7 @@
                   :width="1352"
                   :height="651"
                   :canExpand="true"
-                  label=""/>
+                  label="Sageweb: themes screenshoot"/>
             </div>
         </div>
       </section>
