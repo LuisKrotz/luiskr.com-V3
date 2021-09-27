@@ -58,7 +58,7 @@ export default {
     },
     methods: {
         closeModal () {
-            let scroll = this.$store.getters.getModal.transform
+            let scroll = this.$store.getters.getModal.transform;
 
             this.$store.commit('setModal', {
                 transform: 0,
