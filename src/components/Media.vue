@@ -1,13 +1,15 @@
 <template>
     <figure v-if="canExpand" @click="openModal" :style="styles" :title="label">
+        <img class="render-placeholder" :src="placeholder(width, height)" :width="width" :height="height" alt=" "/>
+
         <img v-if="!isVideo"
-            :class="classes"
+            :class="'render-media ' + classes"
             :width="width"
             :height="height"
             :alt="label"
             v-lazy="{src: storage + src + q50, loading: storage + src + thumb }" />
         <video v-else
-            :class="classes"
+            :class="'render-media ' + classes"
             :poster="poster[0]"
             :width="width"
             :height="height"
@@ -16,17 +18,20 @@
                 <source :src="video[1]" type="video/mp4">
         </video>
 
+
         <button class="expand-modal-open">Tap to open</button>
     </figure>
     <figure v-else :style="styles" :title="label">
+        <img class="render-placeholder" :src="placeholder(width, height)" :width="width" :height="height" alt=" "/>
+
         <img v-if="!isVideo"
-            :class="classes"
+            :class="'render-media ' + classes"
             :width="width"
             :height="height"
             :alt="label"
             v-lazy="{src: storage + src + q50, loading: storage + src + thumb }" />
         <video v-else
-            :class="classes"
+            :class="'render-media ' + classes"
             :poster="poster[0]"
             :width="width"
             :height="height"
@@ -110,6 +115,9 @@ export default {
             }
     },
     methods: {
+        placeholder(width, height) {
+            return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E`;
+        },
         openModal () {
             let y = window.scrollY;
 
