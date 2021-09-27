@@ -1,18 +1,20 @@
 <template>
     <div class="expand-modal-content">
-            <div class="expand-modal-close-bar">
-        <button class="expand-modal-close-bar-button" @click="closeModal">[ close ]</button>
-    </div>
+        <div class="expand-modal-close-bar">
+            <button class="expand-modal-close-bar-button" @click="closeModal">[ close ]</button>
+        </div>
         <div class="expand-modal-close-area" @click="closeModal"></div>
-        <figure>
+        <figure class="expand-modal-media-figure">
+            <img class="expand-modal-media-placeholder" :src="placeholder(width, height)" :width="width" :height="height" alt=" "/>
+
             <img v-if="!isVideo"
-                class="expand-modal-media"
+                class="expand-modal-media-item"
                 :width="width"
                 :height="height"
                 :alt="alt"
                 v-lazy="{ src: source, loading: thumb }" />
             <video v-else
-                class="expand-modal-media"
+                class="expand-modal-media-item"
                 :width="width"
                 :height="height"
                 :poster="thumb"
@@ -20,8 +22,10 @@
                 playsinline autoplay loop muted controls>
                     <source :src="source" type="video/mp4">
             </video>
+
+            <button class="expand-modal-close-bottom" @click="closeModal">[ close ]</button>
         </figure>
-        <button class="expand-modal-close-bottom" @click="closeModal">[ close ]</button>
+        
     </div>
 </template>
 
@@ -57,6 +61,9 @@ export default {
         }
     },
     methods: {
+        placeholder(width, height) {
+            return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E`;
+        },
         closeModal () {
             let scroll = this.$store.getters.getModal.transform;
 
