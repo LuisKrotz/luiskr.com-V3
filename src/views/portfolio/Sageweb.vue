@@ -150,9 +150,6 @@ export default {
     MediaExpanded,
     Related
   },
-  mounted() {
-    window.scrollTo(0,0);
-  },
   name: 'Sageweb',
 }
 </script>

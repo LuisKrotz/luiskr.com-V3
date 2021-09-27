@@ -61,7 +61,7 @@
         </li>
         <li class="portfolio-item">
           <router-link class="portfolio-item-link"  to="/portfolio/minimelissa">
-            <img class="portfolio-item-link-media" :src="storage + 'covers/minimelissa-cropped.jpeg'" />
+            <img class="portfolio-item-link-media" :src="storage + 'covers/minimelissa-cropped.jpg'" />
             <span class="portfolio-item-link-text">Mini Melissa</span>
           </router-link>
         </li>
