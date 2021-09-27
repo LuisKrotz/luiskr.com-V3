@@ -16,7 +16,7 @@
                 <source :src="video[1]" type="video/mp4">
         </video>
 
-        <button class="expand-modal-open" @click="openModal">Tap to open</button>
+        <button class="expand-modal-open">Tap to open</button>
     </figure>
     <figure v-else :style="styles" :title="label">
         <img v-if="!isVideo"
@@ -112,6 +112,8 @@ export default {
     methods: {
         openModal () {
             let y = window.scrollY;
+
+            console.log('Y', y);
 
             this.$store.commit('setModal', {
                 transform: y,

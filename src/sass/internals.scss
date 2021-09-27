@@ -94,7 +94,7 @@
             height: to-rem($F6);
 
             @include layout-1024() {
-                height: to-rem($F7);
+                height: to-rem($F7); 
             }
 
             @include layout-2560() {
