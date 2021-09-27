@@ -1,5 +1,4 @@
 <template>
-
     <div class="expand-modal-content">
             <div class="expand-modal-close-bar">
         <button class="expand-modal-close-bar-button" @click="closeModal">[ close ]</button>
@@ -59,7 +58,7 @@ export default {
     },
     methods: {
         closeModal () {
-            window.scrollTo(0, this.$store.getters.getModal.transform);
+            let scroll = this.$store.getters.getModal.transform
 
             this.$store.commit('setModal', {
                 transform: 0,
@@ -73,6 +72,10 @@ export default {
                     height: undefined,
                     isVideo: undefined
                 }
+            });
+
+            window.requestAnimationFrame(()=> {
+                window.scrollTo(0, scroll);
             });
         }
     }
