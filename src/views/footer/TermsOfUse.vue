@@ -104,7 +104,6 @@
         <h3 class="internal-description-text">Contact Information</h3>
         <p class="internal-description-text">Email: <a href="mailto:luis.krotz@gmail.com">luis.krotz@gmail.com</a></p>
       </section>
-      <router-view/>
 
       <Footer />
     </div>

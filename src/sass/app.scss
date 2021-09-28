@@ -5,39 +5,51 @@
 @import '_structure';
 
 .nav {
-    @extend %MAXAREA;
-    z-index: 100;
-    left: 0;
-    top: to-rem($F7);
-    position: fixed;
-    justify-content: space-between;
-    display: flex;
-    width: 100%;
-    box-sizing: border-box;
+  @extend %MAXAREA;
+  z-index: 100;
+  left: 0;
+  top: to-rem($F7);
+  position: fixed;
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
 
-    &-link {
-      @extend .ttl-xs;
+  &-link {
+    @extend .ttl-xs;
 
-      font-weight: 700;
-      color: var(--grey);
-      text-decoration: none;
-      cursor: pointer;
+    font-weight: 700;
+    color: var(--grey);
+    text-decoration: none;
+    cursor: pointer;
 
-      &:hover,
-      &:focus {
-        text-decoration: line-through;
-      }
-  
-      &.router-link-exact-active,
-      &.active {
-        &::after {
-          display: block;
-          content: '';
-          width: 34%;
-          height: to-rem($F3);
-          border-radius: to-rem($F3);
-          background: var(--grey);
-        }
+    &:hover,
+    &:focus {
+      text-decoration: line-through;
+    }
+
+    &.router-link-exact-active,
+    &.active {
+      &::after {
+        display: block;
+        content: '';
+        width: 34%;
+        height: to-rem($F3);
+        border-radius: to-rem($F3);
+        background: var(--grey);
       }
     }
   }
+}
+
+
+.fade-enter-active,
+.fade-leave-active {
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

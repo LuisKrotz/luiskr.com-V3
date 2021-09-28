@@ -305,8 +305,6 @@
         </div>
       </section>
 
-
-      <router-view/>
       <Related />
     </div>
 

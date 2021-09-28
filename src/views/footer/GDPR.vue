@@ -12,8 +12,6 @@
         <p class="internal-description-text"><strong>The right to data portability</strong> – You have the right to request that I transfer the data that I have collected to another organization, or directly to you, under certain conditions. I'm happy to share any data from Google analytics collected if needed, no personal data is stored on this website.</p>
         <p class="internal-description-text">If you make a request, I have one month to respond to you. If you would like to exercise any of these rights, please contact me at <a href="mailto:luis.krotz@gmail.com">luis.krotz@gmail.com</a></p>
       </section>
-      <router-view/>
-
       <Footer />
     </div>
 </template>

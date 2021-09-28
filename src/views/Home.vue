@@ -84,7 +84,6 @@
           </router-link>
         </li>
       </ul>
-      <router-view/>
     </div>
 
     <div class="about" >
@@ -182,7 +181,7 @@
         </li>
       </ul>
     </div>
-  
+
     <div class="contact">
       <h2 id="contact" class="contact-title" ref="contact">Contact</h2>
       <div class="contact-social">
