@@ -1,4 +1,5 @@
 <template>
+  <div>
     <div class="cover">
       <div class="max-area">
         <div class="cover-text">
@@ -201,27 +202,31 @@
         <router-link class="contact-other-link" to="/terms-of-use">Terms of use</router-link>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        storage: this.$store.getters.getStorage,
-      }
-    },
-    name: 'Home',
-    methods: {
-      scrollTo(ref) {
-          this.$smoothScroll({
-            offset: -100,
-            duration: 1000,
-            updateHistory: true,
-            scrollTo: this.$refs[ref],  // scrollTo is also allowed to be number
-            hash: `#${ref}`,             // required if updateHistory is true
-          })
-      }
+export default {
+  data() {
+    return {
+      storage: this.$store.getters.getStorage,
     }
+  },
+  created() {
+    document.title = this.$route.meta.title;
+  },
+  name: 'Home',
+  methods: {
+    scrollTo(ref) {
+        this.$smoothScroll({
+          offset: -100,
+          duration: 1000,
+          updateHistory: true,
+          scrollTo: this.$refs[ref],  // scrollTo is also allowed to be number
+          hash: `#${ref}`,             // required if updateHistory is true
+        })
+    }
+  }
 }
 </script>
 

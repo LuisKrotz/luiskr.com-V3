@@ -4,9 +4,11 @@
       <router-link class="nav-link" v-if="$router.currentRoute.value.name !== 'Home'" to="/">Luis Krötz</router-link>
       <button class="nav-link active" v-else @click="scrollTop()">Luis Krötz</button>
     </div>
-    <transition name="fade">
-      <router-view/>
-    </transition>
+    <router-view v-slot="{ Component }">
+      <transition name="fade">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 

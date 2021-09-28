@@ -331,6 +331,9 @@ export default {
       modal: this.$store.getters.getModal
     }
   },
+  created() {
+    document.title = this.$route.meta.title;
+  },
   components: {
     Media,
     MediaExpanded,
