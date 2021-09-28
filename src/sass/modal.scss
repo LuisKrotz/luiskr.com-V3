@@ -10,7 +10,8 @@
         min-height: 100vh;
         min-width: 100%;
         background: $color-black;
-        position: relative
+        position: relative;
+        animation: setOpacity .3s linear forwards;
     }
 }
 
@@ -96,6 +97,7 @@
         left: 0;
         width: 100%;
         height: 100%;
+        cursor: pointer;
     }
 
     &-close-bottom {
@@ -156,5 +158,25 @@
     &-image,
     &-video {
         max-width: 100%;
+    }
+}
+
+@keyframes setOpacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes unsetOpacity {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
     }
 }

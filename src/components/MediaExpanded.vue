@@ -25,7 +25,6 @@
 
             <button class="expand-modal-close-bottom" @click="closeModal">[ close ]</button>
         </figure>
-        
     </div>
 </template>
 

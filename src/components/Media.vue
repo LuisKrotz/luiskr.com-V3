@@ -1,5 +1,5 @@
 <template>
-    <figure v-if="canExpand" @click="openModal" :style="styles" :title="label">
+    <figure class="internal-expand" v-if="canExpand" @click="openModal" :style="styles" :title="label">
         <img class="render-placeholder" :src="placeholder(width, height)" :width="width" :height="height" alt=" "/>
 
         <img v-if="!isVideo"
@@ -15,7 +15,6 @@
             :height="height"
             :alt="label"
             playsinline autoplay loop muted>
-                <source :src="video[1]" type="video/mp4">
         </video>
 
 
@@ -120,8 +119,6 @@ export default {
         },
         openModal () {
             let y = window.scrollY;
-
-            console.log('Y', y);
 
             this.$store.commit('setModal', {
                 transform: y,

@@ -309,6 +309,16 @@
         }
     }
 
+    &-expand {
+        transition: opacity .3s ease-in;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            opacity: .5;
+        }
+    }
+
     &-footer {
         &-title {
             @extend .ttl-lg;
