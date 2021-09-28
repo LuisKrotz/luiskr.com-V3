@@ -372,12 +372,13 @@
                     box-sizing: border-box;
                     overflow: hidden;
 
-                    span, img {
+                    &-toggle-1,
+                    &-toggle-2 {
                         transition: opacity .5s ease-in;
                         position: absolute;
                     }
 
-                    span {
+                    &-toggle-1 {
                         @extend .ttl-md;
 
                         top: 50%;
@@ -390,13 +391,14 @@
                         }
                     }
 
-                    img {
+                    &-toggle-2 {
                         top: 0;
                         left: 0;
                         width: 100%;
                         height: 100%;
+                        object-fit: cover;
+                        object-position: center;
                         opacity: 1;
-
 
                         .portfolio-item-link:hover & {
                             opacity: 0;

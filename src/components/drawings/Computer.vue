@@ -4,9 +4,9 @@
         <div class="portfolio-item-computer">
             <div class="portfolio-item-computer-frame">
             <div class="portfolio-item-computer-screen">
-                <div class="portfolio-item-computer-screen-image" :src="image">
-                    <span>Show More</span>
-                    <img :src="image" />
+                <div class="portfolio-item-computer-screen-image">
+                    <span class="portfolio-item-computer-screen-image-toggle-1">Show More</span>
+                    <img class="portfolio-item-computer-screen-image-toggle-2" :src="image" />
                 </div>
                 
             </div>
