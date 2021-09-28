@@ -3,13 +3,13 @@
     <div id="#main" class="project modal-below" :style="'transform: translateY(-' + modal.transform + 'px);'">
       <h1 class="internal-title">Marco Almeida</h1>
       <div class="internal-main">
-            <Media
-              classes="internal-main-item"
-              src="aboutmarco/home/aboutmarco.com-2020-full-page-home-tour"
-              :width="1462"
-              :height="784"
-              :isVideo="true"
-              label="aboutmarco.com - homepage full tour"/>
+        <Media
+          classes="internal-main-item"
+          src="aboutmarco/home/aboutmarco.com-2020-full-page-home-tour"
+          :width="1462"
+          :height="784"
+          :isVideo="true"
+          label="aboutmarco.com - homepage full tour"/>
       </div>
 
       <section class="internal-description">

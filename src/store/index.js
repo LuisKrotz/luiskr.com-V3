@@ -19,8 +19,6 @@ export default createStore({
   },
   mutations: {
     setModal(state, payload) {
-      console.log('Payload', payload);
-
       state.modalObject.transform = payload.transform,
       state.modalObject.class = payload.class,
       state.modalObject.open =  payload.open,

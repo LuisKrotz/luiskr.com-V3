@@ -15,6 +15,7 @@
             :height="height"
             :alt="label"
             playsinline autoplay loop muted>
+            <source :src="video[1]" type="video/mp4">
         </video>
 
 
@@ -36,7 +37,7 @@
             :height="height"
             :alt="label"
             playsinline autoplay loop muted>
-                <source :src="video[0]" type="video/mp4">
+            <source :src="video[0]" type="video/mp4">
         </video>
     </figure>
 </template>
