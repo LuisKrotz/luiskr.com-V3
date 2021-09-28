@@ -282,12 +282,7 @@
 }
 
 .portfolio {
-    display: grid;
-    padding: 0;
-    margin: 0;
-
     &-grid {
-        @extend %MAXAREA;
         display: grid;
         grid-gap: to-rem($F8);
         max-width: 100vw;
@@ -301,75 +296,191 @@
         }
 
         @include layout-2560() {
-            grid-gap: to-rem($F11);
+            grid-gap: to-rem($F14);
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 
     &-item {
-        &-link {
-            border-radius: to-rem($F5);
-            color: var(--black);
-            border: 1px solid var(--grey-2);
-            display: block;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
+        grid-column: 1 /  span 2;
+        border-bottom: 2px solid $color-pink;
 
-
-            @include layout-1680() {
-                text-transform: initial;
-                color: var(--grey);
+        &:nth-of-type(even) {
+            .portfolio-item-link {
+                flex-direction: row-reverse;
             }
 
-
-            &-text {
-                @extend .ttl-xxl;
-                display: block;
-                padding: to-rem($F7);
-
+            .portfolio-item-label {
                 @include layout-1024() {
-                    padding: to-rem($F8);
+                    padding-right: to-rem($F9);
                 }
 
                 @include layout-1440() {
-                    padding: to-rem($F9);
-                    padding-right: 30%;
+                    padding-right: to-rem($F10);
+                }
+
+                @include layout-1680() {
+                    padding-right: to-rem($F11);
                 }
 
                 @include layout-2560() {
-                    padding: to-rem($F10);
-                    padding-right: 30%;
+                    padding-right: to-rem($F12);
                 }
+            }
+        }
 
-                .portfolio-item-link:hover &,
-                .portfolio-item-link:focus & {
-                    text-decoration: line-through;
+        &-link {
+            display: block;
+
+            @include layout-1024() {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &-computer {
+            width: 100%;
+            position: relative;
+            display: inline-block;
+            aspect-ratio: 16/11;
+
+            @include layout-1024() {
+                width: 50%;
+            }
+
+            &-frame {
+                width: 100%;
+                height: 70%;
+                position: relative;
+                border: 1px solid $color-pink;
+                box-sizing: border-box;
+            }
+
+            &-screen {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                border: 10px solid white;
+                box-sizing: border-box;
+
+                &-image {
+                    position: relative;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid $color-pink;
+                    box-sizing: border-box;
+                    overflow: hidden;
+
+                    span, img {
+                        transition: opacity .5s ease-in;
+                        position: absolute;
+                    }
+
+                    span {
+                        @extend .ttl-md;
+
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        opacity: 0;
+
+                        .portfolio-item-link:hover & {
+                            opacity: 1;
+                        }
+                    }
+
+                    img {
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 1;
+
+
+                        .portfolio-item-link:hover & {
+                            opacity: 0;
+                        }
+                    }
                 }
             }
 
-            &-media {
+            &-chin {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
                 position: relative;
-                display: block;
+                border: 1px solid $color-pink;
+                box-sizing: border-box;
+                border-top: none;
                 width: 100%;
-                height: auto;
-                object-fit: cover;
+                height: 15%;
+                margin: 0 auto;
+                background: $color-pink;
+            }
 
-                @include layout-1280() {
-                    transition: transform .5s ease-in;
-                    width: 20%;
-                    height: 100%;
-                    right: 0;
-                    position: absolute;
+            &-stand {
+                position: relative;
+                border: 1px solid $color-pink;
+                border-top: none;
+                width: 15%;
+                height: 13%;
+                margin: 0 auto;
+                background: $color-pink;
+            }
 
-                    transform: translateX(100%);
-                }
+            &-base {
+                position: relative;
+                border: 1px solid $color-pink;
+                border-top: none;
+                width: 30%;
+                height: 2%;
+                margin: 0 auto;
+                background: $color-pink;
+                border-radius: 15px;
+            }
+        }
 
-                .portfolio-item-link:hover &,
-                .portfolio-item-link:focus & {
-                    @include layout-1280() {
-                        transform: translateX(0);
-                    }
-                }
+        &-label {
+            @include layout-1024() {
+                width: 50%;
+            }
+
+            &-title {
+                @extend .ttl-lg;
+
+                padding-bottom: to-rem($F7);
+            }
+            
+            &-description {
+                @extend .txt-md;
+            }
+
+            &-button {
+                @extend .txt-sm;
+
+                margin: to-rem($F7) 0;
+                text-decoration: underline;
+            }
+
+            padding-top: to-rem($F9);
+
+            @include layout-1024() {
+                padding-top: 0;
+                padding-left: to-rem($F10);
+            }
+
+            @include layout-1280() {
+                padding-left: to-rem($F11);
+            }
+
+            @include layout-1680() {
+                padding-left: to-rem($F12);
+            }
+
+            @include layout-2560() {
+                padding-left: to-rem($F12);
             }
         }
     }
@@ -473,53 +584,39 @@
         }
 
         @include layout-1024() {
+            
+        }
+
+        @include layout-1280() {
             grid-template-columns: repeat(2, auto);
             grid-gap: to-rem($F10);
         }
 
-        @include layout-1440() {
-            grid-template-columns: repeat(3, auto);
-        }
-
         @include layout-2560() {
-            grid-template-columns: repeat(4, auto);
-            grid-gap: to-rem($F11);
-        }
-
-        @include layout-3840() {
-            grid-template-columns: repeat(6, auto);
+            grid-gap: to-rem($F12);
         }
     }
 
     &-item {
         box-sizing: border-box;
         position: relative;
-        text-align: left;
-        padding: to-rem($F8) to-rem($F7);
-        border-radius: to-rem($F5);
-        border: 1px solid var(--grey-2);
-
-        @include layout-768() {
-            padding: to-rem($F8) to-rem($F7);
-            text-align: justify;
-        }
-
-        @include layout-1024() {
-            text-align: justify;
-            padding: to-rem($F8) to-rem($F10);
-        }
-
-        &-title {
-            @extend .ttl-md;
-            padding-bottom: to-rem($F7);
-
-            @include layout-768() {
-                padding-bottom: to-rem($F9);
-            }
-        }
 
         &-text {
-            @extend .txt-sm;
+            @extend .txt-md;
+            padding-bottom: to-rem($F7);
+
+
+            @include layout-768() {
+                padding-bottom: to-rem($F8);
+            }
+
+            @include layout-1280() {
+                padding-bottom: to-rem($F9);
+            }
+
+            @include layout-1680() {
+                padding-bottom: to-rem($F10);
+            }
         }
     }
 }
@@ -540,9 +637,9 @@
 
 
     &-title {
-        @extend .ttl-xl;
+        @extend .ttl-xxl;
 
-        text-align: center;
+        text-align: left;
         padding-bottom: to-rem($F8);
 
         @include layout-768() {
@@ -630,12 +727,16 @@
         }
 
         &-separator {
-            padding: 0 to-rem($F5);
+            padding: 0 to-rem($F6);
             font-weight: 200;
             display: none;
 
             @include layout-768() {
                 display: inline-block;
+            }
+
+            @include layout-2560() {
+                padding: 0 to-rem($F7);
             }
         }
     }

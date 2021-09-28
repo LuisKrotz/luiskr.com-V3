@@ -379,7 +379,11 @@
             }
 
             &-separator {
-                padding: 0 to-rem($F5);
+                padding: 0 to-rem($F6);
+
+                @include layout-2560() {
+                    padding: 0 to-rem($F7);
+                }
             }
 
             &-link {

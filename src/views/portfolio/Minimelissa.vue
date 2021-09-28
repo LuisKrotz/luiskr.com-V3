@@ -14,7 +14,7 @@
 
       <section class="internal-description">
         <h2 class="internal-description-text">
-           Minimelissa was a project developed at Transa for the Melissa brand as a channel for the Minimelissa brand.
+           Minimelissa was a project developed at Transa for the Grendene Group as a channel for the Minimelissa brand.
         </h2>
         <p class="internal-description-text">
           The project lasted from 2018 to 2020 and was made entirely with Jquery, CSS (Less) and PHP (Laravel). 
