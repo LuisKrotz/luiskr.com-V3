@@ -17,13 +17,13 @@
           Coza's website was developed at Transa from 2017 to 2019.
         </h2>
         <p class="internal-description-text">
-          It mainly used Vanilla JS, Less and Laravel (PHP). The goal of the project was to create a fast, beautifull and pixel perfect experience that reflect's the new brading made by Transa for Coza.
+          It mainly used Vanilla JS, Less and Laravel (PHP). The goal of the project was to create a fast, beautiful and pixel perfect experience that reflects the new branding made by Transa for Coza.
         </p>
         <p class="internal-description-text">
           Coza's main page was a feed of content created for the brand, with articles, galleries, photos and links to the online store.
         </p>
         <p class="internal-description-text">
-          The project also have a store front with a list of all the products listed on the online store, feeded by Ajax from the the back-end with the content updated constantly from the Brinox store.
+          The project also had a storefront with a list of all the products listed on the online store, fed by Ajax from the back-end with the content updated constantly from the Brinox store.
         </p>
       </section>
 
@@ -84,7 +84,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-          And a Where to find page, listing all the locations where the Brand cand be found, using the Google Maps API.
+          Also, a "Where to Find" page, listing all the locations where the Brand can be found, using the Google Maps API.
         </p>
       </section>
 
