@@ -20,10 +20,10 @@
           It uses Vue.JS and Sass.
         </p>
         <p class="internal-description-text">
-          All animations are done in css.
+          All animations are created in CSS.
         </p>
         <p class="internal-description-text">
-          The main goal to achieve was to create a pixel perfect project, with smooth animations and a pixel perfect UI.
+          The main goal was to create a pixel-perfect project, with smooth animations and a pixel perfect UI.
         </p>
         <p class="internal-description-text">
           I also did the server setup at Digital Ocean.
@@ -103,7 +103,7 @@
 
         <section class="internal-description">
           <h2 class="internal-description-text">
-            Check below for some of the awards received by Marco's porfolio.
+            Check below for some of the awards received by Marco's portfolio.
           </h2>
         </section>
 
