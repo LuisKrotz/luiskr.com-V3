@@ -16,7 +16,7 @@
             <div class="portfolio-item-computer-base"></div>
         </div>
         <div class="portfolio-item-label">
-            <h2 class="portfolio-item-label-title">{{ label }}</h2>
+            <h4 class="portfolio-item-label-title">{{ label }}</h4>
             <p class="portfolio-item-label-description" v-html="description"></p>
             <button class="portfolio-item-label-button">Click here to know more.</button>
         </div>

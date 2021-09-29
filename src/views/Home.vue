@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <article>
     <div class="cover">
       <div class="max-area">
         <div class="cover-text">
@@ -20,8 +20,8 @@
       </div>
     </div>
 
-    <div class="portfolio">
-      <h2 id="portfolio" class="portfolio-title" ref="portfolio">PORTFOLIO</h2>
+    <section class="portfolio">
+      <h3 id="portfolio" class="portfolio-title" ref="portfolio">PORTFOLIO</h3>
       <ul class="portfolio-grid">
         <li class="portfolio-item" v-for="item, index in portfoliolist" :key="index">
           <DrawComputer
@@ -34,10 +34,10 @@
             :description="item.description"/>
         </li>
       </ul>
-    </div>
+    </section>
 
-    <div class="about" >
-      <h2 id="about" class="about-title" ref="about">ABOUT ME</h2>
+    <section class="about" >
+      <h3 id="about" class="about-title" ref="about">ABOUT ME</h3>
       <ul class="about-grid">
         <li class="about-item">
           <div class="about-draw">
@@ -65,51 +65,51 @@
           <p class="about-item-text">I love animating in CSS, worked for a long time in Melissa's collections, mainly with CSS animations. Used JS animations recently with Vue and Lottie, and tried some Three.js animations in the last few years.</p>
         </li>
       </ul>
-    </div>
+    </section>
 
-    <div class="awards" >
-      <h2 id="awards" class="awards-title" ref="awards">AWARDS</h2>
+    <section class="awards" >
+      <h3 id="awards" class="awards-title" ref="awards">AWARDS</h3>
       <ul  class="awards-grid">
         <li class="awards-item">
           <a class="awards-item-link" href="http://coral.ufsm.br/prpgp/images/fomularios-diversos/2013/40-MELHORES-JAI-2013.pdf">
             <span class="awards-item-link-media">🏆</span>
-            <h3 class="awards-item-link-text">At UFSM.<br>Prize of being placed among the 40 best works of the 28th JAI</h3>
+            <h4 class="awards-item-link-text">At UFSM.<br>Prize of being placed among the 40 best works of the 28th JAI</h4>
             <p class="awards-item-link-year">2013</p>
           </a>
         </li>
         <li class="awards-item">
           <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
             <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-special-kudos-1.svg'}">
-            <h3 class="awards-item-link-text">CSSDA / SPECIAL KUDOS AWARD - Awarded for the first version of luiskr.com in 2020</h3>
+            <h4 class="awards-item-link-text">CSSDA / SPECIAL KUDOS AWARD - Awarded for the first version of luiskr.com in 2020</h4>
             <p class="awards-item-link-year">June 14th 2020</p>
           </a>
         </li>
         <li class="awards-item">
           <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
             <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-inn-Luiskr-1.svg'}">
-            <h3 class="awards-item-link-text">CSSDA / INNOVATION DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h3>
+            <h4 class="awards-item-link-text">CSSDA / INNOVATION DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h4>
             <p class="awards-item-link-year">June 14th 2020</p>
           </a>
         </li>
         <li class="awards-item">
           <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
             <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-ux-Luiskr-1.svg'}">
-            <h3 class="awards-item-link-text">CSSDA / UX DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h3>
+            <h4 class="awards-item-link-text">CSSDA / UX DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h4>
             <p class="awards-item-link-year">June 14th 2020</p>
           </a>
         </li>
         <li class="awards-item">
           <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
             <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-ui-Luiskr-1.svg'}">
-            <h3 class="awards-item-link-text">CSSDA / UI DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h3>
+            <h4 class="awards-item-link-text">CSSDA / UI DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h4>
             <p class="awards-item-link-year">June 14th 2020</p>
           </a>
         </li>
       </ul>
-    </div>
+    </section>
 
-    <div class="contact">
-      <h2 id="contact" class="contact-title" ref="contact">Contact</h2>
+    <footer class="contact">
+      <h3 id="contact" class="contact-title" ref="contact">Contact</h3>
       <div class="contact-social">
         <a href="mailto:luis.krotz@gmail.com" target="_blank" class="contact-social-link">Mail</a>
         <span class="contact-social-separator">•</span>
@@ -126,8 +126,8 @@
         <span class="contact-other-separator">•</span>
         <router-link class="contact-other-link" to="/terms-of-use">Terms of use</router-link>
       </div>
-    </div>
-  </div>
+    </footer>
+  </article>
 </template>
 
 <script>
