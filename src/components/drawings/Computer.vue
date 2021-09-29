@@ -6,7 +6,7 @@
             <div class="portfolio-item-computer-screen">
                 <div class="portfolio-item-computer-screen-image">
                     <span class="portfolio-item-computer-screen-image-toggle-1">Show More</span>
-                    <img class="portfolio-item-computer-screen-image-toggle-2" :src="image" />
+                    <img class="portfolio-item-computer-screen-image-toggle-2"  :alt="label" v-lazy="{src: image, loading: loadingimage }"/>
                 </div>
                 
             </div>
@@ -40,6 +40,10 @@ export default {
             type: String
         },
         image: {
+            required: true,
+            type: String
+        },
+        loadingimage: {
             required: true,
             type: String
         }

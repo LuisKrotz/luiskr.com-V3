@@ -235,6 +235,7 @@
                 object-fit: cover;
                 object-position: top center;
                 border-radius: to-rem($F2);
+                box-sizing: border-box;
                 border: 1px solid rgba(255, 255 , 255, .15);
 
                 @include layout-1024() {
@@ -323,7 +324,6 @@
         &-title {
             @extend .ttl-lg;
 
-            text-transform: uppercase;
             padding-bottom: to-rem($F5);
             max-width: to-rem($F15);
             margin: 0 auto;

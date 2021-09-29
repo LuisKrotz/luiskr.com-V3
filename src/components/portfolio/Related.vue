@@ -1,6 +1,6 @@
 <template>
     <footer class="internal-footer">
-        <h2 class="internal-footer-title">PROJECTS</h2>
+        <h2 class="internal-footer-title">Related</h2>
         <div class="internal-footer-related">
             <router-link class="internal-footer-related-link" to="/portfolio/brazilian-leather">brazilian leather</router-link>
             <router-link class="internal-footer-related-link" to="/portfolio/coza">coza</router-link>
