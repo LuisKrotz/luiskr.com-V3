@@ -704,7 +704,7 @@
             margin-bottom: to-rem($F9);
         }
 
-        @include layout-1920() {
+        @include layout-1680() {
             width: to-rem(320);
             border-radius: to-rem($F7);
             margin-right: to-rem($F11);

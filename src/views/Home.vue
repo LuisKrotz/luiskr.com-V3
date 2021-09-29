@@ -79,28 +79,28 @@
         </li>
         <li class="awards-item">
           <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
-            <img class="awards-item-link-media" src="https://storage.googleapis.com/luiskr.com/public/awards/cssda-special-kudos-1.svg">
+            <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-special-kudos-1.svg'}">
             <h3 class="awards-item-link-text">CSSDA / SPECIAL KUDOS AWARD - Awarded for the first version of luiskr.com in 2020</h3>
             <p class="awards-item-link-year">June 14th 2020</p>
           </a>
         </li>
         <li class="awards-item">
           <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
-            <img class="awards-item-link-media" src="https://storage.googleapis.com/luiskr.com/public/awards/cssda-inn-Luiskr-1.svg">
+            <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-inn-Luiskr-1.svg'}">
             <h3 class="awards-item-link-text">CSSDA / INNOVATION DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h3>
             <p class="awards-item-link-year">June 14th 2020</p>
           </a>
         </li>
         <li class="awards-item">
           <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
-            <img class="awards-item-link-media" src="https://storage.googleapis.com/luiskr.com/public/awards/cssda-ux-Luiskr-1.svg">
+            <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-ux-Luiskr-1.svg'}">
             <h3 class="awards-item-link-text">CSSDA / UX DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h3>
             <p class="awards-item-link-year">June 14th 2020</p>
           </a>
         </li>
         <li class="awards-item">
           <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
-            <img class="awards-item-link-media" src="https://storage.googleapis.com/luiskr.com/public/awards/cssda-ui-Luiskr-1.svg">
+            <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-ui-Luiskr-1.svg'}">
             <h3 class="awards-item-link-text">CSSDA / UI DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h3>
             <p class="awards-item-link-year">June 14th 2020</p>
           </a>
