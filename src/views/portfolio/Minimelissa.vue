@@ -20,7 +20,7 @@
           The project lasted from 2018 to 2020 and was made entirely with Jquery, CSS (Less) and PHP (Laravel). 
         </p>
         <p class="internal-description-text">
-          The website consisted of a Content and a Social feed on the homepage with infinite scroll leading to many Minimelissa exclusive content.
+          The website consisted of a Content feed and a Social feed on the homepage with infinite scroll leading to many Minimelissa exclusive content.
         </p>
       </section>
       <section class="internal-extra">
@@ -55,7 +55,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         The where to find page was developed with the Google Maps API, and was a central location to find all places where Mini Melissas where sold and Mini Melissa clubs in Brazil and aroud the world.
+         The where to find page was developed with the Google Maps API and was a central location to find all places where Mini Melissas were sold and Mini Melissa clubs in Brazil and around the world.
         </p>
       </section>
 
@@ -86,7 +86,10 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         On minimelissa, I was the Leading front end developer, and created a CSS framework for the project, called candy with many ready to use and highly customizable componets to allow the fast development of collection and special pages.
+         On Minimelissa I was the Leading front end developer and created a CSS framework for the project.
+        </p>
+        <p class="internal-description-text">
+         The framework was called <em>candy</em> with many ready to use and highly customizable components, to allow the fast development of collections and special pages.
         </p>
       </section>
 
@@ -116,10 +119,10 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         Speaking of collections, check out some of Minimelissa's collections. 
+          Speaking of collections, check out some of Minimelissa's collections: 
         </p>
         <p class="internal-description-text">
-         Color me, Spring Summer collection of 2020,  developed with the candy framework, CSS and HTML only.
+         <strong>"Color me"</strong>, Spring-Summer collection of 2020, developed with the <em>candy framework</em>, CSS and HTML only.
         </p>
       </section>
 
@@ -148,7 +151,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         Dance Machine, Autumn Winter collection of 2016,  developed with the candy framework, CSS and HTML only.
+         <strong>"Dance Machine"</strong>, Autumn-Winter collection of 2016, developed with the <em>candy framework</em>, CSS and HTML only.
         </p>
       </section>
 
@@ -177,7 +180,7 @@
   
       <section class="internal-description">
         <p class="internal-description-text">
-         Dreamers, Autumn Winter collection of 2020, developed with the candy framework, CSS and HTML only.
+         <strong>"Dreamers"</strong>, Autumn-Winter collection of 2020, developed with the <em>candy framework</em>, CSS and HTML only.
         </p>
       </section>
 
@@ -206,7 +209,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         Family, Spring Summer collection of 2019, developed with the candy framework, CSS and HTML only.
+         <strong>"Family"</strong>, Spring-Summer collection of 2019, developed with the <em>candy framework</em>, CSS and HTML only.
         </p>
       </section>
 
@@ -237,7 +240,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         Flygrl, Autumn Winter collection of 2017, developed with the candy framework, CSS and HTML only.
+         <strong>"Flygrl"</strong>, Autumn-Winter collection of 2017, developed with the <em>candy framework</em>, CSS and HTML only.
         </p>
       </section>
 
@@ -267,7 +270,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         Mapping, Spring Summer collection of 2018, developed with the candy framework, CSS and HTML only.
+          <strong>"Mapping"</strong>, Spring-Summer collection of 2018, developed with the <em>candy framework</em>, CSS and HTML only.
         </p>
       </section>
 
@@ -296,7 +299,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         Mashup, Spring Summer collection of 2017, developed with the candy framework, CSS and HTML only.
+         <strong>"Mashup"</strong>, Spring-Summer collection of 2017, developed with the <em>candy framework</em>, CSS and HTML only.
         </p>
       </section>
 
@@ -325,7 +328,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         Mirror, Autumn Winter collection of 2019, developed with the candy framework, CSS and HTML only.
+         <strong>"Mirror"</strong>, Autumn-Winter collection of 2019, developed with the <em>candy framework</em>, CSS and HTML only.
         </p>
       </section>
 
@@ -354,10 +357,10 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-          Open Vibes, Autumn Winter collection of 2018, developed in CSS and HTML only, was the first collection page to be displayed on the Minimelissa website.
+          <strong>"Open Vibes"</strong>, Autumn-Winter collection of 2018, developed in CSS and HTML only, was the first collection page to be displayed on the Minimelissa website.
         </p>
         <p class="internal-description-text">
-          Open Vibes, was the page that kickstarted the idea of Minimelissa's candy framework in response to the need to develop collectiob pages in a short space of time, keeping hight quality pixel perfect layouts, and fast pages.
+          <strong>"Open Vibes"</strong> was the page that kickstarted the idea of Minimelissa's <em>candy framework</em> in response to the need to develop collection pages in a short space of time, keeping high-quality pixel-perfect layouts and fast pages.
         </p>
       </section>
 
@@ -387,7 +390,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         Wanna be Carioca, Spring Summer collection of 2016, developed with the candy framework, CSS and HTML only.
+         <strong>"Wanna be Carioca"</strong>, Spring-Summer collection of 2016, developed with the <em>candy framework</em>, CSS and HTML only.
         </p>
       </section>
 

@@ -17,13 +17,16 @@
            Melissa's website was a project developed by Transa.
         </h2>
         <p class="internal-description-text">
-          I worked on the froject from 2016 to 2020, when the project was ended. Initially as a Jr. Front end Developer, guided by Cristiano Becker and ended as a Full Front End Developer by the end of the project.
+          I worked on the project from 2016 to 2020, when the project was ended. 
         </p>
         <p class="internal-description-text">
-          Melissa' website was a portal connecting all thigs related to the Melissa Brand. It had many feeds, connected with the brand social media and original content created at Transa.
+          Initially as a Jr. Front end Developer, guided by Cristiano Becker and ended as a Full Front End Developer by the end of the project.
         </p>
         <p class="internal-description-text">
-          The project was developed in Vanilla JS (with prototype), CSS (Less) and PHP (Laravel).
+          Melissa' website was a portal connecting all things related to the Melissa Brand. It had many feeds, connected with the brand social media and original content created at Transa.
+        </p>
+        <p class="internal-description-text">
+         The project was developed in Vanilla JS (with Prototype), CSS (Less) and PHP (Laravel).
         </p>
         <p class="internal-description-text">
           The website also had a where to find, connected to the Google maps API listing all places where the brand can be found.
@@ -93,7 +96,10 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         The article pages where made to be experience. Developed in a modal system, without refreshes, keeping the user on the same page with a beautifull and smooth experience.
+         Article pages were made to be a fluid experience.
+        </p>
+        <p class="internal-description-text">
+         Developed in a modal system, without refreshes, keeping the user on the same page with a beautiful pixel-perfect layout and smooth performance.
         </p>
         <p class="internal-description-text">
          They consisted of articles, videos, and image galleries with original content created for Melissa's website.
@@ -183,31 +189,31 @@
          Every Melissa collection was designed to be a new experience for every season.
         </p>
         <p class="internal-description-text">
-         I developed the front end many of them like, Color Me, Dreamers, Family, Flygrl, Mapping, Mashup, Mirror and Open Vibes, each with a unique feeling and experince.
+         I developed the front end of many of them like, Color Me, Dreamers, Family, Flygrl, Mapping, Mashup, Mirror and Open Vibes, each with a unique feeling and experience.
         </p>
         <p class="internal-description-text">
-          Color Me was developed using the Symphony Framework for animatios, created by Cristiano Becker for the project, It was all about a colorfull experience.
+          <strong>"Color Me"</strong> was developed using the Symphony Framework for animations, created by Cristiano Becker for the project, it was all about a colourful experience.
         </p>
         <p class="internal-description-text">
-          Dreamers was an experience by it's own, With the use of the device camera to connect the user with the page.
+          <strong>"Dreamers"</strong> was an experience on its own, with use of the device camera to connect the user with the page.
         </p>
         <p class="internal-description-text">
-          Family, had lots of transitions and animations, and styled to bond with memories.
+          <strong>"Family</strong>" had lots of transitions and animations and styled to bond with memories.
         </p>
         <p class="internal-description-text">
-          Flygrl, was developed with lots of CSS only animations.
+          <strong>"Flygrl"</strong> was developed with lots of CSS only animations.
         </p>
         <p class="internal-description-text">
-          Mapping had an interactive experience with the use of the Google Maps API  to search shoes in the collection iconic locations.
+          <strong>"Mapping"</strong> had an interactive experience with the use of the Google Maps API to search shoes in the collection of iconic locations.
         </p>
         <p class="internal-description-text">
-          Mashup, my first Melissa colletion developed with Cristiano Becker, the first page to use the Symphony Framework to create animations.
+          <strong>"Mashup"</strong> was my first Melissa collection developed with Cristiano Becker, the first page to use the Symphony Framework to create animations.
         </p>
         <p class="internal-description-text">
-          Mirror, with smooth text animatitions, specially on mobile.
+          <strong>"Mirror"</strong>, developed with smooth text animations, especially on mobile.
         </p>
-        <p class="internal-description-text">
-          Open Vibes, was a collection with with a mood from day to night, so we used SVGs and Canvas to achieve a day to night experience on scrolling.
+         <p class="internal-description-text">
+          <strong>"Open Vibes"</strong> was a collection with a mood from day to night, so we used SVGs and Canvas to achieve a day to night experience on scrolling.
         </p>
       </section>
 
@@ -377,25 +383,28 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         Collabs where short pages develop to show some of Melissa's Collabs on the website, all with a unique look an feel to them.
+         Collabs where short pages develop to show some of Melissa's collabs on the website.
         </p>
         <p class="internal-description-text">
-         Some of the Collab pages I developed where, A La Garçonne Collab, Awaytomars, CSC (Satchel), Fabula and Rider.
+          All with a unique look and feel to them.
         </p>
         <p class="internal-description-text">
-         A La Garçonne was developed with many transitions in mind, using the Symphony Frawork, and lots of CSS.
+         Some of the collab pages I developed were, <strong>"À La Garçonne"</strong> Collab, <strong>"awaytomars"</strong>, <strong>"Satchel (CSC)"</strong>, <strong>"Fabula"</strong> and <strong>"Rider"</strong>.
         </p>
         <p class="internal-description-text">
-         Away to mars was a shorter page focused mainly on styloing with CSS.
+         <strong>"À La Garçonne"</strong> was developed with many transitions in mind using the <em>Symphony Framework</em>, and lots of CSS.
         </p>
         <p class="internal-description-text">
-         In Satchel I worked mainly with the CSS, while Cristiano Bekcer focused on creating videos rendered in JS for the page to play on mobile.
+         <strong>"awaytomars"</strong> was a shorter page focused mainly on styling with CSS.
         </p>
         <p class="internal-description-text">
-         In Fabula the focus was to bring the imagination to life, every single element of the page was animated in CSS by hand for desktop and mobile.
+         In <strong>"Satchel (CSC)"</strong> I worked mainly with the CSS, while Cristiano Becker focused on creating videos rendered in JS for the page to play on mobile.
         </p>
         <p class="internal-description-text">
-         Rider was the last page bringing Melissa's sister Rider to the website.
+         In <strong>"Fabula"</strong> the focus was to bring the imagination to life, every single element of the page was animated in CSS by hand for desktop and mobile.
+        </p>
+        <p class="internal-description-text">
+         <strong>"Rider"</strong> was the last page bringing Melissa's sister <strong>"Rider"</strong> to the website.
         </p>
       </section>
 
@@ -505,10 +514,10 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         Specials where short pages dedicated for special Melissa's products.
+         Specials were short pages dedicated to special Melissa's products.
         </p>
         <p class="internal-description-text">
-         I worked by developed Melissa's Bike and Melissa's Creatives special pages, all done in Vanilla JS and CSS.
+         I worked by developed Melissa's <strong>"Bike"</strong> and Melissa's <strong>"Creatives"</strong> special pages, all done in Vanilla JS and CSS.
         </p>
       </section>
 
@@ -598,10 +607,13 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-          On the version 2.0 of the website I also worked on improving many of the already existing collab and special pages, like Campana, Gaetano Pesce, J Maskrey, Gareth Pugh, Jason Wu, Jeremy Scott, Sebastian Errazuriz, Karl Lagerfeld, Vivienne Westwood, Vitorino Campos, Zaha Hadid and Roller Joy pages.
+          On the version 2.0 created in 2018 of the website, I also worked on improving many of the already existing collab and special pages.
         </p>
-         <p class="internal-description-text">
-           The improvements mainly consisted in adapting to new mobile device sizes, and CSS optimizations for every page, improving the load and render times.
+        <p class="internal-description-text">
+          Like <strong>Campana</strong>, <strong>Gaetano Pesce</strong>, <strong>J Maskrey</strong>, <strong>Gareth Pugh</strong>, <strong>Jason Wu</strong>, <strong>Jeremy Scott</strong>, <strong>Sebastian Errazuriz</strong>, <strong>Karl Lagerfeld</strong>, <strong>Vivienne Westwood</strong>, <strong>Vitorino Campos</strong>, <strong>Zaha Hadid</strong> and <strong>"Roller Joy"</strong> pages.
+        </p>
+        <p class="internal-description-text">
+          The improvements mainly consisted in adapting to new mobile device sizes, and CSS optimizations for every page, improving the load and render times.
         </p>
       </section>
 
@@ -873,7 +885,13 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-          Like the special and collab pages, many collections also had to be optimized and got some fixes, like, Cine Melissa, Dance Machine, Eat my Melissa, Nation, Starwalker, Wanna be Carica and We are Flowers, with special care to the mobile layout and performance of these collections.
+          Like the special and collab pages, many collections also had to be optimized and got some fixes.
+        </p>
+        <p class="internal-description-text">
+          Pages like <strong>"Cine Melissa"</strong>, <strong>"Dance Machine"</strong>, <strong>"Eat my Melissa"</strong>, <strong>"Nation"</strong>, <strong>"Starwalker"</strong>, <strong>"Wanna be Carica"</strong> and <strong>"We are Flowers"</strong>.
+        </p>
+        <p class="internal-description-text">
+          All with special care for the mobile layout and performance of these collections.
         </p>
       </section>
 
@@ -1023,7 +1041,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-          I also played a role leading the front end team of the project in the late years of the project life-cycle, by guiding members of the Front end developer team in pages like Baja East.
+          I also played a role leading the front end team of the project in the late years of the project life-cycle, by guiding members of the Front end developer team in pages like <strong>"Baja East"</strong>.
         </p>
       </section>
 
@@ -1053,7 +1071,10 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-          During the website life-cycle, many pages got updated and where constanltly evolving, such is the case for the Gallerie pages, pages that showed melissas physical locations on the website.
+          During the website life-cycle, many pages got updated and were constantly evolving.
+        </p>
+        <p class="internal-description-text">
+          Such as the case of the "Gallerie" pages. Pages that showed melissas physical locations on the website.
         </p>
       </section>
 
@@ -1083,7 +1104,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-          Melissa's project was always creating something new, like the Melissa Next contest on UK and BR, and I coded the front end of both page of the contest.
+          Melissa's project was always creating something new, like the <strong>"Melissa Next"</strong> contest on UK and BR, and I coded the front end of both pages of the contest.
         </p>
       </section>
 
@@ -1122,7 +1143,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-          In the last year of the project, I also coded Melissa POP, a page to show many of the most popular Melissa shoes of all time.
+          In the last year of the project, I also coded <strong>"Melissa POP"</strong>, a page to show many of the most popular Melissa shoes of all time.
         </p>
       </section>
 
@@ -1151,7 +1172,13 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-          The last page I participated during the project life-cycle, was the sustainability page, a page with lots of animations, graphyc elements, and a cool vibe to aproach sustainability. All the code was done in Vanilla JS and CSS only.
+          The last page I participated in during the project life-cycle, was the <strong>Sustainability</strong> page.
+        </p>
+        <p class="internal-description-text">
+          A page with lots of animations and graphic elements with a cool vibe to the approach of sustainability.
+        </p>
+        <p class="internal-description-text">
+          All the code was done in Vanilla JS and CSS only.
         </p>
       </section>
 

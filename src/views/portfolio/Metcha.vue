@@ -20,15 +20,16 @@
          Seeking to tell the most compelling stories within the worlds of design, art, fashion and lifestyle, shining a spotlight on the subjects and the individuals that make up the everyday lives of the people who shape the world of today.
         </p>
         <p class="internal-description-text">
-          Through a bold, fresh and honest storytelling, METCHA hopes to encourage innovative thinking, inspiring people to continue to evolve the ever-expanding culture of creativity.
+          Through bold, fresh and honest storytelling, METCHA hopes to encourage innovative thinking, inspiring people to continue to evolve the ever-expanding culture of creativity.
         </p>
         <p class="internal-description-text">
           METCHA's mission is to bring forward the best projects and curate the most stimulating stories, inspiring a generation of tastemakers, trendsetters & style-conscious individuals to also understand and see leather as an exciting creative partner.
         </p>
          <p class="internal-description-text">
-          The project started in 2019 and I'm currently the Leading front end developer of the project.</p>
+          The project started in 2019 and I'm currently the Leading front end developer of the project.
+        </p>
          <p class="internal-description-text">
-          To realize METCHA's project, VUE.js,  Sass and PHP (Laravel) where used on the development, specially VUE, to enable all the styling and the website identity while keeping a fast, dynamic and smooth experience.
+          To realize METCHA's project, VUE.js, Sass and PHP (Laravel) were used on the development, specially VUE, to enable all the styling and the website identity while keeping a fast, dynamic and smooth experience.
         </p>
       </section>
       <section class="internal-extra">
@@ -82,10 +83,10 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         Speaking of a dynamic experiences, check out some of the incredible layouts created by a very talented team working on metcha.com
+          Speaking of dynamic experiences, check out some of the incredible layouts created by a very talented team working on metcha.com.
         </p>
         <p class="internal-description-text">
-          Those articles where a real challenge to code, METCHA's uses CSS and typografy heavily to enable unique experinces and feels for every article.
+          Those articles were a real challenge to code, METCHA's uses CSS and typography heavily to enable unique experiences and feels for every article.
         </p>
       </section>
 
@@ -364,7 +365,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         All those articles, and many more, powered by a powerfull CMS, developed by Renan Machado, and with the front end customized by myselft to the team at Transa.
+         All those articles, and many more, powered by a powerful CMS, developed by Renan Machado, and with the front end customized by myself to the team at Transa.
         </p>
       </section>
 

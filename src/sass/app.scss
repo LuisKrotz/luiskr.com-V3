@@ -22,10 +22,11 @@
     color: var(--grey);
     text-decoration: none;
     cursor: pointer;
+    transition: opacity .3s ease-in;
 
     &:hover,
     &:focus {
-      text-decoration: line-through;
+      opacity: .5;
     }
 
     &.router-link-exact-active,

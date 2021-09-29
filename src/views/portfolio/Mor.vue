@@ -14,19 +14,19 @@
 
       <section class="internal-description">
         <h2 class="internal-description-text">
-          MOR's website was developed at transa.
+          MOR's website was developed at Transa.
         </h2>
         <p class="internal-description-text">
           It uses Vanilla JS, Less and Laravel (PHP).
         </p>
         <p class="internal-description-text">
-          The goal of the project was to build a fast and beautifull experience connecting MOR's channels and community in one place.
+          The goal of the project was to build a fast and beautiful experience connecting MOR's channels and community in one place.
         </p>
         <p class="internal-description-text">
           The JS and CSS are both less than 50k in size for the entire website to be loaded at blazing fast speeds and engage with MOR's community.
         </p>
         <p class="internal-description-text">
-          The main challenge was to code a feed with articles and links to MOR's vtex store, wich was also re-designed by Transa, creating a cohesive eperience between the store and the website.
+          The main challenge was to code a feed with articles and links to MOR's VTEX store, which was also re-designed by Transa, creating a cohesive experience between the store and the website.
         </p>
       </section>
       <section class="internal-extra">
@@ -61,7 +61,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         The store was re-stylized, changing the entire identity inside the already build store using the VTEX e-commerce platform.
+         The store was re-stylized, changing the entire identity inside the already built store using the VTEX e-commerce platform.
         </p>
       </section>
 
@@ -108,7 +108,7 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         Working at Transa, we also built a where to find for the brand, listing it's main locations using the Google Maps API.
+         Working at Transa, we also built a where to find for the brand, listing its main locations using the Google Maps API.
         </p>
       </section>
 

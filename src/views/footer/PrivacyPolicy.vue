@@ -1,5 +1,5 @@
 <template>
-  <div id="#main" class="project">
+  <div id="#main" class="legal">
     <h2 class="internal-title">Privacy Policy</h2>
 
     <section class="internal-description">

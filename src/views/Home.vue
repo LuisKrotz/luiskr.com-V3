@@ -5,8 +5,7 @@
         <div class="cover-text">
           <h2>A DEV</h2>
           <span>
-          With passion for UI/UX, JS, CSS and performance.
-          Focused on creating beautiful experiences.</span>
+           with a passion for UI/UX, JS, CSS and performance. Focused on creating beautiful experiences.</span>
         </div>
 
         <button class="cover-links abt" @click="scrollTo('about')">
@@ -45,25 +44,25 @@
             <div class="about-draw-mic"></div>
             <div class="about-draw-speaker"></div>
             <div class="about-draw-screen">
-              <p class="about-item-text">I'm Currently working full time at TRANSA, and avaliabe for part-time Freelancing on the weekends.</p>
-              <p class="about-item-text">Working 100% remotely.</p>
+              <p class="about-item-text">I'm currently working full time at TRANSA, and available for part-time Freelancing on the weekends.</p>
+              <p class="about-item-text"><strong>Working 100% remotely.</strong></p>
             </div>
           </div>
 
           <p class="about-item-text">I went to college at UFSM / Federal University of Santa Maria, in the City of Frederico Westphalen - Brazil, and graduated in August of 2014 in Technology in Systems for the Internet.</p>
-          <p class="about-item-text">Started as a Jr. front-end developer on Apr. 2016. Learned a lot and became a front-end developer on december 2016. The opportunities kept appearing and I started leading the front-end in January of 2018. Now I'm managing the front-end team while working as the leading front end developer until this date.</p>
-          <p class="about-item-text">I started freelancing in 2016 to test my skills and since then been working on side jobs from time to time.</p>
+          <p class="about-item-text">Started as a Jr. front-end developer on Apr. 2016. Learned a lot and became a front-end developer in December 2016. The opportunities kept appearing and I started leading the front-end in January of 2018. Now I'm managing the front-end team while working as the leading front end developer until this date.</p>
+          <p class="about-item-text">I started freelancing in 2016 to test my skills and since then have been working on side jobs from time to time.</p>
           <p class="about-item-text">When I graduated, I started working for a short period at Dismáquinas, on Frederico Westphalen, then I moved to Santana do Livramento for a while, and work at Genesysinf on the Sageweb project, before leaving to Porto Alegre.</p>
         </li>
 
         <li class="about-item">
           <p class="about-item-text">I love learning new languages.<br>I can communicate in German, English, Portuguese and Spanish.<br>Currently trying to learn Mandarin.</p>
-          <p class="about-item-text">My work is always focused on delivering pixel perfects layouts. Been working with UX at Transa on the last years, focusing the code to deliver a easy to use, fast, beautiful and smooth experience.</p>
-          <p class="about-item-text">I work with any CSS pre-processor avaliable. I love CSS3 and generally work with SASS, but have worked with LESS and Stylus.</p>
-          <p class="about-item-text">I do a lot of programming in JS, my favorite language. I use lots of Vue.js, but in some cases Vanilla JS does the trick without any overhead.On the server side I tend to use mainly PHP (Laravel) but I did some programming in Asp.net and C# in the past.I'm learning Angular and React, looking fot opportunities to apply the new knowledge, and some Python.</p>
-          <p class="about-item-text">HTML5, is an essential skill to master for any website. I work with markup optimization for SEO, acessibility, performance and animatios.</p>
-          <p class="about-item-text">Mysql is the main Query language I use, but worked with Cassandra and Mongo in the past. I'm Currently studing more Mongo to apply in furture projects.</p>
-          <p class="about-item-text">I love animating in CSS, worked for a long time in Melissa's collections, mainly with CSS animations. Used JS animations recently with Vue and Lottie, and tryed some Three.js animations in the last few years.</p>
+          <p class="about-item-text">My work is always focused on delivering pixel perfects layouts. Been working with UX at Transa in the last years, focusing the code to deliver an easy to use, fast, beautiful and smooth experience.</p>
+          <p class="about-item-text">I work with any CSS pre-processor available. I love CSS3 and generally work with SASS, but have worked with LESS and Stylus.</p>
+          <p class="about-item-text">I do a lot of programming in JS, my favourite language. I use lots of Vue.js, but in some cases, Vanilla JS does the trick without any overhead. On the server side, I tend to use mainly PHP (Laravel) but I did some programming in Asp.net and C# in the past. I'm learning Angular and React, looking for opportunities to apply the new knowledge, and some Python.</p>
+          <p class="about-item-text">HTML5 is an essential skill to master for any website. I work with markup optimization for SEO, accessibility, performance and animations.</p>
+          <p class="about-item-text">Mysql is the main query language I use but worked with Cassandra and Mongo in the past. I'm Currently studying more Mongo to apply in future projects.</p>
+          <p class="about-item-text">I love animating in CSS, worked for a long time in Melissa's collections, mainly with CSS animations. Used JS animations recently with Vue and Lottie, and tried some Three.js animations in the last few years.</p>
         </li>
       </ul>
     </div>
@@ -161,7 +160,7 @@ export default {
           width: "1920",
           height: "1014",
           label: 'Marco Almeida',
-          description: 'Marco\'s Portfolio was developed as a Freelancing project in 2021.<br>The main goal to achieve was to create a pixel perfect project, with smooth animations and a pixel perfect UI.',
+          description: 'Marco\'s Portfolio was developed as a Freelancing project in 2021.<br>The main goal to achieve was to create a pixel-perfect project, with smooth animations and a pixel perfect UI.',
         },
         {
           link: 'melissa',
@@ -169,7 +168,7 @@ export default {
           width: "1920",
           height: "799",
           label: 'Melissa',
-          description: 'Melissa\' website was a portal connecting all thigs related to the Melissa Brand.<br>It had many feeds, connected with the brand social media and original content created at Transa.',
+          description: 'Melissa\'s website was a portal connecting all things related to the Melissa Brand.<br>It had many feeds connected with the brand social media and original content created at Transa.',
         },
         {
           link: 'metcha',
@@ -193,7 +192,7 @@ export default {
           width: "1920",
           height: "798",
           label: 'Mor',
-          description: 'MOR\'s website was developed at transa with the goal create a fast and beautifull experience connecting MOR\'s channels and community in one place',
+          description: 'MOR\'s website was developed at Transa with the goal create a fast and beautiful experience connecting MOR\'s channels and community in one place',
         },
         {
           link: 'genesysinf-sageweb',
@@ -209,7 +208,7 @@ export default {
           width: "1920",
           height: "850",
           label: 'Transa',
-          description: 'Transa is a driven by community + content + channels company.<br>Provoking meaningful changes for ambitious organizations in BR, USA, UK, EU & ASIA, ecouraging people and brands to catalyze their strengths.<br>Transa\'s website consists of a infinite scrolling feed, with many projects developed at Transa during the years.',
+          description: 'Transa is a driven by community + content + channels company.<br>Provoking meaningful changes for ambitious organizations in BR, USA, UK, EU & ASIA, encouraging people and brands to catalyze their strengths.<br>Transa\'s website consists of an infinite scrolling feed, with many projects developed at Transa during the years.',
         },
         {
           link: 'vibra',
@@ -217,7 +216,7 @@ export default {
           width: "1920",
           height: "913",
           label: 'Vibra',
-          description: 'Vibra is a website developed at transa in 2016 as a portal develped for the Vibra Brand.',
+          description: 'Vibra is a website developed at Transa in 2016 as a portal created for the Vibra Brand.',
         }]
     }
   },

@@ -87,6 +87,21 @@
             @include layout-2560() {
                 padding-bottom: to-rem($F10);
             }
+
+            a {
+                transition: opacity .3s ease-in;
+                text-decoration: underline;
+                color: var(--black);
+
+                &:hover,
+                &:focus {
+                    opacity: .5;
+                }
+
+                &:visited {
+                    text-decoration: line-through;
+                }
+            }
         }
 
         p::last-of-type {
@@ -350,13 +365,14 @@
             }
 
             &-link {
+                transition: opacity .3s ease-in;
                 display: list-item;
                 color: inherit;
                 text-decoration: none;
 
                 &:hover,
                 &:focus {
-                    text-decoration: line-through;
+                    opacity: .5;
                 }
 
                 &.router-link-active {
@@ -391,10 +407,12 @@
 
                 color: inherit;
                 text-decoration: none;
+                transition: opacity .3s ease-in;
+                cursor: pointer;
 
                 &:hover,
                 &:focus {
-                    text-decoration: line-through;
+                    opacity: .5;
                 }
             }
         }

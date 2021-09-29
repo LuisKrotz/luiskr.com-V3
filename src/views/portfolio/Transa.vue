@@ -20,7 +20,7 @@
           I'm currently the Lead front end of Transa's website.
         </p>
         <p class="internal-description-text">
-          Transa's website consists of a infinite scrolling feed, with many projects developed at Transa during the years.
+          Transa's website consists of an infinite scrolling feed, with many projects developed at Transa during the years.
         </p>
       </section>
       <section class="internal-extra">
@@ -403,10 +403,16 @@
 
       <section class="internal-description">
         <p class="internal-description-text">
-         The website also features a Join-us page, in a conversational style all done in CSS and Javascript.
+         The website also features a join-us page.
         </p>
         <p class="internal-description-text">
-          Evolved from Transa's Muda project, where I also worked as the front end developer until the new 2021 version of Transa's website was created.
+         Created in a  "conversational" style, all done in CSS and Javascript.
+        </p>
+        <p class="internal-description-text">
+         I participated a lot in the UX of the page beside the coding.
+        </p>
+        <p class="internal-description-text">
+         The join-us page evolved from Transa's muda page, where I also worked as the front end developer until 2021 when Transa's new website was created.
         </p>
       </section>
 
@@ -420,15 +426,6 @@
                   :canExpand="true"
                   :isVideo="true"
                   label="Transa: Join Us page short tour"/>
-            </div>
-            <div class="internal-extra-item landscape">
-                <Media
-                  src="transainc/muda/transainc-muda"
-                  :width="1440"
-                  :height="784"
-                  :isVideo="true"
-                  :canExpand="true"
-                  label="Transa: Muda page"/>
             </div>
         </div>
       </section>

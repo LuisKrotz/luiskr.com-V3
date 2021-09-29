@@ -1,5 +1,5 @@
 <template>
-  <div id="#main" class="project">
+  <div id="#main" class="legal">
     <h2 class="internal-title">Terms of Use</h2>
     <section class="internal-description">
       <h3 class="internal-description-text">Version 1.0</h3>
