@@ -62,6 +62,8 @@
     &-links {
         @extend .ttl-sm;
 
+        transition: box-shadow .5s ease-in-out;
+
         box-sizing: border-box;
         border: to-rem($F1) solid var(--grey-2);
         border-radius: 100%;
@@ -71,15 +73,10 @@
         position: absolute;
         cursor: pointer;
         text-decoration: none;
-
-
-        &:hover,
-        &:focus {
-            text-decoration: line-through;
-        }
+        text-transform: uppercase;
 
         &.ptf {
-            border: to-rem($F1) solid $color-turquoise;
+            box-shadow: 0 0 to-rem($F8) 0 $color-turquoise inset;
             animation: bounce-2 10s linear infinite;
             bottom: to-vw($F1 * 1px, $vw-320);
             right: to-vw($F12 * 1px, $vw-320);
@@ -88,6 +85,7 @@
             color: $color-turquoise;
 
             @include layout-768() {
+                box-shadow: 0 0 to-rem($F10) 0 $color-turquoise inset;
                 bottom: to-vw($F12 * -1px, $vw-768);
                 right: to-vw($F14 * 1px, $vw-768);
                 width: to-vw($F14 * 1px, $vw-768);
@@ -95,6 +93,7 @@
             }
 
             @include layout-1024() {
+                box-shadow: 0 0 to-rem($F8) 0 $color-turquoise inset;
                 bottom: to-vw($F2 * 1px, $vw-1024);
                 right: to-vw($F13 * 1px, $vw-1024);
                 width: to-vw($F13 * 1px, $vw-1024);
@@ -116,15 +115,21 @@
             }
 
             @include layout-1680() {
+                box-shadow: 0 0 to-rem($F10) 0 $color-turquoise inset;
                 bottom: to-vw($F12 * 1px, $vw-1680);
                 right: to-vw($F15 * 1px, $vw-1680);
                 width: to-vw($F13 * 1px, $vw-1680);
                 height: to-vw($F13 * 1px, $vw-1680);
             }
+
+            &:focus,
+            &:hover {
+                box-shadow: 0 0 to-rem($F7) 0 $color-turquoise inset;
+            }
         }
 
         &.cnt {
-            border: to-rem($F1) solid $color-orange;
+            box-shadow: 0 0 to-rem($F8) 0 $color-orange inset;
             right: to-vw($F9 * -1px, $vw-320);
             top: to-vw($F9 * -1px, $vw-320);
             width: to-vw($F13 * 1px, $vw-320);
@@ -133,6 +138,7 @@
             color: $color-orange;
 
             @include layout-768() {
+                box-shadow: 0 0 to-rem($F10) 0 $color-orange inset;
                 right: to-vw($F11 * -1px, $vw-768);
                 top: to-vw($F9 * -1px, $vw-768);
                 width: to-vw($F14 * 1px, $vw-768);
@@ -140,6 +146,7 @@
             }
 
             @include layout-1024() {
+                box-shadow: 0 0 to-rem($F8) 0 $color-orange inset;
                 right: to-vw($F10 * -1px, $vw-1024);
                 top: to-vw($F10 * 1px, $vw-1024);
                 width: to-vw($F14 * 1px, $vw-1024);
@@ -160,14 +167,20 @@
             }
 
             @include layout-1680() {
+                box-shadow: 0 0 to-rem($F10) 0 $color-orange inset;
                 top: to-vw($F2 * -1px, $vw-1680);
                 width: to-vw($F15 * 1px, $vw-1680);
                 height: to-vw($F15 * 1px, $vw-1680);
             }
+
+            &:focus,
+            &:hover {
+                box-shadow: 0 0 to-rem($F7) 0 $color-orange inset;
+            }
         }
 
         &.abt {
-            border: to-rem($F1) solid $color-pink;
+            box-shadow: 0 0 to-rem($F8) 0 $color-pink inset;
             bottom: to-vw($F11 * -1px, $vw-320);
             right: to-vw($F5 * -1px, $vw-320);
             width: to-vw($F12 * 1px, $vw-320);
@@ -176,6 +189,7 @@
             color: $color-pink;
 
             @include layout-768() {
+                box-shadow: 0 0 to-rem($F8) 0 $color-pink inset;
                 bottom: to-vw($F12 * -1px, $vw-768);
                 right: to-vw($F8 * -1px, $vw-768);
                 width: to-vw($F13 * 1px, $vw-768);
@@ -183,6 +197,7 @@
             }
 
             @include layout-1024() {
+                box-shadow: 0 0 to-rem($F8) 0 $color-pink inset;
                 bottom: to-vw($F10 * -1px, $vw-1024);
                 right: to-vw($F10 * -1px, $vw-1024);
                 width: to-vw($F13 * 1px, $vw-1024);
@@ -204,10 +219,16 @@
             }
 
             @include layout-1680() {
+                box-shadow: 0 0 to-rem($F10) 0 $color-pink inset;
                 bottom: to-vw($F8 * -1px, $vw-1680);
                 right: to-vw($F12 * 1px, $vw-1680);
                 width: to-vw($F13 * 1px, $vw-1680);
                 height: to-vw($F13 * 1px, $vw-1680);
+            }
+
+            &:focus,
+            &:hover {
+                box-shadow: 0 0 to-rem($F7) 0 $color-pink inset;
             }
         }
     }
