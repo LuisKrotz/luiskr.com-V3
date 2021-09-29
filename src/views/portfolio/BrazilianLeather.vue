@@ -13,18 +13,20 @@
       </div>
 
       <section class="internal-description">
-        <h2 class="internal-description-text">Brazilian Leather is a project developed at Transa, through a partnership between CICB and Apex-Brasil. The project is a portal of Leather from Brazil. Including websites like Brazilian Leather, CICB, CSCB and Leather Law.</h2>
+        <h2 class="internal-description-text">
+          Brazilian Leather is a project developed at Transa, through a partnership between CICB and Apex-Brasil. The project is a portal of Leather from Brazil. Including websites like Brazilian Leather, CICB, CSCB and Leather Law.
+        </h2>
         <p class="internal-description-text">
           I contributed as a member of the development team of the main portal.
         </p>
         <p class="internal-description-text">
-          Contributed with coding an maintence in vanilla JS and Jquery.
+          Contributed to the project initial coding and maintenance in vanilla JS and Jquery.
         </p>
         <p class="internal-description-text">
           Styling using LESS and Stylus.
         </p>
         <p class="internal-description-text">
-          And usability fixes after the development, with constant improvements and maintence to this date.
+          And usability fixes after the development, with constant improvements and maintenance to this date.
         </p>
       </section>
 
@@ -75,15 +77,17 @@
       </section>
 
       <section class="internal-description">
-        <h2 class="internal-description-text">Since 2016 I'm  contributing anually in the development of CSCB fóruns. </h2>
+        <h2 class="internal-description-text">
+          Since 2016 I'm contributing annually to the development of CSCB fóruns.
+        </h2>
         <p class="internal-description-text">
-          Every Fórum is a new experience, and development exclusively.
+          Every Forum is a new experience, and development exclusively.
         </p>
         <p class="internal-description-text">
           Check CSCB 2016 - "Econômia Circular" below.
         </p>
         <p class="internal-description-text">
-          It was developed using PHP, Jquery and pure CSS, I contributed as a member of the team as a JR. Front-end developer, guided by Cristiano Becker on the development of this page in my firt year at Transa.
+          It was developed using PHP, Jquery and pure CSS, I contributed as a member of the team as a JR. Front-end developer, guided by Cristiano Becker on the development of this page in my first year at Transa.
         </p>
       </section>
 
@@ -203,7 +207,7 @@
           2019' edition was called, "O couro no mundo hiperconectado".
         </h2>
         <p class="internal-description-text">
-          Developed using PHP, Jquery and CSS, I contributed as a Front end Developer, and worked closely with Renan Machado for the Back-end/Subscription submitting of the application.
+          Developed using PHP, Jquery and CSS, I contributed as a Front end Developer and worked closely with Renan Machado for the Back-end/Subscription submitting of the application.
         </p>
       </section>
 
@@ -240,11 +244,10 @@
 
       <section class="internal-description">
         <h2 class="internal-description-text">
-          2020' was a challenge with two editions created from scratch, an online forum called "A sociedade somos todos nós" and a webinar called "Leather business and the future consumer", in english and portuguese.
+          2020' was a challenge with two editions created from scratch, an online forum called "A sociedade somos todos nós" and a webinar called "Leather business and the future consumer", in English and Portuguese.
         </h2>
         <p class="internal-description-text">
-          Both pages where developed using PHP, Sass for the CSS and Vanilla JS with code created from scratch exclusively for this new pages,
-          I contributed as a Front end Developer, and worked with Renan Machado for the Back-end of the application.
+          Both pages were developed using PHP, Sass for the CSS and Vanilla JS with code created from scratch exclusively for these new pages, I contributed as a Front end Developer, and worked with Renan Machado for the Back-end of the application.
         </p>
       </section>
 
