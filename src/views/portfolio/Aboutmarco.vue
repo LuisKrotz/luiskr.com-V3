@@ -186,6 +186,11 @@ export default {
   created() {
     document.title = this.$route.meta.title;
   },
+  mounted() {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 500);
+  },
   components: {
     Media,
     MediaExpanded,

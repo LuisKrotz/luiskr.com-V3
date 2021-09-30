@@ -238,6 +238,11 @@ export default {
           updateHistory: false,
           scrollTo: this.$refs[ref],  // scrollTo is also allowed to be number
         })
+    },
+    mounted() {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 500);
     }
   }
 }

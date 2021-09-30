@@ -346,6 +346,11 @@ export default {
       modal: this.$store.getters.getModal
     }
   },
+  mounted() {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 500);
+  },
   created() {
     document.title = this.$route.meta.title;
   },
