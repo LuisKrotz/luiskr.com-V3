@@ -462,7 +462,7 @@
       <Related />
     </div>
 
-    <aside id="#modal" class="modal-above" v-if="modal.open">
+    <div id="#modal" class="modal-above" v-if="modal.open">
       <MediaExpanded
         :source="modal.media.source"
         :thumb="modal.media.thumb"
@@ -470,7 +470,7 @@
         :width="modal.media.width"
         :height="modal.media.height"
         :isVideo="modal.media.isVideo"/>
-    </aside>
+    </div>
   </article>
 </template>
 
