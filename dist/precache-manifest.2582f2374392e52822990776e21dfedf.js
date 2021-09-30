@@ -76,7 +76,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/favicon-32x32.png"
   },
   {
-    "revision": "20d08b7e2dc329e4374e7ded83cdc127",
+    "revision": "38b0825a2f4f44072079a6b156da02b4",
     "url": "/index.html"
   },
   {
@@ -152,11 +152,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/share.png"
   },
   {
-    "revision": "9fc03faf5d9f368f7425b7e10d593432",
+    "revision": "183884083fca90116266b0f1eb7955b0",
     "url": "/site.webmanifest"
   },
   {
-    "revision": "07cf3d991dad1c5e2ce23d6dc6e7d8a0",
+    "revision": "3df8cc94cd3f0bd132634dca8d022a65",
     "url": "/sitemap.xml"
   }
 ]);
