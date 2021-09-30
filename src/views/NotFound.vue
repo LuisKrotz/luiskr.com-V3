@@ -1,6 +1,6 @@
 <template>
     <div id="#main" class="not-found">
-        <h2 class="not-found-title">Looks like someone's missing here.</h2>
+        <h2 class="not-found-title">Looks like someone's lost here.</h2>
         <router-link class="not-found-link" to="/">Click here to go to the main page.</router-link>
     </div>
 </template>

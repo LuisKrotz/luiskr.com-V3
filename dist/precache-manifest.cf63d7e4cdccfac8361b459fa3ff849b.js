@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/browserconfig.xml"
   },
   {
-    "revision": "fa2da2a8f66054db465b",
+    "revision": "879806c9935d6248ed2c",
     "url": "/css/Error404.c67c61f9.css"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/aboutmarco.c261a35d.css"
   },
   {
-    "revision": "01d287c08b894975c0d2",
+    "revision": "adce36f316534983e6d2",
     "url": "/css/app.e94a854d.css"
   },
   {
@@ -76,20 +76,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/favicon-32x32.png"
   },
   {
-    "revision": "734936a9d82ed57cd3f5d59f3a77e5d1",
+    "revision": "6d2872117ef9e9fadecc7bd00f369624",
     "url": "/index.html"
   },
   {
-    "revision": "fa2da2a8f66054db465b",
-    "url": "/js/Error404.c76f519d.js"
+    "revision": "879806c9935d6248ed2c",
+    "url": "/js/Error404.7bb2e079.js"
   },
   {
     "revision": "cadbfbd7823adcfee6a3",
     "url": "/js/aboutmarco.7b8aa04d.js"
   },
   {
-    "revision": "01d287c08b894975c0d2",
-    "url": "/js/app.d0dc1684.js"
+    "revision": "adce36f316534983e6d2",
+    "url": "/js/app.9b4b3211.js"
   },
   {
     "revision": "14ea6c60e11392a2c38f",
