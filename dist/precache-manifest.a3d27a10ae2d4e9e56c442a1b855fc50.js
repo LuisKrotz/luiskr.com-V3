@@ -158,5 +158,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "3df8cc94cd3f0bd132634dca8d022a65",
     "url": "/sitemap.xml"
+  },
+  {
+    "revision": "65bac7ca08715deae705991ca5a6f518",
+    "url": "/urllist.txt"
   }
 ]);
