@@ -27,8 +27,7 @@
         <li class="portfolio-item" v-for="item, index in portfoliolist" :key="index">
           <DrawComputer
             :link="'/portfolio/' + item.link"
-            :image="storage + 'covers/' + item.image + '.jpg'"
-            :loadingimage="storage + 'covers/' + item.image + '-mozjpg3-MSSIM-tuned-kodak.jpg'"
+            :image="storage + 'covers/' + item.image"
             :width="item.width"
             :height="item.height"
             :label="item.label"
@@ -144,80 +143,80 @@ export default {
         {
           link: 'brazilian-leather',
           image: 'brazilian-leather',
-          width: "1920",
-          height: "850",
+          width: ["1920", "768"],
+          height: ["850", "340"],
           label: 'Brazilian Leather',
           description: 'Brazilian Leather is a project developed at Transa, through a partnership between CICB and Apex-Brasil.<br>The project is a portal of Leather from Brazil. Including websites like Brazilian Leather, CICB, CSCB and Leather Law.',
         },
         {
           link: 'coza',
           image: 'coza',
-          width: "1920",
-          height: "794",
+          width: ["1920", "768"],
+          height: ["794", "318"],
           label: 'Coza',
           description: 'Coza\'s website was developed at Transa from 2017 to 2019.<br>Coza\'s main page was a feed of content created for the brand, with articles, galleries, photos and links to the online store.',
         },
         {
           link: 'aboutmarco',
           image: 'aboutmarco',
-          width: "1920",
-          height: "1014",
+          width: ["1920", "768"],
+          height: ["1014", "406"],
           label: 'Marco Almeida',
           description: 'Marco\'s Portfolio was developed as a Freelancing project in 2021.<br>The main goal to achieve was to create a pixel-perfect project, with smooth animations and a pixel perfect UI.',
         },
         {
           link: 'melissa',
           image: 'melissa',
-          width: "1920",
-          height: "799",
+          width: ["1920", "768"],
+          height: ["799", "320"],
           label: 'Melissa',
           description: 'Melissa\'s website was a portal connecting all things related to the Melissa Brand.<br>It had many feeds connected with the brand social media and original content created at Transa.',
         },
         {
           link: 'metcha',
           image: 'metcha',
-          width: "1915",
-          height: "750",
+          width: ["1915", "768"],
+          height: ["750", "301"],
           label: 'Metcha',
           description: 'METCHA is the oracle of leather design culture.<br>Seeking to tell the most compelling stories within the worlds of design, art, fashion and lifestyle, shining a spotlight on the subjects and the individuals that make up the everyday lives of the people who shape the world of today.',
         },
         {
           link: 'minimelissa',
           image: 'minimelissa-cropped',
-          width: "1905",
-          height: "799",
+          width: ["1905", "768"],
+          height: ["799", "322"],
           label: 'Mini Melissa',
           description: 'Minimelissa was a project developed at Transa for the Grendene Group as a channel for the Minimelissa brand.<br>The website consisted of a Content and a Social feed on the homepage with infinite scroll leading to many Minimelissa exclusive content and lasted from 2018 to 2020.',
         },
         {
           link: 'mor',
           image: 'mor',
-          width: "1920",
-          height: "798",
+          width: ["1920", "768"],
+          height: ["798", "319"],
           label: 'Mor',
           description: 'MOR\'s website was developed at Transa with the goal create a fast and beautiful experience connecting MOR\'s channels and community in one place',
         },
         {
           link: 'genesysinf-sageweb',
           image: 'sageweb',
-          width: "1350",
-          height: "649",
+          width: ["1350", "768"],
+          height: ["649", "369"],
           label: 'Sageweb',
           description: 'Sage is a project developed by Genesysinf, at the city of Santana do Livramento, in Brazil, and is a fiscal software.<br>The project consisted of porting the Sage for desktop software code to a new Web Version.',
         },
         {
           link: 'transa',
           image: 'transa',
-          width: "1920",
-          height: "850",
+          width: ["1920", "768"],
+          height: ["850", "369"],
           label: 'Transa',
           description: 'Transa is a driven by community + content + channels company.<br>Provoking meaningful changes for ambitious organizations in BR, USA, UK, EU & ASIA, encouraging people and brands to catalyze their strengths.<br>Transa\'s website consists of an infinite scrolling feed, with many projects developed at Transa during the years.',
         },
         {
           link: 'vibra',
           image: 'vibra',
-          width: "1920",
-          height: "913",
+          width: ["1920", "768"],
+          height: ["913", "340"],
           label: 'Vibra',
           description: 'Vibra is a website developed at Transa in 2016 as a portal created for the Vibra Brand.',
         }]

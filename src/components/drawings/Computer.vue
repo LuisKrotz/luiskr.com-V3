@@ -6,7 +6,16 @@
             <div class="portfolio-item-computer-screen">
                 <div class="portfolio-item-computer-screen-image">
                     <span class="portfolio-item-computer-screen-image-toggle-1">Show More</span>
-                    <img class="portfolio-item-computer-screen-image-toggle-2"  :alt="label" v-lazy="{src: image, loading: loadingimage }"/>
+                    <img v-if="viewport >= 640" class="portfolio-item-computer-screen-image-toggle-2"
+                         v-lazy="{src: image + ext, loading: image + loadext + ext}"
+                         :alt="label"
+                         :width="width[0]"
+                         :height="height[0]" />
+                    <img v-else class="portfolio-item-computer-screen-image-toggle-2"
+                         v-lazy="{src: image + mobileext +  ext, loading: image + loadext + mobileext + ext}" 
+                         :alt="label"
+                         :width="width[1]"
+                         :height="height[1]" />
                 </div>
                 
             </div>
@@ -24,7 +33,17 @@
 </template>
 
 <script>
+
+
 export default {
+    data() {
+        return {
+            viewport: Number,
+            loadext: '-mozjpg3-MSSIM-tuned-kodak',
+            mobileext: '-mobile',
+            ext: '.jpg'
+        }
+    },
     name: 'Draw Computer',
     props: {
         link: {
@@ -43,9 +62,23 @@ export default {
             required: true,
             type: String
         },
-        loadingimage: {
+        width: {
             required: true,
-            type: String
+            type: Array
+        },
+        height: {
+            required: true,
+            type: Array
+        }
+    },
+    mounted() {
+        this.setViewport();
+
+        window.addEventListener('resize', this.setViewport, false);
+    },
+    methods: {
+        setViewport() {
+            this.viewport = window.outerWidth;
         }
     }
 }
