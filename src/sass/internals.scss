@@ -344,6 +344,10 @@
             margin: 0 auto;
             padding: to-rem($F8) to-rem($F8) to-rem($F7);
 
+            @include layout-768() {
+                padding: to-rem($F10) to-rem($F10) to-rem($F9);
+            }
+
             @include layout-1024() {
                 padding: to-rem($F12) to-rem($F12) to-rem($F9) ;
             }
@@ -358,6 +362,10 @@
             text-align: left;
             color: var(--black);
             list-style: inside circle;
+
+            @include layout-768() {
+                padding: 0 to-rem($F10) to-rem($F10);
+            }
 
             @include layout-1024() {
                 max-width: to-rem($F15);
