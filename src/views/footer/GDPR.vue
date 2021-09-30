@@ -1,5 +1,5 @@
 <template>
-  <div id="#main" class="legal">
+  <artigo id="#main" class="legal">
     <h2 class="internal-title">GDPR</h2>
     <section class="internal-description">
       <h3 class="internal-description-text">Data Protection Rights</h3>
@@ -13,7 +13,7 @@
       <p class="internal-description-text">If you make a request, I have one month to respond to you. If you would like to exercise any of these rights, please contact me at <a href="mailto:luis.krotz@gmail.com">luis.krotz@gmail.com</a></p>
     </section>
     <Footer />
-  </div>
+  </artigo>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div id="#main" class="legal">
+  <article id="#main" class="legal">
     <h2 class="internal-title">Privacy Policy</h2>
 
     <section class="internal-description">
@@ -50,7 +50,7 @@
       <p class="internal-description-text"><router-link to="/"><span >luiskr.com</span></router-link> does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on my website, I strongly encourage you to contact me <strong>immediately</strong> and I will do my best efforts to promptly find such information.</p>
     </section>
     <Footer />
-  </div>
+  </article>
 </template>
 
 <script>

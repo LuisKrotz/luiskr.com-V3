@@ -5,7 +5,8 @@
         <div class="cover-text">
           <h2>A DEV</h2>
           <span>
-           with a passion for UI/UX, JS, CSS and performance. Focused on creating beautiful experiences.</span>
+            with a passion for UI/UX, JS, CSS and performance. Focused on creating beautiful experiences.
+          </span>
         </div>
 
         <button class="cover-links abt" @click="scrollTo('about')">
@@ -112,6 +113,8 @@
       <h3 id="contact" class="contact-title" ref="contact">Contact</h3>
       <div class="contact-social">
         <a href="mailto:luis.krotz@gmail.com" target="_blank" class="contact-social-link">Mail</a>
+        <span class="contact-social-separator">•</span>
+        <a href="tel:+55(51)982-274-782" target="_blank" class="contact-social-link">Phone</a>
         <span class="contact-social-separator">•</span>
         <a href="https://www.linkedin.com/in/luis-kr%C3%B6tz" target="_blank" class="contact-social-link">Linkedin</a>
         <span class="contact-social-separator">•</span>

@@ -396,6 +396,11 @@
 
             &-separator {
                 padding: 0 to-rem($F6);
+                display: none;
+
+                @include layout-375() {
+                    display: inline-block;
+                }
 
                 @include layout-2560() {
                     padding: 0 to-rem($F7);
@@ -409,6 +414,14 @@
                 text-decoration: none;
                 transition: opacity .3s ease-in;
                 cursor: pointer;
+                display: block;
+                line-height: to-rem($F10);
+                text-transform: uppercase;
+
+                @include layout-375() {
+                    text-transform: initial;
+                    display: inline-block;
+                }
 
                 &:hover,
                 &:focus {

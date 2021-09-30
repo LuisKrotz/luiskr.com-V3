@@ -1,5 +1,5 @@
 <template>
-  <div id="#main" class="legal">
+  <article id="#main" class="legal">
     <h2 class="internal-title">Terms of Use</h2>
     <section class="internal-description">
       <h3 class="internal-description-text">Version 1.0</h3>
@@ -26,7 +26,6 @@
       <p class="internal-description-text">Excluding any User Content that you may provide, you are aware that all the intellectual property rights, including copyrights, patents, trademarks, and trade secrets, in the Site and its content, are owned by <strong><router-link to="/">luiskr.com</router-link></strong> or <strong><router-link to="/">luiskr.com</router-link></strong>’s suppliers. Note that these Terms and access to the Site do not give you any rights, title or interest in or to any intellectual property rights, except for the limited access rights expressed in Section 2.1. <strong><router-link to="/">luiskr.com</router-link></strong> and its suppliers' reserve all rights not granted in these Terms.</p>
     </section>
 
-
     <section class="internal-description">
       <h3 class="internal-description-text">Third-Party Links & Ads; Other Users</h3>
       <p class="internal-description-text"><strong>Third-Party Links & Ads.</strong> The Site may contain links to third-party websites and services, and/or display advertisements for third-parties.  Such Third-Party Links & Ads are not under the control of <strong><router-link to="/">luiskr.com</router-link></strong>, and <strong><router-link to="/">luiskr.com</router-link></strong> is not responsible for any Third-Party Links & Ads.  <strong><router-link to="/">luiskr.com</router-link></strong> provides access to these Third-Party Links & Ads only as a convenience to you, and does not review, approve, monitor, endorse, warrant, or make any representations with respect to Third-Party Links & Ads.  You use all Third-Party Links & Ads at your own risk, and should apply a suitable level of caution and discretion in doing so. When you click on any of the Third-Party Links & Ads, the applicable third party’s terms and policies apply, including the third party’s privacy and data gathering practices.</p>
@@ -41,7 +40,6 @@
       <p class="internal-description-text">Some jurisdictions do not allow the exclusion of implied warranties, so the above exclusion may not apply to you.  Some jurisdictions do not allow limitations on how long an implied warranty lasts, so the above limitation may not apply to you.</p>
     </section>
 
-
     <section class="internal-description">
       <h3 class="internal-description-text">Limitation on Liability</h3>
       <p class="internal-description-text">To the maximum extent permitted by law, in no event shall <strong><router-link to="/">luiskr.com</router-link></strong> or our suppliers be liable to you or any third-party for any lost profits, lost data, costs of procurement of substitute products, or any indirect, consequential, exemplary, incidental, special or punitive damages arising from or relating to these terms or your use of, or incapability to use the site even if <strong><router-link to="/">luiskr.com</router-link></strong> has been advised of the possibility of such damages.  Access to and use of the site is at your own discretion and risk, and you will be solely responsible for any damage to your device or computer system, or loss of data resulting therefrom.</p>
@@ -49,7 +47,6 @@
       <p class="internal-description-text">Some jurisdictions do not allow the limitation or exclusion of liability for incidental or consequential damages, so the above limitation or exclusion may not apply to you.</p>
       <p class="internal-description-text"><strong>Term and Termination.</strong> Subject to this Section, these Terms will remain in full force and effect while you use the Site.  We may suspend or terminate your rights to use the Site at any time for any reason at our sole discretion, including for any use of the Site in violation of these Terms.  Upon termination of your rights under these Terms, your Account and right to access and use the Site will terminate immediately.  You understand that any termination of your Account may involve deletion of your User Content associated with your Account from our live databases.  <strong><router-link to="/">luiskr.com</router-link></strong> will not have any liability whatsoever to you for any termination of your rights under these Terms.  Even after your rights under these Terms are terminated, the following provisions of these Terms will remain in effect: Sections 2 through 2.5, Section 3 and Sections 4 through 10.</p>
     </section>
-
 
     <section class="internal-description">
       <h3 class="internal-description-text">Copyright Policy.</h3>
@@ -106,7 +103,7 @@
     </section>
 
     <Footer />
-  </div>
+  </article>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
-  <div :class="modal.class">
+  <article :class="modal.class">
     <div id="#main" class="project modal-below" :style="'transform: translateY(-' + modal.transform + 'px);'">
-      <h1 class="internal-title">Marco Almeida</h1>
+      <h2 class="internal-title">Marco Almeida</h2>
       <div class="internal-main">
         <Media
           classes="internal-main-item"
@@ -12,103 +12,104 @@
           label="aboutmarco.com - homepage full tour"/>
       </div>
 
-      <section class="internal-description">
-        <h2 class="internal-description-text">
-          Marco's Portfolio was developed as a Freelancing project in 2021.
-        </h2>
-        <p class="internal-description-text">
-          It uses Vue.JS and Sass.
-        </p>
-        <p class="internal-description-text">
-          All animations are created in CSS.
-        </p>
-        <p class="internal-description-text">
-          The main goal was to create a pixel-perfect project, with smooth animations and a pixel perfect UI.
-        </p>
-        <p class="internal-description-text">
-          I also did the server setup at Digital Ocean.
-        </p>
-      </section>
+      <section>
+        <div class="internal-description">
+          <h3 class="internal-description-text">
+            <a href="https://aboutmarco.com?utm_source=luiskr.com" target="_blank">Marco's Portfolio</a> was developed as a Freelancing project in 2021.
+          </h3>
+          <p class="internal-description-text">
+            It uses Vue.JS and Sass.
+          </p>
+          <p class="internal-description-text">
+            All animations are created in CSS.
+          </p>
+          <p class="internal-description-text">
+            The main goal was to create a pixel-perfect project, with smooth animations and a pixel perfect UI.
+          </p>
+          <p class="internal-description-text">
+            I also did the server setup at Digital Ocean.
+          </p>
+        </div>
 
-      <section class="internal-extra">
-        <div class="internal-extra-scroll">
-            <div class="internal-extra-item">
+        <div class="internal-extra">
+          <div class="internal-extra-scroll">
+              <div class="internal-extra-item">
+                  <Media
+                    src="aboutmarco/home/aboutmarco.com-mobile-mobile"
+                    :width="830"
+                    :height="1712"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="aboutmarco.com - mobile tour"/>
+              </div>
+              <div class="internal-extra-item">
+                  <Media
+                    src="aboutmarco/home/aboutmarco.com-2020-home"
+                    :width="1920"
+                    :height="3003"
+                    :canExpand="true"
+                    label="aboutmarco.com - homepage"/>
+              </div>
+              <div class="internal-extra-item">
+                  <Media
+                    src="aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15"
+                    :width="1920"
+                    :height="10094"
+                    :canExpand="true"
+                    label="aboutmarco.com - melissa insider"/>
+              </div>
+              <div class="internal-extra-item">
                 <Media
-                  src="aboutmarco/home/aboutmarco.com-mobile-mobile"
-                  :width="830"
-                  :height="1712"
-                  :canExpand="true"
-                  :isVideo="true"
-                  label="aboutmarco.com - mobile tour"/>
-            </div>
-            <div class="internal-extra-item">
-                <Media
-                  src="aboutmarco/home/aboutmarco.com-2020-home"
+                  src="aboutmarco/pages/aboutmarco.com-pages--melissa-2020-12-15"
                   :width="1920"
-                  :height="3003"
+                  :height="10229"
                   :canExpand="true"
-                  label="aboutmarco.com - homepage"/>
-            </div>
-            <div class="internal-extra-item">
+                  label="aboutmarco.com - melissa"/>
+              </div>
+              <div class="internal-extra-item">
                 <Media
-                  src="aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15"
+                  src="aboutmarco/pages/aboutmarco.com-pages--coza-2020-12-15"
                   :width="1920"
-                  :height="10094"
+                  :height="26871"
                   :canExpand="true"
-                  label="aboutmarco.com - melissa insider"/>
-            </div>
-            <div class="internal-extra-item">
-              <Media
-                src="aboutmarco/pages/aboutmarco.com-pages--melissa-2020-12-15"
-                :width="1920"
-                :height="10229"
-                :canExpand="true"
-                label="aboutmarco.com - melissa"/>
-            </div>
-            <div class="internal-extra-item">
-              <Media
-                src="aboutmarco/pages/aboutmarco.com-pages--coza-2020-12-15"
-                :width="1920"
-                :height="26871"
-                :canExpand="true"
-                label="aboutmarco.com - coza"/>
-            </div>
-            <div class="internal-extra-item">
-              <Media
-                src="aboutmarco/pages/aboutmarco.com-pages--brazilian-leather-2020-12-15"
-                :width="1920"
-                :height="16075"
-                :canExpand="true"
-                label="aboutmarco.com - brazilian leather"/>
-            </div>
-            <div class="internal-extra-item">
-              <Media
-                src="aboutmarco/about/aboutmarco.com-me-2020-12-15-23_29_35"
-                :width="1920"
-                :height="7137"
-                :canExpand="true"
-                label="aboutmarco.com - me"/>
-            </div>
-            <div class="internal-extra-item">
-              <Media
-                src="aboutmarco/about/aboutmarco.com-archive-2020-12-15-23_31_53"
-                :width="1920"
-                :height="3788"
-                :canExpand="true"
-                label="aboutmarco.com - archive"/>
-            </div>
+                  label="aboutmarco.com - coza"/>
+              </div>
+              <div class="internal-extra-item">
+                <Media
+                  src="aboutmarco/pages/aboutmarco.com-pages--brazilian-leather-2020-12-15"
+                  :width="1920"
+                  :height="16075"
+                  :canExpand="true"
+                  label="aboutmarco.com - brazilian leather"/>
+              </div>
+              <div class="internal-extra-item">
+                <Media
+                  src="aboutmarco/about/aboutmarco.com-me-2020-12-15-23_29_35"
+                  :width="1920"
+                  :height="7137"
+                  :canExpand="true"
+                  label="aboutmarco.com - me"/>
+              </div>
+              <div class="internal-extra-item">
+                <Media
+                  src="aboutmarco/about/aboutmarco.com-archive-2020-12-15-23_31_53"
+                  :width="1920"
+                  :height="3788"
+                  :canExpand="true"
+                  label="aboutmarco.com - archive"/>
+              </div>
+          </div>
         </div>
       </section>
 
+      <section>
+        <div class="internal-description">
+          <h3 class="internal-description-text">
+            Check below for some of the awards received by <a href="https://aboutmarco.com?utm_source=luiskr.com" target="_blank">Marco's portfolio</a>.
+          </h3>
+        </div>
 
-        <section class="internal-description">
-          <h2 class="internal-description-text">
-            Check below for some of the awards received by Marco's portfolio.
-          </h2>
-        </section>
-
-
-        <section class="internal-extra">
+        <div class="internal-extra">
           <div class="internal-extra-scroll">
               <div class="internal-extra-item landscape">
                   <Media
@@ -153,7 +154,8 @@
                     label="aboutmarco.com - mindspark"/>
               </div>
           </div>
-        </section>
+        </div>
+      </section>
 
       <Related />
     </div>
@@ -167,7 +169,7 @@
         :height="modal.media.height"
         :isVideo="modal.media.isVideo"/>
     </aside>
-  </div>
+  </article>
 </template>
 
 <script>
