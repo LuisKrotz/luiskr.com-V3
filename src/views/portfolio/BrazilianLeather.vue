@@ -15,7 +15,7 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            <a href="https://transainc.com/cases/brazilian-leather?utm_source=luiskr.com" target="_blank">Brazilian Leather</a> is a project developed at Transa, through a partnership between CICB and Apex-Brasil. The project is a portal of Leather from Brazil. Including websites like Brazilian Leather, CICB, CSCB and Leather Law.
+            <a href="https://cicb.org.br/brazilian-leather/en?utm_source=luiskr.com" target="_blank">Brazilian Leather</a> is a project developed at <a href="https://transainc.com/category/brazilian-leather?utm_source=luiskr.com" target="_blank">Transa</a>, through a partnership between CICB and Apex-Brasil. The project is a portal of Leather from Brazil. Including websites like <a href="https://cicb.org.br/brazilian-leather/en?utm_source=luiskr.com" target="_blank">Brazilian Leather</a>, <a href="https://cicb.org.br/cicb?utm_source=luiskr.com" target="_blank">CICB</a>, <a href="https://cicb.org.br/cscb/en?utm_source=luiskr.com" target="_blank">CSCB</a> and <a href="https://cicb.org.br/lei-do-couro?utm_source=luiskr.com" target="_blank">Leather Law</a>.
           </h3>
           <p class="internal-description-text">
             I contributed as a member of the development team of the main portal.
@@ -81,16 +81,19 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            Since 2016 I'm contributing annually to the development of CSCB fóruns.
+            Since 2016 I'm contributing annually to the development of the CSCB forums.
           </h3>
           <p class="internal-description-text">
-            Every Forum is a new experience, and development exclusively.
+            Every forum is a new exclusively experience and development.
           </p>
           <p class="internal-description-text">
             Check CSCB 2016 - "Econômia Circular" below.
           </p>
           <p class="internal-description-text">
-            It was developed using PHP, Jquery and pure CSS, I contributed as a member of the team as a JR. Front-end developer, guided by Cristiano Becker on the development of this page in my first year at Transa.
+            It was developed using PHP, Jquery and CSS.
+          </p>
+          <p class="internal-description-text">
+            I contributed as a member of the team as a JR. Front-end developer, guided by Cristiano Becker on the development of this page in my first year at Transa.
           </p>
         </div>
 
@@ -129,10 +132,13 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            2017 brought a new edition, "Econômia Circular".
+            2017 brought a new edition, <a href="http://forumcicb.cicb.org.br?utm_source=luiskr.com" target="_blank">"Econômia Circular"</a>.
           </h3>
           <p class="internal-description-text">
-            It was developed using PHP, Jquery and Less for CSS, I contributed as a Front end Developer, and work  closely with Renan Machado for the Back-end of the application.
+            It was developed using PHP, Jquery and Less for CSS.
+          </p>
+          <p class="internal-description-text">
+            I contributed as a Front end Developer, and worked closely with Renan Machado for the Back-end of the application.
           </p>
         </div>
 
@@ -171,10 +177,13 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            2018' edition was called, "Qual o retorno do investimento sustentável?".
+            2018' edition was called, <a href="https://cicb.org.br/forum2018?utm_source=luiskr.com" target="_blank">"Qual o retorno do investimento sustentável?"</a>.
           </h3>
           <p class="internal-description-text">
-            It was also developed using PHP, Jquery and Less for the CSS, I contributed as a Front end Developer, and worked closely with Renan Machado for the Back-end/Subscription submitting of the application.
+            It was also developed using PHP, Jquery and Less for the CSS.
+          </p>
+          <p class="internal-description-text">
+           I contributed as a Front end Developer, and worked closely with Renan Machado for the Back-end/subscription submitting of the application.
           </p>
         </div>
 
@@ -213,10 +222,13 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            2019' edition was called, "O couro no mundo hiperconectado".
+            2019' edition was called, <a href="https://cicb.org.br/forum2019?utm_source=luiskr.com" target="_blank">"O couro no mundo hiperconectado"</a>.
           </h3>
           <p class="internal-description-text">
-            Developed using PHP, Jquery and CSS, I contributed as a Front end Developer and worked closely with Renan Machado for the Back-end/Subscription submitting of the application.
+            Developed using PHP, Jquery and CSS.
+          </p>
+          <p class="internal-description-text">
+            I contributed as a Front end Developer and worked closely with Renan Machado for the Back-end/Subscription submitting of the application.
           </p>
         </div>
 
@@ -255,10 +267,13 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            2020' was a challenge with two editions created from scratch, an online forum called "A sociedade somos todos nós" and a webinar called "Leather business and the future consumer", in English and Portuguese.
+            2020' was a challenge with two editions created from scratch, an online edition of the forum called <a href="https://cicb.org.br/forum2020?utm_source=luiskr.com" target="_blank">"A sociedade somos todos nós"</a> and a webinar called <a href="https://cicb.org.br/webinarseries?utm_source=luiskr.com" target="_blank">"Leather business and the future consumer"</a>, in English and Portuguese.
           </h3>
           <p class="internal-description-text">
-            Both pages were developed using PHP, Sass for the CSS and Vanilla JS with code created from scratch exclusively for these new pages, I contributed as a Front end Developer, and worked with Renan Machado for the Back-end of the application.
+            Both pages were developed using PHP, Sass for the CSS and Vanilla JS with code created from scratch exclusively for these new pages.
+          </p>
+          <p class="internal-description-text">
+            I contributed as a Front end Developer, and worked with Renan Machado for the Back-end of the application.
           </p>
         </div>
 

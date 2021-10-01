@@ -107,7 +107,7 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-          All the articles on the feed, open in a modal system, without any kind of refresh, with a bold, unique and pixel perfect style.
+            All the articles on the feed, open in a modal system, without any kind of refresh, with a bold, unique and pixel perfect style.
           </h3>
         </div>
 

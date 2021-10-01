@@ -15,10 +15,10 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            <a href="https://transainc.com/cases/coza?utm_source=luiskr.com" target="_blank">Coza's website</a> was developed at Transa from 2017 to 2019.
+            <a href="https://transainc.com/cases/coza?utm_source=luiskr.com" target="_blank">Coza's website</a> was developed at <a href="https://transainc.com?utm_source=luiskr.com" target="_blank">Transa</a> from 2017 to 2019.
           </h3>
           <p class="internal-description-text">
-            It mainly used Vanilla JS, Less and Laravel (PHP). The goal of the project was to create a fast, beautiful and pixel perfect experience that reflects the new branding made by Transa for Coza.
+            It mainly used Vanilla JS, Less and Laravel (PHP). The goal of the project was to create a fast, beautiful and pixel perfect experience that reflects the new branding <a href="https://transainc.com/category/coza?utm_source=luiskr.com" target="_blank">made by Transa for Coza</a>.
           </p>
           <p class="internal-description-text">
             Coza's main page was a feed of content created for the brand, with articles, galleries, photos and links to the online store.

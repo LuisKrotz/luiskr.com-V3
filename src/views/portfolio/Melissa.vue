@@ -15,7 +15,7 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            <a href="https://transainc.com/cases/melissa?utm_source=luiskr.com" target="_blank">Melissa's website</a> was a project developed by Transa.
+            <a href="https://transainc.com/cases/melissa?utm_source=luiskr.com" target="_blank">Melissa's</a> website was a project developed by <a href="https://transainc.com?utm_source=luiskr.com" target="_blank">Transa</a>.
           </h3>
           <p class="internal-description-text">
             I worked on the project from 2016 to 2020, when the project was ended. 
@@ -24,7 +24,7 @@
             Initially as a Jr. Front end Developer, guided by Cristiano Becker and ended as a Full Front End Developer by the end of the project.
           </p>
           <p class="internal-description-text">
-            Melissa' website was a portal connecting all things related to the Melissa Brand. It had many feeds, connected with the brand social media and original content created at Transa.
+            Melissa' website was a portal connecting all things related to the Melissa Brand. It had many feeds, connected with the brand social media and <a href="https://transainc.com/catgegory/melissa?utm_source=luiskr.com" target="_blank">original content created at Transa</a>.
           </p>
           <p class="internal-description-text">
           The project was developed in Vanilla JS (with Prototype), CSS (Less) and PHP (Laravel).

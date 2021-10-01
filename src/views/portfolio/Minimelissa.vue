@@ -15,13 +15,13 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            <a href="https://transainc.com/cases/mini-melissa?utm_source=luiskr.com" target="_blank">Minimelissa</a> was a project developed at Transa for the Grendene Group as a channel for the Minimelissa brand.
+            <a href="https://transainc.com/cases/mini-melissa?utm_source=luiskr.com" target="_blank">Minimelissa</a> was a project developed at <a href="https://transainc.com?utm_source=luiskr.com" target="_blank">Transa</a> for the Grendene Group as a channel for the Minimelissa brand.
           </h3>
           <p class="internal-description-text">
             The project lasted from 2018 to 2020 and was made entirely with Jquery, CSS (Less) and PHP (Laravel). 
           </p>
           <p class="internal-description-text">
-            The website consisted of a Content feed and a Social feed on the homepage with infinite scroll leading to many Minimelissa exclusive content.
+            The website consisted of a Content feed and a Social feed on the homepage with infinite scroll leading to many <a href="https://transainc.com/category/mini-melissa?utm_source=luiskr.com" target="_blank">Minimelissa exclusive content</a>.
           </p>
         </div>
 

@@ -14,7 +14,7 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            <a href="http://177.37.54.153/login?utm_source=luiskr.com" target="_blank">Sage</a> is a project developed by Genesysinf, at the city of Santana do Livramento, in Brazil, and is a fiscal software.
+            <a href="http://177.37.54.153/login?utm_source=luiskr.com" target="_blank">Sage</a> is a project developed by <a href="https://www.genesysinf.com.br?utm_source=luiskr.com" target="_blank">Genesysinf</a>, at the city of Santana do Livramento, in Brazil, and is a fiscal software.
           </h3>
           <p class="internal-description-text">
             I worked in the new version of Sage, the Sageweb in C# and Asp.net, in this Project I was working as a full-stack developer, in the development team for a year.

@@ -15,19 +15,19 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            <a href="https://transainc.com/cases/mor?utm_source=luiskr.com" target="_blank">MOR's website</a> was developed at Transa.
+            <a href="https://mor.com.br?utm_source=luiskr.com" target="_blank">MOR's website</a> was developed at <a href="https://transainc.com?utm_source=luiskr.com" target="_blank">Transa</a>.
           </h3>
           <p class="internal-description-text">
             It uses Vanilla JS, Less and Laravel (PHP).
           </p>
           <p class="internal-description-text">
-            The goal of the project was to build a fast and beautiful experience connecting MOR's channels and community in one place.
+            The goal of the project was to build a fast and beautiful experience connecting <a href="https://transainc.com/category/mor?utm_source=luiskr.com" target="_blank">MOR's channels</a> and community in one place.
           </p>
           <p class="internal-description-text">
             The JS and CSS are both less than 50k in size for the entire website to be loaded at blazing fast speeds and engage with MOR's community.
           </p>
           <p class="internal-description-text">
-            The main challenge was to code a feed with articles and links to MOR's VTEX store, which was also re-designed by Transa, creating a cohesive experience between the store and the website.
+            The main challenge was to code a feed with articles and links to MOR's VTEX store, which was also <a href="https://transainc.com/cases/mor?utm_source=luiskr.com" target="_blank">re-designed by Transa</a>, creating a cohesive experience between the store and the website.
           </p>
         </div>
         <div class="internal-extra">

@@ -15,7 +15,7 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            <a href="https://transainc.com/cases/metcha?utm_source=luiskr.com" target="_blank">METCHA</a> is the oracle of leather design culture.
+            <a href="https://metcha.com?utm_source=luiskr.com" target="_blank">METCHA</a> is the oracle of leather design culture.
           </h3>
           <p class="internal-description-text">
             Seeking to tell the most compelling stories within the worlds of design, art, fashion and lifestyle, shining a spotlight on the subjects and the individuals that make up the everyday lives of the people who shape the world of today.
@@ -24,13 +24,16 @@
             Through bold, fresh and honest storytelling, METCHA hopes to encourage innovative thinking, inspiring people to continue to evolve the ever-expanding culture of creativity.
           </p>
           <p class="internal-description-text">
-            METCHA's mission is to bring forward the best projects and curate the most stimulating stories, inspiring a generation of tastemakers, trendsetters & style-conscious individuals to also understand and see leather as an exciting creative partner.
+            <a href="https://transainc.com/category/metcha?utm_source=luiskr.com" target="_blank">METCHA's mission is to bring forward the best projects and curate the most stimulating stories</a>, inspiring a generation of tastemakers, trendsetters & style-conscious individuals to also understand and see leather as an exciting creative partner.
           </p>
           <p class="internal-description-text">
-            The project started in 2019 and I'm currently the Leading front end developer of the project.
+            The project started in 2019, conceived, created and developed at <a href="https://transainc.com?utm_source=luiskr.com" target="_blank">Transa</a>.
+          </p>
+           <p class="internal-description-text">
+             I'm currently the Leading front end developer of the project.
           </p>
           <p class="internal-description-text">
-            To realize METCHA's project, VUE.js, Sass and PHP (Laravel) were used on the development, specially VUE, to enable all the styling and the website identity while keeping a fast, dynamic and smooth experience.
+            To realize <a href="https://transainc.com/cases/metcha?utm_source=luiskr.com" target="_blank">METCHA's project</a>, VUE.js, Sass and PHP (Laravel) were used on the development, specially VUE, to enable all the styling and the website identity while keeping a fast, dynamic and smooth experience.
           </p>
         </div>
         <div class="internal-extra">

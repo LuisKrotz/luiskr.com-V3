@@ -15,7 +15,7 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            <a href="https://www.vibra.com.br?utm_source=luiskr.com" target="_blank">Vibra</a> is a website developed at transa in 2016.
+            <a href="https://www.vibra.com.br?utm_source=luiskr.com" target="_blank">Vibra</a> is a website developed at <a href="https://transainc.com?utm_source=luiskr.com" target="_blank">Transa</a> in 2016.
           </h3>
           <p class="internal-description-text">
             Vibra's project was the first project I participated in at Transa, guided by Cristiano Becker, with the help of Renan Machado.
