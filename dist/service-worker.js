@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.9a040f39c861d0b3a462feee72fdf65e.js"
+  "/precache-manifest.d39737d2b8831784e7e946dbdc549e64.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "luiskr-new"});
+workbox.core.setCacheNameDetails({prefix: "luiskr.com"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
