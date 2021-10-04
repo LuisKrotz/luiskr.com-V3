@@ -93,13 +93,15 @@
 
     <section class="internal-description">
       <h3 class="internal-description-text">Repository</h3>
-      <p  class="internal-description-text"><a href="https://github.com/LuisKrotz/luiskr.com" rel="noopener" target="_blank">Any fork can be done via github, under MIT License, using this link.</a></p>
+      <p  class="internal-description-text"><a href="https://github.com/LuisKrotz/luiskr.com-new" rel="noopener" target="_blank">Any fork can be done via github, under MIT License, using this link.</a></p>
+      <p  class="internal-description-text"><a href="https://github.com/LuisKrotz/luiskr.com-new" rel="noopener" target="_blank">Any fork of the previous version  of my website can be done using this link.</a></p>
       <p class="internal-description-text"><router-link to="/license">MIT LICENSE</router-link></p>
     </section>
 
     <section class="internal-description">
       <h3 class="internal-description-text">Contact Information</h3>
       <p class="internal-description-text">Email: <a href="mailto:luis.krotz@gmail.com">luis.krotz@gmail.com</a></p>
+      <p class="internal-description-text">Phone: <a href="tel:l+55(51) 982-274-782">+55 51 982-274-782</a></p>
     </section>
 
     <Footer />
