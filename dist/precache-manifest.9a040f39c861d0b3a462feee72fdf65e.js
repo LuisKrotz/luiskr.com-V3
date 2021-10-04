@@ -28,43 +28,43 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/aboutmarco.c261a35d.css"
   },
   {
-    "revision": "adce36f316534983e6d2",
+    "revision": "75fa66c1ef32a34cfaa2",
     "url": "/css/app.e94a854d.css"
   },
   {
-    "revision": "14ea6c60e11392a2c38f",
+    "revision": "656056c9af9f15566fba",
     "url": "/css/brazilianleather.c261a35d.css"
   },
   {
-    "revision": "4ac61690cc5f62335322",
+    "revision": "d09c214919eeea475f84",
     "url": "/css/coza.c261a35d.css"
   },
   {
-    "revision": "cc7f02a96d2b47dfc064",
+    "revision": "2f759fd2706302b8fd98",
     "url": "/css/melissa.c261a35d.css"
   },
   {
-    "revision": "cc5788afd3eb9b91172e",
+    "revision": "d33492b41762bb7f49fe",
     "url": "/css/metcha.c261a35d.css"
   },
   {
-    "revision": "bbfc44d3b7b04e8c81c2",
+    "revision": "816a939a252120cd6a83",
     "url": "/css/minimelissa.c261a35d.css"
   },
   {
-    "revision": "d176ad1d7761ff451c32",
+    "revision": "a6fe1edcc057f2895c1f",
     "url": "/css/mor.c261a35d.css"
   },
   {
-    "revision": "31d9953f6e5d17dfdba1",
+    "revision": "f2135279f76b4bdb3342",
     "url": "/css/sageweb.c6f2c2ae.css"
   },
   {
-    "revision": "bd17f3b58b2b2f82cb49",
+    "revision": "314b5013b1ef2bd6878d",
     "url": "/css/transa.c261a35d.css"
   },
   {
-    "revision": "0289b72f7a582ba0b732",
+    "revision": "a9ca2d8acc1f6b969a5e",
     "url": "/css/vibra.c261a35d.css"
   },
   {
@@ -76,7 +76,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/favicon-32x32.png"
   },
   {
-    "revision": "6d2872117ef9e9fadecc7bd00f369624",
+    "revision": "7e638d335f6e95f26b2a1a0cb44d817b",
     "url": "/index.html"
   },
   {
@@ -88,48 +88,48 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/aboutmarco.7b8aa04d.js"
   },
   {
-    "revision": "adce36f316534983e6d2",
-    "url": "/js/app.9b4b3211.js"
+    "revision": "75fa66c1ef32a34cfaa2",
+    "url": "/js/app.dd442ee6.js"
   },
   {
-    "revision": "14ea6c60e11392a2c38f",
-    "url": "/js/brazilianleather.ab514260.js"
+    "revision": "656056c9af9f15566fba",
+    "url": "/js/brazilianleather.997a45c3.js"
   },
   {
     "revision": "7b5ec8c88629d0777b2c",
     "url": "/js/chunk-vendors.0e97f08b.js"
   },
   {
-    "revision": "4ac61690cc5f62335322",
-    "url": "/js/coza.62fcb1c0.js"
+    "revision": "d09c214919eeea475f84",
+    "url": "/js/coza.948126a8.js"
   },
   {
-    "revision": "cc7f02a96d2b47dfc064",
-    "url": "/js/melissa.884e5943.js"
+    "revision": "2f759fd2706302b8fd98",
+    "url": "/js/melissa.b8d7ff0d.js"
   },
   {
-    "revision": "cc5788afd3eb9b91172e",
-    "url": "/js/metcha.7b60a647.js"
+    "revision": "d33492b41762bb7f49fe",
+    "url": "/js/metcha.4cfe7a47.js"
   },
   {
-    "revision": "bbfc44d3b7b04e8c81c2",
-    "url": "/js/minimelissa.ccf5c9c2.js"
+    "revision": "816a939a252120cd6a83",
+    "url": "/js/minimelissa.cd093291.js"
   },
   {
-    "revision": "d176ad1d7761ff451c32",
-    "url": "/js/mor.d17e679c.js"
+    "revision": "a6fe1edcc057f2895c1f",
+    "url": "/js/mor.9b4cf205.js"
   },
   {
-    "revision": "31d9953f6e5d17dfdba1",
-    "url": "/js/sageweb.9545b6b3.js"
+    "revision": "f2135279f76b4bdb3342",
+    "url": "/js/sageweb.eabfcb46.js"
   },
   {
-    "revision": "bd17f3b58b2b2f82cb49",
-    "url": "/js/transa.f5416aae.js"
+    "revision": "314b5013b1ef2bd6878d",
+    "url": "/js/transa.780a5979.js"
   },
   {
-    "revision": "0289b72f7a582ba0b732",
-    "url": "/js/vibra.4d6ae4c1.js"
+    "revision": "a9ca2d8acc1f6b969a5e",
+    "url": "/js/vibra.ccd1f6a4.js"
   },
   {
     "revision": "085c3f2e9455b66e7d7b33f54160e2a0",
