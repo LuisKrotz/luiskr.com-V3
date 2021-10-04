@@ -152,7 +152,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/share.png"
   },
   {
-    "revision": "10387bc38ff9174a77cf3b7a9a8925a6",
+    "revision": "9bf8326046e50a4f1f26994178f9ef25",
     "url": "/site.webmanifest"
   },
   {

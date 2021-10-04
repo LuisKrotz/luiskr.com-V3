@@ -26,7 +26,7 @@ module.exports = {
             name: "Luis Krötz",
             short_name: "Luis Krötz",
             start_url: "./",
-            display: "standalone",
+            display: "fullscreen",
             theme_color: "#FFF",
             background_color: "#FFF",
             icons: [
