@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/aboutmarco.c261a35d.css"
   },
   {
-    "revision": "75fa66c1ef32a34cfaa2",
+    "revision": "1757cbf39f4821ae15fb",
     "url": "/css/app.e94a854d.css"
   },
   {
@@ -64,7 +64,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/transa.c261a35d.css"
   },
   {
-    "revision": "a9ca2d8acc1f6b969a5e",
+    "revision": "46288592b061134b7023",
     "url": "/css/vibra.c261a35d.css"
   },
   {
@@ -80,7 +80,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/favicon.svg"
   },
   {
-    "revision": "12bd6c77a1b1387f8986311a45084adf",
+    "revision": "d57119334c61a71483324afe106d1d14",
     "url": "/index.html"
   },
   {
@@ -92,8 +92,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/aboutmarco.7b8aa04d.js"
   },
   {
-    "revision": "75fa66c1ef32a34cfaa2",
-    "url": "/js/app.dd442ee6.js"
+    "revision": "1757cbf39f4821ae15fb",
+    "url": "/js/app.abad366a.js"
   },
   {
     "revision": "656056c9af9f15566fba",
@@ -132,8 +132,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/transa.780a5979.js"
   },
   {
-    "revision": "a9ca2d8acc1f6b969a5e",
-    "url": "/js/vibra.ccd1f6a4.js"
+    "revision": "46288592b061134b7023",
+    "url": "/js/vibra.2e816cb7.js"
   },
   {
     "revision": "3bdeaac6684d2a06ea24206810d48690",
