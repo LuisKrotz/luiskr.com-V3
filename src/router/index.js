@@ -13,6 +13,14 @@ const routes = [
     }
   },
   {
+    path: '/about',
+    name: 'About',
+    component: () => import(/* webpackChunkName: "metcha" */ '../views/About.vue'),
+    meta: {
+      title: title + ' | About'
+    }
+  },
+  {
     path: '/portfolio/metcha',
     name: 'METCHA',
     // route level code-splitting

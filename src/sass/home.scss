@@ -129,16 +129,16 @@
         }
 
         &.cnt {
-            box-shadow: 0 0 to-rem($F8) 0 $color-orange inset;
+            box-shadow: 0 0 to-rem($F8) 0 $color-blue inset;
             right: to-vw($F9 * -1px, $vw-320);
             top: to-vw($F9 * -1px, $vw-320);
             width: to-vw($F13 * 1px, $vw-320);
             height: to-vw($F13 * 1px, $vw-320);
             animation: bounce-1 20s linear infinite;
-            color: $color-orange;
+            color: $color-blue;
 
             @include layout-768() {
-                box-shadow: 0 0 to-rem($F10) 0 $color-orange inset;
+                box-shadow: 0 0 to-rem($F10) 0 $color-blue inset;
                 right: to-vw($F11 * -1px, $vw-768);
                 top: to-vw($F9 * -1px, $vw-768);
                 width: to-vw($F14 * 1px, $vw-768);
@@ -146,7 +146,7 @@
             }
 
             @include layout-1024() {
-                box-shadow: 0 0 to-rem($F8) 0 $color-orange inset;
+                box-shadow: 0 0 to-rem($F8) 0 $color-blue inset;
                 right: to-vw($F10 * -1px, $vw-1024);
                 top: to-vw($F10 * 1px, $vw-1024);
                 width: to-vw($F14 * 1px, $vw-1024);
@@ -167,7 +167,7 @@
             }
 
             @include layout-1680() {
-                box-shadow: 0 0 to-rem($F10) 0 $color-orange inset;
+                box-shadow: 0 0 to-rem($F10) 0 $color-blue inset;
                 top: to-vw($F2 * -1px, $vw-1680);
                 width: to-vw($F15 * 1px, $vw-1680);
                 height: to-vw($F15 * 1px, $vw-1680);
@@ -175,21 +175,21 @@
 
             &:focus,
             &:hover {
-                box-shadow: 0 0 to-rem($F7) 0 $color-orange inset;
+                box-shadow: 0 0 to-rem($F7) 0 $color-blue inset;
             }
         }
 
         &.abt {
-            box-shadow: 0 0 to-rem($F8) 0 $color-pink inset;
+            box-shadow: 0 0 to-rem($F8) 0 $color-red inset;
             bottom: to-vw($F11 * -1px, $vw-320);
             right: to-vw($F5 * -1px, $vw-320);
             width: to-vw($F12 * 1px, $vw-320);
             height: to-vw($F12 * 1px, $vw-320);
             animation: bounce-3 10s linear infinite;
-            color: $color-pink;
+            color: $color-red;
 
             @include layout-768() {
-                box-shadow: 0 0 to-rem($F8) 0 $color-pink inset;
+                box-shadow: 0 0 to-rem($F8) 0 $color-red inset;
                 bottom: to-vw($F12 * -1px, $vw-768);
                 right: to-vw($F8 * -1px, $vw-768);
                 width: to-vw($F13 * 1px, $vw-768);
@@ -197,7 +197,7 @@
             }
 
             @include layout-1024() {
-                box-shadow: 0 0 to-rem($F8) 0 $color-pink inset;
+                box-shadow: 0 0 to-rem($F8) 0 $color-red inset;
                 bottom: to-vw($F10 * -1px, $vw-1024);
                 right: to-vw($F10 * -1px, $vw-1024);
                 width: to-vw($F13 * 1px, $vw-1024);
@@ -219,7 +219,7 @@
             }
 
             @include layout-1680() {
-                box-shadow: 0 0 to-rem($F10) 0 $color-pink inset;
+                box-shadow: 0 0 to-rem($F10) 0 $color-red inset;
                 bottom: to-vw($F8 * -1px, $vw-1680);
                 right: to-vw($F12 * 1px, $vw-1680);
                 width: to-vw($F13 * 1px, $vw-1680);
@@ -228,7 +228,7 @@
 
             &:focus,
             &:hover {
-                box-shadow: 0 0 to-rem($F7) 0 $color-pink inset;
+                box-shadow: 0 0 to-rem($F7) 0 $color-red inset;
             }
         }
     }
@@ -325,7 +325,7 @@
 
     &-item {
         grid-column: 1 /  span 2;
-        border-bottom: 2px solid $color-pink;
+        border-bottom: 2px solid $color-red;
 
         &:nth-of-type(even) {
             .portfolio-item-link {
@@ -374,7 +374,7 @@
                 width: 100%;
                 height: 70%;
                 position: relative;
-                border: 1px solid $color-pink;
+                border: 1px solid $color-red;
                 box-sizing: border-box;
             }
 
@@ -390,7 +390,7 @@
                     display: block;
                     width: 100%;
                     height: 100%;
-                    border: 1px solid $color-pink;
+                    border: 1px solid $color-red;
                     box-sizing: border-box;
                     overflow: hidden;
 
@@ -437,33 +437,33 @@
                 align-items: center;
                 justify-content: center;
                 position: relative;
-                border: 1px solid $color-pink;
+                border: 1px solid $color-red;
                 box-sizing: border-box;
                 border-top: none;
                 width: 100%;
                 height: 15%;
                 margin: 0 auto;
-                background: $color-pink;
+                background: $color-red;
             }
 
             &-stand {
                 position: relative;
-                border: 1px solid $color-pink;
+                border: 1px solid $color-red;
                 border-top: none;
                 width: 15%;
                 height: 13%;
                 margin: 0 auto;
-                background: $color-pink;
+                background: $color-red;
             }
 
             &-base {
                 position: relative;
-                border: 1px solid $color-pink;
+                border: 1px solid $color-red;
                 border-top: none;
                 width: 30%;
                 height: 2%;
                 margin: 0 auto;
-                background: $color-pink;
+                background: $color-red;
                 border-radius: 15px;
             }
         }
@@ -836,7 +836,6 @@
         @include layout-2560() {
             padding-bottom: to-rem($F12);
         }
-    
     }
 }
 
