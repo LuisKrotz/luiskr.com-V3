@@ -94,10 +94,54 @@
           <p class="internal-description-text">
             Those articles were a real challenge to code, METCHA's uses CSS and typography heavily to enable unique experiences and feels for every article.
           </p>
-        </div>
-
+        </div
         <div class="internal-extra">
           <div class="internal-extra-scroll">
+              <div class="internal extra-item">
+                  <Media
+                    src="metcha/articles/metcha.com-article-all-we-know-about-the-new-chevy-beast-concept"
+                    :width="828"
+                    :height="1696"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="METCHA - Article: All we know about the new Chevy Beast concept"/>
+              </div>
+              <div class="internal extra-item landscape">
+                  <Media
+                    src="metcha/articles/metcha.com-article-avril-lavigne-brings-pop-punk-back-with-bite-me"
+                    :width="3840"
+                    :height="2056"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="METCHA - Article: Avril Lavigne brings pop punk back with Bite Me"/>
+              </div>
+              <div class="internal extra-item landscape">
+                  <Media
+                    src="metcha/articles/metcha.com-article-tradition-high-end-materials-at-villa-rinascimentale"
+                    :width="828"
+                    :height="1692"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="METCHA - Article: Tradition high end materials at Villa Rinascimentale"/>
+              </div>
+
+              <div class="internal extra-item">
+                  <Media
+                    src="metcha/articles/metcha-article-the-shoe-surgeon-took-an-exclusive-sneaker-to-the-metaverse"
+                    :width="3840"
+                    :height="13837"
+                    :canExpand="true"
+                    label="METCHA - Article: The Shoe Surgeon took an exclusive sneaker to the metaverse"/>
+              </div>
+
+              <div class="internal-extra-item">
+                  <Media
+                    src="metcha/articles/metcha-article-a-custom-mercedes-benz-300-sl-with-matelasse-like-seats"
+                    :width="3840"
+                    :height="17407"
+                    :canExpand="true"
+                    label="METCHA - Article: A custom Mercedes Benz 300SL with matelasse like seats"/>
+              </div>
               <div class="internal-extra-item landscape">
                   <Media
                     src="metcha/articles/metcha.com--article-cruella-s-villainism-fashionism-is-premiering-next-week-2021-06-03-full-article-tour"
@@ -417,7 +461,7 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-          Another challenge was METCHA's newsletter, created dynamically on the metcha CMS, and sent weekly with a unique identity.
+            Another challenge was METCHA's newsletter, created dynamically on the metcha CMS, and sent weekly with a unique identity.
           </h3>
         </div>
 
