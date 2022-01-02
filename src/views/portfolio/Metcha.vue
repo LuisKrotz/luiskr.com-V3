@@ -94,7 +94,7 @@
           <p class="internal-description-text">
             Those articles were a real challenge to code, METCHA's uses CSS and typography heavily to enable unique experiences and feels for every article.
           </p>
-        </div
+        </div>
         <div class="internal-extra">
           <div class="internal-extra-scroll">
               <div class="internal extra-item">
