@@ -1,5 +1,5 @@
 <template>
-  <article :class="modal.class">
+  <article>
     <div id="#main" class="project modal-below" :style="'transform: translateY(-' + modal.transform + 'px);'">
       <h2 class="internal-title">METCHA</h2>
       <div class="internal-main">

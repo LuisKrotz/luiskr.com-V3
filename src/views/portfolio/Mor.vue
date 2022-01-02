@@ -1,5 +1,5 @@
 <template>
-  <article :class="modal.class">
+  <article>
     <div id="#main" class="internal modal-below" :style="'transform: translateY(-' + modal.transform + 'px);'">
       <h2 class="internal-title">MOR</h2>
       <div class="internal-main">
@@ -35,8 +35,8 @@
               <div class="internal-extra-item">
                   <Media
                     src="mor/site/mor.com.br-31-03-19-1-mobile"
-                    :width="1920"
-                    :height="4167"
+                    :width="832"
+                    :height="1728"
                     :canExpand="true"
                     :isVideo="true"
                     label=""/>
