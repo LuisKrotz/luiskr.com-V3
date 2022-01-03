@@ -88,6 +88,22 @@ const routes = [
     }
   },
   {
+    path: '/portfolio/cecerele',
+    name: 'Cecerelê',
+    component: () => import(/* webpackChunkName: "cecerele" */ '../views/portfolio/Cecerele.vue'),
+    meta: {
+      title: title + ' | Cecerelê'
+    }
+  },
+  {
+    path: '/portfolio/clinica-de-desenvolvimento-nathalia-bond',
+    name: 'Cliníca de Desenvolvimento - Nathalia Bond',
+    component: () => import(/* webpackChunkName: "clinicadedesenvolvimentonathaliabond" */ '../views/portfolio/ClinicaDeDesenvolvimentoNathaliaBond.vue'),
+    meta: {
+      title: title + ' | Cliníca de Desenvolvimento - Nathalia Bond'
+    }
+  },
+  {
     path: '/portfolio/vibra',
     name: 'Vibra',
     component: () => import(/* webpackChunkName: "vibra" */ '../views/portfolio/Vibra.vue'),
