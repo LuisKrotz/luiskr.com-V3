@@ -97,7 +97,7 @@
         </div>
         <div class="internal-extra">
           <div class="internal-extra-scroll">
-              <div class="internal extra-item">
+              <div class="internal-extra-item">
                   <Media
                     src="metcha/articles/metcha.com-article-all-we-know-about-the-new-chevy-beast-concept"
                     :width="828"
@@ -106,7 +106,7 @@
                     :isVideo="true"
                     label="METCHA - Article: All we know about the new Chevy Beast concept"/>
               </div>
-              <div class="internal extra-item landscape">
+              <div class="internal-extra-item landscape">
                   <Media
                     src="metcha/articles/metcha.com-article-avril-lavigne-brings-pop-punk-back-with-bite-me"
                     :width="3840"
@@ -115,7 +115,7 @@
                     :isVideo="true"
                     label="METCHA - Article: Avril Lavigne brings pop punk back with Bite Me"/>
               </div>
-              <div class="internal extra-item landscape">
+              <div class="internal-extra-item landscape">
                   <Media
                     src="metcha/articles/metcha.com-article-tradition-high-end-materials-at-villa-rinascimentale"
                     :width="828"
@@ -124,8 +124,7 @@
                     :isVideo="true"
                     label="METCHA - Article: Tradition high end materials at Villa Rinascimentale"/>
               </div>
-
-              <div class="internal extra-item">
+              <div class="internal-extra-item">
                   <Media
                     src="metcha/articles/metcha-article-the-shoe-surgeon-took-an-exclusive-sneaker-to-the-metaverse"
                     :width="3840"
@@ -133,7 +132,6 @@
                     :canExpand="true"
                     label="METCHA - Article: The Shoe Surgeon took an exclusive sneaker to the metaverse"/>
               </div>
-
               <div class="internal-extra-item">
                   <Media
                     src="metcha/articles/metcha-article-a-custom-mercedes-benz-300-sl-with-matelasse-like-seats"
@@ -501,6 +499,38 @@
                     :height="7066"
                     :canExpand="true"
                     label="METCHA: newsletter"/>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="internal-description">
+          <h3 class="internal-description-text">
+            METCHA FORWARD
+          </h3>
+          <p class="internal-description-text">Lorem ipsum</p>
+        </div>
+
+        <div class="internal-extra">
+          <div class="internal-extra-scroll">
+              <div class="internal-extra-item landscape">
+                  <Media
+                    src="metcha/forward-2021/metcha-metcha-forward"
+                    :width="3840"
+                    :height="2056"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="METCHA Forward: 2021/2022 Report - Tour"/>
+              </div>
+              <div class="internal-extra-item">
+                  <Media
+                    src="metcha/forward-2021/metcha-metcha-forward"
+                    :width="3840"
+                    :height="4895"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="METCHA: Forward: 2021/2022 Report - Full page"/>
               </div>
           </div>
         </div>
