@@ -1,12 +1,10 @@
 <template>
   <article>
       <h2 id="portfolio" class="portfolio-title" ref="portfolio">
-        <span class="hdn">{{ message }}</span>
+        <span class="hdn">{{ message }}:</span>
 
         <div v-for="n in 100" :key="n" class="portfolio-title-marquee" aria-hidden="true" data-no-snippet>
-            <template v-for="n in 3" :key="n">
-            {{ message }}
-            </template>
+            <template v-for="n in 3" :key="n"> ▲ {{ message }}</template>
         </div>
       </h2>
 
@@ -56,7 +54,7 @@ export default {
   data() {
     return {
       storage:          this.$store.getters.getStorage,
-      message:          ' Selected Work ',
+      message:          'Selected work',
       portfoliolist:    [
         {
           link: 'metcha',

@@ -42,5 +42,3 @@ module.exports = {
         workboxPluginMode: 'GenerateSW'
       }
 }
-
-//background_color

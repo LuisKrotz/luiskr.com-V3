@@ -110,12 +110,19 @@
 
                     &-item-1 {
                         mix-blend-mode: color-burn;
+                        filter: grayscale(1) contrast(2) brightness(0.15);
                         opacity: 1;
 
                         @media (pointer: coarse) {
+                            filter: none;
                             transition: opacity 1s ease-in-out;
                             mix-blend-mode: multiply;
                             opacity: 1;
+                        }
+
+                        // Add workaround due to safaru being unable to render mix-blend correctly
+                        .is_safari & {
+                            opacity: 0;
                         }
 
                         .portfolio-item-link:hover &,
@@ -131,8 +138,15 @@
 
                         @media (pointer: coarse) {
                             transition: none;
-                            mix-blend-mode: color-burn;
+                            mix-blend-mode: multiply;
                             opacity: 0;
+                        }
+
+                        // Add workaround due to safaru being unable to render mix-blend correctly
+                        .is_safari & {
+                            transition: none;
+                            mix-blend-mode: multiply;
+                            opacity: 1;
                         }
 
                         .portfolio-item-link:hover &,
@@ -574,11 +588,10 @@
 
         &-marquee {
             @extend .ttl-xxl;
+            @extend .ttl-special;
 
-            font-family: 'Black Ops One', cursive;
             width: fit-content;
             white-space: nowrap;
-            font-weight: 900;
 
             font-size: to-rem($F12);
             line-height: to-rem($F12);

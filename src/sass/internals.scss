@@ -6,6 +6,7 @@
 .internal {
     &-title {
         @extend .ttl-lg;
+        @extend .ttl-special;
 
         padding: to-rem($F10) to-rem($F8) to-rem($F9);
         text-align: center;
@@ -352,6 +353,7 @@
     &-footer {
         &-title {
             @extend .ttl-lg;
+            @extend .ttl-special;
 
             padding-bottom: to-rem($F5);
             max-width: to-rem($F15);
