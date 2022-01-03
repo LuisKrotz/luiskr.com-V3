@@ -2,16 +2,18 @@
     <footer class="internal-footer">
         <h2 class="internal-footer-title">Related</h2>
         <div class="internal-footer-related">
-            <router-link class="internal-footer-related-link" to="/portfolio/brazilian-leather">brazilian leather</router-link>
-            <router-link class="internal-footer-related-link" to="/portfolio/coza">coza</router-link>
-            <router-link class="internal-footer-related-link" to="/portfolio/genesysinf-sageweb">genesysinf</router-link>
-            <router-link class="internal-footer-related-link" to="/portfolio/aboutmarco">marco almeida</router-link>
-            <router-link class="internal-footer-related-link" to="/portfolio/melissa">melissa</router-link>
-            <router-link class="internal-footer-related-link" to="/portfolio/metcha">metcha</router-link>
-            <router-link class="internal-footer-related-link" to="/portfolio/minimelissa">minimelissa</router-link>
-            <router-link class="internal-footer-related-link" to="/portfolio/mor">mor</router-link>
-            <router-link class="internal-footer-related-link" to="/portfolio/transa">transa</router-link>
-            <router-link class="internal-footer-related-link" to="/portfolio/vibra">vibra</router-link>
+            <router-link class="internal-footer-related-link" to="/portfolio/metcha">Metcha</router-link>
+            <router-link class="internal-footer-related-link" to="/portfolio/transa">Transa</router-link>
+            <router-link class="internal-footer-related-link" to="/portfolio/brazilian-leather">Brazilian Leather</router-link>
+            <router-link class="internal-footer-related-link" to="/portfolio/mor">Mor</router-link>
+            <router-link class="internal-footer-related-link" to="/portfolio/coza">Coza</router-link>
+            <router-link class="internal-footer-related-link" to="/portfolio/melissa">Melissa</router-link>
+            <router-link class="internal-footer-related-link" to="/portfolio/minimelissa">Minimelissa</router-link>
+            <router-link class="internal-footer-related-link" to="/portfolio/aboutmarco">Marco Almeida</router-link>
+            <router-link class="internal-footer-related-link" to="/portfolio/clinica-de-desenvolvimento-nathalia-bond">Nathalia Bond</router-link>
+            <router-link class="internal-footer-related-link" to="/portfolio/cecerele">Cecerelê</router-link>
+            <router-link class="internal-footer-related-link" to="/portfolio/vibra">Vibra</router-link>
+            <router-link class="internal-footer-related-link" to="/portfolio/genesysinf-sageweb">Genesysinf</router-link>
         </div>
 
         <div class="internal-footer-items">
