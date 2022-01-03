@@ -1,7 +1,7 @@
 <template>
   <div :class="modal.class">
     <div v-if="modal.class === ''" class="nav">
-      <router-link class="nav-link" v-if="$router.currentRoute.value.name !== 'Home'" to="/">Luis Krötz</router-link>
+      <router-link class="nav-link back" v-if="$router.currentRoute.value.name !== 'Home'" to="/">Luis Krötz</router-link>
       <button class="nav-link active" v-else @click="scrollTop()">Luis Krötz</button>
 
       <div>
