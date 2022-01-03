@@ -3,22 +3,22 @@
     <router-link class="portfolio-item-link" :to="link">
         <div class="portfolio-item-computer">
             <div class="portfolio-item-computer-frame">
-            <div class="portfolio-item-computer-screen">
-                <div class="portfolio-item-computer-screen-image">
-                    <span class="portfolio-item-computer-screen-image-toggle-1">Show More</span>
-                    <img v-if="viewport >= 640" class="portfolio-item-computer-screen-image-toggle-2"
-                         v-lazy="{src: image + ext, loading: image + loadext + ext}"
-                         :alt="label"
-                         :width="width[0]"
-                         :height="height[0]" />
-                    <img v-else class="portfolio-item-computer-screen-image-toggle-2"
-                         v-lazy="{src: image + mobileext +  ext, loading: image + loadext + mobileext + ext}" 
-                         :alt="label"
-                         :width="width[1]"
-                         :height="height[1]" />
+                <div class="portfolio-item-computer-screen">
+                    <div class="portfolio-item-computer-screen-image">
+                        <template v-for="n = 1 in 2" :key="n">
+                            <img v-if="viewport >= 640" :class="'portfolio-item-computer-screen-image-item-' + n"
+                                v-lazy="{src: image + ext, loading: image + loadext + ext}"
+                                :alt="label"
+                                :width="width[0]"
+                                :height="height[0]" />
+                            <img v-else :class="'portfolio-item-computer-screen-image-item-' + n"
+                                v-lazy="{src: image + mobileext +  ext, loading: image + loadext + mobileext + ext}" 
+                                :alt="label"
+                                :width="width[1]"
+                                :height="height[1]" />
+                        </template>
+                    </div>
                 </div>
-                
-            </div>
             </div>
             <div class="portfolio-item-computer-chin"></div>
             <div class="portfolio-item-computer-stand"></div>

@@ -1,7 +1,17 @@
 <template>
   <article>
+      <h2 id="portfolio" class="portfolio-title" ref="portfolio">
+        <span class="hdn">{{ message }}</span>
+
+        <div v-for="n in 100" :key="n" class="portfolio-title-marquee" aria-hidden="true" data-no-snippet>
+            <template v-for="n in 3" :key="n">
+            {{ message }}
+            </template>
+        </div>
+      </h2>
+
+
     <section class="portfolio">
-      <h2 id="portfolio" class="hdn" ref="portfolio">PORTFOLIO</h2>
       <ul class="portfolio-grid">
         <li class="portfolio-item" v-for="item, index in portfoliolist" :key="index">
           <DrawComputer
@@ -46,47 +56,8 @@ export default {
   data() {
     return {
       storage:          this.$store.getters.getStorage,
+      message:          ' Selected Work ',
       portfoliolist:    [
-        {
-          link: 'brazilian-leather',
-          image: 'brazilian-leather',
-          width: ["1920", "768"],
-          height: ["850", "340"],
-          label: 'Brazilian Leather',
-          description: 'Brazilian Leather is a project developed at Transa, through a partnership between CICB and Apex-Brasil.<br>The project is a portal of Leather from Brazil. Including websites like Brazilian Leather, CICB, CSCB and Leather Law.',
-        },
-        {
-          link: 'coza',
-          image: 'coza',
-          width: ["1920", "768"],
-          height: ["794", "318"],
-          label: 'Coza',
-          description: 'Coza\'s website was developed at Transa from 2017 to 2019.<br>Coza\'s main page was a feed of content created for the brand, with articles, galleries, photos and links to the online store.',
-        },
-        {
-          link: 'cecerele',
-          image: 'cecerele',
-          width: ["1920", "768"],
-          height: ["640", "256"],
-          label: 'Cecerelê',
-          description: 'Cecerelê\'s e-commerce was developed as a freelancing job in Dec. 2021.<br>Cecerelê\'s is a store was designed by myself inside the Illuria e-commerce platform.',
-        },
-        {
-          link: 'aboutmarco',
-          image: 'aboutmarco',
-          width: ["1920", "768"],
-          height: ["1014", "406"],
-          label: 'Marco Almeida',
-          description: 'Marco\'s Portfolio was developed as a Freelancing project in 2021.<br>The main goal to achieve was to create a pixel-perfect project, with smooth animations and a pixel perfect UI.',
-        },
-        {
-          link: 'melissa',
-          image: 'melissa',
-          width: ["1920", "768"],
-          height: ["799", "320"],
-          label: 'Melissa',
-          description: 'Melissa\'s website was a portal connecting all things related to the Melissa Brand.<br>It had many feeds connected with the brand social media and original content created at Transa.',
-        },
         {
           link: 'metcha',
           image: 'metcha',
@@ -94,38 +65,6 @@ export default {
           height: ["750", "301"],
           label: 'Metcha',
           description: 'METCHA is the oracle of leather design culture.<br>Seeking to tell the most compelling stories within the worlds of design, art, fashion and lifestyle, shining a spotlight on the subjects and the individuals that make up the everyday lives of the people who shape the world of today.',
-        },
-        {
-          link: 'minimelissa',
-          image: 'minimelissa-cropped',
-          width: ["1905", "768"],
-          height: ["799", "322"],
-          label: 'Mini Melissa',
-          description: 'Minimelissa was a project developed at Transa for the Grendene Group as a channel for the Minimelissa brand.<br>The website consisted of a Content and a Social feed on the homepage with infinite scroll leading to many Minimelissa exclusive content and lasted from 2018 to 2020.',
-        },
-        {
-          link: 'mor',
-          image: 'mor',
-          width: ["1920", "768"],
-          height: ["798", "319"],
-          label: 'Mor',
-          description: 'MOR\'s website was developed at Transa with the goal create a fast and beautiful experience connecting MOR\'s channels and community in one place',
-        },
-        {
-          link: 'nathalia-bond-clinica-de-desenvolvimento',
-          image: 'clinica-nathalia-bond-v3',
-          width: ["1920", "960"],
-          height: ["640", "320"],
-          label: 'Nathalia Bond',
-          description: 'Nathalia Bond - Clínica de Desenvolvimento\'s website was developed as a freelancing from Oct. to Dec in 2021.<br>Nathalia Bond\'s website was a re-design of the previous website, keeping the already stablished visual identity with focus refining the visual identity and using squarespace as an easy-to-maintain content management system for the end user.',
-        },
-        {
-          link: 'genesysinf-sageweb',
-          image: 'sageweb',
-          width: ["1350", "768"],
-          height: ["649", "369"],
-          label: 'Sageweb',
-          description: 'Sage is a project developed by Genesysinf, at the city of Santana do Livramento, in Brazil, and is a fiscal software.<br>The project consisted of porting the Sage for desktop software code to a new Web Version.',
         },
         {
           link: 'transa',
@@ -136,12 +75,84 @@ export default {
           description: 'Transa is a driven by community + content + channels company.<br>Provoking meaningful changes for ambitious organizations in BR, USA, UK, EU & ASIA, encouraging people and brands to catalyze their strengths.<br>Transa\'s website consists of an infinite scrolling feed, with many projects developed at Transa during the years.',
         },
         {
+          link: 'brazilian-leather',
+          image: 'brazilian-leather',
+          width: ["1920", "768"],
+          height: ["850", "340"],
+          label: 'Brazilian Leather',
+          description: 'Brazilian Leather is a project developed at Transa, through a partnership between CICB and Apex-Brasil.<br>The project is a portal of Leather from Brazil. Including websites like Brazilian Leather, CICB, CSCB and Leather Law.',
+        },
+        {
+          link: 'mor',
+          image: 'mor',
+          width: ["1920", "768"],
+          height: ["798", "319"],
+          label: 'Mor',
+          description: 'MOR\'s website was developed at Transa with the goal create a fast and beautiful experience connecting MOR\'s channels and community in one place',
+        },
+        {
+          link: 'coza',
+          image: 'coza',
+          width: ["1920", "768"],
+          height: ["794", "318"],
+          label: 'Coza',
+          description: 'Coza\'s website was developed at Transa from 2017 to 2019.<br>Coza\'s main page was a feed of content created for the brand, with articles, galleries, photos and links to the online store.',
+        },
+        {
+          link: 'melissa',
+          image: 'melissa',
+          width: ["1920", "768"],
+          height: ["799", "320"],
+          label: 'Melissa',
+          description: 'Melissa\'s website was a portal connecting all things related to the Melissa Brand.<br>It had many feeds connected with the brand social media and original content created at Transa.',
+        },
+        {
+          link: 'minimelissa',
+          image: 'minimelissa-cropped',
+          width: ["1905", "768"],
+          height: ["799", "322"],
+          label: 'Mini Melissa',
+          description: 'Minimelissa was a project developed at Transa for the Grendene Group as a channel for the Minimelissa brand.<br>The website consisted of a Content and a Social feed on the homepage with infinite scroll leading to many Minimelissa exclusive content and lasted from 2018 to 2020.',
+        },
+        {
+          link: 'aboutmarco',
+          image: 'aboutmarco',
+          width: ["1920", "768"],
+          height: ["1014", "406"],
+          label: 'Marco Almeida',
+          description: 'Marco\'s Portfolio was developed as a Freelancing project in 2021.<br>The main goal to achieve was to create a pixel-perfect project, with smooth animations and a pixel perfect UI.',
+        },
+        {
+          link: 'clinica-de-desenvolvimento-nathalia-bond',
+          image: 'clinica-nathalia-bond-v3',
+          width: ["1920", "960"],
+          height: ["640", "320"],
+          label: 'Nathalia Bond',
+          description: 'Nathalia Bond - Clínica de Desenvolvimento\'s website was developed as a freelancing from Oct. to Dec in 2021.<br>Nathalia Bond\'s website was a re-design of the previous website, keeping the already stablished visual identity with focus refining the visual identity and using squarespace as an easy-to-maintain content management system for the end user.',
+        },
+        {
+          link: 'cecerele',
+          image: 'cecerele',
+          width: ["1920", "768"],
+          height: ["640", "256"],
+          label: 'Cecerelê',
+          description: 'Cecerelê\'s e-commerce was developed as a freelancing job in Dec. 2021.<br>Cecerelê\'s is a store was designed by myself inside the Illuria e-commerce platform.',
+        },
+        {
           link: 'vibra',
           image: 'vibra',
           width: ["1920", "768"],
           height: ["913", "340"],
           label: 'Vibra',
           description: 'Vibra is a website developed at Transa in 2016 as a portal created for the Vibra Brand.',
+        },
+        {
+          link: 'genesysinf-sageweb',
+          image: 'sageweb',
+          width: ["1350", "768"],
+          height: ["649", "369"],
+          label: 'Sageweb',
+          description: 'Sage is a project developed by Genesysinf, at the city of Santana do Livramento, in Brazil, and is a fiscal software.<br>The project consisted of porting the Sage for desktop software code to a new Web Version.',
         }]
     }
   },
@@ -161,11 +172,11 @@ export default {
           scrollTo: this.$refs[ref],  // scrollTo is also allowed to be number
         })
     },
-    mounted() {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 500);
-    }
+  },
+  mounted() {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 500);
   }
 }
 </script>

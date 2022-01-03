@@ -24,6 +24,7 @@
     text-decoration: none;
     cursor: pointer;
     transition: opacity .3s ease-in;
+    position: relative;
 
     &:hover,
     &:focus {
@@ -39,6 +40,18 @@
         height: to-rem($F3);
         border-radius: to-rem($F3);
         background: var(--grey);
+      }
+    }
+
+    &.back {
+      &::before {
+        display: block;
+        content: '⟵';
+        position: absolute;
+        bottom: to-rem(-19);
+        left: to-rem(-3);
+        font-size: to-rem(38);
+        font-weight: 100;
       }
     }
   }

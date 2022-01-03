@@ -294,6 +294,20 @@
                 }
             }
 
+            &.small {
+                .render-placeholder {
+                    @include layout-1440() {
+                        width: to-rem($F13);
+                        height: to-rem($F15);
+                    }
+
+                    @include layout-2560() {
+                        width: to-rem($F14);
+                        height: to-rem($F16);
+                    }
+                }
+            }
+
             label {
                 @extend .ttl-xs;
 

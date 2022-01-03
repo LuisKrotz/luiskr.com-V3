@@ -3,306 +3,6 @@
 @import '_fonts';
 @import '_placeholders';
 
-.cover {
-    @extend %MAXAREA;
-
-    position: relative;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 2/3;
-
-    @include layout-768() {
-        aspect-ratio: 1/1;
-    }
-
-    @include layout-1024() {
-        aspect-ratio: 16/10;
-    }
-
-    @include layout-1280() {
-        aspect-ratio: 16/9;
-    }
-
-
-    &-text {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        text-align: left;
-        width: to-rem($F13);
-        top: 50%;
-        left: 0;
-        transform: translate(0, -50%);
-
-        @include layout-768() {
-            width: to-rem($F14);
-        }
-
-        @include layout-1024() {
-            margin-top: to-rem($F11 * -1);
-        }
-
-        @include layout-2560() {
-            width: to-rem($F15);
-        }
-
-        h2 {
-            @extend .ttl-lg;
-
-            margin: to-rem($F8) 0;
-        }
-
-        span {
-            @extend .txt-md;
-        }
-    }
-
-    &-links {
-        @extend .ttl-sm;
-
-        transition: box-shadow .5s ease-in-out;
-
-        box-sizing: border-box;
-        border: to-rem($F1) solid var(--grey-2);
-        border-radius: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        cursor: pointer;
-        text-decoration: none;
-        text-transform: uppercase;
-
-        &.ptf {
-            box-shadow: 0 0 to-rem($F8) 0 $color-turquoise inset;
-            animation: bounce-2 10s linear infinite;
-            bottom: to-vw($F1 * 1px, $vw-320);
-            right: to-vw($F12 * 1px, $vw-320);
-            width: to-vw($F12 * 1px, $vw-320);
-            height: to-vw($F12 * 1px, $vw-320);
-            color: $color-turquoise;
-
-            @include layout-768() {
-                box-shadow: 0 0 to-rem($F10) 0 $color-turquoise inset;
-                bottom: to-vw($F12 * -1px, $vw-768);
-                right: to-vw($F14 * 1px, $vw-768);
-                width: to-vw($F14 * 1px, $vw-768);
-                height: to-vw($F14 * 1px, $vw-768);
-            }
-
-            @include layout-1024() {
-                box-shadow: 0 0 to-rem($F8) 0 $color-turquoise inset;
-                bottom: to-vw($F2 * 1px, $vw-1024);
-                right: to-vw($F13 * 1px, $vw-1024);
-                width: to-vw($F13 * 1px, $vw-1024);
-                height: to-vw($F13 * 1px, $vw-1024);
-            }
-
-            @include layout-1280() {
-                bottom: to-vw($F12 * 1px, $vw-1280);
-                right: to-vw($F14 * 1px, $vw-1280);
-                width: to-vw($F13 * 1px, $vw-1280);
-                height: to-vw($F13 * 1px, $vw-1280);
-            }
-
-            @include layout-1440() {
-                bottom: to-vw($F12 * 1px, $vw-1440);
-                right: to-vw($F15 * 1px, $vw-1440);
-                width: to-vw($F13 * 1px, $vw-1440);
-                height: to-vw($F13 * 1px, $vw-1440);
-            }
-
-            @include layout-1680() {
-                box-shadow: 0 0 to-rem($F10) 0 $color-turquoise inset;
-                bottom: to-vw($F12 * 1px, $vw-1680);
-                right: to-vw($F15 * 1px, $vw-1680);
-                width: to-vw($F13 * 1px, $vw-1680);
-                height: to-vw($F13 * 1px, $vw-1680);
-            }
-
-            &:focus,
-            &:hover {
-                box-shadow: 0 0 to-rem($F7) 0 $color-turquoise inset;
-            }
-        }
-
-        &.cnt {
-            box-shadow: 0 0 to-rem($F8) 0 $color-blue inset;
-            right: to-vw($F9 * -1px, $vw-320);
-            top: to-vw($F9 * -1px, $vw-320);
-            width: to-vw($F13 * 1px, $vw-320);
-            height: to-vw($F13 * 1px, $vw-320);
-            animation: bounce-1 20s linear infinite;
-            color: $color-blue;
-
-            @include layout-768() {
-                box-shadow: 0 0 to-rem($F10) 0 $color-blue inset;
-                right: to-vw($F11 * -1px, $vw-768);
-                top: to-vw($F9 * -1px, $vw-768);
-                width: to-vw($F14 * 1px, $vw-768);
-                height: to-vw($F14 * 1px, $vw-768);
-            }
-
-            @include layout-1024() {
-                box-shadow: 0 0 to-rem($F8) 0 $color-blue inset;
-                right: to-vw($F10 * -1px, $vw-1024);
-                top: to-vw($F10 * 1px, $vw-1024);
-                width: to-vw($F14 * 1px, $vw-1024);
-                height: to-vw($F14 * 1px, $vw-1024);
-            }
-
-            @include layout-1280() {
-                right: 0;
-                top: to-vw($F10 * 1px, $vw-1280);
-                width: to-vw($F14 * 1px, $vw-1280);
-                height: to-vw($F14 * 1px, $vw-1280);
-            }
-
-            @include layout-1440() {
-                top: to-vw($F8 * -1px, $vw-1440);
-                width: to-vw($F15 * 1px, $vw-1440);
-                height: to-vw($F15 * 1px, $vw-1440);
-            }
-
-            @include layout-1680() {
-                box-shadow: 0 0 to-rem($F10) 0 $color-blue inset;
-                top: to-vw($F2 * -1px, $vw-1680);
-                width: to-vw($F15 * 1px, $vw-1680);
-                height: to-vw($F15 * 1px, $vw-1680);
-            }
-
-            &:focus,
-            &:hover {
-                box-shadow: 0 0 to-rem($F7) 0 $color-blue inset;
-            }
-        }
-
-        &.abt {
-            box-shadow: 0 0 to-rem($F8) 0 $color-red inset;
-            bottom: to-vw($F11 * -1px, $vw-320);
-            right: to-vw($F5 * -1px, $vw-320);
-            width: to-vw($F12 * 1px, $vw-320);
-            height: to-vw($F12 * 1px, $vw-320);
-            animation: bounce-3 10s linear infinite;
-            color: $color-red;
-
-            @include layout-768() {
-                box-shadow: 0 0 to-rem($F8) 0 $color-red inset;
-                bottom: to-vw($F12 * -1px, $vw-768);
-                right: to-vw($F8 * -1px, $vw-768);
-                width: to-vw($F13 * 1px, $vw-768);
-                height: to-vw($F13 * 1px, $vw-768);
-            }
-
-            @include layout-1024() {
-                box-shadow: 0 0 to-rem($F8) 0 $color-red inset;
-                bottom: to-vw($F10 * -1px, $vw-1024);
-                right: to-vw($F10 * -1px, $vw-1024);
-                width: to-vw($F13 * 1px, $vw-1024);
-                height: to-vw($F13 * 1px, $vw-1024);
-            }
-
-            @include layout-1280() {
-                bottom: to-vw($F9 * 1px, $vw-1280);
-                right: to-vw($F10 * 1px, $vw-1280);
-                width: to-vw($F13 * 1px, $vw-1280);
-                height: to-vw($F13 * 1px, $vw-1280);
-            }
-
-            @include layout-1440() {
-                bottom: to-vw($F9 * -1px, $vw-1440);
-                right: to-vw($F12 * 1px, $vw-1440);
-                width: to-vw($F13 * 1px, $vw-1440);
-                height: to-vw($F13 * 1px, $vw-1440);
-            }
-
-            @include layout-1680() {
-                box-shadow: 0 0 to-rem($F10) 0 $color-red inset;
-                bottom: to-vw($F8 * -1px, $vw-1680);
-                right: to-vw($F12 * 1px, $vw-1680);
-                width: to-vw($F13 * 1px, $vw-1680);
-                height: to-vw($F13 * 1px, $vw-1680);
-            }
-
-            &:focus,
-            &:hover {
-                box-shadow: 0 0 to-rem($F7) 0 $color-red inset;
-            }
-        }
-    }
-}
-
-.awards {
-    &-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: to-rem($F10);
-        padding: 0;
-        margin: 0;
-    }
-
-    &-item {
-        &-link {
-            text-decoration: none;
-            box-sizing: border-box;
-            color: var(--black);
-            display: grid;
-            border-radius: to-rem($F5);
-            border: 1px solid var(--grey-2);
-            grid-template-rows: to-rem($F14) to-rem($F10);
-            grid-template-columns: auto to-rem($F9);
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-
-            &-icon {
-                @extend .ttl-md;
-
-                box-sizing: border-box;
-                text-align: center;
-                height: 100%;
-                line-height: to-rem($F10);
-                margin: 0;
-            }
-
-            &-media {
-                overflow: hidden;
-                width: 100%;
-                height: 100%;
-                grid-row: 1;
-                grid-column-start: 1;
-                grid-column-end: -1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: var(--black);
-                margin: 0;
-                object-fit: cover
-            }
-
-            &-text {
-                @extend .ttl-sm;
-
-                transition: opacity .3s ease-in;
-                padding: 0 to-rem($F8);
-                margin: 0;
-                height: 100%;
-                line-height: to-rem($F10);
-                box-sizing: border-box;
-                text-align: center;
-
-                .awards-item-link:hover &,
-                .awards-item-link:focus & {
-                    opacity: .5;
-                }
-            }
-        }
-    }
-}
-
 .portfolio {
     &-grid {
         display: grid;
@@ -325,7 +25,7 @@
 
     &-item {
         grid-column: 1 /  span 2;
-        border-bottom: 2px solid $color-red;
+        border-bottom: 2px solid $color-grey-2;
 
         &:nth-of-type(even) {
             .portfolio-item-link {
@@ -351,6 +51,7 @@
             }
         }
 
+
         &-link {
             display: block;
 
@@ -367,14 +68,14 @@
             aspect-ratio: 16/11;
 
             @include layout-1024() {
-                width: 50%;
+                width: 60%;
             }
 
             &-frame {
                 width: 100%;
                 height: 70%;
                 position: relative;
-                border: 1px solid $color-red;
+                border: 1px solid $color-grey-2;
                 box-sizing: border-box;
             }
 
@@ -390,42 +91,53 @@
                     display: block;
                     width: 100%;
                     height: 100%;
-                    border: 1px solid $color-red;
+                    border: 1px solid $color-grey-2;
                     box-sizing: border-box;
                     overflow: hidden;
 
-                    &-toggle-1,
-                    &-toggle-2 {
-                        transition: opacity .5s ease-in;
+
+                    &-item-1,
+                    &-item-2 {
                         position: absolute;
-                    }
-
-                    &-toggle-1 {
-                        @extend .ttl-sm;
-
-                        top: 50%;
-                        left: 0;
-                        width: 100%;
-                        transform: translate(0, -50%);
-                        opacity: 0;
-                        text-align: center;
-
-                        .portfolio-item-link:hover & {
-                            opacity: 1;
-                        }
-                    }
-
-                    &-toggle-2 {
                         top: 0;
                         left: 0;
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
                         object-position: center;
+                    }
+
+
+                    &-item-1 {
+                        mix-blend-mode: color-burn;
                         opacity: 1;
 
-                        .portfolio-item-link:hover & {
+                        @media (pointer: coarse) {
+                            transition: opacity 1s ease-in-out;
+                            mix-blend-mode: multiply;
+                            opacity: 1;
+                        }
+
+                        .portfolio-item-link:hover &,
+                        .portfolio-item-link:focus & {
                             opacity: 0;
+                        }
+                    }
+
+                    &-item-2 {
+                        transition: opacity 1s ease-in-out;
+                        mix-blend-mode: multiply;
+                        opacity: 0;
+
+                        @media (pointer: coarse) {
+                            transition: none;
+                            mix-blend-mode: color-burn;
+                            opacity: 0;
+                        }
+
+                        .portfolio-item-link:hover &,
+                        .portfolio-item-link:focus & {
+                            opacity: 1;
                         }
                     }
                 }
@@ -437,40 +149,40 @@
                 align-items: center;
                 justify-content: center;
                 position: relative;
-                border: 1px solid $color-red;
+                border: 1px solid $color-grey-2;
                 box-sizing: border-box;
                 border-top: none;
                 width: 100%;
                 height: 15%;
                 margin: 0 auto;
-                background: $color-red;
+                background: $color-grey-2;
             }
 
             &-stand {
                 position: relative;
-                border: 1px solid $color-red;
+                border: 1px solid $color-grey-2;
                 border-top: none;
                 width: 15%;
                 height: 13%;
                 margin: 0 auto;
-                background: $color-red;
+                background: $color-grey-2;
             }
 
             &-base {
                 position: relative;
-                border: 1px solid $color-red;
+                border: 1px solid $color-grey-2;
                 border-top: none;
                 width: 30%;
                 height: 2%;
                 margin: 0 auto;
-                background: $color-red;
+                background: $color-grey-2;
                 border-radius: 15px;
             }
         }
 
         &-label {
             @include layout-1024() {
-                width: 50%;
+                width: 40%;
             }
 
             &-title {
@@ -481,11 +193,15 @@
             
             &-description {
                 @extend .txt-md;
+
+                display: inline;
+                background: $color-white;
             }
 
             &-button {
                 @extend .txt-sm;
 
+                display: block;
                 margin: to-rem($F7) 0;
                 text-decoration: underline;
                 color: var(--black);
@@ -508,91 +224,6 @@
 
             @include layout-2560() {
                 padding-left: to-rem($F12);
-            }
-        }
-    }
-}
-
-.awards {
-    &-grid {
-        grid-template-columns: repeat(1, 1fr);
-
-        @include layout-768() {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @include layout-1280() {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        @include layout-1560() {
-            grid-template-columns: repeat(5, 1fr);
-        }
-    }
-
-    &-item {
-        &:first-of-type {
-            @include layout-768() {
-                grid-column: 1 / span 2;
-            }
-
-            @include layout-1280() {
-                grid-column: 1 / span 4;
-            }
-
-            @include layout-1560() {
-                grid-column: 1 / span 1;
-            }
-        }
-
-        &-link {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-
-            &-text {
-                @extend .ttl-xs;
-
-                line-height: to-rem($F8);
-                font-weight: 400;
-                text-align: left;
-
-                padding: to-rem($F8) to-rem($F7) to-rem($F11);
-                height: auto;
-            }
-
-            &-media {
-                font-size: to-rem($F12);
-                height: to-rem($F14);
-
-                @include layout-1024() {
-                    height: to-rem($F15);
-                }
-
-                @include layout-1280() {
-                    height: to-rem($F14);
-                }
-
-                @include layout-2560() {
-                    height: to-rem($F15);
-                }
-
-                @include layout-3840() {
-                    height: to-rem($F16);
-                }
-            }
-
-            &-year {
-                @extend .ttl-xs;
-
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                position: absolute;
-                text-align: center;
-                border-top: 1px solid var(--grey-2);
-                padding: to-rem($F7);
-                margin: 0;
-                bottom: 0;
             }
         }
     }
@@ -623,7 +254,6 @@
         @include layout-2560() {
             grid-gap: to-rem($F12);
         }
-
     }
 
     &-item {
@@ -788,32 +418,205 @@
     }
 }
 
-.portfolio,
+.awards {
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: to-rem($F10);
+        padding: 0;
+        margin: 0;
+
+        @include layout-768() {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include layout-1280() {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @include layout-1560() {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+
+    &-item {
+        &:first-of-type {
+            @include layout-768() {
+                grid-column: 1 / span 2;
+            }
+
+            @include layout-1280() {
+                grid-column: 1 / span 4;
+            }
+
+            @include layout-1560() {
+                grid-column: 1 / span 1;
+            }
+        }
+
+        &-link {
+            text-decoration: none;
+            box-sizing: border-box;
+            color: var(--black);
+            border-radius: to-rem($F5);
+            border: 1px solid var(--grey-2);
+            grid-template-rows: to-rem($F14) to-rem($F10);
+            grid-template-columns: auto to-rem($F9);
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+            &-text {
+                @extend .ttl-xs;
+
+                transition: opacity .3s ease-in;
+                margin: 0;
+                box-sizing: border-box;
+                line-height: to-rem($F8);
+                font-weight: 400;
+                text-align: left;
+
+                padding: to-rem($F8) to-rem($F7) to-rem($F11);
+                height: auto;
+
+                .awards-item-link:hover &,
+                .awards-item-link:focus & {
+                    opacity: .5;
+                }
+            }
+
+            &-icon {
+                @extend .ttl-md;
+
+                box-sizing: border-box;
+                text-align: center;
+                height: 100%;
+                line-height: to-rem($F10);
+                margin: 0;
+            }
+
+            &-media {
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+                grid-row: 1;
+                grid-column-start: 1;
+                grid-column-end: -1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: var(--black);
+                margin: 0;
+                object-fit: cover;
+
+                font-size: to-rem($F12);
+                height: to-rem($F14);
+
+                @include layout-1024() {
+                    height: to-rem($F15);
+                }
+
+                @include layout-1280() {
+                    height: to-rem($F14);
+                }
+
+                @include layout-2560() {
+                    height: to-rem($F15);
+                }
+
+                @include layout-3840() {
+                    height: to-rem($F16);
+                }
+            }
+
+            &-year {
+                @extend .ttl-xs;
+
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                position: absolute;
+                text-align: center;
+                border-top: 1px solid var(--grey-2);
+                padding: to-rem($F7);
+                margin: 0;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+.portfolio {
+    @extend %MAXAREA;
+
+    padding-top: 240px;
+
+
+    &-title {
+        text-align: left;
+        padding-bottom: to-rem($F8);
+        overflow: hidden;
+
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        opacity: .025;
+
+
+        &-wrapper {
+            white-space: nowrap;
+        }
+
+        &-marquee {
+            @extend .ttl-xxl;
+
+            font-family: 'Black Ops One', cursive;
+            width: fit-content;
+            white-space: nowrap;
+            font-weight: 900;
+
+            font-size: to-rem($F12);
+            line-height: to-rem($F12);
+
+            @include layout-768() {
+                font-size: to-rem($F11);
+                line-height: to-rem($F11);
+            }
+
+            @include layout-1280() {
+                font-size: to-rem($F12);
+                line-height: to-rem($F12);
+            }
+
+            @include layout-1440() {
+                font-size: to-rem($F13);
+                line-height: to-rem($F13);
+            }
+
+            @include layout-2560() {
+                font-size: to-rem($F14);
+                line-height: to-rem($F14);
+            }
+
+            animation: marquee-keyframe 320s linear infinite;
+        }
+    }
+}
+
+
 .about,
 .awards {
     @extend %MAXAREA;
-    padding-top: to-rem($F13);
-
-    @include layout-768() {
-        padding-top: to-rem($F14);
-    }
+    padding-top: to-rem($F10);
 
     @include layout-1024() {
         padding-top: to-rem($F13);
     }
-
-    @include layout-1280() {
-        padding-top: to-rem($F12);
-    }
-
-    @include layout-1680() {
-        padding-top: to-rem($F13);
-    }
-
-    @include layout-2560() {
-        padding-top: to-rem($F15);
-    }
-
 
     &-title {
         @extend .ttl-xxl;
@@ -839,7 +642,6 @@
     }
 }
 
-.about,
 .awards {
     padding-top: to-rem($F11);
 
@@ -964,18 +766,33 @@
     }
 }
 
-@keyframes bounce-1 {
-    50% {
-        transform: translate(20px, -50px);
+
+@keyframes marquee-keyframe {
+    0% {
+        transform: translate(0, 0);
     }
-}
-@keyframes bounce-2 {
-    50% {
-        transform: translate(-20px, 20px);
+
+    33.332% {
+        transform: translate(-50%, 0);
     }
-}
-@keyframes bounce-3 {
-    50% {
-        transform: translate(10px, -30px)
+
+    33.333% {
+        transform: translate(0, 0);
+    }
+
+    66.665% {
+        transform: translate(-50%, 0);
+    }
+
+    66.666% {
+        transform: translate(0, 0);
+    }
+
+    99.999% {
+        transform: translate(-50%, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
     }
 }
