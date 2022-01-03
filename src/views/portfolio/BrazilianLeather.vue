@@ -335,6 +335,58 @@
         </div>
       </section>
 
+      <section>
+        <div class="internal-description">
+          <h3 class="internal-description-text">
+            2021's edition
+          </h3>
+          <p class="internal-description-text">
+
+          </p>
+          <p class="internal-description-text">
+
+          </p>
+        </div>
+
+        <div class="internal-extra">
+          <div class="internal-extra-scroll">
+              <div class="internal-extra-item landscape">
+                  <Media
+                    src="brazilian leather/forum-cicb/2021/forum-cicb-2021-tour"
+                    :width="1464"
+                    :height="784"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="Fórum 2021 - Full tour"/>
+              </div>
+              <div class="internal-extra-item">
+                  <Media
+                    src="brazilian leather/forum-cicb/2021/forum-cicb-2021-desk"
+                    :width="1920"
+                    :height="5020"
+                    :canExpand="true"
+                    label="Fórum 2020 - Desktop page"/>
+              </div>
+              <div class="internal-extra-item">
+                <Media
+                  src="brazilian leather/forum-cicb/2021/forum-cicb-2021-tablet"
+                  :width="768"
+                  :height="4563"
+                  :canExpand="true"
+                  label="Fórum 2020 - Tablet page"/>
+              </div>
+              <div class="internal-extra-item small">
+                  <Media
+                    src="brazilian leather/forum-cicb/2021/forum-cicb-2021-mobile"
+                    :width="320"
+                    :height="4563"
+                    :canExpand="true"
+                    label="Fórum 2021 - Mobile page"/>
+              </div>
+          </div>
+        </div>
+      </section>
+
       <Related />
     </div>
 
