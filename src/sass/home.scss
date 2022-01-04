@@ -92,7 +92,6 @@
                 box-sizing: border-box;
 
                 &-image {
-                    transition: opacity 250ms linear;
                     position: relative;
                     display: block;
                     width: 100%;
@@ -113,13 +112,12 @@
                         object-position: center;
                     }
 
-
                     &-item-1 {
+                        mix-blend-mode: multiply;
                         opacity: 1;
 
                         @media (pointer: coarse) {
-                            transition: opacity 1s ease-in-out;
-                            opacity: 1;
+                            display: none;
                         }
 
                         .portfolio-item-link:hover &,
@@ -129,11 +127,11 @@
                     }
 
                     &-item-2 {
-                        mix-blend-mode: multiply;
                         opacity: 0;
 
                         @media (pointer: coarse) {
-                            display: none;
+                            transition: opacity 1s ease-in-out;
+                            opacity: 1;
                         }
 
                         .portfolio-item-link:hover &,
