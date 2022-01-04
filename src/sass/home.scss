@@ -54,6 +54,11 @@
 
         &-link {
             display: block;
+            cursor: none;
+
+            .has_touch & {
+                cursor: pointer;
+            }
 
             @include layout-1024() {
                 display: flex;
@@ -87,6 +92,7 @@
                 box-sizing: border-box;
 
                 &-image {
+                    transition: opacity 250ms linear;
                     position: relative;
                     display: block;
                     width: 100%;
@@ -109,20 +115,11 @@
 
 
                     &-item-1 {
-                        mix-blend-mode: color-burn;
-                        filter: grayscale(1) contrast(2) brightness(0.15);
                         opacity: 1;
 
                         @media (pointer: coarse) {
-                            filter: none;
                             transition: opacity 1s ease-in-out;
-                            mix-blend-mode: multiply;
                             opacity: 1;
-                        }
-
-                        // Add workaround due to safaru being unable to render mix-blend correctly
-                        .is_safari & {
-                            opacity: 0;
                         }
 
                         .portfolio-item-link:hover &,
@@ -132,21 +129,11 @@
                     }
 
                     &-item-2 {
-                        transition: opacity 1s ease-in-out;
                         mix-blend-mode: multiply;
                         opacity: 0;
 
                         @media (pointer: coarse) {
-                            transition: none;
-                            mix-blend-mode: multiply;
-                            opacity: 0;
-                        }
-
-                        // Add workaround due to safaru being unable to render mix-blend correctly
-                        .is_safari & {
-                            transition: none;
-                            mix-blend-mode: multiply;
-                            opacity: 1;
+                            display: none;
                         }
 
                         .portfolio-item-link:hover &,
