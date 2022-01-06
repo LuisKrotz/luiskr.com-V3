@@ -9,16 +9,19 @@
             :width="3836"
             :height="2056"
             :isVideo="true"
-            label="Cecerelê: criada em 2019 pela historiadora Joana Schossler para produzir jogos, contamos com a colaboração de artistas, designers e pesquisadores muito talentosos. Com o propósito de oferecer para a sociedade brinquedos bonitos, educativos e de qualidade. / tour"/>
+            label="Cecerelê: criada em 2019 pela historiadora Joana Schossler para produzir jogos, contamos com a colaboração de artistas, designers e pesquisadores muito talentosos. Com o propósito de oferecer para a sociedade brinquedos bonitos, educativos e de qualidade - website tour"/>
       </div>
 
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            
+            I met <a href="https://www.instagram.com/joananolitoral" rel="noopener">Joana</a> from <a href="https://www.cecerele.com.br" rel="noopener">Cecerelê </a>through an indication of a Friend of ours, <a href="https://www.instagram.com/saguzeiro" rel="noopener">Sagu</a> in November 2021 and Joana presented me with the project necessities.
           </h3>
           <p class="internal-description-text">
-           
+            Joana needed a website for the Cecerelê project to enable the Instagram shop feature, in a platform that was easy to maintain in the long run.
+          </p>
+          <p class="internal-description-text">
+            Through many talks, working closely with Joana and taking into account all project constraints for future maintenance we came across a solution, a Brazilian e-commerce platform called "Illuria".
           </p>
         </div>
         <div class="internal-extra">
@@ -30,7 +33,7 @@
                   :height="2368"
                   :canExpand="true"
                   :isVideo="false"
-                  label=""/>
+                  label="Cecerelê: homepage with products updated on dec. 2021"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -39,7 +42,7 @@
                   :height="5654"
                   :canExpand="true"
                   :isVideo="false"
-                  label=""/>
+                  label="Cecerelê: about us page"/>
             </div>
           </div>
         </div>
@@ -47,10 +50,10 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            
+            Based on my previous experience in platforms as the Vtex platform, I explained all the pros and cons of using an already developed platform, and we settled on starting the project.
           </h3>
           <p class="internal-description-text">
-           
+            The project wasn't focused on programming exclusively. Working with Joana we created an identity for the website, establish a colour palette and a general mood for the webpage.
           </p>
         </div>
         <div class="internal-extra">
@@ -62,7 +65,7 @@
                   :height="1863"
                   :canExpand="true"
                   :isVideo="false"
-                  label=""/>
+                  label="Cecerelê: -  product page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -71,7 +74,7 @@
                   :height="1815"
                   :canExpand="true"
                   :isVideo="false"
-                  label=""/>
+                  label="Cecerelê: kit para colorir adulto edição limitada - product page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -80,7 +83,7 @@
                   :height="2002"
                   :canExpand="true"
                   :isVideo="false"
-                  label=""/>
+                  label="Cecerelê: Memorêlas jogo de memória das mulheres brasileiras - product page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -89,7 +92,7 @@
                   :height="1927"
                   :canExpand="true"
                   :isVideo="false"
-                  label=""/>
+                  label="Cecerelê: Minha praia, livro de colorir - product page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -98,7 +101,7 @@
                   :height="2027"
                   :canExpand="true"
                   :isVideo="false"
-                  label=""/>
+                  label="Cecerelê: Quebra cabeça Revolucionárias -  product page"/>
             </div>
           </div>
         </div>
@@ -106,10 +109,16 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            
+            Every page from the homepage, to products to login and cart pages, were through to keep in mind a fun branding related to Cecerelê.
           </h3>
           <p class="internal-description-text">
-           
+            Cecerelê's website was a great project to work on.
+          </p>
+          <p class="internal-description-text">
+            Although my main focus is programming, not every project demands a great deal of programming to be done and using my UI and UX skills is always fun.
+          </p>
+          <p class="internal-description-text">
+            I  loved to work with SEO. And to set up the entire project from start to finish.
           </p>
         </div>
         <div class="internal-extra">
