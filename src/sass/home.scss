@@ -4,22 +4,71 @@
 @import '_placeholders';
 
 .portfolio {
+    @extend %MAXAREA;
+
     &-grid {
         display: grid;
-        grid-gap: to-rem($F8);
+        grid-gap: to-rem($F9);
+        padding: to-rem($F11) 0;
         max-width: 100vw;
 
         @include layout-1024() {
             grid-gap: to-rem($F11);
+            padding: to-rem($F11) 0;
         }
 
         @include layout-1440() {
             grid-gap: to-rem($F12);
+            padding: to-rem($F12) 0;
         }
 
         @include layout-2560() {
-            grid-gap: to-rem($F14);
-            grid-template-columns: repeat(2, 1fr);
+            grid-gap: to-rem($F13);
+            padding: to-rem($F13) 0;
+        }
+    }
+
+    &-title {
+        text-align: left;
+        padding-bottom: to-rem($F8);
+        overflow: hidden;
+
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        opacity: .025;
+
+        &-marquee {
+            @extend .ttl-special;
+
+            width: fit-content;
+            white-space: nowrap;
+
+            font-size: to-rem($F12);
+            line-height: to-rem($F12);
+
+            @include layout-768() {
+                font-size: to-rem($F11);
+                line-height: to-rem($F11);
+            }
+
+            @include layout-1280() {
+                font-size: to-rem($F12);
+                line-height: to-rem($F12);
+            }
+
+            @include layout-1440() {
+                font-size: to-rem($F12);
+                line-height: to-rem($F12);
+            }
+
+            @include layout-2560() {
+                font-size: to-rem($F14);
+                line-height: to-rem($F14);
+            }
+
+            animation: marquee-keyframe 320s linear infinite;
         }
     }
 
@@ -88,7 +137,7 @@
                 width: 100%;
                 height: 100%;
                 position: relative;
-                border: 10px solid white;
+                border: to-em(10) solid white;
                 box-sizing: border-box;
 
                 &-image {
@@ -225,572 +274,5 @@
                 padding-left: to-rem($F12);
             }
         }
-    }
-}
-
-.about {
-    &-grid {
-        display: grid;
-        grid-template-columns: repeat(1, auto);
-        margin: 0;
-        padding: 0;
-        grid-gap: to-rem($F8);
-        border-bottom: 2px solid $color-blue;
-
-        @include layout-768() {
-            grid-gap: to-rem($F8);
-        }
-
-        @include layout-1024() {
-            
-        }
-
-        @include layout-1280() {
-            grid-template-columns: repeat(2, auto);
-            grid-gap: to-rem($F10);
-        }
-
-        @include layout-2560() {
-            grid-gap: to-rem($F12);
-        }
-    }
-
-    &-item {
-        box-sizing: border-box;
-        position: relative;
-
-        &-text {
-            @extend .txt-md;
-            padding-bottom: to-rem($F7);
-
-
-            @include layout-768() {
-                padding-bottom: to-rem($F8);
-            }
-
-            @include layout-1280() {
-                padding-bottom: to-rem($F9);
-            }
-
-            @include layout-1680() {
-                padding-bottom: to-rem($F10);
-            }
-        }
-    }
-
-    &-draw {
-        background: $color-blue;
-
-        aspect-ratio: 9/16;
-        position: relative;
-        box-sizing: border-box;
-        width: to-rem(180);
-        border-radius: to-rem($F6);
-        margin-bottom: to-rem($F9);
-        margin-left: to-rem($F8);
-        transform: rotateZ(352deg); 
-
-        @include layout-375() {
-            float: left;
-            width: to-rem(160);
-            border-radius: to-rem($F6);
-            margin-right: to-rem($F9);
-            margin-bottom: to-rem($F8);
-            margin-left: 0;
-            transform: rotateZ(354deg);
-        }
-
-        @include layout-540() {
-            width: to-rem(180);
-            transform: rotateZ(352deg); 
-        }
-
-        @include layout-768() {
-            width: to-rem(240);
-            border-radius: to-rem($F6);
-            margin-right: to-rem($F10);
-            margin-bottom: 0;
-            transform: rotateZ(350deg); 
-        }
-
-        @include layout-1024() {
-            width: to-rem(180);
-            border-radius: to-rem($F6);
-            margin-right: to-rem($F11);
-        }
-
-        @include layout-1280() {
-            width: to-rem(180);
-            margin-right: to-rem($F9);
-            margin-bottom: to-rem($F8);
-            transform: initial;
-        }
-
-        @include layout-1440() {
-            width: to-rem(240);
-            border-radius: to-rem($F7);
-            margin-right: to-rem($F10);
-            margin-bottom: to-rem($F9);
-        }
-
-        @include layout-1680() {
-            width: to-rem(320);
-            border-radius: to-rem($F7);
-            margin-right: to-rem($F11);
-            margin-bottom: to-rem($F9);
-        }
-
-        @include layout-2560() {
-            width: to-rem(520);
-            border-radius: to-rem($F8);
-            margin-right: to-rem($F12);
-            margin-bottom: to-rem($F10);
-        }
-
-        @include layout-3840() {
-            width: to-rem(640);
-        }
-
-        &-mic {
-            width: 1.5%;
-            aspect-ratio: 1/1;
-            box-sizing: border-box;
-            margin: 0 auto 0;
-            position: absolute;
-            left: 50%;
-            top: 1.5%;
-            transform: translate(-50%, -50%);
-            border-radius: 100%;
-            background: var(--white);
-        }
-
-        &-speaker {
-            width: 10%;
-            aspect-ratio: 10/1;
-            box-sizing: border-box;
-            margin: 0 auto;
-            position: absolute;
-            left: 60%;
-            top: 1.5%;
-            transform: translate(-50%, -50%);
-            background:var(--white);
-        }
-
-        &-screen {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border: 1px solid $color-blue;
-            width: 95%;
-            height: 95%;
-            box-sizing: border-box;
-            margin: 5% auto 0;
-            background: var(--white);
-            position: relative;
-            box-sizing: border-box;
-            padding: to-rem($F8);
-
-            @include layout-768() {
-                padding: to-rem($F9);
-            }
-
-            @include layout-1024() {
-                padding: to-rem($F8);
-            }
-
-            @include layout-1280() {
-                padding: to-rem($F8);
-            }
-
-            @include layout-1440() {
-                padding: to-rem($F9);
-            }
-
-            @include layout-1920() {
-                padding: to-rem($F10);
-            }
-
-            @include layout-2560() {
-                padding: to-rem($F10);
-            }
-        }
-    }
-}
-
-.awards {
-    &-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: to-rem($F10);
-        padding: 0;
-        margin: 0;
-
-        @include layout-768() {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @include layout-1280() {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        @include layout-1560() {
-            grid-template-columns: repeat(5, 1fr);
-        }
-    }
-
-    &-item {
-        &:first-of-type {
-            @include layout-768() {
-                grid-column: 1 / span 2;
-            }
-
-            @include layout-1280() {
-                grid-column: 1 / span 4;
-            }
-
-            @include layout-1560() {
-                grid-column: 1 / span 1;
-            }
-        }
-
-        &-link {
-            text-decoration: none;
-            box-sizing: border-box;
-            color: var(--black);
-            border-radius: to-rem($F5);
-            border: 1px solid var(--grey-2);
-            grid-template-rows: to-rem($F14) to-rem($F10);
-            grid-template-columns: auto to-rem($F9);
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-
-            position: relative;
-            display: flex;
-            flex-direction: column;
-
-            &-text {
-                @extend .ttl-xs;
-
-                transition: opacity .3s ease-in;
-                margin: 0;
-                box-sizing: border-box;
-                line-height: to-rem($F8);
-                font-weight: 400;
-                text-align: left;
-
-                padding: to-rem($F8) to-rem($F7) to-rem($F11);
-                height: auto;
-
-                .awards-item-link:hover &,
-                .awards-item-link:focus & {
-                    opacity: .5;
-                }
-            }
-
-            &-icon {
-                @extend .ttl-md;
-
-                box-sizing: border-box;
-                text-align: center;
-                height: 100%;
-                line-height: to-rem($F10);
-                margin: 0;
-            }
-
-            &-media {
-                overflow: hidden;
-                width: 100%;
-                height: 100%;
-                grid-row: 1;
-                grid-column-start: 1;
-                grid-column-end: -1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: var(--black);
-                margin: 0;
-                object-fit: cover;
-
-                font-size: to-rem($F12);
-                height: to-rem($F14);
-
-                @include layout-1024() {
-                    height: to-rem($F15);
-                }
-
-                @include layout-1280() {
-                    height: to-rem($F14);
-                }
-
-                @include layout-2560() {
-                    height: to-rem($F15);
-                }
-
-                @include layout-3840() {
-                    height: to-rem($F16);
-                }
-            }
-
-            &-year {
-                @extend .ttl-xs;
-
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                position: absolute;
-                text-align: center;
-                border-top: 1px solid var(--grey-2);
-                padding: to-rem($F7);
-                margin: 0;
-                bottom: 0;
-            }
-        }
-    }
-}
-
-.portfolio {
-    @extend %MAXAREA;
-
-    padding-top: 240px;
-
-
-    &-title {
-        text-align: left;
-        padding-bottom: to-rem($F8);
-        overflow: hidden;
-
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-        top: 0;
-        opacity: .025;
-
-
-        &-wrapper {
-            white-space: nowrap;
-        }
-
-        &-marquee {
-            @extend .ttl-xxl;
-            @extend .ttl-special;
-
-            width: fit-content;
-            white-space: nowrap;
-
-            font-size: to-rem($F12);
-            line-height: to-rem($F12);
-
-            @include layout-768() {
-                font-size: to-rem($F11);
-                line-height: to-rem($F11);
-            }
-
-            @include layout-1280() {
-                font-size: to-rem($F12);
-                line-height: to-rem($F12);
-            }
-
-            @include layout-1440() {
-                font-size: to-rem($F13);
-                line-height: to-rem($F13);
-            }
-
-            @include layout-2560() {
-                font-size: to-rem($F14);
-                line-height: to-rem($F14);
-            }
-
-            animation: marquee-keyframe 320s linear infinite;
-        }
-    }
-}
-
-
-.about,
-.awards {
-    @extend %MAXAREA;
-    padding-top: to-rem($F10);
-
-    @include layout-1024() {
-        padding-top: to-rem($F13);
-    }
-
-    &-title {
-        @extend .ttl-xxl;
-
-        text-align: left;
-        padding-bottom: to-rem($F8);
-
-        @include layout-768() {
-            padding-bottom: to-rem($F9);
-        }
-
-        @include layout-1024() {
-            padding-bottom: to-rem($F10);
-        }
-
-        @include layout-1440() {
-            padding-bottom: to-rem($F11);
-        }
-
-        @include layout-2560() {
-            padding-bottom: to-rem($F12);
-        }
-    }
-}
-
-.awards {
-    padding-top: to-rem($F11);
-
-    @include layout-768() {
-        padding-top: to-rem($F12);
-    }
-
-    @include layout-1280() {
-        padding-top: to-rem($F13);
-    }
-
-    @include layout-1440() {
-        padding-top: to-rem($F13);
-    }
-
-    @include layout-2560() {
-        padding-top: to-rem($F15);
-    }
-}
-
-.contact {
-    @extend %MAXAREA;
-
-    margin-top: to-rem($F11);
-    padding-top: to-rem($F10);
-    padding-bottom: to-rem($F10);
-    background-color: var(--black);
-    color: var(--white);
-    display: block;
-    text-align: center;
-    max-width: 100%;
-
-    @include layout-768() {
-        margin-top: to-rem($F12);
-        padding-top: to-rem($F11);
-        padding-bottom: to-rem($F10);
-    }
-
-    &-title {
-        @extend .ttl-lg;
-
-        text-transform: uppercase;
-        color: inherit;
-        margin: 0;
-        padding: 0 to-rem($F7) to-rem($F8);
-
-        @include layout-768() {
-            padding: 0 to-rem($F12) to-rem($F9);
-        }
-    }
-
-    &-social,
-    &-other {
-        @extend %MAXAREA;
-        @extend .ttl-xs;
-
-        color: inherit;
-
-        &-link {
-            transition: opacity .3s ease-in;
-            color: inherit;
-            text-decoration: none;
-
-            &:hover,
-            &:focus {
-                opacity: .5;
-            }
-        }
-
-        &-separator {
-            padding: 0 to-rem($F6);
-            font-weight: 200;
-            display: none;
-
-            @include layout-768() {
-                display: inline-block;
-            }
-
-            @include layout-2560() {
-                padding: 0 to-rem($F7);
-            }
-        }
-    }
-
-    &-social {
-        padding: 0 to-rem($F7) to-rem($F9);
-        border-bottom: 1px solid var(--grey);
-
-        @include layout-768() {
-            padding: 0 to-rem($F11) to-rem($F7);
-        }
-
-        &-link {
-            @extend .ttl-sm;
-
-            display: block;
-            line-height: to-rem($F10);
-
-            @include layout-768() {
-                display: inline-block;
-            }
-        }
-    }
-
-    &-other {
-        padding: to-rem($F9) to-rem($F7) 0;
-
-        @include layout-768() {
-            padding: to-rem($F7) to-rem($F11) 0;
-        }
-
-        &-link {
-            @extend .ttl-xs;
-
-            display: block;
-            line-height: to-rem($F10);
-
-            @include layout-768() {
-                display: inline-block;
-            }
-        }
-    }
-}
-
-
-@keyframes marquee-keyframe {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    33.332% {
-        transform: translate(-50%, 0);
-    }
-
-    33.333% {
-        transform: translate(0, 0);
-    }
-
-    66.665% {
-        transform: translate(-50%, 0);
-    }
-
-    66.666% {
-        transform: translate(0, 0);
-    }
-
-    99.999% {
-        transform: translate(-50%, 0);
-    }
-
-    100% {
-        transform: translate(0, 0);
     }
 }

@@ -205,4 +205,5 @@ export default {
 
 <style lang="scss">
 @import '../sass/home';
+@import '../sass/contact';
 </style>

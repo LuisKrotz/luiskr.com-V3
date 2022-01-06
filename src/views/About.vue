@@ -27,71 +27,81 @@
           <p class="about-item-text">HTML5 is an essential skill to master for any website. I work with markup optimization for SEO, accessibility, performance and animations.</p>
           <p class="about-item-text">Mysql is the main query language I use but worked with Cassandra and Mongo in the past. I'm Currently studying more Mongo to apply in future projects.</p>
           <p class="about-item-text">I love animating in CSS, worked for a long time in Melissa's collections, mainly with CSS animations. Used JS animations recently with Vue and Lottie, and tried some Three.js animations in the last few years.</p>
+
+          <p class="about-item-text">
+            Some mentions:
+          </p>
+
+          <ul class="awards">
+            <li class="awards-item">
+              <a class="awards-item-link" href="https://www.topcssgallery.com/gallery/luis-krotz/">
+                <span class="awards-item-link-media">🌐</span>
+                <div>
+                  <h4 class="awards-item-link-text">Oct. 6th 2021: Featured on TCG</h4>
+                </div>
+              </a>
+            </li>
+            <li class="awards-item">
+              <a class="awards-item-link" href="https://mindsparklemag.com/website/luis-krotz">
+                <span class="awards-item-link-media">🌐</span>
+                <div>
+                  <h4 class="awards-item-link-text">Oct. 13th 2021: Featured on Mindsparkle Mag</h4>
+                </div>
+              </a>
+            </li>
+            <li class="awards-item">
+              <a class="awards-item-link" href="https://www.topcssgallery.com/gallery/luis-krotz/">
+                <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/CSSW-15699-Star-Certificate.svg'}"  width="993" height="1132">
+                <div>
+                  <h4 class="awards-item-link-text">Oct. 6th 2021: Featured on TCG</h4>
+                </div>
+              </a>
+            </li>
+            <li class="awards-item">
+              <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
+                <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-special-kudos-1.svg'}" width="794" height="1123">
+                <div>
+                  <h4 class="awards-item-link-text">June 14th 2020: CSSDA / SPECIAL KUDOS AWARD - Awarded for the first version of luiskr.com in 2020</h4>
+                </div>
+              </a>
+            </li>
+            <li class="awards-item">
+              <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
+                <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-inn-Luiskr-1.svg'}"  width="993" height="1273">
+                <div>
+                  <h4 class="awards-item-link-text">June 14th 2020: CSSDA / INNOVATION DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h4>
+                </div>
+              </a>
+            </li>
+            <li class="awards-item">
+              <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
+                <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-ux-Luiskr-1.svg'}" width="893" height="1132">
+                <div>
+                  <h4 class="awards-item-link-text">June 14th 2020: CSSDA / UX DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h4>
+                </div>
+              </a>
+            </li>
+            <li class="awards-item">
+              <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
+                <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-ui-Luiskr-1.svg'}"  width="886" height="1123">
+                <div>
+                  <h4 class="awards-item-link-text">June 14th 2020: CSSDA / UI DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h4>
+                </div>
+              </a>
+            </li>
+            <li class="awards-item">
+              <a class="awards-item-link" href="http://coral.ufsm.br/prpgp/images/fomularios-diversos/2013/40-MELHORES-JAI-2013.pdf">
+                <span class="awards-item-link-media">🏆</span>
+                <div>
+                  <h4 class="awards-item-link-text">Aug. 2013: At UFSM.<br>Prize of being placed among the 40 best works of the 28th JAI</h4>
+                </div>
+              </a>
+            </li>
+          </ul>
         </li>
       </ul>
     </section>
 
-    <section class="awards" >
-      <h3 id="awards" class="awards-title" ref="awards">AWARDS</h3>
-      <ul  class="awards-grid">
-        <li class="awards-item">
-          <a class="awards-item-link" href="http://coral.ufsm.br/prpgp/images/fomularios-diversos/2013/40-MELHORES-JAI-2013.pdf">
-            <span class="awards-item-link-media">🏆</span>
-            <h4 class="awards-item-link-text">At UFSM.<br>Prize of being placed among the 40 best works of the 28th JAI</h4>
-            <p class="awards-item-link-year">2013</p>
-          </a>
-        </li>
-        <li class="awards-item">
-          <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
-            <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-special-kudos-1.svg'}">
-            <h4 class="awards-item-link-text">CSSDA / SPECIAL KUDOS AWARD - Awarded for the first version of luiskr.com in 2020</h4>
-            <p class="awards-item-link-year">June 14th 2020</p>
-          </a>
-        </li>
-        <li class="awards-item">
-          <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
-            <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-inn-Luiskr-1.svg'}">
-            <h4 class="awards-item-link-text">CSSDA / INNOVATION DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h4>
-            <p class="awards-item-link-year">June 14th 2020</p>
-          </a>
-        </li>
-        <li class="awards-item">
-          <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
-            <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-ux-Luiskr-1.svg'}">
-            <h4 class="awards-item-link-text">CSSDA / UX DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h4>
-            <p class="awards-item-link-year">June 14th 2020</p>
-          </a>
-        </li>
-        <li class="awards-item">
-          <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
-            <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-ui-Luiskr-1.svg'}">
-            <h4 class="awards-item-link-text">CSSDA / UI DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h4>
-            <p class="awards-item-link-year">June 14th 2020</p>
-          </a>
-        </li>
-        <li class="awards-item">
-          <a class="awards-item-link" href="https://www.topcssgallery.com/gallery/luis-krotz/">
-            <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/CSSW-15699-Star-Certificate.svg'}">
-            <h4 class="awards-item-link-text">Featured on TCG</h4>
-            <p class="awards-item-link-year">Oct. 6th 2021</p>
-          </a>
-        </li>
-        <li class="awards-item">
-          <a class="awards-item-link" href="https://www.topcssgallery.com/gallery/luis-krotz/">
-            <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/tcg-2021.svg'}">
-            <h4 class="awards-item-link-text">Featured on TCG</h4>
-            <p class="awards-item-link-year">Oct. 6th 2021</p>
-          </a>
-        </li>
-        <li class="awards-item">
-          <a class="awards-item-link" href="https://mindsparklemag.com/website/luis-krotz">
-            <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/mindsparkle-2021.svg'}">
-            <h4 class="awards-item-link-text">Featured on Mindsparkle Mag</h4>
-            <p class="awards-item-link-year">Oct. 13th 2021</p>
-          </a>
-        </li>
-      </ul>
-    </section>
 
     <footer class="contact">
       <h3 id="contact" class="contact-title" ref="contact">Contact</h3>
@@ -123,23 +133,23 @@ export default {
   data() {
     return {
       storage:          this.$store.getters.getStorage,
+      flexboxHeight:    Number,
     }
   },
   created() {
     document.title = this.$route.meta.title;
   },
   name: 'About',
-  methods: {
-    mounted() {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 500);
-    }
+  mounted() {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 500);
   }
 }
 </script>
 
 
 <style lang="scss">
-@import '../sass/home';
+@import '../sass/about';
+@import '../sass/contact';
 </style>

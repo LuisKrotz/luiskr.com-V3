@@ -8,10 +8,14 @@
         @extend .ttl-lg;
         @extend .ttl-special;
 
-        padding: to-rem($F10) to-rem($F8) to-rem($F9);
+        padding: to-rem($F11) to-rem($F8) to-rem($F9);
         text-align: center;
 
         @include layout-1024() {
+            padding: to-rem($F11) 0 to-rem($F10);
+        }
+
+        @include layout-1920() {
             padding: to-rem($F12);
         }
     }
@@ -63,16 +67,57 @@
         padding: to-rem($F9) to-rem($F8);
 
         @include layout-768() {
-            padding: to-rem($F12) to-rem($F10);
+            padding: to-rem($F11) to-rem($F10);
         }
 
         @include layout-1024() {
             max-width: to-rem($F15);
-            padding: to-rem($F12);
+            padding: to-rem($F11);
         }
 
         @include layout-1920() {
             max-width: to-rem($F16);
+            padding: to-rem($F12);
+        }
+
+        @include layout-2560() {
+            padding: to-rem($F13);
+        }
+
+        .legal & {
+            @include layout-768() {
+                padding: to-rem($F10);
+            }
+    
+            @include layout-1024() {
+                max-width: to-rem($F15);
+                padding: to-rem($F6);
+            }
+    
+            @include layout-1920() {
+                max-width: to-rem($F16);
+                padding: to-rem($F6);
+            }
+    
+            @include layout-2560() {
+                padding: to-rem($F7);
+            }
+        }
+
+        &:last-of-type {
+            .legal & {
+                @include layout-1024() {
+                    padding-bottom: to-rem($F11);
+                }
+        
+                @include layout-1920() {
+                    padding-bottom: to-rem($F12);
+                }
+        
+                @include layout-2560() {
+                    padding-bottom: to-rem($F13);
+                }
+            }
         }
 
 

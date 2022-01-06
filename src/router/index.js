@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: () => import(/* webpackChunkName: "metcha" */ '../views/About.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
     meta: {
       title: title + ' | About'
     }
@@ -122,7 +122,7 @@ const routes = [
   {
     path: '/privacy-policy',
     name: 'Privacy Policy',
-    component: () => import(/* webpackChunkName: "sageweb" */ '../views/footer/PrivacyPolicy.vue'),
+    component: () => import(/* webpackChunkName: "privacypolicy" */ '../views/footer/PrivacyPolicy.vue'),
     meta: {
       title: title + ' | Privacy Policy'
     }
@@ -130,7 +130,7 @@ const routes = [
   {
     path: '/gdpr',
     name: 'GDPR',
-    component: () => import(/* webpackChunkName: "sageweb" */ '../views/footer/GDPR.vue'),
+    component: () => import(/* webpackChunkName: "gdpr" */ '../views/footer/GDPR.vue'),
     meta: {
       title: title + ' | GDPR'
     }
@@ -138,17 +138,17 @@ const routes = [
   {
     path: '/terms-of-use',
     name: 'Terms of Use',
-    component: () => import(/* webpackChunkName: "sageweb" */ '../views/footer/TermsOfUse.vue'),
+    component: () => import(/* webpackChunkName: "termsofuse" */ '../views/footer/TermsOfUse.vue'),
     meta: {
       title: title + ' | Terms of Use'
     }
   },
   {
     path: "/:pathMatch(.*)*",
-    name: 'Error404',
-    component: () => import(/* webpackChunkName: 'Error404'*/ '../views/NotFound'),
+    name: 'Not Found',
+    component: () => import(/* webpackChunkName: 'notfound'*/ '../views/NotFound'),
     meta: {
-      title: title + ' | 404'
+      title: title + ' | Page not found'
     }
   }
 ]

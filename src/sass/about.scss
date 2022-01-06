@@ -1,0 +1,281 @@
+@import '_variables';
+@import '_mixins';
+@import '_fonts';
+@import '_placeholders';
+
+
+.about {
+    @extend %MAXAREA;
+
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        margin: 0;
+        padding: 0;
+        grid-gap: to-rem($F8);
+        border-bottom: 2px solid $color-blue;
+        padding-bottom: to-rem($F11);
+
+        @include layout-768() {
+            grid-gap: to-rem($F8);
+        }
+
+        @include layout-1280() {
+            grid-template-columns: repeat(2, auto);
+            grid-gap: to-rem($F10);
+        }
+
+        @include layout-1440() {
+            padding-bottom:  to-rem($F12);
+        }
+
+        @include layout-2560() {
+            grid-gap: to-rem($F12);
+            padding-bottom:  to-rem($F13);
+        }
+    }
+
+    &-title {
+        @extend .ttl-xxl;
+
+        text-align: left;
+        padding:  to-rem($F11) 0 to-rem($F8);
+
+        @include layout-768() {
+            padding: to-rem($F11) 0 to-rem($F10);
+        }
+
+        @include layout-1024() {
+            padding: to-rem($F11) 0 to-rem($F10);
+        }
+
+        @include layout-1440() {
+            padding:  to-rem($F12) 0 to-rem($F11);
+        }
+
+        @include layout-2560() {
+            padding: to-rem($F13) 0 to-rem($F12);
+        }
+    }
+
+    &-item {
+        box-sizing: border-box;
+        position: relative;
+
+        &-text {
+            @extend .txt-md;
+            padding-bottom: to-rem($F7);
+
+
+            @include layout-768() {
+                padding-bottom: to-rem($F8);
+            }
+
+            @include layout-1280() {
+                padding-bottom: to-rem($F9);
+            }
+
+            @include layout-1680() {
+                padding-bottom: to-rem($F10);
+            }
+        }
+    }
+
+    &-draw {
+        background: $color-blue;
+
+        aspect-ratio: 9/16;
+        position: relative;
+        box-sizing: border-box;
+        width: to-rem(180);
+        border-radius: to-rem($F6);
+        margin-bottom: to-rem($F9);
+        margin-left: to-rem($F8);
+        transform: rotateZ(352deg); 
+
+        @include layout-375() {
+            float: left;
+            width: to-rem(160);
+            border-radius: to-rem($F6);
+            margin-right: to-rem($F9);
+            margin-bottom: to-rem($F8);
+            margin-left: 0;
+            transform: rotateZ(354deg);
+        }
+
+        @include layout-540() {
+            width: to-rem(180);
+            transform: rotateZ(352deg); 
+        }
+
+        @include layout-768() {
+            width: to-rem(240);
+            border-radius: to-rem($F6);
+            margin-right: to-rem($F10);
+            margin-bottom: 0;
+            transform: rotateZ(350deg); 
+        }
+
+        @include layout-1024() {
+            width: to-rem(180);
+            border-radius: to-rem($F6);
+            margin-right: to-rem($F11);
+        }
+
+        @include layout-1280() {
+            width: to-rem(180);
+            margin-right: to-rem($F9);
+            margin-bottom: to-rem($F8);
+            transform: initial;
+        }
+
+        @include layout-1440() {
+            width: to-rem(240);
+            border-radius: to-rem($F7);
+            margin-right: to-rem($F10);
+            margin-bottom: to-rem($F9);
+        }
+
+        @include layout-1680() {
+            width: to-rem(320);
+            border-radius: to-rem($F7);
+            margin-right: to-rem($F11);
+            margin-bottom: to-rem($F9);
+        }
+
+        @include layout-2560() {
+            width: to-rem(520);
+            border-radius: to-rem($F8);
+            margin-right: to-rem($F12);
+            margin-bottom: to-rem($F10);
+        }
+
+        @include layout-3840() {
+            width: to-rem(640);
+        }
+
+        &-mic {
+            width: 1.5%;
+            aspect-ratio: 1/1;
+            box-sizing: border-box;
+            margin: 0 auto 0;
+            position: absolute;
+            left: 50%;
+            top: 1.5%;
+            transform: translate(-50%, -50%);
+            border-radius: 100%;
+            background: var(--white);
+        }
+
+        &-speaker {
+            width: 10%;
+            aspect-ratio: 10/1;
+            box-sizing: border-box;
+            margin: 0 auto;
+            position: absolute;
+            left: 60%;
+            top: 1.5%;
+            transform: translate(-50%, -50%);
+            background:var(--white);
+        }
+
+        &-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid $color-blue;
+            width: 95%;
+            height: 95%;
+            box-sizing: border-box;
+            margin: 5% auto 0;
+            background: var(--white);
+            position: relative;
+            box-sizing: border-box;
+            padding: to-rem($F8);
+
+            @include layout-768() {
+                padding: to-rem($F9);
+            }
+
+            @include layout-1024() {
+                padding: to-rem($F8);
+            }
+
+            @include layout-1280() {
+                padding: to-rem($F8);
+            }
+
+            @include layout-1440() {
+                padding: to-rem($F9);
+            }
+
+            @include layout-1920() {
+                padding: to-rem($F10);
+            }
+
+            @include layout-2560() {
+                padding: to-rem($F10);
+            }
+        }
+    }
+
+    .awards {
+        display: grid;
+        grid-gap: to-rem($F9);
+
+        @include layout-1024() {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include layout-1280() {
+            grid-template-columns: initial;
+        }
+
+        @include layout-1440() {
+            grid-gap: to-rem($F10);
+        }
+
+        @include layout-2560() {
+            grid-gap: to-rem($F11);
+        }
+
+        &-item {
+            &-link {
+                display: grid;
+                grid-template-columns: to-rem($F11) auto;
+
+                @include layout-2560() {
+                    grid-template-columns: to-rem($F12) auto;
+                }
+
+                &-media {
+                    width: 100%;
+                    height: auto;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: $color-grey-2;
+                    font-size: to-rem($F9);
+                    line-height: to-rem($F11);
+                    border-radius: to-rem($F5);
+
+                    @include layout-2560() {
+                        font-size: to-rem($F10);
+                        line-height: to-rem($F12);
+                    }
+                }
+
+                &-text {
+                    @extend .txt-sm;
+
+                    padding: 0 to-rem($F9);
+
+                    @include layout-1440() {
+                        padding: 0 to-rem($F10);
+                    }
+                }
+            }
+        }
+    }
+}

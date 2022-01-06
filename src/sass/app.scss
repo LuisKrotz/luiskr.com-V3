@@ -88,3 +88,34 @@
   width: to-rem($F11);
   height: to-rem($F11);
 }
+
+
+@keyframes marquee-keyframe {
+  0% {
+      transform: translate(0, 0);
+  }
+
+  33.332% {
+      transform: translate(-50%, 0);
+  }
+
+  33.333% {
+      transform: translate(0, 0);
+  }
+
+  66.665% {
+      transform: translate(-50%, 0);
+  }
+
+  66.666% {
+      transform: translate(0, 0);
+  }
+
+  99.999% {
+      transform: translate(-50%, 0);
+  }
+
+  100% {
+      transform: translate(0, 0);
+  }
+}

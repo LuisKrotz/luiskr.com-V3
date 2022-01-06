@@ -1,7 +1,15 @@
 <template>
+    <div class="not-found-decoration">
+        <div v-for="n in 100" :key="n" class="not-found-decoration-marquee" aria-hidden="true" data-no-snippet>
+            <template v-for="n in 10" :key="n"> 404 </template>
+        </div>
+    </div>
     <div id="#main" class="not-found">
-        <h2 class="not-found-title">Looks like someone's lost here.</h2>
-        <router-link class="not-found-link" to="/">Click here to go to the main page.</router-link>
+
+        <div>
+            <h2 class="not-found-title">Looks like someone's lost here.</h2>
+            <router-link class="not-found-link" to="/">Click here to go to the main page.</router-link>
+        </div>
     </div>
 </template>
 
@@ -31,9 +39,53 @@ export default {
     flex-direction: column;
     justify-content: center;
 
+    &-decoration {
+        text-align: left;
+        padding-bottom: to-rem($F8);
+        overflow: hidden;
+
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        opacity: .025;
+
+        &-marquee {
+            font-family: 'Black Ops One', monospace;
+            font-size: to-rem($F8);
+
+            width: fit-content;
+            white-space: nowrap;
+
+            font-size: to-rem($F12);
+            line-height: to-rem($F12);
+
+            @include layout-768() {
+                font-size: to-rem($F11);
+                line-height: to-rem($F11);
+            }
+
+            @include layout-1280() {
+                font-size: to-rem($F12);
+                line-height: to-rem($F12);
+            }
+
+            @include layout-1440() {
+                font-size: to-rem($F13);
+                line-height: to-rem($F13);
+            }
+
+            @include layout-2560() {
+                font-size: to-rem($F14);
+                line-height: to-rem($F14);
+            }
+
+            animation: marquee-keyframe 320s linear infinite;
+        }
+    }
+
     &-title {
-        font-family: 'Raleway', sans-serif;
-        font-weight: 700;
+        font-family: 'Black Ops One', monospace;
         font-size: to-rem($F8);
         letter-spacing: to-rem($F6);
         padding-bottom: to-rem($F7);
