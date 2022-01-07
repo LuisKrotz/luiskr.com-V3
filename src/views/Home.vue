@@ -153,12 +153,9 @@ export default {
           label: 'Sageweb',
           description: 'Sage is a project developed by Genesysinf, at the city of Santana do Livramento, in Brazil, and is a fiscal software.<br>The project consisted of porting the Sage for desktop software code to a new Web Version.',
         }],
-      has_touch: (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0)),
-      showhover: false,
-      page: {
-          left : 0,
-          top: 0
-      }
+      has_touch: this.$store.getters.getTouch,
+      showhover: this.$store.getters.getHover,
+      page: this.$store.getters.getOnMouseMove
     }
   },
   created() {
@@ -178,20 +175,16 @@ export default {
         })
     },
     onMouseMove(e) {
-        this.page.left = e.pageX - 60;
-        this.page.top = e.pageY - 60;
+        this.$store.commit('setOnMouseMove', e);
+        this.page = this.$store.getters.getOnMouseMove;
       },
     hover(e) {
-      if(!this.has_touch) {
-          this.showhover = true;
-
-          document.body.classList.add("mouseenter");
-          this.onMouseMove(e);
-      }
+      this.$store.commit('setHover', e);
+      this.showhover = this.$store.getters.getHover;
     },
     clear() {
-        document.body.classList.remove("mouseenter");
-        this.showhover = false;
+        this.$store.commit('setClear');
+        this.showhover = this.$store.getters.getHover;
     },
   },
   mounted() {
