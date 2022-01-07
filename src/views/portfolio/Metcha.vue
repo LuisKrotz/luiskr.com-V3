@@ -507,11 +507,21 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            METCHA FORWARD
+            In Nov. 2021 METCHA launched the <a href="https://metcha.com/metcha-forward?utm_source=luiskr.com" rel="noopener">METCHA FORWARD 2022 report</a>, a page compiling over 500+ monthly pieces of content produced with a fresh blend of EXCLUSIVENESS in partnership with CREATIVE EXPONENTS after constant research performed by METCHA's multicultural digital native team.
           </h3>
-          <p class="internal-description-text">Lorem ipsum</p>
+          <p class="internal-description-text">
+            The first <a href="https://metcha.com/metcha-forward?utm_source=luiskr.com" rel="noopener">METCHA FORWARD</a>release is an analysis of behavioural movements that METCHA's team has been identifying over the last months. It compiles more than 20 global trends to guide the near future, covering all major leather industry-related categories.
+          </p>
+          <p class="internal-description-text">
+            I participated in the design of this page, with <strong>all team members</strong>, working especially close with <a href="https://www.instagram.com/miabrclls" rel="noopener">Mia</a> and <a href="https://www.instagram.com/saguzeiro" rel="noopener">Sagu</a> for the layout.
+          </p>
+          <p class="internal-description-text">
+            Before, in the coding phase, I used Vue.js, Sass(CSS3) and Laravel(PHP/HTML5) to realize the designed layout and deliver the report by download.
+          </p>
+           <p class="internal-description-text">
+            I also worked with <a href="https://www.instagram.com/renanmachadoloureiro">Renan Machado</a> in the backend of the application.
+          </p>
         </div>
-
         <div class="internal-extra">
           <div class="internal-extra-scroll">
               <div class="internal-extra-item landscape">
