@@ -338,13 +338,16 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            2021's edition
+            2021's edition brought a new challenge - creating the layout, and also coding the project.
           </h3>
           <p class="internal-description-text">
-
+           This edition called: <a href="https://cicb.org.br/forum2021?utm_source=luiskr.com" target="_blank">"Nosso ambiente em conexão"</a>.
           </p>
           <p class="internal-description-text">
-
+            I created the webpage layout based on the previous layout created by <a href="https://www.instagram.com/saguzeiro" rel="noopener">Sagu</a>, at <a href="https://transainc.com?utm_source=luiskr.com" target="_blank">Transa</a> for the 2020 edition, keeping the already established visual identity.
+          </p>
+          <p class="internal-description-text">
+            The coding of the webpage was done in Vanilla JS, Sass(CSS3) and HTML5 only, with the use of lots of SVG elements in the layout of the page.
           </p>
         </div>
 
