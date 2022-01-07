@@ -39,6 +39,7 @@
         @extend .ttl-xxl;
 
         text-align: left;
+        text-transform: uppercase;
         padding:  to-rem($F11) 0 to-rem($F8);
 
         @include layout-768() {

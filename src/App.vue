@@ -86,6 +86,11 @@
   mounted() {
     window.addEventListener('scroll', () => this.checkScroll());
     window.addEventListener('resize', () => this.checkScroll());
+
+    this.$store.commit('setClickOrTap', {
+      click: 'click',
+      tap: 'tap'
+    });
   }
 }
 </script>

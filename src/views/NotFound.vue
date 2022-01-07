@@ -1,6 +1,6 @@
 <template>
     <div class="not-found-decoration">
-        <div v-for="n in 100" :key="n" class="not-found-decoration-marquee" aria-hidden="true" data-no-snippet>
+        <div v-for="n in marquee" :key="n" class="not-found-decoration-marquee" aria-hidden="true" data-no-snippet>
             <template v-for="n in 10" :key="n"> 404 </template>
         </div>
     </div>
@@ -16,10 +16,24 @@
 <script>
 
 export default {
+    data() {
+        return {
+            marquee: Number
+        }
+    },
     name: 'Not Found',
     created() {
         document.title = this.$route.meta.title;
     },
+    mounted() {
+        this.$store.commit('setMarqueeAmount');
+        this.marquee = this.$store.getters.getMarqueeAmount;
+
+        window.addEventListener('resize', () => {
+            this.$store.commit('setMarqueeAmount');
+            this.marquee = this.$store.getters.getMarqueeAmount;
+        }, true);
+    }
 }
 </script>
 

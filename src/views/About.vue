@@ -1,7 +1,7 @@
 <template>
   <article>
-    <section class="about" >
-      <h3 id="about" class="about-title" ref="about">ABOUT ME</h3>
+    <div class="about" >
+      <h2 id="about" class="about-title" ref="about">About me</h2>
       <ul class="about-grid">
         <li class="about-item">
           <div class="about-draw">
@@ -36,108 +36,74 @@
             <li class="awards-item">
               <a class="awards-item-link" href="https://www.topcssgallery.com/gallery/luis-krotz/">
                 <span class="awards-item-link-media">🌐</span>
-                <div>
-                  <h4 class="awards-item-link-text">Oct. 6th 2021: Featured on TCG</h4>
-                </div>
+                <span class="awards-item-link-text">Oct. 6th 2021: Featured on TCG</span>
               </a>
             </li>
             <li class="awards-item">
               <a class="awards-item-link" href="https://mindsparklemag.com/website/luis-krotz">
                 <span class="awards-item-link-media">🌐</span>
-                <div>
-                  <h4 class="awards-item-link-text">Oct. 13th 2021: Featured on Mindsparkle Mag</h4>
-                </div>
+                <span class="awards-item-link-text">Oct. 13th 2021: Featured on Mindsparkle Mag</span>
               </a>
             </li>
             <li class="awards-item">
               <a class="awards-item-link" href="https://www.topcssgallery.com/gallery/luis-krotz/">
                 <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/CSSW-15699-Star-Certificate.svg'}"  width="993" height="1132">
-                <div>
-                  <h4 class="awards-item-link-text">Oct. 6th 2021: Featured on TCG</h4>
-                </div>
+                <span class="awards-item-link-text">Oct. 6th 2021: Featured on TCG</span>
               </a>
             </li>
             <li class="awards-item">
               <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
                 <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-special-kudos-1.svg'}" width="794" height="1123">
-                <div>
-                  <h4 class="awards-item-link-text">June 14th 2020: CSSDA / SPECIAL KUDOS AWARD - Awarded for the first version of luiskr.com in 2020</h4>
-                </div>
+                <span class="awards-item-link-text">June 14th 2020: CSSDA / SPECIAL KUDOS AWARD - Awarded for the first version of luiskr.com in 2020</span>
               </a>
             </li>
             <li class="awards-item">
               <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
                 <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-inn-Luiskr-1.svg'}"  width="993" height="1273">
-                <div>
-                  <h4 class="awards-item-link-text">June 14th 2020: CSSDA / INNOVATION DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h4>
-                </div>
+                <span class="awards-item-link-text">June 14th 2020: CSSDA / INNOVATION DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</span>
               </a>
             </li>
             <li class="awards-item">
               <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
                 <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-ux-Luiskr-1.svg'}" width="893" height="1132">
-                <div>
-                  <h4 class="awards-item-link-text">June 14th 2020: CSSDA / UX DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h4>
-                </div>
+                <span class="awards-item-link-text">June 14th 2020: CSSDA / UX DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</span>
               </a>
             </li>
             <li class="awards-item">
               <a class="awards-item-link" href="https://www.cssdesignawards.com/sites/luiskr/37252">
                 <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/cssda-ui-Luiskr-1.svg'}"  width="886" height="1123">
-                <div>
-                  <h4 class="awards-item-link-text">June 14th 2020: CSSDA / UI DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</h4>
-                </div>
+                <span class="awards-item-link-text">June 14th 2020: CSSDA / UI DESIGN AWARD - Awarded for the first version of luiskr.com in 2020</span>
               </a>
             </li>
             <li class="awards-item">
               <a class="awards-item-link" href="http://coral.ufsm.br/prpgp/images/fomularios-diversos/2013/40-MELHORES-JAI-2013.pdf">
                 <span class="awards-item-link-media">🏆</span>
-                <div>
-                  <h4 class="awards-item-link-text">Aug. 2013: At UFSM.<br>Prize of being placed among the 40 best works of the 28th JAI</h4>
-                </div>
+                <span class="awards-item-link-text">Aug. 2013: At UFSM.<br>Prize of being placed among the 40 best works of the 28th JAI</span>
               </a>
             </li>
           </ul>
         </li>
       </ul>
-    </section>
+    </div>
 
-
-    <footer class="contact">
-      <h3 id="contact" class="contact-title" ref="contact">Contact</h3>
-      <div class="contact-social">
-        <a href="mailto:luis.krotz@gmail.com" target="_blank" class="contact-social-link">Mail</a>
-        <span class="contact-social-separator">•</span>
-        <a href="tel:+55(51)982-274-782" target="_blank" class="contact-social-link">Phone</a>
-        <span class="contact-social-separator">•</span>
-        <a href="https://www.linkedin.com/in/luis-kr%C3%B6tz" target="_blank" class="contact-social-link">Linkedin</a>
-        <span class="contact-social-separator">•</span>
-        <a href="https://github.com/LuisKrotz" target="_blank" class="contact-social-link">Github</a>
-        <span class="contact-social-separator">•</span>
-        <a href="https://www.instagram.com/j_luiskrotz" target="_blank" class="contact-social-link">Instagram</a>
-      </div>
-      <div class="contact-other">
-        <router-link class="contact-other-link" to="/privacy-policy">Privacy Policy</router-link>
-        <span class="contact-other-separator">•</span>
-        <router-link class="contact-other-link" to="/GDPR">GDPR</router-link>
-        <span class="contact-other-separator">•</span>
-        <router-link class="contact-other-link" to="/terms-of-use">Terms of use</router-link>
-      </div>
-    </footer>
+    <Contact />
   </article>
 </template>
 
 <script>
+import Contact        from '../components/Contact'
 
 export default {
   data() {
     return {
-      storage:          this.$store.getters.getStorage,
-      flexboxHeight:    Number,
+      storage:          this.$store.getters.getStorage
     }
   },
   created() {
     document.title = this.$route.meta.title;
+  },
+  components: {
+    Contact
   },
   name: 'About',
   mounted() {

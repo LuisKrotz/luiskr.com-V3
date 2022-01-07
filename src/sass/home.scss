@@ -58,11 +58,6 @@
                 line-height: to-rem($F12);
             }
 
-            @include layout-1440() {
-                font-size: to-rem($F12);
-                line-height: to-rem($F12);
-            }
-
             @include layout-2560() {
                 font-size: to-rem($F14);
                 line-height: to-rem($F14);

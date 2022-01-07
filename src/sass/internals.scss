@@ -182,12 +182,13 @@
         
         /* Handle */
         &::-webkit-scrollbar-thumb {
-            background: $color-grey;
+            border-radius: 3px;
+            background: $color-grey-3;
         }
         
         /* Handle on hover */
         &::-webkit-scrollbar-thumb:hover {
-            background: $color-grey-2;
+            background: $color-grey;
         }
 
         &-scroll {
@@ -391,7 +392,7 @@
 
         &:hover,
         &:focus {
-            opacity: .5;
+            opacity: .95;
         }
     }
 

@@ -27,7 +27,7 @@
         <div class="portfolio-item-label">
             <h4 class="portfolio-item-label-title">{{ label }}</h4>
             <p class="portfolio-item-label-description" v-html="description"></p>
-            <button class="portfolio-item-label-button">Click here to know more.</button>
+            <button class="portfolio-item-label-button">{{ action }} here to know more.</button>
         </div>
     </router-link>
 </template>
@@ -38,10 +38,11 @@
 export default {
     data() {
         return {
-            viewport: Number,
-            loadext: '-mozjpg3-MSSIM-tuned-kodak',
-            mobileext: '-mobile',
-            ext: '.jpg'
+            viewport:   Number,
+            loadext:    '-mozjpg3-MSSIM-tuned-kodak',
+            mobileext:  '-mobile',
+            ext:        '.jpg',
+            action:     this.$store.getters.getClickOrTap
         }
     },
     name: 'Draw Computer',

@@ -17,11 +17,13 @@ export default createStore({
       }
     },
     has_touch: (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0)),
+    clickortap:  String,
     showhover: false,
     page: {
         left : 0,
         top: 0
-    }
+    },
+    marqueeamount: Number
   },
   mutations: {
     setModal(state, payload) {
@@ -45,7 +47,29 @@ export default createStore({
     setClear(state) {
       document.body.classList.remove("mouseenter");
       state.showhover = false;
-    }
+    },
+    setClickOrTap(state, payload) {
+      state.clickortap = state.has_touch ? payload.tap : payload.click;
+    },
+    setMarqueeAmount(state) {
+      let width = window.innerWidth,
+          height = window.innerHeight;
+
+      switch (window.outerWidth) {
+        case width >= 2560:
+          state.marqueeamount = Math.ceil(height / 377); 
+        break;
+        case width >= 1280:
+          state.marqueeamount = Math.ceil(height / 144); 
+        break;
+        case width >= 768:
+          state.marqueeamount = Math.ceil(height / 89); 
+        break;
+        default:
+          state.marqueeamount = Math.ceil(height / 144); 
+        break;
+      }
+    },
   },
   getters: {
     getStorage: state => {
@@ -63,6 +87,12 @@ export default createStore({
     getTouch: state => {
       return state.has_touch;
     },
+    getClickOrTap: state => {
+      return state.clickortap;
+    },
+    getMarqueeAmount: state => {
+      return state.marqueeamount;
+    }
   },
   actions: {
   },

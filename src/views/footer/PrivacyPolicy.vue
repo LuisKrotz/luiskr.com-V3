@@ -49,6 +49,7 @@
       <p class="internal-description-text">Another part of my priority is adding protection for children while using the internet. I encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
       <p class="internal-description-text"><router-link to="/"><span >luiskr.com</span></router-link> does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on my website, I strongly encourage you to contact me <strong>immediately</strong> and I will do my best efforts to promptly find such information.</p>
     </section>
+
     <Footer />
   </article>
 </template>

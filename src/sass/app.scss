@@ -45,6 +45,7 @@
 
     &.back {
       &::before {
+        transition: width .5s linear, transform .5s linear;
         display: block;
         content: '⟵';
         position: absolute;
@@ -52,6 +53,16 @@
         left: to-rem(-3);
         font-size: to-rem(38);
         font-weight: 100;
+        width: 34%;
+        overflow: hidden;
+      }
+
+      &:hover,
+      &:focus {
+        &::before {
+          transform: translateX(-10px);
+          width: 40%;
+        }
       }
     }
   }
