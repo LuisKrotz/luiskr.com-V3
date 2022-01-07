@@ -29,7 +29,7 @@
                   :width="1920"
                   :height="8481"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: desktop homepage"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -37,7 +37,7 @@
                   :width="414"
                   :height="7763"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: mobile homepage"/>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@
                   :height="2056"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossas Especialidades mobile page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -70,7 +70,7 @@
                   :width="1920"
                   :height="8547"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossas Especialidades desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -78,7 +78,7 @@
                   :width="1920"
                   :height="2796"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossas Especialidades - Fonoaudiologia, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -86,7 +86,7 @@
                   :width="414"
                   :height="3140"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossas Especialidades - Fonoaudiologia, mobile page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -94,7 +94,7 @@
                   :width="1920"
                   :height="2846"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossas Especialidades - Psicologia infantil, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -102,7 +102,7 @@
                   :width="1920"
                   :height="2627"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossas Especialidades - Psicomotria, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -110,7 +110,7 @@
                   :width="1920"
                   :height="2888"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossas Especialidades - Psicopedagogia, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -118,7 +118,7 @@
                   :width="1920"
                   :height="2218"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossas Especialidades - Terapia Ocupacional, desktop page"/>
             </div>
           </div>
         </div>
@@ -145,7 +145,7 @@
                   :height="2056"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossa Equipe, desktop 4K page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -153,7 +153,7 @@
                   :width="1920"
                   :height="5905"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossa Equipe, desktop 1920 page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -161,7 +161,7 @@
                   :width="414"
                   :height="5440"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossa Equipe, mobile page"/>
             </div>
             <div class="internal-extra-item landscape">
                 <Media
@@ -169,7 +169,7 @@
                   :width="1920"
                   :height="1621"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossa Equipe - Nathalia, desktop page"/>
             </div>
             <div class="internal-extra-item landscape">
                 <Media
@@ -177,7 +177,7 @@
                   :width="1920"
                   :height="1795"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossa Equipe - Camila Nobre, desktop page"/>
             </div>
             <div class="internal-extra-item landscape">
                 <Media
@@ -185,7 +185,7 @@
                   :width="1920"
                   :height="1796"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossa Equipe - Camila Teixeira, desktop page"/>
             </div>
             <div class="internal-extra-item landscape">
                 <Media
@@ -193,7 +193,7 @@
                   :width="1920"
                   :height="1795"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossa Equipe - Ellen, desktop page"/>
             </div>
             <div class="internal-extra-item landscape">
                 <Media
@@ -201,7 +201,7 @@
                   :width="1920"
                   :height="1621"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossa Equipe - Mariel, desktop page"/>
             </div>
             <div class="internal-extra-item landscape">
                 <Media
@@ -209,7 +209,7 @@
                   :width="1920"
                   :height="1516"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossa Equipe - Melissa, desktop page"/>
             </div>
             <div class="internal-extra-item landscape">
                 <Media
@@ -217,7 +217,7 @@
                   :width="1920"
                   :height="1516"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossa Equipe - Michela, desktop page"/>
             </div>
             <div class="internal-extra-item landscape">
                 <Media
@@ -225,7 +225,7 @@
                   :width="1920"
                   :height="1621"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossa Equipe - Nesrim, desktop page"/>
             </div>
             <div class="internal-extra-item landscape">
                 <Media
@@ -233,7 +233,7 @@
                   :width="1920"
                   :height="1621"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Nossa Equipe - Rebecca, desktop page"/>
             </div>
           </div>
         </div>
@@ -258,7 +258,7 @@
                   :height="2056"
                   :canExpand="true"
                   :isVideo="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - desktop 4K main page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -266,7 +266,7 @@
                   :width="1920"
                   :height="7349"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - desktop 1920 main page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -274,7 +274,7 @@
                   :width="414"
                   :height="11896"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - mobile main page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -282,7 +282,7 @@
                   :width="1920"
                   :height="2863"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - a aprendizagem humana, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -290,7 +290,7 @@
                   :width="1920"
                   :height="5212"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - a linguagem oral infantil, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -298,7 +298,7 @@
                   :width="1920"
                   :height="3188"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - a psicoterapia infantil, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -306,7 +306,7 @@
                   :width="1920"
                   :height="3489"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - cuidando dos cuidadores de crianças com TEA, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -314,7 +314,7 @@
                   :width="1920"
                   :height="2635"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - gagueira infantil, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -322,7 +322,7 @@
                   :width="414"
                   :height="2853"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - gagueira infantil, mobile page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -330,7 +330,7 @@
                   :width="1920"
                   :height="3124"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - terapia ocupacional, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -338,7 +338,7 @@
                   :width="1920"
                   :height="3051"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - o trabalho do profissional de educacao fisica, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -346,7 +346,7 @@
                   :width="1920"
                   :height="4225"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - por que a intervenção precoce e tão importante, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -354,7 +354,7 @@
                   :width="1920"
                   :height="2975"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - quando procurar um psicopedagogo, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -362,7 +362,7 @@
                   :width="1920"
                   :height="3762"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - quando uma crianca precisa de fonoaudiologo, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -370,7 +370,7 @@
                   :width="1920"
                   :height="2390"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - o que esperar da fala da criança, desktop page"/>
             </div>
             <div class="internal-extra-item small">
                 <Media
@@ -378,7 +378,7 @@
                   :width="414"
                   :height="2907"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - o que esperar da fala da criança, mobile page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -386,7 +386,7 @@
                   :width="1920"
                   :height="8280"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - sera que meu filho precisa de terapia ocupacional, desktop page"/>
             </div>
             <div class="internal-extra-item">
                 <Media
@@ -394,7 +394,7 @@
                   :width="1920"
                   :height="2360"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - transtorno espectro do autismo, desktop page"/>
             </div>
             <div class="internal-extra-item small">
                 <Media
@@ -402,7 +402,7 @@
                   :width="414"
                   :height="2602"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Blog - transtorno espectro do autismo , mobile page"/>
             </div>
           </div>
         </div>
@@ -426,7 +426,7 @@
                   :width="1920"
                   :height="2682"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Contato, desktop page"/>
             </div>
             <div class="internal-extra-item small">
                 <Media
@@ -434,7 +434,7 @@
                   :width="414"
                   :height="2570"
                   :canExpand="true"
-                  label=""/>
+                  label="Nathalia Boond - Clínica de desenvolvimento: Contato, mobile page"/>
             </div>
           </div>
         </div>
