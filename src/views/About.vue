@@ -46,9 +46,9 @@
               </a>
             </li>
             <li class="awards-item">
-              <a class="awards-item-link" href="https://www.topcssgallery.com/gallery/luis-krotz/">
+              <a class="awards-item-link" href="https://www.csswinner.com/details/luis-krtz/15699">
                 <img class="awards-item-link-media" v-lazy="{src: storage + 'awards/CSSW-15699-Star-Certificate.svg'}"  width="993" height="1132">
-                <span class="awards-item-link-text">Oct. 6th 2021: Featured on TCG</span>
+                <span class="awards-item-link-text">Oct. 6th 2021: CSSW Star</span>
               </a>
             </li>
             <li class="awards-item">
