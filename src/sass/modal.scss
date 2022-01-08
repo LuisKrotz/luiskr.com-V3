@@ -110,7 +110,7 @@
     &-close-bottom {
         @extend .ttl-sm;
 
-        margin: to-rem($F8);
+        margin: to-rem($F8) 0;
         position: absolute;
         color: var(--white);
         left: 50%;
