@@ -62,7 +62,7 @@
 
     <link rel="canonical" href="https://luiskr.com"/>
 
-    <style>.hdn{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.hdn.focusable:active,.hdn.focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}body{background-color:#fff;color:#262626;max-width:100%}.loader{max-width:100%;width:100vw;text-align:center;position:fixed;transform:translate(-50%,-50%);top:50%;left:50%}.loader p{font-family:"Montserrat+Alternates",sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:300;letter-spacing:.0625rem;margin:0;font-size:1.5rem;text-transform:uppercase}.loader video{object-fit:contain;}</style>
+    <style>.hdn{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.hdn.focusable:active,.hdn.focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}body{background-color:#fff;color:#262626;max-width:100%}.loader{top:0;left:0;z-index:100;width:100vw;height:100vh;min-height:100%;background-color:#f0f0f0;position:fixed}.loader-text-svg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);transition:opacity .25s ease-in;display:block;opacity:0;animation:appear-in 1s ease-in 1s forwards;width:7.5rem;height:auto}.show-logo .loader{animation:fade-out 1s ease-in 2s forwards}.show-logo .loader-text{animation:fade-out 1s ease-in 1.5s forwards}@keyframes appear-in{from{opacity:0}to{opacity:1}}@keyframes fade-out{50%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}</style>
 
     <script type="application/ld+json">
         {
@@ -95,18 +95,17 @@
         }
     </script>
   </head>
-  <body data-no-snippet>
-    <h1 class="hdn">Luis Krötz | Front-End Developer with a passion for UI/UX, JS, CSS and Performance, focused on creating beautiful experiences.</h1>
+  <body>
+    <div class="loader">
+      <h1 class="loader-text">
+        <span class="hdn">Luis Krötz | Front-End Developer with a passion for UI/UX, JS, CSS and Performance, focused on creating beautiful experiences.</span>
 
-    <div id="app">
-      <div class="loader">
-        <video autoplay muted playsinline loop>
-          <source src="data:video/mp4;base64,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" />
-        </video>
-        <p>Loading</p>
-      </div>
+        <svg class="loader-text-svg" viewBox="0 0 117.295 125.206"><defs><style>.cls-1{fill:none;stroke:#262626;}.cls-1,.cls-2{stroke-miterlimit:10;}.cls-2{stroke:#262626;}.cls-3{fill:#fff;}</style></defs><title>Asset 4</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="58.647 1 0.866 101.08 116.429 101.08 58.647 1"/><polygon class="cls-2" points="58.647 24.626 0.866 124.706 116.429 124.706 58.647 24.626"/><path class="cls-3" d="M26.826,116.893v-7.775h2.59v7.775Zm3,0V115.34h1.283v-.984h2.35v2.537Z"/><path class="cls-3" d="M36.711,115.34h1.154v.774l-.75.779H35.679l-1.558-1.553v-4.67h2.59Zm4.154-4.67v6.223h-2.59V110.67Z"/><path class="cls-3" d="M42.089,108.3h2.6v1.653h-2.6Zm0,2.373h2.6v6.223h-2.6Z"/><path class="cls-3" d="M48.453,115.75H49.6v1.143H46.935l-1.078-1.283v-.5h2.6Zm-1.19-5.08H48.3v2.2h2.954l1.347,1.359v1.213l-1.447,1.453H50.011v-2.35h-2.8l-1.348-1.3v-1.183Zm2.748,1.143h-1.3V110.67h2.753l.926.926v.7H50.011Z"/><path class="cls-3" d="M56.8,116.893v-7.775h2.589v7.775Zm2.988-1.1v-3.779l1.816-2.894h2.7Zm4.635,1.1h-2.8l-.879-1.811,1.535-2.3Z"/><path class="cls-3" d="M64.748,116.893V110.67h2.59v6.223Zm4.107-4.67h-1.1v-.68l.867-.873h1.57l1.26,1.453v1.612h-2.6Z"/><path class="cls-3" d="M74.814,115.44h.674v1.453h-1.74l-1.553-1.553v-3.117l1.553-1.553h1.74v1.553h-.674Zm-1.67-7.688h1.969V109.4H73.144Zm6.041,7.588-1.553,1.553H75.9V115.44h.645v-3.217H75.9V110.67h1.734l1.553,1.553Zm-2.935-7.588h1.968V109.4H76.25Z"/><path class="cls-3" d="M83.011,115.34h1.711v1.553H81.98l-1.558-1.553v-3.117h-.516V110.67h.516V110l2.589-.878Zm.411-3.117V110.67h1.394v1.553Z"/><path class="cls-3" d="M85.66,115.387,89.7,110.67H91.49v1.553l-4.1,4.67H85.66Zm.058-4.717h3.5l-1.341,1.553H85.718Zm5.778,6.223H87.875l1.377-1.553H91.5Z"/></g></g></svg>
+
+      </h1>
     </div>
 
+    <div id="app"></div>
 
     <script>
       var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
@@ -134,6 +133,23 @@
           return " system-other";
       }
       document.documentElement.className += getMobileOperatingSystem();
+
+
+      // LOADER / PRESENTATION
+      document.addEventListener("DOMContentLoaded", function() {
+        var head = document.getElementsByTagName('HEAD')[0];      // Get HTML head element 
+        var link = document.createElement('link');                // Create new link Element 
+        link.rel = 'stylesheet';                                  // set the attributes for link element
+        link.type = 'text/css';
+        link.href = './css/general.min.css';
+
+        head.appendChild(link);                                   // Append link element to HTML head 
+
+        // Loader Animation
+        setTimeout(function() {
+          document.body.classList.add("show-logo");
+        }, 625);
+      });
     </script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRKMT2NQLM"></script>
