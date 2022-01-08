@@ -15,10 +15,16 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            
+            I met <a href="https://www.instagram.com/clinica.nathaliabond" rel="noopener" target="_blank">Nathalia</a> in Oct. 2021, from <a href="https://www.nathaliabond.com.br?utm_source=luiskr.com" rel="noopener" target="_blank">Nathalia Bond - Cliníca de Desenvolvimento</a> trought a comment friend of ours, <a href="https://www.instagram.com/marcoanu" rel="noopener" target="_blank">Marco Anuschek</a>.
           </h3>
           <p class="internal-description-text">
-
+            During the first meetings, we established the project needs and expectations.
+          </p>
+          <p class="internal-description-text">
+            Nathalia already had a website, created on the Wix platform by herself, with an already established visual identity and with some content. Nathalia also needed the website to be easy to maintain.
+          </p>
+          <p class="internal-description-text">
+            Needing to be easy to maintain, and to be easy on the SEO side, we set up to create a website in the Squarespace, as note every case needs heavy programming efforts.
           </p>
         </div>
         <div class="internal-extra">
@@ -47,10 +53,13 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-
+            For Nathalia's new website, we looked at the logo to create a new colour pattern.
           </h3>
           <p class="internal-description-text">
-
+            And looked to similar fonts on the old website, to maintain the typography as closely as possible to the already established visual identity, while creating a huge visual refresh.
+          </p>
+          <p class="internal-description-text">
+            Working with Nathalia, we established the need to create special pages for every especially.
           </p>
         </div>
         <div class="internal-extra">
@@ -128,14 +137,9 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-
+            And also, pages for every member o Nathalia's team, showing a very personal side to the website.
           </h3>
-          <p class="internal-description-text">
-
-          </p>
         </div>
-
-
         <div class="internal-extra">
           <div class="internal-extra-scroll">
             <div class="internal-extra-item landscape">
@@ -243,11 +247,8 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-
+            We established the need for constant updates to improve the website ranking on search engines, and so we also migrated the blog with a new and refreshed layout.
           </h3>
-          <p class="internal-description-text">
-
-          </p>
         </div>
         <div class="internal-extra">
           <div class="internal-extra-scroll">
@@ -412,10 +413,10 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-
+            Lastly, but not least, working with Nathalia, I created a new contact page for Nathalia's webpage.
           </h3>
           <p class="internal-description-text">
-
+            Every page was designed to be very approachable and fun, while being very subtle and delicate, in balance with Nathalia's visual identity.
           </p>
         </div>
         <div class="internal-extra">
