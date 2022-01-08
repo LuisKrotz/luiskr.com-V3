@@ -49,12 +49,16 @@
         display: block;
         content: '⟵';
         position: absolute;
-        bottom: to-rem(-19);
+        top: to-rem(-4);
         left: to-rem(-3);
-        font-size: to-rem(38);
+        font-size: to-rem(25);
         font-weight: 100;
         width: 34%;
         overflow: hidden;
+        
+        @include layout-2560() {
+          font-size: to-rem(38);
+        }
       }
 
       &:hover,
