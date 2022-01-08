@@ -15,7 +15,7 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            I met <a href="https://www.instagram.com/joananolitoral" rel="noopener">Joana</a> from <a href="https://www.cecerele.com.br" rel="noopener">Cecerelê </a>through an indication of a Friend of ours, <a href="https://www.instagram.com/saguzeiro" rel="noopener">Sagu</a> in November 2021 and Joana presented me with the project necessities.
+            I met <a href="https://www.instagram.com/joananolitoral" rel="noopener" target="_blank">Joana</a> from <a href="https://www.cecerele.com.br?utm_source=luiskr.com" rel="noopener" target="_blank">Cecerelê </a>through an indication of a Friend of ours, <a href="https://www.instagram.com/saguzeiro" rel="noopener" target="_blank">Sagu</a> in November 2021 and Joana presented me with the project necessities.
           </h3>
           <p class="internal-description-text">
             Joana needed a website for the Cecerelê project to enable the Instagram shop feature, in a platform that was easy to maintain in the long run.
