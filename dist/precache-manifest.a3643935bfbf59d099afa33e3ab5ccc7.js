@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/aboutmarco.9266c08b.css"
   },
   {
-    "revision": "9c33c40cfb19c03a480f",
-    "url": "/css/app.332586d8.css"
+    "revision": "1ed1c26481d6f937e8e4",
+    "url": "/css/app.737942a5.css"
   },
   {
     "revision": "3b512372f5e817daa382",
@@ -104,7 +104,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/favicon.svg"
   },
   {
-    "revision": "67e6475e968c9c18ca48d8544245d61f",
+    "revision": "f2805773a8a86079dc23cf69d11f1eff",
     "url": "/index.html"
   },
   {
@@ -116,7 +116,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/aboutmarco.86baf7d0.js"
   },
   {
-    "revision": "9c33c40cfb19c03a480f",
+    "revision": "1ed1c26481d6f937e8e4",
     "url": "/js/app.27c644c7.js"
   },
   {
