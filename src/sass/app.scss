@@ -45,19 +45,23 @@
 
     &.back {
       &::before {
+        font-family: 'Raleway', sans-serif;
+
         transition: width .5s linear, transform .5s linear;
         display: block;
         content: '⟵';
         position: absolute;
-        top: to-rem(-4);
+        top: to-rem(-1);
         left: to-rem(-3);
         font-size: to-rem(25);
-        font-weight: 100;
+        line-height: to-rem(25);
+        font-weight: 900;
         width: 34%;
         overflow: hidden;
         
         @include layout-2560() {
           font-size: to-rem(38);
+          line-height: to-rem(38);
         }
       }
 
