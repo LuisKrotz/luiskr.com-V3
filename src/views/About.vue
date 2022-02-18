@@ -8,8 +8,7 @@
             <div class="about-draw-mic"></div>
             <div class="about-draw-speaker"></div>
             <div class="about-draw-screen">
-              <p class="about-item-text">I'm currently working full time at TRANSA, and available for part-time Freelancing on the weekends.</p>
-              <p class="about-item-text"><strong>Working 100% remotely.</strong></p>
+              <p class="about-item-text">Working 100% remotely at <a href="https://transainc.com?utm_source=luiskr.com" target="_blank" rel="noopener">TRANSA</a>.</p>
             </div>
           </div>
 
