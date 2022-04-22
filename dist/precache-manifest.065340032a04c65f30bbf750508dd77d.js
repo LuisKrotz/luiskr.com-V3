@@ -28,7 +28,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/aboutmarco.d6b6c49f.css"
   },
   {
-    "revision": "54e032c5e3b6bacbaf6e",
+    "revision": "a3ae6349ce5f3515e499",
     "url": "/css/app.db04a00b.css"
   },
   {
@@ -56,7 +56,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/melissa.d6b6c49f.css"
   },
   {
-    "revision": "b8b6bc203a711dd03bec",
+    "revision": "bafa2222e29b167d5cf2",
     "url": "/css/metcha.d6b6c49f.css"
   },
   {
@@ -104,7 +104,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/favicon.svg"
   },
   {
-    "revision": "3872f6055054c055a1205a726beedbef",
+    "revision": "ebd7798998fdb5547721d15aedc9103b",
     "url": "/index.html"
   },
   {
@@ -116,8 +116,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/aboutmarco.c1a55ab1.js"
   },
   {
-    "revision": "54e032c5e3b6bacbaf6e",
-    "url": "/js/app.8dc92dd6.js"
+    "revision": "a3ae6349ce5f3515e499",
+    "url": "/js/app.8242d4cb.js"
   },
   {
     "revision": "91cf5e550baea0ff347f",
@@ -148,8 +148,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/melissa.7038b639.js"
   },
   {
-    "revision": "b8b6bc203a711dd03bec",
-    "url": "/js/metcha.0bd9ddc5.js"
+    "revision": "bafa2222e29b167d5cf2",
+    "url": "/js/metcha.05d4dfde.js"
   },
   {
     "revision": "95e4dcbf0b8cc8fda0f1",
