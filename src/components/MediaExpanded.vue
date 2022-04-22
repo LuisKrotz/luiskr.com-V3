@@ -12,6 +12,7 @@
                 :width="width"
                 :height="height"
                 :alt="alt"
+                :src="source"
                 v-lazy="{ src: source, loading: thumb }" />
             <video v-else
                 class="expand-modal-media-item"

@@ -7,6 +7,7 @@
             :width="width"
             :height="height"
             :alt="label"
+            :src="storage + src + q100"
             v-lazy="{src: storage + src + q50, loading: storage + src + thumb }" />
         <video v-else
             :class="'render-media ' + classes"
