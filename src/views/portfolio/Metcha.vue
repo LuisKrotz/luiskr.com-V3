@@ -163,7 +163,7 @@
                     :isVideo="true"
                     label="METCHA - feed 2021 mobile tour"/>
               </div>
-              <div class="internal-extra-item">
+              <div class="internal-extra-item landscape">
                   <Media
                     classes="internal-main-item"
                     src="metcha/feed/metcha.com-2020-2021-website-tour"
@@ -171,24 +171,6 @@
                     :height="928"
                     :isVideo="true"
                     label="METCHA -  feed 2020/2021 tour"/>
-              </div>
-              <div class="internal-extra-item landscape">
-                  <Media
-                    src="metcha/feed/metcha.com-2019-website-tour"
-                    :width="1463"
-                    :height="800"
-                    :isVideo="true"
-                    :canExpand="true"
-                    label="METCHA - feed 2019 tour"/>
-              </div>
-              <div class="internal-extra-item landscape">
-                  <Media
-                    src="metcha/feed/metcha.com-mobile"
-                    :width="832"
-                    :height="1728"
-                    :isVideo="true"
-                    :canExpand="true"
-                    label="METCHA - feed 2019 mobile tour"/>
               </div>
               <div class="internal-extra-item">
                   <Media
@@ -206,6 +188,24 @@
                     :isVideo="true"
                     :canExpand="true"
                     label="METCHA - Acessibility features"/>
+              </div>
+              <div class="internal-extra-item landscape">
+                  <Media
+                    src="metcha/feed/metcha.com-mobile"
+                    :width="832"
+                    :height="1728"
+                    :isVideo="true"
+                    :canExpand="true"
+                    label="METCHA - feed 2019 mobile tour"/>
+              </div>
+              <div class="internal-extra-item landscape">
+                  <Media
+                    src="metcha/feed/metcha.com-2019-website-tour"
+                    :width="1463"
+                    :height="800"
+                    :isVideo="true"
+                    :canExpand="true"
+                    label="METCHA - feed 2019 tour"/>
               </div>
           </div>
         </div>
