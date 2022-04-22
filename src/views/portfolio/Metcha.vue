@@ -1002,7 +1002,6 @@
                     :width="3840"
                     :height="4895"
                     :canExpand="true"
-                    :isVideo="true"
                     label="METCHA: Forward: 2021/2022 Report - Full page"/>
               </div>
           </div>
