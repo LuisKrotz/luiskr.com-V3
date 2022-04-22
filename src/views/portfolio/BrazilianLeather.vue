@@ -18,7 +18,7 @@
             <a href="https://cicb.org.br/brazilian-leather/en?utm_source=luiskr.com" target="_blank">Brazilian Leather</a> is a project developed at <a href="https://transainc.com/category/brazilian-leather?utm_source=luiskr.com" target="_blank">Transa</a>, through a partnership between CICB and Apex-Brasil. The project is a portal of Leather from Brazil. Including websites like <a href="https://cicb.org.br/brazilian-leather/en?utm_source=luiskr.com" target="_blank">Brazilian Leather</a>, <a href="https://cicb.org.br/cicb?utm_source=luiskr.com" target="_blank">CICB</a>, <a href="https://cicb.org.br/cscb/en?utm_source=luiskr.com" target="_blank">CSCB</a> and <a href="https://cicb.org.br/lei-do-couro?utm_source=luiskr.com" target="_blank">Leather Law</a>.
           </h3>
           <p class="internal-description-text">
-            I contributed as a member of the development team of the main portal.
+            I contributed as a full-time member of the development team of the main portal it's initial development in 2016 to 2022.
           </p>
           <p class="internal-description-text">
             Contributed to the project initial coding and maintenance in vanilla JS and Jquery.
