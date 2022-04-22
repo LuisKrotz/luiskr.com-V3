@@ -5,7 +5,7 @@
         </div>
         <div class="expand-modal-close-area" @click="closeModal"></div>
         <figure class="expand-modal-media-figure">
-            <img class="expand-modal-media-placeholder" :src="placeholder(width, height)" :width="width" :height="height" alt=" "/>
+            <img class="expand-modal-media-placeholder" :src="placeholder(width, height)" :width="width" :height="height" aria-hidden="true" tabindex="-1" data-nosnippet/>
 
             <img v-if="!isVideo"
                 class="expand-modal-media-item"
@@ -61,7 +61,7 @@ export default {
     },
     methods: {
         placeholder(width, height) {
-            return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E`;
+            return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" %3E%3C/svg%3E`;
         },
         closeModal () {
             let scroll = this.$store.getters.getModal.transform;
