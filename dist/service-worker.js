@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.558f96adcf86e8bd1d51e21267567e39.js"
+  "/precache-manifest.065340032a04c65f30bbf750508dd77d.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "luiskr.com"});
