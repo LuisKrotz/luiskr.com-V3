@@ -18,7 +18,7 @@
             Transa's website, was developed with VUE, CSS (Sass) and PHP (Laravel) in 2021.
           </h3>
           <p class="internal-description-text">
-            I'm worked as the Lead front end of Transa's website and helped in UX until the end of the project on May of 2022.
+            I worked as the Lead front end of Transa's website and helped in UX until the end of the project on May of 2022.
           </p>
           <p class="internal-description-text">
             TRANSA's website consisted of many special pages, like TRANSA's cases, that I helped developed as the Leading Front-end Developer. Realized inside TRANSA's content management system, developed and tailored to TRANSA's website - that I also helped to develop.
