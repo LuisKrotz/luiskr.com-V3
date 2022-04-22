@@ -457,7 +457,7 @@
     
             text-align: center;
             color: var(--white);
-            padding: to-rem($F9) to-rem($F7);
+            padding: to-rem($F9);
             background: var(--black);
 
             @include layout-1024() {
@@ -497,6 +497,12 @@
                 &:focus {
                     opacity: .5;
                 }
+            }
+
+            &-note {
+                display: block;
+                padding: 0;
+                margin:to-rem(-$F5) 0 to-rem($F7);
             }
         }
     }

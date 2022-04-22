@@ -26,6 +26,7 @@
             <a class="internal-footer-items-link" target="_blank" href="https://github.com/LuisKrotz">Github</a>
             <span class="internal-footer-items-separator">•</span>
             <a class="internal-footer-items-link" target="_blank" href="https://www.instagram.com/j_luiskrotz">Instagram</a>
+            <p class="internal-footer-items-note">All media on this domain was taken by screenshots from public URLs and/or local development data.<br>The current website or origin of the media may have changed or may change in the future.</p>
         </div>
     </footer>
 </template>
