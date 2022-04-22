@@ -5,25 +5,93 @@
       <div class="internal-main">
           <Media
             classes="internal-main-item"
-            src="transainc/website-2021/transainc.com-feed-short-tour"
-            :width="1929"
-            :height="1008"
+            src="transainc/website-2022/transa-feed-tour-april-2022-screenrecording"
+            :width="3840"
+            :height="2160"
             :isVideo="true"
-            label="Transa: feed short tour"/>
+            label="Transa: Feed short tour"/>
       </div>
 
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            <a href="https://transainc.com?utm_source=luiskr.com" target="_blank">Transa's website</a>, developed with VUE, CSS (Sass) and PHP (Laravel) in 2021.
+            Transa's website, was developed with VUE, CSS (Sass) and PHP (Laravel) in 2021.
           </h3>
           <p class="internal-description-text">
-            I'm currently the Lead front end of Transa's website.
+            I'm worked as the Lead front end of Transa's website and helped in UX until the end of the project on May of 2022.
           </p>
           <p class="internal-description-text">
-            Transa's website consists of an infinite scrolling feed, with many projects developed at Transa during the years.
+            TRANSA's website consisted of many special pages, like TRANSA's cases, that I helped developed as the Leading Front-end Developer. Realized inside TRANSA's content management system, developed and tailored to TRANSA's website - that I also helped to develop.
           </p>
         </div>
+        <div class="internal-extra">
+          <div class="internal-extra-scroll">
+              <div class="internal-extra-item landscape">
+                  <Media
+                    src="transainc/website-2022/transa-screenrecording-case-brazilian-leather"
+                    :width="3840"
+                    :height="2160"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="Transa: Video of Brazilian Leather's case inside TRANSA's website."/>
+              </div>
+              <div class="internal-extra-item landscape">
+                  <Media
+                    src="transainc/website-2022/transa-screenrecording-case-metcha"
+                    :width="3840"
+                    :height="2160"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="Transa: Video of METCHA's case inside TRANSA's website."/>
+              </div>
+              <div class="internal-extra-item landscape">
+                  <Media
+                    src="transainc/website-2022/transa-screenrecording-case-mor"
+                    :width="3840"
+                    :height="2160"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="Transa: Video of MOR's case inside TRANSA's website."/>
+              </div>
+              <div class="internal-extra-item landscape">
+                  <Media
+                    src="transainc/website-2022/transa-screenrecording-case-melissa"
+                    :width="3840"
+                    :height="2160"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="Transa: Video of Melissa's case inside TRANSA's website."/>
+              </div>
+              <div class="internal-extra-item landscape">
+                  <Media
+                    src="transainc/website-2022/transa-screenrecording-case-mini-melissa"
+                    :width="3840"
+                    :height="2160"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="Transa: Video of Mini Melissa's case inside TRANSA's website."/>
+              </div>
+              <div class="internal-extra-item landscape">
+                  <Media
+                    src="transainc/website-2022/transa-screenrecording-case-coza"
+                    :width="3840"
+                    :height="2160"
+                    :canExpand="true"
+                    :isVideo="true"
+                    label="Transa: Video of COZA's case inside TRANSA's website."/>
+              </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section>
+          <div class="internal-description">
+            <h3 class="internal-description-text">
+              And an infinite scrolling feed, with many projects developed at Transa during the years, categorized by each client.
+            </h3>
+          </div>
+
         <div class="internal-extra">
           <div class="internal-extra-scroll">
               <div class="internal-extra-item landscape">
@@ -45,7 +113,6 @@
                     label="Transa: feed mobile tour"/>
               </div>
 
-            <!-- Categories -->
               <div class="internal-extra-item landscape">
                   <Media
                     src="transainc/website-2021/categories/transainc.com-category--brazilian-leather-tour"
@@ -107,7 +174,7 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-            All the articles on the feed, open in a modal system, without any kind of refresh, with a bold, unique and pixel perfect style.
+            All the articles on the feed, opened in a modal system, without any kind of refresh, with a bold, unique and pixel perfect style.
           </h3>
         </div>
 
@@ -406,16 +473,16 @@
       <section>
         <div class="internal-description">
           <h3 class="internal-description-text">
-          The website also features a join-us page.
+            The website also featured a join-us page.
           </h3>
           <p class="internal-description-text">
-          Created in a  "conversational" style, all done in CSS and Javascript.
+            Created in a "conversational" style, all done in CSS and Javascript.
           </p>
           <p class="internal-description-text">
-          I participated a lot in the UX of the page beside the coding.
+            I participated a lot in the UX of the page beside the coding.
           </p>
           <p class="internal-description-text">
-          The join-us page evolved from Transa's muda page, where I also worked as the front end developer until 2021 when Transa's new website was created.
+            The join-us page evolved from Transa's muda page, where I also worked as the front end developer until 2021 when Transa's new website was created.
           </p>
         </div>
 
