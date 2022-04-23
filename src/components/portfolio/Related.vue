@@ -21,7 +21,7 @@
             <span class="internal-footer-items-separator">•</span>
             <a class="internal-footer-items-link" target="_blank" href="tel:+55(51)982-274-782">Phone</a>
             <span class="internal-footer-items-separator">•</span>
-            <a class="internal-footer-items-link" target="_blank" href="https://www.linkedin.com/in/luis-kr%C3%B6tz">Linkedin</a>
+            <a class="internal-footer-items-link" target="_blank" href="https://www.linkedin.com/in/luis-kr%C3%B6tz/?locale=en_US">Linkedin</a>
             <span class="internal-footer-items-separator">•</span>
             <a class="internal-footer-items-link" target="_blank" href="https://github.com/LuisKrotz">Github</a>
             <span class="internal-footer-items-separator">•</span>
