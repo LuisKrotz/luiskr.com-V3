@@ -123,7 +123,8 @@
 .txt {
     &-lg,
     &-md,
-    &-sm {
+    &-sm,
+    &-xs {
         font-family: 'Montserrat Alternates', sans-serif;
     }
 
@@ -164,6 +165,16 @@
         @include layout-2560() {
             font-size: to-rem(21);
             line-height: to-rem(34);
+        }
+    }
+
+    &-xs {
+        font-size: to-rem(8);
+        line-height: to-rem(13);
+
+        @include layout-2560() {
+            font-size: to-rem(13);
+            line-height: to-rem(21);
         }
     }
 }

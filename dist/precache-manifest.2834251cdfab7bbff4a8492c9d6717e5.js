@@ -20,76 +20,76 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/browserconfig.xml"
   },
   {
-    "revision": "52b13a0eaaa6d11de0c2",
-    "url": "/css/about.c7e8864d.css"
+    "revision": "f33916efaeac5078e9fe",
+    "url": "/css/about.70bff873.css"
   },
   {
-    "revision": "7c642a61c263f3b0148a",
-    "url": "/css/aboutmarco.d6b6c49f.css"
+    "revision": "ce6ffff8fea87ce89d9b",
+    "url": "/css/aboutmarco.4f0a7a49.css"
   },
   {
-    "revision": "a3ae6349ce5f3515e499",
-    "url": "/css/app.db04a00b.css"
+    "revision": "087950554e09b065adae",
+    "url": "/css/app.fa618875.css"
   },
   {
-    "revision": "91cf5e550baea0ff347f",
-    "url": "/css/brazilianleather.d6b6c49f.css"
+    "revision": "e0fcc221f54202a1a70c",
+    "url": "/css/brazilianleather.4f0a7a49.css"
   },
   {
-    "revision": "7410819bb00a687c6633",
-    "url": "/css/cecerele.d6b6c49f.css"
+    "revision": "72c5e8d37e4562e55424",
+    "url": "/css/cecerele.4f0a7a49.css"
   },
   {
-    "revision": "38e3042f17a2a1918d53",
-    "url": "/css/clinicadedesenvolvimentonathaliabond.d6b6c49f.css"
+    "revision": "6a67d90c717ad8d22448",
+    "url": "/css/clinicadedesenvolvimentonathaliabond.4f0a7a49.css"
   },
   {
-    "revision": "a6d14612a56dc765afcc",
-    "url": "/css/coza.d6b6c49f.css"
+    "revision": "224f5316ad722192818d",
+    "url": "/css/coza.4f0a7a49.css"
   },
   {
-    "revision": "0755429ed5f888be4736",
-    "url": "/css/gdpr.6d33422a.css"
+    "revision": "fdb238cb8d13ac03a3b0",
+    "url": "/css/gdpr.d3a5a103.css"
   },
   {
-    "revision": "c39dc2e61fd5248eae60",
-    "url": "/css/melissa.d6b6c49f.css"
+    "revision": "c500ac2057be6858c947",
+    "url": "/css/melissa.4f0a7a49.css"
   },
   {
-    "revision": "bafa2222e29b167d5cf2",
-    "url": "/css/metcha.d6b6c49f.css"
+    "revision": "2619fac52d9eeaea440e",
+    "url": "/css/metcha.4f0a7a49.css"
   },
   {
-    "revision": "95e4dcbf0b8cc8fda0f1",
-    "url": "/css/minimelissa.d6b6c49f.css"
+    "revision": "d09591d2cf0685a9118e",
+    "url": "/css/minimelissa.4f0a7a49.css"
   },
   {
-    "revision": "28fa434229203bde77a9",
-    "url": "/css/mor.d6b6c49f.css"
+    "revision": "ab3f007b39ff6aa92406",
+    "url": "/css/mor.4f0a7a49.css"
   },
   {
     "revision": "1d97eb1e64f98bdbbeeb",
     "url": "/css/notfound.3c83469a.css"
   },
   {
-    "revision": "0076d0ba06b34fae0499",
-    "url": "/css/privacypolicy.6d33422a.css"
+    "revision": "fa0cd7963278242677f9",
+    "url": "/css/privacypolicy.d3a5a103.css"
   },
   {
-    "revision": "13a28c12371de487015a",
-    "url": "/css/sageweb.d6b6c49f.css"
+    "revision": "99b0c33e0757275137e6",
+    "url": "/css/sageweb.4f0a7a49.css"
   },
   {
-    "revision": "833eda7a54b3ff853cd5",
-    "url": "/css/termsofuse.6d33422a.css"
+    "revision": "f542133e438e43b5b223",
+    "url": "/css/termsofuse.d3a5a103.css"
   },
   {
-    "revision": "913dc7ecb6a6a7994d47",
-    "url": "/css/transa.d6b6c49f.css"
+    "revision": "d0ee67ded457159c0669",
+    "url": "/css/transa.4f0a7a49.css"
   },
   {
-    "revision": "b6b793ad759d7b8cd4cf",
-    "url": "/css/vibra.d6b6c49f.css"
+    "revision": "77194280f8d6cdddfca7",
+    "url": "/css/vibra.4f0a7a49.css"
   },
   {
     "revision": "cf0618db0ee601dc8a04fec6252663d3",
@@ -104,27 +104,27 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/favicon.svg"
   },
   {
-    "revision": "ebd7798998fdb5547721d15aedc9103b",
+    "revision": "a280177f0811f8e0bc3490783cf94e07",
     "url": "/index.html"
   },
   {
-    "revision": "52b13a0eaaa6d11de0c2",
-    "url": "/js/about.51b44a2a.js"
+    "revision": "f33916efaeac5078e9fe",
+    "url": "/js/about.8178f72c.js"
   },
   {
-    "revision": "7c642a61c263f3b0148a",
+    "revision": "ce6ffff8fea87ce89d9b",
     "url": "/js/aboutmarco.c1a55ab1.js"
   },
   {
-    "revision": "a3ae6349ce5f3515e499",
-    "url": "/js/app.8242d4cb.js"
+    "revision": "087950554e09b065adae",
+    "url": "/js/app.413502e4.js"
   },
   {
-    "revision": "91cf5e550baea0ff347f",
+    "revision": "e0fcc221f54202a1a70c",
     "url": "/js/brazilianleather.2de691be.js"
   },
   {
-    "revision": "7410819bb00a687c6633",
+    "revision": "72c5e8d37e4562e55424",
     "url": "/js/cecerele.501df440.js"
   },
   {
@@ -132,31 +132,31 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/chunk-vendors.60c4d9c5.js"
   },
   {
-    "revision": "38e3042f17a2a1918d53",
+    "revision": "6a67d90c717ad8d22448",
     "url": "/js/clinicadedesenvolvimentonathaliabond.f263f3cb.js"
   },
   {
-    "revision": "a6d14612a56dc765afcc",
+    "revision": "224f5316ad722192818d",
     "url": "/js/coza.9b90887b.js"
   },
   {
-    "revision": "0755429ed5f888be4736",
+    "revision": "fdb238cb8d13ac03a3b0",
     "url": "/js/gdpr.3ca48116.js"
   },
   {
-    "revision": "c39dc2e61fd5248eae60",
+    "revision": "c500ac2057be6858c947",
     "url": "/js/melissa.7038b639.js"
   },
   {
-    "revision": "bafa2222e29b167d5cf2",
+    "revision": "2619fac52d9eeaea440e",
     "url": "/js/metcha.05d4dfde.js"
   },
   {
-    "revision": "95e4dcbf0b8cc8fda0f1",
+    "revision": "d09591d2cf0685a9118e",
     "url": "/js/minimelissa.833c94ef.js"
   },
   {
-    "revision": "28fa434229203bde77a9",
+    "revision": "ab3f007b39ff6aa92406",
     "url": "/js/mor.10c9faf3.js"
   },
   {
@@ -164,23 +164,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/notfound.7feb44c9.js"
   },
   {
-    "revision": "0076d0ba06b34fae0499",
+    "revision": "fa0cd7963278242677f9",
     "url": "/js/privacypolicy.345b1d46.js"
   },
   {
-    "revision": "13a28c12371de487015a",
+    "revision": "99b0c33e0757275137e6",
     "url": "/js/sageweb.19729383.js"
   },
   {
-    "revision": "833eda7a54b3ff853cd5",
+    "revision": "f542133e438e43b5b223",
     "url": "/js/termsofuse.3f15fa16.js"
   },
   {
-    "revision": "913dc7ecb6a6a7994d47",
+    "revision": "d0ee67ded457159c0669",
     "url": "/js/transa.2354c870.js"
   },
   {
-    "revision": "b6b793ad759d7b8cd4cf",
+    "revision": "77194280f8d6cdddfca7",
     "url": "/js/vibra.3ece9e4f.js"
   },
   {
