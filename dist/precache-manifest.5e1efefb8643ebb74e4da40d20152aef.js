@@ -28,27 +28,27 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/about.70bff873.css"
   },
   {
-    "revision": "ce6ffff8fea87ce89d9b",
+    "revision": "596e2c63c4a0427a51ed",
     "url": "/css/aboutmarco.4f0a7a49.css"
   },
   {
-    "revision": "087950554e09b065adae",
-    "url": "/css/app.fa618875.css"
+    "revision": "d4e9426cc2236433f7e4",
+    "url": "/css/app.61e1b2fb.css"
   },
   {
-    "revision": "e0fcc221f54202a1a70c",
+    "revision": "305cacd21573bc2d809e",
     "url": "/css/brazilianleather.4f0a7a49.css"
   },
   {
-    "revision": "72c5e8d37e4562e55424",
+    "revision": "d1399b1112db7ca4a8fb",
     "url": "/css/cecerele.4f0a7a49.css"
   },
   {
-    "revision": "6a67d90c717ad8d22448",
+    "revision": "92c8ef240f23b836f09d",
     "url": "/css/clinicadedesenvolvimentonathaliabond.4f0a7a49.css"
   },
   {
-    "revision": "224f5316ad722192818d",
+    "revision": "97a5c97caf1d3c347055",
     "url": "/css/coza.4f0a7a49.css"
   },
   {
@@ -56,19 +56,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/gdpr.d3a5a103.css"
   },
   {
-    "revision": "c500ac2057be6858c947",
+    "revision": "315089fb282672c92092",
     "url": "/css/melissa.4f0a7a49.css"
   },
   {
-    "revision": "2619fac52d9eeaea440e",
+    "revision": "239aaa048c8162d020d3",
     "url": "/css/metcha.4f0a7a49.css"
   },
   {
-    "revision": "d09591d2cf0685a9118e",
+    "revision": "509f16f16f520601e7f7",
     "url": "/css/minimelissa.4f0a7a49.css"
   },
   {
-    "revision": "ab3f007b39ff6aa92406",
+    "revision": "bd691f976ca27699c4a0",
     "url": "/css/mor.4f0a7a49.css"
   },
   {
@@ -80,7 +80,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/privacypolicy.d3a5a103.css"
   },
   {
-    "revision": "99b0c33e0757275137e6",
+    "revision": "11c233a7b9842c3be52a",
     "url": "/css/sageweb.4f0a7a49.css"
   },
   {
@@ -88,11 +88,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/termsofuse.d3a5a103.css"
   },
   {
-    "revision": "d0ee67ded457159c0669",
+    "revision": "390e4ba6610aadbc59a5",
     "url": "/css/transa.4f0a7a49.css"
   },
   {
-    "revision": "77194280f8d6cdddfca7",
+    "revision": "aa852fa1651efec7afc5",
     "url": "/css/vibra.4f0a7a49.css"
   },
   {
@@ -108,7 +108,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/favicon.svg"
   },
   {
-    "revision": "3a25d8de7fadc0e6a882188713288625",
+    "revision": "a66ba412311e15311157732201c3b725",
     "url": "/index.html"
   },
   {
@@ -116,52 +116,52 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.8178f72c.js"
   },
   {
-    "revision": "ce6ffff8fea87ce89d9b",
-    "url": "/js/aboutmarco.c1a55ab1.js"
+    "revision": "596e2c63c4a0427a51ed",
+    "url": "/js/aboutmarco.85413c7d.js"
   },
   {
-    "revision": "087950554e09b065adae",
-    "url": "/js/app.413502e4.js"
+    "revision": "d4e9426cc2236433f7e4",
+    "url": "/js/app.4661fed3.js"
   },
   {
-    "revision": "e0fcc221f54202a1a70c",
-    "url": "/js/brazilianleather.2de691be.js"
+    "revision": "305cacd21573bc2d809e",
+    "url": "/js/brazilianleather.27412046.js"
   },
   {
-    "revision": "72c5e8d37e4562e55424",
-    "url": "/js/cecerele.501df440.js"
+    "revision": "d1399b1112db7ca4a8fb",
+    "url": "/js/cecerele.c3520732.js"
   },
   {
     "revision": "245d55c728424776b24a",
     "url": "/js/chunk-vendors.60c4d9c5.js"
   },
   {
-    "revision": "6a67d90c717ad8d22448",
-    "url": "/js/clinicadedesenvolvimentonathaliabond.f263f3cb.js"
+    "revision": "92c8ef240f23b836f09d",
+    "url": "/js/clinicadedesenvolvimentonathaliabond.74205c3c.js"
   },
   {
-    "revision": "224f5316ad722192818d",
-    "url": "/js/coza.9b90887b.js"
+    "revision": "97a5c97caf1d3c347055",
+    "url": "/js/coza.a9f220be.js"
   },
   {
     "revision": "fdb238cb8d13ac03a3b0",
     "url": "/js/gdpr.3ca48116.js"
   },
   {
-    "revision": "c500ac2057be6858c947",
-    "url": "/js/melissa.7038b639.js"
+    "revision": "315089fb282672c92092",
+    "url": "/js/melissa.22d31b1a.js"
   },
   {
-    "revision": "2619fac52d9eeaea440e",
-    "url": "/js/metcha.05d4dfde.js"
+    "revision": "239aaa048c8162d020d3",
+    "url": "/js/metcha.f1f239d1.js"
   },
   {
-    "revision": "d09591d2cf0685a9118e",
-    "url": "/js/minimelissa.833c94ef.js"
+    "revision": "509f16f16f520601e7f7",
+    "url": "/js/minimelissa.1c21eb57.js"
   },
   {
-    "revision": "ab3f007b39ff6aa92406",
-    "url": "/js/mor.10c9faf3.js"
+    "revision": "bd691f976ca27699c4a0",
+    "url": "/js/mor.27c69333.js"
   },
   {
     "revision": "1d97eb1e64f98bdbbeeb",
@@ -172,20 +172,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/privacypolicy.345b1d46.js"
   },
   {
-    "revision": "99b0c33e0757275137e6",
-    "url": "/js/sageweb.19729383.js"
+    "revision": "11c233a7b9842c3be52a",
+    "url": "/js/sageweb.bee35e0d.js"
   },
   {
     "revision": "f542133e438e43b5b223",
     "url": "/js/termsofuse.3f15fa16.js"
   },
   {
-    "revision": "d0ee67ded457159c0669",
-    "url": "/js/transa.2354c870.js"
+    "revision": "390e4ba6610aadbc59a5",
+    "url": "/js/transa.c24c0e3b.js"
   },
   {
-    "revision": "77194280f8d6cdddfca7",
-    "url": "/js/vibra.3ece9e4f.js"
+    "revision": "aa852fa1651efec7afc5",
+    "url": "/js/vibra.a8d50d2b.js"
   },
   {
     "revision": "3bdeaac6684d2a06ea24206810d48690",
