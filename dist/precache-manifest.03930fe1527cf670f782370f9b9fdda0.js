@@ -108,7 +108,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/favicon.svg"
   },
   {
-    "revision": "5153646b5ed52e9568cc36fd998d8ea7",
+    "revision": "4fe9b753ec6966b103ad8cc7af2c04ff",
+    "url": "/index-unminified.html"
+  },
+  {
+    "revision": "b70d2b0f58e4f9b562a00122c19b2fb2",
     "url": "/index.html"
   },
   {
