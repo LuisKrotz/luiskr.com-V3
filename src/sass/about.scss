@@ -10,12 +10,8 @@
     &-grid {
         display: grid;
         grid-template-columns: repeat(1, auto);
-        margin: 0;
-        padding: 0;
-        grid-gap: to-rem($F8);
-        border-bottom: 2px solid $color-blue;
-        padding-bottom: to-rem($F11);
 
+        grid-gap: to-rem($F8);
         @include layout-768() {
             grid-gap: to-rem($F8);
         }
@@ -25,12 +21,22 @@
             grid-gap: to-rem($F10);
         }
 
+        @include layout-2560() {
+            grid-gap: to-rem($F12);
+        }
+    }
+
+    &-grid,
+    &-container {
+        margin: 0;
+        padding: 0;
+        padding-bottom: to-rem($F11);
+
         @include layout-1440() {
             padding-bottom:  to-rem($F12);
         }
 
         @include layout-2560() {
-            grid-gap: to-rem($F12);
             padding-bottom:  to-rem($F13);
         }
     }
@@ -83,7 +89,7 @@
     }
 
     &-draw {
-        background: $color-blue;
+        background: var(--blue);
 
         aspect-ratio: 9/16;
         position: relative;
@@ -184,7 +190,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border: 1px solid $color-blue;
+            border: 1px solid var(--blue);
             width: 95%;
             height: 95%;
             box-sizing: border-box;
@@ -224,26 +230,37 @@
         display: grid;
         grid-gap: to-rem($F9);
 
-        @include layout-1024() {
+        @include layout-540() {
             grid-template-columns: repeat(2, 1fr);
         }
 
-        @include layout-1280() {
-            grid-template-columns: initial;
+        @include layout-768() {
+            grid-template-columns: repeat(3, 1fr);
         }
 
-        @include layout-1440() {
-            grid-gap: to-rem($F10);
+        @include layout-1024() {
+            grid-template-columns: repeat(4, 1fr);
         }
 
-        @include layout-2560() {
-            grid-gap: to-rem($F11);
+        @include layout-1920() {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        @include layout-3840() {
+            grid-template-columns: repeat(8, 1fr);
         }
 
         &-item {
+            border-radius: to-rem($F5);
+            background: var(--grey-2);
+            box-shadow: to-rem($F3) to-rem($F3) to-rem($F5) 0 rgba(0,0,0, .15);
+            overflow: hidden;
+
             &-link {
                 display: grid;
                 grid-template-columns: to-rem($F11) auto;
+                min-height: 100%;
+                align-items: center;
 
                 @include layout-2560() {
                     grid-template-columns: to-rem($F12) auto;
@@ -256,10 +273,10 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    background: $color-grey-2;
+                    background: var(--grey-2);
                     font-size: to-rem($F9);
                     line-height: to-rem($F11);
-                    border-radius: to-rem($F5);
+                    min-height: 100%;
 
                     @include layout-2560() {
                         font-size: to-rem($F10);
@@ -268,12 +285,12 @@
                 }
 
                 &-text {
-                    @extend .txt-sm;
+                    @extend .txt-xs;
 
-                    padding: 0 to-rem($F9);
+                    padding: 0 to-rem($F7);
 
                     @include layout-1440() {
-                        padding: 0 to-rem($F10);
+                        padding: 0 to-rem($F8);
                     }
                 }
             }

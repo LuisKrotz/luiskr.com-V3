@@ -9,7 +9,7 @@
     .modal-above {
         min-height: 100vh;
         min-width: 100%;
-        background: $color-black;
+        background: var(--black);
         position: relative;
         animation: setOpacity .3s linear forwards;
     }
@@ -45,7 +45,7 @@
 
     &-open-1 {
         opacity: 1;
-        background-color: $color-grey-3;
+        background-color: var(--grey-3);
         color: var(--white);
 
         .internal-expand:hover &,
