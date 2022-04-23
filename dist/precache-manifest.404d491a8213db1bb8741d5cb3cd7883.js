@@ -1,5 +1,9 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
+    "revision": "22e8c6c87aafd25628f643b83466a2b7",
+    "url": "/.htaccess"
+  },
+  {
     "revision": "3d5fb9bbc41548326c97696c6e3dec9a",
     "url": "/android-chrome-144x144.png"
   },
