@@ -9,7 +9,7 @@ import VueSmoothScroll from 'vue3-smooth-scroll'
 
 createApp(App)
 .use(VueGtag, {config: { id: "UA-142757641-1" }})
-.use(VueLazyLoad, {})
+.use(VueLazyLoad, {log: false})
 .use(VueSmoothScroll)
 .use(store)
 .use(router).mount('#app')

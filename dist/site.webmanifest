@@ -1,1 +1,19 @@
-{"name":"Luis Krötz","short_name":"Luis Krötz","theme_color":"#FFF","icons":[{"src":"./favicon.svg","sizes":"512x512","type":"image/svg+xml","purpose":"any maskable"}],"start_url":"./","display":"fullscreen","background_color":"#FFF"}
+{
+    "name": "Luis Krötz",
+    "short_name": "Luis Krötz",
+    "icons": [
+        {
+            "src": "https://luiskr.com/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "https://luiskr.com/site.webmanifest/android-chrome-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#262626",
+    "background_color": "#262626",
+    "display": "fullscreen"
+}

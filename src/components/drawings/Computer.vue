@@ -8,11 +8,13 @@
                         <template v-for="n = 1 in 2" :key="n">
                             <img v-if="viewport >= 640" :class="'portfolio-item-computer-screen-image-item-' + n"
                                 v-lazy="{src: image + ext, loading: image + loadext + ext}"
+                                :src="image + ext"
                                 :alt="label"
                                 :width="width[0]"
                                 :height="height[0]" />
                             <img v-else :class="'portfolio-item-computer-screen-image-item-' + n"
-                                v-lazy="{src: image + mobileext +  ext, loading: image + loadext + mobileext + ext}" 
+                                v-lazy="{src: image + mobileext +  ext, loading: image + loadext + mobileext + ext}"
+                                :src="image + mobileext +  ext"
                                 :alt="label"
                                 :width="width[1]"
                                 :height="height[1]" />
@@ -71,6 +73,17 @@ export default {
             required: true,
             type: Array
         }
+    },
+    created() {
+        let link = document.createElement("link");
+
+        link.rel="preload",
+        link.as="image";
+
+        link.href = this.image + this.loadext + (window.innerWidth >= 640 ? '' : this.mobileext) + this.ext;
+
+        document.getElementsByTagName('head')[0].appendChild(link);
+
     },
     mounted() {
         this.setViewport();
