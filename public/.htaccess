@@ -1,9 +1,11 @@
 <IfModule mod_headers.c>
-      <FilesMatch "\.(ico|gif|jpg|jpeg|png|webp|webm|mp4|woff2|ttf|woff|svg|pdf)$">
-            Header add Cache-Control "max-age=31536000, public"
+      Header set Surrogate-Control "max-age=31536000, public"
+
+      <FilesMatch "\.(ico|gif|jpg|jpeg|png|webp|webm|mp4|eot|ttf|otf|woff|svg|pdf)$">
+            Header set Cache-Control "max-age=31536000, public"
       </FilesMatch>
-      <FilesMatch "\.(css|js|html|htm|xml|txt)$">
-            Header add Cache-Control "max-age=2592000, must-revalidate"
+      <FilesMatch "\.(css|js|xml|txt)$">
+            Header set Cache-Control "max-age=2592000, must-revalidate"
       </FilesMatch>
       <FilesMatch ".(eot|ttf|otf|woff)$">
             Header set Access-Control-Allow-Origin "*"
