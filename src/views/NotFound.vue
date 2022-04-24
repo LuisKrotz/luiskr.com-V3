@@ -67,7 +67,7 @@ export default {
         &-marquee {
             font-family: 'Black Ops One', monospace;
             font-size: to-rem($F8);
-
+            will-change: transform;
             width: fit-content;
             white-space: nowrap;
 
