@@ -19,15 +19,14 @@ export default {
     data() {
         return {
             marquee:          Number,
-            translations:     Object
+            translations:     false
         }
     },
     name: 'Not Found',
     created() {
-        document.title = this.$route.meta.title;
-    },
-    mounted() {
         let lang = this.$store.getters.getlang;
+
+        document.title = this.$route.meta.title;
 
         fetch(`${lang.prefix}/not-found${lang.suffix}`)
         .then((response) => {
@@ -35,6 +34,8 @@ export default {
         }).then((data) => {
             this.translations = data;
         });
+    },
+    mounted() {
 
         this.$store.commit('setMarqueeAmount');
         this.marquee = this.$store.getters.getMarqueeAmount;

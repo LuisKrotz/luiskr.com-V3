@@ -54,7 +54,7 @@ export default {
   data() {
     return {
       storage:          this.$store.getters.getStorage,
-      translations:     Object
+      translations:     false
     }
   },
   created() {

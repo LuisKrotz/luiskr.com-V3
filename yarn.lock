@@ -8908,20 +8908,10 @@ vue-eslint-parser@^7.8.0:
     lodash "^4.17.21"
     semver "^6.3.0"
 
-vue-gtag@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vue-gtag/-/vue-gtag-2.0.1.tgz#d4dc1b9cf79809c37ce844824c0f7fa97af520dd"
-  integrity sha512-aM4A58FVL0wV2ptYi+xzAjeg+pQVRyUcfBc5UkXAwQrR4t3WBhor50Izp2I+3Oo7+l+vWJ7u78DGcNzReb8S/A==
-
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
-
-vue-lazyload@^1.3.3:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/vue-lazyload/-/vue-lazyload-1.3.3.tgz#4df50a271bde9b74c3caf7a228d6e0af50d5682f"
-  integrity sha512-uHnq0FTEeNmqnbBC2aRKlmtd9LofMZ6Q3mWvgfLa+i9vhxU8fDK+nGs9c1iVT85axSua/AUnMttIq3xPaU9G3A==
 
 "vue-loader-v16@npm:vue-loader@^16.1.0":
   version "16.3.0"
@@ -8967,11 +8957,6 @@ vue3-lazyload@^0.2.2-beta:
   version "0.2.2-beta"
   resolved "https://registry.yarnpkg.com/vue3-lazyload/-/vue3-lazyload-0.2.2-beta.tgz#c75df1a8553b60fbfd8324d083cb0e71c94dd26d"
   integrity sha512-k198DjJmH8vmtPm90nzs/04MwMGpqmbhrp9foonWyPDCviQtCATYxlvloxRXroElcDRERZCs/+GRjeDVWsPtNw==
-
-vue3-smooth-scroll@^0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/vue3-smooth-scroll/-/vue3-smooth-scroll-0.8.1.tgz#c2de7dc33c0da8f195bbd70ac27b02c9cb1bd44c"
-  integrity sha512-9EN1aiBT2RtkIe1MoGiyGjUoLmqmlJ96R9/QVCylaiurHQ7oGu1SPzEoGJyxdhCa1q3qyMcX/pne1oTAn1UaoQ==
 
 vue@^3.0.0:
   version "3.1.4"

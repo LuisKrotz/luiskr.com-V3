@@ -25,7 +25,7 @@
 
     <Contact />
 
-    <img v-if="!has_touch" :alt="translations.explore[0]" :width="translations.explore[1]" :height="translations.explore[2]" class="hover" :style="'transform: translate3D(' + page.left + 'px, ' + page.top + 'px, 0);'+ (showhover ? 'opacity: 1' :  'opacity: 0')" aria-hidden="true" :src="translations.explore[3]">
+    <img v-if="translations && !has_touch" :alt="translations.explore[0]" :width="translations.explore[1]" :height="translations.explore[2]" class="hover" :style="'transform: translate3D(' + page.left + 'px, ' + page.top + 'px, 0);'+ (showhover ? 'opacity: 1' :  'opacity: 0')" aria-hidden="true" :src="translations.explore[3]">
   </article>
 </template>
 
@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       storage:              this.$store.getters.getStorage,
-      translations:         Object,
+      translations:         false,
       has_touch:            this.$store.getters.getTouch,
       showhover:            this.$store.getters.getHover,
       page:                 this.$store.getters.getOnMouseMove,
@@ -72,8 +72,13 @@ export default {
     },
   },
   created() {
-    let lang = this.$store.getters.getlang;
     document.title = this.$route.meta.title;
+  },
+  mounted() {
+    let lang = this.$store.getters.getlang;
+
+    this.$store.commit('setMarqueeAmount');
+    this.marquee = this.$store.getters.getMarqueeAmount;
 
     fetch(`${lang.prefix}/home${lang.suffix}`)
     .then((response) => {
@@ -81,10 +86,6 @@ export default {
     }).then((data) => {
         this.translations = data;
     });
-  },
-  mounted() {
-    this.$store.commit('setMarqueeAmount');
-    this.marquee = this.$store.getters.getMarqueeAmount;
 
     setTimeout(() => {
       window.scrollTo(0, 0);

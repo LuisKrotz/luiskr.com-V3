@@ -1,23 +1,23 @@
 <template>
-  <div :class="modal.class">
+  <div :class="modal.class" v-if="translations">
     <div v-if="modal.class === ''" class="nav">
-      <router-link class="nav-link back" v-if="$router.currentRoute.value.name !== 'Home'" to="/">Luis Krötz</router-link>
-      <button class="nav-link active" v-else @click="scrollTop()">Luis Krötz</button>
+      <router-link class="nav-link back" v-if="$router.currentRoute.value.name !== 'Home'" to="/">{{ translations.title }}</router-link>
+      <button class="nav-link active" v-else @click="scrollTop()">{{ translations.title }}</button>
 
       <div v-if="$router.currentRoute.value.name !== 'Not Found'">
-        <router-link class="nav-link" v-if="$router.currentRoute.value.name !== 'About'" to="/about">About</router-link>
-        <button class="nav-link active" v-else @click="scrollTop()">About</button>
+        <router-link class="nav-link" v-if="$router.currentRoute.value.name !== 'About'" :to="translations.about.link">{{ translations.about.description }}</router-link>
+        <button class="nav-link active" v-else @click="scrollTop()">{{ translations.about.description }}</button>
         <span class="nav-separator">{{ !onBottom ? '|' : '▲' }} </span>
 
         <button v-if="!onBottom" class="nav-link" @click="scrollBottom()">
-          <template v-if="$router.currentRoute.value.name === 'Home' || $router.currentRoute.value.name === 'About'">Contact</template>
-          <template v-else>Related</template>
+          <template v-if="$router.currentRoute.value.name === 'Home' || $router.currentRoute.value.name === 'About'">{{ translations.contact }}</template>
+          <template v-else>{{ translations.related }}</template>
         </button>
-        <button v-else class="nav-link" @click="scrollTop()"> Scroll Up</button>
+        <button v-else class="nav-link" @click="scrollTop()">{{ translations.scrollup }}</button>
       </div>
     </div>
     <div v-else @click="closeModal()" class="nav">
-      <button class="nav-link" @click="scrollTop()">Luis Krötz</button>
+      <button class="nav-link" @click="scrollTop()">{{ translations.title }}</button>
     </div>
 
     <router-view v-slot="{ Component }">
@@ -25,15 +25,14 @@
         <component :is="Component" />
       </transition>
     </router-view>
-
-    <aside v-if="!renderCookies" class="cookies">
-      <p class="cookies-info">Hey, I'm using Google Analytics to count pageviews, this action uses cookies do whould you agree in my use of analytics to count a pageview? <small><strong>(note, I don't collect any identifiable data)</strong></small></p>
-      <div class="cookies-buttons">
-        <button class="cookies-buttons-accept" @click="cookieAction(true)">Sure, why not.</button>
-        <button class="cookies-buttons-refuse" @click="cookieAction(false)">Maybe next time</button>
-      </div>
-    </aside>
   </div>
+  <aside v-if="translations && !renderCookies" class="cookies">
+    <p class="cookies-info" v-html="translations.cookies.message"></p>
+    <div class="cookies-buttons">
+      <button class="cookies-buttons-accept" @click="cookieAction(true)">{{ translations.cookies.accept }}</button>
+      <button class="cookies-buttons-refuse" @click="cookieAction(false)">{{ translations.cookies.refuse }}</button>
+    </div>
+  </aside>
 </template>
 
 <script>
@@ -44,9 +43,10 @@
     name: 'App',
     data() {
       return {
-        modal: this.$store.getters.getModal,
-        onBottom: false,
-        renderCookies: false
+        modal:          this.$store.getters.getModal,
+        onBottom:       false,
+        renderCookies:  false,
+        translations:   false
       }
     },
     methods: {
@@ -104,19 +104,27 @@
       }
   },
   created() {
+    // Default locale EN
+    this.$store.commit('setLang', this.$store.getters.getlang.locale);
     this.renderCookies = JSON.parse(localStorage.getItem(cookie));
+
+    let lang = this.$store.getters.getlang;
+
+    fetch(`${lang.prefix}/app${lang.suffix}`)
+    .then((response) => {
+      return response.json();
+    }).then((data) => {
+        this.translations = data;
+
+        this.$store.commit('setClickOrTap', {
+          click: data.actions.click,
+          tap: data.actions.tap,
+      });
+    });
   },
   mounted() {
     window.addEventListener('scroll', () => this.checkScroll());
     window.addEventListener('resize', () => this.checkScroll());
-
-    this.$store.commit('setClickOrTap', {
-      click: 'click',
-      tap: 'tap'
-    });
-
-    // Default locale EN
-    this.$store.commit('setLang', this.$store.getters.getlang.locale);
   }
 }
 </script>
