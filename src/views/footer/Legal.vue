@@ -5,6 +5,7 @@
       <h3 class="internal-description-text" v-html="section.title"></h3>
       <p class="internal-description-text" v-for="paragraph, key in section.content" :key="key" v-html="paragraph"></p>
     </section>
+
     <Footer />
   </article>
 </template>
@@ -25,7 +26,7 @@ export default {
     let lang = this.$store.getters.getlang;
     document.title = this.$route.meta.title;
 
-    fetch(`${lang.prefix}/terms-of-use${lang.suffix}`)
+    fetch(lang.prefix + this.$route.meta.translation + lang.suffix)
     .then((response) => {
         return response.json();
     }).then((data) => {
@@ -37,7 +38,7 @@ export default {
       window.scrollTo(0, 0);
     }, 500);
   },
-  name: 'Terms of use',
+  name: 'Legal',
 }
 </script>
 
