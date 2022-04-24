@@ -253,7 +253,7 @@
         &-item {
             border-radius: to-rem($F5);
             background: var(--grey-2);
-            box-shadow: to-rem($F3) to-rem($F3) to-rem($F5) 0 rgba(0,0,0, .15);
+            box-shadow: to-rem($F3) to-rem($F3) to-rem($F5) 0 rgba($color-black, .15);
             overflow: hidden;
 
             &-link {

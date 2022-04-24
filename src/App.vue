@@ -25,16 +25,28 @@
         <component :is="Component" />
       </transition>
     </router-view>
+
+    <aside v-if="!renderCookies" class="cookies">
+      <p class="cookies-info">Hey, I'm using Google Analytics to count pageviews, this action uses cookies do whould you agree in my use of analytics to count a pageview? <small><strong>(note, I don't collect any identifiable data)</strong></small></p>
+      <div class="cookies-buttons">
+        <button class="cookies-buttons-accept" @click="cookieAction(true)">Sure, why not.</button>
+        <button class="cookies-buttons-refuse" @click="cookieAction(false)">Maybe next time</button>
+      </div>
+    </aside>
   </div>
 </template>
 
 <script>
+  const cookie = 'cookie',
+        cookieEvent = 'cookieAction';
+
   export default {
     name: 'App',
     data() {
       return {
         modal: this.$store.getters.getModal,
-        onBottom: false
+        onBottom: false,
+        renderCookies: false
       }
     },
     methods: {
@@ -81,7 +93,18 @@
           } else {
             this.onBottom = false;
           }
+      },
+      cookieAction(state) {
+        console.log(state)
+          localStorage.setItem(cookie, state);
+
+          document.dispatchEvent(new Event(cookieEvent));
+
+          setTimeout(() => this.renderCookies = true, 2000);
       }
+  },
+  created() {
+    this.renderCookies = JSON.parse(localStorage.getItem(cookie));
   },
   mounted() {
     window.addEventListener('scroll', () => this.checkScroll());
