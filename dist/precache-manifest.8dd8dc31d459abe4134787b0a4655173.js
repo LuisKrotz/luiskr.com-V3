@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "22e8c6c87aafd25628f643b83466a2b7",
+    "revision": "187ead6cbd122aa141a45ce5a441fc15",
     "url": "/.htaccess"
   },
   {
@@ -24,16 +24,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/browserconfig.xml"
   },
   {
-    "revision": "f33916efaeac5078e9fe",
-    "url": "/css/about.70bff873.css"
+    "revision": "a321c0735e9c5f160eab",
+    "url": "/css/about.1087442e.css"
   },
   {
     "revision": "596e2c63c4a0427a51ed",
     "url": "/css/aboutmarco.4f0a7a49.css"
   },
   {
-    "revision": "9e5a74a32d7fd7bc14f6",
-    "url": "/css/app.c34ffda9.css"
+    "revision": "a681214200f40a2baeea",
+    "url": "/css/app.bd45877c.css"
   },
   {
     "revision": "305cacd21573bc2d809e",
@@ -108,15 +108,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/favicon.svg"
   },
   {
-    "revision": "4fe9b753ec6966b103ad8cc7af2c04ff",
+    "revision": "b84c2a2b93af16f09435563de879f215",
     "url": "/index-unminified.html"
   },
   {
-    "revision": "b70d2b0f58e4f9b562a00122c19b2fb2",
+    "revision": "5e28fd4fd2a4dd0b3f28c7141959a78d",
     "url": "/index.html"
   },
   {
-    "revision": "f33916efaeac5078e9fe",
+    "revision": "a321c0735e9c5f160eab",
     "url": "/js/about.8178f72c.js"
   },
   {
@@ -124,8 +124,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/aboutmarco.85413c7d.js"
   },
   {
-    "revision": "9e5a74a32d7fd7bc14f6",
-    "url": "/js/app.75bcea0c.js"
+    "revision": "a681214200f40a2baeea",
+    "url": "/js/app.0eea0ea9.js"
   },
   {
     "revision": "305cacd21573bc2d809e",
