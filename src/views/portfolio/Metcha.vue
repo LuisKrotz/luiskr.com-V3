@@ -152,6 +152,7 @@
             To realize METCHA's project, VUE.js, Sass and PHP (Laravel) were used in the development, specially VUE, to enable all the styling and the website identity while keeping a fast, dynamic and smooth experience.
           </p>
         </div>
+
         <div class="internal-extra">
           <div class="internal-extra-scroll">
               <div class="internal-extra-item landscape">
