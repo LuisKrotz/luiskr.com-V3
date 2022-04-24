@@ -11,7 +11,7 @@ RewriteRule ^.*$ index.html [NC,L]
       <FilesMatch "\.(ico|gif|jpg|jpeg|png|webp|webm|mp4|eot|ttf|otf|woff|svg|pdf)$">
             Header set Cache-Control "max-age=31536000, public"
       </FilesMatch>
-      <FilesMatch "\.(css|js|xml|txt)$">
+      <FilesMatch "\.(css|js|xml|txt|json)$">
             Header set Cache-Control "max-age=2592000, must-revalidate"
       </FilesMatch>
       <FilesMatch ".(eot|ttf|otf|woff)$">

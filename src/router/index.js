@@ -122,25 +122,28 @@ const routes = [
   {
     path: '/privacy-policy',
     name: 'Privacy Policy',
-    component: () => import(/* webpackChunkName: "privacypolicy" */ '../views/footer/PrivacyPolicy.vue'),
+    component: () => import(/* webpackChunkName: "legal" */ '../views/footer/Legal.vue'),
     meta: {
-      title: title + ' | Privacy Policy'
+      title: title + ' | Privacy Policy',
+      translation: '/privacy-policy'
     }
   },
   {
     path: '/gdpr',
     name: 'GDPR',
-    component: () => import(/* webpackChunkName: "gdpr" */ '../views/footer/GDPR.vue'),
+    component: () => import(/* webpackChunkName: "legal" */ '../views/footer/Legal.vue'),
     meta: {
-      title: title + ' | GDPR'
+      title: title + ' | GDPR',
+      translation: '/GDPR'
     }
   },
   {
     path: '/terms-of-use',
     name: 'Terms of Use',
-    component: () => import(/* webpackChunkName: "termsofuse" */ '../views/footer/TermsOfUse.vue'),
+    component: () => import(/* webpackChunkName: "legal" */ '../views/footer/Legal.vue'),
     meta: {
-      title: title + ' | Terms of Use'
+      title: title + ' | Terms of Use',
+      translation: '/terms-of-use'
     }
   },
   {

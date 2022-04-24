@@ -6,8 +6,6 @@
  * @type {import('@vue/cli-service').ProjectOptions}
  */
 
-const path = 'https://luiskr.com/';
-
 module.exports = {
     pwa: {
         name: 'Luis Krötz',
@@ -15,25 +13,25 @@ module.exports = {
         msTileColor: '#262626',
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'black-translucent',
-        manifestPath: path + 'site.webmanifest',
+        manifestPath: 'site.webmanifest',
         iconPaths: {
-            faviconSVG: path + 'favicon.svg',
-            favicon32: path + 'favicon-32x32.png',
-            favicon16: path + 'favicon-16x16.png',
-            appleTouchIcon: path + 'apple-touch-icon.png',
-            maskIcon: path + 'safari-pinned-tab.svg',
-            msTileImage: path + 'mstile-150x150.png'
+            faviconSVG: 'favicon.svg',
+            favicon32: 'favicon-32x32.png',
+            favicon16: 'favicon-16x16.png',
+            appleTouchIcon: 'apple-touch-icon.png',
+            maskIcon: 'safari-pinned-tab.svg',
+            msTileImage: 'mstile-150x150.png'
         },
         manifestOptions: {
             name: "Luis Krötz",
             short_name: "Luis Krötz",
-            start_url: path,
+            start_url: 'https://luiskr.com',
             display: "fullscreen",
             theme_color: "#262626",
             background_color: "#FFF",
             icons: [
               {
-                src: path + "favicon.svg",
+                src: "favicon.svg",
                 sizes: "512x512",
                 type: "image/svg+xml",
                 purpose: "any maskable",

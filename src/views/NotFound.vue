@@ -7,8 +7,8 @@
     <div id="#main" class="not-found">
 
         <div>
-            <h2 class="not-found-title">Looks like someone's lost here.</h2>
-            <router-link class="not-found-link" to="/">Click here to go to the main page.</router-link>
+            <h2 class="not-found-title">{{ translations.title }}</h2>
+            <router-link class="not-found-link" to="/">{{ translations.link }}</router-link>
         </div>
     </div>
 </template>
@@ -18,12 +18,22 @@
 export default {
     data() {
         return {
-            marquee: Number
+            marquee:          Number,
+            translations:     false
         }
     },
     name: 'Not Found',
     created() {
+        let lang = this.$store.getters.getlang;
+
         document.title = this.$route.meta.title;
+
+        fetch(`${lang.prefix}/not-found${lang.suffix}`)
+        .then((response) => {
+            return response.json();
+        }).then((data) => {
+            this.translations = data;
+        });
     },
     mounted() {
         this.$store.commit('setMarqueeAmount');

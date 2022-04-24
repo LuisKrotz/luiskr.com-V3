@@ -1,23 +1,17 @@
 <template>
     <footer class="contact">
-      <h2 id="contact" class="contact-title" ref="contact">Contact</h2>
+      <h2 id="contact" class="contact-title" ref="contact">{{ translations.title }}</h2>
       <div class="contact-social">
-        <a href="mailto:luis.krotz@gmail.com" target="_blank" class="contact-social-link">Mail</a>
-        <span class="contact-social-separator">•</span>
-        <a href="tel:+55(51)982-274-782" target="_blank" class="contact-social-link">Phone</a>
-        <span class="contact-social-separator">•</span>
-        <a href="https://www.linkedin.com/in/luis-kr%C3%B6tz/?locale=en_US" target="_blank" class="contact-social-link">Linkedin</a>
-        <span class="contact-social-separator">•</span>
-        <a href="https://github.com/LuisKrotz" target="_blank" class="contact-social-link">Github</a>
-        <span class="contact-social-separator">•</span>
-        <a href="https://www.instagram.com/j_luiskrotz" target="_blank" class="contact-social-link">Instagram</a>
+        <template v-for="item, n in translations.line1" :key="n">
+          <a :href="item.link" target="_blank" class="contact-social-link">{{ item.description }}</a>
+          <span v-if="n < translations.line1.length - 1" class="contact-social-separator">•</span>
+        </template>
       </div>
       <div class="contact-other">
-        <router-link class="contact-other-link" to="/privacy-policy">Privacy Policy</router-link>
-        <span class="contact-other-separator">•</span>
-        <router-link class="contact-other-link" to="/GDPR">GDPR</router-link>
-        <span class="contact-other-separator">•</span>
-        <router-link class="contact-other-link" to="/terms-of-use">Terms of use</router-link>
+        <template v-for="item, n in translations.line2" :key="n">
+          <router-link class="contact-other-link" :to="item.link">{{ item.description }}</router-link>
+          <span v-if="n < translations.line2.length - 1" class="contact-social-separator">•</span>
+        </template>
       </div>
     </footer>
 </template>
@@ -26,6 +20,21 @@
 
 export default {
   name: 'Contact',
+  data() {
+    return {
+        translations:     Object
+    }
+  },
+  mounted() {
+    let lang = this.$store.getters.getlang;
+
+    fetch(`${lang.prefix}/contact${lang.suffix}`)
+    .then((response) => {
+        return response.json();
+    }).then((data) => {
+        this.translations = data;
+    });
+  }
 }
 </script>
 
