@@ -298,7 +298,7 @@
                 object-position: top center;
                 border-radius: to-rem($F2);
                 box-sizing: border-box;
-                border: 1px solid rgba(255, 255 , 255, .15);
+                border: 1px solid rgba($color-white, .15);
 
                 @include layout-1024() {
                     border: none;
@@ -370,7 +370,7 @@
                 top: 0;
                 left: 0;
                 position: fixed;
-                background: rgba(38, 38, 38, .9);
+                background: rgba($color-black, .9);
                 min-height: 100vh;
                 height: auto;
                 width: 100vw;
