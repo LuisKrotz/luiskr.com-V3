@@ -47,9 +47,10 @@
 </template>
 
 <script>
-import Contact        from '../components/Contact'
+import Contact from '../components/Contact'
 
 export default {
+  name: 'About',
   data() {
     return {
       storage:          this.$store.getters.getStorage,
@@ -62,7 +63,6 @@ export default {
   components: {
     Contact
   },
-  name: 'About',
   mounted() {
     let lang = this.$store.getters.getlang;
 
@@ -72,10 +72,9 @@ export default {
 
     fetch(`${lang.prefix}/about${lang.suffix}`)
     .then((response) => {
-      return response.json();
+        return response.json();
     }).then((data) => {
-      console.log(data)
-      this.translations = data;
+        this.translations = data;
     });
   }
 }

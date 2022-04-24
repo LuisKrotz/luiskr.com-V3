@@ -50,13 +50,12 @@
       }
     },
     methods: {
-      scrollTop() {
-          this.$smoothScroll({
-            duration: 1000,
-            updateHistory: true,
-            scrollTo: 0,
-            hash: ''
-          })
+      checkScroll() {
+          if (document.body.scrollHeight - window.scrollY<= window.innerHeight + 200) {
+            this.onBottom = true;
+          } else {
+            this.onBottom = false;
+          }
       },
       closeModal () {
         let scroll = this.$store.getters.getModal.transform;
@@ -79,6 +78,14 @@
             window.scrollTo(0, scroll);
         });
       },
+      cookieAction(state) {
+        console.log(state)
+          localStorage.setItem(cookie, state);
+
+          document.dispatchEvent(new Event(cookieEvent));
+
+          setTimeout(() => this.renderCookies = true, 2000);
+      },
       scrollBottom() {
         this.$smoothScroll({
           duration: 1000,
@@ -87,20 +94,13 @@
           hash: ''
         })
       },
-      checkScroll() {
-          if (document.body.scrollHeight - window.scrollY<= window.innerHeight + 200) {
-            this.onBottom = true;
-          } else {
-            this.onBottom = false;
-          }
-      },
-      cookieAction(state) {
-        console.log(state)
-          localStorage.setItem(cookie, state);
-
-          document.dispatchEvent(new Event(cookieEvent));
-
-          setTimeout(() => this.renderCookies = true, 2000);
+      scrollTop() {
+          this.$smoothScroll({
+            duration: 1000,
+            updateHistory: true,
+            scrollTo: 0,
+            hash: ''
+          })
       }
   },
   created() {
