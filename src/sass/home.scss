@@ -44,7 +44,7 @@
 
             width: fit-content;
             white-space: nowrap;
-
+            will-change: transform;
             font-size: to-rem($F12);
             line-height: to-rem($F12);
 
