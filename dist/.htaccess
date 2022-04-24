@@ -6,11 +6,15 @@ RewriteRule ^.*$ - [NC,L]
 RewriteRule ^.*$ index.html [NC,L]
 
 <IfModule mod_headers.c>
-    <FilesMatch "\.(ico|gif|jpg|jpeg|png)$">
-          Header set Cache-Control "max-age=31536000"
-    </FilesMatch>
-    <FilesMatch "\.(css|js)$">
-          Header set Cache-Control "max-age=31536000"
-    </FilesMatch>
-</IfModule>
+      Header set Surrogate-Control "max-age=31536000, public"
 
+      <FilesMatch "\.(ico|gif|jpg|jpeg|png|webp|webm|mp4|eot|ttf|otf|woff|svg|pdf)$">
+            Header set Cache-Control "max-age=31536000, public"
+      </FilesMatch>
+      <FilesMatch "\.(css|js|xml|txt)$">
+            Header set Cache-Control "max-age=2592000, must-revalidate"
+      </FilesMatch>
+      <FilesMatch ".(eot|ttf|otf|woff)$">
+            Header set Access-Control-Allow-Origin "*"
+      </FilesMatch>
+</IfModule>
