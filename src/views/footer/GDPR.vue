@@ -22,10 +22,8 @@ export default {
     Footer
   },
   created() {
+    let lang = this.$store.getters.getlang;
     document.title = this.$route.meta.title;
-  },
-  mounted() {
-      let lang = this.$store.getters.getlang;
 
     fetch(`${lang.prefix}/GDPR${lang.suffix}`)
     .then((response) => {
@@ -33,8 +31,8 @@ export default {
     }).then((data) => {
         this.translations = data;
     });
-
-
+  },
+  mounted() {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 500);

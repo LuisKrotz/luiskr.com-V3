@@ -72,13 +72,8 @@ export default {
     },
   },
   created() {
-    document.title = this.$route.meta.title;
-  },
-  mounted() {
     let lang = this.$store.getters.getlang;
-
-    this.$store.commit('setMarqueeAmount');
-    this.marquee = this.$store.getters.getMarqueeAmount;
+    document.title = this.$route.meta.title;
 
     fetch(`${lang.prefix}/home${lang.suffix}`)
     .then((response) => {
@@ -86,6 +81,10 @@ export default {
     }).then((data) => {
         this.translations = data;
     });
+  },
+  mounted() {
+    this.$store.commit('setMarqueeAmount');
+    this.marquee = this.$store.getters.getMarqueeAmount;
 
     setTimeout(() => {
       window.scrollTo(0, 0);

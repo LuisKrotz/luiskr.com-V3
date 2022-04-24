@@ -36,7 +36,6 @@ export default {
         });
     },
     mounted() {
-
         this.$store.commit('setMarqueeAmount');
         this.marquee = this.$store.getters.getMarqueeAmount;
 

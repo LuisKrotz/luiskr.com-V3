@@ -58,17 +58,8 @@ export default {
     }
   },
   created() {
-    document.title = this.$route.meta.title;
-  },
-  components: {
-    Contact
-  },
-  mounted() {
     let lang = this.$store.getters.getlang;
-
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 500);
+    document.title = this.$route.meta.title;
 
     fetch(`${lang.prefix}/about${lang.suffix}`)
     .then((response) => {
@@ -76,6 +67,14 @@ export default {
     }).then((data) => {
         this.translations = data;
     });
+  },
+  components: {
+    Contact
+  },
+  mounted() {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 500);
   }
 }
 </script>
