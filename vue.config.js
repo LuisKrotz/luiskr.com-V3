@@ -25,7 +25,7 @@ module.exports = {
         manifestOptions: {
             name: "Luis Krötz",
             short_name: "Luis Krötz",
-            start_url: 'https://luiskr.com',
+            start_url: '/',
             display: "fullscreen",
             theme_color: "#262626",
             background_color: "#FFF",
@@ -39,6 +39,10 @@ module.exports = {
             ],
           },
         // configure the workbox plugin
-        workboxPluginMode: 'GenerateSW'
+        workboxPluginMode: 'GenerateSW',
+        workboxOptions: {
+          exclude: ['.htaccess', 'urllist.txt'],
+        }
       }
 }
+
