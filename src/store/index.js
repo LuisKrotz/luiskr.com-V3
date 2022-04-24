@@ -2,7 +2,15 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    storage: "https://storage.googleapis.com/luiskr.com/public/_v3/",
+    clickortap:  String,
+    has_touch: (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0)),
+    lang: {
+      folder: '/translations/',
+      locale: 'en',
+      prefix: '',
+      suffix: '.json'
+    },
+    marqueeamount: Number,
     modalObject: {
       transform: 'translateY(0)',
       class: '',
@@ -14,27 +22,23 @@ export default createStore({
         width: 0,
         height: 0,
         isVideo: false
-      }
+      },
     },
-    has_touch: (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0)),
-    clickortap:  String,
-    showhover: false,
+    origin: window.location.origin,
     page: {
-        left : 0,
-        top: 0
+      left : 0,
+      top: 0
     },
-    marqueeamount: Number
+    showhover: false,
+    storage: "https://storage.googleapis.com/luiskr.com/public/_v3/"
   },
   mutations: {
-    setModal(state, payload) {
-      state.modalObject.transform = payload.transform,
-      state.modalObject.class = payload.class,
-      state.modalObject.open =  payload.open,
-      state.modalObject.media =  payload.media
+    setClear(state) {
+      document.body.classList.remove("mouseenter");
+      state.showhover = false;
     },
-    setOnMouseMove(state, payload) {
-      state.page.left = payload.pageX - 60;
-      state.page.top = payload.pageY - 60;
+    setClickOrTap(state, payload) {
+      state.clickortap = state.has_touch ? payload.tap : payload.click;
     },
     setHover(state, payload) {
       if(!state.has_touch) {
@@ -44,12 +48,9 @@ export default createStore({
         this.commit('setOnMouseMove', payload);
       }
     },
-    setClear(state) {
-      document.body.classList.remove("mouseenter");
-      state.showhover = false;
-    },
-    setClickOrTap(state, payload) {
-      state.clickortap = state.has_touch ? payload.tap : payload.click;
+    setLang(state, payload) {
+      state.lang.locale = payload;
+      state.lang.prefix = state.origin + state.lang.folder + payload;
     },
     setMarqueeAmount(state) {
       let width = window.innerWidth,
@@ -70,10 +71,29 @@ export default createStore({
         break;
       }
     },
+    setModal(state, payload) {
+      state.modalObject.transform = payload.transform,
+      state.modalObject.class = payload.class,
+      state.modalObject.open =  payload.open,
+      state.modalObject.media =  payload.media
+    },
+    setOnMouseMove(state, payload) {
+      state.page.left = payload.pageX - 60;
+      state.page.top = payload.pageY - 60;
+    }
   },
   getters: {
-    getStorage: state => {
-      return state.storage;
+    getClickOrTap: state => {
+      return state.clickortap;
+    },
+    getHover: state => {
+      return state.showhover;
+    },
+    getlang: state => {
+      return state.lang;
+    },
+    getMarqueeAmount: state => {
+      return state.marqueeamount;
     },
     getModal: state => {
       return state.modalObject;
@@ -81,17 +101,11 @@ export default createStore({
     getOnMouseMove: state => {
       return state.page;
     },
-    getHover: state => {
-      return state.showhover;
+    getStorage: state => {
+      return state.storage;
     },
     getTouch: state => {
       return state.has_touch;
-    },
-    getClickOrTap: state => {
-      return state.clickortap;
-    },
-    getMarqueeAmount: state => {
-      return state.marqueeamount;
     }
   },
   actions: {

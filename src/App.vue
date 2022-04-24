@@ -114,6 +114,9 @@
       click: 'click',
       tap: 'tap'
     });
+
+    // Default locale EN
+    this.$store.commit('setLang', this.$store.getters.getlang.locale);
   }
 }
 </script>
