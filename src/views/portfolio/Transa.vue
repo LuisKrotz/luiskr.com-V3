@@ -1,7 +1,7 @@
 <template>
   <article>
     <div id="#main" class="project modal-below" :style="'transform: translateY(-' + modal.transform + 'px);'">
-      <h2 class="internal-title">Transa</h2>
+      <h2 class="internal-title">Transa Inc.</h2>
       <div class="internal-main">
           <Media
             classes="internal-main-item"
