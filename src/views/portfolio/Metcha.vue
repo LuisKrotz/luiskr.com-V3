@@ -18,7 +18,7 @@
             <a href="https://metcha.com?utm_source=luiskr.com" target="_blank">METCHA</a> is the oracle of leather design culture.
           </h3>
           <p class="internal-description-text">
-            Seeking to tell the most compelling stories within the worlds of design, art, fashion and lifestyle, shining a spotlight on the subjects and the individuals that make up the everyday lives of the people who shape the world of today.
+            Powered by Transa Inc + Leather Naturally, seeking to tell the most compelling stories within the worlds of design, art, fashion and lifestyle, shining a spotlight on the subjects and the individuals that make up the everyday lives of the people who shape the world of today.
           </p>
           <p class="internal-description-text">
             Through bold, fresh and honest storytelling, METCHA hopes to encourage innovative thinking, inspiring people to continue to evolve the ever-expanding culture of creativity.
