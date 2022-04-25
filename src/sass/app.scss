@@ -93,7 +93,7 @@
   position: fixed;
   bottom: to-rem($F7);
   right: to-rem($F8);
-  width: to-rem(280);
+  width: to-rem($F13);
   max-width: 87vw;
   background-color: rgba($color-blue, 0.95);
   color: var(--white);
@@ -109,13 +109,20 @@
 
   @include layout-768() {
     bottom: to-rem($F7);
-    right: to-rem($F10);
+    right: to-rem($F7);
+    width: to-rem($F14);
   }
 
   @include layout-1024() {
     bottom: initial;
     top: to-rem($F7);
     right: to-rem($F8);
+  }
+
+  @include layout-1920() {
+    font-size: to-rem($F7);
+    line-height: to-rem($F8);
+    width: to-rem($F15);
   }
 
   .show-logo & {
@@ -141,6 +148,10 @@
 
     @include layout-1024() {
       min-height: to-rem($F9);
+    }
+
+    @include layout-1920() {
+      min-height: to-rem($F10);
     }
 
     &-accept,
