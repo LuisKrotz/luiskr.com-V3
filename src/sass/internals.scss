@@ -221,15 +221,20 @@
 
         &-item {
             position: relative;
-            border-radius: to-rem($F5);
+            border-radius: to-rem($F6);
             color: var(--grey);
             display: inline-block;
             width: min-content;
             padding: 0 to-rem($F7);
             min-height: 100%;
+            overflow: hidden;
 
             @include layout-768() {
                 padding: 0 to-rem($F8);
+            }
+
+            @include layout-1024() {
+                border-radius: to-rem($F7);
             }
 
             @include layout-1440() {
@@ -253,7 +258,8 @@
                 display: block;
                 position: relative;
                 overflow: hidden;
-                border-radius: to-rem($F2);
+                border-radius: to-rem($F6);
+                background-color: var(--grey-3);
 
                 @include layout-1024() {
                     background: none;
@@ -298,14 +304,9 @@
                 object-position: top center;
                 border-radius: to-rem($F2);
                 box-sizing: border-box;
-                border: 1px solid rgba($color-white, .15);
 
                 @include layout-1024() {
                     border: none;
-                    border-radius: to-rem($F6);
-                }
-
-                @include layout-1440() {
                     border-radius: to-rem($F7);
                 }
             }
@@ -327,16 +328,6 @@
 
                     @include layout-1920() {
                         max-width: calc(100vw - #{to-rem($F13)})
-                    }
-                }
-
-                .render-media {
-                    object-fit: scale-down;
-                    object-position: center;
-
-                    @include layout-1024() {
-                        object-fit: cover;
-                        object-position: center;
                     }
                 }
             }
