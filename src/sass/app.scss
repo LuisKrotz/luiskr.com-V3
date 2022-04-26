@@ -75,6 +75,14 @@
         }
       }
     }
+
+    &.scroll-up {
+      cursor: n-resize;
+    }
+
+    &.scroll-down {
+      cursor: s-resize;
+    }
   }
 
   &-separator {

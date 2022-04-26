@@ -487,6 +487,7 @@
                 display: block;
                 line-height: to-rem($F10);
                 text-transform: uppercase;
+                font-weight: 700;
 
                 @include layout-375() {
                     text-transform: initial;
@@ -500,6 +501,8 @@
             }
 
             &-note {
+                @extend .ttl-xxs;
+
                 display: block;
                 padding: 0;
                 margin:to-rem(-$F5) 0 to-rem($F7);

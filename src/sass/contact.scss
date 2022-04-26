@@ -54,6 +54,7 @@
             padding: 0 to-rem($F6);
             font-weight: 200;
             display: none;
+            font-weight: 700;
 
             @include layout-768() {
                 display: inline-block;
@@ -97,9 +98,17 @@
 
             display: block;
             line-height: to-rem($F10);
+            font-weight: 700;
+            position: relative;
 
             @include layout-768() {
                 display: inline-block;
+            }
+
+            &.router-link-active {
+                text-decoration: underline;
+                pointer-events: none;
+                cursor: none;
             }
         }
     }

@@ -9,11 +9,11 @@
         <button class="nav-link active" v-else @click="scrollTop()">{{ translations.about.description }}</button>
         <span class="nav-separator">{{ !onBottom ? '|' : '▲' }} </span>
 
-        <button v-if="!onBottom" class="nav-link" @click="scrollBottom()">
+        <button v-if="!onBottom" class="nav-link scroll-down" @click="scrollBottom()">
           <template v-if="$router.currentRoute.value.name === 'Home' || $router.currentRoute.value.name === 'About'">{{ translations.contact }}</template>
           <template v-else>{{ translations.related }}</template>
         </button>
-        <button v-else class="nav-link" @click="scrollTop()">{{ translations.scrollup }}</button>
+        <button v-else class="nav-link scroll-up" @click="scrollTop()">{{ translations.scrollup }}</button>
       </div>
     </div>
     <div v-else @click="closeModal()" class="nav">
