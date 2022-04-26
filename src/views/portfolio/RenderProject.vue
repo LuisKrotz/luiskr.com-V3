@@ -22,7 +22,7 @@
                 </div>
                 <div v-else class="internal-extra">
                     <div class="internal-extra-scroll">
-                        <div v-for="item, itemkey in child" :key="itemkey" :class="'internal-extra-item ' + item?.class ?? ''">
+                        <div v-for="item, itemkey in child" :key="itemkey" :class="'internal-extra-item ' + (item?.class ?? '')">
                             <Media
                             :src="item.source"
                             :width="item.width"
