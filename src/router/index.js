@@ -26,9 +26,10 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "metcha" */ '../views/portfolio/Metcha.vue'),
+    component: () => import(/* webpackChunkName: "metcha" */ '../views/portfolio/RenderProject.vue'),
     meta: {
-      title: title + ' | METCHA'
+      title: title + ' | METCHA',
+      translation: '/metcha'
     }
   },
   {
