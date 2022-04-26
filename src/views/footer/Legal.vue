@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Footer from'../../components/abouts/Footer'
+import Footer from'../../components/legal/Footer'
 
 export default {
   data() {
@@ -26,7 +26,7 @@ export default {
     let lang = this.$store.getters.getlang;
     document.title = this.$route.meta.title;
 
-    fetch(lang.prefix + this.$route.meta.translation + lang.suffix)
+    fetch(`${lang.prefix}/pages/${this.$route.meta.translation + lang.suffix}`)
     .then((response) => {
         return response.json();
     }).then((data) => {

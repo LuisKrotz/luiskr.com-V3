@@ -1,5 +1,5 @@
 <template>
-    <footer class="contact">
+    <footer class="contact" v-if="translations">
       <h2 id="contact" class="contact-title" ref="contact">{{ translations.title }}</h2>
       <div class="contact-social">
         <template v-for="item, n in translations.line1" :key="n">
@@ -22,13 +22,13 @@ export default {
   name: 'Contact',
   data() {
     return {
-        translations:     Object
+        translations:     false
     }
   },
   mounted() {
     let lang = this.$store.getters.getlang;
 
-    fetch(`${lang.prefix}/contact${lang.suffix}`)
+    fetch(`${lang.prefix}/components/contact${lang.suffix}`)
     .then((response) => {
         return response.json();
     }).then((data) => {

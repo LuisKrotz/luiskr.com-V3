@@ -29,7 +29,7 @@
         <div class="portfolio-item-label">
             <h4 class="portfolio-item-label-title">{{ label }}</h4>
             <p class="portfolio-item-label-description" v-html="description"></p>
-            <button class="portfolio-item-label-button">{{ action }} here to know more.</button>
+            <button class="portfolio-item-label-button">{{ action }} {{ translations.action }}</button>
         </div>
     </router-link>
 </template>
@@ -40,11 +40,12 @@
 export default {
     data() {
         return {
-            viewport:   Number,
-            loadext:    '-mozjpg3-MSSIM-tuned-kodak',
-            mobileext:  '-mobile',
-            ext:        '.jpg',
-            action:     this.$store.getters.getClickOrTap
+            viewport:       Number,
+            loadext:        '-mozjpg3-MSSIM-tuned-kodak',
+            mobileext:      '-mobile',
+            ext:            '.jpg',
+            action:         this.$store.getters.getClickOrTap,
+            translations:   false
         }
     },
     name: 'Draw Computer',
@@ -75,7 +76,8 @@ export default {
         }
     },
     created() {
-        let link = document.createElement("link");
+        let lang = this.$store.getters.getlang,
+            link = document.createElement("link");
 
         link.rel="preload",
         link.as="image";
@@ -84,6 +86,12 @@ export default {
 
         document.getElementsByTagName('head')[0].appendChild(link);
 
+        fetch(`${lang.prefix}/components/draw-computer${lang.suffix}`)
+        .then((response) => {
+            return response.json();
+        }).then((data) => {
+            this.translations = data;
+        });
     },
     mounted() {
         this.setViewport();

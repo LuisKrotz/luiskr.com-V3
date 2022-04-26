@@ -28,7 +28,7 @@ export default {
 
         document.title = this.$route.meta.title;
 
-        fetch(`${lang.prefix}/not-found${lang.suffix}`)
+        fetch(`${lang.prefix}/pages/not-found${lang.suffix}`)
         .then((response) => {
             return response.json();
         }).then((data) => {
