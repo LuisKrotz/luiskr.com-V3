@@ -1,0 +1,121 @@
+{
+    "title": "Marco Almeida",
+    "cover": {
+        "source": "aboutmarco/home/aboutmarco.com-2020-full-page-home-tour",
+        "width": 1462,
+        "height": 784,
+        "isVideo": true,
+        "label": "aboutmarco.com - homepage full tour"
+    },
+    "sections": [
+        [
+            [
+                "<a href='https://aboutmarco.com?utm_source=luiskr.com' target='_blank'>Marco's Portfolio</a> was developed as a Freelancing project in 2021.",
+                "It uses Vue.JS and Sass.",
+                "All animations are created in CSS.",
+                "The main goal was to create a pixel-perfect project, with smooth animations and a pixel perfect UI.",
+                "I also did the server setup at Digital Ocean."
+            ],
+            [
+                {
+                    "source": "aboutmarco/home/aboutmarco.com-mobile-mobile",
+                    "width": 830,
+                    "height": 1712,
+                    "canExpand": true,
+                    "isVideo": true,
+                    "label": "aboutmarco.com - mobile tour"
+                },
+                {
+                    "source": "aboutmarco/home/aboutmarco.com-2020-home",
+                    "width": 1920,
+                    "height": 3003,
+                    "canExpand": true,
+                    "label": "aboutmarco.com - homepage"
+                },
+                {
+                    "source": "aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15",
+                    "width": 1920,
+                    "height": 10094,
+                    "canExpand": true,
+                    "label": "aboutmarco.com - melissa insider"
+                },
+                {
+                    "source": "aboutmarco/pages/aboutmarco.com-pages--melissa-2020-12-15",
+                    "width": 1920,
+                    "height": 10229,
+                    "canExpand": true,
+                    "label": "aboutmarco.com - melissa"
+                }, {
+                    "source": "aboutmarco/pages/aboutmarco.com-pages--coza-2020-12-15",
+                    "width": 1920,
+                    "height": 26871,
+                    "canExpand": true,
+                    "label": "aboutmarco.com - coza"
+                }, {
+                    "source": "aboutmarco/pages/aboutmarco.com-pages--brazilian-leather-2020-12-15",
+                    "width": 1920,
+                    "height": 16075,
+                    "canExpand": true,
+                    "label": "aboutmarco.com - brazilian leather"
+                }, {
+                    "source": "aboutmarco/about/aboutmarco.com-me-2020-12-15-23_29_35",
+                    "width": 1920,
+                    "height": 7137,
+                    "canExpand": true,
+                    "label": "aboutmarco.com - me"
+                }, {
+                    "source": "aboutmarco/about/aboutmarco.com-archive-2020-12-15-23_31_53",
+                    "width": 1920,
+                    "height": 3788,
+                    "canExpand": true,
+                    "label": "aboutmarco.com - archive"
+                }
+            ]
+        ],
+        [
+            ["Check below for some of the awards received by <a href='https://aboutmarco.com?utm_source=luiskr.com' target='_blank'>Marco's portfolio</a>."],
+            [
+                {
+                    "class": "landscape",
+                    "source": "aboutmarco/awards/aboutmarco.com-awards--admiretheweb",
+                    "width": 1440,
+                    "height": 820,
+                    "label": "aboutmarco.com - admiretheweb"
+                },
+                {
+                    "class": "landscape",
+                    "source": "aboutmarco/awards/aboutmarco.com-awards--cssawards",
+                    "width": 1440,
+                    "height": 740,
+                    "label": "aboutmarco.com - css awards"
+                },
+                {
+                    "class": "landscape",
+                    "source": "aboutmarco/awards/aboutmarco.com-awards--csswinner",
+                    "width": 1440,
+                    "height": 652,
+                    "label": "aboutmarco.com - css awards winner"
+                },
+                {
+                    "class": "landscape",
+                    "source": "aboutmarco/awards/aboutmarco.com-awards--hm",
+                    "width": 920,
+                    "height": 654,
+                    "label": "aboutmarco.com - Honorable Mention"
+                }, {
+                    "class": "landscape",
+                    "source": "aboutmarco/awards/aboutmarco.com-awards--me",
+                    "width": 1440,
+                    "height": 652,
+                    "label": "aboutmarco.com - ME"
+                }, {
+                    "class": "landscape",
+                    "source": "aboutmarco/awards/aboutmarco.com-awards--mindspark",
+                    "width": 677,
+                    "height": 722,
+                    "label": "aboutmarco.com - mindspark"
+                }
+            ]
+        ]
+    ]
+}

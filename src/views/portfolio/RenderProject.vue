@@ -68,7 +68,7 @@ export default {
     let lang = this.$store.getters.getlang;
     document.title = this.$route.meta.title;
 
-    fetch(`${lang.prefix}/projects/metcha${lang.suffix}`)
+    fetch(`${lang.prefix}/projects/${this.$route.meta.translation + lang.suffix}`)
     .then((response) => {
         return response.json();
     }).then((data) => {

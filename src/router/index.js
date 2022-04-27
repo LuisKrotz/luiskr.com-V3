@@ -26,7 +26,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "metcha" */ '../views/portfolio/RenderProject.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/portfolio/RenderProject.vue'),
     meta: {
       title: title + ' | METCHA',
       translation: '/metcha'
@@ -35,17 +35,19 @@ const routes = [
   {
     path: '/portfolio/transa',
     name: 'Transa',
-    component: () => import(/* webpackChunkName: "transa" */ '../views/portfolio/Transa.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/portfolio/RenderProject.vue'),
     meta: {
-      title: title + ' | TRANSA'
+      title: title + ' | TRANSA',
+      translation: '/transa'
     }
   },
   {
     path: '/portfolio/aboutmarco',
     name: 'Marco Almeida',
-    component: () => import(/* webpackChunkName: "aboutmarco" */ '../views/portfolio/Aboutmarco.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/portfolio/RenderProject.vue'),
     meta: {
-      title: title + ' | Marco Almeida'
+      title: title + ' | Marco Almeida',
+      translation: '/aboutmarco'
     }
   },
   {
@@ -83,17 +85,19 @@ const routes = [
   {
     path: '/portfolio/brazilian-leather',
     name: 'Brazilian Leather',
-    component: () => import(/* webpackChunkName: "brazilianleather" */ '../views/portfolio/BrazilianLeather.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/portfolio/RenderProject.vue'),
     meta: {
-      title: title + ' | Brazilian Leather'
+      title: title + ' | Brazilian Leather',
+      translation: '/cicb'
     }
   },
   {
     path: '/portfolio/cecerele',
     name: 'Cecerelê',
-    component: () => import(/* webpackChunkName: "cecerele" */ '../views/portfolio/Cecerele.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/portfolio/RenderProject.vue'),
     meta: {
-      title: title + ' | Cecerelê'
+      title: title + ' | Cecerelê',
+      translation: '/cecerele'
     }
   },
   {
