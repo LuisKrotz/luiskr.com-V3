@@ -119,9 +119,10 @@ const routes = [
   {
     path: '/portfolio/genesysinf-sageweb',
     name: 'Genesysinf Sageweb',
-    component: () => import(/* webpackChunkName: "sageweb" */ '../views/portfolio/Sageweb.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/portfolio/RenderProject.vue'),
     meta: {
-      title: title + ' | Genesysinf / Sageweb'
+      title: title + ' | Genesysinf / Sageweb',
+      translation: '/sage'
     }
   },
   {
