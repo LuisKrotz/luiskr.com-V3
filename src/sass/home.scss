@@ -103,11 +103,6 @@
 
         &-link {
             display: block;
-            cursor: none;
-
-            .has_touch & {
-                cursor: pointer;
-            }
 
             @include layout-1024() {
                 display: flex;

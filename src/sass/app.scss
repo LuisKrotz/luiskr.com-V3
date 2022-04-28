@@ -196,12 +196,35 @@
   pointer-events: none;
   z-index: 100;
   background: none;
-  top: to-rem($F9);
-  left: to-rem($F6);
+  top: to-rem(-$F10);
+  left: to-rem(-$F10);
   position: absolute;
   opacity: 0;
-  width: to-rem($F11);
-  height: to-rem($F11);
+  width: to-rem($F13);
+  height: to-rem($F13);
+  transition: transform 50ms ease; opacity: 100ms linear;
+  mix-blend-mode: color-burn;
+
+  &-triangle-1, 
+  &-triangle-2 {
+    stroke-miterlimit: 10;
+    stroke: var(--grey-3);
+  }
+
+  &-triangle-1 {
+    fill: none;
+  }
+
+  &-triangle-2 {
+    fill: var(--grey-3);
+  }
+
+  &-text {
+    font-family: 'Black Ops One', monospace;
+    text-transform: uppercase;
+    font-size: to-rem($F7);
+    fill: var(--white);
+  }
 }
 
 

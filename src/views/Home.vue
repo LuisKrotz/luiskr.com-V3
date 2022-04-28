@@ -25,7 +25,20 @@
 
     <Contact />
 
-    <img v-if="translations && !has_touch" :alt="translations.explore[0]" :width="translations.explore[1]" :height="translations.explore[2]" class="hover" :style="'transform: translate3D(' + page.left + 'px, ' + page.top + 'px, 0);'+ (showhover ? 'opacity: 1' :  'opacity: 0')" aria-hidden="true" :src="translations.explore[3]">
+
+    <svg v-if="translations && !has_touch"
+        viewBox="0 0 117.29 122.67"
+        class="hover"
+        :alt="tap + translations.explore[0] + translations.explore[1]"
+        :style="'transform: translate3D(' + page.left + 'px, ' + page.top + 'px, 0); '+ (showhover ? 'opacity: 1' :  'opacity: 0')"
+        aria-hidden="true">
+      <title>{{ tap + translations.explore[0] + translations.explore[1] }}</title>
+      <g>
+        <polygon class="hover-triangle-1" points="58.65 1 0.87 101.08 116.43 101.08 58.65 1"/>
+        <polygon class="hover-triangle-2" points="58.65 22.09 0.87 122.17 116.43 122.17 58.65 22.09"/>
+        <text class="hover-text" transform="translate(18.28 115.62)">&lt;{{ translations.explore[1] }}/&gt;</text>
+      </g>
+    </svg>
   </article>
 </template>
 
@@ -40,6 +53,7 @@ export default {
       translations:         false,
       has_touch:            this.$store.getters.getTouch,
       showhover:            this.$store.getters.getHover,
+      tap:                  this.$store.getters.getClickOrTap,
       page:                 this.$store.getters.getOnMouseMove,
       marquee:              Number
     }
