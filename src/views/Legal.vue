@@ -1,5 +1,5 @@
 <template>
-  <article id="#main" class="legal">
+  <article id="#main" class="legal" :key="this.$store.getters.getlang.locale + this.$route.meta.translation">
     <h2 class="internal-title">{{ translations.title }}</h2>
     <section class="internal-description" v-for="section, key in translations.sections" :key="key">
       <h3 class="internal-description-text" v-html="section.title"></h3>
@@ -11,7 +11,8 @@
 </template>
 
 <script>
-import Footer from'../components/legal/Footer'
+import { getDatabase, ref, child, get } from "firebase/database";
+import Footer                           from'../components/legal/Footer'
 
 export default {
   data() {
@@ -23,15 +24,35 @@ export default {
     Footer
   },
   created() {
-    let lang = this.$store.getters.getlang;
-    document.title = this.$route.meta.title;
+    this.loadData();
+  },
+  watch:{
+    $route () {
+        this.loadData();
 
-    fetch(`${lang.prefix}/pages/${this.$route.meta.translation + lang.suffix}`)
-    .then((response) => {
-        return response.json();
-    }).then((data) => {
-        this.translations = data;
-    });
+        this.$smoothScroll({
+          duration: 1000,
+          updateHistory: true,
+          scrollTo: 0,
+          hash: ''
+        });
+    }
+  },
+  methods: {
+    loadData() {
+      let lang = this.$store.getters.getlang;
+      document.title = this.$route.meta.title;
+
+      get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation)).then((snapshot) => {
+        if (snapshot.exists()) {
+          this.translations = snapshot.val();
+        } else {
+          console.log('ERROR: could\'t find data at');
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+    }
   },
   mounted() {
     setTimeout(() => {

@@ -45,7 +45,7 @@ export default {
             mobileext:      '-mobile',
             ext:            '.jpg',
             action:         this.$store.getters.getClickOrTap,
-            translations:   false
+            translations:   this.$store.getters.getlang.components.draw
         }
     },
     name: 'Draw Computer',
@@ -76,8 +76,7 @@ export default {
         }
     },
     created() {
-        let lang = this.$store.getters.getlang,
-            link = document.createElement("link");
+        let link = document.createElement("link");
 
         link.rel="preload",
         link.as="image";
@@ -85,13 +84,6 @@ export default {
         link.href = this.image + this.loadext + (window.innerWidth >= 640 ? '' : this.mobileext) + this.ext;
 
         document.getElementsByTagName('head')[0].appendChild(link);
-
-        fetch(`${lang.prefix}/components/draw-computer${lang.suffix}`)
-        .then((response) => {
-            return response.json();
-        }).then((data) => {
-            this.translations = data;
-        });
     },
     mounted() {
         this.setViewport();

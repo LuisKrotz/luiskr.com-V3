@@ -47,7 +47,8 @@
 </template>
 
 <script>
-import Contact from '../components/Contact'
+import { getDatabase, ref, child, get } from "firebase/database";
+import Contact                          from '../components/Contact'
 
 export default {
   name: 'About',
@@ -61,11 +62,14 @@ export default {
     let lang = this.$store.getters.getlang;
     document.title = this.$route.meta.title;
 
-    fetch(lang.prefix + this.$route.meta.translation + lang.suffix)
-    .then((response) => {
-        return response.json();
-    }).then((data) => {
-        this.translations = data;
+    get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation)).then((snapshot) => {
+      if (snapshot.exists()) {
+        this.translations = snapshot.val();
+      } else {
+        console.log('ERROR: could\'t find data at');
+      }
+    }).catch((error) => {
+      console.error(error);
     });
   },
   components: {

@@ -36,8 +36,10 @@
 </template>
 
 <script>
-  const cookie = 'cookie',
-        cookieEvent = 'cookieAction';
+import { getDatabase, ref, child, get } from "firebase/database";
+
+const cookie = 'cookie', cookieEvent = 'cookieAction'
+
 
   export default {
     name: 'App',
@@ -101,30 +103,55 @@
             scrollTo: 0,
             hash: ''
           })
+      },
+      loadData() {
+        let dbpath;
+
+        this.$store.commit('setLang', this.$store.getters.getlang.locale);
+        this.renderCookies = JSON.parse(localStorage.getItem(cookie));
+        dbpath = this.$store.getters.getlang.database + this.$store.getters.getlang.locale;
+
+        if(!this.translations) {
+          get(child(ref(getDatabase()), `${dbpath}/APP`)).then((snapshot) => {
+            if (snapshot.exists()) {
+              this.translations = snapshot.val();
+
+              this.$store.commit('setClickOrTap', {
+                click: this.translations.actions.click,
+                tap: this.translations.actions.tap,
+              });
+            } else {
+              console.log('ERROR: could\'t find data at');
+            }
+          }).catch((error) => {
+            console.error(error);
+          });
+        }
+
+        if(!this.$store.getters.getlang.components) {
+          get(child(ref(getDatabase()), `${dbpath}/components`)).then((snapshot) => {
+            if (snapshot.exists()) {
+              this.$store.commit('setComponentLang', snapshot.val());
+            } else {
+              console.log('ERROR: could\'t find data at');
+            }
+          }).catch((error) => {
+            console.error(error);
+          });
       }
+    }
   },
   created() {
-    // Default locale EN
-    this.$store.commit('setLang', this.$store.getters.getlang.locale);
-    this.renderCookies = JSON.parse(localStorage.getItem(cookie));
-
-    let lang = this.$store.getters.getlang;
-
-    fetch(`${lang.prefix}/app${lang.suffix}`)
-    .then((response) => {
-      return response.json();
-    }).then((data) => {
-        this.translations = data;
-
-        this.$store.commit('setClickOrTap', {
-          click: data.actions.click,
-          tap: data.actions.tap,
-      });
-    });
+    this.loadData();
   },
   mounted() {
     window.addEventListener('scroll', () => this.checkScroll());
     window.addEventListener('resize', () => this.checkScroll());
+  },
+  watch:{
+    $route () {
+      this.loadData();
+    }
   }
 }
 </script>

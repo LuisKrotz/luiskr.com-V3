@@ -14,19 +14,8 @@ export default {
     name: 'Legal',
     data() {
         return {
-            translations:     false
+            translations:   this.$store.getters.getlang.components['legal-footer']
         }
-    },
-    created() {
-        let lang = this.$store.getters.getlang;
-        document.title = this.$route.meta.title;
-
-        fetch(`${lang.prefix}/components/about-footer${lang.suffix}`)
-        .then((response) => {
-            return response.json();
-        }).then((data) => {
-            this.translations = data;
-        });
     }
 }
 </script>

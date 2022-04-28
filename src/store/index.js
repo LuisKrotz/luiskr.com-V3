@@ -5,10 +5,11 @@ export default createStore({
     clickortap:  String,
     has_touch: (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0)),
     lang: {
-      folder: '/translations/',
+      components: false,
+      database: 'translations/',
       locale: 'en',
-      prefix: '',
-      suffix: '.json'
+      pagesPath: '/pages/',
+      projectPath: '/projects/',
     },
     marqueeamount: Number,
     modalObject: {
@@ -39,6 +40,9 @@ export default createStore({
     },
     setClickOrTap(state, payload) {
       state.clickortap = state.has_touch ? payload.tap : payload.click;
+    },
+    setComponentLang(state, payload) {
+      state.lang.components = payload;
     },
     setHover(state, payload) {
       if(!state.has_touch) {

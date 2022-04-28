@@ -9,7 +9,8 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      title: title
+      title: title,
+      translation: 'HOME',
     }
   },
   {
@@ -18,7 +19,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
     meta: {
       title: title + ' | About',
-      translation: '/pages/about',
+      translation: 'about',
     }
   },
   {
@@ -30,7 +31,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | METCHA',
-      translation: '/metcha'
+      translation: 'metcha'
     }
   },
   {
@@ -39,7 +40,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | TRANSA',
-      translation: '/transa'
+      translation: 'transa'
     }
   },
   {
@@ -48,7 +49,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Marco Almeida',
-      translation: '/aboutmarco'
+      translation: 'aboutmarco'
     }
   },
   {
@@ -57,7 +58,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Melissa',
-      translation: '/melissa'
+      translation: 'melissa'
     }
   },
   {
@@ -66,7 +67,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Minimelissa',
-      translation: '/mini-melissa'
+      translation: 'mini-melissa'
     }
   },
   {
@@ -75,7 +76,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | MOR',
-      translation: '/mor'
+      translation: 'mor'
     }
   },
   {
@@ -84,7 +85,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project'),
     meta: {
       title: title + ' | Coza',
-      translation: '/coza'
+      translation: 'coza'
     }
   },
   {
@@ -93,7 +94,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Brazilian Leather',
-      translation: '/cicb'
+      translation: 'cicb'
     }
   },
   {
@@ -102,7 +103,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Cecerelê',
-      translation: '/cecerele'
+      translation: 'cecerele'
     }
   },
   {
@@ -111,7 +112,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Cliníca de Desenvolvimento - Nathalia Bond',
-      translation: '/nathaliabond'
+      translation: 'nathalia-bond'
     }
   },
   {
@@ -120,7 +121,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Vibra',
-      translation: '/vibra'
+      translation: 'vibra'
     }
   },
   {
@@ -129,7 +130,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Genesysinf / Sageweb',
-      translation: '/sage'
+      translation: 'sage'
     }
   },
   {
@@ -138,7 +139,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "legal" */ '../views/Legal.vue'),
     meta: {
       title: title + ' | Privacy Policy',
-      translation: '/privacy-policy'
+      translation: 'privacy-policy'
     }
   },
   {
@@ -147,7 +148,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "legal" */ '../views/Legal.vue'),
     meta: {
       title: title + ' | GDPR',
-      translation: '/GDPR'
+      translation: 'GDPR'
     }
   },
   {
@@ -156,7 +157,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "legal" */ '../views/Legal.vue'),
     meta: {
       title: title + ' | Terms of Use',
-      translation: '/terms-of-use'
+      translation: 'terms-of-use'
     }
   },
   {

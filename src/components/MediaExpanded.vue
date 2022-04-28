@@ -1,7 +1,7 @@
 <template>
     <div class="expand-modal-content">
         <div class="expand-modal-close-bar">
-            <button class="expand-modal-close-bar-button" @click="closeModal">[ close ]</button>
+            <button class="expand-modal-close-bar-button" @click="closeModal">{{ translations.close }}</button>
         </div>
         <div class="expand-modal-close-area" @click="closeModal"></div>
         <figure class="expand-modal-media-figure">
@@ -24,7 +24,7 @@
                     <source :src="source" type="video/mp4">
             </video>
 
-            <button class="expand-modal-close-bottom" @click="closeModal">[ close ]</button>
+            <button class="expand-modal-close-bottom" @click="closeModal">{{ translations.close }}</button>
         </figure>
     </div>
 </template>
@@ -32,6 +32,11 @@
 <script>
 export default {
     name: 'MediaExpanded',
+    data() {
+        return {
+            translations:       this.$store.getters.getlang.components.media
+        }
+    },
     props: {
         source: {
             type: String,

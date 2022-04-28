@@ -19,7 +19,7 @@
             <source :src="video[1]" type="video/mp4">
         </video>
 
-        <button v-for="n = 1 in 2" :class="'expand-modal-open-' + n" :key="n" :aria-hidden="(n === 2 ? true : false)" data-no-snippet>{{ action }} to open</button>
+        <button v-for="n = 1 in 2" :class="'expand-modal-open-' + n" :key="n" :aria-hidden="(n === 2 ? true : false)" data-no-snippet>{{ action }} {{ translations.toOpen }}</button>
     </figure>
     <figure v-else :style="styles" :title="label">
         <img class="render-placeholder" :src="placeholder(width, height)" :width="width" :height="height" alt=" "/>
@@ -63,6 +63,7 @@ export default {
                 poster:             [],
                 video:              [],
                 action:             this.$store.getters.getClickOrTap,
+                translations:       this.$store.getters.getlang.components.media
             }
         },
     props: {

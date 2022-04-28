@@ -1,5 +1,5 @@
 <template>
-  <article v-if="translations">
+  <article v-if="translations" :key="this.$store.getters.getlang.locale + this.$route.meta.translation">
     <div id="#main" class="project modal-below" :style="'transform: translateY(-' + modal.transform + 'px);'">
         <h2 class="internal-title" v-html="translations.title"></h2>
         <div class="internal-main">
@@ -9,7 +9,8 @@
             :width="translations.cover.size[0]"
             :height="translations.cover.size[1]"
             :isVideo="translations.cover?.isVideo ?? false"
-            :label="translations.cover.label"/>
+            :label="translations.cover.label"
+            :key="this.$store.getters.getlang.locale + this.$route.meta.translation"/>
         </div>
 
       <section v-for="parentKey in translations.sections.length" :key="parentKey">
@@ -36,7 +37,6 @@
             </template>
       </section>
 
-
       <Related />
     </div>
 
@@ -53,9 +53,10 @@
 </template>
 
 <script>
-import Media                from'../components/Media';
-import MediaExpanded        from'../components/MediaExpanded';
-import Related              from'../components/portfolio/Related';
+import { getDatabase, ref, child, get } from "firebase/database";
+import Media                            from'../components/Media';
+import MediaExpanded                    from'../components/MediaExpanded';
+import Related                          from'../components/portfolio/Related';
 
 export default {
   data() {
@@ -64,28 +65,49 @@ export default {
       translations: false,
     }
   },
-  created() {
-    let lang = this.$store.getters.getlang;
-    document.title = this.$route.meta.title;
-
-    fetch(`${lang.prefix}/projects/${this.$route.meta.translation + lang.suffix}`)
-    .then((response) => {
-        return response.json();
-    }).then((data) => {
-        this.translations = data;
-    });
-  },
-  mounted() {
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 500);
-  },
   components: {
     Media,
     MediaExpanded,
     Related
   },
   name: 'Render Project',
+  created() {
+    this.loadData();
+  },
+  mounted() {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 500);
+  },
+  watch:{
+    $route () {
+        this.loadData();
+
+        this.$smoothScroll({
+          duration: 1000,
+          updateHistory: true,
+          scrollTo: 0,
+          hash: ''
+        });
+    }
+  },
+  methods: {
+    loadData() {
+      let lang = this.$store.getters.getlang;
+      document.title = this.$route.meta.title;
+      this.translations =  false;
+
+      get(child(ref(getDatabase()), lang.database + lang.locale + lang.projectPath + this.$route.meta.translation)).then((snapshot) => {
+        if (snapshot.exists()) {
+          this.translations = snapshot.val();
+        } else {
+          console.log('ERROR: could\'t find data at');
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+    }
+  }
 }
 </script>
 

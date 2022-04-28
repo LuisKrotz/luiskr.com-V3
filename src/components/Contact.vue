@@ -22,18 +22,8 @@ export default {
   name: 'Contact',
   data() {
     return {
-        translations:     false
+        translations:   this.$store.getters.getlang.components.contact
     }
-  },
-  mounted() {
-    let lang = this.$store.getters.getlang;
-
-    fetch(`${lang.prefix}/components/contact${lang.suffix}`)
-    .then((response) => {
-        return response.json();
-    }).then((data) => {
-        this.translations = data;
-    });
   }
 }
 </script>

@@ -21,18 +21,8 @@ export default {
     name: 'Related',
     data() {
         return {
-            translations:   false
+            translations:   this.$store.getters.getlang.components.related
         }
-    },
-    created() {
-        let lang = this.$store.getters.getlang;
-
-        fetch(`${lang.prefix}/components/related${lang.suffix}`)
-        .then((response) => {
-            return response.json();
-        }).then((data) => {
-            this.translations = data;
-        });
     }
 }
 </script>

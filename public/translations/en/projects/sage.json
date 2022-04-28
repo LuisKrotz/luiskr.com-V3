@@ -1,9 +1,8 @@
 {
     "title": "Sageweb",
     "cover": {
-        "src": "genesysinf/genesysinf-sageweb-2015-atalhos",
-        "width": 1366,
-        "height": 649,
+        "src": "genesysinf-sageweb-2015-atalhos",
+        "size": [1366, 649],
         "label": "Sageweb:shortcuts screenshoot"
     },
     "folder": "genesysinf/",
@@ -15,89 +14,77 @@
             [
                 {
                     "class": "landscape",
-                    "src": "genesysinf/genesysinf-sageweb-2015-cadastros-sageweb",
-                    "width": 1352,
-                    "height": 649,
+                    "src": "genesysinf-sageweb-2015-cadastros-sageweb",
+                    "size": [1352, 649],
                     "canExpand": true,
                     "label": "Sageweb:'Cadastros' screenshoot"
                 },
                 {
                     "class": "landscape",
-                    "src": "genesysinf/genesysinf-sageweb-2015-color-picker",
-                    "width": 1353,
-                    "height": 650,
+                    "src": "genesysinf-sageweb-2015-color-picker",
+                    "size": [1353, 650],
                     "canExpand": true,
                     "label": "Sageweb:color picker screenshoot"
                 },
                 {
                     "class": "landscape",
-                    "src": "genesysinf/genesysinf-sageweb-2015-filtros",
-                    "width": 1352,
-                    "height": 650,
+                    "src": "genesysinf-sageweb-2015-filtros",
+                    "size": [1352, 650],
                     "canExpand": true,
                     "label": "Sageweb:filters screenshoot"
                 },
                 {
                     "class": "landscape",
-                    "src": "genesysinf/genesysinf-sageweb-2015-intro",
-                    "width": 1351,
-                    "height": 651,
+                    "src": "genesysinf-sageweb-2015-intro",
+                    "size": [1351, 651],
                     "canExpand": true,
                     "label": "Sageweb:intro screenshoot"
                 }, {
                     "class": "landscape",
-                    "src": "genesysinf/genesysinf-sageweb-2015-mapa-sageweb",
-                    "width": 1366,
-                    "height": 650,
+                    "src": "genesysinf-sageweb-2015-mapa-sageweb",
+                    "size": [1366, 650],
                     "canExpand": true,
                     "label": "Sageweb:'mapa sageweb' screenshoot"
                 }, {
                     "class": "landscape",
-                    "src": "genesysinf/genesysinf-sageweb-2015-modulo-NFE",
-                    "width": 1352,
-                    "height": 650,
+                    "src": "genesysinf-sageweb-2015-modulo-NFE",
+                    "size": [1352, 650],
                     "canExpand": true,
                     "label": "Sageweb:'módulo NFE' screenshoot"
                 }, {
                     "class": "landscape",
-                    "src": "genesysinf/genesysinf-sageweb-2015-orndenar-atalhos",
-                    "width": 1351,
-                    "height": 604,
+                    "src": "genesysinf-sageweb-2015-orndenar-atalhos",
+                    "size": [1351, 604],
                     "canExpand": true,
                     "label": "Sageweb:shortcuts ordering screenshoot"
                 }, {
                     "class": "landscape",
-                    "src": "genesysinf/genesysinf-sageweb-2015-personalizar",
-                    "width": 1354,
-                    "height": 650,
+                    "src": "genesysinf-sageweb-2015-personalizar",
+                    "size": [1354, 650],
                     "canExpand": true,
                     "label": "Sageweb:personalization screenshoot"
                 }, {
                     "class": "landscape",
-                    "src": "genesysinf/genesysinf-sageweb-2015-relatórios-gerenciais",
-                    "width": 1351,
-                    "height": 650,
+                    "src": "genesysinf-sageweb-2015-relatórios-gerenciais",
+                    "size": [1351, 650],
                     "canExpand": true,
                     "label": "Sageweb:'Relatórios Gerenciais' screenshoot"
                 }, {
                     "class": "landscape",
-                    "src": "genesysinf/genesysinf-sageweb-2015-relatórios-gerenciais-por-mes",
-                    "width": 1350,
-                    "height": 649,
+                    "src": "genesysinf-sageweb-2015-relatórios-gerenciais-por-mes",
+                    "size": [1350, 649],
                     "canExpand": true,
                     "label": "Sageweb:'Relatórios Gerenciais por mês' screenshoot"
                 }, {
                     "class": "landscape",
-                    "src": "genesysinf/genesysinf-sageweb-2015-sistema-de-pesquisas-em-jquery",
-                    "width": 1366,
-                    "height": 651,
+                    "src": "genesysinf-sageweb-2015-sistema-de-pesquisas-em-jquery",
+                    "size": [1366, 651],
                     "canExpand": true,
                     "label": "Sageweb:search system screenshoot"
                 }, {
                     "class": "landscape",
-                    "src": "genesysinf/genesysinf-sageweb-2015-temas",
-                    "width": 1352,
-                    "height": 651,
+                    "src": "genesysinf-sageweb-2015-temas",
+                    "size": [1352, 651],
                     "canExpand": true,
                     "label": "Sageweb:themes screenshoot"
                 }
