@@ -1,12 +1,12 @@
 {
     "title": "Marco Almeida",
     "cover": {
-        "src": "aboutmarco/home/aboutmarco.com-2020-full-page-home-tour",
-        "width": 1462,
-        "height": 784,
+        "src": "home/aboutmarco.com-2020-full-page-home-tour",
+        "size": [1462, 784],
         "isVideo": true,
         "label": "aboutmarco.com - homepage full tour"
     },
+    "folder": "aboutmarco/",
     "sections": [
         [
             [
@@ -18,55 +18,47 @@
             ],
             [
                 {
-                    "src": "aboutmarco/home/aboutmarco.com-mobile-mobile",
-                    "width": 830,
-                    "height": 1712,
+                    "src": "home/aboutmarco.com-mobile-mobile",
+                    "size": [830, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "aboutmarco.com - mobile tour"
                 },
                 {
-                    "src": "aboutmarco/home/aboutmarco.com-2020-home",
-                    "width": 1920,
-                    "height": 3003,
+                    "src": "home/aboutmarco.com-2020-home",
+                    "size": [1920, 3003],
                     "canExpand": true,
                     "label": "aboutmarco.com - homepage"
                 },
                 {
-                    "src": "aboutmarco/pages/aboutmarco.com-pages--melissa-insider-2020-12-15",
-                    "width": 1920,
-                    "height": 10094,
+                    "src": "pages/aboutmarco.com-pages--melissa-insider-2020-12-15",
+                    "size": [1920, 10094],
                     "canExpand": true,
                     "label": "aboutmarco.com - melissa insider"
                 },
                 {
-                    "src": "aboutmarco/pages/aboutmarco.com-pages--melissa-2020-12-15",
-                    "width": 1920,
-                    "height": 10229,
+                    "src": "pages/aboutmarco.com-pages--melissa-2020-12-15",
+                    "size": [1920, 10229],
                     "canExpand": true,
                     "label": "aboutmarco.com - melissa"
                 }, {
-                    "src": "aboutmarco/pages/aboutmarco.com-pages--coza-2020-12-15",
-                    "width": 1920,
-                    "height": 26871,
+                    "src": "pages/aboutmarco.com-pages--coza-2020-12-15",
+                    "size": [1920, 26871],
                     "canExpand": true,
                     "label": "aboutmarco.com - coza"
                 }, {
-                    "src": "aboutmarco/pages/aboutmarco.com-pages--brazilian-leather-2020-12-15",
-                    "width": 1920,
-                    "height": 16075,
+                    "src": "pages/aboutmarco.com-pages--brazilian-leather-2020-12-15",
+                    "size": [1920, 16075],
                     "canExpand": true,
                     "label": "aboutmarco.com - brazilian leather"
                 }, {
-                    "src": "aboutmarco/about/aboutmarco.com-me-2020-12-15-23_29_35",
-                    "width": 1920,
-                    "height": 7137,
+                    "src": "about/aboutmarco.com-me-2020-12-15-23_29_35",
+                    "size": [1920, 7137],
                     "canExpand": true,
                     "label": "aboutmarco.com - me"
                 }, {
-                    "src": "aboutmarco/about/aboutmarco.com-archive-2020-12-15-23_31_53",
-                    "width": 1920,
-                    "height": 3788,
+                    "src": "about/aboutmarco.com-archive-2020-12-15-23_31_53",
+                    "size": [1920, 3788],
                     "canExpand": true,
                     "label": "aboutmarco.com - archive"
                 }
@@ -77,42 +69,36 @@
             [
                 {
                     "class": "landscape",
-                    "src": "aboutmarco/awards/aboutmarco.com-awards--admiretheweb",
-                    "width": 1440,
-                    "height": 820,
+                    "src": "awards/aboutmarco.com-awards--admiretheweb",
+                    "size": [1440, 820],
                     "label": "aboutmarco.com - admiretheweb"
                 },
                 {
                     "class": "landscape",
-                    "src": "aboutmarco/awards/aboutmarco.com-awards--cssawards",
-                    "width": 1440,
-                    "height": 740,
+                    "src": "awards/aboutmarco.com-awards--cssawards",
+                    "size": [1440, 740],
                     "label": "aboutmarco.com - css awards"
                 },
                 {
                     "class": "landscape",
-                    "src": "aboutmarco/awards/aboutmarco.com-awards--csswinner",
-                    "width": 1440,
-                    "height": 652,
+                    "src": "awards/aboutmarco.com-awards--csswinner",
+                    "size": [1440, 652],
                     "label": "aboutmarco.com - css awards winner"
                 },
                 {
                     "class": "landscape",
-                    "src": "aboutmarco/awards/aboutmarco.com-awards--hm",
-                    "width": 920,
-                    "height": 654,
+                    "src": "awards/aboutmarco.com-awards--hm",
+                    "size": [920, 654],
                     "label": "aboutmarco.com - Honorable Mention"
                 }, {
                     "class": "landscape",
-                    "src": "aboutmarco/awards/aboutmarco.com-awards--me",
-                    "width": 1440,
-                    "height": 652,
+                    "src": "awards/aboutmarco.com-awards--me",
+                    "size": [1440, 652],
                     "label": "aboutmarco.com - ME"
                 }, {
                     "class": "landscape",
-                    "src": "aboutmarco/awards/aboutmarco.com-awards--mindspark",
-                    "width": 677,
-                    "height": 722,
+                    "src": "awards/aboutmarco.com-awards--mindspark",
+                    "size": [677, 722],
                     "label": "aboutmarco.com - mindspark"
                 }
             ]

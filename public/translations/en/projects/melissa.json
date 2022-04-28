@@ -1,12 +1,12 @@
 {
     "title": "Melissa",
     "cover": {
-        "src": "melissa/website/tour/melissa-website-2020-tour",
-        "width": 1924,
-        "height": 960,
+        "src": "website/tour/melissa-website-2020-tour",
+        "size": [1924, 960],
         "isVideo": true,
         "label": "Melissa - Website 2020 tour"
     },
+    "folder": "melissa/",
     "sections": [
         [
             [
@@ -19,46 +19,40 @@
             ],
             [
                 {
-                    "src": "melissa/website/tour/www.melissa.com.br-31-03-19-feed-1-mobile",
-                    "width": 1920,
-                    "height": 28800,
+                    "src": "website/tour/www.melissa.com.br-31-03-19-feed-1-mobile",
+                    "size": [1920, 28800],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Feed mobile 2020 tour"
                 },
                 {
-                    "src": "melissa/website/tour/melissa-website-homepage-2020-full-page",
-                    "width": 1920,
-                    "height": 1001,
+                    "src": "website/tour/melissa-website-homepage-2020-full-page",
+                    "size": [1920, 1001],
                     "canExpand": true,
                     "label": "Melissa - Homepage sreenshoot"
                 },
                 {
                     "class": "landscape",
-                    "src": "melissa/website/where-to-find/melissa-website-onde-encontrar-tour",
-                    "width": 1943,
-                    "height": 976,
+                    "src": "website/where-to-find/melissa-website-onde-encontrar-tour",
+                    "size": [1943, 976],
                     "isVideo": true,
                     "canExpand": true,
                     "label": "Melissa - Where to find tour"
                 },
                 {
-                    "src": "melissa/website/where-to-find/melissa.com.br-onde-encontrar-31-03-19-1-mobile",
-                    "width": 832,
-                    "height": 1728,
+                    "src": "website/where-to-find/melissa.com.br-onde-encontrar-31-03-19-1-mobile",
+                    "size": [832, 1728],
                     "isVideo": true,
                     "canExpand": true,
                     "label": "Melissa - Where to find mobile tour"
                 }, {
-                    "src": "melissa/website/squad/melissa-website-squad-2020-full-page",
-                    "width": 1920,
-                    "height": 7009,
+                    "src": "website/squad/melissa-website-squad-2020-full-page",
+                    "size": [1920, 7009],
                     "canExpand": true,
                     "label": "Melissa - Squad page 2020 screenshoot"
                 }, {
-                    "src": "melissa/website/projects/melissa-website-projects-page-2020-full-page",
-                    "width": 1920,
-                    "height": 20990,
+                    "src": "website/projects/melissa-website-projects-page-2020-full-page",
+                    "size": [1920, 20990],
                     "canExpand": true,
                     "label": "Melissa - Projects page 2020 screenshoot"
                 }
@@ -70,56 +64,48 @@
             ],
             [
                 {
-                    "src": "melissa/website/articles/melissa-website--articles--artigo-alerta-de-collab-inedita-2020-12-15-full-page",
-                    "width": 1920,
-                    "height": 6420,
+                    "src": "website/articles/melissa-website--articles--artigo-alerta-de-collab-inedita-2020-12-15-full-page",
+                    "size": [1920, 6420],
                     "canExpand": true,
                     "label": "Melissa - Article:Alerta de collab inedita"
                 },
                 {
-                    "src": "melissa/website/articles/melissa-website--articles--artigo-ebulicao-de-cores-e-ideias-2020-12-15-full-page",
-                    "width": 1920,
-                    "height": 8011,
+                    "src": "website/articles/melissa-website--articles--artigo-ebulicao-de-cores-e-ideias-2020-12-15-full-page",
+                    "size": [1920, 8011],
                     "canExpand": true,
                     "label": "Melissa - Article:Ebulicao de cores e ideias"
                 },
                 {
-                    "src": "melissa/website/articles/melissa-website--articles--artigo-reconexao-urbana-2020-12-15-full-page",
-                    "width": 1920,
-                    "height": 8960,
+                    "src": "website/articles/melissa-website--articles--artigo-reconexao-urbana-2020-12-15-full-page",
+                    "size": [1920, 8960],
                     "canExpand": true,
                     "label": "Melissa - Article:Reconexao urbana"
                 },
                 {
                     "class": "landscape",
-                    "src": "melissa/website/articles/melissa-website--articles--galeria-e-lancamento-squad-2020-12-15-full-page",
-                    "width": 1920,
-                    "height": 1629,
+                    "src": "website/articles/melissa-website--articles--galeria-e-lancamento-squad-2020-12-15-full-page",
+                    "size": [1920, 1629],
                     "canExpand": true,
                     "label": "Melissa - Gallery:Galeria e lancamento squad"
                 }, {
-                    "src": "melissa/website/articles/melissa-website--articles--video-extraordinary-x-ordinary-by-two-lost-kids-2020-12-15-full-page",
-                    "width": 1920,
-                    "height": 2292,
+                    "src": "website/articles/melissa-website--articles--video-extraordinary-x-ordinary-by-two-lost-kids-2020-12-15-full-page",
+                    "size": [1920, 2292],
                     "canExpand": true,
                     "label": "Melissa - Video:Extraordinary x ordinary by two lost kids"
                 }, {
-                    "src": "melissa/website/articles/melissa-website--articles-melissa-hello-kitty-2020-12-15-16_05_44",
-                    "width": 1920,
-                    "height": 7389,
+                    "src": "website/articles/melissa-website--articles-melissa-hello-kitty-2020-12-15-16_05_44",
+                    "size": [1920, 7389],
                     "canExpand": true,
                     "label": "Melissa - Article:Hello Kitty"
                 }, {
-                    "src": "melissa/website/articles/melissa-website--articles-viktor-and-rolf-is-coming-2020-12-15-15_54_00",
-                    "width": 1920,
-                    "height": 6941,
+                    "src": "website/articles/melissa-website--articles-viktor-and-rolf-is-coming-2020-12-15-15_54_00",
+                    "size": [1920, 6941],
                     "canExpand": true,
                     "label": "Melissa - Article:Viktor and rolf is coming"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/website/articles/melissa-website--gallery-que-comecem-os-festivais-2020-12-15-18_24_48",
-                    "width": 1920,
-                    "height": 1359,
+                    "src": "website/articles/melissa-website--gallery-que-comecem-os-festivais-2020-12-15-18_24_48",
+                    "size": [1920, 1359],
                     "canExpand": true,
                     "label": "Melissa - Gallery:Que comecem os festivais"
                 }
@@ -141,124 +127,108 @@
             [
                 {
                     "class": "landscape",
-                    "src": "melissa/collections/development/color-me/www.melissa.com.br-colecoes-color-me",
-                    "width": 1451,
-                    "height": 736,
+                    "src": "collections/development/color-me/www.melissa.com.br-colecoes-color-me",
+                    "size": [1451, 736],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Color Me collection tour"
                 },
                 {
-                    "src": "melissa/collections/development/color-me/www.melissa.com.br-colecoes-color-me-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "collections/development/color-me/www.melissa.com.br-colecoes-color-me-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Color Me mobile collection tour"
                 },
                 {
                     "class": "landscape",
-                    "src": "melissa/collections/development/dreamers/melissa-dreamers-infinitos",
-                    "width": 1463,
-                    "height": 736,
+                    "src": "collections/development/dreamers/melissa-dreamers-infinitos",
+                    "size": [1463, 736],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Dreamers collection tour"
                 },
                 {
-                    "src": "melissa/collections/development/dreamers/melissa-dreamers-infinitos-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "collections/development/dreamers/melissa-dreamers-infinitos-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa -Dreamers mobile collection tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collections/development/family/melissa.com.br-colecoes-family-31-03-19",
-                    "width": 1924,
-                    "height": 912,
+                    "src": "collections/development/family/melissa.com.br-colecoes-family-31-03-19",
+                    "size": [1924, 912],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Family collection tour"
                 }, {
-                    "src": "melissa/collections/development/family/melissa.com.br-colecoes-family-31-03-19-1-mobile",
-                    "width": 828,
-                    "height": 1712,
+                    "src": "collections/development/family/melissa.com.br-colecoes-family-31-03-19-1-mobile",
+                    "size": [828, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Family mobile collection tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collections/development/flygrl/flygrl",
-                    "width": 1832,
-                    "height": 880,
+                    "src": "collections/development/flygrl/flygrl",
+                    "size": [1832, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Flygrl collection tour"
                 }, {
-                    "src": "melissa/collections/development/flygrl/www.melissa.com.br-colecoes-flygrl-31-03-19-1-mobile",
-                    "width": 832,
-                    "height": 1728,
+                    "src": "collections/development/flygrl/www.melissa.com.br-colecoes-flygrl-31-03-19-1-mobile",
+                    "size": [832, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Flygrl mobile collection tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collections/development/mapping/melissa-colecoes-mapping-tour",
-                    "width": 1932,
-                    "height": 944,
+                    "src": "collections/development/mapping/melissa-colecoes-mapping-tour",
+                    "size": [1932, 944],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Mapping collection tour"
                 }, {
-                    "src": "melissa/collections/development/mapping/melissa.com.br-colecoes-mapping-31-03-19-1-mobile",
-                    "width": 832,
-                    "height": 1728,
+                    "src": "collections/development/mapping/melissa.com.br-colecoes-mapping-31-03-19-1-mobile",
+                    "size": [832, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Mapping mobile collection tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collections/development/mashup/www.melissa.com.br-colecoes-mashup-31-03-19",
-                    "width": 1948,
-                    "height": 896,
+                    "src": "collections/development/mashup/www.melissa.com.br-colecoes-mashup-31-03-19",
+                    "size": [1948, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Mashup collection tour"
                 }, {
-                    "src": "melissa/collections/development/mashup/www.melissa.com.br-colecoes-mashup-31-03-19-1-mobile",
-                    "width": 828,
-                    "height": 1712,
+                    "src": "collections/development/mashup/www.melissa.com.br-colecoes-mashup-31-03-19-1-mobile",
+                    "size": [828, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Mashup mobile collection tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collections/development/mirror/melissa.com.br-colecoes-mirror-31-03-19",
-                    "width": 1928,
-                    "height": 912,
+                    "src": "collections/development/mirror/melissa.com.br-colecoes-mirror-31-03-19",
+                    "size": [1928, 912],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Mirror collection tour"
                 }, {
-                    "src": "melissa/collections/development/mirror/melissa.com.br-colecoes-mirror-31-03-19-1-mobile",
-                    "width": 834,
-                    "height": 1728,
+                    "src": "collections/development/mirror/melissa.com.br-colecoes-mirror-31-03-19-1-mobile",
+                    "size": [834, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Mirror mobile collection tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collections/development/open-vibes/melissa-colecoes-open-vibes-tour",
-                    "width": 1935,
-                    "height": 880,
+                    "src": "collections/development/open-vibes/melissa-colecoes-open-vibes-tour",
+                    "size": [1935, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Open Vibes collection tour"
                 }, {
-                    "src": "melissa/collections/development/open-vibes/melissa.com.br-colecoes-open-vibes-31-03-19-1-mobile",
-                    "width": 829,
-                    "height": 1712,
+                    "src": "collections/development/open-vibes/melissa.com.br-colecoes-open-vibes-31-03-19-1-mobile",
+                    "size": [829, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Open Vibes mobile collection tour"
@@ -279,79 +249,69 @@
             [
                 {
                     "class": "landscape",
-                    "src": "melissa/collabs/development/a-la-garçonne/melissa-collab-a-la-garçonne-tour",
-                    "width": 1950,
-                    "height": 896,
+                    "src": "collabs/development/a-la-garçonne/melissa-collab-a-la-garçonne-tour",
+                    "size": [1950, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:A La Garçonne mobile tour"
                 },
                 {
-                    "src": "melissa/collabs/development/a-la-garçonne/melissa.com.br-collabs-a-la-garconne-31-03-19-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "collabs/development/a-la-garçonne/melissa.com.br-collabs-a-la-garconne-31-03-19-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:A La Garçonne mobile tour"
                 },
                 {
                     "class": "landscape",
-                    "src": "melissa/collabs/development/awaytomars/melissa.com.br-collabs-awaytomars-31-03-19",
-                    "width": 1950,
-                    "height": 896,
+                    "src": "collabs/development/awaytomars/melissa.com.br-collabs-awaytomars-31-03-19",
+                    "size": [1950, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Awaytomars tour"
                 },
                 {
-                    "src": "melissa/collabs/development/awaytomars/melissa.com.br-collabs-awaytomars-31-03-19-1-mobile",
-                    "width": 828,
-                    "height": 1712,
+                    "src": "collabs/development/awaytomars/melissa.com.br-collabs-awaytomars-31-03-19-1-mobile",
+                    "size": [828, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Awaytomars mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/development/CSC/melissa.com.br-collabs-csc-31-03-19",
-                    "width": 1812,
-                    "height": 880,
+                    "src": "collabs/development/CSC/melissa.com.br-collabs-csc-31-03-19",
+                    "size": [1812, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:CSC tour"
                 }, {
-                    "src": "melissa/collabs/development/CSC/melissa.com.br-collabs-csc-31-03-19-1-mobile",
-                    "width": 828,
-                    "height": 1792,
+                    "src": "collabs/development/CSC/melissa.com.br-collabs-csc-31-03-19-1-mobile",
+                    "size": [828, 1792],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:CSC mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/development/fabula/melissa-collab-fabula-tour",
-                    "width": 1924,
-                    "height": 880,
+                    "src": "collabs/development/fabula/melissa-collab-fabula-tour",
+                    "size": [1924, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Fabula tour"
                 }, {
-                    "src": "melissa/collabs/development/fabula/melissa.com.br-collabs-fabula-31-03-19-1-mobile",
-                    "width": 1918,
-                    "height": 1728,
+                    "src": "collabs/development/fabula/melissa.com.br-collabs-fabula-31-03-19-1-mobile",
+                    "size": [1918, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Fabula mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/development/rider/melissa-collab-rider-tour",
-                    "width": 1920,
-                    "height": 880,
+                    "src": "collabs/development/rider/melissa-collab-rider-tour",
+                    "size": [1920, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Rider tour"
                 }, {
-                    "src": "melissa/collabs/development/rider/melissa.com.br-collabs-rider-31-03-19-1-mobile",
-                    "width": 834,
-                    "height": 1728,
+                    "src": "collabs/development/rider/melissa.com.br-collabs-rider-31-03-19-1-mobile",
+                    "size": [834, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Rider mobile tour"
@@ -365,64 +325,56 @@
             [
                 {
                     "class": "landscape",
-                    "src": "melissa/specials/development/bike/melissa.com.br-specials-bike-31-03-19",
-                    "width": 1950,
-                    "height": 896,
+                    "src": "specials/development/bike/melissa.com.br-specials-bike-31-03-19",
+                    "size": [1950, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Special:Bike tour"
                 },
                 {
-                    "src": "melissa/specials/development/bike/melissa.com.br-specials-bike-31-03-19-1-mobile",
-                    "width": 828,
-                    "height": 1712,
+                    "src": "specials/development/bike/melissa.com.br-specials-bike-31-03-19-1-mobile",
+                    "size": [828, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Special:Bike mobile tour"
                 },
                 {
                     "class": "landscape",
-                    "src": "melissa/specials/development/creatives/melissa.com.br-specials-creatives-31-03-19",
-                    "width": 1818,
-                    "height": 880,
+                    "src": "specials/development/creatives/melissa.com.br-specials-creatives-31-03-19",
+                    "size": [1818, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Special:Creatives tour"
                 },
                 {
-                    "src": "melissa/specials/development/creatives/melissa.com.br-specials-creatives-31-03-19-1-mobile",
-                    "width": 828,
-                    "height": 1712,
+                    "src": "specials/development/creatives/melissa.com.br-specials-creatives-31-03-19-1-mobile",
+                    "size": [828, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Special:Creatives mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/specials/development/possession/melissa.com.br-specials-possession-31-03-19",
-                    "width": 1842,
-                    "height": 896,
+                    "src": "specials/development/possession/melissa.com.br-specials-possession-31-03-19",
+                    "size": [1842, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Special:Possession tour"
                 }, {
-                    "src": "melissa/specials/development/possession/melissa.com.br-specials-possession-31-03-19-1-mobile",
-                    "width": 834,
-                    "height": 1728,
+                    "src": "specials/development/possession/melissa.com.br-specials-possession-31-03-19-1-mobile",
+                    "size": [834, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Special:Possession mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/specials/development/sk8/melissa.com.br-specials-melissa-sk8-31-03-19",
-                    "width": 1842,
-                    "height": 896,
+                    "src": "specials/development/sk8/melissa.com.br-specials-melissa-sk8-31-03-19",
+                    "size": [1842, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Special:SK8 tour"
                 }, {
-                    "src": "melissa/specials/development/sk8/melissa.com.br-specials-melissa-sk8-31-03-19-1-mobile",
-                    "width": 828,
-                    "height": 1712,
+                    "src": "specials/development/sk8/melissa.com.br-specials-melissa-sk8-31-03-19-1-mobile",
+                    "size": [828, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Special:SK8 mobile tour"
@@ -436,199 +388,173 @@
             [
                 {
                     "class": "landscape",
-                    "src": "melissa/collabs/maintenence/campana/melissa.com.br-collabs-campana-31-03-19",
-                    "width": 1840,
-                    "height": 896,
+                    "src": "collabs/maintenence/campana/melissa.com.br-collabs-campana-31-03-19",
+                    "size": [1840, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Campana tour"
                 },
                 {
-                    "src": "melissa/collabs/maintenence/campana/melissa.com.br-collabs-campana-31-03-19-1-mobile",
-                    "width": 831,
-                    "height": 1728,
+                    "src": "collabs/maintenence/campana/melissa.com.br-collabs-campana-31-03-19-1-mobile",
+                    "size": [831, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Campana mobile tour"
                 },
                 {
                     "class": "landscape",
-                    "src": "melissa/collabs/maintenence/gaetano-pesce/melissa-collab-gaetano-pesce-tour",
-                    "width": 1838,
-                    "height": 896,
+                    "src": "collabs/maintenence/gaetano-pesce/melissa-collab-gaetano-pesce-tour",
+                    "size": [1838, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Gaetano Pesce tour"
                 },
                 {
-                    "src": "melissa/collabs/maintenence/gaetano-pesce/melissa.com.br-collabs-gaetano-pesce-31-03-19-1-mobile",
-                    "width": 834,
-                    "height": 1728,
+                    "src": "collabs/maintenence/gaetano-pesce/melissa.com.br-collabs-gaetano-pesce-31-03-19-1-mobile",
+                    "size": [834, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Gaetano Pesce mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/maintenence/j-maskrey/melissa.com.br-collabs-j-maskrey-31-03-19",
-                    "width": 1842,
-                    "height": 896,
+                    "src": "collabs/maintenence/j-maskrey/melissa.com.br-collabs-j-maskrey-31-03-19",
+                    "size": [1842, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:J Maskrey tour"
                 }, {
-                    "src": "melissa/collabs/maintenence/j-maskrey/melissa.com.br-collabs-j-maskrey-31-03-19-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "collabs/maintenence/j-maskrey/melissa.com.br-collabs-j-maskrey-31-03-19-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:J Maskrey mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/maintenence/gareth-pugh/melissa.com.br-collabs-gareth-pugh",
-                    "width": 1814,
-                    "height": 880,
+                    "src": "collabs/maintenence/gareth-pugh/melissa.com.br-collabs-gareth-pugh",
+                    "size": [1814, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Gareth Pugh tour"
                 }, {
-                    "src": "melissa/collabs/maintenence/gareth-pugh/melissa.com.br-collabs-gareth-pugh-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "collabs/maintenence/gareth-pugh/melissa.com.br-collabs-gareth-pugh-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Gareth Pugh mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/maintenence/jason-wu/melissa.com.br-collabs-jason-wu-31-03-19",
-                    "width": 1839,
-                    "height": 928,
+                    "src": "collabs/maintenence/jason-wu/melissa.com.br-collabs-jason-wu-31-03-19",
+                    "size": [1839, 928],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Jason Wu tour"
                 }, {
-                    "src": "melissa/collabs/maintenence/jason-wu/melissa.com.br-collabs-jason-wu-31-03-19-1-mobile",
-                    "width": 834,
-                    "height": 1728,
+                    "src": "collabs/maintenence/jason-wu/melissa.com.br-collabs-jason-wu-31-03-19-1-mobile",
+                    "size": [834, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Jason Wu mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/maintenence/jeremy-scott/melissa.com.br-collabs-jeremy-scott-31-03-19",
-                    "width": 1844,
-                    "height": 896,
+                    "src": "collabs/maintenence/jeremy-scott/melissa.com.br-collabs-jeremy-scott-31-03-19",
+                    "size": [1844, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Jeremy Scott tour"
                 }, {
-                    "src": "melissa/collabs/maintenence/jeremy-scott/melissa.com.br-collabs-jeremy-scott-31-03-19-1-mobile",
-                    "width": 828,
-                    "height": 1712,
+                    "src": "collabs/maintenence/jeremy-scott/melissa.com.br-collabs-jeremy-scott-31-03-19-1-mobile",
+                    "size": [828, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Jeremy Scott mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/maintenence/sebastian-errazuriz/melissa.com.br-collabs-sebastian-errazuriz-31-03-19",
-                    "width": 1844,
-                    "height": 896,
+                    "src": "collabs/maintenence/sebastian-errazuriz/melissa.com.br-collabs-sebastian-errazuriz-31-03-19",
+                    "size": [1844, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Sebastian Errazuriz tour"
                 }, {
-                    "src": "melissa/collabs/maintenence/sebastian-errazuriz/melissa.com.br-collabs-sebastian-errazuriz-31-03-19-1-mobile",
-                    "width": 832,
-                    "height": 1728,
+                    "src": "collabs/maintenence/sebastian-errazuriz/melissa.com.br-collabs-sebastian-errazuriz-31-03-19-1-mobile",
+                    "size": [832, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Sebastian Errazuriz mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/maintenence/karl-lagerfeld/melissa.com.br-collabs-karl-lagerfeld-31-03-19",
-                    "width": 1842,
-                    "height": 896,
+                    "src": "collabs/maintenence/karl-lagerfeld/melissa.com.br-collabs-karl-lagerfeld-31-03-19",
+                    "size": [1842, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Karl Lagerfeld tour"
                 }, {
-                    "src": "melissa/collabs/maintenence/karl-lagerfeld/melissa.com.br-collabs-karl-lagerfeld-31-03-19-1-mobile",
-                    "width": 828,
-                    "height": 1712,
+                    "src": "collabs/maintenence/karl-lagerfeld/melissa.com.br-collabs-karl-lagerfeld-31-03-19-1-mobile",
+                    "size": [828, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Karl Lagerfeld mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/maintenence/vivienne-westwood/melissa.com.br-collabs-vivienne-westwood-31-03-19",
-                    "width": 1820,
-                    "height": 880,
+                    "src": "collabs/maintenence/vivienne-westwood/melissa.com.br-collabs-vivienne-westwood-31-03-19",
+                    "size": [1820, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Vivienne Westwood tour"
                 }, {
-                    "src": "melissa/collabs/maintenence/vivienne-westwood/melissa.com.br-collabs-vivienne-westwood-31-03-19-1-mobile",
-                    "width": 834,
-                    "height": 1728,
+                    "src": "collabs/maintenence/vivienne-westwood/melissa.com.br-collabs-vivienne-westwood-31-03-19-1-mobile",
+                    "size": [834, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Vivienne Westwood mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/maintenence/vitorino-campos/melissa.com.br-collabs-vitorino-campos-31-03-19",
-                    "width": 1836,
-                    "height": 896,
+                    "src": "collabs/maintenence/vitorino-campos/melissa.com.br-collabs-vitorino-campos-31-03-19",
+                    "size": [1836, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Vitorino Campos tour"
                 }, {
-                    "src": "melissa/collabs/maintenence/vitorino-campos/melissa.com.br-collabs-vitorino-campos-31-03-19-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "collabs/maintenence/vitorino-campos/melissa.com.br-collabs-vitorino-campos-31-03-19-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Vitorino Campos mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/maintenence/zaha-hadid/melissa.com.br-collabs-zaha-hadid-31-03-19",
-                    "width": 1840,
-                    "height": 896,
+                    "src": "collabs/maintenence/zaha-hadid/melissa.com.br-collabs-zaha-hadid-31-03-19",
+                    "size": [1840, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Zaha Hadid tour"
                 }, {
-                    "src": "melissa/collabs/maintenence/zaha-hadid/melissa.com.br-collabs-zaha-hadid-31-03-19-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "collabs/maintenence/zaha-hadid/melissa.com.br-collabs-zaha-hadid-31-03-19-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Zaha Hadid mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/specials/maintenence/roller-joy/melissa-specials-roller-joy-tour",
-                    "width": 1812,
-                    "height": 880,
+                    "src": "specials/maintenence/roller-joy/melissa-specials-roller-joy-tour",
+                    "size": [1812, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Special:Roller Joy tour"
                 }, {
-                    "src": "melissa/specials/maintenence/roller-joy/melissa.com.br-specials-roller-joy-31-03-19-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "specials/maintenence/roller-joy/melissa.com.br-specials-roller-joy-31-03-19-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Special:Roller Joy mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/specials/maintenence/tropico-surreal/melissa-specials-tropico-surreal-tour",
-                    "width": 1844,
-                    "height": 896,
+                    "src": "specials/maintenence/tropico-surreal/melissa-specials-tropico-surreal-tour",
+                    "size": [1844, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Special:Tropico Surreal tour"
                 }, {
-                    "src": "melissa/specials/maintenence/tropico-surreal/melissa.com.br-specials-tropico-surreal-31-03-19-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "specials/maintenence/tropico-surreal/melissa.com.br-specials-tropico-surreal-31-03-19-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Special:Tropico Surreal mobile tour"
@@ -642,109 +568,95 @@
             [
                 {
                     "class": "landscape",
-                    "src": "melissa/collections/maintenence/cine-melissa/melissa-colecoes-cine-melissa-tour",
-                    "width": 1836,
-                    "height": 880,
+                    "src": "collections/maintenence/cine-melissa/melissa-colecoes-cine-melissa-tour",
+                    "size": [1836, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:Cine Melissa tour"
                 },
                 {
-                    "src": "melissa/collections/maintenence/cine-melissa/melissa.com.br-colecoes-cine-melissa-31-03-19-maintenence-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "collections/maintenence/cine-melissa/melissa.com.br-colecoes-cine-melissa-31-03-19-maintenence-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:Cine Melissa mobile tour"
                 },
                 {
                     "class": "landscape",
-                    "src": "melissa/collections/maintenence/dance-machine/melissa-colecoes-dance-machine-tour",
-                    "width": 1840,
-                    "height": 896,
+                    "src": "collections/maintenence/dance-machine/melissa-colecoes-dance-machine-tour",
+                    "size": [1840, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:Dance Machine tour"
                 },
                 {
-                    "src": "melissa/collections/maintenence/dance-machine/melissa.com.br-colecoes-dance-machine-31-03-19-manutencao-1-mobile",
-                    "width": 834,
-                    "height": 1728,
+                    "src": "collections/maintenence/dance-machine/melissa.com.br-colecoes-dance-machine-31-03-19-manutencao-1-mobile",
+                    "size": [834, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:Dance Machine mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collections/maintenence/eat-my-melissa/melissa.com.br-colecoes-eat-my-melissa-31-03-19-",
-                    "width": 1816,
-                    "height": 880,
+                    "src": "collections/maintenence/eat-my-melissa/melissa.com.br-colecoes-eat-my-melissa-31-03-19-",
+                    "size": [1816, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:Eat my Melissa tour"
                 }, {
-                    "src": "melissa/collections/maintenence/eat-my-melissa/melissa.com.br-colecoes-eat-my-melissa-31-03-19-manutencao-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "collections/maintenence/eat-my-melissa/melissa.com.br-colecoes-eat-my-melissa-31-03-19-manutencao-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:Eat my Melissa mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collections/maintenence/nation/melissa-colecoes-nation-tour",
-                    "width": 1836,
-                    "height": 880,
+                    "src": "collections/maintenence/nation/melissa-colecoes-nation-tour",
+                    "size": [1836, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:Nation tour"
                 }, {
-                    "src": "melissa/collections/maintenence/nation/melissa.com.br-colecoes-nation-31-01-19-maintenence-1-mobile",
-                    "width": 834,
-                    "height": 1728,
+                    "src": "collections/maintenence/nation/melissa.com.br-colecoes-nation-31-01-19-maintenence-1-mobile",
+                    "size": [834, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:Nation mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collections/maintenence/star-walker/melissa-colecoes-starwalker-tour",
-                    "width": 1812,
-                    "height": 880,
+                    "src": "collections/maintenence/star-walker/melissa-colecoes-starwalker-tour",
+                    "size": [1812, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:Starwalker tour"
                 }, {
-                    "src": "melissa/collections/maintenence/star-walker/melissa.com.br-colecoes-starwalker-31-03-19-manutencao-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "collections/maintenence/star-walker/melissa.com.br-colecoes-starwalker-31-03-19-manutencao-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:Starwalker mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collections/maintenence/wanna-be-carioca/wanna-be-carioca",
-                    "width": 1834,
-                    "height": 880,
+                    "src": "collections/maintenence/wanna-be-carioca/wanna-be-carioca",
+                    "size": [1834, 880],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:Wanna be Carioca tour"
                 }, {
-                    "src": "melissa/collections/maintenence/wanna-be-carioca/melissa.com.br-colecoes-wanna-be-carioca-31-03-19-manutencao-1-mobile",
-                    "width": 834,
-                    "height": 1728,
+                    "src": "collections/maintenence/wanna-be-carioca/melissa.com.br-colecoes-wanna-be-carioca-31-03-19-manutencao-1-mobile",
+                    "size": [834, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:Wanna be Carioca mobile tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collections/maintenence/we-are-flowers/melissa-colecoes-we-are-flowers-tour",
-                    "width": 1838,
-                    "height": 896,
+                    "src": "collections/maintenence/we-are-flowers/melissa-colecoes-we-are-flowers-tour",
+                    "size": [1838, 896],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:We are flowers tour"
                 }, {
-                    "src": "melissa/collections/maintenence/we-are-flowers/melissa.com.br-colecoes-we-are-flowers-31-03-19-manutencao-1-mobile",
-                    "width": 832,
-                    "height": 1728,
+                    "src": "collections/maintenence/we-are-flowers/melissa.com.br-colecoes-we-are-flowers-31-03-19-manutencao-1-mobile",
+                    "size": [832, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collection:We are flowers mobile tour"
@@ -756,17 +668,15 @@
             [
                 {
                     "class": "landscape",
-                    "src": "melissa/collabs/guiding/baja-east/melissa.com.br-collabs-baja-east-31-03-19",
-                    "width": 1932,
-                    "height": 944,
+                    "src": "collabs/guiding/baja-east/melissa.com.br-collabs-baja-east-31-03-19",
+                    "size": [1932, 944],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Baja East tour"
                 }, {
                     "class": "landscape",
-                    "src": "melissa/collabs/guiding/baja-east/melissa.com.br-collabs-baja-east-31-03-19-1-mobile",
-                    "width": 832,
-                    "height": 1728,
+                    "src": "collabs/guiding/baja-east/melissa.com.br-collabs-baja-east-31-03-19-1-mobile",
+                    "size": [832, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Collab:Baja East mobile tour"
@@ -780,16 +690,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "melissa/galleries/melissa-galleries-tour",
-                    "width": 1928,
-                    "height": 912,
+                    "src": "galleries/melissa-galleries-tour",
+                    "size": [1928, 912],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - LON/NYC/SP Galleries tour"
                 }, {
-                    "src": "melissa/galleries/melissa.com.br-galerias-31-03-19-1-mobile",
-                    "width": 834,
-                    "height": 1728,
+                    "src": "galleries/melissa.com.br-galerias-31-03-19-1-mobile",
+                    "size": [834, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - LON/NYC/SP Galleries mobile tour"
@@ -801,23 +709,20 @@
             [
                 {
                     "class": "landscape",
-                    "src": "melissa/next/melissa-next-contest-tour",
-                    "width": 1443,
-                    "height": 784,
+                    "src": "next/melissa-next-contest-tour",
+                    "size": [1443, 784],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Next contest BR tour"
                 }, {
-                    "src": "melissa/next/melissa-next-br-mobile",
-                    "width": 832,
-                    "height": 1728,
+                    "src": "next/melissa-next-br-mobile",
+                    "size": [832, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Next contest BR mobile tour"
                 }, {
-                    "src": "melissa/next/melissa-next-contest-2020-12-15-18_21_44",
-                    "width": 1920,
-                    "height": 6971,
+                    "src": "next/melissa-next-contest-2020-12-15-18_21_44",
+                    "size": [1920, 6971],
                     "canExpand": true,
                     "label": "Melissa - Next contest BR - Screenshoot"
                 }
@@ -828,16 +733,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "melissa/pop/melissa-pop-2020",
-                    "width": 1452,
-                    "height": 720,
+                    "src": "pop/melissa-pop-2020",
+                    "size": [1452, 720],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - POP tour"
                 }, {
-                    "src": "melissa/pop/melissa-pop-2020-full-page",
-                    "width": 1920,
-                    "height": 6264,
+                    "src": "pop/melissa-pop-2020-full-page",
+                    "size": [1920, 6264],
                     "canExpand": true,
                     "label": "Melissa - POP - Screenshoot"
                 }
@@ -850,23 +753,20 @@
             [
                 {
                     "class": "landscape",
-                    "src": "melissa/sustainability/melissa-sustainability-tour",
-                    "width": 1469,
-                    "height": 704,
+                    "src": "sustainability/melissa-sustainability-tour",
+                    "size": [1469, 704],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Sustainability tour"
                 }, {
-                    "src": "melissa/sustainability/https-www.melissa.com.br-sobre-sustentabilidade-17-10-19-mobile",
-                    "width": 831,
-                    "height": 1728,
+                    "src": "sustainability/https-www.melissa.com.br-sobre-sustentabilidade-17-10-19-mobile",
+                    "size": [831, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Melissa - Sustainability mobile tour"
                 }, {
-                    "src": "melissa/sustainability/melissa-sustainability-full-page",
-                    "width": 1920,
-                    "height": 23835,
+                    "src": "sustainability/melissa-sustainability-full-page",
+                    "size": [1920, 23835],
                     "canExpand": true,
                     "label": "Melissa - Sustainability - Screenshoot"
                 }

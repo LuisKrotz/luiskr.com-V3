@@ -5,9 +5,9 @@
         <div class="internal-main">
             <Media
             classes="internal-main-item"
-            :src="translations.cover.src"
-            :width="translations.cover.width"
-            :height="translations.cover.height"
+            :src="translations.folder + translations.cover.src"
+            :width="translations.cover.size[0]"
+            :height="translations.cover.size[1]"
             :isVideo="translations.cover?.isVideo ?? false"
             :label="translations.cover.label"/>
         </div>
@@ -24,9 +24,9 @@
                     <div class="internal-extra-scroll">
                         <div v-for="item, itemkey in child" :key="itemkey" :class="'internal-extra-item ' + (item?.class ?? '')">
                             <Media
-                            :src="item.src"
-                            :width="item.width"
-                            :height="item.height"
+                            :src="translations.folder + item.src"
+                            :width="item.size[0]"
+                            :height="item.size[1]"
                             :canExpand="item?.canExpand ?? false"
                             :isVideo="item?.isVideo ?? false"
                             :label="item.label"/>

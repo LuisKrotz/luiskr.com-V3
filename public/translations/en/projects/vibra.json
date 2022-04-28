@@ -1,12 +1,12 @@
 {
     "title": "Vibra",
     "cover": {
-        "src": "vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-tour",
-        "width": 1438,
-        "height": 784,
+        "src": "vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-tour",
+        "size": [1438, 784],
         "isVideo": true,
         "label": "Vibra:A empresa mais inovadora do segmento no brasil / tour"
     },
+    "folder": "vibra/",
     "sections": [
         [
             [
@@ -14,28 +14,24 @@
             ],
             [
                 {
-                    "src": "vibra/https-www.vibra.com.br-mobile",
-                    "width": 832,
-                    "height": 1728,
+                    "src": "https-www.vibra.com.br-mobile",
+                    "size": [832, 1728],
                     "canExpand": true,
                     ":isVideo": true,
                     "label": "Vibra:A empresa mais inovadora do segmento no brasil /tour mobile"
                 }, {
-                    "src": "vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-production-and-distributuon-business-full-page",
-                    "width": 1920,
-                    "height": 2695,
+                    "src": "vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-production-and-distributuon-business-full-page",
+                    "size": [1920, 2695],
                     "canExpand": true,
                     "label": "Vibra:A empresa mais inovadora do segmento no brasil/ production and distributuon business full page"
                 }, {
-                    "src": "vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-our-brands-full-page",
-                    "width": 1920,
-                    "height": 32491,
+                    "src": "vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-our-brands-full-page",
+                    "size": [1920, 32491],
                     "canExpand": true,
                     "label": "Vibra:A empresa mais inovadora do segmento no brasil /our brands full page"
                 }, {
-                    "src": "vibra/vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-more-than-five-decades-of-experience-and-tradition-in-aviculture-about-us-full-page",
-                    "width": 1920,
-                    "height": 7244,
+                    "src": "vibra.com.br-a-empresa-mais-inovadora-do-segmento-no-brasil-more-than-five-decades-of-experience-and-tradition-in-aviculture-about-us-full-page",
+                    "size": [1920, 7244],
                     "canExpand": true,
                     "label": "Vibra:A empresa mais inovadora do segmento no brasil - more than five decades of experience and tradition in aviculture / About us full page"
                 }

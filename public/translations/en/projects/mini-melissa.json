@@ -1,12 +1,12 @@
 {
     "title": "Mini Melissa",
     "cover": {
-        "src": "minimelissa/website/minimelissa.com.br-31-03-19",
-        "width": 1943,
-        "height": 976,
+        "src": "website/minimelissa.com.br-31-03-19",
+        "size": [1943, 976],
         "isVideo": true,
         "label": "Mini Melissa:homepage full tour"
     },
+    "folder": "minimelissa/",
     "sections": [
         [
             [
@@ -14,22 +14,19 @@
             ],
             [
                 {
-                    "src": "minimelissa/website/minimelissa.com.br-31-03-19-1-mobile",
-                    "width": 828,
-                    "height": 1712,
+                    "src": "website/minimelissa.com.br-31-03-19-1-mobile",
+                    "size": [828, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:mobile tour"
                 }, {
-                    "src": "minimelissa/website/mini-melissa-cover-2020",
-                    "width": 1920,
-                    "height": 1001,
+                    "src": "website/mini-melissa-cover-2020",
+                    "size": [1920, 1001],
                     "canExpand": true,
                     "label": "Mini Melissa:Feed cover"
                 }, {
-                    "src": "minimelissa/website/mini-melissa-feed-2020",
-                    "width": 1920,
-                    "height": 32491,
+                    "src": "website/mini-melissa-feed-2020",
+                    "size": [1920, 32491],
                     "canExpand": true,
                     "label": "Mini Melissa:Feed screenshoot 2020"
                 }
@@ -40,16 +37,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "minimelissa/where-to-find/mini-melissa-onde-encontrar-2020",
-                    "width": 1932,
-                    "height": 944,
+                    "src": "where-to-find/mini-melissa-onde-encontrar-2020",
+                    "size": [1932, 944],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Where to find"
                 }, {
-                    "src": "minimelissa/where-to-find/minimelissa.com.br-onde-encotrar-31-03-19-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "where-to-find/minimelissa.com.br-onde-encotrar-31-03-19-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:where to find - mobile"
@@ -63,16 +58,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "minimelissa/collections/color-me-ss20/minimelissa-ss20",
-                    "width": 1440,
-                    "height": 784,
+                    "src": "collections/color-me-ss20/minimelissa-ss20",
+                    "size": [1440, 784],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Color Me"
                 }, {
-                    "src": "minimelissa/collections/color-me-ss20/minimelissa-ss20-mobile",
-                    "width": 828,
-                    "height": 1712,
+                    "src": "collections/color-me-ss20/minimelissa-ss20-mobile",
+                    "size": [828, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Color Me mobile"
@@ -84,16 +77,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "minimelissa/collections/dance-machine-aw16/minimelissa.com.br-aw16-31-03-19",
-                    "width": 1928,
-                    "height": 944,
+                    "src": "collections/dance-machine-aw16/minimelissa.com.br-aw16-31-03-19",
+                    "size": [1928, 944],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Dance Machine"
                 }, {
-                    "src": "minimelissa/collections/dance-machine-aw16/minimelissa.com.br-aw16-31-03-19-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "collections/dance-machine-aw16/minimelissa.com.br-aw16-31-03-19-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Dance Machine mobile"
@@ -105,16 +96,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "minimelissa/collections/dreamers-aw20/minimelissa-aw20",
-                    "width": 1440,
-                    "height": 784,
+                    "src": "collections/dreamers-aw20/minimelissa-aw20",
+                    "size": [1440, 784],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Dreamers"
                 }, {
-                    "src": "minimelissa/collections/dreamers-aw20/minimelissa-aw20-mobile",
-                    "width": 828,
-                    "height": 1712,
+                    "src": "collections/dreamers-aw20/minimelissa-aw20-mobile",
+                    "size": [828, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Dreamers mobile"
@@ -126,16 +115,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "minimelissa/collections/family-ss19/minimelissa.com.br-SS19-31-03-19",
-                    "width": 1932,
-                    "height": 944,
+                    "src": "collections/family-ss19/minimelissa.com.br-SS19-31-03-19",
+                    "size": [1932, 944],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Family"
                 }, {
-                    "src": "minimelissa/collections/family-ss19/minimelissa.com.br-SS19-31-03-19-1-mobile",
-                    "width": 834,
-                    "height": 1728,
+                    "src": "collections/family-ss19/minimelissa.com.br-SS19-31-03-19-1-mobile",
+                    "size": [834, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Family mobile"
@@ -147,16 +134,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "minimelissa/collections/flygrl-aw17/minimelissa.com.br-aw17-31-03-19",
-                    "width": 1932,
-                    "height": 944,
+                    "src": "collections/flygrl-aw17/minimelissa.com.br-aw17-31-03-19",
+                    "size": [1932, 944],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Flygrl"
                 }, {
-                    "src": "minimelissa/collections/flygrl-aw17/minimelissa.com.br-aw17-31-03-19-1-mobile",
-                    "width": 832,
-                    "height": 1728,
+                    "src": "collections/flygrl-aw17/minimelissa.com.br-aw17-31-03-19-1-mobile",
+                    "size": [832, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Flygrl mobile"
@@ -168,16 +153,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "minimelissa/collections/mapping-ss18/minimelissa.com.br-ss18-31-03-19",
-                    "width": 1932,
-                    "height": 944,
+                    "src": "collections/mapping-ss18/minimelissa.com.br-ss18-31-03-19",
+                    "size": [1932, 944],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Mapping"
                 }, {
-                    "src": "minimelissa/collections/mapping-ss18/minimelissa.com.br-ss18-31-03-19-1-mobile",
-                    "width": 832,
-                    "height": 1728,
+                    "src": "collections/mapping-ss18/minimelissa.com.br-ss18-31-03-19-1-mobile",
+                    "size": [832, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Mapping mobile"
@@ -189,16 +172,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "minimelissa/collections/mashup-ss17/minimelissa.com.br-ss17-31-03-19",
-                    "width": 1928,
-                    "height": 944,
+                    "src": "collections/mashup-ss17/minimelissa.com.br-ss17-31-03-19",
+                    "size": [1928, 944],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Mashup"
                 }, {
-                    "src": "minimelissa/collections/mashup-ss17/minimelissa.com.br-ss17-31-03-19-1-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "collections/mashup-ss17/minimelissa.com.br-ss17-31-03-19-1-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Mashup mobile"
@@ -210,16 +191,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "minimelissa/collections/mirror-aw19/minimelissa.com.br-aw19-31-03-19",
-                    "width": 1936,
-                    "height": 944,
+                    "src": "collections/mirror-aw19/minimelissa.com.br-aw19-31-03-19",
+                    "size": [1936, 944],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Mirror"
                 }, {
-                    "src": "minimelissa/collections/mirror-aw19/minimelissa.com.br-aw19-31-03-19-1-mobile",
-                    "width": 831,
-                    "height": 1728,
+                    "src": "collections/mirror-aw19/minimelissa.com.br-aw19-31-03-19-1-mobile",
+                    "size": [831, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Mirror mobile"
@@ -233,16 +212,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "minimelissa/collections/open-vibes-aw18/aw18",
-                    "width": 1924,
-                    "height": 928,
+                    "src": "collections/open-vibes-aw18/aw18",
+                    "size": [1924, 928],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Open Vibes"
                 }, {
-                    "src": "minimelissa/collections/open-vibes-aw18/minimelissa.com.br-aw18-31-03-19-1-mobile",
-                    "width": 828,
-                    "height": 1712,
+                    "src": "collections/open-vibes-aw18/minimelissa.com.br-aw18-31-03-19-1-mobile",
+                    "size": [828, 1712],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Open Vibes mobile"
@@ -254,16 +231,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "minimelissa/collections/wanna-be-carioca-ss16/minimelissa.com.br-ss16-31-03-19",
-                    "width": 1928,
-                    "height": 944,
+                    "src": "collections/wanna-be-carioca-ss16/minimelissa.com.br-ss16-31-03-19",
+                    "size": [1928, 944],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Wanna be Carioca"
                 }, {
-                    "src": "minimelissa/collections/wanna-be-carioca-ss16/minimelissa.com.br-ss16-31-03-19-1-mobile",
-                    "width": 831,
-                    "height": 1728,
+                    "src": "collections/wanna-be-carioca-ss16/minimelissa.com.br-ss16-31-03-19-1-mobile",
+                    "size": [831, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Mini Melissa:Wanna be Carioca mobile"

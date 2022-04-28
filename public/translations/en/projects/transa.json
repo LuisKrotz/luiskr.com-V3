@@ -1,12 +1,12 @@
 {
     "title": "Transa Inc",
     "cover": {
-        "src": "transainc/website-2022/transa-feed-tour-april-2022-screenrecording",
-        "width": 3840,
-        "height": 2160,
+        "src": "website-2022/transa-feed-tour-april-2022-screenrecording",
+        "size": [3840, 2160],
         "isVideo": true,
         "label": "Transa:Feed short tour"
     },
+    "folder": "transainc/",
     "sections": [
         [
             [
@@ -14,52 +14,46 @@
             ],
             [
                 {
-                    "src": "transainc/website-2022/transa-screenrecording-case-brazilian-leather",
-                    "width": 3840,
-                    "height": 2160,
+                    "src": "website-2022/transa-screenrecording-case-brazilian-leather",
+                    "size": [3840, 2160],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Transa:Video of Brazilian Leather's case inside TRANSA's website."
                 },
                 {
                     "class": "landscape",
-                    "src": "transainc/website-2022/transa-screenrecording-case-metcha",
-                    "width": 3840,
-                    "height": 2160,
+                    "src": "website-2022/transa-screenrecording-case-metcha",
+                    "size": [3840, 2160],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Transa:Video of METCHA's case inside TRANSA's website."
                 },
                 {
                     "class": "landscape",
-                    "src": "transainc/website-2022/transa-screenrecording-case-mor",
-                    "width": 3840,
-                    "height": 2160,
+                    "src": "website-2022/transa-screenrecording-case-mor",
+                    "size": [3840, 2160],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Transa:Video of MOR's case inside TRANSA's website."
                 },
                 {
                     "class": "landscape",
-                    "src": "transainc/website-2022/transa-screenrecording-case-melissa",
-                    "width": 3840,
-                    "height": 2160,
+                    "src": "website-2022/transa-screenrecording-case-melissa",
+                    "size": [3840, 2160],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Transa:Video of Melissa's case inside TRANSA's website."
                 }, {
                     "class": "landscape",
-                    "src": "transainc/website-2022/transa-screenrecording-case-mini-melissa",
-                    "width": 3840,
-                    "height": 2160,
+                    "src": "website-2022/transa-screenrecording-case-mini-melissa",
+                    "size": [3840, 2160],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Transa:Video of Mini Melissa's case inside TRANSA's website."
                 }, {
                     "class": "landscape",
-                    "src": "transainc/website-2022/transa-screenrecording-case-coza",
-                    "width": 3840,
-                    "height": 2160,
+                    "src": "website-2022/transa-screenrecording-case-coza",
+                    "size": [3840, 2160],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Transa:Video of COZA's case inside TRANSA's website."
@@ -71,67 +65,59 @@
             [
                 {
                     "class": "landscape",
-                    "src": "transainc/website-2021/transainc.com-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/transainc.com-tour",
+                    "size": [1929, 1008],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Transa:feed tour"
                 },
                 {
-                    "src": "transainc/website-2021/transainc.com-mobile-mobile",
-                    "width": 831,
-                    "height": 1712,
+                    "src": "website-2021/transainc.com-mobile-mobile",
+                    "size": [831, 1712],
                     "isVideo": true,
                     "canExpand": true,
                     "label": "Transa:feed mobile tour"
                 },
                 {
                     "class": "landscape",
-                    "src": "transainc/website-2021/categories/transainc.com-category--brazilian-leather-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/categories/transainc.com-category--brazilian-leather-tour",
+                    "size": [1929, 1008],
                     "isVideo": true,
                     "canExpand": true,
                     "label": "Transa:Category - brazilian leather / tour"
                 },
                 {
                     "class": "landscape",
-                    "src": "transainc/website-2021/categories/transainc.com-category--coza-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/categories/transainc.com-category--coza-tour",
+                    "size": [1929, 1008],
                     "isVideo": true,
                     "canExpand": true,
                     "label": "Transa:Category - Coza / tour"
                 }, {
                     "class": "landscape",
-                    "src": "transainc/website-2021/categories/transainc.com-category--melissa-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/categories/transainc.com-category--melissa-tour",
+                    "size": [1929, 1008],
                     "isVideo": true,
                     "canExpand": true,
                     "label": "Transa:Category - Melissa / tour"
                 }, {
                     "class": "landscape",
-                    "src": "transainc/website-2021/categories/transainc.com-category--metcha-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/categories/transainc.com-category--metcha-tour",
+                    "size": [1929, 1008],
                     "isVideo": true,
                     "canExpand": true,
                     "label": "Transa:Category - METCHA / tour"
                 }, {
                     "class": "landscape",
-                    "src": "transainc/website-2021/categories/transainc.com-category--mini-melissa-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/categories/transainc.com-category--mini-melissa-tour",
+                    "size": [1929, 1008],
                     "isVideo": true,
                     "canExpand": true,
                     "label": "Transa:Category - Mini Melissa / tour"
                 }, {
                     "class": "landscape",
-                    "src": "transainc/website-2021/categories/transainc.com-category--mor-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/categories/transainc.com-category--mor-tour",
+                    "size": [1929, 1008],
                     "isVideo": true,
                     "canExpand": true,
                     "label": "Transa:Category - Mor / tour"
@@ -143,225 +129,190 @@
             [
                 {
                     "class": "landscape",
-                    "src": "transainc/website-2021/articles/transainc.com-article--o-que-e-familia-article-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/articles/transainc.com-article--o-que-e-familia-article-tour",
+                    "size": [1929, 1008],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Transa:Article / o-que-e-familia-article / tour"
                 },
                 {
                     "class": "landscape",
-                    "src": "transainc/website-2021/articles/transainc.com-articles-bem-vindos-a-venus-brasileira-short-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/articles/transainc.com-articles-bem-vindos-a-venus-brasileira-short-tour",
+                    "size": [1929, 1008],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Transa:Article / bem-vindos-a-venus-brasileira / short tour"
                 },
                 {
                     "class": "landscape",
-                    "src": "transainc/website-2021/articles/transainc.com-articles-DIRECT-FROM-PARIS FASHION-WEEK-short-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/articles/transainc.com-articles-DIRECT-FROM-PARIS FASHION-WEEK-short-tour",
+                    "size": [1929, 1008],
                     "isVideo": true,
                     "canExpand": true,
                     "label": "Transa:Article / DIRECT-FROM-PARIS FASHION-WEEK / short tour"
                 },
                 {
                     "class": "landscape",
-                    "src": "transainc/website-2021/articles/transainc.com-articles-parceria-arquitetura-naciona-painel-centro-sao-paulo-short-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/articles/transainc.com-articles-parceria-arquitetura-naciona-painel-centro-sao-paulo-short-tour",
+                    "size": [1929, 1008],
                     "isVideo": true,
                     "canExpand": true,
                     "label": "Transa:Article / parceria-arquitetura-naciona-painel-centro-sao-paulo / short tour"
                 }, {
                     "class": "landscape",
-                    "src": "transainc/website-2021/articles/transainc.com-articles-the-shoe-surgeon-short-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/articles/transainc.com-articles-the-shoe-surgeon-short-tour",
+                    "size": [1929, 1008],
                     "isVideo": true,
                     "canExpand": true,
                     "label": "Transa:Article / the-shoe-surgeon / short tour"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--134-minutos-com-vitorino-campos-2021-06-03-15",
-                    "width": 1920,
-                    "height": 9989,
+                    "src": "website-2021/articles/transainc.com-article--134-minutos-com-vitorino-campos-2021-06-03-15",
+                    "size": [1920, 9989],
                     "canExpand": true,
                     "label": "Transa:Article/ 134-minutos-com-vitorino-campos-20 / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--a-chat-with-the-sneakerhead-beija-marie-velez-2021-06-03",
-                    "width": 1920,
-                    "height": 19486,
+                    "src": "website-2021/articles/transainc.com-article--a-chat-with-the-sneakerhead-beija-marie-velez-2021-06-03",
+                    "size": [1920, 19486],
                     "canExpand": true,
                     "label": "Transa:Article/ a-chat-with-the-sneakerhead-beija-marie-velez / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--a-imperatriz-do-couro-patricia-vieira-2021-06-03",
-                    "width": 1920,
-                    "height": 9010,
+                    "src": "website-2021/articles/transainc.com-article--a-imperatriz-do-couro-patricia-vieira-2021-06-03",
+                    "size": [1920, 9010],
                     "canExpand": true,
                     "label": "Transa:Article/ a-imperatriz-do-couro-patricia-vieira / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--anitta-fala-sobre-a-sua-relacao-com-a-nossa-collab-2021-06-03",
-                    "width": 1920,
-                    "height": 4758,
+                    "src": "website-2021/articles/transainc.com-article--anitta-fala-sobre-a-sua-relacao-com-a-nossa-collab-2021-06-03",
+                    "size": [1920, 4758],
                     "canExpand": true,
                     "label": "Transa:Article/ anitta-fala-sobre-a-sua-relacao-com-a-nossa-collab / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--bem-vindos-a-venus-brasileira-2021-06-03",
-                    "width": 1920,
-                    "height": 7001,
+                    "src": "website-2021/articles/transainc.com-article--bem-vindos-a-venus-brasileira-2021-06-03",
+                    "size": [1920, 7001],
                     "canExpand": true,
                     "label": "Transa:Article/ bem-vindos-a-venus-brasileira / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--coza-construindo-amor-com-elen-maurmann-2021-06-03-15",
-                    "width": 1920,
-                    "height": 8344,
+                    "src": "website-2021/articles/transainc.com-article--coza-construindo-amor-com-elen-maurmann-2021-06-03-15",
+                    "size": [1920, 8344],
                     "canExpand": true,
                     "label": "Transa:Article/ coza-construindo-amor-com-elen-maurmann-20 / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--coza-pantone-collab-2021-06-03-15",
-                    "width": 1920,
-                    "height": 7846,
+                    "src": "website-2021/articles/transainc.com-article--coza-pantone-collab-2021-06-03-15",
+                    "size": [1920, 7846],
                     "canExpand": true,
                     "label": "Transa:Article/ coza-pantone-collab-20 / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--design-na-pele-2021-06-03-15",
-                    "width": 1920,
-                    "height": 4789,
+                    "src": "website-2021/articles/transainc.com-article--design-na-pele-2021-06-03-15",
+                    "size": [1920, 4789],
                     "canExpand": true,
                     "label": "Transa:Article/ design-na-pele-20 / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--editorial-especial-canvas-2021-06-03-14",
-                    "width": 1920,
-                    "height": 9693,
+                    "src": "website-2021/articles/transainc.com-article--editorial-especial-canvas-2021-06-03-14",
+                    "size": [1920, 9693],
                     "canExpand": true,
                     "label": "Transa:Article/ editorial-especial-canvas-20 / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--eiichi-katsukawa-incorporates-visionary-concepts-2021-06-03-15",
-                    "width": 1920,
-                    "height": 17044,
+                    "src": "website-2021/articles/transainc.com-article--eiichi-katsukawa-incorporates-visionary-concepts-2021-06-03-15",
+                    "size": [1920, 17044],
                     "canExpand": true,
                     "label": "Transa:Article/ eiichi-katsukawa-incorporates-visionary-concepts-20 / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--em-parceria-com-a-arquitetura-nacional-painel-de-408m2-faz-pulsar-o-centro-de-sao-paulo-2021-06-03",
-                    "width": 1920,
-                    "height": 7937,
+                    "src": "website-2021/articles/transainc.com-article--em-parceria-com-a-arquitetura-nacional-painel-de-408m2-faz-pulsar-o-centro-de-sao-paulo-2021-06-03",
+                    "size": [1920, 7937],
                     "canExpand": true,
                     "label": "Transa:Article/ em-parceria-com-a-arquitetura-nacional-painel-de-408m2-faz-pulsar-o-centro-de-sao-paulo / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--exclusive-chat-with-dominic-the-shoe-surgeon-ciambrone-2021-06-03",
-                    "width": 1920,
-                    "height": 14115,
+                    "src": "website-2021/articles/transainc.com-article--exclusive-chat-with-dominic-the-shoe-surgeon-ciambrone-2021-06-03",
+                    "size": [1920, 14115],
                     "canExpand": true,
                     "label": "Transa:Article/ exclusive-chat-with-dominic-the-shoe-surgeon-ciambrone / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--fabrica-de-presentes-coza-2021-06-03",
-                    "width": 1920,
-                    "height": 3411,
+                    "src": "website-2021/articles/transainc.com-article--fabrica-de-presentes-coza-2021-06-03",
+                    "size": [1920, 3411],
                     "canExpand": true,
                     "label": "Transa:Article/ fabrica-de-presentes-coza / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--jeremy-scott-at-galeria-melissa-uk-2021-06-03",
-                    "width": 1920,
-                    "height": 4689,
+                    "src": "website-2021/articles/transainc.com-article--jeremy-scott-at-galeria-melissa-uk-2021-06-03",
+                    "size": [1920, 4689],
                     "canExpand": true,
                     "label": "Transa:Article/ jeremy-scott-at-galeria-melissa-uk / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--melissa-papete-platform-rider-2021-06-03",
-                    "width": 1920,
-                    "height": 11317,
+                    "src": "website-2021/articles/transainc.com-article--melissa-papete-platform-rider-2021-06-03",
+                    "size": [1920, 11317],
                     "canExpand": true,
                     "label": "Transa:Article/ melissa-papete-platform-rider / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--melissa-portraits-sarune-paulauskaite-2021-06-03",
-                    "width": 1920,
-                    "height": 6989,
+                    "src": "website-2021/articles/transainc.com-article--melissa-portraits-sarune-paulauskaite-2021-06-03",
+                    "size": [1920, 6989],
                     "canExpand": true,
                     "label": "Transa:Article/ melissa-portraits-sarune-paulauskaite / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--melissa-viktor-rolf-direct-from-paris-fashion-week-2021-06-03",
-                    "width": 1920,
-                    "height": 9294,
+                    "src": "website-2021/articles/transainc.com-article--melissa-viktor-rolf-direct-from-paris-fashion-week-2021-06-03",
+                    "size": [1920, 9294],
                     "canExpand": true,
                     "label": "Transa:Article/ melissa-viktor-rolf-direct-from-paris-fashion-week / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--meu-pote-coza-2021-06-03",
-                    "width": 1920,
-                    "height": 6437,
+                    "src": "website-2021/articles/transainc.com-article--meu-pote-coza-2021-06-03",
+                    "size": [1920, 6437],
                     "canExpand": true,
                     "label": "Transa:Article/ meu-pote-coza / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--mini-melissa-hello-kitty-2021-06-03",
-                    "width": 1920,
-                    "height": 6732,
+                    "src": "website-2021/articles/transainc.com-article--mini-melissa-hello-kitty-2021-06-03",
+                    "size": [1920, 6732],
                     "canExpand": true,
                     "label": "Transa:Article/ mini-melissa-hello-kitty / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--nova-colecao-coza-pantone-2021-06-03",
-                    "width": 1920,
-                    "height": 4720,
+                    "src": "website-2021/articles/transainc.com-article--nova-colecao-coza-pantone-2021-06-03",
+                    "size": [1920, 4720],
                     "canExpand": true,
                     "label": "Transa:Article/ nova-colecao-coza-pantone / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--novas-ideias-sempre-2021-06-03-15",
-                    "width": 1920,
-                    "height": 4032,
+                    "src": "website-2021/articles/transainc.com-article--novas-ideias-sempre-2021-06-03-15",
+                    "size": [1920, 4032],
                     "canExpand": true,
                     "label": "Transa:Article/ novas-ideias-sempre-20 / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--o-brazilian-leather-convidou-patricia-a-assinar-um-ensaio-2021-06-03",
-                    "width": 1920,
-                    "height": 6613,
+                    "src": "website-2021/articles/transainc.com-article--o-brazilian-leather-convidou-patricia-a-assinar-um-ensaio-2021-06-03",
+                    "size": [1920, 6613],
                     "canExpand": true,
                     "label": "Transa:Article/ o-brazilian-leather-convidou-patricia-a-assinar-um-ensaio / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--o-que-e-familia-2021-06-03",
-                    "width": 1920,
-                    "height": 19952,
+                    "src": "website-2021/articles/transainc.com-article--o-que-e-familia-2021-06-03",
+                    "size": [1920, 19952],
                     "canExpand": true,
                     "label": "Transa:Article/ o-que-e-familia / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--quem-brilha-mais-o-cha-o-ou-o-mop-mor-2021-06-03",
-                    "width": 1920,
-                    "height": 5677,
+                    "src": "website-2021/articles/transainc.com-article--quem-brilha-mais-o-cha-o-ou-o-mop-mor-2021-06-03",
+                    "size": [1920, 5677],
                     "canExpand": true,
                     "label": "Transa:Article/ quem-brilha-mais-o-cha-o-ou-o-mop-mor / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--ruohan-wang-s-on-human-expression-and-nature-2021-06-03",
-                    "width": 1920,
-                    "height": 17865,
+                    "src": "website-2021/articles/transainc.com-article--ruohan-wang-s-on-human-expression-and-nature-2021-06-03",
+                    "size": [1920, 17865],
                     "canExpand": true,
                     "label": "Transa:Article/ ruohan-wang-s-on-human-expression-and-nature / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--sheron-barber-roots-and-passion-into-custom-pieces-2021-06-03",
-                    "width": 1920,
-                    "height": 24302,
+                    "src": "website-2021/articles/transainc.com-article--sheron-barber-roots-and-passion-into-custom-pieces-2021-06-03",
+                    "size": [1920, 24302],
                     "canExpand": true,
                     "label": "Transa:Article/ sheron-barber-roots-and-passion-into-custom-pieces / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--stefan-sagmeister-opens-up-about-his-new-project-2021-06-03",
-                    "width": 1920,
-                    "height": 22180,
+                    "src": "website-2021/articles/transainc.com-article--stefan-sagmeister-opens-up-about-his-new-project-2021-06-03",
+                    "size": [1920, 22180],
                     "canExpand": true,
                     "label": "Transa:Article/ stefan-sagmeister-opens-up-about-his-new-project / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--the-story-behind-the-metcha-x-tss-aj-xi-prototype-collab-2021-06-03",
-                    "width": 1920,
-                    "height": 15929,
+                    "src": "website-2021/articles/transainc.com-article--the-story-behind-the-metcha-x-tss-aj-xi-prototype-collab-2021-06-03",
+                    "size": [1920, 15929],
                     "canExpand": true,
                     "label": "Transa:Article/ the-story-behind-the-metcha-x-tss-aj-xi-prototype-collab / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--to-celebrate-mickey-s-birthday-a-collab-full-of-classics-2021-06-03",
-                    "width": 1920,
-                    "height": 11986,
+                    "src": "website-2021/articles/transainc.com-article--to-celebrate-mickey-s-birthday-a-collab-full-of-classics-2021-06-03",
+                    "size": [1920, 11986],
                     "canExpand": true,
                     "label": "Transa:Article/ to-celebrate-mickey-s-birthday-a-collab-full-of-classics / screenshoot"
                 }, {
-                    "src": "transainc/website-2021/articles/transainc.com-article--todo-brasileiro-tem-um-pouco-do-sertao-ronaldo-fraga-2021-06-03",
-                    "width": 1920,
-                    "height": 10126,
+                    "src": "website-2021/articles/transainc.com-article--todo-brasileiro-tem-um-pouco-do-sertao-ronaldo-fraga-2021-06-03",
+                    "size": [1920, 10126],
                     "canExpand": true,
                     "label": "Transa:Article/ todo-brasileiro-tem-um-pouco-do-sertao-ronaldo-fraga / screenshoot"
                 }
@@ -374,9 +325,8 @@
             [
                 {
                     "class": "landscape",
-                    "src": "transainc/website-2021/join-us/transainc.com-join-us-short-tour",
-                    "width": 1929,
-                    "height": 1008,
+                    "src": "website-2021/join-us/transainc.com-join-us-short-tour",
+                    "size": [1929, 1008],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Transa:Join Us page short tour"

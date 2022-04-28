@@ -1,12 +1,12 @@
 {
     "title": "Nathalia Bond<br>Cliníca de Desenvolvimento",
     "cover": {
-        "src": "Nathalia Bond - Clínica de desenvolvimento:homepage / tour",
-        "width": 3836,
-        "height": 2056,
+        "src": "home/nathaliabond.com.br-tour",
+        "size": [3836, 2056],
         "isVideo": true,
-        "label": "nathaliabond/home/nathaliabond.com.br-tour"
+        "label": " Nathalia Bond - Clínica de desenvolvimento:homepage / tour"
     },
+    "folder": "nathaliabond/",
     "sections": [
         [
             [
@@ -14,15 +14,13 @@
             ],
             [
                 {
-                    "src": "nathaliabond/home/nathaliabond-br-home-desktop",
-                    "width": 1920,
-                    "height": 8481,
+                    "src": "home/nathaliabond-br-home-desktop",
+                    "size": [1920, 8481],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:desktop homepage"
                 }, {
-                    "src": "nathaliabond/home/nathaliabond-br-home-mobile",
-                    "width": 414,
-                    "height": 7763,
+                    "src": "home/nathaliabond-br-home-mobile",
+                    "size": [414, 7763],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:mobile homepage"
                 }
@@ -34,55 +32,47 @@
             ],
             [
                 {
-                    "src": "nathaliabond/especialidades/nathaliabond.com.br-nossas-especialidades",
-                    "width": 3836,
-                    "height": 2056,
+                    "src": "especialidades/nathaliabond.com.br-nossas-especialidades",
+                    "size": [3836, 2056],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossas Especialidades mobile page"
                 },
                 {
-                    "src": "nathaliabond/especialidades/nathaliabond-br-nossas-especialidades-desktop",
-                    "width": 1920,
-                    "height": 8547,
+                    "src": "especialidades/nathaliabond-br-nossas-especialidades-desktop",
+                    "size": [1920, 8547],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossas Especialidades desktop page"
                 },
                 {
-                    "src": "nathaliabond/especialidades/nathaliabond-br-nossas-especialidades-fonoaudiologia-desktop",
-                    "width": 1920,
-                    "height": 2796,
+                    "src": "especialidades/nathaliabond-br-nossas-especialidades-fonoaudiologia-desktop",
+                    "size": [1920, 2796],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossas Especialidades - Fonoaudiologia, desktop page"
                 },
                 {
-                    "src": "nathaliabond/especialidades/nathaliabond-br-nossas-especialidades-fonoaudiologia-mobile",
-                    "width": 414,
-                    "height": 3140,
+                    "src": "especialidades/nathaliabond-br-nossas-especialidades-fonoaudiologia-mobile",
+                    "size": [414, 3140],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossas Especialidades - Fonoaudiologia, mobile page"
                 }, {
-                    "src": "nathaliabond/especialidades/nathaliabond-br-nossas-especialidades-psicologia-infantil-desktop",
-                    "width": 1920,
-                    "height": 2846,
+                    "src": "especialidades/nathaliabond-br-nossas-especialidades-psicologia-infantil-desktop",
+                    "size": [1920, 2846],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossas Especialidades - Psicologia infantil, desktop page"
                 }, {
-                    "src": "nathaliabond/especialidades/nathaliabond-br-nossas-especialidades-psicomotria-desktop",
-                    "width": 1920,
-                    "height": 2627,
+                    "src": "especialidades/nathaliabond-br-nossas-especialidades-psicomotria-desktop",
+                    "size": [1920, 2627],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossas Especialidades - Psicomotria, desktop page"
                 }, {
-                    "src": "nathaliabond/especialidades/nathaliabond-br-nossas-especialidades-psicopedagogia-desktop",
-                    "width": 1920,
-                    "height": 2888,
+                    "src": "especialidades/nathaliabond-br-nossas-especialidades-psicopedagogia-desktop",
+                    "size": [1920, 2888],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossas Especialidades - Psicopedagogia, desktop page"
                 }, {
-                    "src": "nathaliabond/especialidades/nathaliabond-br-nossas-especialidades-terapia-ocupacional-desktop",
-                    "width": 1920,
-                    "height": 2218,
+                    "src": "especialidades/nathaliabond-br-nossas-especialidades-terapia-ocupacional-desktop",
+                    "size": [1920, 2218],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossas Especialidades - Terapia Ocupacional, desktop page"
                 }
@@ -93,88 +83,76 @@
             [
                 {
                     "class": "landscape",
-                    "src": "nathaliabond/equipe/nathaliabond.com.br-equipe",
-                    "width": 3836,
-                    "height": 2056,
+                    "src": "equipe/nathaliabond.com.br-equipe",
+                    "size": [3836, 2056],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossa Equipe, desktop 4K page"
                 },
                 {
-                    "src": "nathaliabond/equipe/nathaliabond-br-nossa-equipe-desktop",
-                    "width": 1920,
-                    "height": 5905,
+                    "src": "equipe/nathaliabond-br-nossa-equipe-desktop",
+                    "size": [1920, 5905],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossa Equipe, desktop 1920 page"
                 },
                 {
-                    "src": "nathaliabond/equipe/nathaliabond-br-nossa-equipe-mobile",
-                    "width": 414,
-                    "height": 5440,
+                    "src": "equipe/nathaliabond-br-nossa-equipe-mobile",
+                    "size": [414, 5440],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossa Equipe, mobile page"
                 },
                 {
                     "class": "landscape",
-                    "src": "nathaliabond/equipe/nathaliabond-br-nossa-equipe-nathalia-desktop",
-                    "width": 1920,
-                    "height": 1621,
+                    "src": "equipe/nathaliabond-br-nossa-equipe-nathalia-desktop",
+                    "size": [1920, 1621],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossa Equipe - Nathalia, desktop page"
                 }, {
                     "class": "landscape",
-                    "src": "nathaliabond/equipe/nathaliabond-br-nossa-equipe-camila-nobre-desktop",
-                    "width": 1920,
-                    "height": 1795,
+                    "src": "equipe/nathaliabond-br-nossa-equipe-camila-nobre-desktop",
+                    "size": [1920, 1795],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossa Equipe - Camila Nobre, desktop page"
                 }, {
                     "class": "landscape",
-                    "src": "nathaliabond/equipe/nathaliabond-br-nossa-equipe-camila-teixeira-desktop",
-                    "width": 1920,
-                    "height": 1796,
+                    "src": "equipe/nathaliabond-br-nossa-equipe-camila-teixeira-desktop",
+                    "size": [1920, 1796],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossa Equipe - Camila Teixeira, desktop page"
                 }, {
                     "class": "landscape",
-                    "src": "nathaliabond/equipe/nathaliabond-br-nossa-equipe-ellen-desktop",
-                    "width": 1920,
-                    "height": 1795,
+                    "src": "equipe/nathaliabond-br-nossa-equipe-ellen-desktop",
+                    "size": [1920, 1795],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossa Equipe - Ellen, desktop page"
                 }, {
                     "class": "landscape",
-                    "src": "nathaliabond/equipe/nathaliabond-br-nossa-equipe-mariel-desktop",
-                    "width": 1920,
-                    "height": 1621,
+                    "src": "equipe/nathaliabond-br-nossa-equipe-mariel-desktop",
+                    "size": [1920, 1621],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossa Equipe - Mariel, desktop page"
                 }, {
                     "class": "landscape",
-                    "src": "nathaliabond/equipe/nathaliabond-br-nossa-equipe-melissa-desktop",
-                    "width": 1920,
-                    "height": 1516,
+                    "src": "equipe/nathaliabond-br-nossa-equipe-melissa-desktop",
+                    "size": [1920, 1516],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossa Equipe - Melissa, desktop page"
                 }, {
                     "class": "landscape",
-                    "src": "nathaliabond/equipe/nathaliabond-br-nossa-equipe-michela-desktop",
-                    "width": 1920,
-                    "height": 1516,
+                    "src": "equipe/nathaliabond-br-nossa-equipe-michela-desktop",
+                    "size": [1920, 1516],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossa Equipe - Michela, desktop page"
                 }, {
                     "class": "landscape",
-                    "src": "nathaliabond/equipe/nathaliabond-br-nossa-equipe-nesrim-desktop",
-                    "width": 1920,
-                    "height": 1621,
+                    "src": "equipe/nathaliabond-br-nossa-equipe-nesrim-desktop",
+                    "size": [1920, 1621],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossa Equipe - Nesrim, desktop page"
                 }, {
                     "class": "landscape",
-                    "src": "nathaliabond/equipe/nathaliabond-br-nossa-equipe-rebecca-desktop",
-                    "width": 1920,
-                    "height": 1621,
+                    "src": "equipe/nathaliabond-br-nossa-equipe-rebecca-desktop",
+                    "size": [1920, 1621],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Nossa Equipe - Rebecca, desktop page"
                 }
@@ -185,121 +163,102 @@
             [
                 {
                     "class": "landscape",
-                    "src": "nathaliabond/blog/nathaliabond.com.br-blog",
-                    "width": 3836,
-                    "height": 2056,
+                    "src": "blog/nathaliabond.com.br-blog",
+                    "size": [3836, 2056],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - desktop 4K main page"
                 },
                 {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog",
-                    "width": 1920,
-                    "height": 7349,
+                    "src": "blog/nathaliabond-br-blog",
+                    "size": [1920, 7349],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - desktop 1920 main page"
                 },
                 {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-mobile",
-                    "width": 414,
-                    "height": 11896,
+                    "src": "blog/nathaliabond-br-blog-mobile",
+                    "size": [414, 11896],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - mobile main page"
                 },
                 {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-a-aprendizagem-humana-desktop",
-                    "width": 1920,
-                    "height": 2863,
+                    "src": "blog/nathaliabond-br-blog-a-aprendizagem-humana-desktop",
+                    "size": [1920, 2863],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - a aprendizagem humana, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-a-linguagem-oral-infantil-desktop",
-                    "width": 1920,
-                    "height": 5212,
+                    "src": "blog/nathaliabond-br-blog-a-linguagem-oral-infantil-desktop",
+                    "size": [1920, 5212],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - a linguagem oral infantil, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-a-psicoterapia-infantil-desktop",
-                    "width": 1920,
-                    "height": 3188,
+                    "src": "blog/nathaliabond-br-blog-a-psicoterapia-infantil-desktop",
+                    "size": [1920, 3188],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - a psicoterapia infantil, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-cuidando-dos-cuidadores-de-crianas-com-tea-desktop",
-                    "width": 1920,
-                    "height": 3489,
+                    "src": "blog/nathaliabond-br-blog-cuidando-dos-cuidadores-de-crianas-com-tea-desktop",
+                    "size": [1920, 3489],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - cuidando dos cuidadores de crianças com TEA, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-gagueira-infantil-desktop",
-                    "width": 1920,
-                    "height": 2635,
+                    "src": "blog/nathaliabond-br-blog-gagueira-infantil-desktop",
+                    "size": [1920, 2635],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - gagueira infantil, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-gagueira-infantil",
-                    "width": 414,
-                    "height": 2853,
+                    "src": "blog/nathaliabond-br-blog-gagueira-infantil",
+                    "size": [414, 2853],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - gagueira infantil, mobile page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-o-terapeuta-ocupacional-desktop",
-                    "width": 1920,
-                    "height": 3124,
+                    "src": "blog/nathaliabond-br-blog-o-terapeuta-ocupacional-desktop",
+                    "size": [1920, 3124],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - terapia ocupacional, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-o-trabalho-do-profissional-de-educacao-fisica-desktop",
-                    "width": 1920,
-                    "height": 3051,
+                    "src": "blog/nathaliabond-br-blog-o-trabalho-do-profissional-de-educacao-fisica-desktop",
+                    "size": [1920, 3051],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - o trabalho do profissional de educacao fisica, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-por-que-a-intervencao-precoce-e-tao-importante-desktop",
-                    "width": 1920,
-                    "height": 4225,
+                    "src": "blog/nathaliabond-br-blog-por-que-a-intervencao-precoce-e-tao-importante-desktop",
+                    "size": [1920, 4225],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - por que a intervenção precoce e tão importante, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-quando-procurar-um-psicopedagogo-desktop",
-                    "width": 1920,
-                    "height": 2975,
+                    "src": "blog/nathaliabond-br-blog-quando-procurar-um-psicopedagogo-desktop",
+                    "size": [1920, 2975],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - quando procurar um psicopedagogo, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-quando-uma-crianca-precisa-de-fonoaudiologo-desktop",
-                    "width": 1920,
-                    "height": 3762,
+                    "src": "blog/nathaliabond-br-blog-quando-uma-crianca-precisa-de-fonoaudiologo-desktop",
+                    "size": [1920, 3762],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - quando uma crianca precisa de fonoaudiologo, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-saiba-o-que-esperar-da-fala-da-criana-desktop",
-                    "width": 1920,
-                    "height": 2390,
+                    "src": "blog/nathaliabond-br-blog-saiba-o-que-esperar-da-fala-da-criana-desktop",
+                    "size": [1920, 2390],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - o que esperar da fala da criança, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-saiba-o-que-esperar-da-fala-da-criana",
-                    "width": 414,
-                    "height": 2907,
+                    "src": "blog/nathaliabond-br-blog-saiba-o-que-esperar-da-fala-da-criana",
+                    "size": [414, 2907],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - o que esperar da fala da criança, mobile page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-sera-que-meu-filho-precisa-de-terapia-ocupacional-desktop",
-                    "width": 1920,
-                    "height": 8280,
+                    "src": "blog/nathaliabond-br-blog-sera-que-meu-filho-precisa-de-terapia-ocupacional-desktop",
+                    "size": [1920, 8280],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - sera que meu filho precisa de terapia ocupacional, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-transtorno-espectro-do-autismo-desktop",
-                    "width": 1920,
-                    "height": 2360,
+                    "src": "blog/nathaliabond-br-blog-transtorno-espectro-do-autismo-desktop",
+                    "size": [1920, 2360],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - transtorno espectro do autismo, desktop page"
                 }, {
-                    "src": "nathaliabond/blog/nathaliabond-br-blog-transtorno-espectro-do-autismo",
-                    "width": 414,
-                    "height": 2602,
+                    "src": "blog/nathaliabond-br-blog-transtorno-espectro-do-autismo",
+                    "size": [414, 2602],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Blog - transtorno espectro do autismo , mobile page"
                 }
@@ -312,15 +271,13 @@
             [
                 {
                     "class": "landscape",
-                    "src": "nathaliabond/contato/nathaliabond-br-contato-desktop",
-                    "width": 1920,
-                    "height": 2682,
+                    "src": "contato/nathaliabond-br-contato-desktop",
+                    "size": [1920, 2682],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Contato, desktop page"
                 }, {
-                    "src": "nathaliabond/contato/nathaliabond-br-contato-mobile",
-                    "width": 414,
-                    "height": 2570,
+                    "src": "contato/nathaliabond-br-contato-mobile",
+                    "size": [414, 2570],
                     "canExpand": true,
                     "label": "Nathalia Bond - Clínica de desenvolvimento:Contato, mobile page"
                 }

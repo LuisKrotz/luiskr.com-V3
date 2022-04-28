@@ -1,12 +1,12 @@
 {
     "title": "MOR",
     "cover": {
-        "src": "mor/site/mor.com.br-31-03-19",
-        "width": 1947,
-        "height": 976,
+        "src": "site/mor.com.br-31-03-19",
+        "size": [1947, 976],
         "isVideo": true,
         "label": "MOR:homepage full tour"
     },
+    "folder": "mor/",
     "sections": [
         [
             [
@@ -18,22 +18,19 @@
             ],
             [
                 {
-                    "src": "mor/site/mor.com.br-31-03-19-1-mobile",
-                    "width": 832,
-                    "height": 1728,
+                    "src": "site/mor.com.br-31-03-19-1-mobile",
+                    "size": [832, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "MOR:website mobile tour"
                 }, {
-                    "src": "mor/site/mor-article--mor-explica-como-cuidar-da-sua-piscina",
-                    "width": 1920,
-                    "height": 5996,
+                    "src": "site/mor-article--mor-explica-como-cuidar-da-sua-piscina",
+                    "size": [1920, 5996],
                     "canExpand": true,
                     "label": "MOR ARTICLE:MOR explica como cuidar da sua piscina"
                 }, {
-                    "src": "mor/site/mor-article--cada-doçura-da-linha-baby",
-                    "width": 1920,
-                    "height": 4318,
+                    "src": "site/mor-article--cada-doçura-da-linha-baby",
+                    "size": [1920, 4318],
                     "canExpand": true,
                     "label": "MOR ARTICLE:Cada doçura da linha baby"
                 }
@@ -44,29 +41,25 @@
             [
                 {
                     "class": "landscape",
-                    "src": "mor/loja/mor-lojamor-tour",
-                    "width": 1939,
-                    "height": 976,
+                    "src": "loja/mor-lojamor-tour",
+                    "size": [1939, 976],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "MOR:store tour"
                 }, {
-                    "src": "mor/loja/https-www.lojamor.com.br-mobile",
-                    "width": 833,
-                    "height": 1728,
+                    "src": "loja/https-www.lojamor.com.br-mobile",
+                    "size": [833, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "MOR:store mobile tour"
                 }, {
-                    "src": "mor/loja/mor-lojamor--categoria-isotermicos-2020-12-15",
-                    "width": 1920,
-                    "height": 5017,
+                    "src": "loja/mor-lojamor--categoria-isotermicos-2020-12-15",
+                    "size": [1920, 5017],
                     "canExpand": true,
                     "label": "MOR:store - category page screenshoot"
                 }, {
-                    "src": "mor/loja/mor-lojamor--produto-sombrinha-joy-sortida-3778-verde-p-2020-12-15",
-                    "width": 1920,
-                    "height": 5112,
+                    "src": "loja/mor-lojamor--produto-sombrinha-joy-sortida-3778-verde-p-2020-12-15",
+                    "size": [1920, 5112],
                     "canExpand": true,
                     "label": "MOR:store - product page screenshoot"
                 }
@@ -77,16 +70,14 @@
             [
                 {
                     "class": "landscape",
-                    "src": "mor/where-to-find/mor-onde-encontrar",
-                    "width": 1947,
-                    "height": 976,
+                    "src": "where-to-find/mor-onde-encontrar",
+                    "size": [1947, 976],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "MOR:where to find tour"
                 }, {
-                    "src": "mor/where-to-find/mor.com.br-onde-encontrar-31-03-19-1-mobile",
-                    "width": 834,
-                    "height": 1728,
+                    "src": "where-to-find/mor.com.br-onde-encontrar-31-03-19-1-mobile",
+                    "size": [834, 1728],
                     "canExpand": true,
                     "isVideo": true,
                     "label": "MOR:where to find mobile tour"
