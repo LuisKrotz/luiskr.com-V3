@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Footer from'../../components/legal/Footer'
+import Footer from'../components/legal/Footer'
 
 export default {
   data() {
@@ -43,5 +43,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../sass/internals';
+@import '../sass/internals';
 </style>

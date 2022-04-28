@@ -1,13 +1,111 @@
 {
-    "title": "",
+    "title": "MOR",
     "cover": {
-        "source": "",
-        "width": 3840,
-        "height": 2160,
+        "src": "mor/site/mor.com.br-31-03-19",
+        "width": 1947,
+        "height": 976,
         "isVideo": true,
-        "label": ""
+        "label": "MOR: homepage full tour"
     },
     "sections": [
-        
+        [
+
+
+            [
+                "<a href='https://mor.com.br?utm_source=luiskr.com' target='_blank'>MOR's website</a> was developed at <a href='https://transainc.com?utm_source=luiskr.com' target='_blank'>Transa</a>.",
+                "It uses Vanilla JS, Less and Laravel (PHP).",
+                "The goal of the project was to build a fast and beautiful experience connecting <a href='https://transainc.com/category/mor?utm_source=luiskr.com' target='_blank'>MOR's channels</a> and community in one place.",
+                "The JS and CSS are both less than 50k in size for the entire website to be loaded at blazing fast speeds and engage with MOR's community.",
+                "The main challenge was to code a feed with articles and links to MOR's VTEX store, which was also <a href='https://transainc.com/cases/mor?utm_source=luiskr.com' target='_blank'>re-designed by Transa</a>, creating a cohesive experience between the store and the website."
+    ], [
+    
+                      {
+                        "src": "mor/site/mor.com.br-31-03-19-1-mobile",
+                        "width": 832,
+                        "height": 1728,
+                        "canExpand": true,
+                        "isVideo": true,
+                        "label": "MOR: website mobile tour"
+                    },
+                      {
+                        "src": "mor/site/mor-article--mor-explica-como-cuidar-da-sua-piscina",
+                        "width": 1920,
+                        "height": 5996,
+                        "canExpand": true,
+                        "label": "MOR ARTICLE: MOR explica como cuidar da sua piscina"
+                    },
+                      {
+                        "src": "mor/site/mor-article--cada-doçura-da-linha-baby",
+                        "width": 1920,
+                        "height": 4318,
+                        "canExpand": true,
+                        "label": "MOR ARTICLE: Cada doçura da linha baby"
+                    }
+    ]
+        ],
+        [
+
+            [
+                "The store was re-stylized, changing the entire identity inside the already built store using the VTEX e-commerce platform."
+          ], [
+      
+      
+                        {
+                          "class": "landscape",
+                          "src": "mor/loja/mor-lojamor-tour",
+                          "width": 1939,
+                          "height": 976,
+                          "canExpand": true,
+                          "isVideo": true,
+                          "label": "MOR: store tour"
+                      },
+                        {
+                          "src": "mor/loja/https-www.lojamor.com.br-mobile",
+                          "width": 833,
+                          "height": 1728,
+                          "canExpand": true,
+                          "isVideo": true,
+                          "label": "MOR: store mobile tour"
+                      },
+                        {
+                          "src": "mor/loja/mor-lojamor--categoria-isotermicos-2020-12-15",
+                          "width": 1920,
+                          "height": 5017,
+                          "canExpand": true,
+                          "label": "MOR: store - category page screenshoot"
+                      },
+                        {
+                          "src": "mor/loja/mor-lojamor--produto-sombrinha-joy-sortida-3778-verde-p-2020-12-15",
+                          "width": 1920,
+                          "height": 5112,
+                          "canExpand": true,
+                          "label": "MOR: store - product page screenshoot"
+                      }
+          ]
+      
+        ],
+        [
+            [
+                "Working at Transa, we also built a where to find for the brand, listing its main locations using the Google Maps API."
+              ], [
+                        {
+                          "class": "landscape",
+                          "src": "mor/where-to-find/mor-onde-encontrar",
+                          "width": 1947,
+                          "height": 976,
+                          "canExpand": true,
+                          "isVideo": true,
+                          "label": "MOR: where to find tour"
+                      },
+                        {
+                          "src": "mor/where-to-find/mor.com.br-onde-encontrar-31-03-19-1-mobile",
+                          "width": 834,
+                          "height": 1728,
+                          "canExpand": true,
+                          "isVideo": true,
+                          "label": "MOR: where to find mobile tour"
+                      }
+              ]
+        ]
     ]
 }

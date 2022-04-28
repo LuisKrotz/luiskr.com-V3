@@ -1,0 +1,59 @@
+{
+    "title": "Lorem Ipsum - required",
+    "cover": {
+        "src": "/path-to-src - required, width and height are required",
+        "width": 3840,
+        "height": 2160,
+        "isVideo": true,
+        "label": "Alt Text: Lorem Ipsum - required"
+    },
+    "sections": [
+        [
+            [
+                "Text 1",
+                "Text 2",
+                "Text 3"
+            ],
+            [
+                {
+                    "class": "landscape",
+                    "src": "/path - required / width and height are required",
+                    "width": 3840,
+                    "height": 2160,
+                    "canExpand": true,
+                    "isVideo": true,
+                    "label": "Alt"
+                },
+                {
+                    "src": "/path",
+                    "width": 3840,
+                    "height": 2160,
+                    "label": "Alt"
+                }
+            ]
+        ], [
+            [
+                "Text 1",
+                "Text 2",
+                "Text 3"
+            ],
+            [
+                {
+                    "class": "landscape",
+                    "src": "/path - required / width and height are required",
+                    "width": 3840,
+                    "height": 2160,
+                    "canExpand": true,
+                    "isVideo": true,
+                    "label": "Alt"
+                },
+                {
+                    "src": "/path",
+                    "width": 3840,
+                    "height": 2160,
+                    "label": "Alt"
+                }
+            ]
+        ]
+    ]
+}

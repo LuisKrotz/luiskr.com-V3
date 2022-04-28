@@ -27,7 +27,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "project" */ '../views/portfolio/RenderProject.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | METCHA',
       translation: '/metcha'
@@ -36,7 +36,7 @@ const routes = [
   {
     path: '/portfolio/transa',
     name: 'Transa',
-    component: () => import(/* webpackChunkName: "project" */ '../views/portfolio/RenderProject.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | TRANSA',
       translation: '/transa'
@@ -45,7 +45,7 @@ const routes = [
   {
     path: '/portfolio/aboutmarco',
     name: 'Marco Almeida',
-    component: () => import(/* webpackChunkName: "project" */ '../views/portfolio/RenderProject.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Marco Almeida',
       translation: '/aboutmarco'
@@ -54,39 +54,43 @@ const routes = [
   {
     path: '/portfolio/melissa',
     name: 'Melissa',
-    component: () => import(/* webpackChunkName: "melissa" */ '../views/portfolio/Melissa.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
-      title: title + ' | Melissa'
+      title: title + ' | Melissa',
+      translation: '/melissa'
     }
   },
   {
     path: '/portfolio/minimelissa',
     name: 'Minimelissa',
-    component: () => import(/* webpackChunkName: "minimelissa" */ '../views/portfolio/Minimelissa.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
-      title: title + ' | Minimelissa'
+      title: title + ' | Minimelissa',
+      translation: '/mini-melissa'
     }
   },
   {
     path: '/portfolio/mor',
     name: 'Mor',
-    component: () => import(/* webpackChunkName: "mor" */ '../views/portfolio/Mor.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
-      title: title + ' | MOR'
+      title: title + ' | MOR',
+      translation: '/mor'
     }
   },
   {
     path: '/portfolio/coza',
     name: 'Coza',
-    component: () => import(/* webpackChunkName: "coza" */ '../views/portfolio/Coza.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project'),
     meta: {
-      title: title + ' | Coza'
+      title: title + ' | Coza',
+      translation: '/coza'
     }
   },
   {
     path: '/portfolio/brazilian-leather',
     name: 'Brazilian Leather',
-    component: () => import(/* webpackChunkName: "project" */ '../views/portfolio/RenderProject.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Brazilian Leather',
       translation: '/cicb'
@@ -95,7 +99,7 @@ const routes = [
   {
     path: '/portfolio/cecerele',
     name: 'Cecerelê',
-    component: () => import(/* webpackChunkName: "project" */ '../views/portfolio/RenderProject.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Cecerelê',
       translation: '/cecerele'
@@ -104,23 +108,25 @@ const routes = [
   {
     path: '/portfolio/clinica-de-desenvolvimento-nathalia-bond',
     name: 'Cliníca de Desenvolvimento - Nathalia Bond',
-    component: () => import(/* webpackChunkName: "clinicadedesenvolvimentonathaliabond" */ '../views/portfolio/ClinicaDeDesenvolvimentoNathaliaBond.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
-      title: title + ' | Cliníca de Desenvolvimento - Nathalia Bond'
+      title: title + ' | Cliníca de Desenvolvimento - Nathalia Bond',
+      translation: '/nathaliabond'
     }
   },
   {
     path: '/portfolio/vibra',
     name: 'Vibra',
-    component: () => import(/* webpackChunkName: "vibra" */ '../views/portfolio/Vibra.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
-      title: title + ' | Vibra'
+      title: title + ' | Vibra',
+      translation: '/vibra'
     }
   },
   {
     path: '/portfolio/genesysinf-sageweb',
     name: 'Genesysinf Sageweb',
-    component: () => import(/* webpackChunkName: "project" */ '../views/portfolio/RenderProject.vue'),
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Genesysinf / Sageweb',
       translation: '/sage'
@@ -129,7 +135,7 @@ const routes = [
   {
     path: '/privacy-policy',
     name: 'Privacy Policy',
-    component: () => import(/* webpackChunkName: "legal" */ '../views/footer/Legal.vue'),
+    component: () => import(/* webpackChunkName: "legal" */ '../views/Legal.vue'),
     meta: {
       title: title + ' | Privacy Policy',
       translation: '/privacy-policy'
@@ -138,7 +144,7 @@ const routes = [
   {
     path: '/gdpr',
     name: 'GDPR',
-    component: () => import(/* webpackChunkName: "legal" */ '../views/footer/Legal.vue'),
+    component: () => import(/* webpackChunkName: "legal" */ '../views/Legal.vue'),
     meta: {
       title: title + ' | GDPR',
       translation: '/GDPR'
@@ -147,7 +153,7 @@ const routes = [
   {
     path: '/terms-of-use',
     name: 'Terms of Use',
-    component: () => import(/* webpackChunkName: "legal" */ '../views/footer/Legal.vue'),
+    component: () => import(/* webpackChunkName: "legal" */ '../views/Legal.vue'),
     meta: {
       title: title + ' | Terms of Use',
       translation: '/terms-of-use'

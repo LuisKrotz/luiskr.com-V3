@@ -1,13 +1,90 @@
 {
-    "title": "",
+    "title": "Coza",
     "cover": {
-        "source": "",
-        "width": 3840,
-        "height": 2160,
+        "src": "coza/feed+shop/coza.com.br-feed-2019-tour",
+        "width": 1943,
+        "height": 976,
         "isVideo": true,
-        "label": ""
+        "label": "Coza: homepage full tour"
     },
     "sections": [
-        
+        [
+            [
+                "<a href='https://transainc.com/cases/coza?utm_source=luiskr.com' target='_blank'>Coza's website</a> was developed at <a href='https://transainc.com?utm_source=luiskr.com' target='_blank'>Transa</a> from 2017 to 2019.",
+                "It mainly used Vanilla JS, Less and Laravel (PHP). The goal of the project was to create a fast, beautiful and pixel perfect experience that reflects the new branding <a href='https://transainc.com/category/coza?utm_source=luiskr.com' target='_blank'>made by Transa for Coza</a>.",
+                "Coza's main page was a feed of content created for the brand, with articles, galleries, photos and links to the online store.",
+                "The project also had a storefront with a list of all the products listed on the online store, fed by Ajax from the back-end with the content updated constantly from the Brinox store."
+                ], [
+    
+                      {
+                        "src": "coza/feed+shop/coza.com.br-31-03-19-1-mobile",
+                        "width": 834,
+                        "height": 1728,
+                        "canExpand": true,
+                        "isVideo": true,
+                        "label": "Coza: mobile full tour"
+                    },
+                      {
+                        "src": "coza/feed+shop/coza.com.br-feed-2019-full-page",
+                        "width": 1920,
+                        "height": 22418,
+                        "canExpand": true,
+                        "label": "Coza: full page screenshoot"
+                    },
+                      {
+                        "src": "coza/feed+shop/coza.com.br-en-2020-12-15-18-54",
+                        "width": 1920,
+                        "height": 4861,
+                        "canExpand": true,
+                        "label": "Coza: english homepage"
+                    },
+                      {
+                        "src": "coza/articles+galleries+photo/coza-article--organização-coza-com-as-dicas-da-maysa",
+                        "width": 1920,
+                        "height": 2423,
+                        "canExpand": true,
+                        "label": "Coza: article - Organização com as dicas da maysa."
+                    },
+                      {
+                        "src": "coza/articles+galleries+photo/coza-article--image-gallery-a-cada-instante-da-rotina-mais-coza+pantone",
+                        "width": 1920,
+                        "height": 2249,
+                        "canExpand": true,
+                        "label": "Coza: image gallery - A cada instante da rotina. Mais coza + pantone."
+                    },
+                      {
+                        "src": "coza/articles+galleries+photo/coza-article--seu-banheiro-cheio-de-beleza",
+                        "width": 1920,
+                        "height": 2414,
+                        "canExpand": true,
+                        "label": "Coza: article - Seu banheiro cheio de beleza."
+                    }
+                ]
+        ],
+        [
+            [
+                "Also, a \"Where to Find\" page, listing all the locations where the Brand can be found, using the Google Maps API."
+    
+                  ],[
+                      {
+                        "class": "landscape",
+                        "src": "coza/where-to-find/coza-onde-encontrar-tour",
+                        "width": 1947,
+                        "height": 976,
+                        "canExpand": true,
+                        "isVideo": true,
+                        "label": "Coza: where to find page on desktop"
+                    },
+                      {
+                        "src": "coza/where-to-find/coza.com.br-onde-encontrar-31-03-19-1-mobile",
+                        "width": 834,
+                        "height": 1728,
+                        "canExpand": true,
+                        "isVideo": true,
+                        "label": "Coza: where to find page on mobile "
+                      }
+                    ]
+    
+        ]
     ]
 }

@@ -1,11 +1,11 @@
 <template>
   <article v-if="translations">
     <div id="#main" class="project modal-below" :style="'transform: translateY(-' + modal.transform + 'px);'">
-        <h2 class="internal-title">{{ translations.title }}</h2>
+        <h2 class="internal-title" v-html="translations.title"></h2>
         <div class="internal-main">
             <Media
             classes="internal-main-item"
-            :src="translations.cover.source"
+            :src="translations.cover.src"
             :width="translations.cover.width"
             :height="translations.cover.height"
             :isVideo="translations.cover?.isVideo ?? false"
@@ -24,7 +24,7 @@
                     <div class="internal-extra-scroll">
                         <div v-for="item, itemkey in child" :key="itemkey" :class="'internal-extra-item ' + (item?.class ?? '')">
                             <Media
-                            :src="item.source"
+                            :src="item.src"
                             :width="item.width"
                             :height="item.height"
                             :canExpand="item?.canExpand ?? false"
@@ -53,9 +53,9 @@
 </template>
 
 <script>
-import Media                from'../../components/Media';
-import MediaExpanded        from'../../components/MediaExpanded';
-import Related              from'../../components/portfolio/Related';
+import Media                from'../components/Media';
+import MediaExpanded        from'../components/MediaExpanded';
+import Related              from'../components/portfolio/Related';
 
 export default {
   data() {
@@ -90,6 +90,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../sass/internals';
-@import '../../sass/modal';
+@import '../sass/internals';
+@import '../sass/modal';
 </style>

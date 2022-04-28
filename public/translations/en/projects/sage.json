@@ -1,7 +1,7 @@
 {
     "title": "Sageweb",
     "cover": {
-        "source": "genesysinf/genesysinf-sageweb-2015-atalhos",
+        "src": "genesysinf/genesysinf-sageweb-2015-atalhos",
         "width": 1366,
         "height": 649,
         "label": "Sageweb:shortcuts screenshoot"
@@ -9,12 +9,12 @@
     "sections": [
         [
             [
-                "<a href='http://177.37.54.153/login?utm_source=luiskr.com' target='_blank'>Sage</a> is a project developed by <a href='https://www.genesysinf.com.br?utm_source=luiskr.com' target='_blank'>Genesysinf</a>, at the city of Santana do Livramento, in Brazil, and is a fiscal software.", "I worked in the new version of Sage, the Sageweb in C# and Asp.net, in this Project I was working as a full-stack developer, in the development team for a year.", "The project consisted of porting the Sage for desktop software code to a new Web Version, with challenges like connecting fiscal printer drivers to a web application, generating and printing custom fiscal reports and developing an interface similar to the Sage desktop."
+                "<a href='http://177.37.54.153/login?utm_source=luiskr.com' target='_blank'>Sage</a> is a project developed by <a href='https://www.genesysinf.com.br?utm_source=luiskr.com' target='_blank'>Genesysinf</a>, at the city of Santana do Livramento, in Brazil, and is a fiscal software.","I worked in the new version of Sage, the Sageweb in C# and Asp.net, in this Project I was working as a full-stack developer, in the development team for a year.", "The project consisted of porting the Sage for desktop software code to a new Web Version, with challenges like connecting fiscal printer drivers to a web application, generating and printing custom fiscal reports and developing an interface similar to the Sage desktop."
             ],
             [
                 {
                     "class": "landscape",
-                    "source": "genesysinf/genesysinf-sageweb-2015-cadastros-sageweb",
+                    "src": "genesysinf/genesysinf-sageweb-2015-cadastros-sageweb",
                     "width": 1352,
                     "height": 649,
                     "canExpand": true,
@@ -22,7 +22,7 @@
                 },
                 {
                     "class": "landscape",
-                    "source": "genesysinf/genesysinf-sageweb-2015-color-picker",
+                    "src": "genesysinf/genesysinf-sageweb-2015-color-picker",
                     "width": 1353,
                     "height": 650,
                     "canExpand": true,
@@ -30,7 +30,7 @@
                 },
                 {
                     "class": "landscape",
-                    "source": "genesysinf/genesysinf-sageweb-2015-filtros",
+                    "src": "genesysinf/genesysinf-sageweb-2015-filtros",
                     "width": 1352,
                     "height": 650,
                     "canExpand": true,
@@ -38,63 +38,63 @@
                 },
                 {
                     "class": "landscape",
-                    "source": "genesysinf/genesysinf-sageweb-2015-intro",
+                    "src": "genesysinf/genesysinf-sageweb-2015-intro",
                     "width": 1351,
                     "height": 651,
                     "canExpand": true,
                     "label": "Sageweb:intro screenshoot"
                 }, {
                     "class": "landscape",
-                    "source": "genesysinf/genesysinf-sageweb-2015-mapa-sageweb",
+                    "src": "genesysinf/genesysinf-sageweb-2015-mapa-sageweb",
                     "width": 1366,
                     "height": 650,
                     "canExpand": true,
                     "label": "Sageweb:'mapa sageweb' screenshoot"
                 }, {
                     "class": "landscape",
-                    "source": "genesysinf/genesysinf-sageweb-2015-modulo-NFE",
+                    "src": "genesysinf/genesysinf-sageweb-2015-modulo-NFE",
                     "width": 1352,
                     "height": 650,
                     "canExpand": true,
                     "label": "Sageweb:'módulo NFE' screenshoot"
                 }, {
                     "class": "landscape",
-                    "source": "genesysinf/genesysinf-sageweb-2015-orndenar-atalhos",
+                    "src": "genesysinf/genesysinf-sageweb-2015-orndenar-atalhos",
                     "width": 1351,
                     "height": 604,
                     "canExpand": true,
                     "label": "Sageweb:shortcuts ordering screenshoot"
                 }, {
                     "class": "landscape",
-                    "source": "genesysinf/genesysinf-sageweb-2015-personalizar",
+                    "src": "genesysinf/genesysinf-sageweb-2015-personalizar",
                     "width": 1354,
                     "height": 650,
                     "canExpand": true,
                     "label": "Sageweb:personalization screenshoot"
                 }, {
                     "class": "landscape",
-                    "source": "genesysinf/genesysinf-sageweb-2015-relatórios-gerenciais",
+                    "src": "genesysinf/genesysinf-sageweb-2015-relatórios-gerenciais",
                     "width": 1351,
                     "height": 650,
                     "canExpand": true,
                     "label": "Sageweb:'Relatórios Gerenciais' screenshoot"
                 }, {
                     "class": "landscape",
-                    "source": "genesysinf/genesysinf-sageweb-2015-relatórios-gerenciais-por-mes",
+                    "src": "genesysinf/genesysinf-sageweb-2015-relatórios-gerenciais-por-mes",
                     "width": 1350,
                     "height": 649,
                     "canExpand": true,
                     "label": "Sageweb:'Relatórios Gerenciais por mês' screenshoot"
                 }, {
                     "class": "landscape",
-                    "source": "genesysinf/genesysinf-sageweb-2015-sistema-de-pesquisas-em-jquery",
+                    "src": "genesysinf/genesysinf-sageweb-2015-sistema-de-pesquisas-em-jquery",
                     "width": 1366,
                     "height": 651,
                     "canExpand": true,
                     "label": "Sageweb:search system screenshoot"
                 }, {
                     "class": "landscape",
-                    "source": "genesysinf/genesysinf-sageweb-2015-temas",
+                    "src": "genesysinf/genesysinf-sageweb-2015-temas",
                     "width": 1352,
                     "height": 651,
                     "canExpand": true,
