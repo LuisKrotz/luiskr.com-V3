@@ -21,6 +21,9 @@
     }
 
     &-main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: to-rem($F8);
         box-sizing: border-box;
         background-color: var(--black);
@@ -35,9 +38,7 @@
 
         figure {
             position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
         }
 
         .render-placeholder {
@@ -58,6 +59,25 @@
 
             @include layout-1024() {
                 border-radius: to-rem($F7);
+            }
+        }
+
+        .load-svg {
+            width: to-rem($F12);
+            height: to-rem($F12);
+
+            @include layout-1024() {
+                width: to-rem($F13);
+                height: to-rem($F13);
+            }
+
+            @include layout-2560() {
+                width: to-rem($F14);
+                height: to-rem($F14);
+            }
+
+            &-text {
+                fill: var(--grey-3);
             }
         }
     }
@@ -221,15 +241,20 @@
 
         &-item {
             position: relative;
-            border-radius: to-rem($F5);
+            border-radius: to-rem($F6);
             color: var(--grey);
             display: inline-block;
             width: min-content;
             padding: 0 to-rem($F7);
             min-height: 100%;
+            overflow: hidden;
 
             @include layout-768() {
                 padding: 0 to-rem($F8);
+            }
+
+            @include layout-1024() {
+                border-radius: to-rem($F7);
             }
 
             @include layout-1440() {
@@ -253,7 +278,8 @@
                 display: block;
                 position: relative;
                 overflow: hidden;
-                border-radius: to-rem($F2);
+                border-radius: to-rem($F6);
+                background-color: var(--grey-3);
 
                 @include layout-1024() {
                     background: none;
@@ -288,6 +314,12 @@
                 }
             }
 
+            .load-svg {    
+                &.flip {
+                    transform: rotate(180deg);
+                }
+            }
+
             .render-media {
                 top: 0;
                 left: 0;
@@ -298,15 +330,26 @@
                 object-position: top center;
                 border-radius: to-rem($F2);
                 box-sizing: border-box;
-                border: 1px solid rgba($color-white, .15);
 
                 @include layout-1024() {
                     border: none;
-                    border-radius: to-rem($F6);
-                }
-
-                @include layout-1440() {
                     border-radius: to-rem($F7);
+                }
+                
+                &.load-svg {
+                    position: relative;
+                    width: to-rem($F13);
+                    height: to-rem($F13);
+
+                    @include layout-1280() {
+                        width: to-rem($F12);
+                        height: to-rem($F12);
+                    }
+
+                    @include layout-2560() {
+                        width: to-rem($F13);
+                        height: to-rem($F13);
+                    }
                 }
             }
 
@@ -327,16 +370,6 @@
 
                     @include layout-1920() {
                         max-width: calc(100vw - #{to-rem($F13)})
-                    }
-                }
-
-                .render-media {
-                    object-fit: scale-down;
-                    object-position: center;
-
-                    @include layout-1024() {
-                        object-fit: cover;
-                        object-position: center;
                     }
                 }
             }
@@ -487,6 +520,7 @@
                 display: block;
                 line-height: to-rem($F10);
                 text-transform: uppercase;
+                font-weight: 700;
 
                 @include layout-375() {
                     text-transform: initial;
@@ -500,6 +534,8 @@
             }
 
             &-note {
+                @extend .ttl-xxs;
+
                 display: block;
                 padding: 0;
                 margin:to-rem(-$F5) 0 to-rem($F7);

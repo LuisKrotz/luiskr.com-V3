@@ -59,7 +59,7 @@
         opacity: 0;
         background-color: var(--black);
         color: var(--white);
-        mix-blend-mode: multiply;
+        mix-blend-mode: hard-light;
         width: 100%;
         left: 50%;
         transform: translateX(-50%);
@@ -68,7 +68,8 @@
         .internal-expand:hover &,
         .internal-expand:focus & {
             opacity: 1;
-            width: to-rem(290);
+            width: 80%;
+            max-width: to-rem(290);
             border-radius: to-rem($F9);
         }
     }
@@ -124,6 +125,11 @@
         overflow-x: scroll;
         background-color: var(--black);
         padding: to-rem($F10) to-rem($F8);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
         @include layout-1024() {
             padding: to-rem($F12);
@@ -133,9 +139,7 @@
     &-media {
         &-figure {
             position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
         }
 
         &-placeholder {

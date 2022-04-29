@@ -9,11 +9,11 @@
         <button class="nav-link active" v-else @click="scrollTop()">{{ translations.about.description }}</button>
         <span class="nav-separator">{{ !onBottom ? '|' : '▲' }} </span>
 
-        <button v-if="!onBottom" class="nav-link" @click="scrollBottom()">
+        <button v-if="!onBottom" class="nav-link scroll-down" @click="scrollBottom()">
           <template v-if="$router.currentRoute.value.name === 'Home' || $router.currentRoute.value.name === 'About'">{{ translations.contact }}</template>
           <template v-else>{{ translations.related }}</template>
         </button>
-        <button v-else class="nav-link" @click="scrollTop()">{{ translations.scrollup }}</button>
+        <button v-else class="nav-link scroll-up" @click="scrollTop()">{{ translations.scrollup }}</button>
       </div>
     </div>
     <div v-else @click="closeModal()" class="nav">
@@ -36,8 +36,9 @@
 </template>
 
 <script>
-  const cookie = 'cookie',
-        cookieEvent = 'cookieAction';
+import { getDatabase, ref, child, get } from "firebase/database";
+
+const cookie = 'cookie', cookieEvent = 'cookieAction'
 
   export default {
     name: 'App',
@@ -101,30 +102,55 @@
             scrollTo: 0,
             hash: ''
           })
+      },
+      loadData() {
+        let dbpath;
+
+        this.$store.commit('setLang', this.$store.getters.getlang.locale);
+        this.renderCookies = JSON.parse(localStorage.getItem(cookie));
+        dbpath = this.$store.getters.getlang.database + this.$store.getters.getlang.locale;
+
+        if(!this.translations) {
+          get(child(ref(getDatabase()), `${dbpath}/APP`)).then((snapshot) => {
+            if (snapshot.exists()) {
+              this.translations = snapshot.val();
+
+              this.$store.commit('setClickOrTap', {
+                click: this.translations.actions.click,
+                tap: this.translations.actions.tap,
+              });
+            } else {
+              console.log('%cERROR: could\'t find APP DATA', this.$sharedData.styles.info);
+            }
+          }).catch((error) => {
+            console.error(error);
+          });
+        }
+
+        if(!this.$store.getters.getlang.components) {
+          get(child(ref(getDatabase()), `${dbpath}/components`)).then((snapshot) => {
+            if (snapshot.exists()) {
+              this.$store.commit('setComponentLang', snapshot.val());
+            } else {
+              console.log('%cERROR: could\'t find COMPONENT DATA', this.$sharedData.styles.info);
+            }
+          }).catch((error) => {
+            console.error(error);
+          });
       }
+    }
   },
   created() {
-    // Default locale EN
-    this.$store.commit('setLang', this.$store.getters.getlang.locale);
-    this.renderCookies = JSON.parse(localStorage.getItem(cookie));
-
-    let lang = this.$store.getters.getlang;
-
-    fetch(`${lang.prefix}/app${lang.suffix}`)
-    .then((response) => {
-      return response.json();
-    }).then((data) => {
-        this.translations = data;
-
-        this.$store.commit('setClickOrTap', {
-          click: data.actions.click,
-          tap: data.actions.tap,
-      });
-    });
+    this.loadData();
   },
   mounted() {
     window.addEventListener('scroll', () => this.checkScroll());
     window.addEventListener('resize', () => this.checkScroll());
+  },
+  watch:{
+    $route () {
+      this.loadData();
+    }
   }
 }
 </script>

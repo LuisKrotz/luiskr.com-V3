@@ -4,7 +4,8 @@
     &-lg,
     &-md,
     &-sm,
-    &-xs {
+    &-xs,
+    &-xxs {
         font-family: 'Raleway', sans-serif;
     }
 
@@ -116,6 +117,15 @@
 
         @include layout-2560() {
             font-size: to-rem(21);
+        }
+    }
+
+    &-xxs {
+        font-size: to-rem(8);
+        text-transform: uppercase;
+
+        @include layout-2560() {
+            font-size: to-rem(13);
         }
     }
 }

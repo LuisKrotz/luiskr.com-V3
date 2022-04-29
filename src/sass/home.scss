@@ -103,11 +103,6 @@
 
         &-link {
             display: block;
-            cursor: none;
-
-            .has_touch & {
-                cursor: pointer;
-            }
 
             @include layout-1024() {
                 display: flex;
@@ -186,6 +181,58 @@
                         .portfolio-item-link:hover &,
                         .portfolio-item-link:focus & {
                             opacity: 1;
+                        }
+                    }
+
+                    .load-svg {
+                        width: 100%;
+                        height: 100%;
+                        background: var(--black);
+                        padding: to-rem($F7);
+                        box-sizing: border-box;
+
+                        @include layout-320() {
+                            padding: to-rem($F8);
+                        }
+    
+                        @include layout-540() {
+                            padding: to-rem($F9);
+                        }
+
+                        @include layout-1280() {
+                            padding: to-rem($F10);
+                        }
+
+                        @include layout-1440() {
+                            padding: to-rem($F11);
+                        }
+
+                        @include layout-2560() {
+                            padding: to-rem($F12);
+                        }
+
+                        @include layout-3840() {
+                            padding: to-rem($F13);
+                        }
+
+                        &-triangle-1 {
+                            stroke-dasharray: 2;
+
+                            @include layout-540() {
+                                stroke-dasharray: 1.5;
+                            }
+
+                            @include layout-1280() {
+                                stroke-dasharray: 1.25;
+                            }
+
+                            @include layout-2560() {
+                                stroke-dasharray: 1;
+                            }
+
+                            @include layout-3840() {
+                                stroke-dasharray: 0.75;
+                            }
                         }
                     }
                 }
