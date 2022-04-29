@@ -58,21 +58,21 @@ export default {
       document.title = this.$route.meta.title;
       this.translations =  false;
 
-      // get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation)).then((snapshot) => {
-      //   if (snapshot.exists()) {
-      //     if(!wait) {
-      //       this.translations = snapshot.val();
-      //     } else {
-      //       setTimeout(() => {
-      //         this.translations = snapshot.val();
-      //       }, wait);
-      //     }
-      //   } else {
-      //     console.log('%cERROR: could\'t find PAGE DATA', this.$sharedData.styles.info);
-      //   }
-      // }).catch((error) => {
-      //   console.error(error);
-      // });
+      get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation)).then((snapshot) => {
+        if (snapshot.exists()) {
+          if(!wait) {
+            this.translations = snapshot.val();
+          } else {
+            setTimeout(() => {
+              this.translations = snapshot.val();
+            }, wait);
+          }
+        } else {
+          console.log('%cERROR: could\'t find PAGE DATA', this.$sharedData.styles.info);
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
     }
   },
   mounted() {
