@@ -40,7 +40,6 @@ import { getDatabase, ref, child, get } from "firebase/database";
 
 const cookie = 'cookie', cookieEvent = 'cookieAction'
 
-
   export default {
     name: 'App',
     data() {
@@ -121,7 +120,7 @@ const cookie = 'cookie', cookieEvent = 'cookieAction'
                 tap: this.translations.actions.tap,
               });
             } else {
-              console.log('ERROR: could\'t find data at');
+              console.log('%cERROR: could\'t find APP DATA', this.$sharedData.styles.info);
             }
           }).catch((error) => {
             console.error(error);
@@ -133,7 +132,7 @@ const cookie = 'cookie', cookieEvent = 'cookieAction'
             if (snapshot.exists()) {
               this.$store.commit('setComponentLang', snapshot.val());
             } else {
-              console.log('ERROR: could\'t find data at');
+              console.log('%cERROR: could\'t find COMPONENT DATA', this.$sharedData.styles.info);
             }
           }).catch((error) => {
             console.error(error);

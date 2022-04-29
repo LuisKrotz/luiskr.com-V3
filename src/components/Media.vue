@@ -1,5 +1,7 @@
 <template>
-    <figure class="internal-expand" v-if="canExpand" @click="openModal" :style="styles" :title="label">
+    <figure :class="canExpand ? 'internal-expand': ''"
+            @click="canExpand ? openModal: void(0)"
+            :style="styles" :title="label">
         <img class="render-placeholder" :src="placeholder(width, height)" :width="width" :height="height" alt=" "/>
 
         <img v-if="!isVideo"
@@ -9,41 +11,37 @@
             :alt="label"
             :src="storage + src + q100"
             v-lazy="{src: storage + src + q50, loading: storage + src + thumb }" />
+        <video v-else-if="autoPlay"
+            :class="'render-media ' + classes"
+            :poster="poster[0]"
+            :width="width"
+            :height="height"
+            :alt="label"
+            playsinline loop muted autoplay>
+            <source :src="video[1]" type="video/mp4">
+        </video>
         <video v-else
             :class="'render-media ' + classes"
             :poster="poster[0]"
             :width="width"
             :height="height"
             :alt="label"
-            playsinline autoplay loop muted>
+            playsinline loop muted
+            @mousedown="play($event)"
+            @mouseover="play($event)"
+            @mouseenter="play($event)"
+            @mouseout="pause($event)"
+            @mouseleave="pause($event)">
             <source :src="video[1]" type="video/mp4">
         </video>
 
-        <button v-for="n = 1 in 2" :class="'expand-modal-open-' + n" :key="n" :aria-hidden="(n === 2 ? true : false)" data-no-snippet>{{ action }} {{ translations.toOpen }}</button>
-    </figure>
-    <figure v-else :style="styles" :title="label">
-        <img class="render-placeholder" :src="placeholder(width, height)" :width="width" :height="height" alt=" "/>
-
-        <img v-if="!isVideo"
-            :class="'render-media ' + classes"
-            :width="width"
-            :height="height"
-            :alt="label"
-            v-lazy="{src: storage + src + q50, loading: storage + src + thumb }" />
-        <video v-else
-            :class="'render-media ' + classes"
-            :poster="poster[0]"
-            :width="width"
-            :height="height"
-            :alt="label"
-            playsinline autoplay loop muted>
-            <source :src="video[0]" type="video/mp4">
-        </video>
+        <template v-if="canExpand">
+            <button v-for="n = 1 in 2" :class="'expand-modal-open-' + n" :key="n" :aria-hidden="(n === 2 ? true : false)" data-no-snippet>{{ action }} {{ translations.toOpen }}</button>
+        </template>
     </figure>
 </template>
 
 <script>
-
 const   moz = '-mozjpg',
         extension = '.jpg',
         placeholder = '.mp4.jpg-thumb.jpg',
@@ -52,20 +50,20 @@ const   moz = '-mozjpg',
 
 export default {
     name: 'Media',
-        data() {
-            return {
-                storage:            this.$store.getters.getStorage,
-                thumb:              moz + '3-MSSIM-tuned-kodak' + extension,
-                q50:                moz + '-50' + extension,
-                q100:               moz + '-uncompressed' + extension,
-                high:               false,
-                styles:             '',
-                poster:             [],
-                video:              [],
-                action:             this.$store.getters.getClickOrTap,
-                translations:       this.$store.getters.getlang.components.media
-            }
-        },
+    data() {
+        return {
+            storage:            this.$store.getters.getStorage,
+            thumb:              moz + '3-MSSIM-tuned-kodak' + extension,
+            q50:                moz + '-50' + extension,
+            q100:               moz + '-uncompressed' + extension,
+            high:               false,
+            styles:             '',
+            poster:             [],
+            video:              [],
+            action:             this.$store.getters.getClickOrTap,
+            translations:       this.$store.getters.getlang.components.media
+        }
+    },
     props: {
         classes: {
             type: String,
@@ -98,7 +96,12 @@ export default {
             type: Boolean,
             default: false,
             required: false
-        }
+        },
+        autoPlay: {
+            type: Boolean,
+            default: false,
+            required: false
+        },
     },
     created() {
         if (this.isVideo) {
@@ -114,7 +117,7 @@ export default {
         if (this.canExpand)
             this.styles = {
                 position: 'relative'
-            }
+            };
     },
     methods: {
         placeholder(width, height) {
@@ -138,6 +141,18 @@ export default {
             });
 
             window.scrollTo(0, 0);
+        },
+        play(e) {
+            let video;
+
+            video = e.target;
+            video.play();
+        },
+        pause(e) {
+            let video;
+
+            video = e.target;
+            video.pause();
         }
     }
 }

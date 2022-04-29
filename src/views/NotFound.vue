@@ -4,10 +4,9 @@
             <template v-for="n in 10" :key="n"> 404 </template>
         </div>
     </div>
-    <div id="#main" class="not-found">
-
-        <div>
-            <h2 class="not-found-title">{{ translations.title }}</h2>
+    <div id="main" class="not-found">
+        <div v-if="translations?.title">
+            <h2 class="not-found-title" v-html="translations.title"></h2>
             <router-link class="not-found-link" to="/">{{ translations.link }}</router-link>
         </div>
     </div>
@@ -33,7 +32,7 @@ export default {
         if (snapshot.exists()) {
             this.translations = snapshot.val();
         } else {
-            console.log('ERROR: could\'t find data at');
+            console.log('%cERROR: could\'t find 404 DATA', this.$sharedData.styles.info);
         }
         }).catch((error) => {
             console.error(error);

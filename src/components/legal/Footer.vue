@@ -6,15 +6,27 @@
                 <span v-if="n < translations.links.length - 1" class="contact-other-separator">•</span>
             </template>
         </div>
+        <div v-else>
+            <span class="contact-other-link" data-no-snippet>{{ loading }}</span>
+        </div>
     </footer>
 </template>
 
 <script>
 export default {
-    name: 'Legal',
+    name: 'Legal Footer',
     data() {
         return {
-            translations:   this.$store.getters.getlang.components['legal-footer']
+            loading:        this.$store.getters.getlang.loading,
+            translations:   false
+        }
+    },
+    watch: {
+        '$store.state.lang.components': {
+            immediate: true,
+                handler() {
+                this.translations = this.$store.getters.getlang.components['legal-footer'];
+            }
         }
     }
 }

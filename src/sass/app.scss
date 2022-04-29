@@ -183,7 +183,7 @@
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity .55s ease-in-out;
+  transition: opacity .55s ease-in-out;
 }
 
 .fade-enter,
@@ -191,19 +191,26 @@
   opacity: 0;
 }
 
-.hover {
-  will-change: transform, opacity;
-  pointer-events: none;
-  z-index: 100;
-  background: none;
-  top: to-rem(-$F10);
-  left: to-rem(-$F10);
-  position: absolute;
-  opacity: 0;
-  width: to-rem($F13);
-  height: to-rem($F13);
-  transition: transform 50ms ease; opacity: 100ms linear;
-  mix-blend-mode: color-burn;
+
+.hover,
+.load-svg {
+  width: to-rem($F10);
+  height: to-rem($F10);
+
+  @include layout-540() {
+    width: to-rem($F11);
+    height: to-rem($F11);
+  }
+
+  @include layout-1280() {
+    width: to-rem($F12);
+    height: to-rem($F12);
+  }
+
+  @include layout-2560() {
+    width: to-rem($F13);
+    height: to-rem($F13);
+  }
 
   &-triangle-1, 
   &-triangle-2 {
@@ -213,6 +220,8 @@
 
   &-triangle-1 {
     fill: none;
+    stroke-dasharray: 0.75;
+    animation: dash 5s linear infinite;
   }
 
   &-triangle-2 {
@@ -224,6 +233,29 @@
     text-transform: uppercase;
     font-size: to-rem($F7);
     fill: var(--white);
+  }
+}
+
+.hover {
+  will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 100;
+  background: none;
+  top: to-rem($F9);
+  left: to-rem($F9);
+  position: absolute;
+  opacity: 0;
+  transition: transform 50ms ease; opacity: 100ms linear;
+  mix-blend-mode: color-burn;
+
+  @include layout-1280() {
+    top: to-rem(-$F8);
+    left: to-rem(-$F7);
+  }
+
+  @include layout-2560() {
+    top: to-rem(-$F10);
+    left: to-rem(-$F10);
   }
 }
 
@@ -279,5 +311,11 @@
   to {
     transform: translate3d(200%, 0, 0);
     opacity: 0;
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 10;
   }
 }

@@ -21,6 +21,9 @@
     }
 
     &-main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: to-rem($F8);
         box-sizing: border-box;
         background-color: var(--black);
@@ -35,9 +38,7 @@
 
         figure {
             position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
         }
 
         .render-placeholder {
@@ -58,6 +59,25 @@
 
             @include layout-1024() {
                 border-radius: to-rem($F7);
+            }
+        }
+
+        .load-svg {
+            width: to-rem($F12);
+            height: to-rem($F12);
+
+            @include layout-1024() {
+                width: to-rem($F13);
+                height: to-rem($F13);
+            }
+
+            @include layout-2560() {
+                width: to-rem($F14);
+                height: to-rem($F14);
+            }
+
+            &-text {
+                fill: var(--grey-3);
             }
         }
     }
@@ -294,6 +314,12 @@
                 }
             }
 
+            .load-svg {    
+                &.flip {
+                    transform: rotate(180deg);
+                }
+            }
+
             .render-media {
                 top: 0;
                 left: 0;
@@ -308,6 +334,22 @@
                 @include layout-1024() {
                     border: none;
                     border-radius: to-rem($F7);
+                }
+                
+                &.load-svg {
+                    position: relative;
+                    width: to-rem($F13);
+                    height: to-rem($F13);
+
+                    @include layout-1280() {
+                        width: to-rem($F12);
+                        height: to-rem($F12);
+                    }
+
+                    @include layout-2560() {
+                        width: to-rem($F13);
+                        height: to-rem($F13);
+                    }
                 }
             }
 
