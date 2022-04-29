@@ -7,6 +7,7 @@ import VueLazyLoad from 'vue3-lazyload'
 import VueSmoothScroll from 'vue3-smooth-scroll'
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getPerformance } from "firebase/performance"
 // import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 const firebaseConfig = {
@@ -28,6 +29,7 @@ const db = initializeApp(firebaseConfig);
 //   });
 
 const analytics = getAnalytics(db);
+const perf = getPerformance(db);
 
 const app = createApp(App);
 
