@@ -90,16 +90,6 @@ export default {
             }
         }
     },
-    created() {
-        let link = document.createElement("link");
-
-        link.rel="preload",
-        link.as="image";
-
-        link.href = this.image + this.loadext + (window.innerWidth >= 640 ? '' : this.mobileext) + this.ext;
-
-        document.getElementsByTagName('head')[0].appendChild(link);
-    },
     mounted() {
         this.setViewport();
 
