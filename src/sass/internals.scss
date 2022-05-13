@@ -331,12 +331,17 @@
                 border-radius: to-rem($F2);
                 box-sizing: border-box;
 
+                // Image Rendering + translateZ >> Makes the coposing be rendered by the GPU
+                image-rendering: pixelated;
+                transform: translateZ(1px);
+
                 @include layout-1024() {
                     border: none;
                     border-radius: to-rem($F7);
                 }
-                
+
                 &.load-svg {
+                    image-rendering: crisp-edges;
                     position: relative;
                     width: to-rem($F13);
                     height: to-rem($F13);
