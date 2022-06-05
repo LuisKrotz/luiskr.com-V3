@@ -49,14 +49,14 @@
 
         transition: width .5s linear, transform .5s linear;
         display: block;
-        content: '⟵';
+        content: '←';
         position: absolute;
         top: to-rem(5);
-        left: to-rem(-3);
-        font-size: to-rem(25);
+        left: to-rem(-11);
+        font-size: to-rem(28);
         line-height: to-rem(15);
         height: to-rem(15);
-        font-weight: 400;
+        font-weight: 700;
         width: 34%;
         overflow: hidden;
         
