@@ -43,39 +43,6 @@
       }
     }
 
-    &.back {
-      &::before {
-        font-family: 'Raleway', sans-serif;
-
-        transition: width .5s linear, transform .5s linear;
-        display: block;
-        content: '⟵';
-        position: absolute;
-        top: to-rem(5);
-        left: to-rem(-3);
-        font-size: to-rem(25);
-        line-height: to-rem(15);
-        height: to-rem(15);
-        font-weight: 400;
-        width: 34%;
-        overflow: hidden;
-        
-        @include layout-2560() {
-          font-size: to-rem(38);
-          line-height: to-rem(28);
-          height: to-rem(28);
-        }
-      }
-
-      &:hover,
-      &:focus {
-        &::before {
-          transform: translateX(-10px);
-          width: 40%;
-        }
-      }
-    }
-
     &.scroll-up {
       cursor: n-resize;
     }
