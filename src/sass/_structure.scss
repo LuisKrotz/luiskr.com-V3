@@ -1,10 +1,10 @@
 :root {
-    --white:    #{$color-white};
-    --black:    #{$color-black};
-    --grey:     #{$color-grey};
-    --grey-2:   #{$color-grey-2};
-    --grey-3:   #{$color-grey-3};
-    --blue:     #{$color-blue};
+    --white: #{$color-white};
+    --black: #{$color-black};
+    --grey: #{$color-grey};
+    --grey-2: #{$color-grey-2};
+    --grey-3: #{$color-grey-3};
+    --blue: #{$color-blue};
 }
 
 html,
@@ -22,6 +22,31 @@ body {
     padding: 0;
     background-color: var(--white);
     color: var(--black);
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: to-rem($F6);
+
+        @include layout-2560() {
+            width: to-rem($F7);
+        }
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        border-radius: 0ba;
+        background: var(--grey-3);
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: var(--grey);
+    }
 }
 
 q,
@@ -54,9 +79,9 @@ ol {
 }
 
 a {
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
     text-decoration: none;
     color: inherit;
 }
