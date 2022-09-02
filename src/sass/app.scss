@@ -100,6 +100,11 @@
     width: to-rem($F15);
   }
 
+  @include layout-2560() {
+    width: to-rem($F14);
+    border-radius: to-rem($F7);
+  }
+
   .show-logo & {
     animation: slide-in 1s linear 2s forwards;
   }
@@ -179,7 +184,7 @@
     height: to-rem($F13);
   }
 
-  &-triangle-1, 
+  &-triangle-1,
   &-triangle-2 {
     stroke-miterlimit: 10;
     stroke: var(--grey-3);
@@ -212,7 +217,8 @@
   left: to-rem($F9);
   position: absolute;
   opacity: 0;
-  transition: transform 50ms ease; opacity: 100ms linear;
+  transition: transform 50ms ease;
+  opacity: 100ms linear;
   mix-blend-mode: color-burn;
 
   @include layout-1280() {
@@ -229,31 +235,31 @@
 
 @keyframes marquee-keyframe {
   0% {
-      transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 
   33.332% {
-      transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
   }
 
   33.333% {
-      transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 
   66.665% {
-      transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
   }
 
   66.666% {
-      transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 
   99.999% {
-      transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
   }
 
   100% {
-      transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 }
 
