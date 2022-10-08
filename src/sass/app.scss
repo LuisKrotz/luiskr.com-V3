@@ -121,8 +121,11 @@
   }
 
   &-buttons {
+    overflow: hidden;
     display: grid;
     position: relative;
+    grid-gap: 0;
+    margin: 0;
     grid-template-columns: repeat(2, 1fr);
     min-height: to-rem($F10);
 
@@ -136,6 +139,8 @@
 
     &-accept,
     &-refuse {
+      margin: 0;
+      display: block;
       cursor: pointer;
       font-size: to-rem($F7);
     }
