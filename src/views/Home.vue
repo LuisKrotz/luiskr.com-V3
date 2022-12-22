@@ -85,7 +85,7 @@ export default {
           offset: -100,
           duration: 1000,
           updateHistory: false,
-          scrollTo: this.$refs[ref],  // scrollTo is also allowed to be number
+          scrollTo: this.$refs[ref]  // scrollTo is also allowed to be number
         })
     },
     onMouseMove(e) {

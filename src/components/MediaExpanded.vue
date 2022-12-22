@@ -70,7 +70,7 @@ export default {
             return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" %3E%3C/svg%3E`;
         },
         closeModal () {
-            let scroll = this.$store.getters.getModal.transform;
+            const scroll = this.$store.getters.getModal.transform;
 
             this.$store.commit('setModal', {
                 transform: 0,

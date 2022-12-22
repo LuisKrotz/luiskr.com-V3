@@ -1,6 +1,6 @@
 <template>
     <figure :class="canExpand ? 'internal-expand': ''"
-            @click="canExpand ? openModal: void(0)"
+            @click="openModal"
             :style="styles" :title="label">
         <img class="render-placeholder" :src="placeholder(width, height)" :width="width" :height="height" alt=" "/>
 
@@ -123,8 +123,10 @@ export default {
         placeholder(width, height) {
             return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E`;
         },
-        openModal () {
-            let y = window.scrollY;
+        openModal() {
+            if (!this.canExpand) return;
+
+            const y = window.scrollY;
 
             this.$store.commit('setModal', {
                 transform: y,
@@ -143,16 +145,10 @@ export default {
             window.scrollTo(0, 0);
         },
         play(e) {
-            let video;
-
-            video = e.target;
-            video.play();
+            e.target.play();
         },
         pause(e) {
-            let video;
-
-            video = e.target;
-            video.pause();
+            e.target.pause();
         }
     }
 }
