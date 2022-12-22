@@ -1,36 +1,36 @@
 {
-    "name": "luiskr.com",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint"
-    },
-    "dependencies": {
-        "core-js": "^3.26",
-        "firebase": "^9.15",
-        "register-service-worker": "^1.7",
-        "vue": "^3.2 ",
-        "vue-router": "^4.1",
-        "vue3-lazyload": "^0.3",
-        "vue3-smooth-scroll": "^0.8",
-        "vuex": "^4.1"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.12.16",
-        "@babel/eslint-parser": "^7.12.16",
-        "@vue/cli-plugin-babel": "~5.0.4",
-        "@vue/cli-plugin-eslint": "~5.0.4",
-        "@vue/cli-plugin-pwa": "~5.0.4",
-        "@vue/cli-plugin-router": "~5.0.4",
-        "@vue/cli-plugin-vuex": "~5.0.4",
-        "@vue/cli-service": "~5.0.4",
-        "@vue/compiler-sfc": "^3.2.33",
-        "eslint": "^7.32.0",
-        "eslint-plugin-vue": "^8.0.3",
-        "sass": "^1.57.1",
-        "sass-loader": "^13.2.0",
-        "webpack": "^5.75.0"
-    }
+  "name": "luiskr.com",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.26",
+    "firebase": "^9.15",
+    "register-service-worker": "^1.7",
+    "vue": "^3.2 ",
+    "vue-router": "^4.1",
+    "vue3-lazyload": "^0.3",
+    "vue3-smooth-scroll": "^0.8",
+    "vuex": "^4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.8",
+    "@vue/cli-plugin-eslint": "~5.0.8",
+    "@vue/cli-plugin-pwa": "~5.0.8",
+    "@vue/cli-plugin-router": "~5.0.8",
+    "@vue/cli-plugin-vuex": "~5.0.8",
+    "@vue/cli-service": "~5.0.8",
+    "@vue/compiler-sfc": "^3.2.33",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "webpack": "^5.75.0"
+  }
 }
