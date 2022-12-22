@@ -70,7 +70,7 @@ export default {
         text-align: left;
         padding-bottom: to-rem($F8);
         overflow: hidden;
-
+        box-sizing: border-box;
         height: 100vh;
         width: 100vw;
         position: fixed;
@@ -79,7 +79,6 @@ export default {
 
         &-marquee {
             font-family: 'Black Ops One', monospace;
-            font-size: to-rem($F8);
             will-change: transform;
             width: fit-content;
             white-space: nowrap;

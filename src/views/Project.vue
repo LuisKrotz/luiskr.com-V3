@@ -125,7 +125,7 @@ export default {
   },
   methods: {
     loadData(wait = false) {
-      let lang = this.$store.getters.getlang;
+      const lang = this.$store.getters.getlang;
       document.title = this.$route.meta.title;
       this.translations =  false;
 

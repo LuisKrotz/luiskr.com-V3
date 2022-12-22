@@ -86,7 +86,7 @@ export default {
     Contact
   },
   created() {
-    let lang = this.$store.getters.getlang;
+    const lang = this.$store.getters.getlang;
     document.title = this.$route.meta.title;
 
     get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation)).then((snapshot) => {

@@ -13,66 +13,66 @@
     width: 100%;
     position: relative;
     box-sizing: border-box;
-    padding: 0 to-rem(($un-272 - $grid-max-area-272) / 2) 0;
+    padding: 0 to-rem(calc(($un-272 - $grid-max-area-272) / 2)) 0;
 
     @include layout-320() {
-        padding: 0 to-rem(($un-320 - $grid-max-area-320) / 2) 0;
+        padding: 0 to-rem(calc(($un-320 - $grid-max-area-320) / 2)) 0;
     }
 
     @include layout-375() {
-        padding: 0 to-rem(($un-375 - $grid-max-area-375) / 2) 0;
+        padding: 0 to-rem(calc(($un-375 - $grid-max-area-375) / 2)) 0;
     }
 
     @include layout-414() {
-        padding: 0 to-rem(($un-414 - $grid-max-area-414) / 2) 0;
+        padding: 0 to-rem(calc(($un-414 - $grid-max-area-414) / 2)) 0;
     }
 
     @include layout-540() {
-        padding: 0 to-rem(($un-540 - $grid-max-area-540) / 2) 0;
+        padding: 0 to-rem(calc(($un-540 - $grid-max-area-540) / 2)) 0;
     }
 
     @include layout-768() {
-        padding: 0 to-rem(($un-768 - $grid-max-area-768) / 2) 0;
+        padding: 0 to-rem(calc(($un-768 - $grid-max-area-768) / 2)) 0;
     }
 
     @include layout-960() {
-        padding: 0 to-rem(($un-960 - $grid-max-area-960) / 2) 0;
+        padding: 0 to-rem(calc(($un-960 - $grid-max-area-960) / 2)) 0;
     }
 
     @include layout-1024() {
-        padding: 0 to-rem(($un-1024 - $grid-max-area-1024) / 2) 0;
+        padding: 0 to-rem(calc(($un-1024 - $grid-max-area-1024) / 2)) 0;
     }
 
     @include layout-1280() {
-        padding: 0 to-rem(($un-1280 - $grid-max-area-1280) / 2) 0;
+        padding: 0 to-rem(calc(($un-1280 - $grid-max-area-1280) / 2)) 0;
     }
 
     @include layout-1440() {
-        padding: 0 to-rem(($un-1440 - $grid-max-area-1440) / 2) 0;
+        padding: 0 to-rem(calc(($un-1440 - $grid-max-area-1440) / 2)) 0;
     }
 
     @include layout-1680() {
-        padding: 0 to-rem(($un-1680 - $grid-max-area-1680) / 2) 0;
+        padding: 0 to-rem(calc(($un-1680 - $grid-max-area-1680) / 2)) 0;
     }
 
     @include layout-1920() {
-        padding: 0 to-rem(($un-1920 - $grid-max-area-1920) / 2) 0;
+        padding: 0 to-rem(calc(($un-1920 - $grid-max-area-1920) / 2)) 0;
     }
 
     @include layout-2560() {
-        padding: 0 to-rem(($un-2560 - $grid-max-area-2560) / 2) 0;
+        padding: 0 to-rem(calc(($un-2560 - $grid-max-area-2560) / 2)) 0;
     }
 
     @include layout-3840() {
-        padding: 0 to-rem(($un-3840 - $grid-max-area-3840) / 2) 0;
+        padding: 0 to-rem(calc(($un-3840 - $grid-max-area-3840) / 2)) 0;
     }
 
     @include layout-5120() {
-        padding: 0 to-rem(($un-5120 - $grid-max-area-5120) / 2) 0;
+        padding: 0 to-rem(calc(($un-5120 - $grid-max-area-5120) / 2)) 0;
     }
 
     @include layout-7680() {
-        padding: 0 to-rem(($un-7680 - $grid-max-area-7680) / 2) 0;
+        padding: 0 to-rem(calc(($un-7680 - $grid-max-area-7680) / 2)) 0;
     }
 }
 
