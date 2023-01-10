@@ -6,13 +6,13 @@
                 <div class="portfolio-item-computer-screen">
                     <div v-if="image!== undefined" class="portfolio-item-computer-screen-image">
                         <template v-for="n = 1 in 2" :key="n">
-                            <img v-if="viewport >= 640" :class="'portfolio-item-computer-screen-image-item-' + n"
+                            <img decoding="async" v-if="viewport >= 640" :class="'portfolio-item-computer-screen-image-item-' + n"
                                 v-lazy="{src: image + ext, loading: image + loadext + ext}"
                                 :src="image + ext"
                                 :alt="label"
                                 :width="width[0]"
                                 :height="height[0]" />
-                            <img v-else :class="'portfolio-item-computer-screen-image-item-' + n"
+                            <img decoding="async" v-else :class="'portfolio-item-computer-screen-image-item-' + n"
                                 v-lazy="{src: image + mobileext +  ext, loading: image + loadext + mobileext + ext}"
                                 :src="image + mobileext +  ext"
                                 :alt="label"

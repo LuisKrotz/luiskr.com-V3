@@ -5,16 +5,16 @@
         </div>
         <div class="expand-modal-close-area" @click="closeModal"></div>
         <figure class="expand-modal-media-figure">
-            <img class="expand-modal-media-placeholder" :src="placeholder(width, height)" :width="width" :height="height" aria-hidden="true" tabindex="-1" data-nosnippet/>
+            <img decoding="async" class="expand-modal-media-placeholder" :src="placeholder(width, height)" :width="width" :height="height" aria-hidden="true" tabindex="-1" data-nosnippet/>
 
-            <img v-if="!isVideo"
+            <img decoding="async" v-if="!isVideo"
                 class="expand-modal-media-item"
                 :width="width"
                 :height="height"
                 :alt="alt"
                 :src="source"
                 v-lazy="{ src: source, loading: thumb }" />
-            <video v-else
+            <video decoding="async"  v-else
                 class="expand-modal-media-item"
                 :width="width"
                 :height="height"

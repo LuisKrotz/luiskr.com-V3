@@ -47,7 +47,7 @@
           <ul class="awards" v-if="translations">
             <li class="awards-item" v-for="item, n in translations.mention_items" :key="n">
               <a class="awards-item-link" href="item.link">
-                <img v-if="item.media !== undefined" class="awards-item-link-media" v-lazy="{src: storage + item.media.path}" :width="item.media.width" :height="item.media.height">
+                <img decoding="async" v-if="item.media !== undefined" class="awards-item-link-media" v-lazy="{src: storage + item.media.path}" :width="item.media.width" :height="item.media.height">
                 <span v-else class="awards-item-link-media">{{ item.icon }}</span>
                 <span class="awards-item-link-text" v-html="item.description"></span>
               </a>

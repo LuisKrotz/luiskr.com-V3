@@ -330,10 +330,10 @@
                 object-position: top center;
                 border-radius: to-rem($F2);
                 box-sizing: border-box;
+                overflow: hidden;
 
-                // Image Rendering + translateZ >> Makes the coposing be rendered by the GPU
-                image-rendering: pixelated;
-                transform: translateZ(1px);
+                // Only render images when in the viewports
+                content-visibility: auto;
 
                 @include layout-1024() {
                     border: none;
