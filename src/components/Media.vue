@@ -2,16 +2,16 @@
     <figure :class="canExpand ? 'internal-expand': ''"
             @click="openModal"
             :style="styles" :title="label">
-        <img class="render-placeholder" :src="placeholder(width, height)" :width="width" :height="height" alt=" "/>
+        <img decoding="async" class="render-placeholder" :src="placeholder(width, height)" :width="width" :height="height" alt=" "/>
 
-        <img v-if="!isVideo"
+        <img decoding="async" v-if="!isVideo"
             :class="'render-media ' + classes"
             :width="width"
             :height="height"
             :alt="label"
             :src="storage + src + q100"
             v-lazy="{src: storage + src + q50, loading: storage + src + thumb }" />
-        <video v-else-if="autoPlay"
+        <video decoding="async"  v-else-if="autoPlay"
             :class="'render-media ' + classes"
             :poster="poster[0]"
             :width="width"
@@ -20,7 +20,7 @@
             playsinline loop muted autoplay>
             <source :src="video[1]" type="video/mp4">
         </video>
-        <video v-else
+        <video decoding="async"  v-else
             :class="'render-media ' + classes"
             :poster="poster[0]"
             :width="width"
