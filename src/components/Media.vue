@@ -105,12 +105,13 @@ export default {
     },
     created() {
         if (this.isVideo) {
-            let video = this.storage + this.src;
-
-            this.poster[0] = video + placeholder;
-            this.poster[1] = video + scale + placeholder;
-            this.video[0] = video + videoExtension; 
-            this.video[1] = video +  scale + videoExtension;
+            const video = this.storage + this.src;
+            const urls = [
+                [video + placeholder, video + videoExtension],
+                [video + scale + placeholder, video + scale + videoExtension]
+            ];
+            this.poster = urls.map((arr) => arr[0]);
+            this.video = urls.map((arr) => arr[1]);
         }
     },
     mounted() {
@@ -124,9 +125,11 @@ export default {
             return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E`;
         },
         openModal() {
+            const win = window;
+
             if (!this.canExpand) return;
 
-            const y = window.scrollY;
+            const y = win.scrollY;
 
             this.$store.commit('setModal', {
                 transform: y,
@@ -142,7 +145,8 @@ export default {
                 }
             });
 
-            window.scrollTo(0, 0);
+            win.scrollTo(0, 0);
+
         },
         play(e) {
             e.target.play();
