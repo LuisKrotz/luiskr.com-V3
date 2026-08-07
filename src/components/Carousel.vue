@@ -136,6 +136,7 @@ export default {
             ringProgress:    0,        // 0-1 progress for ring fill
             rafId:           null,
             scrollTimeout:   null,
+            teleportTimer:   null,     // timer for post-clone teleport
             isScrolling:     false,
             touchStartX:     0,
             slideRefs:       [],
@@ -174,6 +175,7 @@ export default {
 
     beforeUnmount() {
         this._stopAutoplay();
+        if (this.teleportTimer) clearTimeout(this.teleportTimer);
         window.removeEventListener('resize', this._onResize);
     },
 
@@ -194,9 +196,45 @@ export default {
 
         // ── Navigation ────────────────────────────────────────────────────
         goTo(idx) {
-            this.currentIndex = ((idx % this.items.length) + this.items.length) % this.items.length;
-            this._scrollToSlide(this.currentIndex);
-            this.$emit('change', this.currentIndex);
+            const len = this.items.length;
+            const newIndex = ((idx % len) + len) % len;
+            this.currentIndex = newIndex;
+            this.$emit('change', newIndex);
+
+            if (idx >= len) {
+                // Went past the LAST item → smooth scroll to cloneFirst (physically on the
+                // right, adjacent), then instantly teleport to real first item.
+                // This is how an infinite carousel avoids scrolling back through all slides.
+                this._scrollToElement(this.$refs.cloneFirst);
+                this._scheduleTeleport(0);
+            } else if (idx < 0) {
+                // Went before the FIRST item → smooth scroll to cloneLast (physically on
+                // the left, adjacent), then instantly teleport to real last item.
+                this._scrollToElement(this.$refs.cloneLast);
+                this._scheduleTeleport(len - 1);
+            } else {
+                this._scrollToSlide(newIndex);
+            }
+        },
+
+        // Scroll any element to the center of the track (smooth)
+        _scrollToElement(el) {
+            const track = this.$refs.track;
+            if (!track || !el) return;
+            const trackRect = track.getBoundingClientRect();
+            const elRect    = el.getBoundingClientRect();
+            const left      = track.scrollLeft + elRect.left - trackRect.left
+                            - (trackRect.width - elRect.width) / 2;
+            track.scrollTo({ left, behavior: 'smooth' });
+        },
+
+        // After smooth scroll animation completes (~350ms), silently teleport to the real slide
+        _scheduleTeleport(targetIdx) {
+            if (this.teleportTimer) clearTimeout(this.teleportTimer);
+            this.teleportTimer = setTimeout(() => {
+                this._jumpToSlide(targetIdx);
+                this.teleportTimer = null;
+            }, 380);
         },
 
         _scrollToSlide(idx) {
@@ -314,10 +352,9 @@ export default {
             this.ringProgress = Math.min(elapsed / AUTOPLAY_DURATION, 1);
 
             if (elapsed >= AUTOPLAY_DURATION) {
-                // Advance slide
-                this.currentIndex = (this.currentIndex + 1) % this.items.length;
-                this._scrollToSlide(this.currentIndex);
-                this.$emit('change', this.currentIndex);
+                // Advance through goTo() so the infinite loop clone strategy applies
+                // (i.e. last→first uses cloneFirst, not a backwards scroll)
+                this.goTo(this.currentIndex + 1);
                 // Reset ring
                 this.autoplayElapsed = 0;
                 this.autoplayStart   = performance.now();
