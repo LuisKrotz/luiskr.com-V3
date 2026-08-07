@@ -19,7 +19,8 @@
                 ref="cloneLast"
                 aria-hidden="true"
             >
-                <slot :item="items[items.length - 1]" :index="-1" />
+                <!-- Clones always render: they are the adjacent wrap-around slides -->
+                <slot :item="items[items.length - 1]" :index="-1" :isVisible="true" />
             </div>
 
             <!-- Real items -->
@@ -42,7 +43,8 @@
                 ref="cloneFirst"
                 aria-hidden="true"
             >
-                <slot :item="items[0]" :index="items.length" />
+                <!-- Clones always render: they are the adjacent wrap-around slides -->
+                <slot :item="items[0]" :index="items.length" :isVisible="true" />
             </div>
         </div>
 
@@ -182,8 +184,12 @@ export default {
         },
 
         isSlideVisible(idx) {
-            // Preload ±1 slide around current (for lazy loading content inside slides)
-            return Math.abs(idx - this.currentIndex) <= 1;
+            // Preload ±1 slide around current, accounting for circular wrap-around.
+            // e.g. at index 0 in a 5-item carousel, index 4 is the adjacent prev slide.
+            const len  = this.items.length;
+            const direct  = Math.abs(idx - this.currentIndex);
+            const wrapped = len - direct;  // distance going the other way around
+            return Math.min(direct, wrapped) <= 1;
         },
 
         // ── Navigation ────────────────────────────────────────────────────

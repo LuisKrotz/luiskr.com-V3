@@ -148,7 +148,6 @@
         &-text {
             @extend .txt-md;
 
-            text-align: center;
             padding-bottom: to-rem($space-xl);
 
             @include layout-1920() {
@@ -280,7 +279,9 @@
 
 
             figure {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 position: relative;
                 overflow: hidden;
                 border-radius: to-rem($space-md);
@@ -552,4 +553,38 @@
             }
         }
     }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Carousel context overrides
+// Each .internal-extra-item is the sole child of its .carousel-slide, so
+// :first-of-type and :last-of-type both match every item — zeroing out the
+// padding on both sides. Restore symmetric padding here so items have visible
+// gaps between them in the carousel track.
+// ─────────────────────────────────────────────────────────────────────────────
+.carousel .internal-extra-item {
+    &:first-of-type { padding-left: to-rem($space-lg); }
+    &:last-of-type  { padding-right: to-rem($space-lg); }
+
+    @include layout-768() {
+        &:first-of-type { padding-left: to-rem($space-xl); }
+        &:last-of-type  { padding-right: to-rem($space-xl); }
+    }
+
+    @include layout-1440() {
+        &:first-of-type { padding-left: to-rem($space-2xl); }
+        &:last-of-type  { padding-right: to-rem($space-2xl); }
+    }
+
+    @include layout-1920() {
+        &:first-of-type { padding-left: to-rem($space-3xl); }
+        &:last-of-type  { padding-right: to-rem($space-3xl); }
+    }
+}
+
+// Non-visible carousel slide placeholder: centre the loading spinner
+.carousel-slide--loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -40,8 +40,16 @@
                                     :canExpand="item?.canExpand ?? false"
                                     :isVideo="item?.isVideo ?? false"
                                     :label="item.label"/>
+                                <!-- Non-visible slide: reserve space with correct aspect ratio,
+                                     then show centered spinner. No network requests fired. -->
                                 <figure v-else>
-                                    <LoadSVG :classes="'load-svg render-media'" :renderText="false" />
+                                    <img class="render-placeholder"
+                                         :src="svgPlaceholder(item.size[0], item.size[1])"
+                                         :width="item.size[0]"
+                                         :height="item.size[1]"
+                                         aria-hidden="true"
+                                         alt="" />
+                                    <LoadSVG :classes="'load-svg render-media ' + (item.size[0] > item.size[1] ? 'flip' : '')" :renderText="false" />
                                 </figure>
                             </div>
                         </template>
@@ -131,6 +139,9 @@ export default {
     }
   },
   methods: {
+    svgPlaceholder(w, h) {
+      return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"%3E%3C/svg%3E`;
+    },
     loadData(wait = false) {
       const lang = this.$store.getters.getlang;
       document.title = this.$route.meta.title;
