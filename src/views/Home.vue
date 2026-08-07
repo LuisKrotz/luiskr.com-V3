@@ -57,8 +57,8 @@
 
 <script>
 import { getDatabase, ref, child, get } from "firebase/database";
-import Contact        from '../components/Contact'
-import DrawComputer   from '../components/drawings/Computer'
+import Contact        from '../components/Contact.vue'
+import DrawComputer   from '../components/drawings/Computer.vue'
 
 export default {
   data() {
@@ -71,7 +71,7 @@ export default {
       showhover:            this.$store.getters.getHover,
       tap:                  this.$store.getters.getClickOrTap,
       page:                 this.$store.getters.getOnMouseMove,
-      marquee:              Number
+      marquee:              0
     }
   },
   name: 'Home',

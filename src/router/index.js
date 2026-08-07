@@ -88,7 +88,7 @@ const routes = [
   {
     path: '/portfolio/coza',
     name: 'Coza',
-    component: () => import(/* webpackChunkName: "project" */ '../views/Project'),
+    component: () => import('../views/Project.vue'),
     meta: {
       title: title + ' | Coza',
       translation: 'coza',
@@ -178,7 +178,7 @@ const routes = [
   {
     path: "/:pathMatch(.*)*",
     name: 'Not Found',
-    component: () => import(/* webpackChunkName: 'notfound'*/ '../views/NotFound'),
+    component: () => import('../views/NotFound.vue'),
     meta: {
       title: title + ' | Page not found',
       translation: 'not-found',
@@ -187,7 +187,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes
 })
 

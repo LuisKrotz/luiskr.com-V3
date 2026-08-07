@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    clickortap:  String,
+    clickortap:  '',
     defaultSVG: {
       viewBox: "0 0 117.29 122.67",
       polygonPoints: ["58.65 1 0.87 101.08 116.43 101.08 58.65 1", "58.65 22.09 0.87 122.17 116.43 122.17 58.65 22.09"],
@@ -21,7 +21,7 @@ export default createStore({
       pagesPath: '/pages/',
       projectPath: '/projects/',
     },
-    marqueeamount: Number,
+    marqueeamount: 0,
     modalObject: {
       transform: 'translateY(0)',
       class: '',
@@ -76,19 +76,14 @@ export default createStore({
       let width = window.innerWidth,
           height = window.innerHeight;
 
-      switch (window.outerWidth) {
-        case width >= 2560:
-          state.marqueeamount = Math.ceil(height / 377); 
-        break;
-        case width >= 1280:
-          state.marqueeamount = Math.ceil(height / 144); 
-        break;
-        case width >= 768:
-          state.marqueeamount = Math.ceil(height / 89); 
-        break;
-        default:
-          state.marqueeamount = Math.ceil(height / 144); 
-        break;
+      if (width >= 2560) {
+        state.marqueeamount = Math.ceil(height / 377);
+      } else if (width >= 1280) {
+        state.marqueeamount = Math.ceil(height / 144);
+      } else if (width >= 768) {
+        state.marqueeamount = Math.ceil(height / 89);
+      } else {
+        state.marqueeamount = Math.ceil(height / 144);
       }
     },
     setModal(state, payload) {

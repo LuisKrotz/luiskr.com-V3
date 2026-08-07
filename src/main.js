@@ -7,7 +7,6 @@ import VueLazyLoad from 'vue3-lazyload'
 import VueSmoothScroll from 'vue3-smooth-scroll'
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getPerformance } from "firebase/performance"
 // import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 const firebaseConfig = {
@@ -18,7 +17,7 @@ const firebaseConfig = {
   storageBucket: "luiskr-com.appspot.com",
   messagingSenderId: "967717102790",
   appId: "1:967717102790:web:eea19f216fd097a08163c7",
-  measurementId: "G-6KX64X1J2G"
+  measurementId: "G-B2CJGG5FS9"
 };
 
 
@@ -28,8 +27,7 @@ const db = initializeApp(firebaseConfig);
 //     isTokenAutoRefreshEnabled: true
 //   });
 
-const analytics = getAnalytics(db);
-const perf = getPerformance(db);
+getAnalytics(db);
 
 const app = createApp(App);
 
