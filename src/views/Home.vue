@@ -6,26 +6,41 @@
             <span v-if="translations">{{ translations.message }}:</span>
             <span v-else>{{ loading.msg1 }}</span>
         </h2>
-
       </div>
 
       <section class="portfolio">
         <ul class="portfolio-grid" v-if="translations?.portfoliolist">
-          <li class="portfolio-item" v-for="item, index in translations.portfoliolist" :key="index" @mouseenter.self="hover($event)"  @mousemove="onMouseMove($event)" @mouseleave="clear()">
-            <DrawComputer
-              :link="'/portfolio/' + item.link"
-              :image="storage + 'covers/' + item.image"
-              :width="item.width"
-              :height="item.height"
-              :label="item.label"
-              :description="item.description"/>
+          <li class="portfolio-item" v-for="item, index in translations.portfoliolist" :key="index" @mouseenter.self="hover($event)" @mousemove="onMouseMove($event)" @mouseleave="clear()">
+            <router-link class="portfolio-item-link" :to="'/portfolio/' + item.link">
+              <!-- Cover image — takes more space than the label -->
+              <div class="portfolio-item-cover">
+                <img
+                  decoding="async"
+                  class="portfolio-item-cover-img"
+                  v-lazy="{src: storage + 'covers/' + item.image + ext, loading: storage + 'covers/' + item.image + loadext + ext}"
+                  :src="storage + 'covers/' + item.image + ext"
+                  :alt="item.label"
+                  :width="item.width ? item.width[0] : undefined"
+                  :height="item.height ? item.height[0] : undefined"
+                />
+              </div>
+              <!-- Label -->
+              <div class="portfolio-item-label">
+                <h4 class="portfolio-item-label-title">{{ item.label }}</h4>
+                <p class="portfolio-item-label-description" v-html="item.description"></p>
+              </div>
+            </router-link>
           </li>
         </ul>
         <ul class="portfolio-grid" v-else>
           <li class="portfolio-item" v-for="n in 8" :key="n">
-            <DrawComputer
-              :label="loading.msg2"
-              :description="loading.msg3"/>
+            <span class="portfolio-item-link">
+              <div class="portfolio-item-cover portfolio-item-cover--loading"></div>
+              <div class="portfolio-item-label">
+                <h4 class="portfolio-item-label-title">{{ loading.msg2 }}</h4>
+                <p class="portfolio-item-label-description">{{ loading.msg3 }}</p>
+              </div>
+            </span>
           </li>
         </ul>
       </section>
@@ -50,37 +65,29 @@
 
 <script>
 import { getDatabase, ref, child, get } from "firebase/database";
-import Contact        from '../components/Contact.vue'
-import DrawComputer   from '../components/drawings/Computer.vue'
+import Contact from '../components/Contact.vue'
 
 export default {
   data() {
     return {
-      loading:              this.$store.getters.getlang.loading,
-      storage:              this.$store.getters.getStorage,
-      translations:         false,
-      svg:                  this.$store.getters.getSVG,
-      has_touch:            this.$store.getters.getTouch,
-      showhover:            this.$store.getters.getHover,
-      tap:                  this.$store.getters.getClickOrTap,
-      page:                 this.$store.getters.getOnMouseMove,
-      marquee:              undefined
+      loading:    this.$store.getters.getlang.loading,
+      storage:    this.$store.getters.getStorage,
+      translations: false,
+      svg:        this.$store.getters.getSVG,
+      has_touch:  this.$store.getters.getTouch,
+      showhover:  this.$store.getters.getHover,
+      tap:        this.$store.getters.getClickOrTap,
+      page:       this.$store.getters.getOnMouseMove,
+      // Image extensions (matching original Computer.vue convention)
+      loadext:    '-mozjpg3-MSSIM-tuned-kodak',
+      ext:        '.jpg',
     }
   },
   name: 'Home',
   components: {
-    DrawComputer,
     Contact
   },
   methods: {
-    scrollTo(ref) {
-        this.$smoothScroll({
-          offset: -100,
-          duration: 1000,
-          updateHistory: false,
-          scrollTo: this.$refs[ref]  // scrollTo is also allowed to be number
-        })
-    },
     onMouseMove(e) {
         this.$store.commit('setOnMouseMove', e);
         this.page = this.$store.getters.getOnMouseMove;

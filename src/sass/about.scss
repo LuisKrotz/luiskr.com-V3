@@ -7,43 +7,11 @@
 .about {
     @extend %MAXAREA;
 
-    &-grid {
-        display: grid;
-        grid-template-columns: repeat(1, auto);
-
-        grid-gap: to-rem($space-xl);
-        @include layout-768() {
-            grid-gap: to-rem($space-xl);
-        }
-
-        @include layout-1280() {
-            grid-template-columns: repeat(2, auto);
-            grid-gap: to-rem($space-3xl);
-        }
-
-        @include layout-2560() {
-            grid-gap: to-rem($space-5xl);
-        }
-    }
-
-    &-grid,
-    &-container {
-        margin: 0;
-        padding: 0;
-        padding-bottom: to-rem($space-4xl);
-
-        @include layout-1440() {
-            padding-bottom:  to-rem($space-5xl);
-        }
-
-        @include layout-2560() {
-            padding-bottom:  to-rem($space-6xl);
-        }
-    }
-
     &-title {
         @extend .ttl-xxl;
 
+        font-family: 'Raleway', sans-serif;
+        font-weight: 100;
         text-align: left;
         text-transform: uppercase;
         padding:  to-rem($space-4xl) 0 to-rem($space-xl);
@@ -65,6 +33,97 @@
         }
     }
 
+    // ── Profile + 2-column text ─────────────────────────────────────────────
+    &-profile-section {
+        display: flex;
+        flex-direction: column;
+        gap: to-rem($space-2xl);
+        padding-bottom: to-rem($space-4xl);
+
+        @include layout-768() {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: to-rem($space-3xl);
+        }
+
+        @include layout-1440() {
+            gap: to-rem($space-4xl);
+            padding-bottom: to-rem($space-5xl);
+        }
+
+        @include layout-2560() {
+            gap: to-rem($space-5xl);
+            padding-bottom: to-rem($space-6xl);
+        }
+    }
+
+    &-profile-picture {
+        flex-shrink: 0;
+        width: to-rem(180);
+        height: to-rem(180);
+
+        @include layout-540() {
+            width: to-rem(220);
+            height: to-rem(220);
+        }
+
+        @include layout-768() {
+            width: to-rem(240);
+            height: to-rem(240);
+        }
+
+        @include layout-1024() {
+            width: to-rem(280);
+            height: to-rem(280);
+        }
+
+        @include layout-1440() {
+            width: to-rem(360);
+            height: to-rem(360);
+        }
+
+        @include layout-2560() {
+            width: to-rem(480);
+            height: to-rem(480);
+        }
+
+        &-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        &-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--grey-2);
+        }
+    }
+
+    &-profile-text {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: to-rem($space-xl);
+
+        @include layout-768() {
+            grid-template-columns: repeat(2, 1fr);
+            gap: to-rem($space-2xl);
+        }
+
+        @include layout-2560() {
+            gap: to-rem($space-3xl);
+        }
+
+        &-col {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
     &-item {
         box-sizing: border-box;
         position: relative;
@@ -72,7 +131,6 @@
         &-text {
             @extend .txt-md;
             padding-bottom: to-rem($space-lg);
-
 
             @include layout-768() {
                 padding-bottom: to-rem($space-xl);
@@ -88,141 +146,17 @@
         }
     }
 
-    &-draw {
-        background: var(--blue);
-
-        aspect-ratio: 9/16;
-        position: relative;
-        box-sizing: border-box;
-        width: to-rem(180);
-        border-radius: to-rem($space-md);
-        margin-bottom: to-rem($space-2xl);
-        margin-left: to-rem($space-xl);
-        transform: rotateZ(352deg); 
-
-        @include layout-375() {
-            float: left;
-            width: to-rem(160);
-            border-radius: to-rem($space-md);
-            margin-right: to-rem($space-2xl);
-            margin-bottom: to-rem($space-xl);
-            margin-left: 0;
-            transform: rotateZ(354deg);
-        }
-
-        @include layout-540() {
-            width: to-rem(180);
-            transform: rotateZ(352deg); 
-        }
-
-        @include layout-768() {
-            width: to-rem(240);
-            border-radius: to-rem($space-md);
-            margin-right: to-rem($space-3xl);
-            margin-bottom: 0;
-            transform: rotateZ(350deg); 
-        }
-
-        @include layout-1024() {
-            width: to-rem(180);
-            border-radius: to-rem($space-md);
-            margin-right: to-rem($space-4xl);
-        }
-
-        @include layout-1280() {
-            width: to-rem(180);
-            margin-right: to-rem($space-2xl);
-            margin-bottom: to-rem($space-xl);
-            transform: initial;
-        }
+    &-container {
+        margin: 0;
+        padding: 0;
+        padding-bottom: to-rem($space-4xl);
 
         @include layout-1440() {
-            width: to-rem(240);
-            border-radius: to-rem($space-lg);
-            margin-right: to-rem($space-3xl);
-            margin-bottom: to-rem($space-2xl);
-        }
-
-        @include layout-1680() {
-            width: to-rem(320);
-            border-radius: to-rem($space-lg);
-            margin-right: to-rem($space-4xl);
-            margin-bottom: to-rem($space-2xl);
+            padding-bottom:  to-rem($space-5xl);
         }
 
         @include layout-2560() {
-            width: to-rem(520);
-            border-radius: to-rem($space-xl);
-            margin-right: to-rem($space-5xl);
-            margin-bottom: to-rem($space-3xl);
-        }
-
-        @include layout-3840() {
-            width: to-rem(640);
-        }
-
-        &-mic {
-            width: 1.5%;
-            aspect-ratio: 1/1;
-            box-sizing: border-box;
-            margin: 0 auto 0;
-            position: absolute;
-            left: 50%;
-            top: 1.5%;
-            transform: translate(-50%, -50%);
-            border-radius: 100%;
-            background: var(--white);
-        }
-
-        &-speaker {
-            width: 10%;
-            aspect-ratio: 10/1;
-            box-sizing: border-box;
-            margin: 0 auto;
-            position: absolute;
-            left: 60%;
-            top: 1.5%;
-            transform: translate(-50%, -50%);
-            background:var(--white);
-        }
-
-        &-screen {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border: 1px solid var(--blue);
-            width: 95%;
-            height: 95%;
-            box-sizing: border-box;
-            margin: 5% auto 0;
-            background: var(--white);
-            position: relative;
-            box-sizing: border-box;
-            padding: to-rem($space-xl);
-
-            @include layout-768() {
-                padding: to-rem($space-2xl);
-            }
-
-            @include layout-1024() {
-                padding: to-rem($space-xl);
-            }
-
-            @include layout-1280() {
-                padding: to-rem($space-xl);
-            }
-
-            @include layout-1440() {
-                padding: to-rem($space-2xl);
-            }
-
-            @include layout-1920() {
-                padding: to-rem($space-3xl);
-            }
-
-            @include layout-2560() {
-                padding: to-rem($space-3xl);
-            }
+            padding-bottom:  to-rem($space-6xl);
         }
     }
 

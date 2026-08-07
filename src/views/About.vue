@@ -1,40 +1,42 @@
 <template>
   <article>
-    <div class="about" >
+    <div class="about">
       <h2 id="about" class="about-title" ref="about">
         <span v-if="translations" v-html="translations.title"></span>
         <span v-else>{{ loading.msg1 }}</span>
       </h2>
-      <ul class="about-grid">
-        <li class="about-item">
-          <div class="about-draw">
-            <div class="about-draw-mic"></div>
-            <div class="about-draw-speaker"></div>
-            <div class="about-draw-screen">
-              <p v-if="translations" class="about-item-text" v-html="translations.frame"></p>
-              <p v-else class="about-item-text">
-                {{ loading.msg3 }}
-              </p>
-            </div>
+
+      <!-- Profile + 2-column text -->
+      <div class="about-profile-section">
+        <!-- Rounded profile picture -->
+        <div class="about-profile-picture">
+          <img
+            v-if="translations && profilePicture"
+            decoding="async"
+            class="about-profile-picture-img"
+            :src="profilePicture"
+            :alt="translations.title"
+            width="400"
+            height="400"
+          />
+          <div v-else class="about-profile-picture-placeholder"></div>
+        </div>
+
+        <!-- Two-column text on the right -->
+        <div class="about-profile-text">
+          <div class="about-profile-text-col">
+            <template v-if="translations">
+              <p class="about-item-text" v-for="item, n in translations.col1" :key="'c1-' + n" v-html="item"></p>
+            </template>
+            <p v-else class="about-item-text">{{ loading.msg2 }}</p>
           </div>
-
-          <template v-if="translations">
-            <template v-for="item, n in translations.col1" :key="n">
-              <p class="about-item-text" v-html="item"></p>
+          <div class="about-profile-text-col">
+            <template v-if="translations">
+              <p class="about-item-text" v-for="item, n in translations.col2" :key="'c2-' + n" v-html="item"></p>
             </template>
-          </template>
-          <p v-else class="about-item-text">{{ loading.msg2 }}</p>
-        </li>
-
-        <li class="about-item">
-          <template v-if="translations">
-            <template v-for="item, n in translations.col2" :key="n">
-              <p class="about-item-text" v-html="item"></p>
-            </template>
-          </template>
-        </li>
-      </ul>
-
+          </div>
+        </div>
+      </div>
 
       <div class="about-container">
           <p v-if="translations" class="about-item-text">
@@ -79,7 +81,8 @@ export default {
       loadIcons:        ['⌛', '⚗️', '🧪', '🧫', '🧬', '🔬', '🔭', '📡'],
       loading:          this.$store.getters.getlang.loading,
       storage:          this.$store.getters.getStorage,
-      translations:     false
+      translations:     false,
+      profilePicture:   null,
     }
   },
   components: {
@@ -89,11 +92,21 @@ export default {
     const lang = this.$store.getters.getlang;
     document.title = this.$route.meta.title;
 
+    // Load page content
     get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation)).then((snapshot) => {
       if (snapshot.exists()) {
         this.translations = snapshot.val();
       } else {
-        console.log('%cERROR: could\'t find PAGE DATA', this.$sharedData.styles.info);
+        console.log('%cERROR: couldn\'t find PAGE DATA', this.$sharedData.styles.info);
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+
+    // Load profile picture from Firebase
+    get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation + '/profilePicture')).then((snapshot) => {
+      if (snapshot.exists()) {
+        this.profilePicture = snapshot.val();
       }
     }).catch((error) => {
       console.error(error);
