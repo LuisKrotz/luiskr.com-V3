@@ -32,14 +32,12 @@
         max-width: 80%;
         height: to-rem($space-2xl);
         line-height: to-rem($space-2xl);
-        padding: 0 to-rem($space-xl);
+        padding: 0 to-rem($space-lg);
         border-radius: to-rem($space-md);
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: to-rem($space-sm);
         font-weight: 700;
-        font-size: to-rem($space-sm);
         color: var(--white);
         background: rgba(38, 38, 38, .72);
         backdrop-filter: blur(6px);

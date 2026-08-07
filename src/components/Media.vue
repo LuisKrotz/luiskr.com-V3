@@ -39,7 +39,7 @@
         </video>
 
         <template v-if="canExpand">
-            <button class="expand-modal-open-1" data-no-snippet>&#10138; {{ action }} {{ translations?.toOpen }}</button>
+            <button class="expand-modal-open-1" data-no-snippet>{{ action }} {{ translations?.toOpen }}</button>
             <button class="expand-modal-open-2" aria-hidden="true" data-no-snippet></button>
         </template>
     </figure>
