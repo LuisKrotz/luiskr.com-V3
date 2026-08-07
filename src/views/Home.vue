@@ -8,11 +8,18 @@
         </h2>
       </div>
 
-      <section class="portfolio">
-        <ul class="portfolio-grid" v-if="translations?.portfoliolist">
-          <li class="portfolio-item" v-for="item, index in translations.portfoliolist" :key="index" @mouseenter.self="hover($event)" @mousemove="onMouseMove($event)" @mouseleave="clear()">
+      <!-- ── Selected Projects ──────────────────────────────────────── -->
+      <section class="portfolio-section portfolio-section--selected">
+        <h2 class="portfolio-section-title">
+          <span v-if="translations">{{ translations.featured }}</span>
+          <span v-else class="skeleton skeleton--block" style="width:240px;height:1.2em;"></span>
+        </h2>
+
+        <ul class="portfolio-grid portfolio-grid--selected" v-if="translations?.portfoliolist">
+          <li class="portfolio-item portfolio-item--selected"
+              v-for="item in featuredItems" :key="item.link"
+              @mouseenter.self="hover($event)" @mousemove="onMouseMove($event)" @mouseleave="clear()">
             <router-link class="portfolio-item-link" :to="'/portfolio/' + item.link">
-              <!-- Cover image — takes more space than the label -->
               <div class="portfolio-item-cover">
                 <img
                   decoding="async"
@@ -24,42 +31,70 @@
                   :height="item.height ? item.height[0] : undefined"
                 />
               </div>
-              <!-- Label -->
-              <div class="portfolio-item-label">
-                <h4 class="portfolio-item-label-title">{{ item.label }}</h4>
-                <p class="portfolio-item-label-description" v-html="item.description"></p>
+              <div class="portfolio-item-label portfolio-item-label--selected">
+                <h3 class="portfolio-item-label-title portfolio-item-label-title--selected">{{ item.label }}</h3>
+                <p class="portfolio-item-label-description">{{ item.description }}</p>
               </div>
             </router-link>
           </li>
         </ul>
-        <ul class="portfolio-grid" v-else>
-          <li class="portfolio-item" v-for="n in 8" :key="n">
-            <span class="portfolio-item-link">
-              <div class="portfolio-item-cover portfolio-item-cover--loading"></div>
-              <div class="portfolio-item-label">
-                <h4 class="portfolio-item-label-title">{{ loading.msg2 }}</h4>
-                <p class="portfolio-item-label-description">{{ loading.msg3 }}</p>
+
+        <!-- Loading skeleton -->
+        <ul class="portfolio-grid portfolio-grid--selected" v-else>
+          <li class="portfolio-item portfolio-item--selected" v-for="n in 2" :key="n">
+            <div class="portfolio-item-cover portfolio-item-cover--loading"></div>
+            <div class="portfolio-item-label portfolio-item-label--selected">
+              <span class="skeleton skeleton--block" style="width:60%;height:1.4em;margin-bottom:.5rem;"></span>
+              <span class="skeleton skeleton--block" style="width:80%;height:.9em;"></span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ── Know More / Archive ────────────────────────────────────── -->
+      <section class="portfolio-section portfolio-section--archive">
+        <h2 class="portfolio-section-title portfolio-section-title--archive">
+          <span v-if="translations">{{ translations.archive }}</span>
+          <span v-else class="skeleton skeleton--block" style="width:180px;height:1em;"></span>
+        </h2>
+
+        <ul class="portfolio-grid portfolio-grid--archive" v-if="translations?.portfoliolist">
+          <li class="portfolio-item portfolio-item--archive"
+              v-for="item in archiveItems" :key="item.link">
+            <router-link class="portfolio-item-link" :to="'/portfolio/' + item.link">
+              <div class="portfolio-item-cover">
+                <img
+                  decoding="async"
+                  class="portfolio-item-cover-img"
+                  v-lazy="{src: storage + 'covers/' + item.image + ext, loading: storage + 'covers/' + item.image + loadext + ext}"
+                  :src="storage + 'covers/' + item.image + ext"
+                  :alt="item.label"
+                  :width="item.width ? item.width[0] : undefined"
+                  :height="item.height ? item.height[0] : undefined"
+                />
               </div>
-            </span>
+              <div class="portfolio-item-label portfolio-item-label--archive">
+                <h3 class="portfolio-item-label-title portfolio-item-label-title--archive">{{ item.label }}</h3>
+                <p class="portfolio-item-label-description portfolio-item-label-description--archive">{{ item.description }}</p>
+              </div>
+            </router-link>
+          </li>
+        </ul>
+
+        <!-- Loading skeleton -->
+        <ul class="portfolio-grid portfolio-grid--archive" v-else>
+          <li class="portfolio-item portfolio-item--archive" v-for="n in 6" :key="n">
+            <div class="portfolio-item-cover portfolio-item-cover--loading"></div>
+            <div class="portfolio-item-label portfolio-item-label--archive">
+              <span class="skeleton skeleton--block" style="width:60%;height:1em;margin-bottom:.4rem;"></span>
+              <span class="skeleton skeleton--block" style="width:80%;height:.8em;"></span>
+            </div>
           </li>
         </ul>
       </section>
     </div>
 
     <Contact />
-
-    <svg v-if="translations && !has_touch"
-        :viewBox="svg.viewBox"
-        class="hover"
-        :alt="tap + translations.explore[0] + translations.explore[1]"
-        :style="'transform: translate3D(' + page.left + 'px, ' + page.top + 'px, 0); '+ (showhover ? 'opacity: 1' :  'opacity: 0')"
-        aria-hidden="true">
-      <title>{{ tap + translations.explore[0] + translations.explore[1] }}</title>
-      <g>
-        <polygon class="hover-triangle-2" :points="svg.polygonPoints[1]"/>
-        <text class="hover-text" :transform="svg.textTransform">&lt;{{ translations.explore[1] }}/&gt;</text>
-      </g>
-    </svg>
   </article>
 </template>
 
@@ -70,59 +105,57 @@ import Contact from '../components/Contact.vue'
 export default {
   data() {
     return {
-      loading:    this.$store.getters.getlang.loading,
-      storage:    this.$store.getters.getStorage,
+      loading:      this.$store.getters.getlang.loading,
+      storage:      this.$store.getters.getStorage,
       translations: false,
-      svg:        this.$store.getters.getSVG,
-      has_touch:  this.$store.getters.getTouch,
-      showhover:  this.$store.getters.getHover,
-      tap:        this.$store.getters.getClickOrTap,
-      page:       this.$store.getters.getOnMouseMove,
-      // Image extensions (matching original Computer.vue convention)
-      loadext:    '-mozjpg3-MSSIM-tuned-kodak',
-      ext:        '.jpg',
+      has_touch:    this.$store.getters.getTouch,
+      loadext:      '-mozjpg3-MSSIM-tuned-kodak',
+      ext:          '.jpg',
     }
   },
   name: 'Home',
-  components: {
-    Contact
+  components: { Contact },
+
+  computed: {
+    featuredItems() {
+      if (!this.translations?.portfoliolist) return [];
+      return this.translations.portfoliolist.filter(i => i.featured === true);
+    },
+    archiveItems() {
+      if (!this.translations?.portfoliolist) return [];
+      return this.translations.portfoliolist.filter(i => i.featured !== true);
+    },
   },
+
   methods: {
     onMouseMove(e) {
-        this.$store.commit('setOnMouseMove', e);
-        this.page = this.$store.getters.getOnMouseMove;
-      },
+      this.$store.commit('setOnMouseMove', e);
+    },
     hover(e) {
       this.$store.commit('setHover', e);
-      this.showhover = this.$store.getters.getHover;
     },
     clear() {
-        this.$store.commit('setClear');
-        this.showhover = this.$store.getters.getHover;
+      this.$store.commit('setClear');
     },
   },
+
   created() {
-    let lang = this.$store.getters.getlang;
+    const lang = this.$store.getters.getlang;
     document.title = this.$route.meta.title;
 
-    get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation)).then((snapshot) => {
-      if (snapshot.exists()) {
-        this.translations = snapshot.val();
-      } else {
-        console.log('%cERROR: could\'t find HOME DATA', this.$sharedData.styles.info);
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
+    get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation))
+      .then(snapshot => {
+        if (snapshot.exists()) this.translations = snapshot.val();
+        else console.log('%cERROR: couldn\'t find HOME DATA', this.$sharedData.styles.info);
+      })
+      .catch(console.error);
   },
+
   mounted() {
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 500);
-  }
+    setTimeout(() => window.scrollTo(0, 0), 500);
+  },
 }
 </script>
-
 
 <style lang="scss">
 @import '../sass/home';
