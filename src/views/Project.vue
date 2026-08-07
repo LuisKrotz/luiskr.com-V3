@@ -79,10 +79,10 @@
 
 <script>
 import { getDatabase, ref, child, get } from "firebase/database";
-import Media                            from'../components/Media';
-import MediaExpanded                    from'../components/MediaExpanded';
-import LoadSVG                          from'../components/LoadSVG';
-import Related                          from'../components/portfolio/Related';
+import Media                            from '../components/Media.vue';
+import MediaExpanded                    from '../components/MediaExpanded.vue';
+import LoadSVG                          from '../components/LoadSVG.vue';
+import Related                          from '../components/portfolio/Related.vue';
 
 
 export default {

@@ -21,7 +21,7 @@
 
 <script>
 import { getDatabase, ref, child, get } from "firebase/database";
-import Footer                           from'../components/legal/Footer'
+import Footer                           from '../components/legal/Footer.vue'
 
 export default {
   data() {

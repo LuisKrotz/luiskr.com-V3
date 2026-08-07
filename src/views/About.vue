@@ -70,7 +70,7 @@
 
 <script>
 import { getDatabase, ref, child, get } from "firebase/database";
-import Contact                          from '../components/Contact'
+import Contact                          from '../components/Contact.vue'
 
 export default {
   name: 'About',

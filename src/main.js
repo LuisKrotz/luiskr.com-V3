@@ -27,7 +27,7 @@ const db = initializeApp(firebaseConfig);
 //     isTokenAutoRefreshEnabled: true
 //   });
 
-const analytics = getAnalytics(db);
+getAnalytics(db);
 
 const app = createApp(App);
 

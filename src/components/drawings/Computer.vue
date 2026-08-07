@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import LoadSVG  from'../LoadSVG';
+import LoadSVG  from '../LoadSVG.vue';
 
 export default {
     data() {
