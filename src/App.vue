@@ -1,24 +1,26 @@
 <template>
-  <div :class="modal.class" v-if="translations">
+  <div :class="modal.class">
     <!-- Progress bar -->
     <div class="progress-bar" :class="{ 'progress-bar--active': routeLoading }"></div>
 
     <div v-if="modal.class === ''" class="nav">
       <router-link class="nav-link back" v-if="$router.currentRoute.value.name !== 'Home'" to="/">
-        {{ translations.title }}
+        {{ translations?.title ?? 'LK' }}
       </router-link>
-      <button class="nav-link active" v-else @click="scrollTop()">{{ translations.title }}</button>
+      <button class="nav-link active" v-else @click="scrollTop()">
+        {{ translations?.title ?? 'LK' }}
+      </button>
 
       <div v-if="$router.currentRoute.value.name !== 'Not Found'">
         <router-link
           class="nav-link"
           v-if="$router.currentRoute.value.name !== 'About'"
-          :to="translations.about.link"
+          :to="translations?.about?.link ?? '/about'"
         >
-          {{ translations.about.description }}
+          {{ translations?.about?.description ?? 'About' }}
         </router-link>
         <button class="nav-link active" v-else @click="scrollTop()">
-          {{ translations.about.description }}
+          {{ translations?.about?.description ?? 'About' }}
         </button>
         <span class="nav-separator">{{ !onBottom ? '|' : '▲' }}</span>
 
@@ -29,17 +31,17 @@
               $router.currentRoute.value.name === 'About'
             "
           >
-            {{ translations.contact }}
+            {{ translations?.contact ?? '' }}
           </template>
-          <template v-else>{{ translations.related }}</template>
+          <template v-else>{{ translations?.related ?? '' }}</template>
         </button>
         <button v-else class="nav-link scroll-up" @click="scrollTop()">
-          {{ translations.scrollup }}
+          {{ translations?.scrollup ?? '↑' }}
         </button>
       </div>
     </div>
     <div v-else @click="closeModal()" class="nav">
-      <button class="nav-link" @click="scrollTop()">{{ translations.title }}</button>
+      <button class="nav-link" @click="scrollTop()">{{ translations?.title ?? 'LK' }}</button>
     </div>
 
     <router-view v-slot="{ Component, route }">
