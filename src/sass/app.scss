@@ -64,95 +64,111 @@
 
 .cookies {
   font-family: 'Raleway', sans-serif;
+  font-weight: 100;
 
+  // Bottom bar — full width, glassy dark
   position: fixed;
-  bottom: to-rem($space-lg);
-  right: to-rem($space-xl);
-  width: to-rem($space-6xl);
-  max-width: 87vw;
-  background-color: rgba($color-blue, 0.95);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+
+  padding: var(--space-md) var(--space-2xl);
+  background: rgba($color-black, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: var(--white);
-  overflow: hidden;
-  border-radius: to-rem($space-md);
-  box-shadow: to-rem($space-pixel) to-rem($space-pixel) to-rem($space-sm) 0 rgba($color-black, .25);
-  transform: translate3d(200%, 0, 0);
-  opacity: 0;
-  font-size: to-rem($space-md);
-  line-height: to-rem($space-lg);
-  transition: opacity 1s ease-in-out;
-  z-index: 100;
+  font-size: to-rem(13);
+  line-height: to-rem(21);
+  transform: translate3d(0, 100%, 0);   // starts hidden below viewport
+  transition: transform 0s;
+  will-change: transform;
 
   @include layout-768() {
-    bottom: to-rem($space-lg);
-    right: to-rem($space-lg);
-    width: to-rem($space-7xl);
-  }
-
-  @include layout-1024() {
-    bottom: initial;
-    top: to-rem($space-lg);
-    right: to-rem($space-xl);
-  }
-
-  @include layout-1920() {
-    font-size: to-rem($space-lg);
-    line-height: to-rem($space-xl);
-    width: to-rem($space-8xl);
+    font-size: to-rem(13);
+    padding: var(--space-sm) var(--space-3xl);
   }
 
   @include layout-2560() {
-    width: to-rem($space-7xl);
-    border-radius: to-rem($space-lg);
+    font-size: to-rem(21);
+    padding: var(--space-md) var(--space-5xl);
   }
 
   .show-logo & {
-    animation: slide-in 1s linear 2s forwards;
+    animation: slide-in-bottom 0.6s cubic-bezier(0.22, 1, 0.36, 1) 2s forwards;
   }
 
   .hide-cookie-banner &,
   .show-logo.hide-cookie-banner & {
-    animation: slide-out 1s linear 0s forwards;
+    animation: slide-out-bottom 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
   }
 
   &-info {
-    padding: to-rem($space-lg);
-    box-sizing: border-box;
-    text-transform: uppercase;
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    opacity: 0.85;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+
+      &:hover { opacity: 1; }
+    }
   }
 
   &-buttons {
-    overflow: hidden;
-    display: grid;
-    position: relative;
-    grid-gap: 0;
-    margin: 0;
-    grid-template-columns: repeat(2, 1fr);
-    min-height: to-rem($space-3xl);
-
-    @include layout-1024() {
-      min-height: to-rem($space-2xl);
-    }
-
-    @include layout-1920() {
-      min-height: to-rem($space-3xl);
-    }
+    display: flex;
+    gap: var(--space-sm);
+    flex-shrink: 0;
 
     &-accept,
     &-refuse {
-      margin: 0;
-      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 200;
+      font-size: to-rem(11);
+      text-transform: uppercase;
+      letter-spacing: to-rem(2);
       cursor: pointer;
-      font-size: to-rem($space-lg);
+      border: 1px solid currentColor;
+      border-radius: to-rem($space-md);
+      padding: var(--space-xs) var(--space-lg);
+      transition: background 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+
+      @include layout-2560() {
+        font-size: to-rem(13);
+        padding: var(--space-xs) var(--space-xl);
+      }
     }
 
     &-accept {
-      background-color: var(--grey-2);
+      background: var(--white);
       color: var(--black);
+      border-color: var(--white);
+
+      &:hover {
+        background: transparent;
+        color: var(--white);
+      }
     }
 
     &-refuse {
-      background-color: var(--grey);
+      background: transparent;
       color: var(--white);
+
+      &:hover {
+        background: rgba(255,255,255,0.1);
+      }
     }
   }
 }
@@ -202,31 +218,25 @@
 
 
 @keyframes slide-in {
-  from {
-    transform: translate3d(200%, 0, 0);
-    opacity: 0;
-  }
-
-  to {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
+  from { transform: translate3d(200%, 0, 0); opacity: 0; }
+  to   { transform: translate3d(0, 0, 0);    opacity: 1; }
 }
 
 @keyframes slide-out {
-  from {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
+  from { transform: translate3d(0, 0, 0);    opacity: 1; }
+  to   { transform: translate3d(200%, 0, 0); opacity: 0; }
+}
 
-  to {
-    transform: translate3d(200%, 0, 0);
-    opacity: 0;
-  }
+@keyframes slide-in-bottom {
+  from { transform: translate3d(0, 100%, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes slide-out-bottom {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, 100%, 0); }
 }
 
 @keyframes dash {
-  to {
-    stroke-dashoffset: 10;
-  }
+  to { stroke-dashoffset: 10; }
 }

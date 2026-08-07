@@ -318,11 +318,6 @@
                 }
             }
 
-            .load-svg {    
-                &.flip {
-                    transform: rotate(180deg);
-                }
-            }
 
             .render-media {
                 top: 0;
@@ -344,22 +339,6 @@
                     border-radius: to-rem($space-lg);
                 }
 
-                &.load-svg {
-                    image-rendering: crisp-edges;
-                    position: relative;
-                    width: to-rem($space-6xl);
-                    height: to-rem($space-6xl);
-
-                    @include layout-1280() {
-                        width: to-rem($space-5xl);
-                        height: to-rem($space-5xl);
-                    }
-
-                    @include layout-2560() {
-                        width: to-rem($space-6xl);
-                        height: to-rem($space-6xl);
-                    }
-                }
             }
 
             &.landscape {

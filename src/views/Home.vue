@@ -1,29 +1,24 @@
 <template>
   <article :class="(has_touch ? 'has_touch' : '')">
     <div id="home">
-      <div id="portfolio" class="portfolio-title">
-        <h2 class="hdn">
-            <span v-if="translations">{{ translations.message }}:</span>
-            <span v-else>{{ loading.msg1 }}</span>
-        </h2>
-      </div>
 
       <!-- ── Selected Projects ──────────────────────────────────────── -->
-      <section class="portfolio-section portfolio-section--selected">
-        <h2 class="portfolio-section-title">
+      <section class="home-section home-section--selected">
+        <h2 class="home-section-title">
           <span v-if="translations">{{ translations.featured }}</span>
-          <span v-else class="skeleton skeleton--block" style="width:240px;height:1.2em;"></span>
+          <template v-else>
+            <span class="skeleton" style="display:block;width:220px;height:1.2em;"></span>
+          </template>
         </h2>
 
-        <ul class="portfolio-grid portfolio-grid--selected" v-if="translations?.portfoliolist">
-          <li class="portfolio-item portfolio-item--selected"
-              v-for="item in featuredItems" :key="item.link"
-              @mouseenter.self="hover($event)" @mousemove="onMouseMove($event)" @mouseleave="clear()">
-            <router-link class="portfolio-item-link" :to="'/portfolio/' + item.link">
-              <div class="portfolio-item-cover">
+        <!-- Loaded -->
+        <ul class="home-grid home-grid--selected" v-if="translations?.portfoliolist">
+          <li class="home-item" v-for="item in featuredItems" :key="item.link">
+            <router-link class="home-item-link" :to="'/portfolio/' + item.link">
+              <div class="home-item-cover">
                 <img
                   decoding="async"
-                  class="portfolio-item-cover-img"
+                  class="home-item-cover-img"
                   v-lazy="{src: storage + 'covers/' + item.image + ext, loading: storage + 'covers/' + item.image + loadext + ext}"
                   :src="storage + 'covers/' + item.image + ext"
                   :alt="item.label"
@@ -31,41 +26,43 @@
                   :height="item.height ? item.height[0] : undefined"
                 />
               </div>
-              <div class="portfolio-item-label portfolio-item-label--selected">
-                <h3 class="portfolio-item-label-title portfolio-item-label-title--selected">{{ item.label }}</h3>
-                <p class="portfolio-item-label-description">{{ item.description }}</p>
+              <div class="home-item-label home-item-label--selected">
+                <h3 class="home-item-title home-item-title--selected">{{ item.label }}</h3>
+                <p class="home-item-desc">{{ item.description }}</p>
               </div>
             </router-link>
           </li>
         </ul>
 
         <!-- Loading skeleton -->
-        <ul class="portfolio-grid portfolio-grid--selected" v-else>
-          <li class="portfolio-item portfolio-item--selected" v-for="n in 2" :key="n">
-            <div class="portfolio-item-cover portfolio-item-cover--loading"></div>
-            <div class="portfolio-item-label portfolio-item-label--selected">
-              <span class="skeleton skeleton--block" style="width:60%;height:1.4em;margin-bottom:.5rem;"></span>
-              <span class="skeleton skeleton--block" style="width:80%;height:.9em;"></span>
+        <ul class="home-grid home-grid--selected" v-else>
+          <li class="home-item" v-for="n in 2" :key="n">
+            <div class="home-item-cover skeleton home-item-cover--skel"></div>
+            <div class="home-item-label home-item-label--selected">
+              <span class="skeleton" style="display:block;width:55%;height:1.4em;margin-bottom:var(--space-xs);"></span>
+              <span class="skeleton" style="display:block;width:75%;height:.9em;"></span>
             </div>
           </li>
         </ul>
       </section>
 
       <!-- ── Know More / Archive ────────────────────────────────────── -->
-      <section class="portfolio-section portfolio-section--archive">
-        <h2 class="portfolio-section-title portfolio-section-title--archive">
+      <section class="home-section home-section--archive">
+        <h2 class="home-section-title home-section-title--archive">
           <span v-if="translations">{{ translations.archive }}</span>
-          <span v-else class="skeleton skeleton--block" style="width:180px;height:1em;"></span>
+          <template v-else>
+            <span class="skeleton" style="display:block;width:160px;height:1em;"></span>
+          </template>
         </h2>
 
-        <ul class="portfolio-grid portfolio-grid--archive" v-if="translations?.portfoliolist">
-          <li class="portfolio-item portfolio-item--archive"
-              v-for="item in archiveItems" :key="item.link">
-            <router-link class="portfolio-item-link" :to="'/portfolio/' + item.link">
-              <div class="portfolio-item-cover">
+        <!-- Loaded -->
+        <ul class="home-grid home-grid--archive" v-if="translations?.portfoliolist">
+          <li class="home-item" v-for="item in archiveItems" :key="item.link">
+            <router-link class="home-item-link" :to="'/portfolio/' + item.link">
+              <div class="home-item-cover">
                 <img
                   decoding="async"
-                  class="portfolio-item-cover-img"
+                  class="home-item-cover-img"
                   v-lazy="{src: storage + 'covers/' + item.image + ext, loading: storage + 'covers/' + item.image + loadext + ext}"
                   :src="storage + 'covers/' + item.image + ext"
                   :alt="item.label"
@@ -73,21 +70,21 @@
                   :height="item.height ? item.height[0] : undefined"
                 />
               </div>
-              <div class="portfolio-item-label portfolio-item-label--archive">
-                <h3 class="portfolio-item-label-title portfolio-item-label-title--archive">{{ item.label }}</h3>
-                <p class="portfolio-item-label-description portfolio-item-label-description--archive">{{ item.description }}</p>
+              <div class="home-item-label home-item-label--archive">
+                <h3 class="home-item-title home-item-title--archive">{{ item.label }}</h3>
+                <p class="home-item-desc home-item-desc--archive">{{ item.description }}</p>
               </div>
             </router-link>
           </li>
         </ul>
 
-        <!-- Loading skeleton -->
-        <ul class="portfolio-grid portfolio-grid--archive" v-else>
-          <li class="portfolio-item portfolio-item--archive" v-for="n in 6" :key="n">
-            <div class="portfolio-item-cover portfolio-item-cover--loading"></div>
-            <div class="portfolio-item-label portfolio-item-label--archive">
-              <span class="skeleton skeleton--block" style="width:60%;height:1em;margin-bottom:.4rem;"></span>
-              <span class="skeleton skeleton--block" style="width:80%;height:.8em;"></span>
+        <!-- Loading skeleton: 6 cards in archive grid -->
+        <ul class="home-grid home-grid--archive" v-else>
+          <li class="home-item" v-for="n in 6" :key="n">
+            <div class="home-item-cover skeleton home-item-cover--skel"></div>
+            <div class="home-item-label home-item-label--archive">
+              <span class="skeleton" style="display:block;width:60%;height:1em;margin-bottom:var(--space-xs);"></span>
+              <span class="skeleton" style="display:block;width:80%;height:.8em;"></span>
             </div>
           </li>
         </ul>
@@ -100,42 +97,34 @@
 
 <script>
 import { getDatabase, ref, child, get } from "firebase/database";
-import Contact from '../components/Contact.vue'
+import Contact from '../components/Contact.vue';
 
 export default {
+  name: 'Home',
+  components: { Contact },
+
   data() {
     return {
       loading:      this.$store.getters.getlang.loading,
       storage:      this.$store.getters.getStorage,
       translations: false,
       has_touch:    this.$store.getters.getTouch,
+      // Image extensions matching original convention
       loadext:      '-mozjpg3-MSSIM-tuned-kodak',
       ext:          '.jpg',
-    }
+      // featured links cross-referenced from components/related/projects
+      featuredLinks: new Set(),
+    };
   },
-  name: 'Home',
-  components: { Contact },
 
   computed: {
     featuredItems() {
       if (!this.translations?.portfoliolist) return [];
-      return this.translations.portfoliolist.filter(i => i.featured === true);
+      return this.translations.portfoliolist.filter(i => this.featuredLinks.has(i.link));
     },
     archiveItems() {
       if (!this.translations?.portfoliolist) return [];
-      return this.translations.portfoliolist.filter(i => i.featured !== true);
-    },
-  },
-
-  methods: {
-    onMouseMove(e) {
-      this.$store.commit('setOnMouseMove', e);
-    },
-    hover(e) {
-      this.$store.commit('setHover', e);
-    },
-    clear() {
-      this.$store.commit('setClear');
+      return this.translations.portfoliolist.filter(i => !this.featuredLinks.has(i.link));
     },
   },
 
@@ -143,10 +132,26 @@ export default {
     const lang = this.$store.getters.getlang;
     document.title = this.$route.meta.title;
 
+    // Load HOME page data (portfoliolist, featured title, archive title)
     get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation))
       .then(snapshot => {
         if (snapshot.exists()) this.translations = snapshot.val();
-        else console.log('%cERROR: couldn\'t find HOME DATA', this.$sharedData.styles.info);
+        else console.log('%cERROR: HOME DATA not found', this.$sharedData.styles.info);
+      })
+      .catch(console.error);
+
+    // Load related/projects to get the featured flags, cross-reference by link
+    get(child(ref(getDatabase()), lang.database + lang.locale + '/components/related/projects'))
+      .then(snapshot => {
+        if (snapshot.exists()) {
+          const projects = snapshot.val();
+          const links = new Set();
+          // projects is an array-like object
+          Object.values(projects).forEach(p => {
+            if (p.featured === true && p.link) links.add(p.link);
+          });
+          this.featuredLinks = links;
+        }
       })
       .catch(console.error);
   },
@@ -154,7 +159,7 @@ export default {
   mounted() {
     setTimeout(() => window.scrollTo(0, 0), 500);
   },
-}
+};
 </script>
 
 <style lang="scss">

@@ -1,3 +1,6 @@
+// All typography uses Raleway exclusively.
+// Titles: weight 100–200. Body text: weight 100–300. No 700.
+
 .ttl {
     &-xxl,
     &-xl,
@@ -10,7 +13,7 @@
     }
 
     &-xxl {
-        font-weight: 700;
+        font-weight: 100;
         font-size: to-rem(34);
         letter-spacing: to-rem(5);
 
@@ -40,31 +43,35 @@
     }
 
     &-xl {
-        font-weight: 700;
+        font-weight: 100;
         font-size: to-rem(21);
-        letter-spacing: to-rem(8);
+        letter-spacing: to-rem(5);
 
         @include layout-768() {
+            font-size: to-rem(34);
+            letter-spacing: to-rem(8);
+        }
+
+        @include layout-1024() {
             font-size: to-rem(55);
             letter-spacing: to-rem(13);
         }
 
-        @include layout-1024() {
+        @include layout-2560() {
             font-size: to-rem(89);
             letter-spacing: to-rem(21);
-        }
-
-        @include layout-2560() {
-            font-size: to-rem(144);
-            letter-spacing: to-rem(34);
         }
     }
 
     &-lg {
-        font-weight: 700;
-        font-size: to-rem(21);
+        font-weight: 200;
+        font-size: to-rem(18);
 
         @include layout-768() {
+            font-size: to-rem(21);
+        }
+
+        @include layout-1024() {
             font-size: to-rem(34);
         }
 
@@ -73,36 +80,27 @@
         }
 
         @include layout-1560() {
-            font-size: to-rem(89);
+            font-size: to-rem(55);
         }
     }
 
     &-md {
-        font-weight: 400;
+        font-weight: 200;
         font-size: to-rem(21);
-        letter-spacing: to-rem(13);
+        letter-spacing: to-rem(8);
 
         @include layout-768() {
-            font-weight: 200;
             font-size: to-rem(34);
         }
     }
 
-    &-sm,
-    &-xs {
-        font-weight: 200;
-    }
-
     &-sm {
-        font-weight: 400;
+        font-weight: 200;
         letter-spacing: to-rem(2);
         font-size: to-rem(13);
-        text-transform: uppercase;
 
         @include layout-768() {
-            font-weight: 300;
             font-size: to-rem(21);
-            text-transform: initial;
             letter-spacing: to-rem(3);
         }
 
@@ -113,6 +111,7 @@
     }
 
     &-xs {
+        font-weight: 200;
         font-size: to-rem(13);
 
         @include layout-2560() {
@@ -121,6 +120,7 @@
     }
 
     &-xxs {
+        font-weight: 200;
         font-size: to-rem(8);
         text-transform: uppercase;
 
@@ -136,12 +136,10 @@
     &-sm,
     &-xs {
         font-family: 'Raleway', sans-serif;
-        font-weight: 200;
     }
 
     &-lg {
-        font-weight: 200;
-
+        font-weight: 100;
         font-size: to-rem(21);
 
         @include layout-1024() {
@@ -149,9 +147,8 @@
         }
     }
 
-    &-md,
-    &-sm {
-        font-weight: 300;
+    &-md {
+        font-weight: 100;
         font-size: to-rem(13);
         line-height: to-rem(21);
 
@@ -159,17 +156,15 @@
             font-size: to-rem(21);
             line-height: to-rem(34);
         }
-    }
 
-    &-md {
         @include layout-2560() {
             font-size: to-rem(34);
             line-height: to-rem(55);
         }
     }
 
-
     &-sm {
+        font-weight: 100;
         font-size: to-rem(13);
         line-height: to-rem(21);
 
@@ -180,6 +175,7 @@
     }
 
     &-xs {
+        font-weight: 100;
         font-size: to-rem(8);
         line-height: to-rem(13);
 

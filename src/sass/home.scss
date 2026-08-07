@@ -3,36 +3,65 @@
 @import '_fonts';
 @import '_placeholders';
 
-// ── Shared portfolio section wrapper ────────────────────────────────────────
-.portfolio-section {
+// ── Sections ────────────────────────────────────────────────────────────────
+.home-section {
     @extend %MAXAREA;
-    padding-bottom: to-rem($space-5xl);
+    padding-bottom: var(--space-5xl);
 
-    @include layout-1440() { padding-bottom: to-rem($space-6xl); }
+    @include layout-1440() { padding-bottom: var(--space-6xl); }
 
-    // Section titles
+    // Section title — Raleway 100, uppercase, no extra weight
     &-title {
-        font-family: 'Raleway', sans-serif;
+        @extend .ttl-xl;
         font-weight: 100;
         text-transform: uppercase;
         text-align: left;
-        padding: to-rem($space-4xl) 0 to-rem($space-xl);
+        padding: var(--space-4xl) 0 var(--space-xl);
 
-        @extend .ttl-xl;
+        @include layout-768()  { padding: var(--space-4xl) 0 var(--space-2xl); }
+        @include layout-1440() { padding: var(--space-5xl) 0 var(--space-3xl); }
+        @include layout-2560() { padding: var(--space-6xl) 0 var(--space-4xl); }
 
-        @include layout-768()  { padding: to-rem($space-4xl) 0 to-rem($space-2xl); }
-        @include layout-1440() { padding: to-rem($space-5xl) 0 to-rem($space-3xl); }
-        @include layout-2560() { padding: to-rem($space-6xl) 0 to-rem($space-4xl); }
-
-        // Archive section title — slightly smaller
         &--archive {
             @extend .ttl-lg;
+            font-weight: 100;
         }
     }
 }
 
-// ── Shared: cover image + label below pattern ───────────────────────────────
-.portfolio-item {
+// ── Grids ────────────────────────────────────────────────────────────────────
+
+// Selected: one full-width column
+.home-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &--selected {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-4xl);
+
+        @include layout-1024() { gap: var(--space-5xl); }
+        @include layout-2560() { gap: var(--space-6xl); }
+    }
+
+    // Archive: 2-col mobile → 3-col tablet → 4-col ultrawide
+    &--archive {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-2xl);
+
+        @include layout-768()  { grid-template-columns: repeat(3, 1fr); gap: var(--space-3xl); }
+        @include layout-1440() { gap: var(--space-4xl); }
+        @include layout-2560() { grid-template-columns: repeat(4, 1fr); gap: var(--space-5xl); }
+    }
+}
+
+// ── Items ─────────────────────────────────────────────────────────────────────
+.home-item {
+    border-bottom: 1px solid var(--grey-2);
+
     &-link {
         display: flex;
         flex-direction: column;
@@ -40,125 +69,63 @@
         color: inherit;
     }
 
+    // Cover: image fills column width, natural height (no aspect-ratio lock)
     &-cover {
         width: 100%;
         overflow: hidden;
-        position: relative;
         background: var(--grey-2);
 
         &-img {
             width: 100%;
-            height: auto;           // free height — fits image proportions
+            height: auto;
             display: block;
-            transition: opacity .4s ease;
+            transition: opacity .35s ease;
 
-            .portfolio-item-link:hover &,
-            .portfolio-item-link:focus & {
-                opacity: .8;
-            }
+            .home-item-link:hover &,
+            .home-item-link:focus & { opacity: .8; }
         }
 
-        // Skeleton loading state
-        &--loading {
+        // Skeleton state placeholder (uses a fixed aspect ratio for visual stability)
+        &--skel {
             width: 100%;
-            padding-top: 66%;       // ~3/2 ratio placeholder
-            background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
-            background-size: 200% 100%;
-            animation: skeleton-shimmer 1.6s ease-in-out infinite;
+            padding-top: 65%;
         }
     }
 
+    // Label below image
     &-label {
-        padding: to-rem($space-md) 0 to-rem($space-xl);
+        padding: var(--space-sm) 0 var(--space-xl);
 
-        &-title {
-            font-family: 'Raleway', sans-serif;
+        &--archive { padding: var(--space-xs) 0 var(--space-lg); }
+    }
+
+    &-title {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 200;
+        text-transform: uppercase;
+        padding-bottom: var(--space-xs);
+
+        // Selected — big
+        &--selected {
+            @extend .ttl-lg;
             font-weight: 200;
-            text-transform: uppercase;
-            padding-bottom: to-rem($space-xs);
         }
 
-        &-description {
-            @extend .txt-md;
+        // Archive — small
+        &--archive {
+            @extend .ttl-xs;
+            font-weight: 200;
+            letter-spacing: to-rem(1);
+        }
+    }
+
+    &-desc {
+        @extend .txt-md;
+        font-weight: 300;
+
+        &--archive {
+            @extend .txt-xs;
             font-weight: 300;
         }
-    }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-//  SELECTED PROJECTS  — full width, one item per row, big titles
-// ═══════════════════════════════════════════════════════════════════════════
-.portfolio-grid--selected {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: to-rem($space-3xl);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    @include layout-1024() { gap: to-rem($space-4xl); }
-    @include layout-1440() { gap: to-rem($space-5xl); }
-    @include layout-2560() { gap: to-rem($space-6xl); }
-}
-
-.portfolio-item--selected {
-    border-bottom: 1px solid var(--grey-2);
-
-    .portfolio-item-cover-img {
-        width: 100%;   // full width of section
-    }
-
-    .portfolio-item-label-title--selected {
-        @extend .ttl-xl;
-        font-family: 'Raleway', sans-serif;
-        font-weight: 200;
-        text-transform: uppercase;
-    }
-
-    .portfolio-item-label--selected {
-        padding: to-rem($space-lg) 0 to-rem($space-2xl);
-
-        @include layout-768()  { padding: to-rem($space-xl) 0 to-rem($space-3xl); }
-        @include layout-2560() { padding: to-rem($space-2xl) 0 to-rem($space-4xl); }
-    }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-//  ARCHIVE / KNOW MORE — 3-column grid, smaller images and type
-// ═══════════════════════════════════════════════════════════════════════════
-.portfolio-grid--archive {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: to-rem($space-2xl);
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    @include layout-768()  { grid-template-columns: repeat(3, 1fr); gap: to-rem($space-3xl); }
-    @include layout-1024() { gap: to-rem($space-4xl); }
-    @include layout-1440() { gap: to-rem($space-5xl); }
-    @include layout-2560() { grid-template-columns: repeat(4, 1fr); gap: to-rem($space-5xl); }
-}
-
-.portfolio-item--archive {
-    border-bottom: 1px solid var(--grey-2);
-
-    .portfolio-item-label-title--archive {
-        @extend .ttl-sm;
-        font-family: 'Raleway', sans-serif;
-        font-weight: 200;
-        text-transform: uppercase;
-    }
-
-    .portfolio-item-label-description--archive {
-        @extend .txt-xs;
-        font-weight: 300;
-    }
-
-    .portfolio-item-label--archive {
-        padding: to-rem($space-sm) 0 to-rem($space-lg);
-
-        @include layout-768()  { padding: to-rem($space-md) 0 to-rem($space-xl); }
-        @include layout-2560() { padding: to-rem($space-lg) 0 to-rem($space-2xl); }
     }
 }
