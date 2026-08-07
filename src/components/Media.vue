@@ -169,13 +169,17 @@ export default {
       // Push slug to URL: /portfolio/project/image-slug
       const slug = this.slugify(this.label)
       if (slug) {
+        // Build the project base path (strip existing slug param if present)
+        const routeSlug = this.$route.params?.slug
         const currentPath = this.$route.path.replace(/\/$/, '')
-        // Only push if we don't already have this slug in the path
-        const slugSegment = '/' + slug
-        if (!currentPath.endsWith(slugSegment)) {
-          const basePath = currentPath.replace(/\/[^/]+$/, '') // remove existing slug if any
-          this.$router.replace(basePath + slugSegment)
+        const basePath = routeSlug
+          ? currentPath.slice(0, currentPath.length - routeSlug.length - 1) // remove /slug
+          : currentPath
+        const newPath = basePath + '/' + slug
+        if (currentPath !== newPath) {
+          this.$router.replace(newPath)
         }
+
       }
     },
     play(e) {

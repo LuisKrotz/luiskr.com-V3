@@ -3,18 +3,18 @@
 @import '_fonts';
 @import '_placeholders';
 
-$hc-btn-size:     to-rem($space-3xl);
-$hc-dot-size:     to-rem($space-md);
-$hc-dot-pill:     to-rem($space-xl);
-$hc-ring-stroke:  2.5px;
-$hc-gap:          to-rem($space-lg);   // gap between slides in selected
+$hc-btn-size:    to-rem($space-3xl);
+$hc-dot-size:    to-rem($space-md);
+$hc-dot-pill:    to-rem($space-xl);
+$hc-ring-stroke: 2.5px;
+$hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
 
 // ── Base container ───────────────────────────────────────────────────────────
 .hc {
   position: relative;
   width: 100%;
 
-  // ── Track: horizontal scroll, snaps to center ───────────────────────────
+  // ── Scroll track ─────────────────────────────────────────────────────────
   &-track {
     display: flex;
     align-items: stretch;
@@ -39,7 +39,7 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
     }
   }
 
-  // ── Controls row ────────────────────────────────────────────────────────
+  // ── Controls ─────────────────────────────────────────────────────────────
   &-controls {
     display: flex;
     align-items: center;
@@ -49,7 +49,7 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
 
   &-spacer { flex: 1; }
 
-  // ── Dots ────────────────────────────────────────────────────────────────
+  // ── Dots ─────────────────────────────────────────────────────────────────
   &-dots {
     display: flex;
     align-items: center;
@@ -63,24 +63,22 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
     @extend %RESETBTN;
 
     display: block;
-    height: $hc-dot-size;
-    width: $hc-dot-size;
+    height:       $hc-dot-size;
+    width:        $hc-dot-size;
     border-radius: $hc-dot-size;
     background: var(--grey-3);
     cursor: pointer;
     transition: width .25s ease, background .25s ease;
 
     &--active {
-      width: $hc-dot-pill;
+      width:      $hc-dot-pill;
       background: var(--black);
     }
 
-    &:hover:not(&--active) {
-      background: var(--grey);
-    }
+    &:hover:not(&--active) { background: var(--grey); }
   }
 
-  // ── Buttons ─────────────────────────────────────────────────────────────
+  // ── Buttons ──────────────────────────────────────────────────────────────
   &-btn {
     @extend %RESETBTN;
 
@@ -108,7 +106,7 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
     &-ring {
       position: absolute;
       inset: 0;
-      width: 100%;
+      width:  100%;
       height: 100%;
       transform: rotate(-90deg);
       pointer-events: none;
@@ -131,54 +129,64 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
 
 // ════════════════════════════════════════════════════════════════════════════
 //  VARIANT: selected work
-//  Peek left/right, controls float over image vertically-centred,
-//  label fades in only on the active slide.
+//  - Active slide fills the MAXAREA grid
+//  - Prev / next slides bleed OUTSIDE the grid (edge to edge of viewport)
+//  - Controls float over image, vertically centred
+//  - Labels: hidden on non-active, fade in on active
 // ════════════════════════════════════════════════════════════════════════════
 .hc--selected {
   position: relative;
 
-  // ── Track: peek adjacent slides ────────────────────────────────────────
+  // ── Track breaks out of %MAXAREA padding ──────────────────────────────
+  // The parent section uses %MAXAREA which applies padding-left/right.
+  // We pull the track to full viewport width with negative margins.
   .hc-track {
-    // overflow: visible so left/right peeks show
-    overflow: visible;
-    clip-path: none; // no clip — siblings provide the peek
+    overflow: visible; // let adjacent slides show outside
+    // Each slide controls its own width; the track is full-width
   }
 
+  // ── Slide: active = MAXAREA content width, adjacent peek outside ────────
+  // We use a CSS approach:
+  //  - Each slide is 100vw wide
+  //  - The active content inside has the correct MAXAREA-respecting padding
+  //  - Adjacent slides are clipped by the viewport but text is hidden
   .hc-slide {
-    // Each slide is slightly narrower than viewport → adjacent slides peek in
-    width: 88vw;
-    flex-basis: 88vw;
-    padding: 0 calc($hc-gap / 2);
+    // Full viewport width so the track can scroll between "pages"
+    width: 100vw;
+    flex-basis: 100vw;
     box-sizing: border-box;
     position: relative;
 
-    @include layout-768()  { width: 82vw; flex-basis: 82vw; }
-    @include layout-1024() { width: 78vw; flex-basis: 78vw; }
-    @include layout-1440() { width: 72vw; flex-basis: 72vw; }
-    @include layout-2560() { width: 66vw; flex-basis: 66vw; }
+    // The slide's inner link occupies the grid content area (centred)
+    // and adjacent slides peek in from their sides
   }
 
-  // ── Controls: absolutely positioned, vertically centred in image ────────
+  // The track must be able to overflow outside MAXAREA.
+  // Pull it left by the grid lateral padding so it starts at viewport edge.
+  // We achieve this by making the section overflow visible and breaking out
+  // via a wrapper that negates %MAXAREA padding.
+  // This is done in home.scss on .home-section--selected .hc-track.
+
+  // ── Controls: absolute, vertically centred over the cover image ─────────
   .hc-controls {
     position: absolute;
-    top: 0;
+    // Span the full viewport (not the MAXAREA) so buttons sit at the edges
     left: 0;
     right: 0;
-    bottom: 0; // will shrink to image height via padding trick
+    // vertical position is computed by JS (top of section + cover height/2)
+    // We use top+transform: 50% of the .hc-cover height.
+    // Since .hc-cover height is defined by min/max-height, we approximate:
+    top: 0;
+    height: 100%;
     pointer-events: none;
     z-index: 10;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    // keep buttons inside the viewport with a small gutter
     padding: 0 to-rem($space-sm);
 
     @include layout-768()  { padding: 0 to-rem($space-lg); }
-
-    // image height approximation: controls span only the image portion
-    // We use a top% trick: controls height matches the cover image height
-    height: auto;
-    // actual vertical alignment is done by align-items: center above;
-    // the .hc--selected must be position:relative for this to work
   }
 
   .hc-btn {
@@ -195,20 +203,18 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
       background: rgba(0, 0, 0, .65);
     }
 
-    &-ring-fill { stroke: var(--white); }
-    &-ring-track { stroke: rgba(255,255,255,.3); }
+    &-ring-fill  { stroke: rgba(255, 255, 255, .8); }
+    &-ring-track { stroke: rgba(255, 255, 255, .25); }
   }
 
-  // ── Cover image ─────────────────────────────────────────────────────────
+  // ── Cover image ──────────────────────────────────────────────────────────
   .hc-cover {
     width: 100%;
     overflow: hidden;
     background: var(--grey-2);
     flex-shrink: 0;
-
-    // Target viewport height; minimal distortion via object-fit cover
-    max-height: 100vh;
     min-height: 55vw;
+    max-height: 100vh;
 
     @include layout-768()  { min-height: 55vh; }
     @include layout-1024() { min-height: 65vh; }
@@ -227,20 +233,28 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
 
     &--skel {
       min-height: 55vw;
+
       @include layout-768()  { min-height: 55vh; }
       @include layout-1024() { min-height: 65vh; }
       @include layout-1440() { min-height: 80vh; }
+
       background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
       background-size: 200% 100%;
       animation: skeleton-shimmer 1.6s ease-in-out infinite;
     }
   }
 
-  // ── Label: hidden by default, fades in on active slide ──────────────────
+  // ── Label: hidden on adjacent, fades in on active ───────────────────────
+  // Keep the text block's height always so layout doesn't shift.
   .hc-label {
-    padding: to-rem($space-sm) 0 to-rem($space-xl);
+    // Respect the MAXAREA padding inside the full-vw slide
+    @extend %MAXAREA;
+
+    padding-top: to-rem($space-sm);
+    padding-bottom: to-rem($space-xl);
     opacity: 0;
-    transition: opacity .4s ease;
+    visibility: hidden;
+    transition: opacity .4s ease, visibility .4s;
     pointer-events: none;
 
     &-title {
@@ -258,25 +272,39 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
     }
   }
 
-  // Active slide: show its label
-  .hc-slide--active {
-    .hc-label {
-      opacity: 1;
-      pointer-events: auto;
-    }
+  .hc-slide--active .hc-label {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  // home-item-link fills the full slide
+  .home-item-link {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }
 
 // ════════════════════════════════════════════════════════════════════════════
 //  VARIANT: explore more (archive cards)
-//  Card carousel, ~66% width centred, cards with light grey border.
+//  - Stays INSIDE the MAXAREA grid
+//  - Cards at ~33% width: 3 visible on desktop, 2 peeking on mobile
+//  - Arrows centred above cards, padded from the section below
+//  - Light grey border, no black on hover
 // ════════════════════════════════════════════════════════════════════════════
 .hc--explore {
-  // Controls above cards
+  // Controls: row above the track, centred, with bottom spacing before cards
   .hc-controls {
-    padding: 0 0 to-rem($space-md);
+    display: flex;
+    align-items: center;
     justify-content: center;
     gap: to-rem($space-xl);
+    padding: 0 0 to-rem($space-xl);
+    // Extra bottom padding to separate arrows from footer/next section
+    margin-bottom: to-rem($space-lg);
+
+    @include layout-768() { gap: to-rem($space-2xl); margin-bottom: to-rem($space-xl); }
   }
 
   .hc-btn {
@@ -285,26 +313,30 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
     &:focus { color: var(--black); }
   }
 
+  // Track: contains cards inside the grid with lateral padding for peek
   .hc-track {
-    gap: to-rem($space-lg);
-    padding: 0 to-rem($space-sm);
+    gap: to-rem($space-xl);
+    // Small lateral padding so leftmost/rightmost cards have some breathing room
+    padding: 0 to-rem($space-sm) to-rem($space-2xl);
     box-sizing: border-box;
 
-    @include layout-768() { padding: 0 to-rem($space-lg); }
+    @include layout-768() { padding: 0 to-rem($space-lg) to-rem($space-2xl); }
+    @include layout-1440() { padding: 0 to-rem($space-xl) to-rem($space-3xl); }
   }
 
-  // Card sizing: 2.2 on mobile (peek), 3 on tablet, 4 on wide
+  // Card widths: 2 on small mobile (peek), 3 on tablet+
   .hc-slide {
-    width: 44vw;
-    flex-basis: 44vw;
+    width: 70vw;
+    flex-basis: 70vw;
 
-    @include layout-540()  { width: 32vw; flex-basis: 32vw; }
-    @include layout-768()  { width: 26vw; flex-basis: 26vw; }
-    @include layout-1024() { width: 20vw; flex-basis: 20vw; }
-    @include layout-1440() { width: 16vw; flex-basis: 16vw; }
-    @include layout-2560() { width: 12vw; flex-basis: 12vw; }
+    @include layout-540()  { width: 46vw; flex-basis: 46vw; }
+    @include layout-768()  { width: 32vw; flex-basis: 32vw; }
+    @include layout-1024() { width: 24vw; flex-basis: 24vw; }
+    @include layout-1440() { width: 20vw; flex-basis: 20vw; }
+    @include layout-2560() { width: 15vw; flex-basis: 15vw; }
   }
 
+  // Card: light grey border only — no black
   .hc-card {
     width: 100%;
     border: 1px solid var(--grey-2);
@@ -315,7 +347,7 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
     transition: border-color .2s ease;
 
     &:hover,
-    &:focus { border-color: var(--grey); }
+    &:focus { border-color: var(--grey); } // grey, never black
 
     &-cover {
       width: 100%;
@@ -342,29 +374,29 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
     }
 
     &-label {
-      padding: to-rem($space-sm) to-rem($space-sm) to-rem($space-md);
+      padding: to-rem($space-md) to-rem($space-md) to-rem($space-lg);
       flex: 1;
 
       &-title {
-        @extend .ttl-sm;
+        @extend .ttl-md;
 
         font-weight: 200;
         text-transform: uppercase;
-        padding-bottom: to-rem($space-2xs);
+        padding-bottom: to-rem($space-xs);
       }
 
       &-desc {
         @extend .txt-sm;
 
         font-weight: 100;
-        opacity: .65;
+        opacity: .7;
       }
     }
   }
 }
 
 // ════════════════════════════════════════════════════════════════════════════
-//  VARIANT: awards (about page footer)
+//  VARIANT: awards (dark footer, dots only, 10s timer)
 // ════════════════════════════════════════════════════════════════════════════
 .hc--awards {
   display: flex;
@@ -373,11 +405,11 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
 
   .hc-controls {
     padding: to-rem($space-sm) 0;
-    // Hide nav buttons on awards — dots only
+    // Hide nav buttons — dots only navigate
     .hc-btn { display: none; }
   }
 
-  // Inverted dots for dark background
+  // Inverted dots on dark background
   .hc-dot {
     background: var(--grey);
     &--active { background: var(--white); }
@@ -411,14 +443,17 @@ $hc-gap:          to-rem($space-lg);   // gap between slides in selected
       align-items: center;
       justify-content: center;
       font-size: to-rem($space-3xl);
-      width: to-rem($space-5xl);
+      width:  to-rem($space-5xl);
       height: to-rem($space-5xl);
       flex-shrink: 0;
     }
 
     &-img {
       max-width: to-rem($space-5xl);
+      max-height: to-rem($space-5xl);
+      width: auto;
       height: auto;
+      object-fit: contain;
       filter: brightness(0) invert(1);
     }
 

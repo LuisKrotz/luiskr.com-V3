@@ -18,6 +18,7 @@
             v-else
             decoding="async"
             class="hc-award-img"
+            :src="storage + item.media.path"
             v-lazy="{ src: storage + item.media.path }"
             :alt="item.description"
             :width="item.media.width"
