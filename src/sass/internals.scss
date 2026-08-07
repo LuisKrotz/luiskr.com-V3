@@ -62,24 +62,21 @@
             }
         }
 
-        .load-svg {
-            width: to-rem($space-5xl);
-            height: to-rem($space-5xl);
 
-            @include layout-1024() {
-                width: to-rem($space-6xl);
-                height: to-rem($space-6xl);
-            }
-
-            @include layout-2560() {
-                width: to-rem($space-7xl);
-                height: to-rem($space-7xl);
-            }
-
-            &-text {
-                fill: var(--grey-3);
-            }
+        // Skeleton shimmer for carousel slides and cover
+        .skeleton--media {
+            background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-shimmer 1.6s ease-in-out infinite;
         }
+    }
+
+    // Cover skeleton (before data loads)
+    .skeleton-cover {
+        background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
+        background-size: 200% 100%;
+        animation: skeleton-shimmer 1.6s ease-in-out infinite;
+        display: block;
     }
 
     &-description {

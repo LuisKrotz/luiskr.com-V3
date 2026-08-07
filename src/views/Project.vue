@@ -16,7 +16,9 @@
             :autoPlay="true"
             :label="translations.cover.label"
             :key="this.$store.getters.getlang.locale + this.$route.meta.translation"/>
-            <LoadSVG v-else :classes="'load-svg internal-main-item'" :renderText="false" :key="'loadSVG1'"/>
+            <!-- Cover skeleton while data loads -->
+            <div v-else class="skeleton-cover internal-main-item" key="'skelCover'"
+                 style="width:100%;aspect-ratio:16/9;"></div>
       </div>
 
       <transition name="fade">
@@ -42,14 +44,15 @@
                                     :label="item.label"/>
                                 <!-- Non-visible slide: reserve space with correct aspect ratio,
                                      then show centered spinner. No network requests fired. -->
-                                <figure v-else>
+                                <!-- Non-visible carousel slide: reserve aspect-ratio space with skeleton -->
+                                <figure v-else class="render-placeholder-figure">
                                     <img class="render-placeholder"
                                          :src="svgPlaceholder(item.size[0], item.size[1])"
                                          :width="item.size[0]"
                                          :height="item.size[1]"
                                          aria-hidden="true"
                                          alt="" />
-                                    <LoadSVG :classes="'load-svg render-media ' + (item.size[0] > item.size[1] ? 'flip' : '')" :renderText="false" />
+                                    <div class="render-media skeleton--media"></div>
                                 </figure>
                             </div>
                         </template>
@@ -61,13 +64,11 @@
           <div class="internal-description">
             <p class="internal-description-text">{{ loading.msg3 }}</p>
           </div>
-          <!-- Loading skeleton: plain flex row (no carousel needed) -->
+          <!-- Skeleton carousel placeholders -->
           <div class="internal-extra">
               <div class="internal-extra-scroll">
                 <div class="internal-extra-item" v-for="n in 5" :key="n">
-                  <figure>
-                    <LoadSVG :classes="'load-svg render-media ' + (n % 2 === 0 ? 'flip': '')" :renderText="false" />
-                  </figure>
+                  <div class="render-media skeleton--media"></div>
                 </div>
               </div>
           </div>
@@ -94,7 +95,7 @@
 import { getDatabase, ref, child, get } from "firebase/database";
 import Media                            from '../components/Media.vue';
 import MediaExpanded                    from '../components/MediaExpanded.vue';
-import LoadSVG                          from '../components/LoadSVG.vue';
+
 import Related                          from '../components/portfolio/Related.vue';
 import Carousel                         from '../components/Carousel.vue';
 
@@ -111,7 +112,7 @@ export default {
     Media,
     MediaExpanded,
     Related,
-    LoadSVG,
+
     Carousel,
   },
   name: 'Render Project',
