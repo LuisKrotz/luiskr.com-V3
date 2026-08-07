@@ -24,6 +24,10 @@ export default createStore({
       pagesPath: '/pages/',
       projectPath: '/projects/',
     },
+    mentions: {
+      title: 'Some mentions',
+      items: null,
+    },
     marqueeamount: 0,
     modalObject: {
       transform: 'translateY(0)',
@@ -53,6 +57,10 @@ export default createStore({
     },
     setClickOrTap(state, payload) {
       state.clickortap = state.has_touch ? payload.tap : payload.click
+    },
+    setMentions(state, payload) {
+      state.mentions.title = payload.title ?? state.mentions.title
+      state.mentions.items = payload.items
     },
     setComponentLang(state, payload) {
       state.lang.components = payload
@@ -89,6 +97,9 @@ export default createStore({
     },
   },
   getters: {
+    getMentions: (state) => {
+      return state.mentions
+    },
     getClickOrTap: (state) => {
       return state.clickortap
     },

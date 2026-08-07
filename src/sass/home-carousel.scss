@@ -7,19 +7,44 @@ $hc-btn-size:     to-rem($space-3xl);
 $hc-dot-size:     to-rem($space-md);
 $hc-dot-pill:     to-rem($space-xl);
 $hc-ring-stroke:  2.5px;
+$hc-gap:          to-rem($space-lg);   // gap between slides in selected
 
 // ── Base container ───────────────────────────────────────────────────────────
 .hc {
   position: relative;
   width: 100%;
 
-  // ── Controls row (above the image) ──────────────────────────────────────
+  // ── Track: horizontal scroll, snaps to center ───────────────────────────
+  &-track {
+    display: flex;
+    align-items: stretch;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  &-slide {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+
+    &--clone {
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  // ── Controls row ────────────────────────────────────────────────────────
   &-controls {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: to-rem($space-lg);
-    padding: to-rem($space-md) 0;
   }
 
   &-spacer { flex: 1; }
@@ -80,7 +105,6 @@ $hc-ring-stroke:  2.5px;
       z-index: 1;
     }
 
-    // Countdown ring
     &-ring {
       position: absolute;
       inset: 0;
@@ -103,63 +127,93 @@ $hc-ring-stroke:  2.5px;
       }
     }
   }
-
-  // ── Track: horizontal scroll, snaps to center ───────────────────────────
-  &-track {
-    display: flex;
-    align-items: stretch;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    &::-webkit-scrollbar { display: none; }
-  }
-
-  &-slide {
-    flex: 0 0 auto;
-    scroll-snap-align: center;
-    display: flex;
-    align-items: stretch;
-
-    &--clone {
-      pointer-events: none;
-      user-select: none;
-    }
-  }
 }
 
 // ════════════════════════════════════════════════════════════════════════════
 //  VARIANT: selected work
-//  Full viewport width slide, natural image height, title below
+//  Peek left/right, controls float over image vertically-centred,
+//  label fades in only on the active slide.
 // ════════════════════════════════════════════════════════════════════════════
 .hc--selected {
+  position: relative;
+
+  // ── Track: peek adjacent slides ────────────────────────────────────────
+  .hc-track {
+    // overflow: visible so left/right peeks show
+    overflow: visible;
+    clip-path: none; // no clip — siblings provide the peek
+  }
 
   .hc-slide {
-    // Occupies 100% of the containing .home-section column
-    width: 100%;
-    flex-basis: 100%;
+    // Each slide is slightly narrower than viewport → adjacent slides peek in
+    width: 88vw;
+    flex-basis: 88vw;
+    padding: 0 calc($hc-gap / 2);
+    box-sizing: border-box;
+    position: relative;
+
+    @include layout-768()  { width: 82vw; flex-basis: 82vw; }
+    @include layout-1024() { width: 78vw; flex-basis: 78vw; }
+    @include layout-1440() { width: 72vw; flex-basis: 72vw; }
+    @include layout-2560() { width: 66vw; flex-basis: 66vw; }
   }
 
+  // ── Controls: absolutely positioned, vertically centred in image ────────
   .hc-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; // will shrink to image height via padding trick
+    pointer-events: none;
+    z-index: 10;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: to-rem($space-md) 0 0;
+    padding: 0 to-rem($space-sm);
+
+    @include layout-768()  { padding: 0 to-rem($space-lg); }
+
+    // image height approximation: controls span only the image portion
+    // We use a top% trick: controls height matches the cover image height
+    height: auto;
+    // actual vertical alignment is done by align-items: center above;
+    // the .hc--selected must be position:relative for this to work
   }
 
-  // Cover image: fill slide width, ideally ~100vh tall, minimal distortion
+  .hc-btn {
+    pointer-events: all;
+    color: var(--white);
+    background: rgba(0, 0, 0, .35);
+    backdrop-filter: blur(4px);
+    border-radius: 50%;
+    transition: background .2s ease, color .2s ease;
+
+    &:hover,
+    &:focus {
+      color: var(--white);
+      background: rgba(0, 0, 0, .65);
+    }
+
+    &-ring-fill { stroke: var(--white); }
+    &-ring-track { stroke: rgba(255,255,255,.3); }
+  }
+
+  // ── Cover image ─────────────────────────────────────────────────────────
   .hc-cover {
     width: 100%;
     overflow: hidden;
-    // Target viewport height; object-fit cover keeps proportions.
-    // Using max-height so it never overflows on very tall images.
-    max-height: 100vh;
-    min-height: 60vw; // graceful mobile floor
     background: var(--grey-2);
+    flex-shrink: 0;
 
-    @include layout-768() { min-height: 60vh; }
-    @include layout-1024() { min-height: 70vh; }
-    @include layout-1440() { min-height: 85vh; }
-    @include layout-2560() { min-height: 90vh; }
+    // Target viewport height; minimal distortion via object-fit cover
+    max-height: 100vh;
+    min-height: 55vw;
+
+    @include layout-768()  { min-height: 55vh; }
+    @include layout-1024() { min-height: 65vh; }
+    @include layout-1440() { min-height: 80vh; }
+    @include layout-2560() { min-height: 88vh; }
 
     &-img {
       width: 100%;
@@ -172,21 +226,26 @@ $hc-ring-stroke:  2.5px;
     }
 
     &--skel {
-      min-height: 60vw;
-      @include layout-768() { min-height: 60vh; }
-      @include layout-1024() { min-height: 70vh; }
-      @include layout-1440() { min-height: 85vh; }
+      min-height: 55vw;
+      @include layout-768()  { min-height: 55vh; }
+      @include layout-1024() { min-height: 65vh; }
+      @include layout-1440() { min-height: 80vh; }
       background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
       background-size: 200% 100%;
       animation: skeleton-shimmer 1.6s ease-in-out infinite;
     }
   }
 
+  // ── Label: hidden by default, fades in on active slide ──────────────────
   .hc-label {
     padding: to-rem($space-sm) 0 to-rem($space-xl);
+    opacity: 0;
+    transition: opacity .4s ease;
+    pointer-events: none;
 
     &-title {
       @extend .ttl-lg;
+
       font-weight: 200;
       text-transform: uppercase;
       padding-bottom: to-rem($space-xs);
@@ -194,34 +253,58 @@ $hc-ring-stroke:  2.5px;
 
     &-desc {
       @extend .txt-md;
+
       font-weight: 300;
+    }
+  }
+
+  // Active slide: show its label
+  .hc-slide--active {
+    .hc-label {
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 }
 
 // ════════════════════════════════════════════════════════════════════════════
 //  VARIANT: explore more (archive cards)
-//  3-up on desktop, 2-up on tablet, 1.5 on mobile; card with border
+//  Card carousel, ~66% width centred, cards with light grey border.
 // ════════════════════════════════════════════════════════════════════════════
 .hc--explore {
-  // Reduce content width to ~66%, centred via lateral padding
-  @extend %MAXAREA;
-
-  .hc-track { gap: to-rem($space-lg); }
-
-  // Each card snaps and is 48% wide on mobile (shows 2+ at once hinting scroll)
-  .hc-slide {
-    width: 80vw;
-    flex-basis: 80vw;
-
-    @include layout-540()  { width: 44vw; flex-basis: 44vw; }
-    @include layout-768()  { width: 30vw; flex-basis: 30vw; }
-    @include layout-1024() { width: 22vw; flex-basis: 22vw; }
-    @include layout-1440() { width: 18vw; flex-basis: 18vw; }
-    @include layout-2560() { width: 14vw; flex-basis: 14vw; }
+  // Controls above cards
+  .hc-controls {
+    padding: 0 0 to-rem($space-md);
+    justify-content: center;
+    gap: to-rem($space-xl);
   }
 
-  // card
+  .hc-btn {
+    color: var(--grey);
+    &:hover,
+    &:focus { color: var(--black); }
+  }
+
+  .hc-track {
+    gap: to-rem($space-lg);
+    padding: 0 to-rem($space-sm);
+    box-sizing: border-box;
+
+    @include layout-768() { padding: 0 to-rem($space-lg); }
+  }
+
+  // Card sizing: 2.2 on mobile (peek), 3 on tablet, 4 on wide
+  .hc-slide {
+    width: 44vw;
+    flex-basis: 44vw;
+
+    @include layout-540()  { width: 32vw; flex-basis: 32vw; }
+    @include layout-768()  { width: 26vw; flex-basis: 26vw; }
+    @include layout-1024() { width: 20vw; flex-basis: 20vw; }
+    @include layout-1440() { width: 16vw; flex-basis: 16vw; }
+    @include layout-2560() { width: 12vw; flex-basis: 12vw; }
+  }
+
   .hc-card {
     width: 100%;
     border: 1px solid var(--grey-2);
@@ -240,7 +323,6 @@ $hc-ring-stroke:  2.5px;
       background: var(--grey-2);
       flex-shrink: 0;
 
-      // natural height — images determine their own proportions
       &-img {
         width: 100%;
         height: auto;
@@ -248,7 +330,7 @@ $hc-ring-stroke:  2.5px;
         transition: opacity .3s ease;
 
         .hc-card:hover &,
-        .hc-card:focus & { opacity: .8; }
+        .hc-card:focus & { opacity: .85; }
       }
 
       &--skel {
@@ -260,20 +342,22 @@ $hc-ring-stroke:  2.5px;
     }
 
     &-label {
-      padding: to-rem($space-sm) to-rem($space-md) to-rem($space-md);
+      padding: to-rem($space-sm) to-rem($space-sm) to-rem($space-md);
       flex: 1;
 
       &-title {
-        @extend .ttl-xs;
+        @extend .ttl-sm;
+
         font-weight: 200;
         text-transform: uppercase;
         padding-bottom: to-rem($space-2xs);
       }
 
       &-desc {
-        @extend .txt-xs;
-        font-weight: 300;
-        opacity: .7;
+        @extend .txt-sm;
+
+        font-weight: 100;
+        opacity: .65;
       }
     }
   }
@@ -281,7 +365,6 @@ $hc-ring-stroke:  2.5px;
 
 // ════════════════════════════════════════════════════════════════════════════
 //  VARIANT: awards (about page footer)
-//  Single-line, centred small figures, 10s timer, bullets
 // ════════════════════════════════════════════════════════════════════════════
 .hc--awards {
   display: flex;
@@ -294,12 +377,16 @@ $hc-ring-stroke:  2.5px;
     .hc-btn { display: none; }
   }
 
-  .hc-dot--active { background: var(--white); }
-  .hc-dot { background: var(--grey); }
+  // Inverted dots for dark background
+  .hc-dot {
+    background: var(--grey);
+    &--active { background: var(--white); }
+    &:hover:not(&--active) { background: var(--grey-2); }
+  }
 
   .hc-track {
     width: 100%;
-    max-width: to-rem($space-8xl); // cap width at ~widest content
+    max-width: to-rem($space-8xl);
   }
 
   .hc-slide {
@@ -308,7 +395,6 @@ $hc-ring-stroke:  2.5px;
     justify-content: center;
   }
 
-  // Award item — same layout as current awards, but with text below and centred
   .hc-award {
     display: flex;
     flex-direction: column;
@@ -318,6 +404,7 @@ $hc-ring-stroke:  2.5px;
     color: var(--white);
     gap: to-rem($space-xs);
     padding: 0 to-rem($space-sm);
+    width: 100%;
 
     &-media {
       display: flex;
@@ -332,11 +419,12 @@ $hc-ring-stroke:  2.5px;
     &-img {
       max-width: to-rem($space-5xl);
       height: auto;
-      filter: brightness(0) invert(1); // white on dark footer
+      filter: brightness(0) invert(1);
     }
 
     &-text {
       @extend .txt-xs;
+
       font-weight: 100;
       opacity: .7;
       max-width: to-rem($space-7xl);

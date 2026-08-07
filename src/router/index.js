@@ -23,7 +23,7 @@ const routes = [
     },
   },
   {
-    path: '/portfolio/metcha',
+    path: '/portfolio/metcha/:slug?',
     name: 'METCHA',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -36,7 +36,7 @@ const routes = [
     },
   },
   {
-    path: '/portfolio/transa',
+    path: '/portfolio/transa/:slug?',
     name: 'Transa',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
@@ -46,7 +46,7 @@ const routes = [
     },
   },
   {
-    path: '/portfolio/aboutmarco',
+    path: '/portfolio/aboutmarco/:slug?',
     name: 'Marco Almeida',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
@@ -56,7 +56,7 @@ const routes = [
     },
   },
   {
-    path: '/portfolio/melissa',
+    path: '/portfolio/melissa/:slug?',
     name: 'Melissa',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
@@ -66,7 +66,7 @@ const routes = [
     },
   },
   {
-    path: '/portfolio/minimelissa',
+    path: '/portfolio/minimelissa/:slug?',
     name: 'Minimelissa',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
@@ -76,7 +76,7 @@ const routes = [
     },
   },
   {
-    path: '/portfolio/mor',
+    path: '/portfolio/mor/:slug?',
     name: 'Mor',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
@@ -86,7 +86,7 @@ const routes = [
     },
   },
   {
-    path: '/portfolio/coza',
+    path: '/portfolio/coza/:slug?',
     name: 'Coza',
     component: () => import('../views/Project.vue'),
     meta: {
@@ -96,7 +96,7 @@ const routes = [
     },
   },
   {
-    path: '/portfolio/brazilian-leather',
+    path: '/portfolio/brazilian-leather/:slug?',
     name: 'Brazilian Leather',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
@@ -106,7 +106,7 @@ const routes = [
     },
   },
   {
-    path: '/portfolio/cecerele',
+    path: '/portfolio/cecerele/:slug?',
     name: 'Cecerelê',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
@@ -116,7 +116,7 @@ const routes = [
     },
   },
   {
-    path: '/portfolio/clinica-de-desenvolvimento-nathalia-bond',
+    path: '/portfolio/clinica-de-desenvolvimento-nathalia-bond/:slug?',
     name: 'Cliníca de Desenvolvimento - Nathalia Bond',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
@@ -126,7 +126,7 @@ const routes = [
     },
   },
   {
-    path: '/portfolio/vibra',
+    path: '/portfolio/vibra/:slug?',
     name: 'Vibra',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
@@ -136,7 +136,7 @@ const routes = [
     },
   },
   {
-    path: '/portfolio/genesysinf-sageweb',
+    path: '/portfolio/genesysinf-sageweb/:slug?',
     name: 'Genesysinf Sageweb',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {

@@ -45,31 +45,9 @@ body {
   color: var(--black);
   font-family: 'Raleway', sans-serif;
 
-  /* width */
-  &::-webkit-scrollbar {
-    width: to-rem($space-md);
-
-    @include layout-2560() {
-      width: to-rem($space-lg);
-    }
-  }
-
-  /* Track */
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    border-radius: 0ba;
-    background: var(--grey-3);
-  }
-
-  /* Handle on hover */
-  &::-webkit-scrollbar-thumb:hover {
-    background: var(--grey);
-  }
 }
+
+
 
 q,
 h1,

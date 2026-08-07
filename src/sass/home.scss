@@ -30,6 +30,20 @@
     }
   }
 
+  // Selected section: extra top padding to clear the fixed nav
+  &--selected {
+    padding-top: to-rem($space-5xl);
+
+    @include layout-768()  { padding-top: to-rem($space-6xl); }
+    @include layout-1440() { padding-top: to-rem($space-7xl); }
+    @include layout-2560() { padding-top: to-rem($space-8xl); }
+
+    // Selected title has less extra top, the section padding handles nav clearance
+    .home-section-title {
+      padding-top: 0;
+    }
+  }
+
   // Archive section gets more lateral breathing room (~66% content)
   &--archive {
     .hc--explore {

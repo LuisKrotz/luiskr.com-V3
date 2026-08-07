@@ -107,6 +107,7 @@
     </div>
 
     <Contact />
+    <AwardsMentions :title="mentions.title" :items="mentions.items" />
   </article>
 </template>
 
@@ -114,10 +115,11 @@
 import { getDatabase, ref, child, get } from 'firebase/database'
 import Contact from '../components/Contact.vue'
 import HomeCarousel from '../components/HomeCarousel.vue'
+import AwardsMentions from '../components/AwardsMentions.vue'
 
 export default {
   name: 'Home',
-  components: { Contact, HomeCarousel },
+  components: { Contact, HomeCarousel, AwardsMentions },
 
   data() {
     return {
@@ -132,6 +134,9 @@ export default {
   },
 
   computed: {
+    mentions() {
+      return this.$store.getters.getMentions
+    },
     featuredItems() {
       if (!this.translations?.portfoliolist) return []
       return this.translations.portfoliolist.filter((i) => this.featuredLinks.has(i.link))
@@ -179,4 +184,5 @@ export default {
 
 <style lang="scss">
 @import '../sass/home';
+@import '../sass/awards-footer';
 </style>

@@ -1,12 +1,12 @@
 <template>
   <div
     class="hc"
-    :class="[`hc--${variant}`, { 'hc--autoplay': autoplayRunning }]"
+    :class="[`hc--${variant}`]"
     @touchstart.passive="onTouchStart"
     @touchend.passive="onTouchEnd"
   >
-    <!-- ── Controls row: ABOVE image ──────────────────────────────────── -->
-    <div class="hc-controls">
+    <!-- Controls ABOVE track for non-selected variants -->
+    <div v-if="variant !== 'selected'" class="hc-controls">
       <button class="hc-btn hc-btn--prev" aria-label="Previous" @click="onPrevClick">
         <svg class="hc-btn-ring" viewBox="0 0 44 44" aria-hidden="true">
           <circle class="hc-btn-ring-track" cx="22" cy="22" r="19" />
@@ -15,7 +15,6 @@
         <span class="hc-btn-arrow" aria-hidden="true">&#8592;</span>
       </button>
 
-      <!-- dots (only when showDots) -->
       <div v-if="showDots" class="hc-dots" aria-hidden="true">
         <button
           v-for="(_, idx) in items"
@@ -37,11 +36,11 @@
       </button>
     </div>
 
-    <!-- ── Slide track ─────────────────────────────────────────────────── -->
+    <!-- Track -->
     <div class="hc-track" ref="track">
       <!-- Clone of last item -->
       <div class="hc-slide hc-slide--clone" aria-hidden="true">
-        <slot :item="items[items.length - 1]" :index="-1"></slot>
+        <slot :item="items[items.length - 1]" :index="-1" :isActive="false"></slot>
       </div>
 
       <!-- Real items -->
@@ -54,13 +53,32 @@
         role="group"
         :aria-label="`${idx + 1} of ${items.length}`"
       >
-        <slot :item="item" :index="idx"></slot>
+        <slot :item="item" :index="idx" :isActive="currentIndex === idx"></slot>
       </div>
 
       <!-- Clone of first item -->
       <div class="hc-slide hc-slide--clone" aria-hidden="true">
-        <slot :item="items[0]" :index="items.length"></slot>
+        <slot :item="items[0]" :index="items.length" :isActive="false"></slot>
       </div>
+    </div>
+
+    <!-- Controls OVER image for selected variant (absolutely positioned) -->
+    <div v-if="variant === 'selected'" class="hc-controls">
+      <button class="hc-btn hc-btn--prev" aria-label="Previous" @click="onPrevClick">
+        <svg class="hc-btn-ring" viewBox="0 0 44 44" aria-hidden="true">
+          <circle class="hc-btn-ring-track" cx="22" cy="22" r="19" />
+          <circle class="hc-btn-ring-fill" cx="22" cy="22" r="19" :style="ringStyle" />
+        </svg>
+        <span class="hc-btn-arrow" aria-hidden="true">&#8592;</span>
+      </button>
+      <div class="hc-spacer"></div>
+      <button class="hc-btn hc-btn--next" aria-label="Next" @click="onNextClick">
+        <svg class="hc-btn-ring" viewBox="0 0 44 44" aria-hidden="true">
+          <circle class="hc-btn-ring-track" cx="22" cy="22" r="19" />
+          <circle class="hc-btn-ring-fill" cx="22" cy="22" r="19" :style="ringStyle" />
+        </svg>
+        <span class="hc-btn-arrow" aria-hidden="true">&#8594;</span>
+      </button>
     </div>
   </div>
 </template>
@@ -72,30 +90,16 @@ export default {
   name: 'HomeCarousel',
 
   props: {
-    items: {
-      type: Array,
-      required: true,
-    },
-    // 'selected' | 'explore' | 'awards'
-    variant: {
-      type: String,
-      default: 'selected',
-    },
-    // autoplay duration in ms
-    duration: {
-      type: Number,
-      default: 30000,
-    },
-    showDots: {
-      type: Boolean,
-      default: false,
-    },
+    items: { type: Array, required: true },
+    variant: { type: String, default: 'selected' }, // 'selected' | 'explore' | 'awards'
+    duration: { type: Number, default: 30000 },
+    showDots: { type: Boolean, default: false },
   },
 
   data() {
     return {
       currentIndex: 0,
-      autoplayRunning: true,
+      autoplayRunning: false,
       autoplayStart: null,
       autoplayElapsed: 0,
       ringProgress: 0,
@@ -137,7 +141,7 @@ export default {
       if (el) this.slideRefs[idx] = el
     },
 
-    // ── Navigation ───────────────────────────────────────────────────────
+    // ── Navigation ───────────────────────────────────────────────────────────
     goTo(idx) {
       const len = this.items.length
       const newIndex = ((idx % len) + len) % len
@@ -165,7 +169,7 @@ export default {
 
     _scrollToSlide(idx) {
       const track = this.$refs.track
-      const slide = track?.children[idx + 1] // +1 for clone-last
+      const slide = track?.children[idx + 1]
       if (!slide) return
       const tr = track.getBoundingClientRect()
       const sr = slide.getBoundingClientRect()
@@ -191,7 +195,7 @@ export default {
       }, 380)
     },
 
-    // ── Button / dot handlers ─────────────────────────────────────────────
+    // ── Button / dot handlers ─────────────────────────────────────────────────
     onPrevClick() {
       this._stopAutoplay()
       this.goTo(this.currentIndex - 1)
@@ -207,7 +211,7 @@ export default {
       this.goTo(idx)
     },
 
-    // ── Touch / swipe ─────────────────────────────────────────────────────
+    // ── Touch / swipe ─────────────────────────────────────────────────────────
     onTouchStart(e) {
       this.touchStartX = e.touches[0].clientX
     },
@@ -221,11 +225,12 @@ export default {
       }
     },
 
-    // ── Autoplay + countdown ring ─────────────────────────────────────────
+    // ── Autoplay + countdown ring ─────────────────────────────────────────────
     _startAutoplay() {
       this.autoplayRunning = true
       this.autoplayStart = performance.now()
       this.autoplayElapsed = 0
+      this.ringProgress = 0
       this._tickRing()
     },
 

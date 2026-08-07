@@ -1,5 +1,8 @@
 <template>
   <div :class="modal.class" v-if="translations">
+    <!-- Progress bar -->
+    <div class="progress-bar" :class="{ 'progress-bar--active': routeLoading }"></div>
+
     <div v-if="modal.class === ''" class="nav">
       <router-link class="nav-link back" v-if="$router.currentRoute.value.name !== 'Home'" to="/">
         {{ translations.title }}
@@ -39,9 +42,9 @@
       <button class="nav-link" @click="scrollTop()">{{ translations.title }}</button>
     </div>
 
-    <router-view v-slot="{ Component }">
-      <transition name="fade">
-        <component :is="Component" />
+    <router-view v-slot="{ Component, route }">
+      <transition :name="transitionName" mode="out-in">
+        <component :is="Component" :key="route.path" />
       </transition>
     </router-view>
   </div>
@@ -60,6 +63,7 @@
 
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
+import router from './router/index.js'
 
 const cookie = 'cookie',
   cookieEvent = 'cookieAction'
@@ -72,6 +76,8 @@ export default {
       onBottom: false,
       renderCookies: false,
       translations: false,
+      routeLoading: false,
+      transitionName: 'fade',
     }
   },
   methods: {
@@ -99,16 +105,19 @@ export default {
         },
       })
 
+      // Restore URL without slug
+      const basePath = this.$route.path.split('/').slice(0, 3).join('/')
+      if (this.$route.path !== basePath) {
+        this.$router.replace(basePath)
+      }
+
       window.requestAnimationFrame(() => {
         window.scrollTo(0, scroll)
       })
     },
     cookieAction(state) {
-      console.log(state)
       localStorage.setItem(cookie, state)
-
       document.dispatchEvent(new Event(cookieEvent))
-
       setTimeout(() => (this.renderCookies = true), 2000)
     },
     scrollBottom() {
@@ -139,18 +148,13 @@ export default {
           .then((snapshot) => {
             if (snapshot.exists()) {
               this.translations = snapshot.val()
-
               this.$store.commit('setClickOrTap', {
                 click: this.translations.actions.click,
                 tap: this.translations.actions.tap,
               })
-            } else {
-              console.log("%cERROR: could't find APP DATA", this.$sharedData.styles.info)
             }
           })
-          .catch((error) => {
-            console.error(error)
-          })
+          .catch(console.error)
       }
 
       if (!this.$store.getters.getlang.components) {
@@ -158,18 +162,48 @@ export default {
           .then((snapshot) => {
             if (snapshot.exists()) {
               this.$store.commit('setComponentLang', snapshot.val())
-            } else {
-              console.log("%cERROR: could't find COMPONENT DATA", this.$sharedData.styles.info)
             }
           })
-          .catch((error) => {
-            console.error(error)
-          })
+          .catch(console.error)
       }
+
+      // Load mentions/awards from About page data (once, globally)
+      if (!this.$store.getters.getMentions.items) {
+        get(child(ref(getDatabase()), `${dbpath}/pages/about`))
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              const about = snapshot.val()
+              this.$store.commit('setMentions', {
+                title: about.mentions ?? 'Some mentions',
+                items: about.mention_items ?? [],
+              })
+            }
+          })
+          .catch(console.error)
+      }
+    },
+    // Determine transition based on route meta
+    _getTransition(to, from) {
+      // Project pages ↔ Home: slide horizontally
+      if (to.meta?.projectRoute && !from.meta?.projectRoute) return 'slide-left'
+      if (!to.meta?.projectRoute && from.meta?.projectRoute) return 'slide-right'
+      // About / Legal: slide up from bottom
+      if (to.name === 'About' || to.meta?.legalRoute) return 'slide-up'
+      if (from.name === 'About' || from.meta?.legalRoute) return 'slide-down'
+      return 'fade'
     },
   },
   created() {
     this.loadData()
+
+    // Progress bar + transition name on route changes
+    router.beforeEach((to, from) => {
+      this.routeLoading = true
+      this.transitionName = this._getTransition(to, from)
+    })
+    router.afterEach(() => {
+      setTimeout(() => (this.routeLoading = false), 350)
+    })
   },
   mounted() {
     window.addEventListener('scroll', () => this.checkScroll())

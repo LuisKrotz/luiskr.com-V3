@@ -140,6 +140,14 @@ export default {
     placeholder(width, height) {
       return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E`
     },
+    slugify(text) {
+      return (text || '')
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, '')
+        .trim()
+        .replace(/[\s_]+/g, '-')
+        .replace(/--+/g, '-')
+    },
     openModal() {
       if (!this.canExpand) return
       const win = window
@@ -158,6 +166,17 @@ export default {
         },
       })
       win.scrollTo(0, 0)
+      // Push slug to URL: /portfolio/project/image-slug
+      const slug = this.slugify(this.label)
+      if (slug) {
+        const currentPath = this.$route.path.replace(/\/$/, '')
+        // Only push if we don't already have this slug in the path
+        const slugSegment = '/' + slug
+        if (!currentPath.endsWith(slugSegment)) {
+          const basePath = currentPath.replace(/\/[^/]+$/, '') // remove existing slug if any
+          this.$router.replace(basePath + slugSegment)
+        }
+      }
     },
     play(e) {
       e.target.play()

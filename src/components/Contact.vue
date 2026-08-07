@@ -14,16 +14,6 @@
     <div class="contact-social" v-else>
       <span lass="contact-social-link">{{ loading.msg2 }}</span>
     </div>
-
-    <div class="contact-other" v-if="translations">
-      <template v-for="(item, n) in translations.line2" :key="n">
-        <router-link class="contact-other-link" :to="item.link">{{ item.description }}</router-link>
-        <span v-if="n < translations.line2.length - 1" class="contact-social-separator">•</span>
-      </template>
-    </div>
-    <div class="contact-other" v-else>
-      <span class="contact-other-link">{{ loading.msg3 }}</span>
-    </div>
   </footer>
 </template>
 

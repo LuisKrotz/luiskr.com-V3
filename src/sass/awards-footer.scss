@@ -1,0 +1,87 @@
+@import '_variables';
+@import '_mixins';
+@import '_fonts';
+@import '_placeholders';
+
+// ── Awards footer ─────────────────────────────────────────────────────────────
+// Shared across Home, About, and Legal pages.
+// Dark background (same as .contact), centred layout.
+.awards-footer {
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: to-rem($space-2xl) to-rem($space-lg) to-rem($space-3xl);
+
+  @include layout-768()  { padding: to-rem($space-2xl) to-rem($space-4xl) to-rem($space-3xl); }
+  @include layout-2560() { padding: to-rem($space-3xl) to-rem($space-5xl) to-rem($space-4xl); }
+
+  &-title {
+    @extend .ttl-sm;
+
+    font-weight: 100;
+    text-transform: uppercase;
+    color: var(--white);
+    text-align: center;
+    padding-bottom: to-rem($space-lg);
+    opacity: .6;
+  }
+
+  // Limit carousel width — centred max width so it feels compact
+  .hc--awards {
+    max-width: to-rem($space-8xl);
+    width: 100%;
+  }
+
+  &-skel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: to-rem($space-xl) 0;
+    min-height: to-rem($space-5xl);
+  }
+
+  // Legal links — same border/padding as .contact-social
+  &-links {
+    @extend .ttl-xs;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: var(--white);
+    width: 100%;
+    padding: to-rem($space-lg) to-rem($space-lg) 0;
+    border-top: 1px solid var(--grey);
+    margin-top: to-rem($space-xl);
+
+    @include layout-768() {
+      padding: to-rem($space-lg) to-rem($space-4xl) 0;
+    }
+
+    &-item {
+      @extend .ttl-xs;
+
+      color: var(--white);
+      text-decoration: none;
+      line-height: to-rem($space-3xl);
+      opacity: .7;
+      transition: opacity .2s;
+
+      &:hover,
+      &:focus { opacity: 1; }
+
+      &.router-link-active {
+        opacity: 1;
+        text-decoration: underline;
+      }
+    }
+
+    &-sep {
+      padding: 0 to-rem($space-md);
+      font-weight: 200;
+      opacity: .4;
+    }
+  }
+}
