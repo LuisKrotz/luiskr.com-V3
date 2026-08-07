@@ -17,61 +17,50 @@
 
 
 .expand-modal {
-    &-open-1,
-    &-open-2 {
+    &-open-1 {
         @extend .ttl-xs;
 
-        border: none;
+        border: 1.5px solid var(--grey-3);
         box-sizing: border-box;
         position: absolute;
-        bottom: 0;
-        left: 0;
+        bottom: to-rem($space-lg);
+        right: to-rem($space-lg);
         text-transform: uppercase;
-        padding: to-rem(0) to-rem($space-xl);
         cursor: pointer;
-        width: 100%;
-        height: to-rem($space-2xl);
-        line-height: to-rem($space-2xl);
-        margin-bottom: to-rem($space-lg);
-        transition: opacity .3s ease-in;
-        text-transform: uppercase;
-        font-weight: 900;
+        width: to-rem($space-3xl);
+        height: to-rem($space-3xl);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: to-rem($space-sm);
+        color: var(--grey);
+        background: rgba(38, 38, 38, .6);
+        backdrop-filter: blur(4px);
+        transition: color .2s ease, border-color .2s ease, background .2s ease;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        span { display: none; } // hide text label, icon only
 
         @include layout-1440() {
-            height: to-rem($space-3xl);
-            line-height: to-rem($space-3xl);
+            width: to-rem($space-3xl + $space-md);
+            height: to-rem($space-3xl + $space-md);
         }
-    }
-
-    &-open-1 {
-        opacity: 1;
-        background-color: var(--grey-3);
-        color: var(--white);
 
         .internal-expand:hover &,
         .internal-expand:focus & {
-            opacity: 0;
+            color: var(--white);
+            border-color: var(--grey);
+            background: rgba(38, 38, 38, .85);
         }
     }
 
     &-open-2 {
-        transition: opacity .5s ease, width 1s linear, border-radius 1s ease;
-        opacity: 0;
-        background-color: var(--black);
-        color: var(--white);
-        mix-blend-mode: hard-light;
-        width: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 0;
-
-        .internal-expand:hover &,
-        .internal-expand:focus & {
-            opacity: 1;
-            width: 80%;
-            max-width: to-rem(290);
-            border-radius: to-rem($space-2xl);
-        }
+        // Hidden — open-1 is the sole expand trigger
+        display: none !important;
     }
 
     &-close-bar {

@@ -412,11 +412,33 @@ $ring-stroke:       2.5px;
         display: flex;
         align-items: stretch;
         overflow-x: scroll;
+        // Mirrors the original internal-extra-scroll vertical padding
+        padding: to-rem($space-2xl) 0 to-rem($space-2xl - $space-md);
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none; // Firefox
         &::-webkit-scrollbar { display: none; } // Chrome/Safari
+
+        @include layout-768() {
+            padding: to-rem($space-5xl) 0 to-rem($space-5xl - $space-lg);
+        }
+
+        @include layout-1024() {
+            padding: to-rem($space-3xl) 0 to-rem($space-3xl - $space-lg);
+        }
+
+        @include layout-1440() {
+            padding: to-rem($space-4xl) 0 to-rem($space-4xl - $space-lg);
+        }
+
+        @include layout-1920() {
+            padding: to-rem($space-5xl) 0 to-rem($space-5xl - $space-lg);
+        }
+
+        @include layout-2560() {
+            padding: to-rem($space-5xl) 0 to-rem($space-5xl - $space-xl);
+        }
     }
 
     &-slide {
@@ -525,11 +547,12 @@ $ring-stroke:       2.5px;
 
     &-counter {
         font-family: 'Raleway', sans-serif;
-        font-weight: 200;
+        font-weight: 400;
         font-size: to-rem($space-md);
         color: var(--grey);
         letter-spacing: to-rem($space-pixel);
         white-space: nowrap;
+        text-transform: uppercase;
 
         @include layout-2560() {
             font-size: to-rem($space-lg);
