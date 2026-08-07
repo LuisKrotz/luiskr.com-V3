@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 
-const title = "Luis Krötz"
+const title = 'Luis Krötz'
 
 const routes = [
   {
@@ -11,7 +11,7 @@ const routes = [
     meta: {
       title: title,
       translation: 'HOME',
-    }
+    },
   },
   {
     path: '/about',
@@ -20,7 +20,7 @@ const routes = [
     meta: {
       title: title + ' | About',
       translation: 'about',
-    }
+    },
   },
   {
     path: '/portfolio/metcha',
@@ -32,8 +32,8 @@ const routes = [
     meta: {
       title: title + ' | METCHA',
       translation: 'metcha',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/portfolio/transa',
@@ -42,8 +42,8 @@ const routes = [
     meta: {
       title: title + ' | TRANSA',
       translation: 'transa',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/portfolio/aboutmarco',
@@ -52,8 +52,8 @@ const routes = [
     meta: {
       title: title + ' | Marco Almeida',
       translation: 'aboutmarco',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/portfolio/melissa',
@@ -62,8 +62,8 @@ const routes = [
     meta: {
       title: title + ' | Melissa',
       translation: 'melissa',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/portfolio/minimelissa',
@@ -72,8 +72,8 @@ const routes = [
     meta: {
       title: title + ' | Minimelissa',
       translation: 'mini-melissa',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/portfolio/mor',
@@ -82,8 +82,8 @@ const routes = [
     meta: {
       title: title + ' | MOR',
       translation: 'mor',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/portfolio/coza',
@@ -92,8 +92,8 @@ const routes = [
     meta: {
       title: title + ' | Coza',
       translation: 'coza',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/portfolio/brazilian-leather',
@@ -102,8 +102,8 @@ const routes = [
     meta: {
       title: title + ' | Brazilian Leather',
       translation: 'cicb',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/portfolio/cecerele',
@@ -112,8 +112,8 @@ const routes = [
     meta: {
       title: title + ' | Cecerelê',
       translation: 'cecerele',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/portfolio/clinica-de-desenvolvimento-nathalia-bond',
@@ -122,8 +122,8 @@ const routes = [
     meta: {
       title: title + ' | Cliníca de Desenvolvimento - Nathalia Bond',
       translation: 'nathalia-bond',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/portfolio/vibra',
@@ -132,8 +132,8 @@ const routes = [
     meta: {
       title: title + ' | Vibra',
       translation: 'vibra',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/portfolio/genesysinf-sageweb',
@@ -142,8 +142,8 @@ const routes = [
     meta: {
       title: title + ' | Genesysinf / Sageweb',
       translation: 'sage',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/privacy-policy',
@@ -152,8 +152,8 @@ const routes = [
     meta: {
       title: title + ' | Privacy Policy',
       translation: 'privacy-policy',
-      legalRoute: true
-    }
+      legalRoute: true,
+    },
   },
   {
     path: '/gdpr',
@@ -162,8 +162,8 @@ const routes = [
     meta: {
       title: title + ' | GDPR',
       translation: 'GDPR',
-      legalRoute: true
-    }
+      legalRoute: true,
+    },
   },
   {
     path: '/terms-of-use',
@@ -172,23 +172,23 @@ const routes = [
     meta: {
       title: title + ' | Terms of Use',
       translation: 'terms-of-use',
-      legalRoute: true
-    }
+      legalRoute: true,
+    },
   },
   {
-    path: "/:pathMatch(.*)*",
+    path: '/:pathMatch(.*)*',
     name: 'Not Found',
     component: () => import('../views/NotFound.vue'),
     meta: {
       title: title + ' | Page not found',
       translation: 'not-found',
-    }
-  }
+    },
+  },
 ]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
+  routes,
 })
 
 export default router

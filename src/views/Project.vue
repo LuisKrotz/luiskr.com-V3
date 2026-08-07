@@ -1,63 +1,82 @@
 <template>
   <article>
-    <div id="main" class="project modal-below" :style="'transform: translateY(-' + modal.transform + 'px);'">
+    <div
+      id="main"
+      class="project modal-below"
+      :style="'transform: translateY(-' + modal.transform + 'px);'"
+    >
       <h2 class="internal-title">
-          <span v-if="translations" v-html="translations.title" :key="'ttl1'"></span>
-          <span v-else :key="'ttl2'">{{ loading.msg1 }}</span>
+        <span v-if="translations" v-html="translations.title" :key="'ttl1'"></span>
+        <span v-else :key="'ttl2'">{{ loading.msg1 }}</span>
       </h2>
       <div class="internal-main">
-          <Media
-            v-if="translations"
-            classes="internal-main-item"
-            :src="translations.folder + translations.cover.src"
-            :width="translations.cover.size[0]"
-            :height="translations.cover.size[1]"
-            :isVideo="translations.cover?.isVideo ?? false"
-            :autoPlay="true"
-            :label="translations.cover.label"
-            :key="this.$store.getters.getlang.locale + this.$route.meta.translation"/>
-            <!-- Cover skeleton while data loads -->
-            <div v-else class="skeleton-cover internal-main-item" key="'skelCover'"
-                 style="width:100%;aspect-ratio:16/9;"></div>
+        <Media
+          v-if="translations"
+          classes="internal-main-item"
+          :src="translations.folder + translations.cover.src"
+          :width="translations.cover.size[0]"
+          :height="translations.cover.size[1]"
+          :isVideo="translations.cover?.isVideo ?? false"
+          :autoPlay="true"
+          :label="translations.cover.label"
+          :key="this.$store.getters.getlang.locale + this.$route.meta.translation"
+        />
+        <!-- Cover skeleton while data loads -->
+        <div
+          v-else
+          class="skeleton-cover internal-main-item"
+          key="'skelCover'"
+          style="width: 100%; aspect-ratio: 16/9"
+        ></div>
       </div>
 
       <transition name="fade">
         <div v-if="translations?.sections" :key="'section-data'">
           <section v-for="parentKey in translations.sections.length" :key="parentKey">
-                <template v-for="child, childkey  in translations.sections[parentKey - 1]" :key="childkey">
-                    <div v-if="typeof child[0] === 'string'" class="internal-description">
-                        <template v-for="item, itemkey in child" :key="itemkey">
-                            <h3 v-if="childkey === 0 && itemkey < 1" class="internal-description-text" v-html="item"></h3>
-                            <p v-else class="internal-description-text" v-html="item"></p>
-                        </template>
-                    </div>
-                    <Carousel v-else :items="child">
-                        <template #default="{ item, isVisible }">
-                            <div :class="'internal-extra-item ' + (item?.class ?? '')">
-                                <Media
-                                    v-if="isVisible"
-                                    :src="translations.folder + item.src"
-                                    :width="item.size[0]"
-                                    :height="item.size[1]"
-                                    :canExpand="item?.canExpand ?? false"
-                                    :isVideo="item?.isVideo ?? false"
-                                    :label="item.label"/>
-                                <!-- Non-visible slide: reserve space with correct aspect ratio,
-                                     then show centered spinner. No network requests fired. -->
-                                <!-- Non-visible carousel slide: reserve aspect-ratio space with skeleton -->
-                                <figure v-else class="render-placeholder-figure">
-                                    <img class="render-placeholder"
-                                         :src="svgPlaceholder(item.size[0], item.size[1])"
-                                         :width="item.size[0]"
-                                         :height="item.size[1]"
-                                         aria-hidden="true"
-                                         alt="" />
-                                    <div class="render-media skeleton--media"></div>
-                                </figure>
-                            </div>
-                        </template>
-                    </Carousel>
+            <template
+              v-for="(child, childkey) in translations.sections[parentKey - 1]"
+              :key="childkey"
+            >
+              <div v-if="typeof child[0] === 'string'" class="internal-description">
+                <template v-for="(item, itemkey) in child" :key="itemkey">
+                  <h3
+                    v-if="childkey === 0 && itemkey < 1"
+                    class="internal-description-text"
+                    v-html="item"
+                  ></h3>
+                  <p v-else class="internal-description-text" v-html="item"></p>
                 </template>
+              </div>
+              <Carousel v-else :items="child">
+                <template #default="{ item, isVisible }">
+                  <div :class="'internal-extra-item ' + (item?.class ?? '')">
+                    <Media
+                      v-if="isVisible"
+                      :src="translations.folder + item.src"
+                      :width="item.size[0]"
+                      :height="item.size[1]"
+                      :canExpand="item?.canExpand ?? false"
+                      :isVideo="item?.isVideo ?? false"
+                      :label="item.label"
+                    />
+                    <!-- Non-visible slide: reserve space with correct aspect ratio,
+                                     then show centered spinner. No network requests fired. -->
+                    <!-- Non-visible carousel slide: reserve aspect-ratio space with skeleton -->
+                    <figure v-else class="render-placeholder-figure">
+                      <img
+                        class="render-placeholder"
+                        :src="svgPlaceholder(item.size[0], item.size[1])"
+                        :width="item.size[0]"
+                        :height="item.size[1]"
+                        aria-hidden="true"
+                        alt=""
+                      />
+                      <div class="render-media skeleton--media"></div>
+                    </figure>
+                  </div>
+                </template>
+              </Carousel>
+            </template>
           </section>
         </div>
         <div v-else :key="'load-data'">
@@ -66,11 +85,11 @@
           </div>
           <!-- Skeleton carousel placeholders -->
           <div class="internal-extra">
-              <div class="internal-extra-scroll">
-                <div class="internal-extra-item" v-for="n in 5" :key="n">
-                  <div class="render-media skeleton--media"></div>
-                </div>
+            <div class="internal-extra-scroll">
+              <div class="internal-extra-item" v-for="n in 5" :key="n">
+                <div class="render-media skeleton--media"></div>
               </div>
+            </div>
           </div>
         </div>
       </transition>
@@ -86,26 +105,26 @@
         :width="modal.media.width"
         :height="modal.media.height"
         :autoPlay="true"
-        :isVideo="modal.media.isVideo"/>
+        :isVideo="modal.media.isVideo"
+      />
     </div>
   </article>
 </template>
 
 <script>
-import { getDatabase, ref, child, get } from "firebase/database";
-import Media                            from '../components/Media.vue';
-import MediaExpanded                    from '../components/MediaExpanded.vue';
+import { getDatabase, ref, child, get } from 'firebase/database'
+import Media from '../components/Media.vue'
+import MediaExpanded from '../components/MediaExpanded.vue'
 
-import Related                          from '../components/portfolio/Related.vue';
-import Carousel                         from '../components/Carousel.vue';
-
+import Related from '../components/portfolio/Related.vue'
+import Carousel from '../components/Carousel.vue'
 
 export default {
   data() {
     return {
-      loading:      this.$store.getters.getlang.loading,
-      modal:        this.$store.getters.getModal,
-      translations: false
+      loading: this.$store.getters.getlang.loading,
+      modal: this.$store.getters.getModal,
+      translations: false,
     }
   },
   components: {
@@ -117,54 +136,61 @@ export default {
   },
   name: 'Render Project',
   created() {
-    this.loadData();
+    this.loadData()
   },
   mounted() {
     setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 500);
+      window.scrollTo(0, 0)
+    }, 500)
   },
-  watch:{
-    $route (to) {
-        const wait =  1000;
+  watch: {
+    $route(to) {
+      const wait = 1000
 
-        if (to.meta?.projectRoute) {
-          this.$smoothScroll({
-            duration: wait,
-            updateHistory: false,
-            scrollTo: 0
-          });
+      if (to.meta?.projectRoute) {
+        this.$smoothScroll({
+          duration: wait,
+          updateHistory: false,
+          scrollTo: 0,
+        })
 
-          this.loadData(wait);
-        }
-    }
+        this.loadData(wait)
+      }
+    },
   },
   methods: {
     svgPlaceholder(w, h) {
-      return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"%3E%3C/svg%3E`;
+      return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"%3E%3C/svg%3E`
     },
     loadData(wait = false) {
-      const lang = this.$store.getters.getlang;
-      document.title = this.$route.meta.title;
-      this.translations =  false;
+      const lang = this.$store.getters.getlang
+      document.title = this.$route.meta.title
+      this.translations = false
 
-      get(child(ref(getDatabase()), lang.database + lang.locale + lang.projectPath + this.$route.meta.translation)).then((snapshot) => {
-        if (snapshot.exists()) {
-          if(!wait) {
-            this.translations = snapshot.val();
+      get(
+        child(
+          ref(getDatabase()),
+          lang.database + lang.locale + lang.projectPath + this.$route.meta.translation
+        )
+      )
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            if (!wait) {
+              this.translations = snapshot.val()
+            } else {
+              setTimeout(() => {
+                this.translations = snapshot.val()
+              }, wait)
+            }
           } else {
-            setTimeout(() => {
-              this.translations = snapshot.val();
-            }, wait);
+            console.log("%cERROR: could't find PROJECT DATA", this.$sharedData.styles.info)
           }
-        } else {
-          console.log('%cERROR: could\'t find PROJECT DATA', this.$sharedData.styles.info);
-        }
-      }).catch((error) => {
-        console.error(error);
-      });
-    }
-  }
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+    },
+  },
 }
 </script>
 

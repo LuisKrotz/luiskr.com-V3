@@ -23,12 +23,12 @@
     color: var(--grey);
     text-decoration: none;
     cursor: pointer;
-    transition: opacity .3s ease-in;
+    transition: opacity 0.3s ease-in;
     position: relative;
 
     &:hover,
     &:focus {
-      opacity: .5;
+      opacity: 0.5;
     }
 
     &.router-link-exact-active,
@@ -61,7 +61,6 @@
   }
 }
 
-
 .cookies {
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
@@ -86,7 +85,7 @@
   color: var(--white);
   font-size: to-rem(13);
   line-height: to-rem(21);
-  transform: translate3d(0, 100%, 0);   // starts hidden below viewport
+  transform: translate3d(0, 100%, 0); // starts hidden below viewport
   transition: transform 0s;
   will-change: transform;
 
@@ -122,7 +121,9 @@
       opacity: 0.7;
       transition: opacity 0.2s;
 
-      &:hover { opacity: 1; }
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
@@ -142,7 +143,9 @@
       border: 1px solid currentColor;
       border-radius: to-rem($space-md);
       padding: var(--space-xs) var(--space-lg);
-      transition: background 0.2s ease, color 0.2s ease;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease;
       white-space: nowrap;
 
       @include layout-2560() {
@@ -167,16 +170,15 @@
       color: var(--white);
 
       &:hover {
-        background: rgba(255,255,255,0.1);
+        background: rgba(255, 255, 255, 0.1);
       }
     }
   }
 }
 
-
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .55s ease-in-out;
+  transition: opacity 0.55s ease-in-out;
 }
 
 .fade-enter,
@@ -186,24 +188,27 @@
 
 // ── Skeleton shimmer ───────────────────────────────────────────────────────
 @keyframes skeleton-shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position:  200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .skeleton {
   display: inline-block;
-  background: linear-gradient(
-    90deg,
-    var(--grey-2)    25%,
-    var(--grey-3)    50%,
-    var(--grey-2)    75%
-  );
+  background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
   background-size: 200% 100%;
   animation: skeleton-shimmer 1.6s ease-in-out infinite;
   border-radius: to-rem($space-xs);
 
-  &--block  { display: block; }
-  &--round  { border-radius: 50%; }
+  &--block {
+    display: block;
+  }
+  &--round {
+    border-radius: 50%;
+  }
 
   // Image-placeholder skeleton: fill the render-placeholder SVG slot
   &--media {
@@ -215,28 +220,48 @@
   }
 }
 
-
-
 @keyframes slide-in {
-  from { transform: translate3d(200%, 0, 0); opacity: 0; }
-  to   { transform: translate3d(0, 0, 0);    opacity: 1; }
+  from {
+    transform: translate3d(200%, 0, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
 }
 
 @keyframes slide-out {
-  from { transform: translate3d(0, 0, 0);    opacity: 1; }
-  to   { transform: translate3d(200%, 0, 0); opacity: 0; }
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(200%, 0, 0);
+    opacity: 0;
+  }
 }
 
 @keyframes slide-in-bottom {
-  from { transform: translate3d(0, 100%, 0); }
-  to   { transform: translate3d(0, 0, 0); }
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 @keyframes slide-out-bottom {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(0, 100%, 0); }
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
 }
 
 @keyframes dash {
-  to { stroke-dashoffset: 10; }
+  to {
+    stroke-dashoffset: 10;
+  }
 }

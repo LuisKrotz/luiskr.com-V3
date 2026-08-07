@@ -2,191 +2,191 @@
 // Titles: weight 100–200. Body text: weight 100–300. No 700.
 
 .ttl {
-    &-xxl,
-    &-xl,
-    &-lg,
-    &-md,
-    &-sm,
-    &-xs,
-    &-xxs {
-        font-family: 'Raleway', sans-serif;
+  &-xxl,
+  &-xl,
+  &-lg,
+  &-md,
+  &-sm,
+  &-xs,
+  &-xxs {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  &-xxl {
+    font-weight: 100;
+    font-size: to-rem(34);
+    letter-spacing: to-rem(5);
+
+    @include layout-768() {
+      font-size: to-rem(55);
+      letter-spacing: to-rem(13);
     }
 
-    &-xxl {
-        font-weight: 100;
-        font-size: to-rem(34);
-        letter-spacing: to-rem(5);
-
-        @include layout-768() {
-            font-size: to-rem(55);
-            letter-spacing: to-rem(13);
-        }
-
-        @include layout-1024() {
-            font-size: to-rem(55);
-            letter-spacing: to-rem(13);
-        }
-
-        @include layout-1680() {
-            font-size: to-rem(89);
-            letter-spacing: to-rem(21);
-        }
-
-        @include layout-2560() {
-            font-size: to-rem(144);
-            letter-spacing: to-rem(55);
-        }
-
-        @include layout-3840() {
-            font-size: to-rem(233);
-        }
+    @include layout-1024() {
+      font-size: to-rem(55);
+      letter-spacing: to-rem(13);
     }
 
-    &-xl {
-        font-weight: 100;
-        font-size: to-rem(21);
-        letter-spacing: to-rem(5);
-
-        @include layout-768() {
-            font-size: to-rem(34);
-            letter-spacing: to-rem(8);
-        }
-
-        @include layout-1024() {
-            font-size: to-rem(55);
-            letter-spacing: to-rem(13);
-        }
-
-        @include layout-2560() {
-            font-size: to-rem(89);
-            letter-spacing: to-rem(21);
-        }
+    @include layout-1680() {
+      font-size: to-rem(89);
+      letter-spacing: to-rem(21);
     }
 
-    &-lg {
-        font-weight: 200;
-        font-size: to-rem(18);
-
-        @include layout-768() {
-            font-size: to-rem(21);
-        }
-
-        @include layout-1024() {
-            font-size: to-rem(34);
-        }
-
-        @include layout-1440() {
-            font-size: to-rem(55);
-        }
-
-        @include layout-1560() {
-            font-size: to-rem(55);
-        }
+    @include layout-2560() {
+      font-size: to-rem(144);
+      letter-spacing: to-rem(55);
     }
 
-    &-md {
-        font-weight: 200;
-        font-size: to-rem(21);
-        letter-spacing: to-rem(8);
+    @include layout-3840() {
+      font-size: to-rem(233);
+    }
+  }
 
-        @include layout-768() {
-            font-size: to-rem(34);
-        }
+  &-xl {
+    font-weight: 100;
+    font-size: to-rem(21);
+    letter-spacing: to-rem(5);
+
+    @include layout-768() {
+      font-size: to-rem(34);
+      letter-spacing: to-rem(8);
     }
 
-    &-sm {
-        font-weight: 200;
-        letter-spacing: to-rem(2);
-        font-size: to-rem(13);
-
-        @include layout-768() {
-            font-size: to-rem(21);
-            letter-spacing: to-rem(3);
-        }
-
-        @include layout-2560() {
-            font-size: to-rem(34);
-            letter-spacing: to-rem(5);
-        }
+    @include layout-1024() {
+      font-size: to-rem(55);
+      letter-spacing: to-rem(13);
     }
 
-    &-xs {
-        font-weight: 200;
-        font-size: to-rem(13);
+    @include layout-2560() {
+      font-size: to-rem(89);
+      letter-spacing: to-rem(21);
+    }
+  }
 
-        @include layout-2560() {
-            font-size: to-rem(21);
-        }
+  &-lg {
+    font-weight: 200;
+    font-size: to-rem(18);
+
+    @include layout-768() {
+      font-size: to-rem(21);
     }
 
-    &-xxs {
-        font-weight: 200;
-        font-size: to-rem(8);
-        text-transform: uppercase;
-
-        @include layout-2560() {
-            font-size: to-rem(13);
-        }
+    @include layout-1024() {
+      font-size: to-rem(34);
     }
+
+    @include layout-1440() {
+      font-size: to-rem(55);
+    }
+
+    @include layout-1560() {
+      font-size: to-rem(55);
+    }
+  }
+
+  &-md {
+    font-weight: 200;
+    font-size: to-rem(21);
+    letter-spacing: to-rem(8);
+
+    @include layout-768() {
+      font-size: to-rem(34);
+    }
+  }
+
+  &-sm {
+    font-weight: 200;
+    letter-spacing: to-rem(2);
+    font-size: to-rem(13);
+
+    @include layout-768() {
+      font-size: to-rem(21);
+      letter-spacing: to-rem(3);
+    }
+
+    @include layout-2560() {
+      font-size: to-rem(34);
+      letter-spacing: to-rem(5);
+    }
+  }
+
+  &-xs {
+    font-weight: 200;
+    font-size: to-rem(13);
+
+    @include layout-2560() {
+      font-size: to-rem(21);
+    }
+  }
+
+  &-xxs {
+    font-weight: 200;
+    font-size: to-rem(8);
+    text-transform: uppercase;
+
+    @include layout-2560() {
+      font-size: to-rem(13);
+    }
+  }
 }
 
 .txt {
-    &-lg,
-    &-md,
-    &-sm,
-    &-xs {
-        font-family: 'Raleway', sans-serif;
+  &-lg,
+  &-md,
+  &-sm,
+  &-xs {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  &-lg {
+    font-weight: 100;
+    font-size: to-rem(21);
+
+    @include layout-1024() {
+      font-size: to-rem(34);
+    }
+  }
+
+  &-md {
+    font-weight: 100;
+    font-size: to-rem(13);
+    line-height: to-rem(21);
+
+    @include layout-1680() {
+      font-size: to-rem(21);
+      line-height: to-rem(34);
     }
 
-    &-lg {
-        font-weight: 100;
-        font-size: to-rem(21);
-
-        @include layout-1024() {
-            font-size: to-rem(34);
-        }
+    @include layout-2560() {
+      font-size: to-rem(34);
+      line-height: to-rem(55);
     }
+  }
 
-    &-md {
-        font-weight: 100;
-        font-size: to-rem(13);
-        line-height: to-rem(21);
+  &-sm {
+    font-weight: 100;
+    font-size: to-rem(13);
+    line-height: to-rem(21);
 
-        @include layout-1680() {
-            font-size: to-rem(21);
-            line-height: to-rem(34);
-        }
-
-        @include layout-2560() {
-            font-size: to-rem(34);
-            line-height: to-rem(55);
-        }
+    @include layout-2560() {
+      font-size: to-rem(21);
+      line-height: to-rem(34);
     }
+  }
 
-    &-sm {
-        font-weight: 100;
-        font-size: to-rem(13);
-        line-height: to-rem(21);
+  &-xs {
+    font-weight: 100;
+    font-size: to-rem(8);
+    line-height: to-rem(13);
 
-        @include layout-2560() {
-            font-size: to-rem(21);
-            line-height: to-rem(34);
-        }
+    @include layout-2560() {
+      font-size: to-rem(13);
+      line-height: to-rem(21);
     }
-
-    &-xs {
-        font-weight: 100;
-        font-size: to-rem(8);
-        line-height: to-rem(13);
-
-        @include layout-2560() {
-            font-size: to-rem(13);
-            line-height: to-rem(21);
-        }
-    }
+  }
 }
 
 .ttl-special {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 100;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
 }
