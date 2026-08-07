@@ -1,0 +1,345 @@
+@import '_variables';
+@import '_mixins';
+@import '_fonts';
+@import '_placeholders';
+
+$hc-btn-size:     to-rem($space-3xl);
+$hc-dot-size:     to-rem($space-md);
+$hc-dot-pill:     to-rem($space-xl);
+$hc-ring-stroke:  2.5px;
+
+// ── Base container ───────────────────────────────────────────────────────────
+.hc {
+  position: relative;
+  width: 100%;
+
+  // ── Controls row (above the image) ──────────────────────────────────────
+  &-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: to-rem($space-lg);
+    padding: to-rem($space-md) 0;
+  }
+
+  &-spacer { flex: 1; }
+
+  // ── Dots ────────────────────────────────────────────────────────────────
+  &-dots {
+    display: flex;
+    align-items: center;
+    gap: to-rem($space-xs);
+    flex: 1;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &-dot {
+    @extend %RESETBTN;
+
+    display: block;
+    height: $hc-dot-size;
+    width: $hc-dot-size;
+    border-radius: $hc-dot-size;
+    background: var(--grey-3);
+    cursor: pointer;
+    transition: width .25s ease, background .25s ease;
+
+    &--active {
+      width: $hc-dot-pill;
+      background: var(--black);
+    }
+
+    &:hover:not(&--active) {
+      background: var(--grey);
+    }
+  }
+
+  // ── Buttons ─────────────────────────────────────────────────────────────
+  &-btn {
+    @extend %RESETBTN;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:  $hc-btn-size;
+    height: $hc-btn-size;
+    flex-shrink: 0;
+    cursor: pointer;
+    color: var(--grey-3);
+    transition: color .2s ease;
+
+    &:hover,
+    &:focus { color: var(--black); }
+
+    &-arrow {
+      font-size: to-rem($space-lg);
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    // Countdown ring
+    &-ring {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+      pointer-events: none;
+
+      &-track {
+        fill: none;
+        stroke: var(--grey-2);
+        stroke-width: $hc-ring-stroke;
+      }
+
+      &-fill {
+        fill: none;
+        stroke: var(--grey);
+        stroke-width: $hc-ring-stroke;
+        stroke-linecap: round;
+      }
+    }
+  }
+
+  // ── Track: horizontal scroll, snaps to center ───────────────────────────
+  &-track {
+    display: flex;
+    align-items: stretch;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  &-slide {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    display: flex;
+    align-items: stretch;
+
+    &--clone {
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+//  VARIANT: selected work
+//  Full viewport width slide, natural image height, title below
+// ════════════════════════════════════════════════════════════════════════════
+.hc--selected {
+
+  .hc-slide {
+    // Occupies 100% of the containing .home-section column
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .hc-controls {
+    justify-content: space-between;
+    padding: to-rem($space-md) 0 0;
+  }
+
+  // Cover image: fill slide width, ideally ~100vh tall, minimal distortion
+  .hc-cover {
+    width: 100%;
+    overflow: hidden;
+    // Target viewport height; object-fit cover keeps proportions.
+    // Using max-height so it never overflows on very tall images.
+    max-height: 100vh;
+    min-height: 60vw; // graceful mobile floor
+    background: var(--grey-2);
+
+    @include layout-768() { min-height: 60vh; }
+    @include layout-1024() { min-height: 70vh; }
+    @include layout-1440() { min-height: 85vh; }
+    @include layout-2560() { min-height: 90vh; }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      max-height: inherit;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    &--skel {
+      min-height: 60vw;
+      @include layout-768() { min-height: 60vh; }
+      @include layout-1024() { min-height: 70vh; }
+      @include layout-1440() { min-height: 85vh; }
+      background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
+      background-size: 200% 100%;
+      animation: skeleton-shimmer 1.6s ease-in-out infinite;
+    }
+  }
+
+  .hc-label {
+    padding: to-rem($space-sm) 0 to-rem($space-xl);
+
+    &-title {
+      @extend .ttl-lg;
+      font-weight: 200;
+      text-transform: uppercase;
+      padding-bottom: to-rem($space-xs);
+    }
+
+    &-desc {
+      @extend .txt-md;
+      font-weight: 300;
+    }
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+//  VARIANT: explore more (archive cards)
+//  3-up on desktop, 2-up on tablet, 1.5 on mobile; card with border
+// ════════════════════════════════════════════════════════════════════════════
+.hc--explore {
+  // Reduce content width to ~66%, centred via lateral padding
+  @extend %MAXAREA;
+
+  .hc-track { gap: to-rem($space-lg); }
+
+  // Each card snaps and is 48% wide on mobile (shows 2+ at once hinting scroll)
+  .hc-slide {
+    width: 80vw;
+    flex-basis: 80vw;
+
+    @include layout-540()  { width: 44vw; flex-basis: 44vw; }
+    @include layout-768()  { width: 30vw; flex-basis: 30vw; }
+    @include layout-1024() { width: 22vw; flex-basis: 22vw; }
+    @include layout-1440() { width: 18vw; flex-basis: 18vw; }
+    @include layout-2560() { width: 14vw; flex-basis: 14vw; }
+  }
+
+  // card
+  .hc-card {
+    width: 100%;
+    border: 1px solid var(--grey-2);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: border-color .2s ease;
+
+    &:hover,
+    &:focus { border-color: var(--grey); }
+
+    &-cover {
+      width: 100%;
+      overflow: hidden;
+      background: var(--grey-2);
+      flex-shrink: 0;
+
+      // natural height — images determine their own proportions
+      &-img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: opacity .3s ease;
+
+        .hc-card:hover &,
+        .hc-card:focus & { opacity: .8; }
+      }
+
+      &--skel {
+        padding-top: 70%;
+        background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
+        background-size: 200% 100%;
+        animation: skeleton-shimmer 1.6s ease-in-out infinite;
+      }
+    }
+
+    &-label {
+      padding: to-rem($space-sm) to-rem($space-md) to-rem($space-md);
+      flex: 1;
+
+      &-title {
+        @extend .ttl-xs;
+        font-weight: 200;
+        text-transform: uppercase;
+        padding-bottom: to-rem($space-2xs);
+      }
+
+      &-desc {
+        @extend .txt-xs;
+        font-weight: 300;
+        opacity: .7;
+      }
+    }
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+//  VARIANT: awards (about page footer)
+//  Single-line, centred small figures, 10s timer, bullets
+// ════════════════════════════════════════════════════════════════════════════
+.hc--awards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .hc-controls {
+    padding: to-rem($space-sm) 0;
+    // Hide nav buttons on awards — dots only
+    .hc-btn { display: none; }
+  }
+
+  .hc-dot--active { background: var(--white); }
+  .hc-dot { background: var(--grey); }
+
+  .hc-track {
+    width: 100%;
+    max-width: to-rem($space-8xl); // cap width at ~widest content
+  }
+
+  .hc-slide {
+    width: 100%;
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  // Award item — same layout as current awards, but with text below and centred
+  .hc-award {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: var(--white);
+    gap: to-rem($space-xs);
+    padding: 0 to-rem($space-sm);
+
+    &-media {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: to-rem($space-3xl);
+      width: to-rem($space-5xl);
+      height: to-rem($space-5xl);
+      flex-shrink: 0;
+    }
+
+    &-img {
+      max-width: to-rem($space-5xl);
+      height: auto;
+      filter: brightness(0) invert(1); // white on dark footer
+    }
+
+    &-text {
+      @extend .txt-xs;
+      font-weight: 100;
+      opacity: .7;
+      max-width: to-rem($space-7xl);
+    }
+  }
+}

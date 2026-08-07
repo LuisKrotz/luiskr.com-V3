@@ -222,3 +222,65 @@
     }
   }
 }
+
+// ── Awards footer (below Contact, same dark background) ──────────────────────
+.about-awards-footer {
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: to-rem($space-2xl) to-rem($space-lg) to-rem($space-3xl);
+
+  @include layout-768()  { padding: to-rem($space-2xl) to-rem($space-4xl) to-rem($space-3xl); }
+  @include layout-2560() { padding: to-rem($space-3xl) to-rem($space-5xl) to-rem($space-4xl); }
+
+  // The awards carousel itself — limit max width so it feels compact & centred
+  .hc--awards {
+    max-width: to-rem($space-8xl);
+    width: 100%;
+  }
+
+  // Legal links row: same border + padding as .contact-social
+  &-skel {
+    display: flex;
+    justify-content: center;
+    padding: to-rem($space-xl) 0;
+  }
+}
+
+.about-awards-links {
+  @extend .ttl-xs;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  color: var(--white);
+  width: 100%;
+  padding: to-rem($space-lg) to-rem($space-lg) 0;
+  border-top: 1px solid var(--grey);
+  margin-top: to-rem($space-lg);
+
+  @include layout-768() {
+    padding: to-rem($space-lg) to-rem($space-4xl) 0;
+  }
+
+  &-item {
+    @extend .ttl-xs;
+
+    color: var(--white);
+    text-decoration: none;
+    line-height: to-rem($space-3xl);
+    transition: opacity .2s;
+
+    &:hover,
+    &:focus { opacity: .5; }
+  }
+
+  &-sep {
+    padding: 0 to-rem($space-md);
+    font-weight: 200;
+  }
+}
