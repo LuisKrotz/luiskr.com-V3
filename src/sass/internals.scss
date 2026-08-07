@@ -532,7 +532,7 @@
                 display: block;
                 line-height: to-rem($space-3xl);
                 text-transform: uppercase;
-                font-weight: 700;
+                font-weight: 300;
 
                 @include layout-375() {
                     text-transform: initial;
