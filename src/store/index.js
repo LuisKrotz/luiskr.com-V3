@@ -72,20 +72,7 @@ export default createStore({
         break;
       }
     },
-    setMarqueeAmount(state) {
-      let width = window.innerWidth,
-          height = window.innerHeight;
-
-      if (width >= 2560) {
-        state.marqueeamount = Math.ceil(height / 377);
-      } else if (width >= 1280) {
-        state.marqueeamount = Math.ceil(height / 144);
-      } else if (width >= 768) {
-        state.marqueeamount = Math.ceil(height / 89);
-      } else {
-        state.marqueeamount = Math.ceil(height / 144);
-      }
-    },
+    setMarqueeAmount() {},
     setModal(state, payload) {
       state.modalObject.transform = payload.transform,
       state.modalObject.class = payload.class,
@@ -107,9 +94,7 @@ export default createStore({
     getlang: state => {
       return state.lang;
     },
-    getMarqueeAmount: state => {
-      return state.marqueeamount;
-    },
+    getMarqueeAmount: () => 0,
     getModal: state => {
       return state.modalObject;
     },

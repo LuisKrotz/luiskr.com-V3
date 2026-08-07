@@ -140,6 +140,10 @@ export default {
             isScrolling:     false,
             touchStartX:     0,
             slideRefs:       [],
+            // Monotonic loaded-state: once true, NEVER goes back to false.
+            // Prevents Media from unmounting when a slide scrolls out of the ±1 window,
+            // which caused blink + layout shift as the placeholder figure replaced the image.
+            slideLoaded:     [],
             isMobile:        window.innerWidth < MOBILE_BREAKPOINT,
             circumference:   CIRCUMFERENCE,
         };
@@ -165,12 +169,22 @@ export default {
 
     mounted() {
         if (!this.isActive) return;
+        // Pre-mark the initial visible window (slide 0 ± 1 with wrap)
+        this._markAdjacentLoaded(0);
         this.$nextTick(() => {
             this._jumpToSlide(0, false);
             this._startAutoplay();
             this._setHeightVar();
         });
         window.addEventListener('resize', this._onResize);
+    },
+
+    watch: {
+        // Every time the active slide changes, permanently mark the new adjacent slides.
+        // Once slideLoaded[i] is true it stays true — no flicker, no remount.
+        currentIndex(newVal) {
+            this._markAdjacentLoaded(newVal);
+        },
     },
 
     beforeUnmount() {
@@ -186,12 +200,21 @@ export default {
         },
 
         isSlideVisible(idx) {
-            // Preload ±1 slide around current, accounting for circular wrap-around.
-            // e.g. at index 0 in a 5-item carousel, index 4 is the adjacent prev slide.
-            const len  = this.items.length;
-            const direct  = Math.abs(idx - this.currentIndex);
-            const wrapped = len - direct;  // distance going the other way around
-            return Math.min(direct, wrapped) <= 1;
+            // Returns true if this slide has EVER been in the ±1 window.
+            // Once loaded, stays loaded — prevents unmount flicker on navigation.
+            return this.slideLoaded[idx] === true;
+        },
+
+        // Mark slide idx and its circular neighbours as permanently loaded
+        _markAdjacentLoaded(centerIdx) {
+            const len = this.items.length;
+            for (let i = 0; i < len; i++) {
+                const direct  = Math.abs(i - centerIdx);
+                const wrapped = len - direct;
+                if (Math.min(direct, wrapped) <= 1) {
+                    this.slideLoaded[i] = true;
+                }
+            }
         },
 
         // ── Navigation ────────────────────────────────────────────────────

@@ -28,49 +28,6 @@
         }
     }
 
-    &-title {
-        text-align: left;
-        padding-bottom: to-rem($space-xl);
-        overflow: hidden;
-
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-        top: 0;
-        opacity: .025;
-
-        &-marquee {
-            @extend .ttl-special;
-
-            width: fit-content;
-            white-space: nowrap;
-            will-change: transform;
-            font-size: to-rem($space-5xl);
-            line-height: to-rem($space-5xl);
-
-            @include layout-768() {
-                font-size: to-rem($space-4xl);
-                line-height: to-rem($space-4xl);
-            }
-
-            @include layout-1280() {
-                font-size: to-rem($space-5xl);
-                line-height: to-rem($space-5xl);
-            }
-
-            @include layout-1920() {
-                font-size: to-rem($space-6xl);
-                line-height: to-rem($space-6xl);
-            }
-
-            @include layout-2560() {
-                font-size: to-rem($space-7xl);
-                line-height: to-rem($space-7xl);
-            }
-
-            animation: marquee-keyframe 320s linear infinite;
-        }
-    }
 
     &-item {
         grid-column: 1 /  span 2;

@@ -7,13 +7,6 @@
             <span v-else>{{ loading.msg1 }}</span>
         </h2>
 
-        <div v-for="n in marquee" :key="n" class="portfolio-title-marquee" aria-hidden="true" data-no-snippet tabindex="-1">
-            <template v-for="n in 3" :key="n">
-              <span>▲</span>
-              <span v-if="translations">{{ translations.message }}</span>
-              <span v-else>{{ loading.msg1 }}</span>
-            </template>
-        </div>
       </div>
 
       <section class="portfolio">
@@ -71,7 +64,7 @@ export default {
       showhover:            this.$store.getters.getHover,
       tap:                  this.$store.getters.getClickOrTap,
       page:                 this.$store.getters.getOnMouseMove,
-      marquee:              0
+      marquee:              undefined
     }
   },
   name: 'Home',
@@ -116,17 +109,9 @@ export default {
     });
   },
   mounted() {
-    this.$store.commit('setMarqueeAmount');
-    this.marquee = this.$store.getters.getMarqueeAmount;
-
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 500);
-
-    window.addEventListener('resize', () => {
-        this.$store.commit('setMarqueeAmount');
-        this.marquee = this.$store.getters.getMarqueeAmount;
-    }, true);
   }
 }
 </script>
