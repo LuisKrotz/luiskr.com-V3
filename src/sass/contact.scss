@@ -6,8 +6,8 @@
 .contact {
     @extend %MAXAREA;
 
-    padding-top: to-rem($F10);
-    padding-bottom: to-rem($F10);
+    padding-top: to-rem($space-3xl);
+    padding-bottom: to-rem($space-3xl);
     background-color: var(--black);
     color: var(--white);
     display: block;
@@ -15,8 +15,8 @@
     max-width: 100%;
 
     @include layout-768() {
-        padding-top: to-rem($F11);
-        padding-bottom: to-rem($F10);
+        padding-top: to-rem($space-4xl);
+        padding-bottom: to-rem($space-3xl);
     }
 
     &-title {
@@ -25,10 +25,10 @@
         text-transform: uppercase;
         color: inherit;
         margin: 0;
-        padding: 0 to-rem($F7) to-rem($F8);
+        padding: 0 to-rem($space-lg) to-rem($space-xl);
 
         @include layout-768() {
-            padding: 0 to-rem($F12) to-rem($F9);
+            padding: 0 to-rem($space-5xl) to-rem($space-2xl);
         }
     }
 
@@ -51,7 +51,7 @@
         }
 
         &-separator {
-            padding: 0 to-rem($F6);
+            padding: 0 to-rem($space-md);
             font-weight: 200;
             display: none;
             font-weight: 700;
@@ -61,24 +61,24 @@
             }
 
             @include layout-2560() {
-                padding: 0 to-rem($F7);
+                padding: 0 to-rem($space-lg);
             }
         }
     }
 
     &-social {
-        padding: 0 to-rem($F7) to-rem($F9);
+        padding: 0 to-rem($space-lg) to-rem($space-2xl);
         border-bottom: 1px solid var(--grey);
 
         @include layout-768() {
-            padding: 0 to-rem($F11) to-rem($F7);
+            padding: 0 to-rem($space-4xl) to-rem($space-lg);
         }
 
         &-link {
             @extend .ttl-sm;
 
             display: block;
-            line-height: to-rem($F10);
+            line-height: to-rem($space-3xl);
 
             @include layout-768() {
                 display: inline-block;
@@ -87,17 +87,17 @@
     }
 
     &-other {
-        padding: to-rem($F9) to-rem($F7) 0;
+        padding: to-rem($space-2xl) to-rem($space-lg) 0;
 
         @include layout-768() {
-            padding: to-rem($F7) to-rem($F11) 0;
+            padding: to-rem($space-lg) to-rem($space-4xl) 0;
         }
 
         &-link {
             @extend .ttl-xs;
 
             display: block;
-            line-height: to-rem($F10);
+            line-height: to-rem($space-3xl);
             font-weight: 700;
             position: relative;
 

@@ -68,7 +68,7 @@ export default {
 
     &-decoration {
         text-align: left;
-        padding-bottom: to-rem($F8);
+        padding-bottom: to-rem($space-xl);
         overflow: hidden;
         box-sizing: border-box;
         height: 100vh;
@@ -78,32 +78,33 @@ export default {
         opacity: .025;
 
         &-marquee {
-            font-family: 'Black Ops One', monospace;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 100;
             will-change: transform;
             width: fit-content;
             white-space: nowrap;
 
-            font-size: to-rem($F12);
-            line-height: to-rem($F12);
+            font-size: to-rem($space-5xl);
+            line-height: to-rem($space-5xl);
 
             @include layout-768() {
-                font-size: to-rem($F11);
-                line-height: to-rem($F11);
+                font-size: to-rem($space-4xl);
+                line-height: to-rem($space-4xl);
             }
 
             @include layout-1280() {
-                font-size: to-rem($F12);
-                line-height: to-rem($F12);
+                font-size: to-rem($space-5xl);
+                line-height: to-rem($space-5xl);
             }
 
             @include layout-1440() {
-                font-size: to-rem($F13);
-                line-height: to-rem($F13);
+                font-size: to-rem($space-6xl);
+                line-height: to-rem($space-6xl);
             }
 
             @include layout-2560() {
-                font-size: to-rem($F14);
-                line-height: to-rem($F14);
+                font-size: to-rem($space-7xl);
+                line-height: to-rem($space-7xl);
             }
 
             animation: marquee-keyframe 320s linear infinite;
@@ -111,38 +112,40 @@ export default {
     }
 
     &-title {
-        font-family: 'Black Ops One', monospace;
-        font-size: to-rem($F8);
-        letter-spacing: to-rem($F6);
-        padding-bottom: to-rem($F7);
+        font-family: 'Raleway', sans-serif;
+        font-weight: 100;
+        font-size: to-rem($space-xl);
+        letter-spacing: to-rem($space-md);
+        padding-bottom: to-rem($space-lg);
 
         @include layout-768() {
-            font-size: to-rem($F10);
-            letter-spacing: to-rem($F7);
+            font-size: to-rem($space-3xl);
+            letter-spacing: to-rem($space-lg);
         }
 
         @include layout-1024() {
-            font-size: to-rem($F11);
-            letter-spacing: to-rem($F8);
-            padding-bottom: to-rem($F10);
+            font-size: to-rem($space-4xl);
+            letter-spacing: to-rem($space-xl);
+            padding-bottom: to-rem($space-3xl);
         }
 
         @include layout-2560() {
-            font-size: to-rem($F12);
-            letter-spacing: to-rem($F9);
-            padding-bottom: to-rem($F11);
+            font-size: to-rem($space-5xl);
+            letter-spacing: to-rem($space-2xl);
+            padding-bottom: to-rem($space-4xl);
         }
     }
 
     &-link {
-        font-family: 'Montserrat Alternates', sans-serif;
-        font-size: to-rem($F7);
-        line-height: to-rem($F8);
+        font-family: 'Raleway', sans-serif;
+        font-weight: 200;
+        font-size: to-rem($space-lg);
+        line-height: to-rem($space-xl);
         text-decoration: underline;
 
         @include layout-2560() {
-            font-size: to-rem($F9);
-            line-height: to-rem($F10);
+            font-size: to-rem($space-2xl);
+            line-height: to-rem($space-3xl);
         }
 
         &:hover,

@@ -27,19 +27,19 @@
         bottom: 0;
         left: 0;
         text-transform: uppercase;
-        padding: to-rem(0) to-rem($F8);
+        padding: to-rem(0) to-rem($space-xl);
         cursor: pointer;
         width: 100%;
-        height: to-rem($F9);
-        line-height: to-rem($F9);
-        margin-bottom: to-rem($F7);
+        height: to-rem($space-2xl);
+        line-height: to-rem($space-2xl);
+        margin-bottom: to-rem($space-lg);
         transition: opacity .3s ease-in;
         text-transform: uppercase;
         font-weight: 900;
 
         @include layout-1440() {
-            height: to-rem($F10);
-            line-height: to-rem($F10);
+            height: to-rem($space-3xl);
+            line-height: to-rem($space-3xl);
         }
     }
 
@@ -70,14 +70,14 @@
             opacity: 1;
             width: 80%;
             max-width: to-rem(290);
-            border-radius: to-rem($F9);
+            border-radius: to-rem($space-2xl);
         }
     }
 
     &-close-bar {
         @extend %MAXAREA;
         left: 0;
-        top: to-rem($F7);
+        top: to-rem($space-lg);
         position: fixed;
         justify-content: space-between;
         display: flex;
@@ -111,7 +111,7 @@
     &-close-bottom {
         @extend .ttl-sm;
 
-        margin: to-rem($F8) 0;
+        margin: to-rem($space-xl) 0;
         position: absolute;
         color: var(--white);
         left: 50%;
@@ -124,7 +124,7 @@
         position: relative;
         overflow-x: scroll;
         background-color: var(--black);
-        padding: to-rem($F10) to-rem($F8);
+        padding: to-rem($space-3xl) to-rem($space-xl);
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -132,7 +132,7 @@
         justify-content: center;
 
         @include layout-1024() {
-            padding: to-rem($F12);
+            padding: to-rem($space-5xl);
         }
     }
 
@@ -159,7 +159,7 @@
             max-width: 100%;
 
             @include layout-1024() {
-                border-radius: to-rem($F7);
+                border-radius: to-rem($space-lg);
             }
         }
     }

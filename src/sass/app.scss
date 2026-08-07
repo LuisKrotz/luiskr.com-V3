@@ -8,7 +8,7 @@
   @extend %MAXAREA;
   z-index: 100;
   left: 0;
-  top: to-rem($F7);
+  top: to-rem($space-lg);
   position: fixed;
   justify-content: space-between;
   display: flex;
@@ -37,8 +37,8 @@
         display: block;
         content: '';
         width: 34%;
-        height: to-rem($F3);
-        border-radius: to-rem($F3);
+        height: to-rem($space-2xs);
+        border-radius: to-rem($space-2xs);
         background: var(--grey);
       }
     }
@@ -66,43 +66,43 @@
   font-family: 'Raleway', sans-serif;
 
   position: fixed;
-  bottom: to-rem($F7);
-  right: to-rem($F8);
-  width: to-rem($F13);
+  bottom: to-rem($space-lg);
+  right: to-rem($space-xl);
+  width: to-rem($space-6xl);
   max-width: 87vw;
   background-color: rgba($color-blue, 0.95);
   color: var(--white);
   overflow: hidden;
-  border-radius: to-rem($F6);
-  box-shadow: to-rem($F2) to-rem($F2) to-rem($F5) 0 rgba($color-black, .25);
+  border-radius: to-rem($space-md);
+  box-shadow: to-rem($space-pixel) to-rem($space-pixel) to-rem($space-sm) 0 rgba($color-black, .25);
   transform: translate3d(200%, 0, 0);
   opacity: 0;
-  font-size: to-rem($F6);
-  line-height: to-rem($F7);
+  font-size: to-rem($space-md);
+  line-height: to-rem($space-lg);
   transition: opacity 1s ease-in-out;
   z-index: 100;
 
   @include layout-768() {
-    bottom: to-rem($F7);
-    right: to-rem($F7);
-    width: to-rem($F14);
+    bottom: to-rem($space-lg);
+    right: to-rem($space-lg);
+    width: to-rem($space-7xl);
   }
 
   @include layout-1024() {
     bottom: initial;
-    top: to-rem($F7);
-    right: to-rem($F8);
+    top: to-rem($space-lg);
+    right: to-rem($space-xl);
   }
 
   @include layout-1920() {
-    font-size: to-rem($F7);
-    line-height: to-rem($F8);
-    width: to-rem($F15);
+    font-size: to-rem($space-lg);
+    line-height: to-rem($space-xl);
+    width: to-rem($space-8xl);
   }
 
   @include layout-2560() {
-    width: to-rem($F14);
-    border-radius: to-rem($F7);
+    width: to-rem($space-7xl);
+    border-radius: to-rem($space-lg);
   }
 
   .show-logo & {
@@ -115,7 +115,7 @@
   }
 
   &-info {
-    padding: to-rem($F7);
+    padding: to-rem($space-lg);
     box-sizing: border-box;
     text-transform: uppercase;
   }
@@ -127,14 +127,14 @@
     grid-gap: 0;
     margin: 0;
     grid-template-columns: repeat(2, 1fr);
-    min-height: to-rem($F10);
+    min-height: to-rem($space-3xl);
 
     @include layout-1024() {
-      min-height: to-rem($F9);
+      min-height: to-rem($space-2xl);
     }
 
     @include layout-1920() {
-      min-height: to-rem($F10);
+      min-height: to-rem($space-3xl);
     }
 
     &-accept,
@@ -142,7 +142,7 @@
       margin: 0;
       display: block;
       cursor: pointer;
-      font-size: to-rem($F7);
+      font-size: to-rem($space-lg);
     }
 
     &-accept {
@@ -171,22 +171,22 @@
 
 .hover,
 .load-svg {
-  width: to-rem($F10);
-  height: to-rem($F10);
+  width: to-rem($space-3xl);
+  height: to-rem($space-3xl);
 
   @include layout-540() {
-    width: to-rem($F11);
-    height: to-rem($F11);
+    width: to-rem($space-4xl);
+    height: to-rem($space-4xl);
   }
 
   @include layout-1280() {
-    width: to-rem($F12);
-    height: to-rem($F12);
+    width: to-rem($space-5xl);
+    height: to-rem($space-5xl);
   }
 
   @include layout-2560() {
-    width: to-rem($F13);
-    height: to-rem($F13);
+    width: to-rem($space-6xl);
+    height: to-rem($space-6xl);
   }
 
   &-triangle-1,
@@ -206,9 +206,10 @@
   }
 
   &-text {
-    font-family: 'Black Ops One', monospace;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
     text-transform: uppercase;
-    font-size: to-rem($F7);
+    font-size: to-rem($space-lg);
     fill: var(--white);
   }
 }
@@ -218,8 +219,8 @@
   pointer-events: none;
   z-index: 100;
   background: none;
-  top: to-rem($F9);
-  left: to-rem($F9);
+  top: to-rem($space-2xl);
+  left: to-rem($space-2xl);
   position: absolute;
   opacity: 0;
   transition: transform 50ms ease;
@@ -227,13 +228,13 @@
   mix-blend-mode: color-burn;
 
   @include layout-1280() {
-    top: to-rem(-$F8);
-    left: to-rem(-$F7);
+    top: to-rem(-$space-xl);
+    left: to-rem(-$space-lg);
   }
 
   @include layout-2560() {
-    top: to-rem(-$F10);
-    left: to-rem(-$F10);
+    top: to-rem(-$space-3xl);
+    left: to-rem(-$space-3xl);
   }
 }
 

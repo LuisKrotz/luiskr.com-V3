@@ -8,15 +8,15 @@
         @extend .ttl-lg;
         @extend .ttl-special;
 
-        padding: to-rem($F11) to-rem($F8) to-rem($F9);
+        padding: to-rem($space-4xl) to-rem($space-xl) to-rem($space-2xl);
         text-align: center;
 
         @include layout-1024() {
-            padding: to-rem($F11) 0 to-rem($F10);
+            padding: to-rem($space-4xl) 0 to-rem($space-3xl);
         }
 
         @include layout-1920() {
-            padding: to-rem($F12);
+            padding: to-rem($space-5xl);
         }
     }
 
@@ -24,16 +24,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: to-rem($F8);
+        padding: to-rem($space-xl);
         box-sizing: border-box;
         background-color: var(--black);
 
         @include layout-768() {
-            padding: to-rem($F10);
+            padding: to-rem($space-3xl);
         }
 
         @include layout-1024() {
-            padding: to-rem($F12);
+            padding: to-rem($space-5xl);
         }
 
         figure {
@@ -58,22 +58,22 @@
             object-fit: cover;
 
             @include layout-1024() {
-                border-radius: to-rem($F7);
+                border-radius: to-rem($space-lg);
             }
         }
 
         .load-svg {
-            width: to-rem($F12);
-            height: to-rem($F12);
+            width: to-rem($space-5xl);
+            height: to-rem($space-5xl);
 
             @include layout-1024() {
-                width: to-rem($F13);
-                height: to-rem($F13);
+                width: to-rem($space-6xl);
+                height: to-rem($space-6xl);
             }
 
             @include layout-2560() {
-                width: to-rem($F14);
-                height: to-rem($F14);
+                width: to-rem($space-7xl);
+                height: to-rem($space-7xl);
             }
 
             &-text {
@@ -84,74 +84,79 @@
 
     &-description {
         margin: 0 auto;
-        padding: to-rem($F9) to-rem($F8);
+        padding: to-rem($space-2xl) to-rem($space-xl);
+        // Min-height matches the carousel item height, set as a CSS var by Carousel.vue
+        min-height: var(--carousel-item-height, auto);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         @include layout-768() {
-            padding: to-rem($F11) to-rem($F10);
+            padding: to-rem($space-4xl) to-rem($space-3xl);
         }
 
         @include layout-1024() {
-            max-width: to-rem($F15);
-            padding: to-rem($F11);
+            max-width: to-rem($space-8xl);
+            padding: to-rem($space-4xl);
         }
 
         @include layout-1920() {
-            max-width: to-rem($F16);
-            padding: to-rem($F12);
+            max-width: to-rem($space-9xl);
+            padding: to-rem($space-5xl);
         }
 
         @include layout-2560() {
-            padding: to-rem($F13);
+            padding: to-rem($space-6xl);
         }
 
         .legal & {
             @include layout-768() {
-                padding: to-rem($F10);
+                padding: to-rem($space-3xl);
             }
     
             @include layout-1024() {
-                max-width: to-rem($F15);
-                padding: to-rem($F6);
+                max-width: to-rem($space-8xl);
+                padding: to-rem($space-md);
             }
     
             @include layout-1920() {
-                max-width: to-rem($F16);
-                padding: to-rem($F6);
+                max-width: to-rem($space-9xl);
+                padding: to-rem($space-md);
             }
     
             @include layout-2560() {
-                padding: to-rem($F7);
+                padding: to-rem($space-lg);
             }
         }
 
         &:last-of-type {
             .legal & {
                 @include layout-1024() {
-                    padding-bottom: to-rem($F11);
+                    padding-bottom: to-rem($space-4xl);
                 }
         
                 @include layout-1920() {
-                    padding-bottom: to-rem($F12);
+                    padding-bottom: to-rem($space-5xl);
                 }
         
                 @include layout-2560() {
-                    padding-bottom: to-rem($F13);
+                    padding-bottom: to-rem($space-6xl);
                 }
             }
         }
 
-
         &-text {
             @extend .txt-md;
 
-            padding-bottom: to-rem($F8);
+            text-align: center;
+            padding-bottom: to-rem($space-xl);
 
             @include layout-1920() {
-                padding-bottom: to-rem($F9);
+                padding-bottom: to-rem($space-2xl);
             }
 
             @include layout-2560() {
-                padding-bottom: to-rem($F10);
+                padding-bottom: to-rem($space-3xl);
             }
 
             a {
@@ -184,14 +189,14 @@
 
         /* width */
         &::-webkit-scrollbar {
-            height: to-rem($F6);
+            height: to-rem($space-md);
 
             @include layout-1024() {
-                height: to-rem($F7); 
+                height: to-rem($space-lg); 
             }
 
             @include layout-2560() {
-                height: to-rem($F8);
+                height: to-rem($space-xl);
             }
         }
         
@@ -212,57 +217,57 @@
         }
 
         &-scroll {
-            padding: to-rem($F9) to-rem($F8) to-rem($F9 - $F6);
+            padding: to-rem($space-2xl) to-rem($space-xl) to-rem($space-2xl - $space-md);
             display: block;
             white-space: nowrap;
             width: max-content;
             margin: 0 auto;
 
             @include layout-768() {
-                padding: to-rem($F12) to-rem($F10) to-rem($F12 - $F7);
+                padding: to-rem($space-5xl) to-rem($space-3xl) to-rem($space-5xl - $space-lg);
             }
 
             @include layout-1024() {
-                padding: to-rem($F10) to-rem($F10) to-rem($F10 - $F7);
+                padding: to-rem($space-3xl) to-rem($space-3xl) to-rem($space-3xl - $space-lg);
             }
 
             @include layout-1440() {
-                padding: to-rem($F11) to-rem($F11) to-rem($F11 - $F7);
+                padding: to-rem($space-4xl) to-rem($space-4xl) to-rem($space-4xl - $space-lg);
             }
 
             @include layout-1920() {
-                padding: to-rem($F12) to-rem($F12) to-rem($F12 - $F7);
+                padding: to-rem($space-5xl) to-rem($space-5xl) to-rem($space-5xl - $space-lg);
             }
 
             @include layout-2560() {
-                padding: to-rem($F12) to-rem($F12) to-rem($F12 - $F8);
+                padding: to-rem($space-5xl) to-rem($space-5xl) to-rem($space-5xl - $space-xl);
             }
         }
 
         &-item {
             position: relative;
-            border-radius: to-rem($F6);
+            border-radius: to-rem($space-md);
             color: var(--grey);
             display: inline-block;
             width: min-content;
-            padding: 0 to-rem($F7);
+            padding: 0 to-rem($space-lg);
             min-height: 100%;
             overflow: hidden;
 
             @include layout-768() {
-                padding: 0 to-rem($F8);
+                padding: 0 to-rem($space-xl);
             }
 
             @include layout-1024() {
-                border-radius: to-rem($F7);
+                border-radius: to-rem($space-lg);
             }
 
             @include layout-1440() {
-                padding: 0 to-rem($F9);
+                padding: 0 to-rem($space-2xl);
             }
 
             @include layout-1920() {
-                padding: 0 to-rem($F10);
+                padding: 0 to-rem($space-3xl);
             }
 
             &:first-of-type {
@@ -278,39 +283,39 @@
                 display: block;
                 position: relative;
                 overflow: hidden;
-                border-radius: to-rem($F6);
+                border-radius: to-rem($space-md);
                 background-color: var(--grey-3);
 
                 @include layout-1024() {
                     background: none;
-                    border-radius: to-rem($F7);
+                    border-radius: to-rem($space-lg);
                 }
             }
 
             .render-placeholder {
                 position: relative;
-                width: calc(90vw - #{to-rem($F8 * 2)});
-                height: calc(70vh - #{to-rem($F8 * 2)});
+                width: calc(90vw - #{to-rem($space-xl * 2)});
+                height: calc(70vh - #{to-rem($space-xl * 2)});
 
                 @include layout-768() {
-                    width: calc(90vw - #{to-rem($F9 * 2)});
-                    height: calc(70vh - #{to-rem($F9 * 2)});
+                    width: calc(90vw - #{to-rem($space-2xl * 2)});
+                    height: calc(70vh - #{to-rem($space-2xl * 2)});
                 }
 
                 @include layout-1024() {
-                    width: to-rem($F13);
-                    height: to-rem($F14);
+                    width: to-rem($space-6xl);
+                    height: to-rem($space-7xl);
                 }
 
                 @include layout-1440() {
                     
-                    width: to-rem($F14);
-                    height: to-rem($F15);
+                    width: to-rem($space-7xl);
+                    height: to-rem($space-8xl);
                 }
 
                 @include layout-2560() {
-                    width: to-rem($F15);
-                    height: to-rem($F16);
+                    width: to-rem($space-8xl);
+                    height: to-rem($space-9xl);
                 }
             }
 
@@ -328,7 +333,7 @@
                 height: 100%;
                 object-fit: cover;
                 object-position: top center;
-                border-radius: to-rem($F2);
+                border-radius: to-rem($space-pixel);
                 box-sizing: border-box;
                 overflow: hidden;
 
@@ -337,23 +342,23 @@
 
                 @include layout-1024() {
                     border: none;
-                    border-radius: to-rem($F7);
+                    border-radius: to-rem($space-lg);
                 }
 
                 &.load-svg {
                     image-rendering: crisp-edges;
                     position: relative;
-                    width: to-rem($F13);
-                    height: to-rem($F13);
+                    width: to-rem($space-6xl);
+                    height: to-rem($space-6xl);
 
                     @include layout-1280() {
-                        width: to-rem($F12);
-                        height: to-rem($F12);
+                        width: to-rem($space-5xl);
+                        height: to-rem($space-5xl);
                     }
 
                     @include layout-2560() {
-                        width: to-rem($F13);
-                        height: to-rem($F13);
+                        width: to-rem($space-6xl);
+                        height: to-rem($space-6xl);
                     }
                 }
             }
@@ -362,19 +367,19 @@
                 .render-placeholder {
                     @include layout-1024() {
                         width: auto;
-                        max-width: calc(100vw - #{to-rem($F10)});
+                        max-width: calc(100vw - #{to-rem($space-3xl)});
                     }
 
                     @include layout-1280() {
-                        max-width: calc(100vw - #{to-rem($F11)})
+                        max-width: calc(100vw - #{to-rem($space-4xl)})
                     }
 
                     @include layout-1440() {
-                        max-width: calc(100vw - #{to-rem($F14)})
+                        max-width: calc(100vw - #{to-rem($space-7xl)})
                     }
 
                     @include layout-1920() {
-                        max-width: calc(100vw - #{to-rem($F13)})
+                        max-width: calc(100vw - #{to-rem($space-6xl)})
                     }
                 }
             }
@@ -382,13 +387,13 @@
             &.small {
                 .render-placeholder {
                     @include layout-1440() {
-                        width: to-rem($F13);
-                        height: to-rem($F15);
+                        width: to-rem($space-6xl);
+                        height: to-rem($space-8xl);
                     }
 
                     @include layout-2560() {
-                        width: to-rem($F14);
-                        height: to-rem($F16);
+                        width: to-rem($space-7xl);
+                        height: to-rem($space-9xl);
                     }
                 }
             }
@@ -416,7 +421,7 @@
 
                 img {
                     box-sizing: border-box;
-                    padding: to-rem($F12);
+                    padding: to-rem($space-5xl);
                     height: auto;
                     width: 100%;
                 }
@@ -439,17 +444,17 @@
             @extend .ttl-lg;
             @extend .ttl-special;
 
-            padding-bottom: to-rem($F5);
-            max-width: to-rem($F15);
+            padding-bottom: to-rem($space-sm);
+            max-width: to-rem($space-8xl);
             margin: 0 auto;
-            padding: to-rem($F8) to-rem($F8) to-rem($F7);
+            padding: to-rem($space-xl) to-rem($space-xl) to-rem($space-lg);
 
             @include layout-768() {
-                padding: to-rem($F10) to-rem($F10) to-rem($F9);
+                padding: to-rem($space-3xl) to-rem($space-3xl) to-rem($space-2xl);
             }
 
             @include layout-1024() {
-                padding: to-rem($F12) to-rem($F12) to-rem($F9) ;
+                padding: to-rem($space-5xl) to-rem($space-5xl) to-rem($space-2xl) ;
             }
         }
 
@@ -457,19 +462,19 @@
             @extend .txt-lg;
 
             margin: 0 auto;
-            padding: 0 to-rem($F8) to-rem($F8);
+            padding: 0 to-rem($space-xl) to-rem($space-xl);
             letter-spacing: to-rem(2);
             text-align: left;
             color: var(--black);
             list-style: inside circle;
 
             @include layout-768() {
-                padding: 0 to-rem($F10) to-rem($F10);
+                padding: 0 to-rem($space-3xl) to-rem($space-3xl);
             }
 
             @include layout-1024() {
-                max-width: to-rem($F15);
-                padding: 0 to-rem($F12) to-rem($F12);
+                max-width: to-rem($space-8xl);
+                padding: 0 to-rem($space-5xl) to-rem($space-5xl);
             }
 
             &-link {
@@ -495,15 +500,15 @@
     
             text-align: center;
             color: var(--white);
-            padding: to-rem($F9);
+            padding: to-rem($space-2xl);
             background: var(--black);
 
             @include layout-1024() {
-                padding: to-rem($F8) to-rem($F12);
+                padding: to-rem($space-xl) to-rem($space-5xl);
             }
 
             &-separator {
-                padding: 0 to-rem($F6);
+                padding: 0 to-rem($space-md);
                 display: none;
 
                 @include layout-375() {
@@ -511,7 +516,7 @@
                 }
 
                 @include layout-2560() {
-                    padding: 0 to-rem($F7);
+                    padding: 0 to-rem($space-lg);
                 }
             }
 
@@ -523,7 +528,7 @@
                 transition: opacity .3s ease-in;
                 cursor: pointer;
                 display: block;
-                line-height: to-rem($F10);
+                line-height: to-rem($space-3xl);
                 text-transform: uppercase;
                 font-weight: 700;
 
@@ -543,7 +548,7 @@
 
                 display: block;
                 padding: 0;
-                margin:to-rem(-$F5) 0 to-rem($F7);
+                margin:to-rem(-$space-sm) 0 to-rem($space-lg);
             }
         }
     }

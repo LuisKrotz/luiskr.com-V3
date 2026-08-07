@@ -1,10 +1,31 @@
 :root {
+    // Color tokens
     --white: #{$color-white};
     --black: #{$color-black};
     --grey: #{$color-grey};
     --grey-2: #{$color-grey-2};
     --grey-3: #{$color-grey-3};
     --blue: #{$color-blue};
+
+    // Spacing tokens (Fibonacci scale, unitless — multiply with rem in CSS)
+    --space-none:     #{$space-none};
+    --space-hairline: #{$space-hairline};
+    --space-pixel:    #{$space-pixel};
+    --space-2xs:      #{$space-2xs};
+    --space-xs:       #{$space-xs};
+    --space-sm:       #{$space-sm};
+    --space-md:       #{$space-md};
+    --space-lg:       #{$space-lg};
+    --space-xl:       #{$space-xl};
+    --space-2xl:      #{$space-2xl};
+    --space-3xl:      #{$space-3xl};
+    --space-4xl:      #{$space-4xl};
+    --space-5xl:      #{$space-5xl};
+    --space-6xl:      #{$space-6xl};
+    --space-7xl:      #{$space-7xl};
+    --space-8xl:      #{$space-8xl};
+    --space-9xl:      #{$space-9xl};
+    --space-10xl:     #{$space-10xl};
 }
 
 html,
@@ -25,10 +46,10 @@ body {
 
     /* width */
     &::-webkit-scrollbar {
-        width: to-rem($F6);
+        width: to-rem($space-md);
 
         @include layout-2560() {
-            width: to-rem($F7);
+            width: to-rem($space-lg);
         }
     }
 

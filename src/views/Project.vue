@@ -29,19 +29,23 @@
                             <p v-else class="internal-description-text" v-html="item"></p>
                         </template>
                     </div>
-                    <div v-else class="internal-extra">
-                        <div class="internal-extra-scroll">
-                            <div v-for="item, itemkey in child" :key="itemkey" :class="'internal-extra-item ' + (item?.class ?? '')">
+                    <Carousel v-else :items="child">
+                        <template #default="{ item, isVisible }">
+                            <div :class="'internal-extra-item ' + (item?.class ?? '')">
                                 <Media
-                                :src="translations.folder + item.src"
-                                :width="item.size[0]"
-                                :height="item.size[1]"
-                                :canExpand="item?.canExpand ?? false"
-                                :isVideo="item?.isVideo ?? false"
-                                :label="item.label"/>
+                                    v-if="isVisible"
+                                    :src="translations.folder + item.src"
+                                    :width="item.size[0]"
+                                    :height="item.size[1]"
+                                    :canExpand="item?.canExpand ?? false"
+                                    :isVideo="item?.isVideo ?? false"
+                                    :label="item.label"/>
+                                <figure v-else>
+                                    <LoadSVG :classes="'load-svg render-media'" :renderText="false" />
+                                </figure>
                             </div>
-                        </div>
-                    </div>
+                        </template>
+                    </Carousel>
                 </template>
           </section>
         </div>
@@ -49,6 +53,7 @@
           <div class="internal-description">
             <p class="internal-description-text">{{ loading.msg3 }}</p>
           </div>
+          <!-- Loading skeleton: plain flex row (no carousel needed) -->
           <div class="internal-extra">
               <div class="internal-extra-scroll">
                 <div class="internal-extra-item" v-for="n in 5" :key="n">
@@ -83,6 +88,7 @@ import Media                            from '../components/Media.vue';
 import MediaExpanded                    from '../components/MediaExpanded.vue';
 import LoadSVG                          from '../components/LoadSVG.vue';
 import Related                          from '../components/portfolio/Related.vue';
+import Carousel                         from '../components/Carousel.vue';
 
 
 export default {
@@ -97,7 +103,8 @@ export default {
     Media,
     MediaExpanded,
     Related,
-    LoadSVG
+    LoadSVG,
+    Carousel,
   },
   name: 'Render Project',
   created() {

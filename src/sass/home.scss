@@ -8,29 +8,29 @@
 
     &-grid {
         display: grid;
-        grid-gap: to-rem($F9);
-        padding: to-rem($F11) 0;
+        grid-gap: to-rem($space-2xl);
+        padding: to-rem($space-4xl) 0;
         max-width: 100vw;
 
         @include layout-1024() {
-            grid-gap: to-rem($F11);
-            padding: to-rem($F11) 0;
+            grid-gap: to-rem($space-4xl);
+            padding: to-rem($space-4xl) 0;
         }
 
         @include layout-1440() {
-            grid-gap: to-rem($F12);
-            padding: to-rem($F12) 0;
+            grid-gap: to-rem($space-5xl);
+            padding: to-rem($space-5xl) 0;
         }
 
         @include layout-2560() {
-            grid-gap: to-rem($F13);
-            padding: to-rem($F13) 0;
+            grid-gap: to-rem($space-6xl);
+            padding: to-rem($space-6xl) 0;
         }
     }
 
     &-title {
         text-align: left;
-        padding-bottom: to-rem($F8);
+        padding-bottom: to-rem($space-xl);
         overflow: hidden;
 
         height: 100vh;
@@ -45,27 +45,27 @@
             width: fit-content;
             white-space: nowrap;
             will-change: transform;
-            font-size: to-rem($F12);
-            line-height: to-rem($F12);
+            font-size: to-rem($space-5xl);
+            line-height: to-rem($space-5xl);
 
             @include layout-768() {
-                font-size: to-rem($F11);
-                line-height: to-rem($F11);
+                font-size: to-rem($space-4xl);
+                line-height: to-rem($space-4xl);
             }
 
             @include layout-1280() {
-                font-size: to-rem($F12);
-                line-height: to-rem($F12);
+                font-size: to-rem($space-5xl);
+                line-height: to-rem($space-5xl);
             }
 
             @include layout-1920() {
-                font-size: to-rem($F13);
-                line-height: to-rem($F13);
+                font-size: to-rem($space-6xl);
+                line-height: to-rem($space-6xl);
             }
 
             @include layout-2560() {
-                font-size: to-rem($F14);
-                line-height: to-rem($F14);
+                font-size: to-rem($space-7xl);
+                line-height: to-rem($space-7xl);
             }
 
             animation: marquee-keyframe 320s linear infinite;
@@ -83,19 +83,19 @@
 
             .portfolio-item-label {
                 @include layout-1024() {
-                    padding-right: to-rem($F9);
+                    padding-right: to-rem($space-2xl);
                 }
 
                 @include layout-1440() {
-                    padding-right: to-rem($F10);
+                    padding-right: to-rem($space-3xl);
                 }
 
                 @include layout-1680() {
-                    padding-right: to-rem($F11);
+                    padding-right: to-rem($space-4xl);
                 }
 
                 @include layout-2560() {
-                    padding-right: to-rem($F12);
+                    padding-right: to-rem($space-5xl);
                 }
             }
         }
@@ -188,31 +188,31 @@
                         width: 100%;
                         height: 100%;
                         background: var(--black);
-                        padding: to-rem($F7);
+                        padding: to-rem($space-lg);
                         box-sizing: border-box;
 
                         @include layout-320() {
-                            padding: to-rem($F8);
+                            padding: to-rem($space-xl);
                         }
     
                         @include layout-540() {
-                            padding: to-rem($F9);
+                            padding: to-rem($space-2xl);
                         }
 
                         @include layout-1280() {
-                            padding: to-rem($F10);
+                            padding: to-rem($space-3xl);
                         }
 
                         @include layout-1440() {
-                            padding: to-rem($F11);
+                            padding: to-rem($space-4xl);
                         }
 
                         @include layout-2560() {
-                            padding: to-rem($F12);
+                            padding: to-rem($space-5xl);
                         }
 
                         @include layout-3840() {
-                            padding: to-rem($F13);
+                            padding: to-rem($space-6xl);
                         }
 
                         &-triangle-1 {
@@ -283,7 +283,7 @@
             &-title {
                 @extend .ttl-lg;
 
-                padding-bottom: to-rem($F7);
+                padding-bottom: to-rem($space-lg);
             }
             
             &-description {
@@ -297,28 +297,28 @@
                 @extend .txt-sm;
 
                 display: block;
-                margin: to-rem($F7) 0;
+                margin: to-rem($space-lg) 0;
                 text-decoration: underline;
                 color: var(--black);
             }
 
-            padding-top: to-rem($F9);
+            padding-top: to-rem($space-2xl);
 
             @include layout-1024() {
                 padding-top: 0;
-                padding-left: to-rem($F10);
+                padding-left: to-rem($space-3xl);
             }
 
             @include layout-1280() {
-                padding-left: to-rem($F11);
+                padding-left: to-rem($space-4xl);
             }
 
             @include layout-1680() {
-                padding-left: to-rem($F12);
+                padding-left: to-rem($space-5xl);
             }
 
             @include layout-2560() {
-                padding-left: to-rem($F12);
+                padding-left: to-rem($space-5xl);
             }
         }
     }

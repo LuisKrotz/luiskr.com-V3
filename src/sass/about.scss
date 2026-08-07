@@ -11,18 +11,18 @@
         display: grid;
         grid-template-columns: repeat(1, auto);
 
-        grid-gap: to-rem($F8);
+        grid-gap: to-rem($space-xl);
         @include layout-768() {
-            grid-gap: to-rem($F8);
+            grid-gap: to-rem($space-xl);
         }
 
         @include layout-1280() {
             grid-template-columns: repeat(2, auto);
-            grid-gap: to-rem($F10);
+            grid-gap: to-rem($space-3xl);
         }
 
         @include layout-2560() {
-            grid-gap: to-rem($F12);
+            grid-gap: to-rem($space-5xl);
         }
     }
 
@@ -30,14 +30,14 @@
     &-container {
         margin: 0;
         padding: 0;
-        padding-bottom: to-rem($F11);
+        padding-bottom: to-rem($space-4xl);
 
         @include layout-1440() {
-            padding-bottom:  to-rem($F12);
+            padding-bottom:  to-rem($space-5xl);
         }
 
         @include layout-2560() {
-            padding-bottom:  to-rem($F13);
+            padding-bottom:  to-rem($space-6xl);
         }
     }
 
@@ -46,22 +46,22 @@
 
         text-align: left;
         text-transform: uppercase;
-        padding:  to-rem($F11) 0 to-rem($F8);
+        padding:  to-rem($space-4xl) 0 to-rem($space-xl);
 
         @include layout-768() {
-            padding: to-rem($F11) 0 to-rem($F10);
+            padding: to-rem($space-4xl) 0 to-rem($space-3xl);
         }
 
         @include layout-1024() {
-            padding: to-rem($F11) 0 to-rem($F10);
+            padding: to-rem($space-4xl) 0 to-rem($space-3xl);
         }
 
         @include layout-1440() {
-            padding:  to-rem($F12) 0 to-rem($F11);
+            padding:  to-rem($space-5xl) 0 to-rem($space-4xl);
         }
 
         @include layout-2560() {
-            padding: to-rem($F13) 0 to-rem($F12);
+            padding: to-rem($space-6xl) 0 to-rem($space-5xl);
         }
     }
 
@@ -71,19 +71,19 @@
 
         &-text {
             @extend .txt-md;
-            padding-bottom: to-rem($F7);
+            padding-bottom: to-rem($space-lg);
 
 
             @include layout-768() {
-                padding-bottom: to-rem($F8);
+                padding-bottom: to-rem($space-xl);
             }
 
             @include layout-1280() {
-                padding-bottom: to-rem($F9);
+                padding-bottom: to-rem($space-2xl);
             }
 
             @include layout-1680() {
-                padding-bottom: to-rem($F10);
+                padding-bottom: to-rem($space-3xl);
             }
         }
     }
@@ -95,17 +95,17 @@
         position: relative;
         box-sizing: border-box;
         width: to-rem(180);
-        border-radius: to-rem($F6);
-        margin-bottom: to-rem($F9);
-        margin-left: to-rem($F8);
+        border-radius: to-rem($space-md);
+        margin-bottom: to-rem($space-2xl);
+        margin-left: to-rem($space-xl);
         transform: rotateZ(352deg); 
 
         @include layout-375() {
             float: left;
             width: to-rem(160);
-            border-radius: to-rem($F6);
-            margin-right: to-rem($F9);
-            margin-bottom: to-rem($F8);
+            border-radius: to-rem($space-md);
+            margin-right: to-rem($space-2xl);
+            margin-bottom: to-rem($space-xl);
             margin-left: 0;
             transform: rotateZ(354deg);
         }
@@ -117,44 +117,44 @@
 
         @include layout-768() {
             width: to-rem(240);
-            border-radius: to-rem($F6);
-            margin-right: to-rem($F10);
+            border-radius: to-rem($space-md);
+            margin-right: to-rem($space-3xl);
             margin-bottom: 0;
             transform: rotateZ(350deg); 
         }
 
         @include layout-1024() {
             width: to-rem(180);
-            border-radius: to-rem($F6);
-            margin-right: to-rem($F11);
+            border-radius: to-rem($space-md);
+            margin-right: to-rem($space-4xl);
         }
 
         @include layout-1280() {
             width: to-rem(180);
-            margin-right: to-rem($F9);
-            margin-bottom: to-rem($F8);
+            margin-right: to-rem($space-2xl);
+            margin-bottom: to-rem($space-xl);
             transform: initial;
         }
 
         @include layout-1440() {
             width: to-rem(240);
-            border-radius: to-rem($F7);
-            margin-right: to-rem($F10);
-            margin-bottom: to-rem($F9);
+            border-radius: to-rem($space-lg);
+            margin-right: to-rem($space-3xl);
+            margin-bottom: to-rem($space-2xl);
         }
 
         @include layout-1680() {
             width: to-rem(320);
-            border-radius: to-rem($F7);
-            margin-right: to-rem($F11);
-            margin-bottom: to-rem($F9);
+            border-radius: to-rem($space-lg);
+            margin-right: to-rem($space-4xl);
+            margin-bottom: to-rem($space-2xl);
         }
 
         @include layout-2560() {
             width: to-rem(520);
-            border-radius: to-rem($F8);
-            margin-right: to-rem($F12);
-            margin-bottom: to-rem($F10);
+            border-radius: to-rem($space-xl);
+            margin-right: to-rem($space-5xl);
+            margin-bottom: to-rem($space-3xl);
         }
 
         @include layout-3840() {
@@ -198,37 +198,37 @@
             background: var(--white);
             position: relative;
             box-sizing: border-box;
-            padding: to-rem($F8);
+            padding: to-rem($space-xl);
 
             @include layout-768() {
-                padding: to-rem($F9);
+                padding: to-rem($space-2xl);
             }
 
             @include layout-1024() {
-                padding: to-rem($F8);
+                padding: to-rem($space-xl);
             }
 
             @include layout-1280() {
-                padding: to-rem($F8);
+                padding: to-rem($space-xl);
             }
 
             @include layout-1440() {
-                padding: to-rem($F9);
+                padding: to-rem($space-2xl);
             }
 
             @include layout-1920() {
-                padding: to-rem($F10);
+                padding: to-rem($space-3xl);
             }
 
             @include layout-2560() {
-                padding: to-rem($F10);
+                padding: to-rem($space-3xl);
             }
         }
     }
 
     .awards {
         display: grid;
-        grid-gap: to-rem($F9);
+        grid-gap: to-rem($space-2xl);
 
         @include layout-540() {
             grid-template-columns: repeat(2, 1fr);
@@ -251,19 +251,19 @@
         }
 
         &-item {
-            border-radius: to-rem($F5);
+            border-radius: to-rem($space-sm);
             background: var(--grey-2);
-            box-shadow: to-rem($F3) to-rem($F3) to-rem($F5) 0 rgba($color-black, .15);
+            box-shadow: to-rem($space-2xs) to-rem($space-2xs) to-rem($space-sm) 0 rgba($color-black, .15);
             overflow: hidden;
 
             &-link {
                 display: grid;
-                grid-template-columns: to-rem($F11) auto;
+                grid-template-columns: to-rem($space-4xl) auto;
                 min-height: 100%;
                 align-items: center;
 
                 @include layout-2560() {
-                    grid-template-columns: to-rem($F12) auto;
+                    grid-template-columns: to-rem($space-5xl) auto;
                 }
 
                 &-media {
@@ -274,23 +274,23 @@
                     align-items: center;
                     justify-content: center;
                     background: var(--grey-2);
-                    font-size: to-rem($F9);
-                    line-height: to-rem($F11);
+                    font-size: to-rem($space-2xl);
+                    line-height: to-rem($space-4xl);
                     min-height: 100%;
 
                     @include layout-2560() {
-                        font-size: to-rem($F10);
-                        line-height: to-rem($F12);
+                        font-size: to-rem($space-3xl);
+                        line-height: to-rem($space-5xl);
                     }
                 }
 
                 &-text {
                     @extend .txt-xs;
 
-                    padding: 0 to-rem($F7);
+                    padding: 0 to-rem($space-lg);
 
                     @include layout-1440() {
-                        padding: 0 to-rem($F8);
+                        padding: 0 to-rem($space-xl);
                     }
                 }
             }

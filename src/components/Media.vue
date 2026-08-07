@@ -5,34 +5,31 @@
         <img decoding="async" class="render-placeholder" :src="placeholder(width, height)" :width="width" :height="height" alt=" "/>
 
         <img decoding="async" v-if="!isVideo"
+            ref="mediaImg"
             :class="'render-media ' + classes"
             :width="width"
             :height="height"
             :alt="label"
-            :src="storage + src + q100"
-            v-lazy="{src: storage + src + q50, loading: storage + src + thumb }" />
-        <video decoding="async"  v-else-if="autoPlay"
+            :src="lowSrc" />
+        <video decoding="async" v-else-if="autoPlay"
+            ref="mediaVideo"
             :class="'render-media ' + classes"
             :poster="poster[0]"
             :width="width"
             :height="height"
             :alt="label"
             playsinline loop muted autoplay>
-            <source :src="video[1]" type="video/mp4">
+            <source :src="videoSrcLoaded ? video[1] : ''" type="video/mp4">
         </video>
-        <video decoding="async"  v-else
+        <video decoding="async" v-else
+            ref="mediaVideo"
             :class="'render-media ' + classes"
             :poster="poster[0]"
             :width="width"
             :height="height"
             :alt="label"
-            playsinline loop muted
-            @mousedown="play($event)"
-            @mouseover="play($event)"
-            @mouseenter="play($event)"
-            @mouseout="pause($event)"
-            @mouseleave="pause($event)">
-            <source :src="video[1]" type="video/mp4">
+            playsinline loop muted>
+            <source :src="videoSrcLoaded ? video[1] : ''" type="video/mp4">
         </video>
 
         <template v-if="canExpand">
@@ -48,6 +45,11 @@ const   moz = '-mozjpg',
         scale = '.mp4-scaledown-2x',
         videoExtension = '.mp4';
 
+// Margin before the element enters the viewport to start loading
+const IMG_ROOT_MARGIN  = '300px';
+const VID_ROOT_MARGIN  = '200px';
+const VID_PLAY_THRESHOLD = 0.5; // 50% visible to auto-play
+
 export default {
     name: 'Media',
     data() {
@@ -60,8 +62,13 @@ export default {
             styles:             '',
             poster:             [],
             video:              [],
+            lowSrc:             '',         // starts as placeholder SVG, upgraded on intersection
+            videoSrcLoaded:     false,      // whether video <source> src has been set
             action:             this.$store.getters.getClickOrTap,
-            translations:       this.$store.getters.getlang.components.media
+            translations:       this.$store.getters.getlang.components.media,
+            _imgObserver:       null,
+            _vidObserver:       null,
+            _vidPlayObserver:   null,
         }
     },
     props: {
@@ -111,49 +118,138 @@ export default {
                 [video + scale + placeholder, video + scale + videoExtension]
             ];
             this.poster = urls.map((arr) => arr[0]);
-            this.video = urls.map((arr) => arr[1]);
+            this.video  = urls.map((arr) => arr[1]);
+        } else {
+            // Show a tiny thumb as initial src (avoids blank)
+            this.lowSrc = this.storage + this.src + this.thumb;
         }
     },
     mounted() {
         if (this.canExpand)
-            this.styles = {
-                position: 'relative'
-            };
+            this.styles = { position: 'relative' };
+
+        if (this.isVideo) {
+            this._setupVideoObservers();
+        } else {
+            this._setupImageObserver();
+        }
+    },
+    beforeUnmount() {
+        this._disconnectObservers();
     },
     methods: {
         placeholder(width, height) {
             return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E`;
         },
+
+        // ── Image lazy loading ──────────────────────────────────────────────
+        _setupImageObserver() {
+            if (!('IntersectionObserver' in window)) {
+                // Fallback: load immediately
+                this._loadHighResImage();
+                return;
+            }
+
+            this._imgObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this._loadHighResImage();
+                        this._imgObserver.disconnect();
+                        this._imgObserver = null;
+                    }
+                });
+            }, { rootMargin: IMG_ROOT_MARGIN, threshold: 0 });
+
+            if (this.$refs.mediaImg) {
+                this._imgObserver.observe(this.$refs.mediaImg);
+            }
+        },
+
+        _loadHighResImage() {
+            const hq = this.storage + this.src + this.q50;
+            const img = new Image();
+            img.onload = () => {
+                this.lowSrc = hq;
+                // Once medium quality loaded, fetch uncompressed
+                const uhq = new Image();
+                uhq.onload = () => { this.lowSrc = this.storage + this.src + this.q100; };
+                uhq.src = this.storage + this.src + this.q100;
+            };
+            img.src = hq;
+        },
+
+        // ── Video lazy loading ──────────────────────────────────────────────
+        _setupVideoObservers() {
+            if (!('IntersectionObserver' in window)) {
+                this.videoSrcLoaded = true;
+                return;
+            }
+
+            // Load the source file when near-viewport
+            this._vidObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.videoSrcLoaded = true;
+                        this._vidObserver.disconnect();
+                        this._vidObserver = null;
+                    }
+                });
+            }, { rootMargin: VID_ROOT_MARGIN, threshold: 0 });
+
+            // For non-autoplay videos: play/pause on visibility
+            if (!this.autoPlay) {
+                this._vidPlayObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const vid = this.$refs.mediaVideo;
+                        if (!vid) return;
+                        if (entry.isIntersecting && this.videoSrcLoaded) {
+                            vid.play().catch(() => {});
+                        } else {
+                            vid.pause();
+                        }
+                    });
+                }, { threshold: VID_PLAY_THRESHOLD });
+            }
+
+            this.$nextTick(() => {
+                const vid = this.$refs.mediaVideo;
+                if (vid) {
+                    this._vidObserver?.observe(vid);
+                    this._vidPlayObserver?.observe(vid);
+                }
+            });
+        },
+
+        _disconnectObservers() {
+            this._imgObserver?.disconnect();
+            this._vidObserver?.disconnect();
+            this._vidPlayObserver?.disconnect();
+        },
+
+        // ── Modal ───────────────────────────────────────────────────────────
         openModal() {
-            const win = window;
-
             if (!this.canExpand) return;
-
+            const win = window;
             const y = win.scrollY;
-
             this.$store.commit('setModal', {
                 transform: y,
                 class: 'modal-open',
                 open: true,
                 media: {
-                    source: this.isVideo ? this.video[0] : this.storage + this.src + this.q100,
-                    thumb: this.isVideo ? this.poster[0] : this.storage + this.src + this.thumb,
-                    alt: this.label,
-                    width: this.width,
-                    height: this.height,
+                    source:  this.isVideo ? this.video[0] : this.storage + this.src + this.q100,
+                    thumb:   this.isVideo ? this.poster[0] : this.storage + this.src + this.thumb,
+                    alt:     this.label,
+                    width:   this.width,
+                    height:  this.height,
                     isVideo: this.isVideo
                 }
             });
-
             win.scrollTo(0, 0);
+        },
 
-        },
-        play(e) {
-            e.target.play();
-        },
-        pause(e) {
-            e.target.pause();
-        }
+        // kept for template compatibility (legacy hover events replaced by observer)
+        play(e)  { e.target.play(); },
+        pause(e) { e.target.pause(); }
     }
 }
 </script>
