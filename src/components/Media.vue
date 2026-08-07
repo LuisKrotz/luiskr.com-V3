@@ -39,8 +39,7 @@
         </video>
 
         <template v-if="canExpand">
-            <!-- Round expand button (open-1). open-2 is hidden in modal.scss -->
-            <button class="expand-modal-open-1" aria-label="Expand" data-no-snippet>&#10138;</button>
+            <button class="expand-modal-open-1" data-no-snippet>&#10138; {{ action }} {{ translations?.toOpen }}</button>
             <button class="expand-modal-open-2" aria-hidden="true" data-no-snippet></button>
         </template>
     </figure>

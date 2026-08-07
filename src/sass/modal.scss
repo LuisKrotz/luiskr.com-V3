@@ -20,41 +20,43 @@
     &-open-1 {
         @extend .ttl-xs;
 
-        border: 1.5px solid var(--grey-3);
+        border: none;
         box-sizing: border-box;
         position: absolute;
         bottom: to-rem($space-lg);
-        right: to-rem($space-lg);
+        left: 50%;
+        transform: translateX(-50%);
         text-transform: uppercase;
         cursor: pointer;
-        width: to-rem($space-3xl);
-        height: to-rem($space-3xl);
-        border-radius: 50%;
+        width: auto;
+        max-width: 80%;
+        height: to-rem($space-2xl);
+        line-height: to-rem($space-2xl);
+        padding: 0 to-rem($space-xl);
+        border-radius: to-rem($space-md);
         display: flex;
         align-items: center;
         justify-content: center;
+        gap: to-rem($space-sm);
         font-weight: 700;
         font-size: to-rem($space-sm);
-        color: var(--grey);
-        background: rgba(38, 38, 38, .6);
-        backdrop-filter: blur(4px);
-        transition: color .2s ease, border-color .2s ease, background .2s ease;
-        overflow: hidden;
+        color: var(--white);
+        background: rgba(38, 38, 38, .72);
+        backdrop-filter: blur(6px);
         white-space: nowrap;
-        text-overflow: ellipsis;
-
-        span { display: none; } // hide text label, icon only
+        // Color/opacity-only hover — no shape or size change
+        transition: color .2s ease, background .2s ease, opacity .2s ease;
 
         @include layout-1440() {
-            width: to-rem($space-3xl + $space-md);
-            height: to-rem($space-3xl + $space-md);
+            height: to-rem($space-3xl);
+            line-height: to-rem($space-3xl);
+            border-radius: to-rem($space-lg);
         }
 
         .internal-expand:hover &,
         .internal-expand:focus & {
             color: var(--white);
-            border-color: var(--grey);
-            background: rgba(38, 38, 38, .85);
+            background: rgba(38, 38, 38, .95);
         }
     }
 
