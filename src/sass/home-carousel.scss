@@ -129,64 +129,40 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
 
 // ════════════════════════════════════════════════════════════════════════════
 //  VARIANT: selected work
-//  - Active slide fills the MAXAREA grid
-//  - Prev / next slides bleed OUTSIDE the grid (edge to edge of viewport)
-//  - Controls float over image, vertically centred
-//  - Labels: hidden on non-active, fade in on active
 // ════════════════════════════════════════════════════════════════════════════
 .hc--selected {
   position: relative;
 
-  // ── Track breaks out of %MAXAREA padding ──────────────────────────────
-  // The parent section uses %MAXAREA which applies padding-left/right.
-  // We pull the track to full viewport width with negative margins.
-  .hc-track {
-    overflow: visible; // let adjacent slides show outside
-    // Each slide controls its own width; the track is full-width
-  }
-
-  // ── Slide: active = MAXAREA content width, adjacent peek outside ────────
-  // We use a CSS approach:
-  //  - Each slide is 100vw wide
-  //  - The active content inside has the correct MAXAREA-respecting padding
-  //  - Adjacent slides are clipped by the viewport but text is hidden
+  // ── Slide widths: slightly narrower than viewport so adjacent slides peek ──
+  // The section has no lateral padding (home.scss zeros it),
+  // so 88vw slides → ~6vw peeking in from each side.
   .hc-slide {
-    // Full viewport width so the track can scroll between "pages"
-    width: 100vw;
-    flex-basis: 100vw;
+    width: 88vw;
+    flex-basis: 88vw;
     box-sizing: border-box;
     position: relative;
 
-    // The slide's inner link occupies the grid content area (centred)
-    // and adjacent slides peek in from their sides
+    @include layout-768()  { width: 82vw; flex-basis: 82vw; }
+    @include layout-1024() { width: 78vw; flex-basis: 78vw; }
+    @include layout-1440() { width: 72vw; flex-basis: 72vw; }
+    @include layout-2560() { width: 66vw; flex-basis: 66vw; }
   }
 
-  // The track must be able to overflow outside MAXAREA.
-  // Pull it left by the grid lateral padding so it starts at viewport edge.
-  // We achieve this by making the section overflow visible and breaking out
-  // via a wrapper that negates %MAXAREA padding.
-  // This is done in home.scss on .home-section--selected .hc-track.
-
-  // ── Controls: absolute, vertically centred over the cover image ─────────
+  // ── Controls: absolute over the image, full-width positioned ──────────────
   .hc-controls {
     position: absolute;
-    // Span the full viewport (not the MAXAREA) so buttons sit at the edges
-    left: 0;
+    left:  0;
     right: 0;
-    // vertical position is computed by JS (top of section + cover height/2)
-    // We use top+transform: 50% of the .hc-cover height.
-    // Since .hc-cover height is defined by min/max-height, we approximate:
-    top: 0;
+    top:   0;
     height: 100%;
     pointer-events: none;
     z-index: 10;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // keep buttons inside the viewport with a small gutter
     padding: 0 to-rem($space-sm);
 
-    @include layout-768()  { padding: 0 to-rem($space-lg); }
+    @include layout-768() { padding: 0 to-rem($space-lg); }
   }
 
   .hc-btn {
@@ -244,10 +220,10 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     }
   }
 
-  // ── Label: hidden on adjacent, fades in on active ───────────────────────
-  // Keep the text block's height always so layout doesn't shift.
+  // ── Label: hidden on adjacent, fades in only on active slide ─────────────
+  // Uses %MAXAREA so text stays within the reading grid
+  // even though the slide itself is full viewport width.
   .hc-label {
-    // Respect the MAXAREA padding inside the full-vw slide
     @extend %MAXAREA;
 
     padding-top: to-rem($space-sm);

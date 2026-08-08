@@ -30,17 +30,22 @@
     }
   }
 
-  // Selected section: extra top padding to clear the fixed nav
+  // Selected section: extra top padding for nav, NO lateral padding (carousel is full-width)
   &--selected {
     padding-top: to-rem($space-5xl);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 
     @include layout-768()  { padding-top: to-rem($space-6xl); }
     @include layout-1440() { padding-top: to-rem($space-7xl); }
     @include layout-2560() { padding-top: to-rem($space-8xl); }
 
-    // Selected title has less extra top, the section padding handles nav clearance
+    // Title sits inside its own MAXAREA-padded wrapper
     .home-section-title {
+      @extend %MAXAREA;
+
       padding-top: 0;
+      box-sizing: border-box;
     }
   }
 
