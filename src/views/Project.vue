@@ -47,7 +47,7 @@
                   <p v-else class="internal-description-text" v-html="item"></p>
                 </template>
               </div>
-              <Carousel v-else :items="child">
+              <Carousel v-else :items="child" :force-active="isLandscapeGroup(child)">
                 <template #default="{ item, isVisible }">
                   <div :class="'internal-extra-item ' + (item?.class ?? '')">
                     <Media
@@ -161,6 +161,13 @@ export default {
   methods: {
     svgPlaceholder(w, h) {
       return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"%3E%3C/svg%3E`
+    },
+    // Returns true when every item in a child group is landscape-class.
+    // Used to force the Carousel active on desktop (2 items would otherwise fall below threshold).
+    isLandscapeGroup(group) {
+      return (
+        Array.isArray(group) && group.length >= 1 && group.every((i) => i?.class === 'landscape')
+      )
     },
     loadData(wait = false) {
       const lang = this.$store.getters.getlang

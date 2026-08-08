@@ -179,7 +179,6 @@ export default {
         if (currentPath !== newPath) {
           this.$router.replace(newPath)
         }
-
       }
     },
     play(e) {

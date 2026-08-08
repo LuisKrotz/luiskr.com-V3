@@ -31,8 +31,10 @@
   }
 
   // Selected section: top padding = nav height clearance (same as internals)
+  // !important needed: %MAXAREA uses padding shorthand at every breakpoint,
+  // which resets padding-top to 0. This override must win.
   &--selected {
-    padding-top: to-rem($space-4xl);
+    padding-top: to-rem($space-4xl) !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
 
@@ -45,8 +47,14 @@
     }
   }
 
-  // Archive section gets more lateral breathing room (~66% content)
+  // Archive section: huge top padding to separate from selected carousel
+  // !important needed: same MAXAREA shorthand issue as --selected above
   &--archive {
+    padding-top: to-rem($space-7xl) !important;
+
+    @include layout-1440() { padding-top: to-rem($space-8xl) !important; }
+    @include layout-2560() { padding-top: to-rem($space-9xl) !important; }
+
     .hc--explore {
       // Override the explore carousel's padding to respect home grid gutters
       padding: 0;

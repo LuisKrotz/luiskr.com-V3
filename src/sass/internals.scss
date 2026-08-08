@@ -575,3 +575,13 @@
   align-items: center;
   justify-content: center;
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Single landscape image (not in carousel — carousel-fallback)
+// Must have the same MAXAREA lateral padding as all other grid content.
+// ─────────────────────────────────────────────────────────────────────────────
+.carousel-fallback .internal-extra-item.landscape {
+  @extend %MAXAREA;
+
+  box-sizing: border-box;
+}

@@ -109,6 +109,10 @@ export default {
       type: Array,
       required: true,
     },
+    forceActive: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ['change'],
 
@@ -137,6 +141,7 @@ export default {
 
   computed: {
     isActive() {
+      if (this.forceActive) return this.items.length > 1
       const threshold = this.isMobile ? MOBILE_MIN_ITEMS : DESKTOP_MIN_ITEMS
       return this.items.length > threshold
     },

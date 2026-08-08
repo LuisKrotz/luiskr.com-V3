@@ -20,10 +20,6 @@
                 <img
                   decoding="async"
                   class="hc-cover-img"
-                  v-lazy="{
-                    src: storage + 'covers/' + item.image + ext,
-                    loading: storage + 'covers/' + item.image + loadext + ext,
-                  }"
                   :src="storage + 'covers/' + item.image + ext"
                   :alt="item.label"
                   :width="item.width ? item.width[0] : undefined"
@@ -32,7 +28,7 @@
               </div>
               <div class="hc-label">
                 <h3 class="hc-label-title">{{ item.label }}</h3>
-                <p class="hc-label-desc">{{ item.description }}</p>
+                <p class="hc-label-desc" v-html="item.description"></p>
               </div>
             </router-link>
           </template>
@@ -70,10 +66,6 @@
                 <img
                   decoding="async"
                   class="hc-card-cover-img"
-                  v-lazy="{
-                    src: storage + 'covers/' + item.image + ext,
-                    loading: storage + 'covers/' + item.image + loadext + ext,
-                  }"
                   :src="storage + 'covers/' + item.image + ext"
                   :alt="item.label"
                   :width="item.width ? item.width[0] : undefined"
@@ -82,7 +74,7 @@
               </div>
               <div class="hc-card-label">
                 <h3 class="hc-card-label-title">{{ item.label }}</h3>
-                <p class="hc-card-label-desc">{{ item.description }}</p>
+                <p class="hc-card-label-desc" v-html="item.description"></p>
               </div>
             </router-link>
           </template>
