@@ -136,6 +136,14 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
   // ── Slide widths: slightly narrower than viewport so adjacent slides peek ──
   // The section has no lateral padding (home.scss zeros it),
   // so 88vw slides → ~6vw peeking in from each side.
+  // Gap between slides gives visual breathing room.
+  .hc-track {
+    gap: to-rem($space-xl);
+
+    @include layout-768()  { gap: to-rem($space-2xl); }
+    @include layout-1440() { gap: to-rem($space-3xl); }
+  }
+
   .hc-slide {
     width: 88vw;
     flex-basis: 88vw;
