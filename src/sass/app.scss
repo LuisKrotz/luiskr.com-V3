@@ -123,10 +123,11 @@
 }
 
 .cookies {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 100;
+  @extend %MAXAREA;
 
-  // Bottom bar — full width, glassy dark
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+
   position: fixed;
   bottom: 0;
   left: 0;
@@ -136,51 +137,39 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-lg);
+  gap: to-rem($space-md);
   flex-wrap: wrap;
 
-  padding: var(--space-md) var(--space-2xl);
-  background: rgba($color-black, 0.88);
+  padding-top: to-rem($space-md);
+  padding-bottom: to-rem($space-md);
+  background: rgba(38, 38, 38, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--white);
   font-size: to-rem(13);
-  line-height: to-rem(21);
-  transform: translate3d(0, 100%, 0); // starts hidden below viewport
-  transition: transform 0s;
-  will-change: transform;
+  line-height: 1.5;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
 
   @include layout-768() {
-    font-size: to-rem(13);
-    padding: var(--space-sm) var(--space-3xl);
-  }
-
-  @include layout-2560() {
-    font-size: to-rem(21);
-    padding: var(--space-md) var(--space-5xl);
-  }
-
-  .show-logo & {
-    animation: slide-in-bottom 0.6s cubic-bezier(0.22, 1, 0.36, 1) 2s forwards;
-  }
-
-  .hide-cookie-banner &,
-  .show-logo.hide-cookie-banner & {
-    animation: slide-out-bottom 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
+    padding-top: to-rem($space-lg);
+    padding-bottom: to-rem($space-lg);
+    font-size: to-rem(14);
   }
 
   &-info {
     flex: 1;
-    min-width: 0;
+    min-width: to-rem(260);
     padding: 0;
     margin: 0;
-    opacity: 0.85;
+    opacity: 0.9;
+    font-weight: 300;
 
     a {
       color: inherit;
       text-decoration: underline;
-      opacity: 0.7;
-      transition: opacity 0.2s;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
 
       &:hover {
         opacity: 1;
@@ -190,48 +179,72 @@
 
   &-buttons {
     display: flex;
-    gap: var(--space-sm);
+    align-items: center;
+    gap: to-rem($space-sm);
     flex-shrink: 0;
 
     &-accept,
     &-refuse {
-      font-family: 'Raleway', sans-serif;
-      font-weight: 200;
-      font-size: to-rem(11);
+      @extend %RESETBTN;
+      @extend .ttl-xs;
+
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: to-rem(2);
+      letter-spacing: to-rem(1.5);
       cursor: pointer;
-      border: 1px solid currentColor;
-      border-radius: to-rem($space-md);
-      padding: var(--space-xs) var(--space-lg);
-      transition:
-        background 0.2s ease,
-        color 0.2s ease;
+      position: relative;
+      padding: to-rem($space-xs) to-rem($space-lg);
+      transition: color 0.2s ease, background 0.2s ease;
       white-space: nowrap;
 
-      @include layout-2560() {
-        font-size: to-rem(13);
-        padding: var(--space-xs) var(--space-xl);
+      // Animated corner borders
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: to-rem($space-xs);
+        height: to-rem($space-xs);
+        transition: width 0.2s ease, height 0.2s ease;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        border-top: 1px solid currentColor;
+        border-left: 1px solid currentColor;
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+        border-bottom: 1px solid currentColor;
+        border-right: 1px solid currentColor;
+      }
+
+      &:hover {
+        &::before,
+        &::after {
+          width: calc(100% - #{to-rem($space-2xs)});
+          height: calc(100% - #{to-rem($space-2xs)});
+        }
       }
     }
 
     &-accept {
-      background: var(--white);
-      color: var(--black);
-      border-color: var(--white);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.1);
 
       &:hover {
-        background: transparent;
-        color: var(--white);
+        color: var(--black);
+        background: var(--white);
       }
     }
 
     &-refuse {
-      background: transparent;
-      color: var(--white);
+      color: var(--grey);
 
       &:hover {
-        background: rgba(255, 255, 255, 0.1);
+        color: var(--white);
       }
     }
   }

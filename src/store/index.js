@@ -3,14 +3,6 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     clickortap: '',
-    defaultSVG: {
-      viewBox: '0 0 117.29 122.67',
-      polygonPoints: [
-        '58.65 1 0.87 101.08 116.43 101.08 58.65 1',
-        '58.65 22.09 0.87 122.17 116.43 122.17 58.65 22.09',
-      ],
-      textTransform: 'translate(18.28 115.62)',
-    },
     has_touch: 'ontouchstart' in window || navigator.msMaxTouchPoints > 0,
     lang: {
       components: false,
@@ -118,9 +110,6 @@ export default createStore({
     },
     getStorage: (state) => {
       return state.storage
-    },
-    getSVG: (state) => {
-      return state.defaultSVG
     },
     getTouch: (state) => {
       return state.has_touch
