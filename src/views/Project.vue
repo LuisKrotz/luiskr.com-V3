@@ -7,7 +7,7 @@
     >
       <h2 class="internal-title">
         <DrawText v-if="translations" :text="translations.title" trigger="viewport" :key="'ttl1'" />
-        <span v-else :key="'ttl2'">{{ loading.msg1 }}</span>
+        <div v-else class="skeleton--title" :key="'ttl2'"></div>
       </h2>
       <div class="internal-main">
         <Media
@@ -42,8 +42,12 @@
                   <h3
                     v-if="childkey === 0 && itemkey < 1"
                     class="internal-description-text"
-                  ><DrawText :text="item" trigger="viewport" :delay="60" /></h3>
-                  <p v-else class="internal-description-text" v-html="item"></p>
+                  >
+                    <DrawText :text="item" trigger="viewport" :delay="20" :offset="itemkey * 60" />
+                  </h3>
+                  <p v-else class="internal-description-text">
+                    <DrawText :text="item" trigger="viewport" :delay="20" :offset="itemkey * 60" />
+                  </p>
                 </template>
               </div>
               <Carousel v-else :items="child" :force-active="isLandscapeGroup(child)">
@@ -80,7 +84,11 @@
         </div>
         <div v-else :key="'load-data'">
           <div class="internal-description">
-            <p class="internal-description-text">{{ loading.msg3 }}</p>
+            <div class="skeleton--text-block">
+              <div class="skeleton--text-line" style="width: 80%"></div>
+              <div class="skeleton--text-line" style="width: 95%"></div>
+              <div class="skeleton--text-line" style="width: 60%"></div>
+            </div>
           </div>
           <!-- Skeleton carousel placeholders -->
           <div class="internal-extra">

@@ -125,6 +125,21 @@ $ring-stroke: 2.5px;
       line-height: 1;
       position: relative;
       z-index: 1;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &--prev:hover &-arrow,
+    &--prev:focus &-arrow {
+      transform: translateX(-4px);
+    }
+
+    &--next:hover &-arrow,
+    &--next:focus &-arrow {
+      transform: translateX(4px);
+    }
+
+    &:active &-arrow {
+      transform: scale(0.85);
     }
 
     // Countdown ring SVG overlay

@@ -105,3 +105,47 @@ main {
     min-height: 100vh;
   }
 }
+
+// ── Global Skeleton Utilities ────────────────────────────────────────────────
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton {
+  &--shimmer {
+    background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 2.4s ease-in-out infinite;
+  }
+
+  &--title {
+    @extend .skeleton--shimmer;
+    width: 60%;
+    height: to-rem($space-2xl);
+    border-radius: to-rem($space-xs);
+    display: inline-block;
+  }
+
+  &--text-block {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem($space-sm);
+    width: 100%;
+    padding: to-rem($space-sm) 0;
+  }
+
+  &--text-line {
+    @extend .skeleton--shimmer;
+    height: to-rem($space-md);
+    border-radius: to-rem($space-2xs);
+  }
+
+  &--tag {
+    @extend .skeleton--shimmer;
+    display: inline-block;
+    width: to-rem(80);
+    height: to-rem($space-lg);
+    border-radius: to-rem($space-xs);
+  }
+}

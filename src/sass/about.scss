@@ -59,26 +59,32 @@
     flex-shrink: 0;
     width: to-rem(180);
     height: to-rem(180);
+    margin: 0 auto;
 
     @include layout-540() {
       width: to-rem(220);
       height: to-rem(220);
+      margin: 0 auto;
     }
     @include layout-768() {
       width: to-rem(240);
       height: to-rem(240);
+      margin: 0 auto;
     }
     @include layout-1024() {
       width: to-rem(280);
       height: to-rem(280);
+      margin: 0 auto;
     }
     @include layout-1440() {
       width: to-rem(360);
       height: to-rem(360);
+      margin: 0;
     }
     @include layout-2560() {
       width: to-rem(480);
       height: to-rem(480);
+      margin: 0;
     }
 
     &-img {

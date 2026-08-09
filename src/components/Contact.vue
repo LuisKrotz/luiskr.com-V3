@@ -2,7 +2,7 @@
   <footer class="contact">
     <h2 id="contact" class="contact-title" ref="contact">
       <span v-if="translations" v-html="translations.title"></span>
-      <span v-else>{{ loading.msg1 }}</span>
+      <div v-else class="skeleton--title"></div>
     </h2>
 
     <div class="contact-social" v-if="translations">
@@ -12,7 +12,7 @@
       </template>
     </div>
     <div class="contact-social" v-else>
-      <span lass="contact-social-link">{{ loading.msg2 }}</span>
+      <div class="skeleton--text-line" style="width: 200px"></div>
     </div>
   </footer>
 </template>

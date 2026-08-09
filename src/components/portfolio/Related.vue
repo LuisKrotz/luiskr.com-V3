@@ -2,7 +2,7 @@
   <footer class="internal-footer">
     <h2 class="internal-footer-title">
       <span v-if="translations?.title" v-html="translations.title" :key="'ttl1'"></span>
-      <span v-else :key="'ttl2'">{{ loading.msg1 }}</span>
+      <div v-else class="skeleton--title" :key="'ttl2'"></div>
     </h2>
     <div class="internal-footer-related">
       <template v-if="translations?.projects">
@@ -16,9 +16,7 @@
         </router-link>
       </template>
       <template v-else>
-        <span v-for="n in 12" class="internal-footer-related-link" :key="n" data-nosnippet>
-          {{ loading.msg2 }}
-        </span>
+        <span v-for="n in 8" class="skeleton--tag" :key="n"></span>
       </template>
     </div>
 
@@ -38,8 +36,10 @@
       <p class="internal-footer-items-note" v-html="translations.note"></p>
     </div>
     <div class="internal-footer-items" v-else data-nosnippet>
-      <span class="internal-footer-items-link">{{ loading.msg2 }}</span>
-      <p class="internal-footer-items-note">{{ loading.msg3 }}</p>
+      <div class="skeleton--text-block" style="width: 200px">
+        <div class="skeleton--text-line" style="width: 100%"></div>
+        <div class="skeleton--text-line" style="width: 70%"></div>
+      </div>
     </div>
   </footer>
 </template>

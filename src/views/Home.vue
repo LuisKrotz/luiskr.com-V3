@@ -54,7 +54,7 @@
     <section id="about" class="about">
       <h2 class="about-title">
         <DrawText v-if="aboutTranslations" :text="aboutTranslations.title" trigger="viewport" />
-        <span v-else>{{ loading.msg1 }}</span>
+        <div v-else class="skeleton--title"></div>
       </h2>
 
       <div class="about-profile-section">
@@ -81,7 +81,11 @@
                 v-html="item"
               ></p>
             </template>
-            <p v-else class="about-item-text">{{ loading.msg2 }}</p>
+            <div v-else class="skeleton--text-block">
+              <div class="skeleton--text-line" style="width: 90%"></div>
+              <div class="skeleton--text-line" style="width: 75%"></div>
+              <div class="skeleton--text-line" style="width: 85%"></div>
+            </div>
           </div>
           <div class="about-profile-text-col">
             <template v-if="aboutTranslations">
