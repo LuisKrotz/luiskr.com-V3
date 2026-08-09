@@ -103,7 +103,10 @@ export default {
 
       // Wait for zoom-out animation to finish
       setTimeout(() => {
-        // Restore URL to portfolio base path (remove slug)
+        // 1. Restore scroll position BEFORE removing fixed layout
+        window.scrollTo({ top: scroll, behavior: 'instant' })
+
+        // 2. Restore URL to portfolio base path (remove slug)
         const routeSlug = this.$route.params?.slug
         if (routeSlug) {
           const currentPath = this.$route.path.replace(/\/$/, '')
@@ -111,6 +114,7 @@ export default {
           this.$router.replace(basePath)
         }
 
+        // 3. Reset modal store state
         this.$store.commit('setModal', {
           transform: 0,
           class: '',
@@ -123,15 +127,6 @@ export default {
             height: undefined,
             isVideo: undefined,
           },
-        })
-
-        // Double-rAF: wait for Vue DOM update + browser reflow before restoring scroll
-        this.$nextTick(() => {
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              window.scrollTo(0, scroll)
-            })
-          })
         })
       }, 400) // matches zoom-out animation duration
     },

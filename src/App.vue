@@ -138,6 +138,15 @@ export default {
     closeModal() {
       const scroll = this.$store.getters.getModal.transform
 
+      // Restore scroll position BEFORE removing fixed layout
+      window.scrollTo({ top: scroll, behavior: 'instant' })
+
+      // Restore URL without slug
+      const basePath = this.$route.path.split('/').slice(0, 3).join('/')
+      if (this.$route.path !== basePath) {
+        this.$router.replace(basePath)
+      }
+
       this.$store.commit('setModal', {
         transform: 0,
         class: '',
@@ -150,16 +159,6 @@ export default {
           height: undefined,
           isVideo: undefined,
         },
-      })
-
-      // Restore URL without slug
-      const basePath = this.$route.path.split('/').slice(0, 3).join('/')
-      if (this.$route.path !== basePath) {
-        this.$router.replace(basePath)
-      }
-
-      window.requestAnimationFrame(() => {
-        window.scrollTo(0, scroll)
       })
     },
     cookieAction(state) {
