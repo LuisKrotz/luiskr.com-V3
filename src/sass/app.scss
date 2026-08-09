@@ -194,6 +194,8 @@
       cursor: pointer;
       position: relative;
       padding: to-rem($space-xs) to-rem($space-lg);
+      color: var(--grey);
+      background: transparent;
       transition: color 0.2s ease, background 0.2s ease;
       white-space: nowrap;
 
@@ -221,30 +223,15 @@
         border-right: 1px solid currentColor;
       }
 
-      &:hover {
+      &:hover,
+      &:focus {
+        color: var(--white);
+
         &::before,
         &::after {
           width: calc(100% - #{to-rem($space-2xs)});
           height: calc(100% - #{to-rem($space-2xs)});
         }
-      }
-    }
-
-    &-accept {
-      color: var(--white);
-      background: rgba(255, 255, 255, 0.1);
-
-      &:hover {
-        color: var(--black);
-        background: var(--white);
-      }
-    }
-
-    &-refuse {
-      color: var(--grey);
-
-      &:hover {
-        color: var(--white);
       }
     }
   }
