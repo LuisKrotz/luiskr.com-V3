@@ -2,7 +2,7 @@
   <footer class="contact">
     <h2 id="contact" class="contact-title" ref="contact">
       <span v-if="translations" v-html="translations.title"></span>
-      <div v-else class="skeleton--title"></div>
+      <div v-else class="skeleton--title" style="width: 160px"></div>
     </h2>
 
     <div class="contact-social" v-if="translations">
@@ -12,7 +12,12 @@
       </template>
     </div>
     <div class="contact-social" v-else>
-      <div class="skeleton--text-line" style="width: 200px"></div>
+      <div style="display: flex; gap: 8px; justify-content: center">
+        <div class="skeleton--text-line" style="width: 45px"></div>
+        <div class="skeleton--text-line" style="width: 55px"></div>
+        <div class="skeleton--text-line" style="width: 70px"></div>
+        <div class="skeleton--text-line" style="width: 55px"></div>
+      </div>
     </div>
   </footer>
 </template>

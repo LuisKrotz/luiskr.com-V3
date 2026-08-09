@@ -3,7 +3,7 @@
     <div id="main" class="legal">
       <h2 class="internal-title">
         <span v-if="translations" v-html="translations.title" :key="'ttl1'"></span>
-        <div v-else class="skeleton--title" :key="'ttl2'"></div>
+        <div v-else class="skeleton--title" style="width: 220px" :key="'ttl2'"></div>
       </h2>
       <template v-if="translations">
         <section
@@ -20,12 +20,16 @@
           ></p>
         </section>
       </template>
-      <div v-else class="internal-description" :key="'data-load'">
-        <div class="skeleton--text-block">
-          <div class="skeleton--text-line" style="width: 80%"></div>
-          <div class="skeleton--text-line" style="width: 95%"></div>
-          <div class="skeleton--text-line" style="width: 60%"></div>
-        </div>
+      <div v-else :key="'data-load'">
+        <section class="internal-description" v-for="n in 3" :key="n">
+          <div class="skeleton--text-line" style="width: 35%; height: 28px; margin-bottom: 16px"></div>
+          <div class="skeleton--text-block">
+            <div class="skeleton--text-line" style="width: 100%"></div>
+            <div class="skeleton--text-line" style="width: 94%"></div>
+            <div class="skeleton--text-line" style="width: 98%"></div>
+            <div class="skeleton--text-line" style="width: 65%"></div>
+          </div>
+        </section>
       </div>
     </div>
     <LegalFooter />
