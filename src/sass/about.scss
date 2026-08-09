@@ -6,27 +6,30 @@
 .about {
   @extend %MAXAREA;
 
+  border-top: 1px solid var(--grey-2);
+  padding-top: to-rem(120) !important;
+
   // ── Title ───────────────────────────────────────────────────────────────
   &-title {
-    @extend .ttl-xxl;
+    @extend .ttl-xl;
 
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
     text-align: left;
     text-transform: uppercase;
-    padding: to-rem($space-4xl) 0 to-rem($space-xl);
+    padding: 0 0 to-rem($space-xl);
 
     @include layout-768() {
-      padding: to-rem($space-4xl) 0 to-rem($space-3xl);
+      padding: 0 0 to-rem($space-3xl);
     }
     @include layout-1024() {
-      padding: to-rem($space-4xl) 0 to-rem($space-3xl);
+      padding: 0 0 to-rem($space-3xl);
     }
     @include layout-1440() {
-      padding: to-rem($space-5xl) 0 to-rem($space-4xl);
+      padding: 0 0 to-rem($space-4xl);
     }
     @include layout-2560() {
-      padding: to-rem($space-6xl) 0 to-rem($space-5xl);
+      padding: 0 0 to-rem($space-5xl);
     }
   }
 
@@ -91,9 +94,9 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
+      background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
       background-size: 200% 100%;
-      animation: skeleton-shimmer 1.6s ease-in-out infinite;
+      animation: skeleton-shimmer 2.4s ease-in-out infinite;
     }
   }
 
@@ -114,6 +117,9 @@
     &-col {
       display: flex;
       flex-direction: column;
+      overflow-wrap: break-word;
+      word-break: normal;
+      hyphens: none;
     }
   }
 
@@ -125,7 +131,11 @@
     &-text {
       @extend .txt-md;
 
+      font-family: 'Raleway', sans-serif;
       font-weight: 100;
+      word-break: normal;
+      overflow-wrap: break-word;
+      hyphens: none;
       padding-bottom: to-rem($space-lg);
 
       @include layout-768() {

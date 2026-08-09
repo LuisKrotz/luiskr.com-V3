@@ -100,7 +100,7 @@ const AUTOPLAY_DURATION = 10000 // ms
 const CIRCUMFERENCE = 2 * Math.PI * 19 // r=19
 const MOBILE_BREAKPOINT = 768
 const MOBILE_MIN_ITEMS = 1
-const DESKTOP_MIN_ITEMS = 2
+const DESKTOP_MIN_ITEMS = 1
 
 export default {
   name: 'Carousel',
@@ -146,6 +146,9 @@ export default {
       return this.items.length > threshold
     },
 
+    isModalOpen() {
+      return !!this.$store.getters.getModal?.open
+    },
     ringStyle() {
       // Countdown ring: starts full, drains to 0 over AUTOPLAY_DURATION
       // stroke-dashoffset goes from 0 → circumference
@@ -164,7 +167,7 @@ export default {
     this._markAdjacentLoaded(0)
     this.$nextTick(() => {
       this._jumpToSlide(0, false)
-      this._startAutoplay()
+      if (!this.isModalOpen) this._startAutoplay()
       this._setHeightVar()
     })
     window.addEventListener('resize', this._onResize)
@@ -175,6 +178,13 @@ export default {
     // Once slideLoaded[i] is true it stays true — no flicker, no remount.
     currentIndex(newVal) {
       this._markAdjacentLoaded(newVal)
+    },
+    isModalOpen(isOpen) {
+      if (isOpen) {
+        this._stopAutoplay()
+      } else if (this.isActive) {
+        this._startAutoplay()
+      }
     },
   },
 

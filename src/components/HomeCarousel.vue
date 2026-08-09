@@ -5,16 +5,8 @@
     @touchstart.passive="onTouchStart"
     @touchend.passive="onTouchEnd"
   >
-    <!-- Controls ABOVE track for non-selected variants -->
-    <div v-if="variant !== 'selected'" class="hc-controls">
-      <button class="hc-btn hc-btn--prev" aria-label="Previous" @click="onPrevClick">
-        <svg class="hc-btn-ring" viewBox="0 0 44 44" aria-hidden="true">
-          <circle class="hc-btn-ring-track" cx="22" cy="22" r="19" />
-          <circle class="hc-btn-ring-fill" cx="22" cy="22" r="19" :style="ringStyle" />
-        </svg>
-        <span class="hc-btn-arrow" aria-hidden="true">&#8592;</span>
-      </button>
-
+    <!-- Controls for awards variant: dots only, no arrows -->
+    <div v-if="variant === 'awards'" class="hc-controls">
       <div v-if="showDots" class="hc-dots" aria-hidden="true">
         <button
           v-for="(_, idx) in items"
@@ -25,15 +17,6 @@
           @click="onDotClick(idx)"
         ></button>
       </div>
-      <div v-else class="hc-spacer"></div>
-
-      <button class="hc-btn hc-btn--next" aria-label="Next" @click="onNextClick">
-        <svg class="hc-btn-ring" viewBox="0 0 44 44" aria-hidden="true">
-          <circle class="hc-btn-ring-track" cx="22" cy="22" r="19" />
-          <circle class="hc-btn-ring-fill" cx="22" cy="22" r="19" :style="ringStyle" />
-        </svg>
-        <span class="hc-btn-arrow" aria-hidden="true">&#8594;</span>
-      </button>
     </div>
 
     <!-- Track -->
@@ -62,8 +45,8 @@
       </div>
     </div>
 
-    <!-- Controls OVER image for selected variant (absolutely positioned) -->
-    <div v-if="variant === 'selected'" class="hc-controls">
+    <!-- Controls OVER track for selected + explore variants (absolutely positioned) -->
+    <div v-if="variant === 'selected' || variant === 'explore'" class="hc-controls">
       <button class="hc-btn hc-btn--prev" aria-label="Previous" @click="onPrevClick">
         <svg class="hc-btn-ring" viewBox="0 0 44 44" aria-hidden="true">
           <circle class="hc-btn-ring-track" cx="22" cy="22" r="19" />
@@ -96,6 +79,8 @@ export default {
     showDots: { type: Boolean, default: false },
   },
 
+  emits: ['slide-change'],
+
   data() {
     return {
       currentIndex: 0,
@@ -112,6 +97,9 @@ export default {
   },
 
   computed: {
+    isModalOpen() {
+      return !!this.$store.getters.getModal?.open
+    },
     ringStyle() {
       const offset = this.circumference * (1 - this.ringProgress)
       return {
@@ -125,9 +113,19 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this._jumpToSlide(0)
-      this._startAutoplay()
+      if (!this.isModalOpen) this._startAutoplay()
     })
     window.addEventListener('resize', this._onResize)
+  },
+
+  watch: {
+    isModalOpen(isOpen) {
+      if (isOpen) {
+        this._stopAutoplay()
+      } else {
+        this._startAutoplay()
+      }
+    },
   },
 
   beforeUnmount() {
@@ -146,6 +144,7 @@ export default {
       const len = this.items.length
       const newIndex = ((idx % len) + len) % len
       this.currentIndex = newIndex
+      this.$emit('slide-change', newIndex)
 
       if (idx >= len) {
         this._scrollToEl(this.$refs.track?.lastElementChild)
@@ -190,9 +189,18 @@ export default {
     _scheduleTeleport(targetIdx) {
       if (this.teleportTimer) clearTimeout(this.teleportTimer)
       this.teleportTimer = setTimeout(() => {
-        this._jumpToSlide(targetIdx)
+        const track = this.$refs.track
+        if (track) {
+          // Temporarily disable scroll-snap to prevent it from fighting the teleport
+          track.style.scrollSnapType = 'none'
+          this._jumpToSlide(targetIdx)
+          // Re-enable after a frame so the browser settles
+          requestAnimationFrame(() => {
+            track.style.scrollSnapType = ''
+          })
+        }
         this.teleportTimer = null
-      }, 380)
+      }, 450)
     },
 
     // ── Button / dot handlers ─────────────────────────────────────────────────

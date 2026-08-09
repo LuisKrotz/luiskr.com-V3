@@ -16,10 +16,21 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    component: Home,
     meta: {
       title: title + ' | About',
-      translation: 'about',
+      translation: 'HOME',
+      scrollTo: 'about',
+    },
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Home,
+    meta: {
+      title: title + ' | Contact',
+      translation: 'HOME',
+      scrollTo: 'contact',
     },
   },
   {
@@ -189,6 +200,18 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+  scrollBehavior(to) {
+    if (to.meta?.scrollTo) {
+      // Wait for the Home component to render the section
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ el: '#' + to.meta.scrollTo, behavior: 'smooth' })
+        }, 600)
+      })
+    }
+    return { top: 0 }
+  },
 })
 
 export default router
+

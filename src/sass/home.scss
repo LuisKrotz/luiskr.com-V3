@@ -17,47 +17,80 @@
     font-weight: 100;
     text-transform: uppercase;
     text-align: left;
-    padding: var(--space-4xl) 0 var(--space-lg);
+    padding: var(--space-3xl) 0 var(--space-xl);
+    padding-bottom: to-rem($space-sm);
 
-    @include layout-768()  { padding: var(--space-4xl) 0 var(--space-xl); }
-    @include layout-1440() { padding: var(--space-5xl) 0 var(--space-2xl); }
-    @include layout-2560() { padding: var(--space-6xl) 0 var(--space-3xl); }
+    @include layout-768()  { padding: var(--space-3xl) 0 var(--space-xl); padding-bottom: to-rem($space-md); }
+    @include layout-1440() { padding: var(--space-4xl) 0 var(--space-2xl); padding-bottom: to-rem($space-lg); }
+    @include layout-2560() { padding: var(--space-5xl) 0 var(--space-3xl); }
 
     &--archive {
-      @extend .ttl-lg;
+      @extend .ttl-md;
 
       font-weight: 100;
+      border-top: 1px solid var(--grey-2);
+      padding-top: to-rem($space-xl);
+      padding-bottom: to-rem($space-xl);
+      margin-top: to-rem($space-sm);
+
+      @include layout-768()  { padding-top: to-rem($space-2xl); padding-bottom: to-rem($space-2xl); }
+      @include layout-1440() { padding-top: to-rem($space-3xl); padding-bottom: to-rem($space-2xl); }
     }
   }
 
-  // Selected section: top padding = nav height clearance (same as internals)
-  // !important needed: %MAXAREA uses padding shorthand at every breakpoint,
-  // which resets padding-top to 0. This override must win.
+  // Selected section: edge-to-edge carousel, title stays grid-aligned
   &--selected {
-    padding-top: to-rem($space-4xl) !important;
+    padding-top: to-rem($space-3xl) !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
 
-    // Title sits inside its own MAXAREA-padded wrapper
+    // Title aligns with the left edge of the carousel slides.
+    // Selected slides: 88vw mobile → 82vw@768 → 78vw@1024 → 72vw@1440 → 66vw@2560
+    // Padding = (100vw - slide_width) / 2
     .home-section-title {
-      @extend %MAXAREA;
-
       padding-top: 0;
+      padding-bottom: to-rem($space-md);
+      padding-left: calc((100vw - 88vw) / 2);
+      padding-right: calc((100vw - 88vw) / 2);
       box-sizing: border-box;
+
+      @include layout-768()  { padding-left: calc((100vw - 82vw) / 2); padding-right: calc((100vw - 82vw) / 2); }
+      @include layout-1024() { padding-left: calc((100vw - 78vw) / 2); padding-right: calc((100vw - 78vw) / 2); }
+      @include layout-1440() { padding-left: calc((100vw - 72vw) / 2); padding-right: calc((100vw - 72vw) / 2); }
+      @include layout-2560() { padding-left: calc((100vw - 66vw) / 2); padding-right: calc((100vw - 66vw) / 2); }
     }
   }
 
-  // Archive section: huge top padding to separate from selected carousel
-  // !important needed: same MAXAREA shorthand issue as --selected above
+  // Archive section: edge-to-edge carousel, title stays grid-aligned
   &--archive {
-    padding-top: to-rem($space-7xl) !important;
+    padding-top: to-rem($space-2xl) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 
-    @include layout-1440() { padding-top: to-rem($space-8xl) !important; }
-    @include layout-2560() { padding-top: to-rem($space-9xl) !important; }
+    @include layout-768()  { padding-top: to-rem($space-3xl) !important; }
+    @include layout-1440() { padding-top: to-rem($space-3xl) !important; }
 
+    // Title aligns with the left edge of the selected carousel slides (same padding)
+    .home-section-title {
+      padding-left: calc((100vw - 88vw) / 2);
+      padding-right: calc((100vw - 88vw) / 2);
+      box-sizing: border-box;
+
+      @include layout-768()  { padding-left: calc((100vw - 82vw) / 2); padding-right: calc((100vw - 82vw) / 2); }
+      @include layout-1024() { padding-left: calc((100vw - 78vw) / 2); padding-right: calc((100vw - 78vw) / 2); }
+      @include layout-1440() { padding-left: calc((100vw - 72vw) / 2); padding-right: calc((100vw - 72vw) / 2); }
+      @include layout-2560() { padding-left: calc((100vw - 66vw) / 2); padding-right: calc((100vw - 66vw) / 2); }
+    }
+
+    // Explore carousel: 100% on mobile, 61% centered on desktop
     .hc--explore {
-      // Override the explore carousel's padding to respect home grid gutters
-      padding: 0;
+      width: 100%;
+      margin: 0 auto to-rem($space-5xl);
+
+      @include layout-768()  { width: 80%; }
+      @include layout-1024() { width: 70%; }
+      @include layout-1440() { width: 61%; }
+      @include layout-2560() { width: 55%; }
     }
   }
 }
@@ -75,3 +108,5 @@
 .home-skel-selected {
   width: 100%;
 }
+
+

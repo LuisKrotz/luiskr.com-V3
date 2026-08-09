@@ -64,17 +64,17 @@
 
     // Skeleton shimmer for carousel slides and cover
     .skeleton--media {
-      background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
+      background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
       background-size: 200% 100%;
-      animation: skeleton-shimmer 1.6s ease-in-out infinite;
+      animation: skeleton-shimmer 2.4s ease-in-out infinite;
     }
   }
 
   // Cover skeleton (before data loads)
   .skeleton-cover {
-    background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
+    background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
     background-size: 200% 100%;
-    animation: skeleton-shimmer 1.6s ease-in-out infinite;
+    animation: skeleton-shimmer 2.4s ease-in-out infinite;
     display: block;
   }
 
@@ -144,7 +144,11 @@
     &-text {
       @extend .txt-md;
 
+      font-family: 'Raleway', sans-serif;
       font-weight: 100;
+      word-break: normal;
+      overflow-wrap: break-word;
+      hyphens: none;
       padding-bottom: to-rem($space-xl);
 
       @include layout-1920() {
@@ -521,6 +525,7 @@
         display: block;
         padding: 0;
         margin: to-rem(-$space-sm) 0 to-rem($space-lg);
+        font-weight: 200;
       }
     }
   }
@@ -576,12 +581,43 @@
   justify-content: center;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────────
 // Single landscape image (not in carousel — carousel-fallback)
 // Must have the same MAXAREA lateral padding as all other grid content.
-// ─────────────────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────────
+.carousel-fallback {
+  padding: to-rem($space-2xl) 0;
+  background-color: var(--black);
+}
+
 .carousel-fallback .internal-extra-item.landscape {
   @extend %MAXAREA;
 
   box-sizing: border-box;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────────
+// Parallax effect for internal project sections
+// Uses a subtle opacity + translateY entrance animation triggered by
+// the Intersection Observer (class added by Project.vue).
+// Each section also gets a slight scroll-linked parallax feel via
+// CSS scroll-driven animations (Chrome 115+) with a clean fallback.
+// ─────────────────────────────────────────────────────────────────────────────────
+.project section {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  will-change: transform, opacity;
+
+  &.section--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  // Stagger each successive section entrance
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}).section--visible {
+      transition-delay: #{$i * 0.04}s;
+    }
+  }
 }

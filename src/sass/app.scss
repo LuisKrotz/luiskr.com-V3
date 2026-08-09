@@ -61,6 +61,67 @@
   }
 }
 
+// ── Modal nav override (image title + close button) ──────────────────────────
+// When modal is open, the nav shows these instead of page links.
+.modal-nav-title {
+  @extend .ttl-xs;
+
+  font-weight: 200;
+  color: var(--grey);
+  text-transform: uppercase;
+  letter-spacing: to-rem(2);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 60%;
+  opacity: .7;
+}
+
+.modal-nav-close {
+  @extend %RESETBTN;
+  @extend .ttl-xs;
+
+  font-weight: 700;
+  color: var(--grey);
+  cursor: pointer;
+  position: relative;
+  padding: to-rem($space-xs) to-rem($space-md);
+  transition: color .2s ease;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: to-rem($space-md);
+    height: to-rem($space-md);
+    transition: width .2s ease, height .2s ease;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    border-top: 1px solid currentColor;
+    border-left: 1px solid currentColor;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+  }
+
+  &:hover {
+    color: var(--white);
+
+    &::before,
+    &::after {
+      width: calc(100% - #{to-rem($space-xs)});
+      height: calc(100% - #{to-rem($space-xs)});
+    }
+  }
+}
+
 .cookies {
   font-family: 'Raleway', sans-serif;
   font-weight: 100;
@@ -187,6 +248,7 @@
 }
 
 // ── Skeleton shimmer ───────────────────────────────────────────────────────
+// Uses project palette greys, lighter tones, subtler animation.
 @keyframes skeleton-shimmer {
   0% {
     background-position: -200% 0;
@@ -198,9 +260,9 @@
 
 .skeleton {
   display: inline-block;
-  background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
+  background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
   background-size: 200% 100%;
-  animation: skeleton-shimmer 1.6s ease-in-out infinite;
+  animation: skeleton-shimmer 2.4s ease-in-out infinite;
   border-radius: to-rem($space-xs);
 
   &--block {

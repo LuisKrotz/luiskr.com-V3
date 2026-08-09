@@ -150,10 +150,9 @@ export default {
     },
     openModal() {
       if (!this.canExpand) return
-      const win = window
-      const y = win.scrollY
+      const scrollY = window.scrollY
       this.$store.commit('setModal', {
-        transform: y,
+        transform: scrollY,
         class: 'modal-open',
         open: true,
         media: {
@@ -165,7 +164,6 @@ export default {
           isVideo: this.isVideo,
         },
       })
-      win.scrollTo(0, 0)
       // Push slug to URL: /portfolio/project/image-slug
       const slug = this.slugify(this.label)
       if (slug) {

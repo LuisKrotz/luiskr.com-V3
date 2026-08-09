@@ -25,16 +25,15 @@
     text-transform: uppercase;
     color: inherit;
     margin: 0;
-    padding: 0 to-rem($space-lg) to-rem($space-xl);
+    padding: to-rem($space-2xl) to-rem($space-lg) to-rem($space-xl);
 
     @include layout-768() {
-      padding: 0 to-rem($space-5xl) to-rem($space-2xl);
+      padding: to-rem($space-3xl) to-rem($space-5xl) to-rem($space-2xl);
     }
   }
 
   &-social,
   &-other {
-    @extend %MAXAREA;
     @extend .ttl-xs;
 
     color: inherit;
@@ -67,6 +66,8 @@
   }
 
   &-social {
+    width: 88%;
+    margin: 0 auto;
     padding: 0 to-rem($space-lg) to-rem($space-2xl);
     border-bottom: 1px solid var(--grey);
 

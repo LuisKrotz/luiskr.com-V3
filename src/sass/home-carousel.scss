@@ -17,7 +17,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
   // ── Scroll track ─────────────────────────────────────────────────────────
   &-track {
     display: flex;
-    align-items: stretch;
+    align-items: stretch;  // equal height for all slides
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -54,9 +54,11 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     display: flex;
     align-items: center;
     gap: to-rem($space-xs);
-    flex: 1;
+    // Windowed: 1 active center + 2 partial each side
+    max-width: calc(#{$hc-dot-pill} + #{$hc-dot-size} * 2 + #{to-rem($space-xs)} * 4);
+    overflow: hidden;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-shrink: 0;
   }
 
   &-dot {
@@ -156,13 +158,15 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     @include layout-2560() { width: 66vw; flex-basis: 66vw; }
   }
 
-  // ── Controls: absolute over the image, full-width positioned ──────────────
+  // ── Controls: vertically aligned with the cover image ──────────────────
   .hc-controls {
     position: absolute;
     left:  0;
     right: 0;
     top:   0;
-    height: 100%;
+    // Match the cover image dimensions so arrows sit over the image, not the text
+    aspect-ratio: 16 / 7;
+    max-height: var(--cover-max-h, 80vh);
     pointer-events: none;
     z-index: 10;
     display: flex;
@@ -192,61 +196,49 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
   }
 
   // ── Cover image ──────────────────────────────────────────────────────────
+  // Uses a CSS custom property --cover-max-h set by JS to fit the viewport.
   .hc-cover {
     width: 100%;
+    aspect-ratio: 16 / 7;
+    max-height: var(--cover-max-h, 80vh);
     overflow: hidden;
     background: var(--grey-2);
     flex-shrink: 0;
-    min-height: 55vw;
-    max-height: 100vh;
-
-    @include layout-768()  { min-height: 55vh; }
-    @include layout-1024() { min-height: 65vh; }
-    @include layout-1440() { min-height: 80vh; }
-    @include layout-2560() { min-height: 88vh; }
 
     &-img {
       width: 100%;
       height: 100%;
-      min-height: inherit;
-      max-height: inherit;
       object-fit: cover;
       object-position: center;
       display: block;
     }
 
     &--skel {
-      min-height: 55vw;
+      aspect-ratio: 16 / 7;
+      max-height: var(--cover-max-h, 80vh);
 
-      @include layout-768()  { min-height: 55vh; }
-      @include layout-1024() { min-height: 65vh; }
-      @include layout-1440() { min-height: 80vh; }
-
-      background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
+      background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
       background-size: 200% 100%;
-      animation: skeleton-shimmer 1.6s ease-in-out infinite;
+      animation: skeleton-shimmer 2.4s ease-in-out infinite;
     }
   }
 
-  // ── Label: hidden on adjacent, fades in only on active slide ─────────────
-  // Uses %MAXAREA so text stays within the reading grid
-  // even though the slide itself is full viewport width.
+    // ── Label: hidden on adjacent, fades in only on active slide ─────────────
+  // No %MAXAREA — the label sits inside the slide, so text aligns with the
+  // slide's left edge. The archive title is aligned separately.
   .hc-label {
-    @extend %MAXAREA;
-
-    padding-top: to-rem($space-sm);
-    padding-bottom: to-rem($space-xl);
+    padding: to-rem($space-sm) 0 to-rem($space-xl);
     opacity: 0;
     visibility: hidden;
     transition: opacity .4s ease, visibility .4s;
     pointer-events: none;
 
     &-title {
-      @extend .ttl-lg;
+      @extend .ttl-md;
 
       font-weight: 200;
       text-transform: uppercase;
-      padding-bottom: to-rem($space-xs);
+      padding-bottom: to-rem($space-lg);
     }
 
     &-desc {
@@ -254,12 +246,75 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
 
       font-weight: 300;
     }
+
+    // "Click to open" — centered, corner-border animation on hover
+    &-action {
+      @extend %RESETBTN;
+      @extend .ttl-xs;
+
+      position: relative;
+      display: block;
+      text-align: center;
+      text-transform: uppercase;
+      padding: to-rem($space-xs) to-rem($space-lg);
+      color: var(--grey);
+      font-weight: 700;
+      white-space: nowrap;
+      transition: color .2s ease;
+      margin: to-rem($space-xl) auto 0;
+      width: fit-content;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: to-rem($space-md);
+        height: to-rem($space-md);
+        transition: width .25s ease, height .25s ease;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        border-top: 1px solid var(--grey);
+        border-left: 1px solid var(--grey);
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+        border-bottom: 1px solid var(--grey);
+        border-right: 1px solid var(--grey);
+      }
+
+      &:hover,
+      &:focus {
+        color: var(--black);
+      }
+
+      &:hover::before,
+      &:focus::before,
+      &:hover::after,
+      &:focus::after {
+        width: calc(100% - #{to-rem($space-xs)});
+        height: calc(100% - #{to-rem($space-xs)});
+      }
+    }
   }
 
   .hc-slide--active .hc-label {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+  }
+
+  // Action button appears after the description animation finishes
+  .hc-slide--active .hc-label-action {
+    animation: action-appear .4s ease-out forwards;
+    animation-delay: var(--action-delay, 0ms);
   }
 
   // home-item-link fills the full slide
@@ -272,70 +327,94 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
 
 // ════════════════════════════════════════════════════════════════════════════
 //  VARIANT: explore more (archive cards)
-//  - Stays INSIDE the MAXAREA grid
-//  - Cards at ~33% width: 3 visible on desktop, 2 peeking on mobile
-//  - Arrows centred above cards, padded from the section below
-//  - Light grey border, no black on hover
 // ════════════════════════════════════════════════════════════════════════════
+
+// Layout: carousel width is controlled by home.scss (61% on desktop, 100% mobile).
+// Inside that, the active card fills ~60% of the carousel width.
+// Adjacent cards peek from both sides with arrows overlaid.
+// Labels hidden on inactive, fade in on active.
+
 .hc--explore {
-  // Controls: row above the track, centred, with bottom spacing before cards
+  position: relative;
+
+  // ── Controls: vertically centered on the image area ──────────────────────
   .hc-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: to-rem($space-xl);
-    padding: 0 0 to-rem($space-xl);
-    // Extra bottom padding to separate arrows from footer/next section
-    margin-bottom: to-rem($space-lg);
+    justify-content: space-between;
+    padding: 0 to-rem($space-xs);
 
-    @include layout-768() { gap: to-rem($space-2xl); margin-bottom: to-rem($space-xl); }
+    @include layout-768()  { padding: 0 to-rem($space-sm); }
+    @include layout-1440() { padding: 0 to-rem($space-md); }
   }
 
   .hc-btn {
-    color: var(--grey);
+    pointer-events: all;
+    color: var(--grey-3);
+    background: rgba(255, 255, 255, .7);
+    backdrop-filter: blur(4px);
+    border-radius: 50%;
+    transition: background .2s ease, color .2s ease;
+
     &:hover,
-    &:focus { color: var(--black); }
+    &:focus {
+      color: var(--black);
+      background: rgba(255, 255, 255, .95);
+    }
   }
 
-  // Track: contains cards inside the grid with lateral padding for peek
+  .hc-spacer { flex: 1; }
+
+  // ── Track ──────────────────────────────────────────────────────────────────
   .hc-track {
-    gap: to-rem($space-xl);
-    // Small lateral padding so leftmost/rightmost cards have some breathing room
-    padding: 0 to-rem($space-sm) to-rem($space-2xl);
+    gap: to-rem($space-lg);
+    padding: 0;
     box-sizing: border-box;
+    width: 100%;
 
-    @include layout-768() { padding: 0 to-rem($space-lg) to-rem($space-2xl); }
-    @include layout-1440() { padding: 0 to-rem($space-xl) to-rem($space-3xl); }
+    @include layout-768()  { gap: to-rem($space-xl); }
+    @include layout-1440() { gap: to-rem($space-2xl); }
   }
 
-  // Card widths: 2 on small mobile (peek), 3 on tablet+
+  // ── Slide widths: ~60% of the carousel container ──────────────────────────
   .hc-slide {
-    width: 70vw;
-    flex-basis: 70vw;
+    width: 85%;
+    flex-basis: 85%;
+    max-width: 85%;
+    box-sizing: border-box;
+    // Padding so the card shadow isn't clipped by the track overflow
+    padding: to-rem($space-sm);
 
-    @include layout-540()  { width: 46vw; flex-basis: 46vw; }
-    @include layout-768()  { width: 32vw; flex-basis: 32vw; }
-    @include layout-1024() { width: 24vw; flex-basis: 24vw; }
-    @include layout-1440() { width: 20vw; flex-basis: 20vw; }
-    @include layout-2560() { width: 15vw; flex-basis: 15vw; }
+    @include layout-540()  { width: 70%; flex-basis: 70%; max-width: 70%; }
+    @include layout-768()  { width: 62%; flex-basis: 62%; max-width: 62%; }
+    @include layout-1024() { width: 60%; flex-basis: 60%; max-width: 60%; }
+    @include layout-1440() { width: 60%; flex-basis: 60%; max-width: 60%; }
+    @include layout-2560() { width: 58%; flex-basis: 58%; max-width: 58%; }
   }
 
-  // Card: light grey border only — no black
+  // ── Card styling ──────────────────────────────────────────────────────────
   .hc-card {
     width: 100%;
-    border: 1px solid var(--grey-2);
+    height: 100%;
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
-    transition: border-color .2s ease;
-
-    &:hover,
-    &:focus { border-color: var(--grey); } // grey, never black
+    box-sizing: border-box;
+    border-radius: to-rem($space-lg);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
 
     &-cover {
       width: 100%;
-      overflow: hidden;
+      overflow: visible; // allow reflection to show below
       background: var(--grey-2);
       flex-shrink: 0;
 
@@ -346,27 +425,50 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
         transition: opacity .3s ease;
 
         .hc-card:hover &,
-        .hc-card:focus & { opacity: .85; }
+        .hc-card:focus & { opacity: .9; }
+      }
+
+      // Reflected image below the main cover
+      &-reflection {
+        width: 100%;
+        height: auto;
+        max-height: to-rem($space-3xl);
+        display: block;
+        transform: scaleY(-1);
+        object-fit: cover;
+        object-position: bottom;
+        pointer-events: none;
+        -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+        mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
       }
 
       &--skel {
-        padding-top: 70%;
-        background: linear-gradient(90deg, var(--grey-2) 25%, var(--grey-3) 50%, var(--grey-2) 75%);
+        padding-top: 56.25%;
+        background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
         background-size: 200% 100%;
-        animation: skeleton-shimmer 1.6s ease-in-out infinite;
+        animation: skeleton-shimmer 2.4s ease-in-out infinite;
       }
     }
 
+    // ── Label: hidden on non-active slides, fades in on active ──────────────
     &-label {
-      padding: to-rem($space-md) to-rem($space-md) to-rem($space-lg);
-      flex: 1;
+      padding: to-rem($space-md) to-rem($space-lg) to-rem($space-sm);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .4s ease, visibility .4s;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
 
       &-title {
         @extend .ttl-md;
 
         font-weight: 200;
         text-transform: uppercase;
-        padding-bottom: to-rem($space-xs);
+        padding-top: to-rem($space-md);
+        padding-bottom: to-rem($space-lg);
       }
 
       &-desc {
@@ -376,33 +478,139 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
         opacity: .7;
       }
     }
+
+    // "Click to open" — centered, corner-border animation.
+    // Sits outside label div, always at the bottom of the card.
+    &-action {
+      @extend %RESETBTN;
+      @extend .ttl-xs;
+
+      position: relative;
+      display: block;
+      text-align: center;
+      text-transform: uppercase;
+      padding: to-rem($space-xs) to-rem($space-lg);
+      color: var(--grey);
+      font-weight: 700;
+      white-space: nowrap;
+      transition: color .2s ease;
+      margin: 0 auto to-rem($space-md);
+      margin-top: auto; // pushes to bottom of card
+      width: fit-content;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: to-rem($space-md);
+        height: to-rem($space-md);
+        transition: width .25s ease, height .25s ease;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        border-top: 1px solid var(--grey);
+        border-left: 1px solid var(--grey);
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+        border-bottom: 1px solid var(--grey);
+        border-right: 1px solid var(--grey);
+      }
+
+      &:hover,
+      &:focus {
+        color: var(--black);
+      }
+
+      &:hover::before,
+      &:focus::before,
+      &:hover::after,
+      &:focus::after {
+        width: calc(100% - #{to-rem($space-xs)});
+        height: calc(100% - #{to-rem($space-xs)});
+      }
+    }
+  }
+
+  // Active slide: label + action fade in
+  .hc-slide--active .hc-card-label {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  // Action button appears after the description animation finishes
+  .hc-slide--active .hc-card-action {
+    animation: action-appear .4s ease-out forwards;
+    animation-delay: var(--action-delay, 0ms);
   }
 }
 
 // ════════════════════════════════════════════════════════════════════════════
-//  VARIANT: awards (dark footer, dots only, 10s timer)
+//  VARIANT: awards (dark footer, 10s timer)
 // ════════════════════════════════════════════════════════════════════════════
 .hc--awards {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 
+  // Controls: vertical dots positioned absolutely, right next to the image
   .hc-controls {
-    padding: to-rem($space-sm) 0;
-    // Hide nav buttons — dots only navigate
-    .hc-btn { display: none; }
+    position: absolute;
+    // Center vertically relative to the image area (not the full award incl. text)
+    top: to-rem($space-lg); // matches .hc-award padding-top
+    // Position to the left of the centered image
+    // Image is centered and max-width $space-5xl wide, so dots go just left of that
+    left: calc(50% - #{to-rem($space-5xl)} / 2 - #{to-rem($space-lg)});
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: to-rem($space-5xl); // same height as image area
+    gap: to-rem($space-xs);
+    padding: 0;
+    flex-shrink: 0;
+    z-index: 2;
   }
 
-  // Inverted dots on dark background
+  // Hide arrows in awards — only dots
+  .hc-btn { display: none; }
+
+  // Vertical dots — active is same size but white (scoped to awards only)
   .hc-dot {
-    background: var(--grey);
-    &--active { background: var(--white); }
-    &:hover:not(&--active) { background: var(--grey-2); }
+    background: rgba(255, 255, 255, .3);
+    width:  $hc-dot-size;
+    height: $hc-dot-size;
+    border-radius: 50%;
+
+    &--active {
+      width:  $hc-dot-size;
+      background: var(--white);
+    }
+    &:hover:not(&--active) { background: rgba(255, 255, 255, .55); }
+  }
+
+  // Dots container — vertical, no max-width constraint
+  .hc-dots {
+    flex-direction: column;
+    max-width: none;
+    overflow: visible;
   }
 
   .hc-track {
     width: 100%;
     max-width: to-rem($space-8xl);
+    min-width: 0;
   }
 
   .hc-slide {
@@ -419,7 +627,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     text-decoration: none;
     color: var(--white);
     gap: to-rem($space-xs);
-    padding: 0 to-rem($space-sm);
+    padding: to-rem($space-lg) to-rem($space-sm);
     width: 100%;
 
     &-media {
@@ -438,7 +646,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
       width: auto;
       height: auto;
       object-fit: contain;
-      filter: brightness(0) invert(1);
+      // No filter — images display naturally
     }
 
     &-text {
@@ -448,5 +656,21 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
       opacity: .7;
       max-width: to-rem($space-7xl);
     }
+  }
+}
+
+// ── Action button delayed appearance ─────────────────────────────────────────
+@keyframes action-appear {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 }

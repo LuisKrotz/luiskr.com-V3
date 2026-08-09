@@ -25,14 +25,12 @@
       </div>
     </div>
     <LegalFooter />
-    <AwardsMentions :title="mentions.title" :items="mentions.items" />
   </article>
 </template>
 
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
 import LegalFooter from '../components/legal/Footer.vue'
-import AwardsMentions from '../components/AwardsMentions.vue'
 
 export default {
   data() {
@@ -43,12 +41,6 @@ export default {
   },
   components: {
     LegalFooter,
-    AwardsMentions,
-  },
-  computed: {
-    mentions() {
-      return this.$store.getters.getMentions
-    },
   },
   created() {
     this.loadData()

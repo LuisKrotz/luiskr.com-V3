@@ -1,11 +1,12 @@
 <template>
-  <div class="expand-modal-content">
+  <div class="expand-modal-content" :class="{ 'expand-modal--closing': isClosing }">
     <div class="expand-modal-close-bar">
-      <button class="expand-modal-close-bar-button" @click="closeModal">
+      <span class="expand-modal-close-bar-title">{{ alt }}</span>
+      <button class="expand-modal-close-bar-button" @click="startClose">
         {{ translations.close }}
       </button>
     </div>
-    <div class="expand-modal-close-area" @click="closeModal"></div>
+    <div class="expand-modal-close-area" @click="startClose"></div>
     <figure class="expand-modal-media-figure">
       <img
         decoding="async"
@@ -44,11 +45,12 @@
       >
         <source :src="source" type="video/mp4" />
       </video>
-
-      <button class="expand-modal-close-bottom" @click="closeModal">
-        {{ translations.close }}
-      </button>
     </figure>
+
+    <!-- Close button below the content, outside figure -->
+    <button class="expand-modal-close-bottom" @click="startClose">
+      {{ translations.close }}
+    </button>
   </div>
 </template>
 
@@ -58,6 +60,7 @@ export default {
   data() {
     return {
       translations: this.$store.getters.getlang.components.media,
+      isClosing: false,
     }
   },
   props: {
@@ -92,26 +95,45 @@ export default {
     placeholder(width, height) {
       return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" %3E%3C/svg%3E`
     },
-    closeModal() {
+    startClose() {
+      if (this.isClosing) return
+      this.isClosing = true
+
       const scroll = this.$store.getters.getModal.transform
 
-      this.$store.commit('setModal', {
-        transform: 0,
-        class: '',
-        open: false,
-        media: {
-          source: undefined,
-          thumb: undefined,
-          alt: undefined,
-          width: undefined,
-          height: undefined,
-          isVideo: undefined,
-        },
-      })
+      // Wait for zoom-out animation to finish
+      setTimeout(() => {
+        // Restore URL to portfolio base path (remove slug)
+        const routeSlug = this.$route.params?.slug
+        if (routeSlug) {
+          const currentPath = this.$route.path.replace(/\/$/, '')
+          const basePath = currentPath.slice(0, currentPath.length - routeSlug.length - 1)
+          this.$router.replace(basePath)
+        }
 
-      window.requestAnimationFrame(() => {
-        window.scrollTo(0, scroll)
-      })
+        this.$store.commit('setModal', {
+          transform: 0,
+          class: '',
+          open: false,
+          media: {
+            source: undefined,
+            thumb: undefined,
+            alt: undefined,
+            width: undefined,
+            height: undefined,
+            isVideo: undefined,
+          },
+        })
+
+        // Double-rAF: wait for Vue DOM update + browser reflow before restoring scroll
+        this.$nextTick(() => {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              window.scrollTo(0, scroll)
+            })
+          })
+        })
+      }, 400) // matches zoom-out animation duration
     },
   },
 }

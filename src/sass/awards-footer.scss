@@ -24,7 +24,7 @@
     text-transform: uppercase;
     color: var(--white);
     text-align: center;
-    padding-bottom: to-rem($space-lg);
+    padding: to-rem($space-md) 0 to-rem($space-lg);
     opacity: .6;
   }
 
@@ -51,10 +51,10 @@
     justify-content: center;
     flex-wrap: wrap;
     color: var(--white);
-    width: 100%;
+    width: 88%;
     padding: to-rem($space-lg) to-rem($space-lg) 0;
     border-top: 1px solid var(--grey);
-    margin-top: to-rem($space-xl);
+    margin: to-rem($space-xl) auto 0;
 
     @include layout-768() {
       padding: to-rem($space-lg) to-rem($space-4xl) 0;

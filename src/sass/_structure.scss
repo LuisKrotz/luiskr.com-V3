@@ -28,14 +28,15 @@
   --space-10xl: #{$space-10xl};
 }
 
-html,
-body {
+html {
   overflow-x: hidden;
+  overflow-y: scroll; // always show scrollbar to prevent layout shift on navigation
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
+  overflow: hidden; // body never scrolls — html handles it
   width: 100%;
   height: 100%;
   min-height: 100vh;
@@ -44,7 +45,6 @@ body {
   background-color: var(--white);
   color: var(--black);
   font-family: 'Raleway', sans-serif;
-
 }
 
 
@@ -96,7 +96,12 @@ main {
   }
 }
 
-#main,
-#home {
+#main {
   min-height: 100vh;
+}
+
+#home {
+  @include layout-1024() {
+    min-height: 100vh;
+  }
 }

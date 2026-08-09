@@ -6,7 +6,7 @@
       :style="'transform: translateY(-' + modal.transform + 'px);'"
     >
       <h2 class="internal-title">
-        <span v-if="translations" v-html="translations.title" :key="'ttl1'"></span>
+        <DrawText v-if="translations" :text="translations.title" trigger="viewport" :key="'ttl1'" />
         <span v-else :key="'ttl2'">{{ loading.msg1 }}</span>
       </h2>
       <div class="internal-main">
@@ -42,8 +42,7 @@
                   <h3
                     v-if="childkey === 0 && itemkey < 1"
                     class="internal-description-text"
-                    v-html="item"
-                  ></h3>
+                  ><DrawText :text="item" trigger="viewport" :delay="60" /></h3>
                   <p v-else class="internal-description-text" v-html="item"></p>
                 </template>
               </div>
@@ -118,6 +117,7 @@ import MediaExpanded from '../components/MediaExpanded.vue'
 
 import Related from '../components/portfolio/Related.vue'
 import Carousel from '../components/Carousel.vue'
+import DrawText from '../components/DrawText.vue'
 
 export default {
   data() {
@@ -131,8 +131,8 @@ export default {
     Media,
     MediaExpanded,
     Related,
-
     Carousel,
+    DrawText,
   },
   name: 'Render Project',
   created() {
@@ -143,7 +143,20 @@ export default {
       window.scrollTo(0, 0)
     }, 500)
   },
+
+  beforeUnmount() {
+    if (this.parallaxObserver) {
+      this.parallaxObserver.disconnect()
+      this.parallaxObserver = null
+    }
+  },
   watch: {
+    // Re-init parallax after translations load and sections render
+    translations(val) {
+      if (val) {
+        this.$nextTick(() => this.initParallax())
+      }
+    },
     $route(to) {
       const wait = 1000
 
@@ -162,12 +175,45 @@ export default {
     svgPlaceholder(w, h) {
       return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"%3E%3C/svg%3E`
     },
+
+    // Cumulative offset for sequential paragraph animation
+    // First item (heading): delay=60, subsequent (paragraphs): delay=20
+    textOffset(items, idx) {
+      let offset = 0
+      for (let i = 0; i < idx; i++) {
+        const chars = items[i].replace(/<[^>]+>/g, '').length
+        const delay = i === 0 ? 60 : 20
+        offset += chars * delay + 300 // 300ms gap between paragraphs
+      }
+      return offset
+    },
     // Returns true when every item in a child group is landscape-class.
-    // Used to force the Carousel active on desktop (2 items would otherwise fall below threshold).
+    // Landscape carousels are always forced active (even with only 2 items),
+    // since a plain row of 2 wide images overflows and looks bad.
     isLandscapeGroup(group) {
       return (
         Array.isArray(group) && group.length >= 1 && group.every((i) => i?.class === 'landscape')
       )
+    },
+    // Initialise IntersectionObserver for section parallax entrance animation
+    initParallax() {
+      const sections = this.$el?.querySelectorAll('section')
+      if (!sections?.length) return
+
+      this.parallaxObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('section--visible')
+              // Once visible, stop observing (entrance is one-shot)
+              this.parallaxObserver.unobserve(e.target)
+            }
+          })
+        },
+        { threshold: 0.08 }
+      )
+
+      sections.forEach((s) => this.parallaxObserver.observe(s))
     },
     loadData(wait = false) {
       const lang = this.$store.getters.getlang

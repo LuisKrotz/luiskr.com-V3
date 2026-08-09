@@ -4,7 +4,7 @@
     <div class="progress-bar" :class="{ 'progress-bar--active': routeLoading }"></div>
 
     <div v-if="modal.class === ''" class="nav">
-      <router-link class="nav-link back" v-if="$router.currentRoute.value.name !== 'Home'" to="/">
+      <router-link class="nav-link back" v-if="!isHomePage" to="/">
         {{ translations?.title ?? 'LK' }}
       </router-link>
       <button class="nav-link active" v-else @click="scrollTop()">
@@ -14,23 +14,23 @@
       <div v-if="$router.currentRoute.value.name !== 'Not Found'">
         <router-link
           class="nav-link"
-          v-if="$router.currentRoute.value.name !== 'About'"
-          :to="translations?.about?.link ?? '/about'"
+          v-if="!isHomePage"
+          to="/about"
         >
           {{ translations?.about?.description ?? 'About' }}
         </router-link>
-        <button class="nav-link active" v-else @click="scrollTop()">
+        <button
+          class="nav-link"
+          :class="{ active: $router.currentRoute.value.name === 'About' }"
+          v-else
+          @click="goToAbout"
+        >
           {{ translations?.about?.description ?? 'About' }}
         </button>
         <span class="nav-separator">{{ !onBottom ? '|' : '▲' }}</span>
 
-        <button v-if="!onBottom" class="nav-link scroll-down" @click="scrollBottom()">
-          <template
-            v-if="
-              $router.currentRoute.value.name === 'Home' ||
-              $router.currentRoute.value.name === 'About'
-            "
-          >
+        <button v-if="!onBottom" class="nav-link scroll-down" @click="scrollToContact()">
+          <template v-if="isHomePage">
             {{ translations?.contact ?? '' }}
           </template>
           <template v-else>{{ translations?.related ?? '' }}</template>
@@ -40,8 +40,8 @@
         </button>
       </div>
     </div>
-    <div v-else @click="closeModal()" class="nav">
-      <button class="nav-link" @click="scrollTop()">{{ translations?.title ?? 'LK' }}</button>
+    <div v-else class="nav" style="pointer-events: auto">
+      <!-- Modal nav is handled by MediaExpanded close-bar -->
     </div>
 
     <router-view v-slot="{ Component, route }">
@@ -130,6 +130,29 @@ export default {
         hash: '',
       })
     },
+    scrollToSection(id) {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+      }
+    },
+    goToAbout() {
+      this.scrollToSection('about')
+      // Update URL without triggering navigation/reload
+      if (this.$route.path !== '/about') {
+        history.pushState({}, '', '/about')
+      }
+    },
+    scrollToContact() {
+      if (this.isHomePage) {
+        this.scrollToSection('contact')
+        if (this.$route.path !== '/contact') {
+          history.pushState({}, '', '/contact')
+        }
+      } else {
+        this.scrollBottom()
+      }
+    },
     scrollTop() {
       this.$smoothScroll({
         duration: 1000,
@@ -137,6 +160,10 @@ export default {
         scrollTo: 0,
         hash: '',
       })
+      // Clean URL back to root when scrolling to top on home
+      if (this.isHomePage && this.$route.path !== '/') {
+        history.pushState({}, '', '/')
+      }
     },
     loadData() {
       let dbpath
@@ -185,14 +212,23 @@ export default {
       }
     },
     // Determine transition based on route meta
-    _getTransition(to, from) {
+    getTransition(to, from) {
       // Project pages ↔ Home: slide horizontally
       if (to.meta?.projectRoute && !from.meta?.projectRoute) return 'slide-left'
       if (!to.meta?.projectRoute && from.meta?.projectRoute) return 'slide-right'
-      // About / Legal: slide up from bottom
-      if (to.name === 'About' || to.meta?.legalRoute) return 'slide-up'
-      if (from.name === 'About' || from.meta?.legalRoute) return 'slide-down'
+      // Home ↔ About/Contact (same page, no transition needed)
+      if (to.meta?.scrollTo || from.meta?.scrollTo) return 'fade'
+      // Legal: slide up from bottom
+      if (to.meta?.legalRoute) return 'slide-up'
+      if (from.meta?.legalRoute) return 'slide-down'
       return 'fade'
+    },
+  },
+
+  computed: {
+    isHomePage() {
+      const name = this.$router.currentRoute.value.name
+      return name === 'Home' || name === 'About' || name === 'Contact'
     },
   },
   created() {
@@ -200,11 +236,16 @@ export default {
 
     // Progress bar + transition name on route changes
     router.beforeEach((to, from) => {
-      this.routeLoading = true
-      this.transitionName = this._getTransition(to, from)
+      // First scroll to top immediately
+      window.scrollTo({ top: 0, behavior: 'instant' })
+      // Short delay so scroll registers before the transition begins
+      setTimeout(() => {
+        this.routeLoading = true
+        this.transitionName = this.getTransition(to, from)
+      }, 80)
     })
     router.afterEach(() => {
-      setTimeout(() => (this.routeLoading = false), 350)
+      setTimeout(() => (this.routeLoading = false), 450)
     })
   },
   mounted() {

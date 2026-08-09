@@ -17,6 +17,8 @@ $ring-stroke: 2.5px;
   width: 100%;
   box-sizing: border-box;
   background-color: var(--black);
+  // Reserve space at bottom for the controls bar
+  padding-bottom: calc(#{$carousel-btn-size} + #{to-rem($space-lg)} * 2);
 
   // ── Track ──────────────────────────────────────────────────────────────
   &-track {
@@ -65,16 +67,21 @@ $ring-stroke: 2.5px;
     }
   }
 
-  // ── Controls row ───────────────────────────────────────────────────────
+  // ── Controls row ──────────────────────────────────────────
   &-controls {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: to-rem($space-lg) to-rem($space-xl);
     gap: to-rem($space-lg);
     flex-wrap: wrap;
-    min-height: calc(#{$carousel-btn-size} + #{to-rem($space-lg)} * 2);
     box-sizing: border-box;
+    // Pinned to bottom of the black block
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: to-rem($space-lg) to-rem($space-xl);
+    min-height: calc(#{$carousel-btn-size} + #{to-rem($space-lg)} * 2);
 
     @include layout-768() {
       padding: to-rem($space-lg) to-rem(calc(($un-768 - $grid-max-area-768) / 2));
@@ -157,12 +164,15 @@ $ring-stroke: 2.5px;
 
   &-counter {
     font-family: 'Raleway', sans-serif;
-    font-weight: 200;
+    font-weight: 900;
     font-size: to-rem($space-md);
     color: var(--grey);
     letter-spacing: to-rem($space-pixel);
     white-space: nowrap;
     text-transform: uppercase;
+    line-height: 1; // prevent inherited line-height from shifting vertically
+    display: flex;
+    align-items: center;
 
     @include layout-2560() {
       font-size: to-rem($space-lg);
@@ -173,8 +183,11 @@ $ring-stroke: 2.5px;
     display: flex;
     align-items: center;
     gap: $carousel-dot-gap;
-    flex-wrap: wrap;
     justify-content: center;
+    // Windowed: only center dot (active) + 2 partial on each side visible
+    max-width: calc(#{$carousel-dot-pill} + #{$carousel-dot-size} * 2 + #{$carousel-dot-gap} * 4);
+    overflow: hidden;
+    flex-shrink: 0;
   }
 
   &-dot {
