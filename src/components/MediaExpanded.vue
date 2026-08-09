@@ -103,12 +103,12 @@ export default {
 
       // Wait for zoom-out animation to finish
       setTimeout(() => {
-        // 1. Restore URL to portfolio base path (remove slug)
+        // 1. Restore URL to portfolio base path (remove slug) without router navigation
         const routeSlug = this.$route.params?.slug
         if (routeSlug) {
           const currentPath = this.$route.path.replace(/\/$/, '')
           const basePath = currentPath.slice(0, currentPath.length - routeSlug.length - 1)
-          this.$router.replace(basePath)
+          history.replaceState({}, '', basePath)
         }
 
         // 2. Remove modal-open class while preserving transform offset
@@ -126,23 +126,26 @@ export default {
           },
         })
 
-        // 3. Immediately restore window scroll position to match full document height
-        window.scrollTo(0, scroll)
-
-        // 4. Reset transform to 0 on next tick
+        // 3. Wait for Vue to flush DOM updates (class="modal-open" removed, document height restored)
         this.$nextTick(() => {
-          this.$store.commit('setModal', {
-            transform: 0,
-            class: '',
-            open: false,
-            media: {
-              source: undefined,
-              thumb: undefined,
-              alt: undefined,
-              width: undefined,
-              height: undefined,
-              isVideo: undefined,
-            },
+          // Document height is now restored! Scroll to exact saved position.
+          window.scrollTo(0, scroll)
+
+          // 4. Reset transform back to 0 on next tick
+          this.$nextTick(() => {
+            this.$store.commit('setModal', {
+              transform: 0,
+              class: '',
+              open: false,
+              media: {
+                source: undefined,
+                thumb: undefined,
+                alt: undefined,
+                width: undefined,
+                height: undefined,
+                isVideo: undefined,
+              },
+            })
           })
         })
       }, 400) // matches zoom-out animation duration

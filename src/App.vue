@@ -138,10 +138,10 @@ export default {
     closeModal() {
       const scroll = Number(this.$store.getters.getModal.transform) || 0
 
-      // 1. Restore URL without slug
+      // 1. Restore URL without slug using history.replaceState
       const basePath = this.$route.path.split('/').slice(0, 3).join('/')
       if (this.$route.path !== basePath) {
-        this.$router.replace(basePath)
+        history.replaceState({}, '', basePath)
       }
 
       // 2. Remove modal-open class while preserving transform offset
@@ -159,23 +159,26 @@ export default {
         },
       })
 
-      // 3. Immediately restore window scroll position to match full document height
-      window.scrollTo(0, scroll)
-
-      // 4. Reset transform to 0 on next tick
+      // 3. Wait for Vue to flush DOM updates (class="modal-open" removed, document height restored)
       this.$nextTick(() => {
-        this.$store.commit('setModal', {
-          transform: 0,
-          class: '',
-          open: false,
-          media: {
-            source: undefined,
-            thumb: undefined,
-            alt: undefined,
-            width: undefined,
-            height: undefined,
-            isVideo: undefined,
-          },
+        // Document height is now restored! Scroll to exact saved position.
+        window.scrollTo(0, scroll)
+
+        // 4. Reset transform back to 0 on next tick
+        this.$nextTick(() => {
+          this.$store.commit('setModal', {
+            transform: 0,
+            class: '',
+            open: false,
+            media: {
+              source: undefined,
+              thumb: undefined,
+              alt: undefined,
+              width: undefined,
+              height: undefined,
+              isVideo: undefined,
+            },
+          })
         })
       })
     },
@@ -301,8 +304,11 @@ export default {
 
     // Progress bar + transition name on route changes
     router.beforeEach((to, from) => {
-      // First scroll to top immediately
-      window.scrollTo({ top: 0, behavior: 'instant' })
+      const isSameProject = to.meta?.projectRoute && from.meta?.projectRoute && to.name === from.name
+      if (!isSameProject) {
+        // First scroll to top immediately for different pages
+        window.scrollTo({ top: 0, behavior: 'instant' })
+      }
       // Short delay so scroll registers before the transition begins
       setTimeout(() => {
         this.routeLoading = true

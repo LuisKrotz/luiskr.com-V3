@@ -175,7 +175,7 @@ export default {
           : currentPath
         const newPath = basePath + '/' + slug
         if (currentPath !== newPath) {
-          this.$router.replace(newPath)
+          history.replaceState({}, '', newPath)
         }
       }
     },

@@ -200,7 +200,10 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-  scrollBehavior(to) {
+  scrollBehavior(to, from) {
+    if (to.meta?.projectRoute && from.meta?.projectRoute && to.name === from.name) {
+      return false
+    }
     if (to.meta?.scrollTo) {
       // Wait for the Home component to render the section
       return new Promise((resolve) => {
