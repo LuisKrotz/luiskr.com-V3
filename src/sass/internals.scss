@@ -88,7 +88,7 @@
     justify-content: center;
 
     // iPad portrait only: fit text sections to content without forced min-height
-    @media (min-width: 768px) and (max-width: 1024px) {
+    @media (min-width: 48rem) and (max-width: 64rem) {
       min-height: auto !important;
     }
 
@@ -212,7 +212,7 @@
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-      border-radius: 3px;
+      border-radius: to-rem(3);
       background: var(--grey-3);
     }
 
@@ -610,7 +610,7 @@
 // ─────────────────────────────────────────────────────────────────────────────────
 .project section {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(to-rem(32));
   transition: opacity 0.55s ease, transform 0.55s ease;
   will-change: transform, opacity;
 

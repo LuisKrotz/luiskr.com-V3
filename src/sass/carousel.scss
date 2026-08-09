@@ -10,7 +10,7 @@ $carousel-btn-size: to-rem($space-3xl);
 $carousel-dot-size: to-rem($space-md);
 $carousel-dot-pill: to-rem($space-xl);
 $carousel-dot-gap: to-rem($space-xs);
-$ring-stroke: 2.5px;
+$ring-stroke: to-rem(2.5);
 
 .carousel {
   position: relative;
@@ -130,12 +130,12 @@ $ring-stroke: 2.5px;
 
     &--prev:hover &-arrow,
     &--prev:focus &-arrow {
-      transform: translateX(-4px);
+      transform: translateX(to-rem(-4));
     }
 
     &--next:hover &-arrow,
     &--next:focus &-arrow {
-      transform: translateX(4px);
+      transform: translateX(to-rem(4));
     }
 
     &:active &-arrow {

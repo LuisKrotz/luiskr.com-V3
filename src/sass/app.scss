@@ -346,7 +346,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 2px;
+  height: to-rem(2);
   width: 0%;
   background: var(--grey);
   z-index: 9999;
@@ -373,23 +373,23 @@
 // Slide left: new page enters from right
 .slide-left-enter-active { transition: opacity .3s ease, transform .3s ease; }
 .slide-left-leave-active { transition: opacity .25s ease, transform .25s ease; }
-.slide-left-enter-from { opacity: 0; transform: translateX(48px); }
-.slide-left-leave-to { opacity: 0; transform: translateX(-32px); }
+.slide-left-enter-from { opacity: 0; transform: translateX(to-rem(48)); }
+.slide-left-leave-to { opacity: 0; transform: translateX(to-rem(-32)); }
 
 // Slide right: new page enters from left
 .slide-right-enter-active { transition: opacity .3s ease, transform .3s ease; }
 .slide-right-leave-active { transition: opacity .25s ease, transform .25s ease; }
-.slide-right-enter-from { opacity: 0; transform: translateX(-48px); }
-.slide-right-leave-to { opacity: 0; transform: translateX(32px); }
+.slide-right-enter-from { opacity: 0; transform: translateX(to-rem(-48)); }
+.slide-right-leave-to { opacity: 0; transform: translateX(to-rem(32)); }
 
 // Slide up: new page enters from bottom
 .slide-up-enter-active { transition: opacity .35s ease, transform .35s ease; }
 .slide-up-leave-active { transition: opacity .25s ease, transform .25s ease; }
-.slide-up-enter-from { opacity: 0; transform: translateY(48px); }
-.slide-up-leave-to { opacity: 0; transform: translateY(-24px); }
+.slide-up-enter-from { opacity: 0; transform: translateY(to-rem(48)); }
+.slide-up-leave-to { opacity: 0; transform: translateY(to-rem(-24)); }
 
 // Slide down: when leaving About/Legal
 .slide-down-enter-active { transition: opacity .3s ease, transform .3s ease; }
 .slide-down-leave-active { transition: opacity .25s ease, transform .25s ease; }
-.slide-down-enter-from { opacity: 0; transform: translateY(-32px); }
-.slide-down-leave-to { opacity: 0; transform: translateY(32px); }
+.slide-down-enter-from { opacity: 0; transform: translateY(to-rem(-32)); }
+.slide-down-leave-to { opacity: 0; transform: translateY(to-rem(32)); }
