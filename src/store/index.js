@@ -30,7 +30,7 @@ export default createStore({
     },
     marqueeamount: 0,
     modalObject: {
-      transform: 'translateY(0)',
+      transform: 0,
       class: '',
       open: false,
       media: {

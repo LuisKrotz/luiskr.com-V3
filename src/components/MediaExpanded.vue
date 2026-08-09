@@ -99,14 +99,11 @@ export default {
       if (this.isClosing) return
       this.isClosing = true
 
-      const scroll = this.$store.getters.getModal.transform
+      const scroll = Number(this.$store.getters.getModal.transform) || 0
 
       // Wait for zoom-out animation to finish
       setTimeout(() => {
-        // 1. Restore scroll position BEFORE removing fixed layout
-        window.scrollTo({ top: scroll, behavior: 'instant' })
-
-        // 2. Restore URL to portfolio base path (remove slug)
+        // 1. Restore URL to portfolio base path (remove slug)
         const routeSlug = this.$route.params?.slug
         if (routeSlug) {
           const currentPath = this.$route.path.replace(/\/$/, '')
@@ -114,9 +111,9 @@ export default {
           this.$router.replace(basePath)
         }
 
-        // 3. Reset modal store state
+        // 2. Remove modal-open class while preserving transform offset
         this.$store.commit('setModal', {
-          transform: 0,
+          transform: scroll,
           class: '',
           open: false,
           media: {
@@ -127,6 +124,26 @@ export default {
             height: undefined,
             isVideo: undefined,
           },
+        })
+
+        // 3. Immediately restore window scroll position to match full document height
+        window.scrollTo(0, scroll)
+
+        // 4. Reset transform to 0 on next tick
+        this.$nextTick(() => {
+          this.$store.commit('setModal', {
+            transform: 0,
+            class: '',
+            open: false,
+            media: {
+              source: undefined,
+              thumb: undefined,
+              alt: undefined,
+              width: undefined,
+              height: undefined,
+              isVideo: undefined,
+            },
+          })
         })
       }, 400) // matches zoom-out animation duration
     },

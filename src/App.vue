@@ -136,19 +136,17 @@ export default {
       }
     },
     closeModal() {
-      const scroll = this.$store.getters.getModal.transform
+      const scroll = Number(this.$store.getters.getModal.transform) || 0
 
-      // Restore scroll position BEFORE removing fixed layout
-      window.scrollTo({ top: scroll, behavior: 'instant' })
-
-      // Restore URL without slug
+      // 1. Restore URL without slug
       const basePath = this.$route.path.split('/').slice(0, 3).join('/')
       if (this.$route.path !== basePath) {
         this.$router.replace(basePath)
       }
 
+      // 2. Remove modal-open class while preserving transform offset
       this.$store.commit('setModal', {
-        transform: 0,
+        transform: scroll,
         class: '',
         open: false,
         media: {
@@ -159,6 +157,26 @@ export default {
           height: undefined,
           isVideo: undefined,
         },
+      })
+
+      // 3. Immediately restore window scroll position to match full document height
+      window.scrollTo(0, scroll)
+
+      // 4. Reset transform to 0 on next tick
+      this.$nextTick(() => {
+        this.$store.commit('setModal', {
+          transform: 0,
+          class: '',
+          open: false,
+          media: {
+            source: undefined,
+            thumb: undefined,
+            alt: undefined,
+            width: undefined,
+            height: undefined,
+            isVideo: undefined,
+          },
+        })
       })
     },
     cookieAction(state) {
