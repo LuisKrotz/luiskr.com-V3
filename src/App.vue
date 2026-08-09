@@ -7,7 +7,12 @@
       <router-link class="nav-link back" v-if="!isHomePage" to="/">
         {{ translations?.title ?? 'LK' }}
       </router-link>
-      <button class="nav-link active" v-else @click="scrollTop()">
+      <button
+        class="nav-link"
+        :class="{ active: isHomePage && activeSection === 'home' }"
+        v-else
+        @click="scrollTop()"
+      >
         {{ translations?.title ?? 'LK' }}
       </button>
 
@@ -21,7 +26,7 @@
         </router-link>
         <button
           class="nav-link"
-          :class="{ active: $router.currentRoute.value.name === 'About' }"
+          :class="{ active: isHomePage && activeSection === 'about' }"
           v-else
           @click="goToAbout"
         >
@@ -29,15 +34,22 @@
         </button>
         <span class="nav-separator">{{ !onBottom ? '|' : '▲' }}</span>
 
-        <button v-if="!onBottom" class="nav-link scroll-down" @click="scrollToContact()">
-          <template v-if="isHomePage">
-            {{ translations?.contact ?? '' }}
-          </template>
-          <template v-else>{{ translations?.related ?? '' }}</template>
+        <button
+          v-if="isHomePage"
+          class="nav-link"
+          :class="{ active: activeSection === 'contact' }"
+          @click="scrollToContact()"
+        >
+          {{ translations?.contact ?? 'Contact' }}
         </button>
-        <button v-else class="nav-link scroll-up" @click="scrollTop()">
-          {{ translations?.scrollup ?? '↑' }}
-        </button>
+        <template v-else>
+          <button v-if="!onBottom" class="nav-link scroll-down" @click="scrollToContact()">
+            {{ translations?.related ?? '' }}
+          </button>
+          <button v-else class="nav-link scroll-up" @click="scrollTop()">
+            {{ translations?.scrollup ?? '↑' }}
+          </button>
+        </template>
       </div>
     </div>
     <div v-else class="nav" style="pointer-events: auto">
@@ -80,14 +92,47 @@ export default {
       translations: false,
       routeLoading: false,
       transitionName: 'fade',
+      activeSection: 'home',
     }
   },
   methods: {
-    checkScroll() {
-      if (document.body.scrollHeight - window.scrollY <= window.innerHeight + 200) {
-        this.onBottom = true
+    initActiveSection() {
+      const path = window.location.pathname
+      if (path === '/about') {
+        this.activeSection = 'about'
+      } else if (path === '/contact') {
+        this.activeSection = 'contact'
       } else {
-        this.onBottom = false
+        this.activeSection = 'home'
+      }
+    },
+    checkScroll() {
+      const y = window.scrollY
+      this.onBottom = document.body.scrollHeight - y <= window.innerHeight + 200
+
+      if (!this.isHomePage) return
+
+      const aboutEl = document.getElementById('about')
+      const contactEl = document.getElementById('contact')
+
+      const aboutTop = aboutEl ? aboutEl.offsetTop - 250 : 600
+      const contactTop = contactEl ? contactEl.offsetTop - 250 : 1500
+
+      let newSection = 'home'
+      if (y >= contactTop || this.onBottom) {
+        newSection = 'contact'
+      } else if (y >= aboutTop) {
+        newSection = 'about'
+      } else {
+        newSection = 'home'
+      }
+
+      if (this.activeSection !== newSection) {
+        this.activeSection = newSection
+        const targetPath = newSection === 'home' ? '/' : `/${newSection}`
+        if (window.location.pathname !== targetPath) {
+          history.replaceState({}, '', targetPath)
+        }
       }
     },
     closeModal() {
@@ -137,16 +182,17 @@ export default {
       }
     },
     goToAbout() {
+      this.activeSection = 'about'
       this.scrollToSection('about')
-      // Update URL without triggering navigation/reload
-      if (this.$route.path !== '/about') {
+      if (window.location.pathname !== '/about') {
         history.pushState({}, '', '/about')
       }
     },
     scrollToContact() {
       if (this.isHomePage) {
+        this.activeSection = 'contact'
         this.scrollToSection('contact')
-        if (this.$route.path !== '/contact') {
+        if (window.location.pathname !== '/contact') {
           history.pushState({}, '', '/contact')
         }
       } else {
@@ -154,16 +200,18 @@ export default {
       }
     },
     scrollTop() {
+      if (this.isHomePage) {
+        this.activeSection = 'home'
+        if (window.location.pathname !== '/') {
+          history.pushState({}, '', '/')
+        }
+      }
       this.$smoothScroll({
         duration: 1000,
         updateHistory: true,
         scrollTo: 0,
         hash: '',
       })
-      // Clean URL back to root when scrolling to top on home
-      if (this.isHomePage && this.$route.path !== '/') {
-        history.pushState({}, '', '/')
-      }
     },
     loadData() {
       let dbpath
@@ -249,12 +297,14 @@ export default {
     })
   },
   mounted() {
+    this.initActiveSection()
     window.addEventListener('scroll', () => this.checkScroll())
     window.addEventListener('resize', () => this.checkScroll())
   },
   watch: {
     $route() {
       this.loadData()
+      this.initActiveSection()
     },
   },
 }
