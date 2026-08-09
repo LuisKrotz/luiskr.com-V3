@@ -82,9 +82,10 @@
               ></p>
             </template>
             <div v-else class="skeleton--text-block">
-              <div class="skeleton--text-line" style="width: 90%"></div>
-              <div class="skeleton--text-line" style="width: 75%"></div>
+              <div class="skeleton--text-line" style="width: 100%"></div>
+              <div class="skeleton--text-line" style="width: 92%"></div>
               <div class="skeleton--text-line" style="width: 85%"></div>
+              <div class="skeleton--text-line" style="width: 60%"></div>
             </div>
           </div>
           <div class="about-profile-text-col">
@@ -96,6 +97,11 @@
                 v-html="item"
               ></p>
             </template>
+            <div v-else class="skeleton--text-block">
+              <div class="skeleton--text-line" style="width: 95%"></div>
+              <div class="skeleton--text-line" style="width: 88%"></div>
+              <div class="skeleton--text-line" style="width: 78%"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -106,7 +112,7 @@
       <section class="home-section home-section--archive">
         <h2 class="home-section-title home-section-title--archive" :key="'exp-' + exploreSlideKey">
           <DrawText v-if="translations" :text="translations.archive" />
-          <span v-else class="skeleton" style="display: block; width: 160px; height: 1em"></span>
+          <div v-else class="skeleton--title"></div>
         </h2>
 
         <HomeCarousel

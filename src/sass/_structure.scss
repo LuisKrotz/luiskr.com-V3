@@ -113,7 +113,9 @@ main {
 }
 
 .skeleton {
-  &--shimmer {
+  &--shimmer,
+  &-cover,
+  &-placeholder {
     background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
     background-size: 200% 100%;
     animation: skeleton-shimmer 2.4s ease-in-out infinite;
@@ -121,10 +123,36 @@ main {
 
   &--title {
     @extend .skeleton--shimmer;
-    width: 60%;
-    height: to-rem($space-2xl);
-    border-radius: to-rem($space-xs);
-    display: inline-block;
+    width: 45%;
+    max-width: to-rem(480);
+    height: to-rem(24);
+    border-radius: to-rem($space-2xs);
+    display: block;
+    margin-bottom: to-rem($space-md);
+
+    @include layout-768() {
+      height: to-rem(36);
+    }
+    @include layout-1024() {
+      height: to-rem(56);
+    }
+  }
+
+  &--hero {
+    @extend .skeleton--shimmer;
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    border-radius: to-rem($space-lg);
+    display: block;
+  }
+
+  &--media {
+    @extend .skeleton--shimmer;
+    width: 100%;
+    height: 100%;
+    min-height: to-rem(200);
+    border-radius: to-rem($space-lg);
+    display: block;
   }
 
   &--text-block {
@@ -132,20 +160,24 @@ main {
     flex-direction: column;
     gap: to-rem($space-sm);
     width: 100%;
-    padding: to-rem($space-sm) 0;
+    padding: to-rem($space-xs) 0;
   }
 
   &--text-line {
     @extend .skeleton--shimmer;
-    height: to-rem($space-md);
+    height: to-rem(18);
     border-radius: to-rem($space-2xs);
+
+    @include layout-768() {
+      height: to-rem(21);
+    }
   }
 
   &--tag {
     @extend .skeleton--shimmer;
     display: inline-block;
-    width: to-rem(80);
-    height: to-rem($space-lg);
-    border-radius: to-rem($space-xs);
+    width: to-rem(110);
+    height: to-rem(36);
+    border-radius: to-rem($space-xl);
   }
 }
