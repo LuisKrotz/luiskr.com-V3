@@ -54,7 +54,7 @@
     <section id="about" class="about">
       <h2 class="about-title">
         <DrawText v-if="aboutTranslations" :text="aboutTranslations.title" trigger="viewport" />
-        <div v-else class="skeleton--title"></div>
+        <span v-else class="skeleton--shimmer" style="display: inline-block; width: 40%; height: 1em; border-radius: 4px"></span>
       </h2>
 
       <div class="about-profile-section">
@@ -81,11 +81,11 @@
                 v-html="item"
               ></p>
             </template>
-            <div v-else class="skeleton--text-block">
-              <div class="skeleton--text-line" style="width: 100%"></div>
-              <div class="skeleton--text-line" style="width: 92%"></div>
-              <div class="skeleton--text-line" style="width: 85%"></div>
-              <div class="skeleton--text-line" style="width: 60%"></div>
+            <div v-else>
+              <p class="about-item-text skeleton--shimmer" style="width: 100%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"></p>
+              <p class="about-item-text skeleton--shimmer" style="width: 92%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"></p>
+              <p class="about-item-text skeleton--shimmer" style="width: 85%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"></p>
+              <p class="about-item-text skeleton--shimmer" style="width: 60%; height: 1.4em; border-radius: 4px"></p>
             </div>
           </div>
           <div class="about-profile-text-col">
@@ -97,10 +97,10 @@
                 v-html="item"
               ></p>
             </template>
-            <div v-else class="skeleton--text-block">
-              <div class="skeleton--text-line" style="width: 95%"></div>
-              <div class="skeleton--text-line" style="width: 88%"></div>
-              <div class="skeleton--text-line" style="width: 78%"></div>
+            <div v-else>
+              <p class="about-item-text skeleton--shimmer" style="width: 95%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"></p>
+              <p class="about-item-text skeleton--shimmer" style="width: 88%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"></p>
+              <p class="about-item-text skeleton--shimmer" style="width: 78%; height: 1.4em; border-radius: 4px"></p>
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@
       <section class="home-section home-section--archive">
         <h2 class="home-section-title home-section-title--archive" :key="'exp-' + exploreSlideKey">
           <DrawText v-if="translations" :text="translations.archive" />
-          <div v-else class="skeleton--title"></div>
+          <span v-else class="skeleton--shimmer" style="display: inline-block; width: 45%; height: 1em; border-radius: 4px"></span>
         </h2>
 
         <HomeCarousel

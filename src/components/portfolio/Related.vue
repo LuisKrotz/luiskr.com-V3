@@ -2,7 +2,7 @@
   <footer class="internal-footer">
     <h2 class="internal-footer-title">
       <span v-if="translations?.title" v-html="translations.title" :key="'ttl1'"></span>
-      <div v-else class="skeleton--title" style="width: 140px" :key="'ttl2'"></div>
+      <span v-else class="skeleton--shimmer" style="display: inline-block; width: 30%; height: 1em; border-radius: 4px" :key="'ttl2'"></span>
     </h2>
     <div class="internal-footer-related">
       <template v-if="translations?.projects">
@@ -18,8 +18,8 @@
       <template v-else>
         <span
           v-for="(w, idx) in ['70px', '70px', '140px', '50px', '50px', '80px', '110px', '130px', '120px', '80px', '60px', '95px']"
-          class="skeleton--tag"
-          :style="{ width: w }"
+          class="internal-footer-related-link skeleton--shimmer"
+          :style="{ width: w, pointerEvents: 'none' }"
           :key="idx"
         ></span>
       </template>
@@ -41,16 +41,16 @@
       <p class="internal-footer-items-note" v-html="translations.note"></p>
     </div>
     <div class="internal-footer-items" v-else data-nosnippet>
-      <div class="skeleton--text-block" style="width: 100%">
-        <div style="display: flex; gap: 8px; margin-bottom: 12px">
-          <div class="skeleton--text-line" style="width: 45px"></div>
-          <div class="skeleton--text-line" style="width: 55px"></div>
-          <div class="skeleton--text-line" style="width: 70px"></div>
-          <div class="skeleton--text-line" style="width: 55px"></div>
-        </div>
-        <div class="skeleton--text-line" style="width: 90%"></div>
-        <div class="skeleton--text-line" style="width: 75%"></div>
-      </div>
+      <span class="internal-footer-items-link skeleton--shimmer" style="display: inline-block; width: 45px; height: 1em; border-radius: 2px"></span>
+      <span class="internal-footer-items-separator">•</span>
+      <span class="internal-footer-items-link skeleton--shimmer" style="display: inline-block; width: 55px; height: 1em; border-radius: 2px"></span>
+      <span class="internal-footer-items-separator">•</span>
+      <span class="internal-footer-items-link skeleton--shimmer" style="display: inline-block; width: 70px; height: 1em; border-radius: 2px"></span>
+      <span class="internal-footer-items-separator">•</span>
+      <span class="internal-footer-items-link skeleton--shimmer" style="display: inline-block; width: 55px; height: 1em; border-radius: 2px"></span>
+
+      <p class="internal-footer-items-note skeleton--shimmer" style="width: 90%; height: 1.2em; border-radius: 4px; margin-top: 16px; margin-bottom: 6px"></p>
+      <p class="internal-footer-items-note skeleton--shimmer" style="width: 75%; height: 1.2em; border-radius: 4px"></p>
     </div>
   </footer>
 </template>

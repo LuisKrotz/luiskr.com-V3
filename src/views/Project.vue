@@ -7,7 +7,7 @@
     >
       <h2 class="internal-title">
         <DrawText v-if="translations" :text="translations.title" trigger="viewport" :key="'ttl1'" />
-        <div v-else class="skeleton--title" :key="'ttl2'"></div>
+        <span v-else class="skeleton--shimmer" style="display: inline-block; width: 45%; height: 1em; border-radius: 4px" :key="'ttl2'"></span>
       </h2>
       <div class="internal-main">
         <Media
@@ -24,9 +24,9 @@
         <!-- Cover skeleton while data loads -->
         <div
           v-else
-          class="skeleton-cover internal-main-item"
+          class="render-media skeleton--shimmer internal-main-item"
           key="'skelCover'"
-          style="width: 100%; aspect-ratio: 16/9"
+          style="width: 100%; aspect-ratio: 1920 / 798; border-radius: 16px"
         ></div>
       </div>
 
@@ -84,17 +84,16 @@
         </div>
         <div v-else :key="'load-data'">
           <div class="internal-description">
-            <div class="skeleton--text-block">
-              <div class="skeleton--text-line" style="width: 80%"></div>
-              <div class="skeleton--text-line" style="width: 95%"></div>
-              <div class="skeleton--text-line" style="width: 60%"></div>
-            </div>
+            <h3 class="internal-description-text skeleton--shimmer" style="width: 40%; height: 1.2em; border-radius: 4px; margin-bottom: 1em"></h3>
+            <p class="internal-description-text skeleton--shimmer" style="width: 100%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"></p>
+            <p class="internal-description-text skeleton--shimmer" style="width: 94%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"></p>
+            <p class="internal-description-text skeleton--shimmer" style="width: 65%; height: 1.4em; border-radius: 4px"></p>
           </div>
           <!-- Skeleton carousel placeholders -->
           <div class="internal-extra">
             <div class="internal-extra-scroll">
-              <div class="internal-extra-item" v-for="n in 5" :key="n">
-                <div class="render-media skeleton--media"></div>
+              <div class="internal-extra-item" v-for="n in 3" :key="n">
+                <div class="render-media skeleton--shimmer" style="aspect-ratio: 16/9; width: 100%; border-radius: 16px"></div>
               </div>
             </div>
           </div>
