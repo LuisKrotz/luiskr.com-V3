@@ -63,6 +63,13 @@ export default {
       isClosing: false,
     }
   },
+  mounted() {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+    const modalAbove = document.querySelector('.modal-above')
+    if (modalAbove) modalAbove.scrollTop = 0
+    const modalContent = document.querySelector('.expand-modal-content')
+    if (modalContent) modalContent.scrollTop = 0
+  },
   props: {
     source: {
       type: String,
