@@ -140,12 +140,11 @@ import Contact from '../components/Contact.vue'
 import AwardsMentions from '../components/AwardsMentions.vue'
 import DrawText from '../components/DrawText.vue'
 
-// Fixed card heights in px.
-// At 3 cols (~390px colW): featured=280px → 1.39:1 landscape (4:3-ish, clear card).
-// Compact rotates through 180-215px → 1.8-2.2:1 landscape (16:9-ish).
-// Neither looks square. Featured is clearly ~40% taller than compact.
-const FEATURED_HEIGHT = 280
-const COMPACT_HEIGHTS = [195, 215, 180, 210, 190]
+// Heights are colW-proportional so they're NEVER square at any resolution.
+// Featured: colW * 0.60 → 5:3 landscape (e.g. 356×214px at 1280 — clearly wide)
+// Compact rotates through 0.40–0.50 multipliers → 2:1 to 2.5:1 widescreen
+const FEATURED_MULT = 0.60
+const COMPACT_MULTS = [0.48, 0.52, 0.44, 0.50, 0.46]
 const EXPAND_DELTA = 130
 
 export default {
@@ -220,13 +219,13 @@ export default {
       return this.hoveredIndex === idx || this.activeTouchIndex === idx
     },
 
-    baseHeight(item, idx) {
-      if (item.featured) return FEATURED_HEIGHT
-      return COMPACT_HEIGHTS[idx % COMPACT_HEIGHTS.length]
+    baseHeight(item, idx, colW) {
+      if (item.featured) return Math.round(colW * FEATURED_MULT)
+      return Math.round(colW * COMPACT_MULTS[idx % COMPACT_MULTS.length])
     },
 
-    cardHeight(item, idx) {
-      return this.baseHeight(item, idx) + (this.isActive(idx) ? EXPAND_DELTA : 0)
+    cardHeight(item, idx, colW) {
+      return this.baseHeight(item, idx, colW) + (this.isActive(idx) ? EXPAND_DELTA : 0)
     },
 
     layoutMasonry() {
@@ -244,8 +243,7 @@ export default {
       const colH = Array(cols).fill(0)
 
       this.itemStyles = this.processedItems.map((item, idx) => {
-        // Height derived from fixed px constants (consistent landscape proportions)
-        const h = this.cardHeight(item, idx)
+        const h = this.cardHeight(item, idx, colW)
 
         // Shortest-column bin-packing: always fills the lowest column, zero gaps
         let col = 0
