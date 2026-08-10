@@ -74,10 +74,9 @@
       }
     }
 
-    // Active Card expands in size and row weight; surrounding cards animate reactively
+    // Active Card expands visually; surrounding cards animate reactively without line-wrap flickers
     &:hover,
     &--expanded {
-      flex: 3 1 to-rem(380);
       transform: translateY(-6px) scale(1.02);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
       z-index: 5;
