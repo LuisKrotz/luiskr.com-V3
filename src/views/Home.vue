@@ -8,7 +8,7 @@
           <span v-else class="skeleton--shimmer" style="display: inline-block; width: 40%; height: 1em; border-radius: 4px"></span>
         </h2>
 
-        <!-- Mosaic Grid of Home Portfolio Items -->
+        <!-- Mosaic Grid of Home Portfolio Items (Equal-Width Vertical Masonry) -->
         <div
           v-if="processedItems.length"
           ref="mosaicContainer"
@@ -178,9 +178,9 @@ export default {
         ? this.translations.portfoliolist
         : Object.values(this.translations.portfoliolist)
 
-      return list.map((item) => {
+      return list.map((item, idx) => {
         const featured = this.isFeatured(item)
-        const variant = featured ? 'featured-hero' : 'standard-compact'
+        const variant = featured ? 'featured' : idx % 2 === 0 ? 'tall' : 'compact'
 
         return {
           ...item,
@@ -238,6 +238,7 @@ export default {
       const containerWidth = container.clientWidth
       if (!containerWidth) return
 
+      // 3 equal columns on desktop (> 768px), 2 cols on tablet (> 500px), 1 col mobile
       const cols = containerWidth >= 768 ? 3 : containerWidth >= 500 ? 2 : 1
       const gap = 20
 
@@ -245,45 +246,29 @@ export default {
       const colHeights = Array(cols).fill(0)
 
       this.itemStyles = this.processedItems.map((item) => {
-        const isFeaturedSpan = item.featured && cols >= 3
-        const span = isFeaturedSpan ? 2 : 1
-
+        // EVERY SINGLE ITEM IS EXACTLY 1 COLUMN WIDE (NO 2-COLUMN WIDE ITEMS EVER!)
         let targetCol = 0
-        let minH = Infinity
+        let minH = colHeights[0]
 
-        if (span === 2) {
-          for (let i = 0; i < cols - 1; i++) {
-            const pairH = Math.max(colHeights[i], colHeights[i + 1])
-            if (pairH < minH) {
-              minH = pairH
-              targetCol = i
-            }
-          }
-        } else {
-          for (let i = 0; i < cols; i++) {
-            if (colHeights[i] < minH) {
-              minH = colHeights[i]
-              targetCol = i
-            }
+        for (let i = 1; i < cols; i++) {
+          if (colHeights[i] < minH) {
+            minH = colHeights[i]
+            targetCol = i
           }
         }
 
         const top = minH
         const left = targetCol * (colWidth + gap)
-        const width = span === 2 ? colWidth * 2 + gap : colWidth
+        const width = colWidth
 
-        let baseHeight = item.featured ? 380 : 180
+        // Featured items are distinguished by taller cover image height (360px vs 220px)
+        let baseHeight = item.featured ? 360 : item.variant === 'tall' ? 290 : 220
 
         if (this.hoveredIndex === item.link || this.activeTouchIndex === item.link) {
           baseHeight += 110
         }
 
-        if (span === 2) {
-          colHeights[targetCol] = top + baseHeight + gap
-          colHeights[targetCol + 1] = top + baseHeight + gap
-        } else {
-          colHeights[targetCol] = top + baseHeight + gap
-        }
+        colHeights[targetCol] = top + baseHeight + gap
 
         return {
           position: 'absolute',

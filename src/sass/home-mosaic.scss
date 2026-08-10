@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (Harmonic Masonry Engine) ─────────────────
+// ── Home Portfolio Showcase Grid (Equal-Width Vertical Masonry) ─────────────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -65,37 +65,44 @@
                 filter 0.35s ease,
                 box-shadow 0.4s ease;
 
-    // Featured Hero Cards (2-Col Wide, 380px Cover Height, 26px Title)
-    &--featured,
-    &--featured-hero {
-      border: 1.5px solid rgba(255, 255, 255, 0.22);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    // Featured Items: 1-col wide, tall 360px cover image height, 24px title typography, border accent
+    &--featured {
+      border: 1px solid rgba(255, 255, 255, 0.16);
 
       .home-mosaic-media {
-        height: to-rem(320);
+        height: to-rem(300);
 
         @include layout-768() {
-          height: to-rem(380);
+          height: to-rem(360);
         }
       }
 
       .home-mosaic-title {
-        font-size: to-rem(22);
-        letter-spacing: to-rem(1.4);
+        font-size: to-rem(20);
+        letter-spacing: to-rem(1.2);
 
         @include layout-768() {
-          font-size: to-rem(26);
+          font-size: to-rem(24);
         }
       }
     }
 
-    // Standard Compact Cards (1-Col, 180px Cover Height - Two stack perfectly next to 380px Featured Hero!)
-    &--standard-compact {
+    &--tall {
       .home-mosaic-media {
-        height: to-rem(160);
+        height: to-rem(250);
 
         @include layout-768() {
-          height: to-rem(180);
+          height: to-rem(290);
+        }
+      }
+    }
+
+    &--compact {
+      .home-mosaic-media {
+        height: to-rem(180);
+
+        @include layout-768() {
+          height: to-rem(220);
         }
       }
     }
