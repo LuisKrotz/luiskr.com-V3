@@ -20,6 +20,7 @@
 .home-mosaic {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: to-rem($space-lg);
   width: 100%;
   box-sizing: border-box;
