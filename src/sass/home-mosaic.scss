@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Mosaic Showcase (Untangled from Related) ─────────────────
+// ── Home Portfolio Showcase Grid (Untangled from Related) ─────────────────
 .home-portfolio-section {
   width: 100%;
   padding: to-rem($space-2xl) to-rem($space-md);
@@ -14,15 +14,21 @@
 }
 
 .home-mosaic {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   gap: to-rem($space-md);
   width: 100%;
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
 
   @include layout-768() {
+    grid-template-columns: repeat(6, 1fr);
     gap: to-rem($space-lg);
+  }
+
+  @include layout-1024() {
+    grid-template-columns: repeat(12, 1fr);
+    gap: to-rem($space-xl);
   }
 
   &-item {
@@ -32,44 +38,53 @@
     justify-content: flex-end;
     overflow: hidden;
     border-radius: to-rem($space-lg);
-    flex: 1 1 to-rem(260);
-    max-width: to-rem(360);
-    min-height: to-rem(220);
+    grid-column: span 1;
+    min-height: to-rem(240);
     aspect-ratio: 16 / 10;
     text-decoration: none;
     color: #ffffff;
     background: var(--bg-secondary);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.4s ease,
-                flex-grow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+                box-shadow 0.4s ease;
 
+    @include layout-768() {
+      grid-column: span 3;
+    }
+
+    @include layout-1024() {
+      grid-column: span 4;
+    }
+
+    // Featured items take wider grid area (span 8 cols on desktop)
     &--featured {
-      flex: 2 1 to-rem(480);
-      max-width: 100%;
       aspect-ratio: 16 / 9;
 
+      @include layout-768() {
+        grid-column: span 6;
+      }
+
       @include layout-1024() {
-        flex: 2 1 to-rem(560);
+        grid-column: span 8;
       }
     }
 
-    // Hover Expansion: expands card and reveals description below with button
+    // Hover Expansion: card lifts smoothly without image distortion
     &:hover,
     &--hovered {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
       z-index: 2;
 
       .home-mosaic-img {
-        transform: scale(1.08);
+        transform: scale(1.05);
       }
 
       .home-mosaic-overlay {
         background: linear-gradient(
           to top,
           rgba(0, 0, 0, 0.95) 0%,
-          rgba(0, 0, 0, 0.65) 55%,
+          rgba(0, 0, 0, 0.65) 60%,
           rgba(0, 0, 0, 0.15) 100%
         );
       }
@@ -113,6 +128,10 @@
     gap: to-rem($space-xs);
     text-align: left;
     pointer-events: none;
+
+    @include layout-768() {
+      padding: to-rem($space-lg) to-rem($space-xl);
+    }
   }
 
   &-title {
@@ -130,17 +149,18 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: to-rem($space-sm);
-    margin-top: to-rem($space-2xs);
+    gap: to-rem($space-md);
+    margin-top: to-rem($space-xs);
     pointer-events: auto;
   }
 
   &-desc {
     @extend .txt-xs;
+    font-family: 'Raleway', sans-serif;
     font-weight: 200;
     color: rgba(255, 255, 255, 0.92);
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-    line-height: 1.4;
+    line-height: 1.5;
 
     .draw-text__char {
       animation: char-draw 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -148,27 +168,56 @@
     }
   }
 
+  // ── Corner-Border Action Button (Matches previous layout & internals pattern) ──
   &-btn {
-    align-self: flex-start;
-    padding: to-rem($space-2xs) to-rem($space-md);
-    font-size: to-rem(12);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: to-rem(1.2);
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: to-rem(20);
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    @extend %RESETBTN;
+    @extend .ttl-xs;
 
-    &:hover {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-      transform: translateY(-2px);
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    padding: to-rem($space-xs) to-rem($space-lg);
+    color: var(--grey, #cccccc);
+    font-weight: 700;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+    width: fit-content;
+    cursor: pointer;
+    margin-top: to-rem($space-2xs);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: to-rem($space-md);
+      height: to-rem($space-md);
+      transition: width 0.25s ease, height 0.25s ease;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      border-top: 1px solid var(--grey, #cccccc);
+      border-left: 1px solid var(--grey, #cccccc);
+    }
+
+    &::after {
+      bottom: 0;
+      right: 0;
+      border-bottom: 1px solid var(--grey, #cccccc);
+      border-right: 1px solid var(--grey, #cccccc);
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--white, #ffffff);
+
+      &::before,
+      &::after {
+        width: calc(100% - #{to-rem($space-2xs)});
+        height: calc(100% - #{to-rem($space-2xs)});
+      }
     }
   }
 }
