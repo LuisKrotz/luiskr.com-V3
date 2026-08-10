@@ -181,30 +181,8 @@ export default {
       const raw = Array.isArray(this.translations.portfoliolist)
         ? this.translations.portfoliolist
         : Object.values(this.translations.portfoliolist)
-
-      // Tag each item
-      const tagged = raw.map((item) => ({ ...item, featured: this.isFeatured(item) }))
-
-      // Separate featured from non-featured
-      const featured = tagged.filter((i) => i.featured)
-      const compact = tagged.filter((i) => !i.featured)
-
-      // Interleave: insert one featured item every ~3 compact items
-      // so featured are evenly distributed throughout the masonry, not all at the end
-      const result = []
-      let fi = 0
-      let ci = 0
-      const step = Math.max(2, Math.floor(compact.length / Math.max(featured.length, 1)))
-      while (fi < featured.length || ci < compact.length) {
-        // Insert featured item
-        if (fi < featured.length) result.push(featured[fi++])
-        // Insert `step` compact items
-        for (let s = 0; s < step && ci < compact.length; s++) {
-          result.push(compact[ci++])
-        }
-      }
-
-      return result
+      // Preserve exact DB order — no sorting or interleaving
+      return raw.map((item) => ({ ...item, featured: this.isFeatured(item) }))
     },
 
     activeBottomStyle() {
