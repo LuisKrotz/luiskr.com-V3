@@ -514,23 +514,16 @@
   }
 }
 
-// ── Mosaic Grid Layout for Related Projects ──────────────────────────────────
+// ── Mosaic Layout for Related Projects (Zero Empty Gaps) ──────────────────────
 .related-mosaic {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-auto-flow: dense;
-  gap: to-rem($space-lg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: to-rem($space-md);
   width: 100%;
   box-sizing: border-box;
 
-  @include layout-540() {
-    grid-template-columns: repeat(2, 1fr);
-    gap: to-rem($space-xl);
-  }
-
-  @include layout-1024() {
-    grid-template-columns: repeat(4, 1fr);
-    gap: to-rem($space-2xl);
+  @include layout-768() {
+    gap: to-rem($space-lg);
   }
 
   &-item {
@@ -540,6 +533,8 @@
     justify-content: flex-end;
     overflow: hidden;
     border-radius: to-rem($space-lg);
+    flex: 1 1 to-rem(260);
+    min-height: to-rem(200);
     aspect-ratio: 16 / 10;
     text-decoration: none;
     color: #ffffff;
@@ -551,16 +546,13 @@
       display: none !important;
     }
 
-    // Featured items are WIDER — spanning 2 columns with landscape 16/9 aspect ratio
+    // Featured items are WIDER (flex-grow 2) to span wider across rows
     &--featured {
-      @include layout-540() {
-        grid-column: span 2;
-        aspect-ratio: 16 / 9;
-      }
+      flex: 2 1 to-rem(480);
+      aspect-ratio: 16 / 9;
 
       @include layout-1024() {
-        grid-column: span 2;
-        aspect-ratio: 16 / 9;
+        flex: 2 1 to-rem(560);
       }
     }
 
