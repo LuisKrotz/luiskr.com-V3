@@ -550,7 +550,7 @@
       display: none !important;
     }
 
-    // Featured items span 2 columns and 2 rows on tablet & desktop
+    // Featured items span 2 columns with landscape 16/9 ratio
     &--featured {
       @include layout-540() {
         grid-column: span 2;
@@ -559,8 +559,7 @@
 
       @include layout-1024() {
         grid-column: span 2;
-        grid-row: span 2;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 16 / 9;
       }
     }
 
@@ -633,10 +632,10 @@
       font-size: to-rem(18);
 
       @include layout-768() {
-        font-size: to-rem(24);
+        font-size: to-rem(22);
       }
       @include layout-1024() {
-        font-size: to-rem(32);
+        font-size: to-rem(26);
       }
     }
   }
@@ -647,21 +646,6 @@
     font-weight: 200;
     color: rgba(255, 255, 255, 0.85);
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-  }
-
-  &-badge {
-    @extend .ttl-xxs;
-
-    display: inline-block;
-    align-self: flex-start;
-    padding: to-rem($space-2xs) to-rem($space-sm);
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(4px);
-    border-radius: to-rem($space-xl);
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: to-rem(0.5);
-    margin-bottom: to-rem($space-2xs);
   }
 }
 

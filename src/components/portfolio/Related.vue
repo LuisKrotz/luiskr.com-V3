@@ -17,8 +17,8 @@
         >
           <div class="related-mosaic-media">
             <img
-              v-if="project.cover"
-              :src="storage + project.cover.path"
+              v-if="project.imageSrc"
+              :src="project.imageSrc"
               :alt="project.page"
               class="related-mosaic-img"
               loading="lazy"
@@ -29,7 +29,6 @@
           </div>
 
           <div class="related-mosaic-info">
-            <span v-if="project.featured" class="related-mosaic-badge">Featured</span>
             <span class="related-mosaic-title">{{ project.page }}</span>
             <span v-if="project.description" class="related-mosaic-desc" v-html="project.description"></span>
           </div>
@@ -42,7 +41,7 @@
           v-for="n in 6"
           :key="n"
           class="related-mosaic-item skeleton--shimmer"
-          :class="{ 'related-mosaic-item--featured': n === 1 || n === 4 }"
+          :class="{ 'related-mosaic-item--featured': n === 1 }"
         ></div>
       </div>
     </div>
@@ -101,7 +100,7 @@ export default {
         ? this.translations.projects
         : Object.values(this.translations.projects)
 
-      const basePath = this.translations.path || '/projects/'
+      const basePath = this.translations.path || '/portfolio/'
 
       return rawProjects.map((p) => {
         const cleanLink = p.link ? p.link.replace(/^\//, '') : ''
@@ -109,12 +108,14 @@ export default {
           (h) => h.link === cleanLink || h.link === p.link
         )
 
+        const imageName = homeMatch?.image || p.image || cleanLink
+
         return {
-          page: p.page || homeMatch?.title || cleanLink,
+          page: p.page || homeMatch?.label || homeMatch?.title || cleanLink,
           link: cleanLink,
-          fullPath: basePath + cleanLink,
+          fullPath: (basePath.startsWith('/') ? '' : '/') + basePath.replace(/\/$/, '') + '/' + cleanLink,
           featured: p.featured === true || homeMatch?.featured === true,
-          cover: homeMatch?.cover || p.cover || null,
+          imageSrc: imageName ? `${this.storage}covers/${imageName}.jpg` : null,
           description: homeMatch?.description || p.description || '',
         }
       })
