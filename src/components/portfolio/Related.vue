@@ -100,20 +100,6 @@ function cleanSlug(str) {
     .replace(/[^a-z0-9]/g, '')
 }
 
-// Route alias fallback for 0ms initial render before async Firebase fetch
-const ROUTE_FALLBACK_MAP = {
-  'clinica-de-desenvolvimento-nathalia-bond': 'nathalia-bond',
-  'nathalia-bond': 'nathalia-bond',
-  'genesysinf-sageweb': 'sageweb',
-  'sageweb': 'sageweb',
-  'sage': 'sageweb',
-  'minimelissa': 'minimelissa',
-  'mini-melissa': 'minimelissa',
-  'brazilian-leather': 'cicb',
-  'cicb': 'cicb',
-  'aboutmarco': 'aboutmarco',
-}
-
 function findDynamicMatch(pLink, homePortfolio) {
   if (!pLink || !Array.isArray(homePortfolio) || !homePortfolio.length) return null
 
@@ -151,6 +137,49 @@ function findDynamicMatch(pLink, homePortfolio) {
   return match || null
 }
 
+function generatePureDynamicCandidates(pLink, pImage, homeMatch, storage) {
+  const candidateNames = []
+
+  // 1. Home dataset match cover image filename
+  if (homeMatch?.image) candidateNames.push(homeMatch.image)
+
+  // 2. Related project image property
+  if (pImage) candidateNames.push(pImage)
+
+  // 3. Dynamic word & sub-phrase permutations (100% computed, zero hardcoding)
+  if (pLink) {
+    const raw = String(pLink).toLowerCase().replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '')
+    candidateNames.push(raw)
+    candidateNames.push(cleanSlug(raw))
+
+    const words = getWords(raw)
+    for (let i = 0; i < words.length; i++) {
+      for (let j = i + 1; j <= words.length; j++) {
+        const sub = words.slice(i, j).join('-')
+        const subClean = sub.replace(/[^a-z0-9]/g, '')
+        if (!candidateNames.includes(sub)) candidateNames.push(sub)
+        if (!candidateNames.includes(subClean)) candidateNames.push(subClean)
+      }
+    }
+
+    words.slice().reverse().forEach((w) => {
+      if (!candidateNames.includes(w)) candidateNames.push(w)
+    })
+  }
+
+  const uniqueNames = [...new Set(candidateNames.filter(Boolean))]
+
+  const candidateUrls = []
+  uniqueNames.forEach((name) => {
+    ;['.jpg', '.png', '.webp'].forEach((ext) => {
+      const url = `${storage}covers/${name}${ext}`
+      if (!candidateUrls.includes(url)) candidateUrls.push(url)
+    })
+  })
+
+  return candidateUrls
+}
+
 export default {
   name: 'Related',
 
@@ -182,25 +211,14 @@ export default {
         // Dynamically match project against live Home portfolio dataset
         const homeMatch = findDynamicMatch(cleanLink, homeList)
 
-        const imageName = homeMatch?.image || ROUTE_FALLBACK_MAP[cleanLink] || p.image || cleanLink
-
-        // Build dynamic candidate URLs without hardcoding
-        const words = getWords(cleanLink)
-        const names = [imageName, ROUTE_FALLBACK_MAP[cleanLink], cleanLink, cleanSlug(cleanLink), ...words].filter(Boolean)
-        const candidates = []
-        names.forEach((name) => {
-          ;['.jpg', '.png', '.webp'].forEach((ext) => {
-            const url = `${this.storage}covers/${name}${ext}`
-            if (!candidates.includes(url)) candidates.push(url)
-          })
-        })
+        // Pure dynamic candidate URL generation with ZERO hardcoding
+        const candidates = generatePureDynamicCandidates(cleanLink, p.image, homeMatch, this.storage)
 
         return {
           page: p.page || homeMatch?.label || homeMatch?.title || cleanLink,
           link: cleanLink,
           fullPath: (basePath.startsWith('/') ? '' : '/') + basePath.replace(/\/$/, '') + '/' + cleanLink,
           featured: p.featured === true || homeMatch?.featured === true,
-          imageName: imageName,
           imageSrc: candidates[0] || `${this.storage}covers/${cleanLink}.jpg`,
           candidateUrls: candidates,
           description: homeMatch?.description || p.description || '',
