@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (JS Shortest-Column Zero-Gap Masonry) ──────
+// ── Home Portfolio Showcase Grid (12-Col Dense Packing Mosaic) ─────────────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -26,12 +26,22 @@
   }
 }
 
-.home-mosaic-columns {
-  display: flex;
+.home-mosaic {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-flow: dense; // Automatically backfills gaps with smaller items (ZERO GAPS!)
   gap: to-rem($space-lg);
   width: 100%;
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
+
+  @include layout-540() {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include layout-1024() {
+    grid-template-columns: repeat(12, 1fr);
+  }
 
   // Hover reactivity on surrounding cards
   &:hover .home-mosaic-item:not(:hover) {
@@ -45,243 +55,260 @@
       opacity: 0 !important;
     }
   }
-}
 
-.home-mosaic-col {
-  display: flex;
-  flex-direction: column;
-  gap: to-rem($space-lg);
-  flex: 1 1 0;
-  min-width: 0;
-}
+  &-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: to-rem($space-lg);
+    grid-column: span 1;
+    width: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #ffffff;
+    background: var(--bg-secondary, #1a1a1a);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.35s ease,
+                filter 0.35s ease,
+                box-shadow 0.4s ease;
 
-.home-mosaic-item {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  border-radius: to-rem($space-lg);
-  overflow: hidden;
-  box-sizing: border-box;
-  text-decoration: none;
-  color: #ffffff;
-  background: var(--bg-secondary, #1a1a1a);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.35s ease,
-              filter 0.35s ease,
-              box-shadow 0.4s ease;
-
-  // Featured Hero Items (Prominent 340px Card Height & Visual Presence)
-  &--featured,
-  &--hero {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-
-    .home-mosaic-media {
-      height: to-rem(290);
-
-      @include layout-768() {
-        height: to-rem(340);
-      }
+    @include layout-540() {
+      grid-column: span 3;
     }
 
-    .home-mosaic-title {
-      font-size: to-rem(20);
-      letter-spacing: to-rem(1.2);
-
-      @include layout-768() {
-        font-size: to-rem(24);
-      }
+    @include layout-1024() {
+      grid-column: span 4; // Standard non-featured items take 4/12 (1/3) width on desktop! Never 100%!
     }
-  }
 
-  &--wide {
-    .home-mosaic-media {
-      height: to-rem(250);
+    // Featured Hero Items span 8/12 (2/3 width) on desktop
+    &--featured,
+    &--hero {
+      border: 1px solid rgba(255, 255, 255, 0.12);
 
-      @include layout-768() {
+      @include layout-540() {
+        grid-column: span 6;
+      }
+
+      @include layout-1024() {
+        grid-column: span 8;
+      }
+
+      .home-mosaic-media {
         height: to-rem(290);
+
+        @include layout-768() {
+          height: to-rem(340);
+        }
+      }
+
+      .home-mosaic-title {
+        font-size: to-rem(20);
+        letter-spacing: to-rem(1.2);
+
+        @include layout-768() {
+          font-size: to-rem(24);
+        }
+      }
+    }
+
+    &--wide {
+      @include layout-540() {
+        grid-column: span 6;
+      }
+
+      @include layout-1024() {
+        grid-column: span 6;
+      }
+
+      .home-mosaic-media {
+        height: to-rem(250);
+
+        @include layout-768() {
+          height: to-rem(290);
+        }
+      }
+    }
+
+    &--tall {
+      .home-mosaic-media {
+        height: to-rem(290);
+
+        @include layout-768() {
+          height: to-rem(330);
+        }
+      }
+    }
+
+    &--compact {
+      .home-mosaic-media {
+        height: to-rem(200);
+
+        @include layout-768() {
+          height: to-rem(220);
+        }
+      }
+    }
+
+    // Active Card expands cleanly without column rebalancing flicker
+    &:hover,
+    &--expanded {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
+      z-index: 5;
+      opacity: 1 !important;
+      filter: none !important;
+
+      .home-mosaic-img {
+        transform: scale(1.06);
+      }
+
+      .home-mosaic-bottom {
+        max-height: to-rem(380);
+        padding: to-rem($space-md) to-rem($space-lg) to-rem($space-xl);
+        opacity: 1;
       }
     }
   }
 
-  &--tall {
-    .home-mosaic-media {
-      height: to-rem(290);
+  // Top Section: Image container
+  &-media {
+    position: relative;
+    width: 100%;
+    height: to-rem(220);
+    overflow: hidden;
+    transition: height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 
-      @include layout-768() {
-        height: to-rem(330);
-      }
+    @include layout-768() {
+      height: to-rem(240);
     }
   }
 
-  &--compact {
-    .home-mosaic-media {
-      height: to-rem(200);
-
-      @include layout-768() {
-        height: to-rem(220);
-      }
-    }
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  // Active Card expands cleanly without column rebalancing flicker
-  &:hover,
-  &--expanded {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
-    z-index: 5;
-    opacity: 1 !important;
-    filter: none !important;
-
-    .home-mosaic-img {
-      transform: scale(1.06);
-    }
-
-    .home-mosaic-bottom {
-      max-height: to-rem(380);
-      padding: to-rem($space-md) to-rem($space-lg) to-rem($space-xl);
-      opacity: 1;
-    }
-  }
-}
-
-// Top Section: Image container
-.home-mosaic-media {
-  position: relative;
-  width: 100%;
-  height: to-rem(220);
-  overflow: hidden;
-  transition: height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-
-  @include layout-768() {
-    height: to-rem(240);
-  }
-}
-
-.home-mosaic-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.home-mosaic-title-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-  padding: to-rem($space-md) to-rem($space-lg);
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0.2) 60%,
-    transparent 100%
-  );
-}
-
-// Title with font-weight: 100
-.home-mosaic-title {
-  @extend .ttl-sm;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 100;
-  text-transform: uppercase;
-  letter-spacing: to-rem(1);
-  color: #ffffff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-  margin: 0;
-  transition: font-size 0.3s ease;
-}
-
-// Bottom Section BELOW Image: Normal flow expansion below cover image
-.home-mosaic-bottom {
-  position: relative;
-  width: 100%;
-  max-height: 0;
-  padding: 0 to-rem($space-lg);
-  opacity: 0;
-  overflow: hidden;
-  background: var(--bg-secondary, #1a1a1a);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-              padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.35s ease;
-  box-sizing: border-box;
-}
-
-.home-mosaic-details {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: to-rem($space-sm);
-}
-
-// Description with 15px font size and font-weight 200
-.home-mosaic-desc {
-  @extend .txt-sm;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 200;
-  font-size: to-rem(15);
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.94);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-
-  .draw-text__char {
-    animation: char-draw 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 8ms));
-  }
-}
-
-// Corner-Border Action Button
-.home-mosaic-btn {
-  @extend %RESETBTN;
-  @extend .ttl-xs;
-
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  text-transform: uppercase;
-  padding: to-rem($space-xs) to-rem($space-lg);
-  color: var(--grey, #cccccc);
-  font-weight: 700;
-  white-space: nowrap;
-  transition: color 0.2s ease;
-  width: fit-content;
-  cursor: pointer;
-  margin-top: to-rem($space-2xs);
-
-  &::before,
-  &::after {
-    content: '';
+  &-title-overlay {
     position: absolute;
-    width: to-rem($space-sm);
-    height: to-rem($space-sm);
-    transition: width 0.25s ease, height 0.25s ease;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: to-rem($space-md) to-rem($space-lg);
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.2) 60%,
+      transparent 100%
+    );
   }
 
-  &::before {
-    top: 0;
-    left: 0;
-    border-top: 1px solid var(--grey, #cccccc);
-    border-left: 1px solid var(--grey, #cccccc);
+  // Title with font-weight: 100
+  &-title {
+    @extend .ttl-sm;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: to-rem(1);
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    margin: 0;
+    transition: font-size 0.3s ease;
   }
 
-  &::after {
-    bottom: 0;
-    right: 0;
-    border-bottom: 1px solid var(--grey, #cccccc);
-    border-right: 1px solid var(--grey, #cccccc);
+  // Bottom Section: Normal flow expansion below cover image
+  &-bottom {
+    position: relative;
+    width: 100%;
+    max-height: 0;
+    padding: 0 to-rem($space-lg);
+    opacity: 0;
+    overflow: hidden;
+    background: var(--bg-secondary, #1a1a1a);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.35s ease;
+    box-sizing: border-box;
   }
 
-  &:hover,
-  &:focus {
-    color: var(--white, #ffffff);
+  &-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: to-rem($space-sm);
+  }
+
+  // Description with 15px font size and font-weight 200
+  &-desc {
+    @extend .txt-sm;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    font-size: to-rem(15);
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.94);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+
+    .draw-text__char {
+      animation: char-draw 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 8ms));
+    }
+  }
+
+  // Corner-Border Action Button
+  &-btn {
+    @extend %RESETBTN;
+    @extend .ttl-xs;
+
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    padding: to-rem($space-xs) to-rem($space-lg);
+    color: var(--grey, #cccccc);
+    font-weight: 700;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+    width: fit-content;
+    cursor: pointer;
+    margin-top: to-rem($space-2xs);
 
     &::before,
     &::after {
-      width: calc(100% - #{to-rem($space-2xs)});
-      height: calc(100% - #{to-rem($space-2xs)});
+      content: '';
+      position: absolute;
+      width: to-rem($space-sm);
+      height: to-rem($space-sm);
+      transition: width 0.25s ease, height 0.25s ease;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      border-top: 1px solid var(--grey, #cccccc);
+      border-left: 1px solid var(--grey, #cccccc);
+    }
+
+    &::after {
+      bottom: 0;
+      right: 0;
+      border-bottom: 1px solid var(--grey, #cccccc);
+      border-right: 1px solid var(--grey, #cccccc);
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--white, #ffffff);
+
+      &::before,
+      &::after {
+        width: calc(100% - #{to-rem($space-2xs)});
+        height: calc(100% - #{to-rem($space-2xs)});
+      }
     }
   }
 }
