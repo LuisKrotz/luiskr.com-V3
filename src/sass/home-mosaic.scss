@@ -74,27 +74,35 @@
       }
     }
 
-    // Active Card expands in width scale and height; surrounding cards animate reactively
+    // Active Card expands generously in width scale and height; surrounding cards animate reactively
     &:hover,
     &--expanded {
-      flex-grow: 1.8;
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      flex-grow: 2.5;
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
       z-index: 5;
       opacity: 1 !important;
       filter: none !important;
 
       &.home-mosaic-item--featured {
-        flex-grow: 2.8;
+        flex-grow: 4;
+      }
+
+      .home-mosaic-media {
+        height: to-rem(260);
+
+        @include layout-768() {
+          height: to-rem(300);
+        }
       }
 
       .home-mosaic-img {
-        transform: scale(1.05);
+        transform: scale(1.08);
       }
 
       .home-mosaic-bottom {
-        max-height: to-rem(320);
-        padding: to-rem($space-md) to-rem($space-lg) to-rem($space-lg);
+        max-height: to-rem(380);
+        padding: to-rem($space-md) to-rem($space-lg) to-rem($space-xl);
         opacity: 1;
       }
     }
