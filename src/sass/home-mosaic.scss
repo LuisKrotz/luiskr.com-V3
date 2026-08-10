@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (Fluid Flex Mosaic, Capped Non-Featured Width)
+// ── Home Portfolio Showcase Grid (Fluid Flex Mosaic, Zero Gaps, Smooth Animation)
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -35,7 +35,7 @@
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
 
-  // Hover reactivity on surrounding cards
+  // When any card is hovered, surrounding non-hovered items react smoothly
   &:hover .home-mosaic-item:not(:hover) {
     opacity: 0.82;
     transform: scale(0.98);
@@ -67,42 +67,45 @@
                 filter 0.35s ease,
                 box-shadow 0.4s ease;
 
+    // Mobile landscape (540px+) & Desktop flex sizes (Zero Gaps)
     @include layout-540() {
       flex: 1 1 to-rem(220);
-      max-width: to-rem(360);
-      width: auto;
     }
 
     @include layout-768() {
       flex: 1 1 to-rem(240);
-      max-width: to-rem(380);
     }
 
     @include layout-1024() {
       flex: 1 1 to-rem(260);
-      max-width: to-rem(400);
     }
 
-    // Featured items span 2x wider across rows organically
+    // Prevents the last item (e.g. sageweb) from stretching 100% wide if non-featured
+    &:last-child:not(.home-mosaic-item--featured) {
+      @include layout-768() {
+        flex-grow: 0;
+        max-width: calc(33.333% - #{to-rem($space-lg)});
+      }
+    }
+
+    // Featured Hero Items span 2x wider across rows
     &--featured,
     &--hero {
       border: 1px solid rgba(255, 255, 255, 0.12);
 
       @include layout-540() {
-        flex: 2.2 1 to-rem(440);
-        max-width: 100%;
+        flex: 2 1 to-rem(440);
       }
 
       @include layout-960() {
-        flex: 2.5 1 to-rem(560);
-        max-width: 100%;
+        flex: 2.2 1 to-rem(540);
       }
 
       .home-mosaic-media {
-        height: to-rem(290);
+        height: to-rem(270);
 
         @include layout-768() {
-          height: to-rem(340);
+          height: to-rem(310);
         }
       }
 
@@ -118,25 +121,24 @@
 
     &--wide {
       @include layout-540() {
-        flex: 2 1 to-rem(400);
-        max-width: 100%;
+        flex: 1.8 1 to-rem(380);
       }
 
       .home-mosaic-media {
-        height: to-rem(250);
+        height: to-rem(240);
 
         @include layout-768() {
-          height: to-rem(290);
+          height: to-rem(270);
         }
       }
     }
 
     &--tall {
       .home-mosaic-media {
-        height: to-rem(290);
+        height: to-rem(280);
 
         @include layout-768() {
-          height: to-rem(330);
+          height: to-rem(320);
         }
       }
     }
@@ -151,7 +153,7 @@
       }
     }
 
-    // Active Card expands cleanly without column rebalancing flicker
+    // Active Card expands height smoothly on hover
     &:hover,
     &--expanded {
       transform: translateY(-6px) scale(1.02);
@@ -160,12 +162,20 @@
       opacity: 1 !important;
       filter: none !important;
 
+      .home-mosaic-media {
+        height: to-rem(260);
+
+        @include layout-768() {
+          height: to-rem(290);
+        }
+      }
+
       .home-mosaic-img {
         transform: scale(1.06);
       }
 
       .home-mosaic-bottom {
-        max-height: 80%;
+        max-height: to-rem(380);
         padding: to-rem($space-md) to-rem($space-lg) to-rem($space-xl);
         opacity: 1;
       }
@@ -178,6 +188,7 @@
     width: 100%;
     height: to-rem(220);
     overflow: hidden;
+    transition: height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 
     @include layout-768() {
       height: to-rem(240);
@@ -219,24 +230,19 @@
     transition: font-size 0.3s ease;
   }
 
-  // Bottom Section: Absolute Overlay on hover so item width/height NEVER flickers
+  // Bottom Section BELOW Image: Normal flow expansion below cover image
   &-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
+    width: 100%;
     max-height: 0;
     padding: 0 to-rem($space-lg);
     opacity: 0;
     overflow: hidden;
-    background: rgba(18, 18, 18, 0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                padding 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                opacity 0.3s ease;
-    z-index: 3;
+    background: var(--bg-secondary, #1a1a1a);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.35s ease;
     box-sizing: border-box;
   }
 
