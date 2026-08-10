@@ -175,7 +175,8 @@ export default {
     },
 
     // ── Core masonry engine ───────────────────────────────────────────────
-    // ALL geometry is computed here. CSS is not involved in sizing at all.
+    // ALL geometry (position, width, height) computed entirely in JS.
+    // CSS only handles transitions and visuals.
     layout() {
       const el = this.$refs.mosaicEl
       if (!el || !this.processedItems.length) return
@@ -188,40 +189,59 @@ export default {
       const colH  = Array(cols).fill(0)
 
       this.cards = this.processedItems.map((item, i) => {
-        // Compute this card's image height and description panel height
-        const mult   = item.featured ? FEAT_MULT : COMP_MULTS[i % COMP_MULTS.length]
-        const imageH = Math.round(colW * mult)
-        const active = this.hoveredIdx === i || this.touchIdx === i
+        const active  = this.hoveredIdx === i || this.touchIdx === i
         const bottomH = active ? BOTTOM_H : 0
-        const totalH  = imageH + bottomH
 
-        // Shortest-column placement — zero gaps
-        let col = 0
-        for (let c = 1; c < cols; c++) if (colH[c] < colH[col]) col = c
-        const top  = colH[col]
-        const left = col * (colW + gap)
-        colH[col]  = top + totalH + gap
+        // Featured span 2 cols when ≥2 cols available — both width AND height differ
+        const span   = (item.featured && cols >= 2) ? 2 : 1
+        const itemW  = span === 2 ? colW * 2 + gap : colW
+        const mult   = item.featured ? FEAT_MULT : COMP_MULTS[i % COMP_MULTS.length]
+        const imageH = Math.round(itemW * mult)
+        const totalH = imageH + bottomH
+
+        let top, left
+
+        if (span === 2) {
+          // Find adjacent pair with lowest combined top
+          let bestPair = 0
+          let bestTop  = Math.max(colH[0], colH[1])
+          for (let c = 0; c <= cols - 2; c++) {
+            const t = Math.max(colH[c], colH[c + 1])
+            if (t < bestTop) { bestTop = t; bestPair = c }
+          }
+          top  = bestTop
+          left = bestPair * (colW + gap)
+          colH[bestPair]     = top + totalH + gap
+          colH[bestPair + 1] = top + totalH + gap
+        } else {
+          // Shortest single column
+          let col = 0
+          for (let c = 1; c < cols; c++) if (colH[c] < colH[col]) col = c
+          top  = colH[col]
+          left = col * (colW + gap)
+          colH[col] = top + totalH + gap
+        }
 
         return {
           bottomH,
           card: {
-            position:   'absolute',
-            top:        top + 'px',
-            left:       left + 'px',
-            width:      colW + 'px',
-            height:     totalH + 'px',
-            overflow:   'hidden',
+            position: 'absolute',
+            top:      top + 'px',
+            left:     left + 'px',
+            width:    itemW + 'px',
+            height:   totalH + 'px',
+            overflow: 'hidden',
           },
           media: {
-            position: 'relative',
-            width:    '100%',
-            height:   imageH + 'px',    // ← JS-set, not CSS
-            overflow: 'hidden',
+            position:   'relative',
+            width:      '100%',
+            height:     imageH + 'px',
+            overflow:   'hidden',
             flexShrink: '0',
           },
           bottom: {
             width:    '100%',
-            height:   bottomH + 'px',  // ← JS-set, not CSS
+            height:   bottomH + 'px',
             overflow: 'hidden',
           },
         }
