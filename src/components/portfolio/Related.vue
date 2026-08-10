@@ -4,27 +4,50 @@
       <span v-if="translations?.title" v-html="translations.title" :key="'ttl1'"></span>
       <span v-else class="skeleton--shimmer" style="display: inline-block; width: 30%; height: 1em; border-radius: 4px" :key="'ttl2'"></span>
     </h2>
+
     <div class="internal-footer-related">
-      <template v-if="translations?.projects">
+      <!-- Mosaic Grid of Projects -->
+      <div v-if="projectsList.length" class="related-mosaic">
         <router-link
-          v-for="(project, projectkey) in translations.projects"
-          class="internal-footer-related-link"
-          :to="translations.path + project.link"
+          v-for="(project, projectkey) in projectsList"
           :key="projectkey"
+          :to="project.fullPath"
+          class="related-mosaic-item"
+          :class="{ 'related-mosaic-item--featured': project.featured }"
         >
-          {{ project.page }}
+          <div class="related-mosaic-media">
+            <img
+              v-if="project.cover"
+              :src="storage + project.cover.path"
+              :alt="project.page"
+              class="related-mosaic-img"
+              loading="lazy"
+              decoding="async"
+            />
+            <div v-else class="skeleton--media"></div>
+            <div class="related-mosaic-overlay"></div>
+          </div>
+
+          <div class="related-mosaic-info">
+            <span v-if="project.featured" class="related-mosaic-badge">Featured</span>
+            <span class="related-mosaic-title">{{ project.page }}</span>
+            <span v-if="project.description" class="related-mosaic-desc" v-html="project.description"></span>
+          </div>
         </router-link>
-      </template>
-      <template v-else>
-        <span
-          v-for="(w, idx) in ['70px', '70px', '140px', '50px', '50px', '80px', '110px', '130px', '120px', '80px', '60px', '95px']"
-          class="internal-footer-related-link skeleton--shimmer"
-          :style="{ width: w, pointerEvents: 'none' }"
-          :key="idx"
-        ></span>
-      </template>
+      </div>
+
+      <!-- Skeleton loading while items aren't ready -->
+      <div v-else class="related-mosaic">
+        <div
+          v-for="n in 6"
+          :key="n"
+          class="related-mosaic-item skeleton--shimmer"
+          :class="{ 'related-mosaic-item--featured': n === 1 || n === 4 }"
+        ></div>
+      </div>
     </div>
 
+    <!-- Social links & notes -->
     <div class="internal-footer-items" v-if="translations?.socials">
       <template v-for="(social, socialkey) in translations.socials" :key="socialkey">
         <a :href="social.link" target="_blank" class="internal-footer-items-link">
@@ -56,20 +79,78 @@
 </template>
 
 <script>
+import { getDatabase, ref, child, get } from 'firebase/database'
+
 export default {
   name: 'Related',
+
   data() {
     return {
+      storage: this.$store.getters.getStorage,
       loading: this.$store.getters.getlang.loading,
       translations: {},
+      homePortfolio: [],
     }
   },
+
+  computed: {
+    projectsList() {
+      if (!this.translations?.projects) return []
+
+      const rawProjects = Array.isArray(this.translations.projects)
+        ? this.translations.projects
+        : Object.values(this.translations.projects)
+
+      const basePath = this.translations.path || '/projects/'
+
+      return rawProjects.map((p) => {
+        const cleanLink = p.link ? p.link.replace(/^\//, '') : ''
+        const homeMatch = this.homePortfolio.find(
+          (h) => h.link === cleanLink || h.link === p.link
+        )
+
+        return {
+          page: p.page || homeMatch?.title || cleanLink,
+          link: cleanLink,
+          fullPath: basePath + cleanLink,
+          featured: p.featured === true || homeMatch?.featured === true,
+          cover: homeMatch?.cover || p.cover || null,
+          description: homeMatch?.description || p.description || '',
+        }
+      })
+    },
+  },
+
   watch: {
     '$store.state.lang.components': {
       immediate: true,
       handler() {
-        this.translations = this.$store.getters.getlang.components.related
+        this.translations = this.$store.getters.getlang.components?.related || {}
       },
+    },
+  },
+
+  mounted() {
+    this.fetchHomeData()
+  },
+
+  methods: {
+    fetchHomeData() {
+      const lang = this.$store.getters.getlang
+      const dbpath = lang.database + lang.locale + lang.pagesPath + 'home'
+
+      get(child(ref(getDatabase()), dbpath))
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            const data = snapshot.val()
+            if (data.portfoliolist) {
+              this.homePortfolio = Array.isArray(data.portfoliolist)
+                ? data.portfoliolist
+                : Object.values(data.portfoliolist)
+            }
+          }
+        })
+        .catch(console.error)
     },
   },
 }

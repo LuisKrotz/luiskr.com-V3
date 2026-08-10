@@ -441,38 +441,16 @@
     }
 
     &-related {
-      @extend .txt-lg;
-
+      width: 100%;
+      max-width: to-rem($space-10xl);
       margin: 0 auto;
-      padding: 0 to-rem($space-xl) to-rem($space-xl);
-      letter-spacing: to-rem(2);
-      text-align: left;
-      color: var(--text-primary);
-      list-style: inside circle;
+      padding: to-rem($space-xl) to-rem($space-lg) to-rem($space-4xl);
 
       @include layout-768() {
-        padding: 0 to-rem($space-3xl) to-rem($space-3xl);
+        padding: to-rem($space-2xl) to-rem($space-3xl) to-rem($space-5xl);
       }
-
       @include layout-1024() {
-        max-width: to-rem($space-8xl);
-        padding: 0 to-rem($space-5xl) to-rem($space-5xl);
-      }
-
-      &-link {
-        transition: opacity 0.3s ease-in;
-        display: list-item;
-        color: inherit;
-        text-decoration: none;
-
-        &:hover,
-        &:focus {
-          opacity: 0.5;
-        }
-
-        &.router-link-active {
-          display: none;
-        }
+        padding: to-rem($space-3xl) to-rem($space-5xl) to-rem($space-6xl);
       }
     }
 
@@ -533,6 +511,157 @@
         font-weight: 200;
       }
     }
+  }
+}
+
+// ── Mosaic Grid Layout for Related Projects ──────────────────────────────────
+.related-mosaic {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: to-rem($space-lg);
+  width: 100%;
+  box-sizing: border-box;
+
+  @include layout-540() {
+    grid-template-columns: repeat(2, 1fr);
+    gap: to-rem($space-xl);
+  }
+
+  @include layout-1024() {
+    grid-template-columns: repeat(4, 1fr);
+    gap: to-rem($space-2xl);
+  }
+
+  &-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    border-radius: to-rem($space-lg);
+    aspect-ratio: 16 / 10;
+    text-decoration: none;
+    color: #ffffff;
+    background: var(--bg-secondary);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+
+    &.router-link-active {
+      display: none !important;
+    }
+
+    // Featured items span 2 columns and 2 rows on tablet & desktop
+    &--featured {
+      @include layout-540() {
+        grid-column: span 2;
+        aspect-ratio: 16 / 9;
+      }
+
+      @include layout-1024() {
+        grid-column: span 2;
+        grid-row: span 2;
+        aspect-ratio: 1 / 1;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+      .related-mosaic-img {
+        transform: scale(1.06);
+      }
+
+      .related-mosaic-title {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  &-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.05) 100%);
+    pointer-events: none;
+  }
+
+  &-info {
+    position: relative;
+    z-index: 2;
+    padding: to-rem($space-md) to-rem($space-lg) to-rem($space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: to-rem($space-2xs);
+    text-align: left;
+    pointer-events: none;
+
+    @include layout-768() {
+      padding: to-rem($space-lg) to-rem($space-xl);
+    }
+  }
+
+  &-title {
+    @extend .ttl-sm;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: to-rem(0.8);
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+
+    .related-mosaic-item--featured & {
+      font-size: to-rem(18);
+
+      @include layout-768() {
+        font-size: to-rem(24);
+      }
+      @include layout-1024() {
+        font-size: to-rem(32);
+      }
+    }
+  }
+
+  &-desc {
+    @extend .txt-xs;
+
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  }
+
+  &-badge {
+    @extend .ttl-xxs;
+
+    display: inline-block;
+    align-self: flex-start;
+    padding: to-rem($space-2xs) to-rem($space-sm);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    border-radius: to-rem($space-xl);
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: to-rem(0.5);
+    margin-bottom: to-rem($space-2xs);
   }
 }
 
