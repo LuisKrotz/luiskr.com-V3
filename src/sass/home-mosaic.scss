@@ -7,12 +7,22 @@
   @extend %MAXAREA;
 
   width: 100%;
-  padding-top: 0;
+  padding-top: to-rem(100px) !important; // Top padding clearance under fixed navbar
   padding-bottom: to-rem($space-2xl);
   box-sizing: border-box;
 
   @include layout-768() {
+    padding-top: to-rem(130px) !important;
     padding-bottom: to-rem($space-3xl);
+  }
+
+  @include layout-1024() {
+    padding-top: to-rem(150px) !important;
+  }
+
+  .home-section-title {
+    padding-top: 0 !important;
+    margin-bottom: to-rem($space-md);
   }
 }
 
