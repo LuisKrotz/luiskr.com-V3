@@ -539,9 +539,10 @@
     justify-content: flex-end;
     overflow: hidden;
     border-radius: to-rem($space-lg);
-    flex: 1 1 to-rem(260);
-    max-width: to-rem(360);
-    min-height: to-rem(200);
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    min-height: to-rem(160);
     aspect-ratio: 16 / 10;
     text-decoration: none;
     color: #ffffff;
@@ -549,13 +550,27 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
 
+    // Mobile (above 320px) & Tablet: 2 columns
+    @include layout-375() {
+      flex: 1 1 to-rem(150);
+      width: auto;
+      min-height: to-rem(180);
+    }
+
+    // Desktop: standard mosaic width
+    @include layout-1024() {
+      flex: 1 1 to-rem(260);
+      max-width: to-rem(360);
+      min-height: to-rem(200);
+    }
+
     &.router-link-active {
       display: none !important;
     }
 
     // Featured items are WIDER (flex-grow 2) to span wider across rows
     &--featured {
-      flex: 2 1 to-rem(480);
+      flex: 2 1 to-rem(320);
       max-width: 100%;
       aspect-ratio: 16 / 9;
 
