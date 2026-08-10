@@ -387,16 +387,19 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
 
   .hc-btn {
     pointer-events: all;
-    color: var(--grey-3);
-    background: rgba(255, 255, 255, .7);
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
     backdrop-filter: blur(4px);
     border-radius: 50%;
-    transition: background .2s ease, color .2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 
     &:hover,
     &:focus {
-      color: var(--black);
-      background: rgba(255, 255, 255, .95);
+      color: var(--text-primary);
+      background: var(--bg-secondary);
+      border-color: var(--text-primary);
     }
   }
 
