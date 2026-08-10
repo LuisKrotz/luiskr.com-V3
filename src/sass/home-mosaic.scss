@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (True Zero-Gap Masonry) ───────────────────
+// ── Home Portfolio Showcase Grid (Column Masonry with Auto Column-Fill) ──────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -28,6 +28,7 @@
 
 .home-mosaic {
   column-count: 1;
+  column-fill: auto; // Crucial: Prevents browser from rebalancing items between columns on hover
   column-gap: to-rem($space-lg);
   width: 100%;
   box-sizing: border-box;
@@ -126,7 +127,7 @@
       }
     }
 
-    // Active Card expands in scale and height without wrapping lines or flickering
+    // Active Card expands cleanly without column rebalancing
     &:hover,
     &--expanded {
       transform: translateY(-6px) scale(1.02);
@@ -140,7 +141,7 @@
       }
 
       .home-mosaic-bottom {
-        max-height: to-rem(380);
+        max-height: 80%;
         padding: to-rem($space-md) to-rem($space-lg) to-rem($space-xl);
         opacity: 1;
       }
@@ -153,7 +154,6 @@
     width: 100%;
     height: to-rem(220);
     overflow: hidden;
-    transition: height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 
     @include layout-768() {
       height: to-rem(240);
@@ -195,19 +195,24 @@
     transition: font-size 0.3s ease;
   }
 
-  // Bottom Section BELOW Image: Normal flow expansion below cover image
+  // Bottom Section: Absolute Overlay on hover so column height NEVER changes during hover
   &-bottom {
-    position: relative;
-    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     max-height: 0;
     padding: 0 to-rem($space-lg);
     opacity: 0;
     overflow: hidden;
-    background: var(--bg-secondary, #1a1a1a);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                opacity 0.35s ease;
+    background: rgba(18, 18, 18, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.3s ease;
+    z-index: 3;
     box-sizing: border-box;
   }
 
