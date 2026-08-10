@@ -81,33 +81,61 @@
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
 
-function normalizeSlug(str) {
-  if (!str) return ''
-  let s = String(str).toLowerCase().trim()
-  s = s.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '')
-  
-  if (s.includes('sage') || s.includes('genesys')) return 'sage'
-  if (s.includes('nathalia') || s.includes('bond') || s.includes('clinica')) return 'nathalia-bond'
-  if (s.includes('mini')) return 'mini-melissa'
-  if (s.includes('cicb') || s.includes('leather')) return 'cicb'
-  if (s.includes('marco')) return 'aboutmarco'
-  
-  return s.replace(/[^a-z0-9]/g, '')
+// Extract alphanumeric words from route/link strings for dynamic matching
+function getWords(str) {
+  if (!str) return []
+  return String(str)
+    .toLowerCase()
+    .replace(/^(\/projects\/|\/portfolio\/|\/)/, '')
+    .replace(/\/$/, '')
+    .split(/[-_\s]+/)
+    .filter((w) => w.length >= 2)
 }
 
-const CANONICAL_IMAGE_MAP = {
-  'sage': 'sage',
-  'nathalia-bond': 'nathalia-bond',
-  'mini-melissa': 'mini-melissa',
-  'cicb': 'cicb',
-  'aboutmarco': 'aboutmarco',
-  'metcha': 'metcha',
-  'transa': 'transa',
-  'melissa': 'melissa',
-  'mor': 'mor',
-  'coza': 'coza',
-  'cecerele': 'cecerele',
-  'vibra': 'vibra',
+function cleanSlug(str) {
+  if (!str) return ''
+  return String(str)
+    .toLowerCase()
+    .replace(/^(\/projects\/|\/portfolio\/|\/)/, '')
+    .replace(/\/$/, '')
+    .replace(/[^a-z0-9]/g, '')
+}
+
+function findDynamicMatch(pLink, homePortfolio) {
+  if (!pLink || !Array.isArray(homePortfolio) || !homePortfolio.length) return null
+
+  const pClean = cleanSlug(pLink)
+  const pWords = getWords(pLink)
+
+  // 1. Exact match on link or image filename
+  let match = homePortfolio.find((h) => {
+    if (!h) return false
+    const hCleanLink = cleanSlug(h.link)
+    const hCleanImg = cleanSlug(h.image)
+    return hCleanLink === pClean || hCleanImg === pClean
+  })
+  if (match) return match
+
+  // 2. Substring containment match
+  match = homePortfolio.find((h) => {
+    if (!h) return false
+    const hCleanLink = cleanSlug(h.link)
+    const hCleanImg = cleanSlug(h.image)
+    return (
+      (hCleanLink && (pClean.includes(hCleanLink) || hCleanLink.includes(pClean))) ||
+      (hCleanImg && (pClean.includes(hCleanImg) || hCleanImg.includes(pClean)))
+    )
+  })
+  if (match) return match
+
+  // 3. Dynamic word intersection match (matches common terms across present & future projects)
+  match = homePortfolio.find((h) => {
+    if (!h) return false
+    const hWords = getWords(h.link).concat(getWords(h.image))
+    return pWords.some((pw) => hWords.includes(pw))
+  })
+
+  return match || null
 }
 
 export default {
@@ -134,25 +162,19 @@ export default {
 
       return rawProjects.map((p) => {
         const cleanLink = p.link ? p.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '') : ''
-        const pNorm = normalizeSlug(cleanLink)
 
-        const homeMatch = this.homePortfolio.find((h) => {
-          if (!h) return false
-          const hNorm = normalizeSlug(h.link)
-          const hImgNorm = normalizeSlug(h.image)
-          return hNorm === pNorm || hImgNorm === pNorm || (hNorm && pNorm.includes(hNorm)) || (pNorm && hNorm.includes(pNorm))
-        })
+        // Dynamically find matching project in Home portfolio dataset without hardcoded maps
+        const homeMatch = findDynamicMatch(cleanLink, this.homePortfolio)
 
-        const resolvedImageName = homeMatch?.image || CANONICAL_IMAGE_MAP[pNorm] || p.image || cleanLink
+        const imageName = homeMatch?.image || p.image || cleanLink
 
         return {
           page: p.page || homeMatch?.label || homeMatch?.title || cleanLink,
           link: cleanLink,
-          normSlug: pNorm,
           fullPath: (basePath.startsWith('/') ? '' : '/') + basePath.replace(/\/$/, '') + '/' + cleanLink,
           featured: p.featured === true || homeMatch?.featured === true,
-          imageName: resolvedImageName,
-          imageSrc: resolvedImageName ? `${this.storage}covers/${resolvedImageName}.jpg` : null,
+          imageName: imageName,
+          imageSrc: imageName ? `${this.storage}covers/${imageName}.jpg` : null,
           description: homeMatch?.description || p.description || '',
         }
       })
@@ -197,28 +219,31 @@ export default {
       const step = parseInt(img.dataset.errorStep || '0', 10)
       img.dataset.errorStep = (step + 1).toString()
 
-      const pNorm = project.normSlug
-      const canonical = CANONICAL_IMAGE_MAP[pNorm] || pNorm
+      const cleanLink = project.link ? project.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '') : ''
+      const words = getWords(cleanLink)
 
-      const candidates = [
-        `${this.storage}covers/${canonical}.jpg`,
-        `${this.storage}covers/${canonical}.png`,
-        `${this.storage}covers/${canonical}.webp`,
-        `${this.storage}covers/sage.jpg`,
-        `${this.storage}covers/nathalia-bond.jpg`,
-        `${this.storage}covers/nathalia.jpg`,
-        `${this.storage}covers/mini-melissa.jpg`,
-        `${this.storage}covers/minimelissa.jpg`,
-        `${this.storage}covers/cicb.jpg`,
-        `${this.storage}covers/aboutmarco.jpg`,
-        `${this.storage}covers/${project.link}.jpg`,
-        `${this.storage}covers/${project.link}.png`,
-      ]
+      // Build candidates dynamically from project words without any hardcoding
+      const candidateNames = [
+        project.imageName,
+        cleanLink,
+        cleanSlug(cleanLink),
+        ...words,
+      ].filter(Boolean)
+
+      const candidates = []
+      candidateNames.forEach((name) => {
+        const jpgSrc = `${this.storage}covers/${name}.jpg`
+        const pngSrc = `${this.storage}covers/${name}.png`
+        const webpSrc = `${this.storage}covers/${name}.webp`
+        if (!candidates.includes(jpgSrc)) candidates.push(jpgSrc)
+        if (!candidates.includes(pngSrc)) candidates.push(pngSrc)
+        if (!candidates.includes(webpSrc)) candidates.push(webpSrc)
+      })
 
       const currentSrc = img.src
       const nextCandidate = candidates.find((c) => c !== currentSrc && !img.dataset[c])
 
-      if (nextCandidate && step < 15) {
+      if (nextCandidate && step < candidates.length + 2) {
         img.dataset[nextCandidate] = 'true'
         img.src = nextCandidate
         return
