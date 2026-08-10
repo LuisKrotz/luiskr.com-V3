@@ -8,29 +8,23 @@
           <span v-else class="skeleton--shimmer" style="display: inline-block; width: 40%; height: 1em; border-radius: 4px"></span>
         </h2>
 
-        <!-- Mosaic Grid of Home Portfolio Items (Equal-Width Vertical Masonry) -->
-        <div
-          v-if="processedItems.length"
-          ref="mosaicContainer"
-          class="home-mosaic"
-          :style="{ height: containerHeight }"
-        >
+        <!-- Mosaic Grid of Home Portfolio Items (Proportional Flex Mosaic) -->
+        <div v-if="processedItems.length" class="home-mosaic">
           <router-link
             v-for="(item, itemkey) in processedItems"
-            :key="item.link || itemkey"
+            :key="itemkey"
             :to="'/portfolio/' + item.link"
             class="home-mosaic-item"
             :class="[
               'home-mosaic-item--' + item.variant,
               {
                 'home-mosaic-item--featured': item.featured,
-                'home-mosaic-item--expanded': activeTouchIndex === item.link || hoveredIndex === item.link
+                'home-mosaic-item--expanded': activeTouchIndex === itemkey || hoveredIndex === itemkey
               }
             ]"
-            :style="itemStyles[itemkey] || {}"
-            @mouseenter="onHover(item.link)"
-            @mouseleave="onLeave()"
-            @click="handleItemClick($event, item, item.link)"
+            @mouseenter="hoveredIndex = itemkey"
+            @mouseleave="hoveredIndex = null"
+            @click="handleItemClick($event, item, itemkey)"
           >
             <!-- Top Section: Cover Image -->
             <div class="home-mosaic-media">
@@ -49,7 +43,7 @@
             <!-- Bottom Section BELOW Image: Description & Button -->
             <div class="home-mosaic-bottom">
               <transition name="home-desc-expand">
-                <div v-if="activeTouchIndex === item.link || hoveredIndex === item.link" class="home-mosaic-details">
+                <div v-if="activeTouchIndex === itemkey || hoveredIndex === itemkey" class="home-mosaic-details">
                   <p v-if="item.description" class="home-mosaic-desc">
                     <DrawText :text="item.description" :delay="8" />
                   </p>
@@ -63,12 +57,12 @@
         </div>
 
         <!-- Loading Skeleton Grid -->
-        <div v-else class="home-mosaic" style="min-height: 400px">
+        <div v-else class="home-mosaic">
           <div
             v-for="n in 6"
             :key="n"
             class="home-mosaic-item skeleton--shimmer"
-            style="height: 260px; position: relative"
+            :class="{ 'home-mosaic-item--featured': n === 1 || n === 4 }"
           ></div>
         </div>
       </section>
@@ -162,8 +156,6 @@ export default {
       activeTouchIndex: null,
       aboutTranslations: false,
       profilePicture: null,
-      itemStyles: [],
-      containerHeight: 'auto',
     }
   },
 
@@ -180,7 +172,13 @@ export default {
 
       return list.map((item, idx) => {
         const featured = this.isFeatured(item)
-        const variant = featured ? 'featured' : idx % 2 === 0 ? 'tall' : 'compact'
+        let variant = 'compact'
+
+        if (featured) {
+          variant = idx % 2 === 0 ? 'featured-hero' : 'featured-wide'
+        } else {
+          variant = idx % 2 === 0 ? 'compact' : 'standard'
+        }
 
         return {
           ...item,
@@ -188,12 +186,6 @@ export default {
           variant,
         }
       })
-    },
-  },
-
-  watch: {
-    processedItems() {
-      this.$nextTick(this.layoutMasonry)
     },
   },
 
@@ -205,80 +197,19 @@ export default {
       return false
     },
 
-    onHover(link) {
-      this.hoveredIndex = link
-      this.layoutMasonry()
-    },
-
-    onLeave() {
-      this.hoveredIndex = null
-      this.layoutMasonry()
-    },
-
-    handleItemClick(e, item, itemlink) {
+    handleItemClick(e, item, itemkey) {
       const isTouch = this.has_touch || ('ontouchstart' in window) || window.matchMedia('(pointer: coarse)').matches
 
       if (isTouch) {
-        if (this.activeTouchIndex !== itemlink) {
+        if (this.activeTouchIndex !== itemkey) {
           // Tap 1: Prevent immediate navigation and trigger card expansion animation
           e.preventDefault()
           e.stopPropagation()
-          this.activeTouchIndex = itemlink
-          this.layoutMasonry()
+          this.activeTouchIndex = itemkey
           return false
         }
         // Tap 2: Card is already expanded, proceed to project page!
       }
-    },
-
-    layoutMasonry() {
-      const container = this.$refs.mosaicContainer
-      if (!container || !this.processedItems.length) return
-
-      const containerWidth = container.clientWidth
-      if (!containerWidth) return
-
-      // 3 equal columns on desktop (> 768px), 2 cols on tablet (> 500px), 1 col mobile
-      const cols = containerWidth >= 768 ? 3 : containerWidth >= 500 ? 2 : 1
-      const gap = 20
-
-      const colWidth = (containerWidth - gap * (cols - 1)) / cols
-      const colHeights = Array(cols).fill(0)
-
-      this.itemStyles = this.processedItems.map((item) => {
-        // EVERY SINGLE ITEM IS EXACTLY 1 COLUMN WIDE (NO 2-COLUMN WIDE ITEMS EVER!)
-        let targetCol = 0
-        let minH = colHeights[0]
-
-        for (let i = 1; i < cols; i++) {
-          if (colHeights[i] < minH) {
-            minH = colHeights[i]
-            targetCol = i
-          }
-        }
-
-        const top = minH
-        const left = targetCol * (colWidth + gap)
-        const width = colWidth
-
-        // Featured items are distinguished by taller cover image height (360px vs 220px)
-        let baseHeight = item.featured ? 360 : item.variant === 'tall' ? 290 : 220
-
-        if (this.hoveredIndex === item.link || this.activeTouchIndex === item.link) {
-          baseHeight += 110
-        }
-
-        colHeights[targetCol] = top + baseHeight + gap
-
-        return {
-          position: 'absolute',
-          top: top + 'px',
-          left: left + 'px',
-          width: width + 'px',
-        }
-      })
-
-      this.containerHeight = Math.max(...colHeights) + 'px'
     },
   },
 
@@ -298,7 +229,6 @@ export default {
           if (this.translations?.portfoliolist) {
             this.$store.commit('setPortfolioList', this.translations.portfoliolist)
           }
-          this.$nextTick(this.layoutMasonry)
         } else console.log('%cERROR: HOME DATA not found', this.$sharedData.styles.info)
       })
       .catch(console.error)
@@ -311,7 +241,6 @@ export default {
             if (p.featured === true && p.link) links.add(p.link)
           })
           this.featuredLinks = links
-          this.$nextTick(this.layoutMasonry)
         }
       })
       .catch(console.error)
@@ -344,12 +273,6 @@ export default {
     if (!this.$route.meta?.scrollTo) {
       setTimeout(() => window.scrollTo(0, 0), 500)
     }
-    window.addEventListener('resize', this.layoutMasonry)
-    this.$nextTick(this.layoutMasonry)
-  },
-
-  beforeUnmount() {
-    window.removeEventListener('resize', this.layoutMasonry)
   },
 }
 </script>
