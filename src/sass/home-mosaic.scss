@@ -31,7 +31,10 @@
     flex-direction: column;
     overflow: hidden;
     border-radius: to-rem($space-lg);
-    flex: 1 1 to-rem(280);
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     text-decoration: none;
     color: #ffffff;
     background: var(--bg-secondary, #1e1e1e);
@@ -39,23 +42,30 @@
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
                 box-shadow 0.4s ease;
 
+    @include layout-540() {
+      flex: 1 1 to-rem(240);
+      width: auto;
+    }
+
     &--featured {
-      flex: 2 1 to-rem(500);
+      @include layout-768() {
+        flex: 2 1 to-rem(480);
+      }
 
       @include layout-1024() {
-        flex: 2 1 to-rem(580);
+        flex: 2 1 to-rem(560);
       }
     }
 
     // Card increases size and elevates on hover with smooth animation
     &:hover,
     &--expanded {
-      transform: translateY(-8px) scale(1.03);
+      transform: translateY(-6px) scale(1.02);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
       z-index: 5;
 
       .home-mosaic-img {
-        transform: scale(1.06);
+        transform: scale(1.05);
       }
 
       .home-mosaic-bottom {
@@ -70,11 +80,11 @@
   &-media {
     position: relative;
     width: 100%;
-    height: to-rem(220);
+    height: to-rem(200);
     overflow: hidden;
 
     @include layout-768() {
-      height: to-rem(250);
+      height: to-rem(240);
     }
   }
 
