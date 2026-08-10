@@ -106,6 +106,8 @@ export default {
         { threshold: 0.2 }
       )
       this.observer.observe(this.$refs.root)
+    } else {
+      this.isVisible = true
     }
   },
 
