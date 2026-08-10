@@ -8,11 +8,16 @@
           <span v-else class="skeleton--shimmer" style="display: inline-block; width: 40%; height: 1em; border-radius: 4px"></span>
         </h2>
 
-        <!-- Mosaic Grid of Home Portfolio Items -->
-        <div v-if="processedItems.length" class="home-mosaic">
+        <!-- Mosaic Grid of Home Portfolio Items (JS 2D Masonry Engine) -->
+        <div
+          v-if="processedItems.length"
+          ref="mosaicContainer"
+          class="home-mosaic"
+          :style="{ height: containerHeight }"
+        >
           <router-link
             v-for="(item, itemkey) in processedItems"
-            :key="itemkey"
+            :key="item.link || itemkey"
             :to="'/portfolio/' + item.link"
             class="home-mosaic-item"
             :class="[
@@ -22,8 +27,9 @@
                 'home-mosaic-item--expanded': activeTouchIndex === item.link || hoveredIndex === item.link
               }
             ]"
-            @mouseenter="hoveredIndex = item.link"
-            @mouseleave="hoveredIndex = null"
+            :style="itemStyles[itemkey] || {}"
+            @mouseenter="onHover(item.link)"
+            @mouseleave="onLeave()"
             @click="handleItemClick($event, item, item.link)"
           >
             <!-- Top Section: Cover Image -->
@@ -57,12 +63,12 @@
         </div>
 
         <!-- Loading Skeleton Grid -->
-        <div v-else class="home-mosaic">
+        <div v-else class="home-mosaic" style="min-height: 400px">
           <div
             v-for="n in 6"
             :key="n"
             class="home-mosaic-item skeleton--shimmer"
-            :class="{ 'home-mosaic-item--featured': n === 1 || n === 4 }"
+            style="height: 260px; position: relative"
           ></div>
         </div>
       </section>
@@ -156,6 +162,8 @@ export default {
       activeTouchIndex: null,
       aboutTranslations: false,
       profilePicture: null,
+      itemStyles: [],
+      containerHeight: 'auto',
     }
   },
 
@@ -189,12 +197,28 @@ export default {
     },
   },
 
+  watch: {
+    processedItems() {
+      this.$nextTick(this.layoutMasonry)
+    },
+  },
+
   methods: {
     isFeatured(item) {
       if (!item) return false
       if (item.featured === true || item.featured === 'true' || item.featured === 1) return true
       if (item.link && this.featuredLinks.has(item.link)) return true
       return false
+    },
+
+    onHover(link) {
+      this.hoveredIndex = link
+      this.layoutMasonry()
+    },
+
+    onLeave() {
+      this.hoveredIndex = null
+      this.layoutMasonry()
     },
 
     handleItemClick(e, item, itemlink) {
@@ -206,10 +230,77 @@ export default {
           e.preventDefault()
           e.stopPropagation()
           this.activeTouchIndex = itemlink
+          this.layoutMasonry()
           return false
         }
         // Tap 2: Card is already expanded, proceed to project page!
       }
+    },
+
+    layoutMasonry() {
+      const container = this.$refs.mosaicContainer
+      if (!container || !this.processedItems.length) return
+
+      const containerWidth = container.clientWidth
+      if (!containerWidth) return
+
+      const isDesktop = containerWidth >= 1024
+      const isTablet = containerWidth >= 540
+      const cols = isDesktop ? 3 : isTablet ? 2 : 1
+      const gap = 20
+
+      const colWidth = (containerWidth - gap * (cols - 1)) / cols
+      const colHeights = Array(cols).fill(0)
+
+      this.itemStyles = this.processedItems.map((item) => {
+        const isFeatured = item.featured && cols >= 2
+        const span = isFeatured ? 2 : 1
+
+        let targetCol = 0
+        let minH = Infinity
+
+        if (span === 2) {
+          for (let i = 0; i < cols - 1; i++) {
+            const pairH = Math.max(colHeights[i], colHeights[i + 1])
+            if (pairH < minH) {
+              minH = pairH
+              targetCol = i
+            }
+          }
+        } else {
+          for (let i = 0; i < cols; i++) {
+            if (colHeights[i] < minH) {
+              minH = colHeights[i]
+              targetCol = i
+            }
+          }
+        }
+
+        const top = minH
+        const left = targetCol * (colWidth + gap)
+        const width = span === 2 ? colWidth * 2 + gap : colWidth
+
+        let baseHeight = item.variant === 'hero' ? 310 : item.variant === 'tall' ? 300 : item.variant === 'wide' ? 260 : 220
+        if (this.hoveredIndex === item.link || this.activeTouchIndex === item.link) {
+          baseHeight += 110
+        }
+
+        if (span === 2) {
+          colHeights[targetCol] = top + baseHeight + gap
+          colHeights[targetCol + 1] = top + baseHeight + gap
+        } else {
+          colHeights[targetCol] = top + baseHeight + gap
+        }
+
+        return {
+          position: 'absolute',
+          top: top + 'px',
+          left: left + 'px',
+          width: width + 'px',
+        }
+      })
+
+      this.containerHeight = Math.max(...colHeights) + 'px'
     },
   },
 
@@ -229,6 +320,7 @@ export default {
           if (this.translations?.portfoliolist) {
             this.$store.commit('setPortfolioList', this.translations.portfoliolist)
           }
+          this.$nextTick(this.layoutMasonry)
         } else console.log('%cERROR: HOME DATA not found', this.$sharedData.styles.info)
       })
       .catch(console.error)
@@ -241,6 +333,7 @@ export default {
             if (p.featured === true && p.link) links.add(p.link)
           })
           this.featuredLinks = links
+          this.$nextTick(this.layoutMasonry)
         }
       })
       .catch(console.error)
@@ -273,6 +366,12 @@ export default {
     if (!this.$route.meta?.scrollTo) {
       setTimeout(() => window.scrollTo(0, 0), 500)
     }
+    window.addEventListener('resize', this.layoutMasonry)
+    this.$nextTick(this.layoutMasonry)
+  },
+
+  beforeUnmount() {
+    window.removeEventListener('resize', this.layoutMasonry)
   },
 }
 </script>

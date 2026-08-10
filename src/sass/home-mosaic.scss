@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (Fluid Flex Mosaic, Zero Gaps, Smooth Animation)
+// ── Home Portfolio Showcase Grid (2D JS Masonry Layout Engine) ──────────────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -27,13 +27,11 @@
 }
 
 .home-mosaic {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: to-rem($space-lg);
+  position: relative;
   width: 100%;
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
+  transition: height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 
   // When any card is hovered, surrounding non-hovered items react smoothly
   &:hover .home-mosaic-item:not(:hover) {
@@ -49,57 +47,28 @@
   }
 
   &-item {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     border-radius: to-rem($space-lg);
-    flex: 1 1 100%;
-    width: 100%;
-    max-width: 100%;
     box-sizing: border-box;
     text-decoration: none;
     color: #ffffff;
     background: var(--bg-secondary, #1a1a1a);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transition: top 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                left 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                width 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
                 opacity 0.35s ease,
                 filter 0.35s ease,
                 box-shadow 0.4s ease;
 
-    // Mobile landscape (540px+) & Desktop flex sizes (Zero Gaps)
-    @include layout-540() {
-      flex: 1 1 to-rem(220);
-    }
-
-    @include layout-768() {
-      flex: 1 1 to-rem(240);
-    }
-
-    @include layout-1024() {
-      flex: 1 1 to-rem(260);
-    }
-
-    // Prevents the last item (e.g. sageweb) from stretching 100% wide if non-featured
-    &:last-child:not(.home-mosaic-item--featured) {
-      @include layout-768() {
-        flex-grow: 0;
-        max-width: calc(33.333% - #{to-rem($space-lg)});
-      }
-    }
-
-    // Featured Hero Items span 2x wider across rows
+    // Featured Hero Items span 2 columns
     &--featured,
     &--hero {
       border: 1px solid rgba(255, 255, 255, 0.12);
-
-      @include layout-540() {
-        flex: 2 1 to-rem(440);
-      }
-
-      @include layout-960() {
-        flex: 2.2 1 to-rem(540);
-      }
 
       .home-mosaic-media {
         height: to-rem(270);
@@ -120,15 +89,11 @@
     }
 
     &--wide {
-      @include layout-540() {
-        flex: 1.8 1 to-rem(380);
-      }
-
       .home-mosaic-media {
         height: to-rem(240);
 
         @include layout-768() {
-          height: to-rem(270);
+          height: to-rem(260);
         }
       }
     }
@@ -138,7 +103,7 @@
         height: to-rem(280);
 
         @include layout-768() {
-          height: to-rem(320);
+          height: to-rem(300);
         }
       }
     }
