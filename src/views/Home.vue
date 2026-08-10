@@ -120,10 +120,11 @@ import DrawText from '../components/DrawText.vue'
 // BOTTOM_H is the fixed-height description panel shown on hover/tap
 //
 // Featured span 2 cols so their width is ~2x colW.
-// FEAT_MULT applies to itemW (the 2-col width), not colW.
-// 0.40 × 750px = 300px → 2.5:1 cinematic widescreen, clearly landscape, not square.
-const FEAT_MULT  = 0.65   // 367×0.65=239px (3:2), clearly taller than compact
-const COMP_MULTS = [0.40, 0.44, 0.38, 0.42, 0.39]  // 367×0.40=147px, compact tile
+// FEAT_MULT = PORTRAIT (taller than wide): height > width, clearly bigger, no squares
+// At 3 cols (colW≈367px): featured=403px (0.91:1 portrait), compact=202-220px (16:9 landscape)
+// Two compact cards (2×206≈412px) stack naturally beside one featured (403px) — Pinterest masonry
+const FEAT_MULT  = 1.10
+const COMP_MULTS = [0.56, 0.60, 0.53, 0.58, 0.55]
 const BOTTOM_H     = 130                            // px, description panel when expanded
 
 export default {
