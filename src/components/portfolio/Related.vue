@@ -23,6 +23,7 @@
               class="related-mosaic-img"
               loading="lazy"
               decoding="async"
+              @error="onImageError($event, project)"
             />
             <div v-else class="skeleton--media"></div>
             <div class="related-mosaic-overlay"></div>
@@ -41,7 +42,7 @@
           v-for="n in 6"
           :key="n"
           class="related-mosaic-item skeleton--shimmer"
-          :class="{ 'related-mosaic-item--featured': n === 1 }"
+          :class="{ 'related-mosaic-item--featured': n === 1 || n === 4 }"
         ></div>
       </div>
     </div>
@@ -103,10 +104,13 @@ export default {
       const basePath = this.translations.path || '/portfolio/'
 
       return rawProjects.map((p) => {
-        const cleanLink = p.link ? p.link.replace(/^\//, '') : ''
-        const homeMatch = this.homePortfolio.find(
-          (h) => h.link === cleanLink || h.link === p.link
-        )
+        const cleanLink = p.link ? p.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '') : ''
+        
+        const homeMatch = this.homePortfolio.find((h) => {
+          if (!h || !h.link) return false
+          const hLink = h.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '')
+          return hLink === cleanLink || hLink.includes(cleanLink) || cleanLink.includes(hLink)
+        })
 
         const imageName = homeMatch?.image || p.image || cleanLink
 
@@ -152,6 +156,19 @@ export default {
           }
         })
         .catch(console.error)
+    },
+    onImageError(e, project) {
+      const img = e.target
+      if (!img) return
+      if (!img.dataset.triedFallback) {
+        img.dataset.triedFallback = 'true'
+        const parts = project.link.split('-')
+        if (parts.length > 1) {
+          img.src = `${this.storage}covers/${parts[0]}.jpg`
+          return
+        }
+      }
+      img.style.opacity = '0'
     },
   },
 }
