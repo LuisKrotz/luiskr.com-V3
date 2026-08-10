@@ -140,15 +140,16 @@ import Contact from '../components/Contact.vue'
 import AwardsMentions from '../components/AwardsMentions.vue'
 import DrawText from '../components/DrawText.vue'
 
-// Varying heights for non-featured items so they NEVER look like a uniform grid of squares.
-// Rotates through 5 distinct heights to create a natural, editorial mosaic rhythm.
-const COMPACT_HEIGHTS = [260, 310, 240, 330, 280]
+// Non-featured items rotate through distinct heights — never uniform squares.
+// Two compact items stacked (with gap) should roughly match a featured item's height.
+// Featured = 400px. Two compacts = 190 + 20gap + 190 = 400. Perfect.
+const COMPACT_HEIGHTS = [190, 210, 175, 220, 185]
 
-// Featured items always get a taller, more cinematic cover height.
-const FEATURED_HEIGHT = 420
+// Featured items are taller AND wider (2-col span).
+const FEATURED_HEIGHT = 400
 
 // How much extra height is added when a card is hovered/expanded (description shown).
-const EXPAND_DELTA = 115
+const EXPAND_DELTA = 120
 
 export default {
   name: 'Home',
@@ -239,22 +240,48 @@ export default {
       const colH = Array(cols).fill(0)
 
       this.itemStyles = this.processedItems.map((item, idx) => {
-        // Place in shortest column
-        let col = 0
-        for (let i = 1; i < cols; i++) {
-          if (colH[i] < colH[col]) col = i
-        }
-        const top = colH[col]
-        const left = col * (colW + gap)
         const h = this.cardHeight(item, idx)
-        colH[col] = top + h + gap
 
-        return {
-          position: 'absolute',
-          top: top + 'px',
-          left: left + 'px',
-          width: colW + 'px',
-          height: h + 'px',
+        if (item.featured && cols >= 2) {
+          // Featured item spans 2 columns.
+          // Find the pair of adjacent columns with the lowest combined top.
+          let bestPair = 0
+          let bestTop = Math.max(colH[0], colH[1])
+          for (let i = 0; i < cols - 1; i++) {
+            const pairTop = Math.max(colH[i], colH[i + 1])
+            if (pairTop < bestTop) {
+              bestTop = pairTop
+              bestPair = i
+            }
+          }
+          const top = bestTop
+          const left = bestPair * (colW + gap)
+          const w = colW * 2 + gap  // spans 2 column widths + the gap between them
+          colH[bestPair] = top + h + gap
+          colH[bestPair + 1] = top + h + gap
+          return {
+            position: 'absolute',
+            top: top + 'px',
+            left: left + 'px',
+            width: w + 'px',
+            height: h + 'px',
+          }
+        } else {
+          // Non-featured: place in shortest column
+          let col = 0
+          for (let i = 1; i < cols; i++) {
+            if (colH[i] < colH[col]) col = i
+          }
+          const top = colH[col]
+          const left = col * (colW + gap)
+          colH[col] = top + h + gap
+          return {
+            position: 'absolute',
+            top: top + 'px',
+            left: left + 'px',
+            width: colW + 'px',
+            height: h + 'px',
+          }
         }
       })
 
