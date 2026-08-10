@@ -82,16 +82,35 @@
 import { getDatabase, ref, child, get } from 'firebase/database'
 
 const IMAGE_ALIAS_MAP = {
-  'brazilian-leather': 'cicb',
-  'cicb': 'cicb',
+  // Genesysinf / Sage
+  'genesysinf-sageweb': 'sage',
+  'genesysinf': 'sage',
+  'sageweb': 'sage',
+  'sage': 'sage',
+
+  // Nathalia Bond
   'clinica-de-desenvolvimento-nathalia-bond': 'nathalia-bond',
   'nathalia-bond': 'nathalia-bond',
-  'genesysinf-sageweb': 'sage',
-  'sage': 'sage',
+  'nathalia': 'nathalia-bond',
+  'bond': 'nathalia-bond',
+  'clinica-de-desenvolvimento': 'nathalia-bond',
+
+  // Minimelissa
   'minimelissa': 'minimelissa',
   'mini-melissa': 'minimelissa',
+  'mini_melissa': 'minimelissa',
+  'mini': 'minimelissa',
+
+  // Brazilian leather
+  'brazilian-leather': 'cicb',
+  'cicb': 'cicb',
+
+  // Marco Almeida
   'aboutmarco': 'aboutmarco',
   'marco-almeida': 'aboutmarco',
+  'marco': 'aboutmarco',
+
+  // Other portfolio projects
   'metcha': 'metcha',
   'transa': 'transa',
   'melissa': 'melissa',
@@ -187,7 +206,9 @@ export default {
 
       const link = project.link
       const alias = IMAGE_ALIAS_MAP[link] || link
-      const firstWord = link.split('-')[0]
+      const parts = link.split('-')
+      const firstWord = parts[0]
+      const lastWord = parts[parts.length - 1]
 
       const candidates = [
         `${this.storage}covers/${alias}.jpg`,
@@ -195,12 +216,25 @@ export default {
         `${this.storage}covers/${alias}.webp`,
         `${this.storage}covers/${link}.jpg`,
         `${this.storage}covers/${link}.png`,
+        `${this.storage}covers/${link}.webp`,
+        `${this.storage}covers/${lastWord}.jpg`,
+        `${this.storage}covers/${lastWord}.png`,
         `${this.storage}covers/${firstWord}.jpg`,
         `${this.storage}covers/${firstWord}.png`,
+        `${this.storage}covers/mini-melissa.jpg`,
+        `${this.storage}covers/minimelissa.jpg`,
+        `${this.storage}covers/nathalia-bond.jpg`,
+        `${this.storage}covers/nathalia.jpg`,
+        `${this.storage}covers/sage.jpg`,
+        `${this.storage}covers/genesysinf.jpg`,
       ]
 
-      if (step < candidates.length) {
-        img.src = candidates[step]
+      const currentSrc = img.src
+      const nextCandidate = candidates.find((c) => c !== currentSrc && !img.dataset[c])
+
+      if (nextCandidate && step < 15) {
+        img.dataset[nextCandidate] = 'true'
+        img.src = nextCandidate
         return
       }
 
