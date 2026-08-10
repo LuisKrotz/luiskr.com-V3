@@ -1,0 +1,186 @@
+@import '_variables';
+@import '_mixins';
+@import '_placeholders';
+
+// ── Home Portfolio Mosaic Showcase (Untangled from Related) ─────────────────
+.home-portfolio-section {
+  width: 100%;
+  padding: to-rem($space-2xl) to-rem($space-md);
+  box-sizing: border-box;
+
+  @include layout-768() {
+    padding: to-rem($space-3xl) to-rem($space-xl);
+  }
+}
+
+.home-mosaic {
+  display: flex;
+  flex-wrap: wrap;
+  gap: to-rem($space-md);
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: to-rem($space-xl);
+
+  @include layout-768() {
+    gap: to-rem($space-lg);
+  }
+
+  &-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    border-radius: to-rem($space-lg);
+    flex: 1 1 to-rem(260);
+    max-width: to-rem(360);
+    min-height: to-rem(220);
+    aspect-ratio: 16 / 10;
+    text-decoration: none;
+    color: #ffffff;
+    background: var(--bg-secondary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s ease,
+                flex-grow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &--featured {
+      flex: 2 1 to-rem(480);
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+
+      @include layout-1024() {
+        flex: 2 1 to-rem(560);
+      }
+    }
+
+    // Hover Expansion: expands card and reveals description below with button
+    &:hover,
+    &--hovered {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+      z-index: 2;
+
+      .home-mosaic-img {
+        transform: scale(1.08);
+      }
+
+      .home-mosaic-overlay {
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.65) 55%,
+          rgba(0, 0, 0, 0.15) 100%
+        );
+      }
+    }
+  }
+
+  &-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.2) 60%,
+      transparent 100%
+    );
+    transition: background 0.4s ease;
+  }
+
+  &-content {
+    position: relative;
+    z-index: 1;
+    padding: to-rem($space-md) to-rem($space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: to-rem($space-xs);
+    text-align: left;
+    pointer-events: none;
+  }
+
+  &-title {
+    @extend .ttl-sm;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: to-rem(0.8);
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    margin: 0;
+  }
+
+  &-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: to-rem($space-sm);
+    margin-top: to-rem($space-2xs);
+    pointer-events: auto;
+  }
+
+  &-desc {
+    @extend .txt-xs;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    line-height: 1.4;
+
+    .draw-text__char {
+      animation: char-draw 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 15ms));
+    }
+  }
+
+  &-btn {
+    align-self: flex-start;
+    padding: to-rem($space-2xs) to-rem($space-md);
+    font-size: to-rem(12);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: to-rem(1.2);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: to-rem(20);
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Card details expansion transition on Home
+.home-desc-expand-enter-active,
+.home-desc-expand-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.home-desc-expand-enter-from,
+.home-desc-expand-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
