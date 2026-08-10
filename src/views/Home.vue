@@ -8,7 +8,7 @@
           <span v-else class="skeleton--shimmer" style="display: inline-block; width: 40%; height: 1em; border-radius: 4px"></span>
         </h2>
 
-        <!-- Mosaic Grid of Home Portfolio Items (JS 2D Masonry Engine) -->
+        <!-- Mosaic Grid of Home Portfolio Items (2D JS Masonry Engine) -->
         <div
           v-if="processedItems.length"
           ref="mosaicContainer"
@@ -244,9 +244,8 @@ export default {
       const containerWidth = container.clientWidth
       if (!containerWidth) return
 
-      const isDesktop = containerWidth >= 1024
-      const isTablet = containerWidth >= 540
-      const cols = isDesktop ? 3 : isTablet ? 2 : 1
+      // Proportional Column Count: 4 cols on desktop (> 1180px), 3 cols on tablet (> 820px), 2 cols on mobile landscape (> 540px), 1 col mobile
+      const cols = containerWidth >= 1180 ? 4 : containerWidth >= 820 ? 3 : containerWidth >= 540 ? 2 : 1
       const gap = 20
 
       const colWidth = (containerWidth - gap * (cols - 1)) / cols
@@ -280,7 +279,7 @@ export default {
         const left = targetCol * (colWidth + gap)
         const width = span === 2 ? colWidth * 2 + gap : colWidth
 
-        let baseHeight = item.variant === 'hero' ? 310 : item.variant === 'tall' ? 300 : item.variant === 'wide' ? 260 : 220
+        let baseHeight = item.variant === 'hero' ? 290 : item.variant === 'tall' ? 280 : item.variant === 'wide' ? 250 : 220
         if (this.hoveredIndex === item.link || this.activeTouchIndex === item.link) {
           baseHeight += 110
         }
