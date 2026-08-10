@@ -74,14 +74,19 @@
       }
     }
 
-    // Active Card expands visually; surrounding cards animate reactively without line-wrap flickers
+    // Active Card expands in width scale and height; surrounding cards animate reactively
     &:hover,
     &--expanded {
+      flex-grow: 1.8;
       transform: translateY(-6px) scale(1.02);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
       z-index: 5;
       opacity: 1 !important;
       filter: none !important;
+
+      &.home-mosaic-item--featured {
+        flex-grow: 2.8;
+      }
 
       .home-mosaic-img {
         transform: scale(1.05);
