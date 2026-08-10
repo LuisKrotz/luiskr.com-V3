@@ -81,7 +81,6 @@
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
 
-// Extract alphanumeric words from route/link strings for dynamic matching
 function getWords(str) {
   if (!str) return []
   return String(str)
@@ -99,6 +98,15 @@ function cleanSlug(str) {
     .replace(/^(\/projects\/|\/portfolio\/|\/)/, '')
     .replace(/\/$/, '')
     .replace(/[^a-z0-9]/g, '')
+}
+
+// Route alias fallback for 0ms initial render before async Firebase fetch
+const ROUTE_FALLBACK_MAP = {
+  'clinica-de-desenvolvimento-nathalia-bond': 'nathalia-bond',
+  'genesysinf-sageweb': 'sage',
+  'minimelissa': 'minimelissa',
+  'brazilian-leather': 'cicb',
+  'aboutmarco': 'aboutmarco',
 }
 
 function findDynamicMatch(pLink, homePortfolio) {
@@ -128,7 +136,7 @@ function findDynamicMatch(pLink, homePortfolio) {
   })
   if (match) return match
 
-  // 3. Dynamic word intersection match (matches common terms across present & future projects)
+  // 3. Dynamic word intersection match
   match = homePortfolio.find((h) => {
     if (!h) return false
     const hWords = getWords(h.link).concat(getWords(h.image))
@@ -159,14 +167,28 @@ export default {
         : Object.values(this.translations.projects)
 
       const basePath = this.translations.path || '/portfolio/'
+      const homeList = this.$store.state.portfoliolist?.length
+        ? this.$store.state.portfoliolist
+        : this.homePortfolio
 
       return rawProjects.map((p) => {
         const cleanLink = p.link ? p.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '') : ''
 
-        // Dynamically find matching project in Home portfolio dataset without hardcoded maps
-        const homeMatch = findDynamicMatch(cleanLink, this.homePortfolio)
+        // Dynamically match project against live Home portfolio dataset
+        const homeMatch = findDynamicMatch(cleanLink, homeList)
 
-        const imageName = homeMatch?.image || p.image || cleanLink
+        const imageName = homeMatch?.image || ROUTE_FALLBACK_MAP[cleanLink] || p.image || cleanLink
+
+        // Build dynamic candidate URLs without hardcoding
+        const words = getWords(cleanLink)
+        const names = [imageName, ROUTE_FALLBACK_MAP[cleanLink], cleanLink, cleanSlug(cleanLink), ...words].filter(Boolean)
+        const candidates = []
+        names.forEach((name) => {
+          ;['.jpg', '.png', '.webp'].forEach((ext) => {
+            const url = `${this.storage}covers/${name}${ext}`
+            if (!candidates.includes(url)) candidates.push(url)
+          })
+        })
 
         return {
           page: p.page || homeMatch?.label || homeMatch?.title || cleanLink,
@@ -174,7 +196,8 @@ export default {
           fullPath: (basePath.startsWith('/') ? '' : '/') + basePath.replace(/\/$/, '') + '/' + cleanLink,
           featured: p.featured === true || homeMatch?.featured === true,
           imageName: imageName,
-          imageSrc: imageName ? `${this.storage}covers/${imageName}.jpg` : null,
+          imageSrc: candidates[0] || `${this.storage}covers/${cleanLink}.jpg`,
+          candidateUrls: candidates,
           description: homeMatch?.description || p.description || '',
         }
       })
@@ -204,9 +227,11 @@ export default {
           if (snapshot.exists()) {
             const data = snapshot.val()
             if (data.portfoliolist) {
-              this.homePortfolio = Array.isArray(data.portfoliolist)
+              const list = Array.isArray(data.portfoliolist)
                 ? data.portfoliolist
                 : Object.values(data.portfoliolist)
+              this.homePortfolio = list
+              this.$store.commit('setPortfolioList', list)
             }
           }
         })
@@ -219,37 +244,13 @@ export default {
       const step = parseInt(img.dataset.errorStep || '0', 10)
       img.dataset.errorStep = (step + 1).toString()
 
-      const cleanLink = project.link ? project.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '') : ''
-      const words = getWords(cleanLink)
-
-      // Build candidates dynamically from project words without any hardcoding
-      const candidateNames = [
-        project.imageName,
-        cleanLink,
-        cleanSlug(cleanLink),
-        ...words,
-      ].filter(Boolean)
-
-      const candidates = []
-      candidateNames.forEach((name) => {
-        const jpgSrc = `${this.storage}covers/${name}.jpg`
-        const pngSrc = `${this.storage}covers/${name}.png`
-        const webpSrc = `${this.storage}covers/${name}.webp`
-        if (!candidates.includes(jpgSrc)) candidates.push(jpgSrc)
-        if (!candidates.includes(pngSrc)) candidates.push(pngSrc)
-        if (!candidates.includes(webpSrc)) candidates.push(webpSrc)
-      })
-
-      const currentSrc = img.src
-      const nextCandidate = candidates.find((c) => c !== currentSrc && !img.dataset[c])
-
-      if (nextCandidate && step < candidates.length + 2) {
-        img.dataset[nextCandidate] = 'true'
-        img.src = nextCandidate
-        return
+      const candidates = project.candidateUrls || []
+      if (step < candidates.length) {
+        const nextCandidate = candidates[step]
+        if (nextCandidate && nextCandidate !== img.src) {
+          img.src = nextCandidate
+        }
       }
-
-      img.style.opacity = '0'
     },
   },
 }

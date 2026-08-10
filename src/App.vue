@@ -290,6 +290,17 @@ export default {
           .catch(console.error)
       }
 
+      // Load portfolio list globally (once) so cover images and metadata are available immediately
+      if (!this.$store.state.portfoliolist?.length) {
+        get(child(ref(getDatabase()), `${dbpath}/pages/home`))
+          .then((snapshot) => {
+            if (snapshot.exists() && snapshot.val()?.portfoliolist) {
+              this.$store.commit('setPortfolioList', snapshot.val().portfoliolist)
+            }
+          })
+          .catch(console.error)
+      }
+
       // Load mentions/awards from About page data (once, globally)
       if (!this.$store.getters.getMentions.items) {
         get(child(ref(getDatabase()), `${dbpath}/pages/about`))

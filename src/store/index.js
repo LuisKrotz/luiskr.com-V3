@@ -50,8 +50,16 @@ export default createStore({
     theme: localStorage.getItem('theme') || 'system', // 'system' | 'dark' | 'light'
     effectiveTheme: 'light',
     preferencesOpen: false,
+    portfoliolist: [],
   },
   mutations: {
+    setPortfolioList(state, payload) {
+      if (Array.isArray(payload)) {
+        state.portfoliolist = payload
+      } else if (payload && typeof payload === 'object') {
+        state.portfoliolist = Object.values(payload)
+      }
+    },
     initTheme(state) {
       const stored = localStorage.getItem('theme') || 'system'
       state.theme = stored

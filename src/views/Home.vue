@@ -257,8 +257,12 @@ export default {
       )
     )
       .then((snapshot) => {
-        if (snapshot.exists()) this.translations = snapshot.val()
-        else console.log('%cERROR: HOME DATA not found', this.$sharedData.styles.info)
+        if (snapshot.exists()) {
+          this.translations = snapshot.val()
+          if (this.translations?.portfoliolist) {
+            this.$store.commit('setPortfolioList', this.translations.portfoliolist)
+          }
+        } else console.log('%cERROR: HOME DATA not found', this.$sharedData.styles.info)
       })
       .catch(console.error)
 
