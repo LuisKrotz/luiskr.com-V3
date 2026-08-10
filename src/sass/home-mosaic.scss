@@ -133,10 +133,11 @@
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
   margin: 0;
 
-  // Featured cards get slightly larger title
+  // Featured cards (480px tall vs 190-230px compact) — large cinematic title
   .home-mosaic-item--featured & {
-    font-size: to-rem(22);
-    letter-spacing: 0.1em;
+    font-size: to-rem(28);
+    font-weight: 100;
+    letter-spacing: 0.12em;
   }
 }
 

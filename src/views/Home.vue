@@ -140,15 +140,14 @@ import Contact from '../components/Contact.vue'
 import AwardsMentions from '../components/AwardsMentions.vue'
 import DrawText from '../components/DrawText.vue'
 
-// Varying heights for non-featured items so they NEVER look like a uniform grid of squares.
-// Rotates through 5 distinct heights to create a natural, editorial mosaic rhythm.
-const COMPACT_HEIGHTS = [260, 310, 240, 330, 280]
+// Non-featured items rotate through distinct heights — never uniform squares.
+const COMPACT_HEIGHTS = [200, 230, 190, 220, 210]
 
-// Featured items always get a taller, more cinematic cover height.
-const FEATURED_HEIGHT = 420
+// Featured items are dramatically taller so they're obviously bigger.
+const FEATURED_HEIGHT = 480
 
 // How much extra height is added when a card is hovered/expanded (description shown).
-const EXPAND_DELTA = 115
+const EXPAND_DELTA = 120
 
 export default {
   name: 'Home',
