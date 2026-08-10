@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (JS-Driven Dynamic Flex Mosaic) ────────────
+// ── Home Portfolio Showcase Grid (True Zero-Gap Masonry) ───────────────────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -27,15 +27,21 @@
 }
 
 .home-mosaic {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: to-rem($space-lg);
+  column-count: 1;
+  column-gap: to-rem($space-lg);
   width: 100%;
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
 
-  // When any card is hovered, non-hovered surrounding items react smoothly
+  @include layout-540() {
+    column-count: 2;
+  }
+
+  @include layout-1024() {
+    column-count: 3;
+  }
+
+  // Hover reactivity on surrounding cards
   &:hover .home-mosaic-item:not(:hover) {
     opacity: 0.82;
     transform: scale(0.98);
@@ -50,13 +56,13 @@
 
   &-item {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: to-rem($space-lg);
-    flex: 1 1 100%;
+    display: inline-block;
     width: 100%;
-    max-width: 100%;
+    margin-bottom: to-rem($space-lg);
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    border-radius: to-rem($space-lg);
+    overflow: hidden;
     box-sizing: border-box;
     text-decoration: none;
     color: #ffffff;
@@ -67,57 +73,9 @@
                 filter 0.35s ease,
                 box-shadow 0.4s ease;
 
-    @include layout-540() {
-      flex: 1 1 to-rem(220);
-      width: auto;
-    }
-
-    // JS-Assigned Size Variants:
-    // 1. Hero Variant (Featured Priority #1)
+    // Featured items have taller media presence in the masonry column
+    &--featured,
     &--hero {
-      @include layout-768() {
-        flex: 2.8 1 to-rem(540);
-
-        .home-mosaic-media {
-          height: to-rem(270);
-        }
-      }
-    }
-
-    // 2. Wide Variant (Featured Priority #2)
-    &--wide {
-      @include layout-768() {
-        flex: 2 1 to-rem(440);
-      }
-    }
-
-    // 3. Tall Variant (Vertical Rhythm)
-    &--tall {
-      @include layout-768() {
-        flex: 1.2 1 to-rem(280);
-
-        .home-mosaic-media {
-          height: to-rem(310);
-        }
-      }
-    }
-
-    // 4. Compact Variant (Standard)
-    &--compact {
-      @include layout-768() {
-        flex: 1 1 to-rem(240);
-      }
-    }
-
-    // Active Card expands in scale and height without wrapping lines or flickering
-    &:hover,
-    &--expanded {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
-      z-index: 5;
-      opacity: 1 !important;
-      filter: none !important;
-
       .home-mosaic-media {
         height: to-rem(280);
 
@@ -125,6 +83,46 @@
           height: to-rem(320);
         }
       }
+    }
+
+    &--wide {
+      .home-mosaic-media {
+        height: to-rem(240);
+
+        @include layout-768() {
+          height: to-rem(270);
+        }
+      }
+    }
+
+    &--tall {
+      .home-mosaic-media {
+        height: to-rem(300);
+
+        @include layout-768() {
+          height: to-rem(340);
+        }
+      }
+    }
+
+    &--compact {
+      .home-mosaic-media {
+        height: to-rem(200);
+
+        @include layout-768() {
+          height: to-rem(220);
+        }
+      }
+    }
+
+    // Active Card expands in scale and height without wrapping lines or flickering
+    &:hover,
+    &--expanded {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
+      z-index: 5;
+      opacity: 1 !important;
+      filter: none !important;
 
       .home-mosaic-img {
         transform: scale(1.06);
