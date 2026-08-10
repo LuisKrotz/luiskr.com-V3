@@ -198,7 +198,16 @@ export default {
 
   watch: {
     processedItems(val) {
-      if (val.length) this.$nextTick(this.layoutMasonry)
+      if (!val.length) return
+      // Retry up to 5 times in case the container hasn't painted yet
+      this.$nextTick(() => {
+        this.layoutMasonry()
+        setTimeout(() => this.layoutMasonry(), 50)
+        setTimeout(() => this.layoutMasonry(), 150)
+      })
+    },
+    featuredLinks() {
+      this.$nextTick(this.layoutMasonry)
     },
   },
 
@@ -229,7 +238,11 @@ export default {
       const container = this.$refs.mosaicContainer
       if (!container || !this.processedItems.length) return
       const W = container.clientWidth
-      if (!W) return
+      if (!W) {
+        // Container not painted yet — retry after next frame
+        setTimeout(() => this.layoutMasonry(), 50)
+        return
+      }
 
       // Responsive column count
       const cols = W >= 900 ? 3 : W >= 560 ? 2 : 1
@@ -238,7 +251,7 @@ export default {
       const colH = Array(cols).fill(0)
 
       this.itemStyles = this.processedItems.map((item, idx) => {
-        // Place in shortest column
+        // Shortest-column bin-packing — true masonry, zero gaps
         let col = 0
         for (let i = 1; i < cols; i++) {
           if (colH[i] < colH[col]) col = i
@@ -350,7 +363,11 @@ export default {
       setTimeout(() => window.scrollTo(0, 0), 500)
     }
     window.addEventListener('resize', this.layoutMasonry)
-    this.$nextTick(this.layoutMasonry)
+    this.$nextTick(() => {
+      this.layoutMasonry()
+      setTimeout(() => this.layoutMasonry(), 100)
+      setTimeout(() => this.layoutMasonry(), 300)
+    })
   },
 
   beforeUnmount() {
