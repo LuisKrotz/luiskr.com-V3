@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (Contained in %MAXAREA) ─────────────────
+// ── Home Portfolio Showcase Grid (Contained in %MAXAREA, Zero Empty Gaps) ────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -18,26 +18,15 @@
 }
 
 .home-mosaic {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: to-rem($space-md);
   width: 100%;
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
 
-  @include layout-540() {
-    grid-template-columns: repeat(2, 1fr);
+  @include layout-768() {
     gap: to-rem($space-lg);
-  }
-
-  @include layout-1024() {
-    grid-template-columns: repeat(3, 1fr);
-    gap: to-rem($space-xl);
-  }
-
-  @include layout-1440() {
-    grid-template-columns: repeat(4, 1fr);
-    gap: to-rem($space-xl);
   }
 
   &-item {
@@ -46,31 +35,24 @@
     flex-direction: column;
     justify-content: flex-end;
     overflow: hidden;
-    border-radius: to-rem($space-md);
-    grid-column: span 1;
-    height: to-rem(220);
+    border-radius: to-rem($space-lg);
+    flex: 1 1 to-rem(260);
+    min-height: to-rem(200);
     aspect-ratio: 16 / 10;
     text-decoration: none;
     color: #ffffff;
     background: var(--bg-secondary);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
                 box-shadow 0.35s ease;
 
-    @include layout-768() {
-      height: to-rem(240);
-    }
-
-    // Featured items span 2 columns in the grid area
+    // Featured items are wider (flex-grow 2) to span across rows seamlessly
     &--featured {
-      @include layout-540() {
-        grid-column: span 2;
-        height: to-rem(240);
-        aspect-ratio: 16 / 9;
-      }
+      flex: 2 1 to-rem(480);
+      aspect-ratio: 16 / 9;
 
-      @include layout-768() {
-        height: to-rem(260);
+      @include layout-1024() {
+        flex: 2 1 to-rem(560);
       }
     }
 
@@ -135,7 +117,7 @@
     pointer-events: none;
 
     @include layout-768() {
-      padding: to-rem($space-md) to-rem($space-lg);
+      padding: to-rem($space-lg) to-rem($space-xl);
     }
   }
 
