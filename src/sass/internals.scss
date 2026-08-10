@@ -447,16 +447,20 @@
     }
 
     &-related {
+      @extend %MAXAREA;
+
       width: 100%;
-      max-width: to-rem($space-10xl);
       margin: 0 auto;
-      padding: to-rem($space-xl) to-rem($space-lg) to-rem($space-4xl);
+      padding-top: to-rem($space-xl);
+      padding-bottom: to-rem($space-4xl);
 
       @include layout-768() {
-        padding: to-rem($space-2xl) to-rem($space-3xl) to-rem($space-5xl);
+        padding-top: to-rem($space-2xl);
+        padding-bottom: to-rem($space-5xl);
       }
       @include layout-1024() {
-        padding: to-rem($space-3xl) to-rem($space-5xl) to-rem($space-6xl);
+        padding-top: to-rem($space-3xl);
+        padding-bottom: to-rem($space-6xl);
       }
     }
 
