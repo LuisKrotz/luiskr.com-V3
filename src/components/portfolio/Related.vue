@@ -81,6 +81,26 @@
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
 
+const IMAGE_ALIAS_MAP = {
+  'brazilian-leather': 'cicb',
+  'cicb': 'cicb',
+  'clinica-de-desenvolvimento-nathalia-bond': 'nathalia-bond',
+  'nathalia-bond': 'nathalia-bond',
+  'genesysinf-sageweb': 'sage',
+  'sage': 'sage',
+  'minimelissa': 'minimelissa',
+  'mini-melissa': 'minimelissa',
+  'aboutmarco': 'aboutmarco',
+  'marco-almeida': 'aboutmarco',
+  'metcha': 'metcha',
+  'transa': 'transa',
+  'melissa': 'melissa',
+  'mor': 'mor',
+  'coza': 'coza',
+  'cecerele': 'cecerele',
+  'vibra': 'vibra',
+}
+
 export default {
   name: 'Related',
 
@@ -112,14 +132,15 @@ export default {
           return hLink === cleanLink || hLink.includes(cleanLink) || cleanLink.includes(hLink)
         })
 
-        const imageName = homeMatch?.image || p.image || cleanLink
+        const resolvedImageName = homeMatch?.image || IMAGE_ALIAS_MAP[cleanLink] || p.image || cleanLink
 
         return {
           page: p.page || homeMatch?.label || homeMatch?.title || cleanLink,
           link: cleanLink,
           fullPath: (basePath.startsWith('/') ? '' : '/') + basePath.replace(/\/$/, '') + '/' + cleanLink,
           featured: p.featured === true || homeMatch?.featured === true,
-          imageSrc: imageName ? `${this.storage}covers/${imageName}.jpg` : null,
+          imageName: resolvedImageName,
+          imageSrc: resolvedImageName ? `${this.storage}covers/${resolvedImageName}.jpg` : null,
           description: homeMatch?.description || p.description || '',
         }
       })
@@ -160,14 +181,26 @@ export default {
     onImageError(e, project) {
       const img = e.target
       if (!img) return
-      if (!img.dataset.triedFallback) {
-        img.dataset.triedFallback = 'true'
-        const parts = project.link.split('-')
-        if (parts.length > 1) {
-          img.src = `${this.storage}covers/${parts[0]}.jpg`
+
+      const triedCount = parseInt(img.dataset.triedCount || '0', 10)
+      img.dataset.triedCount = (triedCount + 1).toString()
+
+      if (triedCount === 0) {
+        const alias = IMAGE_ALIAS_MAP[project.link]
+        if (alias && alias !== project.imageName) {
+          img.src = `${this.storage}covers/${alias}.jpg`
           return
         }
       }
+
+      if (triedCount <= 1) {
+        const firstWord = project.link.split('-')[0]
+        if (firstWord && firstWord !== project.imageName) {
+          img.src = `${this.storage}covers/${firstWord}.jpg`
+          return
+        }
+      }
+
       img.style.opacity = '0'
     },
   },
