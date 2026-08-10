@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (Flex Mosaic with Zero Empty Gaps) ─────────
+// ── Home Portfolio Showcase Grid (Dynamic Size Variety Mosaic) ──────────────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -29,7 +29,7 @@
 .home-mosaic {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start; // Prevents neighboring items in the row from stretching height
+  align-items: flex-start;
   gap: to-rem($space-lg);
   width: 100%;
   box-sizing: border-box;
@@ -67,34 +67,73 @@
                 filter 0.35s ease,
                 box-shadow 0.4s ease;
 
-    // Mobile landscape (540px+)
+    // Mobile landscape (540px+) & Tablet/Desktop Size Variations:
+    // Variant A: Standard compact items
     @include layout-540() {
       flex: 1 1 to-rem(220);
       width: auto;
     }
 
-    // Tablet & iPad Air portrait (768px+)
     @include layout-768() {
       flex: 1 1 to-rem(240);
     }
 
-    // Large Tablet & iPad Air 1180 / Desktop (960px+)
-    @include layout-960() {
+    @include layout-1024() {
       flex: 1 1 to-rem(260);
     }
 
-    // Featured items span wider across rows to form a rich organic mosaic
+    // Explicit featured item override
     &--featured {
       @include layout-540() {
-        flex: 2 1 to-rem(420);
-      }
-
-      @include layout-768() {
-        flex: 2 1 to-rem(480);
+        flex: 2 1 to-rem(440);
       }
 
       @include layout-960() {
-        flex: 2 1 to-rem(540);
+        flex: 2.5 1 to-rem(560);
+      }
+    }
+
+    // Dynamic Rhythmic Size Variety across the mosaic sequence (6-item cycle)
+    // 1. Hero Large Card (item 1, 7, 13...)
+    &:nth-child(6n + 1) {
+      @include layout-768() {
+        flex: 2.8 1 to-rem(540);
+
+        .home-mosaic-media {
+          height: to-rem(270);
+        }
+      }
+    }
+
+    // 2. Medium Wide Card (item 2, 8, 14...)
+    &:nth-child(6n + 2) {
+      @include layout-768() {
+        flex: 1.8 1 to-rem(360);
+      }
+    }
+
+    // 3. Tall Portrait-Aspect Card for vertical rhythm (item 3, 9...)
+    &:nth-child(6n + 3) {
+      @include layout-768() {
+        flex: 1.2 1 to-rem(280);
+
+        .home-mosaic-media {
+          height: to-rem(310);
+        }
+      }
+    }
+
+    // 4. Compact Card (item 4, 10...)
+    &:nth-child(6n + 4) {
+      @include layout-768() {
+        flex: 1 1 to-rem(240);
+      }
+    }
+
+    // 5. Featured Wide Card (item 5, 11...)
+    &:nth-child(6n + 5) {
+      @include layout-768() {
+        flex: 2.2 1 to-rem(460);
       }
     }
 
@@ -108,10 +147,10 @@
       filter: none !important;
 
       .home-mosaic-media {
-        height: to-rem(260);
+        height: to-rem(280);
 
         @include layout-768() {
-          height: to-rem(280);
+          height: to-rem(320);
         }
       }
 
