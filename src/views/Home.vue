@@ -122,8 +122,8 @@ import DrawText from '../components/DrawText.vue'
 // Featured span 2 cols so their width is ~2x colW.
 // FEAT_MULT applies to itemW (the 2-col width), not colW.
 // 0.40 × 750px = 300px → 2.5:1 cinematic widescreen, clearly landscape, not square.
-const FEAT_MULT  = 0.50                             // featured: 750×0.50=375px (2:1), cinematic proper card
-const COMP_MULTS = [0.56, 0.60, 0.53, 0.58, 0.55]  // compact:  367×0.56=206px (16:9), proper cards not strips
+const FEAT_MULT  = 0.65   // 367×0.65=239px (3:2), clearly taller than compact
+const COMP_MULTS = [0.40, 0.44, 0.38, 0.42, 0.39]  // 367×0.40=147px, compact tile
 const BOTTOM_H     = 130                            // px, description panel when expanded
 
 export default {
@@ -194,59 +194,22 @@ export default {
       this.cards = this.processedItems.map((item, i) => {
         const active  = this.hoveredIdx === i || this.touchIdx === i
         const bottomH = active ? BOTTOM_H : 0
+        const mult    = item.featured ? FEAT_MULT : COMP_MULTS[i % COMP_MULTS.length]
+        const imageH  = Math.round(colW * mult)
+        const totalH  = imageH + bottomH
 
-        // Featured span 2 cols when ≥2 cols available — both width AND height differ
-        const span   = (item.featured && cols >= 2) ? 2 : 1
-        const itemW  = span === 2 ? colW * 2 + gap : colW
-        const mult   = item.featured ? FEAT_MULT : COMP_MULTS[i % COMP_MULTS.length]
-        const imageH = Math.round(itemW * mult)
-        const totalH = imageH + bottomH
-
-        let top, left
-
-        if (span === 2) {
-          // Find adjacent pair with lowest combined top
-          let bestPair = 0
-          let bestTop  = Math.max(colH[0], colH[1])
-          for (let c = 0; c <= cols - 2; c++) {
-            const t = Math.max(colH[c], colH[c + 1])
-            if (t < bestTop) { bestTop = t; bestPair = c }
-          }
-          top  = bestTop
-          left = bestPair * (colW + gap)
-          colH[bestPair]     = top + totalH + gap
-          colH[bestPair + 1] = top + totalH + gap
-        } else {
-          // Shortest single column
-          let col = 0
-          for (let c = 1; c < cols; c++) if (colH[c] < colH[col]) col = c
-          top  = colH[col]
-          left = col * (colW + gap)
-          colH[col] = top + totalH + gap
-        }
+        // Shortest single column — all items same width
+        let col = 0
+        for (let c = 1; c < cols; c++) if (colH[c] < colH[col]) col = c
+        const top  = colH[col]
+        const left = col * (colW + gap)
+        colH[col]  = top + totalH + gap
 
         return {
           bottomH,
-          card: {
-            position: 'absolute',
-            top:      top + 'px',
-            left:     left + 'px',
-            width:    itemW + 'px',
-            height:   totalH + 'px',
-            overflow: 'hidden',
-          },
-          media: {
-            position:   'relative',
-            width:      '100%',
-            height:     imageH + 'px',
-            overflow:   'hidden',
-            flexShrink: '0',
-          },
-          bottom: {
-            width:    '100%',
-            height:   bottomH + 'px',
-            overflow: 'hidden',
-          },
+          card:   { position:'absolute', top:top+'px', left:left+'px', width:colW+'px', height:totalH+'px', overflow:'hidden' },
+          media:  { position:'relative', width:'100%', height:imageH+'px', overflow:'hidden', flexShrink:'0' },
+          bottom: { width:'100%', height:bottomH+'px', overflow:'hidden' },
         }
       })
 
