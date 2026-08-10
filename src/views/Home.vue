@@ -174,7 +174,7 @@ export default {
       // Responsive grid config
       let totalUnits, featUnits, compUnits
       if (W >= 900) {
-        totalUnits = 12; featUnits = 4; compUnits = 3  // 3 feat/row, 4 comp/row
+        totalUnits = 12; featUnits = 4; compUnits = 2  // 3 feat/row, 6 comp/row
       } else if (W >= 580) {
         totalUnits = 6;  featUnits = 3; compUnits = 2  // 2 feat/row, 3 comp/row
       } else {
