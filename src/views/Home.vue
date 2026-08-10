@@ -14,10 +14,11 @@
           class="home-mosaic"
           :style="{ height: containerHeight }"
         >
-          <router-link
+          <div
             v-for="(item, idx) in processedItems"
             :key="idx"
-            :to="'/portfolio/' + item.link"
+            role="link"
+            tabindex="0"
             class="home-mosaic-item"
             :class="{
               'home-mosaic-item--featured': item.featured,
@@ -26,7 +27,8 @@
             :style="itemStyles[idx] || {}"
             @mouseenter="onHover(idx)"
             @mouseleave="onLeave()"
-            @click="handleItemClick($event, item, idx)"
+            @click="handleItemClick(item, idx)"
+            @keydown.enter="$router.push('/portfolio/' + item.link)"
           >
             <div class="home-mosaic-media">
               <img
@@ -51,7 +53,7 @@
                 </button>
               </div>
             </div>
-          </router-link>
+          </div>
         </div>
 
         <!-- Skeleton while loading -->
@@ -140,11 +142,11 @@ import Contact from '../components/Contact.vue'
 import AwardsMentions from '../components/AwardsMentions.vue'
 import DrawText from '../components/DrawText.vue'
 
-// Heights are colW-proportional so they're NEVER square at any resolution.
-// Featured: colW * 0.60 → 5:3 landscape (e.g. 356×214px at 1280 — clearly wide)
-// Compact rotates through 0.40–0.50 multipliers → 2:1 to 2.5:1 widescreen
-const FEATURED_MULT = 0.60
-const COMPACT_MULTS = [0.48, 0.52, 0.44, 0.50, 0.46]
+// colW-proportional heights — always correct aspect ratio at any breakpoint.
+// Featured: 0.72x colW → clearly taller, more cinematic
+// Compact: 0.40–0.48x colW → clearly smaller, more items per row
+const FEATURED_MULT = 0.72
+const COMPACT_MULTS = [0.44, 0.48, 0.40, 0.46, 0.42]
 const EXPAND_DELTA = 130
 
 export default {
@@ -234,10 +236,8 @@ export default {
       const W = container.clientWidth
       if (!W) { setTimeout(() => this.layoutMasonry(), 50); return }
 
-      // Responsive column count — re-evaluated on every resize
-      // More columns = narrower cards; fewer = wider cards.
-      // Heights scale via aspect ratio so images always look right.
-      const cols = W >= 1100 ? 3 : W >= 700 ? 2 : 1
+      // 4 cols ≥1200px, 3 cols ≥800px, 2 cols ≥520px, 1 col mobile
+      const cols = W >= 1200 ? 4 : W >= 800 ? 3 : W >= 520 ? 2 : 1
       const gap = 16
       const colW = Math.floor((W - gap * (cols - 1)) / cols)
       const colH = Array(cols).fill(0)
@@ -269,18 +269,21 @@ export default {
       this.layoutMasonry()
     },
 
-    handleItemClick(e, item, idx) {
-      const isTouch =
-        this.has_touch ||
-        'ontouchstart' in window ||
-        window.matchMedia('(pointer: coarse)').matches
+    handleItemClick(item, idx) {
+      const isTouch = 'ontouchstart' in window || window.matchMedia('(pointer: coarse)').matches
 
-      if (isTouch && this.activeTouchIndex !== idx) {
-        e.preventDefault()
-        e.stopPropagation()
-        this.activeTouchIndex = idx
-        this.layoutMasonry()
-        return false
+      if (isTouch) {
+        if (this.activeTouchIndex !== idx) {
+          // Tap 1: expand the card — show description and CTA
+          this.activeTouchIndex = idx
+          this.layoutMasonry()
+        } else {
+          // Tap 2: card already expanded — navigate to project
+          this.$router.push('/portfolio/' + item.link)
+        }
+      } else {
+        // Mouse: navigate immediately on click
+        this.$router.push('/portfolio/' + item.link)
       }
     },
 
