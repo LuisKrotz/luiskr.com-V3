@@ -87,7 +87,7 @@
   margin: 0;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  font-size: to-rem($space-lg);
+  font-size: to-rem(18);
   text-transform: uppercase;
   letter-spacing: to-rem(0.8);
   color: var(--text-primary);
@@ -95,7 +95,7 @@
 
 .pref-section-desc {
   margin: 0;
-  font-size: to-rem($space-md);
+  font-size: to-rem(15);
   color: var(--text-muted);
 }
 
@@ -147,11 +147,11 @@
 .pref-option-label {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  font-size: to-rem($space-md);
+  font-size: to-rem(16);
 }
 
 .pref-option-sub {
-  font-size: to-rem($space-sm);
+  font-size: to-rem(13);
   color: var(--text-muted);
 }
 

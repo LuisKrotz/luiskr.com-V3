@@ -32,6 +32,7 @@
   background: var(--bg-secondary, #1a1a1a);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
+  container-type: inline-size;  // enables cqw units for child text
 
   // Smooth transitions — JS changes inline styles, CSS animates them
   transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
@@ -105,9 +106,10 @@
   color: #ffffff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
   margin: 0;
+  font-size: clamp(to-rem(9), 5cqw, to-rem(16));
 
   .home-mosaic-item--featured & {
-    font-size: to-rem(24);
+    font-size: clamp(to-rem(10), 5.5cqw, to-rem(22));
     letter-spacing: 0.12em;
   }
 }
@@ -148,6 +150,8 @@
 }
 
 // ── CTA button ────────────────────────────────────────────────────────────────
+// Always white — cards always have a dark background so contrast is guaranteed
+// in both light and dark mode.
 .home-mosaic-btn {
   @extend %RESETBTN;
   @extend .ttl-xs;
@@ -156,10 +160,10 @@
   text-align: center;
   text-transform: uppercase;
   padding: to-rem($space-xs) to-rem($space-lg);
-  color: var(--grey, #cccccc);
+  color: #ffffff;
   font-weight: 700;
   white-space: nowrap;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
   cursor: pointer;
   margin-top: to-rem($space-2xs);
 
@@ -170,11 +174,11 @@
     height: to-rem($space-sm);
     transition: width 0.25s ease, height 0.25s ease;
   }
-  &::before { top: 0; left: 0; border-top: 1px solid var(--grey); border-left: 1px solid var(--grey); }
-  &::after  { bottom: 0; right: 0; border-bottom: 1px solid var(--grey); border-right: 1px solid var(--grey); }
+  &::before { top: 0; left: 0; border-top: 1px solid rgba(255,255,255,0.65); border-left: 1px solid rgba(255,255,255,0.65); }
+  &::after  { bottom: 0; right: 0; border-bottom: 1px solid rgba(255,255,255,0.65); border-right: 1px solid rgba(255,255,255,0.65); }
 
   &:hover, &:focus {
-    color: var(--white, #fff);
+    opacity: 0.75;
     &::before, &::after {
       width: calc(100% - #{to-rem($space-2xs)});
       height: calc(100% - #{to-rem($space-2xs)});

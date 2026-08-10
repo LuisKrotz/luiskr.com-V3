@@ -107,7 +107,7 @@ import DrawText from '../components/DrawText.vue'
 // COMP_MULTS applied to compact itemW (~263px) → slightly shorter compact card
 const FEAT_MULT  = 0.56
 const COMP_MULTS = [0.56, 0.58, 0.54, 0.57, 0.55]  // same 16:9 aspect, smaller because narrower column
-const BOTTOM_H   = 130
+// BOTTOM_H is measured dynamically from the DOM — see measureBottomH()
 
 export default {
   name: 'Home',
@@ -126,6 +126,7 @@ export default {
       profilePicture:    null,
       cards:             [],
       containerH:        '0px',
+      bottomH:           130,   // measured dynamically; starts at 130px fallback
     }
   },
 
@@ -192,7 +193,7 @@ export default {
 
       this.cards = this.processedItems.map((item, i) => {
         const active  = this.hoveredIdx === i || this.touchIdx === i
-        const bottomH = active ? BOTTOM_H : 0
+        const bottomH = active ? this.bottomH : 0
 
         const span   = item.featured ? featUnits : compUnits
         const itemW  = Math.round(span * unitW - gap)
@@ -223,14 +224,34 @@ export default {
       this.containerH = Math.max(...colH) - gap + 'px'
     },
 
-    onHover(i) { this.hoveredIdx = i; this.layout() },
-    onLeave()  { this.hoveredIdx = null; this.layout() },
+    // Measure the actual rendered height of the expanded description panel.
+    // Called before layout() whenever a card expands, so BOTTOM_H is exact.
+    measureBottomH() {
+      const detail = this.$el?.querySelector('.home-mosaic-details')
+      if (detail) {
+        const h = detail.scrollHeight
+        if (h > 0) this.bottomH = h + 16  // +16 for padding buffer
+      }
+    },
+
+    onHover(i) {
+      this.hoveredIdx = i
+      this.$nextTick(() => { this.measureBottomH(); this.layout() })
+    },
+    onLeave() {
+      this.hoveredIdx = null
+      this.layout()
+    },
 
     onClick(item, i) {
       const isTouch = 'ontouchstart' in window || window.matchMedia('(pointer: coarse)').matches
       if (isTouch) {
-        if (this.touchIdx !== i) { this.touchIdx = i; this.layout() }
-        else { this.$router.push('/portfolio/' + item.link) }
+        if (this.touchIdx !== i) {
+          this.touchIdx = i
+          this.$nextTick(() => { this.measureBottomH(); this.layout() })
+        } else {
+          this.$router.push('/portfolio/' + item.link)
+        }
       } else {
         this.$router.push('/portfolio/' + item.link)
       }
