@@ -58,3 +58,20 @@
     filter: blur(0);
   }
 }
+
+// ── Reduced Motion Override ────────────────────────────────────────────────
+html.reduced-motion .draw-text__char {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw-text__char {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+}

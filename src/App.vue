@@ -26,35 +26,50 @@
         </router-link>
         <button
           class="nav-link"
-          :class="{ active: isHomePage && activeSection === 'about' }"
+          :class="{ active: isHomePage && activeSection === 'about' && !onBottom }"
           v-else
           @click="goToAbout"
         >
           {{ translations?.about?.description ?? 'About' }}
         </button>
-        <span class="nav-separator">{{ !onBottom ? '|' : '▲' }}</span>
 
-        <button
-          v-if="isHomePage"
-          class="nav-link"
-          :class="{ active: activeSection === 'contact' }"
-          @click="scrollToContact()"
-        >
-          {{ translations?.contact ?? 'Contact' }}
-        </button>
-        <template v-else>
-          <button v-if="!onBottom" class="nav-link scroll-down" @click="scrollToContact()">
-            {{ translations?.related ?? '' }}
-          </button>
-          <button v-else class="nav-link scroll-up" @click="scrollTop()">
-            {{ translations?.scrollup ?? '↑' }}
+        <span class="nav-separator">|</span>
+
+        <template v-if="onBottom">
+          <button class="nav-link scroll-up" @click="scrollTop()">
+            {{ translations?.scrollup ?? 'Scroll up' }}
           </button>
         </template>
+        <template v-else-if="isHomePage">
+          <button
+            class="nav-link"
+            :class="{ active: activeSection === 'contact' }"
+            @click="scrollToContact()"
+          >
+            {{ translations?.contact ?? 'Contact' }}
+          </button>
+        </template>
+        <template v-else>
+          <button class="nav-link scroll-down" @click="scrollToContact()">
+            {{ translations?.related ?? '' }}
+          </button>
+        </template>
+
+        <span class="nav-separator">|</span>
+        <button
+          class="nav-link nav-pref-btn"
+          title="Site preferences (Theme & Motion)"
+          @click="openPreferences()"
+        >
+          Preferences
+        </button>
       </div>
     </div>
     <div v-else class="nav" style="pointer-events: auto">
       <!-- Modal nav is handled by MediaExpanded close-bar -->
     </div>
+
+    <PreferencesModal />
 
     <router-view v-slot="{ Component, route }">
       <transition :name="transitionName" mode="out-in">
@@ -78,12 +93,16 @@
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
 import router from './router/index.js'
+import PreferencesModal from './components/PreferencesModal.vue'
 
 const cookie = 'cookie',
   cookieEvent = 'cookieAction'
 
 export default {
   name: 'App',
+  components: {
+    PreferencesModal,
+  },
   data() {
     return {
       modal: this.$store.getters.getModal,
@@ -219,6 +238,12 @@ export default {
         this.scrollBottom()
       }
     },
+    openPreferences() {
+      this.$store.commit('togglePreferencesModal', true)
+    },
+    toggleMotion() {
+      this.$store.commit('toggleReducedMotion')
+    },
     scrollTop() {
       if (this.isHomePage) {
         this.activeSection = 'home'
@@ -226,8 +251,9 @@ export default {
           history.pushState({}, '', '/')
         }
       }
+      const isReduced = this.$store.getters.getReducedMotion
       this.$smoothScroll({
-        duration: 1000,
+        duration: isReduced ? 2500 : 1000,
         updateHistory: true,
         scrollTo: 0,
         hash: '',
@@ -279,6 +305,20 @@ export default {
           .catch(console.error)
       }
     },
+    initInputListeners() {
+      const setTouch = () => this.$store.commit('setInputMethod', 'touch')
+      const setPointer = () => this.$store.commit('setInputMethod', 'pointer')
+
+      if (window.PointerEvent) {
+        window.addEventListener('pointerdown', (e) => {
+          if (e.pointerType === 'touch') setTouch()
+          else if (e.pointerType === 'mouse' || e.pointerType === 'pen') setPointer()
+        }, { passive: true })
+      } else {
+        window.addEventListener('touchstart', setTouch, { passive: true })
+        window.addEventListener('mousedown', setPointer, { passive: true })
+      }
+    },
     // Determine transition based on route meta
     getTransition(to, from) {
       // Project pages ↔ Home: slide horizontally
@@ -297,6 +337,9 @@ export default {
     isHomePage() {
       const name = this.$router.currentRoute.value.name
       return name === 'Home' || name === 'About' || name === 'Contact'
+    },
+    reducedMotion() {
+      return this.$store.getters.getReducedMotion
     },
   },
   created() {
@@ -320,9 +363,20 @@ export default {
     })
   },
   mounted() {
+    this.$store.commit('initTheme')
+    this.$store.commit('initReducedMotion')
+    this.initInputListeners()
     this.initActiveSection()
     window.addEventListener('scroll', () => this.checkScroll())
     window.addEventListener('resize', () => this.checkScroll())
+
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        if (this.$store.getters.getTheme === 'system') {
+          this.$store.commit('applyTheme')
+        }
+      })
+    }
   },
   watch: {
     $route() {

@@ -59,22 +59,22 @@
     flex-shrink: 0;
     width: to-rem(180);
     height: to-rem(180);
-    margin: 0 auto;
+    margin: 0;
 
     @include layout-540() {
       width: to-rem(220);
       height: to-rem(220);
-      margin: 0 auto;
+      margin: 0;
     }
     @include layout-768() {
       width: to-rem(240);
       height: to-rem(240);
-      margin: 0 auto;
+      margin: 0;
     }
     @include layout-1024() {
       width: to-rem(280);
       height: to-rem(280);
-      margin: 0 auto;
+      margin: 0;
     }
     @include layout-1440() {
       width: to-rem(360);

@@ -17,17 +17,16 @@
     <img
       decoding="async"
       v-if="!isVideo"
-      :class="'render-media ' + classes"
+      ref="mediaImg"
+      :class="['render-media', classes, { 'render-media--loaded': isLoaded }]"
       :width="width"
       :height="height"
       :alt="label"
-      :src="storage + src + q100"
-      v-lazy="{ src: storage + src + q50, loading: storage + src + thumb }"
+      :src="currentSrc"
     />
 
     <video
-      decoding="async"
-      v-else-if="autoPlay"
+      v-else
       ref="mediaVideo"
       :class="'render-media ' + classes"
       :poster="poster[0]"
@@ -37,27 +36,12 @@
       playsinline
       loop
       muted
-      autoplay
-    >
-      <source :src="videoSrcMain" type="video/mp4" />
-    </video>
-
-    <video
-      decoding="async"
-      v-else
-      :class="'render-media ' + classes"
-      :poster="poster[0]"
-      :width="width"
-      :height="height"
-      :alt="label"
-      playsinline
-      loop
-      muted
-      @mousedown="play($event)"
-      @mouseover="play($event)"
+      :controls="isReducedMotion"
       @mouseenter="play($event)"
-      @mouseout="pause($event)"
+      @mouseover="play($event)"
       @mouseleave="pause($event)"
+      @mouseout="pause($event)"
+      @mousedown="play($event)"
     >
       <source :src="videoSrcMain" type="video/mp4" />
     </video>
@@ -90,7 +74,10 @@ export default {
       styles: '',
       poster: [],
       video: [],
-      action: this.$store.getters.getClickOrTap,
+      currentSrc: '',
+      isLoaded: false,
+      observer: null,
+      imgObserver: null,
       translations: this.$store.getters.getlang.components?.media ?? {},
     }
   },
@@ -105,9 +92,15 @@ export default {
     autoPlay: { type: Boolean, default: false, required: false },
   },
   computed: {
+    action() {
+      return this.$store.getters.getClickOrTap
+    },
     // Computed so the src is always a defined string, never undefined
     videoSrcMain() {
       return this.video.length >= 2 ? this.video[1] : ''
+    },
+    isReducedMotion() {
+      return this.$store.getters.getReducedMotion
     },
   },
   created() {
@@ -119,26 +112,96 @@ export default {
       ]
       this.poster = urls.map((a) => a[0])
       this.video = urls.map((a) => a[1])
+    } else {
+      this.currentSrc = this.storage + this.src + this.thumb
     }
   },
   mounted() {
     if (this.canExpand) this.styles = { position: 'relative' }
 
-    // For autoPlay videos: call load()+play() after DOM is ready.
-    // The HTML autoplay attribute can be silently suppressed by browsers
-    // even for muted videos; programmatic play() on a muted video is always allowed.
-    if (this.isVideo && this.autoPlay) {
+    // Auto-play videos automatically when they scroll into the viewport (unless Reduced Motion is enabled)
+    if (this.isVideo) {
+      if (!this.isReducedMotion) {
+        this.$nextTick(() => {
+          const vid = this.$refs.mediaVideo
+          if (!vid) return
+
+          this.observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  vid.play().catch(() => {})
+                } else {
+                  vid.pause()
+                }
+              })
+            },
+            { threshold: 0.15 }
+          )
+          this.observer.observe(vid)
+        })
+      }
+    } else {
+      // Native Progressive Image Lazyloader:
+      // Starts with low-res `thumb` placeholder instantly, then preloads high-res `q50`
+      // 200px before scrolling into viewport (both vertical page scroll & horizontal carousel).
       this.$nextTick(() => {
-        const vid = this.$refs.mediaVideo
-        if (!vid) return
-        vid.load()
-        vid.play().catch(() => {})
+        const target = this.$refs.mediaImg || this.$el
+        if (!target) return
+
+        this.imgObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !this.isLoaded) {
+                this.loadHighRes()
+                if (this.imgObserver) {
+                  this.imgObserver.disconnect()
+                  this.imgObserver = null
+                }
+              }
+            })
+          },
+          { rootMargin: '300px 3000px', threshold: 0.01 }
+        )
+        this.imgObserver.observe(target)
       })
     }
   },
+  beforeUnmount() {
+    if (this.observer) {
+      this.observer.disconnect()
+      this.observer = null
+    }
+  },
   methods: {
+    play(e) {
+      if (!this.isReducedMotion && e.target?.play) {
+        e.target.play().catch(() => {})
+      }
+    },
+    pause(e) {
+      if (!this.isReducedMotion && e.target?.pause) {
+        e.target.pause()
+      }
+    },
     placeholder(width, height) {
       return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E`
+    },
+    loadHighRes() {
+      const targetUrl = this.storage + this.src + this.q50
+      const img = new Image()
+      img.src = targetUrl
+      const applySource = () => {
+        this.currentSrc = targetUrl
+        this.isLoaded = true
+      }
+      img.onload = () => {
+        if (img.decode) {
+          img.decode().then(applySource).catch(applySource)
+        } else {
+          applySource()
+        }
+      }
     },
     slugify(text) {
       return (text || '')

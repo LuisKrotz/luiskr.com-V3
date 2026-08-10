@@ -16,7 +16,7 @@ $ring-stroke: to-rem(2.5);
   position: relative;
   width: 100%;
   box-sizing: border-box;
-  background-color: var(--black);
+  background-color: var(--bg-dark);
   // Reserve space at bottom for the controls bar
   padding-bottom: calc(#{$carousel-btn-size} + #{to-rem($space-lg)} * 2);
 
@@ -108,12 +108,22 @@ $ring-stroke: to-rem(2.5);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: $carousel-btn-size;
-    height: $carousel-btn-size;
+    width: to-rem(40);
+    height: to-rem(40);
     flex-shrink: 0;
     cursor: pointer;
     color: var(--grey);
     transition: color 0.2s ease;
+
+    @include layout-1024() {
+      width: to-rem(48);
+      height: to-rem(48);
+    }
+
+    @include layout-1440() {
+      width: $carousel-btn-size;
+      height: $carousel-btn-size;
+    }
 
     &:hover,
     &:focus {
@@ -199,10 +209,9 @@ $ring-stroke: to-rem(2.5);
     align-items: center;
     gap: $carousel-dot-gap;
     justify-content: center;
-    // Windowed: only center dot (active) + 2 partial on each side visible
-    max-width: calc(#{$carousel-dot-pill} + #{$carousel-dot-size} * 2 + #{$carousel-dot-gap} * 4);
-    overflow: hidden;
-    flex-shrink: 0;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: to-rem($space-2xs) 0;
   }
 
   &-dot {
@@ -211,9 +220,10 @@ $ring-stroke: to-rem(2.5);
     display: block;
     height: $carousel-dot-size;
     width: $carousel-dot-size;
-    border-radius: $carousel-dot-size;
+    border-radius: 9999px;
     background: var(--grey-3);
     cursor: pointer;
+    flex-shrink: 0;
     transition:
       width 0.25s ease,
       background 0.25s ease;

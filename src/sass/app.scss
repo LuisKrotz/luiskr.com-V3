@@ -3,6 +3,7 @@
 @import '_fonts';
 @import '_placeholders';
 @import '_structure';
+@import 'preferences';
 
 .nav {
   @extend %MAXAREA;
@@ -18,12 +19,13 @@
 
   &-link {
     @extend .ttl-xs;
+    @extend %RESETBTN;
 
     font-weight: 500;
     color: #515151;
     text-decoration: none;
     cursor: pointer;
-    transition: opacity 0.3s ease-in;
+    transition: opacity 0.3s ease-in, color 0.2s ease;
     position: relative;
 
     &:hover,
@@ -33,13 +35,19 @@
 
     &.router-link-exact-active,
     &.active {
+      color: var(--black, #000);
+      font-weight: 700;
+
       &::after {
         display: block;
         content: '';
-        width: 34%;
-        height: to-rem($space-2xs);
-        border-radius: to-rem($space-2xs);
-        background: var(--grey);
+        position: absolute;
+        bottom: to-rem(-4);
+        left: 0;
+        width: 100%;
+        height: to-rem(2);
+        border-radius: to-rem(1);
+        background: var(--grey, #000);
       }
     }
 
@@ -380,3 +388,23 @@
 .slide-down-leave-active { transition: opacity .25s ease, transform .25s ease; }
 .slide-down-enter-from { opacity: 0; transform: translateY(to-rem(-32)); }
 .slide-down-leave-to { opacity: 0; transform: translateY(to-rem(32)); }
+
+// ── Global Reduced Motion Override ─────────────────────────────────────────
+html.reduced-motion,
+html.reduced-motion *,
+html.reduced-motion *::before,
+html.reduced-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

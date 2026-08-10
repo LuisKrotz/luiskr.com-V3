@@ -43,10 +43,20 @@
                     v-if="childkey === 0 && itemkey < 1"
                     class="internal-description-text"
                   >
-                    <DrawText :text="item" trigger="viewport" :delay="20" :offset="itemkey * 60" />
+                    <DrawText
+                      :text="item"
+                      trigger="viewport"
+                      :delay="textDelay(child)"
+                      :offset="textOffset(child, itemkey)"
+                    />
                   </h3>
                   <p v-else class="internal-description-text">
-                    <DrawText :text="item" trigger="viewport" :delay="20" :offset="itemkey * 60" />
+                    <DrawText
+                      :text="item"
+                      trigger="viewport"
+                      :delay="textDelay(child)"
+                      :offset="textOffset(child, itemkey)"
+                    />
                   </p>
                 </template>
               </div>
@@ -151,19 +161,7 @@ export default {
     }, 500)
   },
 
-  beforeUnmount() {
-    if (this.parallaxObserver) {
-      this.parallaxObserver.disconnect()
-      this.parallaxObserver = null
-    }
-  },
   watch: {
-    // Re-init parallax after translations load and sections render
-    translations(val) {
-      if (val) {
-        this.$nextTick(() => this.initParallax())
-      }
-    },
     $route(to) {
       const wait = 1000
 
@@ -183,14 +181,25 @@ export default {
       return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"%3E%3C/svg%3E`
     },
 
-    // Cumulative offset for sequential paragraph animation
-    // First item (heading): delay=60, subsequent (paragraphs): delay=20
+    // Dynamically calculate per-character delay so all paragraphs in the section finish in ~2.0s total
+    textDelay(items) {
+      if (!Array.isArray(items)) return 14
+      const totalChars = items.reduce((sum, str) => {
+        return sum + (typeof str === 'string' ? str.replace(/<[^>]+>/g, '').length : 0)
+      }, 0) || 1
+      // Target ~1800ms total section duration, clamped between 6ms (super fast) and 22ms
+      return Math.max(6, Math.min(22, Math.round(1800 / totalChars)))
+    },
+
+    // Cumulative offset for sequential paragraph animation:
+    // Paragraph i starts exactly when paragraph i-1 finishes!
     textOffset(items, idx) {
+      if (!Array.isArray(items)) return 0
+      const delay = this.textDelay(items)
       let offset = 0
       for (let i = 0; i < idx; i++) {
-        const chars = items[i].replace(/<[^>]+>/g, '').length
-        const delay = i === 0 ? 60 : 20
-        offset += chars * delay + 300 // 300ms gap between paragraphs
+        const chars = items[i] ? items[i].replace(/<[^>]+>/g, '').length : 0
+        offset += chars * delay + 30 // 30ms seamless gap after previous item finishes
       }
       return offset
     },
@@ -201,26 +210,6 @@ export default {
       return (
         Array.isArray(group) && group.length >= 1 && group.every((i) => i?.class === 'landscape')
       )
-    },
-    // Initialise IntersectionObserver for section parallax entrance animation
-    initParallax() {
-      const sections = this.$el?.querySelectorAll('section')
-      if (!sections?.length) return
-
-      this.parallaxObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add('section--visible')
-              // Once visible, stop observing (entrance is one-shot)
-              this.parallaxObserver.unobserve(e.target)
-            }
-          })
-        },
-        { threshold: 0.08 }
-      )
-
-      sections.forEach((s) => this.parallaxObserver.observe(s))
     },
     loadData(wait = false) {
       const lang = this.$store.getters.getlang

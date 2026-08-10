@@ -1,11 +1,32 @@
 :root {
-  // Color tokens
-  --white: #{$color-white};
-  --black: #{$color-black};
-  --grey: #{$color-grey};
-  --grey-2: #{$color-grey-2};
-  --grey-3: #{$color-grey-3};
+  // Base raw colors
+  --color-white-raw: #{$color-white};
+  --color-black-raw: #{$color-black};
+  --color-grey-raw: #{$color-grey};
+  --color-grey-2-raw: #{$color-grey-2};
+  --color-grey-3-raw: #{$color-grey-3};
+  --color-blue-raw: #{$color-blue};
+
+  // Light theme default tokens
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f7f7;
+  --bg-dark: #262626;         // Current dark areas in light mode
+  --bg-darker: #161616;       // Deep black blocks in light mode
+  --text-primary: #262626;    // Main text
+  --text-secondary: #515151;  // Muted text
+  --text-muted: #a79e9e;
+  --border-color: #e2e2e2;
+
+  --white: #ffffff;
+  --black: #262626;
+  --grey: #a79e9e;
+  --grey-2: #f0f0f0;
+  --grey-3: #515151;
   --blue: #{$color-blue};
+
+  --skel-bg-1: #f5f5f5;
+  --skel-bg-2: #ececec;
+  --skel-bg-3: #f5f5f5;
 
   // Spacing tokens (Fibonacci scale, unitless — multiply with rem in CSS)
   --space-none: #{$space-none};
@@ -28,6 +49,27 @@
   --space-10xl: #{$space-10xl};
 }
 
+html.dark-mode {
+  --bg-primary: #262626;      // Light areas of today become current dark (#262626)
+  --bg-secondary: #1d1d1d;
+  --bg-dark: #121212;         // Dark areas of today become darker (#121212)
+  --bg-darker: #080808;       // Deep black areas
+  --text-primary: #ffffff;    // Text becomes white
+  --text-secondary: #e0e0e0;
+  --text-muted: #a79e9e;
+  --border-color: #383838;
+
+  --white: #262626;
+  --black: #ffffff;
+  --grey: #a79e9e;
+  --grey-2: #383838;
+  --grey-3: #d0d0d0;
+
+  --skel-bg-1: #2d2d2d;
+  --skel-bg-2: #3a3a3a;
+  --skel-bg-3: #2d2d2d;
+}
+
 html {
   overflow-x: hidden;
   overflow-y: scroll; // always show scrollbar to prevent layout shift on navigation
@@ -42,9 +84,10 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: var(--white);
-  color: var(--black);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: 'Raleway', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
@@ -116,7 +159,7 @@ main {
   &--shimmer,
   &-cover,
   &-placeholder {
-    background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
+    background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
     background-size: 200% 100%;
     animation: skeleton-shimmer 2.4s ease-in-out infinite;
   }

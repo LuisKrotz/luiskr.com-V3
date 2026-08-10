@@ -100,6 +100,9 @@ export default {
     isModalOpen() {
       return !!this.$store.getters.getModal?.open
     },
+    isReducedMotion() {
+      return this.$store.getters.getReducedMotion
+    },
     ringStyle() {
       const offset = this.circumference * (1 - this.ringProgress)
       return {
@@ -113,16 +116,23 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this._jumpToSlide(0)
-      if (!this.isModalOpen) this._startAutoplay()
+      if (!this.isModalOpen && !this.isReducedMotion) this._startAutoplay()
     })
     window.addEventListener('resize', this._onResize)
   },
 
   watch: {
+    isReducedMotion(isReduced) {
+      if (isReduced) {
+        this._stopAutoplay()
+      } else if (!this.isModalOpen) {
+        this._startAutoplay()
+      }
+    },
     isModalOpen(isOpen) {
       if (isOpen) {
         this._stopAutoplay()
-      } else {
+      } else if (!this.isReducedMotion) {
         this._startAutoplay()
       }
     },
@@ -235,6 +245,10 @@ export default {
 
     // ── Autoplay + countdown ring ─────────────────────────────────────────────
     _startAutoplay() {
+      if (this.isReducedMotion) {
+        this._stopAutoplay()
+        return
+      }
       this.autoplayRunning = true
       this.autoplayStart = performance.now()
       this.autoplayElapsed = 0

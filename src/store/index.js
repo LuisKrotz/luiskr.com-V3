@@ -3,7 +3,9 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     clickortap: '',
-    has_touch: 'ontouchstart' in window || navigator.msMaxTouchPoints > 0,
+    inputMethod: 'ontouchstart' in window && !matchMedia('(pointer: fine)').matches ? 'touch' : 'pointer',
+    actionTextMap: { click: 'Click', tap: 'Tap' },
+    has_touch: 'ontouchstart' in window && !matchMedia('(pointer: fine)').matches,
     lang: {
       components: false,
       database: 'translations/',
@@ -41,14 +43,79 @@ export default createStore({
     },
     showhover: false,
     storage: 'https://storage.googleapis.com/luiskr.com/public/_v3/',
+    reducedMotion:
+      localStorage.getItem('reducedMotion') !== null
+        ? localStorage.getItem('reducedMotion') === 'true'
+        : window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    theme: localStorage.getItem('theme') || 'system', // 'system' | 'dark' | 'light'
+    effectiveTheme: 'light',
+    preferencesOpen: false,
   },
   mutations: {
+    initTheme(state) {
+      const stored = localStorage.getItem('theme') || 'system'
+      state.theme = stored
+      this.commit('applyTheme')
+    },
+    setTheme(state, payload) {
+      state.theme = payload
+      localStorage.setItem('theme', payload)
+      this.commit('applyTheme')
+    },
+    applyTheme(state) {
+      let isDark = false
+      if (state.theme === 'dark') {
+        isDark = true
+      } else if (state.theme === 'light') {
+        isDark = false
+      } else {
+        isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      }
+      state.effectiveTheme = isDark ? 'dark' : 'light'
+      if (isDark) {
+        document.documentElement.classList.add('dark-mode')
+      } else {
+        document.documentElement.classList.remove('dark-mode')
+      }
+    },
+    togglePreferencesModal(state, open) {
+      state.preferencesOpen = typeof open === 'boolean' ? open : !state.preferencesOpen
+    },
+    initReducedMotion(state) {
+      if (state.reducedMotion) {
+        document.documentElement.classList.add('reduced-motion')
+      } else {
+        document.documentElement.classList.remove('reduced-motion')
+      }
+    },
+    toggleReducedMotion(state) {
+      state.reducedMotion = !state.reducedMotion
+      localStorage.setItem('reducedMotion', state.reducedMotion)
+      if (state.reducedMotion) {
+        document.documentElement.classList.add('reduced-motion')
+      } else {
+        document.documentElement.classList.remove('reduced-motion')
+      }
+    },
+    setInputMethod(state, payload) {
+      if (state.inputMethod !== payload) {
+        state.inputMethod = payload
+        state.has_touch = payload === 'touch'
+        state.clickortap = payload === 'touch' ? state.actionTextMap.tap : state.actionTextMap.click
+      }
+    },
     setClear(state) {
       document.body.classList.remove('mouseenter')
       state.showhover = false
     },
     setClickOrTap(state, payload) {
-      state.clickortap = state.has_touch ? payload.tap : payload.click
+      if (payload?.click || payload?.tap) {
+        state.actionTextMap = {
+          click: payload.click || state.actionTextMap.click,
+          tap: payload.tap || state.actionTextMap.tap,
+        }
+        state.clickortap = state.inputMethod === 'touch' ? state.actionTextMap.tap : state.actionTextMap.click
+      }
     },
     setMentions(state, payload) {
       state.mentions.title = payload.title ?? state.mentions.title
@@ -89,11 +156,20 @@ export default createStore({
     },
   },
   getters: {
+    getTheme: (state) => state.theme,
+    getEffectiveTheme: (state) => state.effectiveTheme,
+    getPreferencesOpen: (state) => state.preferencesOpen,
+    getReducedMotion: (state) => {
+      return state.reducedMotion
+    },
     getMentions: (state) => {
       return state.mentions
     },
     getClickOrTap: (state) => {
-      return state.clickortap
+      return state.inputMethod === 'touch' ? state.actionTextMap.tap : state.actionTextMap.click
+    },
+    getInputMethod: (state) => {
+      return state.inputMethod
     },
     getHover: (state) => {
       return state.showhover

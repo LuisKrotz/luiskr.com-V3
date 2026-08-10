@@ -26,8 +26,7 @@
         :width="width"
         :height="height"
         :alt="alt"
-        :src="source"
-        v-lazy="{ src: source, loading: thumb }"
+        :src="currentSrc"
       />
       <video
         decoding="async"
@@ -38,7 +37,7 @@
         :poster="thumb"
         :alt="alt"
         playsinline
-        autoplay
+        :autoplay="!isReducedMotion"
         loop
         muted
         controls
@@ -61,7 +60,13 @@ export default {
     return {
       translations: this.$store.getters.getlang.components.media,
       isClosing: false,
+      currentSrc: this.thumb,
     }
+  },
+  computed: {
+    isReducedMotion() {
+      return this.$store.getters.getReducedMotion
+    },
   },
   mounted() {
     window.scrollTo({ top: 0, behavior: 'instant' })
@@ -69,6 +74,21 @@ export default {
     if (modalAbove) modalAbove.scrollTop = 0
     const modalContent = document.querySelector('.expand-modal-content')
     if (modalContent) modalContent.scrollTop = 0
+
+    if (!this.isVideo && this.source) {
+      const img = new Image()
+      img.src = this.source
+      const applySource = () => {
+        this.currentSrc = this.source
+      }
+      img.onload = () => {
+        if (img.decode) {
+          img.decode().then(applySource).catch(applySource)
+        } else {
+          applySource()
+        }
+      }
+    }
   },
   props: {
     source: {

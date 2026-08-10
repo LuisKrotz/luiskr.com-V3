@@ -128,6 +128,7 @@ export default {
       scrollTimeout: null,
       teleportTimer: null, // timer for post-clone teleport
       isScrolling: false,
+      isNavigating: false,
       touchStartX: 0,
       slideRefs: [],
       // Monotonic loaded-state: once true, NEVER goes back to false.
@@ -149,6 +150,9 @@ export default {
     isModalOpen() {
       return !!this.$store.getters.getModal?.open
     },
+    isReducedMotion() {
+      return this.$store.getters.getReducedMotion
+    },
     ringStyle() {
       // Countdown ring: starts full, drains to 0 over AUTOPLAY_DURATION
       // stroke-dashoffset goes from 0 → circumference
@@ -167,7 +171,7 @@ export default {
     this._markAdjacentLoaded(0)
     this.$nextTick(() => {
       this._jumpToSlide(0, false)
-      if (!this.isModalOpen) this._startAutoplay()
+      if (!this.isModalOpen && !this.isReducedMotion) this._startAutoplay()
       this._setHeightVar()
     })
     window.addEventListener('resize', this._onResize)
@@ -179,10 +183,17 @@ export default {
     currentIndex(newVal) {
       this._markAdjacentLoaded(newVal)
     },
+    isReducedMotion(isReduced) {
+      if (isReduced) {
+        this._stopAutoplay()
+      } else if (!this.isModalOpen && this.isActive) {
+        this._startAutoplay()
+      }
+    },
     isModalOpen(isOpen) {
       if (isOpen) {
         this._stopAutoplay()
-      } else if (this.isActive) {
+      } else if (this.isActive && !this.isReducedMotion) {
         this._startAutoplay()
       }
     },
@@ -201,8 +212,6 @@ export default {
     },
 
     isSlideVisible(idx) {
-      // Returns true if this slide has EVER been in the ±1 window.
-      // Once loaded, stays loaded — prevents unmount flicker on navigation.
       return this.slideLoaded[idx] === true
     },
 
@@ -212,7 +221,7 @@ export default {
       for (let i = 0; i < len; i++) {
         const direct = Math.abs(i - centerIdx)
         const wrapped = len - direct
-        if (Math.min(direct, wrapped) <= 1) {
+        if (Math.min(direct, wrapped) <= 2) {
           this.slideLoaded[i] = true
         }
       }
@@ -225,19 +234,24 @@ export default {
       this.currentIndex = newIndex
       this.$emit('change', newIndex)
 
+      this.isNavigating = true
+
       if (idx >= len) {
         // Went past the LAST item → smooth scroll to cloneFirst (physically on the
-        // right, adjacent), then instantly teleport to real first item.
-        // This is how an infinite carousel avoids scrolling back through all slides.
+        // right, adjacent), then silently teleport to real first item after animation completes.
         this._scrollToElement(this.$refs.cloneFirst)
         this._scheduleTeleport(0)
       } else if (idx < 0) {
         // Went before the FIRST item → smooth scroll to cloneLast (physically on
-        // the left, adjacent), then instantly teleport to real last item.
+        // the left, adjacent), then silently teleport to real last item after animation completes.
         this._scrollToElement(this.$refs.cloneLast)
         this._scheduleTeleport(len - 1)
       } else {
         this._scrollToSlide(newIndex)
+        if (this.teleportTimer) clearTimeout(this.teleportTimer)
+        this.teleportTimer = setTimeout(() => {
+          this.isNavigating = false
+        }, 400)
       }
     },
 
@@ -252,13 +266,14 @@ export default {
       track.scrollTo({ left, behavior: 'smooth' })
     },
 
-    // After smooth scroll animation completes (~350ms), silently teleport to the real slide
+    // After smooth scroll animation completes (~420ms), silently teleport to the real slide
     _scheduleTeleport(targetIdx) {
       if (this.teleportTimer) clearTimeout(this.teleportTimer)
       this.teleportTimer = setTimeout(() => {
-        this._jumpToSlide(targetIdx)
+        this._jumpToSlide(targetIdx, false)
+        this.isNavigating = false
         this.teleportTimer = null
-      }, 380)
+      }, 420)
     },
 
     _scrollToSlide(idx) {
@@ -286,13 +301,15 @@ export default {
 
     // ── Infinite loop: handle scroll to clones ────────────────────────
     onScroll() {
+      if (this.isNavigating) return
       clearTimeout(this.scrollTimeout)
       this.scrollTimeout = setTimeout(() => {
         this._checkInfiniteLoop()
-      }, 50)
+      }, 150)
     },
 
     _checkInfiniteLoop() {
+      if (this.isNavigating) return
       const track = this.$refs.track
       if (!track) return
 
@@ -308,8 +325,7 @@ export default {
 
       // If clone-last is centered → jump to real last
       if (
-        Math.abs(cloneLastRect.left + cloneLastRect.width / 2 - center) <
-        cloneLastRect.width / 3
+        Math.abs(cloneLastRect.left + cloneLastRect.width / 2 - center) < 10
       ) {
         this.currentIndex = this.items.length - 1
         this._jumpToSlide(this.currentIndex)
@@ -318,8 +334,7 @@ export default {
 
       // If clone-first is centered → jump to real first
       if (
-        Math.abs(cloneFirstRect.left + cloneFirstRect.width / 2 - center) <
-        cloneFirstRect.width / 3
+        Math.abs(cloneFirstRect.left + cloneFirstRect.width / 2 - center) < 10
       ) {
         this.currentIndex = 0
         this._jumpToSlide(this.currentIndex)
@@ -359,6 +374,10 @@ export default {
 
     // ── Autoplay & countdown ring ─────────────────────────────────────
     _startAutoplay() {
+      if (this.isReducedMotion) {
+        this._stopAutoplay()
+        return
+      }
       this.autoplayRunning = true
       this.autoplayStart = performance.now()
       this.autoplayElapsed = 0

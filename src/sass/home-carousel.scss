@@ -68,16 +68,16 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     height:       $hc-dot-size;
     width:        $hc-dot-size;
     border-radius: $hc-dot-size;
-    background: var(--grey-3);
+    background: var(--text-muted);
     cursor: pointer;
     transition: width .25s ease, background .25s ease;
 
     &--active {
       width:      $hc-dot-pill;
-      background: var(--black);
+      background: var(--text-primary);
     }
 
-    &:hover:not(&--active) { background: var(--grey); }
+    &:hover:not(&--active) { background: var(--text-secondary); }
   }
 
   // ── Buttons ──────────────────────────────────────────────────────────────
@@ -88,21 +88,32 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     display: flex;
     align-items: center;
     justify-content: center;
-    width:  $hc-btn-size;
-    height: $hc-btn-size;
+    width:  to-rem(40);
+    height: to-rem(40);
     flex-shrink: 0;
     cursor: pointer;
-    color: var(--grey-3);
-    transition: color .2s ease;
+    color: var(--text-primary);
+    transition: color .2s ease, opacity .2s ease;
+
+    @include layout-1024() {
+      width:  to-rem(48);
+      height: to-rem(48);
+    }
+
+    @include layout-1440() {
+      width:  $hc-btn-size;
+      height: $hc-btn-size;
+    }
 
     &:hover,
-    &:focus { color: var(--black); }
+    &:focus { opacity: 0.7; }
 
     &-arrow {
       font-size: to-rem($space-lg);
       line-height: 1;
       position: relative;
       z-index: 1;
+      color: var(--text-primary);
       transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
@@ -130,13 +141,14 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
 
       &-track {
         fill: none;
-        stroke: var(--grey-2);
+        stroke: var(--border-color);
         stroke-width: $hc-ring-stroke;
+        opacity: 0.5;
       }
 
       &-fill {
         fill: none;
-        stroke: var(--grey);
+        stroke: var(--text-primary);
         stroke-width: $hc-ring-stroke;
         stroke-linecap: round;
       }
@@ -233,7 +245,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
       aspect-ratio: 16 / 7;
       max-height: var(--cover-max-h, 80vh);
 
-      background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
+      background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
       background-size: 200% 100%;
       animation: skeleton-shimmer 2.4s ease-in-out infinite;
     }
@@ -462,7 +474,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
 
       &--skel {
         padding-top: 56.25%;
-        background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
+        background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
         background-size: 200% 100%;
         animation: skeleton-shimmer 2.4s ease-in-out infinite;
       }
@@ -643,7 +655,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     align-items: center;
     text-align: center;
     text-decoration: none;
-    color: var(--white);
+    color: #ffffff;
     gap: to-rem($space-xs);
     padding: to-rem($space-lg) to-rem($space-sm);
     width: 100%;

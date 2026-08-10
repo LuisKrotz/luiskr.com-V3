@@ -26,7 +26,7 @@
     justify-content: center;
     padding: to-rem($space-xl);
     box-sizing: border-box;
-    background-color: var(--black);
+    background-color: var(--bg-dark);
 
     @include layout-768() {
       padding: to-rem($space-3xl);
@@ -64,7 +64,7 @@
 
     // Skeleton shimmer for carousel slides and cover
     .skeleton--media {
-      background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
+      background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
       background-size: 200% 100%;
       animation: skeleton-shimmer 2.4s ease-in-out infinite;
     }
@@ -72,7 +72,7 @@
 
   // Cover skeleton (before data loads)
   .skeleton-cover {
-    background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
+    background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
     background-size: 200% 100%;
     animation: skeleton-shimmer 2.4s ease-in-out infinite;
     display: block;
@@ -188,7 +188,7 @@
   &-extra {
     width: 100%;
     box-sizing: border-box;
-    background-color: var(--black);
+    background-color: var(--bg-dark);
     overflow-x: scroll;
     scroll-snap-align: center;
 
@@ -447,7 +447,7 @@
       padding: 0 to-rem($space-xl) to-rem($space-xl);
       letter-spacing: to-rem(2);
       text-align: left;
-      color: var(--black);
+      color: var(--text-primary);
       list-style: inside circle;
 
       @include layout-768() {
@@ -480,9 +480,9 @@
       @extend .ttl-xs;
 
       text-align: center;
-      color: var(--white);
+      color: #ffffff;
       padding: to-rem($space-2xl);
-      background: var(--black);
+      background: var(--bg-dark);
 
       @include layout-1024() {
         padding: to-rem($space-xl) to-rem($space-5xl);
@@ -592,7 +592,7 @@
 // ─────────────────────────────────────────────────────────────────────────────────
 .carousel-fallback {
   padding: to-rem($space-2xl) 0;
-  background-color: var(--black);
+  background-color: var(--bg-dark);
 }
 
 .carousel-fallback .internal-extra-item.landscape {
@@ -601,28 +601,8 @@
   box-sizing: border-box;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────────
-// Parallax effect for internal project sections
-// Uses a subtle opacity + translateY entrance animation triggered by
-// the Intersection Observer (class added by Project.vue).
-// Each section also gets a slight scroll-linked parallax feel via
-// CSS scroll-driven animations (Chrome 115+) with a clean fallback.
-// ─────────────────────────────────────────────────────────────────────────────────
+// Parallax effect removed: sections render with full opacity and normal layout flow
 .project section {
-  opacity: 0;
-  transform: translateY(to-rem(32));
-  transition: opacity 0.55s ease, transform 0.55s ease;
-  will-change: transform, opacity;
-
-  &.section--visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  // Stagger each successive section entrance
-  @for $i from 1 through 20 {
-    &:nth-child(#{$i}).section--visible {
-      transition-delay: #{$i * 0.04}s;
-    }
-  }
+  opacity: 1;
+  transform: none;
 }

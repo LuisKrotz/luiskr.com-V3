@@ -7,8 +7,8 @@
 // Shared across Home, About, and Legal pages.
 // Dark background (same as .contact), centred layout.
 .awards-footer {
-  background: var(--black);
-  color: var(--white);
+  background: var(--bg-dark);
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,10 +22,10 @@
 
     font-weight: 100;
     text-transform: uppercase;
-    color: var(--white);
+    color: #ffffff;
     text-align: center;
     padding: to-rem($space-md) 0 to-rem($space-lg);
-    opacity: .6;
+    opacity: 0.85;
   }
 
   // Limit carousel width — centred max width so it feels compact
@@ -50,10 +50,10 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    color: var(--white);
+    color: #ffffff;
     width: 88%;
     padding: to-rem($space-lg) to-rem($space-lg) 0;
-    border-top: 1px solid var(--grey);
+    border-top: 1px solid var(--border-color);
     margin: to-rem($space-xl) auto 0;
 
     @include layout-768() {
@@ -63,10 +63,10 @@
     &-item {
       @extend .ttl-xs;
 
-      color: var(--white);
+      color: #ffffff;
       text-decoration: none;
       line-height: to-rem($space-3xl);
-      opacity: .7;
+      opacity: 0.85;
       transition: opacity .2s;
 
       &:hover,
@@ -81,7 +81,8 @@
     &-sep {
       padding: 0 to-rem($space-md);
       font-weight: 200;
-      opacity: .4;
+      opacity: 0.6;
+      color: #ffffff;
     }
   }
 }

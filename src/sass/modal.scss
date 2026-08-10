@@ -21,7 +21,7 @@
     width: 100%;
     max-width: 100%;
     overflow-x: hidden; // no horizontal scroll
-    background: var(--black);
+    background: var(--bg-dark);
     position: relative;
   }
 
@@ -236,7 +236,7 @@
     box-sizing: border-box;
     position: relative;
     overflow-x: hidden; // no horizontal scroll
-    background-color: var(--black);
+    background-color: var(--bg-dark);
     padding: to-rem($space-3xl) to-rem($space-xl);
     min-height: 100vh;
     display: flex;

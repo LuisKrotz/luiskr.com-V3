@@ -3,7 +3,6 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-import VueLazyLoad from 'vue3-lazyload'
 import VueSmoothScroll from 'vue3-smooth-scroll'
 import { initializeApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
@@ -33,7 +32,6 @@ const app = createApp(App)
 app.config.globalProperties.$sharedData = window.globals
 
 app
-  .use(VueLazyLoad, { log: false })
   .use(VueSmoothScroll)
   .use(store)
 
