@@ -568,14 +568,12 @@
       display: none !important;
     }
 
-    // Featured items are WIDER (flex-grow 2) to span wider across rows
+    // Featured items are wider ONLY on desktop (1024px+); ignored on mobile and tablet
     &--featured {
-      flex: 2 1 to-rem(320);
-      max-width: 100%;
-      aspect-ratio: 16 / 9;
-
       @include layout-1024() {
         flex: 2 1 to-rem(560);
+        max-width: 100%;
+        aspect-ratio: 16 / 9;
       }
     }
 
