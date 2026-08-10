@@ -8,7 +8,7 @@
           <span v-else class="skeleton--shimmer" style="display: inline-block; width: 40%; height: 1em; border-radius: 4px"></span>
         </h2>
 
-        <!-- Mosaic Grid of Home Portfolio Items (Vertical Masonry Engine) -->
+        <!-- Mosaic Grid of Home Portfolio Items (Harmonic Masonry Engine) -->
         <div
           v-if="processedItems.length"
           ref="mosaicContainer"
@@ -41,6 +41,7 @@
                 :src="storage + 'covers/' + item.image + ext"
                 :alt="item.label"
               />
+              <span v-if="item.featured" class="home-mosaic-badge">Featured</span>
               <div class="home-mosaic-title-overlay">
                 <h3 class="home-mosaic-title">{{ item.label }}</h3>
               </div>
@@ -178,15 +179,9 @@ export default {
         ? this.translations.portfoliolist
         : Object.values(this.translations.portfoliolist)
 
-      return list.map((item, idx) => {
+      return list.map((item) => {
         const featured = this.isFeatured(item)
-        let variant = 'standard'
-
-        if (featured) {
-          variant = idx % 2 === 0 ? 'hero' : 'tall-featured'
-        } else {
-          variant = idx % 3 === 0 ? 'tall' : idx % 3 === 1 ? 'compact' : 'standard'
-        }
+        const variant = featured ? 'featured-hero' : 'standard-compact'
 
         return {
           ...item,
@@ -244,7 +239,6 @@ export default {
       const containerWidth = container.clientWidth
       if (!containerWidth) return
 
-      // 3 equal columns on desktop (> 768px), 2 cols on tablet (> 500px), 1 col mobile
       const cols = containerWidth >= 768 ? 3 : containerWidth >= 500 ? 2 : 1
       const gap = 20
 
@@ -252,37 +246,46 @@ export default {
       const colHeights = Array(cols).fill(0)
 
       this.itemStyles = this.processedItems.map((item) => {
-        // Find shortest column for 100% zero-gap packing
-        let targetCol = 0
-        let minH = colHeights[0]
+        const isFeaturedSpan = item.featured && cols >= 3
+        const span = isFeaturedSpan ? 2 : 1
 
-        for (let i = 1; i < cols; i++) {
-          if (colHeights[i] < minH) {
-            minH = colHeights[i]
-            targetCol = i
+        let targetCol = 0
+        let minH = Infinity
+
+        if (span === 2) {
+          for (let i = 0; i < cols - 1; i++) {
+            const pairH = Math.max(colHeights[i], colHeights[i + 1])
+            if (pairH < minH) {
+              minH = pairH
+              targetCol = i
+            }
+          }
+        } else {
+          for (let i = 0; i < cols; i++) {
+            if (colHeights[i] < minH) {
+              minH = colHeights[i]
+              targetCol = i
+            }
           }
         }
 
         const top = minH
         const left = targetCol * (colWidth + gap)
-        const width = colWidth
+        const width = span === 2 ? colWidth * 2 + gap : colWidth
 
-        // Height variation driven by featured & item variant
-        let baseHeight = item.variant === 'hero'
-          ? 380
-          : item.variant === 'tall-featured'
-          ? 340
-          : item.variant === 'tall'
-          ? 300
-          : item.variant === 'standard'
-          ? 250
-          : 200
+        // Harmonic heights: Featured hero = 380px. Standard compact = 180px (two 180px cards stack = 360px + 20px gap = 380px!)
+        let baseHeight = item.featured ? 380 : 180
 
         if (this.hoveredIndex === item.link || this.activeTouchIndex === item.link) {
           baseHeight += 110
         }
 
-        colHeights[targetCol] = top + baseHeight + gap
+        if (span === 2) {
+          colHeights[targetCol] = top + baseHeight + gap
+          colHeights[targetCol + 1] = top + baseHeight + gap
+        } else {
+          colHeights[targetCol] = top + baseHeight + gap
+        }
 
         return {
           position: 'absolute',
