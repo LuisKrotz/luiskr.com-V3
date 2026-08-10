@@ -516,58 +516,51 @@
 
 // ── Mosaic Grid Layout for Related Projects ──────────────────────────────────
 .related-mosaic {
-  column-count: 1;
-  column-gap: to-rem($space-lg);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-flow: dense;
+  gap: to-rem($space-lg);
   width: 100%;
   box-sizing: border-box;
 
   @include layout-540() {
-    column-count: 2;
-    column-gap: to-rem($space-xl);
+    grid-template-columns: repeat(2, 1fr);
+    gap: to-rem($space-xl);
   }
 
   @include layout-1024() {
-    column-count: 3;
-    column-gap: to-rem($space-2xl);
-  }
-
-  @include layout-1440() {
-    column-count: 4;
-    column-gap: to-rem($space-2xl);
+    grid-template-columns: repeat(4, 1fr);
+    gap: to-rem($space-2xl);
   }
 
   &-item {
-    break-inside: avoid;
-    display: block;
-    width: 100%;
-    margin-bottom: to-rem($space-lg);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     overflow: hidden;
     border-radius: to-rem($space-lg);
-    aspect-ratio: 16 / 11;
+    aspect-ratio: 16 / 10;
     text-decoration: none;
     color: #ffffff;
     background: var(--bg-secondary);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
 
-    @include layout-540() {
-      margin-bottom: to-rem($space-xl);
-    }
-    @include layout-1024() {
-      margin-bottom: to-rem($space-2xl);
-    }
-
     &.router-link-active {
       display: none !important;
     }
 
-    // Featured items stand out as significantly taller portrait cards (3/4 ratio)
+    // Featured items are WIDER — spanning 2 columns with landscape 16/9 aspect ratio
     &--featured {
-      aspect-ratio: 3 / 4;
+      @include layout-540() {
+        grid-column: span 2;
+        aspect-ratio: 16 / 9;
+      }
 
-      @include layout-768() {
-        aspect-ratio: 3 / 4;
+      @include layout-1024() {
+        grid-column: span 2;
+        aspect-ratio: 16 / 9;
       }
     }
 
