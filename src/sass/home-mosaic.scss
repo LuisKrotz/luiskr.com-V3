@@ -2,10 +2,12 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (Cinematic Aspect Ratio Flex Mosaic) ───────
+// ── Home Portfolio Showcase Masonry ──────────────────────────────────────────
+// All layout coordinates (top / left / width / height) are set by layoutMasonry()
+// in Home.vue. This file only handles visual style, not geometry.
+
 .home-portfolio-section {
   @extend %MAXAREA;
-
   width: 100%;
   padding-top: to-rem(50) !important;
   padding-bottom: to-rem($space-2xl);
@@ -26,329 +28,206 @@
   }
 }
 
+// ── Container ────────────────────────────────────────────────────────────────
 .home-mosaic {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: to-rem($space-lg);
+  position: relative;
   width: 100%;
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
+  // height is set inline by layoutMasonry()
+  transition: height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-  // When any card is hovered, surrounding non-hovered items react smoothly
-  &:hover .home-mosaic-item:not(:hover) {
-    opacity: 0.82;
-    transform: scale(0.98);
-    filter: brightness(0.92);
+// ── Items ─────────────────────────────────────────────────────────────────────
+// position / top / left / width / height all set by JS inline style.
+// We only style visuals here.
+.home-mosaic-item {
+  // geometry comes from JS — just make sure it's absolute
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: to-rem($space-lg);
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #ffffff;
+  background: var(--bg-secondary, #1a1a1a);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 
-    .home-mosaic-bottom {
-      max-height: 0 !important;
-      padding: 0 !important;
-      opacity: 0 !important;
-    }
+  // Height transitions handled by layoutMasonry recalc + JS style change,
+  // but we add a CSS transition on height so the card animates smoothly.
+  transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+              top 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+              left 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.38s ease,
+              opacity 0.3s ease,
+              filter 0.3s ease;
+
+  // Featured cards get a subtle border glow to distinguish them
+  &--featured {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
   }
 
-  &-item {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: to-rem($space-lg);
-    flex: 1 1 100%;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    text-decoration: none;
-    color: #ffffff;
-    background: var(--bg-secondary, #1a1a1a);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                opacity 0.35s ease,
-                filter 0.35s ease,
-                box-shadow 0.4s ease;
-
-    @include layout-540() {
-      flex: 1 1 to-rem(220);
-    }
-
-    @include layout-768() {
-      flex: 1 1 to-rem(240);
-    }
-
-    @include layout-1024() {
-      flex: 1 1 to-rem(260);
-    }
-
-    // Capped non-featured width so sageweb never stretches 100% when alone
-    &:last-child:not(.home-mosaic-item--featured) {
-      @include layout-768() {
-        flex-grow: 0;
-        max-width: calc(33.333% - #{to-rem($space-lg)});
-      }
-    }
-
-    // Featured Hero Items: Proportional 1.6x width, 320px cinematic banner height
-    &--featured,
-    &--featured-hero {
-      border: 1px solid rgba(255, 255, 255, 0.16);
-
-      @include layout-540() {
-        flex: 1.5 1 to-rem(320);
-      }
-
-      @include layout-768() {
-        flex: 1.6 1 to-rem(360);
-      }
-
-      .home-mosaic-media {
-        height: to-rem(260);
-
-        @include layout-768() {
-          height: to-rem(310);
-        }
-      }
-
-      .home-mosaic-title {
-        font-size: to-rem(20);
-        letter-spacing: to-rem(1.2);
-
-        @include layout-768() {
-          font-size: to-rem(24);
-        }
-      }
-    }
-
-    // Featured Wide Items: 1.4x width, 270px cinematic widescreen
-    &--featured-wide {
-      border: 1px solid rgba(255, 255, 255, 0.12);
-
-      @include layout-540() {
-        flex: 1.3 1 to-rem(300);
-      }
-
-      @include layout-768() {
-        flex: 1.4 1 to-rem(330);
-      }
-
-      .home-mosaic-media {
-        height: to-rem(230);
-
-        @include layout-768() {
-          height: to-rem(270);
-        }
-      }
-    }
-
-    // Tall Portrait Items: 4:5 aspect ratio (320px height)
-    &--tall-portrait {
-      .home-mosaic-media {
-        height: to-rem(270);
-
-        @include layout-768() {
-          height: to-rem(320);
-        }
-      }
-    }
-
-    // Widescreen Items: 16:10 aspect ratio (220px height)
-    &--widescreen {
-      .home-mosaic-media {
-        height: to-rem(190);
-
-        @include layout-768() {
-          height: to-rem(220);
-        }
-      }
-    }
-
-    // Ultrawide Items: 21:9 aspect ratio (170px height)
-    &--ultrawide {
-      .home-mosaic-media {
-        height: to-rem(150);
-
-        @include layout-768() {
-          height: to-rem(175);
-        }
-      }
-    }
-
-    // Active Card expands height smoothly on hover
-    &:hover,
-    &--expanded {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
-      z-index: 5;
-      opacity: 1 !important;
-      filter: none !important;
-
-      .home-mosaic-media {
-        height: to-rem(250);
-
-        @include layout-768() {
-          height: to-rem(280);
-        }
-      }
-
-      .home-mosaic-img {
-        transform: scale(1.06);
-      }
-
-      .home-mosaic-bottom {
-        max-height: to-rem(380);
-        padding: to-rem($space-md) to-rem($space-lg) to-rem($space-xl);
-        opacity: 1;
-      }
-    }
+  // Non-active sibling dimming when any card is hovered
+  .home-mosaic:has(.home-mosaic-item:hover) &:not(:hover):not(.home-mosaic-item--hovered) {
+    opacity: 0.75;
+    filter: brightness(0.88);
+    transform: scale(0.985);
   }
 
-  // Top Section: Image container
-  &-media {
-    position: relative;
-    width: 100%;
-    height: to-rem(220);
-    overflow: hidden;
-    transition: height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  // Active / hovered card
+  &:hover,
+  &--hovered {
+    transform: translateY(-5px) scale(1.015);
+    box-shadow: 0 22px 52px rgba(0, 0, 0, 0.65);
+    z-index: 10;
+    opacity: 1 !important;
+    filter: none !important;
 
-    @include layout-768() {
-      height: to-rem(240);
+    .home-mosaic-img {
+      transform: scale(1.07);
     }
   }
+}
 
-  &-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+// ── Cover image fills the card, title sits over it ───────────────────────────
+.home-mosaic-media {
+  position: relative;
+  // Fills everything above .home-mosaic-bottom
+  flex: 1 1 auto;
+  overflow: hidden;
+  min-height: 0; // allow flex shrink
+}
+
+.home-mosaic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-mosaic-title-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: to-rem($space-md) to-rem($space-lg);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.15) 55%,
+    transparent 100%
+  );
+}
+
+.home-mosaic-title {
+  @extend .ttl-sm;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  margin: 0;
+
+  // Featured cards get slightly larger title
+  .home-mosaic-item--featured & {
+    font-size: to-rem(22);
+    letter-spacing: 0.1em;
   }
+}
 
-  &-title-overlay {
+// ── Expandable description panel ──────────────────────────────────────────────
+// Sits BELOW the image. Height goes from 0 → auto via max-height trick.
+.home-mosaic-bottom {
+  flex: 0 0 auto;
+  width: 100%;
+  max-height: 0;
+  padding: 0 to-rem($space-lg);
+  opacity: 0;
+  overflow: hidden;
+  background: var(--bg-secondary, #1a1a1a);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  transition: max-height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+              padding 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.3s ease;
+  box-sizing: border-box;
+}
+
+.home-mosaic-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: to-rem($space-sm);
+}
+
+.home-mosaic-desc {
+  @extend .txt-sm;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  font-size: to-rem(15);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+
+  .draw-text__char {
+    animation: char-draw 0.22s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 8ms));
+  }
+}
+
+// ── CTA button with corner border animation ───────────────────────────────────
+.home-mosaic-btn {
+  @extend %RESETBTN;
+  @extend .ttl-xs;
+
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  padding: to-rem($space-xs) to-rem($space-lg);
+  color: var(--grey, #cccccc);
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+  width: fit-content;
+  cursor: pointer;
+  margin-top: to-rem($space-2xs);
+
+  &::before,
+  &::after {
+    content: '';
     position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: flex-end;
-    padding: to-rem($space-md) to-rem($space-lg);
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.85) 0%,
-      rgba(0, 0, 0, 0.2) 60%,
-      transparent 100%
-    );
+    width: to-rem($space-sm);
+    height: to-rem($space-sm);
+    transition: width 0.25s ease, height 0.25s ease;
   }
 
-  // Title with font-weight: 100
-  &-title {
-    @extend .ttl-sm;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 100;
-    text-transform: uppercase;
-    letter-spacing: to-rem(1);
-    color: #ffffff;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    margin: 0;
-    transition: font-size 0.3s ease;
+  &::before {
+    top: 0;
+    left: 0;
+    border-top: 1px solid var(--grey, #cccccc);
+    border-left: 1px solid var(--grey, #cccccc);
   }
 
-  // Bottom Section BELOW Image: Normal flow expansion below cover image
-  &-bottom {
-    position: relative;
-    width: 100%;
-    max-height: 0;
-    padding: 0 to-rem($space-lg);
-    opacity: 0;
-    overflow: hidden;
-    background: var(--bg-secondary, #1a1a1a);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                opacity 0.35s ease;
-    box-sizing: border-box;
+  &::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid var(--grey, #cccccc);
+    border-right: 1px solid var(--grey, #cccccc);
   }
 
-  &-details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: to-rem($space-sm);
-  }
-
-  // Description with 15px font size and font-weight 200
-  &-desc {
-    @extend .txt-sm;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 200;
-    font-size: to-rem(15);
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.94);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-
-    .draw-text__char {
-      animation: char-draw 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 8ms));
-    }
-  }
-
-  // Corner-Border Action Button
-  &-btn {
-    @extend %RESETBTN;
-    @extend .ttl-xs;
-
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    text-transform: uppercase;
-    padding: to-rem($space-xs) to-rem($space-lg);
-    color: var(--grey, #cccccc);
-    font-weight: 700;
-    white-space: nowrap;
-    transition: color 0.2s ease;
-    width: fit-content;
-    cursor: pointer;
-    margin-top: to-rem($space-2xs);
+  &:hover,
+  &:focus {
+    color: var(--white, #ffffff);
 
     &::before,
     &::after {
-      content: '';
-      position: absolute;
-      width: to-rem($space-sm);
-      height: to-rem($space-sm);
-      transition: width 0.25s ease, height 0.25s ease;
-    }
-
-    &::before {
-      top: 0;
-      left: 0;
-      border-top: 1px solid var(--grey, #cccccc);
-      border-left: 1px solid var(--grey, #cccccc);
-    }
-
-    &::after {
-      bottom: 0;
-      right: 0;
-      border-bottom: 1px solid var(--grey, #cccccc);
-      border-right: 1px solid var(--grey, #cccccc);
-    }
-
-    &:hover,
-    &:focus {
-      color: var(--white, #ffffff);
-
-      &::before,
-      &::after {
-        width: calc(100% - #{to-rem($space-2xs)});
-        height: calc(100% - #{to-rem($space-2xs)});
-      }
+      width: calc(100% - #{to-rem($space-2xs)});
+      height: calc(100% - #{to-rem($space-2xs)});
     }
   }
-}
-
-.home-desc-expand-enter-active,
-.home-desc-expand-leave-active {
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.home-desc-expand-enter-from,
-.home-desc-expand-leave-to {
-  opacity: 0;
-  transform: translateY(6px);
 }
