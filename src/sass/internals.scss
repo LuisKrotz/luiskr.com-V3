@@ -452,15 +452,15 @@
       width: 100%;
       margin: 0 auto;
       padding-top: to-rem($space-xl);
-      padding-bottom: to-rem($space-4xl);
+      padding-bottom: to-rem(90px);
 
       @include layout-768() {
         padding-top: to-rem($space-2xl);
-        padding-bottom: to-rem($space-5xl);
+        padding-bottom: to-rem(120px);
       }
       @include layout-1024() {
         padding-top: to-rem($space-3xl);
-        padding-bottom: to-rem($space-6xl);
+        padding-bottom: to-rem(140px);
       }
     }
 
