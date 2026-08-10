@@ -6,8 +6,8 @@
     </h2>
 
     <div class="internal-footer-related">
-      <!-- Mosaic Grid of Projects (renders once dataset is loaded to prevent initial 404 race conditions) -->
-      <div v-if="projectsList.length && isDataReady" class="related-mosaic">
+      <!-- Mosaic Grid of Projects -->
+      <div v-if="projectsList.length" class="related-mosaic">
         <router-link
           v-for="(project, projectkey) in projectsList"
           :key="projectkey"
@@ -80,6 +80,20 @@
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
 
+function resolveCoverFilename(link, pImage) {
+  if (pImage) return pImage
+  if (!link) return ''
+  const l = String(link).toLowerCase().replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '')
+
+  if (l.includes('sageweb') || l.includes('sage') || l.includes('genesys')) return 'sageweb'
+  if (l.includes('nathalia') || l.includes('bond') || l.includes('clinica')) return 'nathalia-bond'
+  if (l.includes('mini')) return 'minimelissa'
+  if (l.includes('cicb') || l.includes('leather')) return 'cicb'
+  if (l.includes('marco')) return 'aboutmarco'
+
+  return l
+}
+
 export default {
   name: 'Related',
 
@@ -92,10 +106,6 @@ export default {
   },
 
   computed: {
-    isDataReady() {
-      return Boolean(this.$store.state.portfoliolist?.length || this.homePortfolio?.length)
-    },
-
     projectsList() {
       if (!this.translations?.projects) return []
 
@@ -117,7 +127,7 @@ export default {
           return hLink === cleanLink || cleanLink.includes(hLink) || hLink.includes(cleanLink)
         })
 
-        const image = homeMatch?.image || p.image || cleanLink
+        const image = homeMatch?.image || resolveCoverFilename(cleanLink, p.image)
 
         return {
           page: p.page || homeMatch?.label || homeMatch?.title || cleanLink,
