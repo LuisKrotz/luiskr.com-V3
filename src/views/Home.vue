@@ -106,7 +106,7 @@ import DrawText from '../components/DrawText.vue'
 // FEAT_MULT applied to featured itemW (~356px) → proper landscape card
 // COMP_MULTS applied to compact itemW (~263px) → slightly shorter compact card
 const FEAT_MULT  = 0.56   // featured 356px × 0.56 = 199px (16:9)
-const COMP_MULTS = [0.62, 0.68, 0.58, 0.65, 0.60]  // compact 263px × 0.62 = 163px
+const COMP_MULTS = [0.44, 0.50, 0.42, 0.48, 0.45]  // compact 263px × 0.44 = 116px — smaller tiles
 const BOTTOM_H   = 130
 
 export default {
