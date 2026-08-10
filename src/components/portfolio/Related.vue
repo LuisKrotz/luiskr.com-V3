@@ -103,9 +103,14 @@ function cleanSlug(str) {
 // Route alias fallback for 0ms initial render before async Firebase fetch
 const ROUTE_FALLBACK_MAP = {
   'clinica-de-desenvolvimento-nathalia-bond': 'nathalia-bond',
-  'genesysinf-sageweb': 'sage',
+  'nathalia-bond': 'nathalia-bond',
+  'genesysinf-sageweb': 'sageweb',
+  'sageweb': 'sageweb',
+  'sage': 'sageweb',
   'minimelissa': 'minimelissa',
+  'mini-melissa': 'minimelissa',
   'brazilian-leather': 'cicb',
+  'cicb': 'cicb',
   'aboutmarco': 'aboutmarco',
 }
 
