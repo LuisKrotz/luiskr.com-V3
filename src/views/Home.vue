@@ -140,11 +140,11 @@ import Contact from '../components/Contact.vue'
 import AwardsMentions from '../components/AwardsMentions.vue'
 import DrawText from '../components/DrawText.vue'
 
-// Non-featured: compact tiles — clearly smaller than featured
-const COMPACT_HEIGHTS = [155, 175, 140, 165, 150]
+// Non-featured: proper landscape card proportion (~390×220px at desktop)
+const COMPACT_HEIGHTS = [210, 240, 200, 230, 215]
 
-// Featured: 2.5x taller than compact — obviously bigger, same column width
-const FEATURED_HEIGHT = 380
+// Featured: taller cover, clearly bigger (320px vs ~220px avg = ~45% taller)
+const FEATURED_HEIGHT = 320
 
 // Extra height when hovered/expanded
 const EXPAND_DELTA = 130
@@ -260,10 +260,9 @@ export default {
       const W = container.clientWidth
       if (!W) { setTimeout(() => this.layoutMasonry(), 50); return }
 
-      // 4 equal columns on desktop, 3 tablet, 2 small tablet, 1 mobile
-      // ALL items are 1-col wide — this is the ONLY way to have zero height gaps.
-      // Featured items are 2.5x taller (380px vs 140-175px), not wider.
-      const cols = W >= 900 ? 4 : W >= 640 ? 3 : W >= 480 ? 2 : 1
+      // 3 equal columns desktop ≥900px, 2 tablet ≥560px, 1 mobile
+      // All items 1-col wide — single width = zero height gaps guaranteed.
+      const cols = W >= 900 ? 3 : W >= 560 ? 2 : 1
       const gap = 16
       const colW = Math.floor((W - gap * (cols - 1)) / cols)
       const colH = Array(cols).fill(0)
