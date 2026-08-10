@@ -7,12 +7,12 @@
   @extend %MAXAREA;
 
   width: 100%;
-  padding-top: to-rem($space-2xl);
+  padding-top: to-rem(110px); // Top padding on mobile to provide clearance under nav menu
   padding-bottom: to-rem($space-2xl);
   box-sizing: border-box;
 
   @include layout-768() {
-    padding-top: to-rem($space-3xl);
+    padding-top: to-rem(140px);
     padding-bottom: to-rem($space-3xl);
   }
 }
@@ -39,11 +39,11 @@
     color: #ffffff;
     background: var(--bg-secondary, #1e1e1e);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.4s ease;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s ease;
 
     @include layout-540() {
-      flex: 1 1 to-rem(240);
+      flex: 1 1 to-rem(260);
       width: auto;
     }
 
@@ -57,10 +57,10 @@
       }
     }
 
-    // Card increases size and elevates on hover with smooth animation
+    // Hover Animation strictly isolated to the triggered item
     &:hover,
     &--expanded {
-      transform: translateY(-6px) scale(1.02);
+      transform: translateY(-6px);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
       z-index: 5;
 
@@ -68,9 +68,10 @@
         transform: scale(1.05);
       }
 
+      // Expand bottom details overlay strictly within this item
       .home-mosaic-bottom {
-        max-height: to-rem(240);
-        padding: to-rem($space-md) to-rem($space-lg) to-rem($space-lg);
+        max-height: 80%;
+        padding: to-rem($space-md) to-rem($space-lg);
         opacity: 1;
       }
     }
@@ -80,11 +81,11 @@
   &-media {
     position: relative;
     width: 100%;
-    height: to-rem(200);
+    height: to-rem(240);
     overflow: hidden;
 
     @include layout-768() {
-      height: to-rem(240);
+      height: to-rem(280);
     }
   }
 
@@ -110,28 +111,36 @@
     );
   }
 
+  // Title with font-weight: 100
   &-title {
     @extend .ttl-sm;
     font-family: 'Raleway', sans-serif;
-    font-weight: 700;
+    font-weight: 100;
     text-transform: uppercase;
-    letter-spacing: to-rem(0.8);
+    letter-spacing: to-rem(1);
     color: #ffffff;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
     margin: 0;
   }
 
-  // Bottom Section BELOW Image: Description & Button
+  // Bottom Section BELOW/OVERLAY Image: Isolated overlay expansion
   &-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     max-height: 0;
     padding: 0 to-rem($space-lg);
     opacity: 0;
     overflow: hidden;
-    background: rgba(24, 24, 24, 0.96);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                opacity 0.35s ease;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.3s ease;
+    z-index: 3;
   }
 
   &-details {
@@ -141,13 +150,15 @@
     gap: to-rem($space-sm);
   }
 
+  // Description with larger font size (15px) and font-weight 200
   &-desc {
-    @extend .txt-xs;
+    @extend .txt-sm;
     font-family: 'Raleway', sans-serif;
     font-weight: 200;
-    color: rgba(255, 255, 255, 0.92);
+    font-size: to-rem(15);
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.94);
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-    line-height: 1.45;
 
     .draw-text__char {
       animation: char-draw 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
