@@ -23,7 +23,6 @@
               class="related-mosaic-img"
               loading="lazy"
               decoding="async"
-              @error="onImageError($event, project)"
             />
             <div v-else class="skeleton--media"></div>
             <div class="related-mosaic-overlay"></div>
@@ -108,6 +107,7 @@ export default {
       return rawProjects.map((p) => {
         const cleanLink = p.link ? p.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '') : ''
 
+        // Match against live Firebase home portfolio dataset
         const homeMatch = homeList.find((h) => {
           if (!h || !h.link) return false
           const hLink = h.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '')
@@ -144,7 +144,7 @@ export default {
   methods: {
     fetchHomeData() {
       const lang = this.$store.getters.getlang
-      const dbpath = lang.database + lang.locale + lang.pagesPath + 'home'
+      const dbpath = lang.database + lang.locale + lang.pagesPath + 'HOME'
 
       get(child(ref(getDatabase()), dbpath))
         .then((snapshot) => {
@@ -160,28 +160,6 @@ export default {
           }
         })
         .catch(console.error)
-    },
-    onImageError(e, project) {
-      const img = e.target
-      if (!img || img.dataset.triedFallback) return
-      img.dataset.triedFallback = 'true'
-
-      const link = project.link || ''
-      const parts = link.split('-')
-      const firstWord = parts[0]
-      const lastWord = parts[parts.length - 1]
-      const noHyphen = link.replace(/-/g, '')
-
-      const fallbacks = [
-        `${this.storage}covers/${firstWord}.jpg`,
-        `${this.storage}covers/${lastWord}.jpg`,
-        `${this.storage}covers/${noHyphen}.jpg`,
-      ]
-
-      const nextSrc = fallbacks.find((src) => src !== img.src)
-      if (nextSrc) {
-        img.src = nextSrc
-      }
     },
   },
 }

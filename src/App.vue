@@ -292,7 +292,7 @@ export default {
 
       // Load portfolio list globally (once) so cover images and metadata are available immediately
       if (!this.$store.state.portfoliolist?.length) {
-        get(child(ref(getDatabase()), `${dbpath}/pages/home`))
+        get(child(ref(getDatabase()), `${dbpath}/pages/HOME`))
           .then((snapshot) => {
             if (snapshot.exists() && snapshot.val()?.portfoliolist) {
               this.$store.commit('setPortfolioList', snapshot.val().portfoliolist)
