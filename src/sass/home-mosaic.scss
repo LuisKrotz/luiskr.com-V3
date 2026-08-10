@@ -25,11 +25,17 @@
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
 
-  // When any card is hovered, non-hovered surrounding items react smoothly
+  // When any card is hovered, non-hovered surrounding items react smoothly and collapse description panel
   &:hover .home-mosaic-item:not(:hover) {
     opacity: 0.82;
     transform: scale(0.98);
     filter: brightness(0.92);
+
+    .home-mosaic-bottom {
+      max-height: 0 !important;
+      padding: 0 !important;
+      opacity: 0 !important;
+    }
   }
 
   &-item {
