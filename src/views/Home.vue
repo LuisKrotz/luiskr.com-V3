@@ -140,13 +140,12 @@ import Contact from '../components/Contact.vue'
 import AwardsMentions from '../components/AwardsMentions.vue'
 import DrawText from '../components/DrawText.vue'
 
-// Non-featured: proper landscape card proportion (~390×220px at desktop)
-const COMPACT_HEIGHTS = [210, 240, 200, 230, 215]
+// Aspect ratios used to compute card heights from column width.
+// Height = colW / ratio  — so images always look proportional at any resolution.
+const FEATURED_RATIO = 1.25    // wide landscape, featured (e.g. 390×312px at 3 cols)
+const COMPACT_RATIOS = [1.65, 1.9, 1.55, 1.8, 1.7]  // varied compact landscape ratios
 
-// Featured: taller cover, clearly bigger (320px vs ~220px avg = ~45% taller)
-const FEATURED_HEIGHT = 320
-
-// Extra height when hovered/expanded
+// Extra height when hovered/expanded (fixed px, looks fine at all sizes)
 const EXPAND_DELTA = 130
 
 export default {
@@ -221,15 +220,15 @@ export default {
       return this.hoveredIndex === idx || this.activeTouchIndex === idx
     },
 
-    // Returns base card height (cover image + small padding) before expansion.
-    baseHeight(item, idx) {
-      if (item.featured) return FEATURED_HEIGHT
-      return COMPACT_HEIGHTS[idx % COMPACT_HEIGHTS.length]
+    // Returns base card height calculated from the current column width + item's aspect ratio.
+    // colW is passed in from layoutMasonry so heights always scale with the layout.
+    baseHeight(item, idx, colW) {
+      if (item.featured) return Math.round(colW / FEATURED_RATIO)
+      return Math.round(colW / COMPACT_RATIOS[idx % COMPACT_RATIOS.length])
     },
 
-    // Returns the total rendered height of a card (base + expansion if active).
-    cardHeight(item, idx) {
-      return this.baseHeight(item, idx) + (this.isActive(idx) ? EXPAND_DELTA : 0)
+    cardHeight(item, idx, colW) {
+      return this.baseHeight(item, idx, colW) + (this.isActive(idx) ? EXPAND_DELTA : 0)
     },
 
     layoutMasonry() {
@@ -238,14 +237,18 @@ export default {
       const W = container.clientWidth
       if (!W) { setTimeout(() => this.layoutMasonry(), 50); return }
 
-      // 3 equal columns desktop ≥900px, 2 tablet ≥560px, 1 mobile
-      // All items 1-col wide — single width = zero height gaps guaranteed.
-      const cols = W >= 900 ? 3 : W >= 560 ? 2 : 1
+      // Responsive column count — re-evaluated on every resize
+      // More columns = narrower cards; fewer = wider cards.
+      // Heights scale via aspect ratio so images always look right.
+      const cols = W >= 1100 ? 3 : W >= 700 ? 2 : 1
       const gap = 16
       const colW = Math.floor((W - gap * (cols - 1)) / cols)
       const colH = Array(cols).fill(0)
 
       this.itemStyles = this.processedItems.map((item, idx) => {
+        // Height derived from column width + aspect ratio — adapts to every resolution
+        const h = this.cardHeight(item, idx, colW)
+
         // Shortest-column bin-packing: always fills the lowest column, zero gaps
         let col = 0
         for (let i = 1; i < cols; i++) {
@@ -253,7 +256,6 @@ export default {
         }
         const top = colH[col]
         const left = col * (colW + gap)
-        const h = this.cardHeight(item, idx)
         colH[col] = top + h + gap
         return { position: 'absolute', top: top + 'px', left: left + 'px', width: colW + 'px', height: h + 'px' }
       })
