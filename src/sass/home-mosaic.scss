@@ -2,9 +2,9 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Masonry ──────────────────────────────────────────
-// All layout coordinates (top / left / width / height) are set by layoutMasonry()
-// in Home.vue. This file only handles visual style, not geometry.
+// ── Home Portfolio Masonry — VISUAL STYLES ONLY ───────────────────────────────
+// ALL geometry (position, width, height) is set by layoutMasonry() in Home.vue.
+// This file only handles colours, fonts, border-radius, shadows, transitions.
 
 .home-portfolio-section {
   @extend %MAXAREA;
@@ -13,14 +13,8 @@
   padding-bottom: to-rem($space-2xl);
   box-sizing: border-box;
 
-  @include layout-768() {
-    padding-top: to-rem(60) !important;
-    padding-bottom: to-rem($space-3xl);
-  }
-
-  @include layout-1024() {
-    padding-top: to-rem(70) !important;
-  }
+  @include layout-768()  { padding-top: to-rem(60)  !important; padding-bottom: to-rem($space-3xl); }
+  @include layout-1024() { padding-top: to-rem(70)  !important; }
 
   .home-section-title {
     padding-top: 0 !important;
@@ -28,77 +22,55 @@
   }
 }
 
-// ── Container ────────────────────────────────────────────────────────────────
-.home-mosaic {
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: to-rem($space-xl);
-  // height is set inline by layoutMasonry()
-  transition: height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-// ── Items ─────────────────────────────────────────────────────────────────────
-// position / top / left / width / height all set by JS inline style.
-// We only style visuals here.
+// ── Card container ────────────────────────────────────────────────────────────
+// position / top / left / width / height are ALL set inline by JS.
 .home-mosaic-item {
-  // geometry comes from JS — just make sure it's absolute
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  cursor: pointer;
   border-radius: to-rem($space-lg);
-  box-sizing: border-box;
   text-decoration: none;
   color: #ffffff;
   background: var(--bg-secondary, #1a1a1a);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
 
-  // Height transitions handled by layoutMasonry recalc + JS style change,
-  // but we add a CSS transition on height so the card animates smoothly.
+  // Smooth transitions — JS changes inline styles, CSS animates them
   transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-              top 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-              left 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.38s ease,
-              opacity 0.3s ease,
-              filter 0.3s ease;
+              top    0.42s cubic-bezier(0.22, 1, 0.36, 1),
+              left   0.42s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.36s ease,
+              opacity    0.3s ease,
+              filter     0.3s ease;
 
-  // Featured cards get a subtle border glow to distinguish them
   &--featured {
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 36px rgba(0, 0, 0, 0.5);
   }
 
-  // Non-active sibling dimming when any card is hovered
-  .home-mosaic:has(.home-mosaic-item:hover) &:not(:hover):not(.home-mosaic-item--hovered) {
-    opacity: 0.75;
+  // Sibling dimming when any card is hovered
+  .home-mosaic:has(.home-mosaic-item:hover) &:not(:hover) {
+    opacity: 0.78;
     filter: brightness(0.88);
-    transform: scale(0.985);
+    transform: scale(0.983);
   }
 
-  // Active / hovered card
-  &:hover,
-  &--hovered {
+  &:hover {
     transform: translateY(-5px) scale(1.015);
-    box-shadow: 0 22px 52px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 20px 52px rgba(0, 0, 0, 0.65);
     z-index: 10;
     opacity: 1 !important;
     filter: none !important;
 
-    .home-mosaic-img {
-      transform: scale(1.07);
-    }
+    .home-mosaic-img { transform: scale(1.07); }
   }
 }
 
-// ── Cover image fills the card, title sits over it ───────────────────────────
+// ── Cover image area ─────────────────────────────────────────────────────────
+// height is set inline by JS — this block only handles visuals
 .home-mosaic-media {
   position: relative;
-  // Fills everything above .home-mosaic-bottom
-  flex: 1 1 auto;
-  overflow: hidden;
-  min-height: 0; // allow flex shrink
+  // transition on height so the image area animates when card expands/collapses
+  transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .home-mosaic-img {
@@ -106,7 +78,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  display: block;
+  transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .home-mosaic-title-overlay {
@@ -118,7 +91,7 @@
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.88) 0%,
-    rgba(0, 0, 0, 0.15) 55%,
+    rgba(0, 0, 0, 0.12) 55%,
     transparent 100%
   );
 }
@@ -133,28 +106,19 @@
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
   margin: 0;
 
-  // Featured cards (480px tall vs 190-230px compact) — large cinematic title
   .home-mosaic-item--featured & {
-    font-size: to-rem(28);
-    font-weight: 100;
+    font-size: to-rem(24);
     letter-spacing: 0.12em;
   }
 }
 
-// ── Expandable description panel ──────────────────────────────────────────────
-// Sits BELOW the image. Height goes from 0 → auto via max-height trick.
+// ── Description panel ─────────────────────────────────────────────────────────
+// height is set inline by JS (0 → BOTTOM_H px)
 .home-mosaic-bottom {
-  flex: 0 0 auto;
-  width: 100%;
-  max-height: 0;
-  padding: 0 to-rem($space-lg);
-  opacity: 0;
-  overflow: hidden;
+  // transition on height so panel animates smoothly
+  transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
   background: var(--bg-secondary, #1a1a1a);
   border-top: 1px solid rgba(255, 255, 255, 0.07);
-  transition: max-height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-              padding 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.3s ease;
   box-sizing: border-box;
 }
 
@@ -163,6 +127,9 @@
   flex-direction: column;
   align-items: flex-start;
   gap: to-rem($space-sm);
+  padding: to-rem($space-md) to-rem($space-lg) to-rem($space-xl);
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .home-mosaic-desc {
@@ -180,11 +147,10 @@
   }
 }
 
-// ── CTA button with corner border animation ───────────────────────────────────
+// ── CTA button ────────────────────────────────────────────────────────────────
 .home-mosaic-btn {
   @extend %RESETBTN;
   @extend .ttl-xs;
-
   position: relative;
   display: inline-block;
   text-align: center;
@@ -194,39 +160,22 @@
   font-weight: 700;
   white-space: nowrap;
   transition: color 0.2s ease;
-  width: fit-content;
   cursor: pointer;
   margin-top: to-rem($space-2xs);
 
-  &::before,
-  &::after {
+  &::before, &::after {
     content: '';
     position: absolute;
     width: to-rem($space-sm);
     height: to-rem($space-sm);
     transition: width 0.25s ease, height 0.25s ease;
   }
+  &::before { top: 0; left: 0; border-top: 1px solid var(--grey); border-left: 1px solid var(--grey); }
+  &::after  { bottom: 0; right: 0; border-bottom: 1px solid var(--grey); border-right: 1px solid var(--grey); }
 
-  &::before {
-    top: 0;
-    left: 0;
-    border-top: 1px solid var(--grey, #cccccc);
-    border-left: 1px solid var(--grey, #cccccc);
-  }
-
-  &::after {
-    bottom: 0;
-    right: 0;
-    border-bottom: 1px solid var(--grey, #cccccc);
-    border-right: 1px solid var(--grey, #cccccc);
-  }
-
-  &:hover,
-  &:focus {
-    color: var(--white, #ffffff);
-
-    &::before,
-    &::after {
+  &:hover, &:focus {
+    color: var(--white, #fff);
+    &::before, &::after {
       width: calc(100% - #{to-rem($space-2xs)});
       height: calc(100% - #{to-rem($space-2xs)});
     }
