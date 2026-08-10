@@ -116,16 +116,14 @@ import DrawText from '../components/DrawText.vue'
 // ALL sizing is JS-only. CSS only handles colours, fonts, border-radius, etc.
 //
 // imageH  = colW * multiplier  →  landscape aspect ratio, never square
-// featured uses a taller multiplier so it clearly stands out
-// BOTTOM_H is the fixed-height description panel shown on hover/tap
-//
-// Featured span 2 cols so their width is ~2x colW.
-// FEAT_MULT = PORTRAIT (taller than wide): height > width, clearly bigger, no squares
-// At 3 cols (colW≈367px): featured=403px (0.91:1 portrait), compact=202-220px (16:9 landscape)
-// Two compact cards (2×206≈412px) stack naturally beside one featured (403px) — Pinterest masonry
-const FEAT_MULT  = 1.10
-const COMP_MULTS = [0.56, 0.60, 0.53, 0.58, 0.55]
-const BOTTOM_H     = 130                            // px, description panel when expanded
+//// ── Variable-span masonry constants ─────────────────────────────────────────
+// JS computes totalCols from container width.
+// Featured items span (totalCols - 1) columns — big editorial piece.
+// Compact items span 1 column — small thumbnail.
+// Heights derived from item width × multiplier (always landscape, never square).
+const FEAT_MULT  = 0.42   // applied to featured item width (3-of-4 cols ≈ 820px → 344px, 2.4:1)
+const COMP_MULTS = [0.62, 0.68, 0.58, 0.65, 0.60]  // applied to compact colW (1-of-4 cols ≈ 263px → 163-179px)
+const BOTTOM_H   = 130
 
 export default {
   name: 'Home',
@@ -142,8 +140,7 @@ export default {
       touchIdx:     null,
       aboutTranslations: false,
       profilePicture:    null,
-      // Layout engine outputs
-      cards:       [],   // [{ card, media, bottom, bottomH }]
+      cards:       [],
       containerH:  '0px',
     }
   },
@@ -178,37 +175,57 @@ export default {
       return item.link && this.featuredLinks.has(item.link)
     },
 
-    // ── Core masonry engine ───────────────────────────────────────────────
-    // ALL geometry (position, width, height) computed entirely in JS.
-    // CSS only handles transitions and visuals.
+    // ── Variable-span masonry engine ─────────────────────────────────────
+    // ALL geometry in JS. CSS touches nothing for sizing.
+    //
+    // Grid has `totalCols` equal columns.
+    // Featured items span (totalCols - 1) cols → wide editorial piece.
+    // Compact items span 1 col → small thumbnail.
+    //
+    // For each item, the engine scans all valid starting columns for the
+    // item's span and picks the one with the lowest top (min of max colH).
+    // All spanned columns are advanced by (itemHeight + gap).
     layout() {
       const el = this.$refs.mosaicEl
       if (!el || !this.processedItems.length) return
       const W = el.clientWidth
       if (!W) { setTimeout(this.layout, 50); return }
 
-      const cols  = W >= 1100 ? 3 : W >= 700 ? 2 : 1
-      const gap   = 16
-      const colW  = Math.floor((W - gap * (cols - 1)) / cols)
-      const colH  = Array(cols).fill(0)
+      // Responsive total column count
+      const totalCols = W >= 1100 ? 4 : W >= 700 ? 3 : W >= 480 ? 2 : 1
+      const gap  = 16
+      const colW = Math.floor((W - gap * (totalCols - 1)) / totalCols)
+      const colH = Array(totalCols).fill(0)
 
       this.cards = this.processedItems.map((item, i) => {
         const active  = this.hoveredIdx === i || this.touchIdx === i
         const bottomH = active ? BOTTOM_H : 0
-        const mult    = item.featured ? FEAT_MULT : COMP_MULTS[i % COMP_MULTS.length]
-        const imageH  = Math.round(colW * mult)
-        const totalH  = imageH + bottomH
 
-        // Shortest single column — all items same width
-        let col = 0
-        for (let c = 1; c < cols; c++) if (colH[c] < colH[col]) col = c
-        const top  = colH[col]
-        const left = col * (colW + gap)
-        colH[col]  = top + totalH + gap
+        // Span: featured takes all but 1 column, compact takes 1
+        const span  = (item.featured && totalCols > 1) ? totalCols - 1 : 1
+        const itemW = span * colW + (span - 1) * gap
+        const mult  = item.featured ? FEAT_MULT : COMP_MULTS[i % COMP_MULTS.length]
+        const imageH = Math.round(itemW * mult)
+        const totalH = imageH + bottomH
+
+        // Find best starting column for this span (min top = min of max colH across span)
+        let bestCol = 0
+        let bestTop = Infinity
+        for (let c = 0; c <= totalCols - span; c++) {
+          let top = 0
+          for (let s = 0; s < span; s++) top = Math.max(top, colH[c + s])
+          if (top < bestTop) { bestTop = top; bestCol = c }
+        }
+
+        const top  = bestTop
+        const left = bestCol * (colW + gap)
+
+        // Advance all spanned columns
+        for (let s = 0; s < span; s++) colH[bestCol + s] = top + totalH + gap
 
         return {
           bottomH,
-          card:   { position:'absolute', top:top+'px', left:left+'px', width:colW+'px', height:totalH+'px', overflow:'hidden' },
+          card:   { position:'absolute', top:top+'px', left:left+'px', width:itemW+'px', height:totalH+'px', overflow:'hidden' },
           media:  { position:'relative', width:'100%', height:imageH+'px', overflow:'hidden', flexShrink:'0' },
           bottom: { width:'100%', height:bottomH+'px', overflow:'hidden' },
         }
