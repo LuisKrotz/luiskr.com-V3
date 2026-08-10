@@ -175,11 +175,9 @@ export default {
         let variant = 'compact'
 
         if (featured) {
-          // Featured items get hero or wide priority based on position
-          variant = idx % 3 === 0 ? 'hero' : 'wide'
+          variant = idx % 2 === 0 ? 'hero' : 'wide'
         } else {
-          // Non-featured items get tall or compact rhythm
-          variant = idx % 4 === 2 ? 'tall' : 'compact'
+          variant = idx % 3 === 1 ? 'tall' : 'compact'
         }
 
         return {
@@ -194,7 +192,9 @@ export default {
   methods: {
     isFeatured(item) {
       if (!item) return false
-      return this.featuredLinks.has(item.link) || item.featured === true
+      if (item.featured === true || item.featured === 'true' || item.featured === 1) return true
+      if (item.link && this.featuredLinks.has(item.link)) return true
+      return false
     },
 
     handleItemClick(e, item, itemkey) {

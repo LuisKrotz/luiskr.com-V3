@@ -73,34 +73,45 @@
                 filter 0.35s ease,
                 box-shadow 0.4s ease;
 
-    // Featured items have taller media presence in the masonry column
+    // Featured Hero Items (Prominent 340px Card Height & Visual Presence)
     &--featured,
     &--hero {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+
       .home-mosaic-media {
-        height: to-rem(280);
+        height: to-rem(290);
 
         @include layout-768() {
-          height: to-rem(320);
+          height: to-rem(340);
+        }
+      }
+
+      .home-mosaic-title {
+        font-size: to-rem(20);
+        letter-spacing: to-rem(1.2);
+
+        @include layout-768() {
+          font-size: to-rem(24);
         }
       }
     }
 
     &--wide {
       .home-mosaic-media {
-        height: to-rem(240);
+        height: to-rem(250);
 
         @include layout-768() {
-          height: to-rem(270);
+          height: to-rem(290);
         }
       }
     }
 
     &--tall {
       .home-mosaic-media {
-        height: to-rem(300);
+        height: to-rem(290);
 
         @include layout-768() {
-          height: to-rem(340);
+          height: to-rem(330);
         }
       }
     }
@@ -181,6 +192,7 @@
     color: #ffffff;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
     margin: 0;
+    transition: font-size 0.3s ease;
   }
 
   // Bottom Section BELOW Image: Normal flow expansion below cover image
