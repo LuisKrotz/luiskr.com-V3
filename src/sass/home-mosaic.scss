@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (3-Card Proportional Width Flex Mosaic) ────
+// ── Home Portfolio Showcase Grid (Cinematic Aspect Ratio Flex Mosaic) ───────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -87,7 +87,7 @@
       }
     }
 
-    // Featured Hero Items: Proportionally wider (1.6x width, ~44% of row in 3-card row)
+    // Featured Hero Items: Proportional 1.6x width, 320px cinematic banner height
     &--featured,
     &--featured-hero {
       border: 1px solid rgba(255, 255, 255, 0.16);
@@ -101,7 +101,7 @@
       }
 
       .home-mosaic-media {
-        height: to-rem(270);
+        height: to-rem(260);
 
         @include layout-768() {
           height: to-rem(310);
@@ -118,7 +118,7 @@
       }
     }
 
-    // Featured Wide Items: 1.4x width
+    // Featured Wide Items: 1.4x width, 270px cinematic widescreen
     &--featured-wide {
       border: 1px solid rgba(255, 255, 255, 0.12);
 
@@ -131,15 +131,27 @@
       }
 
       .home-mosaic-media {
-        height: to-rem(250);
+        height: to-rem(230);
 
         @include layout-768() {
-          height: to-rem(290);
+          height: to-rem(270);
         }
       }
     }
 
-    &--compact {
+    // Tall Portrait Items: 4:5 aspect ratio (320px height)
+    &--tall-portrait {
+      .home-mosaic-media {
+        height: to-rem(270);
+
+        @include layout-768() {
+          height: to-rem(320);
+        }
+      }
+    }
+
+    // Widescreen Items: 16:10 aspect ratio (220px height)
+    &--widescreen {
       .home-mosaic-media {
         height: to-rem(190);
 
@@ -149,12 +161,13 @@
       }
     }
 
-    &--standard {
+    // Ultrawide Items: 21:9 aspect ratio (170px height)
+    &--ultrawide {
       .home-mosaic-media {
-        height: to-rem(220);
+        height: to-rem(150);
 
         @include layout-768() {
-          height: to-rem(250);
+          height: to-rem(175);
         }
       }
     }
@@ -169,10 +182,10 @@
       filter: none !important;
 
       .home-mosaic-media {
-        height: to-rem(260);
+        height: to-rem(250);
 
         @include layout-768() {
-          height: to-rem(290);
+          height: to-rem(280);
         }
       }
 

@@ -8,7 +8,7 @@
           <span v-else class="skeleton--shimmer" style="display: inline-block; width: 40%; height: 1em; border-radius: 4px"></span>
         </h2>
 
-        <!-- Mosaic Grid of Home Portfolio Items (Proportional Flex Mosaic) -->
+        <!-- Mosaic Grid of Home Portfolio Items (Cinematic Aspect Ratio Mosaic) -->
         <div v-if="processedItems.length" class="home-mosaic">
           <router-link
             v-for="(item, itemkey) in processedItems"
@@ -172,12 +172,12 @@ export default {
 
       return list.map((item, idx) => {
         const featured = this.isFeatured(item)
-        let variant = 'compact'
+        let variant = 'widescreen'
 
         if (featured) {
           variant = idx % 2 === 0 ? 'featured-hero' : 'featured-wide'
         } else {
-          variant = idx % 2 === 0 ? 'compact' : 'standard'
+          variant = idx % 3 === 0 ? 'tall-portrait' : idx % 3 === 1 ? 'ultrawide' : 'widescreen'
         }
 
         return {
