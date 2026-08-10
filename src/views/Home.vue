@@ -7,7 +7,6 @@
           <span v-else class="skeleton--shimmer" style="display:inline-block;width:40%;height:1em;border-radius:4px"></span>
         </h2>
 
-        <!-- ── Masonry grid — ALL geometry set by layoutMasonry() in JS ── -->
         <div
           v-if="processedItems.length"
           ref="mosaicEl"
@@ -24,21 +23,13 @@
             @mouseleave="onLeave()"
             @click="onClick(item, i)"
           >
-            <!-- Image cover — height set entirely by JS -->
             <div class="home-mosaic-media" :style="cards[i] && cards[i].media">
-              <img
-                decoding="async"
-                loading="lazy"
-                class="home-mosaic-img"
-                :src="storage + 'covers/' + item.image + ext"
-                :alt="item.label"
-              />
+              <img decoding="async" loading="lazy" class="home-mosaic-img"
+                :src="storage + 'covers/' + item.image + ext" :alt="item.label" />
               <div class="home-mosaic-title-overlay">
                 <h3 class="home-mosaic-title">{{ item.label }}</h3>
               </div>
             </div>
-
-            <!-- Description panel — height set entirely by JS -->
             <div class="home-mosaic-bottom" :style="cards[i] && cards[i].bottom">
               <div v-if="cards[i] && cards[i].bottomH > 0" class="home-mosaic-details">
                 <p v-if="item.description" class="home-mosaic-desc">
@@ -52,19 +43,12 @@
           </div>
         </div>
 
-        <!-- Loading skeleton -->
         <div v-else style="position:relative;width:100%;height:500px;margin-top:2rem">
-          <div
-            v-for="n in 7"
-            :key="n"
-            class="skeleton--shimmer"
-            :style="skeletonStyle(n)"
-          ></div>
+          <div v-for="n in 7" :key="n" class="skeleton--shimmer" :style="skeletonStyle(n)"></div>
         </div>
       </section>
     </div>
 
-    <!-- About -->
     <section id="about" class="about">
       <h2 class="about-title">
         <DrawText v-if="aboutTranslations" :text="aboutTranslations.title" trigger="viewport" />
@@ -72,7 +56,8 @@
       </h2>
       <div class="about-profile-section">
         <div class="about-profile-picture">
-          <img v-if="aboutTranslations && profilePicture" decoding="async" class="about-profile-picture-img" :src="profilePicture" :alt="aboutTranslations.title" width="400" height="400" />
+          <img v-if="aboutTranslations && profilePicture" decoding="async" class="about-profile-picture-img"
+            :src="profilePicture" :alt="aboutTranslations.title" width="400" height="400" />
           <div v-else class="about-profile-picture-placeholder"></div>
         </div>
         <div class="about-profile-text">
@@ -110,19 +95,18 @@ import Contact from '../components/Contact.vue'
 import AwardsMentions from '../components/AwardsMentions.vue'
 import DrawText from '../components/DrawText.vue'
 
+// ── Masonry constants ─────────────────────────────────────────────────────────
+// ALL geometry is JS-only. CSS only handles colours, fonts, border-radius, etc.
 //
-// ── Masonry constants ────────────────────────────────────────────────────────
+// 12-unit base grid at desktop:
+//   Featured items span 4 units → 1/3 of row (3 featured fit per full row)
+//   Compact  items span 3 units → 1/4 of row (4 compact  fit per full row)
 //
-// ALL sizing is JS-only. CSS only handles colours, fonts, border-radius, etc.
-//
-// imageH  = colW * multiplier  →  landscape aspect ratio, never square
-//// ── Variable-span masonry constants ─────────────────────────────────────────
-// JS computes totalCols from container width.
-// Featured items span (totalCols - 1) columns — big editorial piece.
-// Compact items span 1 column — small thumbnail.
-// Heights derived from item width × multiplier (always landscape, never square).
-const FEAT_MULT  = 0.28   // featured: 821px×0.28=230px (3.6:1) — smaller, clearly landscape
-const COMP_MULTS = [0.62, 0.68, 0.58, 0.65, 0.60]  // applied to compact colW (1-of-4 cols ≈ 263px → 163-179px)
+// Heights = itemWidth × multiplier — always landscape, never square or strip.
+// FEAT_MULT applied to featured itemW (~356px) → proper landscape card
+// COMP_MULTS applied to compact itemW (~263px) → slightly shorter compact card
+const FEAT_MULT  = 0.56   // featured 356px × 0.56 = 199px (16:9)
+const COMP_MULTS = [0.62, 0.68, 0.58, 0.65, 0.60]  // compact 263px × 0.62 = 163px
 const BOTTOM_H   = 130
 
 export default {
@@ -131,22 +115,22 @@ export default {
 
   data() {
     return {
-      storage:      this.$store.getters.getStorage,
-      translations: false,
-      has_touch:    this.$store.getters.getTouch,
-      ext:          '.jpg',
-      featuredLinks: new Set(),
-      hoveredIdx:   null,
-      touchIdx:     null,
+      storage:           this.$store.getters.getStorage,
+      translations:      false,
+      has_touch:         this.$store.getters.getTouch,
+      ext:               '.jpg',
+      featuredLinks:     new Set(),
+      hoveredIdx:        null,
+      touchIdx:          null,
       aboutTranslations: false,
       profilePicture:    null,
-      cards:       [],
-      containerH:  '0px',
+      cards:             [],
+      containerH:        '0px',
     }
   },
 
   computed: {
-    mentions()       { return this.$store.getters.getMentions },
+    mentions() { return this.$store.getters.getMentions },
     processedItems() {
       if (!this.translations?.portfoliolist) return []
       const raw = Array.isArray(this.translations.portfoliolist)
@@ -175,52 +159,52 @@ export default {
       return item.link && this.featuredLinks.has(item.link)
     },
 
-    // ── Variable-span masonry engine ─────────────────────────────────────
-    // ALL geometry in JS. CSS touches nothing for sizing.
-    //
-    // Grid has `totalCols` equal columns.
-    // Featured items span (totalCols - 1) cols → wide editorial piece.
-    // Compact items span 1 col → small thumbnail.
-    //
-    // For each item, the engine scans all valid starting columns for the
-    // item's span and picks the one with the lowest top (min of max colH).
-    // All spanned columns are advanced by (itemHeight + gap).
+    // ── Variable-span masonry engine ─────────────────────────────────────────
+    // ALL geometry (position, width, height) computed entirely in JS.
+    // Uses a 12-unit base grid. Featured items span 4 units, compact 3 units.
+    // Bin-packer finds the lowest available slot for each item's span.
     layout() {
       const el = this.$refs.mosaicEl
       if (!el || !this.processedItems.length) return
       const W = el.clientWidth
       if (!W) { setTimeout(this.layout, 50); return }
 
-      // Responsive total column count
-      const totalCols = W >= 1100 ? 4 : W >= 700 ? 3 : W >= 480 ? 2 : 1
-      const gap  = 16
-      const colW = Math.floor((W - gap * (totalCols - 1)) / totalCols)
-      const colH = Array(totalCols).fill(0)
+      const gap = 16
+
+      // Responsive grid config
+      let totalUnits, featUnits, compUnits
+      if (W >= 900) {
+        totalUnits = 12; featUnits = 4; compUnits = 3  // 3 feat/row, 4 comp/row
+      } else if (W >= 580) {
+        totalUnits = 6;  featUnits = 3; compUnits = 2  // 2 feat/row, 3 comp/row
+      } else {
+        totalUnits = 2;  featUnits = 2; compUnits = 1  // 1 feat/row, 2 comp/row
+      }
+
+      const unitW = Math.floor((W - gap * (totalUnits - 1)) / totalUnits)
+      const colH  = Array(totalUnits).fill(0)
 
       this.cards = this.processedItems.map((item, i) => {
         const active  = this.hoveredIdx === i || this.touchIdx === i
         const bottomH = active ? BOTTOM_H : 0
 
-        // Span: featured takes all but 1 column, compact takes 1
-        const span  = (item.featured && totalCols > 1) ? totalCols - 1 : 1
-        const itemW = span * colW + (span - 1) * gap
-        const mult  = item.featured ? FEAT_MULT : COMP_MULTS[i % COMP_MULTS.length]
+        // Item width based on span
+        const span   = item.featured ? featUnits : compUnits
+        const itemW  = span * unitW + (span - 1) * gap
+        const mult   = item.featured ? FEAT_MULT : COMP_MULTS[i % COMP_MULTS.length]
         const imageH = Math.round(itemW * mult)
         const totalH = imageH + bottomH
 
-        // Find best starting column for this span (min top = min of max colH across span)
-        let bestCol = 0
-        let bestTop = Infinity
-        for (let c = 0; c <= totalCols - span; c++) {
+        // Find lowest available slot for this span
+        let bestCol = 0, bestTop = Infinity
+        for (let c = 0; c <= totalUnits - span; c++) {
           let top = 0
           for (let s = 0; s < span; s++) top = Math.max(top, colH[c + s])
           if (top < bestTop) { bestTop = top; bestCol = c }
         }
 
         const top  = bestTop
-        const left = bestCol * (colW + gap)
-
-        // Advance all spanned columns
+        const left = bestCol * (unitW + gap)
         for (let s = 0; s < span; s++) colH[bestCol + s] = top + totalH + gap
 
         return {
@@ -249,12 +233,12 @@ export default {
 
     skeletonStyle(n) {
       const W    = window.innerWidth
-      const cols = W >= 1100 ? 3 : W >= 700 ? 2 : 1
+      const cols = W >= 900 ? 4 : W >= 580 ? 3 : 2
       const gap  = 16
       const colW = Math.floor((W - gap * (cols - 1)) / cols)
       const col  = (n - 1) % cols
       const row  = Math.floor((n - 1) / cols)
-      return { position:'absolute', top:row*(200+gap)+'px', left:col*(colW+gap)+'px', width:colW+'px', height:'200px', borderRadius:'16px' }
+      return { position:'absolute', top:row*(180+gap)+'px', left:col*(colW+gap)+'px', width:colW+'px', height:'180px', borderRadius:'16px' }
     },
   },
 
