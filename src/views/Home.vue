@@ -161,8 +161,14 @@ export default {
 
     // ── Variable-span masonry engine ─────────────────────────────────────────
     // ALL geometry (position, width, height) computed entirely in JS.
-    // Uses a 12-unit base grid. Featured items span 4 units, compact 3 units.
-    // Bin-packer finds the lowest available slot for each item's span.
+    //
+    // 56-unit base grid for fine-grained placement accuracy.
+    // Gap model: unitW = W/56 (purely positional, no inter-unit gaps)
+    //   itemW = span * unitW - gap  → visual gap between items is always exactly `gap`
+    //   left  = col  * unitW + gap/2
+    //
+    // Featured: 16 units (~299px at 1280px), compact: 8 units (~141px)
+    // LCM(16,8)=16 → tiles perfectly: 2feat+3comp=56 or 1feat+5comp=56
     layout() {
       const el = this.$refs.mosaicEl
       if (!el || !this.processedItems.length) return
@@ -171,31 +177,30 @@ export default {
 
       const gap = 16
 
-      // Responsive grid config
+      // Responsive grid: base units scale to keep items reasonable size
       let totalUnits, featUnits, compUnits
       if (W >= 900) {
-        totalUnits = 12; featUnits = 4; compUnits = 2  // 3 feat/row, 6 comp/row
+        totalUnits = 56; featUnits = 16; compUnits = 8  // desktop
       } else if (W >= 580) {
-        totalUnits = 6;  featUnits = 3; compUnits = 2  // 2 feat/row, 3 comp/row
+        totalUnits = 28; featUnits = 10; compUnits = 5  // tablet
       } else {
-        totalUnits = 2;  featUnits = 2; compUnits = 1  // 1 feat/row, 2 comp/row
+        totalUnits = 14; featUnits = 14; compUnits = 7  // mobile
       }
 
-      const unitW = Math.floor((W - gap * (totalUnits - 1)) / totalUnits)
+      const unitW = W / totalUnits
       const colH  = Array(totalUnits).fill(0)
 
       this.cards = this.processedItems.map((item, i) => {
         const active  = this.hoveredIdx === i || this.touchIdx === i
         const bottomH = active ? BOTTOM_H : 0
 
-        // Item width based on span
         const span   = item.featured ? featUnits : compUnits
-        const itemW  = span * unitW + (span - 1) * gap
+        const itemW  = Math.round(span * unitW - gap)
         const mult   = item.featured ? FEAT_MULT : COMP_MULTS[i % COMP_MULTS.length]
         const imageH = Math.round(itemW * mult)
         const totalH = imageH + bottomH
 
-        // Find lowest available slot for this span
+        // Find lowest available slot for this span across 56 units
         let bestCol = 0, bestTop = Infinity
         for (let c = 0; c <= totalUnits - span; c++) {
           let top = 0
@@ -204,7 +209,7 @@ export default {
         }
 
         const top  = bestTop
-        const left = bestCol * (unitW + gap)
+        const left = Math.round(bestCol * unitW + gap / 2)
         for (let s = 0; s < span; s++) colH[bestCol + s] = top + totalH + gap
 
         return {
