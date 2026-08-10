@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (Dynamic 2D JS Masonry Engine) ──────────────
+// ── Home Portfolio Showcase Grid (Vertical Masonry Engine) ─────────────────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -65,32 +65,10 @@
                 filter 0.35s ease,
                 box-shadow 0.4s ease;
 
-    // Featured Hero Items span 2 columns
+    // Featured Hero Power Cards (Tall 380px cover height & 24px title typography)
     &--featured,
     &--hero {
-      border: 1px solid rgba(255, 255, 255, 0.12);
-
-      .home-mosaic-media {
-        height: to-rem(270);
-
-        @include layout-768() {
-          height: to-rem(310);
-        }
-      }
-
-      .home-mosaic-title {
-        font-size: to-rem(20);
-        letter-spacing: to-rem(1.2);
-
-        @include layout-768() {
-          font-size: to-rem(24);
-        }
-      }
-    }
-
-    // Single-Column Tall Featured Power Card (380px cover height)
-    &--tall-featured {
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.16);
 
       .home-mosaic-media {
         height: to-rem(320);
@@ -105,14 +83,44 @@
         letter-spacing: to-rem(1.2);
 
         @include layout-768() {
-          font-size: to-rem(23);
+          font-size: to-rem(24);
         }
       }
     }
 
-    &--wide {
+    &--tall-featured {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+
       .home-mosaic-media {
-        height: to-rem(220);
+        height: to-rem(290);
+
+        @include layout-768() {
+          height: to-rem(340);
+        }
+      }
+
+      .home-mosaic-title {
+        font-size: to-rem(19);
+
+        @include layout-768() {
+          font-size: to-rem(22);
+        }
+      }
+    }
+
+    &--tall {
+      .home-mosaic-media {
+        height: to-rem(260);
+
+        @include layout-768() {
+          height: to-rem(300);
+        }
+      }
+    }
+
+    &--standard {
+      .home-mosaic-media {
+        height: to-rem(210);
 
         @include layout-768() {
           height: to-rem(250);
@@ -120,22 +128,12 @@
       }
     }
 
-    &--tall {
-      .home-mosaic-media {
-        height: to-rem(270);
-
-        @include layout-768() {
-          height: to-rem(320);
-        }
-      }
-    }
-
     &--compact {
       .home-mosaic-media {
-        height: to-rem(190);
+        height: to-rem(180);
 
         @include layout-768() {
-          height: to-rem(210);
+          height: to-rem(200);
         }
       }
     }
