@@ -8,62 +8,66 @@
           <span v-else class="skeleton--shimmer" style="display: inline-block; width: 40%; height: 1em; border-radius: 4px"></span>
         </h2>
 
-        <!-- Mosaic Grid of Home Portfolio Items -->
-        <div v-if="processedItems.length" class="home-mosaic">
-          <router-link
-            v-for="(item, itemkey) in processedItems"
-            :key="itemkey"
-            :to="'/portfolio/' + item.link"
-            class="home-mosaic-item"
-            :class="[
-              'home-mosaic-item--' + item.variant,
-              {
-                'home-mosaic-item--featured': item.featured,
-                'home-mosaic-item--expanded': activeTouchIndex === itemkey || hoveredIndex === itemkey
-              }
-            ]"
-            @mouseenter="hoveredIndex = itemkey"
-            @mouseleave="hoveredIndex = null"
-            @click="handleItemClick($event, item, itemkey)"
-          >
-            <!-- Top Section: Cover Image -->
-            <div class="home-mosaic-media">
-              <img
-                decoding="async"
-                loading="lazy"
-                class="home-mosaic-img"
-                :src="storage + 'covers/' + item.image + ext"
-                :alt="item.label"
-              />
-              <div class="home-mosaic-title-overlay">
-                <h3 class="home-mosaic-title">{{ item.label }}</h3>
-              </div>
-            </div>
-
-            <!-- Bottom Section BELOW Image: Description & Button -->
-            <div class="home-mosaic-bottom">
-              <transition name="home-desc-expand">
-                <div v-if="activeTouchIndex === itemkey || hoveredIndex === itemkey" class="home-mosaic-details">
-                  <p v-if="item.description" class="home-mosaic-desc">
-                    <DrawText :text="item.description" :delay="8" />
-                  </p>
-                  <button class="home-mosaic-btn">
-                    {{ translations.explore || 'Check out' }}
-                  </button>
+        <!-- Mosaic Grid of Home Portfolio Items (JS Column Distributed) -->
+        <div v-if="processedItems.length" class="home-mosaic-columns">
+          <div v-for="(col, colIdx) in columns" :key="colIdx" class="home-mosaic-col">
+            <router-link
+              v-for="item in col"
+              :key="item.link"
+              :to="'/portfolio/' + item.link"
+              class="home-mosaic-item"
+              :class="[
+                'home-mosaic-item--' + item.variant,
+                {
+                  'home-mosaic-item--featured': item.featured,
+                  'home-mosaic-item--expanded': activeTouchIndex === item.link || hoveredIndex === item.link
+                }
+              ]"
+              @mouseenter="hoveredIndex = item.link"
+              @mouseleave="hoveredIndex = null"
+              @click="handleItemClick($event, item, item.link)"
+            >
+              <!-- Top Section: Cover Image -->
+              <div class="home-mosaic-media">
+                <img
+                  decoding="async"
+                  loading="lazy"
+                  class="home-mosaic-img"
+                  :src="storage + 'covers/' + item.image + ext"
+                  :alt="item.label"
+                />
+                <div class="home-mosaic-title-overlay">
+                  <h3 class="home-mosaic-title">{{ item.label }}</h3>
                 </div>
-              </transition>
-            </div>
-          </router-link>
+              </div>
+
+              <!-- Bottom Section BELOW Image: Description & Button -->
+              <div class="home-mosaic-bottom">
+                <transition name="home-desc-expand">
+                  <div v-if="activeTouchIndex === item.link || hoveredIndex === item.link" class="home-mosaic-details">
+                    <p v-if="item.description" class="home-mosaic-desc">
+                      <DrawText :text="item.description" :delay="8" />
+                    </p>
+                    <button class="home-mosaic-btn">
+                      {{ translations.explore || 'Check out' }}
+                    </button>
+                  </div>
+                </transition>
+              </div>
+            </router-link>
+          </div>
         </div>
 
         <!-- Loading Skeleton Grid -->
-        <div v-else class="home-mosaic">
-          <div
-            v-for="n in 6"
-            :key="n"
-            class="home-mosaic-item skeleton--shimmer"
-            :class="{ 'home-mosaic-item--featured': n === 1 || n === 4 }"
-          ></div>
+        <div v-else class="home-mosaic-columns">
+          <div v-for="c in 3" :key="c" class="home-mosaic-col">
+            <div
+              v-for="n in 2"
+              :key="n"
+              class="home-mosaic-item skeleton--shimmer"
+              style="height: 260px"
+            ></div>
+          </div>
         </div>
       </section>
     </div>
@@ -156,6 +160,7 @@ export default {
       activeTouchIndex: null,
       aboutTranslations: false,
       profilePicture: null,
+      viewportWidth: window.innerWidth,
     }
   },
 
@@ -187,6 +192,30 @@ export default {
         }
       })
     },
+
+    // Dynamic Shortest-Column Masonry Binning (3 columns desktop, 2 tablet, 1 mobile)
+    columns() {
+      if (!this.processedItems.length) return [[], [], []]
+      const count = this.viewportWidth >= 1024 ? 3 : this.viewportWidth >= 540 ? 2 : 1
+      const cols = Array.from({ length: count }, () => [])
+      const heights = Array(count).fill(0)
+
+      this.processedItems.forEach((item) => {
+        // Find shortest column
+        let minIdx = 0
+        for (let i = 1; i < count; i++) {
+          if (heights[i] < heights[minIdx]) minIdx = i
+        }
+
+        cols[minIdx].push(item)
+
+        // Estimated height for shortest column balance
+        const h = item.variant === 'hero' ? 340 : item.variant === 'tall' ? 330 : item.variant === 'wide' ? 290 : 220
+        heights[minIdx] += h
+      })
+
+      return cols
+    },
   },
 
   methods: {
@@ -197,19 +226,23 @@ export default {
       return false
     },
 
-    handleItemClick(e, item, itemkey) {
+    handleItemClick(e, item, itemlink) {
       const isTouch = this.has_touch || ('ontouchstart' in window) || window.matchMedia('(pointer: coarse)').matches
 
       if (isTouch) {
-        if (this.activeTouchIndex !== itemkey) {
+        if (this.activeTouchIndex !== itemlink) {
           // Tap 1: Prevent immediate navigation and trigger card expansion animation
           e.preventDefault()
           e.stopPropagation()
-          this.activeTouchIndex = itemkey
+          this.activeTouchIndex = itemlink
           return false
         }
         // Tap 2: Card is already expanded, proceed to project page!
       }
+    },
+
+    handleResize() {
+      this.viewportWidth = window.innerWidth
     },
   },
 
@@ -273,6 +306,11 @@ export default {
     if (!this.$route.meta?.scrollTo) {
       setTimeout(() => window.scrollTo(0, 0), 500)
     }
+    window.addEventListener('resize', this.handleResize)
+  },
+
+  beforeUnmount() {
+    window.removeEventListener('resize', this.handleResize)
   },
 }
 </script>
