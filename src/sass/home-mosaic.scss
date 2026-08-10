@@ -7,12 +7,11 @@
   @extend %MAXAREA;
 
   width: 100%;
-  padding-top: to-rem(110px); // Mobile menu clearance
+  padding-top: 0;
   padding-bottom: to-rem($space-2xl);
   box-sizing: border-box;
 
   @include layout-768() {
-    padding-top: to-rem(140px);
     padding-bottom: to-rem($space-3xl);
   }
 }

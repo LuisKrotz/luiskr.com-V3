@@ -17,12 +17,12 @@
     font-weight: 100;
     text-transform: uppercase;
     text-align: left;
-    padding: var(--space-3xl) 0 var(--space-xl);
+    padding-top: to-rem(100px);
     padding-bottom: to-rem($space-sm);
 
-    @include layout-768()  { padding: var(--space-3xl) 0 var(--space-xl); padding-bottom: to-rem($space-md); }
-    @include layout-1440() { padding: var(--space-4xl) 0 var(--space-2xl); padding-bottom: to-rem($space-lg); }
-    @include layout-2560() { padding: var(--space-5xl) 0 var(--space-3xl); }
+    @include layout-768()  { padding-top: var(--space-3xl); padding-bottom: to-rem($space-md); }
+    @include layout-1440() { padding-top: var(--space-4xl); padding-bottom: to-rem($space-lg); }
+    @include layout-2560() { padding-top: var(--space-5xl); padding-bottom: to-rem($space-3xl); }
 
     &--archive {
       @extend .ttl-md;
