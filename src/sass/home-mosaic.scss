@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (Grid-based Flicker-Free Layout) ────────────
+// ── Home Portfolio Showcase Grid (Flex Mosaic with Zero Empty Gaps) ─────────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -18,29 +18,18 @@
 }
 
 .home-mosaic {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; // Prevents neighboring items in the row from stretching height
   gap: to-rem($space-lg);
   width: 100%;
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
 
-  @include layout-540() {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include layout-1024() {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @include layout-1440() {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
   // When any card is hovered, non-hovered surrounding items react smoothly
   &:hover .home-mosaic-item:not(:hover) {
     opacity: 0.82;
-    transform: scale(0.97);
+    transform: scale(0.98);
     filter: brightness(0.92);
 
     .home-mosaic-bottom {
@@ -56,8 +45,9 @@
     flex-direction: column;
     overflow: hidden;
     border-radius: to-rem($space-lg);
-    grid-column: span 1;
+    flex: 1 1 to-rem(260);
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
     text-decoration: none;
     color: #ffffff;
@@ -68,16 +58,24 @@
                 filter 0.35s ease,
                 box-shadow 0.4s ease;
 
+    @include layout-540() {
+      flex: 1 1 to-rem(260);
+      width: auto;
+    }
+
+    // Featured items span wider across rows seamlessly
     &--featured {
-      @include layout-540() {
-        grid-column: span 2;
+      flex: 2 1 to-rem(480);
+
+      @include layout-1024() {
+        flex: 2 1 to-rem(560);
       }
     }
 
-    // Active Card expands in scale and height without wrapping lines or flickering line 2
+    // Active Card expands in scale and height without wrapping lines or flickering
     &:hover,
     &--expanded {
-      transform: translateY(-8px) scale(1.04);
+      transform: translateY(-8px) scale(1.03);
       box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
       z-index: 5;
       opacity: 1 !important;
@@ -92,7 +90,7 @@
       }
 
       .home-mosaic-img {
-        transform: scale(1.08);
+        transform: scale(1.06);
       }
 
       .home-mosaic-bottom {
