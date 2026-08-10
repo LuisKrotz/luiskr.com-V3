@@ -20,9 +20,10 @@
     padding-top: to-rem(100px);
     padding-bottom: to-rem($space-sm);
 
-    @include layout-768()  { padding-top: var(--space-3xl); padding-bottom: to-rem($space-md); }
-    @include layout-1440() { padding-top: var(--space-4xl); padding-bottom: to-rem($space-lg); }
-    @include layout-2560() { padding-top: var(--space-5xl); padding-bottom: to-rem($space-3xl); }
+    @include layout-768()  { padding-top: to-rem(120px); padding-bottom: to-rem($space-md); }
+    @include layout-1024() { padding-top: to-rem(140px); padding-bottom: to-rem($space-lg); }
+    @include layout-1440() { padding-top: to-rem(160px); padding-bottom: to-rem($space-xl); }
+    @include layout-2560() { padding-top: to-rem(180px); padding-bottom: to-rem($space-2xl); }
 
     &--archive {
       @extend .ttl-md;
