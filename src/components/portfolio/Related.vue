@@ -182,23 +182,26 @@ export default {
       const img = e.target
       if (!img) return
 
-      const triedCount = parseInt(img.dataset.triedCount || '0', 10)
-      img.dataset.triedCount = (triedCount + 1).toString()
+      const step = parseInt(img.dataset.errorStep || '0', 10)
+      img.dataset.errorStep = (step + 1).toString()
 
-      if (triedCount === 0) {
-        const alias = IMAGE_ALIAS_MAP[project.link]
-        if (alias && alias !== project.imageName) {
-          img.src = `${this.storage}covers/${alias}.jpg`
-          return
-        }
-      }
+      const link = project.link
+      const alias = IMAGE_ALIAS_MAP[link] || link
+      const firstWord = link.split('-')[0]
 
-      if (triedCount <= 1) {
-        const firstWord = project.link.split('-')[0]
-        if (firstWord && firstWord !== project.imageName) {
-          img.src = `${this.storage}covers/${firstWord}.jpg`
-          return
-        }
+      const candidates = [
+        `${this.storage}covers/${alias}.jpg`,
+        `${this.storage}covers/${alias}.png`,
+        `${this.storage}covers/${alias}.webp`,
+        `${this.storage}covers/${link}.jpg`,
+        `${this.storage}covers/${link}.png`,
+        `${this.storage}covers/${firstWord}.jpg`,
+        `${this.storage}covers/${firstWord}.png`,
+      ]
+
+      if (step < candidates.length) {
+        img.src = candidates[step]
+        return
       }
 
       img.style.opacity = '0'

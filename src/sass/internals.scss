@@ -429,7 +429,13 @@
       padding-bottom: to-rem($space-sm);
       max-width: to-rem($space-8xl);
       margin: 0 auto;
+      text-align: center;
       padding: to-rem($space-xl) to-rem($space-xl) to-rem($space-lg);
+
+      span {
+        display: inline-block;
+        text-align: center;
+      }
 
       @include layout-768() {
         padding: to-rem($space-3xl) to-rem($space-3xl) to-rem($space-2xl);
