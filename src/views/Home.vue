@@ -122,8 +122,8 @@ import DrawText from '../components/DrawText.vue'
 // Featured span 2 cols so their width is ~2x colW.
 // FEAT_MULT applies to itemW (the 2-col width), not colW.
 // 0.40 × 750px = 300px → 2.5:1 cinematic widescreen, clearly landscape, not square.
-const FEAT_MULT  = 0.40
-const COMP_MULTS = [0.34, 0.38, 0.32, 0.36, 0.33] // compact   image heights (vary for masonry stagger)
+const FEAT_MULT  = 0.30
+const COMP_MULTS = [0.25, 0.28, 0.23, 0.26, 0.24]
 const BOTTOM_H     = 130                            // px, description panel when expanded
 
 export default {
