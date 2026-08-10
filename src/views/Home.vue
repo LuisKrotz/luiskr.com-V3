@@ -140,12 +140,12 @@ import Contact from '../components/Contact.vue'
 import AwardsMentions from '../components/AwardsMentions.vue'
 import DrawText from '../components/DrawText.vue'
 
-// Aspect ratios used to compute card heights from column width.
-// Height = colW / ratio  — so images always look proportional at any resolution.
-const FEATURED_RATIO = 1.25    // wide landscape, featured (e.g. 390×312px at 3 cols)
-const COMPACT_RATIOS = [1.65, 1.9, 1.55, 1.8, 1.7]  // varied compact landscape ratios
-
-// Extra height when hovered/expanded (fixed px, looks fine at all sizes)
+// Fixed card heights in px.
+// At 3 cols (~390px colW): featured=280px → 1.39:1 landscape (4:3-ish, clear card).
+// Compact rotates through 180-215px → 1.8-2.2:1 landscape (16:9-ish).
+// Neither looks square. Featured is clearly ~40% taller than compact.
+const FEATURED_HEIGHT = 280
+const COMPACT_HEIGHTS = [195, 215, 180, 210, 190]
 const EXPAND_DELTA = 130
 
 export default {
@@ -220,15 +220,13 @@ export default {
       return this.hoveredIndex === idx || this.activeTouchIndex === idx
     },
 
-    // Returns base card height calculated from the current column width + item's aspect ratio.
-    // colW is passed in from layoutMasonry so heights always scale with the layout.
-    baseHeight(item, idx, colW) {
-      if (item.featured) return Math.round(colW / FEATURED_RATIO)
-      return Math.round(colW / COMPACT_RATIOS[idx % COMPACT_RATIOS.length])
+    baseHeight(item, idx) {
+      if (item.featured) return FEATURED_HEIGHT
+      return COMPACT_HEIGHTS[idx % COMPACT_HEIGHTS.length]
     },
 
-    cardHeight(item, idx, colW) {
-      return this.baseHeight(item, idx, colW) + (this.isActive(idx) ? EXPAND_DELTA : 0)
+    cardHeight(item, idx) {
+      return this.baseHeight(item, idx) + (this.isActive(idx) ? EXPAND_DELTA : 0)
     },
 
     layoutMasonry() {
@@ -246,8 +244,8 @@ export default {
       const colH = Array(cols).fill(0)
 
       this.itemStyles = this.processedItems.map((item, idx) => {
-        // Height derived from column width + aspect ratio — adapts to every resolution
-        const h = this.cardHeight(item, idx, colW)
+        // Height derived from fixed px constants (consistent landscape proportions)
+        const h = this.cardHeight(item, idx)
 
         // Shortest-column bin-packing: always fills the lowest column, zero gaps
         let col = 0
