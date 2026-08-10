@@ -140,11 +140,11 @@ import Contact from '../components/Contact.vue'
 import AwardsMentions from '../components/AwardsMentions.vue'
 import DrawText from '../components/DrawText.vue'
 
-// Non-featured items are deliberately compact — their smallness is what makes featured look big.
-const COMPACT_HEIGHTS = [140, 155, 130, 150, 145]
+// Non-featured: tall enough to look like a proper card, short enough to read as compact.
+const COMPACT_HEIGHTS = [180, 200, 175, 195, 185]
 
-// Featured items stay at a clean, proportional height. Not distorted, just naturally bigger.
-const FEATURED_HEIGHT = 320
+// Featured: ~50% taller than compact — clearly bigger, not distorted.
+const FEATURED_HEIGHT = 290
 
 // How much extra height is added when a card is hovered/expanded (description shown).
 const EXPAND_DELTA = 120
