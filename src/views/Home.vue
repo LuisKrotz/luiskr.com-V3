@@ -8,7 +8,7 @@
           <span v-else class="skeleton--shimmer" style="display: inline-block; width: 40%; height: 1em; border-radius: 4px"></span>
         </h2>
 
-        <!-- Mosaic Grid of Home Portfolio Items (Harmonic Masonry Engine) -->
+        <!-- Mosaic Grid of Home Portfolio Items -->
         <div
           v-if="processedItems.length"
           ref="mosaicContainer"
@@ -41,7 +41,6 @@
                 :src="storage + 'covers/' + item.image + ext"
                 :alt="item.label"
               />
-              <span v-if="item.featured" class="home-mosaic-badge">Featured</span>
               <div class="home-mosaic-title-overlay">
                 <h3 class="home-mosaic-title">{{ item.label }}</h3>
               </div>
@@ -273,7 +272,6 @@ export default {
         const left = targetCol * (colWidth + gap)
         const width = span === 2 ? colWidth * 2 + gap : colWidth
 
-        // Harmonic heights: Featured hero = 380px. Standard compact = 180px (two 180px cards stack = 360px + 20px gap = 380px!)
         let baseHeight = item.featured ? 380 : 180
 
         if (this.hoveredIndex === item.link || this.activeTouchIndex === item.link) {
