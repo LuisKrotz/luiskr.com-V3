@@ -44,7 +44,7 @@
     flex-direction: column;
     overflow: hidden;
     border-radius: to-rem($space-lg);
-    flex: 1 1 to-rem(260);
+    flex: 1 1 100%;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -57,17 +57,34 @@
                 filter 0.35s ease,
                 box-shadow 0.4s ease;
 
+    // Mobile landscape (540px+)
     @include layout-540() {
-      flex: 1 1 to-rem(260);
+      flex: 1 1 to-rem(220);
       width: auto;
     }
 
-    // Featured items span wider across rows seamlessly
-    &--featured {
-      flex: 2 1 to-rem(480);
+    // Tablet & iPad Air portrait (768px+)
+    @include layout-768() {
+      flex: 1 1 to-rem(240);
+    }
 
-      @include layout-1024() {
-        flex: 2 1 to-rem(560);
+    // Large Tablet & iPad Air 1180 / Desktop (960px+)
+    @include layout-960() {
+      flex: 1 1 to-rem(260);
+    }
+
+    // Featured items span wider across rows to form a rich organic mosaic
+    &--featured {
+      @include layout-540() {
+        flex: 2 1 to-rem(420);
+      }
+
+      @include layout-768() {
+        flex: 2 1 to-rem(480);
+      }
+
+      @include layout-960() {
+        flex: 2 1 to-rem(540);
       }
     }
 
