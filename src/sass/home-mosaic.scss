@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (12-Col Dense Packing Mosaic) ─────────────
+// ── Home Portfolio Showcase Grid (Fluid Flex Mosaic, Capped Non-Featured Width)
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -27,21 +27,13 @@
 }
 
 .home-mosaic {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-auto-flow: dense; // Automatically backfills gaps with smaller items (ZERO GAPS!)
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: to-rem($space-lg);
   width: 100%;
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
-
-  @include layout-540() {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  @include layout-1024() {
-    grid-template-columns: repeat(12, 1fr);
-  }
 
   // Hover reactivity on surrounding cards
   &:hover .home-mosaic-item:not(:hover) {
@@ -62,8 +54,9 @@
     flex-direction: column;
     overflow: hidden;
     border-radius: to-rem($space-lg);
-    grid-column: span 1;
+    flex: 1 1 100%;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
     text-decoration: none;
     color: #ffffff;
@@ -75,24 +68,34 @@
                 box-shadow 0.4s ease;
 
     @include layout-540() {
-      grid-column: span 3;
+      flex: 1 1 to-rem(220);
+      max-width: to-rem(360);
+      width: auto;
+    }
+
+    @include layout-768() {
+      flex: 1 1 to-rem(240);
+      max-width: to-rem(380);
     }
 
     @include layout-1024() {
-      grid-column: span 4; // Standard non-featured items take 4/12 (1/3) width on desktop! Never 100%!
+      flex: 1 1 to-rem(260);
+      max-width: to-rem(400);
     }
 
-    // Featured Hero Items span 8/12 (2/3 width) on desktop
+    // Featured items span 2x wider across rows organically
     &--featured,
     &--hero {
       border: 1px solid rgba(255, 255, 255, 0.12);
 
       @include layout-540() {
-        grid-column: span 6;
+        flex: 2.2 1 to-rem(440);
+        max-width: 100%;
       }
 
-      @include layout-1024() {
-        grid-column: span 8;
+      @include layout-960() {
+        flex: 2.5 1 to-rem(560);
+        max-width: 100%;
       }
 
       .home-mosaic-media {
@@ -115,11 +118,8 @@
 
     &--wide {
       @include layout-540() {
-        grid-column: span 6;
-      }
-
-      @include layout-1024() {
-        grid-column: span 6;
+        flex: 2 1 to-rem(400);
+        max-width: 100%;
       }
 
       .home-mosaic-media {
@@ -165,7 +165,7 @@
       }
 
       .home-mosaic-bottom {
-        max-height: to-rem(380);
+        max-height: 80%;
         padding: to-rem($space-md) to-rem($space-lg) to-rem($space-xl);
         opacity: 1;
       }
@@ -178,7 +178,6 @@
     width: 100%;
     height: to-rem(220);
     overflow: hidden;
-    transition: height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 
     @include layout-768() {
       height: to-rem(240);
@@ -220,19 +219,24 @@
     transition: font-size 0.3s ease;
   }
 
-  // Bottom Section: Normal flow expansion below cover image
+  // Bottom Section: Absolute Overlay on hover so item width/height NEVER flickers
   &-bottom {
-    position: relative;
-    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     max-height: 0;
     padding: 0 to-rem($space-lg);
     opacity: 0;
     overflow: hidden;
-    background: var(--bg-secondary, #1a1a1a);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                opacity 0.35s ease;
+    background: rgba(18, 18, 18, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.3s ease;
+    z-index: 3;
     box-sizing: border-box;
   }
 
