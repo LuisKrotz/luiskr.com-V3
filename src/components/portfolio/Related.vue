@@ -81,36 +81,26 @@
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
 
-const IMAGE_ALIAS_MAP = {
-  // Genesysinf / Sage
-  'genesysinf-sageweb': 'sage',
-  'genesysinf': 'sage',
-  'sageweb': 'sage',
+function normalizeSlug(str) {
+  if (!str) return ''
+  let s = String(str).toLowerCase().trim()
+  s = s.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '')
+  
+  if (s.includes('sage') || s.includes('genesys')) return 'sage'
+  if (s.includes('nathalia') || s.includes('bond') || s.includes('clinica')) return 'nathalia-bond'
+  if (s.includes('mini')) return 'mini-melissa'
+  if (s.includes('cicb') || s.includes('leather')) return 'cicb'
+  if (s.includes('marco')) return 'aboutmarco'
+  
+  return s.replace(/[^a-z0-9]/g, '')
+}
+
+const CANONICAL_IMAGE_MAP = {
   'sage': 'sage',
-
-  // Nathalia Bond
-  'clinica-de-desenvolvimento-nathalia-bond': 'nathalia-bond',
   'nathalia-bond': 'nathalia-bond',
-  'nathalia': 'nathalia-bond',
-  'bond': 'nathalia-bond',
-  'clinica-de-desenvolvimento': 'nathalia-bond',
-
-  // Minimelissa
-  'minimelissa': 'minimelissa',
-  'mini-melissa': 'minimelissa',
-  'mini_melissa': 'minimelissa',
-  'mini': 'minimelissa',
-
-  // Brazilian leather
-  'brazilian-leather': 'cicb',
+  'mini-melissa': 'mini-melissa',
   'cicb': 'cicb',
-
-  // Marco Almeida
   'aboutmarco': 'aboutmarco',
-  'marco-almeida': 'aboutmarco',
-  'marco': 'aboutmarco',
-
-  // Other portfolio projects
   'metcha': 'metcha',
   'transa': 'transa',
   'melissa': 'melissa',
@@ -144,18 +134,21 @@ export default {
 
       return rawProjects.map((p) => {
         const cleanLink = p.link ? p.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '') : ''
-        
+        const pNorm = normalizeSlug(cleanLink)
+
         const homeMatch = this.homePortfolio.find((h) => {
-          if (!h || !h.link) return false
-          const hLink = h.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '')
-          return hLink === cleanLink || hLink.includes(cleanLink) || cleanLink.includes(hLink)
+          if (!h) return false
+          const hNorm = normalizeSlug(h.link)
+          const hImgNorm = normalizeSlug(h.image)
+          return hNorm === pNorm || hImgNorm === pNorm || (hNorm && pNorm.includes(hNorm)) || (pNorm && hNorm.includes(pNorm))
         })
 
-        const resolvedImageName = homeMatch?.image || IMAGE_ALIAS_MAP[cleanLink] || p.image || cleanLink
+        const resolvedImageName = homeMatch?.image || CANONICAL_IMAGE_MAP[pNorm] || p.image || cleanLink
 
         return {
           page: p.page || homeMatch?.label || homeMatch?.title || cleanLink,
           link: cleanLink,
+          normSlug: pNorm,
           fullPath: (basePath.startsWith('/') ? '' : '/') + basePath.replace(/\/$/, '') + '/' + cleanLink,
           featured: p.featured === true || homeMatch?.featured === true,
           imageName: resolvedImageName,
@@ -204,29 +197,22 @@ export default {
       const step = parseInt(img.dataset.errorStep || '0', 10)
       img.dataset.errorStep = (step + 1).toString()
 
-      const link = project.link
-      const alias = IMAGE_ALIAS_MAP[link] || link
-      const parts = link.split('-')
-      const firstWord = parts[0]
-      const lastWord = parts[parts.length - 1]
+      const pNorm = project.normSlug
+      const canonical = CANONICAL_IMAGE_MAP[pNorm] || pNorm
 
       const candidates = [
-        `${this.storage}covers/${alias}.jpg`,
-        `${this.storage}covers/${alias}.png`,
-        `${this.storage}covers/${alias}.webp`,
-        `${this.storage}covers/${link}.jpg`,
-        `${this.storage}covers/${link}.png`,
-        `${this.storage}covers/${link}.webp`,
-        `${this.storage}covers/${lastWord}.jpg`,
-        `${this.storage}covers/${lastWord}.png`,
-        `${this.storage}covers/${firstWord}.jpg`,
-        `${this.storage}covers/${firstWord}.png`,
-        `${this.storage}covers/mini-melissa.jpg`,
-        `${this.storage}covers/minimelissa.jpg`,
+        `${this.storage}covers/${canonical}.jpg`,
+        `${this.storage}covers/${canonical}.png`,
+        `${this.storage}covers/${canonical}.webp`,
+        `${this.storage}covers/sage.jpg`,
         `${this.storage}covers/nathalia-bond.jpg`,
         `${this.storage}covers/nathalia.jpg`,
-        `${this.storage}covers/sage.jpg`,
-        `${this.storage}covers/genesysinf.jpg`,
+        `${this.storage}covers/mini-melissa.jpg`,
+        `${this.storage}covers/minimelissa.jpg`,
+        `${this.storage}covers/cicb.jpg`,
+        `${this.storage}covers/aboutmarco.jpg`,
+        `${this.storage}covers/${project.link}.jpg`,
+        `${this.storage}covers/${project.link}.png`,
       ]
 
       const currentSrc = img.src
