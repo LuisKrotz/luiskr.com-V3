@@ -140,14 +140,14 @@ import Contact from '../components/Contact.vue'
 import AwardsMentions from '../components/AwardsMentions.vue'
 import DrawText from '../components/DrawText.vue'
 
-// Non-featured: tall enough to look like a proper card, short enough to read as compact.
-const COMPACT_HEIGHTS = [180, 200, 175, 195, 185]
+// Non-featured: narrow 1-col cards — 4 fit per row on desktop (25% width each)
+const COMPACT_HEIGHTS = [180, 210, 165, 195, 175]
 
-// Featured: ~50% taller than compact — clearly bigger, not distorted.
-const FEATURED_HEIGHT = 290
+// Featured: 2-col wide (50% of row), proportional tall cover
+const FEATURED_HEIGHT = 300
 
-// How much extra height is added when a card is hovered/expanded (description shown).
-const EXPAND_DELTA = 120
+// Extra height when hovered
+const EXPAND_DELTA = 130
 
 export default {
   name: 'Home',
@@ -178,13 +178,33 @@ export default {
 
     processedItems() {
       if (!this.translations?.portfoliolist) return []
-      const list = Array.isArray(this.translations.portfoliolist)
+      const raw = Array.isArray(this.translations.portfoliolist)
         ? this.translations.portfoliolist
         : Object.values(this.translations.portfoliolist)
-      return list.map((item) => ({
-        ...item,
-        featured: this.isFeatured(item),
-      }))
+
+      // Tag each item
+      const tagged = raw.map((item) => ({ ...item, featured: this.isFeatured(item) }))
+
+      // Separate featured from non-featured
+      const featured = tagged.filter((i) => i.featured)
+      const compact = tagged.filter((i) => !i.featured)
+
+      // Interleave: insert one featured item every ~3 compact items
+      // so featured are evenly distributed throughout the masonry, not all at the end
+      const result = []
+      let fi = 0
+      let ci = 0
+      const step = Math.max(2, Math.floor(compact.length / Math.max(featured.length, 1)))
+      while (fi < featured.length || ci < compact.length) {
+        // Insert featured item
+        if (fi < featured.length) result.push(featured[fi++])
+        // Insert `step` compact items
+        for (let s = 0; s < step && ci < compact.length; s++) {
+          result.push(compact[ci++])
+        }
+      }
+
+      return result
     },
 
     activeBottomStyle() {
@@ -239,34 +259,44 @@ export default {
       if (!container || !this.processedItems.length) return
       const W = container.clientWidth
       if (!W) {
-        // Container not painted yet — retry after next frame
         setTimeout(() => this.layoutMasonry(), 50)
         return
       }
 
-      // Responsive column count
-      const cols = W >= 900 ? 3 : W >= 560 ? 2 : 1
-      const gap = 20
+      // 4 equal columns on desktop, 3 on tablet, 2 on small tablet, 1 on mobile
+      const cols = W >= 900 ? 4 : W >= 640 ? 3 : W >= 480 ? 2 : 1
+      const gap = 16
       const colW = Math.floor((W - gap * (cols - 1)) / cols)
       const colH = Array(cols).fill(0)
 
       this.itemStyles = this.processedItems.map((item, idx) => {
-        // Shortest-column bin-packing — true masonry, zero gaps
-        let col = 0
-        for (let i = 1; i < cols; i++) {
-          if (colH[i] < colH[col]) col = i
-        }
-        const top = colH[col]
-        const left = col * (colW + gap)
         const h = this.cardHeight(item, idx)
-        colH[col] = top + h + gap
+        const span = (item.featured && cols >= 2) ? 2 : 1  // featured spans 2 cols
 
-        return {
-          position: 'absolute',
-          top: top + 'px',
-          left: left + 'px',
-          width: colW + 'px',
-          height: h + 'px',
+        if (span === 2) {
+          // Find the adjacent pair of columns with the lowest combined height
+          let bestPair = 0
+          let bestTop = Math.max(colH[0], colH[1])
+          for (let i = 0; i <= cols - 2; i++) {
+            const t = Math.max(colH[i], colH[i + 1])
+            if (t < bestTop) { bestTop = t; bestPair = i }
+          }
+          const top = bestTop
+          const left = bestPair * (colW + gap)
+          const width = colW * 2 + gap
+          colH[bestPair] = top + h + gap
+          colH[bestPair + 1] = top + h + gap
+          return { position: 'absolute', top: top + 'px', left: left + 'px', width: width + 'px', height: h + 'px' }
+        } else {
+          // Shortest column for non-featured (1-col wide)
+          let col = 0
+          for (let i = 1; i < cols; i++) {
+            if (colH[i] < colH[col]) col = i
+          }
+          const top = colH[col]
+          const left = col * (colW + gap)
+          colH[col] = top + h + gap
+          return { position: 'absolute', top: top + 'px', left: left + 'px', width: colW + 'px', height: h + 'px' }
         }
       })
 
