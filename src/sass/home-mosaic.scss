@@ -2,14 +2,18 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (Untangled from Related) ─────────────────
+// ── Home Portfolio Showcase Grid (Contained in %MAXAREA) ─────────────────
 .home-portfolio-section {
+  @extend %MAXAREA;
+
   width: 100%;
-  padding: to-rem($space-2xl) to-rem($space-md);
+  padding-top: to-rem($space-2xl);
+  padding-bottom: to-rem($space-2xl);
   box-sizing: border-box;
 
   @include layout-768() {
-    padding: to-rem($space-3xl) to-rem($space-xl);
+    padding-top: to-rem($space-3xl);
+    padding-bottom: to-rem($space-3xl);
   }
 }
 
@@ -21,13 +25,18 @@
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
 
-  @include layout-768() {
-    grid-template-columns: repeat(6, 1fr);
+  @include layout-540() {
+    grid-template-columns: repeat(2, 1fr);
     gap: to-rem($space-lg);
   }
 
   @include layout-1024() {
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: to-rem($space-xl);
+  }
+
+  @include layout-1440() {
+    grid-template-columns: repeat(4, 1fr);
     gap: to-rem($space-xl);
   }
 
@@ -37,47 +46,43 @@
     flex-direction: column;
     justify-content: flex-end;
     overflow: hidden;
-    border-radius: to-rem($space-lg);
+    border-radius: to-rem($space-md);
     grid-column: span 1;
-    min-height: to-rem(240);
+    height: to-rem(220);
     aspect-ratio: 16 / 10;
     text-decoration: none;
     color: #ffffff;
     background: var(--bg-secondary);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.4s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s ease;
 
     @include layout-768() {
-      grid-column: span 3;
+      height: to-rem(240);
     }
 
-    @include layout-1024() {
-      grid-column: span 4;
-    }
-
-    // Featured items take wider grid area (span 8 cols on desktop)
+    // Featured items span 2 columns in the grid area
     &--featured {
-      aspect-ratio: 16 / 9;
-
-      @include layout-768() {
-        grid-column: span 6;
+      @include layout-540() {
+        grid-column: span 2;
+        height: to-rem(240);
+        aspect-ratio: 16 / 9;
       }
 
-      @include layout-1024() {
-        grid-column: span 8;
+      @include layout-768() {
+        height: to-rem(260);
       }
     }
 
     // Hover Expansion: card lifts smoothly without image distortion
     &:hover,
     &--hovered {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
       z-index: 2;
 
       .home-mosaic-img {
-        transform: scale(1.05);
+        transform: scale(1.04);
       }
 
       .home-mosaic-overlay {
@@ -104,7 +109,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   &-overlay {
@@ -116,7 +121,7 @@
       rgba(0, 0, 0, 0.2) 60%,
       transparent 100%
     );
-    transition: background 0.4s ease;
+    transition: background 0.35s ease;
   }
 
   &-content {
@@ -130,7 +135,7 @@
     pointer-events: none;
 
     @include layout-768() {
-      padding: to-rem($space-lg) to-rem($space-xl);
+      padding: to-rem($space-md) to-rem($space-lg);
     }
   }
 
@@ -149,8 +154,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: to-rem($space-md);
-    margin-top: to-rem($space-xs);
+    gap: to-rem($space-xs);
+    margin-top: to-rem($space-2xs);
     pointer-events: auto;
   }
 
@@ -160,7 +165,7 @@
     font-weight: 200;
     color: rgba(255, 255, 255, 0.92);
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-    line-height: 1.5;
+    line-height: 1.4;
 
     .draw-text__char {
       animation: char-draw 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -177,7 +182,7 @@
     display: inline-block;
     text-align: center;
     text-transform: uppercase;
-    padding: to-rem($space-xs) to-rem($space-lg);
+    padding: to-rem($space-2xs) to-rem($space-md);
     color: var(--grey, #cccccc);
     font-weight: 700;
     white-space: nowrap;
@@ -190,8 +195,8 @@
     &::after {
       content: '';
       position: absolute;
-      width: to-rem($space-md);
-      height: to-rem($space-md);
+      width: to-rem($space-sm);
+      height: to-rem($space-sm);
       transition: width 0.25s ease, height 0.25s ease;
     }
 
@@ -231,5 +236,5 @@
 .home-desc-expand-enter-from,
 .home-desc-expand-leave-to {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(6px);
 }
