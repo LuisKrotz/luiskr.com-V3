@@ -160,57 +160,45 @@ export default {
       return item.link && this.featuredLinks.has(item.link)
     },
 
-    // ── Variable-span masonry engine ─────────────────────────────────────────
+    // ── Simple N-column masonry ───────────────────────────────────────────────
     // ALL geometry (position, width, height) computed entirely in JS.
     //
-    // 56-unit base grid for fine-grained placement accuracy.
-    // Gap model: unitW = W/56 (purely positional, no inter-unit gaps)
-    //   itemW = span * unitW - gap  → visual gap between items is always exactly `gap`
-    //   left  = col  * unitW + gap/2
-    //
-    // Featured: 16 units (~299px at 1280px), compact: 8 units (~141px)
-    // LCM(16,8)=16 → tiles perfectly: 2feat+3comp=56 or 1feat+5comp=56
+    // Grid = N equal columns. Featured spans 2 cols. Compact spans 1 col.
+    // Bin-packer scans N column heights and places each item at the lowest slot.
+    // Gap is always exactly `gap` pixels between any two adjacent cards.
     layout() {
       const el = this.$refs.mosaicEl
       if (!el || !this.processedItems.length) return
       const W = el.clientWidth
       if (!W) { setTimeout(this.layout, 50); return }
 
-      const gap = 16
-
-      // Responsive grid: base units scale to keep items reasonable size
-      let totalUnits, featUnits, compUnits
-      if (W >= 900) {
-        totalUnits = 56; featUnits = 20; compUnits = 11  // desktop: featured~323px, compact~171px at 950px
-      } else if (W >= 580) {
-        totalUnits = 28; featUnits = 14; compUnits = 8   // tablet: featured~280px, compact~135px
-      } else {
-        totalUnits = 14; featUnits = 14; compUnits = 7   // mobile: 1 feat/row, 2 comp/row
-      }
-
-      const unitW = W / totalUnits
-      const colH  = Array(totalUnits).fill(0)
+      const gap  = 16
+      // N columns based on container width. Featured always 2-wide, compact 1-wide.
+      const N    = W >= 1050 ? 4 : W >= 680 ? 3 : W >= 420 ? 2 : 1
+      const colW = Math.floor((W - gap * (N - 1)) / N)
+      const colH = Array(N).fill(0)
 
       this.cards = this.processedItems.map((item, i) => {
         const active  = this.hoveredIdx === i || this.touchIdx === i
         const bottomH = active ? this.bottomH : 0
 
-        const span   = item.featured ? featUnits : compUnits
-        const itemW  = Math.round(span * unitW - gap)
+        // Featured: 2 cols wide (or 1 when N=1). Compact: always 1 col.
+        const span   = (item.featured && N > 1) ? 2 : 1
+        const itemW  = span * colW + (span - 1) * gap
         const mult   = item.featured ? FEAT_MULT : COMP_MULTS[i % COMP_MULTS.length]
         const imageH = Math.round(itemW * mult)
         const totalH = imageH + bottomH
 
-        // Find lowest available slot for this span across 56 units
+        // Find lowest starting column for this span
         let bestCol = 0, bestTop = Infinity
-        for (let c = 0; c <= totalUnits - span; c++) {
+        for (let c = 0; c <= N - span; c++) {
           let top = 0
           for (let s = 0; s < span; s++) top = Math.max(top, colH[c + s])
           if (top < bestTop) { bestTop = top; bestCol = c }
         }
 
         const top  = bestTop
-        const left = Math.round(bestCol * unitW + gap / 2)
+        const left = bestCol * (colW + gap)
         for (let s = 0; s < span; s++) colH[bestCol + s] = top + totalH + gap
 
         return {
@@ -258,12 +246,12 @@ export default {
     },
 
     skeletonStyle(n) {
-      const W    = window.innerWidth
-      const cols = W >= 900 ? 4 : W >= 580 ? 3 : 2
+      const W    = window.innerWidth - 178  // approximate container with MAXAREA padding
+      const N    = W >= 1050 ? 4 : W >= 680 ? 3 : W >= 420 ? 2 : 1
       const gap  = 16
-      const colW = Math.floor((W - gap * (cols - 1)) / cols)
-      const col  = (n - 1) % cols
-      const row  = Math.floor((n - 1) / cols)
+      const colW = Math.floor((W - gap * (N - 1)) / N)
+      const col  = (n - 1) % N
+      const row  = Math.floor((n - 1) / N)
       return { position:'absolute', top:row*(180+gap)+'px', left:col*(colW+gap)+'px', width:colW+'px', height:'180px', borderRadius:'16px' }
     },
   },
