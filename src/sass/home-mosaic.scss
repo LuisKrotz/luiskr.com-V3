@@ -64,10 +64,10 @@
               opacity 0.3s ease,
               filter 0.3s ease;
 
-  // Featured cards: 2-col wide, so they need a stronger visual presence
+  // Featured cards get a subtle border glow to distinguish them
   &--featured {
-    border: 1.5px solid rgba(255, 255, 255, 0.22);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
   }
 
   // Non-active sibling dimming when any card is hovered
@@ -133,11 +133,10 @@
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
   margin: 0;
 
-  // Featured cards (2-col wide) get a larger, more prominent title
+  // Featured cards get slightly larger title
   .home-mosaic-item--featured & {
-    font-size: to-rem(26);
-    font-weight: 100;
-    letter-spacing: 0.12em;
+    font-size: to-rem(22);
+    letter-spacing: 0.1em;
   }
 }
 
