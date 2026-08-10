@@ -2,12 +2,12 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid ───────────────────────────────────────────
+// ── Home Portfolio Showcase Grid (Interactive Reactive Masonry) ─────────────
 .home-portfolio-section {
   @extend %MAXAREA;
 
   width: 100%;
-  padding-top: to-rem(110px); // Top padding on mobile for menu clearance
+  padding-top: to-rem(110px); // Mobile menu clearance
   padding-bottom: to-rem($space-2xl);
   box-sizing: border-box;
 
@@ -20,11 +20,17 @@
 .home-mosaic {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start; // Ensures individual card height expansion never alters neighboring card heights
   gap: to-rem($space-lg);
   width: 100%;
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
+
+  // When any card is hovered, non-hovered surrounding items react smoothly
+  &:hover .home-mosaic-item:not(:hover) {
+    opacity: 0.82;
+    transform: scale(0.98);
+    filter: brightness(0.92);
+  }
 
   &-item {
     position: relative;
@@ -32,7 +38,7 @@
     flex-direction: column;
     overflow: hidden;
     border-radius: to-rem($space-lg);
-    flex: 1 1 100%;
+    flex: 1 1 to-rem(260);
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
@@ -40,7 +46,10 @@
     color: #ffffff;
     background: var(--bg-secondary, #1a1a1a);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transition: flex 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.35s ease,
+                filter 0.35s ease,
                 box-shadow 0.4s ease;
 
     @include layout-540() {
@@ -58,15 +67,18 @@
       }
     }
 
-    // Card expands downwards on hover without altering neighboring items
+    // Active Card expands in size and row weight; surrounding cards animate reactively
     &:hover,
     &--expanded {
-      transform: translateY(-4px);
+      flex: 3 1 to-rem(380);
+      transform: translateY(-6px) scale(1.02);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
       z-index: 5;
+      opacity: 1 !important;
+      filter: none !important;
 
       .home-mosaic-img {
-        transform: scale(1.04);
+        transform: scale(1.05);
       }
 
       .home-mosaic-bottom {
