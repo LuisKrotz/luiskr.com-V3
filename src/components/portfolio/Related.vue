@@ -6,8 +6,8 @@
     </h2>
 
     <div class="internal-footer-related">
-      <!-- Mosaic Grid of Projects -->
-      <div v-if="projectsList.length" class="related-mosaic">
+      <!-- Mosaic Grid of Projects (renders once dataset is loaded to prevent initial 404 race conditions) -->
+      <div v-if="projectsList.length && isDataReady" class="related-mosaic">
         <router-link
           v-for="(project, projectkey) in projectsList"
           :key="projectkey"
@@ -92,6 +92,10 @@ export default {
   },
 
   computed: {
+    isDataReady() {
+      return Boolean(this.$store.state.portfoliolist?.length || this.homePortfolio?.length)
+    },
+
     projectsList() {
       if (!this.translations?.projects) return []
 
@@ -100,7 +104,7 @@ export default {
         : Object.values(this.translations.projects)
 
       const basePath = this.translations.path || '/portfolio/'
-      const homeList = this.$store.state.portfoliolist.length
+      const homeList = this.$store.state.portfoliolist?.length
         ? this.$store.state.portfoliolist
         : this.homePortfolio
 
