@@ -121,7 +121,7 @@ import DrawText from '../components/DrawText.vue'
 // Featured items span (totalCols - 1) columns — big editorial piece.
 // Compact items span 1 column — small thumbnail.
 // Heights derived from item width × multiplier (always landscape, never square).
-const FEAT_MULT  = 0.42   // applied to featured item width (3-of-4 cols ≈ 820px → 344px, 2.4:1)
+const FEAT_MULT  = 0.28   // featured: 821px×0.28=230px (3.6:1) — smaller, clearly landscape
 const COMP_MULTS = [0.62, 0.68, 0.58, 0.65, 0.60]  // applied to compact colW (1-of-4 cols ≈ 263px → 163-179px)
 const BOTTOM_H   = 130
 
