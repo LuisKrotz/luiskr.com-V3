@@ -651,9 +651,21 @@
     @extend .txt-xs;
 
     font-weight: 200;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    margin-top: to-rem($space-2xs);
   }
+}
+
+.fade-desc-enter-active,
+.fade-desc-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.fade-desc-enter-from,
+.fade-desc-leave-to {
+  opacity: 0;
+  transform: translateY(4px);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

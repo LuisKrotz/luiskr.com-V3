@@ -14,6 +14,8 @@
           :to="project.fullPath"
           class="related-mosaic-item"
           :class="{ 'related-mosaic-item--featured': project.featured }"
+          @mouseenter="hoveredIndex = projectkey"
+          @mouseleave="hoveredIndex = null"
         >
           <div class="related-mosaic-media">
             <img
@@ -30,7 +32,11 @@
 
           <div class="related-mosaic-info">
             <span class="related-mosaic-title">{{ project.page }}</span>
-            <span v-if="project.description" class="related-mosaic-desc" v-html="project.description"></span>
+            <transition name="fade-desc">
+              <div v-if="hoveredIndex === projectkey && project.description" class="related-mosaic-desc">
+                <DrawText :text="project.description" :delay="25" />
+              </div>
+            </transition>
           </div>
         </router-link>
       </div>
@@ -79,19 +85,28 @@
 
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
+import DrawText from '../DrawText.vue'
 
 export default {
   name: 'Related',
 
+  components: {
+    DrawText,
+  },
+
   data() {
     return {
-      storage: this.$store.getters.getStorage,
       translations: {},
       homePortfolio: [],
+      hoveredIndex: null,
     }
   },
 
   computed: {
+    storage() {
+      return this.$store.getters.getStorage || 'https://storage.googleapis.com/luiskr.com/public/_v3/'
+    },
+
     projectsList() {
       if (!this.translations?.projects) return []
 
@@ -107,11 +122,22 @@ export default {
       return rawProjects.map((p) => {
         const cleanLink = p.link ? p.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '') : ''
 
-        // Match against live Firebase home portfolio dataset
+        // Generic dynamic matching by alphanumeric slug AND page title
         const homeMatch = homeList.find((h) => {
-          if (!h || !h.link) return false
-          const hLink = h.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '')
-          return hLink === cleanLink || cleanLink.includes(hLink) || hLink.includes(cleanLink)
+          if (!h) return false
+          const hLink = (h.link || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+          const hImg = (h.image || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+          const hLabel = (h.label || h.title || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+
+          const cLink = cleanLink.toLowerCase().replace(/[^a-z0-9]/g, '')
+          const pPage = (p.page || p.title || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+
+          if (hLink && cLink && (hLink === cLink || hImg === cLink)) return true
+          if (hLink && (cLink.includes(hLink) || hLink.includes(cLink))) return true
+          if (hImg && (cLink.includes(hImg) || hImg.includes(cLink))) return true
+          if (hLabel && pPage && (hLabel.includes(pPage) || pPage.includes(hLabel))) return true
+
+          return false
         })
 
         const image = homeMatch?.image || p.image || cleanLink
