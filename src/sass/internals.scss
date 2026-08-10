@@ -562,9 +562,13 @@
       display: none !important;
     }
 
-    // Featured items have slightly taller height for staggered visual variety
+    // Featured items stand out as significantly taller portrait cards (3/4 ratio)
     &--featured {
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 3 / 4;
+
+      @include layout-768() {
+        aspect-ratio: 3 / 4;
+      }
     }
 
     &:hover,
@@ -619,6 +623,14 @@
     @include layout-768() {
       padding: to-rem($space-lg) to-rem($space-xl);
     }
+
+    .related-mosaic-item--featured & {
+      padding: to-rem($space-lg) to-rem($space-lg) to-rem($space-xl);
+
+      @include layout-768() {
+        padding: to-rem($space-xl) to-rem($space-2xl);
+      }
+    }
   }
 
   &-title {
@@ -633,13 +645,13 @@
     transition: transform 0.3s ease;
 
     .related-mosaic-item--featured & {
-      font-size: to-rem(18);
+      font-size: to-rem(20);
 
       @include layout-768() {
-        font-size: to-rem(22);
+        font-size: to-rem(26);
       }
       @include layout-1024() {
-        font-size: to-rem(26);
+        font-size: to-rem(32);
       }
     }
   }
