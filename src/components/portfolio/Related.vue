@@ -23,6 +23,7 @@
               class="related-mosaic-img"
               loading="lazy"
               decoding="async"
+              @error="onImageError($event, project)"
             />
             <div v-else class="skeleton--media"></div>
             <div class="related-mosaic-overlay"></div>
@@ -80,20 +81,6 @@
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
 
-function resolveCoverFilename(link, pImage) {
-  if (pImage) return pImage
-  if (!link) return ''
-  const l = String(link).toLowerCase().replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '')
-
-  if (l.includes('sageweb') || l.includes('sage') || l.includes('genesys')) return 'sageweb'
-  if (l.includes('nathalia') || l.includes('bond') || l.includes('clinica')) return 'nathalia-bond'
-  if (l.includes('mini')) return 'minimelissa'
-  if (l.includes('cicb') || l.includes('leather')) return 'cicb'
-  if (l.includes('marco')) return 'aboutmarco'
-
-  return l
-}
-
 export default {
   name: 'Related',
 
@@ -127,7 +114,7 @@ export default {
           return hLink === cleanLink || cleanLink.includes(hLink) || hLink.includes(cleanLink)
         })
 
-        const image = homeMatch?.image || resolveCoverFilename(cleanLink, p.image)
+        const image = homeMatch?.image || p.image || cleanLink
 
         return {
           page: p.page || homeMatch?.label || homeMatch?.title || cleanLink,
@@ -173,6 +160,28 @@ export default {
           }
         })
         .catch(console.error)
+    },
+    onImageError(e, project) {
+      const img = e.target
+      if (!img || img.dataset.triedFallback) return
+      img.dataset.triedFallback = 'true'
+
+      const link = project.link || ''
+      const parts = link.split('-')
+      const firstWord = parts[0]
+      const lastWord = parts[parts.length - 1]
+      const noHyphen = link.replace(/-/g, '')
+
+      const fallbacks = [
+        `${this.storage}covers/${firstWord}.jpg`,
+        `${this.storage}covers/${lastWord}.jpg`,
+        `${this.storage}covers/${noHyphen}.jpg`,
+      ]
+
+      const nextSrc = fallbacks.find((src) => src !== img.src)
+      if (nextSrc) {
+        img.src = nextSrc
+      }
     },
   },
 }
