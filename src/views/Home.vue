@@ -17,10 +17,11 @@
             class="home-mosaic-item"
             :class="{
               'home-mosaic-item--featured': isFeatured(item),
-              'home-mosaic-item--expanded': hoveredIndex === itemkey
+              'home-mosaic-item--expanded': activeTouchIndex === itemkey || hoveredIndex === itemkey
             }"
             @mouseenter="hoveredIndex = itemkey"
             @mouseleave="hoveredIndex = null"
+            @click="handleItemClick($event, item, itemkey)"
           >
             <!-- Top Section: Cover Image -->
             <div class="home-mosaic-media">
@@ -36,10 +37,10 @@
               </div>
             </div>
 
-            <!-- Bottom Section BELOW Image: Description & Button (Expands on Hover) -->
+            <!-- Bottom Section BELOW Image: Description & Button (Expands on Tap 1 / Hover) -->
             <div class="home-mosaic-bottom">
               <transition name="home-desc-expand">
-                <div v-if="hoveredIndex === itemkey" class="home-mosaic-details">
+                <div v-if="activeTouchIndex === itemkey || hoveredIndex === itemkey" class="home-mosaic-details">
                   <p v-if="item.description" class="home-mosaic-desc">
                     <DrawText :text="item.description" :delay="8" />
                   </p>
@@ -149,6 +150,7 @@ export default {
       ext: '.jpg',
       featuredLinks: new Set(),
       hoveredIndex: null,
+      activeTouchIndex: null,
       aboutTranslations: false,
       profilePicture: null,
     }
@@ -164,6 +166,21 @@ export default {
     isFeatured(item) {
       if (!item) return false
       return this.featuredLinks.has(item.link) || item.featured === true
+    },
+
+    handleItemClick(e, item, itemkey) {
+      const isTouch = this.has_touch || ('ontouchstart' in window) || window.matchMedia('(pointer: coarse)').matches
+
+      if (isTouch) {
+        if (this.activeTouchIndex !== itemkey) {
+          // Tap 1: Prevent immediate navigation and trigger card expansion animation
+          e.preventDefault()
+          e.stopPropagation()
+          this.activeTouchIndex = itemkey
+          return false
+        }
+        // Tap 2: Card is already expanded, proceed to project page!
+      }
     },
   },
 
