@@ -7,7 +7,7 @@
   @extend %MAXAREA;
 
   width: 100%;
-  padding-top: to-rem(110px); // Top padding on mobile to provide clearance under nav menu
+  padding-top: to-rem(110px); // Top padding on mobile for menu clearance
   padding-bottom: to-rem($space-2xl);
   box-sizing: border-box;
 
@@ -20,6 +20,7 @@
 .home-mosaic {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start; // Ensures individual card height expansion never alters neighboring card heights
   gap: to-rem($space-lg);
   width: 100%;
   box-sizing: border-box;
@@ -37,10 +38,10 @@
     box-sizing: border-box;
     text-decoration: none;
     color: #ffffff;
-    background: var(--bg-secondary, #1e1e1e);
+    background: var(--bg-secondary, #1a1a1a);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.35s ease;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s ease;
 
     @include layout-540() {
       flex: 1 1 to-rem(260);
@@ -57,21 +58,20 @@
       }
     }
 
-    // Hover Animation strictly isolated to the triggered item
+    // Card expands downwards on hover without altering neighboring items
     &:hover,
     &--expanded {
-      transform: translateY(-6px);
+      transform: translateY(-4px);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
       z-index: 5;
 
       .home-mosaic-img {
-        transform: scale(1.05);
+        transform: scale(1.04);
       }
 
-      // Expand bottom details overlay strictly within this item
       .home-mosaic-bottom {
-        max-height: 80%;
-        padding: to-rem($space-md) to-rem($space-lg);
+        max-height: to-rem(320);
+        padding: to-rem($space-md) to-rem($space-lg) to-rem($space-lg);
         opacity: 1;
       }
     }
@@ -81,11 +81,11 @@
   &-media {
     position: relative;
     width: 100%;
-    height: to-rem(240);
+    height: to-rem(220);
     overflow: hidden;
 
     @include layout-768() {
-      height: to-rem(280);
+      height: to-rem(250);
     }
   }
 
@@ -123,24 +123,20 @@
     margin: 0;
   }
 
-  // Bottom Section BELOW/OVERLAY Image: Isolated overlay expansion
+  // Bottom Section BELOW Image: Normal flow expansion below cover image
   &-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: relative;
+    width: 100%;
     max-height: 0;
     padding: 0 to-rem($space-lg);
     opacity: 0;
     overflow: hidden;
-    background: rgba(18, 18, 18, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                padding 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                opacity 0.3s ease;
-    z-index: 3;
+    background: var(--bg-secondary, #1a1a1a);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.35s ease;
+    box-sizing: border-box;
   }
 
   &-details {
@@ -150,7 +146,7 @@
     gap: to-rem($space-sm);
   }
 
-  // Description with larger font size (15px) and font-weight 200
+  // Description with 15px font size and font-weight 200
   &-desc {
     @extend .txt-sm;
     font-family: 'Raleway', sans-serif;
