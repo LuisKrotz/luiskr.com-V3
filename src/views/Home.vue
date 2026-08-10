@@ -140,11 +140,11 @@ import Contact from '../components/Contact.vue'
 import AwardsMentions from '../components/AwardsMentions.vue'
 import DrawText from '../components/DrawText.vue'
 
-// Non-featured items rotate through distinct heights — never uniform squares.
-const COMPACT_HEIGHTS = [200, 230, 190, 220, 210]
+// Non-featured items are deliberately compact — their smallness is what makes featured look big.
+const COMPACT_HEIGHTS = [140, 155, 130, 150, 145]
 
-// Featured items are dramatically taller so they're obviously bigger.
-const FEATURED_HEIGHT = 480
+// Featured items stay at a clean, proportional height. Not distorted, just naturally bigger.
+const FEATURED_HEIGHT = 320
 
 // How much extra height is added when a card is hovered/expanded (description shown).
 const EXPAND_DELTA = 120
