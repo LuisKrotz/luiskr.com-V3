@@ -29,7 +29,8 @@
   border-radius: to-rem($space-lg);
   text-decoration: none;
   color: #ffffff;
-  background: var(--bg-secondary, #1a1a1a);
+  // Always dark — photo cards look wrong on a light background
+  background: var(--bg-dark, #262626);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
   container-type: inline-size;  // enables cqw units for child text
@@ -119,7 +120,8 @@
 .home-mosaic-bottom {
   // transition on height so panel animates smoothly
   transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
-  background: var(--bg-secondary, #1a1a1a);
+  // Always dark to match card image aesthetic in both light and dark mode
+  background: var(--bg-dark, #262626);
   border-top: 1px solid rgba(255, 255, 255, 0.07);
   box-sizing: border-box;
 }

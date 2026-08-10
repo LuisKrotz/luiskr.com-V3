@@ -181,11 +181,11 @@ export default {
       // Responsive grid: base units scale to keep items reasonable size
       let totalUnits, featUnits, compUnits
       if (W >= 900) {
-        totalUnits = 56; featUnits = 16; compUnits = 8  // desktop
+        totalUnits = 56; featUnits = 20; compUnits = 11  // desktop: featured~323px, compact~171px at 950px
       } else if (W >= 580) {
-        totalUnits = 28; featUnits = 10; compUnits = 5  // tablet
+        totalUnits = 28; featUnits = 14; compUnits = 8   // tablet: featured~280px, compact~135px
       } else {
-        totalUnits = 14; featUnits = 14; compUnits = 7  // mobile
+        totalUnits = 14; featUnits = 14; compUnits = 7   // mobile: 1 feat/row, 2 comp/row
       }
 
       const unitW = W / totalUnits
