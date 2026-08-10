@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (Dynamic Size Variety Mosaic) ──────────────
+// ── Home Portfolio Showcase Grid (JS-Driven Dynamic Flex Mosaic) ────────────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -67,35 +67,14 @@
                 filter 0.35s ease,
                 box-shadow 0.4s ease;
 
-    // Mobile landscape (540px+) & Tablet/Desktop Size Variations:
-    // Variant A: Standard compact items
     @include layout-540() {
       flex: 1 1 to-rem(220);
       width: auto;
     }
 
-    @include layout-768() {
-      flex: 1 1 to-rem(240);
-    }
-
-    @include layout-1024() {
-      flex: 1 1 to-rem(260);
-    }
-
-    // Explicit featured item override
-    &--featured {
-      @include layout-540() {
-        flex: 2 1 to-rem(440);
-      }
-
-      @include layout-960() {
-        flex: 2.5 1 to-rem(560);
-      }
-    }
-
-    // Dynamic Rhythmic Size Variety across the mosaic sequence (6-item cycle)
-    // 1. Hero Large Card (item 1, 7, 13...)
-    &:nth-child(6n + 1) {
+    // JS-Assigned Size Variants:
+    // 1. Hero Variant (Featured Priority #1)
+    &--hero {
       @include layout-768() {
         flex: 2.8 1 to-rem(540);
 
@@ -105,15 +84,15 @@
       }
     }
 
-    // 2. Medium Wide Card (item 2, 8, 14...)
-    &:nth-child(6n + 2) {
+    // 2. Wide Variant (Featured Priority #2)
+    &--wide {
       @include layout-768() {
-        flex: 1.8 1 to-rem(360);
+        flex: 2 1 to-rem(440);
       }
     }
 
-    // 3. Tall Portrait-Aspect Card for vertical rhythm (item 3, 9...)
-    &:nth-child(6n + 3) {
+    // 3. Tall Variant (Vertical Rhythm)
+    &--tall {
       @include layout-768() {
         flex: 1.2 1 to-rem(280);
 
@@ -123,17 +102,10 @@
       }
     }
 
-    // 4. Compact Card (item 4, 10...)
-    &:nth-child(6n + 4) {
+    // 4. Compact Variant (Standard)
+    &--compact {
       @include layout-768() {
         flex: 1 1 to-rem(240);
-      }
-    }
-
-    // 5. Featured Wide Card (item 5, 11...)
-    &:nth-child(6n + 5) {
-      @include layout-768() {
-        flex: 2.2 1 to-rem(460);
       }
     }
 

@@ -9,16 +9,19 @@
         </h2>
 
         <!-- Mosaic Grid of Home Portfolio Items -->
-        <div v-if="translations?.portfoliolist?.length" class="home-mosaic">
+        <div v-if="processedItems.length" class="home-mosaic">
           <router-link
-            v-for="(item, itemkey) in translations.portfoliolist"
+            v-for="(item, itemkey) in processedItems"
             :key="itemkey"
             :to="'/portfolio/' + item.link"
             class="home-mosaic-item"
-            :class="{
-              'home-mosaic-item--featured': isFeatured(item),
-              'home-mosaic-item--expanded': activeTouchIndex === itemkey || hoveredIndex === itemkey
-            }"
+            :class="[
+              'home-mosaic-item--' + item.variant,
+              {
+                'home-mosaic-item--featured': item.featured,
+                'home-mosaic-item--expanded': activeTouchIndex === itemkey || hoveredIndex === itemkey
+              }
+            ]"
             @mouseenter="hoveredIndex = itemkey"
             @mouseleave="hoveredIndex = null"
             @click="handleItemClick($event, item, itemkey)"
@@ -37,7 +40,7 @@
               </div>
             </div>
 
-            <!-- Bottom Section BELOW Image: Description & Button (Expands on Tap 1 / Hover) -->
+            <!-- Bottom Section BELOW Image: Description & Button -->
             <div class="home-mosaic-bottom">
               <transition name="home-desc-expand">
                 <div v-if="activeTouchIndex === itemkey || hoveredIndex === itemkey" class="home-mosaic-details">
@@ -159,6 +162,32 @@ export default {
   computed: {
     mentions() {
       return this.$store.getters.getMentions
+    },
+
+    processedItems() {
+      if (!this.translations?.portfoliolist) return []
+      const list = Array.isArray(this.translations.portfoliolist)
+        ? this.translations.portfoliolist
+        : Object.values(this.translations.portfoliolist)
+
+      return list.map((item, idx) => {
+        const featured = this.isFeatured(item)
+        let variant = 'compact'
+
+        if (featured) {
+          // Featured items get hero or wide priority based on position
+          variant = idx % 3 === 0 ? 'hero' : 'wide'
+        } else {
+          // Non-featured items get tall or compact rhythm
+          variant = idx % 4 === 2 ? 'tall' : 'compact'
+        }
+
+        return {
+          ...item,
+          featured,
+          variant,
+        }
+      })
     },
   },
 
