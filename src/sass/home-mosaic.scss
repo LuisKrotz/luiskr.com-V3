@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (Contained in %MAXAREA, Zero Empty Gaps) ────
+// ── Home Portfolio Showcase Grid ───────────────────────────────────────────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -20,70 +20,62 @@
 .home-mosaic {
   display: flex;
   flex-wrap: wrap;
-  gap: to-rem($space-md);
+  gap: to-rem($space-lg);
   width: 100%;
   box-sizing: border-box;
   margin-top: to-rem($space-xl);
-
-  @include layout-768() {
-    gap: to-rem($space-lg);
-  }
 
   &-item {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     overflow: hidden;
     border-radius: to-rem($space-lg);
-    flex: 1 1 to-rem(260);
-    min-height: to-rem(200);
-    aspect-ratio: 16 / 10;
+    flex: 1 1 to-rem(280);
     text-decoration: none;
     color: #ffffff;
-    background: var(--bg-secondary);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.35s ease;
+    background: var(--bg-secondary, #1e1e1e);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s ease;
 
-    // Featured items are wider (flex-grow 2) to span across rows seamlessly
     &--featured {
-      flex: 2 1 to-rem(480);
-      aspect-ratio: 16 / 9;
+      flex: 2 1 to-rem(500);
 
       @include layout-1024() {
-        flex: 2 1 to-rem(560);
+        flex: 2 1 to-rem(580);
       }
     }
 
-    // Hover Expansion: card lifts smoothly without image distortion
+    // Card increases size and elevates on hover with smooth animation
     &:hover,
-    &--hovered {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
-      z-index: 2;
+    &--expanded {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      z-index: 5;
 
       .home-mosaic-img {
-        transform: scale(1.04);
+        transform: scale(1.06);
       }
 
-      .home-mosaic-overlay {
-        background: linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.95) 0%,
-          rgba(0, 0, 0, 0.65) 60%,
-          rgba(0, 0, 0, 0.15) 100%
-        );
+      .home-mosaic-bottom {
+        max-height: to-rem(240);
+        padding: to-rem($space-md) to-rem($space-lg) to-rem($space-lg);
+        opacity: 1;
       }
     }
   }
 
+  // Top Section: Image container
   &-media {
-    position: absolute;
-    inset: 0;
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: to-rem(220);
     overflow: hidden;
+
+    @include layout-768() {
+      height: to-rem(250);
+    }
   }
 
   &-img {
@@ -91,34 +83,21 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  &-overlay {
+  &-title-overlay {
     position: absolute;
     inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: to-rem($space-md) to-rem($space-lg);
     background: linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.85) 0%,
       rgba(0, 0, 0, 0.2) 60%,
       transparent 100%
     );
-    transition: background 0.35s ease;
-  }
-
-  &-content {
-    position: relative;
-    z-index: 1;
-    padding: to-rem($space-md) to-rem($space-lg);
-    display: flex;
-    flex-direction: column;
-    gap: to-rem($space-xs);
-    text-align: left;
-    pointer-events: none;
-
-    @include layout-768() {
-      padding: to-rem($space-lg) to-rem($space-xl);
-    }
   }
 
   &-title {
@@ -128,17 +107,28 @@
     text-transform: uppercase;
     letter-spacing: to-rem(0.8);
     color: #ffffff;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
     margin: 0;
+  }
+
+  // Bottom Section BELOW Image: Description & Button
+  &-bottom {
+    max-height: 0;
+    padding: 0 to-rem($space-lg);
+    opacity: 0;
+    overflow: hidden;
+    background: rgba(24, 24, 24, 0.96);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                padding 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.35s ease;
   }
 
   &-details {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: to-rem($space-xs);
-    margin-top: to-rem($space-2xs);
-    pointer-events: auto;
+    gap: to-rem($space-sm);
   }
 
   &-desc {
@@ -147,15 +137,15 @@
     font-weight: 200;
     color: rgba(255, 255, 255, 0.92);
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-    line-height: 1.4;
+    line-height: 1.45;
 
     .draw-text__char {
-      animation: char-draw 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 15ms));
+      animation: char-draw 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 8ms));
     }
   }
 
-  // ── Corner-Border Action Button (Matches previous layout & internals pattern) ──
+  // Corner-Border Action Button
   &-btn {
     @extend %RESETBTN;
     @extend .ttl-xs;
@@ -164,7 +154,7 @@
     display: inline-block;
     text-align: center;
     text-transform: uppercase;
-    padding: to-rem($space-2xs) to-rem($space-md);
+    padding: to-rem($space-xs) to-rem($space-lg);
     color: var(--grey, #cccccc);
     font-weight: 700;
     white-space: nowrap;
@@ -209,10 +199,9 @@
   }
 }
 
-// Card details expansion transition on Home
 .home-desc-expand-enter-active,
 .home-desc-expand-leave-active {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .home-desc-expand-enter-from,

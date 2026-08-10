@@ -17,11 +17,12 @@
             class="home-mosaic-item"
             :class="{
               'home-mosaic-item--featured': isFeatured(item),
-              'home-mosaic-item--hovered': hoveredIndex === itemkey
+              'home-mosaic-item--expanded': hoveredIndex === itemkey
             }"
             @mouseenter="hoveredIndex = itemkey"
             @mouseleave="hoveredIndex = null"
           >
+            <!-- Top Section: Cover Image -->
             <div class="home-mosaic-media">
               <img
                 decoding="async"
@@ -30,16 +31,17 @@
                 :src="storage + 'covers/' + item.image + ext"
                 :alt="item.label"
               />
-              <div class="home-mosaic-overlay"></div>
+              <div class="home-mosaic-title-overlay">
+                <h3 class="home-mosaic-title">{{ item.label }}</h3>
+              </div>
             </div>
 
-            <div class="home-mosaic-content">
-              <h3 class="home-mosaic-title">{{ item.label }}</h3>
-
+            <!-- Bottom Section BELOW Image: Description & Button (Expands on Hover) -->
+            <div class="home-mosaic-bottom">
               <transition name="home-desc-expand">
                 <div v-if="hoveredIndex === itemkey" class="home-mosaic-details">
                   <p v-if="item.description" class="home-mosaic-desc">
-                    <DrawText :text="item.description" :delay="20" />
+                    <DrawText :text="item.description" :delay="8" />
                   </p>
                   <button class="home-mosaic-btn">
                     {{ translations.explore || 'Check out' }}
