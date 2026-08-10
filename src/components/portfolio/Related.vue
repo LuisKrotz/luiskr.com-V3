@@ -146,7 +146,7 @@ export default {
           page: p.page || homeMatch?.label || homeMatch?.title || cleanLink,
           link: cleanLink,
           fullPath: (basePath.startsWith('/') ? '' : '/') + basePath.replace(/\/$/, '') + '/' + cleanLink,
-          featured: p.featured === true || homeMatch?.featured === true,
+          featured: p.featured === true,
           imageSrc: `${this.storage}covers/${image}.jpg`,
           description: homeMatch?.description || p.description || '',
         }

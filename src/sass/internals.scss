@@ -540,6 +540,7 @@
     overflow: hidden;
     border-radius: to-rem($space-lg);
     flex: 1 1 to-rem(260);
+    max-width: to-rem(360);
     min-height: to-rem(200);
     aspect-ratio: 16 / 10;
     text-decoration: none;
@@ -555,6 +556,7 @@
     // Featured items are WIDER (flex-grow 2) to span wider across rows
     &--featured {
       flex: 2 1 to-rem(480);
+      max-width: 100%;
       aspect-ratio: 16 / 9;
 
       @include layout-1024() {
