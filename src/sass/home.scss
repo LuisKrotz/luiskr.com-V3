@@ -17,13 +17,13 @@
     font-weight: 100;
     text-transform: uppercase;
     text-align: left;
-    padding-top: to-rem(100px);
+    padding-top: to-rem(100);
     padding-bottom: to-rem($space-sm);
 
-    @include layout-768()  { padding-top: to-rem(120px); padding-bottom: to-rem($space-md); }
-    @include layout-1024() { padding-top: to-rem(140px); padding-bottom: to-rem($space-lg); }
-    @include layout-1440() { padding-top: to-rem(160px); padding-bottom: to-rem($space-xl); }
-    @include layout-2560() { padding-top: to-rem(180px); padding-bottom: to-rem($space-2xl); }
+    @include layout-768()  { padding-top: to-rem(120); padding-bottom: to-rem($space-md); }
+    @include layout-1024() { padding-top: to-rem(140); padding-bottom: to-rem($space-lg); }
+    @include layout-1440() { padding-top: to-rem(160); padding-bottom: to-rem($space-xl); }
+    @include layout-2560() { padding-top: to-rem(180); padding-bottom: to-rem($space-2xl); }
 
     &--archive {
       @extend .ttl-md;

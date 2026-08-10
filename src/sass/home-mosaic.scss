@@ -7,17 +7,17 @@
   @extend %MAXAREA;
 
   width: 100%;
-  padding-top: to-rem(100px) !important; // Top padding clearance under fixed navbar
+  padding-top: to-rem(100) !important; // Top padding clearance under fixed navbar
   padding-bottom: to-rem($space-2xl);
   box-sizing: border-box;
 
   @include layout-768() {
-    padding-top: to-rem(130px) !important;
+    padding-top: to-rem(130) !important;
     padding-bottom: to-rem($space-3xl);
   }
 
   @include layout-1024() {
-    padding-top: to-rem(150px) !important;
+    padding-top: to-rem(150) !important;
   }
 
   .home-section-title {
