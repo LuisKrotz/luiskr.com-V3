@@ -122,8 +122,8 @@ import DrawText from '../components/DrawText.vue'
 // Featured span 2 cols so their width is ~2x colW.
 // FEAT_MULT applies to itemW (the 2-col width), not colW.
 // 0.40 × 750px = 300px → 2.5:1 cinematic widescreen, clearly landscape, not square.
-const FEAT_MULT  = 0.45                             // featured: tall cinematic (750×0.45=338px, 2.2:1)
-const COMP_MULTS = [0.27, 0.30, 0.25, 0.29, 0.26]  // compact:  small tiles (367×0.27=99px)
+const FEAT_MULT  = 0.50                             // featured: 750×0.50=375px (2:1), cinematic proper card
+const COMP_MULTS = [0.56, 0.60, 0.53, 0.58, 0.55]  // compact:  367×0.56=206px (16:9), proper cards not strips
 const BOTTOM_H     = 130                            // px, description panel when expanded
 
 export default {
