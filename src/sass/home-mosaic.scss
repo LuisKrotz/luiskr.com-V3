@@ -2,7 +2,7 @@
 @import '_mixins';
 @import '_placeholders';
 
-// ── Home Portfolio Showcase Grid (2D JS Masonry Layout Engine) ──────────────
+// ── Home Portfolio Showcase Grid (Dynamic 2D JS Masonry Engine) ──────────────
 .home-portfolio-section {
   @extend %MAXAREA;
 
@@ -88,32 +88,54 @@
       }
     }
 
-    &--wide {
+    // Single-Column Tall Featured Power Card (380px cover height)
+    &--tall-featured {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+
       .home-mosaic-media {
-        height: to-rem(240);
+        height: to-rem(320);
 
         @include layout-768() {
-          height: to-rem(260);
+          height: to-rem(380);
+        }
+      }
+
+      .home-mosaic-title {
+        font-size: to-rem(20);
+        letter-spacing: to-rem(1.2);
+
+        @include layout-768() {
+          font-size: to-rem(23);
+        }
+      }
+    }
+
+    &--wide {
+      .home-mosaic-media {
+        height: to-rem(220);
+
+        @include layout-768() {
+          height: to-rem(250);
         }
       }
     }
 
     &--tall {
       .home-mosaic-media {
-        height: to-rem(280);
+        height: to-rem(270);
 
         @include layout-768() {
-          height: to-rem(300);
+          height: to-rem(320);
         }
       }
     }
 
     &--compact {
       .home-mosaic-media {
-        height: to-rem(200);
+        height: to-rem(190);
 
         @include layout-768() {
-          height: to-rem(220);
+          height: to-rem(210);
         }
       }
     }

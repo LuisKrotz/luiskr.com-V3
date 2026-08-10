@@ -8,7 +8,7 @@
           <span v-else class="skeleton--shimmer" style="display: inline-block; width: 40%; height: 1em; border-radius: 4px"></span>
         </h2>
 
-        <!-- Mosaic Grid of Home Portfolio Items (2D JS Masonry Engine) -->
+        <!-- Mosaic Grid of Home Portfolio Items (Dynamic 2D JS Masonry Engine) -->
         <div
           v-if="processedItems.length"
           ref="mosaicContainer"
@@ -183,9 +183,10 @@ export default {
         let variant = 'compact'
 
         if (featured) {
-          variant = idx % 2 === 0 ? 'hero' : 'wide'
+          // Dynamic mix of 2-span wide featured and 1-span tall featured items
+          variant = idx % 3 === 0 ? 'hero' : idx % 3 === 1 ? 'tall-featured' : 'wide'
         } else {
-          variant = idx % 3 === 1 ? 'tall' : 'compact'
+          variant = idx % 2 === 0 ? 'tall' : 'compact'
         }
 
         return {
@@ -244,16 +245,16 @@ export default {
       const containerWidth = container.clientWidth
       if (!containerWidth) return
 
-      // Proportional Column Count: 4 cols on desktop (> 1180px), 3 cols on tablet (> 820px), 2 cols on mobile landscape (> 540px), 1 col mobile
-      const cols = containerWidth >= 1180 ? 4 : containerWidth >= 820 ? 3 : containerWidth >= 540 ? 2 : 1
+      // 3 cols on desktop (> 768px), 2 cols on tablet (> 500px), 1 col mobile
+      const cols = containerWidth >= 768 ? 3 : containerWidth >= 500 ? 2 : 1
       const gap = 20
 
       const colWidth = (containerWidth - gap * (cols - 1)) / cols
       const colHeights = Array(cols).fill(0)
 
       this.itemStyles = this.processedItems.map((item) => {
-        const isFeatured = item.featured && cols >= 2
-        const span = isFeatured ? 2 : 1
+        const isDoubleSpan = (item.variant === 'hero' || item.variant === 'wide') && cols >= 3
+        const span = isDoubleSpan ? 2 : 1
 
         let targetCol = 0
         let minH = Infinity
@@ -279,7 +280,16 @@ export default {
         const left = targetCol * (colWidth + gap)
         const width = span === 2 ? colWidth * 2 + gap : colWidth
 
-        let baseHeight = item.variant === 'hero' ? 290 : item.variant === 'tall' ? 280 : item.variant === 'wide' ? 250 : 220
+        let baseHeight = item.variant === 'hero'
+          ? 310
+          : item.variant === 'tall-featured'
+          ? 380
+          : item.variant === 'tall'
+          ? 320
+          : item.variant === 'wide'
+          ? 250
+          : 210
+
         if (this.hoveredIndex === item.link || this.activeTouchIndex === item.link) {
           baseHeight += 110
         }
