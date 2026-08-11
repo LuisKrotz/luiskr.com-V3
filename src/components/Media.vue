@@ -44,6 +44,7 @@
       @mouseleave="pause($event)"
       @mouseout="pause($event)"
       @mousedown="play($event)"
+      @error="onVideoError($event)"
     >
       <source :src="videoSrcMain" type="video/mp4" />
     </video>
@@ -184,6 +185,11 @@ export default {
     pause(e) {
       if (!this.isReducedMotion && e.target?.pause) {
         e.target.pause()
+      }
+    },
+    onVideoError(e) {
+      if (e?.target?.hasAttribute?.('poster')) {
+        e.target.removeAttribute('poster')
       }
     },
     placeholder(width, height) {
