@@ -67,7 +67,7 @@
       <div class="about-profile-section">
         <div class="about-profile-picture">
           <img v-if="aboutTranslations && profilePicture" decoding="async" loading="lazy" class="about-profile-picture-img"
-            :src="optimizedProfilePicture" :alt="aboutTranslations.title" width="200" height="200" />
+            :src="optimizedProfilePicture" :srcset="profilePictureSrcset" sizes="200px" :alt="aboutTranslations.title" width="200" height="200" />
           <div v-else class="about-profile-picture-placeholder"></div>
         </div>
         <div class="about-profile-text">
@@ -157,9 +157,17 @@ export default {
     optimizedProfilePicture() {
       if (!this.profilePicture) return ''
       if (typeof this.profilePicture === 'string' && this.profilePicture.includes('gravatar.com')) {
-        return this.profilePicture.replace(/size=\d+/, 'size=200')
+        return this.profilePicture.replace(/size=\d+/, 'size=400')
       }
       return this.profilePicture
+    },
+    profilePictureSrcset() {
+      if (typeof this.profilePicture === 'string' && this.profilePicture.includes('gravatar.com')) {
+        const base = this.profilePicture.replace(/(\?|&)size=\d+/, '')
+        const sep = base.includes('?') ? '&' : '?'
+        return `${base}${sep}size=200 1x, ${base}${sep}size=400 2x, ${base}${sep}size=600 3x`
+      }
+      return undefined
     },
     aboutDrawData() {
       const col1 = this.aboutTranslations?.col1 || []
