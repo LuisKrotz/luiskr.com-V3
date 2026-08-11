@@ -34,10 +34,9 @@
               <div class="home-mosaic-details" :data-index="i">
                 <p v-if="item.description" class="home-mosaic-desc">
                   <DrawText
+                    v-if="hoveredIdx === i || touchIdx === i"
                     :text="item.description"
                     :delay="8"
-                    trigger="prop"
-                    :visible="hoveredIdx === i || touchIdx === i"
                   />
                 </p>
                 <button class="home-mosaic-btn">
