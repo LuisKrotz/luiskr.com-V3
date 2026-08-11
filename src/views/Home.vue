@@ -33,7 +33,12 @@
             <div class="home-mosaic-bottom" :style="cards[i] && cards[i].bottom">
               <div class="home-mosaic-details" :data-index="i">
                 <p v-if="item.description" class="home-mosaic-desc">
-                  <DrawText :text="item.description" :delay="8" />
+                  <DrawText
+                    :text="item.description"
+                    :delay="8"
+                    trigger="prop"
+                    :visible="hoveredIdx === i || touchIdx === i"
+                  />
                 </p>
                 <button class="home-mosaic-btn">
                   {{ (translations && translations.explore) || 'Check out' }}

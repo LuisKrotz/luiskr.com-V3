@@ -45,11 +45,19 @@ export default {
     text:    { type: String, required: true },
     delay:   { type: Number, default: 100 },
     offset:  { type: Number, default: 0 },
-    trigger: { type: String, default: 'auto' },
+    trigger: { type: String, default: 'auto' },  // 'auto' | 'viewport' | 'prop'
+    visible: { type: Boolean, default: false },   // used when trigger='prop'
   },
 
   data() {
     return { isVisible: false, observer: null }
+  },
+
+  watch: {
+    // When parent toggles visible (trigger='prop'), sync isVisible immediately
+    visible(v) {
+      if (this.trigger === 'prop') this.isVisible = v
+    },
   },
 
   computed: {
@@ -123,8 +131,10 @@ export default {
         { threshold: 0.2 }
       )
       this.observer.observe(this.$refs.root)
+    } else if (this.trigger === 'prop') {
+      this.isVisible = this.visible   // sync initial state
     } else {
-      this.isVisible = true
+      this.isVisible = true           // 'auto': start immediately on mount
     }
   },
 
