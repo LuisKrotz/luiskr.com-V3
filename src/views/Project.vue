@@ -214,6 +214,71 @@ export default {
         Array.isArray(group) && group.length >= 1 && group.every((i) => i?.class === 'landscape')
       )
     },
+    checkAutoOpenModal() {
+      const slug = this.$route.params.slug
+      if (!slug || !this.translations) return
+
+      const slugify = (text) =>
+        (text || '')
+          .toLowerCase()
+          .replace(/[^\w\s-]/g, '')
+          .trim()
+          .replace(/[\s_]+/g, '-')
+          .replace(/--+/g, '-')
+
+      const targetSlug = slugify(slug)
+
+      let foundItem = null
+      if (Array.isArray(this.translations.sections)) {
+        for (const section of this.translations.sections) {
+          if (!Array.isArray(section)) continue
+          for (const block of section) {
+            if (!Array.isArray(block)) continue
+            for (const item of block) {
+              if (item && typeof item === 'object' && item.label) {
+                if (slugify(item.label) === targetSlug) {
+                  foundItem = item
+                  break
+                }
+              }
+            }
+            if (foundItem) break
+          }
+          if (foundItem) break
+        }
+      }
+
+      if (foundItem) {
+        const storage = this.$store.getters.getStorage
+        const folder = this.translations.folder || ''
+        const srcPath = folder + foundItem.src
+        const isVideo = foundItem.isVideo ?? false
+        const moz = '-mozjpg'
+        const extension = '.jpg'
+
+        const source = isVideo
+          ? storage + srcPath + '.mp4'
+          : storage + srcPath + moz + '-uncompressed' + extension
+        const thumb = isVideo
+          ? storage + srcPath + '.mp4.jpg-thumb.jpg'
+          : storage + srcPath + moz + '3-MSSIM-tuned-kodak' + extension
+
+        this.$store.commit('setModal', {
+          transform: 0,
+          class: 'modal-open',
+          open: true,
+          media: {
+            source,
+            thumb,
+            alt: foundItem.label,
+            width: foundItem.size ? foundItem.size[0] : 1920,
+            height: foundItem.size ? foundItem.size[1] : 1080,
+            isVideo,
+          },
+        })
+      }
+    },
+
     loadData(wait = false) {
       const lang = this.$store.getters.getlang
       this.translations = false
@@ -238,9 +303,11 @@ export default {
             }
             if (!wait) {
               this.translations = data
+              this.$nextTick(() => this.checkAutoOpenModal())
             } else {
               setTimeout(() => {
                 this.translations = data
+                this.$nextTick(() => this.checkAutoOpenModal())
               }, wait)
             }
           } else {
