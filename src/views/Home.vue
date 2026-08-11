@@ -105,7 +105,7 @@ import DrawText from '../components/DrawText.vue'
 // Heights = itemWidth × multiplier — always landscape, never square or strip.
 // FEAT_MULT applied to featured itemW (~356px) → proper landscape card
 // COMP_MULTS applied to compact itemW (~263px) → slightly shorter compact card
-const FEAT_MULT  = 0.56
+const FEAT_MULT  = 0.48   // 2.08:1 ratio — wider, less tall than 16:9
 const COMP_MULTS = [0.56, 0.58, 0.54, 0.57, 0.55]  // same 16:9 aspect, smaller because narrower column
 // BOTTOM_H is measured dynamically from the DOM — see measureBottomH()
 
@@ -189,12 +189,13 @@ export default {
       //  1920px  (W≈1632): N=5  →  compact≈313px   feat≈642px
       //  2560px  (W≈2094): N=6  →  compact≈335px   feat≈686px
       const vw = window.innerWidth
-      const N  = vw < 540 ? 1
-               : vw < 960 ? 2
+      const N  = vw < 540  ? 1
+               : vw < 960  ? 2
                : vw < 1440 ? 3
                : vw < 1920 ? 4
-               : vw < 2560 ? 5
-               : 6
+               : vw < 2100 ? 5   // 1920–2099px: 5 cols
+               : vw < 2560 ? 6   // 2100–2559px: 6 cols → 3 featured per row at 2294px
+               : 7
       const colW = Math.floor((W - gap * (N - 1)) / N)
       const colH = Array(N).fill(0)
 
