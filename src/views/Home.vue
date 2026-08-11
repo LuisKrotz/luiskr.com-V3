@@ -126,7 +126,7 @@ export default {
       profilePicture:    null,
       cards:             [],
       containerH:        '0px',
-      bottomH:           130,   // measured dynamically; starts at 130px fallback
+      bottomHMap:        {},   // per-card measured description height, keyed by item index
     }
   },
 
@@ -200,7 +200,7 @@ export default {
 
       this.cards = this.processedItems.map((item, i) => {
         const active  = this.hoveredIdx === i || this.touchIdx === i
-        const bottomH = active ? this.bottomH : 0
+        const bottomH = active ? (this.bottomHMap[i] ?? 130) : 0
 
         // Featured: 2 cols wide (or 1 when N=1). Compact: always 1 col.
         const span   = (item.featured && N > 1) ? 2 : 1
@@ -232,19 +232,19 @@ export default {
       this.containerH = Math.max(...colH) - gap + 'px'
     },
 
-    // Measure the actual rendered height of the expanded description panel.
-    // Called before layout() whenever a card expands, so BOTTOM_H is exact.
-    measureBottomH() {
-      const detail = this.$el?.querySelector('.home-mosaic-details')
-      if (detail) {
-        const h = detail.scrollHeight
-        if (h > 0) this.bottomH = h + 16  // +16 for padding buffer
+    // Measure the actual rendered scrollHeight of card i's description panel.
+    // Each card may have different text length → store per-card in bottomHMap.
+    measureBottomH(i) {
+      const details = this.$el?.querySelectorAll('.home-mosaic-details')
+      if (details && details[i]) {
+        const h = details[i].scrollHeight
+        if (h > 0) this.bottomHMap = { ...this.bottomHMap, [i]: h + 20 }
       }
     },
 
     onHover(i) {
       this.hoveredIdx = i
-      this.$nextTick(() => { this.measureBottomH(); this.layout() })
+      this.$nextTick(() => { this.measureBottomH(i); this.layout() })
     },
     onLeave() {
       this.hoveredIdx = null
@@ -256,7 +256,7 @@ export default {
       if (isTouch) {
         if (this.touchIdx !== i) {
           this.touchIdx = i
-          this.$nextTick(() => { this.measureBottomH(); this.layout() })
+          this.$nextTick(() => { this.measureBottomH(i); this.layout() })
         } else {
           this.$router.push('/portfolio/' + item.link)
         }
