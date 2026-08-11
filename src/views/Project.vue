@@ -279,6 +279,22 @@ export default {
       }
     },
 
+    updateRobotsMeta(noindex) {
+      let meta = document.querySelector('meta[name="robots"]')
+      if (noindex) {
+        if (!meta) {
+          meta = document.createElement('meta')
+          meta.name = 'robots'
+          document.head.appendChild(meta)
+        }
+        meta.content = 'noindex, nofollow'
+      } else {
+        if (meta) {
+          meta.remove()
+        }
+      }
+    },
+
     loadData(wait = false) {
       const lang = this.$store.getters.getlang
       this.translations = false
@@ -301,6 +317,7 @@ export default {
             if (data.title) {
               document.title = 'Luis Krötz | ' + data.title
             }
+            this.updateRobotsMeta(data.noindex === true)
             if (!wait) {
               this.translations = data
               this.$nextTick(() => this.checkAutoOpenModal())
@@ -318,6 +335,10 @@ export default {
           console.error(error)
         })
     },
+  },
+
+  beforeUnmount() {
+    this.updateRobotsMeta(false)
   },
 }
 </script>

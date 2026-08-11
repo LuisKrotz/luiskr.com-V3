@@ -47,6 +47,18 @@
           <label>Assets Folder</label>
           <input v-model="currentProject.folder" class="cms-input" placeholder="e.g. metcha/" />
         </div>
+
+        <div class="cms-field-group">
+          <label>Search Engine Indexing (SEO)</label>
+          <select
+            :value="currentProject.noindex ? 'noindex' : 'index'"
+            @change="currentProject.noindex = $event.target.value === 'noindex'"
+            class="cms-select"
+          >
+            <option value="index">Index (Publicly Indexed)</option>
+            <option value="noindex">No-Index (Draft / Block Search Engines)</option>
+          </select>
+        </div>
       </div>
 
       <!-- Cover Media Options -->

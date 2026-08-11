@@ -3,7 +3,7 @@
     <!-- Progress bar -->
     <div class="progress-bar" :class="{ 'progress-bar--active': routeLoading }"></div>
 
-    <div v-if="modal.class === ''" class="nav">
+    <div v-if="modal.class === '' && !isAdminRoute" class="nav">
       <!-- Logo / back button — always visible -->
       <router-link class="nav-link back" v-if="!isHomePage" :to="localePath()">
         {{ translations?.title ?? 'LK' }}
@@ -482,6 +482,11 @@ export default {
   },
 
   computed: {
+    isAdminRoute() {
+      const name = this.$router.currentRoute.value.name ?? ''
+      const path = this.$route?.path ?? ''
+      return name === 'Admin Login' || name === 'CMS Dashboard' || path.startsWith('/admin') || path.startsWith('/cms')
+    },
     isHomePage() {
       const name = this.$router.currentRoute.value.name ?? ''
       return name.startsWith('Home') || name.startsWith('About') || name.startsWith('Contact')
