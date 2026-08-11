@@ -216,26 +216,35 @@ export default {
     },
     loadData(wait = false) {
       const lang = this.$store.getters.getlang
-      document.title = this.$route.meta.title
       this.translations = false
+
+      let projectKey = this.$route.params.projectSlug || this.$route.meta.translation
+      if (projectKey === 'brazilian-leather') projectKey = 'cicb'
+      if (projectKey === 'clinica-de-desenvolvimento-nathalia-bond') projectKey = 'nathalia-bond'
+      if (projectKey === 'genesysinf-sageweb') projectKey = 'sage'
+      if (projectKey === 'minimelissa') projectKey = 'mini-melissa'
 
       get(
         child(
           ref(getDatabase()),
-          lang.database + lang.locale + lang.projectPath + this.$route.meta.translation
+          lang.database + lang.locale + lang.projectPath + projectKey
         )
       )
         .then((snapshot) => {
           if (snapshot.exists()) {
+            const data = snapshot.val()
+            if (data.title) {
+              document.title = 'Luis Krötz | ' + data.title
+            }
             if (!wait) {
-              this.translations = snapshot.val()
+              this.translations = data
             } else {
               setTimeout(() => {
-                this.translations = snapshot.val()
+                this.translations = data
               }, wait)
             }
           } else {
-            console.log("%cERROR: could't find PROJECT DATA", this.$sharedData.styles.info)
+            console.log("%cERROR: could't find PROJECT DATA for " + projectKey, this.$sharedData.styles.info)
           }
         })
         .catch((error) => {

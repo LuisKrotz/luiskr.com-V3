@@ -5,8 +5,9 @@
         <h2 class="cms-card-title">Project Case Studies Manager</h2>
         <p style="color:#8892b0; font-size:0.88rem;">Manage sections, text paragraphs, and image/video carousels for all project case studies.</p>
       </div>
-      <div style="display:flex; gap:10px;">
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <button class="cms-btn cms-btn--secondary" @click="createProjectPrompt">+ Create New Project</button>
+        <button class="cms-btn cms-btn--danger" :disabled="!selectedProjectKey" @click="deleteProject">🗑️ Delete Project</button>
         <button class="cms-btn" :disabled="saving || !currentProject" @click="saveProjectData">
           {{ saving ? 'Saving...' : '💾 Save Project to Firebase' }}
         </button>
@@ -17,13 +18,13 @@
     <div class="cms-card" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1.2rem;">
       <div class="cms-field-group">
         <label>Target Language</label>
-        <select v-model="selectedLang" class="cms-select" @change="loadProjectData">
+        <select v-model="selectedLang" class="cms-select" @change="onLangOrProjectChange">
           <option v-for="l in languages" :key="l" :value="l">{{ l.toUpperCase() }}</option>
         </select>
       </div>
 
       <div class="cms-field-group">
-        <label>Select Project</label>
+        <label>Select Project ({{ projectKeys.length }} total)</label>
         <select v-model="selectedProjectKey" class="cms-select" @change="loadProjectData">
           <option v-for="pk in projectKeys" :key="pk" :value="pk">{{ pk.toUpperCase() }}</option>
         </select>
@@ -209,7 +210,7 @@
 
 <script>
 import { db } from '../../firebase.js'
-import { ref, child, get, set } from 'firebase/database'
+import { ref, child, get, set, remove } from 'firebase/database'
 
 export default {
   name: 'CmsProjectsList',
@@ -223,15 +224,39 @@ export default {
     return {
       selectedLang: 'en',
       selectedProjectKey: 'aboutmarco',
+      defaultProjectKeys: ['aboutmarco', 'cecerele', 'cicb', 'coza', 'melissa', 'mini-melissa', 'metcha', 'mor', 'nathalia-bond', 'sage', 'transa', 'vibra'],
       projectKeys: ['aboutmarco', 'cecerele', 'cicb', 'coza', 'melissa', 'mini-melissa', 'metcha', 'mor', 'nathalia-bond', 'sage', 'transa', 'vibra'],
       currentProject: null,
       saving: false,
     }
   },
   mounted() {
-    this.loadProjectData()
+    this.initProjects()
   },
   methods: {
+    async initProjects() {
+      await this.fetchProjectKeys()
+      await this.loadProjectData()
+    },
+
+    async fetchProjectKeys() {
+      try {
+        const snapshot = await get(child(ref(db), `translations/${this.selectedLang}/projects`))
+        if (snapshot.exists()) {
+          const keys = Object.keys(snapshot.val())
+          const allKeys = Array.from(new Set([...this.defaultProjectKeys, ...keys]))
+          this.projectKeys = allKeys
+        }
+      } catch (err) {
+        console.error('Error fetching project keys:', err)
+      }
+    },
+
+    async onLangOrProjectChange() {
+      await this.fetchProjectKeys()
+      await this.loadProjectData()
+    },
+
     async loadProjectData() {
       try {
         const path = `translations/${this.selectedLang}/projects/${this.selectedProjectKey}`
@@ -255,6 +280,25 @@ export default {
         }
       } catch (err) {
         console.error('Error loading project data:', err)
+      }
+    },
+
+    async deleteProject() {
+      if (!confirm(`Are you sure you want to PERMANENTLY DELETE project [${this.selectedProjectKey.toUpperCase()}] from [${this.selectedLang.toUpperCase()}]?`)) return
+      try {
+        const path = `translations/${this.selectedLang}/projects/${this.selectedProjectKey}`
+        await remove(ref(db, path))
+        this.$emit('notify', `Deleted project [${this.selectedProjectKey.toUpperCase()}] from [${this.selectedLang.toUpperCase()}]!`)
+        await this.fetchProjectKeys()
+        if (this.projectKeys.length) {
+          this.selectedProjectKey = this.projectKeys[0]
+          await this.loadProjectData()
+        } else {
+          this.currentProject = null
+        }
+      } catch (err) {
+        console.error('Error deleting project:', err)
+        alert('Failed to delete project: ' + (err.message || err))
       }
     },
 
@@ -324,7 +368,7 @@ export default {
       item.size[dimIdx] = parseInt(val, 10) || 0
     },
 
-    createProjectPrompt() {
+    async createProjectPrompt() {
       const newKey = prompt("Enter new project key slug (e.g. 'my-new-project'):")
       if (newKey && newKey.trim()) {
         const slug = newKey.trim().toLowerCase().replace(/[^a-z0-9-]/g, '')
@@ -332,7 +376,7 @@ export default {
           this.projectKeys.push(slug)
         }
         this.selectedProjectKey = slug
-        this.loadProjectData()
+        await this.loadProjectData()
       }
     },
 
@@ -342,6 +386,7 @@ export default {
         const path = `translations/${this.selectedLang}/projects/${this.selectedProjectKey}`
         await set(ref(db, path), this.currentProject)
         this.$emit('notify', `Project [${this.selectedProjectKey.toUpperCase()}] saved for [${this.selectedLang.toUpperCase()}]!`)
+        await this.fetchProjectKeys()
       } catch (err) {
         console.error('Error saving project data:', err)
         alert('Failed to save project data to Firebase: ' + (err.message || err))

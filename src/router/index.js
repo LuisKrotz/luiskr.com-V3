@@ -97,6 +97,12 @@ const portfolioRoutes = (suffix = '') => [
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: { title: title + ' | Genesysinf / Sageweb', translation: 'sage', projectRoute: true },
   },
+  {
+    path: 'portfolio/:projectSlug/:slug?',
+    name: 'DynamicProject' + suffix,
+    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
+    meta: { title: title + ' | Project', projectRoute: true },
+  },
 ]
 
 // ── Build routes for a specific language ─────────────────────────────────────
