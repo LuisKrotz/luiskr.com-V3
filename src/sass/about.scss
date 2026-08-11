@@ -10,6 +10,9 @@
   padding-top: to-rem(120) !important;
   // Smooth transition when masonry above changes height (hover expand/collapse)
   transition: padding-top 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  // Skip off-screen paint on mobile — major scroll performance win
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
 
   // ── Title ───────────────────────────────────────────────────────────────
   &-title {
