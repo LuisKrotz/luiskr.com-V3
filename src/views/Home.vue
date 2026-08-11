@@ -104,7 +104,7 @@
 </template>
 
 <script>
-import { getDatabase, ref, child, get } from 'firebase/database'
+import { fetchFirebaseDb } from '../firebase.js'
 import Contact from '../components/Contact.vue'
 import AwardsMentions from '../components/AwardsMentions.vue'
 import DrawText from '../components/DrawText.vue'
@@ -349,7 +349,7 @@ export default {
     const lang = this.$store.getters.getlang
     document.title = this.$route.meta.title
 
-    get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation))
+    fetchFirebaseDb(lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation)
       .then(s => {
         if (s.exists()) {
           this.translations = s.val()
@@ -357,7 +357,7 @@ export default {
         }
       }).catch(console.error)
 
-    get(child(ref(getDatabase()), lang.database + lang.locale + '/components/related/projects'))
+    fetchFirebaseDb(lang.database + lang.locale + '/components/related/projects')
       .then(s => {
         if (s.exists()) {
           const links = new Set()
@@ -367,10 +367,10 @@ export default {
         }
       }).catch(console.error)
 
-    get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + 'about'))
+    fetchFirebaseDb(lang.database + lang.locale + lang.pagesPath + 'about')
       .then(s => { if (s.exists()) this.aboutTranslations = s.val() }).catch(console.error)
 
-    get(child(ref(getDatabase()), lang.database + lang.locale + lang.pagesPath + 'about/profilePicture'))
+    fetchFirebaseDb(lang.database + lang.locale + lang.pagesPath + 'about/profilePicture')
       .then(s => { if (s.exists()) this.profilePicture = s.val() }).catch(console.error)
   },
 

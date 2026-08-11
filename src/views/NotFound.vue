@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { getDatabase, ref, child, get } from 'firebase/database'
+import { fetchFirebaseDb } from '../firebase.js'
 import DrawText from '../components/DrawText.vue'
 
 export default {
@@ -65,12 +65,7 @@ export default {
     const lang = this.$store.getters.getlang
     document.title = this.$route.meta.title
 
-    get(
-      child(
-        ref(getDatabase()),
-        lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation
-      )
-    )
+    fetchFirebaseDb(lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation)
       .then((snapshot) => {
         if (snapshot.exists()) {
           this.translations = snapshot.val()

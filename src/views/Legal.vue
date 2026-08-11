@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { getDatabase, ref, child, get } from 'firebase/database'
+import { fetchFirebaseDb } from '../firebase.js'
 import LegalFooter from '../components/legal/Footer.vue'
 
 export default {
@@ -73,12 +73,7 @@ export default {
       document.title = this.$route.meta.title
       this.translations = false
 
-      get(
-        child(
-          ref(getDatabase()),
-          lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation
-        )
-      )
+      fetchFirebaseDb(lang.database + lang.locale + lang.pagesPath + this.$route.meta.translation)
         .then((snapshot) => {
           if (snapshot.exists()) {
             if (!wait) {

@@ -128,7 +128,7 @@
 </template>
 
 <script>
-import { getDatabase, ref, child, get } from 'firebase/database'
+import { fetchFirebaseDb } from '../firebase.js'
 import Media from '../components/Media.vue'
 import MediaExpanded from '../components/MediaExpanded.vue'
 
@@ -305,12 +305,7 @@ export default {
       if (projectKey === 'genesysinf-sageweb') projectKey = 'sage'
       if (projectKey === 'minimelissa') projectKey = 'mini-melissa'
 
-      get(
-        child(
-          ref(getDatabase()),
-          lang.database + lang.locale + lang.projectPath + projectKey
-        )
-      )
+      fetchFirebaseDb(lang.database + lang.locale + lang.projectPath + projectKey)
         .then((snapshot) => {
           if (snapshot.exists()) {
             const data = snapshot.val()

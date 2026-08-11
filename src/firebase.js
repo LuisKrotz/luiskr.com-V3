@@ -37,3 +37,21 @@ export async function logoutUser() {
 export function onAuthChange(callback) {
   return onAuthStateChanged(auth, callback)
 }
+
+export async function fetchFirebaseDb(path) {
+  const cleanPath = (path || '').toString().replace(/^\//, '')
+  const url = `${firebaseConfig.databaseURL}/${cleanPath}.json`
+  try {
+    const res = await fetch(url)
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const data = await res.json()
+    return {
+      exists: () => data !== null && data !== undefined,
+      val: () => data,
+    }
+  } catch (err) {
+    console.warn('REST DB fetch failed, falling back to SDK', err)
+    const { ref, child, get } = await import('firebase/database')
+    return await get(child(ref(db), cleanPath))
+  }
+}

@@ -167,7 +167,7 @@
 </template>
 
 <script>
-import { getDatabase, ref, child, get } from 'firebase/database'
+import { fetchFirebaseDb } from './firebase.js'
 import router, { LANG_SLUGS, VALID_LANGS } from './router/index.js'
 import PreferencesModal from './components/PreferencesModal.vue'
 
@@ -364,7 +364,7 @@ export default {
       const dbpath = this.$store.getters.getlang.database + currentLocale
 
       if (!this.translations) {
-        get(child(ref(getDatabase()), `${dbpath}/APP`))
+        fetchFirebaseDb(`${dbpath}/APP`)
           .then((snapshot) => {
             if (snapshot.exists()) {
               this.translations = snapshot.val()
@@ -378,7 +378,7 @@ export default {
       }
 
       if (!this.$store.getters.getlang.components) {
-        get(child(ref(getDatabase()), `${dbpath}/components`))
+        fetchFirebaseDb(`${dbpath}/components`)
           .then((snapshot) => {
             if (snapshot.exists()) {
               this.$store.commit('setComponentLang', snapshot.val())
@@ -389,7 +389,7 @@ export default {
 
       // Load portfolio list globally (once) so cover images and metadata are available immediately
       if (!this.$store.state.portfoliolist?.length) {
-        get(child(ref(getDatabase()), `${dbpath}/pages/HOME`))
+        fetchFirebaseDb(`${dbpath}/pages/HOME`)
           .then((snapshot) => {
             if (snapshot.exists() && snapshot.val()?.portfoliolist) {
               this.$store.commit('setPortfolioList', snapshot.val().portfoliolist)
@@ -400,7 +400,7 @@ export default {
 
       // Load mentions/awards from About page data (once, globally)
       if (!this.$store.getters.getMentions.items) {
-        get(child(ref(getDatabase()), `${dbpath}/pages/about`))
+        fetchFirebaseDb(`${dbpath}/pages/about`)
           .then((snapshot) => {
             if (snapshot.exists()) {
               const about = snapshot.val()

@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import { getDatabase, ref, child, get } from 'firebase/database'
+import { fetchFirebaseDb } from '../../firebase.js'
 import DrawText from '../DrawText.vue'
 
 export default {
@@ -179,7 +179,7 @@ export default {
       const lang = this.$store.getters.getlang
       const dbpath = lang.database + lang.locale + lang.pagesPath + 'HOME'
 
-      get(child(ref(getDatabase()), dbpath))
+      fetchFirebaseDb(dbpath)
         .then((snapshot) => {
           if (snapshot.exists()) {
             const data = snapshot.val()
