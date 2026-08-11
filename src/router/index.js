@@ -22,8 +22,7 @@ export const LANG_SLUGS = {
   tln: { about: 'de-mi',       contact: 'contato',  privacy: 'informativa-su-la-privacy',      gdpr: 'gdpr',         terms: 'condission-de-uso' },
 }
 
-// ── Portfolio + pages routes shared across all languages ─────────────────────
-// These slugs are brand names or English-only, kept the same in all languages.
+// ── Fully dynamic portfolio route shared across all languages ────────────────
 const portfolioRoutes = (suffix = '') => [
   {
     path: 'portfolio/:projectSlug/:slug?',
