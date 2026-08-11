@@ -230,4 +230,14 @@ router.beforeEach((to) => {
   store.commit('setLang', lang)
 })
 
+// Catch dynamic chunk loading errors after new deployments and auto-reload page
+router.onError((error) => {
+  if (
+    error?.message?.includes('Failed to fetch dynamically imported module') ||
+    error?.message?.includes('Importing a module script failed')
+  ) {
+    window.location.reload()
+  }
+})
+
 export default router
