@@ -197,12 +197,17 @@ export default {
   watch: {
     processedItems(v) {
       if (!v.length) return
-      this.$nextTick(this.layout)
+      this.scheduleLayout()
     },
-    featuredLinks() { this.$nextTick(this.layout) },
+    featuredLinks() { this.scheduleLayout() },
   },
 
   methods: {
+    scheduleLayout() {
+      if (this._rafId) cancelAnimationFrame(this._rafId)
+      this._rafId = requestAnimationFrame(this.layout)
+    },
+
     isFeatured(item) {
       if (!item) return false
       if (item.featured === true || item.featured === 'true' || item.featured === 1) return true
@@ -218,8 +223,8 @@ export default {
     layout() {
       const el = this.$refs.mosaicEl
       if (!el || !this.processedItems.length) return
-      const W = el.clientWidth
-      if (!W) { setTimeout(this.layout, 50); return }
+      const W = el.getBoundingClientRect().width
+      if (!W) { this.scheduleLayout(); return }
 
       const gap = 16
 

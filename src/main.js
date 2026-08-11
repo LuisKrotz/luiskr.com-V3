@@ -15,17 +15,21 @@ app
   .use(router)
   .mount('#app')
 
-// Defer analytics initialization until main thread is idle
-if ('requestIdleCallback' in window) {
-  requestIdleCallback(() => {
+// Defer analytics initialization until user interaction or timeout
+function scheduleFirebaseAnalytics() {
+  const trigger = () => {
+    window.removeEventListener('scroll', trigger)
+    window.removeEventListener('touchstart', trigger)
+    window.removeEventListener('mousemove', trigger)
     import('./firebase.js').then(({ app: firebaseApp }) => {
       import('firebase/analytics').then(({ getAnalytics }) => getAnalytics(firebaseApp))
-    })
-  }, { timeout: 4000 })
-} else {
-  setTimeout(() => {
-    import('./firebase.js').then(({ app: firebaseApp }) => {
-      import('firebase/analytics').then(({ getAnalytics }) => getAnalytics(firebaseApp))
-    })
-  }, 4000)
+    }).catch(() => {})
+  }
+  window.addEventListener('scroll', trigger, { passive: true, once: true })
+  window.addEventListener('touchstart', trigger, { passive: true, once: true })
+  window.addEventListener('mousemove', trigger, { passive: true, once: true })
+  setTimeout(trigger, 6000)
 }
+
+scheduleFirebaseAnalytics()
+
