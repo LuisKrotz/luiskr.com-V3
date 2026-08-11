@@ -284,11 +284,43 @@ export default {
     },
 
     async deleteProject() {
-      if (!confirm(`Are you sure you want to PERMANENTLY DELETE project [${this.selectedProjectKey.toUpperCase()}] from [${this.selectedLang.toUpperCase()}]?`)) return
+      // 1st Confirmation
+      const confirm1 = confirm(`⚠️ [1st CONFIRMATION]: Are you sure you want to delete project [${this.selectedProjectKey.toUpperCase()}] from [${this.selectedLang.toUpperCase()}]?`)
+      if (!confirm1) return
+
+      // 2nd Confirmation
+      const confirm2 = confirm(`🚨 [2nd CONFIRMATION]: This will PERMANENTLY REMOVE project [${this.selectedProjectKey.toUpperCase()}]. An automatic backup will be created before deletion. Proceed?`)
+      if (!confirm2) return
+
       try {
         const path = `translations/${this.selectedLang}/projects/${this.selectedProjectKey}`
+        const snap = await get(child(ref(db), path))
+        
+        if (snap.exists()) {
+          // Backup project snapshot under admin/backups in Firebase Realtime Database
+          const backupTimestamp = Date.now()
+          const backupPath = `admin/backups/${backupTimestamp}_${this.selectedLang}_${this.selectedProjectKey}`
+          await set(ref(db, backupPath), {
+            deletedAt: new Date().toISOString(),
+            lang: this.selectedLang,
+            projectKey: this.selectedProjectKey,
+            data: snap.val()
+          })
+
+          // Download JSON backup file automatically in browser
+          const blob = new Blob([JSON.stringify(snap.val(), null, 2)], { type: 'application/json' })
+          const url = URL.createObjectURL(blob)
+          const a = document.createElement('a')
+          a.href = url
+          a.download = `project-backup-${this.selectedProjectKey}-${this.selectedLang}-${backupTimestamp}.json`
+          a.click()
+          URL.revokeObjectURL(url)
+        }
+
+        // Delete project from database
         await remove(ref(db, path))
-        this.$emit('notify', `Deleted project [${this.selectedProjectKey.toUpperCase()}] from [${this.selectedLang.toUpperCase()}]!`)
+        this.$emit('notify', `Project [${this.selectedProjectKey.toUpperCase()}] backed up and deleted!`)
+        
         await this.fetchProjectKeys()
         if (this.projectKeys.length) {
           this.selectedProjectKey = this.projectKeys[0]
