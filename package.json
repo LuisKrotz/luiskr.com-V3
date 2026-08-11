@@ -11,6 +11,8 @@
     "serve": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test:lighthouse": "node scripts/test-lighthouse.js",
+    "lighthouse": "node scripts/test-lighthouse.js",
     "lint": "eslint src --ext .vue,.js",
     "lint:fix": "eslint src --ext .vue,.js --fix",
     "format": "prettier --write \"src/**/*.{vue,js,scss}\""
@@ -27,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@lhci/cli": "^0.15.1",
     "@vitejs/plugin-vue": "^6.0.8",
     "@vue/eslint-config-prettier": "^10.2.0",
     "eslint": "^10.8.1",
