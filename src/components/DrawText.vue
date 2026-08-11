@@ -54,9 +54,11 @@ export default {
   },
 
   watch: {
-    // When parent toggles visible (trigger='prop'), sync isVisible immediately
+    // Only trigger the animation once (false → true).
+    // Once isVisible is true, keep it — the parent panel hides text via overflow:hidden,
+    // so the animation never needs to replay on subsequent hovers.
     visible(v) {
-      if (this.trigger === 'prop') this.isVisible = v
+      if (this.trigger === 'prop' && v && !this.isVisible) this.isVisible = true
     },
   },
 
