@@ -69,9 +69,80 @@
     color: var(--grey);
     padding: 0 to-rem(10);
   }
+
+  // ── Language selector pill group ─────────────────────────────────────────
+  &-lang {
+    display: flex;
+    align-items: center;
+    gap: to-rem(4);
+  }
+
+  &-lang-btn {
+    letter-spacing: 0.04em;
+    opacity: 0.45;
+    transition: opacity 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+
+    &.active {
+      opacity: 1;
+      font-weight: 700;
+      color: var(--black, #000);
+
+      &::after {
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: to-rem(-4);
+        left: 0;
+        width: 100%;
+        height: to-rem(2);
+        border-radius: to-rem(1);
+        background: var(--grey, #000);
+      }
+    }
+  }
 }
 
-// ── Modal nav override (image title + close button) ──────────────────────────
+// ── Responsive nav ──────────────────────────────────────────────────────────
+// ≤ 960px: hide desktop links; show mobile strip (Prefs + Lang only)
+
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 0; // spacing handled by separators
+}
+
+// Slim mobile strip — only visible below the breakpoint
+.nav-mobile-strip {
+  display: none;
+  align-items: center;
+  gap: 0;
+}
+
+// ── Language dialog variant (4-column option grid) ───────────────────────────
+.pref-options--4 {
+  grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: $bk-540) { // 540px
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.lang-dialog {
+  max-width: to-rem(480);
+}
+
+// ── Breakpoint: below 960px ───────────────────────────────────────────────────
+@media (max-width: $bk-960) { // 960px
+  .nav-desktop     { display: none; }
+  .nav-mobile-strip { display: flex; }
+}
+
+
 // When modal is open, the nav shows these instead of page links.
 .modal-nav-title {
   @extend .ttl-xs;
@@ -156,7 +227,7 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--white);
+  color: #ffffff; // Banner bg is always dark — hardcode white text (var(--white) inverts in dark mode)
   font-size: to-rem(13);
   line-height: 1.5;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
@@ -212,7 +283,7 @@
       cursor: pointer;
       position: relative;
       padding: to-rem($space-xs) to-rem($space-lg);
-      color: var(--grey);
+      color: rgba(255, 255, 255, 0.7); // Always light on always-dark banner bg
       background: transparent;
       transition: color 0.2s ease, background 0.2s ease;
       white-space: nowrap;
@@ -243,7 +314,7 @@
 
       &:hover,
       &:focus {
-        color: var(--white);
+        color: #ffffff;
 
         &::before,
         &::after {

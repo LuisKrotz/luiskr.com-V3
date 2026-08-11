@@ -24,8 +24,14 @@
             @click="onClick(item, i)"
           >
             <div class="home-mosaic-media" :style="cards[i] && cards[i].media">
-              <img decoding="async" loading="lazy" class="home-mosaic-img"
-                :src="storage + 'covers/' + item.image + ext" :alt="item.label" />
+              <img
+                :decoding="i === 0 ? 'sync' : 'async'"
+                :loading="i === 0 ? 'eager' : 'lazy'"
+                :fetchpriority="i === 0 ? 'high' : 'auto'"
+                class="home-mosaic-img"
+                :src="storage + 'covers/' + item.image + ext"
+                :alt="item.label"
+              />
               <div class="home-mosaic-title-overlay">
                 <h3 class="home-mosaic-title">{{ item.label }}</h3>
               </div>
@@ -303,15 +309,19 @@ export default {
 
     onClick(item, i) {
       const isTouch = 'ontouchstart' in window || window.matchMedia('(pointer: coarse)').matches
+      const locale  = this.$store.getters.getLang
+      const prefix  = locale && locale !== 'en' ? '/' + locale : ''
+      const dest    = prefix + '/portfolio/' + item.link
+
       if (isTouch) {
         if (this.touchIdx !== i) {
           this.touchIdx = i
           this.$nextTick(() => { this.measureBottomH(i); this.layout() })
         } else {
-          this.$router.push('/portfolio/' + item.link)
+          this.$router.push(dest)
         }
       } else {
-        this.$router.push('/portfolio/' + item.link)
+        this.$router.push(dest)
       }
     },
 

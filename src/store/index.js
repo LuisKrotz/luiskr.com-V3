@@ -14,7 +14,7 @@ export default createStore({
         msg2: '...',
         msg3: 'Gathering some data on the server ... Hold on just a second while the Websockets are working!',
       },
-      locale: 'en',
+      locale: localStorage.getItem('locale') || 'en',  // persist across refreshes
       pagesPath: '/pages/',
       projectPath: '/projects/',
     },
@@ -141,15 +141,23 @@ export default createStore({
       }
     },
     setLang(state, payload) {
+      if (!payload || state.lang.locale === payload) return
       state.lang.locale = payload
+      localStorage.setItem('locale', payload)
 
-      switch (state.lang.locale) {
-        case 'br':
-          ;((state.lang.loading.msg1 = 'Carregando'),
-            (state.lang.loading.msg2 =
-              'Trazendo dados do servidor ... Aguarde um momento enquanto os Websockets estão trabalhando!'))
-          break
+      // Clear cached language data so loadData() re-fetches in the new language
+      state.lang.components = false
+      state.portfoliolist = []
+      state.mentions = { title: 'Some mentions', items: null }
+
+      // Update loading messages for the new locale
+      const msgs = {
+        br: { msg1: 'Carregando', msg2: '...', msg3: 'Buscando dados no servidor… Aguarde um momento!' },
+        es: { msg1: 'Cargando',   msg2: '...', msg3: '¡Obteniendo datos del servidor… Un momento!' },
+        de: { msg1: 'Lädt',       msg2: '...', msg3: 'Daten werden abgerufen… Bitte warten!' },
+        en: { msg1: 'Loading',    msg2: '...', msg3: 'Gathering some data on the server … Hold on just a second!' },
       }
+      Object.assign(state.lang.loading, msgs[payload] || msgs.en)
     },
     setMarqueeAmount() {},
     setModal(state, payload) {
@@ -185,6 +193,7 @@ export default createStore({
     getlang: (state) => {
       return state.lang
     },
+    getLang: (state) => state.lang.locale,  // shorthand: just the locale string
     getMarqueeAmount: () => 0,
     getModal: (state) => {
       return state.modalObject

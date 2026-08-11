@@ -142,7 +142,38 @@
 .pref-option-icon {
   font-size: to-rem($space-3xl);
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+// Flag images — SVG from flagcdn.com, consistent on all platforms
+.flag-img {
+  height: to-rem(44);
+  width: auto;
+  display: block;
+  border-radius: to-rem(3);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+// Split flag: two country flags side by side with a thin dividing line
+.flag-split {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+
+  .flag-img {
+    height: to-rem(44);
+    width: to-rem(33); // force equal width so both flags share space evenly
+    object-fit: cover;
+    border-radius: 0;
+
+    &:first-child { border-radius: to-rem(3) 0 0 to-rem(3); object-position: left center; }
+    &:last-child  { border-radius: 0 to-rem(3) to-rem(3) 0; object-position: right center; }
+  }
+}
+
 
 .pref-option-label {
   font-family: 'Raleway', sans-serif;
@@ -168,7 +199,9 @@
 
   position: relative;
   display: inline-block;
-  padding: to-rem($space-xs) to-rem($space-xl);
+  padding: to-rem($space-sm) to-rem($space-2xl);  // taller + wider for all lang labels
+  min-width: to-rem(160);                          // never squishes in DE/PT/ES
+  margin-top: to-rem($space-lg);                   // breathing room above
   color: var(--text-primary);
   background: transparent;
   font-family: 'Raleway', sans-serif;

@@ -81,7 +81,20 @@
     0%   { opacity: 0;   transform: translateY(0.1em); }
     100% { opacity: 1;   transform: none;              }
   }
+
+  // NO per-character will-change on mobile.
+  // Creating a compositor layer for every character span (potentially 200+) simultaneously
+  // overwhelms the mobile GPU and freezes scroll. CSS transform/opacity animations are
+  // automatically GPU-composited by mobile browsers without an explicit hint.
+  // The browser promotes layers on demand as characters become active — far cheaper.
+  .draw-text--visible .draw-text__char,
+  .home-section-title .draw-text__char,
+  .hc-slide--active .draw-text__char,
+  .related-mosaic-desc .draw-text__char {
+    will-change: auto;
+  }
 }
+
 
 // ── Reduced Motion Override ────────────────────────────────────────────────
 html.reduced-motion .draw-text__char {

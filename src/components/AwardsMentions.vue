@@ -38,15 +38,14 @@
       ></span>
     </div>
 
-    <!-- Legal links — same border/padding as .contact-social -->
-    <nav class="awards-footer-links">
-      <router-link class="awards-footer-links-item" to="/privacy-policy">
-        Privacy Policy
-      </router-link>
-      <span class="awards-footer-links-sep">•</span>
-      <router-link class="awards-footer-links-item" to="/gdpr">GDPR</router-link>
-      <span class="awards-footer-links-sep">•</span>
-      <router-link class="awards-footer-links-item" to="/terms-of-use">Terms of use</router-link>
+    <!-- Legal links — dynamically sourced from store (translated per language) -->
+    <nav class="awards-footer-links" aria-label="Legal">
+      <template v-for="(link, i) in legalLinks" :key="i">
+        <router-link class="awards-footer-links-item" :to="link.link">
+          {{ link.page }}
+        </router-link>
+        <span v-if="i < legalLinks.length - 1" class="awards-footer-links-sep">•</span>
+      </template>
     </nav>
   </footer>
 </template>
@@ -68,6 +67,14 @@ export default {
       storage: this.$store.getters.getStorage,
       observer: null,
     }
+  },
+
+  computed: {
+    legalLinks() {
+      const all = this.$store.getters.getlang?.components?.['legal-footer']?.links || []
+      // Skip the first item (Home) — keep only legal page links
+      return all.filter(l => l.link && !l.link.match(/^\/[a-z]{0,3}\/?$/))
+    },
   },
 
   mounted() {

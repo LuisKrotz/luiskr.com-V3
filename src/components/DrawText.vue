@@ -1,7 +1,7 @@
 <template>
   <span class="draw-text"
     :class="{ 'draw-text--visible': isVisible && !hasAnimated, 'draw-text--done': hasAnimated }"
-    ref="root" :aria-label="plainText">
+    ref="root" role="text" :aria-label="plainText">
     <template v-for="(token, i) in tokens" :key="i">
       <br v-if="token.type === 'br'" aria-hidden="true" />
 
@@ -23,6 +23,7 @@
         :is="token.tag"
         v-bind="token.attrs"
         aria-hidden="true"
+        v-bind:tabindex="token.tag === 'a' ? '-1' : undefined"
       >
         <template v-for="(chunk, ci) in token.chunks" :key="ci">
           <span v-if="chunk.type === 'word'" class="draw-text__word">
@@ -44,7 +45,7 @@ export default {
   name: 'DrawText',
 
   props: {
-    text:    { type: String, required: true },
+    text:    { type: String, default: '' },  // default '' prevents crash when data hasn't loaded yet
     delay:   { type: Number, default: 100 },
     offset:  { type: Number, default: 0 },
     trigger: { type: String, default: 'auto' },  // 'auto' | 'viewport' | 'prop'
@@ -59,10 +60,8 @@ export default {
     visible(v) {
       if (this.trigger === 'prop' && v && !this.isVisible) {
         this.isVisible = true
-        // Once all chars finish animating, freeze state as draw-text--done
-        // (prevents browser from restarting animation on overflow:hidden reveal)
-        const chars  = this.text.replace(/<[^>]+>/g, '').length
-        const totalMs = this.offset + chars * this.delay + 900  // +900 = animation duration
+        const chars  = (this.text || '').replace(/<[^>]+>/g, '').length
+        const totalMs = this.offset + chars * this.delay + 900
         this._animTimer = setTimeout(() => { this.hasAnimated = true }, totalMs)
       }
     },
@@ -70,7 +69,7 @@ export default {
 
   computed: {
     plainText() {
-      return this.text.replace(/<[^>]+>/g, ' ')
+      return (this.text || '').replace(/<[^>]+>/g, ' ')
     },
 
     tokens() {
@@ -131,18 +130,35 @@ export default {
   },
 
   mounted() {
+    // Compute how long the full animation takes so we can schedule GPU-layer cleanup.
+    // chars * delay + animation-duration(900ms) + offset gives the total active time.
+    const _scheduleCleanup = () => {
+      const chars = this.text.replace(/<[^>]+>/g, '').length
+      const totalMs = this.offset + chars * this.delay + 900
+      this._animTimer = setTimeout(() => { this.hasAnimated = true }, totalMs)
+    }
+
     if (this.trigger === 'viewport') {
       this.observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) { this.isVisible = true; this.observer.disconnect() }
+          if (!entry.isIntersecting) return
+          this.observer.disconnect()
+          this.observer = null
+          requestAnimationFrame(() => {
+            this.isVisible = true
+            _scheduleCleanup()
+          })
         },
         { threshold: 0.2 }
       )
-      this.observer.observe(this.$refs.root)
+      if (this.$refs.root) {
+        this.observer.observe(this.$refs.root)
+      }
     } else if (this.trigger === 'prop') {
       this.isVisible = this.visible   // sync initial state
     } else {
       this.isVisible = true           // 'auto': start immediately on mount
+      _scheduleCleanup()              // also clean up GPU layers for auto-trigger
     }
   },
 

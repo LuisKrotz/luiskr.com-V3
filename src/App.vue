@@ -4,6 +4,7 @@
     <div class="progress-bar" :class="{ 'progress-bar--active': routeLoading }"></div>
 
     <div v-if="modal.class === ''" class="nav">
+      <!-- Logo / back button — always visible -->
       <router-link class="nav-link back" v-if="!isHomePage" to="/">
         {{ translations?.title ?? 'LK' }}
       </router-link>
@@ -16,11 +17,12 @@
         {{ translations?.title ?? 'LK' }}
       </button>
 
-      <div v-if="$router.currentRoute.value.name !== 'Not Found'">
+      <!-- Desktop: About | Contact | Preferences | Lang pills (hidden ≤960px) -->
+      <div v-if="$router.currentRoute.value.name !== 'Not Found'" class="nav-desktop">
         <router-link
           class="nav-link"
           v-if="!isHomePage"
-          to="/about"
+          :to="localePath('about')"
         >
           {{ translations?.about?.description ?? 'About' }}
         </router-link>
@@ -61,21 +63,95 @@
           title="Site preferences (Theme & Motion)"
           @click="openPreferences()"
         >
-          Preferences
+          {{ translations?.preferences ?? 'Preferences' }}
+        </button>
+
+        <span class="nav-separator">|</span>
+        <button
+          class="nav-link nav-lang-open-btn"
+          :title="currentLangLabel"
+          @click="langDialogOpen = true"
+        >
+          {{ locale.toUpperCase() }}
+        </button>
+      </div>
+
+      <!-- Mobile strip: only Preferences + Language (visible ≤960px) -->
+      <div v-if="$router.currentRoute.value.name !== 'Not Found'" class="nav-mobile-strip">
+        <button
+          class="nav-link nav-pref-btn"
+          title="Preferences"
+          @click="openPreferences()"
+        >
+          {{ translations?.preferences ?? 'Preferences' }}
+        </button>
+        <span class="nav-separator">|</span>
+        <button
+          class="nav-link nav-lang-open-btn"
+          :title="currentLangLabel"
+          @click="langDialogOpen = true"
+        >
+          {{ locale.toUpperCase() }}
         </button>
       </div>
     </div>
-    <div v-else class="nav" style="pointer-events: auto">
+
+    <!-- Language dialog (teleported, same pattern as PreferencesModal) -->
+    <teleport to="body">
+      <transition name="pref-fade">
+        <div
+          v-if="langDialogOpen"
+          class="pref-backdrop"
+          @click.self="langDialogOpen = false"
+          @keydown.esc="langDialogOpen = false"
+          tabindex="-1"
+          ref="langBackdrop"
+        >
+          <div class="pref-dialog lang-dialog" role="dialog" aria-modal="true" aria-labelledby="lang-dialog-title">
+            <header class="pref-header">
+              <h2 id="lang-dialog-title" class="pref-title">{{ translations?.language ?? 'Language' }}</h2>
+              <button class="pref-close-btn" @click="langDialogOpen = false" aria-label="Close language selector">✕</button>
+            </header>
+
+            <div class="pref-body">
+              <div class="pref-options pref-options--4">
+                <button
+                  v-for="l in langOptions"
+                  :key="l.code"
+                  class="pref-option-btn"
+                  :class="{ active: locale === l.code }"
+                  @click="switchLang(l.code); langDialogOpen = false"
+                >
+                  <span class="pref-option-icon" aria-hidden="true">
+                    <span v-if="l.cc2" class="flag-split">
+                      <img class="flag-img" :src="`https://flagcdn.com/${l.cc}.svg`" :alt="l.label" loading="lazy" />
+                      <img class="flag-img" :src="`https://flagcdn.com/${l.cc2}.svg`" alt="" loading="lazy" />
+                    </span>
+                    <img v-else class="flag-img" :src="`https://flagcdn.com/${l.cc}.svg`" :alt="l.label" loading="lazy" />
+                  </span>
+                  <span class="pref-option-label">{{ l.short }}</span>
+                  <span class="pref-option-sub">{{ l.label }}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </teleport>
+
+    <div v-if="modal.class !== ''" class="nav" style="pointer-events: auto">
       <!-- Modal nav is handled by MediaExpanded close-bar -->
     </div>
 
-    <PreferencesModal />
+    <PreferencesModal :pref="translations?.pref" />
 
-    <router-view v-slot="{ Component, route }">
-      <transition :name="transitionName" mode="out-in">
-        <component :is="Component" :key="route.path" />
-      </transition>
-    </router-view>
+    <main id="main-content">
+      <router-view v-slot="{ Component, route }">
+        <transition :name="transitionName" mode="out-in">
+          <component :is="Component" :key="route.path" />
+        </transition>
+      </router-view>
+    </main>
   </div>
   <aside v-if="translations && !renderCookies" class="cookies">
     <p class="cookies-info" v-html="translations.cookies.message"></p>
@@ -93,6 +169,7 @@
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
 import router from './router/index.js'
+import { LANG_SLUGS } from './router/index.js'
 import PreferencesModal from './components/PreferencesModal.vue'
 
 const cookie = 'cookie',
@@ -112,14 +189,19 @@ export default {
       routeLoading: false,
       transitionName: 'fade',
       activeSection: 'home',
+      menuOpen: false,
+      langDialogOpen: false,
     }
   },
   methods: {
     initActiveSection() {
       const path = window.location.pathname
-      if (path === '/about') {
+      // Match any language's translated about/contact slug
+      const aboutSlugs  = Object.values(LANG_SLUGS).map(s => '/' + s.about)
+      const contactSlugs = Object.values(LANG_SLUGS).map(s => '/' + s.contact)
+      if (aboutSlugs.some(slug => path.endsWith(slug))) {
         this.activeSection = 'about'
-      } else if (path === '/contact') {
+      } else if (contactSlugs.some(slug => path.endsWith(slug))) {
         this.activeSection = 'contact'
       } else {
         this.activeSection = 'home'
@@ -154,7 +236,9 @@ export default {
 
       if (this.activeSection !== newSection) {
         this.activeSection = newSection
-        const targetPath = newSection === 'home' ? '/' : `/${newSection}`
+        const targetPath = newSection === 'home'
+          ? this.localePath('')
+          : this.localePath(newSection)
         if (window.location.pathname !== targetPath) {
           history.replaceState({}, '', targetPath)
         }
@@ -229,16 +313,18 @@ export default {
     goToAbout() {
       this.activeSection = 'about'
       this.scrollToSection('about')
-      if (window.location.pathname !== '/about') {
-        history.pushState({}, '', '/about')
+      const target = this.localePath('about')
+      if (window.location.pathname !== target) {
+        history.pushState({}, '', target)
       }
     },
     scrollToContact() {
       if (this.isHomePage) {
         this.activeSection = 'contact'
         this.scrollToSection('contact')
-        if (window.location.pathname !== '/contact') {
-          history.pushState({}, '', '/contact')
+        const target = this.localePath('contact')
+        if (window.location.pathname !== target) {
+          history.pushState({}, '', target)
         }
       } else {
         this.scrollBottom()
@@ -253,8 +339,9 @@ export default {
     scrollTop() {
       if (this.isHomePage) {
         this.activeSection = 'home'
-        if (window.location.pathname !== '/') {
-          history.pushState({}, '', '/')
+        const root = this.localePath('')
+        if (window.location.pathname !== root) {
+          history.pushState({}, '', root)
         }
       }
       const isReduced = this.$store.getters.getReducedMotion
@@ -266,11 +353,16 @@ export default {
       })
     },
     loadData() {
-      let dbpath
+      const currentLocale = this.$store.getters.getLang
 
-      this.$store.commit('setLang', this.$store.getters.getlang.locale)
+      // If the locale has changed since last load, clear local translations cache
+      if (this._loadedLang && this._loadedLang !== currentLocale) {
+        this.translations = false
+      }
+      this._loadedLang = currentLocale
+
       this.renderCookies = JSON.parse(localStorage.getItem(cookie))
-      dbpath = this.$store.getters.getlang.database + this.$store.getters.getlang.locale
+      const dbpath = this.$store.getters.getlang.database + currentLocale
 
       if (!this.translations) {
         get(child(ref(getDatabase()), `${dbpath}/APP`))
@@ -348,12 +440,75 @@ export default {
       if (from.meta?.legalRoute) return 'slide-down'
       return 'fade'
     },
+    // Helper: build a localized path using translated slugs
+    // key: 'about' | 'contact' | '' (root) — or a raw sub-path string
+    localePath(key) {
+      const lang = this.$store.getters.getLang
+      const base = lang === 'en' ? '' : '/' + lang
+      if (!key) return base + '/'
+      const slugs = LANG_SLUGS[lang] ?? LANG_SLUGS.en
+      // Map semantic keys → translated slug; fall back to key itself for raw paths
+      const slug = slugs[key] ?? key
+      return base + '/' + slug
+    },
+
+    // Switch language: navigate to the equivalent page in the new lang with correct translated slug
+    switchLang(lang) {
+      const current = this.$store.getters.getLang
+      if (current === lang) return
+
+      const routeName = this.$router.currentRoute.value.name ?? ''
+      const s = LANG_SLUGS[lang] ?? LANG_SLUGS.en
+      const base = lang === 'en' ? '' : '/' + lang
+
+      let newPath
+      if (routeName.startsWith('Home'))         newPath = base + '/'
+      else if (routeName.startsWith('About'))   newPath = base + '/' + s.about
+      else if (routeName.startsWith('Contact')) newPath = base + '/' + s.contact
+      else if (routeName.startsWith('Privacy')) newPath = base + '/' + s.privacy
+      else if (routeName.startsWith('GDPR'))    newPath = base + '/' + s.gdpr
+      else if (routeName.startsWith('Terms'))   newPath = base + '/' + s.terms
+      else {
+        // Project pages: strip current lang prefix and add new one
+        const rawPath = this.$route.path.replace(/^\/(en|br|es|de)(\/|$)/, '/')
+        newPath = base + (rawPath === '/' ? '/' : rawPath)
+      }
+
+      this.$store.commit('setLang', lang)
+      this.translations = false
+      this.$router.push(newPath).then(() => this.loadData())
+    },
+
   },
 
   computed: {
     isHomePage() {
-      const name = this.$router.currentRoute.value.name
-      return name === 'Home' || name === 'About' || name === 'Contact'
+      const name = this.$router.currentRoute.value.name ?? ''
+      return name.startsWith('Home') || name.startsWith('About') || name.startsWith('Contact')
+    },
+    locale() {
+      return this.$store.getters.getLang
+    },
+    langOptions() {
+      // cc = ISO 3166-1 alpha-2 country code for flagcdn.com
+      // cc2 = second code for split-flag display
+      return [
+        { code: 'en',  short: 'EN',  label: 'English',        cc: 'us' },
+        { code: 'br',  short: 'PT',  label: 'Português (BR)', cc: 'br' },
+        { code: 'es',  short: 'ES',  label: 'Español',        cc: 'es' },
+        { code: 'de',  short: 'DE',  label: 'Deutsch',        cc: 'ch', cc2: 'de' },
+        { code: 'hrk', short: 'HRK', label: 'Hunsrik',        cc: 'de', cc2: 'br' },
+        { code: 'cas', short: 'CAS', label: 'Castellano',     cc: 'ar', cc2: 'uy' },
+        { code: 'riv', short: 'RIV', label: 'Portuñol',       cc: 'uy', cc2: 'br' },
+        { code: 'gn',  short: 'GN',  label: 'Guaraní',        cc: 'py' },
+        { code: 'it',  short: 'IT',  label: 'Italiano',       cc: 'it' },
+        { code: 'ru',  short: 'RU',  label: 'Русский',        cc: 'ru' },
+        { code: 'fr',  short: 'FR',  label: 'Français',       cc: 'fr' },
+        { code: 'tln', short: 'TLN', label: 'Talian',         cc: 'it', cc2: 'br' },
+      ]
+    },
+    currentLangLabel() {
+      return this.langOptions.find(l => l.code === this.locale)?.label ?? this.locale.toUpperCase()
     },
     reducedMotion() {
       return this.$store.getters.getReducedMotion
@@ -414,6 +569,7 @@ export default {
     $route() {
       this.loadData()
       this.initActiveSection()
+      this.menuOpen = false
     },
   },
 }
