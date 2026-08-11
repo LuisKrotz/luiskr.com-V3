@@ -174,17 +174,27 @@ export default {
 
       const gap = 16
 
-      // ── N derived from content-based minimum card width ───────────────────
-      // Font: Raleway uppercase, font-size = 5cqw (container query units)
-      // Minimum readable font size: 12px → 5% × cardWidth = 12px → cardWidth ≥ 240px
-      // Card padding: 20px per side → inner usable width = cardWidth - 40px
-      // Longest title ~20 chars × 7.5px/char = 150px → needs inner width ≥ 150px ✓ at 240px
-      // Image at 240px: 240 × 0.56 = 134px tall — proper landscape, not a strip ✓
+      // ── N explicitly mapped to project CSS breakpoints ────────────────────
+      // Mirrors _mixins.scss breakpoints: 540 / 960 / 1440 / 1920 / 2560
+      // colW = (W - gap*(N-1)) / N  →  always fills the container exactly.
+      // Featured spans 2 cols, compact 1.
       //
-      // Max columns that fit: N = floor((W + gap) / (MIN_CARD_W + gap))
-      // This guarantees colW = (W - gap*(N-1))/N ≥ MIN_CARD_W at every breakpoint.
-      const MIN_CARD_W = 240
-      const N    = Math.max(1, Math.floor((W + gap) / (MIN_CARD_W + gap)))
+      // Resulting compact / featured widths (at key viewports):
+      //   375px  (W≈333):  N=1  →  full-width
+      //   768px  (W≈658):  N=2  →  compact≈321px   feat≈658px
+      //   960px  (W≈850):  N=3  →  compact≈272px   feat≈560px
+      //  1280px  (W≈1102): N=3  →  compact≈362px   feat≈740px
+      //  1440px  (W≈1262): N=4  →  compact≈303px   feat≈622px
+      //  1680px  (W≈1392): N=4  →  compact≈341px   feat≈698px
+      //  1920px  (W≈1632): N=5  →  compact≈313px   feat≈642px
+      //  2560px  (W≈2094): N=6  →  compact≈335px   feat≈686px
+      const vw = window.innerWidth
+      const N  = vw < 540 ? 1
+               : vw < 960 ? 2
+               : vw < 1440 ? 3
+               : vw < 1920 ? 4
+               : vw < 2560 ? 5
+               : 6
       const colW = Math.floor((W - gap * (N - 1)) / N)
       const colH = Array(N).fill(0)
 
@@ -259,8 +269,8 @@ export default {
       const vw  = window.innerWidth
       const pad = vw < 320 ? 13 : vw < 540 ? 21 : vw < 768 ? 34 : vw < 1024 ? 55 : vw < 1680 ? 89 : 144
       const W   = vw - pad * 2
+      const N   = vw < 540 ? 1 : vw < 960 ? 2 : vw < 1440 ? 3 : vw < 1920 ? 4 : vw < 2560 ? 5 : 6
       const gap = 16
-      const N   = Math.max(1, Math.floor((W + gap) / (240 + gap)))
       const colW = Math.floor((W - gap * (N - 1)) / N)
       const col  = (n - 1) % N
       const row  = Math.floor((n - 1) / N)
