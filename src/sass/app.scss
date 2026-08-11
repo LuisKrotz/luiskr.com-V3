@@ -161,6 +161,14 @@
   line-height: 1.5;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
 
+  // Mobile: no backdrop-filter — extremely expensive on mobile GPUs.
+  // Solid background looks identical and costs nothing.
+  @media (max-width: 768px) {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(38, 38, 38, 0.98);
+  }
+
   @include layout-768() {
     padding-top: to-rem($space-lg);
     padding-bottom: to-rem($space-lg);
