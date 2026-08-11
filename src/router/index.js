@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import store from '../store/index.js'
+import { auth } from '../firebase.js'
 
 const title = 'Luis Krötz'
 export const VALID_LANGS = ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln']
@@ -163,6 +164,22 @@ const routes = [
   { path: '/fr',  children: makeRoutes('fr',  '_fr')  },
   { path: '/tln', children: makeRoutes('tln', '_tln') },
 
+  // Admin Login route
+  {
+    path: '/admin',
+    name: 'Admin Login',
+    component: () => import(/* webpackChunkName: "admin" */ '../views/AdminLogin.vue'),
+    meta: { title: title + ' | Admin Login' },
+  },
+
+  // Protected CMS Dashboard route
+  {
+    path: '/cms',
+    name: 'CMS Dashboard',
+    component: () => import(/* webpackChunkName: "cms" */ '../views/CmsDashboard.vue'),
+    meta: { title: title + ' | CMS Dashboard', requiresAuth: true },
+  },
+
   // 404 catch-all
   {
     path: '/:pathMatch(.*)*',
@@ -190,8 +207,12 @@ const router = createRouter({
   },
 })
 
-// Navigation guard: detect lang from URL path prefix
+// Navigation guard: detect lang from URL path prefix & protect CMS
 router.beforeEach((to) => {
+  if (to.meta?.requiresAuth && !auth.currentUser) {
+    return { name: 'Admin Login' }
+  }
+
   const path = to.path
   let lang = 'en'
   if      (path.startsWith('/br'))  lang = 'br'
