@@ -189,11 +189,7 @@ export default {
   watch: {
     processedItems(v) {
       if (!v.length) return
-      this.$nextTick(() => {
-        this.layout()
-        setTimeout(() => { this.layout(); this.measureAll() }, 60)
-        setTimeout(() => { this.layout(); this.measureAll() }, 300)
-      })
+      this.$nextTick(this.layout)
     },
     featuredLinks() { this.$nextTick(this.layout) },
   },
