@@ -9,6 +9,7 @@ export default defineConfig({
     vue(),
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: 'script-defer',
       filename: 'service-worker.js',
       manifestFilename: 'site.webmanifest',
       includeAssets: ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png'],

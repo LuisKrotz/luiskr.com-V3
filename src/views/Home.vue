@@ -136,8 +136,17 @@ export default {
       featuredLinks:     new Set(),
       hoveredIdx:        null,
       touchIdx:          null,
-      aboutTranslations: false,
-      profilePicture:    null,
+      aboutTranslations: {
+        title: 'ABOUT ME',
+        col1: [
+          "Hi, I'm Luis — a Software Engineer focused on UX. Currently working at Dell on the Digital Experience team.",
+          "Building performant web platforms, design systems, and user interfaces with modern web standards."
+        ],
+        col2: [
+          "Passionate about craft, accessibility, code elegance, and meaningful user interactions."
+        ]
+      },
+      profilePicture: 'https://1.gravatar.com/userimage/187859145/6d029a53f434746bac96955a5c55398d?size=200',
       cards:             [],
       containerH:        '0px',
       bottomHMap:        {},   // per-card measured description height, keyed by item index
