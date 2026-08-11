@@ -78,22 +78,38 @@ export async function onAuthChange(callback) {
   return onAuthStateChanged(auth, callback)
 }
 
+const _fetchCache = new Map()
+
 // Lightweight HTTP REST reader for database (zero WebSockets, zero unload listeners)
 export async function fetchFirebaseDb(path) {
   const cleanPath = (path || '').toString().replace(/^\//, '')
   const url = `${firebaseConfig.databaseURL}/${cleanPath}.json`
-  try {
-    const res = await fetch(url)
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    const data = await res.json()
-    return {
-      exists: () => data !== null && data !== undefined,
-      val: () => data,
-    }
-  } catch (err) {
-    console.warn('REST DB fetch failed, falling back to SDK', err)
-    const { ref, child, get } = await import('firebase/database')
-    const db = await getDbInstance()
-    return await get(child(ref(db), cleanPath))
+
+  if (_fetchCache.has(url)) {
+    return await _fetchCache.get(url)
   }
+
+  const promise = (async () => {
+    try {
+      const res = await fetch(url)
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const data = await res.json()
+      return {
+        exists: () => data !== null && data !== undefined,
+        val: () => data,
+      }
+    } catch (err) {
+      console.warn('REST DB fetch failed, falling back to SDK', err)
+      const { ref, child, get } = await import('firebase/database')
+      const db = await getDbInstance()
+      return await get(child(ref(db), cleanPath))
+    }
+  })()
+
+  _fetchCache.set(url, promise)
+  return await promise
+}
+
+export function clearDbCache() {
+  _fetchCache.clear()
 }
