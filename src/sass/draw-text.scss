@@ -45,6 +45,14 @@
   animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 100ms));
 }
 
+// Frozen state: animation complete, chars permanently visible, no re-trigger possible
+.draw-text--done .draw-text__char {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  animation: none;
+}
+
 // ── Related Mosaic: animate write effect ─────────────────────────────────────
 .related-mosaic-desc .draw-text__char {
   animation: char-draw .5s cubic-bezier(0.22, 1, 0.36, 1) forwards;

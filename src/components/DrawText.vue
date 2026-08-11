@@ -1,5 +1,7 @@
 <template>
-  <span class="draw-text" :class="{ 'draw-text--visible': isVisible }" ref="root" :aria-label="plainText">
+  <span class="draw-text"
+    :class="{ 'draw-text--visible': isVisible && !hasAnimated, 'draw-text--done': hasAnimated }"
+    ref="root" :aria-label="plainText">
     <template v-for="(token, i) in tokens" :key="i">
       <br v-if="token.type === 'br'" aria-hidden="true" />
 
@@ -50,15 +52,19 @@ export default {
   },
 
   data() {
-    return { isVisible: false, observer: null }
+    return { isVisible: false, hasAnimated: false, observer: null, _animTimer: null }
   },
 
   watch: {
-    // Only trigger the animation once (false → true).
-    // Once isVisible is true, keep it — the parent panel hides text via overflow:hidden,
-    // so the animation never needs to replay on subsequent hovers.
     visible(v) {
-      if (this.trigger === 'prop' && v && !this.isVisible) this.isVisible = true
+      if (this.trigger === 'prop' && v && !this.isVisible) {
+        this.isVisible = true
+        // Once all chars finish animating, freeze state as draw-text--done
+        // (prevents browser from restarting animation on overflow:hidden reveal)
+        const chars  = this.text.replace(/<[^>]+>/g, '').length
+        const totalMs = this.offset + chars * this.delay + 900  // +900 = animation duration
+        this._animTimer = setTimeout(() => { this.hasAnimated = true }, totalMs)
+      }
     },
   },
 
@@ -142,6 +148,7 @@ export default {
 
   beforeUnmount() {
     if (this.observer) this.observer.disconnect()
+    if (this._animTimer) clearTimeout(this._animTimer)
   },
 }
 </script>
