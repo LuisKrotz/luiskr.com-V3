@@ -7,6 +7,157 @@
         <span class="cms-badge">CMS CONTROL PANEL</span>
       </div>
 
+      <!-- Quick Cloud & AI External Links -->
+      <div class="cms-quick-tools">
+        <!-- Fast Add Google AI Credits -->
+        <div class="cms-dropdown">
+          <a
+            href="https://one.google.com/u/0/ai/activity?g1_landing_page=0&pageId=none"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cms-quick-btn cms-quick-btn--ai"
+            title="Fast Add A.I Credits"
+          >
+            <span class="cms-btn-icon">⚡</span>
+            <span class="cms-btn-label">Fast Add A.I Credits</span>
+            <span class="cms-caret">▾</span>
+          </a>
+          <div class="cms-dropdown-menu">
+            <a
+              href="https://one.google.com/u/0/ai/activity?g1_landing_page=0&pageId=none"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cms-dropdown-item"
+            >
+              <span class="item-icon">⚡</span> Google One AI Credits & Activity
+            </a>
+            <a
+              href="https://aistudio.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cms-dropdown-item"
+            >
+              <span class="item-icon">✨</span> Google AI Studio (Gemini)
+            </a>
+            <a
+              href="https://aistudio.google.com/app/apikey"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cms-dropdown-item"
+            >
+              <span class="item-icon">🔑</span> Google AI Keys & Plan
+            </a>
+            <a
+              href="https://console.cloud.google.com/billing"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cms-dropdown-item"
+            >
+              <span class="item-icon">💳</span> Google Cloud AI Billing
+            </a>
+          </div>
+        </div>
+
+        <!-- Access My Bucket -->
+        <div class="cms-dropdown">
+          <a
+            href="https://console.cloud.google.com/storage/browser/luiskr.com;tab=objects?forceOnBucketsSortingFiltering=true&project=zer01-244214"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cms-quick-btn cms-quick-btn--bucket"
+            title="Access Storage Bucket"
+          >
+            <span class="cms-btn-icon">🪣</span>
+            <span class="cms-btn-label">Access Bucket</span>
+            <span class="cms-caret">▾</span>
+          </a>
+          <div class="cms-dropdown-menu">
+            <a
+              href="https://console.cloud.google.com/storage/browser/luiskr.com;tab=objects?forceOnBucketsSortingFiltering=true&project=zer01-244214"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cms-dropdown-item"
+            >
+              <span class="item-icon">🪣</span> luiskr.com Cloud Bucket
+            </a>
+            <a
+              href="https://console.firebase.google.com/u/0/project/luiskr-com/storage"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cms-dropdown-item"
+            >
+              <span class="item-icon">🔥</span> Firebase Storage
+            </a>
+          </div>
+        </div>
+
+        <!-- Access Firebase -->
+        <div class="cms-dropdown">
+          <a
+            href="https://console.firebase.google.com/u/0/project/luiskr-com/overview"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cms-quick-btn cms-quick-btn--firebase"
+            title="Access Firebase Console"
+          >
+            <span class="cms-btn-icon">🔥</span>
+            <span class="cms-btn-label">Firebase</span>
+            <span class="cms-caret">▾</span>
+          </a>
+          <div class="cms-dropdown-menu">
+            <a
+              href="https://console.firebase.google.com/u/0/project/luiskr-com/overview"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cms-dropdown-item"
+            >
+              <span class="item-icon">📊</span> Console Overview (luiskr-com)
+            </a>
+            <a
+              href="https://console.firebase.google.com/u/0/project/luiskr-com/database/luiskr-com/data"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cms-dropdown-item"
+            >
+              <span class="item-icon">🗄️</span> Realtime Database
+            </a>
+          </div>
+        </div>
+
+        <!-- Access Billing -->
+        <div class="cms-dropdown">
+          <a
+            href="https://console.firebase.google.com/u/0/project/luiskr-com/usage/details"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cms-quick-btn cms-quick-btn--billing"
+            title="Access Billing & Usage"
+          >
+            <span class="cms-btn-icon">💳</span>
+            <span class="cms-btn-label">Billing</span>
+            <span class="cms-caret">▾</span>
+          </a>
+          <div class="cms-dropdown-menu">
+            <a
+              href="https://console.firebase.google.com/u/0/project/luiskr-com/usage/details"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cms-dropdown-item"
+            >
+              <span class="item-icon">📈</span> Firebase Usage & Billing
+            </a>
+            <a
+              href="https://console.cloud.google.com/billing"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cms-dropdown-item"
+            >
+              <span class="item-icon">🏛️</span> Google Cloud Billing
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div class="cms-user-info">
         <img
           v-if="user?.photoURL"

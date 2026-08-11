@@ -25,9 +25,9 @@
           >
             <div class="home-mosaic-media" :style="cards[i] && cards[i].media">
               <img
-                :decoding="i === 0 ? 'sync' : 'async'"
-                :loading="i === 0 ? 'eager' : 'lazy'"
-                :fetchpriority="i === 0 ? 'high' : 'auto'"
+                :decoding="i < 3 ? 'sync' : 'async'"
+                :loading="i < 3 ? 'eager' : 'lazy'"
+                :fetchpriority="i < 3 ? 'high' : 'auto'"
                 class="home-mosaic-img"
                 :src="storage + 'covers/' + item.image + ext"
                 :alt="item.label"
@@ -66,8 +66,8 @@
       </h2>
       <div class="about-profile-section">
         <div class="about-profile-picture">
-          <img v-if="aboutTranslations && profilePicture" decoding="async" class="about-profile-picture-img"
-            :src="profilePicture" :alt="aboutTranslations.title" width="400" height="400" />
+          <img v-if="aboutTranslations && profilePicture" decoding="async" loading="lazy" class="about-profile-picture-img"
+            :src="optimizedProfilePicture" :alt="aboutTranslations.title" width="200" height="200" />
           <div v-else class="about-profile-picture-placeholder"></div>
         </div>
         <div class="about-profile-text">
@@ -154,8 +154,13 @@ export default {
       return raw.map(item => ({ ...item, featured: this.isFeatured(item) }))
     },
 
-    // Compute charDelay and per-paragraph offsets so all paragraphs
-    // animate sequentially, finishing in ~2 seconds total.
+    optimizedProfilePicture() {
+      if (!this.profilePicture) return ''
+      if (typeof this.profilePicture === 'string' && this.profilePicture.includes('gravatar.com')) {
+        return this.profilePicture.replace(/size=\d+/, 'size=200')
+      }
+      return this.profilePicture
+    },
     aboutDrawData() {
       const col1 = this.aboutTranslations?.col1 || []
       const col2 = this.aboutTranslations?.col2 || []
@@ -273,29 +278,31 @@ export default {
       this.containerH = Math.max(...colH) - gap + 'px'
     },
 
-    // Pre-measure ALL cards' description heights upfront.
-    // .home-mosaic-details is always in the DOM (v-if removed), so scrollHeight
-    // is readable even when the parent .home-mosaic-bottom has height:0.
+    // Pre-measure ALL cards' description heights upfront via RAF batching.
     async measureAll() {
       await this.$nextTick()
-      const details = this.$el?.querySelectorAll('.home-mosaic-details')
-      if (!details || !details.length) return
-      const map = {}
-      details.forEach(el => {
-        const idx = parseInt(el.dataset.index)
-        const h = el.scrollHeight
-        if (!isNaN(idx) && h > 0) map[idx] = h + 24   // +24 padding buffer
+      requestAnimationFrame(() => {
+        const details = this.$el?.querySelectorAll('.home-mosaic-details')
+        if (!details || !details.length) return
+        const map = {}
+        details.forEach(el => {
+          const idx = parseInt(el.dataset.index)
+          const h = el.scrollHeight
+          if (!isNaN(idx) && h > 0) map[idx] = h + 24   // +24 padding buffer
+        })
+        this.bottomHMap = map
       })
-      this.bottomHMap = map
     },
 
-    // Per-card re-measure on hover (in case content changed or first hover)
+    // Per-card re-measure on hover
     measureBottomH(i) {
-      const el = this.$el?.querySelector(`.home-mosaic-details[data-index="${i}"]`)
-      if (el) {
-        const h = el.scrollHeight
-        if (h > 0) this.bottomHMap = { ...this.bottomHMap, [i]: h + 24 }
-      }
+      requestAnimationFrame(() => {
+        const el = this.$el?.querySelector(`.home-mosaic-details[data-index="${i}"]`)
+        if (el) {
+          const h = el.scrollHeight
+          if (h > 0) this.bottomHMap = { ...this.bottomHMap, [i]: h + 24 }
+        }
+      })
     },
 
     onHover(i) {
