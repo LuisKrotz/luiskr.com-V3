@@ -545,9 +545,11 @@ export default {
     this.initInputListeners()
     this.initActiveSection()
 
-    // Cache section positions on mount (avoids offsetTop in hot scroll path)
-    this._updateSectionTops()
-    this.checkScroll()
+    // Cache section positions after initial paint to prevent forced layout reflow during mount
+    requestAnimationFrame(() => {
+      this._updateSectionTops()
+      this.checkScroll()
+    })
 
     // passive:true lets browser scroll without waiting for JS — critical for mobile
     window.addEventListener('scroll', () => this.checkScroll(), { passive: true })
