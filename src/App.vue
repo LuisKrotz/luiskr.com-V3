@@ -168,8 +168,7 @@
 
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
-import router from './router/index.js'
-import { LANG_SLUGS } from './router/index.js'
+import router, { LANG_SLUGS, VALID_LANGS } from './router/index.js'
 import PreferencesModal from './components/PreferencesModal.vue'
 
 const cookie = 'cookie',
@@ -469,9 +468,10 @@ export default {
       else if (routeName.startsWith('GDPR'))    newPath = base + '/' + s.gdpr
       else if (routeName.startsWith('Terms'))   newPath = base + '/' + s.terms
       else {
-        // Project pages: strip current lang prefix and add new one
-        const rawPath = this.$route.path.replace(/^\/(en|br|es|de)(\/|$)/, '/')
-        newPath = base + (rawPath === '/' ? '/' : rawPath)
+        // Project pages: strip any existing lang prefix and add new one
+        const langPattern = new RegExp(`^\\/(${VALID_LANGS.join('|')})(\\/|$)`)
+        const rawPath = this.$route.path.replace(langPattern, '/')
+        newPath = base + (rawPath.startsWith('/') ? rawPath : '/' + rawPath)
       }
 
       this.$store.commit('setLang', lang)

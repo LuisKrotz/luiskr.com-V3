@@ -165,6 +165,9 @@ export default {
         this.translations = this.$store.getters.getlang.components?.related || {}
       },
     },
+    '$store.state.lang.locale'() {
+      this.fetchHomeData()
+    },
   },
 
   mounted() {
