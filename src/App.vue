@@ -387,8 +387,8 @@ export default {
           .catch(console.error)
       }
 
-      // Load portfolio list globally (once) so cover images and metadata are available immediately
-      if (!this.$store.state.portfoliolist?.length) {
+      // Load portfolio list globally when on home page so cover images and metadata load fast
+      if (this.isHomePage && !this.$store.state.portfoliolist?.length) {
         fetchFirebaseDb(`${dbpath}/pages/HOME`)
           .then((snapshot) => {
             if (snapshot.exists() && snapshot.val()?.portfoliolist) {
@@ -398,8 +398,8 @@ export default {
           .catch(console.error)
       }
 
-      // Load mentions/awards from About page data (once, globally)
-      if (!this.$store.getters.getMentions.items) {
+      // Load mentions/awards from About page data when on home page
+      if (this.isHomePage && !this.$store.getters.getMentions.items) {
         fetchFirebaseDb(`${dbpath}/pages/about`)
           .then((snapshot) => {
             if (snapshot.exists()) {
