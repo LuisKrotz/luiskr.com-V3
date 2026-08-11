@@ -221,7 +221,7 @@
 </template>
 
 <script>
-import { db } from '../../firebase.js'
+import { getDbInstance } from '../../firebase.js'
 import { ref, child, get, set, remove } from 'firebase/database'
 
 export default {
@@ -253,6 +253,7 @@ export default {
 
     async fetchProjectKeys() {
       try {
+        const db = await getDbInstance()
         const snapshot = await get(child(ref(db), `translations/${this.selectedLang}/projects`))
         if (snapshot.exists()) {
           const keys = Object.keys(snapshot.val())
@@ -271,6 +272,7 @@ export default {
 
     async loadProjectData() {
       try {
+        const db = await getDbInstance()
         const path = `translations/${this.selectedLang}/projects/${this.selectedProjectKey}`
         const snapshot = await get(child(ref(db), path))
         if (snapshot.exists()) {
@@ -305,6 +307,7 @@ export default {
       if (!confirm2) return
 
       try {
+        const db = await getDbInstance()
         const path = `translations/${this.selectedLang}/projects/${this.selectedProjectKey}`
         const snap = await get(child(ref(db), path))
         
@@ -427,6 +430,7 @@ export default {
     async saveProjectData() {
       this.saving = true
       try {
+        const db = await getDbInstance()
         const path = `translations/${this.selectedLang}/projects/${this.selectedProjectKey}`
         await set(ref(db, path), this.currentProject)
         this.$emit('notify', `Project [${this.selectedProjectKey.toUpperCase()}] saved for [${this.selectedLang.toUpperCase()}]!`)

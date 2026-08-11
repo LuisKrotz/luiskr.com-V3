@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import { db } from '../../firebase.js'
+import { getDbInstance } from '../../firebase.js'
 import { ref, child, get, set } from 'firebase/database'
 
 export default {
@@ -136,6 +136,7 @@ export default {
   methods: {
     async loadCategoryData() {
       try {
+        const db = await getDbInstance()
         const path = `translations/${this.selectedLang}/${this.selectedCategory}`
         const snapshot = await get(child(ref(db), path))
         if (snapshot.exists()) {
@@ -182,6 +183,7 @@ export default {
     async saveCategoryData() {
       this.saving = true
       try {
+        const db = await getDbInstance()
         const path = `translations/${this.selectedLang}/${this.selectedCategory}`
         await set(ref(db, path), this.categoryData)
         this.$emit('notify', `Category [${this.selectedCategory}] saved for [${this.selectedLang.toUpperCase()}]!`)

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import store from '../store/index.js'
-import { auth } from '../firebase.js'
+import { getAuthInstance } from '../firebase.js'
 
 const title = 'Luis Krötz'
 export const VALID_LANGS = ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln']
@@ -141,9 +141,12 @@ const router = createRouter({
 })
 
 // Navigation guard: detect lang from URL path prefix & protect CMS
-router.beforeEach((to) => {
-  if (to.meta?.requiresAuth && !auth.currentUser) {
-    return { name: 'Admin Login' }
+router.beforeEach(async (to) => {
+  if (to.meta?.requiresAuth) {
+    const authInstance = await getAuthInstance()
+    if (!authInstance?.currentUser) {
+      return { name: 'Admin Login' }
+    }
   }
 
   const path = to.path

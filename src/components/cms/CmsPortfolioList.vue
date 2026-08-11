@@ -78,7 +78,7 @@
 </template>
 
 <script>
-import { db } from '../../firebase.js'
+import { getDbInstance } from '../../firebase.js'
 import { ref, child, get, set } from 'firebase/database'
 
 export default {
@@ -102,6 +102,7 @@ export default {
   methods: {
     async loadLangPortfolio() {
       try {
+        const db = await getDbInstance()
         const [pSnap, rSnap] = await Promise.all([
           get(child(ref(db), `translations/${this.selectedLang}/pages/HOME/portfoliolist`)),
           get(child(ref(db), `translations/${this.selectedLang}/components/related/projects`))
@@ -169,6 +170,7 @@ export default {
     async savePortfolio() {
       this.saving = true
       try {
+        const db = await getDbInstance()
         await set(ref(db, `translations/${this.selectedLang}/pages/HOME/portfoliolist`), this.items)
 
         // Also sync components/related/projects

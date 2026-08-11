@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { signInWithGoogle, auth, onAuthChange } from '../firebase.js'
+import { signInWithGoogle, onAuthChange } from '../firebase.js'
 
 export default {
   name: 'AdminLogin',
@@ -48,8 +48,8 @@ export default {
       errorMsg: '',
     }
   },
-  mounted() {
-    this.unsubscribe = onAuthChange((user) => {
+  async mounted() {
+    this.unsubscribe = await onAuthChange((user) => {
       if (user) {
         this.$router.push('/cms')
       }

@@ -217,7 +217,7 @@
 </template>
 
 <script>
-import { auth, logoutUser, onAuthChange } from '../firebase.js'
+import { logoutUser, onAuthChange } from '../firebase.js'
 import CmsPortfolioList from '../components/cms/CmsPortfolioList.vue'
 import CmsProjectsList from '../components/cms/CmsProjectsList.vue'
 import CmsLangEditor from '../components/cms/CmsLangEditor.vue'
@@ -246,8 +246,8 @@ export default {
       return 'CmsPortfolioList'
     },
   },
-  mounted() {
-    this.unsubscribe = onAuthChange((currentUser) => {
+  async mounted() {
+    this.unsubscribe = await onAuthChange((currentUser) => {
       this.user = currentUser
       if (!currentUser) {
         this.$router.push('/admin')
