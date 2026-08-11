@@ -1,0 +1,306 @@
+// ── CMS & Admin Theme System ─────────────────────────────────────────
+
+.cms-container, .admin-login-wrapper {
+  box-sizing: border-box;
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+}
+
+.cms-container {
+  min-height: 100vh;
+  background-color: #0b0c10;
+  color: #e0e6ed;
+  font-family: 'Raleway', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+// ── Admin Login Card ──────────────────────────────────────────────────
+.admin-login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 30%, #1f2833 0%, #0b0c10 70%);
+  padding: 2rem;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 440px;
+  background: rgba(31, 40, 51, 0.65);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  text-align: center;
+
+  .admin-title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    color: #fff;
+  }
+
+  .admin-subtitle {
+    font-size: 0.95rem;
+    color: #8892b0;
+    margin-bottom: 2.5rem;
+  }
+
+  .google-auth-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #ffffff;
+    color: #111111;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.85rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .google-icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .admin-error-msg {
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background: rgba(255, 75, 75, 0.15);
+    border: 1px solid rgba(255, 75, 75, 0.3);
+    border-radius: 8px;
+    color: #ff6b6b;
+    font-size: 0.88rem;
+  }
+}
+
+// ── CMS Header & Layout ───────────────────────────────────────────────
+.cms-header {
+  min-height: 70px;
+  background: rgba(15, 20, 28, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .cms-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .cms-logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #66fcf1;
+    }
+
+    .cms-badge {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      background: rgba(102, 252, 241, 0.15);
+      color: #66fcf1;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .cms-user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .cms-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+    }
+
+    .cms-email {
+      font-size: 0.9rem;
+      color: #c5c6c7;
+    }
+
+    .cms-logout-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+// ── CMS Tabs & Sub-header ─────────────────────────────────────────────
+.cms-nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  .cms-tab-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #8892b0;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &.active {
+      color: #66fcf1;
+      border-bottom-color: #66fcf1;
+    }
+  }
+}
+
+.cms-main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+// ── CMS Cards & Form Controls ─────────────────────────────────────────
+.cms-card {
+  background: rgba(31, 40, 51, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  .cms-card-title {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+}
+
+.cms-field-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    font-size: 0.82rem;
+    color: #8892b0;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+}
+
+.cms-input, .cms-select, .cms-textarea {
+  width: 100%;
+  background: rgba(11, 12, 16, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 0.65rem 0.9rem;
+  color: #fff;
+  font-size: 0.92rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: #66fcf1;
+  }
+}
+
+.cms-btn {
+  background: #66fcf1;
+  color: #0b0c10;
+  font-weight: 600;
+  padding: 0.65rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #45a29e;
+    transform: translateY(-1px);
+  }
+
+  &--danger {
+    background: #ff4d4d;
+    color: #fff;
+
+    &:hover {
+      background: #cc0000;
+    }
+  }
+
+  &--secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+// ── Notification Toast ────────────────────────────────────────────────
+.cms-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #1f2833;
+  border: 1px solid #66fcf1;
+  color: #fff;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

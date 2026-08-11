@@ -18,7 +18,8 @@ if (import.meta.env.PROD) {
       console.log('New content is downloading.')
     },
     updated() {
-      console.log('New content is available; please refresh.')
+      console.log('New content is available; refreshing page.')
+      window.location.reload()
     },
     offline() {
       console.log('No internet connection found. App is running in offline mode.')
