@@ -137,16 +137,18 @@ export default {
       hoveredIdx:        null,
       touchIdx:          null,
       aboutTranslations: {
-        title: 'ABOUT ME',
+        title: "About me",
         col1: [
-          "Hi, I'm Luis — a Software Engineer focused on UX. Currently working at Dell on the Digital Experience team.",
-          "Building performant web platforms, design systems, and user interfaces with modern web standards."
+          "Hi, I'm Luis —<br />a Software Engineer focused on UX.<br>Currently working at Dell on the <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "I'm an IT professional with deep expertise in web development, systems analysis, and project management. I specialize in building innovative, efficient digital solutions with a strong focus on SEO, accessibility, and performance. My programming background spans ASP, PHP, C, C#, Pascal, Delphi, JavaScript, and SQL, alongside modern frameworks such as React, Vue, and Angular."
         ],
         col2: [
-          "Passionate about craft, accessibility, code elegance, and meaningful user interactions."
+          "I studied at UFSM (Federal University of Santa Maria) in Frederico Westphalen, Brazil, earning a degree in Technology for Internet Systems, followed by a postgraduate course in <span lang=\"pt-br\">\"Gestão de T.I\"</span> (IT Management) at UFSM.",
+          "My work is always focused on delivering pixel-perfect layouts — code that is easy to use, fast, beautiful, and smooth.",
+          "I love CSS animation. I spent years crafting Melissa's seasonal collections almost entirely in CSS, and have since worked with JS-based animations using Vue and Lottie, experimented with Three.js, and recently started exploring spec-driven development and AI."
         ]
       },
-      profilePicture: 'https://1.gravatar.com/userimage/187859145/6d029a53f434746bac96955a5c55398d?size=200',
+      profilePicture: "https://1.gravatar.com/userimage/187859145/6d029a53f434746bac96955a5c55398b?size=256",
       cards:             [],
       containerH:        '0px',
       bottomHMap:        {},   // per-card measured description height, keyed by item index
