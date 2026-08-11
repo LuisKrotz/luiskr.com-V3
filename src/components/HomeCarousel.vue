@@ -7,7 +7,7 @@
   >
     <!-- Controls for awards variant: dots only, no arrows -->
     <div v-if="variant === 'awards'" class="hc-controls">
-      <div v-if="showDots" class="hc-dots" aria-hidden="true">
+      <div v-if="showDots" class="hc-dots">
         <button
           v-for="(_, idx) in items"
           :key="idx"
@@ -22,7 +22,7 @@
     <!-- Track -->
     <div class="hc-track" ref="track">
       <!-- Clone of last item -->
-      <div class="hc-slide hc-slide--clone" aria-hidden="true">
+      <div class="hc-slide hc-slide--clone" aria-hidden="true" inert>
         <slot :item="items[items.length - 1]" :index="-1" :isActive="false"></slot>
       </div>
 
@@ -40,7 +40,7 @@
       </div>
 
       <!-- Clone of first item -->
-      <div class="hc-slide hc-slide--clone" aria-hidden="true">
+      <div class="hc-slide hc-slide--clone" aria-hidden="true" inert>
         <slot :item="items[0]" :index="items.length" :isActive="false"></slot>
       </div>
     </div>
@@ -116,9 +116,14 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this._jumpToSlide(0)
+      this._disableClonesFocus()
       if (!this.isModalOpen && !this.isReducedMotion) this._startAutoplay()
     })
     window.addEventListener('resize', this._onResize)
+  },
+
+  updated() {
+    this._disableClonesFocus()
   },
 
   watch: {
@@ -280,6 +285,16 @@ export default {
 
     _onResize() {
       this._jumpToSlide(this.currentIndex)
+    },
+
+    _disableClonesFocus() {
+      const clones = this.$el?.querySelectorAll('.hc-slide--clone')
+      clones?.forEach((clone) => {
+        clone.querySelectorAll('a, button, input, textarea, select').forEach((el) => {
+          el.setAttribute('tabindex', '-1')
+          el.setAttribute('aria-hidden', 'true')
+        })
+      })
     },
   },
 }
