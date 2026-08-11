@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 
-const title = "Luis Krötz"
+const title = 'Luis Krötz'
 
 const routes = [
   {
@@ -11,19 +11,30 @@ const routes = [
     meta: {
       title: title,
       translation: 'HOME',
-    }
+    },
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    component: Home,
     meta: {
       title: title + ' | About',
-      translation: 'about',
-    }
+      translation: 'HOME',
+      scrollTo: 'about',
+    },
   },
   {
-    path: '/portfolio/metcha',
+    path: '/contact',
+    name: 'Contact',
+    component: Home,
+    meta: {
+      title: title + ' | Contact',
+      translation: 'HOME',
+      scrollTo: 'contact',
+    },
+  },
+  {
+    path: '/portfolio/metcha/:slug?',
     name: 'METCHA',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -32,118 +43,118 @@ const routes = [
     meta: {
       title: title + ' | METCHA',
       translation: 'metcha',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
-    path: '/portfolio/transa',
+    path: '/portfolio/transa/:slug?',
     name: 'Transa',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | TRANSA',
       translation: 'transa',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
-    path: '/portfolio/aboutmarco',
+    path: '/portfolio/aboutmarco/:slug?',
     name: 'Marco Almeida',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Marco Almeida',
       translation: 'aboutmarco',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
-    path: '/portfolio/melissa',
+    path: '/portfolio/melissa/:slug?',
     name: 'Melissa',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Melissa',
       translation: 'melissa',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
-    path: '/portfolio/minimelissa',
+    path: '/portfolio/minimelissa/:slug?',
     name: 'Minimelissa',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Minimelissa',
       translation: 'mini-melissa',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
-    path: '/portfolio/mor',
+    path: '/portfolio/mor/:slug?',
     name: 'Mor',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | MOR',
       translation: 'mor',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
-    path: '/portfolio/coza',
+    path: '/portfolio/coza/:slug?',
     name: 'Coza',
     component: () => import('../views/Project.vue'),
     meta: {
       title: title + ' | Coza',
       translation: 'coza',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
-    path: '/portfolio/brazilian-leather',
+    path: '/portfolio/brazilian-leather/:slug?',
     name: 'Brazilian Leather',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Brazilian Leather',
       translation: 'cicb',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
-    path: '/portfolio/cecerele',
+    path: '/portfolio/cecerele/:slug?',
     name: 'Cecerelê',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Cecerelê',
       translation: 'cecerele',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
-    path: '/portfolio/clinica-de-desenvolvimento-nathalia-bond',
+    path: '/portfolio/clinica-de-desenvolvimento-nathalia-bond/:slug?',
     name: 'Cliníca de Desenvolvimento - Nathalia Bond',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Cliníca de Desenvolvimento - Nathalia Bond',
       translation: 'nathalia-bond',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
-    path: '/portfolio/vibra',
+    path: '/portfolio/vibra/:slug?',
     name: 'Vibra',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Vibra',
       translation: 'vibra',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
-    path: '/portfolio/genesysinf-sageweb',
+    path: '/portfolio/genesysinf-sageweb/:slug?',
     name: 'Genesysinf Sageweb',
     component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
     meta: {
       title: title + ' | Genesysinf / Sageweb',
       translation: 'sage',
-      projectRoute: true
-    }
+      projectRoute: true,
+    },
   },
   {
     path: '/privacy-policy',
@@ -152,8 +163,8 @@ const routes = [
     meta: {
       title: title + ' | Privacy Policy',
       translation: 'privacy-policy',
-      legalRoute: true
-    }
+      legalRoute: true,
+    },
   },
   {
     path: '/gdpr',
@@ -162,8 +173,8 @@ const routes = [
     meta: {
       title: title + ' | GDPR',
       translation: 'GDPR',
-      legalRoute: true
-    }
+      legalRoute: true,
+    },
   },
   {
     path: '/terms-of-use',
@@ -172,23 +183,38 @@ const routes = [
     meta: {
       title: title + ' | Terms of Use',
       translation: 'terms-of-use',
-      legalRoute: true
-    }
+      legalRoute: true,
+    },
   },
   {
-    path: "/:pathMatch(.*)*",
+    path: '/:pathMatch(.*)*',
     name: 'Not Found',
     component: () => import('../views/NotFound.vue'),
     meta: {
       title: title + ' | Page not found',
       translation: 'not-found',
-    }
-  }
+    },
+  },
 ]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior(to, from) {
+    if (to.meta?.projectRoute && from.meta?.projectRoute && to.name === from.name) {
+      return false
+    }
+    if (to.meta?.scrollTo) {
+      // Wait for the Home component to render the section
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({ el: '#' + to.meta.scrollTo, behavior: 'smooth' })
+        }, 600)
+      })
+    }
+    return { top: 0 }
+  },
 })
 
 export default router
+

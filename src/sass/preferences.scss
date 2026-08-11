@@ -1,0 +1,235 @@
+@import '_variables';
+@import '_mixins';
+@import '_fonts';
+@import '_placeholders';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Preferences Modal Dialog
+// ─────────────────────────────────────────────────────────────────────────────
+
+.pref-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: to-rem($space-xl);
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(to-rem(8));
+  -webkit-backdrop-filter: blur(to-rem(8));
+  outline: none;
+}
+
+.pref-dialog {
+  width: 100%;
+  max-width: to-rem($space-8xl);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: to-rem(1) solid var(--border-color);
+  border-radius: to-rem($space-xl);
+  box-shadow: 0 to-rem(24) to-rem(48) to-rem(-12) rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pref-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: to-rem($space-xl) to-rem($space-2xl);
+  border-bottom: to-rem(1) solid var(--border-color);
+}
+
+.pref-title {
+  @extend .ttl-sm;
+
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  letter-spacing: to-rem(-0.2);
+  color: inherit;
+}
+
+.pref-close-btn {
+  @extend %RESETBTN;
+
+  font-size: to-rem($space-2xl);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: to-rem($space-2xs) to-rem($space-xs);
+  border-radius: to-rem($space-xs);
+  line-height: 1;
+  transition: opacity 0.2s ease, background 0.2s ease;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+    background: var(--border-color);
+  }
+}
+
+.pref-body {
+  padding: to-rem($space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-3xl);
+}
+
+.pref-section {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-md);
+}
+
+.pref-section-title {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: to-rem(18);
+  text-transform: uppercase;
+  letter-spacing: to-rem(0.8);
+  color: var(--text-primary);
+}
+
+.pref-section-desc {
+  margin: 0;
+  font-size: to-rem(15);
+  color: var(--text-muted);
+}
+
+.pref-options {
+  display: grid;
+  gap: to-rem($space-md);
+
+  &--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pref-option-btn {
+  @extend %RESETBTN;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: to-rem($space-xs);
+  padding: to-rem($space-xl) to-rem($space-sm);
+  background: var(--bg-secondary);
+  border: to-rem(2) solid transparent;
+  border-radius: to-rem($space-lg);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    border-color: var(--text-muted);
+  }
+
+  &.active {
+    border-color: var(--text-primary);
+    background: var(--bg-primary);
+    box-shadow: 0 to-rem(4) to-rem(12) rgba(0, 0, 0, 0.08);
+  }
+}
+
+.pref-option-icon {
+  font-size: to-rem($space-3xl);
+  line-height: 1;
+}
+
+.pref-option-label {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: to-rem(16);
+}
+
+.pref-option-sub {
+  font-size: to-rem(13);
+  color: var(--text-muted);
+}
+
+.pref-footer {
+  padding: to-rem($space-lg) to-rem($space-2xl);
+  border-top: to-rem(1) solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pref-done-btn {
+  @extend %RESETBTN;
+  @extend .ttl-xs;
+
+  position: relative;
+  display: inline-block;
+  padding: to-rem($space-xs) to-rem($space-xl);
+  color: var(--text-primary);
+  background: transparent;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: to-rem(1);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease, opacity 0.2s ease;
+
+  // Animated corner borders (same style & animation as Check Out button)
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: to-rem($space-md);
+    height: to-rem($space-md);
+    transition: width 0.25s cubic-bezier(0.22, 1, 0.36, 1), height 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    border-top: to-rem(1) solid var(--text-primary);
+    border-left: to-rem(1) solid var(--text-primary);
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: to-rem(1) solid var(--text-primary);
+    border-right: to-rem(1) solid var(--text-primary);
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--text-primary);
+    opacity: 0.85;
+
+    &::before,
+    &::after {
+      width: calc(100% - #{to-rem($space-2xs)});
+      height: calc(100% - #{to-rem($space-2xs)});
+    }
+  }
+}
+
+// Vue modal transition
+.pref-fade-enter-active,
+.pref-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+.pref-fade-enter-active .pref-dialog,
+.pref-fade-leave-active .pref-dialog {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pref-fade-enter-from,
+.pref-fade-leave-to {
+  opacity: 0;
+}
+.pref-fade-enter-from .pref-dialog,
+.pref-fade-leave-to .pref-dialog {
+  transform: scale(0.94);
+}

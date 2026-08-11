@@ -1,53 +1,102 @@
 :root {
-    --white: #{$color-white};
-    --black: #{$color-black};
-    --grey: #{$color-grey};
-    --grey-2: #{$color-grey-2};
-    --grey-3: #{$color-grey-3};
-    --blue: #{$color-blue};
+  // Base raw colors
+  --color-white-raw: #{$color-white};
+  --color-black-raw: #{$color-black};
+  --color-grey-raw: #{$color-grey};
+  --color-grey-2-raw: #{$color-grey-2};
+  --color-grey-3-raw: #{$color-grey-3};
+  --color-blue-raw: #{$color-blue};
+
+  // Light theme default tokens
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7f7f7;
+  --bg-dark: #262626;         // Current dark areas in light mode
+  --bg-darker: #161616;       // Deep black blocks in light mode
+  --text-primary: #262626;    // Main text
+  --text-secondary: #515151;  // Muted text
+  --text-muted: #a79e9e;
+  --border-color: #e2e2e2;
+
+  --white: #ffffff;
+  --black: #262626;
+  --grey: #a79e9e;
+  --grey-2: #f0f0f0;
+  --grey-3: #515151;
+  --blue: #{$color-blue};
+
+  --skel-bg-1: #f5f5f5;
+  --skel-bg-2: #ececec;
+  --skel-bg-3: #f5f5f5;
+
+  // Spacing tokens (Fibonacci scale, unitless — multiply with rem in CSS)
+  --space-none: #{$space-none};
+  --space-hairline: #{$space-hairline};
+  --space-pixel: #{$space-pixel};
+  --space-2xs: #{$space-2xs};
+  --space-xs: #{$space-xs};
+  --space-sm: #{$space-sm};
+  --space-md: #{$space-md};
+  --space-lg: #{$space-lg};
+  --space-xl: #{$space-xl};
+  --space-2xl: #{$space-2xl};
+  --space-3xl: #{$space-3xl};
+  --space-4xl: #{$space-4xl};
+  --space-5xl: #{$space-5xl};
+  --space-6xl: #{$space-6xl};
+  --space-7xl: #{$space-7xl};
+  --space-8xl: #{$space-8xl};
+  --space-9xl: #{$space-9xl};
+  --space-10xl: #{$space-10xl};
 }
 
-html,
+html.dark-mode {
+  --bg-primary: #262626;      // Light areas of today become current dark (#262626)
+  --bg-secondary: #1d1d1d;
+  --bg-dark: #121212;         // Dark areas of today become darker (#121212)
+  --bg-darker: #080808;       // Deep black areas
+  --text-primary: #ffffff;    // Text becomes white
+  --text-secondary: #e0e0e0;
+  --text-muted: #a79e9e;
+  --border-color: #383838;
+
+  --white: #262626;
+  --black: #ffffff;
+  --grey: #a79e9e;
+  --grey-2: #383838;
+  --grey-3: #d0d0d0;
+
+  --skel-bg-1: #2d2d2d;
+  --skel-bg-2: #3a3a3a;
+  --skel-bg-3: #2d2d2d;
+}
+
+html {
+  overflow-x: hidden;
+  overflow-y: scroll; // always show scrollbar to prevent layout shift on navigation
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  overflow: hidden; // body never scrolls — html handles it
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Raleway', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  // Never break words mid-character anywhere in the site.
+  // Words always wrap whole to the next line.
+  word-break: normal;
+  overflow-wrap: normal; // never split a word across lines — wrap entire words only
+  hyphens: none;         // no automatic hyphenation
 }
 
-body {
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-color: var(--white);
-    color: var(--black);
 
-    /* width */
-    &::-webkit-scrollbar {
-        width: to-rem($F6);
-
-        @include layout-2560() {
-            width: to-rem($F7);
-        }
-    }
-
-    /* Track */
-    &::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-        border-radius: 0ba;
-        background: var(--grey-3);
-    }
-
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-        background: var(--grey);
-    }
-}
 
 q,
 h1,
@@ -69,34 +118,115 @@ iframe,
 figure,
 picture,
 blockquote {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 ul,
 ol {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-    text-decoration: none;
-    color: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  text-decoration: none;
+  color: inherit;
 }
 
 button {
-    @extend %RESETBTN;
+  @extend %RESETBTN;
 }
 
 main {
-    .modal-open & {
-        position: fixed;
-    }
+  .modal-open & {
+    position: fixed;
+  }
 }
 
-#main,
+#main {
+  min-height: 100vh;
+}
+
 #home {
+  @include layout-1024() {
     min-height: 100vh;
+  }
+}
+
+// ── Global Skeleton Utilities ────────────────────────────────────────────────
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton {
+  &--shimmer,
+  &-cover,
+  &-placeholder {
+    background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 2.4s ease-in-out infinite;
+  }
+
+  &--title {
+    @extend .skeleton--shimmer;
+    width: 45%;
+    max-width: to-rem(480);
+    height: to-rem(24);
+    border-radius: to-rem($space-2xs);
+    display: block;
+    margin-bottom: to-rem($space-md);
+
+    @include layout-768() {
+      height: to-rem(36);
+    }
+    @include layout-1024() {
+      height: to-rem(56);
+    }
+  }
+
+  &--hero {
+    @extend .skeleton--shimmer;
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    border-radius: to-rem($space-lg);
+    display: block;
+  }
+
+  &--media {
+    @extend .skeleton--shimmer;
+    width: 100%;
+    height: 100%;
+    min-height: to-rem(200);
+    border-radius: to-rem($space-lg);
+    display: block;
+  }
+
+  &--text-block {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem($space-sm);
+    width: 100%;
+    padding: to-rem($space-xs) 0;
+  }
+
+  &--text-line {
+    @extend .skeleton--shimmer;
+    height: to-rem(18);
+    border-radius: to-rem($space-2xs);
+
+    @include layout-768() {
+      height: to-rem(21);
+    }
+  }
+
+  &--tag {
+    @extend .skeleton--shimmer;
+    display: inline-block;
+    width: to-rem(110);
+    height: to-rem(36);
+    border-radius: to-rem($space-xl);
+  }
 }

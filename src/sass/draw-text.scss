@@ -1,0 +1,101 @@
+@import '_variables';
+@import '_mixins';
+
+// ── DrawText: per-character writing animation ──────────────────────────────
+// --i          : character index (set from template)
+// --char-delay : ms between each character (set from template, default 100ms)
+// --offset     : ms base delay before any character starts (for sequencing)
+
+.draw-text {
+  display: inline;
+
+  &__word {
+    display: inline-block;
+    white-space: nowrap;  // keeps all chars of this word on one line — never splits mid-word
+  }
+
+  &__space {
+    display: inline-block;
+    width: 0.3em;         // one space-width gap between words; breakable line-break point
+  }
+
+  &__char {
+    display: inline-block;
+    opacity: 0;
+    will-change: opacity, transform, filter;
+  }
+}
+
+// ── Section titles: animate on mount (replayed via :key re-mount) ──────────
+.home-section-title .draw-text__char {
+  animation: char-draw .8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 100ms));
+}
+
+// ── Inside slides: animate only when the slide becomes active ──────────────
+.hc-slide--active .draw-text__char {
+  animation: char-draw .8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 100ms));
+}
+
+// ── Viewport trigger: animate when scrolled into view ──────────────────────
+// .draw-text--visible is added by IntersectionObserver in the component
+.draw-text--visible .draw-text__char {
+  animation: char-draw .8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 100ms));
+}
+
+// Frozen state: animation complete, chars permanently visible, no re-trigger possible
+.draw-text--done .draw-text__char {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  animation: none;
+}
+
+// ── Related Mosaic: animate write effect ─────────────────────────────────────
+.related-mosaic-desc .draw-text__char {
+  animation: char-draw .5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 15ms));
+}
+
+// ── Character draw keyframes ────────────────────────────────────────────────
+@keyframes char-draw {
+  0% {
+    opacity: 0;
+    transform: translateY(0.12em) scaleY(0.3);
+    filter: blur(3px);
+  }
+  30% {
+    opacity: 0.5;
+    transform: translateY(0.04em) scaleY(0.85);
+    filter: blur(1px);
+  }
+  60% {
+    opacity: 0.85;
+    transform: translateY(0.01em) scaleY(0.97);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    filter: blur(0);
+  }
+}
+
+// ── Reduced Motion Override ────────────────────────────────────────────────
+html.reduced-motion .draw-text__char {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw-text__char {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+}

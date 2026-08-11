@@ -2,28 +2,29 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    clickortap:  '',
-    defaultSVG: {
-      viewBox: "0 0 117.29 122.67",
-      polygonPoints: ["58.65 1 0.87 101.08 116.43 101.08 58.65 1", "58.65 22.09 0.87 122.17 116.43 122.17 58.65 22.09"],
-      textTransform: "translate(18.28 115.62)"
-    },
-    has_touch: (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0)),
+    clickortap: '',
+    inputMethod: 'ontouchstart' in window && !matchMedia('(pointer: fine)').matches ? 'touch' : 'pointer',
+    actionTextMap: { click: 'Click', tap: 'Tap' },
+    has_touch: 'ontouchstart' in window && !matchMedia('(pointer: fine)').matches,
     lang: {
       components: false,
       database: 'translations/',
       loading: {
         msg1: 'Loading',
         msg2: '...',
-        msg3: 'Gathering some data on the server ... Hold on just a second while the Websockets are working!'
+        msg3: 'Gathering some data on the server ... Hold on just a second while the Websockets are working!',
       },
       locale: 'en',
       pagesPath: '/pages/',
       projectPath: '/projects/',
     },
+    mentions: {
+      title: 'Some mentions',
+      items: null,
+    },
     marqueeamount: 0,
     modalObject: {
-      transform: 'translateY(0)',
+      transform: 0,
       class: '',
       open: false,
       media: {
@@ -32,102 +33,172 @@ export default createStore({
         alt: '',
         width: 0,
         height: 0,
-        isVideo: false
+        isVideo: false,
       },
     },
     origin: window.location.origin,
     page: {
-      left : 0,
-      top: 0
+      left: 0,
+      top: 0,
     },
     showhover: false,
-    storage: "https://storage.googleapis.com/luiskr.com/public/_v3/"
+    storage: 'https://storage.googleapis.com/luiskr.com/public/_v3/',
+    reducedMotion:
+      localStorage.getItem('reducedMotion') !== null
+        ? localStorage.getItem('reducedMotion') === 'true'
+        : window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    theme: localStorage.getItem('theme') || 'system', // 'system' | 'dark' | 'light'
+    effectiveTheme: 'light',
+    preferencesOpen: false,
+    portfoliolist: [],
   },
   mutations: {
+    setPortfolioList(state, payload) {
+      if (Array.isArray(payload)) {
+        state.portfoliolist = payload
+      } else if (payload && typeof payload === 'object') {
+        state.portfoliolist = Object.values(payload)
+      }
+    },
+    initTheme(state) {
+      const stored = localStorage.getItem('theme') || 'system'
+      state.theme = stored
+      this.commit('applyTheme')
+    },
+    setTheme(state, payload) {
+      state.theme = payload
+      localStorage.setItem('theme', payload)
+      this.commit('applyTheme')
+    },
+    applyTheme(state) {
+      let isDark = false
+      if (state.theme === 'dark') {
+        isDark = true
+      } else if (state.theme === 'light') {
+        isDark = false
+      } else {
+        isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      }
+      state.effectiveTheme = isDark ? 'dark' : 'light'
+      if (isDark) {
+        document.documentElement.classList.add('dark-mode')
+      } else {
+        document.documentElement.classList.remove('dark-mode')
+      }
+    },
+    togglePreferencesModal(state, open) {
+      state.preferencesOpen = typeof open === 'boolean' ? open : !state.preferencesOpen
+    },
+    initReducedMotion(state) {
+      if (state.reducedMotion) {
+        document.documentElement.classList.add('reduced-motion')
+      } else {
+        document.documentElement.classList.remove('reduced-motion')
+      }
+    },
+    toggleReducedMotion(state) {
+      state.reducedMotion = !state.reducedMotion
+      localStorage.setItem('reducedMotion', state.reducedMotion)
+      if (state.reducedMotion) {
+        document.documentElement.classList.add('reduced-motion')
+      } else {
+        document.documentElement.classList.remove('reduced-motion')
+      }
+    },
+    setInputMethod(state, payload) {
+      if (state.inputMethod !== payload) {
+        state.inputMethod = payload
+        state.has_touch = payload === 'touch'
+        state.clickortap = payload === 'touch' ? state.actionTextMap.tap : state.actionTextMap.click
+      }
+    },
     setClear(state) {
-      document.body.classList.remove("mouseenter");
-      state.showhover = false;
+      document.body.classList.remove('mouseenter')
+      state.showhover = false
     },
     setClickOrTap(state, payload) {
-      state.clickortap = state.has_touch ? payload.tap : payload.click;
+      if (payload?.click || payload?.tap) {
+        state.actionTextMap = {
+          click: payload.click || state.actionTextMap.click,
+          tap: payload.tap || state.actionTextMap.tap,
+        }
+        state.clickortap = state.inputMethod === 'touch' ? state.actionTextMap.tap : state.actionTextMap.click
+      }
+    },
+    setMentions(state, payload) {
+      state.mentions.title = payload.title ?? state.mentions.title
+      state.mentions.items = payload.items
     },
     setComponentLang(state, payload) {
-      state.lang.components = payload;
+      state.lang.components = payload
     },
     setHover(state, payload) {
-      if(!state.has_touch) {
-        state.showhover = true;
+      if (!state.has_touch) {
+        state.showhover = true
 
-        document.body.classList.add("mouseenter");
-        this.commit('setOnMouseMove', payload);
+        document.body.classList.add('mouseenter')
+        this.commit('setOnMouseMove', payload)
       }
     },
     setLang(state, payload) {
-      state.lang.locale = payload;
+      state.lang.locale = payload
 
       switch (state.lang.locale) {
         case 'br':
-          state.lang.loading.msg1 = 'Carregando',
-          state.lang.loading.msg2 = 'Trazendo dados do servidor ... Aguarde um momento enquanto os Websockets estão trabalhando!';
-        break;
+          ;((state.lang.loading.msg1 = 'Carregando'),
+            (state.lang.loading.msg2 =
+              'Trazendo dados do servidor ... Aguarde um momento enquanto os Websockets estão trabalhando!'))
+          break
       }
     },
-    setMarqueeAmount(state) {
-      let width = window.innerWidth,
-          height = window.innerHeight;
-
-      if (width >= 2560) {
-        state.marqueeamount = Math.ceil(height / 377);
-      } else if (width >= 1280) {
-        state.marqueeamount = Math.ceil(height / 144);
-      } else if (width >= 768) {
-        state.marqueeamount = Math.ceil(height / 89);
-      } else {
-        state.marqueeamount = Math.ceil(height / 144);
-      }
-    },
+    setMarqueeAmount() {},
     setModal(state, payload) {
-      state.modalObject.transform = payload.transform,
-      state.modalObject.class = payload.class,
-      state.modalObject.open =  payload.open,
-      state.modalObject.media =  payload.media
+      ;((state.modalObject.transform = payload.transform),
+        (state.modalObject.class = payload.class),
+        (state.modalObject.open = payload.open),
+        (state.modalObject.media = payload.media))
     },
     setOnMouseMove(state, payload) {
-      state.page.left = payload.pageX - 60;
-      state.page.top = payload.pageY - 60;
-    }
+      state.page.left = payload.pageX - 60
+      state.page.top = payload.pageY - 60
+    },
   },
   getters: {
-    getClickOrTap: state => {
-      return state.clickortap;
+    getTheme: (state) => state.theme,
+    getEffectiveTheme: (state) => state.effectiveTheme,
+    getPreferencesOpen: (state) => state.preferencesOpen,
+    getReducedMotion: (state) => {
+      return state.reducedMotion
     },
-    getHover: state => {
-      return state.showhover;
+    getMentions: (state) => {
+      return state.mentions
     },
-    getlang: state => {
-      return state.lang;
+    getClickOrTap: (state) => {
+      return state.inputMethod === 'touch' ? state.actionTextMap.tap : state.actionTextMap.click
     },
-    getMarqueeAmount: state => {
-      return state.marqueeamount;
+    getInputMethod: (state) => {
+      return state.inputMethod
     },
-    getModal: state => {
-      return state.modalObject;
+    getHover: (state) => {
+      return state.showhover
     },
-    getOnMouseMove: state => {
-      return state.page;
+    getlang: (state) => {
+      return state.lang
     },
-    getStorage: state => {
-      return state.storage;
+    getMarqueeAmount: () => 0,
+    getModal: (state) => {
+      return state.modalObject
     },
-    getSVG: state => {
-      return state.defaultSVG;
+    getOnMouseMove: (state) => {
+      return state.page
     },
-    getTouch: state => {
-      return state.has_touch;
-    }
+    getStorage: (state) => {
+      return state.storage
+    },
+    getTouch: (state) => {
+      return state.has_touch
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
+  actions: {},
+  modules: {},
 })

@@ -12,6 +12,11 @@ export default defineConfig({
       filename: 'service-worker.js',
       manifestFilename: 'site.webmanifest',
       includeAssets: ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png'],
+      // Disable the service worker in dev — it intercepts HMR requests and
+      // serves stale cached responses, breaking hot reload entirely.
+      devOptions: {
+        enabled: false,
+      },
       manifest: {
         name: 'Luis Krötz',
         short_name: 'Luis Krötz',

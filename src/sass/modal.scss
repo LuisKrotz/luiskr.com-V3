@@ -1,191 +1,326 @@
-.modal-open {
-    .modal-below {
-        top: 0;
-        left: 0;
-        width: 100%;
-        position: fixed;
-    }
+@import '_variables';
+@import '_mixins';
+@import '_fonts';
+@import '_placeholders';
 
-    .modal-above {
-        min-height: 100vh;
-        min-width: 100%;
-        background: var(--black);
-        position: relative;
-        animation: setOpacity .3s linear forwards;
-    }
+.modal-open {
+  // Lock page scroll behind the modal
+  body {
+    overflow: hidden;
+  }
+
+  .modal-below {
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+  }
+
+  .modal-above {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; // no horizontal scroll
+    background: var(--bg-dark);
+    position: relative;
+  }
+
+  // Hide regular nav links in modal context
+  .nav .nav-link { display: none; }
+
+  // Show modal title bar instead
+  .modal-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 
 .expand-modal {
-    &-open-1,
-    &-open-2 {
-        @extend .ttl-xs;
+  &-open-1 {
+    @extend %RESETBTN;
+    @extend .ttl-xs;
 
-        border: none;
-        box-sizing: border-box;
+    // Animated border-corner button style (like the internal arrows)
+    position: absolute;
+    bottom: to-rem($space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: to-rem($space-xs) to-rem($space-lg);
+    color: var(--white);
+    background: transparent;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: color .2s ease, opacity .2s ease;
+    // Readable on both dark and light backgrounds
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .6), 0 0 12px rgba(0, 0, 0, .3);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    // The animated corner borders
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: to-rem($space-md);
+      height: to-rem($space-md);
+      transition: width .25s ease, height .25s ease;
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      border-top: 1px solid rgba(255, 255, 255, .55);
+      border-left: 1px solid rgba(255, 255, 255, .55);
+    }
+
+    &::after {
+      bottom: 0;
+      right: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .55);
+      border-right: 1px solid rgba(255, 255, 255, .55);
+    }
+
+    .internal-expand:hover &,
+    .internal-expand:focus & {
+      color: var(--white);
+
+      &::before,
+      &::after {
+        width: calc(100% - #{to-rem($space-xs)});
+        height: calc(100% - #{to-rem($space-xs)});
+      }
+    }
+  }
+
+  &-open-2 {
+    // Hidden — open-1 is the sole expand trigger
+    display: none !important;
+  }
+
+  &-close-bar {
+    @extend %MAXAREA;
+    left: 0;
+    top: to-rem($space-lg);
+    position: fixed;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 100;
+    justify-content: space-between;
+    align-items: center;
+
+    &-title {
+      @extend .ttl-xs;
+
+      color: var(--grey);
+      font-weight: 200;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 60%;
+    }
+    &-button {
+      @extend %RESETBTN;
+      @extend .ttl-xs;
+
+      font-weight: 700;
+      color: var(--grey);
+      cursor: pointer;
+      z-index: 1;
+      padding: to-rem($space-xs) to-rem($space-md);
+      position: relative;
+      transition: color .2s ease;
+
+      // Animated corner borders
+      &::before,
+      &::after {
+        content: '';
         position: absolute;
-        bottom: 0;
-        left: 0;
-        text-transform: uppercase;
-        padding: to-rem(0) to-rem($F8);
-        cursor: pointer;
-        width: 100%;
-        height: to-rem($F9);
-        line-height: to-rem($F9);
-        margin-bottom: to-rem($F7);
-        transition: opacity .3s ease-in;
-        text-transform: uppercase;
-        font-weight: 900;
+        width: to-rem($space-md);
+        height: to-rem($space-md);
+        transition: width .2s ease, height .2s ease;
+      }
 
-        @include layout-1440() {
-            height: to-rem($F10);
-            line-height: to-rem($F10);
-        }
-    }
-
-    &-open-1 {
-        opacity: 1;
-        background-color: var(--grey-3);
-        color: var(--white);
-
-        .internal-expand:hover &,
-        .internal-expand:focus & {
-            opacity: 0;
-        }
-    }
-
-    &-open-2 {
-        transition: opacity .5s ease, width 1s linear, border-radius 1s ease;
-        opacity: 0;
-        background-color: var(--black);
-        color: var(--white);
-        mix-blend-mode: hard-light;
-        width: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 0;
-
-        .internal-expand:hover &,
-        .internal-expand:focus & {
-            opacity: 1;
-            width: 80%;
-            max-width: to-rem(290);
-            border-radius: to-rem($F9);
-        }
-    }
-
-    &-close-bar {
-        @extend %MAXAREA;
-        left: 0;
-        top: to-rem($F7);
-        position: fixed;
-        justify-content: space-between;
-        display: flex;
-        box-sizing: border-box;
-        width: 100%;
-        z-index: 100;
-        justify-content: flex-end;
-
-        &-button {
-            @extend .ttl-xs;
-
-            color: var(--grey);
-            font-weight: 700;
-            cursor: pointer;
-            z-index: 1;
-        }
-    }
-
-
-    &-close-area {
-        @extend %MAXAREA;
-
-        position: fixed;
+      &::before {
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-    }
+        border-top: 1px solid currentColor;
+        border-left: 1px solid currentColor;
+      }
 
-    &-close-bottom {
-        @extend .ttl-sm;
+      &::after {
+        bottom: 0;
+        right: 0;
+        border-bottom: 1px solid currentColor;
+        border-right: 1px solid currentColor;
+      }
 
-        margin: to-rem($F8) 0;
-        position: absolute;
+      &:hover {
         color: var(--white);
-        left: 50%;
-        transform: translateX(-50%);
-        cursor: pointer;
+
+        &::before,
+        &::after {
+          width: calc(100% - #{to-rem($space-xs)});
+          height: calc(100% - #{to-rem($space-xs)});
+        }
+      }
+    }
+  }
+
+  &-close-area {
+    @extend %MAXAREA;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  // Styled as a proper button with animated corner borders — BELOW content
+  &-close-bottom {
+    @extend %RESETBTN;
+    @extend .ttl-xs;
+
+    margin: to-rem($space-3xl) auto to-rem($space-xl);
+    display: block;
+    color: var(--grey);
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    padding: to-rem($space-sm) to-rem($space-xl);
+    text-transform: uppercase;
+    letter-spacing: to-rem(2);
+    transition: color .2s ease;
+
+    // Animated corner borders
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: to-rem($space-md);
+      height: to-rem($space-md);
+      transition: width .2s ease, height .2s ease;
     }
 
-    &-content {
-        box-sizing: border-box;
-        position: relative;
-        overflow-x: scroll;
-        background-color: var(--black);
-        padding: to-rem($F10) to-rem($F8);
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        @include layout-1024() {
-            padding: to-rem($F12);
-        }
+    &::before {
+      top: 0;
+      left: 0;
+      border-top: 1px solid currentColor;
+      border-left: 1px solid currentColor;
     }
 
-    &-media {
-        &-figure {
-            position: relative;
-            display: block;
-        }
-
-        &-placeholder {
-            display: block;
-            position: relative;
-            height: auto;
-            max-width: 100%;
-        }
-
-        &-item {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            max-width: 100%;
-
-            @include layout-1024() {
-                border-radius: to-rem($F7);
-            }
-        }
+    &::after {
+      bottom: 0;
+      right: 0;
+      border-bottom: 1px solid currentColor;
+      border-right: 1px solid currentColor;
     }
 
-    &-image,
-    &-video {
-        max-width: 100%;
+    &:hover {
+      color: var(--white);
+
+      &::before,
+      &::after {
+        width: calc(100% - #{to-rem($space-xs)});
+        height: calc(100% - #{to-rem($space-xs)});
+      }
     }
+  }
+
+  &-content {
+    box-sizing: border-box;
+    position: relative;
+    overflow-x: hidden; // no horizontal scroll
+    background-color: var(--bg-dark);
+    padding: to-rem($space-3xl) to-rem($space-xl);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    // Zoom-in on open
+    animation: modal-zoom-in .45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+    @include layout-1024() {
+      padding: to-rem($space-5xl);
+    }
+  }
+
+  // Closing state: zoom-out animation
+  &--closing {
+    animation: modal-zoom-out .4s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+  }
+
+  &-media {
+    &-figure {
+      position: relative;
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    &-placeholder {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    &-item {
+      display: block;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+
+      @include layout-1024() {
+        border-radius: to-rem($space-lg);
+      }
+    }
+  }
+
+  &-image,
+  &-video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
 }
 
-@keyframes setOpacity {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+// ── Zoom-in: scale up + fade from bottom ──────────────────────────────────
+@keyframes modal-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
-@keyframes unsetOpacity {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
+// ── Zoom-out: scale down + fade to bottom ─────────────────────────────────
+@keyframes modal-zoom-out {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.7) translateY(40px);
+  }
 }

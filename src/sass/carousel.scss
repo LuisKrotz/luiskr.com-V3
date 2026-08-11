@@ -1,0 +1,269 @@
+@import '_variables';
+@import '_mixins';
+@import '_placeholders';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Carousel
+// ─────────────────────────────────────────────────────────────────────────────
+
+$carousel-btn-size: to-rem($space-3xl);
+$carousel-dot-size: to-rem($space-md);
+$carousel-dot-pill: to-rem($space-xl);
+$carousel-dot-gap: to-rem($space-xs);
+$ring-stroke: to-rem(2.5);
+
+.carousel {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--bg-dark);
+  // Reserve space at bottom for the controls bar
+  padding-bottom: calc(#{$carousel-btn-size} + #{to-rem($space-lg)} * 2);
+
+  // ── Track ──────────────────────────────────────────────────────────────
+  &-track {
+    display: flex;
+    align-items: stretch;
+    overflow-x: scroll;
+    padding: to-rem($space-2xl) 0 to-rem($space-2xl - $space-md);
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; // Firefox
+    &::-webkit-scrollbar {
+      display: none;
+    } // Chrome/Safari
+
+    @include layout-768() {
+      padding: to-rem($space-5xl) 0 to-rem($space-5xl - $space-lg);
+    }
+
+    @include layout-1024() {
+      padding: to-rem($space-3xl) 0 to-rem($space-3xl - $space-lg);
+    }
+
+    @include layout-1440() {
+      padding: to-rem($space-4xl) 0 to-rem($space-4xl - $space-lg);
+    }
+
+    @include layout-1920() {
+      padding: to-rem($space-5xl) 0 to-rem($space-5xl - $space-lg);
+    }
+
+    @include layout-2560() {
+      padding: to-rem($space-5xl) 0 to-rem($space-5xl - $space-xl);
+    }
+  }
+
+  &-slide {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    display: flex;
+    align-items: stretch;
+
+    &--clone {
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  // ── Controls row ──────────────────────────────────────────
+  &-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: to-rem($space-lg);
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    // Pinned to bottom of the black block
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: to-rem($space-lg) to-rem($space-xl);
+    min-height: calc(#{$carousel-btn-size} + #{to-rem($space-lg)} * 2);
+
+    @include layout-768() {
+      padding: to-rem($space-lg) to-rem(calc(($un-768 - $grid-max-area-768) / 2));
+    }
+    @include layout-1024() {
+      padding: to-rem($space-lg) to-rem(calc(($un-1024 - $grid-max-area-1024) / 2));
+    }
+    @include layout-1440() {
+      padding: to-rem($space-xl) to-rem(calc(($un-1440 - $grid-max-area-1440) / 2));
+    }
+    @include layout-1920() {
+      padding: to-rem($space-xl) to-rem(calc(($un-1920 - $grid-max-area-1920) / 2));
+    }
+    @include layout-2560() {
+      padding: to-rem($space-2xl) to-rem(calc(($un-2560 - $grid-max-area-2560) / 2));
+    }
+  }
+
+  // ── Nav buttons ────────────────────────────────────────────────────────
+  &-btn {
+    @extend %RESETBTN;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: to-rem(40);
+    height: to-rem(40);
+    flex-shrink: 0;
+    cursor: pointer;
+    color: var(--grey);
+    transition: color 0.2s ease;
+
+    @include layout-1024() {
+      width: to-rem(48);
+      height: to-rem(48);
+    }
+
+    @include layout-1440() {
+      width: $carousel-btn-size;
+      height: $carousel-btn-size;
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--white);
+    }
+
+    &-arrow {
+      font-size: to-rem($space-lg);
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &--prev:hover &-arrow,
+    &--prev:focus &-arrow {
+      transform: translateX(to-rem(-4));
+    }
+
+    &--next:hover &-arrow,
+    &--next:focus &-arrow {
+      transform: translateX(to-rem(4));
+    }
+
+    &:active &-arrow {
+      transform: scale(0.85);
+    }
+
+    // Countdown ring SVG overlay
+    &-ring {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+      pointer-events: none;
+
+      &-track {
+        fill: none;
+        stroke: var(--grey-3);
+        stroke-width: $ring-stroke;
+        opacity: 0.4;
+      }
+
+      &-fill {
+        fill: none;
+        stroke: var(--grey);
+        stroke-width: $ring-stroke;
+        stroke-linecap: round;
+      }
+    }
+  }
+
+  // ── Indicators (counter + dots) ────────────────────────────────────────
+  &-indicators {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: to-rem($space-xs);
+    flex: 1;
+    min-width: 0;
+  }
+
+  &-counter {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: to-rem($space-md);
+    color: var(--grey);
+    letter-spacing: to-rem($space-pixel);
+    white-space: nowrap;
+    text-transform: uppercase;
+    line-height: 1; // prevent inherited line-height from shifting vertically
+    display: flex;
+    align-items: center;
+
+    @include layout-2560() {
+      font-size: to-rem($space-lg);
+    }
+  }
+
+  &-dots {
+    display: flex;
+    align-items: center;
+    gap: $carousel-dot-gap;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: to-rem($space-2xs) 0;
+  }
+
+  &-dot {
+    @extend %RESETBTN;
+
+    display: block;
+    height: $carousel-dot-size;
+    width: $carousel-dot-size;
+    border-radius: 9999px;
+    background: var(--grey-3);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition:
+      width 0.25s ease,
+      background 0.25s ease;
+
+    &--active {
+      width: $carousel-dot-pill;
+      background: var(--grey);
+    }
+
+    &:hover:not(&--active) {
+      background: var(--grey);
+    }
+  }
+
+  // ── Fallback (below threshold) ─────────────────────────────────────────
+  &-fallback {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--black);
+    overflow-x: scroll;
+    scroll-snap-align: center;
+
+    &::-webkit-scrollbar {
+      height: to-rem($space-md);
+    }
+    &::-webkit-scrollbar-track {
+      background: var(--black);
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background: var(--grey-3);
+      &:hover {
+        background: var(--grey);
+      }
+    }
+
+    display: block;
+    white-space: nowrap;
+    > * {
+      display: inline-block;
+    }
+  }
+}

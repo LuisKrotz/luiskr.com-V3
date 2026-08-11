@@ -1,77 +1,73 @@
-$color-white:               #FFF;
-$color-black:               #262626;
-$color-grey:                #A79E9E;
-$color-grey-2:              #f0f0f0;
-$color-grey-3:              #515151;
+$color-white: #fff;
+$color-black: #262626;
+$color-grey: #a79e9e;
+$color-grey-2: #f0f0f0;
+$color-grey-3: #515151;
 
-$color-blue:                #006ca6;
-
+$color-blue: #006ca6;
 
 // Viewports
 // @type pixels
 // used for viewports
-$vw-272:                    272px;      //x340 // Watch OS
-$vw-320:                    320px;      // iphone SE
-$vw-375:                    375px;      // iphone 
-$vw-414:                    414px;      // Phablet
-$vw-540:                    540px;      // Phablet
-$vw-768:                    768px;      // iPad
-$vw-960:                    960px;      // Tablet
-$vw-1024:                   1024px;     // iPad
-$vw-1280:                   1280px;     // HD
-$vw-1360:                   1360px;     // HD
-$vw-1440:                   1440px;     // HD
-$vw-1560:                   1560px;     // HD
-$vw-1680:                   1680px;     // HD
-$vw-1920:                   1920px;     // FHD
-$vw-2560:                   2560px;     // 2K
-$vw-3840:                   3840px;     // 4K
-$vw-5120:                   5120px;     // 5K
-$vw-7680:                   7680px;     // 8K
-$vw-10240:                  10240px;    // 10K
+$vw-272: 272px; //x340 // Watch OS
+$vw-320: 320px; // iphone SE
+$vw-375: 375px; // iphone
+$vw-414: 414px; // Phablet
+$vw-540: 540px; // Phablet
+$vw-768: 768px; // iPad
+$vw-960: 960px; // Tablet
+$vw-1024: 1024px; // iPad
+$vw-1280: 1280px; // HD
+$vw-1360: 1360px; // HD
+$vw-1440: 1440px; // HD
+$vw-1560: 1560px; // HD
+$vw-1680: 1680px; // HD
+$vw-1920: 1920px; // FHD
+$vw-2560: 2560px; // 2K
+$vw-3840: 3840px; // 4K
+$vw-5120: 5120px; // 5K
+$vw-7680: 7680px; // 8K
+$vw-10240: 10240px; // 10K
 
 // @type number
-// used for convesions
-$un-272:                    272;
-$un-320:                    320;
-$un-375:                    375;
-$un-414:                    414;
-$un-540:                    540;
-$un-768:                    768;
-$un-960:                    960;
-$un-1024:                   1024;
-$un-1280:                   1280;
-$un-1360:                   1360;
-$un-1440:                   1440;
-$un-1560:                   1560;
-$un-1680:                   1680;
-$un-1920:                   1920;
-$un-2560:                   2560;
-$un-2560:                   2560;
-$un-3840:                   3840;
-$un-5120:                   5120;
-$un-7680:                   7680;
-$un-10240:                  10240;
+// used for conversions
+$un-272: 272;
+$un-320: 320;
+$un-375: 375;
+$un-414: 414;
+$un-540: 540;
+$un-768: 768;
+$un-960: 960;
+$un-1024: 1024;
+$un-1280: 1280;
+$un-1360: 1360;
+$un-1440: 1440;
+$un-1560: 1560;
+$un-1680: 1680;
+$un-1920: 1920;
+$un-2560: 2560;
+$un-3840: 3840;
+$un-5120: 5120;
+$un-7680: 7680;
+$un-10240: 10240;
 
-
-$gap-272:                   13;
-$gap-320:                   21;
-$gap-375:                   21;
-$gap-414:                   21;
-$gap-540:                   34;
-$gap-768:                   55;
-$gap-960:                   55;
-$gap-1024:                  89;
-$gap-1280:                  89;
-$gap-1440:                  89;
-$gap-1680:                  144;
-$gap-1920:                  144;
-$gap-2560:                  233;
-$gap-3840:                  377;
-$gap-5120:                  377;
-$gap-7680:                  610;
-$gap-10240:                 610;
-
+$gap-272: 13;
+$gap-320: 21;
+$gap-375: 21;
+$gap-414: 21;
+$gap-540: 34;
+$gap-768: 55;
+$gap-960: 55;
+$gap-1024: 89;
+$gap-1280: 89;
+$gap-1440: 89;
+$gap-1680: 144;
+$gap-1920: 144;
+$gap-2560: 233;
+$gap-3840: 377;
+$gap-5120: 377;
+$gap-7680: 610;
+$gap-10240: 610;
 
 // Max area of the grid
 $grid-max-area-272: $un-272 - $gap-272 * 2;
@@ -91,58 +87,58 @@ $grid-max-area-3840: $un-3840 - $gap-3840 * 2;
 $grid-max-area-5120: $un-5120 - $gap-5120 * 2;
 $grid-max-area-7680: $un-7680 - $gap-7680 * 2;
 
-
 // @type pixels
 // used for media queries
-$bk-320:                    $vw-320 - 1px;
-$bk-375:                    $vw-375 - 1px;
-$bk-414:                    $vw-414 - 1px;
-$bk-540:                    $vw-540 - 1px;
-$bk-768:                    $vw-768 - 1px;
-$bk-960:                    $vw-960 - 1px;
-$bk-1024:                   $vw-1024 - 1px;
-$bk-1280:                   $vw-1280 - 1px;
-$bk-1360:                   $vw-1360 - 1px;
-$bk-1560:                   $vw-1560 - 1px;
-$bk-1440:                   $vw-1440 - 1px;
-$bk-1680:                   $vw-1680 - 1px;
-$bk-1920:                   $vw-1920 - 1px;
-$bk-2560:                   $vw-2560 - 1px;
-$bk-3840:                   $vw-3840 - 1px;
-$bk-5120:                   $vw-5120 - 1px;
-$bk-7680:                   $vw-7680 - 1px;
+$bk-320: $vw-320 - 1px;
+$bk-375: $vw-375 - 1px;
+$bk-414: $vw-414 - 1px;
+$bk-540: $vw-540 - 1px;
+$bk-768: $vw-768 - 1px;
+$bk-960: $vw-960 - 1px;
+$bk-1024: $vw-1024 - 1px;
+$bk-1280: $vw-1280 - 1px;
+$bk-1360: $vw-1360 - 1px;
+$bk-1560: $vw-1560 - 1px;
+$bk-1440: $vw-1440 - 1px;
+$bk-1680: $vw-1680 - 1px;
+$bk-1920: $vw-1920 - 1px;
+$bk-2560: $vw-2560 - 1px;
+$bk-3840: $vw-3840 - 1px;
+$bk-5120: $vw-5120 - 1px;
+$bk-7680: $vw-7680 - 1px;
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Spacing Scale — Fibonacci sequence
+// Each variable name reflects its relative size in the design system.
+// Values are unitless (used with to-rem() helper).
+// ─────────────────────────────────────────────────────────────────────────────
 
-// Variables to be used in the layout
-// Fibonnaci sequence
-$F0:                        0;
-$F1:                        1;
-$F2:                        1;
-$F3:                        2;
-$F4:                        3;
-$F5:                        5;
-$F6:                        8;
-$F7:                        13;
-$F8:                        21;
-$F9:                        34;
-$F10:                       55;
-$F11:                       89;
-$F12:                       144;
-$F13:                       233;
-$F14:                       377;
-$F15:                       610;
-$F16:                       987;
-$F17:                       1597;
-$F18:                       2584;
-$F19:                       4181;
-$F21:                       10946;
-$F22:                       17711;
-$F23:                       28657;
-$F24:                       46368;
-$F25:                       75025;
-
-
+$space-none: 0; // fib(0)  — no space
+$space-hairline: 1; // fib(1)  — hairline / 1px borders
+$space-pixel: 1; // fib(2)  — alias for hairline (same fib value)
+$space-2xs: 2; // fib(3)  — 2px, micro gaps
+$space-xs: 3; // fib(4)  — 3px, tiny nudges
+$space-sm: 5; // fib(5)  — 5px, small gaps
+$space-md: 8; // fib(6)  — 8px, base unit
+$space-lg: 13; // fib(7)  — 13px, standard padding
+$space-xl: 21; // fib(8)  — 21px, comfortable spacing
+$space-2xl: 34; // fib(9)  — 34px, section inner padding
+$space-3xl: 55; // fib(10) — 55px, component spacing
+$space-4xl: 89; // fib(11) — 89px, section padding
+$space-5xl: 144; // fib(12) — 144px, hero / large blocks
+$space-6xl: 233; // fib(13) — 233px, content max-widths / large images
+$space-7xl: 377; // fib(14) — 377px, image sizes / layout widths
+$space-8xl: 610; // fib(15) — 610px, large layout columns
+$space-9xl: 987; // fib(16) — 987px, max content widths
+$space-10xl: 1597; // fib(17) — 1597px, ultra-wide layout slots
+$space-11xl: 2584; // fib(18) — very large (rarely used)
+$space-12xl: 4181; // fib(19) — extremely large (rarely used)
+$space-13xl: 10946; // fib(21) — maximum scale (theoretical)
+$space-14xl: 17711; // fib(22)
+$space-15xl: 28657; // fib(23)
+$space-16xl: 46368; // fib(24)
+$space-17xl: 75025; // fib(25)
 
 // Z-indexes
-$z-header:                  50;
-$z-loader:                  100;
+$z-header: 50;
+$z-loader: 100;

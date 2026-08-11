@@ -3,14 +3,17 @@
 @import '_fonts';
 @import '_placeholders';
 @import '_structure';
+@import 'preferences';
+@import 'home-mosaic';
 
 .nav {
   @extend %MAXAREA;
   z-index: 100;
   left: 0;
-  top: to-rem($F7);
+  top: to-rem($space-lg);
   position: fixed;
   justify-content: space-between;
+  align-items: center;
   display: flex;
   width: 100%;
   box-sizing: border-box;
@@ -18,28 +21,35 @@
 
   &-link {
     @extend .ttl-xs;
+    @extend %RESETBTN;
 
-    font-weight: 700;
-    color: var(--grey);
+    font-weight: 500;
+    color: #515151;
     text-decoration: none;
     cursor: pointer;
-    transition: opacity .3s ease-in;
+    transition: opacity 0.3s ease-in, color 0.2s ease;
     position: relative;
 
     &:hover,
     &:focus {
-      opacity: .5;
+      opacity: 0.5;
     }
 
     &.router-link-exact-active,
     &.active {
+      color: var(--black, #000);
+      font-weight: 700;
+
       &::after {
         display: block;
         content: '';
-        width: 34%;
-        height: to-rem($F3);
-        border-radius: to-rem($F3);
-        background: var(--grey);
+        position: absolute;
+        bottom: to-rem(-4);
+        left: 0;
+        width: 100%;
+        height: to-rem(2);
+        border-radius: to-rem(1);
+        background: var(--grey, #000);
       }
     }
 
@@ -61,106 +71,185 @@
   }
 }
 
+// ── Modal nav override (image title + close button) ──────────────────────────
+// When modal is open, the nav shows these instead of page links.
+.modal-nav-title {
+  @extend .ttl-xs;
 
-.cookies {
-  font-family: 'Raleway', sans-serif;
-
-  position: fixed;
-  bottom: to-rem($F7);
-  right: to-rem($F8);
-  width: to-rem($F13);
-  max-width: 87vw;
-  background-color: rgba($color-blue, 0.95);
-  color: var(--white);
+  font-weight: 200;
+  color: var(--grey);
+  text-transform: uppercase;
+  letter-spacing: to-rem(2);
+  text-overflow: ellipsis;
   overflow: hidden;
-  border-radius: to-rem($F6);
-  box-shadow: to-rem($F2) to-rem($F2) to-rem($F5) 0 rgba($color-black, .25);
-  transform: translate3d(200%, 0, 0);
-  opacity: 0;
-  font-size: to-rem($F6);
-  line-height: to-rem($F7);
-  transition: opacity 1s ease-in-out;
-  z-index: 100;
+  white-space: nowrap;
+  max-width: 60%;
+  opacity: .7;
+}
 
-  @include layout-768() {
-    bottom: to-rem($F7);
-    right: to-rem($F7);
-    width: to-rem($F14);
+.modal-nav-close {
+  @extend %RESETBTN;
+  @extend .ttl-xs;
+
+  font-weight: 700;
+  color: var(--grey);
+  cursor: pointer;
+  position: relative;
+  padding: to-rem($space-xs) to-rem($space-md);
+  transition: color .2s ease;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: to-rem($space-md);
+    height: to-rem($space-md);
+    transition: width .2s ease, height .2s ease;
   }
 
-  @include layout-1024() {
-    bottom: initial;
-    top: to-rem($F7);
-    right: to-rem($F8);
+  &::before {
+    top: 0;
+    left: 0;
+    border-top: 1px solid currentColor;
+    border-left: 1px solid currentColor;
   }
 
-  @include layout-1920() {
-    font-size: to-rem($F7);
-    line-height: to-rem($F8);
-    width: to-rem($F15);
+  &::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid currentColor;
+    border-right: 1px solid currentColor;
   }
 
-  @include layout-2560() {
-    width: to-rem($F14);
-    border-radius: to-rem($F7);
-  }
+  &:hover {
+    color: var(--white);
 
-  .show-logo & {
-    animation: slide-in 1s linear 2s forwards;
-  }
-
-  .hide-cookie-banner &,
-  .show-logo.hide-cookie-banner & {
-    animation: slide-out 1s linear 0s forwards;
-  }
-
-  &-info {
-    padding: to-rem($F7);
-    box-sizing: border-box;
-    text-transform: uppercase;
-  }
-
-  &-buttons {
-    overflow: hidden;
-    display: grid;
-    position: relative;
-    grid-gap: 0;
-    margin: 0;
-    grid-template-columns: repeat(2, 1fr);
-    min-height: to-rem($F10);
-
-    @include layout-1024() {
-      min-height: to-rem($F9);
-    }
-
-    @include layout-1920() {
-      min-height: to-rem($F10);
-    }
-
-    &-accept,
-    &-refuse {
-      margin: 0;
-      display: block;
-      cursor: pointer;
-      font-size: to-rem($F7);
-    }
-
-    &-accept {
-      background-color: var(--grey-2);
-      color: var(--black);
-    }
-
-    &-refuse {
-      background-color: var(--grey);
-      color: var(--white);
+    &::before,
+    &::after {
+      width: calc(100% - #{to-rem($space-xs)});
+      height: calc(100% - #{to-rem($space-xs)});
     }
   }
 }
 
+.cookies {
+  @extend %MAXAREA;
+
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: to-rem($space-md);
+  flex-wrap: wrap;
+
+  padding-top: to-rem($space-md);
+  padding-bottom: to-rem($space-md);
+  background: rgba(38, 38, 38, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  font-size: to-rem(13);
+  line-height: 1.5;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+
+  @include layout-768() {
+    padding-top: to-rem($space-lg);
+    padding-bottom: to-rem($space-lg);
+    font-size: to-rem(14);
+  }
+
+  &-info {
+    flex: 1;
+    min-width: to-rem(260);
+    padding: 0;
+    margin: 0;
+    opacity: 0.9;
+    font-weight: 300;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-buttons {
+    display: flex;
+    align-items: center;
+    gap: to-rem($space-sm);
+    flex-shrink: 0;
+
+    &-accept,
+    &-refuse {
+      @extend %RESETBTN;
+      @extend .ttl-xs;
+
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: to-rem(1.5);
+      cursor: pointer;
+      position: relative;
+      padding: to-rem($space-xs) to-rem($space-lg);
+      color: var(--grey);
+      background: transparent;
+      transition: color 0.2s ease, background 0.2s ease;
+      white-space: nowrap;
+
+      // Animated corner borders
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: to-rem($space-xs);
+        height: to-rem($space-xs);
+        transition: width 0.2s ease, height 0.2s ease;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        border-top: 1px solid currentColor;
+        border-left: 1px solid currentColor;
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+        border-bottom: 1px solid currentColor;
+        border-right: 1px solid currentColor;
+      }
+
+      &:hover,
+      &:focus {
+        color: var(--white);
+
+        &::before,
+        &::after {
+          width: calc(100% - #{to-rem($space-2xs)});
+          height: calc(100% - #{to-rem($space-2xs)});
+        }
+      }
+    }
+  }
+}
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity .55s ease-in-out;
+  transition: opacity 0.55s ease-in-out;
 }
 
 .fade-enter,
@@ -168,103 +257,38 @@
   opacity: 0;
 }
 
-
-.hover,
-.load-svg {
-  width: to-rem($F10);
-  height: to-rem($F10);
-
-  @include layout-540() {
-    width: to-rem($F11);
-    height: to-rem($F11);
-  }
-
-  @include layout-1280() {
-    width: to-rem($F12);
-    height: to-rem($F12);
-  }
-
-  @include layout-2560() {
-    width: to-rem($F13);
-    height: to-rem($F13);
-  }
-
-  &-triangle-1,
-  &-triangle-2 {
-    stroke-miterlimit: 10;
-    stroke: var(--grey-3);
-  }
-
-  &-triangle-1 {
-    fill: none;
-    stroke-dasharray: 0.75;
-    animation: dash 5s linear infinite;
-  }
-
-  &-triangle-2 {
-    fill: var(--grey-3);
-  }
-
-  &-text {
-    font-family: 'Black Ops One', monospace;
-    text-transform: uppercase;
-    font-size: to-rem($F7);
-    fill: var(--white);
-  }
-}
-
-.hover {
-  will-change: transform, opacity;
-  pointer-events: none;
-  z-index: 100;
-  background: none;
-  top: to-rem($F9);
-  left: to-rem($F9);
-  position: absolute;
-  opacity: 0;
-  transition: transform 50ms ease;
-  opacity: 100ms linear;
-  mix-blend-mode: color-burn;
-
-  @include layout-1280() {
-    top: to-rem(-$F8);
-    left: to-rem(-$F7);
-  }
-
-  @include layout-2560() {
-    top: to-rem(-$F10);
-    left: to-rem(-$F10);
-  }
-}
-
-
-@keyframes marquee-keyframe {
+// ── Skeleton shimmer ───────────────────────────────────────────────────────
+// Uses project palette greys, lighter tones, subtler animation.
+@keyframes skeleton-shimmer {
   0% {
-    transform: translate(0, 0);
+    background-position: -200% 0;
   }
-
-  33.332% {
-    transform: translate(-50%, 0);
-  }
-
-  33.333% {
-    transform: translate(0, 0);
-  }
-
-  66.665% {
-    transform: translate(-50%, 0);
-  }
-
-  66.666% {
-    transform: translate(0, 0);
-  }
-
-  99.999% {
-    transform: translate(-50%, 0);
-  }
-
   100% {
-    transform: translate(0, 0);
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  display: inline-block;
+  background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 2.4s ease-in-out infinite;
+  border-radius: to-rem($space-xs);
+
+  &--block {
+    display: block;
+  }
+  &--round {
+    border-radius: 50%;
+  }
+
+  // Image-placeholder skeleton: fill the render-placeholder SVG slot
+  &--media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
   }
 }
 
@@ -273,7 +297,6 @@
     transform: translate3d(200%, 0, 0);
     opacity: 0;
   }
-
   to {
     transform: translate3d(0, 0, 0);
     opacity: 1;
@@ -285,15 +308,105 @@
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
-
   to {
     transform: translate3d(200%, 0, 0);
     opacity: 0;
   }
 }
 
+@keyframes slide-in-bottom {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slide-out-bottom {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
 @keyframes dash {
   to {
     stroke-dashoffset: 10;
+  }
+}
+
+// ── Progress bar ─────────────────────────────────────────────────────────────
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: to-rem(2);
+  width: 0%;
+  background: var(--grey);
+  z-index: 9999;
+  transition: width .1s ease, opacity .3s ease;
+  opacity: 0;
+  pointer-events: none;
+
+  &--active {
+    width: 70%;
+    opacity: 1;
+    transition: width 8s cubic-bezier(.04, .6, .2, 1);
+  }
+}
+
+// ── Page transitions ──────────────────────────────────────────────────────────
+// All use mode="out-in" in App.vue
+
+// Fade
+.fade-enter-active,
+.fade-leave-active { transition: opacity .25s ease; }
+.fade-enter-from,
+.fade-leave-to { opacity: 0; }
+
+// Slide left: new page enters from right
+.slide-left-enter-active { transition: opacity .3s ease, transform .3s ease; }
+.slide-left-leave-active { transition: opacity .25s ease, transform .25s ease; }
+.slide-left-enter-from { opacity: 0; transform: translateX(to-rem(48)); }
+.slide-left-leave-to { opacity: 0; transform: translateX(to-rem(-32)); }
+
+// Slide right: new page enters from left
+.slide-right-enter-active { transition: opacity .3s ease, transform .3s ease; }
+.slide-right-leave-active { transition: opacity .25s ease, transform .25s ease; }
+.slide-right-enter-from { opacity: 0; transform: translateX(to-rem(-48)); }
+.slide-right-leave-to { opacity: 0; transform: translateX(to-rem(32)); }
+
+// Slide up: new page enters from bottom
+.slide-up-enter-active { transition: opacity .35s ease, transform .35s ease; }
+.slide-up-leave-active { transition: opacity .25s ease, transform .25s ease; }
+.slide-up-enter-from { opacity: 0; transform: translateY(to-rem(48)); }
+.slide-up-leave-to { opacity: 0; transform: translateY(to-rem(-24)); }
+
+// Slide down: when leaving About/Legal
+.slide-down-enter-active { transition: opacity .3s ease, transform .3s ease; }
+.slide-down-leave-active { transition: opacity .25s ease, transform .25s ease; }
+.slide-down-enter-from { opacity: 0; transform: translateY(to-rem(-32)); }
+.slide-down-leave-to { opacity: 0; transform: translateY(to-rem(32)); }
+
+// ── Global Reduced Motion Override ─────────────────────────────────────────
+html.reduced-motion,
+html.reduced-motion *,
+html.reduced-motion *::before,
+html.reduced-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

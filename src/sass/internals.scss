@@ -4,547 +4,757 @@
 @import '_placeholders';
 
 .internal {
-    &-title {
-        @extend .ttl-lg;
-        @extend .ttl-special;
+  &-title {
+    @extend .ttl-lg;
+    @extend .ttl-special;
 
-        padding: to-rem($F11) to-rem($F8) to-rem($F9);
-        text-align: center;
+    padding: to-rem($space-4xl) to-rem($space-xl) to-rem($space-2xl);
+    text-align: center;
 
+    @include layout-1024() {
+      padding: to-rem($space-4xl) 0 to-rem($space-3xl);
+    }
+
+    @include layout-1920() {
+      padding: to-rem($space-5xl);
+    }
+  }
+
+  &-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: to-rem($space-xl);
+    box-sizing: border-box;
+    background-color: var(--bg-dark);
+
+    @include layout-768() {
+      padding: to-rem($space-3xl);
+    }
+
+    @include layout-1024() {
+      padding: to-rem($space-5xl);
+    }
+
+    figure {
+      position: relative;
+      display: block;
+    }
+
+    .render-placeholder {
+      display: block;
+      position: relative;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .render-media {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+
+      @include layout-1024() {
+        border-radius: to-rem($space-lg);
+      }
+    }
+
+    // Skeleton shimmer for carousel slides and cover
+    .skeleton--media {
+      background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
+      background-size: 200% 100%;
+      animation: skeleton-shimmer 2.4s ease-in-out infinite;
+    }
+  }
+
+  // Cover skeleton (before data loads)
+  .skeleton-cover {
+    background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 2.4s ease-in-out infinite;
+    display: block;
+  }
+
+  &-description {
+    margin: 0 auto;
+    padding: to-rem($space-2xl) to-rem($space-xl);
+    // Min-height matches the carousel item height, set as a CSS var by Carousel.vue
+    min-height: var(--carousel-item-height, auto);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    // iPad portrait only: fit text sections to content without forced min-height
+    @media (min-width: 48rem) and (max-width: 64rem) {
+      min-height: auto !important;
+    }
+
+    @include layout-768() {
+      padding: to-rem($space-4xl) to-rem($space-3xl);
+    }
+
+    @include layout-1024() {
+      max-width: to-rem($space-8xl);
+      padding: to-rem($space-4xl);
+    }
+
+    @include layout-1920() {
+      max-width: to-rem($space-9xl);
+      padding: to-rem($space-5xl);
+    }
+
+    @include layout-2560() {
+      padding: to-rem($space-6xl);
+    }
+
+    .legal & {
+      @include layout-768() {
+        padding: to-rem($space-3xl);
+      }
+
+      @include layout-1024() {
+        max-width: to-rem($space-8xl);
+        padding: to-rem($space-md);
+      }
+
+      @include layout-1920() {
+        max-width: to-rem($space-9xl);
+        padding: to-rem($space-md);
+      }
+
+      @include layout-2560() {
+        padding: to-rem($space-lg);
+      }
+    }
+
+    &:last-of-type {
+      .legal & {
         @include layout-1024() {
-            padding: to-rem($F11) 0 to-rem($F10);
+          padding-bottom: to-rem($space-4xl);
         }
 
         @include layout-1920() {
-            padding: to-rem($F12);
-        }
-    }
-
-    &-main {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: to-rem($F8);
-        box-sizing: border-box;
-        background-color: var(--black);
-
-        @include layout-768() {
-            padding: to-rem($F10);
-        }
-
-        @include layout-1024() {
-            padding: to-rem($F12);
-        }
-
-        figure {
-            position: relative;
-            display: block;
-        }
-
-        .render-placeholder {
-            display: block;
-            position: relative;
-            height: auto;
-            max-width: 100%;
-        }
-
-        .render-media {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-
-            @include layout-1024() {
-                border-radius: to-rem($F7);
-            }
-        }
-
-        .load-svg {
-            width: to-rem($F12);
-            height: to-rem($F12);
-
-            @include layout-1024() {
-                width: to-rem($F13);
-                height: to-rem($F13);
-            }
-
-            @include layout-2560() {
-                width: to-rem($F14);
-                height: to-rem($F14);
-            }
-
-            &-text {
-                fill: var(--grey-3);
-            }
-        }
-    }
-
-    &-description {
-        margin: 0 auto;
-        padding: to-rem($F9) to-rem($F8);
-
-        @include layout-768() {
-            padding: to-rem($F11) to-rem($F10);
-        }
-
-        @include layout-1024() {
-            max-width: to-rem($F15);
-            padding: to-rem($F11);
-        }
-
-        @include layout-1920() {
-            max-width: to-rem($F16);
-            padding: to-rem($F12);
+          padding-bottom: to-rem($space-5xl);
         }
 
         @include layout-2560() {
-            padding: to-rem($F13);
+          padding-bottom: to-rem($space-6xl);
         }
-
-        .legal & {
-            @include layout-768() {
-                padding: to-rem($F10);
-            }
-    
-            @include layout-1024() {
-                max-width: to-rem($F15);
-                padding: to-rem($F6);
-            }
-    
-            @include layout-1920() {
-                max-width: to-rem($F16);
-                padding: to-rem($F6);
-            }
-    
-            @include layout-2560() {
-                padding: to-rem($F7);
-            }
-        }
-
-        &:last-of-type {
-            .legal & {
-                @include layout-1024() {
-                    padding-bottom: to-rem($F11);
-                }
-        
-                @include layout-1920() {
-                    padding-bottom: to-rem($F12);
-                }
-        
-                @include layout-2560() {
-                    padding-bottom: to-rem($F13);
-                }
-            }
-        }
-
-
-        &-text {
-            @extend .txt-md;
-
-            padding-bottom: to-rem($F8);
-
-            @include layout-1920() {
-                padding-bottom: to-rem($F9);
-            }
-
-            @include layout-2560() {
-                padding-bottom: to-rem($F10);
-            }
-
-            a {
-                transition: opacity .3s ease-in;
-                text-decoration: underline;
-                color: var(--black);
-
-                &:hover,
-                &:focus {
-                    opacity: .5;
-                }
-
-                &:visited {
-                    text-decoration: line-through;
-                }
-            }
-        }
-
-        p:last-of-type {
-            padding-bottom: 0;
-        }
+      }
     }
 
-    &-extra {
-        width: 100%;
-        box-sizing: border-box;
-        background-color: var(--black);
-        overflow-x: scroll;
-        scroll-snap-align: center;
+    &-text {
+      @extend .txt-md;
 
-        /* width */
-        &::-webkit-scrollbar {
-            height: to-rem($F6);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 100;
+      word-break: normal;
+      overflow-wrap: break-word;
+      hyphens: none;
+      padding-bottom: to-rem($space-xl);
 
-            @include layout-1024() {
-                height: to-rem($F7); 
-            }
+      @include layout-1920() {
+        padding-bottom: to-rem($space-2xl);
+      }
 
-            @include layout-2560() {
-                height: to-rem($F8);
-            }
-        }
-        
-        /* Track */
-        &::-webkit-scrollbar-track {
-            background: var(--black);
-        }
-        
-        /* Handle */
-        &::-webkit-scrollbar-thumb {
-            border-radius: 3px;
-            background: var(--grey-3);
-        }
-        
-        /* Handle on hover */
-        &::-webkit-scrollbar-thumb:hover {
-            background: var(--grey);
-        }
+      @include layout-2560() {
+        padding-bottom: to-rem($space-3xl);
+      }
 
-        &-scroll {
-            padding: to-rem($F9) to-rem($F8) to-rem($F9 - $F6);
-            display: block;
-            white-space: nowrap;
-            width: max-content;
-            margin: 0 auto;
-
-            @include layout-768() {
-                padding: to-rem($F12) to-rem($F10) to-rem($F12 - $F7);
-            }
-
-            @include layout-1024() {
-                padding: to-rem($F10) to-rem($F10) to-rem($F10 - $F7);
-            }
-
-            @include layout-1440() {
-                padding: to-rem($F11) to-rem($F11) to-rem($F11 - $F7);
-            }
-
-            @include layout-1920() {
-                padding: to-rem($F12) to-rem($F12) to-rem($F12 - $F7);
-            }
-
-            @include layout-2560() {
-                padding: to-rem($F12) to-rem($F12) to-rem($F12 - $F8);
-            }
-        }
-
-        &-item {
-            position: relative;
-            border-radius: to-rem($F6);
-            color: var(--grey);
-            display: inline-block;
-            width: min-content;
-            padding: 0 to-rem($F7);
-            min-height: 100%;
-            overflow: hidden;
-
-            @include layout-768() {
-                padding: 0 to-rem($F8);
-            }
-
-            @include layout-1024() {
-                border-radius: to-rem($F7);
-            }
-
-            @include layout-1440() {
-                padding: 0 to-rem($F9);
-            }
-
-            @include layout-1920() {
-                padding: 0 to-rem($F10);
-            }
-
-            &:first-of-type {
-                padding-left: 0;
-            }
-
-            &:last-of-type {
-                padding-right: 0;
-            }
-
-
-            figure {
-                display: block;
-                position: relative;
-                overflow: hidden;
-                border-radius: to-rem($F6);
-                background-color: var(--grey-3);
-
-                @include layout-1024() {
-                    background: none;
-                    border-radius: to-rem($F7);
-                }
-            }
-
-            .render-placeholder {
-                position: relative;
-                width: calc(90vw - #{to-rem($F8 * 2)});
-                height: calc(70vh - #{to-rem($F8 * 2)});
-
-                @include layout-768() {
-                    width: calc(90vw - #{to-rem($F9 * 2)});
-                    height: calc(70vh - #{to-rem($F9 * 2)});
-                }
-
-                @include layout-1024() {
-                    width: to-rem($F13);
-                    height: to-rem($F14);
-                }
-
-                @include layout-1440() {
-                    
-                    width: to-rem($F14);
-                    height: to-rem($F15);
-                }
-
-                @include layout-2560() {
-                    width: to-rem($F15);
-                    height: to-rem($F16);
-                }
-            }
-
-            .load-svg {    
-                &.flip {
-                    transform: rotate(180deg);
-                }
-            }
-
-            .render-media {
-                top: 0;
-                left: 0;
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: top center;
-                border-radius: to-rem($F2);
-                box-sizing: border-box;
-                overflow: hidden;
-
-                // Only render images when in the viewports
-                content-visibility: auto;
-
-                @include layout-1024() {
-                    border: none;
-                    border-radius: to-rem($F7);
-                }
-
-                &.load-svg {
-                    image-rendering: crisp-edges;
-                    position: relative;
-                    width: to-rem($F13);
-                    height: to-rem($F13);
-
-                    @include layout-1280() {
-                        width: to-rem($F12);
-                        height: to-rem($F12);
-                    }
-
-                    @include layout-2560() {
-                        width: to-rem($F13);
-                        height: to-rem($F13);
-                    }
-                }
-            }
-
-            &.landscape {
-                .render-placeholder {
-                    @include layout-1024() {
-                        width: auto;
-                        max-width: calc(100vw - #{to-rem($F10)});
-                    }
-
-                    @include layout-1280() {
-                        max-width: calc(100vw - #{to-rem($F11)})
-                    }
-
-                    @include layout-1440() {
-                        max-width: calc(100vw - #{to-rem($F14)})
-                    }
-
-                    @include layout-1920() {
-                        max-width: calc(100vw - #{to-rem($F13)})
-                    }
-                }
-            }
-
-            &.small {
-                .render-placeholder {
-                    @include layout-1440() {
-                        width: to-rem($F13);
-                        height: to-rem($F15);
-                    }
-
-                    @include layout-2560() {
-                        width: to-rem($F14);
-                        height: to-rem($F16);
-                    }
-                }
-            }
-
-            label {
-                @extend .ttl-xs;
-
-                display: block;
-                text-transform: uppercase;
-                margin: 0;
-                font-variant: all-small-caps;
-                color: var(--white);
-            }
-
-            &-open {
-                display: none;
-                top: 0;
-                left: 0;
-                position: fixed;
-                background: rgba($color-black, .9);
-                min-height: 100vh;
-                height: auto;
-                width: 100vw;
-                z-index: 1;
-
-                img {
-                    box-sizing: border-box;
-                    padding: to-rem($F12);
-                    height: auto;
-                    width: 100%;
-                }
-            }
-        }
-    }
-
-    &-expand {
-        transition: opacity .3s ease-in;
-        cursor: pointer;
+      a {
+        transition: opacity 0.3s ease-in;
+        text-decoration: underline;
+        color: var(--black);
 
         &:hover,
         &:focus {
-            opacity: .95;
+          opacity: 0.5;
         }
+
+        &:visited {
+          text-decoration: line-through;
+        }
+      }
     }
 
-    &-footer {
-        &-title {
-            @extend .ttl-lg;
-            @extend .ttl-special;
-
-            padding-bottom: to-rem($F5);
-            max-width: to-rem($F15);
-            margin: 0 auto;
-            padding: to-rem($F8) to-rem($F8) to-rem($F7);
-
-            @include layout-768() {
-                padding: to-rem($F10) to-rem($F10) to-rem($F9);
-            }
-
-            @include layout-1024() {
-                padding: to-rem($F12) to-rem($F12) to-rem($F9) ;
-            }
-        }
-
-        &-related {
-            @extend .txt-lg;
-
-            margin: 0 auto;
-            padding: 0 to-rem($F8) to-rem($F8);
-            letter-spacing: to-rem(2);
-            text-align: left;
-            color: var(--black);
-            list-style: inside circle;
-
-            @include layout-768() {
-                padding: 0 to-rem($F10) to-rem($F10);
-            }
-
-            @include layout-1024() {
-                max-width: to-rem($F15);
-                padding: 0 to-rem($F12) to-rem($F12);
-            }
-
-            &-link {
-                transition: opacity .3s ease-in;
-                display: list-item;
-                color: inherit;
-                text-decoration: none;
-
-                &:hover,
-                &:focus {
-                    opacity: .5;
-                }
-
-                &.router-link-active {
-                    display: none;
-                }
-            }
-        }
-
-
-        &-items {
-            @extend .ttl-xs;
-    
-            text-align: center;
-            color: var(--white);
-            padding: to-rem($F9);
-            background: var(--black);
-
-            @include layout-1024() {
-                padding: to-rem($F8) to-rem($F12);
-            }
-
-            &-separator {
-                padding: 0 to-rem($F6);
-                display: none;
-
-                @include layout-375() {
-                    display: inline-block;
-                }
-
-                @include layout-2560() {
-                    padding: 0 to-rem($F7);
-                }
-            }
-
-            &-link {
-                @extend .ttl-xs;
-
-                color: inherit;
-                text-decoration: none;
-                transition: opacity .3s ease-in;
-                cursor: pointer;
-                display: block;
-                line-height: to-rem($F10);
-                text-transform: uppercase;
-                font-weight: 700;
-
-                @include layout-375() {
-                    text-transform: initial;
-                    display: inline-block;
-                }
-
-                &:hover,
-                &:focus {
-                    opacity: .5;
-                }
-            }
-
-            &-note {
-                @extend .ttl-xxs;
-
-                display: block;
-                padding: 0;
-                margin:to-rem(-$F5) 0 to-rem($F7);
-            }
-        }
+    p:last-of-type {
+      padding-bottom: 0;
     }
+  }
+
+  &-extra {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--bg-dark);
+    overflow-x: scroll;
+    scroll-snap-align: center;
+
+    /* width */
+    &::-webkit-scrollbar {
+      height: to-rem($space-md);
+
+      @include layout-1024() {
+        height: to-rem($space-lg);
+      }
+
+      @include layout-2560() {
+        height: to-rem($space-xl);
+      }
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: var(--black);
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      border-radius: to-rem(3);
+      background: var(--grey-3);
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--grey);
+    }
+
+    &-scroll {
+      padding: to-rem($space-2xl) to-rem($space-xl) to-rem($space-2xl - $space-md);
+      display: block;
+      white-space: nowrap;
+      width: max-content;
+      margin: 0 auto;
+
+      @include layout-768() {
+        padding: to-rem($space-5xl) to-rem($space-3xl) to-rem($space-5xl - $space-lg);
+      }
+
+      @include layout-1024() {
+        padding: to-rem($space-3xl) to-rem($space-3xl) to-rem($space-3xl - $space-lg);
+      }
+
+      @include layout-1440() {
+        padding: to-rem($space-4xl) to-rem($space-4xl) to-rem($space-4xl - $space-lg);
+      }
+
+      @include layout-1920() {
+        padding: to-rem($space-5xl) to-rem($space-5xl) to-rem($space-5xl - $space-lg);
+      }
+
+      @include layout-2560() {
+        padding: to-rem($space-5xl) to-rem($space-5xl) to-rem($space-5xl - $space-xl);
+      }
+    }
+
+    &-item {
+      position: relative;
+      border-radius: to-rem($space-md);
+      color: var(--grey);
+      display: inline-block;
+      width: min-content;
+      padding: 0 to-rem($space-lg);
+      min-height: 100%;
+      overflow: hidden;
+
+      @include layout-768() {
+        padding: 0 to-rem($space-xl);
+      }
+
+      @include layout-1024() {
+        border-radius: to-rem($space-lg);
+      }
+
+      @include layout-1440() {
+        padding: 0 to-rem($space-2xl);
+      }
+
+      @include layout-1920() {
+        padding: 0 to-rem($space-3xl);
+      }
+
+      &:first-of-type {
+        padding-left: 0;
+      }
+
+      &:last-of-type {
+        padding-right: 0;
+      }
+
+      figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        border-radius: to-rem($space-md);
+        background-color: var(--grey-3);
+
+        @include layout-1024() {
+          background: none;
+          border-radius: to-rem($space-lg);
+        }
+      }
+
+      .render-placeholder {
+        position: relative;
+        width: calc(90vw - #{to-rem($space-xl * 2)});
+        height: calc(70vh - #{to-rem($space-xl * 2)});
+
+        @include layout-768() {
+          width: calc(90vw - #{to-rem($space-2xl * 2)});
+          height: calc(70vh - #{to-rem($space-2xl * 2)});
+        }
+
+        @include layout-1024() {
+          width: to-rem($space-6xl);
+          height: to-rem($space-7xl);
+        }
+
+        @include layout-1440() {
+          width: to-rem($space-7xl);
+          height: to-rem($space-8xl);
+        }
+
+        @include layout-2560() {
+          width: to-rem($space-8xl);
+          height: to-rem($space-9xl);
+        }
+      }
+
+      .render-media {
+        top: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        border-radius: to-rem($space-pixel);
+        box-sizing: border-box;
+        overflow: hidden;
+
+        // Only render images when in the viewports
+        content-visibility: auto;
+
+        @include layout-1024() {
+          border: none;
+          border-radius: to-rem($space-lg);
+        }
+      }
+
+      &.landscape {
+        .render-placeholder {
+          @include layout-1024() {
+            width: auto;
+            max-width: calc(100vw - #{to-rem($space-3xl)});
+          }
+
+          @include layout-1280() {
+            max-width: calc(100vw - #{to-rem($space-4xl)});
+          }
+
+          @include layout-1440() {
+            max-width: calc(100vw - #{to-rem($space-7xl)});
+          }
+
+          @include layout-1920() {
+            max-width: calc(100vw - #{to-rem($space-6xl)});
+          }
+        }
+      }
+
+      &.small {
+        .render-placeholder {
+          @include layout-1440() {
+            width: to-rem($space-6xl);
+            height: to-rem($space-8xl);
+          }
+
+          @include layout-2560() {
+            width: to-rem($space-7xl);
+            height: to-rem($space-9xl);
+          }
+        }
+      }
+
+      label {
+        @extend .ttl-xs;
+
+        display: block;
+        text-transform: uppercase;
+        margin: 0;
+        font-variant: all-small-caps;
+        color: var(--white);
+      }
+
+      &-open {
+        display: none;
+        top: 0;
+        left: 0;
+        position: fixed;
+        background: rgba($color-black, 0.9);
+        min-height: 100vh;
+        height: auto;
+        width: 100vw;
+        z-index: 1;
+
+        img {
+          box-sizing: border-box;
+          padding: to-rem($space-5xl);
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &-expand {
+    transition: opacity 0.3s ease-in;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      opacity: 0.95;
+    }
+  }
+
+  &-footer {
+    &-title {
+      @extend .ttl-lg;
+      @extend .ttl-special;
+
+      padding-bottom: to-rem($space-sm);
+      max-width: to-rem($space-8xl);
+      margin: 0 auto;
+      text-align: center;
+      padding: to-rem($space-xl) to-rem($space-xl) to-rem($space-lg);
+
+      span {
+        display: inline-block;
+        text-align: center;
+      }
+
+      @include layout-768() {
+        padding: to-rem($space-3xl) to-rem($space-3xl) to-rem($space-2xl);
+      }
+
+      @include layout-1024() {
+        padding: to-rem($space-5xl) to-rem($space-5xl) to-rem($space-2xl);
+      }
+    }
+
+    &-related {
+      @extend %MAXAREA;
+
+      width: 100%;
+      margin: 0 auto;
+      padding-top: to-rem($space-xl);
+      padding-bottom: to-rem(90px);
+
+      @include layout-768() {
+        padding-top: to-rem($space-2xl);
+        padding-bottom: to-rem(120px);
+      }
+      @include layout-1024() {
+        padding-top: to-rem($space-3xl);
+        padding-bottom: to-rem(140px);
+      }
+    }
+
+    &-items {
+      @extend .ttl-xs;
+
+      text-align: center;
+      color: #ffffff;
+      padding: to-rem($space-2xl);
+      background: var(--bg-dark);
+
+      @include layout-1024() {
+        padding: to-rem($space-xl) to-rem($space-5xl);
+      }
+
+      &-separator {
+        padding: 0 to-rem($space-md);
+        display: none;
+
+        @include layout-375() {
+          display: inline-block;
+        }
+
+        @include layout-2560() {
+          padding: 0 to-rem($space-lg);
+        }
+      }
+
+      &-link {
+        @extend .ttl-xs;
+
+        color: inherit;
+        text-decoration: none;
+        transition: opacity 0.3s ease-in;
+        cursor: pointer;
+        display: block;
+        line-height: to-rem($space-3xl);
+        text-transform: uppercase;
+        font-weight: 300;
+
+        @include layout-375() {
+          text-transform: initial;
+          display: inline-block;
+        }
+
+        &:hover,
+        &:focus {
+          opacity: 0.5;
+        }
+      }
+
+      &-note {
+        @extend .ttl-xxs;
+
+        display: block;
+        padding: 0;
+        margin: to-rem(-$space-sm) 0 to-rem($space-lg);
+        font-weight: 200;
+      }
+    }
+  }
+}
+
+// ── Mosaic Layout for Related Projects (Zero Empty Gaps) ──────────────────────
+.related-mosaic {
+  display: flex;
+  flex-wrap: wrap;
+  gap: to-rem($space-md);
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: to-rem($space-3xl);
+
+  @include layout-768() {
+    gap: to-rem($space-lg);
+  }
+
+  &-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    border-radius: to-rem($space-lg);
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    min-height: to-rem(160);
+    aspect-ratio: 16 / 10;
+    text-decoration: none;
+    color: #ffffff;
+    background: var(--bg-secondary);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+
+    // Mobile (above 320px) & Tablet: 2 columns
+    @include layout-375() {
+      flex: 1 1 to-rem(150);
+      width: auto;
+      min-height: to-rem(180);
+    }
+
+    // Desktop: standard mosaic width
+    @include layout-1024() {
+      flex: 1 1 to-rem(260);
+      max-width: to-rem(360);
+      min-height: to-rem(200);
+    }
+
+    &.router-link-active {
+      display: none !important;
+    }
+
+    // Featured items are wider ONLY on desktop (1024px+); ignored on mobile and tablet
+    &--featured {
+      @include layout-1024() {
+        flex: 2 1 to-rem(560);
+        max-width: 100%;
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+      .related-mosaic-img {
+        transform: scale(1.06);
+      }
+
+      .related-mosaic-title {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  &-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.05) 100%);
+    pointer-events: none;
+  }
+
+  &-info {
+    position: relative;
+    z-index: 2;
+    padding: to-rem($space-md) to-rem($space-lg) to-rem($space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: to-rem($space-2xs);
+    text-align: left;
+    pointer-events: none;
+
+    @include layout-768() {
+      padding: to-rem($space-lg) to-rem($space-xl);
+    }
+
+    .related-mosaic-item--featured & {
+      padding: to-rem($space-lg) to-rem($space-lg) to-rem($space-xl);
+
+      @include layout-768() {
+        padding: to-rem($space-xl) to-rem($space-2xl);
+      }
+    }
+  }
+
+  &-title {
+    @extend .ttl-sm;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: to-rem(0.8);
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+
+    .related-mosaic-item--featured & {
+      font-size: to-rem(20);
+
+      @include layout-768() {
+        font-size: to-rem(26);
+      }
+      @include layout-1024() {
+        font-size: to-rem(32);
+      }
+    }
+  }
+
+  &-desc {
+    @extend .txt-xs;
+
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+    margin-top: to-rem($space-2xs);
+  }
+}
+
+.fade-desc-enter-active,
+.fade-desc-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.fade-desc-enter-from,
+.fade-desc-leave-to {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Carousel context overrides
+// Each .internal-extra-item is the sole child of its .carousel-slide, so
+// :first-of-type and :last-of-type both match every item — zeroing out the
+// padding on both sides. Restore symmetric padding here so items have visible
+// gaps between them in the carousel track.
+// ─────────────────────────────────────────────────────────────────────────────
+.carousel .internal-extra-item {
+  &:first-of-type {
+    padding-left: to-rem($space-lg);
+  }
+  &:last-of-type {
+    padding-right: to-rem($space-lg);
+  }
+
+  @include layout-768() {
+    &:first-of-type {
+      padding-left: to-rem($space-xl);
+    }
+    &:last-of-type {
+      padding-right: to-rem($space-xl);
+    }
+  }
+
+  @include layout-1440() {
+    &:first-of-type {
+      padding-left: to-rem($space-2xl);
+    }
+    &:last-of-type {
+      padding-right: to-rem($space-2xl);
+    }
+  }
+
+  @include layout-1920() {
+    &:first-of-type {
+      padding-left: to-rem($space-3xl);
+    }
+    &:last-of-type {
+      padding-right: to-rem($space-3xl);
+    }
+  }
+}
+
+// Non-visible carousel slide placeholder: centre the loading spinner
+.carousel-slide--loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────────
+// Single landscape image (not in carousel — carousel-fallback)
+// Must have the same MAXAREA lateral padding as all other grid content.
+// ─────────────────────────────────────────────────────────────────────────────────
+.carousel-fallback {
+  padding: to-rem($space-2xl) 0;
+  background-color: var(--bg-dark);
+}
+
+.carousel-fallback .internal-extra-item.landscape {
+  @extend %MAXAREA;
+
+  box-sizing: border-box;
+}
+
+// Parallax effect removed: sections render with full opacity and normal layout flow
+.project section {
+  opacity: 1;
+  transform: none;
 }
