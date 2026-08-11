@@ -162,6 +162,7 @@
   transition: opacity 0.2s ease;
   cursor: pointer;
   margin-top: to-rem($space-2xs);
+  margin-bottom: to-rem($space-lg);
 
   &::before, &::after {
     content: '';
