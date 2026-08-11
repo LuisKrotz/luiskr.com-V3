@@ -10,9 +10,9 @@
     <!-- ── Track ──────────────────────────────────────────────────── -->
     <div class="carousel-track" ref="track" @scroll.passive="onScroll">
       <!-- Clone of last item (for infinite loop) -->
-      <div class="carousel-slide carousel-slide--clone" ref="cloneLast" aria-hidden="true">
-        <!-- Clones always render: they are the adjacent wrap-around slides -->
-        <slot :item="items[items.length - 1]" :index="-1" :isVisible="true"></slot>
+      <div class="carousel-slide carousel-slide--clone" ref="cloneLast" aria-hidden="true" inert>
+        <!-- Clones are non-interactive wrap-around visuals -->
+        <slot :item="items[items.length - 1]" :index="-1" :isVisible="false"></slot>
       </div>
 
       <!-- Real items -->
@@ -30,9 +30,9 @@
       </div>
 
       <!-- Clone of first item (for infinite loop) -->
-      <div class="carousel-slide carousel-slide--clone" ref="cloneFirst" aria-hidden="true">
-        <!-- Clones always render: they are the adjacent wrap-around slides -->
-        <slot :item="items[0]" :index="items.length" :isVisible="true"></slot>
+      <div class="carousel-slide carousel-slide--clone" ref="cloneFirst" aria-hidden="true" inert>
+        <!-- Clones are non-interactive wrap-around visuals -->
+        <slot :item="items[0]" :index="items.length" :isVisible="false"></slot>
       </div>
     </div>
 
@@ -53,7 +53,7 @@
       </button>
 
       <!-- ── Dots + counter ──────────────────────────────────────── -->
-      <div class="carousel-indicators" aria-hidden="true">
+      <div class="carousel-indicators">
         <span class="carousel-counter">{{ currentIndex + 1 }} of {{ items.length }}</span>
         <div class="carousel-dots">
           <button

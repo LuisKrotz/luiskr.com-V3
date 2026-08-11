@@ -166,6 +166,18 @@ router.beforeEach(async (to) => {
   store.commit('setLang', lang)
 })
 
+// Dynamically update rel="canonical" on route changes for SEO
+router.afterEach((to) => {
+  let canonicalEl = document.querySelector('link[rel="canonical"]')
+  if (!canonicalEl) {
+    canonicalEl = document.createElement('link')
+    canonicalEl.setAttribute('rel', 'canonical')
+    document.head.appendChild(canonicalEl)
+  }
+  const cleanPath = to.path === '/' ? '' : to.path
+  canonicalEl.setAttribute('href', `https://luiskr.com${cleanPath}`)
+})
+
 // Catch dynamic chunk loading errors after new deployments and auto-reload page
 router.onError((error) => {
   if (

@@ -14,6 +14,7 @@
         :src="placeholder(width, height)"
         :width="width"
         :height="height"
+        alt=""
         aria-hidden="true"
         tabindex="-1"
         data-nosnippet

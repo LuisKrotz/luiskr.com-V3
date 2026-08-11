@@ -11,7 +11,8 @@
       :src="placeholder(width, height)"
       :width="width"
       :height="height"
-      alt=" "
+      alt=""
+      aria-hidden="true"
     />
 
     <img
@@ -33,6 +34,7 @@
       :width="width"
       :height="height"
       :alt="label"
+      preload="none"
       playsinline
       loop
       muted
@@ -50,7 +52,7 @@
       <button class="expand-modal-open-1" data-no-snippet>
         {{ action }} {{ translations?.toOpen }}
       </button>
-      <button class="expand-modal-open-2" aria-hidden="true" data-no-snippet></button>
+      <button class="expand-modal-open-2" aria-hidden="true" tabindex="-1" data-no-snippet></button>
     </template>
   </figure>
 </template>
