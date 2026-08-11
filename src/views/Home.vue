@@ -63,7 +63,9 @@
         <div class="about-profile-text">
           <div class="about-profile-text-col">
             <template v-if="aboutTranslations">
-              <p class="about-item-text" v-for="(t, n) in aboutTranslations.col1" :key="'c1-'+n" v-html="t"></p>
+              <p class="about-item-text" v-for="item in aboutDrawData.col1" :key="item.key">
+                <DrawText :text="item.text" :delay="aboutDrawData.charDelay" :offset="item.offset" trigger="viewport" />
+              </p>
             </template>
             <div v-else>
               <p class="about-item-text skeleton--shimmer" style="width:100%;height:1.4em;border-radius:4px;margin-bottom:.6em"></p>
@@ -73,7 +75,9 @@
           </div>
           <div class="about-profile-text-col">
             <template v-if="aboutTranslations">
-              <p class="about-item-text" v-for="(t, n) in aboutTranslations.col2" :key="'c2-'+n" v-html="t"></p>
+              <p class="about-item-text" v-for="item in aboutDrawData.col2" :key="item.key">
+                <DrawText :text="item.text" :delay="aboutDrawData.charDelay" :offset="item.offset" trigger="viewport" />
+              </p>
             </template>
             <div v-else>
               <p class="about-item-text skeleton--shimmer" style="width:95%;height:1.4em;border-radius:4px;margin-bottom:.6em"></p>
@@ -138,6 +142,32 @@ export default {
         ? this.translations.portfoliolist
         : Object.values(this.translations.portfoliolist)
       return raw.map(item => ({ ...item, featured: this.isFeatured(item) }))
+    },
+
+    // Compute charDelay and per-paragraph offsets so all paragraphs
+    // animate sequentially, finishing in ~2 seconds total.
+    aboutDrawData() {
+      const col1 = this.aboutTranslations?.col1 || []
+      const col2 = this.aboutTranslations?.col2 || []
+      const all  = [...col1, ...col2]
+
+      const strip = s => s.replace(/<[^>]+>/g, '')  // strip HTML tags for char count
+      const totalChars = all.reduce((s, t) => s + strip(t).length, 0)
+      // charDelay: each char animates at this speed; clamp to 3–20ms
+      const charDelay = totalChars > 0 ? Math.max(3, Math.min(20, Math.round(2000 / totalChars))) : 8
+
+      let offset = 0
+      const withOffsets = all.map((text, idx) => {
+        const item = { key: idx, text, offset }
+        offset += strip(text).length * charDelay
+        return item
+      })
+
+      return {
+        charDelay,
+        col1: withOffsets.slice(0, col1.length),
+        col2: withOffsets.slice(col1.length),
+      }
     },
   },
 
