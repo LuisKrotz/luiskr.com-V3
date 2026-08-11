@@ -5,6 +5,7 @@
 
 .about {
   @extend %MAXAREA;
+  min-height: 460px;
 
   border-top: 1px solid var(--grey-2);
   padding-top: to-rem(120) !important;
