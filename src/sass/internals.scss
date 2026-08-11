@@ -87,11 +87,6 @@
     flex-direction: column;
     justify-content: center;
 
-    // iPad portrait only: fit text sections to content without forced min-height
-    @media (min-width: 48rem) and (max-width: 64rem) {
-      min-height: auto !important;
-    }
-
     @include layout-768() {
       padding: to-rem($space-4xl) to-rem($space-3xl);
     }
