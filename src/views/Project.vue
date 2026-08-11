@@ -175,6 +175,9 @@ export default {
         this.loadData(wait)
       }
     },
+    '$store.state.lang.locale'() {
+      this.loadData(false)
+    },
   },
   methods: {
     svgPlaceholder(w, h) {
