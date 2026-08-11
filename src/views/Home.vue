@@ -173,10 +173,18 @@ export default {
       if (!W) { setTimeout(this.layout, 50); return }
 
       const gap = 16
-      // N = how many compact columns fit if each is ~280px.
-      // W = el.clientWidth already accounts for MAXAREA padding.
-      // Featured spans 2 cols, compact spans 1.
-      const N    = Math.max(1, Math.round(W / 280))
+
+      // ── N derived from content-based minimum card width ───────────────────
+      // Font: Raleway uppercase, font-size = 5cqw (container query units)
+      // Minimum readable font size: 12px → 5% × cardWidth = 12px → cardWidth ≥ 240px
+      // Card padding: 20px per side → inner usable width = cardWidth - 40px
+      // Longest title ~20 chars × 7.5px/char = 150px → needs inner width ≥ 150px ✓ at 240px
+      // Image at 240px: 240 × 0.56 = 134px tall — proper landscape, not a strip ✓
+      //
+      // Max columns that fit: N = floor((W + gap) / (MIN_CARD_W + gap))
+      // This guarantees colW = (W - gap*(N-1))/N ≥ MIN_CARD_W at every breakpoint.
+      const MIN_CARD_W = 240
+      const N    = Math.max(1, Math.floor((W + gap) / (MIN_CARD_W + gap)))
       const colW = Math.floor((W - gap * (N - 1)) / N)
       const colH = Array(N).fill(0)
 
@@ -251,8 +259,8 @@ export default {
       const vw  = window.innerWidth
       const pad = vw < 320 ? 13 : vw < 540 ? 21 : vw < 768 ? 34 : vw < 1024 ? 55 : vw < 1680 ? 89 : 144
       const W   = vw - pad * 2
-      const N   = Math.max(1, Math.round(W / 280))
       const gap = 16
+      const N   = Math.max(1, Math.floor((W + gap) / (240 + gap)))
       const colW = Math.floor((W - gap * (N - 1)) / N)
       const col  = (n - 1) % N
       const row  = Math.floor((n - 1) / N)
