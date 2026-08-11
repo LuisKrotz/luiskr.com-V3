@@ -45,16 +45,10 @@
               filter     0.3s ease;
 
   &--featured {
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 36px rgba(0, 0, 0, 0.5);
   }
 
-  // Sibling dimming when any card is hovered
-  .home-mosaic:has(.home-mosaic-item:hover) &:not(:hover) {
-    opacity: 0.78;
-    filter: brightness(0.88);
-    transform: scale(0.983);
-  }
+
 
   &:hover {
     transform: translateY(-5px) scale(1.015);
