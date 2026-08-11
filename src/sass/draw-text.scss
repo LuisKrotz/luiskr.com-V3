@@ -22,18 +22,21 @@
   &__char {
     display: inline-block;
     opacity: 0;
-    will-change: opacity, transform, filter;
+    // NO will-change here — adding it to every char span creates hundreds of GPU layers
+    // and destroys mobile scroll performance. Only promote during the actual animation.
   }
 }
 
 // ── Section titles: animate on mount (replayed via :key re-mount) ──────────
 .home-section-title .draw-text__char {
+  will-change: opacity, transform;   // promote only during animation
   animation: char-draw .8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 100ms));
 }
 
 // ── Inside slides: animate only when the slide becomes active ──────────────
 .hc-slide--active .draw-text__char {
+  will-change: opacity, transform;
   animation: char-draw .8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 100ms));
 }
@@ -41,6 +44,7 @@
 // ── Viewport trigger: animate when scrolled into view ──────────────────────
 // .draw-text--visible is added by IntersectionObserver in the component
 .draw-text--visible .draw-text__char {
+  will-change: opacity, transform;
   animation: char-draw .8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 100ms));
 }
@@ -51,35 +55,31 @@
   transform: none;
   filter: none;
   animation: none;
+  will-change: auto;   // release GPU layer after animation is done
 }
 
 // ── Related Mosaic: animate write effect ─────────────────────────────────────
 .related-mosaic-desc .draw-text__char {
+  will-change: opacity, transform;
   animation: char-draw .5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 15ms));
 }
 
 // ── Character draw keyframes ────────────────────────────────────────────────
+// Desktop: full effect with blur + scale
 @keyframes char-draw {
-  0% {
-    opacity: 0;
-    transform: translateY(0.12em) scaleY(0.3);
-    filter: blur(3px);
-  }
-  30% {
-    opacity: 0.5;
-    transform: translateY(0.04em) scaleY(0.85);
-    filter: blur(1px);
-  }
-  60% {
-    opacity: 0.85;
-    transform: translateY(0.01em) scaleY(0.97);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scaleY(1);
-    filter: blur(0);
+  0%   { opacity: 0;    transform: translateY(0.12em) scaleY(0.3);  filter: blur(3px); }
+  30%  { opacity: 0.5;  transform: translateY(0.04em) scaleY(0.85); filter: blur(1px); }
+  60%  { opacity: 0.85; transform: translateY(0.01em) scaleY(0.97); filter: blur(0);   }
+  100% { opacity: 1;    transform: none;                             filter: none;      }
+}
+
+// Mobile: no filter:blur (extremely expensive on mobile GPUs), no scaleY
+// Keep only opacity + small translateY for a light, performant fade-in effect
+@media (max-width: 960px) {
+  @keyframes char-draw {
+    0%   { opacity: 0;   transform: translateY(0.1em); }
+    100% { opacity: 1;   transform: none;              }
   }
 }
 
