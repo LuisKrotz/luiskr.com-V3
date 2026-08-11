@@ -7,15 +7,13 @@
   >
     <!-- Controls for awards variant: dots only, no arrows -->
     <div v-if="variant === 'awards'" class="hc-controls">
-      <div v-if="showDots" class="hc-dots">
-        <button
+      <div v-if="showDots" class="hc-dots" aria-hidden="true">
+        <span
           v-for="(_, idx) in items"
           :key="idx"
           class="hc-dot"
           :class="{ 'hc-dot--active': currentIndex === idx }"
-          :aria-label="`Go to item ${idx + 1}`"
-          @click="onDotClick(idx)"
-        ></button>
+        ></span>
       </div>
     </div>
 
