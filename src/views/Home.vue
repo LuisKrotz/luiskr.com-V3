@@ -31,7 +31,7 @@
               </div>
             </div>
             <div class="home-mosaic-bottom" :style="cards[i] && cards[i].bottom">
-              <div v-if="cards[i] && cards[i].bottomH > 0" class="home-mosaic-details">
+              <div class="home-mosaic-details" :data-index="i">
                 <p v-if="item.description" class="home-mosaic-desc">
                   <DrawText :text="item.description" :delay="8" />
                 </p>
@@ -146,8 +146,8 @@ export default {
       if (!v.length) return
       this.$nextTick(() => {
         this.layout()
-        setTimeout(() => this.layout(), 60)
-        setTimeout(() => this.layout(), 200)
+        setTimeout(() => { this.layout(); this.measureAll() }, 60)
+        setTimeout(() => { this.layout(); this.measureAll() }, 300)
       })
     },
     featuredLinks() { this.$nextTick(this.layout) },
@@ -232,13 +232,28 @@ export default {
       this.containerH = Math.max(...colH) - gap + 'px'
     },
 
-    // Measure the actual rendered scrollHeight of card i's description panel.
-    // Each card may have different text length → store per-card in bottomHMap.
-    measureBottomH(i) {
+    // Pre-measure ALL cards' description heights upfront.
+    // .home-mosaic-details is always in the DOM (v-if removed), so scrollHeight
+    // is readable even when the parent .home-mosaic-bottom has height:0.
+    async measureAll() {
+      await this.$nextTick()
       const details = this.$el?.querySelectorAll('.home-mosaic-details')
-      if (details && details[i]) {
-        const h = details[i].scrollHeight
-        if (h > 0) this.bottomHMap = { ...this.bottomHMap, [i]: h + 20 }
+      if (!details || !details.length) return
+      const map = {}
+      details.forEach(el => {
+        const idx = parseInt(el.dataset.index)
+        const h = el.scrollHeight
+        if (!isNaN(idx) && h > 0) map[idx] = h + 24   // +24 padding buffer
+      })
+      this.bottomHMap = map
+    },
+
+    // Per-card re-measure on hover (in case content changed or first hover)
+    measureBottomH(i) {
+      const el = this.$el?.querySelector(`.home-mosaic-details[data-index="${i}"]`)
+      if (el) {
+        const h = el.scrollHeight
+        if (h > 0) this.bottomHMap = { ...this.bottomHMap, [i]: h + 24 }
       }
     },
 

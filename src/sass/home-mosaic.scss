@@ -124,10 +124,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: to-rem($space-sm);
-  padding: to-rem($space-md) to-rem($space-lg) to-rem($space-xl);
-  height: 100%;
+  padding: to-rem($space-md) to-rem($space-lg) 0;
   box-sizing: border-box;
+  // height is driven by parent (.home-mosaic-bottom), DO NOT set height here
 }
 
 .home-mosaic-desc {
