@@ -11,7 +11,6 @@ import { getAnalytics } from 'firebase/analytics'
 const firebaseConfig = {
   apiKey: 'AIzaSyDeDr3LDdc34IDBAQc-6BiUOeI32_Hd7HI',
   authDomain: 'luiskr-com.firebaseapp.com',
-  databaseURL: 'https://luiskr-com.firebaseio.com',
   projectId: 'luiskr-com',
   storageBucket: 'luiskr-com.appspot.com',
   messagingSenderId: '967717102790',

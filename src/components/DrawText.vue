@@ -1,7 +1,7 @@
 <template>
   <span class="draw-text"
     :class="{ 'draw-text--visible': isVisible && !hasAnimated, 'draw-text--done': hasAnimated }"
-    ref="root" role="text" :aria-label="plainText">
+    ref="root">
     <template v-for="(token, i) in tokens" :key="i">
       <br v-if="token.type === 'br'" aria-hidden="true" />
 
@@ -22,8 +22,6 @@
         v-else-if="token.type === 'tag'"
         :is="token.tag"
         v-bind="token.attrs"
-        aria-hidden="true"
-        v-bind:tabindex="token.tag === 'a' ? '-1' : undefined"
       >
         <template v-for="(chunk, ci) in token.chunks" :key="ci">
           <span v-if="chunk.type === 'word'" class="draw-text__word">
