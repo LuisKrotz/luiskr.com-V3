@@ -142,6 +142,9 @@ button {
 main {
   .modal-open & {
     position: fixed;
+    top: var(--modal-top, 0px); // Set via JS before class toggle — prevents iOS Safari scroll-to-top
+    width: 100%;
+    left: 0;
   }
 }
 

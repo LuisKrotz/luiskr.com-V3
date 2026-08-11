@@ -142,10 +142,14 @@ export default {
 
         const image = homeMatch?.image || p.image || cleanLink
 
+        const locale   = this.$store.getters.getLang
+        const locPfx   = locale && locale !== 'en' ? '/' + locale : ''
+        const baseFull = locPfx + (basePath.startsWith('/') ? '' : '/') + basePath.replace(/\/$/, '') + '/' + cleanLink
+
         return {
           page: p.page || homeMatch?.label || homeMatch?.title || cleanLink,
           link: cleanLink,
-          fullPath: (basePath.startsWith('/') ? '' : '/') + basePath.replace(/\/$/, '') + '/' + cleanLink,
+          fullPath: baseFull,
           featured: p.featured === true,
           imageSrc: `${this.storage}covers/${image}.jpg`,
           description: homeMatch?.description || p.description || '',

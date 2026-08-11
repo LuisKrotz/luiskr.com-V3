@@ -12,26 +12,57 @@
   </div>
   <div id="main" class="not-found">
     <div v-if="translations?.title">
-      <h2 class="not-found-title" v-html="translations.title"></h2>
-      <router-link class="not-found-link" to="/">{{ translations.link }}</router-link>
+      <h2 class="not-found-title">
+        <!-- Emoji line: static, rendered as-is via v-html -->
+        <span v-html="emojiLine" aria-hidden="true"></span>
+        <!-- Translated subtitle: draw animation -->
+        <span class="not-found-subtitle">
+          <DrawText
+            v-if="subtitle"
+            :text="subtitle"
+            :delay="30"
+            trigger="auto"
+          />
+        </span>
+      </h2>
+      <router-link class="not-found-link" :to="homePath">{{ translations.link }}</router-link>
     </div>
   </div>
 </template>
 
 <script>
 import { getDatabase, ref, child, get } from 'firebase/database'
+import DrawText from '../components/DrawText.vue'
 
 export default {
+  name: 'Not Found',
+  components: { DrawText },
+
   data() {
     return {
       marquee: Number,
       translations: false,
     }
   },
-  name: 'Not Found',
-  created() {
-    let lang = this.$store.getters.getlang
 
+  computed: {
+    // Split emoji line from the translated subtitle text
+    emojiLine() {
+      if (!this.translations?.title) return ''
+      return this.translations.title.split('<br>')[0] || ''
+    },
+    subtitle() {
+      if (!this.translations?.title) return ''
+      return this.translations.title.split('<br>')[1] || ''
+    },
+    homePath() {
+      const locale = this.$store.getters.getLang
+      return locale && locale !== 'en' ? '/' + locale : '/'
+    },
+  },
+
+  created() {
+    const lang = this.$store.getters.getlang
     document.title = this.$route.meta.title
 
     get(
@@ -44,13 +75,14 @@ export default {
         if (snapshot.exists()) {
           this.translations = snapshot.val()
         } else {
-          console.log("%cERROR: could't find 404 DATA", this.$sharedData.styles.info)
+          console.log("%cERROR: couldn't find 404 DATA", this.$sharedData.styles.info)
         }
       })
       .catch((error) => {
         console.error(error)
       })
   },
+
   mounted() {
     this.$store.commit('setMarqueeAmount')
     this.marquee = this.$store.getters.getMarqueeAmount

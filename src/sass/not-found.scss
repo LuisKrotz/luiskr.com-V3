@@ -82,21 +82,53 @@
     }
   }
 
-  &-link {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 200;
-    font-size: to-rem($space-lg);
-    line-height: to-rem($space-xl);
-    text-decoration: underline;
+  // Subtitle rendered by DrawText — sits on its own line
+  &-subtitle {
+    display: block;
+    margin-top: to-rem($space-md);
+  }
 
-    @include layout-2560() {
-      font-size: to-rem($space-2xl);
-      line-height: to-rem($space-3xl);
+  &-link {
+    @extend %RESETBTN;
+    // inlined from .ttl-xs (_fonts.scss not imported here)
+    font-family: 'Raleway', sans-serif;
+    font-size: to-rem(13);
+    letter-spacing: 0.06em;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    white-space: nowrap;
+    padding: to-rem($space-xs) to-rem($space-lg);
+    color: var(--text);
+    margin-top: to-rem($space-xl);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: to-rem($space-sm);
+      height: to-rem($space-sm);
+      transition: width 0.25s ease, height 0.25s ease;
     }
+    &::before { top: 0; left: 0; border-top: 1px solid currentColor; border-left: 1px solid currentColor; }
+    &::after  { bottom: 0; right: 0; border-bottom: 1px solid currentColor; border-right: 1px solid currentColor; }
 
     &:hover,
     &:focus {
-      text-decoration: line-through;
+      opacity: 0.65;
+      &::before, &::after {
+        width: calc(100% - #{to-rem($space-2xs)});
+        height: calc(100% - #{to-rem($space-2xs)});
+      }
+    }
+
+    @include layout-2560() {
+      font-size: to-rem($space-lg);
+      padding: to-rem($space-sm) to-rem($space-2xl);
     }
   }
 }
