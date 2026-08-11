@@ -25,9 +25,9 @@
           >
             <div class="home-mosaic-media" :style="cards[i] && cards[i].media">
               <img
-                :decoding="i < 3 ? 'sync' : 'async'"
-                :loading="i < 3 ? 'eager' : 'lazy'"
-                :fetchpriority="i < 3 ? 'high' : 'auto'"
+                :decoding="i === 0 ? 'sync' : 'async'"
+                :loading="i === 0 ? 'eager' : 'lazy'"
+                :fetchpriority="i === 0 ? 'high' : 'auto'"
                 class="home-mosaic-img"
                 :src="storage + 'covers/' + item.image + ext"
                 :alt="item.label"
