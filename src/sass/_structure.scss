@@ -88,6 +88,12 @@ body {
   color: var(--text-primary);
   font-family: 'Raleway', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+
+  // Never break words mid-character anywhere in the site.
+  // Words always wrap whole to the next line.
+  word-break: normal;
+  overflow-wrap: break-word; // only breaks if a single word is longer than the container
+  hyphens: none;            // no automatic hyphenation
 }
 
 
