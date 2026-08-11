@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Legal from '../views/Legal.vue'
+import Project from '../views/Project.vue'
 import store from '../store/index.js'
 import { getAuthInstance } from '../firebase.js'
 
@@ -27,7 +29,7 @@ const portfolioRoutes = (suffix = '') => [
   {
     path: 'portfolio/:projectSlug/:slug?',
     name: 'DynamicProject' + suffix,
-    component: () => import(/* webpackChunkName: "project" */ '../views/Project.vue'),
+    component: Project,
     meta: { title: title + ' | Project', projectRoute: true },
   },
 ]
@@ -59,19 +61,19 @@ const makeRoutes = (lang, suffix = '') => {
     {
       path: s.privacy,
       name: 'Privacy Policy' + suffix,
-      component: () => import(/* webpackChunkName: "legal" */ '../views/Legal.vue'),
+      component: Legal,
       meta: { title: title + ' | Privacy Policy', translation: 'privacy-policy', legalRoute: true },
     },
     {
       path: s.gdpr,
       name: 'GDPR' + suffix,
-      component: () => import(/* webpackChunkName: "legal" */ '../views/Legal.vue'),
+      component: Legal,
       meta: { title: title + ' | GDPR', translation: 'GDPR', legalRoute: true },
     },
     {
       path: s.terms,
       name: 'Terms of Use' + suffix,
-      component: () => import(/* webpackChunkName: "legal" */ '../views/Legal.vue'),
+      component: Legal,
       meta: { title: title + ' | Terms of Use', translation: 'terms-of-use', legalRoute: true },
     },
   ]
