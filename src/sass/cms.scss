@@ -1,5 +1,13 @@
 // ── CMS & Admin Theme System ─────────────────────────────────────────
 
+.cms-container, .admin-login-wrapper {
+  box-sizing: border-box;
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+}
+
 .cms-container {
   min-height: 100vh;
   background-color: #0b0c10;
@@ -91,14 +99,15 @@
 
 // ── CMS Header & Layout ───────────────────────────────────────────────
 .cms-header {
-  height: 70px;
+  min-height: 70px;
   background: rgba(15, 20, 28, 0.9);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -162,6 +171,7 @@
 // ── CMS Tabs & Sub-header ─────────────────────────────────────────────
 .cms-nav-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   padding: 1.5rem 2rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -212,6 +222,20 @@
   }
 }
 
+.cms-field-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    font-size: 0.82rem;
+    color: #8892b0;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+}
+
 .cms-input, .cms-select, .cms-textarea {
   width: 100%;
   background: rgba(11, 12, 16, 0.7);
@@ -221,6 +245,7 @@
   color: #fff;
   font-size: 0.92rem;
   font-family: inherit;
+  box-sizing: border-box;
   transition: border-color 0.2s;
 
   &:focus {

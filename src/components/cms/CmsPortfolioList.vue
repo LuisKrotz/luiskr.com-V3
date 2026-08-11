@@ -1,6 +1,6 @@
 <template>
   <div class="cms-portfolio-manager">
-    <div class="cms-card" style="display:flex; justify-content:space-between; align-items:center;">
+    <div class="cms-card" style="display:flex; flex-wrap:wrap; justify-space-between; align-items:center; gap:1rem;">
       <div>
         <h2 class="cms-card-title">Homepage Portfolio Items</h2>
         <p style="color:#8892b0; font-size:0.88rem;">Manage the projects featured on the main mosaic grid.</p>
@@ -14,9 +14,9 @@
     </div>
 
     <!-- Language Selector for Portfolio Strings -->
-    <div style="margin-bottom: 1.5rem; display:flex; align-items:center; gap:1rem;">
-      <label style="color:#8892b0;">Target Language:</label>
-      <select v-model="selectedLang" class="cms-select" style="max-width:200px;" @change="loadLangPortfolio">
+    <div class="cms-card" style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+      <label style="color:#8892b0; font-weight:500;">Target Language:</label>
+      <select v-model="selectedLang" class="cms-select" style="max-width:220px;" @change="loadLangPortfolio">
         <option v-for="l in languages" :key="l" :value="l">{{ l.toUpperCase() }}</option>
       </select>
     </div>
@@ -24,41 +24,48 @@
     <!-- Items List -->
     <div v-if="items.length" style="display:flex; flex-direction:column; gap:1.2rem;">
       <div v-for="(item, idx) in items" :key="idx" class="cms-card">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-          <h3 style="color:#66fcf1; font-size:1.1rem; font-weight:600;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem; flex-wrap:wrap; gap:0.5rem;">
+          <h3 style="color:#66fcf1; font-size:1.1rem; font-weight:600; margin:0;">
             #{{ idx + 1 }} {{ item.label || 'Untitled Item' }}
           </h3>
           <div style="display:flex; gap:6px;">
-            <button class="cms-btn cms-btn--secondary" style="padding:4px 8px;" :disabled="idx === 0" @click="moveUp(idx)">▲</button>
-            <button class="cms-btn cms-btn--secondary" style="padding:4px 8px;" :disabled="idx === items.length - 1" @click="moveDown(idx)">▼</button>
-            <button class="cms-btn cms-btn--danger" style="padding:4px 8px;" @click="removeItem(idx)">✕ Delete</button>
+            <button class="cms-btn cms-btn--secondary" style="padding:4px 10px;" :disabled="idx === 0" @click="moveUp(idx)">▲</button>
+            <button class="cms-btn cms-btn--secondary" style="padding:4px 10px;" :disabled="idx === items.length - 1" @click="moveDown(idx)">▼</button>
+            <button class="cms-btn cms-btn--danger" style="padding:4px 10px;" @click="removeItem(idx)">✕ Delete</button>
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1rem;">
-          <div>
-            <label style="font-size:0.8rem; color:#8892b0;">Label / Title</label>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem;">
+          <div class="cms-field-group">
+            <label>Label / Title</label>
             <input v-model="item.label" class="cms-input" placeholder="e.g. METCHA" />
           </div>
-          <div>
-            <label style="font-size:0.8rem; color:#8892b0;">Link Slug</label>
+
+          <div class="cms-field-group">
+            <label>Link Slug</label>
             <input v-model="item.link" class="cms-input" placeholder="e.g. metcha" />
           </div>
-          <div>
-            <label style="font-size:0.8rem; color:#8892b0;">Image File (without .jpg)</label>
+
+          <div class="cms-field-group">
+            <label>Image File (without .jpg)</label>
             <input v-model="item.image" class="cms-input" placeholder="e.g. metcha" />
           </div>
-          <div>
-            <label style="font-size:0.8rem; color:#8892b0;">Featured Item?</label>
-            <select v-model="item.featured" class="cms-select">
-              <option :value="true">Yes (Featured Banner)</option>
-              <option :value="false">No (Standard Tile)</option>
+
+          <div class="cms-field-group">
+            <label>Featured Item?</label>
+            <select
+              :value="item.featured ? 'true' : 'false'"
+              @change="item.featured = $event.target.value === 'true'"
+              class="cms-select"
+            >
+              <option value="true">Yes (Featured Banner)</option>
+              <option value="false">No (Standard Tile)</option>
             </select>
           </div>
         </div>
 
-        <div style="margin-top:1rem;">
-          <label style="font-size:0.8rem; color:#8892b0;">Description</label>
+        <div class="cms-field-group" style="margin-top:0.5rem;">
+          <label>Description</label>
           <textarea v-model="item.description" class="cms-textarea" rows="2" placeholder="Item description string..."></textarea>
         </div>
       </div>
@@ -98,7 +105,11 @@ export default {
         const snapshot = await get(child(ref(db), `translations/${this.selectedLang}/pages/HOME/portfoliolist`))
         if (snapshot.exists()) {
           const val = snapshot.val()
-          this.items = Array.isArray(val) ? JSON.parse(JSON.stringify(val)) : Object.values(val)
+          const raw = Array.isArray(val) ? JSON.parse(JSON.stringify(val)) : Object.values(val)
+          this.items = raw.map(item => ({
+            ...item,
+            featured: item.featured === true || item.featured === 'true'
+          }))
         } else {
           this.items = []
         }
@@ -144,7 +155,7 @@ export default {
         this.$emit('notify', `Portfolio list for [${this.selectedLang.toUpperCase()}] saved successfully!`)
       } catch (err) {
         console.error('Error saving portfolio list:', err)
-        alert('Failed to save portfolio list to Firebase.')
+        alert('Failed to save portfolio list to Firebase: ' + (err.message || err))
       } finally {
         this.saving = false
       }
