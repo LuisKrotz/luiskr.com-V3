@@ -172,9 +172,21 @@ export default {
       const W = el.clientWidth
       if (!W) { setTimeout(this.layout, 50); return }
 
-      const gap  = 16
-      // N columns based on container width. Featured always 2-wide, compact 1-wide.
-      const N    = W >= 1050 ? 4 : W >= 680 ? 3 : W >= 420 ? 2 : 1
+      const gap = 16
+      // Mirror MAXAREA padding at each CSS breakpoint (from _variables.scss gap-* values).
+      // W = el.clientWidth is already the container, but we also know the viewport
+      // so we can calculate N using the same breakpoint logic as the CSS.
+      const vw = window.innerWidth
+      // MAXAREA lateral padding per side at each breakpoint:
+      //   <320: 13, <375: 21, <540: 21, <768: 34, <1024: 55, <1680: 89, <1920: 144, ≥1920: 144
+      // Container = viewport - 2 × padding
+      const pad = vw < 320 ? 13 : vw < 540 ? 21 : vw < 768 ? 34 : vw < 1024 ? 55 : vw < 1680 ? 89 : 144
+      const containerW = vw - pad * 2
+
+      // Auto-calculate N: compact items target ~230px. As container grows, N grows.
+      // Featured always spans 2 cols. Compact spans 1.
+      const TARGET_COL = 230
+      const N    = Math.max(1, Math.round(containerW / TARGET_COL))
       const colW = Math.floor((W - gap * (N - 1)) / N)
       const colH = Array(N).fill(0)
 
@@ -246,9 +258,11 @@ export default {
     },
 
     skeletonStyle(n) {
-      const W    = window.innerWidth - 178  // approximate container with MAXAREA padding
-      const N    = W >= 1050 ? 4 : W >= 680 ? 3 : W >= 420 ? 2 : 1
-      const gap  = 16
+      const vw  = window.innerWidth
+      const pad = vw < 320 ? 13 : vw < 540 ? 21 : vw < 768 ? 34 : vw < 1024 ? 55 : vw < 1680 ? 89 : 144
+      const W   = vw - pad * 2
+      const N   = Math.max(1, Math.round(W / 230))
+      const gap = 16
       const colW = Math.floor((W - gap * (N - 1)) / N)
       const col  = (n - 1) % N
       const row  = Math.floor((n - 1) / N)
