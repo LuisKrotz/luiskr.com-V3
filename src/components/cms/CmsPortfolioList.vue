@@ -1,6 +1,6 @@
 <template>
   <div class="cms-portfolio-manager">
-    <div class="cms-card" style="display:flex; flex-wrap:wrap; justify-space-between; align-items:center; gap:1rem;">
+    <div class="cms-card" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem;">
       <div>
         <h2 class="cms-card-title">Homepage Portfolio Items</h2>
         <p style="color:#8892b0; font-size:0.88rem;">Manage the projects featured on the main mosaic grid.</p>
@@ -102,14 +102,32 @@ export default {
   methods: {
     async loadLangPortfolio() {
       try {
-        const snapshot = await get(child(ref(db), `translations/${this.selectedLang}/pages/HOME/portfoliolist`))
-        if (snapshot.exists()) {
-          const val = snapshot.val()
+        const [pSnap, rSnap] = await Promise.all([
+          get(child(ref(db), `translations/${this.selectedLang}/pages/HOME/portfoliolist`)),
+          get(child(ref(db), `translations/${this.selectedLang}/components/related/projects`))
+        ])
+
+        const relatedMap = {}
+        if (rSnap.exists()) {
+          const rVal = rSnap.val()
+          const rArr = Array.isArray(rVal) ? rVal : Object.values(rVal)
+          rArr.forEach(p => {
+            if (p.link) relatedMap[p.link] = p.featured === true
+          })
+        }
+
+        if (pSnap.exists()) {
+          const val = pSnap.val()
           const raw = Array.isArray(val) ? JSON.parse(JSON.stringify(val)) : Object.values(val)
-          this.items = raw.map(item => ({
-            ...item,
-            featured: item.featured === true || item.featured === 'true'
-          }))
+          this.items = raw.map(item => {
+            const isFeat = item.featured !== undefined
+              ? (item.featured === true || item.featured === 'true')
+              : (relatedMap[item.link] === true)
+            return {
+              ...item,
+              featured: isFeat
+            }
+          })
         } else {
           this.items = []
         }
@@ -152,6 +170,22 @@ export default {
       this.saving = true
       try {
         await set(ref(db, `translations/${this.selectedLang}/pages/HOME/portfoliolist`), this.items)
+
+        // Also sync components/related/projects
+        const rSnap = await get(child(ref(db), `translations/${this.selectedLang}/components/related/projects`))
+        if (rSnap.exists()) {
+          const rVal = rSnap.val()
+          const rArr = Array.isArray(rVal) ? JSON.parse(JSON.stringify(rVal)) : Object.values(rVal)
+          const updatedRelated = rArr.map(p => {
+            const match = this.items.find(i => i.link === p.link)
+            return {
+              ...p,
+              featured: match ? match.featured === true : p.featured === true
+            }
+          })
+          await set(ref(db, `translations/${this.selectedLang}/components/related/projects`), updatedRelated)
+        }
+
         this.$emit('notify', `Portfolio list for [${this.selectedLang.toUpperCase()}] saved successfully!`)
       } catch (err) {
         console.error('Error saving portfolio list:', err)
