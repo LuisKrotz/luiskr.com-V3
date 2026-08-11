@@ -359,7 +359,15 @@ export default {
 
   mounted() {
     if (!this.$route.meta?.scrollTo) setTimeout(() => window.scrollTo(0, 0), 500)
-    window.addEventListener('resize', this.layout)
+
+    // Debounce resize \u2014 layout() is expensive, don't run it on every pixel of resize
+    let _layoutTimer = null
+    this._debouncedLayout = () => {
+      clearTimeout(_layoutTimer)
+      _layoutTimer = setTimeout(() => this.layout(), 150)
+    }
+    window.addEventListener('resize', this._debouncedLayout, { passive: true })
+
     this.$nextTick(() => {
       this.layout()
       setTimeout(this.layout, 100)
@@ -367,7 +375,7 @@ export default {
     })
   },
 
-  beforeUnmount() { window.removeEventListener('resize', this.layout) },
+  beforeUnmount() { window.removeEventListener('resize', this._debouncedLayout) },
 }
 </script>
 

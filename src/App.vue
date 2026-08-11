@@ -125,17 +125,23 @@ export default {
         this.activeSection = 'home'
       }
     },
+    // Cache section offsetTops — only recomputed on mount and resize,
+    // NOT on every scroll event (offsetTop forces layout reflow).
+    _updateSectionTops() {
+      const aboutEl   = document.getElementById('about')
+      const contactEl = document.getElementById('contact')
+      this._aboutTop   = aboutEl   ? aboutEl.offsetTop   - 250 : 600
+      this._contactTop = contactEl ? contactEl.offsetTop - 250 : 1500
+    },
+
     checkScroll() {
       const y = window.scrollY
       this.onBottom = document.body.scrollHeight - y <= window.innerHeight + 200
 
       if (!this.isHomePage) return
 
-      const aboutEl = document.getElementById('about')
-      const contactEl = document.getElementById('contact')
-
-      const aboutTop = aboutEl ? aboutEl.offsetTop - 250 : 600
-      const contactTop = contactEl ? contactEl.offsetTop - 250 : 1500
+      const aboutTop   = this._aboutTop   ?? 600
+      const contactTop = this._contactTop ?? 1500
 
       let newSection = 'home'
       if (y >= contactTop || this.onBottom) {
@@ -378,8 +384,23 @@ export default {
     this.$store.commit('initReducedMotion')
     this.initInputListeners()
     this.initActiveSection()
-    window.addEventListener('scroll', () => this.checkScroll())
-    window.addEventListener('resize', () => this.checkScroll())
+
+    // Cache section positions on mount (avoids offsetTop in hot scroll path)
+    this._updateSectionTops()
+    this.checkScroll()
+
+    // passive:true lets browser scroll without waiting for JS — critical for mobile
+    window.addEventListener('scroll', () => this.checkScroll(), { passive: true })
+
+    // Debounced resize: recache section tops then recheck scroll position
+    let _resizeTimer = null
+    window.addEventListener('resize', () => {
+      clearTimeout(_resizeTimer)
+      _resizeTimer = setTimeout(() => {
+        this._updateSectionTops()
+        this.checkScroll()
+      }, 150)
+    }, { passive: true })
 
     if (window.matchMedia) {
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {

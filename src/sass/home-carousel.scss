@@ -212,6 +212,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     backdrop-filter: blur(4px);
     border-radius: 50%;
     transition: background .2s ease, color .2s ease;
+    @media (max-width: 768px) { backdrop-filter: none; background: rgba(0,0,0,.55); }
 
     &:hover,
     &:focus {
@@ -391,6 +392,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     background: var(--bg-primary);
     border: 1px solid var(--border-color);
     backdrop-filter: blur(4px);
+    @media (max-width: 768px) { backdrop-filter: none; }
     border-radius: 50%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
