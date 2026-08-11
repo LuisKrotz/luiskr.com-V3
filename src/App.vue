@@ -5,7 +5,7 @@
 
     <div v-if="modal.class === ''" class="nav">
       <!-- Logo / back button — always visible -->
-      <router-link class="nav-link back" v-if="!isHomePage" to="/">
+      <router-link class="nav-link back" v-if="!isHomePage" :to="localePath()">
         {{ translations?.title ?? 'LK' }}
       </router-link>
       <button

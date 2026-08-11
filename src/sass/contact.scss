@@ -108,8 +108,7 @@
 
       &.router-link-active {
         text-decoration: underline;
-        pointer-events: none;
-        cursor: none;
+        cursor: pointer;
       }
     }
   }

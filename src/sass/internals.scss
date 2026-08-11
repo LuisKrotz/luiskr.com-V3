@@ -510,6 +510,12 @@
         &:focus {
           opacity: 0.5;
         }
+
+        &.router-link-active {
+          text-decoration: underline;
+          opacity: 1;
+          cursor: pointer;
+        }
       }
 
       &-note {
