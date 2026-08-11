@@ -89,11 +89,30 @@ export async function fetchFirebaseDb(path) {
     return await _fetchCache.get(url)
   }
 
+  // Fast sessionStorage cache lookup for zero latency
+  try {
+    const cached = sessionStorage.getItem(`fb_cache_${cleanPath}`)
+    if (cached) {
+      const data = JSON.parse(cached)
+      const cachedResult = Promise.resolve({
+        exists: () => data !== null && data !== undefined,
+        val: () => data,
+      })
+      _fetchCache.set(url, cachedResult)
+      return await cachedResult
+    }
+  } catch (e) {}
+
   const promise = (async () => {
     try {
       const res = await fetch(url)
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const data = await res.json()
+      try {
+        if (data !== null && data !== undefined) {
+          sessionStorage.setItem(`fb_cache_${cleanPath}`, JSON.stringify(data))
+        }
+      } catch (e) {}
       return {
         exists: () => data !== null && data !== undefined,
         val: () => data,
