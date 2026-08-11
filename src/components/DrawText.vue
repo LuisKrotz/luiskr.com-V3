@@ -2,26 +2,37 @@
   <span class="draw-text" :class="{ 'draw-text--visible': isVisible }" ref="root" :aria-label="plainText">
     <template v-for="(token, i) in tokens" :key="i">
       <br v-if="token.type === 'br'" aria-hidden="true" />
+
+      <!-- Word: all its chars wrapped in a nowrap container → never breaks mid-word -->
+      <span v-else-if="token.type === 'word'" class="draw-text__word" aria-hidden="true">
+        <span
+          v-for="(ch, j) in token.chars" :key="j"
+          class="draw-text__char"
+          :style="{ '--i': ch.ci, '--char-delay': delay + 'ms', '--offset': offset + 'ms' }"
+        >{{ ch.value }}</span>
+      </span>
+
+      <!-- Space between words: breakable word boundary, rendered as visible gap -->
+      <span v-else-if="token.type === 'space'" class="draw-text__space" aria-hidden="true"/>
+
+      <!-- Tagged content (strong, em, a, etc.) — words inside also nowrap -->
       <component
-        v-else-if="token.type === 'tag-open'"
+        v-else-if="token.type === 'tag'"
         :is="token.tag"
         v-bind="token.attrs"
         aria-hidden="true"
       >
-        <template v-for="(child, ci) in token.children" :key="ci">
-          <span
-            v-if="child.type === 'char'"
-            class="draw-text__char"
-            :style="{ '--i': child.ci, '--char-delay': delay + 'ms', '--offset': offset + 'ms' }"
-          >{{ child.value === ' ' ? '\u00A0' : child.value }}</span>
+        <template v-for="(chunk, ci) in token.chunks" :key="ci">
+          <span v-if="chunk.type === 'word'" class="draw-text__word">
+            <span
+              v-for="(ch, j) in chunk.chars" :key="j"
+              class="draw-text__char"
+              :style="{ '--i': ch.ci, '--char-delay': delay + 'ms', '--offset': offset + 'ms' }"
+            >{{ ch.value }}</span>
+          </span>
+          <span v-else aria-hidden="true"> </span>
         </template>
       </component>
-      <span
-        v-else
-        class="draw-text__char"
-        :style="{ '--i': token.ci, '--char-delay': delay + 'ms', '--offset': offset + 'ms' }"
-        aria-hidden="true"
-      >{{ token.value === ' ' ? '\u00A0' : token.value }}</span>
     </template>
   </span>
 </template>
@@ -31,17 +42,14 @@ export default {
   name: 'DrawText',
 
   props: {
-    text: { type: String, required: true },
-    delay: { type: Number, default: 100 },
-    offset: { type: Number, default: 0 },
+    text:    { type: String, required: true },
+    delay:   { type: Number, default: 100 },
+    offset:  { type: Number, default: 0 },
     trigger: { type: String, default: 'auto' },
   },
 
   data() {
-    return {
-      isVisible: false,
-      observer: null,
-    }
+    return { isVisible: false, observer: null }
   },
 
   computed: {
@@ -50,43 +58,55 @@ export default {
     },
 
     tokens() {
-      const result = []
-      let charIndex = 0
+      let ci = 0   // global char index for animation delay
 
-      // Regex to match: self-closing tags like <br/>, opening tags like <a href="...">, closing tags like </a>, and text
+      // Parse a plain-text segment into word/space chunks.
+      // Words are sequences of non-space characters (hyphens stay inside the word).
+      // Each word is wrapped in display:inline-block so it never splits mid-character.
+      const parseText = (text) => {
+        const chunks = []
+        // Split on spaces — hyphens stay attached to words
+        const parts = text.split(' ')
+        parts.forEach((part, idx) => {
+          if (part.length) {
+            const chars = []
+            for (const ch of part) chars.push({ ci: ci++, value: ch })
+            chunks.push({ type: 'word', chars })
+          }
+          // Add a space after every part except the last
+          if (idx < parts.length - 1) {
+            ci++ // count space in animation index
+            chunks.push({ type: 'space' })
+          }
+        })
+        return chunks
+      }
+
+      const result = []
       const regex = /(<br\s*\/?>)|(<(\w+)([^>]*)>(.*?)<\/\3>)|([^<]+)/gi
       let match
 
       while ((match = regex.exec(this.text)) !== null) {
         if (match[1]) {
-          // Self-closing tag like <br>
+          // <br>
           result.push({ type: 'br' })
         } else if (match[2]) {
-          // Paired tag like <strong>text</strong> or <a href="...">text</a>
-          const tag = match[3]
+          // Paired tag: <strong>…</strong>, <a href>…</a> etc.
+          const tag     = match[3]
           const attrStr = match[4] || ''
-          const innerText = match[5] || ''
+          const inner   = match[5] || ''
 
-          // Parse attributes
           const attrs = {}
-          const attrRegex = /(\w[\w-]*)(?:=(?:"([^"]*)"|'([^']*)'))?/g
-          let attrMatch
-          while ((attrMatch = attrRegex.exec(attrStr)) !== null) {
-            attrs[attrMatch[1]] = attrMatch[2] ?? attrMatch[3] ?? true
+          const attrRx = /(\w[\w-]*)(?:=(?:"([^"]*)"|'([^']*)'))?/g
+          let a
+          while ((a = attrRx.exec(attrStr)) !== null) {
+            attrs[a[1]] = a[2] ?? a[3] ?? true
           }
 
-          // Split inner text into characters
-          const children = []
-          for (const char of innerText) {
-            children.push({ type: 'char', value: char, ci: charIndex++ })
-          }
-
-          result.push({ type: 'tag-open', tag, attrs, children })
+          result.push({ type: 'tag', tag, attrs, chunks: parseText(inner) })
         } else if (match[6]) {
           // Plain text
-          for (const char of match[6]) {
-            result.push({ type: 'char', value: char, ci: charIndex++ })
-          }
+          result.push(...parseText(match[6]))
         }
       }
 
@@ -98,10 +118,7 @@ export default {
     if (this.trigger === 'viewport') {
       this.observer = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting) {
-            this.isVisible = true
-            this.observer.disconnect()
-          }
+          if (entry.isIntersecting) { this.isVisible = true; this.observer.disconnect() }
         },
         { threshold: 0.2 }
       )
@@ -112,9 +129,7 @@ export default {
   },
 
   beforeUnmount() {
-    if (this.observer) {
-      this.observer.disconnect()
-    }
+    if (this.observer) this.observer.disconnect()
   },
 }
 </script>

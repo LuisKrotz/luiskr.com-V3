@@ -9,6 +9,16 @@
 .draw-text {
   display: inline;
 
+  &__word {
+    display: inline-block;
+    white-space: nowrap;  // keeps all chars of this word on one line — never splits mid-word
+  }
+
+  &__space {
+    display: inline-block;
+    width: 0.3em;         // one space-width gap between words; breakable line-break point
+  }
+
   &__char {
     display: inline-block;
     opacity: 0;
