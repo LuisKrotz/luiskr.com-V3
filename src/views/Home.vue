@@ -157,7 +157,7 @@ export default {
     optimizedProfilePicture() {
       if (!this.profilePicture) return ''
       if (typeof this.profilePicture === 'string' && this.profilePicture.includes('gravatar.com')) {
-        return this.profilePicture.replace(/size=\d+/, 'size=400')
+        return this.profilePicture.replace(/size=\d+/, 'size=300')
       }
       return this.profilePicture
     },
@@ -165,7 +165,7 @@ export default {
       if (typeof this.profilePicture === 'string' && this.profilePicture.includes('gravatar.com')) {
         const base = this.profilePicture.replace(/(\?|&)size=\d+/, '')
         const sep = base.includes('?') ? '&' : '?'
-        return `${base}${sep}size=200 1x, ${base}${sep}size=400 2x, ${base}${sep}size=600 3x`
+        return `${base}${sep}size=200 1x, ${base}${sep}size=300 2x, ${base}${sep}size=400 3x`
       }
       return undefined
     },
