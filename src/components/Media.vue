@@ -59,11 +59,13 @@
 </template>
 
 <script>
+import { gpuAccel } from '../utils/gpu-accel.js'
+
 const moz = '-mozjpg',
   extension = '.jpg',
-  vidPlaceholderExt = '.mp4.jpg-thumb.jpg',
-  scale = '.mp4-scaledown-2x',
-  videoExtension = '.mp4'
+  videoExtension = '.mp4',
+  vidPlaceholderExt = videoExtension + '.jpg-thumb.jpg',
+  scale = '.mp4-scaledown-2x'
 
 export default {
   name: 'Media',
@@ -219,6 +221,7 @@ export default {
         this.isLoaded = true
       }
       img.onload = () => {
+        gpuAccel.processTextureGPU(img, this.displayWidth, this.displayHeight)
         if (img.decode) {
           img.decode().then(applySource).catch(applySource)
         } else {

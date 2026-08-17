@@ -134,7 +134,7 @@ export default {
                     ? 6
                     : 7
       const gap = 16
-      const colW = Math.floor((W - gap * (N - 1)) / N)
+      const colW = Math.floor(calcColumnWidth(N, W, gap))
       const ITEMS = 12
       const colH = Array(N).fill(0)
       for (let i = 0; i < ITEMS; i++) {
