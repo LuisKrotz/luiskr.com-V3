@@ -148,6 +148,20 @@
   }
 }
 
+.pref-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: to-rem($space-2xs);
+  padding: to-rem($space-lg) to-rem($space-sm);
+  background: var(--bg-secondary);
+  border: to-rem(1) solid var(--border-color);
+  border-radius: to-rem($space-lg);
+  color: var(--text-primary);
+  text-align: center;
+}
+
 .pref-option-icon {
   font-size: to-rem($space-3xl);
   line-height: 1;

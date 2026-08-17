@@ -75,6 +75,7 @@ import {
   calcResponsivePadding,
 } from '../../utils/wasm-layout.js'
 import { wasmPool } from '../../utils/wasm-pool.js'
+import { npuPredict } from '../../utils/npu-predict.js'
 
 const FEAT_MULT = 0.48
 const COMP_MULTS = [0.56, 0.58, 0.54, 0.57, 0.55]
@@ -296,6 +297,17 @@ export default {
       this.hoveredIdx = i
       this.layout()
       this.measureBottomH(i)
+
+      const item = this.processedItems[i]
+      if (item && item.link) {
+        const locale = this.$store.getters.getLang
+        const prefix = locale && locale !== 'en' ? '/' + locale : ''
+        const dest = prefix + '/portfolio/' + item.link
+        const coverUrl = this.storage + 'covers/' + item.image + this.ext
+
+        npuPredict.predictTargetLikelihood(dest, null, 150)
+        npuPredict.preloadMediaGPU(coverUrl, 800, 450)
+      }
     },
 
     onLeave() {

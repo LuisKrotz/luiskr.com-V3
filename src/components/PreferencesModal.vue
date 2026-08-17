@@ -74,6 +74,23 @@
                 </button>
               </div>
             </section>
+
+            <section class="pref-section">
+              <h3 class="pref-section-title">Hardware Acceleration & AI</h3>
+              <p class="pref-section-desc">NPU Neural Prediction & WASM Multi-Threaded Engine</p>
+              <div class="pref-options pref-options--2">
+                <div class="pref-stat-card">
+                  <span class="pref-option-label">Engine / Acceleration</span>
+                  <span class="pref-option-sub">{{ npuStatus }}</span>
+                </div>
+                <div class="pref-stat-card">
+                  <span class="pref-option-label">Predictive Preloads</span>
+                  <span class="pref-option-sub">
+                    {{ npuAnalytics.successfulPreloads }} / {{ npuAnalytics.totalPredictions }}
+                  </span>
+                </div>
+              </div>
+            </section>
           </div>
 
           <footer class="pref-footer">
@@ -86,6 +103,8 @@
 </template>
 
 <script>
+import { npuPredict } from '../utils/npu-predict.js'
+
 const DEFAULTS = {
   title: 'Preferences',
   done: 'Done',
@@ -127,6 +146,14 @@ export default {
     },
     reducedMotion() {
       return this.$store.getters.getReducedMotion
+    },
+    npuAnalytics() {
+      return npuPredict.getNpuAnalytics()
+    },
+    npuStatus() {
+      if (this.npuAnalytics.hasNPU) return 'NPU Hardware Active'
+      if (this.npuAnalytics.hasGPU) return 'GPU Hardware Active'
+      return 'WASM Worker Active'
     },
   },
   watch: {
