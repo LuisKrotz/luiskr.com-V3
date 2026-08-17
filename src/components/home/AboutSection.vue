@@ -80,6 +80,7 @@
 
 <script>
 import DrawText from '../DrawText.vue'
+import { calcDrawTextDelay, calcDrawTextOffset } from '../../utils/wasm-layout.js'
 
 export default {
   name: 'AboutSection',
@@ -121,14 +122,13 @@ export default {
 
       const strip = (s) => s.replace(/<[^>]+>/g, '')
       const totalChars = all.reduce((s, t) => s + strip(t).length, 0)
-      const charDelay =
-        totalChars > 0 ? Math.max(3, Math.min(20, Math.round(2000 / totalChars))) : 8
+      const charDelay = calcDrawTextDelay(totalChars, 2000)
 
-      let offset = 0
+      let charsBefore = 0
       const withOffsets = all.map((text, idx) => {
-        const item = { key: idx, text, offset }
-        offset += strip(text).length * charDelay
-        return item
+        const offset = calcDrawTextOffset(idx, charsBefore, charDelay)
+        charsBefore += strip(text).length
+        return { key: idx, text, offset }
       })
 
       return {

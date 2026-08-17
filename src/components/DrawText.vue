@@ -43,6 +43,8 @@
 </template>
 
 <script>
+import { calcDrawTextOffset } from '../utils/wasm-layout.js'
+
 export default {
   name: 'DrawText',
 
@@ -138,7 +140,7 @@ export default {
     // chars * delay + animation-duration(900ms) + offset gives the total active time.
     const _scheduleCleanup = () => {
       const chars = this.text.replace(/<[^>]+>/g, '').length
-      const totalMs = this.offset + chars * this.delay + 900
+      const totalMs = Math.round(calcDrawTextOffset(1, chars, this.delay) + this.offset + 900)
       this.animTimer = setTimeout(() => {
         this.hasAnimated = true
       }, totalMs)

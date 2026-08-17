@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import { calcCarouselRingOffset } from '../utils/wasm-layout.js'
+import { calcCarouselRingOffset, calcCarouselScrollTarget } from '../utils/wasm-layout.js'
 
 const CIRCUMFERENCE = 2 * Math.PI * 19
 
@@ -187,7 +187,9 @@ export default {
       if (!slide) return
       const tr = track.getBoundingClientRect()
       const sr = slide.getBoundingClientRect()
-      const left = track.scrollLeft + sr.left - tr.left - (tr.width - sr.width) / 2
+      const left =
+        calcCarouselScrollTarget(idx, sr.width, 16) ||
+        track.scrollLeft + sr.left - tr.left - (tr.width - sr.width) / 2
       track.scrollTo({ left, behavior: 'smooth' })
     },
 
@@ -197,7 +199,9 @@ export default {
       if (!slide) return
       const tr = track.getBoundingClientRect()
       const sr = slide.getBoundingClientRect()
-      const left = track.scrollLeft + sr.left - tr.left - (tr.width - sr.width) / 2
+      const left =
+        calcCarouselScrollTarget(idx, sr.width, 16) ||
+        track.scrollLeft + sr.left - tr.left - (tr.width - sr.width) / 2
       track.scrollTo({ left, behavior: 'instant' })
     },
 
