@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { fetchFirebaseDb } from '../firebase.js'
+import { fetchFirebaseDb } from '../utils/db.js'
 import LegalFooter from '../components/legal/Footer.vue'
 
 export default {

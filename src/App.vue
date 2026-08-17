@@ -189,7 +189,7 @@
 
 <script>
 import { defineAsyncComponent } from 'vue'
-import { fetchFirebaseDb } from './firebase.js'
+import { fetchFirebaseDb } from './utils/db.js'
 import router, { LANG_SLUGS, VALID_LANGS } from './router/index.js'
 
 const cookie = 'cookie',

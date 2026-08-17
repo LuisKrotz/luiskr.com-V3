@@ -16,9 +16,10 @@
           <span class="hc-award-media" v-if="!item.media">{{ item.icon }}</span>
           <img
             v-else
+            loading="lazy"
             decoding="async"
             class="hc-award-img"
-            :data-src="storage + item.media.path"
+            :src="storage + item.media.path"
             :alt="item.description"
             :width="item.media.width"
             :height="item.media.height"
@@ -65,7 +66,6 @@ export default {
   data() {
     return {
       storage: this.$store.getters.getStorage,
-      observer: null,
     }
   },
 
@@ -74,50 +74,6 @@ export default {
       const all = this.$store.getters.getlang?.components?.['legal-footer']?.links || []
       // Skip the first item (Home) — keep only legal page links
       return all.filter((l) => l.link && !l.link.match(/^\/[a-z]{0,3}\/?$/))
-    },
-  },
-
-  mounted() {
-    this._initImageObserver()
-  },
-
-  updated() {
-    // Re-observe any new images added after data loads
-    this._observeImages()
-  },
-
-  beforeUnmount() {
-    if (this.observer) this.observer.disconnect()
-  },
-
-  methods: {
-    _initImageObserver() {
-      this.observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const img = entry.target
-              const src = img.getAttribute('data-src')
-              if (src) {
-                img.src = src
-                img.removeAttribute('data-src')
-              }
-              this.observer.unobserve(img)
-            }
-          })
-        },
-        { rootMargin: '200px' }
-      )
-      this._observeImages()
-    },
-
-    _observeImages() {
-      this.$nextTick(() => {
-        const imgs = this.$el?.querySelectorAll('img[data-src]')
-        if (imgs) {
-          imgs.forEach((img) => this.observer.observe(img))
-        }
-      })
     },
   },
 }

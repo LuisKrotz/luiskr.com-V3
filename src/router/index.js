@@ -3,7 +3,6 @@ import Home from '../views/Home.vue'
 const Legal = () => import('../views/Legal.vue')
 const Project = () => import('../views/Project.vue')
 import store from '../store/index.js'
-import { getAuthInstance } from '../firebase.js'
 
 const title = 'Luis Krötz'
 export const VALID_LANGS = [
@@ -230,6 +229,7 @@ const router = createRouter({
 // Navigation guard: detect lang from URL path prefix & protect CMS
 router.beforeEach(async (to) => {
   if (to.meta?.requiresAuth) {
+    const { getAuthInstance } = await import('../firebase.js')
     const authInstance = await getAuthInstance()
     if (!authInstance?.currentUser) {
       return { name: 'Admin Login' }

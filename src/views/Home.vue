@@ -19,7 +19,7 @@
 
 <script>
 import { defineAsyncComponent } from 'vue'
-import { fetchFirebaseDb } from '../firebase.js'
+import { fetchFirebaseDb } from '../utils/db.js'
 import HomeMosaic from '../components/home/HomeMosaic.vue'
 
 export default {

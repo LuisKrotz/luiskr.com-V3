@@ -148,7 +148,7 @@
 </template>
 
 <script>
-import { fetchFirebaseDb } from '../firebase.js'
+import { fetchFirebaseDb } from '../utils/db.js'
 import Media from '../components/Media.vue'
 import MediaExpanded from '../components/MediaExpanded.vue'
 

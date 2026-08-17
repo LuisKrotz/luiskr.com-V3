@@ -27,9 +27,9 @@
       >
         <div class="home-mosaic-media" :style="cards[i] && cards[i].media">
           <img
-            :decoding="i === 0 ? 'sync' : 'async'"
-            :loading="i === 0 ? 'eager' : 'lazy'"
-            :fetchpriority="i === 0 ? 'high' : 'auto'"
+            :decoding="i < 2 ? 'sync' : 'async'"
+            :loading="i < 2 ? 'eager' : 'lazy'"
+            :fetchpriority="i < 2 ? 'high' : 'auto'"
             class="home-mosaic-img"
             :src="storage + 'covers/' + item.image + ext"
             :alt="item.label"
@@ -297,10 +297,7 @@ export default {
 
     onHover(i) {
       this.hoveredIdx = i
-      this.$nextTick(() => {
-        this.measureBottomH(i)
-        this.layout()
-      })
+      this.layout()
     },
 
     onLeave() {
@@ -317,10 +314,7 @@ export default {
       if (isTouch) {
         if (this.touchIdx !== i) {
           this.touchIdx = i
-          this.$nextTick(() => {
-            this.measureBottomH(i)
-            this.layout()
-          })
+          this.layout()
         } else {
           this.$router.push(dest)
         }

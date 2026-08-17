@@ -34,7 +34,7 @@
       :width="displayWidth"
       :height="displayHeight"
       :alt="label"
-      preload="none"
+      :preload="autoPlay || classes.includes('internal-main-item') ? 'metadata' : 'none'"
       playsinline
       loop
       muted

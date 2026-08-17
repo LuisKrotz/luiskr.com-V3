@@ -110,7 +110,7 @@
 </template>
 
 <script>
-import { fetchFirebaseDb } from '../../firebase.js'
+import { fetchFirebaseDb } from '../../utils/db.js'
 import DrawText from '../DrawText.vue'
 
 export default {
