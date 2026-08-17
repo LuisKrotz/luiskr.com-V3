@@ -33,6 +33,7 @@
             class="home-mosaic-img"
             :src="storage + 'covers/' + item.image + ext"
             :alt="item.label"
+            sizes="(max-width: 540px) 100vw, (max-width: 960px) 50vw, (max-width: 1440px) 33vw, 25vw"
             width="800"
             height="450"
           />
