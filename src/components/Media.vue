@@ -179,7 +179,7 @@ export default {
               }
             })
           },
-          { rootMargin: '300px 3000px', threshold: 0.01 }
+          { rootMargin: '300px 400px', threshold: 0.01 }
         )
         this.imgObserver.observe(target)
       })

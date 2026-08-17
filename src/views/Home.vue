@@ -468,8 +468,6 @@ export default {
 
     this.$nextTick(() => {
       this.layout()
-      setTimeout(this.layout, 100)
-      setTimeout(this.layout, 350)
     })
   },
 
