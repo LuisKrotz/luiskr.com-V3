@@ -147,17 +147,21 @@ class LocalMediaCache {
       return cachedUrl
     }
 
-    // 2. Fetch from remote network if missing locally
-    try {
-      const res = await fetch(url, { mode: 'cors', cache: 'force-cache' })
-      if (!res.ok) return url
-
-      const blob = await res.blob()
-      const localUrl = await this.storeLocalMedia(url, blob)
-      return localUrl || url
-    } catch {
-      return url
+    // 2. Fetch from remote network if missing locally (same-origin endpoints)
+    if (typeof window !== 'undefined' && url.startsWith(window.location.origin)) {
+      try {
+        const res = await fetch(url, { cache: 'force-cache' })
+        if (res.ok) {
+          const blob = await res.blob()
+          const localUrl = await this.storeLocalMedia(url, blob)
+          return localUrl || url
+        }
+      } catch {
+        // Fallback
+      }
     }
+
+    return url
   }
 
   getCacheStats() {

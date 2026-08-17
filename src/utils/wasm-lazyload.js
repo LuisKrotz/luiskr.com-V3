@@ -66,6 +66,10 @@ class WASMLazyloader {
         el.classList.add('wasm-lazy-loaded')
         gpuAccel.processImageGPU(img, el.clientWidth || 800, el.clientHeight || 450)
       }
+      img.onerror = () => {
+        el.src = resolvedUrl
+        el.classList.add('wasm-lazy-loaded')
+      }
     } else if (el.tagName === 'VIDEO') {
       el.src = resolvedUrl
       el.classList.add('wasm-lazy-loaded')

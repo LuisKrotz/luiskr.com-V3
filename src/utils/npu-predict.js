@@ -141,9 +141,7 @@ class NPUPredictor {
     try {
       const link = document.createElement('link')
       link.rel = 'prefetch'
-      link.as = 'fetch'
       link.href = targetUrl
-      link.crossOrigin = 'anonymous'
       document.head.appendChild(link)
 
       this.analytics.successfulPreloads++
