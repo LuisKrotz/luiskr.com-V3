@@ -1,5 +1,8 @@
 <template>
-  <div class="expand-modal-content" :class="{ 'expand-modal--closing': isClosing }">
+  <div
+    class="expand-modal-content"
+    :class="[{ 'expand-modal--closing': isClosing }, { 'expand-modal-content--video': isVideo }]"
+  >
     <div class="expand-modal-close-bar">
       <span class="expand-modal-close-bar-title">{{ alt }}</span>
       <button class="expand-modal-close-bar-button" @click="startClose">
@@ -7,8 +10,12 @@
       </button>
     </div>
     <div class="expand-modal-close-area" @click="startClose"></div>
-    <figure class="expand-modal-media-figure">
+    <figure
+      class="expand-modal-media-figure"
+      :class="{ 'expand-modal-media-figure--video': isVideo }"
+    >
       <img
+        v-if="!isVideo"
         decoding="async"
         class="expand-modal-media-placeholder"
         :src="placeholder(width, height)"
@@ -32,7 +39,8 @@
       <video
         decoding="async"
         v-else
-        class="expand-modal-media-item"
+        ref="videoRef"
+        class="expand-modal-media-item expand-modal-media-item--video"
         :width="width"
         :height="height"
         :poster="thumb"
@@ -85,7 +93,11 @@ export default {
       isVideo: !!this.isVideo,
     })
 
-    if (!this.isVideo && this.source) {
+    if (this.isVideo && this.$refs.videoRef) {
+      this.$nextTick(() => {
+        this.$refs.videoRef?.play?.().catch(() => {})
+      })
+    } else if (!this.isVideo && this.source) {
       const img = new Image()
       img.src = this.source
       const applySource = () => {

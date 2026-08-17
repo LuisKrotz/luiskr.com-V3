@@ -260,22 +260,11 @@ $ring-stroke: to-rem(2.5);
   &-fallback {
     width: 100%;
     box-sizing: border-box;
-    background-color: var(--black);
-    overflow-x: scroll;
-    scroll-snap-align: center;
-
+    background-color: var(--bg-dark);
+    overflow-x: auto;
+    scrollbar-width: none; // Firefox
     &::-webkit-scrollbar {
-      height: to-rem($space-md);
-    }
-    &::-webkit-scrollbar-track {
-      background: var(--black);
-    }
-    &::-webkit-scrollbar-thumb {
-      border-radius: 3px;
-      background: var(--grey-3);
-      &:hover {
-        background: var(--grey);
-      }
+      display: none; // Chrome/Safari
     }
 
     display: block;

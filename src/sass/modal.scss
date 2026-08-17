@@ -282,6 +282,22 @@ html:has(.modal-open) {
     animation: modal-zoom-out 0.4s cubic-bezier(0.55, 0, 1, 0.45) forwards;
   }
 
+  // Video-specific modal layout: max 100ch minus padding, contained vertically so close button sits below without scrolling
+  &-content--video {
+    justify-content: space-between;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    padding-top: to-rem($space-4xl);
+    padding-bottom: to-rem($space-xl);
+
+    .expand-modal-close-bottom {
+      margin: to-rem($space-md) auto 0;
+      flex-shrink: 0;
+    }
+  }
+
   &-media {
     &-figure {
       position: relative;
@@ -289,6 +305,18 @@ html:has(.modal-open) {
       width: 100%;
       max-width: 100%;
       margin: 0 auto;
+
+      &--video {
+        max-width: min(100%, calc(100ch - 4rem));
+        max-height: calc(100vh - 12rem);
+        max-height: calc(100dvh - 12rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        width: 100%;
+        margin: 0 auto;
+      }
     }
 
     &-placeholder {
@@ -314,6 +342,16 @@ html:has(.modal-open) {
 
       @include layout-1024() {
         border-radius: to-rem($space-lg);
+      }
+
+      &--video {
+        max-width: 100%;
+        max-height: calc(100vh - 12rem);
+        max-height: calc(100dvh - 12rem);
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: to-rem($space-md);
       }
     }
   }
