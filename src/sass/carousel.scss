@@ -13,19 +13,20 @@ $carousel-dot-gap: to-rem($space-xs);
 $ring-stroke: to-rem(2.5);
 
 .carousel {
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
   box-sizing: border-box;
   background-color: var(--bg-dark);
-  // Reserve space at bottom for the controls bar
-  padding-bottom: calc(#{$carousel-btn-size} + #{to-rem($space-lg)} * 2);
 
   // ── Track ──────────────────────────────────────────────────────────────
   &-track {
+    flex: 1 0 auto;
     display: flex;
     align-items: stretch;
     overflow-x: scroll;
-    padding: to-rem($space-2xl) 0 to-rem($space-2xl - $space-md);
+    padding: to-rem($space-2xl) 0 to-rem($space-md);
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
@@ -35,23 +36,23 @@ $ring-stroke: to-rem(2.5);
     } // Chrome/Safari
 
     @include layout-768() {
-      padding: to-rem($space-5xl) 0 to-rem($space-5xl - $space-lg);
+      padding: to-rem($space-5xl) 0 to-rem($space-lg);
     }
 
     @include layout-1024() {
-      padding: to-rem($space-3xl) 0 to-rem($space-3xl - $space-lg);
+      padding: to-rem($space-3xl) 0 to-rem($space-lg);
     }
 
     @include layout-1440() {
-      padding: to-rem($space-4xl) 0 to-rem($space-4xl - $space-lg);
+      padding: to-rem($space-4xl) 0 to-rem($space-lg);
     }
 
     @include layout-1920() {
-      padding: to-rem($space-5xl) 0 to-rem($space-5xl - $space-lg);
+      padding: to-rem($space-5xl) 0 to-rem($space-lg);
     }
 
     @include layout-2560() {
-      padding: to-rem($space-5xl) 0 to-rem($space-5xl - $space-xl);
+      padding: to-rem($space-5xl) 0 to-rem($space-xl);
     }
   }
 
@@ -72,16 +73,11 @@ $ring-stroke: to-rem(2.5);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: to-rem($space-lg);
-    flex-wrap: wrap;
+    gap: to-rem($space-md);
     box-sizing: border-box;
-    // Pinned to bottom of the black block
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: to-rem($space-lg) to-rem($space-xl);
-    min-height: calc(#{$carousel-btn-size} + #{to-rem($space-lg)} * 2);
+    position: relative;
+    padding: to-rem($space-md) to-rem($space-xl) to-rem($space-lg);
+    width: 100%;
 
     @include layout-768() {
       padding: to-rem($space-lg) to-rem(calc(($un-768 - $grid-max-area-768) / 2));
