@@ -63,16 +63,19 @@
                 </template>
               </div>
               <Carousel v-else :items="child" :force-active="isLandscapeGroup(child)">
-                <template #default="{ item, isVisible }">
-                  <div :class="'internal-extra-item ' + (item?.class ?? '')">
+                <template #default="slotProps">
+                  <div
+                    v-if="slotProps?.item"
+                    :class="'internal-extra-item ' + (slotProps.item?.class ?? '')"
+                  >
                     <Media
-                      v-if="isVisible"
-                      :src="translations.folder + item.src"
-                      :width="item.size[0]"
-                      :height="item.size[1]"
-                      :canExpand="item?.canExpand ?? false"
-                      :isVideo="item?.isVideo ?? false"
-                      :label="item.label"
+                      v-if="slotProps.isVisible"
+                      :src="translations.folder + slotProps.item.src"
+                      :width="slotProps.item.size[0]"
+                      :height="slotProps.item.size[1]"
+                      :canExpand="slotProps.item?.canExpand ?? false"
+                      :isVideo="slotProps.item?.isVideo ?? false"
+                      :label="slotProps.item.label"
                     />
                     <!-- Non-visible slide: reserve space with correct aspect ratio,
                                      then show centered spinner. No network requests fired. -->
@@ -80,9 +83,9 @@
                     <figure v-else class="render-placeholder-figure">
                       <img
                         class="render-placeholder"
-                        :src="svgPlaceholder(item.size[0], item.size[1])"
-                        :width="item.size[0]"
-                        :height="item.size[1]"
+                        :src="svgPlaceholder(slotProps.item.size[0], slotProps.item.size[1])"
+                        :width="slotProps.item.size[0]"
+                        :height="slotProps.item.size[1]"
                         aria-hidden="true"
                         alt=""
                       />

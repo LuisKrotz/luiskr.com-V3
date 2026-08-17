@@ -75,8 +75,16 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
+    target: 'es2022',
+    cssTarget: 'chrome100',
     sourcemap: false,
     cssCodeSplit: true,
+    modulePreload: {
+      polyfill: false,
+    },
+    esbuild: {
+      legalComments: 'none',
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {
