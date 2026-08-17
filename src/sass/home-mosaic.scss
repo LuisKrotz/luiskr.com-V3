@@ -33,13 +33,15 @@
 //   N≥3 (≥960px):  cards are wider, fewer rows needed
 .home-mosaic {
   transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
-  // Reserve approximate height before JS runs — eliminates CLS on about section
-  min-height: 1400px;   // mobile 1-col: ~7 cards × (183px + 16px gap)
+  // Reserve approximate height before JS runs — eliminates CLS on about section.
+  // Values match skeletonH computed in Home.vue (12 compact items per breakpoint).
+  // quickLayout() will set the exact value synchronously, making these a safety net.
+  min-height: 2400px;   // mobile N=1: 12 items × ~197px avg ≈ 2316px
 
-  @include layout-540()  { min-height: 700px; }  // 2-col: ~4 rows × (144+16)
-  @include layout-960()  { min-height: 550px; }  // 3-col: fewer rows
-  @include layout-1440() { min-height: 480px; }  // 4-col
-  @include layout-1920() { min-height: 420px; }  // 5-col
+  @include layout-540()  { min-height: 1300px; }  // N=2: 6 rows × ~200px
+  @include layout-960()  { min-height:  900px; }  // N=3: 4 rows
+  @include layout-1440() { min-height:  750px; }  // N=4: 3 rows
+  @include layout-1920() { min-height:  600px; }  // N=5+: 2-3 rows
 }
 
 // ── Card container ────────────────────────────────────────────────────────────

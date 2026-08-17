@@ -55,7 +55,7 @@
           </div>
         </div>
 
-        <div v-else style="position:relative;width:100%;height:500px;margin-top:2rem">
+        <div v-else :style="{ position:'relative', width:'100%', height:skeletonH, marginTop:'2rem' }">
           <div v-for="n in 7" :key="n" class="skeleton--shimmer" :style="skeletonStyle(n)"></div>
         </div>
       </section>
@@ -194,20 +194,90 @@ export default {
         col2: withOffsets.slice(col1.length),
       }
     },
+
+    skeletonH() {
+      // Estimate mosaic container height for the skeleton placeholder phase.
+      // Keeps the about section from jumping when real items arrive.
+      // Assumes 12 compact items (worst-case for 1-col mobile), no featured
+      // items known yet. Matches quickLayout() output closely on mobile.
+      const vw = typeof window !== 'undefined' ? window.innerWidth : 375
+      const pad = vw < 320 ? 13 : vw < 540 ? 21 : vw < 768 ? 34 : vw < 1024 ? 55 : vw < 1680 ? 89 : 144
+      const W   = vw - pad * 2
+      const N   = vw < 540 ? 1 : vw < 960 ? 2 : vw < 1440 ? 3 : vw < 1920 ? 4 : vw < 2100 ? 5 : vw < 2560 ? 6 : 7
+      const gap = 16
+      const colW = Math.floor((W - gap * (N - 1)) / N)
+      const ITEMS = 12
+      const colH = Array(N).fill(0)
+      for (let i = 0; i < ITEMS; i++) {
+        const imageH = Math.round(colW * COMP_MULTS[i % COMP_MULTS.length])
+        let best = 0
+        for (let c = 1; c < N; c++) if (colH[c] < colH[best]) best = c
+        colH[best] += imageH + gap
+      }
+      return Math.max(...colH) - gap + 'px'
+    },
   },
 
   watch: {
     processedItems(v) {
       if (!v.length) return
+      // quickLayout() sets containerH synchronously (no rAF, no DOM reads) so
+      // Vue re-renders the mosaic at the correct final height on the very first
+      // paint — eliminating the skeleton→mosaic CLS spike.
+      this.quickLayout()
       this.scheduleLayout()
     },
-    featuredLinks() { this.scheduleLayout() },
+    featuredLinks() {
+      // Also pre-size when featured flags arrive (featured items use FEAT_MULT
+      // not COMP_MULTS, which changes layout height on N>1 viewports).
+      if (this.processedItems.length) this.quickLayout()
+      this.scheduleLayout()
+    },
   },
 
   methods: {
     scheduleLayout() {
       if (this._rafId) cancelAnimationFrame(this._rafId)
       this._rafId = requestAnimationFrame(this.layout)
+    },
+
+    // ── Quick synchronous layout (no DOM reads) ───────────────────────────────
+    // Mirrors layout() but uses window.innerWidth + known padding constants
+    // instead of getBoundingClientRect(). Called immediately (same microtask)
+    // when processedItems arrives so containerH is correct before first paint.
+    quickLayout() {
+      const vw = typeof window !== 'undefined' ? window.innerWidth : 0
+      if (!vw || !this.processedItems.length) return
+
+      const pad = vw < 320 ? 13 : vw < 540 ? 21 : vw < 768 ? 34 : vw < 1024 ? 55 : vw < 1680 ? 89 : 144
+      const W   = vw - pad * 2
+      const gap = 16
+      const N   = vw < 540  ? 1
+               : vw < 960  ? 2
+               : vw < 1440 ? 3
+               : vw < 1920 ? 4
+               : vw < 2100 ? 5
+               : vw < 2560 ? 6
+               : 7
+      const colW = Math.floor((W - gap * (N - 1)) / N)
+      const colH = Array(N).fill(0)
+
+      this.processedItems.forEach((item, i) => {
+        const span   = (item.featured && N > 1) ? 2 : 1
+        const itemW  = span * colW + (span - 1) * gap
+        const mult   = item.featured ? FEAT_MULT : COMP_MULTS[i % COMP_MULTS.length]
+        const imageH = Math.round(itemW * mult)
+
+        let bestCol = 0, bestTop = Infinity
+        for (let c = 0; c <= N - span; c++) {
+          let top = 0
+          for (let s = 0; s < span; s++) top = Math.max(top, colH[c + s])
+          if (top < bestTop) { bestTop = top; bestCol = c }
+        }
+        for (let s = 0; s < span; s++) colH[bestCol + s] = bestTop + imageH + gap
+      })
+
+      this.containerH = Math.max(...colH) - gap + 'px'
     },
 
     isFeatured(item) {
