@@ -1,6 +1,6 @@
 let wasmInstance = null
 
-// Web Worker thread WebAssembly initialization
+// Initialize WebAssembly engine inside Web Worker thread
 fetch('/wasm/engine.wasm')
   .then((res) => {
     if (!res.ok) throw new Error('WASM fetch failed')
@@ -19,9 +19,10 @@ self.onmessage = (e) => {
   const { id, type, payload } = e.data
   if (type === 'BATCH_LAYOUT') {
     const { items, cols, containerW, gap } = payload
-    const colW = wasmInstance && wasmInstance.calc_column_width
-      ? wasmInstance.calc_column_width(cols, containerW, gap)
-      : (containerW - (cols - 1) * gap) / cols
+    const colW =
+      wasmInstance && wasmInstance.calc_column_width
+        ? wasmInstance.calc_column_width(cols, containerW, gap)
+        : (containerW - (cols - 1) * gap) / cols
 
     const results = (items || []).map((item, i) => {
       const mult = item.featured ? 0.48 : 0.55
@@ -31,5 +32,18 @@ self.onmessage = (e) => {
       return { index: i, itemW, imageH, colW }
     })
     self.postMessage({ id, type: 'BATCH_LAYOUT_RESULT', results })
+  } else if (type === 'PROCESS_MEDIA_ANALYTICS') {
+    const { width, height, isVideo } = payload
+    const aspectRatio = (width || 16) / (height || 9)
+    const cardH =
+      wasmInstance && wasmInstance.calc_card_height
+        ? wasmInstance.calc_card_height(width, aspectRatio, 0)
+        : width / aspectRatio
+
+    self.postMessage({
+      id,
+      type: 'MEDIA_ANALYTICS_RESULT',
+      results: { aspectRatio, cardH, isVideo },
+    })
   }
 }

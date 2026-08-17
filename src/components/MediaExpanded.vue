@@ -55,6 +55,9 @@
 </template>
 
 <script>
+import { gpuAccel } from '../utils/gpu-accel.js'
+import { wasmPool } from '../utils/wasm-pool.js'
+
 export default {
   name: 'MediaExpanded',
   data() {
@@ -76,6 +79,12 @@ export default {
     const modalContent = document.querySelector('.expand-modal-content')
     if (modalContent) modalContent.scrollTop = 0
 
+    wasmPool.dispatch('PROCESS_MEDIA_ANALYTICS', {
+      width: this.width,
+      height: this.height,
+      isVideo: this.isVideo,
+    })
+
     if (!this.isVideo && this.source) {
       const img = new Image()
       img.src = this.source
@@ -83,6 +92,7 @@ export default {
         this.currentSrc = this.source
       }
       img.onload = () => {
+        gpuAccel.processImageGPU(img, this.width || 800, this.height || 450)
         if (img.decode) {
           img.decode().then(applySource).catch(applySource)
         } else {

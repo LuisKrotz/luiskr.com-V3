@@ -44,6 +44,7 @@
       @mouseleave="pause($event)"
       @mouseout="pause($event)"
       @mousedown="play($event)"
+      @loadeddata="onVideoLoaded($event)"
       @error="onVideoError($event)"
     >
       <source :src="videoSrcMain" type="video/mp4" />
@@ -196,12 +197,22 @@ export default {
   methods: {
     play(e) {
       if (!this.isReducedMotion && e.target?.play) {
-        e.target.play().catch(() => {})
+        e.target
+          .play()
+          .then(() => {
+            gpuAccel.processVideoGPU(e.target, this.displayWidth || 640, this.displayHeight || 360)
+          })
+          .catch(() => {})
       }
     },
     pause(e) {
       if (!this.isReducedMotion && e.target?.pause) {
         e.target.pause()
+      }
+    },
+    onVideoLoaded(e) {
+      if (e?.target) {
+        gpuAccel.processVideoGPU(e.target, this.displayWidth || 640, this.displayHeight || 360)
       }
     },
     onVideoError(e) {
