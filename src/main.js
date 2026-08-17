@@ -3,13 +3,14 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-import VueSmoothScroll from 'vue3-smooth-scroll'
+import WasmSmoothScroll from './utils/wasm-scroll.js'
+import WasmLazyload from './utils/wasm-lazyload.js'
 
 const app = createApp(App)
 
 app.config.globalProperties.$sharedData = window.globals
 
-app.use(VueSmoothScroll).use(store).use(router).mount('#app')
+app.use(WasmSmoothScroll).use(WasmLazyload).use(store).use(router).mount('#app')
 
 // Defer analytics initialization until user interaction or timeout
 function scheduleFirebaseAnalytics() {

@@ -16,6 +16,7 @@
           <span class="hc-award-media" v-if="!item.media">{{ item.icon }}</span>
           <img
             v-else
+            v-wasm-lazy="storage + item.media.path"
             loading="lazy"
             decoding="async"
             class="hc-award-img"

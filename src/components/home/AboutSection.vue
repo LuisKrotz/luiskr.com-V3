@@ -12,6 +12,7 @@
       <div class="about-profile-picture">
         <img
           v-if="aboutTranslations && profilePicture"
+          v-wasm-lazy="optimizedProfilePicture"
           decoding="async"
           loading="lazy"
           class="about-profile-picture-img"

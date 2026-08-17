@@ -18,6 +18,7 @@
     <img
       decoding="async"
       v-if="!isVideo"
+      v-wasm-lazy="storage + src + q50"
       ref="mediaImg"
       :class="['render-media', classes, { 'render-media--loaded': isLoaded }]"
       :width="width"
