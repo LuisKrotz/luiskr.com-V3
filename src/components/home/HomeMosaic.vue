@@ -70,6 +70,7 @@
 <script>
 import DrawText from '../DrawText.vue'
 import { calcColumnWidth } from '../../utils/wasm-layout.js'
+import { wasmPool } from '../../utils/wasm-pool.js'
 
 const FEAT_MULT = 0.48
 const COMP_MULTS = [0.56, 0.58, 0.54, 0.57, 0.55]
@@ -237,6 +238,13 @@ export default {
                     : 7
       const colW = Math.floor(calcColumnWidth(N, W, gap))
       const colH = Array(N).fill(0)
+
+      wasmPool.dispatch('BATCH_LAYOUT', {
+        items: this.processedItems,
+        cols: N,
+        containerW: W,
+        gap,
+      })
 
       this.cards = this.processedItems.map((item, i) => {
         const active = this.hoveredIdx === i || this.touchIdx === i
