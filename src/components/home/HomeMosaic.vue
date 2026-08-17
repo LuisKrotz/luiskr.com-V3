@@ -286,11 +286,15 @@ export default {
     },
 
     measureBottomH(i) {
+      if (i === null || i === undefined) return
       requestAnimationFrame(() => {
         const el = this.$el?.querySelector(`.home-mosaic-details[data-index="${i}"]`)
         if (el) {
           const h = el.scrollHeight
-          if (h > 0) this.bottomHMap = { ...this.bottomHMap, [i]: h + 24 }
+          if (h > 0 && this.bottomHMap[i] !== h + 24) {
+            this.bottomHMap = { ...this.bottomHMap, [i]: h + 24 }
+            this.layout()
+          }
         }
       })
     },
@@ -298,6 +302,7 @@ export default {
     onHover(i) {
       this.hoveredIdx = i
       this.layout()
+      this.measureBottomH(i)
     },
 
     onLeave() {
@@ -315,6 +320,7 @@ export default {
         if (this.touchIdx !== i) {
           this.touchIdx = i
           this.layout()
+          this.measureBottomH(i)
         } else {
           this.$router.push(dest)
         }
