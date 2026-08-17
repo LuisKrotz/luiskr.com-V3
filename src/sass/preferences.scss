@@ -20,11 +20,15 @@
   backdrop-filter: blur(to-rem(8));
   -webkit-backdrop-filter: blur(to-rem(8));
   outline: none;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .pref-dialog {
   width: 100%;
   max-width: to-rem($space-8xl);
+  max-height: calc(88vh);
+  max-height: calc(88dvh);
   background: var(--bg-primary);
   color: var(--text-primary);
   border: to-rem(1) solid var(--border-color);
@@ -78,6 +82,9 @@
   display: flex;
   flex-direction: column;
   gap: to-rem($space-3xl);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .pref-section {

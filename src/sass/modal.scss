@@ -17,12 +17,20 @@
   }
 
   .modal-above {
-    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
-    max-width: 100%;
-    overflow-x: hidden; // no horizontal scroll
+    height: 100vh;
+    height: 100dvh;
+    z-index: 9999;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     background: var(--bg-dark);
-    position: relative;
   }
 
   // Hide regular nav links in modal context
@@ -246,14 +254,17 @@
   &-content {
     box-sizing: border-box;
     position: relative;
-    overflow-x: hidden; // no horizontal scroll
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     background-color: var(--bg-dark);
     padding: to-rem($space-3xl) to-rem($space-xl);
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     // Zoom-in on open
     animation: modal-zoom-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
