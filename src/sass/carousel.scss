@@ -218,35 +218,44 @@ $ring-stroke: to-rem(2.5);
     @extend %RESETBTN;
 
     position: relative;
-    display: block;
-    height: $carousel-dot-size;
-    width: $carousel-dot-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // Visible dot drawn as ::after so we can keep a 24×24 px tap target
+    // while the visual indicator stays small. Lighthouse/WCAG require the
+    // actual element box to be ≥ 24×24 px — pseudo-elements don't count.
+    min-height: 24px;
+    min-width: 24px;
     border-radius: 9999px;
-    background: var(--grey-3);
+    background: transparent;  // real colour is on ::after
     cursor: pointer;
     flex-shrink: 0;
     transition:
-      width 0.25s ease,
-      background 0.25s ease;
+      min-width 0.25s ease;
 
-    // Expand touch/click target area to 28px x 28px for accessibility
-    &::before {
+    // Visible dot — centred inside the 24px tap target
+    &::after {
       content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      min-width: 28px;
-      min-height: 28px;
+      display: block;
+      width: $carousel-dot-size;
+      height: $carousel-dot-size;
+      border-radius: 9999px;
+      background: var(--grey-3);
+      transition:
+        width 0.25s ease,
+        background 0.25s ease;
     }
 
     &--active {
-      width: $carousel-dot-pill;
-      background: var(--grey);
+      min-width: calc(#{$carousel-dot-pill} + 16px); // pill + extra tap zone
+      &::after {
+        width: $carousel-dot-pill;
+        background: var(--grey);
+      }
     }
 
     &:hover:not(&--active) {
-      background: var(--grey);
+      &::after { background: var(--grey); }
     }
   }
 

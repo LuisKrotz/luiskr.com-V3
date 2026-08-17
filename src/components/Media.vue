@@ -31,8 +31,8 @@
       ref="mediaVideo"
       :class="'render-media ' + classes"
       :poster="poster[0]"
-      :width="width"
-      :height="height"
+      :width="displayWidth"
+      :height="displayHeight"
       :alt="label"
       preload="none"
       playsinline
@@ -104,6 +104,21 @@ export default {
     },
     isReducedMotion() {
       return this.$store.getters.getReducedMotion
+    },
+    // Cap video HTML width/height attrs at 1920px to prevent the browser from
+    // treating a 3840×2160 native resolution as the intrinsic display size —
+    // which causes the poster image (used as LCP candidate) to be fetched at
+    // 4K resolution even when displayed at ~400px. Capping to 1920 still
+    // provides a sharp poster on any real display without the 84 KiB penalty.
+    displayWidth() {
+      const MAX = 1920
+      if (!this.isVideo || this.width <= MAX) return this.width
+      return MAX
+    },
+    displayHeight() {
+      const MAX = 1920
+      if (!this.isVideo || this.width <= MAX) return this.height
+      return Math.round(this.height * (MAX / this.width))
     },
   },
   created() {
