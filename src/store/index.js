@@ -171,10 +171,16 @@ export default createStore({
     },
     setMarqueeAmount() {},
     setModal(state, payload) {
-      ;((state.modalObject.transform = payload.transform),
-        (state.modalObject.class = payload.class),
-        (state.modalObject.open = payload.open),
-        (state.modalObject.media = payload.media))
+      state.modalObject.transform = payload.transform
+      state.modalObject.class = payload.class
+      state.modalObject.open = payload.open
+      state.modalObject.media = payload.media
+
+      if (typeof document !== 'undefined') {
+        const isOpen = !!payload.open || payload.class === 'modal-open'
+        document.documentElement.classList.toggle('modal-open', isOpen)
+        document.body.classList.toggle('modal-open', isOpen)
+      }
     },
     setOnMouseMove(state, payload) {
       state.page.left = payload.pageX - 60
