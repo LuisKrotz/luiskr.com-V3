@@ -1,15 +1,20 @@
-// Hardware GPU Acceleration Engine (WebGL Hardware GPU Texture Context for Videos and Images)
+// Hardware GPU & NPU Acceleration Engine (WebGL2 Hardware GPU Texture Context & WebNN Hints)
 class GPUAccelerator {
   constructor() {
     this.canvas = null
     this.gl = null
     this.program = null
     this.texture = null
+    this.hasNPU = false
     this.initGPU()
   }
 
   initGPU() {
     if (typeof window === 'undefined') return
+
+    // Detect WebNN NPU capability
+    this.hasNPU = typeof navigator !== 'undefined' && 'ml' in navigator
+
     try {
       this.canvas = document.createElement('canvas')
       this.canvas.width = 1
@@ -17,8 +22,14 @@ class GPUAccelerator {
       this.gl =
         this.canvas.getContext('webgl2', {
           powerPreference: 'high-performance',
+          desynchronized: true,
+          alpha: false,
           failIfMajorPerformanceCaveat: false,
-        }) || this.canvas.getContext('webgl', { powerPreference: 'high-performance' })
+        }) ||
+        this.canvas.getContext('webgl', {
+          powerPreference: 'high-performance',
+          alpha: false,
+        })
 
       if (this.gl) {
         const vsSource = `
@@ -75,6 +86,14 @@ class GPUAccelerator {
       return null
     }
     return shader
+  }
+
+  // Promote DOM Element to GPU Compositor layer
+  accelerateElementGPU(el) {
+    if (!el || !el.style) return
+    el.style.willChange = 'transform, opacity'
+    el.style.transform = 'translate3d(0, 0, 0)'
+    el.style.backfaceVisibility = 'hidden'
   }
 
   // Upload HTML5 Video frames directly to WebGL GPU hardware texture

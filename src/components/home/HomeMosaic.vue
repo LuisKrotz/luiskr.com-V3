@@ -216,12 +216,18 @@ export default {
       const colW = Math.floor(calcColumnWidth(N, W, gap))
       const colH = Array(N).fill(0)
 
-      wasmPool.dispatch('BATCH_LAYOUT', {
-        items: this.processedItems.map((item) => ({ featured: !!item.featured })),
-        cols: N,
-        containerW: W,
-        gap,
-      })
+      wasmPool
+        .dispatch('BATCH_LAYOUT', {
+          items: this.processedItems.map((item) => ({ featured: !!item.featured })),
+          cols: N,
+          containerW: W,
+          gap,
+        })
+        .then((res) => {
+          if (res && res.totalHeight) {
+            this.containerH = res.totalHeight + 'px'
+          }
+        })
 
       this.cards = this.processedItems.map((item, i) => {
         const active = this.hoveredIdx === i || this.touchIdx === i

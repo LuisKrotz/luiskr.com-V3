@@ -139,6 +139,7 @@ export default {
     }
   },
   mounted() {
+    if (this.$el) gpuAccel.accelerateElementGPU(this.$el)
     if (this.canExpand) this.styles = { position: 'relative' }
 
     // Auto-play videos automatically when they scroll into the viewport (unless Reduced Motion is enabled)
