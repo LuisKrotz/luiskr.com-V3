@@ -6,6 +6,7 @@
     "node": ">=24"
   },
   "type": "module",
+  "sideEffects": ["*.css", "*.scss", "*.vue"],
   "scripts": {
     "dev": "vite",
     "serve": "vite",

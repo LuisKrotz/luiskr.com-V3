@@ -147,3 +147,7 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+@import '../sass/preferences';
+</style>

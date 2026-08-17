@@ -113,7 +113,4 @@ export default {
 
 <style lang="scss">
 @import '../sass/home';
-@import '../sass/about';
-@import '../sass/contact';
-@import '../sass/awards-footer';
 </style>
