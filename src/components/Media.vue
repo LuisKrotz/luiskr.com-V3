@@ -61,6 +61,7 @@
 
 <script>
 import { gpuAccel } from '../utils/gpu-accel.js'
+import { calcAspectScaled } from '../utils/wasm-layout.js'
 
 const moz = '-mozjpg',
   extension = '.jpg',
@@ -121,7 +122,7 @@ export default {
     displayHeight() {
       const MAX = 1920
       if (!this.isVideo || this.width <= MAX) return this.height
-      return Math.round(this.height * (MAX / this.width))
+      return calcAspectScaled(this.width, this.height, MAX)
     },
   },
   created() {

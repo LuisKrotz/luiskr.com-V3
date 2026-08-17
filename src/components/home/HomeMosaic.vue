@@ -69,7 +69,11 @@
 
 <script>
 import DrawText from '../DrawText.vue'
-import { calcColumnWidth } from '../../utils/wasm-layout.js'
+import {
+  calcColumnWidth,
+  calcColsForWidth,
+  calcResponsivePadding,
+} from '../../utils/wasm-layout.js'
 import { wasmPool } from '../../utils/wasm-pool.js'
 
 const FEAT_MULT = 0.48
@@ -116,23 +120,9 @@ export default {
   computed: {
     skeletonH() {
       const vw = typeof window !== 'undefined' ? window.innerWidth : 375
-      const pad =
-        vw < 320 ? 13 : vw < 540 ? 21 : vw < 768 ? 34 : vw < 1024 ? 55 : vw < 1680 ? 89 : 144
+      const pad = calcResponsivePadding(vw)
       const W = vw - pad * 2
-      const N =
-        vw < 540
-          ? 1
-          : vw < 960
-            ? 2
-            : vw < 1440
-              ? 3
-              : vw < 1920
-                ? 4
-                : vw < 2100
-                  ? 5
-                  : vw < 2560
-                    ? 6
-                    : 7
+      const N = calcColsForWidth(vw)
       const gap = 16
       const colW = Math.floor(calcColumnWidth(N, W, gap))
       const ITEMS = 12
@@ -222,20 +212,7 @@ export default {
 
       const gap = 16
       const vw = window.innerWidth
-      const N =
-        vw < 540
-          ? 1
-          : vw < 960
-            ? 2
-            : vw < 1440
-              ? 3
-              : vw < 1920
-                ? 4
-                : vw < 2100
-                  ? 5
-                  : vw < 2560
-                    ? 6
-                    : 7
+      const N = calcColsForWidth(vw)
       const colW = Math.floor(calcColumnWidth(N, W, gap))
       const colH = Array(N).fill(0)
 

@@ -1,6 +1,6 @@
 let wasmInstance = null
 
-// Instantiate WebAssembly Engine module for high-performance carousel, animations & layout math
+// Instantiate WebAssembly Engine module for high-performance carousel, animations, grid layout & media math
 if (typeof window !== 'undefined' && 'WebAssembly' in window) {
   fetch('/wasm/engine.wasm')
     .then((res) => {
@@ -67,4 +67,29 @@ export function calcDrawTextOffset(idx, charsBefore, delay) {
     return wasmInstance.calc_draw_text_offset(idx, charsBefore, delay)
   }
   return charsBefore * delay + idx * 30
+}
+
+export function calcColsForWidth(vw) {
+  return vw < 540
+    ? 1
+    : vw < 960
+      ? 2
+      : vw < 1440
+        ? 3
+        : vw < 1920
+          ? 4
+          : vw < 2100
+            ? 5
+            : vw < 2560
+              ? 6
+              : 7
+}
+
+export function calcResponsivePadding(vw) {
+  return vw < 320 ? 13 : vw < 540 ? 21 : vw < 768 ? 34 : vw < 1024 ? 55 : vw < 1680 ? 89 : 144
+}
+
+export function calcAspectScaled(width, height, maxW = 1920) {
+  if (!width || width <= maxW) return height
+  return Math.round(height * (maxW / width))
 }
