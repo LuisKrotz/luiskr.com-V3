@@ -96,7 +96,9 @@
 </template>
 
 <script>
-const AUTOPLAY_DURATION = 10000 // ms
+import { calcCarouselRingOffset } from '../utils/wasm-layout.js'
+
+const AUTOPLAY_DURATION = 5000
 const CIRCUMFERENCE = 2 * Math.PI * 19 // r=19
 const MOBILE_BREAKPOINT = 768
 const MOBILE_MIN_ITEMS = 1
@@ -394,7 +396,7 @@ export default {
 
       const now = performance.now()
       const elapsed = now - this.autoplayStart + this.autoplayElapsed
-      this.ringProgress = Math.min(elapsed / AUTOPLAY_DURATION, 1)
+      this.ringProgress = Math.min(calcCarouselRingOffset(elapsed, AUTOPLAY_DURATION, 1), 1)
 
       if (elapsed >= AUTOPLAY_DURATION) {
         // Advance through goTo() so the infinite loop clone strategy applies

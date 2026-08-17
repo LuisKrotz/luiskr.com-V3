@@ -149,6 +149,7 @@
 
 <script>
 import { fetchFirebaseDb } from '../utils/db.js'
+import { calcDrawTextDelay, calcDrawTextOffset } from '../utils/wasm-layout.js'
 import Media from '../components/Media.vue'
 import MediaExpanded from '../components/MediaExpanded.vue'
 
@@ -211,21 +212,17 @@ export default {
         items.reduce((sum, str) => {
           return sum + (typeof str === 'string' ? str.replace(/<[^>]+>/g, '').length : 0)
         }, 0) || 1
-      // Target ~1800ms total section duration, clamped between 6ms (super fast) and 22ms
-      return Math.max(6, Math.min(22, Math.round(1800 / totalChars)))
+      return calcDrawTextDelay(totalChars, 1800)
     },
 
-    // Cumulative offset for sequential paragraph animation:
-    // Paragraph i starts exactly when paragraph i-1 finishes!
     textOffset(items, idx) {
       if (!Array.isArray(items)) return 0
       const delay = this.textDelay(items)
-      let offset = 0
+      let charsBefore = 0
       for (let i = 0; i < idx; i++) {
-        const chars = items[i] ? items[i].replace(/<[^>]+>/g, '').length : 0
-        offset += chars * delay + 30 // 30ms seamless gap after previous item finishes
+        charsBefore += items[i] ? items[i].replace(/<[^>]+>/g, '').length : 0
       }
-      return offset
+      return calcDrawTextOffset(idx, charsBefore, delay)
     },
     // Returns true when every item in a child group is landscape-class.
     // Landscape carousels are always forced active (even with only 2 items),

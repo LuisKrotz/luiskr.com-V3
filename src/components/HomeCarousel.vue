@@ -65,6 +65,8 @@
 </template>
 
 <script>
+import { calcCarouselRingOffset } from '../utils/wasm-layout.js'
+
 const CIRCUMFERENCE = 2 * Math.PI * 19
 
 export default {
@@ -269,7 +271,7 @@ export default {
     _tickRing() {
       if (!this.autoplayRunning) return
       const elapsed = performance.now() - this.autoplayStart + this.autoplayElapsed
-      this.ringProgress = Math.min(elapsed / this.duration, 1)
+      this.ringProgress = Math.min(calcCarouselRingOffset(elapsed, this.duration, 1), 1)
 
       if (elapsed >= this.duration) {
         this.goTo(this.currentIndex + 1)
