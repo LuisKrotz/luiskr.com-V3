@@ -139,6 +139,8 @@ export default {
       slideLoaded: [],
       isMobile: window.innerWidth < MOBILE_BREAKPOINT,
       circumference: CIRCUMFERENCE,
+      isFullyVisible: false,
+      observer: null,
     }
   },
 
@@ -173,8 +175,8 @@ export default {
     this._markAdjacentLoaded(0)
     this.$nextTick(() => {
       this._jumpToSlide(0, false)
-      if (!this.isModalOpen && !this.isReducedMotion) this._startAutoplay()
       this._setHeightVar()
+      this._setupIntersectionObserver()
     })
     window.addEventListener('resize', this._onResize)
   },
@@ -188,14 +190,14 @@ export default {
     isReducedMotion(isReduced) {
       if (isReduced) {
         this._stopAutoplay()
-      } else if (!this.isModalOpen && this.isActive) {
+      } else if (!this.isModalOpen && this.isActive && this.isFullyVisible) {
         this._startAutoplay()
       }
     },
     isModalOpen(isOpen) {
       if (isOpen) {
         this._stopAutoplay()
-      } else if (this.isActive && !this.isReducedMotion) {
+      } else if (this.isActive && !this.isReducedMotion && this.isFullyVisible) {
         this._startAutoplay()
       }
     },
@@ -203,6 +205,10 @@ export default {
 
   beforeUnmount() {
     this._stopAutoplay()
+    if (this.observer) {
+      this.observer.disconnect()
+      this.observer = null
+    }
     if (this.teleportTimer) clearTimeout(this.teleportTimer)
     window.removeEventListener('resize', this._onResize)
   },
@@ -371,8 +377,36 @@ export default {
     },
 
     // ── Autoplay & countdown ring ─────────────────────────────────────
+    _setupIntersectionObserver() {
+      const target = this.$refs.carouselRoot || this.$el
+      if (!target || typeof IntersectionObserver === 'undefined') {
+        this.isFullyVisible = true
+        if (!this.isModalOpen && !this.isReducedMotion) this._startAutoplay()
+        return
+      }
+
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const isFullyVisible = entry.isIntersecting && entry.intersectionRatio >= 0.95
+            this.isFullyVisible = isFullyVisible
+
+            if (isFullyVisible) {
+              if (!this.isModalOpen && !this.isReducedMotion) {
+                this._startAutoplay()
+              }
+            } else {
+              this._stopAutoplay()
+            }
+          })
+        },
+        { threshold: [0, 0.95, 1.0] }
+      )
+      this.observer.observe(target)
+    },
+
     _startAutoplay() {
-      if (this.isReducedMotion) {
+      if (this.isReducedMotion || !this.isFullyVisible) {
         this._stopAutoplay()
         return
       }
