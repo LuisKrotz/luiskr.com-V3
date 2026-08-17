@@ -25,8 +25,21 @@
 // ── Masonry container ─────────────────────────────────────────────────────────
 // height is set inline by JS (containerH). Transitioning it makes the about
 // section below slide smoothly when a card expands / collapses on hover.
+// min-height reserves space before JS layout() runs, preventing the CLS
+// spike caused by the about section shifting down by hundreds of pixels.
+// Values are calibrated from the JS layout constants:
+//   N=1 (< 540px): col≈333px, COMP_MULT≈0.55 → itemH≈183px, 7 items
+//   N=2 (540–959px): col≈262px, COMP_MULT≈0.55 → itemH≈144px, stacked 4 rows
+//   N≥3 (≥960px):  cards are wider, fewer rows needed
 .home-mosaic {
   transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  // Reserve approximate height before JS runs — eliminates CLS on about section
+  min-height: 1400px;   // mobile 1-col: ~7 cards × (183px + 16px gap)
+
+  @include layout-540()  { min-height: 700px; }  // 2-col: ~4 rows × (144+16)
+  @include layout-960()  { min-height: 550px; }  // 3-col: fewer rows
+  @include layout-1440() { min-height: 480px; }  // 4-col
+  @include layout-1920() { min-height: 420px; }  // 5-col
 }
 
 // ── Card container ────────────────────────────────────────────────────────────

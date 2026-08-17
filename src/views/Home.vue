@@ -31,6 +31,8 @@
                 class="home-mosaic-img"
                 :src="storage + 'covers/' + item.image + ext"
                 :alt="item.label"
+                width="800"
+                height="450"
               />
               <div class="home-mosaic-title-overlay">
                 <h3 class="home-mosaic-title">{{ item.label }}</h3>
