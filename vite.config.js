@@ -82,11 +82,9 @@ export default defineConfig({
     cssTarget: 'chrome120',
     sourcemap: false,
     cssCodeSplit: true,
+    cssMinify: true,
     modulePreload: {
       polyfill: false,
-    },
-    esbuild: {
-      legalComments: 'none',
     },
     rollupOptions: {
       output: {

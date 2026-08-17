@@ -69,6 +69,7 @@
 
 <script>
 import DrawText from '../DrawText.vue'
+import { calcColumnWidth } from '../../utils/wasm-layout.js'
 
 const FEAT_MULT = 0.48
 const COMP_MULTS = [0.56, 0.58, 0.54, 0.57, 0.55]
@@ -234,7 +235,7 @@ export default {
                   : vw < 2560
                     ? 6
                     : 7
-      const colW = Math.floor((W - gap * (N - 1)) / N)
+      const colW = Math.floor(calcColumnWidth(N, W, gap))
       const colH = Array(N).fill(0)
 
       this.cards = this.processedItems.map((item, i) => {
