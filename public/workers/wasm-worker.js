@@ -100,5 +100,18 @@ self.onmessage = (e) => {
       type: 'TEXT_TIMING_RESULT',
       results: { delay, offset },
     })
+  } else if (type === 'COMPUTE_MEDIA_HASH') {
+    const { url = '' } = payload
+    let hash = 5381
+    for (let i = 0; i < url.length; i++) {
+      hash = ((hash << 5) + hash) + url.charCodeAt(i)
+      hash |= 0
+    }
+    const key = 'media_hash_' + Math.abs(hash).toString(36)
+    self.postMessage({
+      id,
+      type: 'MEDIA_HASH_RESULT',
+      results: { key, hash: Math.abs(hash) },
+    })
   }
 }

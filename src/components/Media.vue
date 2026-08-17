@@ -62,6 +62,7 @@
 <script>
 import { gpuAccel } from '../utils/gpu-accel.js'
 import { calcAspectScaled } from '../utils/wasm-layout.js'
+import { localMediaCache } from '../utils/local-media-cache.js'
 
 const moz = '-mozjpg',
   extension = '.jpg',
@@ -225,12 +226,14 @@ export default {
     placeholder(width, height) {
       return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}"%3E%3C/svg%3E`
     },
-    loadHighRes() {
+    async loadHighRes() {
       const targetUrl = this.storage + this.src + this.q50
+      const localUrl = await localMediaCache.fetchOrGetLocalMedia(targetUrl)
+
       const img = new Image()
-      img.src = targetUrl
+      img.src = localUrl
       const applySource = () => {
-        this.currentSrc = targetUrl
+        this.currentSrc = localUrl
         this.isLoaded = true
       }
       img.onload = () => {
