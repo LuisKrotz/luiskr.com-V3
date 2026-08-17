@@ -1,12 +1,15 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { VitePWA } from 'vite-plugin-pwa'
+import { compression } from 'vite-plugin-compression2'
 import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
+    compression({ algorithm: 'brotliCompress', exclude: [/\.(br|gz)$/i] }),
+    compression({ algorithm: 'gzip', exclude: [/\.(br|gz)$/i] }),
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: 'script-defer',
@@ -75,8 +78,8 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    target: 'es2022',
-    cssTarget: 'chrome100',
+    target: 'esnext',
+    cssTarget: 'chrome120',
     sourcemap: false,
     cssCodeSplit: true,
     modulePreload: {

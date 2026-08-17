@@ -6,7 +6,11 @@
     "node": ">=24"
   },
   "type": "module",
-  "sideEffects": ["*.css", "*.scss", "*.vue"],
+  "sideEffects": [
+    "*.css",
+    "*.scss",
+    "*.vue"
+  ],
   "scripts": {
     "dev": "vite",
     "serve": "vite",
@@ -40,6 +44,7 @@
     "prettier": "^3.9.6",
     "sass": "^1.102.0",
     "vite": "^8.2.1",
+    "vite-plugin-compression2": "^2.5.3",
     "vite-plugin-pwa": "^1.3.0",
     "vue-eslint-parser": "^10.4.1"
   }
