@@ -14,8 +14,12 @@
   align-items: center;
   padding: to-rem($space-2xl) to-rem($space-lg) to-rem($space-3xl);
 
-  @include layout-768()  { padding: to-rem($space-2xl) to-rem($space-4xl) to-rem($space-3xl); }
-  @include layout-2560() { padding: to-rem($space-3xl) to-rem($space-5xl) to-rem($space-4xl); }
+  @include layout-768() {
+    padding: to-rem($space-2xl) to-rem($space-4xl) to-rem($space-3xl);
+  }
+  @include layout-2560() {
+    padding: to-rem($space-3xl) to-rem($space-5xl) to-rem($space-4xl);
+  }
 
   &-title {
     @extend .ttl-sm;
@@ -67,10 +71,12 @@
       text-decoration: none;
       line-height: to-rem($space-3xl);
       opacity: 0.85;
-      transition: opacity .2s;
+      transition: opacity 0.2s;
 
       &:hover,
-      &:focus { opacity: 1; }
+      &:focus {
+        opacity: 1;
+      }
 
       &.router-link-active {
         opacity: 1;

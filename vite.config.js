@@ -71,5 +71,24 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('firebase')) {
+              return 'vendor-firebase'
+            }
+            if (
+              id.includes('vue') ||
+              id.includes('vue-router') ||
+              id.includes('vuex') ||
+              id.includes('vue3-smooth-scroll')
+            ) {
+              return 'vendor-core'
+            }
+          }
+        },
+      },
+    },
   },
 })

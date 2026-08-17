@@ -4,11 +4,7 @@
       <h1 class="admin-title">Luis Krötz CMS</h1>
       <p class="admin-subtitle">Sign in to manage portfolio content, projects & translations</p>
 
-      <button
-        class="google-auth-btn"
-        :disabled="loading"
-        @click="handleGoogleLogin"
-      >
+      <button class="google-auth-btn" :disabled="loading" @click="handleGoogleLogin">
         <svg class="google-icon" viewBox="0 0 24 24">
           <path
             fill="#4285F4"

@@ -44,19 +44,25 @@ export async function getDbInstance() {
 }
 
 // Backward compatibility proxies
-export const auth = new Proxy({}, {
-  get(target, prop) {
-    if (_authInstance) return _authInstance[prop]
-    return undefined
+export const auth = new Proxy(
+  {},
+  {
+    get(target, prop) {
+      if (_authInstance) return _authInstance[prop]
+      return undefined
+    },
   }
-})
+)
 
-export const db = new Proxy({}, {
-  get(target, prop) {
-    if (_dbInstance) return _dbInstance[prop]
-    return undefined
+export const db = new Proxy(
+  {},
+  {
+    get(target, prop) {
+      if (_dbInstance) return _dbInstance[prop]
+      return undefined
+    },
   }
-})
+)
 
 export async function signInWithGoogle() {
   const auth = await getAuthInstance()
@@ -101,7 +107,9 @@ export async function fetchFirebaseDb(path) {
       _fetchCache.set(url, cachedResult)
       return await cachedResult
     }
-  } catch (e) {}
+  } catch {
+    /* ignore */
+  }
 
   const promise = (async () => {
     try {
@@ -112,7 +120,9 @@ export async function fetchFirebaseDb(path) {
         if (data !== null && data !== undefined) {
           sessionStorage.setItem(`fb_cache_${cleanPath}`, JSON.stringify(data))
         }
-      } catch (e) {}
+      } catch {
+        /* ignore */
+      }
       return {
         exists: () => data !== null && data !== undefined,
         val: () => data,

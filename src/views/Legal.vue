@@ -3,7 +3,12 @@
     <div id="main" class="legal">
       <h2 class="internal-title">
         <span v-if="translations" v-html="translations.title" :key="'ttl1'"></span>
-        <span v-else class="skeleton--shimmer" style="display: inline-block; width: 35%; height: 1em; border-radius: 4px" :key="'ttl2'"></span>
+        <span
+          v-else
+          class="skeleton--shimmer"
+          style="display: inline-block; width: 35%; height: 1em; border-radius: 4px"
+          :key="'ttl2'"
+        ></span>
       </h2>
       <template v-if="translations">
         <section
@@ -22,11 +27,26 @@
       </template>
       <div v-else :key="'data-load'">
         <section class="internal-description" v-for="n in 3" :key="n">
-          <h3 class="internal-description-text skeleton--shimmer" style="width: 35%; height: 1.2em; border-radius: 4px; margin-bottom: 1em"></h3>
-          <p class="internal-description-text skeleton--shimmer" style="width: 100%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"></p>
-          <p class="internal-description-text skeleton--shimmer" style="width: 94%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"></p>
-          <p class="internal-description-text skeleton--shimmer" style="width: 98%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"></p>
-          <p class="internal-description-text skeleton--shimmer" style="width: 65%; height: 1.4em; border-radius: 4px"></p>
+          <h3
+            class="internal-description-text skeleton--shimmer"
+            style="width: 35%; height: 1.2em; border-radius: 4px; margin-bottom: 1em"
+          ></h3>
+          <p
+            class="internal-description-text skeleton--shimmer"
+            style="width: 100%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"
+          ></p>
+          <p
+            class="internal-description-text skeleton--shimmer"
+            style="width: 94%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"
+          ></p>
+          <p
+            class="internal-description-text skeleton--shimmer"
+            style="width: 98%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"
+          ></p>
+          <p
+            class="internal-description-text skeleton--shimmer"
+            style="width: 65%; height: 1.4em; border-radius: 4px"
+          ></p>
         </section>
       </div>
     </div>

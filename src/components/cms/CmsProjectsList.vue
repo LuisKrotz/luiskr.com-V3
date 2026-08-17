@@ -1,13 +1,32 @@
 <template>
   <div class="cms-projects-manager">
-    <div class="cms-card" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem;">
+    <div
+      class="cms-card"
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      "
+    >
       <div>
         <h2 class="cms-card-title">Project Case Studies Manager</h2>
-        <p style="color:#8892b0; font-size:0.88rem;">Manage sections, text paragraphs, and image/video carousels for all project case studies.</p>
+        <p style="color: #8892b0; font-size: 0.88rem">
+          Manage sections, text paragraphs, and image/video carousels for all project case studies.
+        </p>
       </div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <button class="cms-btn cms-btn--secondary" @click="createProjectPrompt">+ Create New Project</button>
-        <button class="cms-btn cms-btn--danger" :disabled="!selectedProjectKey" @click="deleteProject">🗑️ Delete Project</button>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap">
+        <button class="cms-btn cms-btn--secondary" @click="createProjectPrompt">
+          + Create New Project
+        </button>
+        <button
+          class="cms-btn cms-btn--danger"
+          :disabled="!selectedProjectKey"
+          @click="deleteProject"
+        >
+          🗑️ Delete Project
+        </button>
         <button class="cms-btn" :disabled="saving || !currentProject" @click="saveProjectData">
           {{ saving ? 'Saving...' : '💾 Save Project to Firebase' }}
         </button>
@@ -15,7 +34,14 @@
     </div>
 
     <!-- Controls Row: Target Language + Selected Project -->
-    <div class="cms-card" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1.2rem;">
+    <div
+      class="cms-card"
+      style="
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.2rem;
+      "
+    >
       <div class="cms-field-group">
         <label>Target Language</label>
         <select v-model="selectedLang" class="cms-select" @change="onLangOrProjectChange">
@@ -33,11 +59,18 @@
 
     <!-- Project Data Form -->
     <div v-if="currentProject" class="cms-card">
-      <h3 style="color:#66fcf1; font-size:1.1rem; font-weight:600; margin-bottom:1.2rem;">
+      <h3 style="color: #66fcf1; font-size: 1.1rem; font-weight: 600; margin-bottom: 1.2rem">
         Editing Project: [{{ selectedProjectKey.toUpperCase() }}] ({{ selectedLang.toUpperCase() }})
       </h3>
 
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem; margin-bottom:1.5rem;">
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 1.2rem;
+          margin-bottom: 1.5rem;
+        "
+      >
         <div class="cms-field-group">
           <label>Project Title</label>
           <input v-model="currentProject.title" class="cms-input" placeholder="e.g. METCHA" />
@@ -62,9 +95,23 @@
       </div>
 
       <!-- Cover Media Options -->
-      <div v-if="currentProject.cover" style="background:rgba(0,0,0,0.25); padding:1.2rem; border-radius:10px; margin-bottom:1.5rem;">
-        <h4 style="color:#fff; font-size:0.95rem; margin-bottom:1rem;">Cover Media Metadata</h4>
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1.2rem;">
+      <div
+        v-if="currentProject.cover"
+        style="
+          background: rgba(0, 0, 0, 0.25);
+          padding: 1.2rem;
+          border-radius: 10px;
+          margin-bottom: 1.5rem;
+        "
+      >
+        <h4 style="color: #fff; font-size: 0.95rem; margin-bottom: 1rem">Cover Media Metadata</h4>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+          "
+        >
           <div class="cms-field-group">
             <label>Cover Source Path</label>
             <input v-model="currentProject.cover.src" class="cms-input" />
@@ -91,70 +138,211 @@
 
       <!-- Sections Editor -->
       <div>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem; flex-wrap:wrap; gap:0.5rem;">
-          <h4 style="color:#fff; font-size:1.05rem; margin:0;">Sections, Paragraphs & Carousels</h4>
-          <button class="cms-btn cms-btn--secondary" style="padding:5px 12px; font-size:0.85rem;" @click="addSection">+ Add Section</button>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+          "
+        >
+          <h4 style="color: #fff; font-size: 1.05rem; margin: 0">
+            Sections, Paragraphs & Carousels
+          </h4>
+          <button
+            class="cms-btn cms-btn--secondary"
+            style="padding: 5px 12px; font-size: 0.85rem"
+            @click="addSection"
+          >
+            + Add Section
+          </button>
         </div>
 
         <div v-if="currentProject.sections && currentProject.sections.length">
           <div
             v-for="(sec, sIdx) in currentProject.sections"
             :key="sIdx"
-            style="background:rgba(15,20,28,0.6); border:1px solid rgba(255,255,255,0.06); padding:1.2rem; border-radius:10px; margin-bottom:1.5rem;"
+            style="
+              background: rgba(15, 20, 28, 0.6);
+              border: 1px solid rgba(255, 255, 255, 0.06);
+              padding: 1.2rem;
+              border-radius: 10px;
+              margin-bottom: 1.5rem;
+            "
           >
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:0.5rem;">
-              <span style="color:#66fcf1; font-size:0.95rem; font-weight:600;">Section #{{ sIdx + 1 }}</span>
-              <div style="display:flex; gap:8px;">
-                <button class="cms-btn cms-btn--secondary" style="padding:3px 8px; font-size:0.75rem;" @click="addCarouselBlock(sec)">+ Add Carousel Block</button>
-                <button class="cms-btn cms-btn--danger" style="padding:3px 8px; font-size:0.75rem;" @click="removeSection(sIdx)">Remove Section</button>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+              "
+            >
+              <span style="color: #66fcf1; font-size: 0.95rem; font-weight: 600">
+                Section #{{ sIdx + 1 }}
+              </span>
+              <div style="display: flex; gap: 8px">
+                <button
+                  class="cms-btn cms-btn--secondary"
+                  style="padding: 3px 8px; font-size: 0.75rem"
+                  @click="addCarouselBlock(sec)"
+                >
+                  + Add Carousel Block
+                </button>
+                <button
+                  class="cms-btn cms-btn--danger"
+                  style="padding: 3px 8px; font-size: 0.75rem"
+                  @click="removeSection(sIdx)"
+                >
+                  Remove Section
+                </button>
               </div>
             </div>
 
             <!-- Iterate through blocks inside section -->
-            <div v-for="(block, bIdx) in sec" :key="bIdx" style="margin-bottom:1rem;">
+            <div v-for="(block, bIdx) in sec" :key="bIdx" style="margin-bottom: 1rem">
               <!-- Block Type A: Text Paragraphs (array of strings) -->
-              <div v-if="isTextBlock(block)" style="background:rgba(0,0,0,0.2); padding:1rem; border-radius:8px;">
-                <label style="font-size:0.8rem; color:#8892b0; display:block; margin-bottom:0.6rem; font-weight:600;">Text Paragraphs:</label>
-                <div v-for="(p, pIdx) in block" :key="pIdx" style="display:flex; gap:10px; margin-bottom:0.8rem; align-items:flex-start;">
-                  <textarea v-model="block[pIdx]" class="cms-textarea" rows="2" style="flex:1;"></textarea>
-                  <button class="cms-btn cms-btn--danger" style="padding:6px 10px; margin-top:2px;" @click="removeParagraph(block, pIdx)">✕</button>
+              <div
+                v-if="isTextBlock(block)"
+                style="background: rgba(0, 0, 0, 0.2); padding: 1rem; border-radius: 8px"
+              >
+                <label
+                  style="
+                    font-size: 0.8rem;
+                    color: #8892b0;
+                    display: block;
+                    margin-bottom: 0.6rem;
+                    font-weight: 600;
+                  "
+                >
+                  Text Paragraphs:
+                </label>
+                <div
+                  v-for="(p, pIdx) in block"
+                  :key="pIdx"
+                  style="display: flex; gap: 10px; margin-bottom: 0.8rem; align-items: flex-start"
+                >
+                  <textarea
+                    v-model="block[pIdx]"
+                    class="cms-textarea"
+                    rows="2"
+                    style="flex: 1"
+                  ></textarea>
+                  <button
+                    class="cms-btn cms-btn--danger"
+                    style="padding: 6px 10px; margin-top: 2px"
+                    @click="removeParagraph(block, pIdx)"
+                  >
+                    ✕
+                  </button>
                 </div>
-                <button class="cms-btn cms-btn--secondary" style="padding:4px 10px; font-size:0.8rem;" @click="addParagraph(block)">
+                <button
+                  class="cms-btn cms-btn--secondary"
+                  style="padding: 4px 10px; font-size: 0.8rem"
+                  @click="addParagraph(block)"
+                >
                   + Add Paragraph
                 </button>
               </div>
 
               <!-- Block Type B: Carousel (array of media objects) -->
-              <div v-else style="background:rgba(102, 252, 241, 0.04); border:1px dashed rgba(102, 252, 241, 0.2); padding:1rem; border-radius:8px;">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
-                  <span style="color:#66fcf1; font-size:0.85rem; font-weight:600;">🎠 Carousel Block ({{ block.length }} media slides)</span>
-                  <div style="display:flex; gap:6px;">
-                    <button class="cms-btn cms-btn--secondary" style="padding:3px 8px; font-size:0.75rem;" @click="addCarouselItem(block)">+ Add Slide</button>
-                    <button class="cms-btn cms-btn--danger" style="padding:3px 8px; font-size:0.75rem;" @click="removeBlock(sec, bIdx)">Delete Carousel</button>
+              <div
+                v-else
+                style="
+                  background: rgba(102, 252, 241, 0.04);
+                  border: 1px dashed rgba(102, 252, 241, 0.2);
+                  padding: 1rem;
+                  border-radius: 8px;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 0.8rem;
+                  "
+                >
+                  <span style="color: #66fcf1; font-size: 0.85rem; font-weight: 600">
+                    🎠 Carousel Block ({{ block.length }} media slides)
+                  </span>
+                  <div style="display: flex; gap: 6px">
+                    <button
+                      class="cms-btn cms-btn--secondary"
+                      style="padding: 3px 8px; font-size: 0.75rem"
+                      @click="addCarouselItem(block)"
+                    >
+                      + Add Slide
+                    </button>
+                    <button
+                      class="cms-btn cms-btn--danger"
+                      style="padding: 3px 8px; font-size: 0.75rem"
+                      @click="removeBlock(sec, bIdx)"
+                    >
+                      Delete Carousel
+                    </button>
                   </div>
                 </div>
 
                 <!-- Carousel Items List -->
-                <div style="display:flex; flex-direction:column; gap:1rem;">
+                <div style="display: flex; flex-direction: column; gap: 1rem">
                   <div
                     v-for="(item, itemIdx) in block"
                     :key="itemIdx"
-                    style="background:rgba(11, 12, 16, 0.7); padding:1rem; border-radius:8px; border:1px solid rgba(255,255,255,0.08);"
+                    style="
+                      background: rgba(11, 12, 16, 0.7);
+                      padding: 1rem;
+                      border-radius: 8px;
+                      border: 1px solid rgba(255, 255, 255, 0.08);
+                    "
                   >
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem;">
-                      <span style="color:#8892b0; font-size:0.8rem; font-weight:600;">Slide #{{ itemIdx + 1 }}</span>
-                      <button class="cms-btn cms-btn--danger" style="padding:2px 6px; font-size:0.75rem;" @click="removeCarouselItem(block, itemIdx)">✕ Delete Slide</button>
+                    <div
+                      style="
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 0.8rem;
+                      "
+                    >
+                      <span style="color: #8892b0; font-size: 0.8rem; font-weight: 600">
+                        Slide #{{ itemIdx + 1 }}
+                      </span>
+                      <button
+                        class="cms-btn cms-btn--danger"
+                        style="padding: 2px 6px; font-size: 0.75rem"
+                        @click="removeCarouselItem(block, itemIdx)"
+                      >
+                        ✕ Delete Slide
+                      </button>
                     </div>
 
-                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:0.9rem;">
+                    <div
+                      style="
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                        gap: 0.9rem;
+                      "
+                    >
                       <div class="cms-field-group">
                         <label>Media Source Path</label>
-                        <input v-model="item.src" class="cms-input" placeholder="e.g. pages/demo-screenshot" />
+                        <input
+                          v-model="item.src"
+                          class="cms-input"
+                          placeholder="e.g. pages/demo-screenshot"
+                        />
                       </div>
 
                       <div class="cms-field-group">
                         <label>Accessibility Label</label>
-                        <input v-model="item.label" class="cms-input" placeholder="Image description..." />
+                        <input
+                          v-model="item.label"
+                          class="cms-input"
+                          placeholder="Image description..."
+                        />
                       </div>
 
                       <div class="cms-field-group">
@@ -229,15 +417,41 @@ export default {
   props: {
     languages: {
       type: Array,
-      default: () => ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln']
-    }
+      default: () => ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln'],
+    },
   },
   data() {
     return {
       selectedLang: 'en',
       selectedProjectKey: 'aboutmarco',
-      defaultProjectKeys: ['aboutmarco', 'cecerele', 'cicb', 'coza', 'melissa', 'mini-melissa', 'metcha', 'mor', 'nathalia-bond', 'sage', 'transa', 'vibra'],
-      projectKeys: ['aboutmarco', 'cecerele', 'cicb', 'coza', 'melissa', 'mini-melissa', 'metcha', 'mor', 'nathalia-bond', 'sage', 'transa', 'vibra'],
+      defaultProjectKeys: [
+        'aboutmarco',
+        'cecerele',
+        'cicb',
+        'coza',
+        'melissa',
+        'mini-melissa',
+        'metcha',
+        'mor',
+        'nathalia-bond',
+        'sage',
+        'transa',
+        'vibra',
+      ],
+      projectKeys: [
+        'aboutmarco',
+        'cecerele',
+        'cicb',
+        'coza',
+        'melissa',
+        'mini-melissa',
+        'metcha',
+        'mor',
+        'nathalia-bond',
+        'sage',
+        'transa',
+        'vibra',
+      ],
       currentProject: null,
       saving: false,
     }
@@ -281,15 +495,13 @@ export default {
           this.currentProject = {
             title: this.selectedProjectKey.toUpperCase(),
             folder: `${this.selectedProjectKey}/`,
-            sections: [
-              [["First paragraph description of project."]]
-            ],
+            sections: [[['First paragraph description of project.']]],
             cover: {
-              src: "cover",
-              label: "Project cover",
+              src: 'cover',
+              label: 'Project cover',
               isVideo: false,
-              size: [1920, 1080]
-            }
+              size: [1920, 1080],
+            },
           }
         }
       } catch (err) {
@@ -299,18 +511,22 @@ export default {
 
     async deleteProject() {
       // 1st Confirmation
-      const confirm1 = confirm(`⚠️ [1st CONFIRMATION]: Are you sure you want to delete project [${this.selectedProjectKey.toUpperCase()}] from [${this.selectedLang.toUpperCase()}]?`)
+      const confirm1 = confirm(
+        `⚠️ [1st CONFIRMATION]: Are you sure you want to delete project [${this.selectedProjectKey.toUpperCase()}] from [${this.selectedLang.toUpperCase()}]?`
+      )
       if (!confirm1) return
 
       // 2nd Confirmation
-      const confirm2 = confirm(`🚨 [2nd CONFIRMATION]: This will PERMANENTLY REMOVE project [${this.selectedProjectKey.toUpperCase()}]. An automatic backup will be created before deletion. Proceed?`)
+      const confirm2 = confirm(
+        `🚨 [2nd CONFIRMATION]: This will PERMANENTLY REMOVE project [${this.selectedProjectKey.toUpperCase()}]. An automatic backup will be created before deletion. Proceed?`
+      )
       if (!confirm2) return
 
       try {
         const db = await getDbInstance()
         const path = `translations/${this.selectedLang}/projects/${this.selectedProjectKey}`
         const snap = await get(child(ref(db), path))
-        
+
         if (snap.exists()) {
           // Backup project snapshot under admin/backups in Firebase Realtime Database
           const backupTimestamp = Date.now()
@@ -319,7 +535,7 @@ export default {
             deletedAt: new Date().toISOString(),
             lang: this.selectedLang,
             projectKey: this.selectedProjectKey,
-            data: snap.val()
+            data: snap.val(),
           })
 
           // Download JSON backup file automatically in browser
@@ -334,8 +550,11 @@ export default {
 
         // Delete project from database
         await remove(ref(db, path))
-        this.$emit('notify', `Project [${this.selectedProjectKey.toUpperCase()}] backed up and deleted!`)
-        
+        this.$emit(
+          'notify',
+          `Project [${this.selectedProjectKey.toUpperCase()}] backed up and deleted!`
+        )
+
         await this.fetchProjectKeys()
         if (this.projectKeys.length) {
           this.selectedProjectKey = this.projectKeys[0]
@@ -363,9 +582,7 @@ export default {
 
     addSection() {
       if (!this.currentProject.sections) this.currentProject.sections = []
-      this.currentProject.sections.push([
-        ["New section paragraph."]
-      ])
+      this.currentProject.sections.push([['New section paragraph.']])
     },
 
     removeSection(idx) {
@@ -382,8 +599,8 @@ export default {
           canExpand: true,
           isVideo: false,
           size: [1920, 1080],
-          class: "landscape"
-        }
+          class: 'landscape',
+        },
       ])
     },
 
@@ -400,7 +617,7 @@ export default {
         canExpand: true,
         isVideo: false,
         size: [1920, 1080],
-        class: ""
+        class: '',
       })
     },
 
@@ -418,7 +635,10 @@ export default {
     async createProjectPrompt() {
       const newKey = prompt("Enter new project key slug (e.g. 'my-new-project'):")
       if (newKey && newKey.trim()) {
-        const slug = newKey.trim().toLowerCase().replace(/[^a-z0-9-]/g, '')
+        const slug = newKey
+          .trim()
+          .toLowerCase()
+          .replace(/[^a-z0-9-]/g, '')
         if (!this.projectKeys.includes(slug)) {
           this.projectKeys.push(slug)
         }
@@ -433,7 +653,10 @@ export default {
         const db = await getDbInstance()
         const path = `translations/${this.selectedLang}/projects/${this.selectedProjectKey}`
         await set(ref(db, path), this.currentProject)
-        this.$emit('notify', `Project [${this.selectedProjectKey.toUpperCase()}] saved for [${this.selectedLang.toUpperCase()}]!`)
+        this.$emit(
+          'notify',
+          `Project [${this.selectedProjectKey.toUpperCase()}] saved for [${this.selectedLang.toUpperCase()}]!`
+        )
         await this.fetchProjectKeys()
       } catch (err) {
         console.error('Error saving project data:', err)
@@ -441,7 +664,7 @@ export default {
       } finally {
         this.saving = false
       }
-    }
-  }
+    },
+  },
 }
 </script>

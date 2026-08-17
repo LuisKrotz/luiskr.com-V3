@@ -1,9 +1,12 @@
 // ── CMS & Admin Theme System ─────────────────────────────────────────
 
-.cms-container, .admin-login-wrapper {
+.cms-container,
+.admin-login-wrapper {
   box-sizing: border-box;
 
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 }
@@ -12,7 +15,11 @@
   min-height: 100vh;
   background-color: #0b0c10;
   color: #e0e6ed;
-  font-family: 'Raleway', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Raleway',
+    system-ui,
+    -apple-system,
+    sans-serif;
   display: flex;
   flex-direction: column;
 }
@@ -241,7 +248,10 @@
       opacity: 0;
       visibility: hidden;
       transform: translateY(4px);
-      transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+      transition:
+        opacity 0.15s ease,
+        transform 0.15s ease,
+        visibility 0.15s ease;
       pointer-events: none;
 
       &::before {
@@ -380,7 +390,9 @@
   }
 }
 
-.cms-input, .cms-select, .cms-textarea {
+.cms-input,
+.cms-select,
+.cms-textarea {
   width: 100%;
   background: rgba(11, 12, 16, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.15);

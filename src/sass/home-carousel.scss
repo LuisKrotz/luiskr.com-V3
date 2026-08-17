@@ -3,11 +3,11 @@
 @import '_fonts';
 @import '_placeholders';
 
-$hc-btn-size:    to-rem($space-3xl);
-$hc-dot-size:    to-rem($space-md);
-$hc-dot-pill:    to-rem($space-xl);
+$hc-btn-size: to-rem($space-3xl);
+$hc-dot-size: to-rem($space-md);
+$hc-dot-pill: to-rem($space-xl);
 $hc-ring-stroke: 2.5px;
-$hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
+$hc-peek: 10vw; // how much adjacent slides bleed in (both sides)
 
 // ── Base container ───────────────────────────────────────────────────────────
 .hc {
@@ -17,13 +17,15 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
   // ── Scroll track ─────────────────────────────────────────────────────────
   &-track {
     display: flex;
-    align-items: stretch;  // equal height for all slides
+    align-items: stretch; // equal height for all slides
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    &::-webkit-scrollbar { display: none; }
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &-slide {
@@ -47,7 +49,9 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     gap: to-rem($space-lg);
   }
 
-  &-spacer { flex: 1; }
+  &-spacer {
+    flex: 1;
+  }
 
   // ── Dots ─────────────────────────────────────────────────────────────────
   &-dots {
@@ -65,19 +69,23 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     @extend %RESETBTN;
 
     display: block;
-    height:       $hc-dot-size;
-    width:        $hc-dot-size;
+    height: $hc-dot-size;
+    width: $hc-dot-size;
     border-radius: $hc-dot-size;
     background: var(--text-muted);
     cursor: pointer;
-    transition: width .25s ease, background .25s ease;
+    transition:
+      width 0.25s ease,
+      background 0.25s ease;
 
     &--active {
-      width:      $hc-dot-pill;
+      width: $hc-dot-pill;
       background: var(--text-primary);
     }
 
-    &:hover:not(&--active) { background: var(--text-secondary); }
+    &:hover:not(&--active) {
+      background: var(--text-secondary);
+    }
   }
 
   // ── Buttons ──────────────────────────────────────────────────────────────
@@ -88,25 +96,29 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     display: flex;
     align-items: center;
     justify-content: center;
-    width:  to-rem(40);
+    width: to-rem(40);
     height: to-rem(40);
     flex-shrink: 0;
     cursor: pointer;
     color: var(--text-primary);
-    transition: color .2s ease, opacity .2s ease;
+    transition:
+      color 0.2s ease,
+      opacity 0.2s ease;
 
     @include layout-1024() {
-      width:  to-rem(48);
+      width: to-rem(48);
       height: to-rem(48);
     }
 
     @include layout-1440() {
-      width:  $hc-btn-size;
+      width: $hc-btn-size;
       height: $hc-btn-size;
     }
 
     &:hover,
-    &:focus { opacity: 0.7; }
+    &:focus {
+      opacity: 0.7;
+    }
 
     &-arrow {
       font-size: to-rem($space-lg);
@@ -134,7 +146,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     &-ring {
       position: absolute;
       inset: 0;
-      width:  100%;
+      width: 100%;
       height: 100%;
       transform: rotate(-90deg);
       pointer-events: none;
@@ -169,8 +181,12 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
   .hc-track {
     gap: to-rem($space-xl);
 
-    @include layout-768()  { gap: to-rem($space-2xl); }
-    @include layout-1440() { gap: to-rem($space-3xl); }
+    @include layout-768() {
+      gap: to-rem($space-2xl);
+    }
+    @include layout-1440() {
+      gap: to-rem($space-3xl);
+    }
   }
 
   .hc-slide {
@@ -179,10 +195,22 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     box-sizing: border-box;
     position: relative;
 
-    @include layout-768()  { width: 82vw; flex-basis: 82vw; }
-    @include layout-1024() { width: 78vw; flex-basis: 78vw; }
-    @include layout-1440() { width: 72vw; flex-basis: 72vw; }
-    @include layout-2560() { width: 66vw; flex-basis: 66vw; }
+    @include layout-768() {
+      width: 82vw;
+      flex-basis: 82vw;
+    }
+    @include layout-1024() {
+      width: 78vw;
+      flex-basis: 78vw;
+    }
+    @include layout-1440() {
+      width: 72vw;
+      flex-basis: 72vw;
+    }
+    @include layout-2560() {
+      width: 66vw;
+      flex-basis: 66vw;
+    }
   }
 
   // ── Controls: vertically aligned with the cover image ──────────────────
@@ -202,26 +230,37 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     justify-content: space-between;
     padding: 0 to-rem($space-sm);
 
-    @include layout-768() { padding: 0 to-rem($space-lg); }
+    @include layout-768() {
+      padding: 0 to-rem($space-lg);
+    }
   }
 
   .hc-btn {
     pointer-events: all;
     color: var(--white);
-    background: rgba(0, 0, 0, .35);
+    background: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(4px);
     border-radius: 50%;
-    transition: background .2s ease, color .2s ease;
-    @media (max-width: 768px) { backdrop-filter: none; background: rgba(0,0,0,.55); }
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
+    @media (max-width: 768px) {
+      backdrop-filter: none;
+      background: rgba(0, 0, 0, 0.55);
+    }
 
     &:hover,
     &:focus {
       color: var(--white);
-      background: rgba(0, 0, 0, .65);
+      background: rgba(0, 0, 0, 0.65);
     }
 
-    &-ring-fill  { stroke: rgba(255, 255, 255, .8); }
-    &-ring-track { stroke: rgba(255, 255, 255, .25); }
+    &-ring-fill {
+      stroke: rgba(255, 255, 255, 0.8);
+    }
+    &-ring-track {
+      stroke: rgba(255, 255, 255, 0.25);
+    }
   }
 
   // ── Cover image ──────────────────────────────────────────────────────────
@@ -246,20 +285,27 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
       aspect-ratio: 16 / 7;
       max-height: var(--cover-max-h, 80vh);
 
-      background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
+      background: linear-gradient(
+        90deg,
+        var(--skel-bg-1) 25%,
+        var(--skel-bg-2) 50%,
+        var(--skel-bg-3) 75%
+      );
       background-size: 200% 100%;
       animation: skeleton-shimmer 2.4s ease-in-out infinite;
     }
   }
 
-    // ── Label: hidden on adjacent, fades in only on active slide ─────────────
+  // ── Label: hidden on adjacent, fades in only on active slide ─────────────
   // No %MAXAREA — the label sits inside the slide, so text aligns with the
   // slide's left edge. The archive title is aligned separately.
   .hc-label {
     padding: to-rem($space-sm) 0 to-rem($space-xl);
     opacity: 0;
     visibility: hidden;
-    transition: opacity .4s ease, visibility .4s;
+    transition:
+      opacity 0.4s ease,
+      visibility 0.4s;
     pointer-events: none;
 
     &-title {
@@ -289,7 +335,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
       color: var(--grey);
       font-weight: 700;
       white-space: nowrap;
-      transition: color .2s ease;
+      transition: color 0.2s ease;
       margin: to-rem($space-xl) auto 0;
       width: fit-content;
       opacity: 0;
@@ -302,7 +348,9 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
         position: absolute;
         width: to-rem($space-md);
         height: to-rem($space-md);
-        transition: width .25s ease, height .25s ease;
+        transition:
+          width 0.25s ease,
+          height 0.25s ease;
       }
 
       &::before {
@@ -342,7 +390,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
 
   // Action button appears after the description animation finishes
   .hc-slide--active .hc-label-action {
-    animation: action-appear .4s ease-out forwards;
+    animation: action-appear 0.4s ease-out forwards;
     animation-delay: var(--action-delay, 0ms);
   }
 
@@ -381,9 +429,17 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     justify-content: space-between;
     padding: 0 to-rem($space-xs);
 
-    @include layout-768()  { padding: 0 to-rem($space-sm); height: 60%; }
-    @include layout-1024() { height: 100%; }
-    @include layout-1440() { padding: 0 to-rem($space-md); height: 100%; }
+    @include layout-768() {
+      padding: 0 to-rem($space-sm);
+      height: 60%;
+    }
+    @include layout-1024() {
+      height: 100%;
+    }
+    @include layout-1440() {
+      padding: 0 to-rem($space-md);
+      height: 100%;
+    }
   }
 
   .hc-btn {
@@ -392,10 +448,15 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     background: var(--bg-primary);
     border: 1px solid var(--border-color);
     backdrop-filter: blur(4px);
-    @media (max-width: 768px) { backdrop-filter: none; }
+    @media (max-width: 768px) {
+      backdrop-filter: none;
+    }
     border-radius: 50%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
 
     &:hover,
     &:focus {
@@ -405,7 +466,9 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     }
   }
 
-  .hc-spacer { flex: 1; }
+  .hc-spacer {
+    flex: 1;
+  }
 
   // ── Track ──────────────────────────────────────────────────────────────────
   .hc-track {
@@ -414,8 +477,12 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     box-sizing: border-box;
     width: 100%;
 
-    @include layout-768()  { gap: to-rem($space-xl); }
-    @include layout-1440() { gap: to-rem($space-2xl); }
+    @include layout-768() {
+      gap: to-rem($space-xl);
+    }
+    @include layout-1440() {
+      gap: to-rem($space-2xl);
+    }
   }
 
   // ── Slide widths: ~60% of the carousel container ──────────────────────────
@@ -427,11 +494,31 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     // Padding so the card shadow isn't clipped by the track overflow
     padding: to-rem($space-sm);
 
-    @include layout-540()  { width: 70%; flex-basis: 70%; max-width: 70%; }
-    @include layout-768()  { width: 62%; flex-basis: 62%; max-width: 62%; }
-    @include layout-1024() { width: 60%; flex-basis: 60%; max-width: 60%; }
-    @include layout-1440() { width: 60%; flex-basis: 60%; max-width: 60%; }
-    @include layout-2560() { width: 58%; flex-basis: 58%; max-width: 58%; }
+    @include layout-540() {
+      width: 70%;
+      flex-basis: 70%;
+      max-width: 70%;
+    }
+    @include layout-768() {
+      width: 62%;
+      flex-basis: 62%;
+      max-width: 62%;
+    }
+    @include layout-1024() {
+      width: 60%;
+      flex-basis: 60%;
+      max-width: 60%;
+    }
+    @include layout-1440() {
+      width: 60%;
+      flex-basis: 60%;
+      max-width: 60%;
+    }
+    @include layout-2560() {
+      width: 58%;
+      flex-basis: 58%;
+      max-width: 58%;
+    }
   }
 
   // ── Card styling ──────────────────────────────────────────────────────────
@@ -445,7 +532,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
     box-sizing: border-box;
     border-radius: to-rem($space-lg);
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
     &-cover {
       width: 100%;
@@ -457,10 +544,12 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
         width: 100%;
         height: auto;
         display: block;
-        transition: opacity .3s ease;
+        transition: opacity 0.3s ease;
 
         .hc-card:hover &,
-        .hc-card:focus & { opacity: .9; }
+        .hc-card:focus & {
+          opacity: 0.9;
+        }
       }
 
       // Reflected image below the main cover
@@ -479,7 +568,12 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
 
       &--skel {
         padding-top: 56.25%;
-        background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
+        background: linear-gradient(
+          90deg,
+          var(--skel-bg-1) 25%,
+          var(--skel-bg-2) 50%,
+          var(--skel-bg-3) 75%
+        );
         background-size: 200% 100%;
         animation: skeleton-shimmer 2.4s ease-in-out infinite;
       }
@@ -490,7 +584,9 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
       padding: to-rem($space-md) to-rem($space-lg) to-rem($space-sm);
       opacity: 0;
       visibility: hidden;
-      transition: opacity .4s ease, visibility .4s;
+      transition:
+        opacity 0.4s ease,
+        visibility 0.4s;
       pointer-events: none;
       display: flex;
       flex-direction: column;
@@ -510,7 +606,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
         @extend .txt-sm;
 
         font-weight: 100;
-        opacity: .7;
+        opacity: 0.7;
       }
     }
 
@@ -528,7 +624,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
       color: var(--grey);
       font-weight: 700;
       white-space: nowrap;
-      transition: color .2s ease;
+      transition: color 0.2s ease;
       margin: 0 auto to-rem($space-md);
       margin-top: auto; // pushes to bottom of card
       width: fit-content;
@@ -542,7 +638,9 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
         position: absolute;
         width: to-rem($space-md);
         height: to-rem($space-md);
-        transition: width .25s ease, height .25s ease;
+        transition:
+          width 0.25s ease,
+          height 0.25s ease;
       }
 
       &::before {
@@ -583,7 +681,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
 
   // Action button appears after the description animation finishes
   .hc-slide--active .hc-card-action {
-    animation: action-appear .4s ease-out forwards;
+    animation: action-appear 0.4s ease-out forwards;
     animation-delay: var(--action-delay, 0ms);
   }
 }
@@ -619,20 +717,24 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
   }
 
   // Hide arrows in awards — only dots
-  .hc-btn { display: none; }
+  .hc-btn {
+    display: none;
+  }
 
   // Vertical dots — active is same size but white (scoped to awards only)
   .hc-dot {
-    background: rgba(255, 255, 255, .3);
-    width:  $hc-dot-size;
+    background: rgba(255, 255, 255, 0.3);
+    width: $hc-dot-size;
     height: $hc-dot-size;
     border-radius: 50%;
 
     &--active {
-      width:  $hc-dot-size;
+      width: $hc-dot-size;
       background: var(--white);
     }
-    &:hover:not(&--active) { background: rgba(255, 255, 255, .55); }
+    &:hover:not(&--active) {
+      background: rgba(255, 255, 255, 0.55);
+    }
   }
 
   // Dots container — vertical, no max-width constraint
@@ -670,7 +772,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
       align-items: center;
       justify-content: center;
       font-size: to-rem($space-3xl);
-      width:  to-rem($space-5xl);
+      width: to-rem($space-5xl);
       height: to-rem($space-5xl);
       flex-shrink: 0;
     }
@@ -688,7 +790,7 @@ $hc-peek:        10vw; // how much adjacent slides bleed in (both sides)
       @extend .txt-xs;
 
       font-weight: 100;
-      opacity: .7;
+      opacity: 0.7;
       max-width: to-rem($space-7xl);
     }
   }

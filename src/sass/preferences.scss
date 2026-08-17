@@ -61,7 +61,9 @@
   padding: to-rem($space-2xs) to-rem($space-xs);
   border-radius: to-rem($space-xs);
   line-height: 1;
-  transition: opacity 0.2s ease, background 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease;
 
   &:hover,
   &:focus {
@@ -169,11 +171,16 @@
     object-fit: cover;
     border-radius: 0;
 
-    &:first-child { border-radius: to-rem(3) 0 0 to-rem(3); object-position: left center; }
-    &:last-child  { border-radius: 0 to-rem(3) to-rem(3) 0; object-position: right center; }
+    &:first-child {
+      border-radius: to-rem(3) 0 0 to-rem(3);
+      object-position: left center;
+    }
+    &:last-child {
+      border-radius: 0 to-rem(3) to-rem(3) 0;
+      object-position: right center;
+    }
   }
 }
-
 
 .pref-option-label {
   font-family: 'Raleway', sans-serif;
@@ -199,9 +206,9 @@
 
   position: relative;
   display: inline-block;
-  padding: to-rem($space-sm) to-rem($space-2xl);  // taller + wider for all lang labels
-  min-width: to-rem(160);                          // never squishes in DE/PT/ES
-  margin-top: to-rem($space-lg);                   // breathing room above
+  padding: to-rem($space-sm) to-rem($space-2xl); // taller + wider for all lang labels
+  min-width: to-rem(160); // never squishes in DE/PT/ES
+  margin-top: to-rem($space-lg); // breathing room above
   color: var(--text-primary);
   background: transparent;
   font-family: 'Raleway', sans-serif;
@@ -210,7 +217,9 @@
   letter-spacing: to-rem(1);
   cursor: pointer;
   white-space: nowrap;
-  transition: color 0.2s ease, opacity 0.2s ease;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
 
   // Animated corner borders (same style & animation as Check Out button)
   &::before,
@@ -219,7 +228,9 @@
     position: absolute;
     width: to-rem($space-md);
     height: to-rem($space-md);
-    transition: width 0.25s cubic-bezier(0.22, 1, 0.36, 1), height 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    transition:
+      width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      height 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   &::before {

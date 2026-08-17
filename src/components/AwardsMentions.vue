@@ -73,7 +73,7 @@ export default {
     legalLinks() {
       const all = this.$store.getters.getlang?.components?.['legal-footer']?.links || []
       // Skip the first item (Home) — keep only legal page links
-      return all.filter(l => l.link && !l.link.match(/^\/[a-z]{0,3}\/?$/))
+      return all.filter((l) => l.link && !l.link.match(/^\/[a-z]{0,3}\/?$/))
     },
   },
 

@@ -9,11 +9,9 @@ const app = createApp(App)
 
 app.config.globalProperties.$sharedData = window.globals
 
-app
-  .use(VueSmoothScroll)
-  .use(store)
-  .use(router)
-  .mount('#app')
+app.use(VueSmoothScroll).use(store).use(router).mount('#app')
+
+import { app as firebaseApp } from './firebase.js'
 
 // Defer analytics initialization until user interaction or timeout
 function scheduleFirebaseAnalytics() {
@@ -21,9 +19,9 @@ function scheduleFirebaseAnalytics() {
     window.removeEventListener('scroll', trigger)
     window.removeEventListener('touchstart', trigger)
     window.removeEventListener('mousemove', trigger)
-    import('./firebase.js').then(({ app: firebaseApp }) => {
-      import('firebase/analytics').then(({ getAnalytics }) => getAnalytics(firebaseApp))
-    }).catch(() => {})
+    import('firebase/analytics')
+      .then(({ getAnalytics }) => getAnalytics(firebaseApp))
+      .catch(() => {})
   }
   window.addEventListener('scroll', trigger, { passive: true, once: true })
   window.addEventListener('touchstart', trigger, { passive: true, once: true })
@@ -32,4 +30,3 @@ function scheduleFirebaseAnalytics() {
 }
 
 scheduleFirebaseAnalytics()
-

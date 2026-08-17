@@ -27,7 +27,9 @@
     color: #515151;
     text-decoration: none;
     cursor: pointer;
-    transition: opacity 0.3s ease-in, color 0.2s ease;
+    transition:
+      opacity 0.3s ease-in,
+      color 0.2s ease;
     position: relative;
 
     &:hover,
@@ -80,7 +82,9 @@
   &-lang-btn {
     letter-spacing: 0.04em;
     opacity: 0.45;
-    transition: opacity 0.2s ease, color 0.2s ease;
+    transition:
+      opacity 0.2s ease,
+      color 0.2s ease;
 
     &:hover,
     &:focus {
@@ -127,7 +131,8 @@
 .pref-options--4 {
   grid-template-columns: repeat(4, 1fr);
 
-  @media (max-width: $bk-540) { // 540px
+  @media (max-width: $bk-540) {
+    // 540px
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -137,11 +142,15 @@
 }
 
 // ── Breakpoint: below 960px ───────────────────────────────────────────────────
-@media (max-width: $bk-960) { // 960px
-  .nav-desktop     { display: none; }
-  .nav-mobile-strip { display: flex; }
+@media (max-width: $bk-960) {
+  // 960px
+  .nav-desktop {
+    display: none;
+  }
+  .nav-mobile-strip {
+    display: flex;
+  }
 }
-
 
 // When modal is open, the nav shows these instead of page links.
 .modal-nav-title {
@@ -155,7 +164,7 @@
   overflow: hidden;
   white-space: nowrap;
   max-width: 60%;
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .modal-nav-close {
@@ -167,7 +176,7 @@
   cursor: pointer;
   position: relative;
   padding: to-rem($space-xs) to-rem($space-md);
-  transition: color .2s ease;
+  transition: color 0.2s ease;
 
   &::before,
   &::after {
@@ -175,7 +184,9 @@
     position: absolute;
     width: to-rem($space-md);
     height: to-rem($space-md);
-    transition: width .2s ease, height .2s ease;
+    transition:
+      width 0.2s ease,
+      height 0.2s ease;
   }
 
   &::before {
@@ -285,7 +296,9 @@
       padding: to-rem($space-xs) to-rem($space-lg);
       color: rgba(255, 255, 255, 0.7); // Always light on always-dark banner bg
       background: transparent;
-      transition: color 0.2s ease, background 0.2s ease;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
       white-space: nowrap;
 
       // Animated corner borders
@@ -295,7 +308,9 @@
         position: absolute;
         width: to-rem($space-xs);
         height: to-rem($space-xs);
-        transition: width 0.2s ease, height 0.2s ease;
+        transition:
+          width 0.2s ease,
+          height 0.2s ease;
       }
 
       &::before {
@@ -426,14 +441,16 @@
   width: 0%;
   background: var(--grey);
   z-index: 9999;
-  transition: width .1s ease, opacity .3s ease;
+  transition:
+    width 0.1s ease,
+    opacity 0.3s ease;
   opacity: 0;
   pointer-events: none;
 
   &--active {
     width: 70%;
     opacity: 1;
-    transition: width 8s cubic-bezier(.04, .6, .2, 1);
+    transition: width 8s cubic-bezier(0.04, 0.6, 0.2, 1);
   }
 }
 
@@ -442,33 +459,93 @@
 
 // Fade
 .fade-enter-active,
-.fade-leave-active { transition: opacity .25s ease; }
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
 .fade-enter-from,
-.fade-leave-to { opacity: 0; }
+.fade-leave-to {
+  opacity: 0;
+}
 
 // Slide left: new page enters from right
-.slide-left-enter-active { transition: opacity .3s ease, transform .3s ease; }
-.slide-left-leave-active { transition: opacity .25s ease, transform .25s ease; }
-.slide-left-enter-from { opacity: 0; transform: translateX(to-rem(48)); }
-.slide-left-leave-to { opacity: 0; transform: translateX(to-rem(-32)); }
+.slide-left-enter-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.slide-left-leave-active {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+.slide-left-enter-from {
+  opacity: 0;
+  transform: translateX(to-rem(48));
+}
+.slide-left-leave-to {
+  opacity: 0;
+  transform: translateX(to-rem(-32));
+}
 
 // Slide right: new page enters from left
-.slide-right-enter-active { transition: opacity .3s ease, transform .3s ease; }
-.slide-right-leave-active { transition: opacity .25s ease, transform .25s ease; }
-.slide-right-enter-from { opacity: 0; transform: translateX(to-rem(-48)); }
-.slide-right-leave-to { opacity: 0; transform: translateX(to-rem(32)); }
+.slide-right-enter-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.slide-right-leave-active {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+.slide-right-enter-from {
+  opacity: 0;
+  transform: translateX(to-rem(-48));
+}
+.slide-right-leave-to {
+  opacity: 0;
+  transform: translateX(to-rem(32));
+}
 
 // Slide up: new page enters from bottom
-.slide-up-enter-active { transition: opacity .35s ease, transform .35s ease; }
-.slide-up-leave-active { transition: opacity .25s ease, transform .25s ease; }
-.slide-up-enter-from { opacity: 0; transform: translateY(to-rem(48)); }
-.slide-up-leave-to { opacity: 0; transform: translateY(to-rem(-24)); }
+.slide-up-enter-active {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+.slide-up-leave-active {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(to-rem(48));
+}
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(to-rem(-24));
+}
 
 // Slide down: when leaving About/Legal
-.slide-down-enter-active { transition: opacity .3s ease, transform .3s ease; }
-.slide-down-leave-active { transition: opacity .25s ease, transform .25s ease; }
-.slide-down-enter-from { opacity: 0; transform: translateY(to-rem(-32)); }
-.slide-down-leave-to { opacity: 0; transform: translateY(to-rem(32)); }
+.slide-down-enter-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.slide-down-leave-active {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+.slide-down-enter-from {
+  opacity: 0;
+  transform: translateY(to-rem(-32));
+}
+.slide-down-leave-to {
+  opacity: 0;
+  transform: translateY(to-rem(32));
+}
 
 // ── Global Reduced Motion Override ─────────────────────────────────────────
 html.reduced-motion,

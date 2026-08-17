@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     clickortap: '',
-    inputMethod: 'ontouchstart' in window && !matchMedia('(pointer: fine)').matches ? 'touch' : 'pointer',
+    inputMethod:
+      'ontouchstart' in window && !matchMedia('(pointer: fine)').matches ? 'touch' : 'pointer',
     actionTextMap: { click: 'Click', tap: 'Tap' },
     has_touch: 'ontouchstart' in window && !matchMedia('(pointer: fine)').matches,
     lang: {
@@ -14,7 +15,7 @@ export default createStore({
         msg2: '...',
         msg3: 'Gathering some data on the server ... Hold on just a second while the Websockets are working!',
       },
-      locale: localStorage.getItem('locale') || 'en',  // persist across refreshes
+      locale: localStorage.getItem('locale') || 'en', // persist across refreshes
       pagesPath: '/pages/',
       projectPath: '/projects/',
     },
@@ -71,7 +72,7 @@ export default createStore({
       this.commit('applyTheme')
     },
     applyTheme(state) {
-      let isDark = false
+      let isDark
       if (state.theme === 'dark') {
         isDark = true
       } else if (state.theme === 'light') {
@@ -122,7 +123,8 @@ export default createStore({
           click: payload.click || state.actionTextMap.click,
           tap: payload.tap || state.actionTextMap.tap,
         }
-        state.clickortap = state.inputMethod === 'touch' ? state.actionTextMap.tap : state.actionTextMap.click
+        state.clickortap =
+          state.inputMethod === 'touch' ? state.actionTextMap.tap : state.actionTextMap.click
       }
     },
     setMentions(state, payload) {
@@ -152,10 +154,18 @@ export default createStore({
 
       // Update loading messages for the new locale
       const msgs = {
-        br: { msg1: 'Carregando', msg2: '...', msg3: 'Buscando dados no servidor… Aguarde um momento!' },
-        es: { msg1: 'Cargando',   msg2: '...', msg3: '¡Obteniendo datos del servidor… Un momento!' },
-        de: { msg1: 'Lädt',       msg2: '...', msg3: 'Daten werden abgerufen… Bitte warten!' },
-        en: { msg1: 'Loading',    msg2: '...', msg3: 'Gathering some data on the server … Hold on just a second!' },
+        br: {
+          msg1: 'Carregando',
+          msg2: '...',
+          msg3: 'Buscando dados no servidor… Aguarde um momento!',
+        },
+        es: { msg1: 'Cargando', msg2: '...', msg3: '¡Obteniendo datos del servidor… Un momento!' },
+        de: { msg1: 'Lädt', msg2: '...', msg3: 'Daten werden abgerufen… Bitte warten!' },
+        en: {
+          msg1: 'Loading',
+          msg2: '...',
+          msg3: 'Gathering some data on the server … Hold on just a second!',
+        },
       }
       Object.assign(state.lang.loading, msgs[payload] || msgs.en)
     },
@@ -193,7 +203,7 @@ export default createStore({
     getlang: (state) => {
       return state.lang
     },
-    getLang: (state) => state.lang.locale,  // shorthand: just the locale string
+    getLang: (state) => state.lang.locale, // shorthand: just the locale string
     getMarqueeAmount: () => 0,
     getModal: (state) => {
       return state.modalObject

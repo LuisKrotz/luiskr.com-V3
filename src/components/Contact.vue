@@ -2,7 +2,11 @@
   <footer class="contact">
     <h2 id="contact" class="contact-title" ref="contact">
       <span v-if="translations" v-html="translations.title"></span>
-      <span v-else class="skeleton--shimmer" style="display: inline-block; width: 30%; height: 1em; border-radius: 4px"></span>
+      <span
+        v-else
+        class="skeleton--shimmer"
+        style="display: inline-block; width: 30%; height: 1em; border-radius: 4px"
+      ></span>
     </h2>
 
     <div class="contact-social" v-if="translations">
@@ -12,13 +16,25 @@
       </template>
     </div>
     <div class="contact-social" v-else>
-      <span class="contact-social-link skeleton--shimmer" style="display: inline-block; width: 45px; height: 1em; border-radius: 2px"></span>
+      <span
+        class="contact-social-link skeleton--shimmer"
+        style="display: inline-block; width: 45px; height: 1em; border-radius: 2px"
+      ></span>
       <span class="contact-social-separator">•</span>
-      <span class="contact-social-link skeleton--shimmer" style="display: inline-block; width: 55px; height: 1em; border-radius: 2px"></span>
+      <span
+        class="contact-social-link skeleton--shimmer"
+        style="display: inline-block; width: 55px; height: 1em; border-radius: 2px"
+      ></span>
       <span class="contact-social-separator">•</span>
-      <span class="contact-social-link skeleton--shimmer" style="display: inline-block; width: 70px; height: 1em; border-radius: 2px"></span>
+      <span
+        class="contact-social-link skeleton--shimmer"
+        style="display: inline-block; width: 70px; height: 1em; border-radius: 2px"
+      ></span>
       <span class="contact-social-separator">•</span>
-      <span class="contact-social-link skeleton--shimmer" style="display: inline-block; width: 55px; height: 1em; border-radius: 2px"></span>
+      <span
+        class="contact-social-link skeleton--shimmer"
+        style="display: inline-block; width: 55px; height: 1em; border-radius: 2px"
+      ></span>
     </div>
   </footer>
 </template>

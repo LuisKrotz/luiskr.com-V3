@@ -64,7 +64,12 @@
 
     // Skeleton shimmer for carousel slides and cover
     .skeleton--media {
-      background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
+      background: linear-gradient(
+        90deg,
+        var(--skel-bg-1) 25%,
+        var(--skel-bg-2) 50%,
+        var(--skel-bg-3) 75%
+      );
       background-size: 200% 100%;
       animation: skeleton-shimmer 2.4s ease-in-out infinite;
     }
@@ -72,7 +77,12 @@
 
   // Cover skeleton (before data loads)
   .skeleton-cover {
-    background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
+    background: linear-gradient(
+      90deg,
+      var(--skel-bg-1) 25%,
+      var(--skel-bg-2) 50%,
+      var(--skel-bg-3) 75%
+    );
     background-size: 200% 100%;
     animation: skeleton-shimmer 2.4s ease-in-out infinite;
     display: block;
@@ -554,7 +564,9 @@
     color: #ffffff;
     background: var(--bg-secondary);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s ease;
 
     // Mobile (above 320px) & Tablet: 2 columns
     @include layout-375() {
@@ -618,7 +630,12 @@
   &-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.05) 100%);
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.35) 50%,
+      rgba(0, 0, 0, 0.05) 100%
+    );
     pointer-events: none;
   }
 
@@ -680,7 +697,9 @@
 
 .fade-desc-enter-active,
 .fade-desc-leave-active {
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
 .fade-desc-enter-from,

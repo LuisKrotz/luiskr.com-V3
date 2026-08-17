@@ -13,8 +13,13 @@
   padding-bottom: to-rem($space-2xl);
   box-sizing: border-box;
 
-  @include layout-768()  { padding-top: to-rem(60)  !important; padding-bottom: to-rem($space-3xl); }
-  @include layout-1024() { padding-top: to-rem(70)  !important; }
+  @include layout-768() {
+    padding-top: to-rem(60) !important;
+    padding-bottom: to-rem($space-3xl);
+  }
+  @include layout-1024() {
+    padding-top: to-rem(70) !important;
+  }
 
   .home-section-title {
     padding-top: 0 !important;
@@ -36,12 +41,20 @@
   // Reserve approximate height before JS runs — eliminates CLS on about section.
   // Values match skeletonH computed in Home.vue (12 compact items per breakpoint).
   // quickLayout() will set the exact value synchronously, making these a safety net.
-  min-height: 2400px;   // mobile N=1: 12 items × ~197px avg ≈ 2316px
+  min-height: 2400px; // mobile N=1: 12 items × ~197px avg ≈ 2316px
 
-  @include layout-540()  { min-height: 1300px; }  // N=2: 6 rows × ~200px
-  @include layout-960()  { min-height:  900px; }  // N=3: 4 rows
-  @include layout-1440() { min-height:  750px; }  // N=4: 3 rows
-  @include layout-1920() { min-height:  600px; }  // N=5+: 2-3 rows
+  @include layout-540() {
+    min-height: 1300px;
+  } // N=2: 6 rows × ~200px
+  @include layout-960() {
+    min-height: 900px;
+  } // N=3: 4 rows
+  @include layout-1440() {
+    min-height: 750px;
+  } // N=4: 3 rows
+  @include layout-1920() {
+    min-height: 600px;
+  } // N=5+: 2-3 rows
 }
 
 // ── Card container ────────────────────────────────────────────────────────────
@@ -55,22 +68,21 @@
   background: var(--bg-dark, #262626);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
-  container-type: inline-size;  // enables cqw units for child text
+  container-type: inline-size; // enables cqw units for child text
 
   // Smooth transitions — JS changes inline styles, CSS animates them
-  transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-              top    0.42s cubic-bezier(0.22, 1, 0.36, 1),
-              left   0.42s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.36s ease,
-              opacity    0.3s ease,
-              filter     0.3s ease;
+  transition:
+    height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    top 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    left 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.36s ease,
+    opacity 0.3s ease,
+    filter 0.3s ease;
 
   &--featured {
     box-shadow: 0 8px 36px rgba(0, 0, 0, 0.5);
   }
-
-
 
   &:hover {
     transform: translateY(-5px) scale(1.015);
@@ -79,7 +91,9 @@
     opacity: 1 !important;
     filter: none !important;
 
-    .home-mosaic-img { transform: scale(1.07); }
+    .home-mosaic-img {
+      transform: scale(1.07);
+    }
   }
 }
 
@@ -135,8 +149,9 @@
 // height is set inline by JS (0 → BOTTOM_H px)
 .home-mosaic-bottom {
   // transition on height so panel animates smoothly
-  transition: height  0.42s cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 0.28s ease 0.1s;
+  transition:
+    height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.28s ease 0.1s;
   // Always dark to match card image aesthetic in both light and dark mode
   background: var(--bg-dark, #262626);
   border-top: 1px solid rgba(255, 255, 255, 0.07);
@@ -186,19 +201,34 @@
   margin-top: to-rem($space-md);
   margin-bottom: to-rem($space-lg);
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: '';
     position: absolute;
     width: to-rem($space-sm);
     height: to-rem($space-sm);
-    transition: width 0.25s ease, height 0.25s ease;
+    transition:
+      width 0.25s ease,
+      height 0.25s ease;
   }
-  &::before { top: 0; left: 0; border-top: 1px solid rgba(255,255,255,0.65); border-left: 1px solid rgba(255,255,255,0.65); }
-  &::after  { bottom: 0; right: 0; border-bottom: 1px solid rgba(255,255,255,0.65); border-right: 1px solid rgba(255,255,255,0.65); }
+  &::before {
+    top: 0;
+    left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.65);
+    border-left: 1px solid rgba(255, 255, 255, 0.65);
+  }
+  &::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+    border-right: 1px solid rgba(255, 255, 255, 0.65);
+  }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     opacity: 0.75;
-    &::before, &::after {
+    &::before,
+    &::after {
       width: calc(100% - #{to-rem($space-2xs)});
       height: calc(100% - #{to-rem($space-2xs)});
     }

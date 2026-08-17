@@ -19,11 +19,7 @@
 
       <!-- Desktop: About | Contact | Preferences | Lang pills (hidden ≤960px) -->
       <div v-if="$router.currentRoute.value.name !== 'Not Found'" class="nav-desktop">
-        <router-link
-          class="nav-link"
-          v-if="!isHomePage"
-          :to="localePath('about')"
-        >
+        <router-link class="nav-link" v-if="!isHomePage" :to="localePath('about')">
           {{ translations?.about?.description ?? 'About' }}
         </router-link>
         <button
@@ -78,11 +74,7 @@
 
       <!-- Mobile strip: only Preferences + Language (visible ≤960px) -->
       <div v-if="$router.currentRoute.value.name !== 'Not Found'" class="nav-mobile-strip">
-        <button
-          class="nav-link nav-pref-btn"
-          title="Preferences"
-          @click="openPreferences()"
-        >
+        <button class="nav-link nav-pref-btn" title="Preferences" @click="openPreferences()">
           {{ translations?.preferences ?? 'Preferences' }}
         </button>
         <span class="nav-separator">|</span>
@@ -107,10 +99,23 @@
           tabindex="-1"
           ref="langBackdrop"
         >
-          <div class="pref-dialog lang-dialog" role="dialog" aria-modal="true" aria-labelledby="lang-dialog-title">
+          <div
+            class="pref-dialog lang-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="lang-dialog-title"
+          >
             <header class="pref-header">
-              <h2 id="lang-dialog-title" class="pref-title">{{ translations?.language ?? 'Language' }}</h2>
-              <button class="pref-close-btn" @click="langDialogOpen = false" aria-label="Close language selector">✕</button>
+              <h2 id="lang-dialog-title" class="pref-title">
+                {{ translations?.language ?? 'Language' }}
+              </h2>
+              <button
+                class="pref-close-btn"
+                @click="langDialogOpen = false"
+                aria-label="Close language selector"
+              >
+                ✕
+              </button>
             </header>
 
             <div class="pref-body">
@@ -120,14 +125,30 @@
                   :key="l.code"
                   class="pref-option-btn"
                   :class="{ active: locale === l.code }"
-                  @click="switchLang(l.code); langDialogOpen = false"
+                  @click="onSelectLang(l.code)"
                 >
                   <span class="pref-option-icon" aria-hidden="true">
                     <span v-if="l.cc2" class="flag-split">
-                      <img class="flag-img" :src="`https://flagcdn.com/${l.cc}.svg`" :alt="l.label" loading="lazy" />
-                      <img class="flag-img" :src="`https://flagcdn.com/${l.cc2}.svg`" alt="" loading="lazy" />
+                      <img
+                        class="flag-img"
+                        :src="`https://flagcdn.com/${l.cc}.svg`"
+                        :alt="l.label"
+                        loading="lazy"
+                      />
+                      <img
+                        class="flag-img"
+                        :src="`https://flagcdn.com/${l.cc2}.svg`"
+                        alt=""
+                        loading="lazy"
+                      />
                     </span>
-                    <img v-else class="flag-img" :src="`https://flagcdn.com/${l.cc}.svg`" :alt="l.label" loading="lazy" />
+                    <img
+                      v-else
+                      class="flag-img"
+                      :src="`https://flagcdn.com/${l.cc}.svg`"
+                      :alt="l.label"
+                      loading="lazy"
+                    />
                   </span>
                   <span class="pref-option-label">{{ l.short }}</span>
                   <span class="pref-option-sub">{{ l.label }}</span>
@@ -167,9 +188,9 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from 'vue'
 import { fetchFirebaseDb } from './firebase.js'
 import router, { LANG_SLUGS, VALID_LANGS } from './router/index.js'
-import PreferencesModal from './components/PreferencesModal.vue'
 
 const cookie = 'cookie',
   cookieEvent = 'cookieAction'
@@ -177,7 +198,7 @@ const cookie = 'cookie',
 export default {
   name: 'App',
   components: {
-    PreferencesModal,
+    PreferencesModal: defineAsyncComponent(() => import('./components/PreferencesModal.vue')),
   },
   data() {
     return {
@@ -196,11 +217,11 @@ export default {
     initActiveSection() {
       const path = window.location.pathname
       // Match any language's translated about/contact slug
-      const aboutSlugs  = Object.values(LANG_SLUGS).map(s => '/' + s.about)
-      const contactSlugs = Object.values(LANG_SLUGS).map(s => '/' + s.contact)
-      if (aboutSlugs.some(slug => path.endsWith(slug))) {
+      const aboutSlugs = Object.values(LANG_SLUGS).map((s) => '/' + s.about)
+      const contactSlugs = Object.values(LANG_SLUGS).map((s) => '/' + s.contact)
+      if (aboutSlugs.some((slug) => path.endsWith(slug))) {
         this.activeSection = 'about'
-      } else if (contactSlugs.some(slug => path.endsWith(slug))) {
+      } else if (contactSlugs.some((slug) => path.endsWith(slug))) {
         this.activeSection = 'contact'
       } else {
         this.activeSection = 'home'
@@ -209,9 +230,9 @@ export default {
     // Cache section offsetTops — only recomputed on mount and resize,
     // NOT on every scroll event (offsetTop forces layout reflow).
     _updateSectionTops() {
-      const aboutEl   = document.getElementById('about')
+      const aboutEl = document.getElementById('about')
       const contactEl = document.getElementById('contact')
-      this._aboutTop   = aboutEl   ? aboutEl.offsetTop   - 250 : 600
+      this._aboutTop = aboutEl ? aboutEl.offsetTop - 250 : 600
       this._contactTop = contactEl ? contactEl.offsetTop - 250 : 1500
     },
 
@@ -221,10 +242,10 @@ export default {
 
       if (!this.isHomePage) return
 
-      const aboutTop   = this._aboutTop   ?? 600
+      const aboutTop = this._aboutTop ?? 600
       const contactTop = this._contactTop ?? 1500
 
-      let newSection = 'home'
+      let newSection
       if (y >= contactTop || this.onBottom) {
         newSection = 'contact'
       } else if (y >= aboutTop) {
@@ -235,9 +256,7 @@ export default {
 
       if (this.activeSection !== newSection) {
         this.activeSection = newSection
-        const targetPath = newSection === 'home'
-          ? this.localePath('')
-          : this.localePath(newSection)
+        const targetPath = newSection === 'home' ? this.localePath('') : this.localePath(newSection)
         if (window.location.pathname !== targetPath) {
           history.replaceState({}, '', targetPath)
         }
@@ -363,9 +382,11 @@ export default {
       this.renderCookies = JSON.parse(localStorage.getItem(cookie))
       const dbpath = this.$store.getters.getlang.database + currentLocale
 
+      const promises = []
+
       if (!this.translations) {
-        fetchFirebaseDb(`${dbpath}/APP`)
-          .then((snapshot) => {
+        promises.push(
+          fetchFirebaseDb(`${dbpath}/APP`).then((snapshot) => {
             if (snapshot.exists()) {
               this.translations = snapshot.val()
               this.$store.commit('setClickOrTap', {
@@ -374,54 +395,34 @@ export default {
               })
             }
           })
-          .catch(console.error)
+        )
       }
 
       if (!this.$store.getters.getlang.components) {
-        fetchFirebaseDb(`${dbpath}/components`)
-          .then((snapshot) => {
+        promises.push(
+          fetchFirebaseDb(`${dbpath}/components`).then((snapshot) => {
             if (snapshot.exists()) {
               this.$store.commit('setComponentLang', snapshot.val())
             }
           })
-          .catch(console.error)
+        )
       }
 
-      // Load portfolio list globally when on home page so cover images and metadata load fast
-      if (this.isHomePage && !this.$store.state.portfoliolist?.length) {
-        fetchFirebaseDb(`${dbpath}/pages/HOME`)
-          .then((snapshot) => {
-            if (snapshot.exists() && snapshot.val()?.portfoliolist) {
-              this.$store.commit('setPortfolioList', snapshot.val().portfoliolist)
-            }
-          })
-          .catch(console.error)
-      }
-
-      // Load mentions/awards from About page data when on home page
-      if (this.isHomePage && !this.$store.getters.getMentions.items) {
-        fetchFirebaseDb(`${dbpath}/pages/about`)
-          .then((snapshot) => {
-            if (snapshot.exists()) {
-              const about = snapshot.val()
-              this.$store.commit('setMentions', {
-                title: about.mentions ?? 'Some mentions',
-                items: about.mention_items ?? [],
-              })
-            }
-          })
-          .catch(console.error)
-      }
+      Promise.all(promises).catch(console.error)
     },
     initInputListeners() {
       const setTouch = () => this.$store.commit('setInputMethod', 'touch')
       const setPointer = () => this.$store.commit('setInputMethod', 'pointer')
 
       if (window.PointerEvent) {
-        window.addEventListener('pointerdown', (e) => {
-          if (e.pointerType === 'touch') setTouch()
-          else if (e.pointerType === 'mouse' || e.pointerType === 'pen') setPointer()
-        }, { passive: true })
+        window.addEventListener(
+          'pointerdown',
+          (e) => {
+            if (e.pointerType === 'touch') setTouch()
+            else if (e.pointerType === 'mouse' || e.pointerType === 'pen') setPointer()
+          },
+          { passive: true }
+        )
       } else {
         window.addEventListener('touchstart', setTouch, { passive: true })
         window.addEventListener('mousedown', setPointer, { passive: true })
@@ -451,6 +452,11 @@ export default {
       return base + '/' + slug
     },
 
+    onSelectLang(lang) {
+      this.langDialogOpen = false
+      this.switchLang(lang)
+    },
+
     // Switch language: navigate to the equivalent page in the new lang with correct translated slug
     switchLang(lang) {
       const current = this.$store.getters.getLang
@@ -461,12 +467,12 @@ export default {
       const base = lang === 'en' ? '' : '/' + lang
 
       let newPath
-      if (routeName.startsWith('Home'))         newPath = base + '/'
-      else if (routeName.startsWith('About'))   newPath = base + '/' + s.about
+      if (routeName.startsWith('Home')) newPath = base + '/'
+      else if (routeName.startsWith('About')) newPath = base + '/' + s.about
       else if (routeName.startsWith('Contact')) newPath = base + '/' + s.contact
       else if (routeName.startsWith('Privacy')) newPath = base + '/' + s.privacy
-      else if (routeName.startsWith('GDPR'))    newPath = base + '/' + s.gdpr
-      else if (routeName.startsWith('Terms'))   newPath = base + '/' + s.terms
+      else if (routeName.startsWith('GDPR')) newPath = base + '/' + s.gdpr
+      else if (routeName.startsWith('Terms')) newPath = base + '/' + s.terms
       else {
         // Project pages: strip any existing lang prefix and add new one
         const langPattern = new RegExp(`^\\/(${VALID_LANGS.join('|')})(\\/|$)`)
@@ -478,14 +484,18 @@ export default {
       this.translations = false
       this.$router.push(newPath).then(() => this.loadData())
     },
-
   },
 
   computed: {
     isAdminRoute() {
       const name = this.$router.currentRoute.value.name ?? ''
       const path = this.$route?.path ?? ''
-      return name === 'Admin Login' || name === 'CMS Dashboard' || path.startsWith('/admin') || path.startsWith('/cms')
+      return (
+        name === 'Admin Login' ||
+        name === 'CMS Dashboard' ||
+        path.startsWith('/admin') ||
+        path.startsWith('/cms')
+      )
     },
     isHomePage() {
       const name = this.$router.currentRoute.value.name ?? ''
@@ -498,22 +508,24 @@ export default {
       // cc = ISO 3166-1 alpha-2 country code for flagcdn.com
       // cc2 = second code for split-flag display
       return [
-        { code: 'en',  short: 'EN',  label: 'English',        cc: 'us' },
-        { code: 'br',  short: 'PT',  label: 'Português (BR)', cc: 'br' },
-        { code: 'es',  short: 'ES',  label: 'Español',        cc: 'es' },
-        { code: 'de',  short: 'DE',  label: 'Deutsch',        cc: 'ch', cc2: 'de' },
-        { code: 'hrk', short: 'HRK', label: 'Hunsrik',        cc: 'de', cc2: 'br' },
-        { code: 'cas', short: 'CAS', label: 'Castellano',     cc: 'ar', cc2: 'uy' },
-        { code: 'riv', short: 'RIV', label: 'Portuñol',       cc: 'uy', cc2: 'br' },
-        { code: 'gn',  short: 'GN',  label: 'Guaraní',        cc: 'py' },
-        { code: 'it',  short: 'IT',  label: 'Italiano',       cc: 'it' },
-        { code: 'ru',  short: 'RU',  label: 'Русский',        cc: 'ru' },
-        { code: 'fr',  short: 'FR',  label: 'Français',       cc: 'fr' },
-        { code: 'tln', short: 'TLN', label: 'Talian',         cc: 'it', cc2: 'br' },
+        { code: 'en', short: 'EN', label: 'English', cc: 'us' },
+        { code: 'br', short: 'PT', label: 'Português (BR)', cc: 'br' },
+        { code: 'es', short: 'ES', label: 'Español', cc: 'es' },
+        { code: 'de', short: 'DE', label: 'Deutsch', cc: 'ch', cc2: 'de' },
+        { code: 'hrk', short: 'HRK', label: 'Hunsrik', cc: 'de', cc2: 'br' },
+        { code: 'cas', short: 'CAS', label: 'Castellano', cc: 'ar', cc2: 'uy' },
+        { code: 'riv', short: 'RIV', label: 'Portuñol', cc: 'uy', cc2: 'br' },
+        { code: 'gn', short: 'GN', label: 'Guaraní', cc: 'py' },
+        { code: 'it', short: 'IT', label: 'Italiano', cc: 'it' },
+        { code: 'ru', short: 'RU', label: 'Русский', cc: 'ru' },
+        { code: 'fr', short: 'FR', label: 'Français', cc: 'fr' },
+        { code: 'tln', short: 'TLN', label: 'Talian', cc: 'it', cc2: 'br' },
       ]
     },
     currentLangLabel() {
-      return this.langOptions.find(l => l.code === this.locale)?.label ?? this.locale.toUpperCase()
+      return (
+        this.langOptions.find((l) => l.code === this.locale)?.label ?? this.locale.toUpperCase()
+      )
     },
     reducedMotion() {
       return this.$store.getters.getReducedMotion
@@ -524,7 +536,8 @@ export default {
 
     // Progress bar + transition name on route changes
     router.beforeEach((to, from) => {
-      const isSameProject = to.meta?.projectRoute && from.meta?.projectRoute && to.name === from.name
+      const isSameProject =
+        to.meta?.projectRoute && from.meta?.projectRoute && to.name === from.name
       if (!isSameProject) {
         // First scroll to top immediately for different pages
         window.scrollTo({ top: 0, behavior: 'instant' })
@@ -556,13 +569,17 @@ export default {
 
     // Debounced resize: recache section tops then recheck scroll position
     let _resizeTimer = null
-    window.addEventListener('resize', () => {
-      clearTimeout(_resizeTimer)
-      _resizeTimer = setTimeout(() => {
-        this._updateSectionTops()
-        this.checkScroll()
-      }, 150)
-    }, { passive: true })
+    window.addEventListener(
+      'resize',
+      () => {
+        clearTimeout(_resizeTimer)
+        _resizeTimer = setTimeout(() => {
+          this._updateSectionTops()
+          this.checkScroll()
+        }, 150)
+      },
+      { passive: true }
+    )
 
     if (window.matchMedia) {
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {

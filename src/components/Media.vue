@@ -265,12 +265,6 @@ export default {
         }
       }
     },
-    play(e) {
-      e.target.play()
-    },
-    pause(e) {
-      e.target.pause()
-    },
   },
 }
 </script>

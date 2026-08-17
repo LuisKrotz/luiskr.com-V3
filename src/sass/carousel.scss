@@ -227,11 +227,10 @@ $ring-stroke: to-rem(2.5);
     min-height: 24px;
     min-width: 24px;
     border-radius: 9999px;
-    background: transparent;  // real colour is on ::after
+    background: transparent; // real colour is on ::after
     cursor: pointer;
     flex-shrink: 0;
-    transition:
-      min-width 0.25s ease;
+    transition: min-width 0.25s ease;
 
     // Visible dot — centred inside the 24px tap target
     &::after {
@@ -255,7 +254,9 @@ $ring-stroke: to-rem(2.5);
     }
 
     &:hover:not(&--active) {
-      &::after { background: var(--grey); }
+      &::after {
+        background: var(--grey);
+      }
     }
   }
 

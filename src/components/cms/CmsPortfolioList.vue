@@ -1,11 +1,22 @@
 <template>
   <div class="cms-portfolio-manager">
-    <div class="cms-card" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem;">
+    <div
+      class="cms-card"
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      "
+    >
       <div>
         <h2 class="cms-card-title">Homepage Portfolio Items</h2>
-        <p style="color:#8892b0; font-size:0.88rem;">Manage the projects featured on the main mosaic grid.</p>
+        <p style="color: #8892b0; font-size: 0.88rem">
+          Manage the projects featured on the main mosaic grid.
+        </p>
       </div>
-      <div style="display:flex; gap:10px;">
+      <div style="display: flex; gap: 10px">
         <button class="cms-btn cms-btn--secondary" @click="addNewItem">+ Add New Item</button>
         <button class="cms-btn" :disabled="saving" @click="savePortfolio">
           {{ saving ? 'Saving...' : '💾 Save to Firebase' }}
@@ -14,28 +25,68 @@
     </div>
 
     <!-- Language Selector for Portfolio Strings -->
-    <div class="cms-card" style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
-      <label style="color:#8892b0; font-weight:500;">Target Language:</label>
-      <select v-model="selectedLang" class="cms-select" style="max-width:220px;" @change="loadLangPortfolio">
+    <div class="cms-card" style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap">
+      <label style="color: #8892b0; font-weight: 500">Target Language:</label>
+      <select
+        v-model="selectedLang"
+        class="cms-select"
+        style="max-width: 220px"
+        @change="loadLangPortfolio"
+      >
         <option v-for="l in languages" :key="l" :value="l">{{ l.toUpperCase() }}</option>
       </select>
     </div>
 
     <!-- Items List -->
-    <div v-if="items.length" style="display:flex; flex-direction:column; gap:1.2rem;">
+    <div v-if="items.length" style="display: flex; flex-direction: column; gap: 1.2rem">
       <div v-for="(item, idx) in items" :key="idx" class="cms-card">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem; flex-wrap:wrap; gap:0.5rem;">
-          <h3 style="color:#66fcf1; font-size:1.1rem; font-weight:600; margin:0;">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+          "
+        >
+          <h3 style="color: #66fcf1; font-size: 1.1rem; font-weight: 600; margin: 0">
             #{{ idx + 1 }} {{ item.label || 'Untitled Item' }}
           </h3>
-          <div style="display:flex; gap:6px;">
-            <button class="cms-btn cms-btn--secondary" style="padding:4px 10px;" :disabled="idx === 0" @click="moveUp(idx)">▲</button>
-            <button class="cms-btn cms-btn--secondary" style="padding:4px 10px;" :disabled="idx === items.length - 1" @click="moveDown(idx)">▼</button>
-            <button class="cms-btn cms-btn--danger" style="padding:4px 10px;" @click="removeItem(idx)">✕ Delete</button>
+          <div style="display: flex; gap: 6px">
+            <button
+              class="cms-btn cms-btn--secondary"
+              style="padding: 4px 10px"
+              :disabled="idx === 0"
+              @click="moveUp(idx)"
+            >
+              ▲
+            </button>
+            <button
+              class="cms-btn cms-btn--secondary"
+              style="padding: 4px 10px"
+              :disabled="idx === items.length - 1"
+              @click="moveDown(idx)"
+            >
+              ▼
+            </button>
+            <button
+              class="cms-btn cms-btn--danger"
+              style="padding: 4px 10px"
+              @click="removeItem(idx)"
+            >
+              ✕ Delete
+            </button>
           </div>
         </div>
 
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem;">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+          "
+        >
           <div class="cms-field-group">
             <label>Label / Title</label>
             <input v-model="item.label" class="cms-input" placeholder="e.g. METCHA" />
@@ -64,14 +115,19 @@
           </div>
         </div>
 
-        <div class="cms-field-group" style="margin-top:0.5rem;">
+        <div class="cms-field-group" style="margin-top: 0.5rem">
           <label>Description</label>
-          <textarea v-model="item.description" class="cms-textarea" rows="2" placeholder="Item description string..."></textarea>
+          <textarea
+            v-model="item.description"
+            class="cms-textarea"
+            rows="2"
+            placeholder="Item description string..."
+          ></textarea>
         </div>
       </div>
     </div>
 
-    <div v-else class="cms-card" style="text-align:center; color:#8892b0;">
+    <div v-else class="cms-card" style="text-align: center; color: #8892b0">
       No portfolio items found for this language. Click "+ Add New Item" to create one.
     </div>
   </div>
@@ -86,8 +142,8 @@ export default {
   props: {
     languages: {
       type: Array,
-      default: () => ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln']
-    }
+      default: () => ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln'],
+    },
   },
   data() {
     return {
@@ -105,14 +161,14 @@ export default {
         const db = await getDbInstance()
         const [pSnap, rSnap] = await Promise.all([
           get(child(ref(db), `translations/${this.selectedLang}/pages/HOME/portfoliolist`)),
-          get(child(ref(db), `translations/${this.selectedLang}/components/related/projects`))
+          get(child(ref(db), `translations/${this.selectedLang}/components/related/projects`)),
         ])
 
         const relatedMap = {}
         if (rSnap.exists()) {
           const rVal = rSnap.val()
           const rArr = Array.isArray(rVal) ? rVal : Object.values(rVal)
-          rArr.forEach(p => {
+          rArr.forEach((p) => {
             if (p.link) relatedMap[p.link] = p.featured === true
           })
         }
@@ -120,13 +176,14 @@ export default {
         if (pSnap.exists()) {
           const val = pSnap.val()
           const raw = Array.isArray(val) ? JSON.parse(JSON.stringify(val)) : Object.values(val)
-          this.items = raw.map(item => {
-            const isFeat = item.featured !== undefined
-              ? (item.featured === true || item.featured === 'true')
-              : (relatedMap[item.link] === true)
+          this.items = raw.map((item) => {
+            const isFeat =
+              item.featured !== undefined
+                ? item.featured === true || item.featured === 'true'
+                : relatedMap[item.link] === true
             return {
               ...item,
-              featured: isFeat
+              featured: isFeat,
             }
           })
         } else {
@@ -145,7 +202,7 @@ export default {
         description: 'New project description.',
         featured: false,
         width: ['1920', '768'],
-        height: ['913', '340']
+        height: ['913', '340'],
       })
     },
 
@@ -174,28 +231,36 @@ export default {
         await set(ref(db, `translations/${this.selectedLang}/pages/HOME/portfoliolist`), this.items)
 
         // Also sync components/related/projects
-        const rSnap = await get(child(ref(db), `translations/${this.selectedLang}/components/related/projects`))
+        const rSnap = await get(
+          child(ref(db), `translations/${this.selectedLang}/components/related/projects`)
+        )
         if (rSnap.exists()) {
           const rVal = rSnap.val()
           const rArr = Array.isArray(rVal) ? JSON.parse(JSON.stringify(rVal)) : Object.values(rVal)
-          const updatedRelated = rArr.map(p => {
-            const match = this.items.find(i => i.link === p.link)
+          const updatedRelated = rArr.map((p) => {
+            const match = this.items.find((i) => i.link === p.link)
             return {
               ...p,
-              featured: match ? match.featured === true : p.featured === true
+              featured: match ? match.featured === true : p.featured === true,
             }
           })
-          await set(ref(db, `translations/${this.selectedLang}/components/related/projects`), updatedRelated)
+          await set(
+            ref(db, `translations/${this.selectedLang}/components/related/projects`),
+            updatedRelated
+          )
         }
 
-        this.$emit('notify', `Portfolio list for [${this.selectedLang.toUpperCase()}] saved successfully!`)
+        this.$emit(
+          'notify',
+          `Portfolio list for [${this.selectedLang.toUpperCase()}] saved successfully!`
+        )
       } catch (err) {
         console.error('Error saving portfolio list:', err)
         alert('Failed to save portfolio list to Firebase: ' + (err.message || err))
       } finally {
         this.saving = false
       }
-    }
-  }
+    },
+  },
 }
 </script>

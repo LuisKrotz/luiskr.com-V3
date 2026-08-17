@@ -2,7 +2,12 @@
   <footer class="internal-footer">
     <h2 class="internal-footer-title">
       <span v-if="translations?.title" v-html="translations.title" :key="'ttl1'"></span>
-      <span v-else class="skeleton--shimmer" style="display: inline-block; width: 30%; height: 1em; border-radius: 4px" :key="'ttl2'"></span>
+      <span
+        v-else
+        class="skeleton--shimmer"
+        style="display: inline-block; width: 30%; height: 1em; border-radius: 4px"
+        :key="'ttl2'"
+      ></span>
     </h2>
 
     <div class="internal-footer-related">
@@ -33,7 +38,10 @@
           <div class="related-mosaic-info">
             <span class="related-mosaic-title">{{ project.page }}</span>
             <transition name="fade-desc">
-              <div v-if="hoveredIndex === projectkey && project.description" class="related-mosaic-desc">
+              <div
+                v-if="hoveredIndex === projectkey && project.description"
+                class="related-mosaic-desc"
+              >
                 <DrawText :text="project.description" :delay="25" />
               </div>
             </transition>
@@ -69,16 +77,34 @@
       <p class="internal-footer-items-note" v-html="translations.note"></p>
     </div>
     <div class="internal-footer-items" v-else data-nosnippet>
-      <span class="internal-footer-items-link skeleton--shimmer" style="display: inline-block; width: 45px; height: 1em; border-radius: 2px"></span>
+      <span
+        class="internal-footer-items-link skeleton--shimmer"
+        style="display: inline-block; width: 45px; height: 1em; border-radius: 2px"
+      ></span>
       <span class="internal-footer-items-separator">•</span>
-      <span class="internal-footer-items-link skeleton--shimmer" style="display: inline-block; width: 55px; height: 1em; border-radius: 2px"></span>
+      <span
+        class="internal-footer-items-link skeleton--shimmer"
+        style="display: inline-block; width: 55px; height: 1em; border-radius: 2px"
+      ></span>
       <span class="internal-footer-items-separator">•</span>
-      <span class="internal-footer-items-link skeleton--shimmer" style="display: inline-block; width: 70px; height: 1em; border-radius: 2px"></span>
+      <span
+        class="internal-footer-items-link skeleton--shimmer"
+        style="display: inline-block; width: 70px; height: 1em; border-radius: 2px"
+      ></span>
       <span class="internal-footer-items-separator">•</span>
-      <span class="internal-footer-items-link skeleton--shimmer" style="display: inline-block; width: 55px; height: 1em; border-radius: 2px"></span>
+      <span
+        class="internal-footer-items-link skeleton--shimmer"
+        style="display: inline-block; width: 55px; height: 1em; border-radius: 2px"
+      ></span>
 
-      <p class="internal-footer-items-note skeleton--shimmer" style="width: 90%; height: 1.2em; border-radius: 4px; margin-top: 16px; margin-bottom: 6px"></p>
-      <p class="internal-footer-items-note skeleton--shimmer" style="width: 75%; height: 1.2em; border-radius: 4px"></p>
+      <p
+        class="internal-footer-items-note skeleton--shimmer"
+        style="width: 90%; height: 1.2em; border-radius: 4px; margin-top: 16px; margin-bottom: 6px"
+      ></p>
+      <p
+        class="internal-footer-items-note skeleton--shimmer"
+        style="width: 75%; height: 1.2em; border-radius: 4px"
+      ></p>
     </div>
   </footer>
 </template>
@@ -104,7 +130,9 @@ export default {
 
   computed: {
     storage() {
-      return this.$store.getters.getStorage || 'https://storage.googleapis.com/luiskr.com/public/_v3/'
+      return (
+        this.$store.getters.getStorage || 'https://storage.googleapis.com/luiskr.com/public/_v3/'
+      )
     },
 
     projectsList() {
@@ -120,7 +148,9 @@ export default {
         : this.homePortfolio
 
       return rawProjects.map((p) => {
-        const cleanLink = p.link ? p.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '') : ''
+        const cleanLink = p.link
+          ? p.link.replace(/^(\/projects\/|\/portfolio\/|\/)/, '').replace(/\/$/, '')
+          : ''
 
         // Generic dynamic matching by alphanumeric slug AND page title
         const homeMatch = homeList.find((h) => {
@@ -142,9 +172,14 @@ export default {
 
         const image = homeMatch?.image || p.image || cleanLink
 
-        const locale   = this.$store.getters.getLang
-        const locPfx   = locale && locale !== 'en' ? '/' + locale : ''
-        const baseFull = locPfx + (basePath.startsWith('/') ? '' : '/') + basePath.replace(/\/$/, '') + '/' + cleanLink
+        const locale = this.$store.getters.getLang
+        const locPfx = locale && locale !== 'en' ? '/' + locale : ''
+        const baseFull =
+          locPfx +
+          (basePath.startsWith('/') ? '' : '/') +
+          basePath.replace(/\/$/, '') +
+          '/' +
+          cleanLink
 
         return {
           page: p.page || homeMatch?.label || homeMatch?.title || cleanLink,

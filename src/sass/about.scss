@@ -253,8 +253,12 @@
   align-items: center;
   padding: to-rem($space-2xl) to-rem($space-lg) to-rem($space-3xl);
 
-  @include layout-768()  { padding: to-rem($space-2xl) to-rem($space-4xl) to-rem($space-3xl); }
-  @include layout-2560() { padding: to-rem($space-3xl) to-rem($space-5xl) to-rem($space-4xl); }
+  @include layout-768() {
+    padding: to-rem($space-2xl) to-rem($space-4xl) to-rem($space-3xl);
+  }
+  @include layout-2560() {
+    padding: to-rem($space-3xl) to-rem($space-5xl) to-rem($space-4xl);
+  }
 
   // The awards carousel itself — limit max width so it feels compact & centred
   .hc--awards {
@@ -294,10 +298,12 @@
     color: var(--white);
     text-decoration: none;
     line-height: to-rem($space-3xl);
-    transition: opacity .2s;
+    transition: opacity 0.2s;
 
     &:hover,
-    &:focus { opacity: .5; }
+    &:focus {
+      opacity: 0.5;
+    }
   }
 
   &-sep {

@@ -9,7 +9,9 @@
 
   padding-bottom: var(--space-5xl);
 
-  @include layout-1440() { padding-bottom: var(--space-6xl); }
+  @include layout-1440() {
+    padding-bottom: var(--space-6xl);
+  }
 
   &-title {
     @extend .ttl-xl;
@@ -20,10 +22,22 @@
     padding-top: to-rem(100);
     padding-bottom: to-rem($space-sm);
 
-    @include layout-768()  { padding-top: to-rem(120); padding-bottom: to-rem($space-md); }
-    @include layout-1024() { padding-top: to-rem(140); padding-bottom: to-rem($space-lg); }
-    @include layout-1440() { padding-top: to-rem(160); padding-bottom: to-rem($space-xl); }
-    @include layout-2560() { padding-top: to-rem(180); padding-bottom: to-rem($space-2xl); }
+    @include layout-768() {
+      padding-top: to-rem(120);
+      padding-bottom: to-rem($space-md);
+    }
+    @include layout-1024() {
+      padding-top: to-rem(140);
+      padding-bottom: to-rem($space-lg);
+    }
+    @include layout-1440() {
+      padding-top: to-rem(160);
+      padding-bottom: to-rem($space-xl);
+    }
+    @include layout-2560() {
+      padding-top: to-rem(180);
+      padding-bottom: to-rem($space-2xl);
+    }
 
     &--archive {
       @extend .ttl-md;
@@ -34,8 +48,14 @@
       padding-bottom: to-rem($space-xl);
       margin-top: to-rem($space-sm);
 
-      @include layout-768()  { padding-top: to-rem($space-2xl); padding-bottom: to-rem($space-2xl); }
-      @include layout-1440() { padding-top: to-rem($space-3xl); padding-bottom: to-rem($space-2xl); }
+      @include layout-768() {
+        padding-top: to-rem($space-2xl);
+        padding-bottom: to-rem($space-2xl);
+      }
+      @include layout-1440() {
+        padding-top: to-rem($space-3xl);
+        padding-bottom: to-rem($space-2xl);
+      }
     }
   }
 
@@ -55,10 +75,22 @@
       padding-right: calc((100vw - 88vw) / 2);
       box-sizing: border-box;
 
-      @include layout-768()  { padding-left: calc((100vw - 82vw) / 2); padding-right: calc((100vw - 82vw) / 2); }
-      @include layout-1024() { padding-left: calc((100vw - 78vw) / 2); padding-right: calc((100vw - 78vw) / 2); }
-      @include layout-1440() { padding-left: calc((100vw - 72vw) / 2); padding-right: calc((100vw - 72vw) / 2); }
-      @include layout-2560() { padding-left: calc((100vw - 66vw) / 2); padding-right: calc((100vw - 66vw) / 2); }
+      @include layout-768() {
+        padding-left: calc((100vw - 82vw) / 2);
+        padding-right: calc((100vw - 82vw) / 2);
+      }
+      @include layout-1024() {
+        padding-left: calc((100vw - 78vw) / 2);
+        padding-right: calc((100vw - 78vw) / 2);
+      }
+      @include layout-1440() {
+        padding-left: calc((100vw - 72vw) / 2);
+        padding-right: calc((100vw - 72vw) / 2);
+      }
+      @include layout-2560() {
+        padding-left: calc((100vw - 66vw) / 2);
+        padding-right: calc((100vw - 66vw) / 2);
+      }
     }
   }
 
@@ -68,8 +100,12 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
 
-    @include layout-768()  { padding-top: to-rem($space-3xl) !important; }
-    @include layout-1440() { padding-top: to-rem($space-3xl) !important; }
+    @include layout-768() {
+      padding-top: to-rem($space-3xl) !important;
+    }
+    @include layout-1440() {
+      padding-top: to-rem($space-3xl) !important;
+    }
 
     // Title aligns with the left edge of the selected carousel slides (same padding)
     .home-section-title {
@@ -77,10 +113,22 @@
       padding-right: calc((100vw - 88vw) / 2);
       box-sizing: border-box;
 
-      @include layout-768()  { padding-left: calc((100vw - 82vw) / 2); padding-right: calc((100vw - 82vw) / 2); }
-      @include layout-1024() { padding-left: calc((100vw - 78vw) / 2); padding-right: calc((100vw - 78vw) / 2); }
-      @include layout-1440() { padding-left: calc((100vw - 72vw) / 2); padding-right: calc((100vw - 72vw) / 2); }
-      @include layout-2560() { padding-left: calc((100vw - 66vw) / 2); padding-right: calc((100vw - 66vw) / 2); }
+      @include layout-768() {
+        padding-left: calc((100vw - 82vw) / 2);
+        padding-right: calc((100vw - 82vw) / 2);
+      }
+      @include layout-1024() {
+        padding-left: calc((100vw - 78vw) / 2);
+        padding-right: calc((100vw - 78vw) / 2);
+      }
+      @include layout-1440() {
+        padding-left: calc((100vw - 72vw) / 2);
+        padding-right: calc((100vw - 72vw) / 2);
+      }
+      @include layout-2560() {
+        padding-left: calc((100vw - 66vw) / 2);
+        padding-right: calc((100vw - 66vw) / 2);
+      }
     }
 
     // Explore carousel: 100% on mobile, 61% centered on desktop
@@ -88,10 +136,18 @@
       width: 100%;
       margin: 0 auto to-rem($space-5xl);
 
-      @include layout-768()  { width: 80%; }
-      @include layout-1024() { width: 70%; }
-      @include layout-1440() { width: 61%; }
-      @include layout-2560() { width: 55%; }
+      @include layout-768() {
+        width: 80%;
+      }
+      @include layout-1024() {
+        width: 70%;
+      }
+      @include layout-1440() {
+        width: 61%;
+      }
+      @include layout-2560() {
+        width: 55%;
+      }
     }
   }
 }
@@ -109,5 +165,3 @@
 .home-skel-selected {
   width: 100%;
 }
-
-

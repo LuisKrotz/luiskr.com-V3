@@ -324,18 +324,14 @@ export default {
       const center = trackRect.left + trackRect.width / 2
 
       // If clone-last is centered → jump to real last
-      if (
-        Math.abs(cloneLastRect.left + cloneLastRect.width / 2 - center) < 10
-      ) {
+      if (Math.abs(cloneLastRect.left + cloneLastRect.width / 2 - center) < 10) {
         this.currentIndex = this.items.length - 1
         this._jumpToSlide(this.currentIndex)
         return
       }
 
       // If clone-first is centered → jump to real first
-      if (
-        Math.abs(cloneFirstRect.left + cloneFirstRect.width / 2 - center) < 10
-      ) {
+      if (Math.abs(cloneFirstRect.left + cloneFirstRect.width / 2 - center) < 10) {
         this.currentIndex = 0
         this._jumpToSlide(this.currentIndex)
         return

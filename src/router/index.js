@@ -1,27 +1,112 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Legal from '../views/Legal.vue'
-import Project from '../views/Project.vue'
+const Legal = () => import('../views/Legal.vue')
+const Project = () => import('../views/Project.vue')
 import store from '../store/index.js'
 import { getAuthInstance } from '../firebase.js'
 
 const title = 'Luis Krötz'
-export const VALID_LANGS = ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln']
+export const VALID_LANGS = [
+  'en',
+  'br',
+  'es',
+  'de',
+  'hrk',
+  'cas',
+  'riv',
+  'gn',
+  'it',
+  'ru',
+  'fr',
+  'tln',
+]
 
 // ── Translated path slugs per language ───────────────────────────────────────
 export const LANG_SLUGS = {
-  en:  { about: 'about',       contact: 'contact',  privacy: 'privacy-policy',                 gdpr: 'gdpr',         terms: 'terms-of-use' },
-  br:  { about: 'sobre',       contact: 'contato',  privacy: 'politica-de-privacidade',        gdpr: 'lgpd',         terms: 'termos-de-uso' },
-  es:  { about: 'acerca',      contact: 'contacto', privacy: 'politica-de-privacidad',         gdpr: 'rgpd',         terms: 'terminos-de-uso' },
-  de:  { about: 'ueber',       contact: 'kontakt',  privacy: 'datenschutzrichtlinie',          gdpr: 'dsgvo',        terms: 'nutzungsbedingungen' },
-  hrk: { about: 'iwwer-mich',  contact: 'kontakt',  privacy: 'dateschutz-erklerung',           gdpr: 'datenschutz',  terms: 'nutzungsbedingunge' },
-  cas: { about: 'sobre-mi',    contact: 'contacto', privacy: 'politica-de-privacidad',         gdpr: 'rgpd',         terms: 'terminos-de-uso' },
-  riv: { about: 'sobre-yo',    contact: 'contato',  privacy: 'politica-de-privacidade',        gdpr: 'lgpd-gdpr',    terms: 'termos-de-uso' },
-  gn:  { about: 'che-rehegua', contact: 'kontakt',  privacy: 'marandu-nangarekoha',            gdpr: 'lgpd-gdpr',    terms: 'oipuruva-nemoarandu' },
-  it:  { about: 'chi-sono',    contact: 'contatti', privacy: 'informativa-sulla-privacy',      gdpr: 'gdpr',         terms: 'termini-di-utilizzo' },
-  ru:  { about: 'obo-mne',     contact: 'kontakty', privacy: 'politika-konfidentsialnosti',    gdpr: 'gdpr',         terms: 'usloviya-ispolzovaniya' },
-  fr:  { about: 'a-propos',    contact: 'contact',  privacy: 'politique-de-confidentialite',   gdpr: 'rgpd',         terms: 'conditions-utilisation' },
-  tln: { about: 'de-mi',       contact: 'contato',  privacy: 'informativa-su-la-privacy',      gdpr: 'gdpr',         terms: 'condission-de-uso' },
+  en: {
+    about: 'about',
+    contact: 'contact',
+    privacy: 'privacy-policy',
+    gdpr: 'gdpr',
+    terms: 'terms-of-use',
+  },
+  br: {
+    about: 'sobre',
+    contact: 'contato',
+    privacy: 'politica-de-privacidade',
+    gdpr: 'lgpd',
+    terms: 'termos-de-uso',
+  },
+  es: {
+    about: 'acerca',
+    contact: 'contacto',
+    privacy: 'politica-de-privacidad',
+    gdpr: 'rgpd',
+    terms: 'terminos-de-uso',
+  },
+  de: {
+    about: 'ueber',
+    contact: 'kontakt',
+    privacy: 'datenschutzrichtlinie',
+    gdpr: 'dsgvo',
+    terms: 'nutzungsbedingungen',
+  },
+  hrk: {
+    about: 'iwwer-mich',
+    contact: 'kontakt',
+    privacy: 'dateschutz-erklerung',
+    gdpr: 'datenschutz',
+    terms: 'nutzungsbedingunge',
+  },
+  cas: {
+    about: 'sobre-mi',
+    contact: 'contacto',
+    privacy: 'politica-de-privacidad',
+    gdpr: 'rgpd',
+    terms: 'terminos-de-uso',
+  },
+  riv: {
+    about: 'sobre-yo',
+    contact: 'contato',
+    privacy: 'politica-de-privacidade',
+    gdpr: 'lgpd-gdpr',
+    terms: 'termos-de-uso',
+  },
+  gn: {
+    about: 'che-rehegua',
+    contact: 'kontakt',
+    privacy: 'marandu-nangarekoha',
+    gdpr: 'lgpd-gdpr',
+    terms: 'oipuruva-nemoarandu',
+  },
+  it: {
+    about: 'chi-sono',
+    contact: 'contatti',
+    privacy: 'informativa-sulla-privacy',
+    gdpr: 'gdpr',
+    terms: 'termini-di-utilizzo',
+  },
+  ru: {
+    about: 'obo-mne',
+    contact: 'kontakty',
+    privacy: 'politika-konfidentsialnosti',
+    gdpr: 'gdpr',
+    terms: 'usloviya-ispolzovaniya',
+  },
+  fr: {
+    about: 'a-propos',
+    contact: 'contact',
+    privacy: 'politique-de-confidentialite',
+    gdpr: 'rgpd',
+    terms: 'conditions-utilisation',
+  },
+  tln: {
+    about: 'de-mi',
+    contact: 'contato',
+    privacy: 'informativa-su-la-privacy',
+    gdpr: 'gdpr',
+    terms: 'condission-de-uso',
+  },
 }
 
 // ── Fully dynamic portfolio route shared across all languages ────────────────
@@ -81,22 +166,22 @@ const makeRoutes = (lang, suffix = '') => {
 
 const routes = [
   // Root routes — English, no lang prefix in URL
-  ...makeRoutes('en').map(r => ({ ...r, path: '/' + r.path })),
+  ...makeRoutes('en').map((r) => ({ ...r, path: '/' + r.path })),
 
   // /en explicit prefix (same slugs as root)
   { path: '/en', children: makeRoutes('en', '_en') },
 
   // All language prefixes with their own translated slugs
-  { path: '/br',  children: makeRoutes('br',  '_br')  },
-  { path: '/es',  children: makeRoutes('es',  '_es')  },
-  { path: '/de',  children: makeRoutes('de',  '_de')  },
+  { path: '/br', children: makeRoutes('br', '_br') },
+  { path: '/es', children: makeRoutes('es', '_es') },
+  { path: '/de', children: makeRoutes('de', '_de') },
   { path: '/hrk', children: makeRoutes('hrk', '_hrk') },
   { path: '/cas', children: makeRoutes('cas', '_cas') },
   { path: '/riv', children: makeRoutes('riv', '_riv') },
-  { path: '/gn',  children: makeRoutes('gn',  '_gn')  },
-  { path: '/it',  children: makeRoutes('it',  '_it')  },
-  { path: '/ru',  children: makeRoutes('ru',  '_ru')  },
-  { path: '/fr',  children: makeRoutes('fr',  '_fr')  },
+  { path: '/gn', children: makeRoutes('gn', '_gn') },
+  { path: '/it', children: makeRoutes('it', '_it') },
+  { path: '/ru', children: makeRoutes('ru', '_ru') },
+  { path: '/fr', children: makeRoutes('fr', '_fr') },
   { path: '/tln', children: makeRoutes('tln', '_tln') },
 
   // Admin Login route
@@ -153,18 +238,18 @@ router.beforeEach(async (to) => {
 
   const path = to.path
   let lang = 'en'
-  if      (path.startsWith('/br'))  lang = 'br'
-  else if (path.startsWith('/es'))  lang = 'es'
-  else if (path.startsWith('/de'))  lang = 'de'
+  if (path.startsWith('/br')) lang = 'br'
+  else if (path.startsWith('/es')) lang = 'es'
+  else if (path.startsWith('/de')) lang = 'de'
   else if (path.startsWith('/hrk')) lang = 'hrk'
   else if (path.startsWith('/cas')) lang = 'cas'
   else if (path.startsWith('/riv')) lang = 'riv'
-  else if (path.startsWith('/gn'))  lang = 'gn'
-  else if (path.startsWith('/it'))  lang = 'it'
-  else if (path.startsWith('/ru'))  lang = 'ru'
-  else if (path.startsWith('/fr'))  lang = 'fr'
+  else if (path.startsWith('/gn')) lang = 'gn'
+  else if (path.startsWith('/it')) lang = 'it'
+  else if (path.startsWith('/ru')) lang = 'ru'
+  else if (path.startsWith('/fr')) lang = 'fr'
   else if (path.startsWith('/tln')) lang = 'tln'
-  else if (path.startsWith('/en'))  lang = 'en'
+  else if (path.startsWith('/en')) lang = 'en'
   store.commit('setLang', lang)
 })
 

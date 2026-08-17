@@ -29,7 +29,8 @@
               rel="noopener noreferrer"
               class="cms-dropdown-item"
             >
-              <span class="item-icon">⚡</span> Google One AI Credits & Activity
+              <span class="item-icon">⚡</span>
+              Google One AI Credits & Activity
             </a>
             <a
               href="https://aistudio.google.com/"
@@ -37,7 +38,8 @@
               rel="noopener noreferrer"
               class="cms-dropdown-item"
             >
-              <span class="item-icon">✨</span> Google AI Studio (Gemini)
+              <span class="item-icon">✨</span>
+              Google AI Studio (Gemini)
             </a>
             <a
               href="https://aistudio.google.com/app/apikey"
@@ -45,7 +47,8 @@
               rel="noopener noreferrer"
               class="cms-dropdown-item"
             >
-              <span class="item-icon">🔑</span> Google AI Keys & Plan
+              <span class="item-icon">🔑</span>
+              Google AI Keys & Plan
             </a>
             <a
               href="https://console.cloud.google.com/billing"
@@ -53,7 +56,8 @@
               rel="noopener noreferrer"
               class="cms-dropdown-item"
             >
-              <span class="item-icon">💳</span> Google Cloud AI Billing
+              <span class="item-icon">💳</span>
+              Google Cloud AI Billing
             </a>
           </div>
         </div>
@@ -78,7 +82,8 @@
               rel="noopener noreferrer"
               class="cms-dropdown-item"
             >
-              <span class="item-icon">🪣</span> luiskr.com Cloud Bucket
+              <span class="item-icon">🪣</span>
+              luiskr.com Cloud Bucket
             </a>
             <a
               href="https://console.firebase.google.com/u/0/project/luiskr-com/storage"
@@ -86,7 +91,8 @@
               rel="noopener noreferrer"
               class="cms-dropdown-item"
             >
-              <span class="item-icon">🔥</span> Firebase Storage
+              <span class="item-icon">🔥</span>
+              Firebase Storage
             </a>
           </div>
         </div>
@@ -111,7 +117,8 @@
               rel="noopener noreferrer"
               class="cms-dropdown-item"
             >
-              <span class="item-icon">📊</span> Console Overview (luiskr-com)
+              <span class="item-icon">📊</span>
+              Console Overview (luiskr-com)
             </a>
             <a
               href="https://console.firebase.google.com/u/0/project/luiskr-com/database/luiskr-com/data"
@@ -119,7 +126,8 @@
               rel="noopener noreferrer"
               class="cms-dropdown-item"
             >
-              <span class="item-icon">🗄️</span> Realtime Database
+              <span class="item-icon">🗄️</span>
+              Realtime Database
             </a>
           </div>
         </div>
@@ -144,7 +152,8 @@
               rel="noopener noreferrer"
               class="cms-dropdown-item"
             >
-              <span class="item-icon">📈</span> Firebase Usage & Billing
+              <span class="item-icon">📈</span>
+              Firebase Usage & Billing
             </a>
             <a
               href="https://console.cloud.google.com/billing"
@@ -152,19 +161,15 @@
               rel="noopener noreferrer"
               class="cms-dropdown-item"
             >
-              <span class="item-icon">🏛️</span> Google Cloud Billing
+              <span class="item-icon">🏛️</span>
+              Google Cloud Billing
             </a>
           </div>
         </div>
       </div>
 
       <div class="cms-user-info">
-        <img
-          v-if="user?.photoURL"
-          :src="user.photoURL"
-          alt="Avatar"
-          class="cms-avatar"
-        />
+        <img v-if="user?.photoURL" :src="user.photoURL" alt="Avatar" class="cms-avatar" />
         <span class="cms-email">{{ user?.email || 'Admin User' }}</span>
         <button class="cms-logout-btn" @click="handleLogout">Logout</button>
       </div>
@@ -198,11 +203,7 @@
     <!-- Tab Modules -->
     <main class="cms-main-content">
       <keep-alive>
-        <component
-          :is="currentTabComponent"
-          :languages="languages"
-          @notify="showNotification"
-        />
+        <component :is="currentTabComponent" :languages="languages" @notify="showNotification" />
       </keep-alive>
     </main>
 

@@ -17,12 +17,7 @@
         <span v-html="emojiLine" aria-hidden="true"></span>
         <!-- Translated subtitle: draw animation -->
         <span class="not-found-subtitle">
-          <DrawText
-            v-if="subtitle"
-            :text="subtitle"
-            :delay="30"
-            trigger="auto"
-          />
+          <DrawText v-if="subtitle" :text="subtitle" :delay="30" trigger="auto" />
         </span>
       </h2>
       <router-link class="not-found-link" :to="homePath">{{ translations.link }}</router-link>

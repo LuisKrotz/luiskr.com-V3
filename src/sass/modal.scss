@@ -26,7 +26,9 @@
   }
 
   // Hide regular nav links in modal context
-  .nav .nav-link { display: none; }
+  .nav .nav-link {
+    display: none;
+  }
 
   // Show modal title bar instead
   .modal-titlebar {
@@ -35,7 +37,6 @@
     justify-content: space-between;
   }
 }
-
 
 .expand-modal {
   &-open-1 {
@@ -54,9 +55,13 @@
     background: transparent;
     font-weight: 700;
     white-space: nowrap;
-    transition: color .2s ease, opacity .2s ease;
+    transition:
+      color 0.2s ease,
+      opacity 0.2s ease;
     // Readable on both dark and light backgrounds
-    text-shadow: 0 1px 4px rgba(0, 0, 0, .6), 0 0 12px rgba(0, 0, 0, .3);
+    text-shadow:
+      0 1px 4px rgba(0, 0, 0, 0.6),
+      0 0 12px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     // The animated corner borders
@@ -66,21 +71,23 @@
       position: absolute;
       width: to-rem($space-md);
       height: to-rem($space-md);
-      transition: width .25s ease, height .25s ease;
+      transition:
+        width 0.25s ease,
+        height 0.25s ease;
     }
 
     &::before {
       top: 0;
       left: 0;
-      border-top: 1px solid rgba(255, 255, 255, .55);
-      border-left: 1px solid rgba(255, 255, 255, .55);
+      border-top: 1px solid rgba(255, 255, 255, 0.55);
+      border-left: 1px solid rgba(255, 255, 255, 0.55);
     }
 
     &::after {
       bottom: 0;
       right: 0;
-      border-bottom: 1px solid rgba(255, 255, 255, .55);
-      border-right: 1px solid rgba(255, 255, 255, .55);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+      border-right: 1px solid rgba(255, 255, 255, 0.55);
     }
 
     .internal-expand:hover &,
@@ -132,7 +139,7 @@
       z-index: 1;
       padding: to-rem($space-xs) to-rem($space-md);
       position: relative;
-      transition: color .2s ease;
+      transition: color 0.2s ease;
 
       // Animated corner borders
       &::before,
@@ -141,7 +148,9 @@
         position: absolute;
         width: to-rem($space-md);
         height: to-rem($space-md);
-        transition: width .2s ease, height .2s ease;
+        transition:
+          width 0.2s ease,
+          height 0.2s ease;
       }
 
       &::before {
@@ -195,7 +204,7 @@
     padding: to-rem($space-sm) to-rem($space-xl);
     text-transform: uppercase;
     letter-spacing: to-rem(2);
-    transition: color .2s ease;
+    transition: color 0.2s ease;
 
     // Animated corner borders
     &::before,
@@ -204,7 +213,9 @@
       position: absolute;
       width: to-rem($space-md);
       height: to-rem($space-md);
-      transition: width .2s ease, height .2s ease;
+      transition:
+        width 0.2s ease,
+        height 0.2s ease;
     }
 
     &::before {
@@ -245,7 +256,7 @@
     justify-content: center;
 
     // Zoom-in on open
-    animation: modal-zoom-in .45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: modal-zoom-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 
     @include layout-1024() {
       padding: to-rem($space-5xl);
@@ -254,7 +265,7 @@
 
   // Closing state: zoom-out animation
   &--closing {
-    animation: modal-zoom-out .4s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+    animation: modal-zoom-out 0.4s cubic-bezier(0.55, 0, 1, 0.45) forwards;
   }
 
   &-media {

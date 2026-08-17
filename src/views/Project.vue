@@ -7,7 +7,12 @@
     >
       <h2 class="internal-title">
         <DrawText v-if="translations" :text="translations.title" trigger="viewport" :key="'ttl1'" />
-        <span v-else class="skeleton--shimmer" style="display: inline-block; width: 45%; height: 1em; border-radius: 4px" :key="'ttl2'"></span>
+        <span
+          v-else
+          class="skeleton--shimmer"
+          style="display: inline-block; width: 45%; height: 1em; border-radius: 4px"
+          :key="'ttl2'"
+        ></span>
       </h2>
       <div class="internal-main">
         <Media
@@ -39,10 +44,7 @@
             >
               <div v-if="typeof child[0] === 'string'" class="internal-description">
                 <template v-for="(item, itemkey) in child" :key="itemkey">
-                  <h3
-                    v-if="childkey === 0 && itemkey < 1"
-                    class="internal-description-text"
-                  >
+                  <h3 v-if="childkey === 0 && itemkey < 1" class="internal-description-text">
                     <DrawText
                       :text="item"
                       trigger="viewport"
@@ -94,16 +96,31 @@
         </div>
         <div v-else :key="'load-data'">
           <div class="internal-description">
-            <h3 class="internal-description-text skeleton--shimmer" style="width: 40%; height: 1.2em; border-radius: 4px; margin-bottom: 1em"></h3>
-            <p class="internal-description-text skeleton--shimmer" style="width: 100%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"></p>
-            <p class="internal-description-text skeleton--shimmer" style="width: 94%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"></p>
-            <p class="internal-description-text skeleton--shimmer" style="width: 65%; height: 1.4em; border-radius: 4px"></p>
+            <h3
+              class="internal-description-text skeleton--shimmer"
+              style="width: 40%; height: 1.2em; border-radius: 4px; margin-bottom: 1em"
+            ></h3>
+            <p
+              class="internal-description-text skeleton--shimmer"
+              style="width: 100%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"
+            ></p>
+            <p
+              class="internal-description-text skeleton--shimmer"
+              style="width: 94%; height: 1.4em; border-radius: 4px; margin-bottom: 0.6em"
+            ></p>
+            <p
+              class="internal-description-text skeleton--shimmer"
+              style="width: 65%; height: 1.4em; border-radius: 4px"
+            ></p>
           </div>
           <!-- Skeleton carousel placeholders -->
           <div class="internal-extra">
             <div class="internal-extra-scroll">
               <div class="internal-extra-item" v-for="n in 3" :key="n">
-                <div class="render-media skeleton--shimmer" style="aspect-ratio: 16/9; width: 100%; border-radius: 16px"></div>
+                <div
+                  class="render-media skeleton--shimmer"
+                  style="aspect-ratio: 16/9; width: 100%; border-radius: 16px"
+                ></div>
               </div>
             </div>
           </div>
@@ -187,9 +204,10 @@ export default {
     // Dynamically calculate per-character delay so all paragraphs in the section finish in ~2.0s total
     textDelay(items) {
       if (!Array.isArray(items)) return 14
-      const totalChars = items.reduce((sum, str) => {
-        return sum + (typeof str === 'string' ? str.replace(/<[^>]+>/g, '').length : 0)
-      }, 0) || 1
+      const totalChars =
+        items.reduce((sum, str) => {
+          return sum + (typeof str === 'string' ? str.replace(/<[^>]+>/g, '').length : 0)
+        }, 0) || 1
       // Target ~1800ms total section duration, clamped between 6ms (super fast) and 22ms
       return Math.max(6, Math.min(22, Math.round(1800 / totalChars)))
     },
@@ -323,7 +341,10 @@ export default {
               }, wait)
             }
           } else {
-            console.log("%cERROR: could't find PROJECT DATA for " + projectKey, this.$sharedData.styles.info)
+            console.log(
+              "%cERROR: could't find PROJECT DATA for " + projectKey,
+              this.$sharedData.styles.info
+            )
           }
         })
         .catch((error) => {
