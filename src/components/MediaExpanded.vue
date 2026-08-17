@@ -80,9 +80,9 @@ export default {
     if (modalContent) modalContent.scrollTop = 0
 
     wasmPool.dispatch('PROCESS_MEDIA_ANALYTICS', {
-      width: this.width,
-      height: this.height,
-      isVideo: this.isVideo,
+      width: Number(this.width) || 0,
+      height: Number(this.height) || 0,
+      isVideo: !!this.isVideo,
     })
 
     if (!this.isVideo && this.source) {

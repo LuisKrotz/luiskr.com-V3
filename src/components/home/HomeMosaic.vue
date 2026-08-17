@@ -217,7 +217,7 @@ export default {
       const colH = Array(N).fill(0)
 
       wasmPool.dispatch('BATCH_LAYOUT', {
-        items: this.processedItems,
+        items: this.processedItems.map((item) => ({ featured: !!item.featured })),
         cols: N,
         containerW: W,
         gap,

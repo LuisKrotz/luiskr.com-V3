@@ -43,7 +43,22 @@ class WasmWorkerPool {
       this.pendingTasks.set(id, { resolve })
       const worker = this.workers[this.nextWorkerIdx]
       this.nextWorkerIdx = (this.nextWorkerIdx + 1) % this.workers.length
-      worker.postMessage({ id, type, payload })
+
+      let safePayload = payload
+      if (payload !== null && typeof payload === 'object') {
+        try {
+          safePayload = JSON.parse(JSON.stringify(payload))
+        } catch {
+          // Fallback if stringify fails
+        }
+      }
+
+      try {
+        worker.postMessage({ id, type, payload: safePayload })
+      } catch {
+        this.pendingTasks.delete(id)
+        resolve(null)
+      }
     })
   }
 }
