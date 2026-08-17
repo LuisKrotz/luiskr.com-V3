@@ -254,9 +254,7 @@
   &-content {
     box-sizing: border-box;
     position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: visible;
     background-color: var(--bg-dark);
     padding: to-rem($space-3xl) to-rem($space-xl);
     min-height: 100vh;
