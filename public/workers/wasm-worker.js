@@ -113,5 +113,22 @@ self.onmessage = (e) => {
       type: 'MEDIA_HASH_RESULT',
       results: { key, hash: Math.abs(hash) },
     })
+  } else if (type === 'DECODE_IMAGE_WASM') {
+    const { blob } = payload
+    if (!blob) return
+    createImageBitmap(blob)
+      .then((bitmap) => {
+        self.postMessage(
+          {
+            id,
+            type: 'DECODE_IMAGE_WASM_RESULT',
+            results: { bitmap, width: bitmap.width, height: bitmap.height },
+          },
+          [bitmap]
+        )
+      })
+      .catch((err) => {
+        self.postMessage({ id, type: 'DECODE_IMAGE_WASM_ERROR', error: err?.message })
+      })
   }
 }

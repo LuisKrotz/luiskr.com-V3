@@ -157,6 +157,35 @@ class GPUAccelerator {
   processTextureGPU(imageEl, targetW, targetH) {
     return this.processImageGPU(imageEl, targetW, targetH)
   }
+
+  // Upload ImageBitmap directly to WebGL2 GPU hardware VRAM texture
+  processBitmapGPU(bitmap, targetW = 800, targetH = 450) {
+    if (!this.gl || !bitmap) return null
+    try {
+      this.canvas.width = targetW
+      this.canvas.height = targetH
+      this.gl.viewport(0, 0, targetW, targetH)
+      this.gl.useProgram(this.program)
+
+      this.gl.bindTexture(this.gl.TEXTURE_2D, this.texture)
+      this.gl.texImage2D(
+        this.gl.TEXTURE_2D,
+        0,
+        this.gl.RGBA,
+        this.gl.RGBA,
+        this.gl.UNSIGNED_BYTE,
+        bitmap
+      )
+      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR)
+      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.CLAMP_TO_EDGE)
+      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.CLAMP_TO_EDGE)
+
+      this.gl.drawArrays(this.gl.TRIANGLES, 0, 6)
+      return true
+    } catch {
+      return false
+    }
+  }
 }
 
 export const gpuAccel = new GPUAccelerator()

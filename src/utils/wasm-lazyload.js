@@ -3,6 +3,7 @@
 import { localMediaCache } from './local-media-cache.js'
 import { gpuAccel } from './gpu-accel.js'
 import { wasmPool } from './wasm-pool.js'
+import { wasmImageDecoder } from './wasm-image-decoder.js'
 
 class WASMLazyloader {
   constructor() {
@@ -59,12 +60,20 @@ class WASMLazyloader {
     const resolvedUrl = await localMediaCache.fetchOrGetLocalMedia(src)
 
     if (el.tagName === 'IMG') {
+      const bitmap = await wasmImageDecoder.decodeImageWASM(
+        resolvedUrl,
+        el.clientWidth || 800,
+        el.clientHeight || 450
+      )
+
       const img = new Image()
       img.src = resolvedUrl
       img.onload = () => {
         el.src = resolvedUrl
         el.classList.add('wasm-lazy-loaded')
-        gpuAccel.processImageGPU(img, el.clientWidth || 800, el.clientHeight || 450)
+        if (!bitmap) {
+          gpuAccel.processImageGPU(img, el.clientWidth || 800, el.clientHeight || 450)
+        }
       }
       img.onerror = () => {
         el.src = resolvedUrl

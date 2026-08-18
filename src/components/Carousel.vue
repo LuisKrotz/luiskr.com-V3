@@ -12,7 +12,7 @@
       <!-- Clone of last item (for infinite loop) -->
       <div class="carousel-slide carousel-slide--clone" ref="cloneLast" aria-hidden="true" inert>
         <!-- Clones are non-interactive wrap-around visuals -->
-        <slot :item="items[items.length - 1]" :index="-1" :isVisible="false"></slot>
+        <slot :item="items[items.length - 1]" :index="-1" :isVisible="isSlideVisible(items.length - 1)"></slot>
       </div>
 
       <!-- Real items -->
@@ -32,7 +32,7 @@
       <!-- Clone of first item (for infinite loop) -->
       <div class="carousel-slide carousel-slide--clone" ref="cloneFirst" aria-hidden="true" inert>
         <!-- Clones are non-interactive wrap-around visuals -->
-        <slot :item="items[0]" :index="items.length" :isVisible="false"></slot>
+        <slot :item="items[0]" :index="items.length" :isVisible="isSlideVisible(0)"></slot>
       </div>
     </div>
 
@@ -220,18 +220,27 @@ export default {
     },
 
     isSlideVisible(idx) {
+      if (idx === -1) return this.slideLoaded[this.items.length - 1] === true
+      if (idx >= this.items.length) return this.slideLoaded[0] === true
       return this.slideLoaded[idx] === true
     },
 
     // Mark slide idx and its circular neighbours as permanently loaded
     _markAdjacentLoaded(centerIdx) {
       const len = this.items.length
+      if (!len) return
       for (let i = 0; i < len; i++) {
         const direct = Math.abs(i - centerIdx)
         const wrapped = len - direct
         if (Math.min(direct, wrapped) <= 2) {
           this.slideLoaded[i] = true
         }
+      }
+      if (centerIdx === 0) {
+        this.slideLoaded[len - 1] = true
+      }
+      if (centerIdx === len - 1) {
+        this.slideLoaded[0] = true
       }
     },
 

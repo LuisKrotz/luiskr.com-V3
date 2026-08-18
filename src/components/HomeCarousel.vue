@@ -21,7 +21,11 @@
     <div class="hc-track" ref="track">
       <!-- Clone of last item -->
       <div class="hc-slide hc-slide--clone" aria-hidden="true" inert>
-        <slot :item="items[items.length - 1]" :index="-1" :isActive="false"></slot>
+        <slot
+          :item="items[items.length - 1]"
+          :index="-1"
+          :isActive="currentIndex === 0 || currentIndex === items.length - 1"
+        ></slot>
       </div>
 
       <!-- Real items -->
@@ -39,7 +43,11 @@
 
       <!-- Clone of first item -->
       <div class="hc-slide hc-slide--clone" aria-hidden="true" inert>
-        <slot :item="items[0]" :index="items.length" :isActive="false"></slot>
+        <slot
+          :item="items[0]"
+          :index="items.length"
+          :isActive="currentIndex === 0 || currentIndex === items.length - 1"
+        ></slot>
       </div>
     </div>
 
