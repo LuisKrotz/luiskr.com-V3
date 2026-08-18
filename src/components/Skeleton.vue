@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import { calcWasmSkeletonStyle } from '../utils/wasm-css.js'
+
 export default {
   name: 'Skeleton',
   props: {
@@ -22,7 +24,12 @@ export default {
   },
   computed: {
     sizeStyle() {
-      return { width: this.width, height: this.height }
+      const radius = this.rounded ? '50%' : '4px'
+      const baseStyle = calcWasmSkeletonStyle(this.width, this.height, radius)
+      return {
+        ...baseStyle,
+        display: this.block ? 'block' : 'inline-block',
+      }
     },
   },
 }

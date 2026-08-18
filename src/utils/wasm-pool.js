@@ -33,7 +33,7 @@ class WasmWorkerPool {
     }
   }
 
-  dispatch(type, payload) {
+  dispatch(type, payload, transferables = []) {
     return new Promise((resolve) => {
       if (!this.workers.length) {
         resolve(null)
@@ -41,11 +41,13 @@ class WasmWorkerPool {
       }
       const id = ++this.taskIdSeq
       this.pendingTasks.set(id, { resolve })
+
+      // Round-robin load balance across multi-threaded WASM workers
       const worker = this.workers[this.nextWorkerIdx]
       this.nextWorkerIdx = (this.nextWorkerIdx + 1) % this.workers.length
 
       let safePayload = payload
-      if (payload !== null && typeof payload === 'object') {
+      if (transferables.length === 0 && payload !== null && typeof payload === 'object') {
         try {
           safePayload = JSON.parse(JSON.stringify(payload))
         } catch {
@@ -54,7 +56,11 @@ class WasmWorkerPool {
       }
 
       try {
-        worker.postMessage({ id, type, payload: safePayload })
+        if (transferables && transferables.length > 0) {
+          worker.postMessage({ id, type, payload: safePayload }, transferables)
+        } else {
+          worker.postMessage({ id, type, payload: safePayload })
+        }
       } catch {
         this.pendingTasks.delete(id)
         resolve(null)

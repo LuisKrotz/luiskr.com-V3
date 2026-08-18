@@ -5,6 +5,7 @@ import router from './router'
 import store from './store'
 import WasmSmoothScroll from './utils/wasm-scroll.js'
 import WasmLazyload from './utils/wasm-lazyload.js'
+import './utils/wasm-css.js'
 
 const app = createApp(App)
 
