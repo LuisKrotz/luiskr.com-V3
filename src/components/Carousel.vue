@@ -2,7 +2,7 @@
   <div
     v-if="isActive"
     class="carousel"
-    :class="{ 'carousel--autoplay': autoplayRunning }"
+    :class="{ 'carousel--autoplay': autoplayRunning, 'carousel--in-view': isEnteredViewport }"
     ref="carouselRoot"
     @touchstart.passive="onTouchStart"
     @touchend.passive="onTouchEnd"
@@ -140,6 +140,7 @@ export default {
       isMobile: window.innerWidth < MOBILE_BREAKPOINT,
       circumference: CIRCUMFERENCE,
       isFullyVisible: false,
+      isEnteredViewport: false,
       observer: null,
     }
   },
@@ -397,6 +398,9 @@ export default {
       this.observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              this.isEnteredViewport = true
+            }
             const isFullyVisible = entry.isIntersecting && entry.intersectionRatio >= 0.95
             this.isFullyVisible = isFullyVisible
 

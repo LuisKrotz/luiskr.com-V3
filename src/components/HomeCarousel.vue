@@ -1,7 +1,7 @@
 <template>
   <div
     class="hc"
-    :class="[`hc--${variant}`]"
+    :class="[`hc--${variant}`, { 'hc--in-view': isEnteredViewport }]"
     @touchstart.passive="onTouchStart"
     @touchend.passive="onTouchEnd"
   >
@@ -102,6 +102,7 @@ export default {
       slideRefs: [],
       circumference: CIRCUMFERENCE,
       isFullyVisible: false,
+      isEnteredViewport: false,
       observer: null,
     }
   },
@@ -278,6 +279,9 @@ export default {
       this.observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              this.isEnteredViewport = true
+            }
             const isFullyVisible = entry.isIntersecting && entry.intersectionRatio >= 0.95
             this.isFullyVisible = isFullyVisible
 
