@@ -64,6 +64,7 @@
 import { gpuAccel } from '../utils/gpu-accel.js'
 import { calcAspectScaled } from '../utils/wasm-layout.js'
 import { localMediaCache } from '../utils/local-media-cache.js'
+import { wasmMediaThreads } from '../utils/wasm-media-threads.js'
 
 const moz = '-mozjpg',
   extension = '.jpg',
@@ -231,6 +232,13 @@ export default {
       const targetUrl = this.storage + this.src + this.q50
       const localUrl = await localMediaCache.fetchOrGetLocalMedia(targetUrl)
 
+      // Off-main-thread WASM decoding in separate Web Worker thread
+      const bitmap = await wasmMediaThreads.decodeMediaInSeparateThread(
+        localUrl,
+        this.displayWidth || 800,
+        this.displayHeight || 450
+      )
+
       const img = new Image()
       img.src = localUrl
       const applySource = () => {
@@ -238,12 +246,13 @@ export default {
         this.isLoaded = true
       }
       img.onload = () => {
-        gpuAccel.processTextureGPU(img, this.displayWidth, this.displayHeight)
-        if (img.decode) {
-          img.decode().then(applySource).catch(applySource)
-        } else {
-          applySource()
+        if (!bitmap) {
+          gpuAccel.processTextureGPU(img, this.displayWidth, this.displayHeight)
         }
+        applySource()
+      }
+      img.onerror = () => {
+        applySource()
       }
     },
     slugify(text) {

@@ -130,5 +130,27 @@ self.onmessage = (e) => {
       .catch((err) => {
         self.postMessage({ id, type: 'DECODE_IMAGE_WASM_ERROR', error: err?.message })
       })
+  } else if (type === 'DECODE_MEDIA_URL_WASM') {
+    const { url } = payload
+    if (!url) return
+    fetch(url, { cache: 'force-cache' })
+      .then((res) => {
+        if (!res.ok) throw new Error('Fetch failed')
+        return res.blob()
+      })
+      .then((blob) => createImageBitmap(blob))
+      .then((bitmap) => {
+        self.postMessage(
+          {
+            id,
+            type: 'DECODE_MEDIA_URL_WASM_RESULT',
+            results: { bitmap, width: bitmap.width, height: bitmap.height },
+          },
+          [bitmap]
+        )
+      })
+      .catch((err) => {
+        self.postMessage({ id, type: 'DECODE_MEDIA_URL_WASM_ERROR', error: err?.message })
+      })
   }
 }

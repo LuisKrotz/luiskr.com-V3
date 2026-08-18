@@ -66,6 +66,7 @@
 import { gpuAccel } from '../utils/gpu-accel.js'
 import { wasmPool } from '../utils/wasm-pool.js'
 import { localMediaCache } from '../utils/local-media-cache.js'
+import { wasmMediaThreads } from '../utils/wasm-media-threads.js'
 
 export default {
   name: 'MediaExpanded',
@@ -99,19 +100,25 @@ export default {
         this.$refs.videoRef?.play?.().catch(() => {})
       })
     } else if (!this.isVideo && this.source) {
-      localMediaCache.fetchOrGetLocalMedia(this.source).then((localUrl) => {
+      localMediaCache.fetchOrGetLocalMedia(this.source).then(async (localUrl) => {
+        const bitmap = await wasmMediaThreads.decodeMediaInSeparateThread(
+          localUrl,
+          this.width || 800,
+          this.height || 450
+        )
         const img = new Image()
         img.src = localUrl
         const applySource = () => {
           this.currentSrc = localUrl
         }
         img.onload = () => {
-          gpuAccel.processImageGPU(img, this.width || 800, this.height || 450)
-          if (img.decode) {
-            img.decode().then(applySource).catch(applySource)
-          } else {
-            applySource()
+          if (!bitmap) {
+            gpuAccel.processImageGPU(img, this.width || 800, this.height || 450)
           }
+          applySource()
+        }
+        img.onerror = () => {
+          applySource()
         }
       })
     }
