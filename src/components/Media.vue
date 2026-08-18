@@ -15,16 +15,31 @@
       aria-hidden="true"
     />
 
-    <img
-      decoding="async"
-      v-if="!isVideo"
-      ref="mediaImg"
-      :class="['render-media', classes, { 'render-media--loaded': isLoaded }]"
-      :width="width"
-      :height="height"
-      :alt="label"
-      :src="currentSrc"
-    />
+    <template v-if="!isVideo">
+      <!-- 1. Low-res thumbnail layer (loaded instantly, blurred in CSS) -->
+      <img
+        decoding="async"
+        class="render-media render-media--thumb"
+        :class="classes"
+        :width="width"
+        :height="height"
+        :alt="label"
+        :src="thumbSrc"
+      />
+
+      <!-- 2. High-res layer (cross-fades on top after 100% WASM/GPU decoding) -->
+      <img
+        v-if="highResSrc"
+        decoding="async"
+        ref="mediaImg"
+        class="render-media render-media--high"
+        :class="[classes, { 'render-media--loaded': isLoaded }]"
+        :width="width"
+        :height="height"
+        :alt="label"
+        :src="highResSrc"
+      />
+    </template>
 
     <video
       v-else
@@ -83,7 +98,8 @@ export default {
       styles: '',
       poster: [],
       video: [],
-      currentSrc: '',
+      thumbSrc: '',
+      highResSrc: '',
       isLoaded: false,
       observer: null,
       imgObserver: null,
@@ -137,7 +153,7 @@ export default {
       this.poster = urls.map((a) => a[0])
       this.video = urls.map((a) => a[1])
     } else {
-      this.currentSrc = this.storage + this.src + this.thumb
+      this.thumbSrc = this.storage + this.src + this.thumb
     }
   },
   mounted() {
@@ -241,8 +257,10 @@ export default {
       const img = new Image()
       img.src = localUrl
       const applySource = () => {
-        this.currentSrc = localUrl
-        this.isLoaded = true
+        this.highResSrc = localUrl
+        this.$nextTick(() => {
+          this.isLoaded = true
+        })
       }
       img.onload = () => {
         if (!bitmap) {

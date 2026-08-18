@@ -57,6 +57,22 @@
       display: block;
       object-fit: cover;
 
+      &--thumb {
+        filter: blur(12px);
+        transform: scale(1.05);
+        z-index: 1;
+      }
+
+      &--high {
+        opacity: 0;
+        z-index: 2;
+        transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+        &.render-media--loaded {
+          opacity: 1;
+        }
+      }
+
       @include layout-1024() {
         border-radius: to-rem($space-lg);
       }
