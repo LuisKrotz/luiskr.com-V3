@@ -193,6 +193,20 @@
       </button>
       <button
         class="cms-tab-btn"
+        :class="{ active: activeTab === 'about' }"
+        @click="activeTab = 'about'"
+      >
+        👤 About & Gravatar
+      </button>
+      <button
+        class="cms-tab-btn"
+        :class="{ active: activeTab === 'footer' }"
+        @click="activeTab = 'footer'"
+      >
+        🦶 Footers & Contact
+      </button>
+      <button
+        class="cms-tab-btn"
         :class="{ active: activeTab === 'languages' }"
         @click="activeTab = 'languages'"
       >
@@ -221,6 +235,8 @@
 import { logoutUser, onAuthChange } from '../firebase.js'
 import CmsPortfolioList from '../components/cms/CmsPortfolioList.vue'
 import CmsProjectsList from '../components/cms/CmsProjectsList.vue'
+import CmsAboutEditor from '../components/cms/CmsAboutEditor.vue'
+import CmsFooterEditor from '../components/cms/CmsFooterEditor.vue'
 import CmsLangEditor from '../components/cms/CmsLangEditor.vue'
 
 export default {
@@ -228,6 +244,8 @@ export default {
   components: {
     CmsPortfolioList,
     CmsProjectsList,
+    CmsAboutEditor,
+    CmsFooterEditor,
     CmsLangEditor,
   },
   data() {
@@ -243,6 +261,8 @@ export default {
     currentTabComponent() {
       if (this.activeTab === 'portfolio') return 'CmsPortfolioList'
       if (this.activeTab === 'projects') return 'CmsProjectsList'
+      if (this.activeTab === 'about') return 'CmsAboutEditor'
+      if (this.activeTab === 'footer') return 'CmsFooterEditor'
       if (this.activeTab === 'languages') return 'CmsLangEditor'
       return 'CmsPortfolioList'
     },
