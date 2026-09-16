@@ -186,20 +186,32 @@ export default {
 
     updateVal(keyPath, newVal) {
       const parts = keyPath.split('.')
+      if (parts.some((p) => p === '__proto__' || p === 'constructor' || p === 'prototype')) {
+        return
+      }
       let curr = this.categoryData
       for (let i = 0; i < parts.length - 1; i++) {
-        if (!curr[parts[i]]) curr[parts[i]] = {}
-        curr = curr[parts[i]]
+        const key = parts[i]
+        if (!Object.prototype.hasOwnProperty.call(curr, key) || typeof curr[key] !== 'object' || curr[key] === null) {
+          curr[key] = {}
+        }
+        curr = curr[key]
       }
-      curr[parts[parts.length - 1]] = newVal
+      const lastKey = parts[parts.length - 1]
+      if (lastKey !== '__proto__' && lastKey !== 'constructor' && lastKey !== 'prototype') {
+        curr[lastKey] = newVal
+      }
     },
 
     deleteKey(keyPath) {
+      const parts = keyPath.split('.')
+      if (parts.some((p) => p === '__proto__' || p === 'constructor' || p === 'prototype')) {
+        return
+      }
       if (confirm(`Delete key "${keyPath}"?`)) {
-        const parts = keyPath.split('.')
         let curr = this.categoryData
         for (let i = 0; i < parts.length - 1; i++) {
-          if (!curr[parts[i]]) return
+          if (!curr || !Object.prototype.hasOwnProperty.call(curr, parts[i])) return
           curr = curr[parts[i]]
         }
         delete curr[parts[parts.length - 1]]
@@ -210,8 +222,12 @@ export default {
     addKeyPrompt() {
       const keyName = prompt("Enter new translation key name (e.g. 'welcome_banner'):")
       if (keyName && keyName.trim()) {
+        const trimmed = keyName.trim()
+        if (trimmed === '__proto__' || trimmed === 'constructor' || trimmed === 'prototype') {
+          return
+        }
         const val = prompt('Enter translation string value:') || ''
-        this.categoryData[keyName.trim()] = val
+        this.categoryData[trimmed] = val
       }
     },
 

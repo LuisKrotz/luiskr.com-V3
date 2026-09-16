@@ -45,6 +45,17 @@
 <script>
 import { calcDrawTextOffset } from '../utils/wasm-layout.js'
 
+function stripHtml(s) {
+  if (!s || typeof s !== 'string') return ''
+  let prev
+  let curr = s
+  do {
+    prev = curr
+    curr = curr.replace(/<[^>]*>/g, '')
+  } while (curr !== prev)
+  return curr
+}
+
 export default {
   name: 'DrawText',
 
@@ -64,7 +75,7 @@ export default {
     visible(v) {
       if (this.trigger === 'prop' && v && !this.isVisible) {
         this.isVisible = true
-        const chars = (this.text || '').replace(/<[^>]+>/g, '').length
+        const chars = stripHtml(this.text).length
         const totalMs = this.offset + chars * this.delay + 900
         this.animTimer = setTimeout(() => {
           this.hasAnimated = true
@@ -75,7 +86,13 @@ export default {
 
   computed: {
     plainText() {
-      return (this.text || '').replace(/<[^>]+>/g, ' ')
+      let prev
+      let curr = this.text || ''
+      do {
+        prev = curr
+        curr = curr.replace(/<[^>]*>/g, ' ')
+      } while (curr !== prev)
+      return curr
     },
 
     tokens() {
@@ -139,7 +156,7 @@ export default {
     // Compute how long the full animation takes so we can schedule GPU-layer cleanup.
     // chars * delay + animation-duration(900ms) + offset gives the total active time.
     const _scheduleCleanup = () => {
-      const chars = this.text.replace(/<[^>]+>/g, '').length
+      const chars = stripHtml(this.text).length
       const totalMs = Math.round(calcDrawTextOffset(1, chars, this.delay) + this.offset + 900)
       this.animTimer = setTimeout(() => {
         this.hasAnimated = true

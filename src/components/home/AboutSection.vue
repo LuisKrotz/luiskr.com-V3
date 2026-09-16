@@ -83,14 +83,24 @@
 import DrawText from '../DrawText.vue'
 import { calcDrawTextDelay, calcDrawTextOffset } from '../../utils/wasm-layout.js'
 
+function isGravatarUrl(urlStr) {
+  if (typeof urlStr !== 'string') return false
+  try {
+    const parsed = new URL(urlStr, window.location.origin)
+    return parsed.hostname === 'gravatar.com' || parsed.hostname.endsWith('.gravatar.com')
+  } catch {
+    return false
+  }
+}
+
 export default {
   name: 'AboutSection',
   components: { DrawText },
 
   props: {
     aboutTranslations: {
-      type: [Object, Boolean],
-      default: false,
+      type: Object,
+      default: () => ({ col1: [], col2: [] }),
     },
     profilePicture: {
       type: [String, Object, null],
@@ -101,14 +111,14 @@ export default {
   computed: {
     optimizedProfilePicture() {
       if (!this.profilePicture) return ''
-      if (typeof this.profilePicture === 'string' && this.profilePicture.includes('gravatar.com')) {
+      if (isGravatarUrl(this.profilePicture)) {
         return this.profilePicture.replace(/size=\d+/, 'size=300')
       }
       return this.profilePicture
     },
 
     profilePictureSrcset() {
-      if (typeof this.profilePicture === 'string' && this.profilePicture.includes('gravatar.com')) {
+      if (isGravatarUrl(this.profilePicture)) {
         const base = this.profilePicture.replace(/(\?|&)size=\d+/, '')
         const sep = base.includes('?') ? '&' : '?'
         return `${base}${sep}size=200 1x, ${base}${sep}size=300 2x, ${base}${sep}size=400 3x`
@@ -121,7 +131,16 @@ export default {
       const col2 = this.aboutTranslations?.col2 || []
       const all = [...col1, ...col2]
 
-      const strip = (s) => s.replace(/<[^>]+>/g, '')
+      const strip = (s) => {
+        if (!s || typeof s !== 'string') return ''
+        let prev
+        let curr = s
+        do {
+          prev = curr
+          curr = curr.replace(/<[^>]*>/g, '')
+        } while (curr !== prev)
+        return curr
+      }
       const totalChars = all.reduce((s, t) => s + strip(t).length, 0)
       const charDelay = calcDrawTextDelay(totalChars, 2000)
 

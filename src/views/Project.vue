@@ -157,6 +157,17 @@ import Related from '../components/portfolio/Related.vue'
 import Carousel from '../components/Carousel.vue'
 import DrawText from '../components/DrawText.vue'
 
+function stripHtml(s) {
+  if (!s || typeof s !== 'string') return ''
+  let prev
+  let curr = s
+  do {
+    prev = curr
+    curr = curr.replace(/<[^>]*>/g, '')
+  } while (curr !== prev)
+  return curr
+}
+
 export default {
   data() {
     return {
@@ -210,7 +221,7 @@ export default {
       if (!Array.isArray(items)) return 14
       const totalChars =
         items.reduce((sum, str) => {
-          return sum + (typeof str === 'string' ? str.replace(/<[^>]+>/g, '').length : 0)
+          return sum + stripHtml(str).length
         }, 0) || 1
       return calcDrawTextDelay(totalChars, 1800)
     },
@@ -220,7 +231,7 @@ export default {
       const delay = this.textDelay(items)
       let charsBefore = 0
       for (let i = 0; i < idx; i++) {
-        charsBefore += items[i] ? items[i].replace(/<[^>]+>/g, '').length : 0
+        charsBefore += stripHtml(items[i]).length
       }
       return calcDrawTextOffset(idx, charsBefore, delay)
     },
@@ -342,8 +353,9 @@ export default {
             }
           } else {
             console.log(
-              "%cERROR: could't find PROJECT DATA for " + projectKey,
-              this.$sharedData.styles.info
+              "%cERROR: couldn't find PROJECT DATA for %s",
+              this.$sharedData.styles.info,
+              String(projectKey)
             )
           }
         })

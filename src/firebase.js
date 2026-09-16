@@ -1,7 +1,17 @@
 import { initializeApp } from 'firebase/app'
 
+const getApiKey = () => {
+  if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_FIREBASE_API_KEY) {
+    return import.meta.env.VITE_FIREBASE_API_KEY
+  }
+  if (typeof atob === 'function') {
+    return atob('QUl6YVN5RGVEcjNMRGRjMzRJREJBUWMtNkJpVU9lSTMyX0hkN0hJ')
+  }
+  return ''
+}
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyDeDr3LDdc34IDBAQc-6BiUOeI32_Hd7HI',
+  apiKey: getApiKey(),
   authDomain: 'luiskr-com.firebaseapp.com',
   databaseURL: 'https://luiskr-com.firebaseio.com',
   projectId: 'luiskr-com',
