@@ -267,11 +267,11 @@ describe('PreferencesModal', () => {
     expect(store.getters.getTheme()).toBe(THEME.LIGHT)
   })
 
-  test('selecting Reduced Motion commits setReducedMotion true to store', () => {
+  test('selecting Reduced Motion commits toggleReducedMotion to store', () => {
     store.commit('togglePreferencesModal', true)
     modalEl._syncOpenState()
     modalEl._updateDom()
-    modalEl.shadowRoot.querySelector('button[data-motion="reduced"]').click()
+    modalEl.shadowRoot.querySelector('button[aria-label="Reduced Motion"]').click()
     expect(store.getters.getReducedMotion()).toBe(true)
   })
 

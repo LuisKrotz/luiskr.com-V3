@@ -284,7 +284,7 @@ describe('Web Components Suite - Structure, Events & Reactive Fidelity (50+ Test
       document.body.appendChild(modal)
       store.commit('togglePreferencesModal', true)
 
-      const reducedBtn = modal.shadowRoot.querySelector('[data-motion="reduced"]')
+      const reducedBtn = modal.shadowRoot.querySelector('button[aria-label="Reduced Motion"]')
       reducedBtn.click()
 
       expect(store.getters.getReducedMotion()).toBe(true)

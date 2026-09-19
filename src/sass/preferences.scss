@@ -76,20 +76,42 @@
 .pref-close-btn {
   @extend %RESETBTN;
 
-  font-size: to-rem($space-2xl);
-  color: var(--text-secondary);
+  flex-shrink: 0;
+  width: to-rem($space-3xl);
+  height: to-rem($space-3xl);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: to-rem($space-2xs) to-rem($space-xs);
-  border-radius: to-rem($space-xs);
-  line-height: 1;
+  color: var(--text-secondary);
+  background: var(--border-color);
   transition:
-    opacity 0.2s ease,
-    background 0.2s ease;
+    background 0.2s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+
+  // CSS-drawn X via pseudo-elements
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: to-rem($space-xl);
+    height: to-rem($space-hairline + 1);
+    background: var(--text-secondary);
+    border-radius: var(--radius-round);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &::before { transform: rotate(45deg); }
+  &::after  { transform: rotate(-45deg); }
 
   &:hover,
   &:focus {
-    opacity: 0.8;
-    background: var(--border-color);
+    background: var(--border-color-hover, var(--border-color));
+
+    &::before { transform: rotate(135deg); }
+    &::after  { transform: rotate(45deg); }
   }
 }
 
@@ -209,7 +231,7 @@
 }
 
 .pref-option-icon {
-  font-size: to-rem($space-3xl);
+  font-size: to-rem($space-2xl);
   line-height: 1;
   display: flex;
   align-items: center;
@@ -312,10 +334,11 @@ $_SW_PAD: 3;  // padding inside pill
   display: inline-block;
   width: to-rem($_SW_W);
   height: to-rem($_SW_H);
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--border-color);
   border-radius: var(--radius-round);
   position: relative;
   transition: background 0.2s ease;
+  cursor: pointer;
 
   // The knob
   &::after {

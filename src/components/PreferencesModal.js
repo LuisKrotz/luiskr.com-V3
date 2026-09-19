@@ -43,7 +43,6 @@ export class PreferencesModal extends BaseComponent {
     if (this._isMounted) {
       this._syncOpenState()
       this._updateDom()
-      this._bindEvents()
       if (this.isOpen) {
         requestAnimationFrame(() => {
           const backdrop = this.$('.pref-backdrop')
@@ -92,7 +91,7 @@ export class PreferencesModal extends BaseComponent {
   onMounted() {
     this.subscribe(store)
     this._syncOpenState()
-    this._bindEvents()
+    this._bindBackdropEvents()
     this.addScopedListener(window, 'open-preferences-modal', () => {
       store.commit('togglePreferencesModal', true)
     })
@@ -111,7 +110,6 @@ export class PreferencesModal extends BaseComponent {
   onStoreUpdate() {
     this._syncOpenState()
     this._updateDom()
-    this._bindEvents()
     if (this.isOpen) {
       requestAnimationFrame(() => {
         const backdrop = this.$(`.${CLASSES.PREF_BACKDROP}`)
@@ -122,44 +120,12 @@ export class PreferencesModal extends BaseComponent {
 
   onUpdated() {
     this._syncOpenState()
-    this._bindEvents()
   }
 
-  _bindEvents() {
-    if (!this.isOpen) return
-
-    const backdrop = this.$(`.${CLASSES.PREF_BACKDROP}`)
-    if (backdrop) {
-      this.addScopedListener(backdrop, 'click', (e) => {
-        if (e.target === backdrop) this.close()
-      })
-    }
+  // Only backdrop + Escape — everything else is JSX onClick
+  _bindBackdropEvents() {
     this.addScopedListener(window, 'keydown', (e) => {
-      if (e.key === 'Escape') this.close()
-    })
-
-    const closeBtn = this.$(`.${CLASSES.PREF_CLOSE_BTN}`)
-    if (closeBtn) this.addScopedListener(closeBtn, 'click', () => this.close())
-
-    const doneBtn = this.$(`.${CLASSES.PREF_DONE_BTN}`)
-    if (doneBtn) this.addScopedListener(doneBtn, 'click', () => this.close())
-
-    const themeBtns = this.$$('[data-theme]')
-    themeBtns.forEach((btn) => {
-      this.addScopedListener(btn, 'click', () => {
-        const mode = btn.getAttribute('data-theme')
-        store.commit('setTheme', mode)
-      })
-    })
-
-    const motionBtns = this.$$('[data-motion]')
-    motionBtns.forEach((btn) => {
-      this.addScopedListener(btn, 'click', () => {
-        const reduced = btn.getAttribute('data-motion') === 'reduced'
-        if (this.reducedMotion !== reduced) {
-          store.commit('toggleReducedMotion')
-        }
-      })
+      if (e.key === 'Escape' && this.isOpen) this.close()
     })
   }
 
@@ -174,7 +140,6 @@ export class PreferencesModal extends BaseComponent {
     const t = this.t
     const theme = this.currentTheme
     const reduced = this.reducedMotion
-    const analytics = this.npuAnalytics
     const statsForNerds = store.getters.getStatsForNerds()
     const showGrid = store.getters.getShowGrid()
 
@@ -191,12 +156,10 @@ export class PreferencesModal extends BaseComponent {
             <h2 id="pref-title" className={CLASSES.PREF_TITLE}>{t.title}</h2>
             <button
               className={CLASSES.PREF_CLOSE_BTN}
-              aria-label={t.title}
+              aria-label="Close preferences"
               type="button"
               onClick={() => this.close()}
-            >
-              ✕
-            </button>
+            />
           </header>
 
           <div className={CLASSES.PREF_BODY}>
@@ -238,77 +201,65 @@ export class PreferencesModal extends BaseComponent {
             </section>
 
             <section className={CLASSES.PREF_SECTION}>
-              <h3 className={CLASSES.PREF_SECTION_TITLE}>{t.motion.title}</h3>
-              <p className={CLASSES.PREF_SECTION_DESC}>{t.motion.desc}</p>
-              <div className={CLASSES.PREF_OPTIONS_2}>
-                <button
-                  className={`${CLASSES.PREF_OPTION_BTN}${!reduced ? ` ${CLASSES.ACTIVE}` : ''}`}
-                  data-motion={MOTION.FULL}
-                  type="button"
-                  onClick={() => {
-                    if (this.reducedMotion) store.commit('toggleReducedMotion')
-                  }}
-                >
-                  <span className={CLASSES.PREF_OPTION_ICON}>⚡</span>
-                  <span className={CLASSES.PREF_OPTION_LABEL}>{t.motion.full.label}</span>
-                  <span className={CLASSES.PREF_OPTION_SUB}>{t.motion.full.sub}</span>
-                </button>
-                <button
-                  className={`${CLASSES.PREF_OPTION_BTN}${reduced ? ` ${CLASSES.ACTIVE}` : ''}`}
-                  data-motion={MOTION.REDUCED}
-                  type="button"
-                  onClick={() => {
-                    if (!this.reducedMotion) store.commit('toggleReducedMotion')
-                  }}
-                >
-                  <span className={CLASSES.PREF_OPTION_ICON}>🍃</span>
-                  <span className={CLASSES.PREF_OPTION_LABEL}>{t.motion.reduced.label}</span>
-                  <span className={CLASSES.PREF_OPTION_SUB}>{t.motion.reduced.sub}</span>
-                </button>
-              </div>
-            </section>
-
-            <section className={CLASSES.PREF_SECTION}>
-              <h3 className={CLASSES.PREF_SECTION_TITLE}>Hardware Acceleration &amp; AI</h3>
-              <p className={CLASSES.PREF_SECTION_DESC}>NPU Neural Prediction &amp; WASM Multi-Threaded Engine</p>
-              <div className={CLASSES.PREF_OPTIONS_2}>
-                <div className={CLASSES.PREF_STAT_CARD}>
-                  <span className={CLASSES.PREF_OPTION_LABEL}>Engine / Acceleration</span>
-                  <span className={CLASSES.PREF_OPTION_SUB}>{this.npuStatus}</span>
-                </div>
-                <div className={CLASSES.PREF_STAT_CARD}>
-                  <span className={CLASSES.PREF_OPTION_LABEL}>Predictive Preloads</span>
-                  <span className={CLASSES.PREF_OPTION_SUB}>
-                    {analytics.successfulPreloads} / {analytics.totalPredictions}
-                  </span>
-                </div>
-              </div>
-            </section>
-
-            <section className={CLASSES.PREF_SECTION}>
               <h3 className={CLASSES.PREF_SECTION_TITLE}>Developer Tools</h3>
-              <div className={CLASSES.PREF_SWITCH_ROW} onClick={() => store.commit('toggleStatsForNerds')}>
+              <div
+                className={CLASSES.PREF_SWITCH_ROW}
+                role="group"
+                onClick={(e) => {
+                  if (!e.target.closest('button')) store.commit('toggleStatsForNerds')
+                }}
+              >
                 <div className={CLASSES.PREF_SWITCH_INFO}>
                   <span className={CLASSES.PREF_SWITCH_LABEL}>Stats for Nerds</span>
                   <span className={CLASSES.PREF_SWITCH_DESC}>Live FPS, network, memory HUD — bottom-right corner</span>
                 </div>
-                <span
+                <button
                   className={statsForNerds ? CLASSES.PREF_SWITCH_ON : CLASSES.PREF_SWITCH}
                   aria-checked={String(statsForNerds)}
                   aria-label="Stats for Nerds"
                   role="switch"
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); store.commit('toggleStatsForNerds') }}
                 />
               </div>
-              <div className={CLASSES.PREF_SWITCH_ROW} onClick={() => store.commit('toggleShowGrid')}>
+              <div
+                className={CLASSES.PREF_SWITCH_ROW}
+                role="group"
+                onClick={(e) => {
+                  if (!e.target.closest('button')) store.commit('toggleShowGrid')
+                }}
+              >
                 <div className={CLASSES.PREF_SWITCH_INFO}>
                   <span className={CLASSES.PREF_SWITCH_LABEL}>Show Grid</span>
                   <span className={CLASSES.PREF_SWITCH_DESC}>Overlay columns, gutters and max-area at every breakpoint</span>
                 </div>
-                <span
+                <button
                   className={showGrid ? CLASSES.PREF_SWITCH_ON : CLASSES.PREF_SWITCH}
                   aria-checked={String(showGrid)}
                   aria-label="Show Grid"
                   role="switch"
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); store.commit('toggleShowGrid') }}
+                />
+              </div>
+              <div
+                className={CLASSES.PREF_SWITCH_ROW}
+                role="group"
+                onClick={(e) => {
+                  if (!e.target.closest('button')) store.commit('toggleReducedMotion')
+                }}
+              >
+                <div className={CLASSES.PREF_SWITCH_INFO}>
+                  <span className={CLASSES.PREF_SWITCH_LABEL}>Reduced Motion</span>
+                  <span className={CLASSES.PREF_SWITCH_DESC}>Disable animations and transitions</span>
+                </div>
+                <button
+                  className={reduced ? CLASSES.PREF_SWITCH_ON : CLASSES.PREF_SWITCH}
+                  aria-checked={String(reduced)}
+                  aria-label="Reduced Motion"
+                  role="switch"
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); store.commit('toggleReducedMotion') }}
                 />
               </div>
             </section>
