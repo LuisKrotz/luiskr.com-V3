@@ -12,6 +12,7 @@ export class ViewAdminLogin extends BaseComponent {
     this.loading = false
     this.errorMsg = ''
     this.unsubscribe = null
+    this._loginInProgress = false
   }
 
   async onMounted() {
@@ -38,6 +39,9 @@ export class ViewAdminLogin extends BaseComponent {
   }
 
   async handleGoogleLogin() {
+    // Guard: prevent duplicate popup calls that cause auth/cancelled-popup-request
+    if (this._loginInProgress) return
+    this._loginInProgress = true
     this.loading = true
     this.errorMsg = ''
     this._updateDom()
@@ -49,12 +53,18 @@ export class ViewAdminLogin extends BaseComponent {
         router.push('/cms')
       }
     } catch (err) {
-      console.error('Google Sign-In Error:', err)
-      this.errorMsg = err.message || 'Failed to sign in with Google.'
+      // Suppress cancelled-popup noise (user closed the popup)
+      if (err?.code === 'auth/cancelled-popup-request' || err?.code === 'auth/popup-closed-by-user') {
+        this.errorMsg = ''
+      } else {
+        console.error('Google Sign-In Error:', err)
+        this.errorMsg = err.message || 'Failed to sign in with Google.'
+      }
       this._updateDom()
       this._bindEvents()
     } finally {
       this.loading = false
+      this._loginInProgress = false
       this._updateDom()
       this._bindEvents()
     }

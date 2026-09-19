@@ -302,6 +302,9 @@
       width: to-rem($space-2xl);
       height: to-rem($space-2xl);
       border-radius: var(--radius-round);
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
     }
 
     .cms-email {
@@ -473,5 +476,323 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+// ── CMS Editor Layout Helpers (About, Footer, Projects) ───────────────
+
+.cms-card--header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: to-rem($space-md);
+}
+
+.cms-card--lang {
+  display: flex;
+  align-items: center;
+  gap: to-rem($space-md);
+  flex-wrap: wrap;
+}
+
+.cms-btn-group {
+  display: flex;
+  gap: to-rem($space-sm);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cms-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: to-rem($space-sm);
+  margin-bottom: to-rem($space-md);
+}
+
+.cms-section-title {
+  font-size: to-rem($space-lg);
+  font-weight: 600;
+  color: $cms-accent;
+  margin: 0 0 to-rem($space-sm);
+  display: block;
+}
+
+.cms-subsection {
+  margin-top: to-rem($space-md);
+  padding: to-rem($space-md);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+.cms-subsection-title {
+  font-size: to-rem($space-md);
+  font-weight: 600;
+  color: $cms-text-muted;
+  display: block;
+  margin-bottom: to-rem($space-sm);
+}
+
+.cms-field-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(to-rem(200px), 1fr));
+  gap: to-rem($space-md);
+  margin-bottom: to-rem($space-md);
+}
+
+.cms-field-row--align {
+  align-items: end;
+}
+
+.cms-field-group--small {
+  max-width: to-rem(160px);
+}
+
+.cms-label {
+  color: $cms-text-muted;
+  font-weight: 500;
+}
+
+.cms-hint {
+  font-size: to-rem($space-md);
+  color: $cms-text-subtle;
+  margin-top: to-rem($space-sm);
+}
+
+.cms-card-subtitle {
+  font-size: to-rem($space-md);
+  color: $cms-text-muted;
+  margin: 0;
+}
+
+// ── Gravatar Editor ───────────────────────────────────────────────────
+.cms-gravatar-layout {
+  display: flex;
+  gap: to-rem($space-xl);
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.cms-gravatar-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: to-rem($space-sm);
+  flex-shrink: 0;
+}
+
+.cms-gravatar-img {
+  width: to-rem(96px);
+  height: to-rem(96px);
+  border-radius: var(--radius-round);
+  object-fit: cover;
+  border: to-rem($space-3xs) solid $cms-accent;
+}
+
+.cms-gravatar-placeholder {
+  width: to-rem(96px);
+  height: to-rem(96px);
+  border-radius: var(--radius-round);
+  background: $cms-bg-darker;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: to-rem(40px);
+  border: to-rem($space-3xs) dashed $cms-border;
+}
+
+.cms-gravatar-label {
+  font-size: to-rem($space-sm);
+  color: $cms-text-subtle;
+}
+
+.cms-gravatar-controls {
+  flex: 1;
+  min-width: to-rem(280px);
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-sm);
+}
+
+.cms-preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: to-rem($space-2xs);
+}
+
+.cms-input--short {
+  max-width: to-rem(110px);
+}
+
+.cms-btn--preset {
+  font-size: to-rem($space-sm);
+  padding: to-rem($space-2xs) to-rem($space-sm);
+}
+
+.cms-btn--active {
+  border-color: $cms-accent;
+  color: $cms-accent;
+}
+
+// ── Paragraph List Editor ─────────────────────────────────────────────
+.cms-para-list {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-sm);
+}
+
+.cms-para-item {
+  display: flex;
+  gap: to-rem($space-sm);
+  align-items: flex-start;
+
+  textarea {
+    flex: 1;
+  }
+}
+
+.cms-para-controls {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-2xs);
+  flex-shrink: 0;
+}
+
+// ── Channel / Link List Editor ─────────────────────────────────────────
+.cms-channel-list {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-sm);
+}
+
+.cms-channel-item {
+  display: grid;
+  grid-template-columns: to-rem(130px) 1fr auto;
+  gap: to-rem($space-sm);
+  align-items: center;
+}
+
+.cms-channel-label {
+  flex-shrink: 0;
+}
+
+.cms-input--label {
+  font-size: to-rem($space-md);
+}
+
+.cms-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: to-rem($space-sm);
+}
+
+.cms-item-label {
+  font-weight: 600;
+  color: $cms-accent;
+}
+
+.cms-item-controls {
+  display: flex;
+  gap: to-rem($space-2xs);
+}
+
+// ── Mention Items ─────────────────────────────────────────────────────
+.cms-mention-list {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-sm);
+}
+
+.cms-mention-item {
+  margin-bottom: 0;
+}
+
+// ── Section Card ──────────────────────────────────────────────────────
+.cms-section-card {
+  border-left: to-rem($space-3xs) solid $cms-accent;
+}
+
+.cms-sections-list {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-md);
+}
+
+// ── Media Item ────────────────────────────────────────────────────────
+.cms-media-item {
+  display: flex;
+  gap: to-rem($space-md);
+  align-items: flex-start;
+  padding: to-rem($space-sm);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+  margin-bottom: to-rem($space-sm);
+}
+
+.cms-media-thumb {
+  width: to-rem(72px);
+  height: to-rem(44px);
+  object-fit: cover;
+  border-radius: var(--radius-xs);
+  border: to-rem($space-3xs) solid $cms-border;
+  flex-shrink: 0;
+}
+
+.cms-media-thumb-placeholder {
+  width: to-rem(72px);
+  height: to-rem(44px);
+  border-radius: var(--radius-xs);
+  background: $cms-bg-darker;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: to-rem($space-xl);
+  border: to-rem($space-3xs) dashed $cms-border;
+  flex-shrink: 0;
+}
+
+.cms-media-fields {
+  flex: 1;
+}
+
+// ── Cover Layout ──────────────────────────────────────────────────────
+.cms-cover-layout {
+  display: flex;
+  gap: to-rem($space-lg);
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.cms-cover-thumb {
+  width: to-rem(120px);
+  height: to-rem(72px);
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: to-rem($space-3xs) solid $cms-border;
+  flex-shrink: 0;
+}
+
+.cms-cover-fields {
+  flex: 1;
+  min-width: to-rem(280px);
+}
+
+// ── Checkbox ──────────────────────────────────────────────────────────
+.cms-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: to-rem($space-sm);
+  color: $cms-text-primary;
+  font-size: to-rem($space-md);
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    width: to-rem($space-md);
+    height: to-rem($space-md);
+    accent-color: $cms-accent;
+    cursor: pointer;
   }
 }
