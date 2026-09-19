@@ -231,6 +231,7 @@ export const TAGS = Object.freeze({
 // All external base URLs declared once — never inline in components.
 export const URLS = Object.freeze({
   CDN_BASE: 'https://storage.googleapis.com/luiskr.com/public/_v3/',
+  FLAG_CDN: 'https://flagcdn.com/',
 })
 
 // ─── Path constants ───────────────────────────────────────────────────
@@ -435,6 +436,9 @@ export const CLASSES = Object.freeze({
   NAV_ACTION_BTN: `${_B_NAV}-action-btn`,
   NAV_PREF_BTN: `${_B_NAV}-pref-btn`,
   NAV_LANG_OPEN_BTN: `${_B_NAV}-lang-open-btn`,
+  // Flag images — SVG from flagcdn.com
+  FLAG_IMG: 'flag-img',
+  FLAG_SPLIT: 'flag-split',
 
   // Preferences & Lang modal — ALL class names composed from _B_PREF
   PREF_BACKDROP:        `${_B_PREF}-backdrop`,

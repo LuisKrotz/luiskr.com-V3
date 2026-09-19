@@ -151,21 +151,20 @@
     }
 
     .legal & {
-      // Legal pages: no extra column indent — the .legal container already
-      // applies %MAXAREA gutters, so only reset the horizontal column padding
-      // that was added for project internals (cols 4–9 indent).
+      // Legal pages: keep the column-indent padding so content sits in
+      // cols 4–9 (3 empty cols on each side of the 12-column grid).
+      // The .legal container is full-width (no %MAXAREA), so this
+      // 25% padding IS the only source of indentation.
       @include layout-768() {
         padding-top: to-rem($space-3xl);
         padding-bottom: to-rem($space-2xl);
-        padding-left: 0;
-        padding-right: 0;
+        // 12.5% = 1.5 cols on 8-col intermediate grid
       }
 
       @include layout-1024() {
         padding-top: to-rem($space-3xl);
         padding-bottom: to-rem($space-2xl);
-        padding-left: 0;
-        padding-right: 0;
+        // 25% already applied by base rule — no override needed
       }
 
       @include layout-1920() {
@@ -793,10 +792,12 @@
   transform: none;
 }
 
-// ── Legal page container ─────────────────────────────────────────────────────
-// The .legal wrapper must align to the same grid columns as the rest of the site.
+// ── Legal page container ───────────────────────────────────────────────────────────
+// .legal must NOT extend %MAXAREA — it is full-width.
+// All column indentation comes from the .internal-description 25% padding
+// inside it, which places content in cols 4–9 (3 empty cols on each side
+// of the 12-column grid).
 .legal {
-  @extend %MAXAREA;
-
+  width: 100%;
   box-sizing: border-box;
 }

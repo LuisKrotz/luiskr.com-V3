@@ -614,3 +614,36 @@ html.reduced-motion *::after {
 .page-fade-in {
   opacity: 0;
 }
+
+// ── Nav flag images ───────────────────────────────────────────────────────────
+// Sized for the compact navbar button context (smaller than preferences modal).
+.flag-img {
+  height: to-rem(28);
+  width: auto;
+  display: block;
+  border-radius: to-rem($space-2xs);
+  box-shadow: 0 to-rem($space-hairline) to-rem($space-xs) var(--shadow-card);
+}
+
+// Split flag: two country codes side by side in one compact badge
+.flag-split {
+  display: inline-flex;
+  align-items: center;
+
+  .flag-img {
+    height: to-rem(28);
+    width: to-rem(21);
+    object-fit: cover;
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: to-rem($space-2xs) 0 0 to-rem($space-2xs);
+      object-position: left center;
+    }
+
+    &:last-child {
+      border-radius: 0 to-rem($space-2xs) to-rem($space-2xs) 0;
+      object-position: right center;
+    }
+  }
+}

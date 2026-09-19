@@ -5,7 +5,7 @@ import router from '../core/router.js'
 import { deepQuerySelector } from '../core/dom.js'
 import { localePath, LANG_OPTIONS } from '../core/i18n.js'
 import { wasmSmoothScroll } from '../utils/wasm-scroll.js'
-import { TAGS, CLASSES } from '../core/constants.js'
+import { TAGS, CLASSES, URLS } from '../core/constants.js'
 import appStyles from '../sass/app.scss?inline'
 
 export class AppNav extends BaseComponent {
@@ -43,12 +43,46 @@ export class AppNav extends BaseComponent {
     return store.getters.getLang()
   }
 
-  get currentLangLabel() {
-    return LANG_OPTIONS.find((l) => l.code === this.locale)?.label ?? this.locale.toUpperCase()
+  get currentLang() {
+    return LANG_OPTIONS.find((l) => l.code === this.locale) ?? null
   }
 
-  get localeFlag() {
-    return LANG_OPTIONS.find((l) => l.code === this.locale)?.flag ?? this.locale.toUpperCase()
+  get currentLangLabel() {
+    return this.currentLang?.label ?? this.locale.toUpperCase()
+  }
+
+  renderLocaleFlag() {
+    const lang = this.currentLang
+
+    if (!lang) return this.locale.toUpperCase()
+
+    if (lang.cc2) {
+      return (
+        <span className={CLASSES.FLAG_SPLIT}>
+          <img
+            className={CLASSES.FLAG_IMG}
+            src={`${URLS.FLAG_CDN}${lang.cc}.svg`}
+            alt={lang.label}
+            loading="lazy"
+          />
+          <img
+            className={CLASSES.FLAG_IMG}
+            src={`${URLS.FLAG_CDN}${lang.cc2}.svg`}
+            alt=""
+            loading="lazy"
+          />
+        </span>
+      )
+    }
+
+    return (
+      <img
+        className={CLASSES.FLAG_IMG}
+        src={`${URLS.FLAG_CDN}${lang.cc}.svg`}
+        alt={lang.label}
+        loading="lazy"
+      />
+    )
   }
 
   onMounted() {
@@ -325,7 +359,7 @@ export class AppNav extends BaseComponent {
               type="button"
               onClick={(e) => this.handleLang(e)}
             >
-              {this.localeFlag}
+              {this.renderLocaleFlag()}
             </button>
           </div>
         )}
@@ -347,7 +381,7 @@ export class AppNav extends BaseComponent {
               type="button"
               onClick={(e) => this.handleLang(e)}
             >
-              {this.localeFlag}
+              {this.renderLocaleFlag()}
             </button>
           </div>
         )}
