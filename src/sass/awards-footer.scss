@@ -8,18 +8,23 @@
 // Shared across Home, About, and Legal pages.
 // Dark background (same as .contact), centred layout.
 .awards-footer {
+  @extend %MAXAREA;
+
   background: var(--bg-dark);
   color: $color-white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: to-rem($space-2xl) to-rem($space-lg) to-rem($space-3xl);
+  padding-top: to-rem($space-2xl);
+  padding-bottom: to-rem($space-3xl);
 
   @include layout-768() {
-    padding: to-rem($space-2xl) to-rem($space-4xl) to-rem($space-3xl);
+    padding-top: to-rem($space-2xl);
+    padding-bottom: to-rem($space-3xl);
   }
   @include layout-2560() {
-    padding: to-rem($space-3xl) to-rem($space-5xl) to-rem($space-4xl);
+    padding-top: to-rem($space-3xl);
+    padding-bottom: to-rem($space-4xl);
   }
 
   &-title {
@@ -47,7 +52,7 @@
     min-height: to-rem($space-5xl);
   }
 
-  // Legal links — same border/padding as .contact-social
+  // Legal links — divider + footer links, constrained to grid
   &-links {
     @extend .ttl-xs;
 
@@ -56,14 +61,10 @@
     justify-content: center;
     flex-wrap: wrap;
     color: $color-white;
-    width: 88%;
-    padding: to-rem($space-lg) to-rem($space-lg) 0;
+    width: 100%;
+    padding: to-rem($space-lg) 0 0;
     border-top: to-rem($space-hairline) solid var(--border-color);
     margin: to-rem($space-xl) auto 0;
-
-    @include layout-768() {
-      padding: to-rem($space-lg) to-rem($space-4xl) 0;
-    }
 
     &-item {
       @extend .ttl-xs;

@@ -39,6 +39,9 @@
   }
 
   // ── Profile picture + 2-column text row ─────────────────────────────────
+  // Grid: [pic 2fr] [gap 1fr] [text-1 5fr] [gap 1fr] [text-2 5fr]
+  // The .about-profile-text wrapper uses display:contents at 1024px+ so its
+  // two children become direct grid items in columns 3 and 5.
   &-profile-section {
     display: flex;
     flex-direction: column;
@@ -46,49 +49,61 @@
     padding-bottom: to-rem($space-4xl);
 
     @include layout-768() {
-      flex-direction: row;
+      // Intermediate: picture left, two text cols right in a 3-col grid
+      display: grid;
+      grid-template-columns: to-rem($space-7xl) 1fr 1fr;
       align-items: flex-start;
       gap: to-rem($space-3xl);
     }
-    @include layout-1440() {
-      gap: to-rem($space-4xl);
+
+    @include layout-1024() {
+      // Full grid: 2fr gap 5fr gap 5fr  (14 fractional units)
+      // Cols: 1=pic, 2=gap, 3=text-1, 4=gap, 5=text-2
+      grid-template-columns: 2fr 1fr 5fr 1fr 5fr;
+      gap: 0;
       padding-bottom: to-rem($space-5xl);
     }
+
     @include layout-2560() {
-      gap: to-rem($space-5xl);
       padding-bottom: to-rem($space-6xl);
     }
   }
 
   &-profile-picture {
     flex-shrink: 0;
+    // Mobile / 768px: fixed square size driven by space tokens
     width: to-rem($space-5xl);
     height: to-rem($space-5xl);
     margin: 0;
+    // Stay in column 1 on all grid layouts
+    grid-column: 1;
+    grid-row: 1;
 
     @include layout-540() {
       width: to-rem($space-6xl);
       height: to-rem($space-6xl);
-      margin: 0;
     }
+
     @include layout-768() {
-      width: to-rem($space-6xl);
-      height: to-rem($space-6xl);
-      margin: 0;
+      // On 3-col intermediate grid: picture fills its column naturally
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      grid-column: 1;
+      grid-row: 1 / 3; // span both text rows at 768
     }
+
     @include layout-1024() {
-      width: to-rem($space-6xl);
-      height: to-rem($space-6xl);
-      margin: 0;
+      // On 5-col full grid: picture in col 1
+      grid-column: 1;
+      grid-row: 1;
     }
+
     @include layout-1440() {
-      width: to-rem($space-7xl);
-      height: to-rem($space-7xl);
       margin: 0;
     }
+
     @include layout-2560() {
-      width: to-rem($space-8xl);
-      height: to-rem($space-8xl);
       margin: 0;
     }
 
@@ -113,14 +128,25 @@
 
   &-profile-text {
     flex: 1;
+    // Mobile: single column
     display: grid;
     grid-template-columns: 1fr;
     gap: to-rem($space-xl);
 
     @include layout-768() {
+      // On 768 grid: profile-text spans cols 2-3, shows 2 cols inside
+      grid-column: 2 / 4;
+      grid-row: 1;
       grid-template-columns: repeat(2, 1fr);
       gap: to-rem($space-2xl);
     }
+
+    @include layout-1024() {
+      // On full 5-col grid: profile-text uses display:contents so its
+      // two children become direct grid items in cols 3 and 5.
+      display: contents;
+    }
+
     @include layout-2560() {
       gap: to-rem($space-3xl);
     }
@@ -131,6 +157,19 @@
       overflow-wrap: break-word;
       word-break: normal;
       hyphens: none;
+
+      @include layout-1024() {
+        // First text col → grid column 3, second → grid column 5
+        // CSS auto-placement fills cols 3 then 5 after the picture in col 1
+        // and the gap columns 2 and 4 are skipped automatically.
+        &:first-child {
+          grid-column: 3;
+        }
+
+        &:last-child {
+          grid-column: 5;
+        }
+      }
     }
   }
 
