@@ -243,6 +243,8 @@ const _B_NOT_FOUND = 'not-found'
 const _B_ADMIN = 'admin'
 const _B_CMS = 'cms'
 const _B_NAV = 'nav'
+const _B_PREF = 'pref'
+const _B_COOKIES = 'cookies'
 
 export const CLASSES = Object.freeze({
   // Skeleton & Media
@@ -385,15 +387,39 @@ export const CLASSES = Object.freeze({
   DRAW_TEXT: _B_DRAW_TEXT,
   DRAW_TEXT_WORD: `${_B_DRAW_TEXT}__word`,
   DRAW_TEXT_CHAR: `${_B_DRAW_TEXT}__char`,
+  DRAW_TEXT_SPACE: `${_B_DRAW_TEXT}__space`,
   DRAW_TEXT_VISIBLE: `${_B_DRAW_TEXT}--visible`,
 
-  // Navigation
+  // Navigation buttons
   NAV: _B_NAV,
   NAV_LINK: `${_B_NAV}-link`,
   NAV_LINK_ACTIVE: 'router-link-exact-active',
   NAV_DESKTOP: `${_B_NAV}-desktop`,
   NAV_SEPARATOR: `${_B_NAV}-separator`,
   NAV_MOBILE_STRIP: `${_B_NAV}-mobile-strip`,
+  NAV_LOGO_BTN: `${_B_NAV}-logo-btn`,
+  NAV_ABOUT_BTN: `${_B_NAV}-about-btn`,
+  NAV_ACTION_BTN: `${_B_NAV}-action-btn`,
+  NAV_PREF_BTN: `${_B_NAV}-pref-btn`,
+  NAV_LANG_OPEN_BTN: `${_B_NAV}-lang-open-btn`,
+
+  // Preferences & Lang modal
+  PREF_BACKDROP: `${_B_PREF}-backdrop`,
+  PREF_DIALOG: `${_B_PREF}-dialog`,
+  PREF_CLOSE_BTN: `${_B_PREF}-close-btn`,
+  PREF_DONE_BTN: `${_B_PREF}-done-btn`,
+  LANG_DIALOG: 'lang-dialog',
+
+  // Cookie banner
+  COOKIES: _B_COOKIES,
+  COOKIES_INFO: `${_B_COOKIES}-info`,
+  COOKIES_BUTTONS_ACCEPT: `${_B_COOKIES}-buttons-accept`,
+  COOKIES_BUTTONS_REFUSE: `${_B_COOKIES}-buttons-refuse`,
+
+  // App layout
+  PROGRESS_BAR: 'progress-bar',
+  VIEW_OUTLET: 'view-outlet',
+  CMS_BADGE: `${_B_CMS}-badge`,
 
   // Additional Carousel (all composed from _B_CAROUSEL_BTN / _B_CAROUSEL_SLIDE)
   CAROUSEL_FALLBACK: `${_B_CAROUSEL}-fallback`,
@@ -469,6 +495,23 @@ export const CLASSES = Object.freeze({
   HC_AWARD_IMG: `${_B_HC}-award-img`,
   HC_AWARD_TEXT: `${_B_HC}-award-text`,
   HC_SLIDE_CONTENT: `${_B_HC}-slide-content`,
+  HC_AWARDS: `${_B_HC}--awards`,
+})
+
+// ─── UI text tokens (used by both app and tests) ──────────────────────────────
+export const TEXT = Object.freeze({
+  // Navigation actions
+  SCROLL_UP: 'Back to Top',
+  SCROLL_UP_ALT: 'Scroll up',
+  CONTACT: 'Contact',
+  ABOUT_ME: 'About Me',
+  GET_IN_TOUCH: 'Get in Touch',
+  // Common labels
+  LOADING: 'Loading...',
+  SAVING: 'Saving...',
+  SIGNING_IN: 'Signing in...',
+  SIGN_IN_GOOGLE: 'Sign in with Google',
+  LOGOUT: 'Logout',
 })
 
 // ─── DOM Event name tokens ────────────────────────────────────────────────────

@@ -6,10 +6,19 @@ import { ViewLegal } from '../src/views/Legal.js'
 import { ViewNotFound } from '../src/views/NotFound.js'
 import { LegalFooter, getFallbackLegalLinks } from '../src/components/legal/Footer.js'
 import { PortfolioRelated } from '../src/components/portfolio/Related.js'
-import { LAYOUT, CAROUSEL, CLASSES, TAGS } from '../src/core/constants.js'
+import { LAYOUT, CAROUSEL, CLASSES, TAGS, TEXT } from '../src/core/constants.js'
 import { SCSS, SRC, mount } from './fixtures/test-constants.js'
 import store from '../src/core/store.js'
 import router from '../src/core/router.js'
+
+// ─── Local selector helpers (derived from TAGS/CLASSES) ───────────────────────
+const S = {
+  DRAW_TEXT:          TAGS.DRAW_TEXT,
+  MEDIA_FIGURE:       TAGS.MEDIA_FIGURE,
+  PORTFOLIO_RELATED:  TAGS.PORTFOLIO_RELATED,
+  HOME_MOSAIC_ITEM:   `.${CLASSES.HOME_MOSAIC_ITEM}`,
+  HOME_MOSAIC_TITLE:  `.${CLASSES.HOME_MOSAIC_TITLE}`,
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // ViewProject
@@ -45,8 +54,8 @@ describe('ViewProject', () => {
     }
     projectEl._updateDom()
 
-    const drawText = projectEl.shadowRoot.querySelector('draw-text')
-    const mediaFigure = projectEl.shadowRoot.querySelector('media-figure')
+    const drawText = projectEl.shadowRoot.querySelector(S.DRAW_TEXT)
+    const mediaFigure = projectEl.shadowRoot.querySelector(S.MEDIA_FIGURE)
     expect(drawText).not.toBeNull()
     expect(drawText.getAttribute('text')).toBe('Stellar Branding Project')
     expect(mediaFigure).not.toBeNull()
@@ -63,7 +72,7 @@ describe('ViewProject', () => {
       sections: [],
     }
     projectEl._updateDom()
-    const mediaFigure = projectEl.shadowRoot.querySelector('media-figure')
+    const mediaFigure = projectEl.shadowRoot.querySelector(S.MEDIA_FIGURE)
     expect(mediaFigure.getAttribute('is-video')).toBe('true')
     expect(mediaFigure.getAttribute('auto-play')).toBe('true')
   })
@@ -128,7 +137,7 @@ describe('ViewProject', () => {
   })
 
   test('renders portfolio-related component at bottom of article', () => {
-    const related = projectEl.shadowRoot.querySelector('portfolio-related')
+    const related = projectEl.shadowRoot.querySelector(S.PORTFOLIO_RELATED)
     expect(related).not.toBeNull()
   })
 
@@ -189,9 +198,9 @@ describe('HomeMosaic (view integration)', () => {
     ]
     mosaicEl._updateDom()
 
-    const items = mosaicEl.shadowRoot.querySelectorAll('.home-mosaic-item')
+    const items = mosaicEl.shadowRoot.querySelectorAll(S.HOME_MOSAIC_ITEM)
     expect(items.length).toBe(2)
-    const titles = mosaicEl.shadowRoot.querySelectorAll('.home-mosaic-title')
+    const titles = mosaicEl.shadowRoot.querySelectorAll(S.HOME_MOSAIC_TITLE)
     expect(titles[0].textContent).toContain('Project Alpha')
     expect(titles[1].textContent).toContain('Project Beta')
   })
@@ -202,7 +211,7 @@ describe('HomeMosaic (view integration)', () => {
       { label: 'Featured', link: 'feat', image: 's2', featured: true },
     ]
     mosaicEl._updateDom()
-    const items = mosaicEl.shadowRoot.querySelectorAll('.home-mosaic-item')
+    const items = mosaicEl.shadowRoot.querySelectorAll(S.HOME_MOSAIC_ITEM)
     expect(items[0].classList.contains('home-mosaic-item--featured')).toBe(false)
     expect(items[1].classList.contains('home-mosaic-item--featured')).toBe(true)
   })
@@ -346,7 +355,7 @@ describe('ViewNotFound', () => {
     expect(titleEl.textContent).toContain('(o_O)')
 
     const subEl = notFoundEl.shadowRoot.querySelector(`.${CLASSES.NOT_FOUND_SUBTITLE}`)
-    const drawText = subEl.querySelector('draw-text')
+    const drawText = subEl.querySelector(S.DRAW_TEXT)
     expect(drawText.getAttribute('text')).toBe('Lost in Space')
 
     const linkEl = notFoundEl.shadowRoot.querySelector(`.${CLASSES.NOT_FOUND_LINK}`)

@@ -3,10 +3,20 @@ import { AboutSection } from '../src/components/AboutSection.js'
 import { ContactSection } from '../src/components/ContactSection.js'
 import { AwardsMentions } from '../src/components/AwardsMentions.js'
 import { CookieBanner } from '../src/components/CookieBanner.js'
-import { CLASSES, TAGS, MEDIA_DIMENSIONS } from '../src/core/constants.js'
+import { CLASSES, TAGS, TEXT, MEDIA_DIMENSIONS } from '../src/core/constants.js'
 import { SCSS, mount } from './fixtures/test-constants.js'
 import store from '../src/core/store.js'
 import router from '../src/core/router.js'
+
+// ─── Local selector helpers (derived from CLASSES) ────────────────────────────
+const S = {
+  COOKIES:                `aside.${CLASSES.COOKIES}`,
+  COOKIES_INFO:           `.${CLASSES.COOKIES_INFO}`,
+  COOKIES_ACCEPT:         `.${CLASSES.COOKIES_BUTTONS_ACCEPT}`,
+  COOKIES_REFUSE:         `.${CLASSES.COOKIES_BUTTONS_REFUSE}`,
+  HC_AWARDS:              `${TAGS.HOME_CAROUSEL}.${CLASSES.HC_AWARDS}`,
+  HOME_CAROUSEL:          TAGS.HOME_CAROUSEL,
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // AboutSection
@@ -242,7 +252,7 @@ describe('AwardsMentions', () => {
       { text: 'Awwwards Site of the Day', sub: '2024' },
       { text: 'FWA of the Day', sub: '2023' },
     ]
-    const carousel = awardsEl.shadowRoot.querySelector('home-carousel.hc--awards')
+    const carousel = awardsEl.shadowRoot.querySelector(S.HC_AWARDS)
     expect(carousel).not.toBeNull()
   })
 
@@ -298,13 +308,13 @@ describe('AwardsMentions', () => {
       { text: 'Awwwards Site of the Day', sub: '2024' },
       { text: 'FWA of the Day', sub: '2023' },
     ]
-    const initialCarousel = awardsEl.shadowRoot.querySelector('home-carousel')
+    const initialCarousel = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
     expect(initialCarousel).not.toBeNull()
 
     store.commit('setInputMethod', 'pointer')
     awardsEl.onStoreUpdate()
 
-    const currentCarousel = awardsEl.shadowRoot.querySelector('home-carousel')
+    const currentCarousel = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
     expect(currentCarousel).toBe(initialCarousel)
   })
 
@@ -313,7 +323,7 @@ describe('AwardsMentions', () => {
       { text: 'Awwwards Site of the Day', sub: '2024' },
       { text: 'FWA of the Day', sub: '2023' },
     ]
-    const initialCarousel = awardsEl.shadowRoot.querySelector('home-carousel')
+    const initialCarousel = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
     awardsEl.items = [
       { text: 'Awwwards Site of the Day', sub: '2024' },
       { text: 'FWA of the Day', sub: '2023' },
@@ -330,7 +340,7 @@ describe('AwardsMentions', () => {
       { text: 'Award 2', sub: '2023' },
       { text: 'Award 3', sub: '2022' },
     ]
-    const hc = awardsEl.shadowRoot.querySelector('home-carousel')
+    const hc = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
     expect(hc).not.toBeNull()
     hc.autoplayRunning = true
     const dots = hc.shadowRoot.querySelectorAll(`.${CLASSES.HC_DOT}`)
@@ -345,7 +355,7 @@ describe('AwardsMentions', () => {
       { text: 'Award 1', sub: '2024' },
       { text: 'Award 2', sub: '2023' },
     ]
-    const hc = awardsEl.shadowRoot.querySelector('home-carousel')
+    const hc = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
     expect(hc).not.toBeNull()
     const dotBtn = hc.shadowRoot.querySelector(`button.${CLASSES.HC_DOT}`)
     expect(dotBtn).not.toBeNull()
@@ -357,7 +367,7 @@ describe('AwardsMentions', () => {
     awardsEl.items = [
       { description: 'Winner of <strong>Site of the Day</strong>', link: 'https://awwwards.com', icon: '⭐' },
     ]
-    const hc = awardsEl.shadowRoot.querySelector('home-carousel')
+    const hc = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
     expect(hc).not.toBeNull()
     const awardText = hc.shadowRoot.querySelector(`.${CLASSES.HC_AWARD_TEXT}`)
     expect(awardText).not.toBeNull()
@@ -368,7 +378,7 @@ describe('AwardsMentions', () => {
     awardsEl.items = [
       { description: 'Featured on <em>Awwwards</em> & <a href="https://fwa.com">FWA</a>', link: 'https://fwa.com', icon: '🏆' },
     ]
-    const hc = awardsEl.shadowRoot.querySelector('home-carousel')
+    const hc = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
     const awardText = hc.shadowRoot.querySelector(`.${CLASSES.HC_AWARD_TEXT}`)
     const emEl = awardText.querySelector('em')
     const linkEl = awardText.querySelector('a')
@@ -403,7 +413,7 @@ describe('CookieBanner', () => {
 
   test('renders null when translations is null', () => {
     cookieEl.translations = null
-    const aside = cookieEl.shadowRoot.querySelector('aside.cookies')
+    const aside = cookieEl.shadowRoot.querySelector(S.COOKIES)
     expect(aside).toBeNull()
   })
 
@@ -411,15 +421,15 @@ describe('CookieBanner', () => {
     cookieEl.translations = {
       cookies: { message: 'This site uses cookies.', accept: 'Accept', refuse: 'Refuse' },
     }
-    const aside = cookieEl.shadowRoot.querySelector('aside.cookies')
+    const aside = cookieEl.shadowRoot.querySelector(S.COOKIES)
     expect(aside).not.toBeNull()
-    const info = cookieEl.shadowRoot.querySelector('.cookies-info')
+    const info = cookieEl.shadowRoot.querySelector(S.COOKIES_INFO)
     expect(info.textContent).toContain('This site uses cookies.')
   })
 
   test('accept button renders custom translated text', () => {
     cookieEl.translations = { cookies: { message: 'Info', accept: 'Concordo', refuse: 'Recusar' } }
-    const acceptBtn = cookieEl.shadowRoot.querySelector('.cookies-buttons-accept')
+    const acceptBtn = cookieEl.shadowRoot.querySelector(S.COOKIES_ACCEPT)
     expect(acceptBtn.textContent).toBe('Concordo')
   })
 
@@ -429,23 +439,23 @@ describe('CookieBanner', () => {
     const listener = () => { eventFired = true }
     document.addEventListener('cookieAction', listener)
 
-    const acceptBtn = cookieEl.shadowRoot.querySelector('.cookies-buttons-accept')
+    const acceptBtn = cookieEl.shadowRoot.querySelector(S.COOKIES_ACCEPT)
     acceptBtn.click()
 
     expect(localStorage.getItem('cookie')).toBe('true')
     expect(eventFired).toBe(true)
     expect(cookieEl.hidden).toBe(true)
-    expect(cookieEl.shadowRoot.querySelector('aside.cookies')).toBeNull()
+    expect(cookieEl.shadowRoot.querySelector(S.COOKIES)).toBeNull()
     document.removeEventListener('cookieAction', listener)
   })
 
   test('clicking refuse sets localStorage "cookie" to false and hides banner', () => {
     cookieEl.translations = { cookies: { message: 'Info', accept: 'Accept', refuse: 'Refuse' } }
-    const refuseBtn = cookieEl.shadowRoot.querySelector('.cookies-buttons-refuse')
+    const refuseBtn = cookieEl.shadowRoot.querySelector(S.COOKIES_REFUSE)
     refuseBtn.click()
     expect(localStorage.getItem('cookie')).toBe('false')
     expect(cookieEl.hidden).toBe(true)
-    expect(cookieEl.shadowRoot.querySelector('aside.cookies')).toBeNull()
+    expect(cookieEl.shadowRoot.querySelector(S.COOKIES)).toBeNull()
   })
 
   test('does not render when localStorage already contains consent', () => {
@@ -454,7 +464,7 @@ describe('CookieBanner', () => {
     document.body.appendChild(newBanner)
     newBanner.translations = { cookies: { message: 'Info', accept: 'Accept', refuse: 'Refuse' } }
     expect(newBanner.hidden).toBe(true)
-    expect(newBanner.shadowRoot.querySelector('aside.cookies')).toBeNull()
+    expect(newBanner.shadowRoot.querySelector(S.COOKIES)).toBeNull()
     newBanner.parentNode.removeChild(newBanner)
   })
 })

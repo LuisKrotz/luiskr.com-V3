@@ -1,6 +1,24 @@
 import '../src/components/HomeCarousel.js'
 import '../src/components/CustomCarousel.js'
 import store from '../src/core/store.js'
+import { CLASSES, TAGS } from '../src/core/constants.js'
+
+// ─── Local selector helpers (derived from CLASSES) ────────────────────────────
+const S = {
+  HC_TRACK:           `.${CLASSES.HC_TRACK}`,
+  HC_BTN_PREV:        `.${CLASSES.HC_BTN_PREV}`,
+  HC_BTN_NEXT:        `.${CLASSES.HC_BTN_NEXT}`,
+  HC_SLIDE:           `.${CLASSES.HC_SLIDE}`,
+  HC_SLIDE_CLONE:     `.${CLASSES.HC_SLIDE_CLONE}`,
+  HC_SLIDE_CLONE_LAST:`.${CLASSES.HC_SLIDE_CLONE_LAST}`,
+  HC_SLIDE_CLONE_FIRST:`.${CLASSES.HC_SLIDE_CLONE_FIRST}`,
+  HC_SLIDE_CONTENT:   `.${CLASSES.HC_SLIDE_CONTENT}`,
+  HC_SLIDE_NON_CLONE: `.${CLASSES.HC_SLIDE}:not(.${CLASSES.HC_SLIDE_CLONE})`,
+  HC_DOT:             `.${CLASSES.HC_DOT}`,
+  HC_DOT_ACTIVE:      `.${CLASSES.HC_DOT_ACTIVE}`,
+  HC_AWARD:           `.${CLASSES.HC_AWARD}`,
+  MEDIA_FIGURE:       TAGS.MEDIA_FIGURE,
+}
 
 describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive Physics (60+ Tests)', () => {
   const sampleProjects = [
@@ -41,50 +59,50 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
 
   describe('1. HomeCarousel - Shadow DOM & Slide Rendering', () => {
     test('is defined as custom element "home-carousel"', () => {
-      expect(customElements.get('home-carousel')).toBeDefined()
+      expect(customElements.get(TAGS.HOME_CAROUSEL)).toBeDefined()
     })
 
     test('attaches open shadow root', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       document.body.appendChild(carousel)
       expect(carousel.shadowRoot).not.toBeNull()
       expect(carousel.shadowRoot.mode).toBe('open')
     })
 
     test('renders track and navigation controls', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
       const shadow = carousel.shadowRoot
-      expect(shadow.querySelector('.hc-track')).not.toBeNull()
-      expect(shadow.querySelector('.hc-btn--prev')).not.toBeNull()
-      expect(shadow.querySelector('.hc-btn--next')).not.toBeNull()
+      expect(shadow.querySelector(S.HC_TRACK)).not.toBeNull()
+      expect(shadow.querySelector(S.HC_BTN_PREV)).not.toBeNull()
+      expect(shadow.querySelector(S.HC_BTN_NEXT)).not.toBeNull()
     })
 
     test('renders slides plus clone slides for infinite loop', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
       const shadow = carousel.shadowRoot
       // 3 items + 1 clone last at beginning + 1 clone first at end = 5 slides total
-      const allSlides = shadow.querySelectorAll('.hc-slide')
+      const allSlides = shadow.querySelectorAll(S.HC_SLIDE)
       expect(allSlides.length).toBe(5)
 
-      const clones = shadow.querySelectorAll('.hc-slide--clone')
+      const clones = shadow.querySelectorAll(S.HC_SLIDE_CLONE)
       expect(clones.length).toBe(2)
 
-      expect(shadow.querySelector('.hc-slide--clone-last')).not.toBeNull()
-      expect(shadow.querySelector('.hc-slide--clone-first')).not.toBeNull()
+      expect(shadow.querySelector(S.HC_SLIDE_CLONE_LAST)).not.toBeNull()
+      expect(shadow.querySelector(S.HC_SLIDE_CLONE_FIRST)).not.toBeNull()
     })
 
     test('renders slide content including titles, categories, and descriptions', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
-      const titles = Array.from(carousel.shadowRoot.querySelectorAll('.hc-slide-content')).map((el) =>
+      const titles = Array.from(carousel.shadowRoot.querySelectorAll(S.HC_SLIDE_CONTENT)).map((el) =>
         el.textContent.trim()
       )
       expect(titles).toContain('Metcha')
@@ -93,7 +111,7 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
     })
 
     test('renders awards when variant is awards', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.variant = 'awards'
       carousel.items = [
         { description: 'FWA of the Day', link: 'https://thefwa.com', icon: '🏆' },
@@ -101,18 +119,18 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
       ]
       document.body.appendChild(carousel)
 
-      const awards = carousel.shadowRoot.querySelectorAll('.hc-award')
+      const awards = carousel.shadowRoot.querySelectorAll(S.HC_AWARD)
       expect(awards.length).toBeGreaterThan(0)
     })
   })
 
   describe('2. HomeCarousel - Clone Accessibility & Tab Order Management', () => {
     test('_disableClonesFocus sets tabIndex = -1 on all focusable elements in clones', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
-      const clones = carousel.shadowRoot.querySelectorAll('.hc-slide--clone')
+      const clones = carousel.shadowRoot.querySelectorAll(S.HC_SLIDE_CLONE)
       clones.forEach((clone) => {
         expect(clone.getAttribute('aria-hidden')).toBe('true')
         const focusable = clone.querySelectorAll('a, button, [tabindex]')
@@ -123,11 +141,11 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
     })
 
     test('non-clone slides retain normal accessibility attributes', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
-      const regularSlides = carousel.shadowRoot.querySelectorAll('.hc-slide:not(.hc-slide--clone)')
+      const regularSlides = carousel.shadowRoot.querySelectorAll(S.HC_SLIDE_NON_CLONE)
       expect(regularSlides.length).toBe(3)
       regularSlides.forEach((s) => {
         expect(s.getAttribute('aria-hidden')).toBeNull()
@@ -137,29 +155,29 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
 
   describe('3. HomeCarousel - Navigation Controls, goTo & Wrapping', () => {
     test('initial slide index is 0 and active class is applied to first slide', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
       expect(carousel.currentIndex).toBe(0)
-      const slides = carousel.shadowRoot.querySelectorAll('.hc-slide:not(.hc-slide--clone)')
-      expect(slides[0].classList.contains('hc-slide--active')).toBe(true)
+      const slides = carousel.shadowRoot.querySelectorAll(S.HC_SLIDE_NON_CLONE)
+      expect(slides[0].classList.contains(CLASSES.HC_SLIDE_ACTIVE)).toBe(true)
     })
 
     test('goTo(1) activates second slide and updates currentIndex', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
       carousel.goTo(1)
       expect(carousel.currentIndex).toBe(1)
-      const slides = carousel.shadowRoot.querySelectorAll('.hc-slide:not(.hc-slide--clone)')
-      expect(slides[1].classList.contains('hc-slide--active')).toBe(true)
-      expect(slides[0].classList.contains('hc-slide--active')).toBe(false)
+      const slides = carousel.shadowRoot.querySelectorAll(S.HC_SLIDE_NON_CLONE)
+      expect(slides[1].classList.contains(CLASSES.HC_SLIDE_ACTIVE)).toBe(true)
+      expect(slides[0].classList.contains(CLASSES.HC_SLIDE_ACTIVE)).toBe(false)
     })
 
     test('next button click advances to next slide', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
@@ -168,7 +186,7 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
     })
 
     test('prev button click from index 0 wraps to last slide', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
@@ -177,7 +195,7 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
     })
 
     test('goTo handles index overflow and loops cleanly', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
@@ -188,18 +206,18 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
 
   describe('4. HomeCarousel - Dot Indicators', () => {
     test('renders dot indicators matching item count when showDots is true', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.variant = 'awards'
       carousel.showDots = true
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
-      const dots = carousel.shadowRoot.querySelectorAll('.hc-dot')
+      const dots = carousel.shadowRoot.querySelectorAll(S.HC_DOT)
       expect(dots.length).toBe(3)
     })
 
     test('dot click updates active slide index', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.variant = 'awards'
       carousel.showDots = true
       carousel.items = sampleProjects
@@ -207,18 +225,18 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
 
       carousel.onDotClick(2)
       expect(carousel.currentIndex).toBe(2)
-      const dots = carousel.shadowRoot.querySelectorAll('.hc-dot')
-      expect(dots[2].classList.contains('hc-dot--active')).toBe(true)
+      const dots = carousel.shadowRoot.querySelectorAll(S.HC_DOT)
+      expect(dots[2].classList.contains(CLASSES.HC_DOT_ACTIVE)).toBe(true)
     })
   })
 
   describe('5. HomeCarousel - Touch & Swiping Physics', () => {
     test('touch swipe left (> 40px) triggers goTo(currentIndex + 1)', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
-      const track = carousel.shadowRoot.querySelector('.hc-track')
+      const track = carousel.shadowRoot.querySelector(S.HC_TRACK)
       track.dispatchEvent(new TouchEvent('touchstart', { touches: [{ clientX: 200 }] }))
       track.dispatchEvent(new TouchEvent('touchend', { changedTouches: [{ clientX: 120 }] })) // delta = -80px
 
@@ -226,12 +244,12 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
     })
 
     test('touch swipe right (> 40px) triggers goTo(currentIndex - 1)', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
       carousel.goTo(1)
-      const track = carousel.shadowRoot.querySelector('.hc-track')
+      const track = carousel.shadowRoot.querySelector(S.HC_TRACK)
       track.dispatchEvent(new TouchEvent('touchstart', { touches: [{ clientX: 100 }] }))
       track.dispatchEvent(new TouchEvent('touchend', { changedTouches: [{ clientX: 180 }] })) // delta = +80px
 
@@ -239,11 +257,11 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
     })
 
     test('small touch movements (< 40px) do not trigger slide transition', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
-      const track = carousel.shadowRoot.querySelector('.hc-track')
+      const track = carousel.shadowRoot.querySelector(S.HC_TRACK)
       track.dispatchEvent(new TouchEvent('touchstart', { touches: [{ clientX: 100 }] }))
       track.dispatchEvent(new TouchEvent('touchend', { changedTouches: [{ clientX: 120 }] })) // delta = +20px
 
@@ -253,7 +271,7 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
 
   describe('6. HomeCarousel - Reduced Motion & Autoplay', () => {
     test('reduced motion disables autoplay in store listener', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
@@ -262,7 +280,7 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
     })
 
     test('cleanup on removal disconnects observers and cancels timers', () => {
-      const carousel = document.createElement('home-carousel')
+      const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
@@ -274,18 +292,18 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
 
   describe('7. CustomCarousel - Multi-item Grid & Dynamic Height Synchronizer', () => {
     test('is defined as custom element "custom-carousel"', () => {
-      expect(customElements.get('custom-carousel')).toBeDefined()
+      expect(customElements.get(TAGS.CUSTOM_CAROUSEL)).toBeDefined()
     })
 
     test('attaches open shadow root', () => {
-      const cc = document.createElement('custom-carousel')
+      const cc = document.createElement(TAGS.CUSTOM_CAROUSEL)
       document.body.appendChild(cc)
       expect(cc.shadowRoot).not.toBeNull()
       expect(cc.shadowRoot.mode).toBe('open')
     })
 
     test('renders items list with media figures', () => {
-      const cc = document.createElement('custom-carousel')
+      const cc = document.createElement(TAGS.CUSTOM_CAROUSEL)
       cc.items = [
         { src: 'frame1', alt: 'Frame 1', width: 800, height: 600 },
         { src: 'frame2', alt: 'Frame 2', width: 800, height: 600 },
@@ -294,13 +312,13 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
       document.body.appendChild(cc)
 
       expect(cc.isActive).toBe(true)
-      const figures = cc.shadowRoot.querySelectorAll('media-figure')
+      const figures = cc.shadowRoot.querySelectorAll(S.MEDIA_FIGURE)
       expect(figures.length).toBeGreaterThanOrEqual(3)
     })
 
     test('calculates and synchronizes --carousel-item-height on parent section', () => {
       const section = document.createElement('section')
-      const cc = document.createElement('custom-carousel')
+      const cc = document.createElement(TAGS.CUSTOM_CAROUSEL)
       cc.items = [
         { src: 'f1', width: 1000, height: 500 },
         { src: 'f2', width: 1000, height: 500 },
@@ -318,7 +336,7 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
     })
 
     test('next and prev navigation on CustomCarousel', () => {
-      const cc = document.createElement('custom-carousel')
+      const cc = document.createElement(TAGS.CUSTOM_CAROUSEL)
       cc.items = [
         { src: 'f1', width: 1000, height: 500 },
         { src: 'f2', width: 1000, height: 500 },
@@ -334,7 +352,7 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
     })
 
     test('single item renders inactive carousel without autoplay', () => {
-      const cc = document.createElement('custom-carousel')
+      const cc = document.createElement(TAGS.CUSTOM_CAROUSEL)
       cc.items = [{ src: 'single-pic', width: 800, height: 600 }]
       document.body.appendChild(cc)
 
@@ -343,7 +361,7 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
     })
 
     test('window resize updates mobile state and re-measures height', () => {
-      const cc = document.createElement('custom-carousel')
+      const cc = document.createElement(TAGS.CUSTOM_CAROUSEL)
       cc.items = [
         { src: 'f1', width: 1000, height: 500 },
         { src: 'f2', width: 1000, height: 500 },

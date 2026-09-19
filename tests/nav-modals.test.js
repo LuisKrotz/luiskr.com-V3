@@ -2,10 +2,27 @@ import { describe, test, expect, beforeEach, afterEach, jest } from '@jest/globa
 import { AppNav } from '../src/components/AppNav.js'
 import { PreferencesModal } from '../src/components/PreferencesModal.js'
 import { LangDialog } from '../src/components/LangDialog.js'
-import { THEME, MOTION, CLASSES, TAGS } from '../src/core/constants.js'
+import { THEME, MOTION, CLASSES, TAGS, TEXT } from '../src/core/constants.js'
 import { SCSS, mount } from './fixtures/test-constants.js'
 import store from '../src/core/store.js'
 import router from '../src/core/router.js'
+
+// ─── Local selector helpers (derived from CLASSES) ────────────────────────────
+const S = {
+  NAV:              `nav`,
+  NAV_LOGO_BTN:     `.${CLASSES.NAV_LOGO_BTN}`,
+  NAV_ABOUT_BTN:    `.${CLASSES.NAV_ABOUT_BTN}`,
+  NAV_ACTION_BTN:   `.${CLASSES.NAV_ACTION_BTN}`,
+  NAV_PREF_BTN:     `.${CLASSES.NAV_PREF_BTN}`,
+  NAV_LANG_OPEN_BTN:`.${CLASSES.NAV_LANG_OPEN_BTN}`,
+  PREF_BACKDROP:    `.${CLASSES.PREF_BACKDROP}`,
+  PREF_DIALOG:      `.${CLASSES.PREF_DIALOG}`,
+  PREF_CLOSE_BTN:   `.${CLASSES.PREF_CLOSE_BTN}`,
+  PREF_DONE_BTN:    `.${CLASSES.PREF_DONE_BTN}`,
+  LANG_DIALOG:      `.${CLASSES.LANG_DIALOG}`,
+  NAV_DESKTOP:      `.${CLASSES.NAV_DESKTOP}`,
+  NAV_MOBILE_STRIP: `.${CLASSES.NAV_MOBILE_STRIP}`,
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // AppNav
@@ -29,8 +46,8 @@ describe('AppNav', () => {
   test('renders navigation role and logo button with title', () => {
     navEl.translations = { title: 'LK PORTFOLIO' }
     navEl._updateDom()
-    const nav = navEl.shadowRoot.querySelector('nav')
-    const logoBtn = navEl.shadowRoot.querySelector('.nav-logo-btn')
+    const nav = navEl.shadowRoot.querySelector(S.NAV)
+    const logoBtn = navEl.shadowRoot.querySelector(S.NAV_LOGO_BTN)
     expect(nav).not.toBeNull()
     expect(nav.getAttribute('role')).toBe('navigation')
     expect(logoBtn.textContent).toContain('LK PORTFOLIO')
@@ -39,54 +56,54 @@ describe('AppNav', () => {
   test('renders default LK logo title when translations are null', () => {
     navEl.translations = null
     navEl._updateDom()
-    const logoBtn = navEl.shadowRoot.querySelector('.nav-logo-btn')
+    const logoBtn = navEl.shadowRoot.querySelector(S.NAV_LOGO_BTN)
     expect(logoBtn.textContent).toContain('LK')
   })
 
   test('renders desktop nav and mobile strip on standard routes', () => {
     navEl._updateDom()
-    const desktopNav = navEl.shadowRoot.querySelector(`.${CLASSES.NAV_DESKTOP}`)
-    const mobileStrip = navEl.shadowRoot.querySelector(`.${CLASSES.NAV_MOBILE_STRIP}`)
+    const desktopNav = navEl.shadowRoot.querySelector(S.NAV_DESKTOP)
+    const mobileStrip = navEl.shadowRoot.querySelector(S.NAV_MOBILE_STRIP)
     expect(desktopNav).not.toBeNull()
     expect(mobileStrip).not.toBeNull()
   })
 
   test('desktop nav renders About, Action, Preferences, and Language buttons', () => {
     navEl.translations = {
-      about: { description: 'About Me' },
-      contact: 'Get in Touch',
+      about: { description: TEXT.ABOUT_ME },
+      contact: TEXT.GET_IN_TOUCH,
       preferences: 'Settings',
     }
     navEl._updateDom()
 
-    const aboutBtn = navEl.shadowRoot.querySelector('.nav-about-btn')
-    const actionBtn = navEl.shadowRoot.querySelector('.nav-action-btn')
-    const prefBtn = navEl.shadowRoot.querySelector('.nav-pref-btn')
-    const langBtn = navEl.shadowRoot.querySelector('.nav-lang-open-btn')
+    const aboutBtn = navEl.shadowRoot.querySelector(S.NAV_ABOUT_BTN)
+    const actionBtn = navEl.shadowRoot.querySelector(S.NAV_ACTION_BTN)
+    const prefBtn = navEl.shadowRoot.querySelector(S.NAV_PREF_BTN)
+    const langBtn = navEl.shadowRoot.querySelector(S.NAV_LANG_OPEN_BTN)
 
-    expect(aboutBtn.textContent).toContain('About Me')
-    expect(actionBtn.textContent).toContain('Get in Touch')
+    expect(aboutBtn.textContent).toContain(TEXT.ABOUT_ME)
+    expect(actionBtn.textContent).toContain(TEXT.GET_IN_TOUCH)
     expect(prefBtn.textContent).toContain('Settings')
     expect(langBtn).not.toBeNull()
   })
 
   test('action button reflects scroll-up state when onBottom is true', () => {
-    navEl.translations = { scrollup: 'Back to Top' }
+    navEl.translations = { scrollup: TEXT.SCROLL_UP }
     navEl.updateScrollState('contact', true)
-    const actionBtn = navEl.shadowRoot.querySelector('.nav-action-btn')
-    expect(actionBtn.textContent).toContain('Back to Top')
+    const actionBtn = navEl.shadowRoot.querySelector(S.NAV_ACTION_BTN)
+    expect(actionBtn.textContent).toContain(TEXT.SCROLL_UP)
     expect(actionBtn.classList.contains('scroll-up')).toBe(true)
   })
 
   test('updates activeSection class on logo when home is active', () => {
     navEl.updateScrollState('home', false)
-    const logoBtn = navEl.shadowRoot.querySelector('.nav-logo-btn')
+    const logoBtn = navEl.shadowRoot.querySelector(S.NAV_LOGO_BTN)
     expect(logoBtn.classList.contains('active')).toBe(true)
   })
 
   test('updates activeSection class on about button when about section is active', () => {
     navEl.updateScrollState('about', false)
-    const aboutBtn = navEl.shadowRoot.querySelector('.nav-about-btn')
+    const aboutBtn = navEl.shadowRoot.querySelector(S.NAV_ABOUT_BTN)
     expect(aboutBtn.classList.contains('active')).toBe(true)
   })
 
@@ -95,7 +112,7 @@ describe('AppNav', () => {
     const listener = () => { windowEventFired = true }
     window.addEventListener('open-preferences-modal', listener)
 
-    const prefBtn = navEl.shadowRoot.querySelector('.nav-pref-btn')
+    const prefBtn = navEl.shadowRoot.querySelector(S.NAV_PREF_BTN)
     prefBtn.click()
 
     expect(store.getters.getPreferencesOpen()).toBe(true)
@@ -108,7 +125,7 @@ describe('AppNav', () => {
     const listener = () => { windowEventFired = true }
     window.addEventListener('open-lang-dialog', listener)
 
-    const langBtn = navEl.shadowRoot.querySelector('.nav-lang-open-btn')
+    const langBtn = navEl.shadowRoot.querySelector(S.NAV_LANG_OPEN_BTN)
     langBtn.click()
 
     expect(store.getters.getLangDialogOpen()).toBe(true)
@@ -119,7 +136,7 @@ describe('AppNav', () => {
   test('hides navigation completely when modal is open', () => {
     store.commit('setModal', { open: true })
     navEl._updateDom()
-    const nav = navEl.shadowRoot.querySelector('nav')
+    const nav = navEl.shadowRoot.querySelector(S.NAV)
     expect(nav).toBeNull()
   })
 
@@ -145,7 +162,7 @@ describe('AppNav', () => {
 
   test('logo click dispatches handleLogo', () => {
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation(() => {})
-    const logoBtn = navEl.shadowRoot.querySelector('.nav-logo-btn')
+    const logoBtn = navEl.shadowRoot.querySelector(S.NAV_LOGO_BTN)
     logoBtn.click()
     expect(scrollToSpy).toHaveBeenCalled()
     scrollToSpy.mockRestore()
@@ -158,7 +175,7 @@ describe('AppNav', () => {
     document.body.appendChild(aboutDiv)
 
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation(() => {})
-    const aboutBtn = navEl.shadowRoot.querySelector('.nav-about-btn')
+    const aboutBtn = navEl.shadowRoot.querySelector(S.NAV_ABOUT_BTN)
     aboutBtn.click()
     expect(scrollToSpy).toHaveBeenCalled()
     scrollToSpy.mockRestore()
@@ -209,7 +226,7 @@ describe('PreferencesModal', () => {
     store.commit('togglePreferencesModal', false)
     modalEl._syncOpenState()
     modalEl._updateDom()
-    const backdrop = modalEl.shadowRoot.querySelector('.pref-backdrop')
+    const backdrop = modalEl.shadowRoot.querySelector(S.PREF_BACKDROP)
     expect(backdrop).toBeNull()
     expect(modalEl.hasAttribute('open')).toBe(false)
   })
@@ -218,8 +235,8 @@ describe('PreferencesModal', () => {
     store.commit('togglePreferencesModal', true)
     modalEl._syncOpenState()
     modalEl._updateDom()
-    const backdrop = modalEl.shadowRoot.querySelector('.pref-backdrop')
-    const dialog = modalEl.shadowRoot.querySelector('.pref-dialog')
+    const backdrop = modalEl.shadowRoot.querySelector(S.PREF_BACKDROP)
+    const dialog = modalEl.shadowRoot.querySelector(S.PREF_DIALOG)
     expect(backdrop).not.toBeNull()
     expect(dialog).not.toBeNull()
     expect(modalEl.hasAttribute('open')).toBe(true)
@@ -262,7 +279,7 @@ describe('PreferencesModal', () => {
     store.commit('togglePreferencesModal', true)
     modalEl._syncOpenState()
     modalEl._updateDom()
-    modalEl.shadowRoot.querySelector('.pref-close-btn').click()
+    modalEl.shadowRoot.querySelector(S.PREF_CLOSE_BTN).click()
     expect(store.getters.getPreferencesOpen()).toBe(false)
   })
 
@@ -270,7 +287,7 @@ describe('PreferencesModal', () => {
     store.commit('togglePreferencesModal', true)
     modalEl._syncOpenState()
     modalEl._updateDom()
-    modalEl.shadowRoot.querySelector('.pref-done-btn').click()
+    modalEl.shadowRoot.querySelector(S.PREF_DONE_BTN).click()
     expect(store.getters.getPreferencesOpen()).toBe(false)
   })
 
@@ -332,14 +349,14 @@ describe('LangDialog', () => {
 
   test('is closed by default', () => {
     expect(langEl.hasAttribute('open')).toBe(false)
-    const backdrop = langEl.shadowRoot.querySelector('.pref-backdrop')
+    const backdrop = langEl.shadowRoot.querySelector(S.PREF_BACKDROP)
     expect(backdrop).toBeNull()
   })
 
   test('opens and renders language selection options when open is set to true', () => {
     langEl.open = true
     expect(langEl.hasAttribute('open')).toBe(true)
-    const dialog = langEl.shadowRoot.querySelector('.lang-dialog')
+    const dialog = langEl.shadowRoot.querySelector(S.LANG_DIALOG)
     expect(dialog).not.toBeNull()
     const options = langEl.shadowRoot.querySelectorAll('[data-lang]')
     expect(options.length).toBeGreaterThanOrEqual(4)
@@ -355,7 +372,7 @@ describe('LangDialog', () => {
 
   test('clicking close button closes dialog', () => {
     langEl.open = true
-    const closeBtn = langEl.shadowRoot.querySelector('.pref-close-btn')
+    const closeBtn = langEl.shadowRoot.querySelector(S.PREF_CLOSE_BTN)
     closeBtn.click()
     expect(langEl.open).toBe(false)
   })
