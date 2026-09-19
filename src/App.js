@@ -7,7 +7,7 @@ import { fetchFirebaseDb } from './utils/db.js'
 import { TAGS } from './core/constants.js'
 
 // Route depth: home = 0, all other views = 1
-const _routeDepth = (tag) => (tag === TAGS.VIEW_HOME ? 0 : 1)
+
 
 import appStyles from './sass/app.scss?inline'
 import './components/AppNav.js'
@@ -319,15 +319,8 @@ export class AppRoot extends BaseComponent {
 
   _flipToView(outlet, to) {
     const reduced = store.getters.getReducedMotion()
-    const fromTag = outlet.firstElementChild?.tagName?.toLowerCase() || TAGS.VIEW_HOME
     const toTag   = this.currentViewTag
-
-    const fromDepth = _routeDepth(fromTag)
-    const toDepth   = _routeDepth(toTag)
-    const isForward = toDepth >= fromDepth
-    const dirOut    = isForward ? 'page-flip-out-fwd'  : 'page-flip-out-bwd'
-    const dirIn     = isForward ? 'page-flip-in-fwd'   : 'page-flip-in-bwd'
-    const DURATION  = 3000 // ms — must match CSS (3s total = 1.5s out + 1.5s in)
+    const FADE_MS = 350 // half-duration: fade-out then fade-in
 
     if (reduced || !outlet.firstElementChild) {
       // Instant swap — no animation
@@ -336,17 +329,19 @@ export class AppRoot extends BaseComponent {
     }
 
     const outgoing = outlet.firstElementChild
-    outgoing.classList.add(dirOut)
+
+    outgoing.classList.add('page-fade-out')
 
     setTimeout(() => {
       const incoming = document.createElement(toTag)
-      incoming.classList.add(dirIn)
+
+      incoming.classList.add('page-fade-in')
       outlet.replaceChildren(incoming)
 
-      // Trigger reflow then remove the class so the element animates in
       void incoming.offsetHeight
-      incoming.classList.remove(dirIn)
-    }, DURATION / 2)
+
+      incoming.classList.remove('page-fade-in')
+    }, FADE_MS)
   }
 
   render() {

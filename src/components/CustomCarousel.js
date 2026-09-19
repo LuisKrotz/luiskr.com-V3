@@ -72,7 +72,8 @@ export class CustomCarousel extends BaseComponent {
   }
 
   get isActive() {
-    if (this.forceActive) return this.items.length >= 1
+    // Never show carousel UI for a single item — regardless of forceActive.
+    // A 1-item "carousel" is just a static display with no controls.
     return this.items.length > 1
   }
 

@@ -597,78 +597,20 @@ html.reduced-motion *::after {
 }
 
 // ── 3D Book Page Flip Transition ──────────────────────────────────────────────
-// The #view-outlet establishes the 3D perspective context.
-// Flip forward: home → project  (page turns left — like opening a book forward)
-// Flip backward: project → home (page turns right — like flipping back)
-#view-outlet {
-  perspective: 1200px;
-  transform-style: preserve-3d;
+// ── Page cross-fade transition ───────────────────────────────────────────────
+// Outgoing view fades to opacity 0 (350ms), then incoming view fades in.
+// Driven by JS in App._flipToView(); no direction logic needed.
+#view-outlet > * {
+  transition: opacity 0.35s ease;
 }
 
-// Keyframes — forward direction
-@keyframes book-flip-out-fwd {
-  from {
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-  to {
-    transform: rotateY(-70deg);
-    opacity: 0;
-  }
-}
-
-@keyframes book-flip-in-fwd {
-  from {
-    transform: rotateY(70deg);
-    opacity: 0;
-  }
-  to {
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-}
-
-// Keyframes — backward direction
-@keyframes book-flip-out-bwd {
-  from {
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-  to {
-    transform: rotateY(70deg);
-    opacity: 0;
-  }
-}
-
-@keyframes book-flip-in-bwd {
-  from {
-    transform: rotateY(-70deg);
-    opacity: 0;
-  }
-  to {
-    transform: rotateY(0deg);
-    opacity: 1;
-  }
-}
-
-.page-flip-out-fwd {
-  transform-origin: left center;
-  animation: book-flip-out-fwd 1.5s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+.page-fade-out {
+  opacity: 0;
   pointer-events: none;
 }
 
-.page-flip-in-fwd {
-  transform-origin: right center;
-  animation: book-flip-in-fwd 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.page-flip-out-bwd {
-  transform-origin: right center;
-  animation: book-flip-out-bwd 1.5s cubic-bezier(0.4, 0, 0.6, 1) forwards;
-  pointer-events: none;
-}
-
-.page-flip-in-bwd {
-  transform-origin: left center;
-  animation: book-flip-in-bwd 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+// Incoming view starts invisible; JS removes this class after a reflow
+// so the CSS transition drives the fade-in automatically.
+.page-fade-in {
+  opacity: 0;
 }

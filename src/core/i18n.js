@@ -101,18 +101,18 @@ export const LANG_SLUGS = {
 }
 
 export const LANG_OPTIONS = [
-  { code: 'en', short: 'EN', label: 'English', cc: 'us' },
-  { code: 'br', short: 'PT', label: 'Português (BR)', cc: 'br' },
-  { code: 'es', short: 'ES', label: 'Español', cc: 'es' },
-  { code: 'de', short: 'DE', label: 'Deutsch', cc: 'ch', cc2: 'de' },
-  { code: 'hrk', short: 'HRK', label: 'Hunsrik', cc: 'de', cc2: 'br' },
-  { code: 'cas', short: 'CAS', label: 'Castellano', cc: 'ar', cc2: 'uy' },
-  { code: 'riv', short: 'RIV', label: 'Portuñol', cc: 'uy', cc2: 'br' },
-  { code: 'gn', short: 'GN', label: 'Guaraní', cc: 'py' },
-  { code: 'it', short: 'IT', label: 'Italiano', cc: 'it' },
-  { code: 'ru', short: 'RU', label: 'Русский', cc: 'ru' },
-  { code: 'fr', short: 'FR', label: 'Français', cc: 'fr' },
-  { code: 'tln', short: 'TLN', label: 'Talian', cc: 'it', cc2: 'br' },
+  { code: 'en',  short: 'EN',  label: 'English',          cc: 'us',                flag: '🇺🇸' },
+  { code: 'br',  short: 'PT',  label: 'Português (BR)',    cc: 'br',                flag: '🇧🇷' },
+  { code: 'es',  short: 'ES',  label: 'Español',           cc: 'es',                flag: '🇪🇸' },
+  { code: 'de',  short: 'DE',  label: 'Deutsch',           cc: 'ch', cc2: 'de',     flag: '🇩🇪' },
+  { code: 'hrk', short: 'HRK', label: 'Hunsrik',           cc: 'de', cc2: 'br',     flag: '🇧🇷' },
+  { code: 'cas', short: 'CAS', label: 'Castellano',        cc: 'ar', cc2: 'uy',     flag: '🇦🇷' },
+  { code: 'riv', short: 'RIV', label: 'Portuñol',          cc: 'uy', cc2: 'br',     flag: '🇺🇾' },
+  { code: 'gn',  short: 'GN',  label: 'Guaraní',           cc: 'py',                flag: '🇵🇾' },
+  { code: 'it',  short: 'IT',  label: 'Italiano',          cc: 'it',                flag: '🇮🇹' },
+  { code: 'ru',  short: 'RU',  label: 'Русский',           cc: 'ru',                flag: '🇷🇺' },
+  { code: 'fr',  short: 'FR',  label: 'Français',          cc: 'fr',                flag: '🇫🇷' },
+  { code: 'tln', short: 'TLN', label: 'Talian',            cc: 'it', cc2: 'br',     flag: '🇮🇹' },
 ]
 
 export function detectLangFromPath(pathname) {

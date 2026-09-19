@@ -115,12 +115,10 @@ class StatsHud extends BaseComponent {
           <span className={`${_B}-value`} data-stat="pend">{String(pendingRequests)}</span>
         </span>
 
-        {memoryMB > 0 && (
-          <span className={`${_B}-segment`}>
-            <span className={`${_B}-label`}>MEM</span>
-            <span className={`${_B}-value`} data-stat="mem">{`${memoryMB} MB`}</span>
-          </span>
-        )}
+        <span className={`${_B}-segment`}>
+          <span className={`${_B}-label`}>MEM</span>
+          <span className={`${_B}-value`} data-stat="mem">{memoryMB > 0 ? `${memoryMB} MB` : '—'}</span>
+        </span>
 
         <span className={`${_B}-segment`}>
           <span className={`${_B}-label`}>AI</span>

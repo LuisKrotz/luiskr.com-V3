@@ -47,6 +47,10 @@ export class AppNav extends BaseComponent {
     return LANG_OPTIONS.find((l) => l.code === this.locale)?.label ?? this.locale.toUpperCase()
   }
 
+  get localeFlag() {
+    return LANG_OPTIONS.find((l) => l.code === this.locale)?.flag ?? this.locale.toUpperCase()
+  }
+
   onMounted() {
     this.subscribe(store)
     this.subscribeRouter()
@@ -321,7 +325,7 @@ export class AppNav extends BaseComponent {
               type="button"
               onClick={(e) => this.handleLang(e)}
             >
-              {this.locale.toUpperCase()}
+              {this.localeFlag}
             </button>
           </div>
         )}
@@ -343,7 +347,7 @@ export class AppNav extends BaseComponent {
               type="button"
               onClick={(e) => this.handleLang(e)}
             >
-              {this.locale.toUpperCase()}
+              {this.localeFlag}
             </button>
           </div>
         )}

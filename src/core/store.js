@@ -1,7 +1,7 @@
 import { THEME, STRINGS, ATTRS, URLS } from './constants.js'
 
 // Pure Vanilla JS Reactive State Management
-class Store {
+export class Store {
   constructor() {
     this.subscribers = new Set()
 
