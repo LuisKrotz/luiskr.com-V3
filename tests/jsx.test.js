@@ -65,4 +65,40 @@ describe('JSX Runtime & Native DOM Construction', () => {
     expect(card.querySelector('p').textContent).toBe('Body')
   })
 
+  // ── Boolean attribute handling — critical for video autoplay ──────────────
+  // muted MUST be set as a DOM property (el.muted = true), not just setAttribute.
+  // Chrome/Safari gate autoplay on the .muted IDL property, not the HTML attribute.
+  test('sets muted as DOM property for video autoplay', () => {
+    const vid = h('video', { muted: true })
+    expect(vid.muted).toBe(true)
+    expect(vid.hasAttribute('muted')).toBe(true)
+  })
+
+  test('sets loop as DOM property', () => {
+    const vid = h('video', { loop: true })
+    expect(vid.loop).toBe(true)
+    expect(vid.hasAttribute('loop')).toBe(true)
+  })
+
+  test('sets disabled as DOM property', () => {
+    const btn = h('button', { disabled: true })
+    expect(btn.disabled).toBe(true)
+    expect(btn.hasAttribute('disabled')).toBe(true)
+  })
+
+  test('playsInline maps to lowercase playsinline attribute', () => {
+    const vid = h('video', { playsInline: true })
+    // The attribute name must be lowercase 'playsinline' (not 'playsInline')
+    // Use getAttributeNames() for a case-sensitive check since hasAttribute() is case-insensitive
+    const attrNames = vid.getAttributeNames()
+    expect(attrNames).toContain('playsinline')
+    expect(attrNames).not.toContain('playsInline')
+  })
+
+  test('boolean false values are skipped and not applied', () => {
+    const vid = h('video', { muted: false, loop: false })
+    expect(vid.muted).toBe(false)
+    expect(vid.hasAttribute('loop')).toBe(false)
+  })
+
 })

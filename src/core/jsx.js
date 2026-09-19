@@ -21,6 +21,26 @@ const SVG_TAGS = new Set([
 
 const SVG_NS = 'http://www.w3.org/2000/svg'
 
+// Boolean HTML attributes that MUST be set as DOM properties (not attribute strings).
+// 'muted' in particular MUST be el.muted = true — setAttribute('muted','true') does NOT
+// mute the video in Chrome/Safari, which blocks autoplay. Same for other boolean IDL attrs.
+const BOOL_PROPS = new Set([
+  'muted', 'loop', 'controls', 'autoplay', 'disabled', 'checked',
+  'readonly', 'required', 'multiple', 'selected', 'default',
+  'hidden', 'novalidate', 'reversed', 'autofocus',
+])
+
+// JSX camelCase prop → lowercase HTML attribute name (for setAttribute path only).
+const PROP_ATTR_MAP = {
+  playsInline: 'playsinline',
+  autoPlay:    'autoplay',
+  readOnly:    'readonly',
+  noValidate:  'novalidate',
+  htmlFor:     'for',
+  tabIndex:    'tabindex',
+  crossOrigin: 'crossorigin',
+}
+
 /**
  * JSX factory function.
  * @param {string|Function} tag - Element tag name or Component function
@@ -64,8 +84,19 @@ export function h(tag, props, ...children) {
         val(el)
       } else if (key === 'dangerouslySetInnerHTML') {
         el.innerHTML = val?.__html != null ? sanitizeHtml(String(val.__html)) : ''
+      } else if (key === 'playsInline') {
+        // 'playsInline' JSX → 'playsinline' attribute (must be lowercase, empty string value)
+        el.setAttribute('playsinline', '')
+      } else if (BOOL_PROPS.has(key.toLowerCase())) {
+        // Boolean IDL attributes: set as DOM property (true) AND as empty attribute.
+        // This is critical for 'muted' — setAttribute alone does not mute in Chrome/Safari.
+        const attrName = PROP_ATTR_MAP[key] || key.toLowerCase()
+        try { el[key] = true } catch (_) {}
+        el.setAttribute(attrName, '')
       } else {
-        el.setAttribute(key, String(val))
+        // Map camelCase JSX prop names to lowercase HTML attribute names
+        const attrName = PROP_ATTR_MAP[key] || key
+        el.setAttribute(attrName, String(val))
       }
     }
   }
