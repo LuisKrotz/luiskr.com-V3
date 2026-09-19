@@ -389,6 +389,9 @@ export const CLASSES = Object.freeze({
   INTERNAL_TITLE: `${_B_INTERNAL}-title`,
   INTERNAL_MAIN: `${_B_INTERNAL}-main`,
   INTERNAL_MAIN_ITEM: `${_B_INTERNAL}-main-item`,
+  // Zoom-to-fill modifier: cover video that intentionally fills and crops the frame.
+  // Apply alongside INTERNAL_MAIN_ITEM when the video should use object-fit:cover.
+  ZTF_VIDEO: 'ztf-video',
   INTERNAL_DESCRIPTION: `${_B_INTERNAL}-description`,
   INTERNAL_DESCRIPTION_TEXT: `${_B_INTERNAL}-description-text`,
   INTERNAL_EXTRA: `${_B_INTERNAL}-extra`,

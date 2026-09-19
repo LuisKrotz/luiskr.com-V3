@@ -94,6 +94,34 @@
   }
 }
 
+// ── Zoom-to-fill cover media ───────────────────────────────────────────────────
+// When ztf-video is set alongside internal-main-item, the video is intentionally
+// full-bleed: it fills the frame and crops to top-center (e.g. hero backgrounds).
+// This overrides the contain default set in the :host(.internal-main-item) block.
+:host(.ztf-video.internal-main-item),
+:host([classes*="ztf-video"][classes*="internal-main-item"]),
+:host(.ztf-video),
+:host([classes*="ztf-video"]) {
+  .render-placeholder {
+    // Fill full width in ztf mode so the container spans the section
+    width: 100%;
+    max-width: 100%;
+
+    @include layout-768() {
+      width: 100%;
+      max-width: 100%;
+      max-height: 70vh;
+    }
+  }
+
+  .render-media,
+  video.render-media {
+    // Zoom-to-fill: fill frame and crop anchored to top center
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
 // ── Figure wrapper ────────────────────────────────────────────────────────────
 figure {
   position: relative;
