@@ -151,14 +151,21 @@
     }
 
     .legal & {
+      // Legal pages: no extra column indent — the .legal container already
+      // applies %MAXAREA gutters, so only reset the horizontal column padding
+      // that was added for project internals (cols 4–9 indent).
       @include layout-768() {
         padding-top: to-rem($space-3xl);
         padding-bottom: to-rem($space-2xl);
+        padding-left: 0;
+        padding-right: 0;
       }
 
       @include layout-1024() {
         padding-top: to-rem($space-3xl);
         padding-bottom: to-rem($space-2xl);
+        padding-left: 0;
+        padding-right: 0;
       }
 
       @include layout-1920() {
