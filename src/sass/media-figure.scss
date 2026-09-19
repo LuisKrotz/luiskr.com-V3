@@ -80,17 +80,13 @@
     position: absolute;
     left: 0;
     top: 0;
-    // On mobile: fill placeholder (which is 100% wide)
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top center;
-
-    @include layout-768() {
-      // At tablet+: display at natural size, centered — never stretch beyond source res
-      object-fit: contain;
-      object-position: center;
-    }
+    // Cover media always uses contain so the image/video sits at its natural
+    // aspect ratio centered, never stretched or cropped beyond source resolution.
+    // This applies at ALL viewport sizes — even mobile — for the main cover.
+    object-fit: contain;
+    object-position: center;
 
     @include layout-1024() {
       border-radius: to-rem($space-lg);
@@ -268,21 +264,16 @@ figure {
 }
 
 // ── Video element ─────────────────────────────────────────────────────────────
+// Carousel / extra-item context: videos fill their slide container.
+// The :host(.internal-main-item) block above overrides this for cover media.
 video.render-media {
   position: absolute;
   left: 0;
   top: 0;
-  // Mobile: fill 100% of placeholder
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
-
-  @include layout-768() {
-    // Tablet+: contain so video is not upscaled beyond its native resolution
-    object-fit: contain;
-    object-position: center;
-  }
 
   @include layout-1024() {
     border-radius: to-rem($space-lg);
