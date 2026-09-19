@@ -22,7 +22,7 @@ $_skel-label:    rgba(255, 255, 255, 0.45); // dim label — white alpha only
   align-items: center;
   gap: to-rem($space-md);
 
-  padding: to-rem($space-2xs) to-rem($space-lg);
+  padding: to-rem($space-xs) to-rem($space-xl);
   border-radius: var(--radius-round);
 
   background: rgba(0, 0, 0, 0.78); // pure black alpha — no theme hex
@@ -32,9 +32,9 @@ $_skel-label:    rgba(255, 255, 255, 0.45); // dim label — white alpha only
   box-shadow: var(--shadow-card);
 
   font-family: var(--font-mono);
-  font-size: to-rem($space-sm);
+  font-size: to-rem($space-md);
   font-weight: 500;
-  letter-spacing: to-rem(0.3);
+  letter-spacing: to-rem(0.2);
   color: $cms-accent;
   white-space: nowrap;
   pointer-events: none;

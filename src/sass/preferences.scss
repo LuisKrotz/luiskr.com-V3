@@ -67,7 +67,7 @@
   @extend .ttl-sm;
 
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
   letter-spacing: to-rem(-0.2);
   color: inherit;
@@ -101,6 +101,23 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+
+  // Scrollbar — themed to match modal dialog background
+  scrollbar-color: var(--border-color) transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: to-rem($space-xs);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--radius-round);
+  }
 }
 
 .pref-section {
@@ -111,7 +128,7 @@
 
 .pref-section-title {
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
   font-size: to-rem(18);
   text-transform: uppercase;
@@ -233,7 +250,7 @@
 }
 
 .pref-option-label {
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
   font-size: to-rem(16);
 }
@@ -241,6 +258,88 @@
 .pref-option-sub {
   font-size: to-rem(13);
   color: var(--text-muted);
+}
+
+// ─── Toggle Switch ─────────────────────────────────────────────────────────
+// Single row with label on left, iOS-style switch pill on right.
+// Replaces 2-button pattern for binary on/off toggles.
+
+$_B_SW: 'pref-switch';
+$_SW_W: 44; // switch pill width
+$_SW_H: 24; // switch pill height
+$_SW_KNOB: 18; // knob diameter
+$_SW_PAD: 3;  // padding inside pill
+
+.#{$_B_SW}-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: to-rem($space-md);
+  padding: to-rem($space-sm) 0;
+  border-bottom: to-rem(1) solid var(--border-color);
+  cursor: pointer;
+  user-select: none;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.#{$_B_SW}-info {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-2xs);
+  flex: 1;
+  min-width: 0;
+}
+
+.#{$_B_SW}-label {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: to-rem(15);
+  color: var(--text-primary);
+}
+
+.#{$_B_SW}-desc {
+  font-size: to-rem(13);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.#{$_B_SW} {
+  // The pill track
+  flex-shrink: 0;
+  display: inline-block;
+  width: to-rem($_SW_W);
+  height: to-rem($_SW_H);
+  background: var(--border-color);
+  border-radius: var(--radius-round);
+  position: relative;
+  transition: background 0.2s ease;
+
+  // The knob
+  &::after {
+    content: '';
+    position: absolute;
+    top: to-rem($_SW_PAD);
+    left: to-rem($_SW_PAD);
+    width: to-rem($_SW_KNOB);
+    height: to-rem($_SW_KNOB);
+    border-radius: 50%;
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s ease;
+  }
+
+  // ON state
+  &--on {
+    background: $cms-accent;
+
+    &::after {
+      transform: translateX(to-rem($_SW_W - $_SW_KNOB - $_SW_PAD * 2));
+      background: $cms-bg-darkest;
+    }
+  }
 }
 
 .pref-footer {
@@ -261,7 +360,7 @@
   margin-top: to-rem($space-lg); // breathing room above
   color: var(--text-primary);
   background: transparent;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: to-rem(1);

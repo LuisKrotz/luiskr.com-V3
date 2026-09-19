@@ -172,19 +172,19 @@
     &-text {
       @extend .txt-md;
 
-      font-family: 'Raleway', sans-serif;
+      font-family: var(--font-primary);
       font-weight: 100;
       word-break: normal;
       overflow-wrap: break-word;
       hyphens: none;
-      padding-bottom: to-rem($space-4xl);
+      padding-bottom: to-rem($space-xl);
 
       @include layout-768() {
-        padding-bottom: to-rem($space-5xl);
+        padding-bottom: to-rem($space-2xl);
       }
 
       @include layout-1024() {
-        padding-bottom: to-rem($space-6xl);
+        padding-bottom: to-rem($space-3xl);
       }
 
       a {
@@ -652,7 +652,7 @@
   &-title {
     @extend .ttl-sm;
 
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-primary);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: to-rem(0.8);

@@ -80,9 +80,16 @@
 
   // Font stacks
   --font-mono: #{$font-mono};
+  --font-primary: 'Raleway', sans-serif;
+}
+
+html {
+  color-scheme: light;
 }
 
 html.dark-mode {
+  color-scheme: dark;
+
   --bg-primary: #262626; // Light areas of today become current dark (#262626)
   --bg-secondary: #1d1d1d;
   --bg-dark: #121212; // Dark areas of today become darker (#121212)
@@ -113,6 +120,14 @@ html {
   overflow-y: scroll; // always show scrollbar to prevent layout shift on navigation
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  // Native browser scrollbar theme — inherits from color-scheme
+  scrollbar-color: var(--border-color) transparent;
+  scrollbar-width: thin;
+}
+
+html.modal-open {
+  overflow-y: hidden; // hide background scrollbar when any modal is open
 }
 
 body {
@@ -124,7 +139,7 @@ body {
   padding: 0;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   transition:
     background-color 0.3s ease,
     color 0.3s ease;

@@ -289,48 +289,64 @@ export class PreferencesModal extends BaseComponent {
               <p className="pref-section-desc">Live performance overlay above the nav — FPS, network throughput, pending requests, memory</p>
               <div className="pref-options pref-options--2">
                 <button
-                  className={`pref-option-btn ${!statsForNerds ? 'active' : ''}`}
+                  className={`pref-option-btn ${!reduced ? 'active' : ''}`}
+                  data-motion={MOTION.FULL}
                   type="button"
-                  onClick={() => { if (statsForNerds) store.commit('toggleStatsForNerds') }}
+                  onClick={() => {
+                    if (this.reducedMotion) store.commit('toggleReducedMotion')
+                  }}
                 >
-                  <span className="pref-option-icon">📊</span>
-                  <span className="pref-option-label">Hidden</span>
-                  <span className="pref-option-sub">No overlay shown</span>
+                  <span className="pref-option-icon">⚡</span>
+                  <span className="pref-option-label">{t.motion.full.label}</span>
+                  <span className="pref-option-sub">{t.motion.full.sub}</span>
                 </button>
                 <button
-                  className={`pref-option-btn ${statsForNerds ? 'active' : ''}`}
+                  className={`pref-option-btn ${reduced ? 'active' : ''}`}
+                  data-motion={MOTION.REDUCED}
                   type="button"
-                  onClick={() => { if (!statsForNerds) store.commit('toggleStatsForNerds') }}
+                  onClick={() => {
+                    if (!this.reducedMotion) store.commit('toggleReducedMotion')
+                  }}
                 >
-                  <span className="pref-option-icon">🔬</span>
-                  <span className="pref-option-label">Visible</span>
-                  <span className="pref-option-sub">Show HUD above nav</span>
+                  <span className="pref-option-icon">🍃</span>
+                  <span className="pref-option-label">{t.motion.reduced.label}</span>
+                  <span className="pref-option-sub">{t.motion.reduced.sub}</span>
                 </button>
               </div>
             </section>
 
             <section className="pref-section">
-              <h3 className="pref-section-title">Show Grid</h3>
-              <p className="pref-section-desc">Overlay the design grid — max-area boundaries and gutters at every breakpoint</p>
+              <h3 className="pref-section-title">Hardware Acceleration &amp; AI</h3>
+              <p className="pref-section-desc">NPU Neural Prediction &amp; WASM Multi-Threaded Engine</p>
               <div className="pref-options pref-options--2">
-                <button
-                  className={`pref-option-btn ${!showGrid ? 'active' : ''}`}
-                  type="button"
-                  onClick={() => { if (showGrid) store.commit('toggleShowGrid') }}
-                >
-                  <span className="pref-option-icon">📐</span>
-                  <span className="pref-option-label">Hidden</span>
-                  <span className="pref-option-sub">No grid shown</span>
-                </button>
-                <button
-                  className={`pref-option-btn ${showGrid ? 'active' : ''}`}
-                  type="button"
-                  onClick={() => { if (!showGrid) store.commit('toggleShowGrid') }}
-                >
-                  <span className="pref-option-icon">🔲</span>
-                  <span className="pref-option-label">Visible</span>
-                  <span className="pref-option-sub">Show layout grid overlay</span>
-                </button>
+                <div className="pref-stat-card">
+                  <span className="pref-option-label">Engine / Acceleration</span>
+                  <span className="pref-option-sub">{this.npuStatus}</span>
+                </div>
+                <div className="pref-stat-card">
+                  <span className="pref-option-label">Predictive Preloads</span>
+                  <span className="pref-option-sub">
+                    {analytics.successfulPreloads} / {analytics.totalPredictions}
+                  </span>
+                </div>
+              </div>
+            </section>
+
+            <section className="pref-section">
+              <h3 className="pref-section-title">Developer Tools</h3>
+              <div className="pref-switch-row" onClick={() => store.commit('toggleStatsForNerds')}>
+                <div className="pref-switch-info">
+                  <span className="pref-switch-label">Stats for Nerds</span>
+                  <span className="pref-switch-desc">Live FPS, network, memory HUD in the bottom-right corner</span>
+                </div>
+                <span className={`pref-switch${statsForNerds ? ' pref-switch--on' : ''}`} aria-checked={String(statsForNerds)} aria-label="Stats for Nerds" role="switch" />
+              </div>
+              <div className="pref-switch-row" onClick={() => store.commit('toggleShowGrid')}>
+                <div className="pref-switch-info">
+                  <span className="pref-switch-label">Show Grid</span>
+                  <span className="pref-switch-desc">Overlay columns, gutters and max-area boundaries at every breakpoint</span>
+                </div>
+                <span className={`pref-switch${showGrid ? ' pref-switch--on' : ''}`} aria-checked={String(showGrid)} aria-label="Show Grid" role="switch" />
               </div>
             </section>
           </div>
