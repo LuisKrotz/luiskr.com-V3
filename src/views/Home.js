@@ -3,7 +3,7 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
 import { deepQuerySelector } from '../core/dom.js'
-import { TAGS } from '../core/constants.js'
+import { TAGS, PATHS } from '../core/constants.js'
 import { fetchFirebaseDb } from '../utils/db.js'
 import homeStyles from '../sass/home.scss?inline'
 import '../components/HomeMosaic.js'
@@ -91,7 +91,7 @@ export class ViewHome extends BaseComponent {
 
     Promise.all([
       fetchFirebaseDb(basePath + lang.pagesPath + 'HOME'),
-      fetchFirebaseDb(basePath + '/components/related/projects'),
+      fetchFirebaseDb(basePath + PATHS.COMPONENTS_RELATED_PROJECTS),
       fetchFirebaseDb(basePath + lang.pagesPath + 'about'),
       fetchFirebaseDb(basePath + lang.pagesPath + 'about/profilePicture'),
     ])
@@ -134,7 +134,7 @@ export class ViewHome extends BaseComponent {
       mosaic.translations = this.translations
     }
 
-    const aboutSec = this.$('about-section')
+    const aboutSec = this.$(TAGS.ABOUT_SECTION)
     if (aboutSec) {
       aboutSec.aboutTranslations = this.aboutTranslations
       aboutSec.profilePicture = this.profilePicture

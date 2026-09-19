@@ -275,7 +275,7 @@ export class ViewProject extends BaseComponent {
         <div id="main" className={`project ${CLASSES.MODAL_BELOW}`}>
           <h2 className={CLASSES.INTERNAL_TITLE}>
             {t?.title ? (
-              <draw-text text={t.title} trigger="viewport" />
+              <draw-text text={t.title} trigger={ATTRS.TRIGGER_VIEWPORT} />
             ) : (
               <span className={CLASSES.SKELETON_TITLE_MD} />
             )}
@@ -296,7 +296,7 @@ export class ViewProject extends BaseComponent {
             ) : (
               <figure className={CLASSES.INTERNAL_MAIN_ITEM}>
                 <img
-                  decoding="async"
+                  decoding={ATTRS.DECODING_ASYNC}
                   className={CLASSES.RENDER_PLACEHOLDER}
                   src={svgPlaceholder(MEDIA_DIMENSIONS.COVER_WIDTH, MEDIA_DIMENSIONS.COVER_HEIGHT)}
                   width={MEDIA_DIMENSIONS.COVER_WIDTH}
@@ -325,13 +325,13 @@ export class ViewProject extends BaseComponent {
                             if (childKey === 0 && itemKey < 1) {
                               return (
                                 <h3 key={itemKey} className={CLASSES.INTERNAL_DESCRIPTION_TEXT}>
-                                  <draw-text text={item} trigger="viewport" delay={delay} offset={offset} />
+                                  <draw-text text={item} trigger={ATTRS.TRIGGER_VIEWPORT} delay={delay} offset={offset} />
                                 </h3>
                               )
                             }
                             return (
                               <p key={itemKey} className={CLASSES.INTERNAL_DESCRIPTION_TEXT}>
-                                <draw-text text={item} trigger="viewport" delay={delay} offset={offset} />
+                                <draw-text text={item} trigger={ATTRS.TRIGGER_VIEWPORT} delay={delay} offset={offset} />
                               </p>
                             )
                           })}
@@ -365,7 +365,7 @@ export class ViewProject extends BaseComponent {
                   <div className={CLASSES.INTERNAL_EXTRA_ITEM}>
                     <figure>
                       <img
-                        decoding="async"
+                        decoding={ATTRS.DECODING_ASYNC}
                         className={CLASSES.RENDER_PLACEHOLDER}
                         src={svgPlaceholder(MEDIA_DIMENSIONS.DEFAULT_WIDTH, MEDIA_DIMENSIONS.DEFAULT_HEIGHT)}
                         width={MEDIA_DIMENSIONS.DEFAULT_WIDTH}
@@ -379,7 +379,7 @@ export class ViewProject extends BaseComponent {
                   <div className={CLASSES.INTERNAL_EXTRA_ITEM}>
                     <figure>
                       <img
-                        decoding="async"
+                        decoding={ATTRS.DECODING_ASYNC}
                         className={CLASSES.RENDER_PLACEHOLDER}
                         src={svgPlaceholder(MEDIA_DIMENSIONS.DEFAULT_WIDTH, MEDIA_DIMENSIONS.DEFAULT_HEIGHT)}
                         width={MEDIA_DIMENSIONS.DEFAULT_WIDTH}

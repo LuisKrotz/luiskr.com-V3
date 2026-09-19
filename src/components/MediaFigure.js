@@ -73,8 +73,13 @@ export class MediaFigure extends BaseComponent {
     return calcAspectScaled(this.mediaWidth, this.mediaHeight, MAX)
   }
 
+  // Returns highest-quality video src (index 0 = original, index 1 = scaled-down fallback)
   get videoSrcMain() {
-    return this.video.length >= 2 ? this.video[1] : (this.video[0] || '')
+    return this.video[0] || ''
+  }
+
+  get videoSrcFallback() {
+    return this.video.length >= 2 ? this.video[1] : ''
   }
 
   onInit() {
@@ -306,7 +311,7 @@ export class MediaFigure extends BaseComponent {
         title={this.label}
       >
         <img
-          decoding="async"
+          decoding={ATTRS.DECODING_ASYNC}
           className={CLASSES.RENDER_PLACEHOLDER}
           src={this.placeholder(mediaW, mediaH)}
           width={mediaW}
@@ -318,7 +323,7 @@ export class MediaFigure extends BaseComponent {
         {!this.isVideo ? (
           <Fragment>
             <img
-              decoding="async"
+              decoding={ATTRS.DECODING_ASYNC}
               className={`${CLASSES.RENDER_MEDIA} ${CLASSES.RENDER_MEDIA_THUMB} ${this.classes}`}
               width={mediaW}
               height={mediaH}
@@ -326,7 +331,7 @@ export class MediaFigure extends BaseComponent {
               src={this.thumbSrc}
             />
             <img
-              decoding="async"
+              decoding={ATTRS.DECODING_ASYNC}
               className={`${CLASSES.RENDER_MEDIA} ${CLASSES.RENDER_MEDIA_HIGH} ${this.classes} ${this.isLoaded ? CLASSES.RENDER_MEDIA_LOADED : ''}`}
               width={mediaW}
               height={mediaH}
@@ -347,6 +352,7 @@ export class MediaFigure extends BaseComponent {
             controls={store.getters.getReducedMotion()}
           >
             <source src={this.videoSrcMain} type="video/mp4" />
+            {this.videoSrcFallback ? <source src={this.videoSrcFallback} type="video/mp4" /> : null}
           </video>
         )}
 

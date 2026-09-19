@@ -1,4 +1,5 @@
 import drawTextStyles from '../sass/draw-text.scss?inline'
+import { ATTRS } from '../core/constants.js'
 
 function stripHtml(s) {
   if (!s || typeof s !== 'string') return ''
@@ -155,7 +156,7 @@ export class DrawText extends HTMLElement {
       return
     }
 
-    if (trigger === 'viewport') {
+    if (trigger === ATTRS.TRIGGER_VIEWPORT) {
       if (typeof window !== 'undefined') {
         const rect = this.getBoundingClientRect()
         if (rect.top < window.innerHeight && rect.bottom > 0) {

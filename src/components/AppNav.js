@@ -131,7 +131,7 @@ export class AppNav extends BaseComponent {
 
   goToAbout() {
     this.activeSection = 'about'
-    const el = deepQuerySelector('#about') || deepQuerySelector('about-section')
+    const el = deepQuerySelector('#about') || deepQuerySelector(TAGS.ABOUT_SECTION)
     if (el) {
       const targetY = window.scrollY + el.getBoundingClientRect().top
       const isReduced = store.getters.getReducedMotion()

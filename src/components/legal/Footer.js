@@ -2,7 +2,7 @@ import { h, Fragment } from '../../core/jsx.js'
 import { BaseComponent } from '../../core/Component.js'
 import store from '../../core/store.js'
 import router from '../../core/router.js'
-import { CLASSES, TAGS } from '../../core/constants.js'
+import { CLASSES, TAGS, CMS_KEYS } from '../../core/constants.js'
 import internalStyles from '../../sass/internals.scss?inline'
 
 import { LANG_SLUGS } from '../../core/i18n.js'
@@ -75,7 +75,7 @@ export class LegalFooter extends BaseComponent {
 
   render() {
     const locale = store.getters.getLang()
-    const rawLinks = store.getters.getlang()?.components?.['legal-footer']?.links
+    const rawLinks = store.getters.getlang()?.components?.[CMS_KEYS.LEGAL_FOOTER]?.links
     const links = rawLinks && rawLinks.length ? rawLinks : getFallbackLegalLinks(locale)
     const currentPath = router.currentRoute?.path || ''
 
@@ -84,7 +84,7 @@ export class LegalFooter extends BaseComponent {
         <div className={CLASSES.INTERNAL_FOOTER_ITEMS}>
           {links.map((item, n) => {
             const isActive = currentPath === item.link || (item.link !== '/' && currentPath.endsWith(item.link))
-            const activeClass = isActive ? 'router-link-exact-active router-link-active active' : ''
+            const activeClass = isActive ? `${CLASSES.ROUTER_LINK_EXACT_ACTIVE} ${CLASSES.ROUTER_LINK_ACTIVE} ${CLASSES.ACTIVE}` : ''
 
             return (
               <Fragment key={item.link || n}>

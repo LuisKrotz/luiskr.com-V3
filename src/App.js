@@ -10,6 +10,7 @@ import './components/AppNav.js'
 import './components/PreferencesModal.js'
 import './components/LangDialog.js'
 import './components/CookieBanner.js'
+import './components/StatsHud.js'
 import './views/Home.js'
 import './views/Project.js'
 import './views/Legal.js'
@@ -304,6 +305,7 @@ export class AppRoot extends BaseComponent {
     const PreferencesModal = TAGS.PREFERENCES_MODAL
     const LangDialog = TAGS.LANG_DIALOG
     const CookieBanner = TAGS.COOKIE_BANNER
+    const StatsHud = TAGS.STATS_HUD
     const CurrentView = this.currentViewTag
 
     return (
@@ -322,6 +324,7 @@ export class AppRoot extends BaseComponent {
         </main>
 
         <CookieBanner />
+        <StatsHud />
       </div>
     )
   }

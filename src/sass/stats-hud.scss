@@ -1,0 +1,92 @@
+@import '_variables';
+@import '_mixins';
+@import '_structure';
+
+// ─── Stats for Nerds HUD ────────────────────────────────────────────────────
+// Fixed overlay aligned just above the bottom navigation pill.
+// Uses glassmorphism pill design, hidden by default.
+
+$_B_STATS: 'stats-hud';
+
+.#{$_B_STATS} {
+  position: fixed;
+  bottom: to-rem($space-5xl); // sits above the nav bar
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9000;
+
+  display: flex;
+  align-items: center;
+  gap: to-rem($space-lg);
+
+  padding: to-rem($space-xs) to-rem($space-xl);
+  border-radius: to-rem($space-4xl);
+
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(to-rem($space-md));
+  -webkit-backdrop-filter: blur(to-rem($space-md));
+  border: var(--border-item-hover);
+
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Courier New', monospace;
+  font-size: to-rem($space-sm);
+  font-weight: 500;
+  letter-spacing: to-rem(0.3);
+  color: $cms-accent;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(to-rem($space-sm));
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  // On small screens, use full width
+  @media (max-width: 480px) {
+    left: to-rem($space-md);
+    right: to-rem($space-md);
+    transform: none;
+
+    &--visible {
+      transform: none;
+    }
+  }
+
+  // Stat segments
+  &-segment {
+    display: flex;
+    align-items: center;
+    gap: to-rem($space-2xs);
+
+    &:not(:last-child) {
+      padding-right: to-rem($space-lg);
+      border-right: to-rem($space-hairline) solid rgba(255, 255, 255, 0.18);
+    }
+  }
+
+  &-label {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: to-rem($space-xs);
+    text-transform: uppercase;
+    letter-spacing: to-rem(0.6);
+  }
+
+  &-value {
+    color: $cms-accent;
+    font-weight: 700;
+  }
+
+  // FPS color — green when healthy, amber/red when low
+  &-fps-good { color: $cms-badge-green; }
+  &-fps-mid  { color: $cms-badge-warn; }
+  &-fps-bad  { color: $cms-danger; }
+}

@@ -248,9 +248,19 @@ describe('MediaFigure — Progressive Loading & Media', () => {
       expect(el.video[1]).toBe(expectedVideo1)
     })
 
-    test('videoSrcMain returns video[1] when two sources exist', () => {
+    test('videoSrcMain returns video[0] (highest quality) when two sources exist', () => {
       el.video = ['url-primary.mp4', 'url-scale.mp4']
-      expect(el.videoSrcMain).toBe('url-scale.mp4')
+      expect(el.videoSrcMain).toBe('url-primary.mp4')
+    })
+
+    test('videoSrcFallback returns video[1] (scaled-down) when two sources exist', () => {
+      el.video = ['url-primary.mp4', 'url-scale.mp4']
+      expect(el.videoSrcFallback).toBe('url-scale.mp4')
+    })
+
+    test('videoSrcFallback returns empty string when only one source exists', () => {
+      el.video = ['url-primary.mp4']
+      expect(el.videoSrcFallback).toBe('')
     })
 
     test('videoSrcMain returns video[0] when only one source exists', () => {

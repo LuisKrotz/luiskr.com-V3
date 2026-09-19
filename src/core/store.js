@@ -1,4 +1,4 @@
-import { THEME, STRINGS, ATTRS } from './constants.js'
+import { THEME, STRINGS, ATTRS, URLS } from './constants.js'
 
 // Pure Vanilla JS Reactive State Management
 class Store {
@@ -50,7 +50,7 @@ class Store {
         top: 0,
       },
       showhover: false,
-      storage: 'https://storage.googleapis.com/luiskr.com/public/_v3/',
+      storage: URLS.CDN_BASE,
       reducedMotion:
         typeof localStorage !== STRINGS.UNDEFINED && localStorage.getItem('reducedMotion') !== null
           ? localStorage.getItem('reducedMotion') === ATTRS.TRUE
@@ -58,6 +58,8 @@ class Store {
             ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
             : false,
       theme: (typeof localStorage !== STRINGS.UNDEFINED && localStorage.getItem('theme')) || THEME.SYSTEM,
+      showStatsForNerds:
+        typeof localStorage !== STRINGS.UNDEFINED && localStorage.getItem('statsForNerds') === ATTRS.TRUE,
       effectiveTheme: THEME.LIGHT,
       preferencesOpen: false,
       langDialogOpen: false,
@@ -133,6 +135,15 @@ class Store {
       },
       toggleReducedMotion: () => {
         this.mutations.setReducedMotion(!this.state.reducedMotion)
+      },
+      toggleStatsForNerds: () => {
+        this.state.showStatsForNerds = !this.state.showStatsForNerds
+
+        if (typeof localStorage !== STRINGS.UNDEFINED) {
+          localStorage.setItem('statsForNerds', String(this.state.showStatsForNerds))
+        }
+
+        this._notify()
       },
       setInputMethod: (payload) => {
         if (this.state.inputMethod === payload) return false
@@ -223,6 +234,7 @@ class Store {
       getPreferencesOpen: () => this.state.preferencesOpen,
       getLangDialogOpen: () => this.state.langDialogOpen,
       getReducedMotion: () => this.state.reducedMotion,
+      getStatsForNerds: () => this.state.showStatsForNerds,
       getMentions: () => this.state.mentions,
       getClickOrTap: () =>
         this.state.inputMethod === 'touch'

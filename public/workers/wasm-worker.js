@@ -351,5 +351,50 @@ self.onmessage = async (e) => {
     } catch (err) {
       self.postMessage({ id, type: 'DECODE_VIDEO_SEGMENT_WASM_ERROR', error: err?.message })
     }
+
+  } else if (type === 'DECODE_SVG_WASM') {
+    // Fetch an SVG off the main thread and parse its intrinsic dimensions
+    // (viewBox, width, height attributes) via regex — no DOM required.
+    // Returns: { svgText, intrinsicWidth, intrinsicHeight, aspectRatio }
+    // payload: { url }
+    const { url: svgUrl } = payload
+    if (!svgUrl) return
+
+    try {
+      const res = await fetch(svgUrl, { cache: 'force-cache' })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+
+      const svgText = await res.text()
+
+      // Extract dimensions from viewBox="x y w h" or width/height attributes
+      let intrinsicWidth = 0
+      let intrinsicHeight = 0
+
+      const viewBoxMatch = svgText.match(/viewBox=["'][\d.\-]+\s+[\d.\-]+\s+([\d.]+)\s+([\d.]+)["']/)
+      if (viewBoxMatch) {
+        intrinsicWidth = parseFloat(viewBoxMatch[1])
+        intrinsicHeight = parseFloat(viewBoxMatch[2])
+      }
+
+      if (!intrinsicWidth) {
+        const wMatch = svgText.match(/\bwidth=["']([0-9.]+)(?:px)?["']/)
+        if (wMatch) intrinsicWidth = parseFloat(wMatch[1])
+      }
+
+      if (!intrinsicHeight) {
+        const hMatch = svgText.match(/\bheight=["']([0-9.]+)(?:px)?["']/)
+        if (hMatch) intrinsicHeight = parseFloat(hMatch[1])
+      }
+
+      const aspectRatio = intrinsicHeight > 0 ? intrinsicWidth / intrinsicHeight : 0
+
+      self.postMessage({
+        id,
+        type: 'DECODE_SVG_WASM_RESULT',
+        results: { url: svgUrl, svgText, intrinsicWidth, intrinsicHeight, aspectRatio },
+      })
+    } catch (err) {
+      self.postMessage({ id, type: 'DECODE_SVG_WASM_ERROR', error: err?.message })
+    }
   }
 }

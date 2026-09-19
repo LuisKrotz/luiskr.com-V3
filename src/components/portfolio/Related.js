@@ -2,7 +2,7 @@ import { h, Fragment } from '../../core/jsx.js'
 import { BaseComponent } from '../../core/Component.js'
 import store from '../../core/store.js'
 import router from '../../core/router.js'
-import { CLASSES } from '../../core/constants.js'
+import { CLASSES, URLS, PATHS, ATTRS } from '../../core/constants.js'
 import { fetchFirebaseDb } from '../../utils/db.js'
 import internalStyles from '../../sass/internals.scss?inline'
 import '../DrawText.js'
@@ -15,7 +15,7 @@ export class PortfolioRelated extends BaseComponent {
   }
 
   get storage() {
-    return store.getters.getStorage() || 'https://storage.googleapis.com/luiskr.com/public/_v3/'
+    return store.getters.getStorage() || URLS.CDN_BASE
   }
 
   get projectsList() {
@@ -65,7 +65,7 @@ export class PortfolioRelated extends BaseComponent {
         link: cleanLink,
         fullPath: baseFull,
         featured: p.featured === true,
-        imageSrc: `${this.storage}covers/${image}.jpg`,
+        imageSrc: `${this.storage}${PATHS.COVERS}${image}.jpg`,
         description: homeMatch?.description || p.description || '',
       }
     })
@@ -102,7 +102,7 @@ export class PortfolioRelated extends BaseComponent {
     const lang = store.getters.getlang()
     const locale = lang.locale || 'en'
     const dbpath = lang.database + locale + lang.pagesPath + 'HOME'
-    const relatedPath = lang.database + locale + '/components/related'
+    const relatedPath = lang.database + locale + PATHS.COMPONENTS_RELATED
 
     Promise.all([
       fetchFirebaseDb(dbpath),
@@ -150,7 +150,7 @@ export class PortfolioRelated extends BaseComponent {
                 const isCurrent =
                   project.link &&
                   (currentPath.endsWith('/' + project.link) || currentPath.endsWith('/' + project.page))
-                const activeClass = isCurrent ? 'router-link-active' : ''
+                const activeClass = isCurrent ? CLASSES.ROUTER_LINK_ACTIVE : ATTRS.EMPTY
 
                 return (
                   <a
@@ -168,8 +168,8 @@ export class PortfolioRelated extends BaseComponent {
                           src={project.imageSrc}
                           alt={project.page}
                           className={CLASSES.RELATED_MOSAIC_IMG}
-                          loading="lazy"
-                          decoding="async"
+                          loading={ATTRS.LOADING_LAZY}
+                          decoding={ATTRS.DECODING_ASYNC}
                         />
                       ) : (
                         <div className={CLASSES.SKELETON_MEDIA} />

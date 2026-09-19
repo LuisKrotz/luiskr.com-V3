@@ -107,6 +107,9 @@ export const ATTRS = Object.freeze({
   FALSE: 'false',
   NONE: 'none',
   AUTO: 'auto',
+  DECODING_ASYNC: 'async',
+  LOADING_LAZY: 'lazy',
+  TRIGGER_VIEWPORT: 'viewport',
 })
 
 // ─── Shared Primitive Strings ───────────────────────────────────────────────
@@ -221,6 +224,28 @@ export const TAGS = Object.freeze({
   CMS_ABOUT_EDITOR: 'cms-about-editor',
   CMS_FOOTER_EDITOR: 'cms-footer-editor',
   CMS_LANG_EDITOR: 'cms-lang-editor',
+  STATS_HUD: 'stats-hud',
+})
+
+// ─── URL constants ───────────────────────────────────────────────────
+// All external base URLs declared once — never inline in components.
+export const URLS = Object.freeze({
+  CDN_BASE: 'https://storage.googleapis.com/luiskr.com/public/_v3/',
+})
+
+// ─── Path constants ───────────────────────────────────────────────────
+// URL path segments and Firebase path suffixes — never inline in components.
+export const PATHS = Object.freeze({
+  COVERS: 'covers/',
+  COMPONENTS_RELATED: '/components/related',
+  COMPONENTS_RELATED_PROJECTS: '/components/related/projects',
+})
+
+// ─── CMS data-key constants ───────────────────────────────────────────────
+// Keys used to read from the Firebase translation / CMS data objects.
+export const CMS_KEYS = Object.freeze({
+  ABOUT_SECTION: 'about-section',
+  LEGAL_FOOTER: 'legal-footer',
 })
 
 // ─── Centralized CSS class name tokens ──────────────────────────────────────
@@ -496,6 +521,11 @@ export const CLASSES = Object.freeze({
   HC_AWARD_TEXT: `${_B_HC}-award-text`,
   HC_SLIDE_CONTENT: `${_B_HC}-slide-content`,
   HC_AWARDS: `${_B_HC}--awards`,
+
+  // Router active-link classes (used by AppNav, Footer, Related)
+  ROUTER_LINK_ACTIVE: 'router-link-active',
+  ROUTER_LINK_EXACT_ACTIVE: 'router-link-exact-active',
+  ACTIVE: 'active',
 })
 
 // ─── UI text tokens (used by both app and tests) ──────────────────────────────

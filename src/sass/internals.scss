@@ -177,14 +177,14 @@
       word-break: normal;
       overflow-wrap: break-word;
       hyphens: none;
-      padding-bottom: to-rem($space-xl);
+      padding-bottom: to-rem($space-4xl);
 
-      @include layout-1920() {
-        padding-bottom: to-rem($space-2xl);
+      @include layout-768() {
+        padding-bottom: to-rem($space-5xl);
       }
 
-      @include layout-2560() {
-        padding-bottom: to-rem($space-3xl);
+      @include layout-1024() {
+        padding-bottom: to-rem($space-6xl);
       }
 
       a {
@@ -441,15 +441,16 @@
       width: 100%;
       margin: 0 auto;
       padding-top: to-rem($space-xl);
-      padding-bottom: to-rem(90px);
+      padding-bottom: to-rem($space-4xl);
 
       @include layout-768() {
         padding-top: to-rem($space-2xl);
-        padding-bottom: to-rem(120px);
+        padding-bottom: to-rem($space-5xl);
       }
+
       @include layout-1024() {
         padding-top: to-rem($space-3xl);
-        padding-bottom: to-rem(140px);
+        padding-bottom: to-rem($space-5xl);
       }
     }
 
@@ -457,7 +458,7 @@
       @extend .ttl-xs;
 
       text-align: center;
-      color: $color-white;
+    color: var(--white);
       padding: to-rem($space-2xl);
       background: var(--bg-dark);
 
@@ -547,7 +548,7 @@
     min-height: to-rem(160);
     aspect-ratio: 16 / 10;
     text-decoration: none;
-    color: $color-white;
+    color: var(--white);
     background: var(--bg-secondary);
     box-shadow: 0 to-rem($space-2xs) to-rem($space-lg) rgba($color-black, 0.15);
     transition:
@@ -655,7 +656,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: to-rem(0.8);
-    color: $color-white;
+    color: var(--white);
     text-shadow: 0 to-rem($space-2xs) to-rem($space-md) rgba($color-black, 0.6);
     transition: transform 0.3s ease;
 

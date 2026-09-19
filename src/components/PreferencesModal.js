@@ -175,6 +175,7 @@ export class PreferencesModal extends BaseComponent {
     const theme = this.currentTheme
     const reduced = this.reducedMotion
     const analytics = this.npuAnalytics
+    const statsForNerds = store.getters.getStatsForNerds()
 
     return (
       <div
@@ -279,6 +280,31 @@ export class PreferencesModal extends BaseComponent {
                     {analytics.successfulPreloads} / {analytics.totalPredictions}
                   </span>
                 </div>
+              </div>
+            </section>
+
+            <section className="pref-section">
+              <h3 className="pref-section-title">Stats for Nerds</h3>
+              <p className="pref-section-desc">Live performance overlay above the nav — FPS, network throughput, pending requests, memory</p>
+              <div className="pref-options pref-options--2">
+                <button
+                  className={`pref-option-btn ${!statsForNerds ? 'active' : ''}`}
+                  type="button"
+                  onClick={() => { if (statsForNerds) store.commit('toggleStatsForNerds') }}
+                >
+                  <span className="pref-option-icon">📊</span>
+                  <span className="pref-option-label">Hidden</span>
+                  <span className="pref-option-sub">No overlay shown</span>
+                </button>
+                <button
+                  className={`pref-option-btn ${statsForNerds ? 'active' : ''}`}
+                  type="button"
+                  onClick={() => { if (!statsForNerds) store.commit('toggleStatsForNerds') }}
+                >
+                  <span className="pref-option-icon">🔬</span>
+                  <span className="pref-option-label">Visible</span>
+                  <span className="pref-option-sub">Show HUD above nav</span>
+                </button>
               </div>
             </section>
           </div>
