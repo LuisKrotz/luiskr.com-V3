@@ -26,7 +26,7 @@
   .home-section-title {
     @extend .ttl-xl;
 
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-primary);
     font-weight: 100;
     text-transform: uppercase;
     text-align: left;
@@ -140,7 +140,7 @@
 
 .home-mosaic-title {
   @extend .ttl-sm;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 100;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -181,7 +181,7 @@
 
 .home-mosaic-desc {
   @extend .txt-sm;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 200;
   line-height: 1.55;
   color: rgba($color-white, 0.92);

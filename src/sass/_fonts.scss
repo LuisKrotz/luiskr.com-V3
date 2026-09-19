@@ -9,7 +9,7 @@
   &-sm,
   &-xs,
   &-xxs {
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-primary);
   }
 
   &-xxl {
@@ -135,7 +135,7 @@
   &-md,
   &-sm,
   &-xs {
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-primary);
   }
 
   &-lg {
@@ -187,6 +187,6 @@
 }
 
 .ttl-special {
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 100;
 }

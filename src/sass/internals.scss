@@ -656,7 +656,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: to-rem(0.8);
-    color: var(--white);
+    color: var(--color-white-raw);
     text-shadow: 0 to-rem($space-2xs) to-rem($space-md) rgba($color-black, 0.6);
     transition: transform 0.3s ease;
 

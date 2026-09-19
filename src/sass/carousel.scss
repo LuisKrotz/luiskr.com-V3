@@ -193,7 +193,7 @@ $ring-stroke: to-rem(2.5);
   }
 
   &-counter {
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-primary);
     font-weight: 900;
     font-size: to-rem($space-md);
     color: var(--grey);

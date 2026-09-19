@@ -15,7 +15,7 @@
  */
 
 const BASE_HOST_STYLES =
-  ':host { display: block; font-family: "Raleway", sans-serif; color: var(--text-primary); box-sizing: border-box; }\n' +
+  ':host { display: block; font-family: var(--font-primary); color: var(--text-primary); box-sizing: border-box; }\n' +
   ':host > [data-content] { display: contents; }\n' +
   '@keyframes skeleton-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }\n' +
   '.skeleton, .skeleton--shimmer, .skeleton-cover, .skeleton-placeholder, .skeleton--media, .skeleton-media, ' +

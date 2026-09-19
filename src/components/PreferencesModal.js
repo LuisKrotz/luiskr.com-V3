@@ -1,7 +1,7 @@
 import { h } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
-import { TAGS, THEME, MOTION } from '../core/constants.js'
+import { TAGS, THEME, MOTION, CLASSES } from '../core/constants.js'
 import { npuPredict } from '../utils/npu-predict.js'
 import preferencesStyles from '../sass/preferences.scss?inline'
 
@@ -180,17 +180,17 @@ export class PreferencesModal extends BaseComponent {
 
     return (
       <div
-        className="pref-backdrop"
+        className={CLASSES.PREF_BACKDROP}
         tabIndex="-1"
         onClick={(e) => {
           if (e.target === e.currentTarget) this.close()
         }}
       >
-        <div className="pref-dialog" role="dialog" aria-modal="true" aria-labelledby="pref-title">
-          <header className="pref-header">
-            <h2 id="pref-title" className="pref-title">{t.title}</h2>
+        <div className={CLASSES.PREF_DIALOG} role="dialog" aria-modal="true" aria-labelledby="pref-title">
+          <header className={CLASSES.PREF_HEADER}>
+            <h2 id="pref-title" className={CLASSES.PREF_TITLE}>{t.title}</h2>
             <button
-              className="pref-close-btn"
+              className={CLASSES.PREF_CLOSE_BTN}
               aria-label={t.title}
               type="button"
               onClick={() => this.close()}
@@ -198,162 +198,125 @@ export class PreferencesModal extends BaseComponent {
               ✕
             </button>
           </header>
-          <div className="pref-body">
-            <section className="pref-section">
-              <h3 className="pref-section-title">{t.appearance.title}</h3>
-              <p className="pref-section-desc">{t.appearance.desc}</p>
-              <div className="pref-options pref-options--3">
+
+          <div className={CLASSES.PREF_BODY}>
+            <section className={CLASSES.PREF_SECTION}>
+              <h3 className={CLASSES.PREF_SECTION_TITLE}>{t.appearance.title}</h3>
+              <p className={CLASSES.PREF_SECTION_DESC}>{t.appearance.desc}</p>
+              <div className={CLASSES.PREF_OPTIONS_3}>
                 <button
-                  className={`pref-option-btn ${theme === THEME.SYSTEM ? 'active' : ''}`}
+                  className={`${CLASSES.PREF_OPTION_BTN}${theme === THEME.SYSTEM ? ` ${CLASSES.ACTIVE}` : ''}`}
                   data-theme={THEME.SYSTEM}
                   type="button"
                   onClick={() => store.commit('setTheme', THEME.SYSTEM)}
                 >
-                  <span className="pref-option-icon">⚙️</span>
-                  <span className="pref-option-label">{t.appearance.system.label}</span>
-                  <span className="pref-option-sub">{t.appearance.system.sub}</span>
+                  <span className={CLASSES.PREF_OPTION_ICON}>⚙️</span>
+                  <span className={CLASSES.PREF_OPTION_LABEL}>{t.appearance.system.label}</span>
+                  <span className={CLASSES.PREF_OPTION_SUB}>{t.appearance.system.sub}</span>
                 </button>
                 <button
-                  className={`pref-option-btn ${theme === THEME.DARK ? 'active' : ''}`}
+                  className={`${CLASSES.PREF_OPTION_BTN}${theme === THEME.DARK ? ` ${CLASSES.ACTIVE}` : ''}`}
                   data-theme={THEME.DARK}
                   type="button"
                   onClick={() => store.commit('setTheme', THEME.DARK)}
                 >
-                  <span className="pref-option-icon">🌙</span>
-                  <span className="pref-option-label">{t.appearance.dark.label}</span>
-                  <span className="pref-option-sub">{t.appearance.dark.sub}</span>
+                  <span className={CLASSES.PREF_OPTION_ICON}>🌙</span>
+                  <span className={CLASSES.PREF_OPTION_LABEL}>{t.appearance.dark.label}</span>
+                  <span className={CLASSES.PREF_OPTION_SUB}>{t.appearance.dark.sub}</span>
                 </button>
                 <button
-                  className={`pref-option-btn ${theme === THEME.LIGHT ? 'active' : ''}`}
+                  className={`${CLASSES.PREF_OPTION_BTN}${theme === THEME.LIGHT ? ` ${CLASSES.ACTIVE}` : ''}`}
                   data-theme={THEME.LIGHT}
                   type="button"
                   onClick={() => store.commit('setTheme', THEME.LIGHT)}
                 >
-                  <span className="pref-option-icon">☀️</span>
-                  <span className="pref-option-label">{t.appearance.light.label}</span>
-                  <span className="pref-option-sub">{t.appearance.light.sub}</span>
+                  <span className={CLASSES.PREF_OPTION_ICON}>☀️</span>
+                  <span className={CLASSES.PREF_OPTION_LABEL}>{t.appearance.light.label}</span>
+                  <span className={CLASSES.PREF_OPTION_SUB}>{t.appearance.light.sub}</span>
                 </button>
               </div>
             </section>
 
-            <section className="pref-section">
-              <h3 className="pref-section-title">{t.motion.title}</h3>
-              <p className="pref-section-desc">{t.motion.desc}</p>
-              <div className="pref-options pref-options--2">
+            <section className={CLASSES.PREF_SECTION}>
+              <h3 className={CLASSES.PREF_SECTION_TITLE}>{t.motion.title}</h3>
+              <p className={CLASSES.PREF_SECTION_DESC}>{t.motion.desc}</p>
+              <div className={CLASSES.PREF_OPTIONS_2}>
                 <button
-                  className={`pref-option-btn ${!reduced ? 'active' : ''}`}
+                  className={`${CLASSES.PREF_OPTION_BTN}${!reduced ? ` ${CLASSES.ACTIVE}` : ''}`}
                   data-motion={MOTION.FULL}
                   type="button"
                   onClick={() => {
                     if (this.reducedMotion) store.commit('toggleReducedMotion')
                   }}
                 >
-                  <span className="pref-option-icon">⚡</span>
-                  <span className="pref-option-label">{t.motion.full.label}</span>
-                  <span className="pref-option-sub">{t.motion.full.sub}</span>
+                  <span className={CLASSES.PREF_OPTION_ICON}>⚡</span>
+                  <span className={CLASSES.PREF_OPTION_LABEL}>{t.motion.full.label}</span>
+                  <span className={CLASSES.PREF_OPTION_SUB}>{t.motion.full.sub}</span>
                 </button>
                 <button
-                  className={`pref-option-btn ${reduced ? 'active' : ''}`}
+                  className={`${CLASSES.PREF_OPTION_BTN}${reduced ? ` ${CLASSES.ACTIVE}` : ''}`}
                   data-motion={MOTION.REDUCED}
                   type="button"
                   onClick={() => {
                     if (!this.reducedMotion) store.commit('toggleReducedMotion')
                   }}
                 >
-                  <span className="pref-option-icon">🍃</span>
-                  <span className="pref-option-label">{t.motion.reduced.label}</span>
-                  <span className="pref-option-sub">{t.motion.reduced.sub}</span>
+                  <span className={CLASSES.PREF_OPTION_ICON}>🍃</span>
+                  <span className={CLASSES.PREF_OPTION_LABEL}>{t.motion.reduced.label}</span>
+                  <span className={CLASSES.PREF_OPTION_SUB}>{t.motion.reduced.sub}</span>
                 </button>
               </div>
             </section>
 
-            <section className="pref-section">
-              <h3 className="pref-section-title">Hardware Acceleration & AI</h3>
-              <p className="pref-section-desc">NPU Neural Prediction & WASM Multi-Threaded Engine</p>
-              <div className="pref-options pref-options--2">
-                <div className="pref-stat-card">
-                  <span className="pref-option-label">Engine / Acceleration</span>
-                  <span className="pref-option-sub">{this.npuStatus}</span>
+            <section className={CLASSES.PREF_SECTION}>
+              <h3 className={CLASSES.PREF_SECTION_TITLE}>Hardware Acceleration &amp; AI</h3>
+              <p className={CLASSES.PREF_SECTION_DESC}>NPU Neural Prediction &amp; WASM Multi-Threaded Engine</p>
+              <div className={CLASSES.PREF_OPTIONS_2}>
+                <div className={CLASSES.PREF_STAT_CARD}>
+                  <span className={CLASSES.PREF_OPTION_LABEL}>Engine / Acceleration</span>
+                  <span className={CLASSES.PREF_OPTION_SUB}>{this.npuStatus}</span>
                 </div>
-                <div className="pref-stat-card">
-                  <span className="pref-option-label">Predictive Preloads</span>
-                  <span className="pref-option-sub">
+                <div className={CLASSES.PREF_STAT_CARD}>
+                  <span className={CLASSES.PREF_OPTION_LABEL}>Predictive Preloads</span>
+                  <span className={CLASSES.PREF_OPTION_SUB}>
                     {analytics.successfulPreloads} / {analytics.totalPredictions}
                   </span>
                 </div>
               </div>
             </section>
 
-            <section className="pref-section">
-              <h3 className="pref-section-title">Stats for Nerds</h3>
-              <p className="pref-section-desc">Live performance overlay above the nav — FPS, network throughput, pending requests, memory</p>
-              <div className="pref-options pref-options--2">
-                <button
-                  className={`pref-option-btn ${!reduced ? 'active' : ''}`}
-                  data-motion={MOTION.FULL}
-                  type="button"
-                  onClick={() => {
-                    if (this.reducedMotion) store.commit('toggleReducedMotion')
-                  }}
-                >
-                  <span className="pref-option-icon">⚡</span>
-                  <span className="pref-option-label">{t.motion.full.label}</span>
-                  <span className="pref-option-sub">{t.motion.full.sub}</span>
-                </button>
-                <button
-                  className={`pref-option-btn ${reduced ? 'active' : ''}`}
-                  data-motion={MOTION.REDUCED}
-                  type="button"
-                  onClick={() => {
-                    if (!this.reducedMotion) store.commit('toggleReducedMotion')
-                  }}
-                >
-                  <span className="pref-option-icon">🍃</span>
-                  <span className="pref-option-label">{t.motion.reduced.label}</span>
-                  <span className="pref-option-sub">{t.motion.reduced.sub}</span>
-                </button>
+            <section className={CLASSES.PREF_SECTION}>
+              <h3 className={CLASSES.PREF_SECTION_TITLE}>Developer Tools</h3>
+              <div className={CLASSES.PREF_SWITCH_ROW} onClick={() => store.commit('toggleStatsForNerds')}>
+                <div className={CLASSES.PREF_SWITCH_INFO}>
+                  <span className={CLASSES.PREF_SWITCH_LABEL}>Stats for Nerds</span>
+                  <span className={CLASSES.PREF_SWITCH_DESC}>Live FPS, network, memory HUD — bottom-right corner</span>
+                </div>
+                <span
+                  className={statsForNerds ? CLASSES.PREF_SWITCH_ON : CLASSES.PREF_SWITCH}
+                  aria-checked={String(statsForNerds)}
+                  aria-label="Stats for Nerds"
+                  role="switch"
+                />
               </div>
-            </section>
-
-            <section className="pref-section">
-              <h3 className="pref-section-title">Hardware Acceleration &amp; AI</h3>
-              <p className="pref-section-desc">NPU Neural Prediction &amp; WASM Multi-Threaded Engine</p>
-              <div className="pref-options pref-options--2">
-                <div className="pref-stat-card">
-                  <span className="pref-option-label">Engine / Acceleration</span>
-                  <span className="pref-option-sub">{this.npuStatus}</span>
+              <div className={CLASSES.PREF_SWITCH_ROW} onClick={() => store.commit('toggleShowGrid')}>
+                <div className={CLASSES.PREF_SWITCH_INFO}>
+                  <span className={CLASSES.PREF_SWITCH_LABEL}>Show Grid</span>
+                  <span className={CLASSES.PREF_SWITCH_DESC}>Overlay columns, gutters and max-area at every breakpoint</span>
                 </div>
-                <div className="pref-stat-card">
-                  <span className="pref-option-label">Predictive Preloads</span>
-                  <span className="pref-option-sub">
-                    {analytics.successfulPreloads} / {analytics.totalPredictions}
-                  </span>
-                </div>
-              </div>
-            </section>
-
-            <section className="pref-section">
-              <h3 className="pref-section-title">Developer Tools</h3>
-              <div className="pref-switch-row" onClick={() => store.commit('toggleStatsForNerds')}>
-                <div className="pref-switch-info">
-                  <span className="pref-switch-label">Stats for Nerds</span>
-                  <span className="pref-switch-desc">Live FPS, network, memory HUD in the bottom-right corner</span>
-                </div>
-                <span className={`pref-switch${statsForNerds ? ' pref-switch--on' : ''}`} aria-checked={String(statsForNerds)} aria-label="Stats for Nerds" role="switch" />
-              </div>
-              <div className="pref-switch-row" onClick={() => store.commit('toggleShowGrid')}>
-                <div className="pref-switch-info">
-                  <span className="pref-switch-label">Show Grid</span>
-                  <span className="pref-switch-desc">Overlay columns, gutters and max-area boundaries at every breakpoint</span>
-                </div>
-                <span className={`pref-switch${showGrid ? ' pref-switch--on' : ''}`} aria-checked={String(showGrid)} aria-label="Show Grid" role="switch" />
+                <span
+                  className={showGrid ? CLASSES.PREF_SWITCH_ON : CLASSES.PREF_SWITCH}
+                  aria-checked={String(showGrid)}
+                  aria-label="Show Grid"
+                  role="switch"
+                />
               </div>
             </section>
           </div>
 
-          <footer className="pref-footer">
+          <footer className={CLASSES.PREF_FOOTER}>
             <button
-              className="pref-done-btn"
+              className={CLASSES.PREF_DONE_BTN}
               type="button"
               onClick={() => this.close()}
             >

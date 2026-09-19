@@ -246,7 +246,7 @@ lang-dialog.is-open {
 .cookies {
   @extend %MAXAREA;
 
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 300;
 
   position: fixed;

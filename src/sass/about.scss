@@ -18,7 +18,7 @@
   &-title {
     @extend .ttl-xl;
 
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-primary);
     font-weight: 100;
     text-align: left;
     text-transform: uppercase;
@@ -142,7 +142,7 @@
     &-text {
       @extend .txt-md;
 
-      font-family: 'Raleway', sans-serif;
+      font-family: var(--font-primary);
       font-weight: 100;
       word-break: normal;
       overflow-wrap: break-word;

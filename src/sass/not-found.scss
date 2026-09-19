@@ -24,7 +24,7 @@
     opacity: 0.025;
 
     &-marquee {
-      font-family: 'Raleway', sans-serif;
+      font-family: var(--font-primary);
       font-weight: 100;
       will-change: transform;
       width: fit-content;
@@ -58,7 +58,7 @@
   }
 
   &-title {
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-primary);
     font-weight: 100;
     font-size: to-rem($space-xl);
     letter-spacing: to-rem($space-md);
@@ -91,7 +91,7 @@
   &-link {
     @extend %RESETBTN;
     // inlined from .ttl-xs (_fonts.scss not imported here)
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-primary);
     font-size: to-rem(13);
     letter-spacing: 0.06em;
     position: relative;
