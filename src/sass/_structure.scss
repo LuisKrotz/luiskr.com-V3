@@ -20,6 +20,12 @@
   --border-item-hover: rgba(255, 255, 255, 0.22);
   --border-item-featured: rgba(255, 255, 255, 0.16);
 
+  // Card shadow tokens — light theme uses lighter shadows so cards don't
+  // appear to have black borders against the white page background
+  --shadow-card:          0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-card-featured: 0 6px 24px rgba(0, 0, 0, 0.14);
+  --shadow-card-hover:    0 16px 40px rgba(0, 0, 0, 0.20);
+
   --white: #ffffff;
   --black: #262626;
   --grey: #a79e9e;
@@ -73,6 +79,11 @@ html.dark-mode {
   --text-secondary: #e0e0e0;
   --text-muted: #a79e9e;
   --border-color: #383838;
+
+  // Dark mode: stronger shadows look correct on dark backgrounds
+  --shadow-card:          0 2px 16px rgba(0, 0, 0, 0.30);
+  --shadow-card-featured: 0 8px 32px rgba(0, 0, 0, 0.50);
+  --shadow-card-hover:    0 20px 50px rgba(0, 0, 0, 0.65);
 
   --white: #262626;
   --black: #ffffff;

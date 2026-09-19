@@ -68,8 +68,7 @@
   color: $color-white;
   // Always dark — photo cards look wrong on a light background
   background: var(--bg-dark);
-  border: 1px solid var(--border-item);
-  box-shadow: 0 to-rem($space-2xs) to-rem($space-xl) rgba($color-black, 0.3);
+  box-shadow: var(--shadow-card);
   box-sizing: border-box;
   container-type: inline-size; // enables cqw units for child text
 
@@ -80,31 +79,23 @@
     left 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.36s ease,
-    border-color 0.36s ease,
     opacity 0.3s ease,
     filter 0.3s ease;
 
   &--featured {
-    border-color: var(--border-item-featured);
-    box-shadow: 0 to-rem($space-md) to-rem($space-2xl) rgba($color-black, 0.5);
+    box-shadow: var(--shadow-card-featured);
   }
 
   &:hover {
-    border-color: var(--border-item-hover);
     transform: translateY(-#{to-rem($space-sm)}) scale(1.015);
-    box-shadow: 0 to-rem($space-xl) to-rem($space-3xl) rgba($color-black, 0.65);
+    box-shadow: var(--shadow-card-hover);
     z-index: 10;
     opacity: 1;
     filter: none;
 
     .home-mosaic-media {
-      border-bottom-color: var(--border-item-hover);
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-    }
-
-    .home-mosaic-bottom {
-      border-top-color: var(--border-item-hover);
     }
 
     .home-mosaic-img {
@@ -118,12 +109,9 @@
 .home-mosaic-media {
   position: relative;
   border-radius: inherit;
-  border-bottom: to-rem($space-hairline) solid transparent;
   overflow: hidden;
   // transition on height so the image area animates when card expands/collapses
-  transition:
-    height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.36s ease;
+  transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .home-mosaic-img {
