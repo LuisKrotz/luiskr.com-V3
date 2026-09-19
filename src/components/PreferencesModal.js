@@ -101,10 +101,10 @@ export class PreferencesModal extends BaseComponent {
   _syncOpenState() {
     if (this.isOpen) {
       this.setAttribute('open', '')
-      this.classList.add('is-open')
+      this.classList.add(CLASSES.IS_OPEN)
     } else {
       this.removeAttribute('open')
-      this.classList.remove('is-open')
+      this.classList.remove(CLASSES.IS_OPEN)
     }
   }
 
@@ -114,7 +114,7 @@ export class PreferencesModal extends BaseComponent {
     this._bindEvents()
     if (this.isOpen) {
       requestAnimationFrame(() => {
-        const backdrop = this.$('.pref-backdrop')
+        const backdrop = this.$(`.${CLASSES.PREF_BACKDROP}`)
         if (backdrop) backdrop.focus()
       })
     }
@@ -128,7 +128,7 @@ export class PreferencesModal extends BaseComponent {
   _bindEvents() {
     if (!this.isOpen) return
 
-    const backdrop = this.$('.pref-backdrop')
+    const backdrop = this.$(`.${CLASSES.PREF_BACKDROP}`)
     if (backdrop) {
       this.addScopedListener(backdrop, 'click', (e) => {
         if (e.target === backdrop) this.close()
@@ -138,10 +138,10 @@ export class PreferencesModal extends BaseComponent {
       if (e.key === 'Escape') this.close()
     })
 
-    const closeBtn = this.$('.pref-close-btn')
+    const closeBtn = this.$(`.${CLASSES.PREF_CLOSE_BTN}`)
     if (closeBtn) this.addScopedListener(closeBtn, 'click', () => this.close())
 
-    const doneBtn = this.$('.pref-done-btn')
+    const doneBtn = this.$(`.${CLASSES.PREF_DONE_BTN}`)
     if (doneBtn) this.addScopedListener(doneBtn, 'click', () => this.close())
 
     const themeBtns = this.$$('[data-theme]')

@@ -376,7 +376,7 @@
         text-transform: uppercase;
         margin: 0;
         font-variant: all-small-caps;
-        color: var(--white);
+        color: var(--color-white-raw);
       }
 
       &-open {
@@ -458,7 +458,7 @@
       @extend .ttl-xs;
 
       text-align: center;
-    color: var(--white);
+    color: var(--text-primary);
       padding: to-rem($space-2xl);
       background: var(--bg-dark);
 
@@ -548,7 +548,7 @@
     min-height: to-rem(160);
     aspect-ratio: 16 / 10;
     text-decoration: none;
-    color: var(--white);
+    color: var(--color-white-raw);
     background: var(--bg-secondary);
     box-shadow: 0 to-rem($space-2xs) to-rem($space-lg) rgba($color-black, 0.15);
     transition:
@@ -584,8 +584,8 @@
 
     &:hover,
     &:focus {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transform: translateY(#{to-rem(-$space-xs)}) scale(1.01);
+      box-shadow: var(--shadow-card-hover);
 
       .related-mosaic-img {
         transform: scale(1.06);
