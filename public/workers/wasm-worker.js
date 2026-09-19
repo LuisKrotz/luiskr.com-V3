@@ -114,9 +114,22 @@ self.onmessage = (e) => {
       results: { key, hash: Math.abs(hash) },
     })
   } else if (type === 'DECODE_IMAGE_WASM') {
-    const { blob } = payload
+    // Single-image WASM decode with GPU-hardware resize at decode time.
+    // resizeWidth/resizeHeight instruct the GPU to resize during decompression,
+    // avoiding any software-side scaling. colorSpaceConversion:'none' and
+    // premultiplyAlpha:'none' skip CPU color-space transforms.
+    const { blob, width, height } = payload
     if (!blob) return
-    createImageBitmap(blob)
+
+    const bitmapOptions = {}
+    if (width > 0) bitmapOptions.resizeWidth = width
+    if (height > 0) bitmapOptions.resizeHeight = height
+    if (width > 0 || height > 0) bitmapOptions.resizeQuality = 'high'
+    bitmapOptions.colorSpaceConversion = 'none'
+    bitmapOptions.premultiplyAlpha = 'none'
+    bitmapOptions.imageOrientation = 'from-image'
+
+    createImageBitmap(blob, bitmapOptions)
       .then((bitmap) => {
         self.postMessage(
           {
@@ -128,7 +141,68 @@ self.onmessage = (e) => {
         )
       })
       .catch((err) => {
-        self.postMessage({ id, type: 'DECODE_IMAGE_WASM_ERROR', error: err?.message })
+        // Fallback: decode without options (browser may not support all options)
+        createImageBitmap(blob)
+          .then((bitmap) => {
+            self.postMessage(
+              { id, type: 'DECODE_IMAGE_WASM_RESULT', results: { bitmap, width: bitmap.width, height: bitmap.height } },
+              [bitmap]
+            )
+          })
+          .catch(() => {
+            self.postMessage({ id, type: 'DECODE_IMAGE_WASM_ERROR', error: err?.message })
+          })
+      })
+
+  } else if (type === 'DECODE_IMAGE_BATCH_WASM') {
+    // Parallel batch decode: fetch + GPU-hardware decode all images in a single
+    // worker invocation using Promise.all. All resulting ImageBitmaps are
+    // transferred back zero-copy in a single postMessage transferList.
+    // Each item: { url, width, height, index }
+    const { items } = payload
+    if (!items || !items.length) {
+      self.postMessage({ id, type: 'DECODE_IMAGE_BATCH_WASM_RESULT', results: [] })
+      return
+    }
+
+    const decodeOne = async ({ url, width, height, index }) => {
+      try {
+        const res = await fetch(url, { cache: 'force-cache' })
+        if (!res.ok) return { index, bitmap: null, error: `HTTP ${res.status}` }
+        const blob = await res.blob()
+
+        const opts = { colorSpaceConversion: 'none', premultiplyAlpha: 'none', imageOrientation: 'from-image' }
+        if (width > 0) opts.resizeWidth = width
+        if (height > 0) opts.resizeHeight = height
+        if (width > 0 || height > 0) opts.resizeQuality = 'high'
+
+        try {
+          const bitmap = await createImageBitmap(blob, opts)
+          return { index, url, bitmap, width: bitmap.width, height: bitmap.height }
+        } catch {
+          // Fallback without options
+          const bitmap = await createImageBitmap(blob)
+          return { index, url, bitmap, width: bitmap.width, height: bitmap.height }
+        }
+      } catch (err) {
+        return { index, url, bitmap: null, error: err?.message }
+      }
+    }
+
+    // Fan-out: decode all images in parallel within this worker
+    Promise.all(items.map(decodeOne))
+      .then((results) => {
+        const transferList = results
+          .filter((r) => r.bitmap)
+          .map((r) => r.bitmap)
+
+        self.postMessage(
+          { id, type: 'DECODE_IMAGE_BATCH_WASM_RESULT', results },
+          transferList
+        )
+      })
+      .catch((err) => {
+        self.postMessage({ id, type: 'DECODE_IMAGE_BATCH_WASM_ERROR', error: err?.message })
       })
   } else if (type === 'DECODE_MEDIA_URL_WASM') {
     const { url } = payload

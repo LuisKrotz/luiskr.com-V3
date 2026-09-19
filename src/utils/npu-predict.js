@@ -3,6 +3,7 @@
 // to predict user interaction trajectories, pre-load route modules & pre-cache assets.
 import { wasmPool } from './wasm-pool.js'
 import { gpuAccel } from './gpu-accel.js'
+import { wasmImageDecoder } from './wasm-image-decoder.js'
 
 class NPUPredictor {
   constructor() {
@@ -113,8 +114,10 @@ class NPUPredictor {
         damping: 10,
       })
 
-      if (res && res.position) {
-        probability = Math.min(0.98, Math.max(0.2, res.position / 300))
+      // Worker response shape: { id, type, results: { position, velocity } }
+      const position = res?.results?.position ?? res?.position
+      if (position != null) {
+        probability = Math.min(0.98, Math.max(0.2, position / 300))
       } else {
         probability = Math.min(0.95, 0.45 + Math.min(0.5, hoverTimeMs / 250))
       }
@@ -150,16 +153,17 @@ class NPUPredictor {
     }
   }
 
-  // Preload image/media textures into GPU VRAM
+  // Preload image/media textures into GPU VRAM via the WASM worker path.
+  // Decoding happens off-main-thread and the resulting ImageBitmap is
+  // uploaded zero-copy to WebGL2 GPU VRAM — no main-thread Image() element.
   preloadMediaGPU(src, width = 800, height = 450) {
     if (!src || this.preloadedTargets.has(src)) return
     this.preloadedTargets.add(src)
 
-    const img = new Image()
-    img.src = src
-    img.onload = () => {
-      gpuAccel.processImageGPU(img, width, height)
-    }
+    // Route through WASM worker → GPU VRAM instead of blocking main thread
+    wasmImageDecoder.decodeImageWASM(src, width, height).catch(() => {
+      // Graceful fallback: silent if decode fails (asset may not be an image)
+    })
   }
 
   getNpuAnalytics() {
