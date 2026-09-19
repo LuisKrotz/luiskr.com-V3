@@ -37,15 +37,15 @@
 :host(.internal-main-item),
 :host([classes*="internal-main-item"]) {
   display: block;
+  width: 100%;
   max-width: 100%;
-  width: auto;
   margin: 0 auto;
 
   figure {
     position: relative;
     display: block;
+    width: 100%;
     max-width: 100%;
-    width: auto;
     margin: 0 auto;
     border-radius: 0;
 
@@ -58,8 +58,8 @@
     display: block;
     position: relative;
     height: auto;
+    width: 100%;
     max-width: 100%;
-    width: auto;
   }
 
   .render-media,
