@@ -12,15 +12,17 @@
   @extend %MAXAREA;
   width: 100%;
   padding-top: to-rem($space-3xl);
-  padding-bottom: to-rem($space-2xl);
+  padding-bottom: to-rem($space-3xl);
   box-sizing: border-box;
 
   @include layout-768() {
     padding-top: to-rem($space-3xl);
-    padding-bottom: to-rem($space-3xl);
+    padding-bottom: to-rem($space-4xl);
   }
+
   @include layout-1024() {
     padding-top: to-rem($space-4xl);
+    padding-bottom: to-rem($space-5xl);
   }
 
   .home-section-title {

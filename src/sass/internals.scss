@@ -458,9 +458,9 @@
       @extend .ttl-xs;
 
       text-align: center;
-    color: var(--text-primary);
+      color: var(--text-primary);
       padding: to-rem($space-2xl);
-      background: var(--bg-dark);
+      background: var(--bg-secondary);
 
       @include layout-1024() {
         padding: to-rem($space-xl) to-rem($space-5xl);

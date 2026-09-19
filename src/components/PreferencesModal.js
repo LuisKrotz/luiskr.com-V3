@@ -12,15 +12,19 @@ const DEFAULTS = {
     title: 'Appearance',
     desc: 'Choose how the site looks',
     system: { label: 'System', sub: 'Follow OS' },
-    dark: { label: 'Dark', sub: 'Dark mode' },
-    light: { label: 'Light', sub: 'Light mode' },
+    dark:   { label: 'Dark',   sub: 'Dark mode' },
+    light:  { label: 'Light',  sub: 'Light mode' },
   },
-  motion: {
-    title: 'Motion',
-    desc: 'Control animations and transitions',
-    full: { label: 'Normal', sub: 'Full motion' },
-    reduced: { label: 'Reduced', sub: 'Less motion' },
+  devTools: {
+    title:              'Developer Tools',
+    statsForNerds:      'Stats for Nerds',
+    statsForNerdsDesc:  'Live FPS, network, memory HUD — bottom-right corner',
+    showGrid:           'Show Grid',
+    showGridDesc:       'Overlay columns, gutters and max-area at every breakpoint',
+    reducedMotion:      'Reduced Motion',
+    reducedMotionDesc:  'Disable animations and transitions',
   },
+  closeLabel: 'Close preferences',
 }
 
 export class PreferencesModal extends BaseComponent {
@@ -59,10 +63,11 @@ export class PreferencesModal extends BaseComponent {
   get t() {
     const p = this.pref || {}
     return {
-      title: p.title ?? DEFAULTS.title,
-      done: p.done ?? DEFAULTS.done,
+      title:      p.title      ?? DEFAULTS.title,
+      done:       p.done       ?? DEFAULTS.done,
+      closeLabel: p.closeLabel ?? DEFAULTS.closeLabel,
       appearance: { ...DEFAULTS.appearance, ...(p.appearance ?? {}) },
-      motion: { ...DEFAULTS.motion, ...(p.motion ?? {}) },
+      devTools:   { ...DEFAULTS.devTools,   ...(p.devTools   ?? {}) },
     }
   }
 
@@ -156,7 +161,7 @@ export class PreferencesModal extends BaseComponent {
             <h2 id="pref-title" className={CLASSES.PREF_TITLE}>{t.title}</h2>
             <button
               className={CLASSES.PREF_CLOSE_BTN}
-              aria-label="Close preferences"
+              aria-label={t.closeLabel}
               type="button"
               onClick={() => this.close()}
             />
@@ -201,7 +206,7 @@ export class PreferencesModal extends BaseComponent {
             </section>
 
             <section className={CLASSES.PREF_SECTION}>
-              <h3 className={CLASSES.PREF_SECTION_TITLE}>Developer Tools</h3>
+              <h3 className={CLASSES.PREF_SECTION_TITLE}>{t.devTools.title}</h3>
               <div
                 className={CLASSES.PREF_SWITCH_ROW}
                 role="group"
@@ -210,13 +215,13 @@ export class PreferencesModal extends BaseComponent {
                 }}
               >
                 <div className={CLASSES.PREF_SWITCH_INFO}>
-                  <span className={CLASSES.PREF_SWITCH_LABEL}>Stats for Nerds</span>
-                  <span className={CLASSES.PREF_SWITCH_DESC}>Live FPS, network, memory HUD — bottom-right corner</span>
+                  <span className={CLASSES.PREF_SWITCH_LABEL}>{t.devTools.statsForNerds}</span>
+                  <span className={CLASSES.PREF_SWITCH_DESC}>{t.devTools.statsForNerdsDesc}</span>
                 </div>
                 <button
                   className={statsForNerds ? CLASSES.PREF_SWITCH_ON : CLASSES.PREF_SWITCH}
                   aria-checked={String(statsForNerds)}
-                  aria-label="Stats for Nerds"
+                  aria-label={t.devTools.statsForNerds}
                   role="switch"
                   type="button"
                   onClick={(e) => { e.stopPropagation(); store.commit('toggleStatsForNerds') }}
@@ -230,13 +235,13 @@ export class PreferencesModal extends BaseComponent {
                 }}
               >
                 <div className={CLASSES.PREF_SWITCH_INFO}>
-                  <span className={CLASSES.PREF_SWITCH_LABEL}>Show Grid</span>
-                  <span className={CLASSES.PREF_SWITCH_DESC}>Overlay columns, gutters and max-area at every breakpoint</span>
+                  <span className={CLASSES.PREF_SWITCH_LABEL}>{t.devTools.showGrid}</span>
+                  <span className={CLASSES.PREF_SWITCH_DESC}>{t.devTools.showGridDesc}</span>
                 </div>
                 <button
                   className={showGrid ? CLASSES.PREF_SWITCH_ON : CLASSES.PREF_SWITCH}
                   aria-checked={String(showGrid)}
-                  aria-label="Show Grid"
+                  aria-label={t.devTools.showGrid}
                   role="switch"
                   type="button"
                   onClick={(e) => { e.stopPropagation(); store.commit('toggleShowGrid') }}
@@ -250,13 +255,13 @@ export class PreferencesModal extends BaseComponent {
                 }}
               >
                 <div className={CLASSES.PREF_SWITCH_INFO}>
-                  <span className={CLASSES.PREF_SWITCH_LABEL}>Reduced Motion</span>
-                  <span className={CLASSES.PREF_SWITCH_DESC}>Disable animations and transitions</span>
+                  <span className={CLASSES.PREF_SWITCH_LABEL}>{t.devTools.reducedMotion}</span>
+                  <span className={CLASSES.PREF_SWITCH_DESC}>{t.devTools.reducedMotionDesc}</span>
                 </div>
                 <button
                   className={reduced ? CLASSES.PREF_SWITCH_ON : CLASSES.PREF_SWITCH}
                   aria-checked={String(reduced)}
-                  aria-label="Reduced Motion"
+                  aria-label={t.devTools.reducedMotion}
                   role="switch"
                   type="button"
                   onClick={(e) => { e.stopPropagation(); store.commit('toggleReducedMotion') }}

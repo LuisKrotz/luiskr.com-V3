@@ -4,7 +4,7 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import { calcCarouselRingOffset } from '../utils/wasm-layout.js'
 import homeCarouselStyles from '../sass/home-carousel.scss?inline'
-import { CLASSES, TAGS } from '../core/constants.js'
+import { CLASSES, TAGS, EVENTS } from '../core/constants.js'
 
 const CIRCUMFERENCE = 2 * Math.PI * 19
 
@@ -296,6 +296,7 @@ export class HomeCarousel extends BaseComponent {
     this.rafId = null
     this.ringProgress = 0
     this._updateRing()
+    this.dispatchEvent(new CustomEvent(EVENTS.AUTOPLAY_STOP, { bubbles: false }))
   }
 
   _tickRing() {

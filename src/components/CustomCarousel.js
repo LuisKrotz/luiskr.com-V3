@@ -1,4 +1,4 @@
-import { h } from '../core/jsx.js'
+import { h, Fragment } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import { CAROUSEL, CLASSES, TAGS } from '../core/constants.js'
@@ -232,7 +232,10 @@ export class CustomCarousel extends BaseComponent {
     })
 
     const counter = this.$('.carousel-counter')
-    if (counter) counter.textContent = `${this.currentIndex + 1} of ${this.items.length}`
+    if (counter) {
+      const lang = store.getters.getCarouselLang()
+      counter.textContent = `${this.currentIndex + 1} ${lang.ofLabel} ${this.items.length}`
+    }
   }
 
   _scrollToElement(el) {
@@ -351,7 +354,7 @@ export class CustomCarousel extends BaseComponent {
             this.isEnteredViewport = true
             root.classList.add('carousel--in-view')
           }
-          const isFullyVisible = entry.isIntersecting && entry.intersectionRatio >= 0.95
+          const isFullyVisible = entry.isIntersecting && entry.intersectionRatio >= 0.6
           this.isFullyVisible = isFullyVisible
 
           if (isFullyVisible) {
@@ -363,7 +366,7 @@ export class CustomCarousel extends BaseComponent {
           }
         })
       },
-      { threshold: [0, 0.95, 1.0] }
+      { threshold: [0, 0.6, 1.0] }
     )
     this.observer.observe(this)
   }
@@ -479,53 +482,60 @@ export class CustomCarousel extends BaseComponent {
         </div>
 
         <div className={CLASSES.CAROUSEL_CONTROLS}>
-          <button className={CLASSES.CAROUSEL_BTN_PREV} aria-label="Previous item" type="button">
-            <svg className={CLASSES.CAROUSEL_BTN_RING} viewBox="0 0 44 44" aria-hidden="true">
-              <circle className={CLASSES.CAROUSEL_BTN_RING_TRACK} cx="22" cy="22" r="19" />
-              <circle
-                className={CLASSES.CAROUSEL_BTN_RING_FILL}
-                cx="22"
-                cy="22"
-                r="19"
-                style={{
-                  strokeDasharray: `${this.circumference}`,
-                  strokeDashoffset: `${this.circumference}`,
-                }}
-              />
-            </svg>
-            <span className={CLASSES.CAROUSEL_BTN_ARROW} aria-hidden="true">&#8592;</span>
-          </button>
+          {(() => {
+            const lang = store.getters.getCarouselLang()
+            return (
+              <>
+                <button className={CLASSES.CAROUSEL_BTN_PREV} aria-label={lang.prev} type="button">
+                  <svg className={CLASSES.CAROUSEL_BTN_RING} viewBox="0 0 44 44" aria-hidden="true">
+                    <circle className={CLASSES.CAROUSEL_BTN_RING_TRACK} cx="22" cy="22" r="19" />
+                    <circle
+                      className={CLASSES.CAROUSEL_BTN_RING_FILL}
+                      cx="22"
+                      cy="22"
+                      r="19"
+                      style={{
+                        strokeDasharray: `${this.circumference}`,
+                        strokeDashoffset: `${this.circumference}`,
+                      }}
+                    />
+                  </svg>
+                  <span className={CLASSES.CAROUSEL_BTN_ARROW} aria-hidden="true">&#8592;</span>
+                </button>
 
-          <div className={CLASSES.CAROUSEL_INDICATORS}>
-            <span className={CLASSES.CAROUSEL_COUNTER}>{this.currentIndex + 1} of {this.items.length}</span>
-            <div className={CLASSES.CAROUSEL_DOTS}>
-              {this.items.map((_, idx) => (
-                <button
-                  key={idx}
-                  className={`${CLASSES.CAROUSEL_DOT} ${this.currentIndex === idx ? CLASSES.CAROUSEL_DOT_ACTIVE : ''}`}
-                  aria-label={`Go to item ${idx + 1}`}
-                  type="button"
-                />
-              ))}
-            </div>
-          </div>
+                <div className={CLASSES.CAROUSEL_INDICATORS}>
+                  <span className={CLASSES.CAROUSEL_COUNTER}>{this.currentIndex + 1} {lang.ofLabel} {this.items.length}</span>
+                  <div className={CLASSES.CAROUSEL_DOTS}>
+                    {this.items.map((_, idx) => (
+                      <button
+                        key={idx}
+                        className={`${CLASSES.CAROUSEL_DOT} ${this.currentIndex === idx ? CLASSES.CAROUSEL_DOT_ACTIVE : ''}`}
+                        aria-label={`${idx + 1} ${lang.ofLabel} ${this.items.length}`}
+                        type="button"
+                      />
+                    ))}
+                  </div>
+                </div>
 
-          <button className={CLASSES.CAROUSEL_BTN_NEXT} aria-label="Next item" type="button">
-            <svg className={CLASSES.CAROUSEL_BTN_RING} viewBox="0 0 44 44" aria-hidden="true">
-              <circle className={CLASSES.CAROUSEL_BTN_RING_TRACK} cx="22" cy="22" r="19" />
-              <circle
-                className={CLASSES.CAROUSEL_BTN_RING_FILL}
-                cx="22"
-                cy="22"
-                r="19"
-                style={{
-                  strokeDasharray: `${this.circumference}`,
-                  strokeDashoffset: `${this.circumference}`,
-                }}
-              />
-            </svg>
-            <span className={CLASSES.CAROUSEL_BTN_ARROW} aria-hidden="true">&#8594;</span>
-          </button>
+                <button className={CLASSES.CAROUSEL_BTN_NEXT} aria-label={lang.next} type="button">
+                  <svg className={CLASSES.CAROUSEL_BTN_RING} viewBox="0 0 44 44" aria-hidden="true">
+                    <circle className={CLASSES.CAROUSEL_BTN_RING_TRACK} cx="22" cy="22" r="19" />
+                    <circle
+                      className={CLASSES.CAROUSEL_BTN_RING_FILL}
+                      cx="22"
+                      cy="22"
+                      r="19"
+                      style={{
+                        strokeDasharray: `${this.circumference}`,
+                        strokeDashoffset: `${this.circumference}`,
+                      }}
+                    />
+                  </svg>
+                  <span className={CLASSES.CAROUSEL_BTN_ARROW} aria-hidden="true">&#8594;</span>
+                </button>
+              </>
+            )
+          })()}
         </div>
       </div>
     )

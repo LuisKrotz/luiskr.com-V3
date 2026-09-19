@@ -5,6 +5,10 @@ import router from './core/router.js'
 import { deepQuerySelector } from './core/dom.js'
 import { fetchFirebaseDb } from './utils/db.js'
 import { TAGS } from './core/constants.js'
+
+// Route depth: home = 0, all other views = 1
+const _routeDepth = (tag) => (tag === TAGS.VIEW_HOME ? 0 : 1)
+
 import appStyles from './sass/app.scss?inline'
 import './components/AppNav.js'
 import './components/PreferencesModal.js'
@@ -223,6 +227,14 @@ export class AppRoot extends BaseComponent {
             if (cookie) cookie.translations = this.translations
             const pref = this.$('preferences-modal')
             if (pref) pref.pref = this.translations.pref
+
+            if (this.translations.carousel) {
+              store.commit('setCarouselLang', this.translations.carousel)
+            }
+
+            if (this.translations.statsHud) {
+              store.commit('setStatsHudLang', this.translations.statsHud)
+            }
           }
         })
       )
@@ -293,6 +305,7 @@ export class AppRoot extends BaseComponent {
   _updateViewContent(to) {
     const outlet = this.$('#view-outlet')
     if (!outlet) return
+
     const current = outlet.firstElementChild
     if (current && current.tagName.toLowerCase() === this.currentViewTag.toLowerCase()) {
       if (typeof current.onRouteParamChange === 'function') {
@@ -300,7 +313,40 @@ export class AppRoot extends BaseComponent {
       }
       return
     }
-    outlet.replaceChildren(document.createElement(this.currentViewTag))
+
+    this._flipToView(outlet, to)
+  }
+
+  _flipToView(outlet, to) {
+    const reduced = store.getters.getReducedMotion()
+    const fromTag = outlet.firstElementChild?.tagName?.toLowerCase() || TAGS.VIEW_HOME
+    const toTag   = this.currentViewTag
+
+    const fromDepth = _routeDepth(fromTag)
+    const toDepth   = _routeDepth(toTag)
+    const isForward = toDepth >= fromDepth
+    const dirOut    = isForward ? 'page-flip-out-fwd'  : 'page-flip-out-bwd'
+    const dirIn     = isForward ? 'page-flip-in-fwd'   : 'page-flip-in-bwd'
+    const DURATION  = 420 // ms — must match CSS
+
+    if (reduced || !outlet.firstElementChild) {
+      // Instant swap — no animation
+      outlet.replaceChildren(document.createElement(toTag))
+      return
+    }
+
+    const outgoing = outlet.firstElementChild
+    outgoing.classList.add(dirOut)
+
+    setTimeout(() => {
+      const incoming = document.createElement(toTag)
+      incoming.classList.add(dirIn)
+      outlet.replaceChildren(incoming)
+
+      // Trigger reflow then remove the class so the element animates in
+      void incoming.offsetHeight
+      incoming.classList.remove(dirIn)
+    }, DURATION / 2)
   }
 
   render() {

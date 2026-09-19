@@ -595,3 +595,80 @@ html.reduced-motion *::after {
     transition-duration: 0.001ms;
   }
 }
+
+// ── 3D Book Page Flip Transition ──────────────────────────────────────────────
+// The #view-outlet establishes the 3D perspective context.
+// Flip forward: home → project  (page turns left — like opening a book forward)
+// Flip backward: project → home (page turns right — like flipping back)
+#view-outlet {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+// Keyframes — forward direction
+@keyframes book-flip-out-fwd {
+  from {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotateY(-70deg);
+    opacity: 0;
+  }
+}
+
+@keyframes book-flip-in-fwd {
+  from {
+    transform: rotateY(70deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+// Keyframes — backward direction
+@keyframes book-flip-out-bwd {
+  from {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotateY(70deg);
+    opacity: 0;
+  }
+}
+
+@keyframes book-flip-in-bwd {
+  from {
+    transform: rotateY(-70deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.page-flip-out-fwd {
+  transform-origin: left center;
+  animation: book-flip-out-fwd 0.21s cubic-bezier(0.4, 0, 1, 1) forwards;
+  pointer-events: none;
+}
+
+.page-flip-in-fwd {
+  transform-origin: right center;
+  animation: book-flip-in-fwd 0.21s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+.page-flip-out-bwd {
+  transform-origin: right center;
+  animation: book-flip-out-bwd 0.21s cubic-bezier(0.4, 0, 1, 1) forwards;
+  pointer-events: none;
+}
+
+.page-flip-in-bwd {
+  transform-origin: left center;
+  animation: book-flip-in-bwd 0.21s cubic-bezier(0, 0, 0.2, 1) forwards;
+}

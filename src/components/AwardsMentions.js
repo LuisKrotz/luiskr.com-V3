@@ -106,12 +106,27 @@ export class AwardsMentions extends BaseComponent {
       hc.items = this.items
 
       this.addScopedListener(hc, EVENTS.SLIDE_CHANGE, () => {
+        this._showProgress()
         this._restartProgressAnimation()
+      })
+
+      this.addScopedListener(hc, EVENTS.AUTOPLAY_STOP, () => {
+        this._hideProgress()
       })
 
       // Start the first animation after the carousel is initialised
       requestAnimationFrame(() => this._restartProgressAnimation())
     }
+  }
+
+  _showProgress() {
+    const bar = this.$(`.${CLASSES.AWARDS_FOOTER_PROGRESS}`)
+    if (bar) bar.classList.remove(CLASSES.AWARDS_FOOTER_PROGRESS_HIDDEN)
+  }
+
+  _hideProgress() {
+    const bar = this.$(`.${CLASSES.AWARDS_FOOTER_PROGRESS}`)
+    if (bar) bar.classList.add(CLASSES.AWARDS_FOOTER_PROGRESS_HIDDEN)
   }
 
   _restartProgressAnimation() {

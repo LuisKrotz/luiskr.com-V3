@@ -124,6 +124,12 @@ $_B_AFP: 'awards-footer-progress';
   overflow: hidden;
   margin-top: to-rem($space-2xs);
   opacity: 0.75;
+  transition: opacity 0.4s ease;
+
+  &--hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 .#{$_B_AFP}-fill {

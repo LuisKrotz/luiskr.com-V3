@@ -16,6 +16,8 @@ class Store {
         typeof window !== STRINGS.UNDEFINED && 'ontouchstart' in window && !matchMedia('(pointer: fine)').matches,
       lang: {
         components: false,
+        carousel:   { prev: 'Previous item', next: 'Next item', ofLabel: 'of' },
+        statsHud:   { title: 'Performance', fps: 'FPS', memory: 'Memory', network: 'Network', latency: 'Latency', ai: 'AI Engine' },
         database: 'translations/',
         loading: {
           msg1: 'Loading',
@@ -191,6 +193,12 @@ class Store {
       setComponentLang: (payload) => {
         this.state.lang.components = payload
       },
+      setCarouselLang: (payload) => {
+        this.state.lang.carousel = { ...this.state.lang.carousel, ...payload }
+      },
+      setStatsHudLang: (payload) => {
+        this.state.lang.statsHud = { ...this.state.lang.statsHud, ...payload }
+      },
       setHover: (payload) => {
         if (!this.state.has_touch) {
           this.state.showhover = true
@@ -260,6 +268,8 @@ class Store {
       getHover: () => this.state.showhover,
       getlang: () => this.state.lang,
       getLang: () => this.state.lang.locale,
+      getCarouselLang: () => this.state.lang.carousel,
+      getStatsHudLang: () => this.state.lang.statsHud,
       getMarqueeAmount: () => 0,
       getModal: () => this.state.modalObject,
       getOnMouseMove: () => this.state.page,
