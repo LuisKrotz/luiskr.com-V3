@@ -25,13 +25,15 @@ class WasmWorkerPool {
   }
 
   handleMessage(e) {
-    const { id, results } = e.data
+    const data = e.data || {}
+    const { id } = data
     if (id && this.pendingTasks.has(id)) {
       const { resolve } = this.pendingTasks.get(id)
       this.pendingTasks.delete(id)
-      resolve(results)
+      resolve(data)
     }
   }
+
 
   dispatch(type, payload, transferables = []) {
     return new Promise((resolve) => {

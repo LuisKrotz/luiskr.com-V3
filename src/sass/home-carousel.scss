@@ -771,7 +771,7 @@ $hc-peek: 10vw; // how much adjacent slides bleed in (both sides)
     align-items: center;
     text-align: center;
     text-decoration: none;
-    color: #ffffff;
+    color: $color-white;
     gap: to-rem($space-xs);
     padding: to-rem($space-lg) to-rem($space-sm);
     width: 100%;

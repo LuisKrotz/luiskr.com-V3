@@ -1,0 +1,154 @@
+// ── Custom Carousel Shadow DOM host styles ────────────────────────────────────
+// Applied INSIDE the <custom-carousel> Shadow Root.
+// These supplement carousel.scss (general carousel styles) and internals.scss
+// (slide item styles). Rules here override or complement those where Shadow DOM
+// isolation requires explicit redeclaration inside the shadow root.
+
+@import '_variables';
+@import '_mixins';
+
+// ── Shadow host ───────────────────────────────────────────────────────────────
+:host {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+  color: var(--text-primary);
+}
+
+// ── Carousel viewport override ────────────────────────────────────────────────
+// The .carousel opacity/transform starts at 0/translateY(32px) per carousel.scss
+// and animates to 1/none when .carousel--in-view is added by IntersectionObserver.
+// The carouselExtraStyles previously hard-coded `opacity: 1 !important` to
+// prevent the fade-in — that is WRONG. Removed. The IntersectionObserver handles it.
+
+// ── Slide wrapper — must not clip content ────────────────────────────────────
+.carousel-slide {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+// ── Slide item container ──────────────────────────────────────────────────────
+// These styles mirror .internal-extra-item from internals.scss but must be
+// redeclared here because Shadow DOM isolation prevents the parent's stylesheet
+// from styling elements inside <custom-carousel>'s Shadow Root.
+.internal-extra-item {
+  position: relative;
+  border-radius: to-rem($space-md);
+  color: var(--grey);
+  display: inline-block;
+  width: min-content;
+  padding: 0 to-rem($space-lg);
+  min-height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  @include layout-768() {
+    padding: 0 to-rem($space-xl);
+  }
+
+  @include layout-1024() {
+    border-radius: to-rem($space-lg);
+  }
+
+  @include layout-1440() {
+    padding: 0 to-rem($space-2xl);
+  }
+
+  @include layout-1920() {
+    padding: 0 to-rem($space-3xl);
+  }
+
+  // In the carousel context, every item is the sole child of its slide,
+  // so :first-of-type/:last-of-type both match — they'd zero-out padding.
+  // Restore symmetric gaps between items in the carousel track.
+  .carousel & {
+    &:first-of-type {
+      padding-left: to-rem($space-lg);
+    }
+    &:last-of-type {
+      padding-right: to-rem($space-lg);
+    }
+
+    @include layout-768() {
+      &:first-of-type { padding-left: to-rem($space-xl); }
+      &:last-of-type  { padding-right: to-rem($space-xl); }
+    }
+    @include layout-1440() {
+      &:first-of-type { padding-left: to-rem($space-2xl); }
+      &:last-of-type  { padding-right: to-rem($space-2xl); }
+    }
+    @include layout-1920() {
+      &:first-of-type { padding-left: to-rem($space-3xl); }
+      &:last-of-type  { padding-right: to-rem($space-3xl); }
+    }
+  }
+
+  // ── CSS Custom Properties for media-figure Shadow DOM sizing ────────────────
+  // internals.scss sets these on <media-figure> in the light DOM, but when
+  // <media-figure> is inside <custom-carousel>'s Shadow Root, the light DOM
+  // rules can't reach it. We must redeclare the same vars here, inside the
+  // carousel Shadow Root, where they can reach nested <media-figure> elements.
+  media-figure {
+    --mf-w: calc(90vw - #{to-rem($space-xl * 2)});
+    --mf-h: calc(70vh - #{to-rem($space-xl * 2)});
+    --mf-max-w: none;
+
+    @include layout-768() {
+      --mf-w: calc(90vw - #{to-rem($space-2xl * 2)});
+      --mf-h: calc(70vh - #{to-rem($space-2xl * 2)});
+    }
+
+    @include layout-1024() {
+      --mf-w: #{to-rem($space-6xl)};
+      --mf-h: #{to-rem($space-7xl)};
+    }
+
+    @include layout-1440() {
+      --mf-w: #{to-rem($space-7xl)};
+      --mf-h: #{to-rem($space-8xl)};
+    }
+
+    @include layout-2560() {
+      --mf-w: #{to-rem($space-8xl)};
+      --mf-h: #{to-rem($space-9xl)};
+    }
+  }
+
+  // landscape variant
+  &.landscape media-figure {
+    @include layout-1024() {
+      --mf-w: auto;
+      --mf-max-w: calc(100vw - #{to-rem($space-3xl)});
+    }
+
+    @include layout-1280() {
+      --mf-max-w: calc(100vw - #{to-rem($space-4xl)});
+    }
+
+    @include layout-1440() {
+      --mf-max-w: calc(100vw - #{to-rem($space-7xl)});
+    }
+
+    @include layout-1920() {
+      --mf-max-w: calc(100vw - #{to-rem($space-6xl)});
+    }
+  }
+
+  // small variant
+  &.small media-figure {
+    @include layout-1440() {
+      --mf-w: #{to-rem($space-6xl)};
+      --mf-h: #{to-rem($space-8xl)};
+    }
+
+    @include layout-2560() {
+      --mf-w: #{to-rem($space-7xl)};
+      --mf-h: #{to-rem($space-9xl)};
+    }
+  }
+}
+

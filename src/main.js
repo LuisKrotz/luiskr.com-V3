@@ -1,36 +1,18 @@
-import { createApp } from 'vue'
-import App from './App.vue'
 import './registerServiceWorker'
-import router from './router'
-import store from './store'
-import WasmSmoothScroll from './utils/wasm-scroll.js'
-import WasmLazyload from './utils/wasm-lazyload.js'
+import './sass/app.scss'
+import router from './core/router.js'
+import './core/store.js'
+import './App.js'
 import './utils/wasm-css.js'
 
-const app = createApp(App)
+// Initialize client-side router
+window.router = router
+router.init()
 
-app.config.globalProperties.$sharedData = window.globals
-
-app.use(WasmSmoothScroll).use(WasmLazyload).use(store).use(router).mount('#app')
-
-// Defer analytics initialization until user interaction or timeout
-function scheduleFirebaseAnalytics() {
-  const trigger = () => {
-    window.removeEventListener('scroll', trigger)
-    window.removeEventListener('touchstart', trigger)
-    window.removeEventListener('mousemove', trigger)
-    import('./firebase.js')
-      .then(({ app: firebaseApp }) => {
-        import('firebase/analytics')
-          .then(({ getAnalytics }) => getAnalytics(firebaseApp))
-          .catch(() => {})
-      })
-      .catch(() => {})
-  }
-  window.addEventListener('scroll', trigger, { passive: true, once: true })
-  window.addEventListener('touchstart', trigger, { passive: true, once: true })
-  window.addEventListener('mousemove', trigger, { passive: true, once: true })
-  setTimeout(trigger, 6000)
+// Mount custom element root
+const appContainer = document.getElementById('app')
+if (appContainer) {
+  appContainer.innerHTML = '<app-root></app-root>'
 }
 
-scheduleFirebaseAnalytics()
+

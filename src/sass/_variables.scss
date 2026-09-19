@@ -6,6 +6,26 @@ $color-grey-3: #515151;
 
 $color-blue: #006ca6;
 
+// CMS Admin Palette tokens
+$cms-bg-darkest: #0b0c10;
+$cms-bg-dark: #1f2833;
+$cms-bg-card: #131822;
+$cms-text-primary: #e0e6ed;
+$cms-text-muted: #c5c6c7;
+$cms-text-subtle: #8892b0;
+$cms-accent: #66fcf1;
+$cms-accent-hover: #45a29e;
+$cms-badge-warn: #f39c12;
+$cms-badge-amber: #ffca28;
+$cms-badge-green: #2ecc71;
+$cms-error: #ff6b6b;
+$cms-danger: #ff4d4d;
+$cms-danger-dark: #cc0000;
+$cms-card-max-width: to-rem(440px);
+$cms-header-min-height: to-rem(70px);
+$cms-dropdown-min-width: to-rem(230px);
+$cms-container-max-width: to-rem(1400px);
+
 // Viewports
 // @type pixels
 // used for viewports

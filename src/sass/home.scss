@@ -61,9 +61,9 @@
 
   // Selected section: edge-to-edge carousel, title stays grid-aligned
   &--selected {
-    padding-top: to-rem($space-3xl) !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-top: to-rem($space-3xl);
+    padding-left: 0;
+    padding-right: 0;
 
     // Title aligns with the left edge of the carousel slides.
     // Selected slides: 88vw mobile → 82vw@768 → 78vw@1024 → 72vw@1440 → 66vw@2560
@@ -96,15 +96,15 @@
 
   // Archive section: edge-to-edge carousel, title stays grid-aligned
   &--archive {
-    padding-top: to-rem($space-2xl) !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-top: to-rem($space-2xl);
+    padding-left: 0;
+    padding-right: 0;
 
     @include layout-768() {
-      padding-top: to-rem($space-3xl) !important;
+      padding-top: to-rem($space-3xl);
     }
     @include layout-1440() {
-      padding-top: to-rem($space-3xl) !important;
+      padding-top: to-rem($space-3xl);
     }
 
     // Title aligns with the left edge of the selected carousel slides (same padding)

@@ -91,29 +91,4 @@ class WASMLazyloader {
 }
 
 export const wasmLazyloader = new WASMLazyloader()
-
-export default {
-  install(app) {
-    app.directive('lazy', {
-      mounted(el, binding) {
-        wasmLazyloader.observe(el, binding.value)
-      },
-      updated(el, binding) {
-        if (binding.value !== binding.oldValue) {
-          wasmLazyloader.observe(el, binding.value)
-        }
-      },
-    })
-
-    app.directive('wasm-lazy', {
-      mounted(el, binding) {
-        wasmLazyloader.observe(el, binding.value)
-      },
-      updated(el, binding) {
-        if (binding.value !== binding.oldValue) {
-          wasmLazyloader.observe(el, binding.value)
-        }
-      },
-    })
-  },
-}
+export default wasmLazyloader

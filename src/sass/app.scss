@@ -4,6 +4,35 @@
 @import '_placeholders';
 @import '_structure';
 
+app-nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+preferences-modal:not([open]):not(.is-open),
+lang-dialog:not([open]):not(.is-open) {
+  display: none;
+}
+
+preferences-modal[open],
+preferences-modal.is-open,
+lang-dialog[open],
+lang-dialog.is-open {
+  display: block;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 10000;
+  pointer-events: auto;
+}
+
 .nav {
   @extend %MAXAREA;
   z-index: 100;
@@ -16,13 +45,14 @@
   width: 100%;
   box-sizing: border-box;
   cursor: pointer;
+  pointer-events: auto;
 
   &-link {
     @extend .ttl-xs;
     @extend %RESETBTN;
 
     font-weight: 500;
-    color: #515151;
+    color: var(--grey-3);
     text-decoration: none;
     cursor: pointer;
     transition:
@@ -37,19 +67,19 @@
 
     &.router-link-exact-active,
     &.active {
-      color: var(--black, #000);
+      color: var(--black);
       font-weight: 700;
 
       &::after {
         display: block;
         content: '';
         position: absolute;
-        bottom: to-rem(-4);
+        bottom: -#{to-rem($space-2xs)};
         left: 0;
         width: 100%;
-        height: to-rem(2);
-        border-radius: to-rem(1);
-        background: var(--grey, #000);
+        height: to-rem($space-2xs);
+        border-radius: to-rem($space-hairline);
+        background: var(--grey);
       }
     }
 
@@ -92,18 +122,18 @@
     &.active {
       opacity: 1;
       font-weight: 700;
-      color: var(--black, #000);
+      color: var(--black);
 
       &::after {
         display: block;
         content: '';
         position: absolute;
-        bottom: to-rem(-4);
+        bottom: -#{to-rem($space-2xs)};
         left: 0;
         width: 100%;
-        height: to-rem(2);
-        border-radius: to-rem(1);
-        background: var(--grey, #000);
+        height: to-rem($space-2xs);
+        border-radius: to-rem($space-hairline);
+        background: var(--grey);
       }
     }
   }
@@ -232,27 +262,27 @@
 
   padding-top: to-rem($space-md);
   padding-bottom: to-rem($space-md);
-  background: rgba(38, 38, 38, 0.94);
+  background: rgba($color-black, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff; // Banner bg is always dark — hardcode white text (var(--white) inverts in dark mode)
-  font-size: to-rem(13);
+  border-top: to-rem($space-hairline) solid rgba($color-white, 0.15);
+  color: $color-white; // Banner bg is always dark — hardcode white text (var(--white) inverts in dark mode)
+  font-size: to-rem($space-lg);
   line-height: 1.5;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 -#{to-rem($space-2xs)} to-rem($space-xl) rgba($color-black, 0.2);
 
   // Mobile: no backdrop-filter — extremely expensive on mobile GPUs.
   // Solid background looks identical and costs nothing.
   @media (max-width: 768px) {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    background: rgba(38, 38, 38, 0.98);
+    background: rgba($color-black, 0.98);
   }
 
   @include layout-768() {
     padding-top: to-rem($space-lg);
     padding-bottom: to-rem($space-lg);
-    font-size: to-rem(14);
+    font-size: to-rem($space-lg);
   }
 
   &-info {
@@ -288,11 +318,11 @@
 
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: to-rem(1.5);
+      letter-spacing: to-rem($space-pixel);
       cursor: pointer;
       position: relative;
       padding: to-rem($space-xs) to-rem($space-lg);
-      color: rgba(255, 255, 255, 0.7); // Always light on always-dark banner bg
+      color: rgba($color-white, 0.7); // Always light on always-dark banner bg
       background: transparent;
       transition:
         color 0.2s ease,
@@ -314,20 +344,20 @@
       &::before {
         top: 0;
         left: 0;
-        border-top: 1px solid currentColor;
-        border-left: 1px solid currentColor;
+        border-top: to-rem($space-hairline) solid currentColor;
+        border-left: to-rem($space-hairline) solid currentColor;
       }
 
       &::after {
         bottom: 0;
         right: 0;
-        border-bottom: 1px solid currentColor;
-        border-right: 1px solid currentColor;
+        border-bottom: to-rem($space-hairline) solid currentColor;
+        border-right: to-rem($space-hairline) solid currentColor;
       }
 
       &:hover,
       &:focus {
-        color: #ffffff;
+        color: $color-white;
 
         &::before,
         &::after {
@@ -362,7 +392,7 @@
 
 .skeleton {
   display: inline-block;
-  background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
+  background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
   background-size: 200% 100%;
   animation: skeleton-shimmer 2.4s ease-in-out infinite;
   border-radius: to-rem($space-xs);
@@ -550,17 +580,17 @@ html.reduced-motion,
 html.reduced-motion *,
 html.reduced-motion *::before,
 html.reduced-motion *::after {
-  animation-duration: 0.001ms !important;
-  animation-iteration-count: 1 !important;
-  transition-duration: 0.001ms !important;
+  animation-duration: 0.001ms;
+  animation-iteration-count: 1;
+  transition-duration: 0.001ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.001ms;
   }
 }

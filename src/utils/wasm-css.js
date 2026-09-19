@@ -29,23 +29,23 @@ class WASMCSSManager {
       .skeleton--shimmer {
         background: linear-gradient(
           90deg,
-          var(--bg-secondary, #1e1e24) 0%,
+          var(--bg-secondary) 0%,
           rgba(255, 255, 255, 0.08) var(--wasm-shimmer-pos, 50%),
-          var(--bg-secondary, #1e1e24) 100%
-        ) !important;
-        background-size: 200% 100% !important;
-        will-change: background-position, transform !important;
+          var(--bg-secondary) 100%
+        );
+        background-size: 200% 100%;
+        will-change: background-position, transform;
       }
       .wasm-gpu-accelerated {
-        will-change: transform, opacity !important;
-        transform: translate3d(0, 0, 0) !important;
-        backface-visibility: hidden !important;
+        will-change: transform, opacity;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
       }
     `
   }
 
   // Calculate skeleton style object in WASM
-  calcWasmSkeletonStyle(width = '100%', height = '1.2em', borderRadius = '4px') {
+  calcWasmSkeletonStyle(width = '100%', height = '1.2em', borderRadius = 'var(--radius-2xs)') {
     const numericWidth = typeof width === 'number' ? width : 200
     const numericHeight = typeof height === 'number' ? height : 24
 

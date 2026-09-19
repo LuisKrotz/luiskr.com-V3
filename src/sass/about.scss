@@ -6,10 +6,9 @@
 
 .about {
   @extend %MAXAREA;
-  min-height: 460px;
 
-  border-top: 1px solid var(--grey-2);
-  padding-top: to-rem(120) !important;
+  border-top: to-rem($space-hairline) solid var(--grey-2);
+  padding-top: to-rem($space-5xl);
   // Smooth transition when masonry above changes height (hover expand/collapse)
   transition: padding-top 0.42s cubic-bezier(0.22, 1, 0.36, 1);
   // Isolate internal layout shifts from contributing to page-level CLS
@@ -63,33 +62,33 @@
 
   &-profile-picture {
     flex-shrink: 0;
-    width: to-rem(180);
-    height: to-rem(180);
+    width: to-rem($space-5xl);
+    height: to-rem($space-5xl);
     margin: 0;
 
     @include layout-540() {
-      width: to-rem(220);
-      height: to-rem(220);
+      width: to-rem($space-6xl);
+      height: to-rem($space-6xl);
       margin: 0;
     }
     @include layout-768() {
-      width: to-rem(240);
-      height: to-rem(240);
+      width: to-rem($space-6xl);
+      height: to-rem($space-6xl);
       margin: 0;
     }
     @include layout-1024() {
-      width: to-rem(280);
-      height: to-rem(280);
+      width: to-rem($space-6xl);
+      height: to-rem($space-6xl);
       margin: 0;
     }
     @include layout-1440() {
-      width: to-rem(360);
-      height: to-rem(360);
+      width: to-rem($space-7xl);
+      height: to-rem($space-7xl);
       margin: 0;
     }
     @include layout-2560() {
-      width: to-rem(480);
-      height: to-rem(480);
+      width: to-rem($space-8xl);
+      height: to-rem($space-8xl);
       margin: 0;
     }
 
@@ -97,7 +96,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
+      border-radius: var(--radius-full);
       display: block;
     }
 
@@ -105,8 +104,8 @@
     &-placeholder {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
-      background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
+      border-radius: var(--radius-full);
+      background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
       background-size: 200% 100%;
       animation: skeleton-shimmer 2.4s ease-in-out infinite;
     }
@@ -159,7 +158,62 @@
       @include layout-1680() {
         padding-bottom: to-rem($space-3xl);
       }
+
+      a {
+        color: inherit;
+        text-decoration: underline;
+        transition: opacity 0.3s ease-in;
+
+        &:hover,
+        &:focus {
+          opacity: 0.5;
+        }
+
+        &:visited {
+          text-decoration: line-through;
+        }
+      }
     }
+  }
+
+  .skeleton-about-title {
+    display: inline-block;
+    width: 40%;
+    height: 1em;
+    border-radius: var(--radius-2xs);
+  }
+
+  .skeleton-about-p1 {
+    width: 100%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+    margin-bottom: 0.6em;
+  }
+
+  .skeleton-about-p2 {
+    width: 88%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+    margin-bottom: 0.6em;
+  }
+
+  .skeleton-about-p3 {
+    width: 70%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+  }
+
+  .skeleton-about-p4 {
+    width: 95%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+    margin-bottom: 0.6em;
+  }
+
+  .skeleton-about-p5 {
+    width: 80%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
   }
 
   &-container {
@@ -247,8 +301,8 @@
 
 // ── Awards footer (below Contact, same dark background) ──────────────────────
 .about-awards-footer {
-  background: var(--black);
-  color: var(--white);
+  background: var(--bg-dark);
+  color: $color-white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -286,7 +340,7 @@
   color: var(--white);
   width: 100%;
   padding: to-rem($space-lg) to-rem($space-lg) 0;
-  border-top: 1px solid var(--grey);
+  border-top: to-rem($space-hairline) solid var(--grey);
   margin-top: to-rem($space-lg);
 
   @include layout-768() {

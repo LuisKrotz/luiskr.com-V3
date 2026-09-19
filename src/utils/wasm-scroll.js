@@ -3,13 +3,14 @@
 import { calcEaseOutCubic } from './wasm-layout.js'
 import { gpuAccel } from './gpu-accel.js'
 import { npuPredict } from './npu-predict.js'
+import { deepQuerySelector } from '../core/dom.js'
 
 export function wasmSmoothScroll(options = {}) {
   if (typeof window === 'undefined') return
 
   const container = options.container
     ? typeof options.container === 'string'
-      ? document.querySelector(options.container)
+      ? deepQuerySelector(options.container)
       : options.container
     : window
 
@@ -17,7 +18,7 @@ export function wasmSmoothScroll(options = {}) {
     container === window || container === document.documentElement || container === document.body
   const targetEl = options.element
     ? typeof options.element === 'string'
-      ? document.querySelector(options.element)
+      ? deepQuerySelector(options.element)
       : options.element
     : null
 
@@ -66,6 +67,7 @@ export function wasmSmoothScroll(options = {}) {
     if (progress < 1.0) {
       requestAnimationFrame(step)
     } else {
+      gpuAccel.releaseElementGPU(rootEl)
       if (options.updateHistory && targetEl && targetEl.id) {
         history.replaceState(null, '', `#${targetEl.id}`)
       }
@@ -75,8 +77,4 @@ export function wasmSmoothScroll(options = {}) {
   requestAnimationFrame(step)
 }
 
-export default {
-  install(app) {
-    app.config.globalProperties.$smoothScroll = wasmSmoothScroll
-  },
-}
+export default wasmSmoothScroll
