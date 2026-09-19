@@ -14,13 +14,13 @@ $_skel-label:    rgba(255, 255, 255, 0.45); // dim label — white alpha only
 
 .#{$_B_STATS} {
   position: fixed;
-  right: to-rem($space-xl);
+  right: to-rem($gap-272);
   bottom: to-rem($space-2xl);
   z-index: var(--z-hud);
 
   display: flex;
   align-items: center;
-  gap: to-rem($space-md);
+  gap: to-rem($space-lg);
 
   padding: to-rem($space-xs) to-rem($space-xl);
   border-radius: var(--radius-round);
@@ -32,7 +32,7 @@ $_skel-label:    rgba(255, 255, 255, 0.45); // dim label — white alpha only
   box-shadow: var(--shadow-card);
 
   font-family: var(--font-mono);
-  font-size: to-rem($space-md);
+  font-size: to-rem($space-lg);
   font-weight: 500;
   letter-spacing: to-rem(0.2);
   color: $cms-accent;
@@ -48,36 +48,42 @@ $_skel-label:    rgba(255, 255, 255, 0.45); // dim label — white alpha only
     visibility 0.25s ease,
     transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 
+  // Match %MAXAREA gutter at each breakpoint
+  @include layout-320() { right: to-rem($gap-320); }
+  @include layout-375() { right: to-rem($gap-375); }
+  @include layout-768() { right: to-rem($gap-768); }
+  @include layout-1024() { right: to-rem($gap-1024); }
+  @include layout-1280() { right: to-rem($gap-1280); }
+  @include layout-1440() { right: to-rem($gap-1440); }
+
   &--visible {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
 
-  // On mobile — stack to bottom-right, smaller padding
+  // On mobile — smaller padding, tighter gap
   @media (max-width: 480px) {
-    right: to-rem($space-md);
-    bottom: to-rem($space-xl);
-    gap: to-rem($space-xs);
-    padding: to-rem($space-2xs) to-rem($space-md);
-    font-size: to-rem($space-xs);
+    gap: to-rem($space-md);
+    padding: to-rem($space-2xs) to-rem($space-lg);
+    font-size: to-rem($space-md);
   }
 
   // Stat segments separated by a hairline border
   &-segment {
     display: flex;
     align-items: center;
-    gap: to-rem($space-2xs);
+    gap: to-rem($space-xs);
 
     &:not(:last-child) {
-      padding-right: to-rem($space-md);
+      padding-right: to-rem($space-lg);
       border-right: to-rem($space-hairline) solid $_skel-border;
     }
   }
 
   &-label {
     color: $_skel-label;
-    font-size: to-rem($space-xs);
+    font-size: to-rem($space-md);
     text-transform: uppercase;
     letter-spacing: to-rem(0.6);
   }

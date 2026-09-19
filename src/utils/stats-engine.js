@@ -94,27 +94,64 @@ class StatsEngine {
   }
 
   // ── Network observer ───────────────────────────────────────────────────────
+  // transferSize is 0 for cross-origin resources without Timing-Allow-Origin
+  // (Firebase, GCS). We patch global fetch to measure actual byte traffic.
   _startNetworkObserver() {
-    if (typeof PerformanceObserver === 'undefined') return
+    if (typeof PerformanceObserver !== 'undefined') {
+      try {
+        this._observer = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            // transferSize > 0 only for same-origin or CORS-permissioned resources
+            const bytes = entry.transferSize || 0
 
-    try {
-      this._observer = new PerformanceObserver((list) => {
-        for (const entry of list.getEntries()) {
-          const bytes = entry.transferSize || 0
-
-          this._networkBytesWindow += bytes
-          this._networkBytes += bytes
-
-          if (entry.initiatorType === 'fetch' || entry.initiatorType === 'xmlhttprequest') {
-            // Track request duration as a pending counter proxy
-            this._pendingRequests = Math.max(0, this._pendingRequests - 1)
+            if (bytes > 0) {
+              this._networkBytesWindow += bytes
+              this._networkBytes += bytes
+            }
           }
-        }
-      })
+        })
+        this._observer.observe({ type: 'resource', buffered: false })
+      } catch {
+        // PerformanceObserver may be blocked in certain environments
+      }
+    }
 
-      this._observer.observe({ type: 'resource', buffered: false })
-    } catch {
-      // PerformanceObserver may be blocked in certain environments
+    // Patch global fetch to count requests and estimate bytes for cross-origin
+    // URLs (Firebase, GCS) that block timing via CORS.
+    if (typeof window !== 'undefined' && typeof window.fetch === 'function' && !window.__statsEngineFetchPatched) {
+      const origFetch = window.fetch.bind(window)
+
+      window.fetch = async (input, init) => {
+        this._pendingRequests++
+        this._requestCount = (this._requestCount || 0) + 1
+
+        try {
+          const res = await origFetch(input, init)
+          const clone = res.clone()
+
+          // Read Content-Length first (fast, synchronous header check)
+          const contentLength = parseInt(res.headers.get('content-length') || '0', 10)
+
+          if (contentLength > 0) {
+            this._networkBytesWindow += contentLength
+            this._networkBytes += contentLength
+          } else {
+            // No Content-Length: measure body blob size asynchronously
+            clone.blob().then((b) => {
+              if (b.size > 0) {
+                this._networkBytesWindow += b.size
+                this._networkBytes += b.size
+              }
+            }).catch(() => {})
+          }
+
+          return res
+        } finally {
+          this._pendingRequests = Math.max(0, this._pendingRequests - 1)
+        }
+      }
+
+      window.__statsEngineFetchPatched = true
     }
   }
 
