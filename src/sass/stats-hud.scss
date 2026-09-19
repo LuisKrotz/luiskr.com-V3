@@ -49,12 +49,18 @@ $_skel-label:    rgba(255, 255, 255, 0.45); // dim label — white alpha only
     transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 
   // Match %MAXAREA gutter at each breakpoint
-  @include layout-320() { right: to-rem($gap-320); }
-  @include layout-375() { right: to-rem($gap-375); }
-  @include layout-768() { right: to-rem($gap-768); }
+  @include layout-320()  { right: to-rem($gap-320); }
+  @include layout-375()  { right: to-rem($gap-375); }
+  @include layout-414()  { right: to-rem($gap-414); }
+  @include layout-540()  { right: to-rem($gap-540); }
+  @include layout-768()  { right: to-rem($gap-768); }
+  @include layout-960()  { right: to-rem($gap-960); }
   @include layout-1024() { right: to-rem($gap-1024); }
   @include layout-1280() { right: to-rem($gap-1280); }
   @include layout-1440() { right: to-rem($gap-1440); }
+  @include layout-1680() { right: to-rem($gap-1680); }
+  @include layout-1920() { right: to-rem($gap-1920); }
+  @include layout-2560() { right: to-rem($gap-2560); }
 
   &--visible {
     opacity: 1;
@@ -97,4 +103,9 @@ $_skel-label:    rgba(255, 255, 255, 0.45); // dim label — white alpha only
   &-fps-good { color: $cms-badge-green; }
   &-fps-mid  { color: $cms-badge-warn; }
   &-fps-bad  { color: $cms-danger; }
+
+  // AI acceleration color states
+  &-accel-npu  { color: $cms-badge-green; } // Hardware NPU — best
+  &-accel-gpu  { color: $cms-badge-warn;  } // GPU WebGL fallback
+  &-accel-wasm { color: $cms-accent;      } // WASM software fallback
 }

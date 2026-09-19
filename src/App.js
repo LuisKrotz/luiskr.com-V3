@@ -327,7 +327,7 @@ export class AppRoot extends BaseComponent {
     const isForward = toDepth >= fromDepth
     const dirOut    = isForward ? 'page-flip-out-fwd'  : 'page-flip-out-bwd'
     const dirIn     = isForward ? 'page-flip-in-fwd'   : 'page-flip-in-bwd'
-    const DURATION  = 420 // ms — must match CSS
+    const DURATION  = 3000 // ms — must match CSS (3s total = 1.5s out + 1.5s in)
 
     if (reduced || !outlet.firstElementChild) {
       // Instant swap — no animation

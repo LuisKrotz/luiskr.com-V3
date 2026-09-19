@@ -25,16 +25,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: to-rem($space-xl);
+    max-height: 70vh;
+    overflow: hidden;
+    padding: 0 to-rem($space-xl);
     box-sizing: border-box;
     background-color: var(--bg-dark);
 
     @include layout-768() {
-      padding: to-rem($space-3xl);
+      padding: 0 to-rem($space-3xl);
     }
 
     @include layout-1024() {
-      padding: to-rem($space-5xl);
+      padding: 0 to-rem($space-5xl);
     }
 
     figure {
@@ -106,8 +108,11 @@
   }
 
   &-description {
+    @extend %MAXAREA;
+
     margin: 0 auto;
-    padding: to-rem($space-2xl) to-rem($space-xl);
+    padding-top: to-rem($space-2xl);
+    padding-bottom: to-rem($space-xl);
     // Min-height matches the carousel item height, set as a CSS var by Carousel.vue
     min-height: var(--carousel-item-height, auto);
     display: flex;
@@ -116,40 +121,44 @@
     contain: layout style;
 
     @include layout-768() {
-      padding: to-rem($space-4xl) to-rem($space-3xl);
+      padding-top: to-rem($space-4xl);
+      padding-bottom: to-rem($space-2xl);
     }
 
     @include layout-1024() {
-      max-width: to-rem($space-8xl);
-      padding: to-rem($space-4xl);
+      padding-top: to-rem($space-4xl);
+      padding-bottom: to-rem($space-2xl);
     }
 
     @include layout-1920() {
-      max-width: to-rem($space-9xl);
-      padding: to-rem($space-5xl);
+      padding-top: to-rem($space-5xl);
+      padding-bottom: to-rem($space-3xl);
     }
 
     @include layout-2560() {
-      padding: to-rem($space-6xl);
+      padding-top: to-rem($space-6xl);
+      padding-bottom: to-rem($space-4xl);
     }
 
     .legal & {
       @include layout-768() {
-        padding: to-rem($space-3xl);
+        padding-top: to-rem($space-3xl);
+        padding-bottom: to-rem($space-2xl);
       }
 
       @include layout-1024() {
-        max-width: to-rem($space-8xl);
-        padding: to-rem($space-md);
+        padding-top: to-rem($space-3xl);
+        padding-bottom: to-rem($space-2xl);
       }
 
       @include layout-1920() {
-        max-width: to-rem($space-9xl);
-        padding: to-rem($space-md);
+        padding-top: to-rem($space-4xl);
+        padding-bottom: to-rem($space-3xl);
       }
 
       @include layout-2560() {
-        padding: to-rem($space-lg);
+        padding-top: to-rem($space-5xl);
+        padding-bottom: to-rem($space-4xl);
       }
     }
 
@@ -765,4 +774,12 @@
 .project section {
   opacity: 1;
   transform: none;
+}
+
+// ── Legal page container ─────────────────────────────────────────────────────
+// The .legal wrapper must align to the same grid columns as the rest of the site.
+.legal {
+  @extend %MAXAREA;
+
+  box-sizing: border-box;
 }

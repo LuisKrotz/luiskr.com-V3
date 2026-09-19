@@ -147,7 +147,7 @@ class Store {
           localStorage.setItem('statsForNerds', String(this.state.showStatsForNerds))
         }
 
-        this._notify()
+        this.notify()
       },
       toggleShowGrid: () => {
         this.state.showGrid = !this.state.showGrid
@@ -160,7 +160,7 @@ class Store {
           document.documentElement.classList.toggle('show-grid', this.state.showGrid)
         }
 
-        this._notify()
+        this.notify()
       },
       setInputMethod: (payload) => {
         if (this.state.inputMethod === payload) return false

@@ -3,6 +3,7 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import { CLASSES, TAGS } from '../core/constants.js'
 import { statsEngine } from '../utils/stats-engine.js'
+import { npuPredict } from '../utils/npu-predict.js'
 import statsHudStyles from '../sass/stats-hud.scss?inline'
 
 const _B = 'stats-hud'
@@ -89,6 +90,13 @@ class StatsHud extends BaseComponent {
     const fpsClass = fps >= 55 ? `${_B}-fps-good` : fps >= 30 ? `${_B}-fps-mid` : `${_B}-fps-bad`
     const kb = (networkBytesPerSec / 1024).toFixed(1)
     const visible = this.visible
+    const npu = npuPredict.getNpuAnalytics()
+    const accelLabel = npu.hasNPU ? 'NPU' : npu.hasGPU ? 'GPU' : 'WASM'
+    const accelClass = npu.hasNPU
+      ? `${_B}-value ${_B}-accel-npu`
+      : npu.hasGPU
+      ? `${_B}-value ${_B}-accel-gpu`
+      : `${_B}-value ${_B}-accel-wasm`
 
     return (
       <div className={`${_B}${visible ? ` ${_B}--visible` : ''}`} role="status" aria-live="off" aria-label="Performance stats">
@@ -113,6 +121,11 @@ class StatsHud extends BaseComponent {
             <span className={`${_B}-value`} data-stat="mem">{`${memoryMB} MB`}</span>
           </span>
         )}
+
+        <span className={`${_B}-segment`}>
+          <span className={`${_B}-label`}>AI</span>
+          <span className={accelClass} data-stat="accel">{accelLabel}</span>
+        </span>
       </div>
     )
   }

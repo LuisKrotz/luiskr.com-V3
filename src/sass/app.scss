@@ -653,22 +653,22 @@ html.reduced-motion *::after {
 
 .page-flip-out-fwd {
   transform-origin: left center;
-  animation: book-flip-out-fwd 0.21s cubic-bezier(0.4, 0, 1, 1) forwards;
+  animation: book-flip-out-fwd 1.5s cubic-bezier(0.4, 0, 0.6, 1) forwards;
   pointer-events: none;
 }
 
 .page-flip-in-fwd {
   transform-origin: right center;
-  animation: book-flip-in-fwd 0.21s cubic-bezier(0, 0, 0.2, 1) forwards;
+  animation: book-flip-in-fwd 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .page-flip-out-bwd {
   transform-origin: right center;
-  animation: book-flip-out-bwd 0.21s cubic-bezier(0.4, 0, 1, 1) forwards;
+  animation: book-flip-out-bwd 1.5s cubic-bezier(0.4, 0, 0.6, 1) forwards;
   pointer-events: none;
 }
 
 .page-flip-in-bwd {
   transform-origin: left center;
-  animation: book-flip-in-bwd 0.21s cubic-bezier(0, 0, 0.2, 1) forwards;
+  animation: book-flip-in-bwd 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
