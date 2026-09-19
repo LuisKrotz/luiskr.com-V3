@@ -475,6 +475,7 @@ export const CLASSES = Object.freeze({
 
   // Additional Carousel (all composed from _B_CAROUSEL_BTN / _B_CAROUSEL_SLIDE)
   CAROUSEL_FALLBACK: `${_B_CAROUSEL}-fallback`,
+  CAROUSEL_FALLBACK_SIDE: `${_B_CAROUSEL}-fallback ${_B_CAROUSEL}-fallback--side`,
   CAROUSEL_CONTROLS: `${_B_CAROUSEL}-controls`,
   CAROUSEL_INDICATORS: `${_B_CAROUSEL}-indicators`,
   CAROUSEL_COUNTER: `${_B_CAROUSEL}-counter`,

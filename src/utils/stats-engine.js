@@ -15,6 +15,13 @@ class StatsEngine {
     this._networkWindowStart = performance.now()
     this._pendingRequests = 0
     this._memoryMB = 0
+    // CPU load — estimated from long-task busy time in the flush window
+    this._cpuPercent = 0
+    this._longTaskBusyMs = 0
+    this._longTaskObserver = null
+    // Latency — rolling average of fetch round-trip times (last 10 requests)
+    this._latencyMs = 0
+    this._latencySamples = []
     this._rafId = null
     this._observers = new Set()
     this._observer = null
@@ -41,6 +48,8 @@ class StatsEngine {
       networkBytesPerSec: this._networkBytesPerSec,
       pendingRequests: this._pendingRequests,
       memoryMB: this._memoryMB,
+      cpuPercent: this._cpuPercent,
+      latencyMs: this._latencyMs,
     }
   }
 
@@ -51,6 +60,7 @@ class StatsEngine {
 
     this._startFpsLoop()
     this._startNetworkObserver()
+    this._startLongTaskObserver()
     this._startFlushInterval()
   }
 
@@ -65,6 +75,11 @@ class StatsEngine {
     if (this._observer) {
       this._observer.disconnect()
       this._observer = null
+    }
+
+    if (this._longTaskObserver) {
+      this._longTaskObserver.disconnect()
+      this._longTaskObserver = null
     }
 
     if (this._flushId != null) {
@@ -116,8 +131,7 @@ class StatsEngine {
       }
     }
 
-    // Patch global fetch to count requests and estimate bytes for cross-origin
-    // URLs (Firebase, GCS) that block timing via CORS.
+    // Patch global fetch to count requests, estimate bytes, and measure latency.
     if (typeof window !== 'undefined' && typeof window.fetch === 'function' && !window.__statsEngineFetchPatched) {
       const origFetch = window.fetch.bind(window)
 
@@ -125,9 +139,16 @@ class StatsEngine {
         this._pendingRequests++
         this._requestCount = (this._requestCount || 0) + 1
 
+        const t0 = performance.now()
+
         try {
           const res = await origFetch(input, init)
           const clone = res.clone()
+
+          // Track latency as round-trip time (time-to-first-byte)
+          const elapsed = performance.now() - t0
+          this._latencySamples.push(elapsed)
+          if (this._latencySamples.length > 10) this._latencySamples.shift()
 
           // Read Content-Length first (fast, synchronous header check)
           const contentLength = parseInt(res.headers.get('content-length') || '0', 10)
@@ -155,8 +176,27 @@ class StatsEngine {
     }
   }
 
+  // ── Long-task CPU observer ──────────────────────────────────────────────────
+  // Measures main-thread blocking time (tasks > 50ms) via PerformanceObserver.
+  // CPU% = busy_ms / window_ms * 100, clamped to [0, 99].
+  _startLongTaskObserver() {
+    if (typeof PerformanceObserver === 'undefined') return
+
+    try {
+      this._longTaskObserver = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          this._longTaskBusyMs += entry.duration
+        }
+      })
+
+      this._longTaskObserver.observe({ type: 'longtask', buffered: false })
+    } catch {
+      // longtask not supported in all browsers
+    }
+  }
+
   // ── Flush interval ─────────────────────────────────────────────────────────
-  // Calculates rolling network bytes/sec and snaps memory, then notifies subscribers.
+  // Calculates rolling network bytes/sec, snaps memory, CPU %, and latency.
   _startFlushInterval() {
     this._flushId = setInterval(() => {
       if (!this._running) return
@@ -167,6 +207,18 @@ class StatsEngine {
       this._networkBytesPerSec = Math.round(this._networkBytesWindow / windowSec)
       this._networkBytesWindow = 0
       this._networkWindowStart = now
+
+      // CPU% from long-task busy time in last INTERVAL_MS window
+      const busyRatio = this._longTaskBusyMs / INTERVAL_MS
+      this._cpuPercent = Math.min(99, Math.round(busyRatio * 100))
+      this._longTaskBusyMs = 0
+
+      // Rolling latency average (last 10 samples)
+      if (this._latencySamples.length > 0) {
+        const sum = this._latencySamples.reduce((a, b) => a + b, 0)
+        this._latencyMs = Math.round(sum / this._latencySamples.length)
+        this._latencySamples = []
+      }
 
       // Memory (Chrome only)
       if (performance.memory) {

@@ -43,13 +43,16 @@
 
   figure {
     position: relative;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 100%;
     max-height: 70vh;
     overflow: hidden;
     margin: 0 auto;
     border-radius: 0;
+    background-color: var(--bg-dark);
 
     @include layout-1024() {
       border-radius: to-rem($space-lg);
@@ -60,8 +63,16 @@
     display: block;
     position: relative;
     height: auto;
+    // On mobile: stretch full width
     width: 100%;
     max-width: 100%;
+
+    @include layout-768() {
+      // At tablet+: use natural SVG dimensions, cap at container
+      width: auto;
+      max-width: 100%;
+      max-height: 70vh;
+    }
   }
 
   .render-media,
@@ -69,10 +80,17 @@
     position: absolute;
     left: 0;
     top: 0;
+    // On mobile: fill placeholder (which is 100% wide)
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: top center;
+
+    @include layout-768() {
+      // At tablet+: display at natural size, centered — never stretch beyond source res
+      object-fit: contain;
+      object-position: center;
+    }
 
     @include layout-1024() {
       border-radius: to-rem($space-lg);
@@ -127,13 +145,23 @@ figure {
 // ── SVG placeholder — maintains aspect ratio before image loads ───────────────
 // The transparent SVG img sets the intrinsic size; all media layers are
 // absolutely positioned on top of it.
-// Default: full-width of host (for .internal-main context)
+// Default: on mobile, stretch full-width of host. On tablet+, use natural
+// SVG dimensions (set via width/height attributes) so media never exceeds
+// the source resolution.
 .render-placeholder {
   display: block;
   position: relative;
   height: auto;
-  max-width: 100%;
+  // Mobile: full-width so the media fills the screen
   width: 100%;
+  max-width: 100%;
+
+  @include layout-768() {
+    // Tablet+: respect the SVG's intrinsic width/height attributes
+    // so small images are not scaled up beyond their native resolution.
+    width: auto;
+    max-width: 100%;
+  }
 }
 
 :host-context(.internal-extra-item) .render-placeholder {
@@ -244,10 +272,17 @@ video.render-media {
   position: absolute;
   left: 0;
   top: 0;
+  // Mobile: fill 100% of placeholder
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
+
+  @include layout-768() {
+    // Tablet+: contain so video is not upscaled beyond its native resolution
+    object-fit: contain;
+    object-position: center;
+  }
 
   @include layout-1024() {
     border-radius: to-rem($space-lg);

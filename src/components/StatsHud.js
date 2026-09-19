@@ -86,8 +86,10 @@ class StatsHud extends BaseComponent {
   }
 
   render() {
-    const { fps, networkBytesPerSec, pendingRequests, memoryMB } = this._stats
+    const { fps, networkBytesPerSec, pendingRequests, memoryMB, cpuPercent, latencyMs } = this._stats
     const fpsClass = fps >= 55 ? `${_B}-fps-good` : fps >= 30 ? `${_B}-fps-mid` : `${_B}-fps-bad`
+    const cpuClass = cpuPercent < 30 ? `${_B}-fps-good` : cpuPercent < 70 ? `${_B}-fps-mid` : `${_B}-fps-bad`
+    const latClass = latencyMs === 0 ? `${_B}-value` : latencyMs < 100 ? `${_B}-value ${_B}-fps-good` : latencyMs < 400 ? `${_B}-value ${_B}-fps-mid` : `${_B}-value ${_B}-fps-bad`
     const kb = (networkBytesPerSec / 1024).toFixed(1)
     const visible = this.visible
     const npu = npuPredict.getNpuAnalytics()
@@ -106,8 +108,18 @@ class StatsHud extends BaseComponent {
         </span>
 
         <span className={`${_B}-segment`}>
+          <span className={`${_B}-label`}>CPU</span>
+          <span className={`${_B}-value ${cpuClass}`} data-stat="cpu">{cpuPercent > 0 ? `${cpuPercent}%` : '—'}</span>
+        </span>
+
+        <span className={`${_B}-segment`}>
           <span className={`${_B}-label`}>NET</span>
           <span className={`${_B}-value`} data-stat="net">{`${kb} KB/s`}</span>
+        </span>
+
+        <span className={`${_B}-segment`}>
+          <span className={`${_B}-label`}>LAT</span>
+          <span className={latClass} data-stat="lat">{latencyMs > 0 ? `${latencyMs}ms` : '—'}</span>
         </span>
 
         <span className={`${_B}-segment`}>

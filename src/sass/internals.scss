@@ -25,18 +25,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 70vh;
-    overflow: hidden;
-    padding: 0 to-rem($space-xl);
+    // No max-height/overflow here — the section must not clip its own padding.
+    // The 70vh constraint lives inside the media-figure Shadow DOM (figure element).
+    padding: to-rem($space-2xl) to-rem($space-xl);
     box-sizing: border-box;
     background-color: var(--bg-dark);
 
     @include layout-768() {
-      padding: 0 to-rem($space-3xl);
+      padding: to-rem($space-3xl) to-rem($space-3xl);
     }
 
     @include layout-1024() {
-      padding: 0 to-rem($space-5xl);
+      padding: to-rem($space-4xl) to-rem($space-5xl);
+    }
+
+    @include layout-1920() {
+      padding: to-rem($space-5xl) to-rem($space-6xl);
     }
 
     figure {
@@ -121,13 +125,19 @@
     contain: layout style;
 
     @include layout-768() {
+      // 1 col indent per side on 8-col grid (1/8 = 12.5%)
       padding-top: to-rem($space-4xl);
       padding-bottom: to-rem($space-2xl);
+      padding-left: 12.5%;
+      padding-right: 12.5%;
     }
 
     @include layout-1024() {
+      // 3 cols indent per side on 12-col grid (3/12 = 25%) → content in cols 4–9
       padding-top: to-rem($space-4xl);
       padding-bottom: to-rem($space-2xl);
+      padding-left: 25%;
+      padding-right: 25%;
     }
 
     @include layout-1920() {

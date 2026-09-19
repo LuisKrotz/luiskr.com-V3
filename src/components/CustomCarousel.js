@@ -32,6 +32,9 @@ export class CustomCarousel extends BaseComponent {
     this.isFullyVisible = false
     this.isEnteredViewport = false
     this.observer = null
+    // Dynamic fit detection: true when all items fit side-by-side in the viewport
+    this._isSideBySide = false
+    this._fitObserver = null
     this.isMobile =
       typeof window !== 'undefined'
         ? window.innerWidth < CAROUSEL.MOBILE_BREAKPOINT
@@ -72,9 +75,9 @@ export class CustomCarousel extends BaseComponent {
   }
 
   get isActive() {
-    // Never show carousel UI for a single item — regardless of forceActive.
-    // A 1-item "carousel" is just a static display with no controls.
-    return this.items.length > 1
+    // Never show carousel UI for a single item.
+    // Never show carousel UI when all items fit side-by-side in the viewport.
+    return this.items.length > 1 && !this._isSideBySide
   }
 
   onMounted() {
@@ -87,7 +90,15 @@ export class CustomCarousel extends BaseComponent {
       this.isMobile = window.innerWidth < CAROUSEL.MOBILE_BREAKPOINT
     })
 
+    this._startFitObserver()
     this.subscribe(store)
+  }
+
+  onUnmounted() {
+    if (this._fitObserver) {
+      this._fitObserver.disconnect()
+      this._fitObserver = null
+    }
   }
 
   onStoreUpdate() {
@@ -108,7 +119,63 @@ export class CustomCarousel extends BaseComponent {
       this._jumpToSlide(0, false)
       this._setupIntersectionObserver()
       this._setHeightVar()
+      // After initial render, check if items fit side-by-side
+      this._measureFit()
     })
+  }
+
+  // ── Fit Detection ─────────────────────────────────────────────────────────
+  // Observes host width. When all items fit without scrolling, we switch to
+  // the side-by-side fallback layout (no controls, centered flex row).
+  _startFitObserver() {
+    if (typeof ResizeObserver === 'undefined') return
+
+    this._fitObserver = new ResizeObserver(() => {
+      this._measureFit()
+    })
+
+    this._fitObserver.observe(this)
+  }
+
+  _measureFit() {
+    // Only relevant for 2+ items
+    if (this.items.length < 2) return
+
+    const hostW = this.getBoundingClientRect().width
+
+    if (hostW <= 0) return
+
+    let totalW = 0
+
+    if (this._isSideBySide) {
+      // Currently in fallback mode — measure direct children of the fallback div
+      const fallbackEl = this.$('.carousel-fallback')
+
+      if (!fallbackEl) return
+
+      const children = Array.from(fallbackEl.children)
+
+      totalW = children.reduce((sum, child) => sum + child.getBoundingClientRect().width, 0)
+    } else {
+      // Currently in carousel mode — measure non-clone slides in the track
+      const slides = this.$$('.carousel-slide:not(.carousel-slide--clone)')
+
+      totalW = Array.from(slides).reduce((sum, slide) => sum + slide.getBoundingClientRect().width, 0)
+    }
+
+    // 16px tolerance for gaps between items
+    const fits = totalW > 0 && totalW <= hostW + 16
+    const changed = fits !== this._isSideBySide
+
+    if (changed) {
+      this._isSideBySide = fits
+      this._updateDom()
+
+      if (!fits) {
+        // Re-entering carousel mode — rebind controls and re-setup
+        this._setupAfterRender()
+      }
+    }
   }
 
   _onResize() {
@@ -451,8 +518,11 @@ export class CustomCarousel extends BaseComponent {
 
   render() {
     if (!this.isActive) {
+      // Use the side-by-side modifier when items fit the viewport (2+ items)
+      const fallbackClass = this._isSideBySide ? CLASSES.CAROUSEL_FALLBACK_SIDE : CLASSES.CAROUSEL_FALLBACK
+
       return (
-        <div className={CLASSES.CAROUSEL_FALLBACK}>
+        <div className={fallbackClass}>
           {this.items.map((item) => this.renderSlide(item))}
         </div>
       )
