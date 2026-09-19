@@ -147,16 +147,16 @@
       word-break: normal;
       overflow-wrap: break-word;
       hyphens: none;
-      padding-bottom: to-rem($space-lg);
+      padding-bottom: to-rem($space-md);
 
       @include layout-768() {
-        padding-bottom: to-rem($space-xl);
+        padding-bottom: to-rem($space-lg);
       }
       @include layout-1280() {
-        padding-bottom: to-rem($space-2xl);
+        padding-bottom: to-rem($space-xl);
       }
       @include layout-1680() {
-        padding-bottom: to-rem($space-3xl);
+        padding-bottom: to-rem($space-2xl);
       }
 
       a {
