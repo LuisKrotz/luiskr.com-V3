@@ -345,6 +345,8 @@ export const CLASSES = Object.freeze({
   ABOUT_ITEM_TEXT: `${_B_ABOUT}-item-text`,
   AWARDS_FOOTER: _B_AWARDS_FOOTER,
   AWARDS_FOOTER_TITLE: `${_B_AWARDS_FOOTER}-title`,
+  AWARDS_FOOTER_PROGRESS: `${_B_AWARDS_FOOTER}-progress`,
+  AWARDS_FOOTER_PROGRESS_FILL: `${_B_AWARDS_FOOTER}-progress-fill`,
   AWARDS_FOOTER_LINKS: `${_B_AWARDS_FOOTER}-links`,
   AWARDS_FOOTER_ITEM: `${_B_AWARDS_FOOTER}-links-item`,
   AWARDS_FOOTER_SEP: `${_B_AWARDS_FOOTER}-links-sep`,
@@ -589,4 +591,5 @@ export const EVENTS = Object.freeze({
   TRANSITIONEND: 'transitionend',
   ANIMATIONEND: 'animationend',
   POPSTATE: 'popstate',
+  SLIDE_CHANGE: 'slidechange',
 })

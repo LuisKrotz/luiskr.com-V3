@@ -144,6 +144,11 @@ export class HomeCarousel extends BaseComponent {
       d.classList.toggle(CLASSES.HC_DOT_ACTIVE, i === this.currentIndex)
     })
 
+    this.dispatchEvent(new CustomEvent('slidechange', {
+      bubbles: true,
+      composed: true,
+      detail: { index: this.currentIndex, total: len },
+    }))
     this.isNavigating = true
     const cloneFirst = this.$(`.${CLASSES.HC_SLIDE_CLONE_FIRST}`)
     const cloneLast = this.$(`.${CLASSES.HC_SLIDE_CLONE_LAST}`)

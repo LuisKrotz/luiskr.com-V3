@@ -7,6 +7,12 @@
   --color-grey-3-raw: #{$color-grey-3};
   --color-blue-raw: #{$color-blue};
 
+  // CMS brand tokens — exposed as CSS vars so component SCSS files can use them
+  // without referencing $cms-* SCSS variables (which are _structure.scss-only).
+  --color-accent: #{$cms-accent};
+  --color-accent-hover: #{$cms-accent-hover};
+  --bg-darkest: #{$cms-bg-darkest};
+
   // Light theme default tokens
   --bg-primary: #ffffff;
   --bg-secondary: #f7f7f7;

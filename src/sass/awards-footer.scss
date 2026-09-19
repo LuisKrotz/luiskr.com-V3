@@ -90,7 +90,31 @@
       padding: 0 to-rem($space-md);
       font-weight: 200;
       opacity: 0.6;
-      color: $color-white;
+      color: var(--color-white-raw);
     }
   }
+}
+
+// ── Awards carousel progress bar ──────────────────────────────────────────────
+// Thin accent line below the section title showing position in the carousel.
+// Updated imperatively via AwardsMentions._updateProgress() to avoid re-renders.
+$_B_AP: 'awards-footer-progress';
+
+.#{$_B_AP} {
+  width: 100%;
+  height: to-rem($space-2xs);
+  background: var(--border-color);
+  border-radius: var(--radius-round);
+  overflow: hidden;
+  margin-top: to-rem($space-2xs);
+  margin-bottom: to-rem($space-xl);
+  opacity: 0.7;
+}
+
+.#{$_B_AP}-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-accent);
+  border-radius: var(--radius-round);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }

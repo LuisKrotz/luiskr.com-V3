@@ -177,14 +177,14 @@
       word-break: normal;
       overflow-wrap: break-word;
       hyphens: none;
-      padding-bottom: to-rem($space-xl);
+      padding-bottom: to-rem($space-lg);
 
       @include layout-768() {
-        padding-bottom: to-rem($space-2xl);
+        padding-bottom: to-rem($space-lg);
       }
 
       @include layout-1024() {
-        padding-bottom: to-rem($space-3xl);
+        padding-bottom: to-rem($space-xl);
       }
 
       a {
@@ -653,7 +653,7 @@
     @extend .ttl-sm;
 
     font-family: var(--font-primary);
-    font-weight: 700;
+    font-weight: 200;
     text-transform: uppercase;
     letter-spacing: to-rem(0.8);
     color: var(--color-white-raw);
@@ -661,13 +661,13 @@
     transition: transform 0.3s ease;
 
     .related-mosaic-item--featured & {
-      font-size: to-rem(20);
+      font-size: to-rem($space-xl);
 
       @include layout-768() {
-        font-size: to-rem(26);
+        font-size: to-rem($space-2xl);
       }
       @include layout-1024() {
-        font-size: to-rem(32);
+        font-size: to-rem($space-3xl);
       }
     }
   }
