@@ -22,8 +22,7 @@ export class AwardsMentions extends BaseComponent {
     this._title = 'Some mentions'
     this._items = null
     this._lastLocale = null
-    this._currentIndex = 0
-    this._totalItems = 0
+    this._duration = 10000
   }
 
   set title(val) {
@@ -102,25 +101,32 @@ export class AwardsMentions extends BaseComponent {
     const hc = this.$('home-carousel')
     if (hc && this.items) {
       hc.variant = 'awards'
-      hc.duration = 10000
+      hc.duration = this._duration
       hc.showDots = true
       hc.items = this.items
-      this._totalItems = this.items.length
 
-      this.addScopedListener(hc, EVENTS.SLIDE_CHANGE, (e) => {
-        this._currentIndex = e.detail?.index ?? 0
-        this._totalItems = e.detail?.total ?? this.items?.length ?? 1
-        this._updateProgress()
+      this.addScopedListener(hc, EVENTS.SLIDE_CHANGE, () => {
+        this._restartProgressAnimation()
       })
+
+      // Start the first animation after the carousel is initialised
+      requestAnimationFrame(() => this._restartProgressAnimation())
     }
   }
 
-  _updateProgress() {
+  _restartProgressAnimation() {
     const fill = this.$(`.${CLASSES.AWARDS_FOOTER_PROGRESS_FILL}`)
-    if (!fill || !this._totalItems) return
+    if (!fill) return
 
-    const pct = ((this._currentIndex + 1) / this._totalItems) * 100
-    fill.style.width = `${pct}%`
+    const runningClass = CLASSES.AWARDS_FOOTER_PROGRESS_FILL_RUNNING
+
+    // Sync animation duration with carousel duration
+    fill.style.setProperty('--progress-duration', `${this._duration / 1000}s`)
+
+    // Remove class → force reflow → re-add: CSS @keyframes restarts from 0%
+    fill.classList.remove(runningClass)
+    void fill.offsetHeight // intentional reflow to reset animation
+    fill.classList.add(runningClass)
   }
 
   _bindLinks() {
@@ -140,14 +146,15 @@ export class AwardsMentions extends BaseComponent {
 
   render() {
     const links = this.legalLinks
-    const pct = this._totalItems > 0 ? ((this._currentIndex + 1) / this._totalItems) * 100 : 0
 
     return (
       <footer className={CLASSES.AWARDS_FOOTER}>
-        <h2 className={CLASSES.AWARDS_FOOTER_TITLE}>{this.title}</h2>
+        <div className={CLASSES.AWARDS_FOOTER_HEADER}>
+          <h2 className={CLASSES.AWARDS_FOOTER_TITLE}>{this.title}</h2>
 
-        <div className={CLASSES.AWARDS_FOOTER_PROGRESS} role="progressbar" aria-label="Carousel progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow={String(Math.round(pct))}>
-          <div className={CLASSES.AWARDS_FOOTER_PROGRESS_FILL} style={`width: ${pct}%`} />
+          <div className={CLASSES.AWARDS_FOOTER_PROGRESS} role="progressbar" aria-label="Time until next award" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div className={CLASSES.AWARDS_FOOTER_PROGRESS_FILL} />
+          </div>
         </div>
 
         {this.items && this.items.length ? (
