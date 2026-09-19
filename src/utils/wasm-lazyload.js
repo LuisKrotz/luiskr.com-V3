@@ -2,10 +2,13 @@
 // Batches all images that enter the viewport in the same frame tick and
 // decodes them in parallel across multiple WASM worker threads via
 // decodeImageBatchWASM, then uploads every bitmap to GPU VRAM zero-copy.
+// Videos are prefetched via parallel quality-variant probing through the
+// worker pool, with the highest-quality primed URL applied on intersection.
 import { localMediaCache } from './local-media-cache.js'
 import { gpuAccel } from './gpu-accel.js'
 import { wasmPool } from './wasm-pool.js'
 import { wasmImageDecoder } from './wasm-image-decoder.js'
+import { wasmMediaThreads } from './wasm-media-threads.js'
 
 class WASMLazyloader {
   constructor() {
@@ -142,9 +145,29 @@ class WASMLazyloader {
       const resolvedUrl = await localMediaCache.fetchOrGetLocalMedia(src)
 
       if (el.tagName === 'VIDEO') {
-        el.src = resolvedUrl
+        // Read optional quality variants from data attribute (JSON array)
+        // e.g. data-wasm-variants='[{"url":"...1080p.mp4","quality":"1080p","width":1920,"height":1080}]'
+        let variants = null
+        try {
+          const raw = el.dataset.wasmVariants
+          if (raw) variants = JSON.parse(raw)
+        } catch { /* ignore malformed JSON */ }
+
+        if (!variants) {
+          variants = [{ url: resolvedUrl, quality: 'default', width: el.clientWidth || 1920, height: el.clientHeight || 1080 }]
+        }
+
+        const posterUrl = el.dataset.wasmPoster || el.getAttribute('poster') || null
+
+        const prefetchResult = await wasmMediaThreads.prefetchVideoVariants(variants, posterUrl)
+
+        if (prefetchResult?.best?.url) {
+          wasmMediaThreads.applyBestVariant(el, prefetchResult)
+        } else {
+          el.src = resolvedUrl
+        }
+
         el.classList.add('wasm-lazy-loaded')
-        gpuAccel.processVideoGPU(el, el.clientWidth || 640, el.clientHeight || 360)
       } else {
         el.style.backgroundImage = `url("${resolvedUrl}")`
         el.classList.add('wasm-lazy-loaded')

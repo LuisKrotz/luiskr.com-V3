@@ -20,11 +20,11 @@
   --border-item-hover: rgba(255, 255, 255, 0.22);
   --border-item-featured: rgba(255, 255, 255, 0.16);
 
-  // Card shadow tokens — light theme uses lighter shadows so cards don't
-  // appear to have black borders against the white page background
-  --shadow-card:          0 2px 12px rgba(0, 0, 0, 0.08);
-  --shadow-card-featured: 0 6px 24px rgba(0, 0, 0, 0.14);
-  --shadow-card-hover:    0 16px 40px rgba(0, 0, 0, 0.20);
+  // Card shadow tokens — light theme: elevated shadows show card lift clearly
+  // without the halo appearing as a black border on white backgrounds
+  --shadow-card:          0 0.125rem 0.75rem rgba(0, 0, 0, 0.10);
+  --shadow-card-featured: 0 0.5rem 1.75rem rgba(0, 0, 0, 0.22);
+  --shadow-card-hover:    0 1.25rem 3.125rem rgba(0, 0, 0, 0.45);
 
   --white: #ffffff;
   --black: #262626;
@@ -41,6 +41,7 @@
   --space-none: #{$space-none};
   --space-hairline: #{$space-hairline};
   --space-pixel: #{$space-pixel};
+  --space-3xs: #{$space-3xs};
   --space-2xs: #{$space-2xs};
   --space-xs: #{$space-xs};
   --space-sm: #{$space-sm};
@@ -80,10 +81,10 @@ html.dark-mode {
   --text-muted: #a79e9e;
   --border-color: #383838;
 
-  // Dark mode: stronger shadows look correct on dark backgrounds
-  --shadow-card:          0 2px 16px rgba(0, 0, 0, 0.30);
-  --shadow-card-featured: 0 8px 32px rgba(0, 0, 0, 0.50);
-  --shadow-card-hover:    0 20px 50px rgba(0, 0, 0, 0.65);
+  // Dark mode: strong shadows match original production values
+  --shadow-card:          0 0.125rem 1rem rgba(0, 0, 0, 0.30);
+  --shadow-card-featured: 0 0.5rem 2rem rgba(0, 0, 0, 0.50);
+  --shadow-card-hover:    0 1.25rem 3.125rem rgba(0, 0, 0, 0.65);
 
   --white: #262626;
   --black: #ffffff;

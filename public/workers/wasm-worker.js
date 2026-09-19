@@ -15,7 +15,7 @@ fetch('/wasm/engine.wasm')
     self.postMessage({ type: 'ERROR', error: err ? err.message : 'WASM init error' })
   })
 
-self.onmessage = (e) => {
+self.onmessage = async (e) => {
   const { id, type, payload } = e.data || {}
   if (!type) return
 
@@ -205,8 +205,10 @@ self.onmessage = (e) => {
         self.postMessage({ id, type: 'DECODE_IMAGE_BATCH_WASM_ERROR', error: err?.message })
       })
   } else if (type === 'DECODE_MEDIA_URL_WASM') {
+    // Legacy single-URL path — kept for backward compatibility
     const { url } = payload
     if (!url) return
+
     fetch(url, { cache: 'force-cache' })
       .then((res) => {
         if (!res.ok) throw new Error('Fetch failed')
@@ -226,5 +228,128 @@ self.onmessage = (e) => {
       .catch((err) => {
         self.postMessage({ id, type: 'DECODE_MEDIA_URL_WASM_ERROR', error: err?.message })
       })
+
+  } else if (type === 'PREFETCH_VIDEO_WASM') {
+    // Multi-threaded parallel quality-variant prefetch.
+    // Fetches all provided quality URLs simultaneously using Promise.all so the
+    // best available stream is ready the moment the element enters the viewport.
+    // payload: { variants: [{ url, quality, width, height }], posterUrl? }
+    const { variants = [], posterUrl } = payload
+    if (!variants.length) {
+      self.postMessage({ id, type: 'PREFETCH_VIDEO_WASM_RESULT', results: { variants: [], best: null, poster: null } })
+      return
+    }
+
+    const fetchVariant = async ({ url: vUrl, quality, width, height }) => {
+      try {
+        // Range-request first 256 KB to prime the browser cache without a full
+        // download — enough for the browser to begin buffering immediately.
+        const rangeRes = await fetch(vUrl, {
+          cache: 'force-cache',
+          headers: { Range: 'bytes=0-262143' },
+        })
+        const status = rangeRes.status
+        const contentType = rangeRes.headers.get('content-type') || ''
+        const contentRange = rangeRes.headers.get('content-range') || ''
+        const acceptsRanges = rangeRes.headers.get('accept-ranges') === 'bytes'
+        let totalBytes = 0
+        const m = contentRange.match(/\/(\d+)$/)
+        if (m) totalBytes = parseInt(m[1], 10)
+
+        return { url: vUrl, quality, width, height, status, contentType, totalBytes, acceptsRanges, primed: status === 206 || status === 200 }
+      } catch (err) {
+        return { url: vUrl, quality, width, height, primed: false, error: err?.message }
+      }
+    }
+
+    // Parallel fetch all quality variants + poster simultaneously
+    const [variantResults, posterBitmap] = await Promise.all([
+      Promise.all(variants.map(fetchVariant)),
+      posterUrl
+        ? fetch(posterUrl, { cache: 'force-cache' })
+            .then((r) => (r.ok ? r.blob() : null))
+            .then((b) => (b ? createImageBitmap(b) : null))
+            .catch(() => null)
+        : Promise.resolve(null),
+    ])
+
+    const transferList = posterBitmap ? [posterBitmap] : []
+
+    self.postMessage(
+      {
+        id,
+        type: 'PREFETCH_VIDEO_WASM_RESULT',
+        results: {
+          variants: variantResults,
+          best: variantResults.filter((v) => v.primed).sort((a, b) => (b.width || 0) - (a.width || 0))[0] || null,
+          poster: posterBitmap,
+        },
+      },
+      transferList
+    )
+
+  } else if (type === 'PROBE_VIDEO_WASM') {
+    // Lightweight probe: fetch first 128 KB to detect codec, resolution,
+    // and range support without downloading the full file.
+    // Used by the NPU predictor to pick the best quality variant early.
+    // payload: { url }
+    const { url: probeUrl } = payload
+    if (!probeUrl) return
+
+    try {
+      const res = await fetch(probeUrl, {
+        cache: 'force-cache',
+        headers: { Range: 'bytes=0-131071' },
+      })
+      const contentType = res.headers.get('content-type') || ''
+      const contentRange = res.headers.get('content-range') || ''
+      const acceptsRanges = res.headers.get('accept-ranges') === 'bytes'
+      const status = res.status
+      let totalBytes = 0
+      const rm = contentRange.match(/\/(\d+)$/)
+      if (rm) totalBytes = parseInt(rm[1], 10)
+
+      let codec = 'unknown'
+      if (contentType.includes('mp4')) codec = 'h264/mp4'
+      else if (contentType.includes('webm')) codec = 'vp9/webm'
+      else if (contentType.includes('ogg')) codec = 'theora/ogg'
+      else if (contentType.includes('av1') || contentType.includes('avif')) codec = 'av1'
+
+      self.postMessage({
+        id,
+        type: 'PROBE_VIDEO_WASM_RESULT',
+        results: { url: probeUrl, codec, contentType, totalBytes, acceptsRanges, supportsStreaming: acceptsRanges && status === 206 },
+      })
+    } catch (err) {
+      self.postMessage({ id, type: 'PROBE_VIDEO_WASM_ERROR', error: err?.message })
+    }
+
+  } else if (type === 'DECODE_VIDEO_SEGMENT_WASM') {
+    // Segment fetch: retrieve a specific byte range of a video file, returning
+    // the raw ArrayBuffer zero-copy for use with WebCodecs or MediaSource API.
+    // Multiple workers can handle concurrent segments in parallel.
+    // payload: { url, byteStart, byteEnd }
+    const { url: segUrl, byteStart = 0, byteEnd } = payload
+    if (!segUrl) return
+
+    try {
+      const rangeHeader = byteEnd != null ? `bytes=${byteStart}-${byteEnd}` : `bytes=${byteStart}-`
+      const res = await fetch(segUrl, { cache: 'force-cache', headers: { Range: rangeHeader } })
+
+      if (!res.ok && res.status !== 206) throw new Error(`HTTP ${res.status}`)
+
+      const buffer = await res.arrayBuffer()
+
+      self.postMessage(
+        {
+          id,
+          type: 'DECODE_VIDEO_SEGMENT_WASM_RESULT',
+          results: { url: segUrl, byteStart, byteEnd: byteEnd ?? byteStart + buffer.byteLength - 1, byteLength: buffer.byteLength, buffer },
+        },
+        [buffer]
+      )
+    } catch (err) {
+      self.postMessage({ id, type: 'DECODE_VIDEO_SEGMENT_WASM_ERROR', error: err?.message })
+    }
   }
 }

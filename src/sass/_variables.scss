@@ -136,6 +136,7 @@ $bk-7680: $vw-7680 - 1px;
 $space-none: 0; // fib(0)  — no space
 $space-hairline: 1; // fib(1)  — hairline / 1px borders
 $space-pixel: 1; // fib(2)  — alias for hairline (same fib value)
+$space-3xs: 1; // alias  — thin borders (same as hairline, semantic clarity)
 $space-2xs: 2; // fib(3)  — 2px, micro gaps
 $space-xs: 3; // fib(4)  — 3px, tiny nudges
 $space-sm: 5; // fib(5)  — 5px, small gaps
