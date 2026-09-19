@@ -176,6 +176,7 @@ export class PreferencesModal extends BaseComponent {
     const reduced = this.reducedMotion
     const analytics = this.npuAnalytics
     const statsForNerds = store.getters.getStatsForNerds()
+    const showGrid = store.getters.getShowGrid()
 
     return (
       <div
@@ -304,6 +305,31 @@ export class PreferencesModal extends BaseComponent {
                   <span className="pref-option-icon">🔬</span>
                   <span className="pref-option-label">Visible</span>
                   <span className="pref-option-sub">Show HUD above nav</span>
+                </button>
+              </div>
+            </section>
+
+            <section className="pref-section">
+              <h3 className="pref-section-title">Show Grid</h3>
+              <p className="pref-section-desc">Overlay the design grid — max-area boundaries and gutters at every breakpoint</p>
+              <div className="pref-options pref-options--2">
+                <button
+                  className={`pref-option-btn ${!showGrid ? 'active' : ''}`}
+                  type="button"
+                  onClick={() => { if (showGrid) store.commit('toggleShowGrid') }}
+                >
+                  <span className="pref-option-icon">📐</span>
+                  <span className="pref-option-label">Hidden</span>
+                  <span className="pref-option-sub">No grid shown</span>
+                </button>
+                <button
+                  className={`pref-option-btn ${showGrid ? 'active' : ''}`}
+                  type="button"
+                  onClick={() => { if (!showGrid) store.commit('toggleShowGrid') }}
+                >
+                  <span className="pref-option-icon">🔲</span>
+                  <span className="pref-option-label">Visible</span>
+                  <span className="pref-option-sub">Show layout grid overlay</span>
                 </button>
               </div>
             </section>

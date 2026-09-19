@@ -44,6 +44,10 @@ export class AppRoot extends BaseComponent {
     this.initInputListeners()
     this.loadData()
 
+    if (store.getters.getShowGrid()) {
+      document.documentElement.classList.add('show-grid')
+    }
+
     this.subscribe(store)
 
     // Listen to open-preferences-modal from app-nav

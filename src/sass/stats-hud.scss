@@ -1,33 +1,37 @@
 @import '_variables';
 @import '_mixins';
+@import '_placeholders';
 @import '_structure';
 
 // ─── Stats for Nerds HUD ────────────────────────────────────────────────────
-// Fixed overlay aligned just above the bottom navigation pill.
-// Uses glassmorphism pill design, hidden by default.
+// Fixed overlay anchored to the bottom-right corner above the nav bar.
+// Non-interactive — pointer-events: none. Hidden by default.
 
 $_B_STATS: 'stats-hud';
 
+$_skel-border:   rgba(255, 255, 255, 0.18); // separator — white alpha only (AGENTS.md shadow exception: no hex)
+$_skel-label:    rgba(255, 255, 255, 0.45); // dim label — white alpha only
+
 .#{$_B_STATS} {
   position: fixed;
-  bottom: to-rem($space-5xl); // sits above the nav bar
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9000;
+  right: to-rem($space-xl);
+  bottom: to-rem($space-2xl);
+  z-index: var(--z-hud);
 
   display: flex;
   align-items: center;
-  gap: to-rem($space-lg);
+  gap: to-rem($space-md);
 
-  padding: to-rem($space-xs) to-rem($space-xl);
-  border-radius: to-rem($space-4xl);
+  padding: to-rem($space-2xs) to-rem($space-lg);
+  border-radius: var(--radius-round);
 
-  background: rgba(0, 0, 0, 0.72);
-  backdrop-filter: blur(to-rem($space-md));
-  -webkit-backdrop-filter: blur(to-rem($space-md));
+  background: rgba(0, 0, 0, 0.78); // pure black alpha — no theme hex
+  backdrop-filter: blur(#{to-rem($space-md)});
+  -webkit-backdrop-filter: blur(#{to-rem($space-md)});
   border: var(--border-item-hover);
+  box-shadow: var(--shadow-card);
 
-  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-size: to-rem($space-sm);
   font-weight: 500;
   letter-spacing: to-rem(0.3);
@@ -38,7 +42,7 @@ $_B_STATS: 'stats-hud';
 
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-50%) translateY(to-rem($space-sm));
+  transform: translateY(to-rem($space-sm));
   transition:
     opacity 0.25s ease,
     visibility 0.25s ease,
@@ -47,34 +51,32 @@ $_B_STATS: 'stats-hud';
   &--visible {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
   }
 
-  // On small screens, use full width
+  // On mobile — stack to bottom-right, smaller padding
   @media (max-width: 480px) {
-    left: to-rem($space-md);
     right: to-rem($space-md);
-    transform: none;
-
-    &--visible {
-      transform: none;
-    }
+    bottom: to-rem($space-xl);
+    gap: to-rem($space-xs);
+    padding: to-rem($space-2xs) to-rem($space-md);
+    font-size: to-rem($space-xs);
   }
 
-  // Stat segments
+  // Stat segments separated by a hairline border
   &-segment {
     display: flex;
     align-items: center;
     gap: to-rem($space-2xs);
 
     &:not(:last-child) {
-      padding-right: to-rem($space-lg);
-      border-right: to-rem($space-hairline) solid rgba(255, 255, 255, 0.18);
+      padding-right: to-rem($space-md);
+      border-right: to-rem($space-hairline) solid $_skel-border;
     }
   }
 
   &-label {
-    color: rgba(255, 255, 255, 0.45);
+    color: $_skel-label;
     font-size: to-rem($space-xs);
     text-transform: uppercase;
     letter-spacing: to-rem(0.6);
@@ -85,7 +87,7 @@ $_B_STATS: 'stats-hud';
     font-weight: 700;
   }
 
-  // FPS color — green when healthy, amber/red when low
+  // FPS color states — green when healthy, amber/red when low
   &-fps-good { color: $cms-badge-green; }
   &-fps-mid  { color: $cms-badge-warn; }
   &-fps-bad  { color: $cms-danger; }

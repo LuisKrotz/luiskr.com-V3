@@ -162,6 +162,15 @@ $space-15xl: 28657; // fib(23)
 $space-16xl: 46368; // fib(24)
 $space-17xl: 75025; // fib(25)
 
-// Z-indexes
-$z-header: 50;
-$z-loader: 100;
+// Z-indexes — layering system, every value declared once here
+$z-header:       50;
+$z-loader:       100;
+$z-overlay:      200;  // grid overlay, debug overlays
+$z-hud:          500;  // stats-for-nerds HUD
+$z-modal:        1000; // modals, drawers
+$z-cookies:      1000; // cookie banner
+$z-nav:          1100; // app-nav
+$z-top:          9999; // top-level elements (dialogs)
+
+// System monospace font stack — no external download required
+$font-mono: 'ui-monospace', 'SF Mono', 'SFMono-Regular', 'Cascadia Mono', 'Segoe UI Mono', 'Ubuntu Mono', 'Roboto Mono', monospace;

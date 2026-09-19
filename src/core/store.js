@@ -60,6 +60,8 @@ class Store {
       theme: (typeof localStorage !== STRINGS.UNDEFINED && localStorage.getItem('theme')) || THEME.SYSTEM,
       showStatsForNerds:
         typeof localStorage !== STRINGS.UNDEFINED && localStorage.getItem('statsForNerds') === ATTRS.TRUE,
+      showGrid:
+        typeof localStorage !== STRINGS.UNDEFINED && localStorage.getItem('showGrid') === ATTRS.TRUE,
       effectiveTheme: THEME.LIGHT,
       preferencesOpen: false,
       langDialogOpen: false,
@@ -141,6 +143,19 @@ class Store {
 
         if (typeof localStorage !== STRINGS.UNDEFINED) {
           localStorage.setItem('statsForNerds', String(this.state.showStatsForNerds))
+        }
+
+        this._notify()
+      },
+      toggleShowGrid: () => {
+        this.state.showGrid = !this.state.showGrid
+
+        if (typeof localStorage !== STRINGS.UNDEFINED) {
+          localStorage.setItem('showGrid', String(this.state.showGrid))
+        }
+
+        if (typeof document !== STRINGS.UNDEFINED) {
+          document.documentElement.classList.toggle('show-grid', this.state.showGrid)
         }
 
         this._notify()
@@ -235,6 +250,7 @@ class Store {
       getLangDialogOpen: () => this.state.langDialogOpen,
       getReducedMotion: () => this.state.reducedMotion,
       getStatsForNerds: () => this.state.showStatsForNerds,
+      getShowGrid: () => this.state.showGrid,
       getMentions: () => this.state.mentions,
       getClickOrTap: () =>
         this.state.inputMethod === 'touch'

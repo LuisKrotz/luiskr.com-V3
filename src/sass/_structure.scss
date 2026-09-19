@@ -69,6 +69,17 @@
   --radius-xl: #{to-rem($space-xl)};
   --radius-full: 50%;
   --radius-round: 9999px;
+
+  // Z-index layering system \u2014 exposed from $z-* SCSS tokens
+  --z-overlay:  #{$z-overlay};
+  --z-hud:      #{$z-hud};
+  --z-modal:    #{$z-modal};
+  --z-cookies:  #{$z-cookies};
+  --z-nav:      #{$z-nav};
+  --z-top:      #{$z-top};
+
+  // Font stacks
+  --font-mono: #{$font-mono};
 }
 
 html.dark-mode {
