@@ -632,7 +632,7 @@
     padding: to-rem($space-md) to-rem($space-lg) to-rem($space-lg);
     display: flex;
     flex-direction: column;
-    gap: to-rem($space-2xs);
+    gap: 0;
     text-align: left;
     pointer-events: none;
 
@@ -678,17 +678,20 @@
     font-weight: 200;
     color: var(--color-white-raw);
     text-shadow: 0 to-rem($space-hairline) to-rem($space-sm) var(--bg-dark);
-    margin-top: to-rem($space-2xs);
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
     opacity: 0;
-    transform: translateY(to-rem($space-2xs));
     transition:
-      opacity 0.25s ease,
-      transform 0.25s ease;
+      max-height 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      margin-top 0.25s ease,
+      opacity 0.25s ease;
 
     .related-mosaic-item:hover &,
     .related-mosaic-item:focus-within & {
+      max-height: to-rem($space-5xl);
+      margin-top: to-rem($space-2xs);
       opacity: 1;
-      transform: translateY(0);
     }
   }
 }
