@@ -355,11 +355,13 @@
       media-figure {
         --mf-w: calc(90vw - #{to-rem($space-xl * 2)});
         --mf-h: calc(70vh - #{to-rem($space-xl * 2)});
+        --mf-h: calc(70dvh - #{to-rem($space-xl * 2)});
         --mf-max-w: none;
 
         @include layout-768() {
           --mf-w: calc(90vw - #{to-rem($space-2xl * 2)});
           --mf-h: calc(70vh - #{to-rem($space-2xl * 2)});
+          --mf-h: calc(70dvh - #{to-rem($space-2xl * 2)});
         }
 
         @include layout-1024() {
@@ -428,6 +430,7 @@
         position: fixed;
         background: rgba($color-black, 0.9);
         min-height: 100vh;
+        min-height: 100dvh;
         height: auto;
         width: 100vw;
         z-index: 1;

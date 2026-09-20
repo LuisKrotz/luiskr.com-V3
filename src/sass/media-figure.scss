@@ -51,6 +51,7 @@
     width: 100%;
     max-width: 100%;
     max-height: 70vh;
+    max-height: 70dvh;
     overflow: hidden;
     margin: 0 auto;
     border-radius: 0;
@@ -74,6 +75,7 @@
       width: auto;
       max-width: 100%;
       max-height: 70vh;
+      max-height: 70dvh;
     }
   }
 
@@ -111,6 +113,7 @@
       width: 100%;
       max-width: 100%;
       max-height: 70vh;
+      max-height: 70dvh;
     }
   }
 
@@ -195,6 +198,7 @@ figure {
     position: relative;
     width: var(--mf-w, calc(90vw - #{to-rem($space-xl * 2)}));
     height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
+    height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
     max-width: var(--mf-max-w, none);
   }
 }
@@ -207,11 +211,13 @@ figure {
   position: relative;
   width: var(--mf-w, calc(90vw - #{to-rem($space-xl * 2)}));
   height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
+  height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
   max-width: var(--mf-max-w, none);
 
   @include layout-768() {
     width: var(--mf-w, calc(90vw - #{to-rem($space-2xl * 2)}));
     height: var(--mf-h, calc(70vh - #{to-rem($space-2xl * 2)}));
+    height: var(--mf-h, calc(70dvh - #{to-rem($space-2xl * 2)}));
   }
 
   @include layout-1024() {

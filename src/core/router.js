@@ -1,8 +1,7 @@
 import store from './store.js'
 import { VALID_LANGS, LANG_SLUGS, detectLangFromPath } from './i18n.js'
 import { deepQuerySelector } from './dom.js'
-import { BASE_TITLE, PROJECT_ALIASES } from './constants.js'
-import { getAuthInstance } from '../firebase.js'
+import { BASE_TITLE, PROJECT_ALIASES, TAGS } from './constants.js'
 
 export function normalizeProjectKey(slug) {
   if (!slug) return ''
@@ -256,6 +255,12 @@ export class Router {
       hook(to, from)
     }
 
+    if (to.view === TAGS.VIEW_ADMIN_LOGIN) {
+      await import('../views/AdminLogin.js')
+    } else if (to.view === TAGS.VIEW_CMS_DASHBOARD) {
+      await import('../views/CmsDashboard.js')
+    }
+
     this.notify(to, from)
   }
 
@@ -279,7 +284,10 @@ router.beforeEach(async (to) => {
   // Guard CMS authentication
   if (to.meta?.requiresAuth) {
     try {
+      const { getAuthInstance } = await import('../firebase.js')
+
       const authInstance = await getAuthInstance()
+
       if (!authInstance?.currentUser) {
         return '/admin'
       }

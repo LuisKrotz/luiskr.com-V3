@@ -12,22 +12,32 @@ const skeletonStyles = `
   display: block;
 }
 .skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--skel-bg-1);
+  border-radius: var(--radius-2xs);
+}
+.skeleton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     90deg,
-    var(--skel-bg-1) 25%,
+    transparent 0%,
     var(--skel-bg-2) 50%,
-    var(--skel-bg-3) 75%
+    transparent 100%
   );
-  background-size: 200% 100%;
+  transform: translateX(-100%);
   animation: skeleton-shimmer 2.4s ease-in-out infinite;
-  border-radius: var(--radius-2xs);
+  will-change: transform;
+  pointer-events: none;
 }
 .skeleton--round {
   border-radius: var(--radius-full);
 }
 @keyframes skeleton-shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 `
 

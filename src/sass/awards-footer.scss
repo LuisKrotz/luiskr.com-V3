@@ -106,8 +106,8 @@ $_B_AFH: 'awards-footer-header';
 $_B_AFP: 'awards-footer-progress';
 
 @keyframes awards-progress-fill {
-  from { width: 0%; }
-  to   { width: 100%; }
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 .#{$_B_AFH} {
@@ -135,9 +135,12 @@ $_B_AFP: 'awards-footer-progress';
 
 .#{$_B_AFP}-fill {
   height: 100%;
-  width: 0%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
   background: var(--color-accent);
   border-radius: var(--radius-round);
+  will-change: transform;
 
   // Driven by JS: class is removed + re-added after a forced reflow to restart
   &--running {

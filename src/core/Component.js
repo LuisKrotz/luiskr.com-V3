@@ -17,13 +17,17 @@
 const BASE_HOST_STYLES =
   ':host { display: block; font-family: var(--font-primary); color: var(--text-primary); box-sizing: border-box; }\n' +
   ':host > [data-content] { display: contents; }\n' +
-  '@keyframes skeleton-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }\n' +
+  '@keyframes skeleton-shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }\n' +
   '.skeleton, .skeleton--shimmer, .skeleton-cover, .skeleton-placeholder, .skeleton--media, .skeleton-media, ' +
   '.skeleton--title, .skeleton-title-sm, .skeleton-title-md, .skeleton-title-lg, .skeleton--hero, ' +
   '.skeleton--text-line, .skeleton-para-full, .skeleton-para-94, .skeleton-para-98, .skeleton-para-65, ' +
   '.skeleton-section-title, .skeleton-badge, .skeleton-footer-link, .skeleton-footer-note-1, .skeleton-footer-note-2 ' +
-  '{ background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%); ' +
-  'background-size: 200% 100%; animation: skeleton-shimmer 2.4s ease-in-out infinite; }\n' +
+  '{ position: relative; overflow: hidden; background: var(--skel-bg-1); }\n' +
+  '.skeleton::before, .skeleton--shimmer::before, .skeleton-cover::before, .skeleton-placeholder::before, .skeleton--media::before, .skeleton-media::before, ' +
+  '.skeleton--title::before, .skeleton-title-sm::before, .skeleton-title-md::before, .skeleton-title-lg::before, .skeleton--hero::before, ' +
+  '.skeleton--text-line::before, .skeleton-para-full::before, .skeleton-para-94::before, .skeleton-para-98::before, .skeleton-para-65::before, ' +
+  '.skeleton-section-title::before, .skeleton-badge::before, .skeleton-footer-link::before, .skeleton-footer-note-1::before, .skeleton-footer-note-2::before ' +
+  '{ content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 0%, var(--skel-bg-2) 50%, transparent 100%); transform: translateX(-100%); animation: skeleton-shimmer 2.4s ease-in-out infinite; will-change: transform; pointer-events: none; }\n' +
   '.skeleton--round { border-radius: 50%; }\n' +
   '.skeleton--block { display: block; }'
 

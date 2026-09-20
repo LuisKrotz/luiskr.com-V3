@@ -19,8 +19,6 @@ import './views/Home.js'
 import './views/Project.js'
 import './views/Legal.js'
 import './views/NotFound.js'
-import './views/AdminLogin.js'
-import './views/CmsDashboard.js'
 
 export class AppRoot extends BaseComponent {
   constructor() {
@@ -317,10 +315,16 @@ export class AppRoot extends BaseComponent {
     this._flipToView(outlet, to)
   }
 
-  _flipToView(outlet, to) {
+  async _flipToView(outlet, to) {
     const reduced = store.getters.getReducedMotion()
     const toTag   = this.currentViewTag
     const FADE_MS = 350 // half-duration: fade-out then fade-in
+
+    if (toTag === TAGS.VIEW_ADMIN_LOGIN) {
+      await import('./views/AdminLogin.js')
+    } else if (toTag === TAGS.VIEW_CMS_DASHBOARD) {
+      await import('./views/CmsDashboard.js')
+    }
 
     if (reduced || !outlet.firstElementChild) {
       // Instant swap — no animation

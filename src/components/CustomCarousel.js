@@ -76,6 +76,8 @@ export class CustomCarousel extends BaseComponent {
 
   get isActive() {
     // Never show carousel UI for a single item.
+    if (this._forceActive) return this.items.length > 1
+
     // Never show carousel UI when all items fit side-by-side in the viewport.
     return this.items.length > 1 && !this._isSideBySide
   }
@@ -138,6 +140,8 @@ export class CustomCarousel extends BaseComponent {
   }
 
   _measureFit() {
+    if (this._forceActive) return
+
     // Only relevant for 2+ items
     if (this.items.length < 2) return
 
