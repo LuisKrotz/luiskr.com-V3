@@ -5,6 +5,14 @@
 @import '_structure';
 @import '_grid-overlay';
 
+// ── CSS Cascade Layers ────────────────────────────────────────────────────────
+// Declaring the layer ORDER here ensures the cascade priority is locked in,
+// regardless of which file imports which layer first.
+// Layers: base → layout → components → overrides → ios-compat
+// Un-layered rules (most of this codebase) are always stronger than any layer,
+// so this declaration is non-breaking — it's purely additive for future use.
+@layer base, layout, components, overrides, ios-compat;
+
 app-nav {
   display: block;
   position: fixed;

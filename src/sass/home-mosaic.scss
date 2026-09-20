@@ -164,9 +164,11 @@
   color: $color-white;
   text-shadow: 0 to-rem($space-2xs) to-rem($space-md) rgba($color-black, 0.8);
   margin: 0;
+  font-size: to-rem($space-md); // fallback: Safari < 16 / iOS < 16 (no container query support)
   font-size: clamp(to-rem($space-md), 5cqw, to-rem($space-lg));
 
   .home-mosaic-item--featured & {
+    font-size: to-rem($space-xl); // fallback: Safari < 16 / iOS < 16
     font-size: clamp(to-rem($space-md), 5.5cqw, to-rem($space-xl));
     letter-spacing: 0.12em;
   }

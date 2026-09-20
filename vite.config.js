@@ -103,7 +103,7 @@ export default defineConfig({
     cssCodeSplit: true,
     cssMinify: true,
     modulePreload: {
-      polyfill: false,
+      polyfill: true,
     },
     rollupOptions: {
       output: {

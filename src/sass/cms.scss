@@ -42,6 +42,7 @@
   max-width: $cms-card-max-width;
   background: rgba(31, 40, 51, 0.65);
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-xl);
   padding: 3rem 2.5rem;
@@ -113,6 +114,7 @@
   min-height: $cms-header-min-height;
   background: rgba(15, 20, 28, 0.9);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   flex-wrap: wrap;
@@ -249,6 +251,7 @@
       flex-direction: column;
       gap: to-rem($space-xs);
       backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       opacity: 0;
       visibility: hidden;
       transform: translateY(to-rem($space-xs));

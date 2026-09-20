@@ -1,19 +1,22 @@
-// High-Performance WASM CSS & Skeleton Animation Engine
-// Calculates skeleton layout bounds, shimmer offsets, and dynamic CSS rule declarations in WASM
+// WASM CSS utilities — GPU acceleration helpers and dynamic CSS injection
+// Note: skeleton animation is handled entirely by CSS in _structure.scss.
+// The previous JS-driven shimmer loop (rAF at 60fps calling style.setProperty
+// on documentElement) has been removed — it forced a full CSS cascade
+// recalculation on every frame and caused page-wide freezes on iOS.
 import { wasmPool } from './wasm-pool.js'
-import { calcEaseOutCubic } from './wasm-layout.js'
 
 let styleSheetEl = null
 
 class WASMCSSManager {
   constructor() {
     this.initStyleSheet()
-    this.startWasmShimmerLoop()
   }
 
   initStyleSheet() {
     if (typeof document === 'undefined') return
+
     styleSheetEl = document.getElementById('wasm-dynamic-css')
+
     if (!styleSheetEl) {
       styleSheetEl = document.createElement('style')
       styleSheetEl.id = 'wasm-dynamic-css'
@@ -25,26 +28,20 @@ class WASMCSSManager {
 
   injectStaticWasmCSS() {
     if (!styleSheetEl) return
+
+    // GPU-acceleration utility class used by carousel and media components.
+    // Skeleton shimmer is CSS-only (see _structure.scss) — no JS loop needed.
     styleSheetEl.textContent = `
-      .skeleton--shimmer {
-        background: linear-gradient(
-          90deg,
-          var(--bg-secondary) 0%,
-          rgba(255, 255, 255, 0.08) var(--wasm-shimmer-pos, 50%),
-          var(--bg-secondary) 100%
-        );
-        background-size: 200% 100%;
-        will-change: background-position, transform;
-      }
       .wasm-gpu-accelerated {
         will-change: transform, opacity;
         transform: translate3d(0, 0, 0);
         backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
       }
     `
   }
 
-  // Calculate skeleton style object in WASM
+  // Calculate skeleton style object (dimensions only — animation is CSS-driven)
   calcWasmSkeletonStyle(width = '100%', height = '1.2em', borderRadius = 'var(--radius-2xs)') {
     const numericWidth = typeof width === 'number' ? width : 200
     const numericHeight = typeof height === 'number' ? height : 24
@@ -64,28 +61,12 @@ class WASMCSSManager {
     }
   }
 
-  // Update WASM global shimmer animation offset loop
-  startWasmShimmerLoop() {
-    if (typeof window === 'undefined') return
-
-    const tick = (now) => {
-      const duration = 1800
-      const cycle = now % duration
-      const progress = cycle / duration
-      const ease = calcEaseOutCubic(progress)
-      const shimmerPos = Math.round(ease * 100)
-
-      document.documentElement.style.setProperty('--wasm-shimmer-pos', `${shimmerPos}%`)
-      requestAnimationFrame(tick)
-    }
-
-    requestAnimationFrame(tick)
-  }
-
   // Inject or update dynamic CSS rules calculated in WASM
   setWasmCSSRule(selector, declarations) {
     if (!styleSheetEl) return
+
     const ruleString = `${selector} { ${declarations} }`
+
     if (!styleSheetEl.textContent.includes(selector)) {
       styleSheetEl.textContent += `\n${ruleString}`
     }

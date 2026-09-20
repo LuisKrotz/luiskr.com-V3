@@ -597,11 +597,13 @@
       transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
       box-shadow 0.35s ease;
 
-    // Mobile (above 320px) & Tablet: 2 columns
-    @include layout-375() {
-      flex: 1 1 to-rem(150);
-      width: auto;
-      min-height: to-rem(180);
+    // Mobile: always full-width (base styles: flex: 1 1 100%; width: 100%; max-width: 100%)
+
+    // Tablet: enforce exactly 2 columns — 50% minus half the row gap
+    @include layout-768() {
+      flex: 0 0 calc(50% - #{to-rem($space-lg)} / 2);
+      max-width: calc(50% - #{to-rem($space-lg)} / 2);
+      min-height: to-rem(190);
     }
 
     // Desktop: standard mosaic width

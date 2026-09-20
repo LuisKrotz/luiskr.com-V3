@@ -27,7 +27,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg'
 const BOOL_PROPS = new Set([
   'muted', 'loop', 'controls', 'autoplay', 'disabled', 'checked',
   'readonly', 'required', 'multiple', 'selected', 'default',
-  'hidden', 'novalidate', 'reversed', 'autofocus',
+  'hidden', 'novalidate', 'reversed', 'autofocus', 'inert',
 ])
 
 // JSX camelCase prop → lowercase HTML attribute name (for setAttribute path only).
