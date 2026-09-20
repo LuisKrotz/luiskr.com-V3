@@ -1,5 +1,5 @@
 import { BaseComponent } from '../core/Component.js'
-import { CLASSES, TAGS, MEDIA_DIMENSIONS } from '../core/constants.js'
+import { CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, TEXT } from '../core/constants.js'
 import { h } from '../core/jsx.js'
 import { calcDrawTextDelay, calcDrawTextOffset } from '../utils/wasm-layout.js'
 import { stripHtml, getGravatarSrcset, getOptimizedGravatar } from '../utils/media.js'
@@ -67,11 +67,13 @@ export class AboutSection extends BaseComponent {
 
     return (
       <section id="about" className={CLASSES.ABOUT}>
-        <h2 className={CLASSES.ABOUT_TITLE}>
+        <h2 className={CLASSES.ABOUT_TITLE} aria-label={title || TEXT.ABOUT_ME}>
           {this.aboutTranslations ? (
-            <DrawText text={title} trigger="viewport" />
+            <DrawText text={title} trigger={ATTRS.TRIGGER_VIEWPORT} />
           ) : (
-            <span className={`${CLASSES.SKELETON_SHIMMER} ${CLASSES.SKELETON_ABOUT_TITLE}`} />
+            <span className={`${CLASSES.SKELETON_SHIMMER} ${CLASSES.SKELETON_ABOUT_TITLE}`}>
+              {title || TEXT.ABOUT_ME}
+            </span>
           )}
         </h2>
         <div className={CLASSES.ABOUT_PROFILE_SECTION}>

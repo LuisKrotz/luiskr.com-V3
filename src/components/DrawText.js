@@ -105,7 +105,14 @@ export class DrawText extends HTMLElement {
 
   _updateDom() {
     const visibleClass = this._isVisible && !this._hasAnimated ? 'draw-text--visible' : ''
+
     const doneClass = this._hasAnimated ? 'draw-text--done' : ''
+
+    const plainText = stripHtml(this.text)
+
+    if (plainText && !this.getAttribute('aria-label')) {
+      this.setAttribute('aria-label', plainText)
+    }
 
     // draw-text.scss provides ALL styles (including :host rules).
     // No inline style strings here — styles are in SCSS files only.
@@ -264,7 +271,7 @@ export class DrawText extends HTMLElement {
         const tag = match[3]
         const attrStr = match[4] || ''
         const inner = match[5] || ''
-        result.push({ type: 'tag', tag, attrStr, chunks: parseText(inner) })
+        result.push({ type: 'tag', tag, attrStr, inner, chunks: parseText(inner) })
       } else if (match[6]) {
         result.push(...parseText(match[6]))
       }
@@ -314,7 +321,13 @@ export class DrawText extends HTMLElement {
             return ''
           })
           .join('')
-        return `<${token.tag} ${token.attrStr}>${innerContent}</${token.tag}>`
+
+        const labelAttr =
+          token.tag.toLowerCase() === 'a' && !token.attrStr.includes('aria-label')
+            ? ` aria-label="${stripHtml(token.inner || '')}"`
+            : ''
+
+        return `<${token.tag} ${token.attrStr}${labelAttr}>${innerContent}</${token.tag}>`
       }
       return ''
     })

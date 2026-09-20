@@ -1,7 +1,7 @@
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
-import { LAYOUT, CLASSES, MEDIA_DIMENSIONS } from '../core/constants.js'
+import { LAYOUT, CLASSES, MEDIA_DIMENSIONS, ATTRS, TEXT } from '../core/constants.js'
 import { h } from '../core/jsx.js'
 import {
   calcColumnWidth,
@@ -404,11 +404,11 @@ export class HomeMosaic extends BaseComponent {
 
     return (
       <section className={CLASSES.HOME_PORTFOLIO_SECTION}>
-        <h2 className={CLASSES.HOME_SECTION_TITLE}>
+        <h2 className={CLASSES.HOME_SECTION_TITLE} aria-label={featuredText || TEXT.FEATURED}>
           {this.translations ? (
             <draw-text text={featuredText} />
           ) : (
-            <span className={CLASSES.SKELETON_SHIMMER} />
+            <span className={CLASSES.SKELETON_SHIMMER}>{featuredText || TEXT.FEATURED}</span>
           )}
         </h2>
 
@@ -426,9 +426,9 @@ export class HomeMosaic extends BaseComponent {
               >
                 <div className={CLASSES.HOME_MOSAIC_MEDIA} style={this.cards[i]?.media || ''}>
                   <img
-                    decoding={i < 2 ? 'sync' : 'async'}
-                    loading={i < 2 ? 'eager' : 'lazy'}
-                    fetchpriority={i < 2 ? 'high' : 'auto'}
+                    decoding={i < 1 ? ATTRS.DECODING_SYNC : ATTRS.DECODING_ASYNC}
+                    loading={i < 1 ? ATTRS.LOADING_EAGER : ATTRS.LOADING_LAZY}
+                    fetchpriority={i < 1 ? ATTRS.FETCH_PRIORITY_HIGH : ATTRS.FETCH_PRIORITY_LOW}
                     className={CLASSES.HOME_MOSAIC_IMG}
                     src={`${this.storage}covers/${item.image}${this.ext}`}
                     alt={item.label}

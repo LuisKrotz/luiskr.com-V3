@@ -10,5 +10,6 @@
  * Vite code-splits this into its own CSS chunk at build time.
  * Chrome, Firefox, and Safari 16+ never request this chunk.
  */
+import './polyfills.js'
 import './sass/safari-compat.scss'
 import './safari-patch.js'

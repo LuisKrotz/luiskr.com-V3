@@ -108,7 +108,11 @@ export const ATTRS = Object.freeze({
   NONE: 'none',
   AUTO: 'auto',
   DECODING_ASYNC: 'async',
+  DECODING_SYNC: 'sync',
   LOADING_LAZY: 'lazy',
+  LOADING_EAGER: 'eager',
+  FETCH_PRIORITY_HIGH: 'high',
+  FETCH_PRIORITY_LOW: 'low',
   TRIGGER_VIEWPORT: 'viewport',
 })
 
@@ -574,6 +578,7 @@ export const TEXT = Object.freeze({
   ABOUT_ME: 'About Me',
   GET_IN_TOUCH: 'Get in Touch',
   // Common labels
+  FEATURED: 'Featured',
   LOADING: 'Loading...',
   SAVING: 'Saving...',
   SIGNING_IN: 'Signing in...',

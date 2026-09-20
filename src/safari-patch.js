@@ -99,6 +99,7 @@ if (typeof customElements !== 'undefined') {
         }
 
         const prevSlide = activeSlide.previousElementSibling
+
         const nextSlide = activeSlide.nextElementSibling
 
         if (prevSlide) {
@@ -119,20 +120,38 @@ if (typeof customElements !== 'undefined') {
       }
     }
 
+    const originalOnScroll = CustomCarouselClass.prototype.onScroll
+
+    CustomCarouselClass.prototype.onScroll = function () {
+      if (typeof originalOnScroll === 'function') {
+        originalOnScroll.call(this)
+      }
+
+      const slides = this.$$(`.${CLASSES.CAROUSEL_SLIDE}`)
+
+      slides.forEach((slide) => {
+        const mf = slide.querySelector(TAGS.MEDIA_FIGURE)
+
+        if (mf && typeof mf.loadHighRes === 'function') {
+          mf.loadHighRes()
+        }
+      })
+    }
+
     const originalSetupAfterRender = CustomCarouselClass.prototype._setupAfterRender
 
     CustomCarouselClass.prototype._setupAfterRender = function () {
       originalSetupAfterRender.call(this)
 
-      const firstSlide = this.$(`.${CLASSES.CAROUSEL_SLIDE_ACTIVE}`) || this.$(`.${CLASSES.CAROUSEL_SLIDE}`)
+      const slides = this.$$(`.${CLASSES.CAROUSEL_SLIDE}`)
 
-      if (firstSlide) {
-        const mf = firstSlide.querySelector(TAGS.MEDIA_FIGURE)
+      slides.forEach((slide) => {
+        const mf = slide.querySelector(TAGS.MEDIA_FIGURE)
 
         if (mf && typeof mf.loadHighRes === 'function') {
           mf.loadHighRes()
         }
-      }
+      })
     }
   })
 
@@ -160,7 +179,17 @@ if (typeof customElements !== 'undefined') {
     MediaFigureClass.prototype.loadHighRes = function () {
       if (this.isLoaded) return
 
+      const height = this.mediaHeight || 0
+
+      const width = this.mediaWidth || 0
+
+      // Protection against massive full-page images (>4096px) on iOS to prevent WebKit memory exhaustion
+      if (height > 4096 || width > 4096) {
+        return
+      }
+
       const storage = store.getters.getStorage()
+
       const targetUrl = storage + this.mediaSrc + MEDIA.MOZ + MEDIA.Q50 + MEDIA.EXT
 
       this.highResSrc = targetUrl
@@ -170,22 +199,22 @@ if (typeof customElements !== 'undefined') {
       if (highEl) {
         highEl.src = targetUrl
 
+        highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
+
         if (highEl.complete) {
           this.isLoaded = true
-          highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
         } else {
           highEl.onload = () => {
             this.isLoaded = true
-            highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
           }
 
           highEl.onerror = () => {
             this.isLoaded = true
-            highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
           }
         }
       } else if (this._isMounted) {
         this.isLoaded = true
+
         this._updateDom()
       }
     }
@@ -197,8 +226,18 @@ if (typeof customElements !== 'undefined') {
 
       // Ensure no GPU layer bloat was set
       this.style.willChange = ''
+
       this.style.transform = ''
+
       this.style.backfaceVisibility = ''
+
+      const isHero = this.classes && this.classes.includes(CLASSES.INTERNAL_MAIN_ITEM)
+
+      const thumb = this.$(`.${CLASSES.RENDER_MEDIA_THUMB}`)
+
+      if (thumb && !isHero) {
+        thumb.setAttribute('loading', ATTRS.LOADING_LAZY)
+      }
 
       const fig = this.$('figure')
 
@@ -207,24 +246,28 @@ if (typeof customElements !== 'undefined') {
         const handleOpen = (e) => {
           if (e && e.type === 'touchend') {
             e.preventDefault()
+
+            e.stopPropagation()
           }
 
           this.openModal()
         }
 
         this.addScopedListener(fig, 'click', handleOpen)
+
         this.addScopedListener(fig, 'touchend', handleOpen, { passive: false })
 
         const btn = this.$(`.${CLASSES.EXPAND_MODAL_OPEN_1}`)
 
         if (btn) {
           this.addScopedListener(btn, 'click', handleOpen)
+
           this.addScopedListener(btn, 'touchend', handleOpen, { passive: false })
         }
       }
 
       // If hero cover item, load immediately without waiting for observer
-      if (this.classes && this.classes.includes(CLASSES.INTERNAL_MAIN_ITEM)) {
+      if (isHero) {
         this.loadHighRes()
       }
 
@@ -245,6 +288,7 @@ if (typeof customElements !== 'undefined') {
 
                   if (this.imgObserver) {
                     this.imgObserver.disconnect()
+
                     this.imgObserver = null
                   }
                 }
@@ -267,7 +311,13 @@ if (typeof customElements !== 'undefined') {
 
     ViewProjectClass.prototype._updateModalDOM = function () {
       const modal = store.getters.getModal()
-      const above = this.$(`dialog.${CLASSES.MODAL_ABOVE}`) || this.$(`.${CLASSES.MODAL_ABOVE}`)
+
+      const above =
+        this.$(`dialog.${CLASSES.MODAL_ABOVE}`) ||
+        this.$(`.${CLASSES.MODAL_ABOVE}`) ||
+        document.querySelector(`dialog.${CLASSES.MODAL_ABOVE}`) ||
+        document.querySelector(`.${CLASSES.MODAL_ABOVE}`)
+
       const below = this.$(`.${CLASSES.MODAL_BELOW}`)
 
       if (modal?.open) {
@@ -276,27 +326,61 @@ if (typeof customElements !== 'undefined') {
         }
 
         if (above) {
-          try {
-            if (typeof above.showModal === 'function' && !above.open) {
-              above.showModal()
-            }
-          } catch {}
+          if (!document.body.contains(above)) {
+            document.body.appendChild(above)
+          }
 
-          above.setAttribute('open', '')
-          above.open = true
+          above.style.position = 'fixed'
+
+          above.style.inset = '0'
+
+          above.style.top = '0'
+
+          above.style.left = '0'
+
+          above.style.width = '100vw'
+
+          above.style.height = '100vh'
+
+          above.style.height = '100dvh'
+
+          above.style.zIndex = '999999'
+
           above.style.display = 'block'
 
+          above.style.background = 'var(--bg-dark)'
+
+          above.style.overflowY = 'auto'
+
+          above.style.webkitOverflowScrolling = 'touch'
+
+          above.style.margin = '0'
+
+          above.style.padding = '0'
+
+          above.style.border = 'none'
+
+          above.setAttribute('open', '')
+
+          above.open = true
+
           const existing = above.querySelector(TAGS.MEDIA_EXPANDED)
+
           const src = modal.media?.source || ''
 
           if (!existing || existing.getAttribute('source') !== src) {
             const expandedEl = document.createElement(TAGS.MEDIA_EXPANDED)
 
             expandedEl.setAttribute('source', modal.media?.source || '')
+
             expandedEl.setAttribute('thumb', modal.media?.thumb || '')
+
             expandedEl.setAttribute('alt', modal.media?.alt || '')
+
             expandedEl.setAttribute('width', String(modal.media?.width || MEDIA_DIMENSIONS.DEFAULT_WIDTH))
+
             expandedEl.setAttribute('height', String(modal.media?.height || MEDIA_DIMENSIONS.DEFAULT_HEIGHT))
+
             expandedEl.setAttribute('is-video', modal.media?.isVideo ? ATTRS.TRUE : ATTRS.FALSE)
 
             above.replaceChildren(expandedEl)
@@ -315,10 +399,31 @@ if (typeof customElements !== 'undefined') {
           } catch {}
 
           above.removeAttribute('open')
+
           above.open = false
+
           above.style.display = 'none'
+
           above.replaceChildren()
+
+          if (this.shadowRoot && !this.shadowRoot.contains(above)) {
+            this.shadowRoot.appendChild(above)
+          }
         }
+      }
+    }
+
+    const originalProjectDestroy = ViewProjectClass.prototype.onDestroy
+
+    ViewProjectClass.prototype.onDestroy = function () {
+      if (typeof originalProjectDestroy === 'function') {
+        originalProjectDestroy.call(this)
+      }
+
+      const orphaned = document.body.querySelector(`dialog.${CLASSES.MODAL_ABOVE}, .${CLASSES.MODAL_ABOVE}`)
+
+      if (orphaned) {
+        orphaned.remove()
       }
     }
   })
@@ -339,15 +444,19 @@ if (typeof customElements !== 'undefined') {
       )
 
       closeBtns.forEach((btn) => {
-        this.addScopedListener(
-          btn,
-          'touchend',
-          (e) => {
+        const handleClose = (e) => {
+          if (e && e.type === 'touchend') {
             e.preventDefault()
-            this.startClose()
-          },
-          { passive: false }
-        )
+
+            e.stopPropagation()
+          }
+
+          this.startClose()
+        }
+
+        this.addScopedListener(btn, 'click', handleClose)
+
+        this.addScopedListener(btn, 'touchend', handleClose, { passive: false })
       })
 
       if (!this.isVideo && this.source) {

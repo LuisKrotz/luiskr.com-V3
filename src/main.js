@@ -1,4 +1,3 @@
-import './polyfills.js'
 import './registerServiceWorker'
 import './sass/app.scss'
 import router from './core/router.js'
