@@ -562,6 +562,7 @@ export const CLASSES = Object.freeze({
   ROUTER_LINK_EXACT_ACTIVE: 'router-link-exact-active',
   ACTIVE: 'active',
   IS_OPEN: 'is-open',
+  IS_SAFARI: 'is-safari',
 })
 
 // ─── UI text tokens (used by both app and tests) ──────────────────────────────

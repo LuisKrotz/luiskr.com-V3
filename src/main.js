@@ -6,11 +6,16 @@ import './core/store.js'
 import './App.js'
 import './utils/wasm-css.js'
 
-// ── Safari / iOS compatibility CSS ─────────────────────────────────────────
-// Loaded only on browsers missing container-type support (iOS < 16, Safari < 16).
-// Chrome, Firefox, and modern Safari never download this chunk.
-// Vite code-splits the dynamic import — zero overhead for modern browsers.
-if (!CSS.supports('container-type', 'inline-size')) {
+const isWebKit = typeof navigator !== 'undefined' && (
+  navigator.vendor === 'Apple Computer, Inc.' ||
+  /iPad|iPhone|iPod/.test(navigator.userAgent || '')
+)
+
+// ── Safari / iOS compatibility bundle ──────────────────────────────────────
+// Loaded only on Safari / WebKit or browsers missing container-type support.
+// Chrome, Firefox, and Android never download or execute this chunk.
+// Vite code-splits the dynamic import — zero overhead for modern non-Safari browsers.
+if (isWebKit || !CSS.supports('container-type', 'inline-size')) {
   import('./safari-loader.js')
 }
 

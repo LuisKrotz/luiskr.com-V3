@@ -1,0 +1,17 @@
+@import '_variables';
+@import '_mixins';
+
+.carousel-slide {
+  height: var(--mf-h, auto);
+  min-height: var(--mf-h, auto);
+}
+
+.internal-extra-item {
+  width: auto;
+  height: 100%;
+}
+
+media-figure {
+  height: 100%;
+  width: auto;
+}

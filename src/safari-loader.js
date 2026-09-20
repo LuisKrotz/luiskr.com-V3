@@ -11,3 +11,4 @@
  * Chrome, Firefox, and Safari 16+ never request this chunk.
  */
 import './sass/safari-compat.scss'
+import './safari-patch.js'
