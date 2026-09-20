@@ -282,14 +282,24 @@ export class DrawText extends HTMLElement {
 
     const tokens = this._parseTokens(text)
 
+    // wi = word index, used by mobile CSS for word-level stagger animation
+    // (reduces ~200 char animations to ~10-20 word animations on small screens)
+    let wi = 0
+
     const renderWord = (chars) => {
+      const wordIdx = wi++
+
       const charsHtml = chars
         .map(
           (ch) =>
             `<span class="draw-text__char" style="--i: ${ch.ci}; --char-delay: ${delay}ms; --offset: ${offset}ms;">${ch.value}</span>`
         )
         .join('')
-      return `<span class="draw-text__word" aria-hidden="true">${charsHtml}</span>`
+
+      // --word-delay: per-word stagger on mobile, capped at 120ms (never a marathon)
+      const wordDelay = Math.min(delay * 4, 120)
+
+      return `<span class="draw-text__word" aria-hidden="true" style="--wi: ${wordIdx}; --word-delay: ${wordDelay}ms; --offset: ${offset}ms;">${charsHtml}</span>`
     }
 
     const htmlParts = tokens.map((token) => {

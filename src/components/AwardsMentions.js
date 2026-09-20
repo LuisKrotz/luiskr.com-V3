@@ -99,28 +99,41 @@ export class AwardsMentions extends BaseComponent {
 
   _setupCarousel() {
     const hc = this.$('home-carousel')
-    if (hc && this.items) {
-      hc.variant = 'awards'
-      hc.duration = this._duration
-      hc.showDots = true
-      hc.items = this.items
+    if (!(hc && this.items)) return
 
-      this.addScopedListener(hc, EVENTS.SLIDE_CHANGE, () => {
-        this._showProgress()
-        this._restartProgressAnimation()
-      })
+    hc.variant = 'awards'
+    hc.duration = this._duration
+    hc.showDots = true
+    hc.items = this.items
 
-      this.addScopedListener(hc, EVENTS.AUTOPLAY_STOP, () => {
-        this._hideProgress()
-      })
+    // Track whether autoplay has ever fired at least once.
+    // HomeCarousel dispatches AUTOPLAY_STOP on the first render (IntersectionObserver
+    // fires before the section is in view and stops autoplay). Without this guard,
+    // that initial stop immediately hides the bar we just showed.
+    this._autoplayEverStarted = false
 
-      // Double-RAF: gives the browser two paint frames to fully apply
-      // shadow-DOM styles and register the @keyframes rule before we add the
-      // --running class that starts the animation. Without this, iOS and fresh
-      // desktop first-loads silently ignore the animation on the first slide.
+    // AUTOPLAY_START fires when the carousel scrolls ≥50% into view and begins playing.
+    // This is the authoritative "bar should be visible and running" signal.
+    this.addScopedListener(hc, EVENTS.AUTOPLAY_START, () => {
+      this._autoplayEverStarted = true
       this._showProgress()
-      requestAnimationFrame(() => requestAnimationFrame(() => this._restartProgressAnimation()))
-    }
+      this._restartProgressAnimation()
+    })
+
+    // SLIDE_CHANGE restarts the fill animation for each new slide
+    this.addScopedListener(hc, EVENTS.SLIDE_CHANGE, () => {
+      this._showProgress()
+      this._restartProgressAnimation()
+    })
+
+    // AUTOPLAY_STOP hides the bar — but ONLY after autoplay has started at least once.
+    // Prevents the initial off-screen stop from hiding the bar before it ever showed.
+    this.addScopedListener(hc, EVENTS.AUTOPLAY_STOP, () => {
+      if (this._autoplayEverStarted) this._hideProgress()
+    })
+
+    // Show the bar immediately so the track is visible while the carousel initialises
+    this._showProgress()
   }
 
   _showProgress() {

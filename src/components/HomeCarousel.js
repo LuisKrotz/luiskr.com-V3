@@ -284,9 +284,14 @@ export class HomeCarousel extends BaseComponent {
       this._stopAutoplay()
       return
     }
+
     this.autoplayRunning = true
     this.autoplayStart = performance.now()
     this.autoplayElapsed = 0
+
+    // Notify listeners (e.g. AwardsMentions progress bar) that autoplay is live
+    this.dispatchEvent(new CustomEvent(EVENTS.AUTOPLAY_START, { bubbles: false }))
+
     this._tickRing()
   }
 

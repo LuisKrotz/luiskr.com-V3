@@ -604,4 +604,5 @@ export const EVENTS = Object.freeze({
   POPSTATE: 'popstate',
   SLIDE_CHANGE:    'slidechange',
   AUTOPLAY_STOP:   'autoplaystop',
+  AUTOPLAY_START:  'autoplaystart',
 })

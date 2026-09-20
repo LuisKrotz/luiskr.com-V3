@@ -68,6 +68,13 @@
         filter: blur(12px);
         transform: scale(1.05);
         z-index: 1;
+        // Mobile: filter:blur triggers paint every frame — extremely expensive on mobile GPU.
+        // Replace with a simple opacity dim while the hi-res loads.
+        @media (max-width: 768px) {
+          filter: none;
+          transform: none;
+          opacity: 0.4;
+        }
       }
 
       &--high {
@@ -95,6 +102,12 @@
       );
       background-size: 200% 100%;
       animation: skeleton-shimmer 2.4s ease-in-out infinite;
+      // Mobile: background-position animation is non-composited (triggers paint every
+      // frame at 60fps). Stop the animation — solid colour skeleton is fine on mobile.
+      @media (max-width: 768px) {
+        animation: none;
+        background: var(--skel-bg-1);
+      }
     }
   }
 
@@ -109,6 +122,10 @@
     background-size: 200% 100%;
     animation: skeleton-shimmer 2.4s ease-in-out infinite;
     display: block;
+    @media (max-width: 768px) {
+      animation: none;
+      background: var(--skel-bg-1);
+    }
   }
 
   &-description {

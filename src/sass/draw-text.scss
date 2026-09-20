@@ -144,6 +144,55 @@
   }
 }
 
+// ── Word-level animation on small screens (≤768px) ──────────────────────────
+// Root cause of mobile freeze: per-character animation creates 100–300+
+// simultaneous CSS animations (one per span). Mobile browsers cannot schedule
+// that many compositor operations without dropping frames.
+//
+// Fix: animate the .draw-text__word wrapper instead of each char.
+// JS sets --wi (word index) and --word-delay on every word span.
+// Result: ~10–20 word animations instead of ~200+ char animations.
+@media (max-width: 768px) {
+  @keyframes word-draw {
+    from {
+      opacity: 0;
+      transform: translateY(0.08em);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  // Word-level stagger replaces char-level stagger
+  .draw-text--visible .draw-text__word,
+  .home-section-title .draw-text__word,
+  .hc-slide--active .draw-text__word,
+  .related-mosaic-desc .draw-text__word {
+    opacity: 0;
+    animation: word-draw 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--offset, 0ms) + var(--wi, 0) * var(--word-delay, 100ms));
+  }
+
+  // Chars inside animated words are immediately visible — word wrapper handles the fade
+  .draw-text--visible .draw-text__char,
+  .home-section-title .draw-text__char,
+  .hc-slide--active .draw-text__char,
+  .related-mosaic-desc .draw-text__char {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    will-change: auto;
+  }
+
+  // Done state: release word GPU layers once animation is complete
+  .draw-text--done .draw-text__word {
+    opacity: 1;
+    animation: none;
+    will-change: auto;
+  }
+}
+
 // ── Reduced Motion Override ────────────────────────────────────────────────
 html.reduced-motion .draw-text__char {
   opacity: 1;
