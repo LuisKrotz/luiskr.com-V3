@@ -24,8 +24,10 @@
   color: var(--text-primary);
 }
 
-:host-context(.internal-extra-item) {
-  width: auto;
+@supports selector(:host-context(*)) {
+  :host-context(.internal-extra-item) {
+    width: auto;
+  }
 }
 
 // In carousel slide context: let host shrink to content width (the placeholder drives it)
@@ -135,16 +137,18 @@ figure {
   }
 }
 
-:host-context(.internal-extra-item) figure {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--grey-3);
-  border-radius: to-rem($space-md);
+@supports selector(:host-context(*)) {
+  :host-context(.internal-extra-item) figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--grey-3);
+    border-radius: to-rem($space-md);
 
-  @include layout-1024() {
-    background: none;
-    border-radius: to-rem($space-lg);
+    @include layout-1024() {
+      background: none;
+      border-radius: to-rem($space-lg);
+    }
   }
 }
 
@@ -186,11 +190,13 @@ figure {
   }
 }
 
-:host-context(.internal-extra-item) .render-placeholder {
-  position: relative;
-  width: var(--mf-w, calc(90vw - #{to-rem($space-xl * 2)}));
-  height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
-  max-width: var(--mf-max-w, none);
+@supports selector(:host-context(*)) {
+  :host-context(.internal-extra-item) .render-placeholder {
+    position: relative;
+    width: var(--mf-w, calc(90vw - #{to-rem($space-xl * 2)}));
+    height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
+    max-width: var(--mf-max-w, none);
+  }
 }
 
 // When inside .internal-extra-item context, use the CSS custom properties
