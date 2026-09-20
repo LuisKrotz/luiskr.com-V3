@@ -128,10 +128,10 @@
 
   &-profile-text {
     flex: 1;
-    // Mobile: single column
+    // Mobile: single column, no gap — paragraphs provide their own padding-bottom
     display: grid;
     grid-template-columns: 1fr;
-    gap: to-rem($space-xl);
+    gap: 0;
 
     @include layout-768() {
       // On 768 grid: profile-text spans cols 2-3, shows 2 cols inside

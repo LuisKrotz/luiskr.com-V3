@@ -38,10 +38,15 @@
   -webkit-backdrop-filter: blur(to-rem(8));
   outline: none;
   overflow: hidden;
+
+  @media (max-width: $bk-540) {
+    padding: to-rem($space-sm);
+  }
 }
 
 .pref-dialog {
   width: 100%;
+  box-sizing: border-box;
   max-width: to-rem($space-8xl);
   max-height: calc(88vh);
   max-height: calc(88dvh);
@@ -187,6 +192,10 @@
 
 .lang-dialog {
   max-width: to-rem(480);
+
+  @media (max-width: $bk-540) {
+    max-width: 100%;
+  }
 }
 
 .pref-option-btn {

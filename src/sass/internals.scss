@@ -792,12 +792,29 @@
   transform: none;
 }
 
-// ── Legal page container ───────────────────────────────────────────────────────────
-// .legal must NOT extend %MAXAREA — it is full-width.
-// All column indentation comes from the .internal-description 25% padding
-// inside it, which places content in cols 4–9 (3 empty cols on each side
-// of the 12-column grid).
+// ── Legal page container ────────────────────────────────────────────────────────────
+// Needs %MAXAREA for width:100% + position:relative + box-sizing on the host.
+// BUT horizontal padding is reset to 0 at all breakpoints so the grid indent
+// comes entirely from .internal-description's own 25% padding (cols 4–9).
 .legal {
-  width: 100%;
+  @extend %MAXAREA;
+
   box-sizing: border-box;
+  // Reset all MAXAREA horizontal padding — .internal-description provides
+  // the 12.5% / 25% column-indent itself, so no outer indent is needed here.
+  padding-left: 0;
+  padding-right: 0;
+
+  @include layout-320()  { padding-left: 0; padding-right: 0; }
+  @include layout-375()  { padding-left: 0; padding-right: 0; }
+  @include layout-414()  { padding-left: 0; padding-right: 0; }
+  @include layout-540()  { padding-left: 0; padding-right: 0; }
+  @include layout-768()  { padding-left: 0; padding-right: 0; }
+  @include layout-960()  { padding-left: 0; padding-right: 0; }
+  @include layout-1024() { padding-left: 0; padding-right: 0; }
+  @include layout-1280() { padding-left: 0; padding-right: 0; }
+  @include layout-1440() { padding-left: 0; padding-right: 0; }
+  @include layout-1680() { padding-left: 0; padding-right: 0; }
+  @include layout-1920() { padding-left: 0; padding-right: 0; }
+  @include layout-2560() { padding-left: 0; padding-right: 0; }
 }
