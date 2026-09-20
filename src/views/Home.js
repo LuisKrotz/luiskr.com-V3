@@ -1,0 +1,183 @@
+import { h } from '../core/jsx.js'
+import { BaseComponent } from '../core/Component.js'
+import store from '../core/store.js'
+import router from '../core/router.js'
+import { deepQuerySelector } from '../core/dom.js'
+import { TAGS, PATHS } from '../core/constants.js'
+import { fetchFirebaseDb } from '../utils/db.js'
+import homeStyles from '../sass/home.scss?inline'
+import '../components/HomeMosaic.js'
+import '../components/AboutSection.js'
+import '../components/ContactSection.js'
+import '../components/AwardsMentions.js'
+
+export class ViewHome extends BaseComponent {
+  constructor() {
+    super(homeStyles)
+    this.translations = null
+    this.aboutTranslations = null
+    this.profilePicture = null
+    this.featuredLinks = new Set()
+  }
+
+  get storage() {
+    return store.getters.getStorage()
+  }
+
+  get hasTouch() {
+    return store.getters.getTouch()
+  }
+
+  get processedItems() {
+    if (!this.translations?.portfoliolist) return []
+    const raw = Array.isArray(this.translations.portfoliolist)
+      ? this.translations.portfoliolist
+      : Object.values(this.translations.portfoliolist)
+    return raw.map((item) => ({ ...item, featured: this.isFeatured(item) }))
+  }
+
+  isFeatured(item) {
+    if (!item) return false
+    if (item.featured === true || item.featured === 'true' || item.featured === 1) return true
+    return item.link && this.featuredLinks.has(item.link)
+  }
+
+  onRouteParamChange(to) {
+    if (to?.meta?.scrollTo) {
+      setTimeout(() => {
+        const el = this.$('#' + to.meta.scrollTo) || deepQuerySelector('#' + to.meta.scrollTo)
+        if (el) {
+          const targetY = window.scrollY + el.getBoundingClientRect().top
+          window.scrollTo({ top: targetY, behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
+  onMounted() {
+    this.loadData()
+    this.subscribe(store)
+
+    const route = router.currentRoute
+    if (route?.meta?.scrollTo) {
+      setTimeout(() => {
+        const el = this.$('#' + route.meta.scrollTo) || deepQuerySelector('#' + route.meta.scrollTo)
+        if (el) {
+          const targetY = window.scrollY + el.getBoundingClientRect().top
+          window.scrollTo({ top: targetY, behavior: 'smooth' })
+        }
+      }, 300)
+    } else {
+      setTimeout(() => window.scrollTo(0, 0), 500)
+    }
+  }
+
+  onStoreUpdate() {
+    // If locale changes, reload data
+    const currentLocale = store.getters.getLang()
+    if (this._lastLocale && this._lastLocale !== currentLocale) {
+      this._lastLocale = currentLocale
+      this.loadData()
+    }
+  }
+
+  loadData() {
+    const lang = store.getters.getlang()
+    const currentLocale = lang.locale || 'en'
+    this._lastLocale = currentLocale
+    const basePath = lang.database + currentLocale
+
+    Promise.all([
+      fetchFirebaseDb(basePath + lang.pagesPath + 'HOME'),
+      fetchFirebaseDb(basePath + PATHS.COMPONENTS_RELATED_PROJECTS),
+      fetchFirebaseDb(basePath + lang.pagesPath + 'about'),
+      fetchFirebaseDb(basePath + lang.pagesPath + 'about/profilePicture'),
+    ])
+      .then(([homeSnap, projectsSnap, aboutSnap, picSnap]) => {
+        if (homeSnap?.exists()) {
+          this.translations = homeSnap.val()
+          if (this.translations?.portfoliolist) {
+            store.commit('setPortfolioList', this.translations.portfoliolist)
+          }
+        }
+        if (projectsSnap?.exists()) {
+          const links = new Set()
+          Object.values(projectsSnap.val()).forEach((p) => {
+            if (p.featured === true && p.link) links.add(p.link)
+          })
+          this.featuredLinks = links
+        }
+        if (aboutSnap?.exists()) {
+          const about = aboutSnap.val()
+          this.aboutTranslations = about
+          store.commit('setMentions', {
+            title: about.mentions ?? 'Some mentions',
+            items: about.mention_items ?? [],
+          })
+        }
+        if (picSnap?.exists()) {
+          this.profilePicture = picSnap.val()
+        }
+
+        this._updateDom()
+        this._passDataToChildren()
+      })
+      .catch(console.error)
+  }
+
+  _passDataToChildren() {
+    const mosaic = this.$('home-mosaic')
+    if (mosaic) {
+      mosaic.processedItems = this.processedItems
+      mosaic.translations = this.translations
+    }
+
+    const aboutSec = this.$(TAGS.ABOUT_SECTION)
+    if (aboutSec) {
+      aboutSec.aboutTranslations = this.aboutTranslations
+      aboutSec.profilePicture = this.profilePicture
+    }
+
+    const awards = this.$('awards-mentions')
+    if (awards) {
+      const mentions = store.getters.getMentions()
+      awards.title = mentions.title
+      awards.items = mentions.items
+    }
+  }
+
+  render() {
+    const HomeMosaic = TAGS.HOME_MOSAIC
+    const AboutSection = TAGS.ABOUT_SECTION
+    const ContactSection = TAGS.CONTACT_SECTION
+    const AwardsMentions = TAGS.AWARDS_MENTIONS
+
+    return (
+      <article className={this.hasTouch ? 'has_touch' : ''}>
+        <div id="home">
+          <HomeMosaic />
+        </div>
+
+        <div id="about">
+          <AboutSection />
+        </div>
+
+        <div id="contact">
+          <ContactSection />
+        </div>
+
+        <AwardsMentions />
+      </article>
+    )
+  }
+
+  onUpdated() {
+    this._passDataToChildren()
+  }
+}
+
+if (!customElements.get(TAGS.VIEW_HOME)) {
+  customElements.define(TAGS.VIEW_HOME, ViewHome)
+}

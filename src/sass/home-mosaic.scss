@@ -11,52 +11,53 @@
 .home-portfolio-section {
   @extend %MAXAREA;
   width: 100%;
-  padding-top: to-rem(50) !important;
-  padding-bottom: to-rem($space-2xl);
+  padding-top: to-rem($space-3xl);
+  padding-bottom: to-rem($space-3xl);
   box-sizing: border-box;
 
   @include layout-768() {
-    padding-top: to-rem(60) !important;
-    padding-bottom: to-rem($space-3xl);
+    padding-top: to-rem($space-3xl);
+    padding-bottom: to-rem($space-4xl);
   }
+
   @include layout-1024() {
-    padding-top: to-rem(70) !important;
+    padding-top: to-rem($space-4xl);
+    padding-bottom: to-rem($space-5xl);
   }
 
   .home-section-title {
-    padding-top: 0 !important;
+    @extend .ttl-xl;
+
+    font-family: var(--font-primary);
+    font-weight: 100;
+    text-transform: uppercase;
+    text-align: left;
+    padding-top: 0;
     margin-bottom: to-rem($space-md);
+    color: var(--text-primary);
   }
 }
+
 
 // ── Masonry container ─────────────────────────────────────────────────────────
 // height is set inline by JS (containerH). Transitioning it makes the about
 // section below slide smoothly when a card expands / collapses on hover.
-// min-height reserves space before JS layout() runs, preventing the CLS
-// spike caused by the about section shifting down by hundreds of pixels.
-// Values are calibrated from the JS layout constants:
-//   N=1 (< 540px): col≈333px, COMP_MULT≈0.55 → itemH≈183px, 7 items
-//   N=2 (540–959px): col≈262px, COMP_MULT≈0.55 → itemH≈144px, stacked 4 rows
-//   N≥3 (≥960px):  cards are wider, fewer rows needed
 .home-mosaic {
   transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
-  // Reserve approximate height before JS runs — eliminates CLS on about section.
-  // Values match skeletonH computed in Home.vue (12 compact items per breakpoint).
-  // quickLayout() will set the exact value synchronously, making these a safety net.
-  min-height: 2400px; // mobile N=1: 12 items × ~197px avg ≈ 2316px
+  min-height: to-rem($space-11xl);
 
   @include layout-540() {
-    min-height: 1300px;
-  } // N=2: 6 rows × ~200px
+    min-height: to-rem($space-10xl);
+  }
   @include layout-960() {
-    min-height: 900px;
-  } // N=3: 4 rows
+    min-height: to-rem($space-9xl);
+  }
   @include layout-1440() {
-    min-height: 750px;
-  } // N=4: 3 rows
+    min-height: to-rem($space-8xl + $space-5xl);
+  }
   @include layout-1920() {
-    min-height: 600px;
-  } // N=5+: 2-3 rows
+    min-height: to-rem($space-8xl);
+  }
 }
 
 // ── Card container ────────────────────────────────────────────────────────────
@@ -64,11 +65,12 @@
 .home-mosaic-item {
   cursor: pointer;
   border-radius: to-rem($space-lg);
+  overflow: hidden;
   text-decoration: none;
-  color: #ffffff;
+  color: $color-white;
   // Always dark — photo cards look wrong on a light background
-  background: var(--bg-dark, #262626);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  background: var(--bg-dark);
+  box-shadow: var(--shadow-card);
   box-sizing: border-box;
   container-type: inline-size; // enables cqw units for child text
 
@@ -83,15 +85,20 @@
     filter 0.3s ease;
 
   &--featured {
-    box-shadow: 0 8px 36px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-card-featured);
   }
 
   &:hover {
-    transform: translateY(-5px) scale(1.015);
-    box-shadow: 0 20px 52px rgba(0, 0, 0, 0.65);
+    transform: translateY(-#{to-rem($space-sm)}) scale(1.015);
+    box-shadow: var(--shadow-card-hover);
     z-index: 10;
-    opacity: 1 !important;
-    filter: none !important;
+    opacity: 1;
+    filter: none;
+
+    .home-mosaic-media {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
 
     .home-mosaic-img {
       transform: scale(1.07);
@@ -103,6 +110,8 @@
 // height is set inline by JS — this block only handles visuals
 .home-mosaic-media {
   position: relative;
+  border-radius: inherit;
+  overflow: hidden;
   // transition on height so the image area animates when card expands/collapses
   transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -113,6 +122,7 @@
   object-fit: cover;
   object-position: center;
   display: block;
+  border-radius: inherit;
   transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -124,25 +134,25 @@
   padding: to-rem($space-md) to-rem($space-lg);
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.88) 0%,
-    rgba(0, 0, 0, 0.12) 55%,
+    rgba($color-black, 0.88) 0%,
+    rgba($color-black, 0.12) 55%,
     transparent 100%
   );
 }
 
 .home-mosaic-title {
   @extend .ttl-sm;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 100;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #ffffff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  color: $color-white;
+  text-shadow: 0 to-rem($space-2xs) to-rem($space-md) rgba($color-black, 0.8);
   margin: 0;
-  font-size: clamp(to-rem(9), 5cqw, to-rem(16));
+  font-size: clamp(to-rem($space-md), 5cqw, to-rem($space-lg));
 
   .home-mosaic-item--featured & {
-    font-size: clamp(to-rem(10), 5.5cqw, to-rem(22));
+    font-size: clamp(to-rem($space-md), 5.5cqw, to-rem($space-xl));
     letter-spacing: 0.12em;
   }
 }
@@ -155,8 +165,10 @@
     height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.28s ease 0.1s;
   // Always dark to match card image aesthetic in both light and dark mode
-  background: var(--bg-dark, #262626);
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--bg-dark);
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  border-top: to-rem($space-hairline) solid rgba($color-white, 0.07);
   box-sizing: border-box;
 }
 
@@ -171,12 +183,11 @@
 
 .home-mosaic-desc {
   @extend .txt-sm;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 200;
-  font-size: to-rem(15);
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  color: rgba($color-white, 0.92);
+  text-shadow: 0 to-rem($space-pixel) to-rem($space-2xs) rgba($color-black, 0.7);
 
   .draw-text__char {
     animation: char-draw 0.22s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -195,7 +206,7 @@
   text-align: center;
   text-transform: uppercase;
   padding: to-rem($space-xs) to-rem($space-lg);
-  color: #ffffff;
+  color: $color-white;
   font-weight: 700;
   white-space: nowrap;
   transition: opacity 0.2s ease;
@@ -216,14 +227,14 @@
   &::before {
     top: 0;
     left: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.65);
-    border-left: 1px solid rgba(255, 255, 255, 0.65);
+    border-top: to-rem($space-hairline) solid rgba($color-white, 0.65);
+    border-left: to-rem($space-hairline) solid rgba($color-white, 0.65);
   }
   &::after {
     bottom: 0;
     right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.65);
-    border-right: 1px solid rgba(255, 255, 255, 0.65);
+    border-bottom: to-rem($space-hairline) solid rgba($color-white, 0.65);
+    border-right: to-rem($space-hairline) solid rgba($color-white, 0.65);
   }
 
   &:hover,

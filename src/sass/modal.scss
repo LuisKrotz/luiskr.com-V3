@@ -4,14 +4,49 @@
 @import '_placeholders';
 
 html.modal-open,
-html:has(.modal-open) {
-  overflow: hidden !important;
+html.modal-open body,
+html:has(.modal-open),
+html:has(.modal-open) body,
+html:has(dialog[open].modal-above),
+html:has(dialog[open].modal-above) body {
+  overflow: hidden;
+}
+
+dialog.modal-above,
+.modal-above {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  inset: 0;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  border: none;
+  padding: 0;
+  margin: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  background: var(--bg-dark);
+  color: inherit;
+
+  &::backdrop {
+    background: var(--bg-dark);
+    position: fixed;
+    inset: 0;
+  }
 }
 
 .modal-open {
   // Lock page scroll behind the modal
   body {
-    overflow: hidden !important;
+    overflow: hidden;
   }
 
   .modal-below {
@@ -19,23 +54,6 @@ html:has(.modal-open) {
     left: 0;
     width: 100%;
     position: fixed;
-  }
-
-  .modal-above {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-    z-index: 9999;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
-    background: var(--bg-dark);
   }
 
   // Hide regular nav links in modal context
@@ -64,7 +82,7 @@ html:has(.modal-open) {
     text-transform: uppercase;
     cursor: pointer;
     padding: to-rem($space-xs) to-rem($space-lg);
-    color: var(--white);
+    color: var(--color-white-raw);
     background: transparent;
     font-weight: 700;
     white-space: nowrap;
@@ -73,8 +91,8 @@ html:has(.modal-open) {
       opacity 0.2s ease;
     // Readable on both dark and light backgrounds
     text-shadow:
-      0 1px 4px rgba(0, 0, 0, 0.6),
-      0 0 12px rgba(0, 0, 0, 0.3);
+      0 1px 4px var(--bg-dark),
+      0 0 12px var(--bg-dark);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     // The animated corner borders
@@ -92,20 +110,20 @@ html:has(.modal-open) {
     &::before {
       top: 0;
       left: 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.55);
-      border-left: 1px solid rgba(255, 255, 255, 0.55);
+      border-top: 1px solid var(--color-white-raw);
+      border-left: 1px solid var(--color-white-raw);
     }
 
     &::after {
       bottom: 0;
       right: 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.55);
-      border-right: 1px solid rgba(255, 255, 255, 0.55);
+      border-bottom: 1px solid var(--color-white-raw);
+      border-right: 1px solid var(--color-white-raw);
     }
 
     .internal-expand:hover &,
     .internal-expand:focus & {
-      color: var(--white);
+      color: var(--color-white-raw);
 
       &::before,
       &::after {
@@ -117,7 +135,7 @@ html:has(.modal-open) {
 
   &-open-2 {
     // Hidden — open-1 is the sole expand trigger
-    display: none !important;
+    display: none;
   }
 
   &-close-bar {
@@ -268,6 +286,7 @@ html:has(.modal-open) {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    transform-origin: center top;
 
     // Zoom-in on open
     animation: modal-zoom-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -279,7 +298,8 @@ html:has(.modal-open) {
 
   // Closing state: zoom-out animation
   &--closing {
-    animation: modal-zoom-out 0.4s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+    transform-origin: center top;
+    animation: modal-zoom-out 0.32s cubic-bezier(0.55, 0, 1, 0.45) forwards;
   }
 
   // Video-specific modal layout: max 100ch minus padding, contained vertically so close button sits below without scrolling

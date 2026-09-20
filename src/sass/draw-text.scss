@@ -6,8 +6,21 @@
 // --char-delay : ms between each character (set from template, default 100ms)
 // --offset     : ms base delay before any character starts (for sequencing)
 
+:host {
+  display: inline-block;
+  vertical-align: baseline;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
 .draw-text {
   display: inline;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
 
   &__word {
     display: inline-block;
@@ -25,6 +38,19 @@
     // NO will-change here — adding it to every char span creates hundreds of GPU layers
     // and destroys mobile scroll performance. Only promote during the actual animation.
   }
+
+  a,
+  a:link,
+  a:visited {
+    color: inherit;
+    text-decoration: underline;
+    transition: opacity 0.3s ease-in;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+  }
 }
 
 // ── Section titles: animate on mount (replayed via :key re-mount) ──────────
@@ -40,6 +66,7 @@
   animation: char-draw 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 100ms));
 }
+
 
 // ── Viewport trigger: animate when scrolled into view ──────────────────────
 // .draw-text--visible is added by IntersectionObserver in the component
@@ -119,17 +146,17 @@
 
 // ── Reduced Motion Override ────────────────────────────────────────────────
 html.reduced-motion .draw-text__char {
-  opacity: 1 !important;
-  transform: none !important;
-  filter: none !important;
-  animation: none !important;
+  opacity: 1;
+  transform: none;
+  filter: none;
+  animation: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .draw-text__char {
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-    animation: none !important;
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
   }
 }

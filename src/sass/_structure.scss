@@ -7,6 +7,12 @@
   --color-grey-3-raw: #{$color-grey-3};
   --color-blue-raw: #{$color-blue};
 
+  // CMS brand tokens — exposed as CSS vars so component SCSS files can use them
+  // without referencing $cms-* SCSS variables (which are _structure.scss-only).
+  --color-accent: #{$cms-accent};
+  --color-accent-hover: #{$cms-accent-hover};
+  --bg-darkest: #{$cms-bg-darkest};
+
   // Light theme default tokens
   --bg-primary: #ffffff;
   --bg-secondary: #f7f7f7;
@@ -16,6 +22,15 @@
   --text-secondary: #515151; // Muted text
   --text-muted: #a79e9e;
   --border-color: #e2e2e2;
+  --border-item: transparent;
+  --border-item-hover: rgba(255, 255, 255, 0.22);
+  --border-item-featured: rgba(255, 255, 255, 0.16);
+
+  // Card shadow tokens — light theme: elevated shadows show card lift clearly
+  // without the halo appearing as a black border on white backgrounds
+  --shadow-card:          0 0.125rem 0.75rem rgba(0, 0, 0, 0.10);
+  --shadow-card-featured: 0 0.5rem 1.75rem rgba(0, 0, 0, 0.22);
+  --shadow-card-hover:    0 1.25rem 3.125rem rgba(0, 0, 0, 0.45);
 
   --white: #ffffff;
   --black: #262626;
@@ -32,6 +47,7 @@
   --space-none: #{$space-none};
   --space-hairline: #{$space-hairline};
   --space-pixel: #{$space-pixel};
+  --space-3xs: #{$space-3xs};
   --space-2xs: #{$space-2xs};
   --space-xs: #{$space-xs};
   --space-sm: #{$space-sm};
@@ -47,9 +63,39 @@
   --space-8xl: #{$space-8xl};
   --space-9xl: #{$space-9xl};
   --space-10xl: #{$space-10xl};
+
+  // Border radius tokens
+  --radius-none: 0;
+  --radius-hairline: #{to-rem($space-hairline)};
+  --radius-2xs: #{to-rem($space-2xs)};
+  --radius-xs: #{to-rem($space-xs)};
+  --radius-sm: #{to-rem($space-sm)};
+  --radius-md: #{to-rem($space-md)};
+  --radius-lg: #{to-rem($space-lg)};
+  --radius-xl: #{to-rem($space-xl)};
+  --radius-full: 50%;
+  --radius-round: 9999px;
+
+  // Z-index layering system \u2014 exposed from $z-* SCSS tokens
+  --z-overlay:  #{$z-overlay};
+  --z-hud:      #{$z-hud};
+  --z-modal:    #{$z-modal};
+  --z-cookies:  #{$z-cookies};
+  --z-nav:      #{$z-nav};
+  --z-top:      #{$z-top};
+
+  // Font stacks
+  --font-mono: #{$font-mono};
+  --font-primary: 'Raleway', sans-serif;
+}
+
+html {
+  color-scheme: light;
 }
 
 html.dark-mode {
+  color-scheme: dark;
+
   --bg-primary: #262626; // Light areas of today become current dark (#262626)
   --bg-secondary: #1d1d1d;
   --bg-dark: #121212; // Dark areas of today become darker (#121212)
@@ -58,6 +104,11 @@ html.dark-mode {
   --text-secondary: #e0e0e0;
   --text-muted: #a79e9e;
   --border-color: #383838;
+
+  // Dark mode: strong shadows match original production values
+  --shadow-card:          0 0.125rem 1rem rgba(0, 0, 0, 0.30);
+  --shadow-card-featured: 0 0.5rem 2rem rgba(0, 0, 0, 0.50);
+  --shadow-card-hover:    0 1.25rem 3.125rem rgba(0, 0, 0, 0.65);
 
   --white: #262626;
   --black: #ffffff;
@@ -75,6 +126,14 @@ html {
   overflow-y: scroll; // always show scrollbar to prevent layout shift on navigation
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  // Native browser scrollbar theme — inherits from color-scheme
+  scrollbar-color: var(--border-color) transparent;
+  scrollbar-width: thin;
+}
+
+html.modal-open {
+  overflow-y: hidden; // hide background scrollbar when any modal is open
 }
 
 body {
@@ -86,7 +145,7 @@ body {
   padding: 0;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
@@ -133,11 +192,40 @@ a {
   background: transparent;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 
 button {
   @extend %RESETBTN;
 }
+
+app-root,
+view-home,
+view-project,
+view-legal,
+view-not-found,
+view-admin-login,
+view-cms-dashboard,
+app-nav,
+home-mosaic,
+about-section,
+contact-section,
+awards-mentions,
+home-carousel,
+custom-carousel,
+preferences-modal,
+lang-dialog,
+cookie-banner,
+portfolio-related,
+media-figure,
+media-expanded {
+  display: block;
+}
+
+draw-text {
+  display: inline;
+}
+
 
 main {
   .modal-open & {
@@ -243,5 +331,100 @@ main {
     width: to-rem(110);
     height: to-rem(36);
     border-radius: to-rem($space-xl);
+  }
+
+  &--title-sm {
+    @extend .skeleton--shimmer;
+    display: inline-block;
+    width: 35%;
+    height: 1em;
+    border-radius: to-rem($space-2xs);
+  }
+
+  &--title-md {
+    @extend .skeleton--shimmer;
+    display: inline-block;
+    width: 45%;
+    height: 1em;
+    border-radius: to-rem($space-2xs);
+  }
+
+  &--section-title {
+    @extend .skeleton--shimmer;
+    display: block;
+    width: 35%;
+    height: to-rem($space-xl);
+    border-radius: to-rem($space-2xs);
+    margin-bottom: to-rem($space-lg);
+  }
+
+  &--para-full {
+    @extend .skeleton--shimmer;
+    display: block;
+    width: 100%;
+    height: to-rem($space-lg);
+    border-radius: to-rem($space-2xs);
+    margin-bottom: to-rem($space-sm);
+  }
+
+  &--para-94 {
+    @extend .skeleton--shimmer;
+    display: block;
+    width: 94%;
+    height: to-rem($space-lg);
+    border-radius: to-rem($space-2xs);
+    margin-bottom: to-rem($space-sm);
+  }
+
+  &--para-98 {
+    @extend .skeleton--shimmer;
+    display: block;
+    width: 98%;
+    height: to-rem($space-lg);
+    border-radius: to-rem($space-2xs);
+    margin-bottom: to-rem($space-sm);
+  }
+
+  &--para-65 {
+    @extend .skeleton--shimmer;
+    display: block;
+    width: 65%;
+    height: to-rem($space-lg);
+    border-radius: to-rem($space-2xs);
+  }
+
+  &--badge {
+    @extend .skeleton--shimmer;
+    display: inline-block;
+    width: to-rem($space-3xl);
+    height: to-rem($space-3xl);
+    border-radius: 50%;
+    margin: 0 to-rem($space-md);
+  }
+
+  &--footer-link {
+    @extend .skeleton--shimmer;
+    display: inline-block;
+    width: to-rem($space-3xl);
+    height: 1em;
+    border-radius: to-rem($space-hairline);
+  }
+
+  &--footer-note-1 {
+    @extend .skeleton--shimmer;
+    display: block;
+    width: 90%;
+    height: to-rem($space-lg);
+    border-radius: to-rem($space-2xs);
+    margin-top: to-rem($space-lg);
+    margin-bottom: to-rem($space-sm);
+  }
+
+  &--footer-note-2 {
+    @extend .skeleton--shimmer;
+    display: block;
+    width: 75%;
+    height: to-rem($space-lg);
+    border-radius: to-rem($space-2xs);
   }
 }

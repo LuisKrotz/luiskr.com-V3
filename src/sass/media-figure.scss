@@ -1,0 +1,316 @@
+// ── Media Figure Shadow DOM styles ────────────────────────────────────────────
+// These styles apply INSIDE the <media-figure> Shadow Root.
+// Because Shadow DOM is isolated, rules from internals.scss (.internal-main figure,
+// .internal-extra-item .render-media, etc.) cannot pierce into this shadow root.
+// All styles that target figure, .render-placeholder, and .render-media must live
+// here so they are injected into the correct Shadow Root scope.
+//
+// CSS custom properties (--mf-w, --mf-h, --mf-max-w) ARE inherited across shadow
+// boundaries — they are set by internals.scss on the <media-figure> host element
+// and read here to achieve context-aware sizing.
+
+@import '_variables';
+@import '_mixins';
+@import '_placeholders';
+@import '_structure';
+
+// ── Shadow host ───────────────────────────────────────────────────────────────
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+  color: var(--text-primary);
+}
+
+:host-context(.internal-extra-item) {
+  width: auto;
+}
+
+// In carousel slide context: let host shrink to content width (the placeholder drives it)
+:host(.internal-extra-item),
+:host([classes*="internal-extra-item"]) {
+  width: auto;
+}
+
+:host(.internal-main-item),
+:host([classes*="internal-main-item"]) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+
+  figure {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    max-height: 70vh;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 0;
+    background-color: var(--bg-dark);
+
+    @include layout-1024() {
+      border-radius: to-rem($space-lg);
+    }
+  }
+
+  .render-placeholder {
+    display: block;
+    position: relative;
+    height: auto;
+    // On mobile: stretch full width
+    width: 100%;
+    max-width: 100%;
+
+    @include layout-768() {
+      // At tablet+: use natural SVG dimensions, cap at container
+      width: auto;
+      max-width: 100%;
+      max-height: 70vh;
+    }
+  }
+
+  .render-media,
+  video.render-media {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    // Cover section is always full-bleed: fill and crop anchored to top center.
+    object-fit: cover;
+    object-position: top center;
+
+    @include layout-1024() {
+      border-radius: to-rem($space-lg);
+    }
+  }
+}
+
+// ── Zoom-to-fill cover media ───────────────────────────────────────────────────
+// When ztf-video is set alongside internal-main-item, the video is intentionally
+// full-bleed: it fills the frame and crops to top-center (e.g. hero backgrounds).
+// This overrides the contain default set in the :host(.internal-main-item) block.
+:host(.ztf-video.internal-main-item),
+:host([classes*="ztf-video"][classes*="internal-main-item"]),
+:host(.ztf-video),
+:host([classes*="ztf-video"]) {
+  .render-placeholder {
+    // Fill full width in ztf mode so the container spans the section
+    width: 100%;
+    max-width: 100%;
+
+    @include layout-768() {
+      width: 100%;
+      max-width: 100%;
+      max-height: 70vh;
+    }
+  }
+
+  .render-media,
+  video.render-media {
+    // Zoom-to-fill: fill frame and crop anchored to top center
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
+// ── Figure wrapper ────────────────────────────────────────────────────────────
+figure {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: var(--bg-dark);
+
+  @include layout-1024() {
+    border-radius: to-rem($space-lg);
+  }
+}
+
+:host-context(.internal-extra-item) figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--grey-3);
+  border-radius: to-rem($space-md);
+
+  @include layout-1024() {
+    background: none;
+    border-radius: to-rem($space-lg);
+  }
+}
+
+// When inside .internal-extra-item context (carousel slide item):
+// the figure needs flex centering and a grey background for the loading state.
+:host(.internal-extra-item) figure,
+:host([classes*="internal-extra-item"]) figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--grey-3);
+  border-radius: to-rem($space-md);
+
+  @include layout-1024() {
+    background: none;
+    border-radius: to-rem($space-lg);
+  }
+}
+
+// ── SVG placeholder — maintains aspect ratio before image loads ───────────────
+// The transparent SVG img sets the intrinsic size; all media layers are
+// absolutely positioned on top of it.
+// Default: on mobile, stretch full-width of host. On tablet+, use natural
+// SVG dimensions (set via width/height attributes) so media never exceeds
+// the source resolution.
+.render-placeholder {
+  display: block;
+  position: relative;
+  height: auto;
+  // Mobile: full-width so the media fills the screen
+  width: 100%;
+  max-width: 100%;
+
+  @include layout-768() {
+    // Tablet+: respect the SVG's intrinsic width/height attributes
+    // so small images are not scaled up beyond their native resolution.
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+:host-context(.internal-extra-item) .render-placeholder {
+  position: relative;
+  width: var(--mf-w, calc(90vw - #{to-rem($space-xl * 2)}));
+  height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
+  max-width: var(--mf-max-w, none);
+}
+
+// When inside .internal-extra-item context, use the CSS custom properties
+// set by internals.scss to size the placeholder. These cross the shadow boundary.
+// At desktop breakpoints, fall back to the exact Fibonacci tokens instead of 70vh.
+:host(.internal-extra-item) .render-placeholder,
+:host([classes*="internal-extra-item"]) .render-placeholder {
+  position: relative;
+  width: var(--mf-w, calc(90vw - #{to-rem($space-xl * 2)}));
+  height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
+  max-width: var(--mf-max-w, none);
+
+  @include layout-768() {
+    width: var(--mf-w, calc(90vw - #{to-rem($space-2xl * 2)}));
+    height: var(--mf-h, calc(70vh - #{to-rem($space-2xl * 2)}));
+  }
+
+  @include layout-1024() {
+    width: var(--mf-w, #{to-rem($space-6xl)});
+    height: var(--mf-h, #{to-rem($space-7xl)});
+  }
+
+  @include layout-1440() {
+    width: var(--mf-w, #{to-rem($space-7xl)});
+    height: var(--mf-h, #{to-rem($space-8xl)});
+  }
+
+  @include layout-2560() {
+    width: var(--mf-w, #{to-rem($space-8xl)});
+    height: var(--mf-h, #{to-rem($space-9xl)});
+  }
+}
+
+:host(.internal-extra-item.landscape) .render-placeholder,
+:host([classes*="internal-extra-item"][classes*="landscape"]) .render-placeholder {
+  @include layout-1024() {
+    width: var(--mf-w, auto);
+    max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-3xl)}));
+    height: var(--mf-h, #{to-rem($space-7xl)});
+  }
+
+  @include layout-1280() {
+    max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-4xl)}));
+  }
+
+  @include layout-1440() {
+    max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-7xl)}));
+    height: var(--mf-h, #{to-rem($space-8xl)});
+  }
+
+  @include layout-1920() {
+    max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-6xl)}));
+  }
+
+  @include layout-2560() {
+    height: var(--mf-h, #{to-rem($space-9xl)});
+  }
+}
+
+// ── Media layers ──────────────────────────────────────────────────────────────
+// Two-layer progressive cross-fade:
+//   Layer 1 (--thumb): blurred thumbnail visible immediately
+//   Layer 2 (--high):  full-res, fades in when loaded via .render-media--loaded
+.render-media {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  box-sizing: border-box;
+
+  @include layout-1024() {
+    border-radius: to-rem($space-lg);
+  }
+
+  // Thumbnail: blurred + slightly zoomed to hide blur edge artifacts
+  &--thumb {
+    filter: blur(12px);
+    transform: scale(1.05);
+    z-index: 1;
+  }
+
+  // High-res overlay: invisible until loaded
+  &--high {
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity;
+
+    &.render-media--loaded {
+      opacity: 1;
+    }
+  }
+}
+
+// ── Video element ─────────────────────────────────────────────────────────────
+// Carousel / extra-item context: videos fill their slide container.
+// The :host(.internal-main-item) block above overrides this for cover media.
+video.render-media {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+
+  @include layout-1024() {
+    border-radius: to-rem($space-lg);
+  }
+}
+
+// ── Expand modal trigger buttons ──────────────────────────────────────────────
+// expand-modal-open-1: styled in modal.scss with animated corner borders
+// expand-modal-open-2: invisible overlay for full-figure click area
+.expand-modal-open-2 {
+  display: none;
+}
+
+

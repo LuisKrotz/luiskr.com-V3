@@ -6,6 +6,28 @@ $color-grey-3: #515151;
 
 $color-blue: #006ca6;
 
+// CMS Admin Palette tokens
+$cms-bg-darkest: #0b0c10;
+$cms-bg-dark: #1f2833;
+$cms-bg-darker: #0f1319; // mid-dark panel — between bg-card and bg-darkest
+$cms-bg-card: #131822;
+$cms-border: #2a3a4a; // subtle dark-theme border for panels and dividers
+$cms-text-primary: #e0e6ed;
+$cms-text-muted: #c5c6c7;
+$cms-text-subtle: #8892b0;
+$cms-accent: #66fcf1;
+$cms-accent-hover: #45a29e;
+$cms-badge-warn: #f39c12;
+$cms-badge-amber: #ffca28;
+$cms-badge-green: #2ecc71;
+$cms-error: #ff6b6b;
+$cms-danger: #ff4d4d;
+$cms-danger-dark: #cc0000;
+$cms-card-max-width: to-rem(420px);
+$cms-header-min-height: to-rem(70px);
+$cms-dropdown-min-width: to-rem(230px);
+$cms-container-max-width: to-rem(1400px);
+
 // Viewports
 // @type pixels
 // used for viewports
@@ -116,6 +138,7 @@ $bk-7680: $vw-7680 - 1px;
 $space-none: 0; // fib(0)  — no space
 $space-hairline: 1; // fib(1)  — hairline / 1px borders
 $space-pixel: 1; // fib(2)  — alias for hairline (same fib value)
+$space-3xs: 1; // alias  — thin borders (same as hairline, semantic clarity)
 $space-2xs: 2; // fib(3)  — 2px, micro gaps
 $space-xs: 3; // fib(4)  — 3px, tiny nudges
 $space-sm: 5; // fib(5)  — 5px, small gaps
@@ -139,6 +162,15 @@ $space-15xl: 28657; // fib(23)
 $space-16xl: 46368; // fib(24)
 $space-17xl: 75025; // fib(25)
 
-// Z-indexes
-$z-header: 50;
-$z-loader: 100;
+// Z-indexes — layering system, every value declared once here
+$z-header:       50;
+$z-loader:       100;
+$z-overlay:      200;  // grid overlay, debug overlays
+$z-hud:          500;  // stats-for-nerds HUD
+$z-modal:        1000; // modals, drawers
+$z-cookies:      1000; // cookie banner
+$z-nav:          1100; // app-nav
+$z-top:          9999; // top-level elements (dialogs)
+
+// System monospace font stack — no external download required
+$font-mono: 'ui-monospace', 'SF Mono', 'SFMono-Regular', 'Cascadia Mono', 'Segoe UI Mono', 'Ubuntu Mono', 'Roboto Mono', monospace;

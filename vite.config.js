@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
 import { VitePWA } from 'vite-plugin-pwa'
 import { compression } from 'vite-plugin-compression2'
 import { fileURLToPath, URL } from 'node:url'
@@ -7,7 +6,6 @@ import { fileURLToPath, URL } from 'node:url'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
     compression({ algorithm: 'brotliCompress', exclude: [/\.(br|gz)$/i] }),
     compression({ algorithm: 'gzip', exclude: [/\.(br|gz)$/i] }),
     VitePWA({
@@ -56,7 +54,33 @@ export default defineConfig({
         clientsClaim: true,
       },
     }),
+    {
+      name: 'vite-plugin-jsx-in-js',
+      enforce: 'pre',
+      async transform(code, id) {
+        if (id.includes('/src/') && id.endsWith('.js') && (code.includes('</') || code.includes('/>'))) {
+          const { transformWithOxc } = await import('vite')
+          const res = await transformWithOxc(code, id.replace(/\.js$/, '.jsx'), {
+            jsx: { runtime: 'classic', pragma: 'h', pragmaFrag: 'Fragment' },
+          })
+          return {
+            code: res.code,
+            map: res.map,
+          }
+        }
+      },
+    },
   ],
+  esbuild: {
+    jsxFactory: 'h',
+    jsxFragment: 'Fragment',
+    loader: 'jsx',
+    include: /src\/.*\.jsx?$/,
+  },
+  optimizeDeps: {
+    noDiscovery: true,
+    include: ['firebase/app', 'firebase/auth', 'firebase/database', 'register-service-worker'],
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -70,11 +94,6 @@ export default defineConfig({
         silenceDeprecations: ['import', 'global-builtin', 'legacy-js-api'],
       },
     },
-  },
-  define: {
-    __VUE_OPTIONS_API__: true,
-    __VUE_PROD_DEVTOOLS__: false,
-    __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: false,
   },
   build: {
     outDir: 'dist',
@@ -92,14 +111,6 @@ export default defineConfig({
           if (id.includes('node_modules')) {
             if (id.includes('firebase')) {
               return 'vendor-firebase'
-            }
-            if (
-              id.includes('vue') ||
-              id.includes('vue-router') ||
-              id.includes('vuex') ||
-              id.includes('vue3-smooth-scroll')
-            ) {
-              return 'vendor-core'
             }
           }
         },

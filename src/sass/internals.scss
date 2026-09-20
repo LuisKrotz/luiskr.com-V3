@@ -2,6 +2,7 @@
 @import '_mixins';
 @import '_fonts';
 @import '_placeholders';
+@import '_structure';
 
 .internal {
   &-title {
@@ -24,16 +25,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: to-rem($space-xl);
+    // No max-height/overflow here — the section must not clip its own padding.
+    // The 70vh constraint lives inside the media-figure Shadow DOM (figure element).
+    padding: to-rem($space-2xl) to-rem($space-xl);
     box-sizing: border-box;
     background-color: var(--bg-dark);
 
     @include layout-768() {
-      padding: to-rem($space-3xl);
+      padding: to-rem($space-3xl) to-rem($space-3xl);
     }
 
     @include layout-1024() {
-      padding: to-rem($space-5xl);
+      padding: to-rem($space-4xl) to-rem($space-5xl);
+    }
+
+    @include layout-1920() {
+      padding: to-rem($space-5xl) to-rem($space-6xl);
     }
 
     figure {
@@ -105,8 +112,11 @@
   }
 
   &-description {
+    @extend %MAXAREA;
+
     margin: 0 auto;
-    padding: to-rem($space-2xl) to-rem($space-xl);
+    padding-top: to-rem($space-2xl);
+    padding-bottom: to-rem($space-xl);
     // Min-height matches the carousel item height, set as a CSS var by Carousel.vue
     min-height: var(--carousel-item-height, auto);
     display: flex;
@@ -115,40 +125,56 @@
     contain: layout style;
 
     @include layout-768() {
-      padding: to-rem($space-4xl) to-rem($space-3xl);
+      // 1 col indent per side on 8-col grid (1/8 = 12.5%)
+      padding-top: to-rem($space-4xl);
+      padding-bottom: to-rem($space-2xl);
+      padding-left: 12.5%;
+      padding-right: 12.5%;
     }
 
     @include layout-1024() {
-      max-width: to-rem($space-8xl);
-      padding: to-rem($space-4xl);
+      // 3 cols indent per side on 12-col grid (3/12 = 25%) → content in cols 4–9
+      padding-top: to-rem($space-4xl);
+      padding-bottom: to-rem($space-2xl);
+      padding-left: 25%;
+      padding-right: 25%;
     }
 
     @include layout-1920() {
-      max-width: to-rem($space-9xl);
-      padding: to-rem($space-5xl);
+      padding-top: to-rem($space-5xl);
+      padding-bottom: to-rem($space-3xl);
     }
 
     @include layout-2560() {
-      padding: to-rem($space-6xl);
+      padding-top: to-rem($space-6xl);
+      padding-bottom: to-rem($space-4xl);
     }
 
     .legal & {
+      // Legal pages: keep the column-indent padding so content sits in
+      // cols 4–9 (3 empty cols on each side of the 12-column grid).
+      // The .legal container is full-width (no %MAXAREA), so this
+      // 25% padding IS the only source of indentation.
       @include layout-768() {
-        padding: to-rem($space-3xl);
+        padding-top: to-rem($space-xl);
+        padding-bottom: to-rem($space-xl);
+        // 12.5% = 1.5 cols on 8-col intermediate grid
       }
 
       @include layout-1024() {
-        max-width: to-rem($space-8xl);
-        padding: to-rem($space-md);
+        padding-top: to-rem($space-xl);
+        padding-bottom: to-rem($space-xl);
+        // 25% already applied by base rule — no override needed
       }
 
       @include layout-1920() {
-        max-width: to-rem($space-9xl);
-        padding: to-rem($space-md);
+        padding-top: to-rem($space-2xl);
+        padding-bottom: to-rem($space-2xl);
       }
 
       @include layout-2560() {
-        padding: to-rem($space-lg);
+        padding-top: to-rem($space-3xl);
+        padding-bottom: to-rem($space-3xl);
       }
     }
 
@@ -171,19 +197,19 @@
     &-text {
       @extend .txt-md;
 
-      font-family: 'Raleway', sans-serif;
+      font-family: var(--font-primary);
       font-weight: 100;
       word-break: normal;
       overflow-wrap: break-word;
       hyphens: none;
-      padding-bottom: to-rem($space-xl);
+      padding-bottom: to-rem($space-lg);
 
-      @include layout-1920() {
-        padding-bottom: to-rem($space-2xl);
+      @include layout-768() {
+        padding-bottom: to-rem($space-lg);
       }
 
-      @include layout-2560() {
-        padding-bottom: to-rem($space-3xl);
+      @include layout-1024() {
+        padding-bottom: to-rem($space-xl);
       }
 
       a {
@@ -305,100 +331,66 @@
         padding-right: 0;
       }
 
-      figure {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-        border-radius: to-rem($space-md);
-        background-color: var(--grey-3);
-
-        @include layout-1024() {
-          background: none;
-          border-radius: to-rem($space-lg);
-        }
-      }
-
-      .render-placeholder {
-        position: relative;
-        width: calc(90vw - #{to-rem($space-xl * 2)});
-        height: calc(70vh - #{to-rem($space-xl * 2)});
+      // ── CSS Custom Properties for media-figure Shadow DOM sizing ──────────────
+      // CSS custom properties DO cross shadow boundaries — this is the only way
+      // to pass sizing context into <media-figure>'s encapsulated shadow root.
+      // media-figure.scss reads --mf-w / --mf-h / --mf-max-w to size the placeholder.
+      media-figure {
+        --mf-w: calc(90vw - #{to-rem($space-xl * 2)});
+        --mf-h: calc(70vh - #{to-rem($space-xl * 2)});
+        --mf-max-w: none;
 
         @include layout-768() {
-          width: calc(90vw - #{to-rem($space-2xl * 2)});
-          height: calc(70vh - #{to-rem($space-2xl * 2)});
+          --mf-w: calc(90vw - #{to-rem($space-2xl * 2)});
+          --mf-h: calc(70vh - #{to-rem($space-2xl * 2)});
         }
 
         @include layout-1024() {
-          width: to-rem($space-6xl);
-          height: to-rem($space-7xl);
+          --mf-w: #{to-rem($space-6xl)};
+          --mf-h: #{to-rem($space-7xl)};
         }
 
         @include layout-1440() {
-          width: to-rem($space-7xl);
-          height: to-rem($space-8xl);
+          --mf-w: #{to-rem($space-7xl)};
+          --mf-h: #{to-rem($space-8xl)};
         }
 
         @include layout-2560() {
-          width: to-rem($space-8xl);
-          height: to-rem($space-9xl);
+          --mf-w: #{to-rem($space-8xl)};
+          --mf-h: #{to-rem($space-9xl)};
         }
       }
 
-      .render-media {
-        top: 0;
-        left: 0;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top center;
-        border-radius: to-rem($space-pixel);
-        box-sizing: border-box;
-        overflow: hidden;
-
-        // Only render images when in the viewports
-        content-visibility: auto;
-
+      // landscape variant: override width to be auto + max-width constrained
+      &.landscape media-figure {
         @include layout-1024() {
-          border: none;
-          border-radius: to-rem($space-lg);
+          --mf-w: auto;
+          --mf-max-w: calc(100vw - #{to-rem($space-3xl)});
+        }
+
+        @include layout-1280() {
+          --mf-max-w: calc(100vw - #{to-rem($space-4xl)});
+        }
+
+        @include layout-1440() {
+          --mf-max-w: calc(100vw - #{to-rem($space-7xl)});
+        }
+
+        @include layout-1920() {
+          --mf-max-w: calc(100vw - #{to-rem($space-6xl)});
         }
       }
 
-      &.landscape {
-        .render-placeholder {
-          @include layout-1024() {
-            width: auto;
-            max-width: calc(100vw - #{to-rem($space-3xl)});
-          }
-
-          @include layout-1280() {
-            max-width: calc(100vw - #{to-rem($space-4xl)});
-          }
-
-          @include layout-1440() {
-            max-width: calc(100vw - #{to-rem($space-7xl)});
-          }
-
-          @include layout-1920() {
-            max-width: calc(100vw - #{to-rem($space-6xl)});
-          }
+      // small variant
+      &.small media-figure {
+        @include layout-1440() {
+          --mf-w: #{to-rem($space-6xl)};
+          --mf-h: #{to-rem($space-8xl)};
         }
-      }
 
-      &.small {
-        .render-placeholder {
-          @include layout-1440() {
-            width: to-rem($space-6xl);
-            height: to-rem($space-8xl);
-          }
-
-          @include layout-2560() {
-            width: to-rem($space-7xl);
-            height: to-rem($space-9xl);
-          }
+        @include layout-2560() {
+          --mf-w: #{to-rem($space-7xl)};
+          --mf-h: #{to-rem($space-9xl)};
         }
       }
 
@@ -409,7 +401,7 @@
         text-transform: uppercase;
         margin: 0;
         font-variant: all-small-caps;
-        color: var(--white);
+        color: var(--color-white-raw);
       }
 
       &-open {
@@ -474,15 +466,16 @@
       width: 100%;
       margin: 0 auto;
       padding-top: to-rem($space-xl);
-      padding-bottom: to-rem(90px);
+      padding-bottom: to-rem($space-4xl);
 
       @include layout-768() {
         padding-top: to-rem($space-2xl);
-        padding-bottom: to-rem(120px);
+        padding-bottom: to-rem($space-5xl);
       }
+
       @include layout-1024() {
         padding-top: to-rem($space-3xl);
-        padding-bottom: to-rem(140px);
+        padding-bottom: to-rem($space-5xl);
       }
     }
 
@@ -490,9 +483,9 @@
       @extend .ttl-xs;
 
       text-align: center;
-      color: #ffffff;
+      color: var(--text-primary);
       padding: to-rem($space-2xl);
-      background: var(--bg-dark);
+      background: var(--bg-secondary);
 
       @include layout-1024() {
         padding: to-rem($space-xl) to-rem($space-5xl);
@@ -545,8 +538,10 @@
 
         display: block;
         padding: 0;
-        margin: to-rem(-$space-sm) 0 to-rem($space-lg);
+        margin: to-rem(-$space-sm) auto to-rem($space-lg);
         font-weight: 200;
+        max-width: to-rem($space-8xl);
+        text-align: center;
       }
     }
   }
@@ -578,9 +573,9 @@
     min-height: to-rem(160);
     aspect-ratio: 16 / 10;
     text-decoration: none;
-    color: #ffffff;
+    color: var(--color-white-raw);
     background: var(--bg-secondary);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 to-rem($space-2xs) to-rem($space-lg) rgba($color-black, 0.15);
     transition:
       transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
       box-shadow 0.35s ease;
@@ -600,7 +595,7 @@
     }
 
     &.router-link-active {
-      display: none !important;
+      display: none;
     }
 
     // Featured items are wider ONLY on desktop (1024px+); ignored on mobile and tablet
@@ -614,8 +609,8 @@
 
     &:hover,
     &:focus {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transform: translateY(#{to-rem(-$space-xs)}) scale(1.01);
+      box-shadow: var(--shadow-card-hover);
 
       .related-mosaic-img {
         transform: scale(1.06);
@@ -662,7 +657,7 @@
     padding: to-rem($space-md) to-rem($space-lg) to-rem($space-lg);
     display: flex;
     flex-direction: column;
-    gap: to-rem($space-2xs);
+    gap: 0;
     text-align: left;
     pointer-events: none;
 
@@ -682,22 +677,22 @@
   &-title {
     @extend .ttl-sm;
 
-    font-family: 'Raleway', sans-serif;
-    font-weight: 700;
+    font-family: var(--font-primary);
+    font-weight: 200;
     text-transform: uppercase;
     letter-spacing: to-rem(0.8);
-    color: #ffffff;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    color: var(--color-white-raw);
+    text-shadow: 0 to-rem($space-2xs) to-rem($space-md) rgba($color-black, 0.6);
     transition: transform 0.3s ease;
 
     .related-mosaic-item--featured & {
-      font-size: to-rem(20);
+      font-size: to-rem($space-xl);
 
       @include layout-768() {
-        font-size: to-rem(26);
+        font-size: to-rem($space-2xl);
       }
       @include layout-1024() {
-        font-size: to-rem(32);
+        font-size: to-rem($space-3xl);
       }
     }
   }
@@ -706,23 +701,24 @@
     @extend .txt-xs;
 
     font-weight: 200;
-    color: rgba(255, 255, 255, 0.9);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-    margin-top: to-rem($space-2xs);
+    color: var(--color-white-raw);
+    text-shadow: 0 to-rem($space-hairline) to-rem($space-sm) var(--bg-dark);
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
+    opacity: 0;
+    transition:
+      max-height 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      margin-top 0.25s ease,
+      opacity 0.25s ease;
+
+    .related-mosaic-item:hover &,
+    .related-mosaic-item:focus-within & {
+      max-height: to-rem($space-5xl);
+      margin-top: to-rem($space-2xs);
+      opacity: 1;
+    }
   }
-}
-
-.fade-desc-enter-active,
-.fade-desc-leave-active {
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
-}
-
-.fade-desc-enter-from,
-.fade-desc-leave-to {
-  opacity: 0;
-  transform: translateY(4px);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -794,4 +790,31 @@
 .project section {
   opacity: 1;
   transform: none;
+}
+
+// ── Legal page container ────────────────────────────────────────────────────────────
+// Needs %MAXAREA for width:100% + position:relative + box-sizing on the host.
+// BUT horizontal padding is reset to 0 at all breakpoints so the grid indent
+// comes entirely from .internal-description's own 25% padding (cols 4–9).
+.legal {
+  @extend %MAXAREA;
+
+  box-sizing: border-box;
+  // Reset all MAXAREA horizontal padding — .internal-description provides
+  // the 12.5% / 25% column-indent itself, so no outer indent is needed here.
+  padding-left: 0;
+  padding-right: 0;
+
+  @include layout-320()  { padding-left: 0; padding-right: 0; }
+  @include layout-375()  { padding-left: 0; padding-right: 0; }
+  @include layout-414()  { padding-left: 0; padding-right: 0; }
+  @include layout-540()  { padding-left: 0; padding-right: 0; }
+  @include layout-768()  { padding-left: 0; padding-right: 0; }
+  @include layout-960()  { padding-left: 0; padding-right: 0; }
+  @include layout-1024() { padding-left: 0; padding-right: 0; }
+  @include layout-1280() { padding-left: 0; padding-right: 0; }
+  @include layout-1440() { padding-left: 0; padding-right: 0; }
+  @include layout-1680() { padding-left: 0; padding-right: 0; }
+  @include layout-1920() { padding-left: 0; padding-right: 0; }
+  @include layout-2560() { padding-left: 0; padding-right: 0; }
 }

@@ -25,12 +25,29 @@ class WasmWorkerPool {
   }
 
   handleMessage(e) {
-    const { id, results } = e.data
+    const data = e.data || {}
+    const { id } = data
     if (id && this.pendingTasks.has(id)) {
       const { resolve } = this.pendingTasks.get(id)
       this.pendingTasks.delete(id)
-      resolve(results)
+      resolve(data)
     }
+  }
+
+  // Scan payload shallowly for ArrayBuffer / ImageBitmap transferables
+  _extractTransferables(payload) {
+    const list = []
+    if (!payload || typeof payload !== 'object') return list
+    const scan = (val) => {
+      if (val instanceof ArrayBuffer) { list.push(val); return }
+      if (typeof ImageBitmap !== 'undefined' && val instanceof ImageBitmap) { list.push(val); return }
+    }
+    for (const val of Object.values(payload)) {
+      scan(val)
+      // One level deep for array items (e.g. batch payloads)
+      if (Array.isArray(val)) val.forEach(scan)
+    }
+    return list
   }
 
   dispatch(type, payload, transferables = []) {
@@ -46,18 +63,34 @@ class WasmWorkerPool {
       const worker = this.workers[this.nextWorkerIdx]
       this.nextWorkerIdx = (this.nextWorkerIdx + 1) % this.workers.length
 
+      // Determine transferables and serialization strategy
       let safePayload = payload
-      if (transferables.length === 0 && payload !== null && typeof payload === 'object') {
-        try {
-          safePayload = JSON.parse(JSON.stringify(payload))
-        } catch {
-          // Fallback if stringify fails
+      let effectiveTransferables = transferables
+
+      if (effectiveTransferables.length === 0 && payload !== null && typeof payload === 'object') {
+        const autoTransfer = this._extractTransferables(payload)
+        if (autoTransfer.length > 0) {
+          // Zero-copy transfer for ArrayBuffer / ImageBitmap
+          effectiveTransferables = autoTransfer
+          safePayload = payload
+        } else {
+          // structuredClone correctly handles Blobs, Maps, Sets, typed arrays —
+          // unlike JSON.parse/JSON.stringify which silently drops Blobs to {}
+          try {
+            safePayload = structuredClone(payload)
+          } catch {
+            try {
+              safePayload = JSON.parse(JSON.stringify(payload))
+            } catch {
+              safePayload = payload
+            }
+          }
         }
       }
 
       try {
-        if (transferables && transferables.length > 0) {
-          worker.postMessage({ id, type, payload: safePayload }, transferables)
+        if (effectiveTransferables && effectiveTransferables.length > 0) {
+          worker.postMessage({ id, type, payload: safePayload }, effectiveTransferables)
         } else {
           worker.postMessage({ id, type, payload: safePayload })
         }

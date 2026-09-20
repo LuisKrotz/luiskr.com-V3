@@ -52,14 +52,16 @@ export function calcEaseOutCubic(t) {
   return 1 - f * f * f
 }
 
-export function calcDrawTextDelay(totalChars, targetDurationMs = 1800) {
+export function calcDrawTextDelay(totalChars, targetDurationMs = 1500) {
   if (wasmInstance && wasmInstance.calc_draw_text_delay) {
     return Math.max(
-      6,
+      1,
       Math.min(22, Math.round(wasmInstance.calc_draw_text_delay(totalChars, targetDurationMs)))
     )
   }
-  return Math.max(6, Math.min(22, Math.round(targetDurationMs / (totalChars || 1))))
+  // Clamp between 1ms (fast, many chars) and 22ms (slow, few chars).
+  // Do not clamp above 1ms from below — long texts must animate within the target duration.
+  return Math.max(1, Math.min(22, Math.round(targetDurationMs / (totalChars || 1))))
 }
 
 export function calcDrawTextOffset(idx, charsBefore, delay) {

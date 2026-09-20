@@ -91,9 +91,22 @@ class GPUAccelerator {
   // Promote DOM Element to GPU Compositor layer
   accelerateElementGPU(el) {
     if (!el || !el.style) return
+    if (typeof document !== 'undefined' && (el === document.documentElement || el === document.body)) {
+      el.style.willChange = 'scroll-position'
+      return
+    }
     el.style.willChange = 'transform, opacity'
     el.style.transform = 'translate3d(0, 0, 0)'
     el.style.backfaceVisibility = 'hidden'
+  }
+
+  releaseElementGPU(el) {
+    if (!el || !el.style) return
+    el.style.willChange = 'auto'
+    if (typeof document !== 'undefined' && el !== document.documentElement && el !== document.body) {
+      el.style.transform = ''
+      el.style.backfaceVisibility = ''
+    }
   }
 
   // Upload HTML5 Video frames directly to WebGL GPU hardware texture

@@ -8,15 +8,36 @@
 // Preferences Modal Dialog
 // ─────────────────────────────────────────────────────────────────────────────
 
-.pref-backdrop {
+:host {
+  display: none;
+}
+
+:host([open]),
+:host(.is-open) {
+  display: block;
   position: fixed;
   inset: 0;
+  z-index: 10000;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.pref-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
   z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
+  // Simple uniform padding — box-sizing:border-box ensures width:100% accounts
+  // for this padding so the dialog always fits within the viewport and
+  // flexbox centering works symmetrically on all viewport sizes.
   padding: to-rem($space-xl);
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba($color-black, 0.65);
   backdrop-filter: blur(to-rem(8));
   -webkit-backdrop-filter: blur(to-rem(8));
   outline: none;
@@ -25,6 +46,9 @@
 
 .pref-dialog {
   width: 100%;
+  box-sizing: border-box;
+  // The backdrop padding constrains the width to grid; 610px cap prevents
+  // the dialog from stretching too wide on large viewports.
   max-width: to-rem($space-8xl);
   max-height: calc(88vh);
   max-height: calc(88dvh);
@@ -32,7 +56,7 @@
   color: var(--text-primary);
   border: to-rem(1) solid var(--border-color);
   border-radius: to-rem($space-xl);
-  box-shadow: 0 to-rem(24) to-rem(48) to-rem(-12) rgba(0, 0, 0, 0.35);
+  box-shadow: 0 to-rem(24) to-rem(48) to-rem(-12) rgba($color-black, 0.35);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -50,7 +74,7 @@
   @extend .ttl-sm;
 
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
   letter-spacing: to-rem(-0.2);
   color: inherit;
@@ -59,24 +83,48 @@
 .pref-close-btn {
   @extend %RESETBTN;
 
-  font-size: to-rem($space-2xl);
-  color: var(--text-secondary);
+  flex-shrink: 0;
+  width: to-rem($space-3xl);
+  height: to-rem($space-3xl);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: to-rem($space-2xs) to-rem($space-xs);
-  border-radius: to-rem($space-xs);
-  line-height: 1;
+  color: var(--text-secondary);
+  background: var(--border-color);
   transition:
-    opacity 0.2s ease,
-    background 0.2s ease;
+    background 0.2s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+
+  // CSS-drawn X via pseudo-elements
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: to-rem($space-xl);
+    height: to-rem($space-hairline + 1);
+    background: var(--text-secondary);
+    border-radius: var(--radius-round);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &::before { transform: rotate(45deg); }
+  &::after  { transform: rotate(-45deg); }
 
   &:hover,
   &:focus {
-    opacity: 0.8;
-    background: var(--border-color);
+    background: var(--border-color-hover, var(--border-color));
+
+    &::before { transform: rotate(135deg); }
+    &::after  { transform: rotate(45deg); }
   }
 }
 
 .pref-body {
+  flex: 1;           // Fill remaining space in the flex-column dialog
+  min-height: 0;     // Allow shrinking so overflow-y:auto actually scrolls
   padding: to-rem($space-2xl);
   display: flex;
   flex-direction: column;
@@ -84,6 +132,23 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
+
+  // Scrollbar — themed to match modal dialog background
+  scrollbar-color: var(--border-color) transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: to-rem($space-xs);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--radius-round);
+  }
 }
 
 .pref-section {
@@ -94,7 +159,7 @@
 
 .pref-section-title {
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
   font-size: to-rem(18);
   text-transform: uppercase;
@@ -112,6 +177,14 @@
   display: grid;
   gap: to-rem($space-md);
 
+  &--4 {
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width: $bk-540) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   &--3 {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -119,6 +192,12 @@
   &--2 {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.lang-dialog {
+  // 480px cap on wide screens; on narrow screens the backdrop padding
+  // already constrains width, so max-width: 100% lets it fill the grid.
+  max-width: min(to-rem(480), 100%);
 }
 
 .pref-option-btn {
@@ -144,7 +223,7 @@
   &.active {
     border-color: var(--text-primary);
     background: var(--bg-primary);
-    box-shadow: 0 to-rem(4) to-rem(12) rgba(0, 0, 0, 0.08);
+    box-shadow: 0 to-rem($space-2xs) to-rem($space-lg) rgba($color-black, 0.08);
   }
 }
 
@@ -163,7 +242,7 @@
 }
 
 .pref-option-icon {
-  font-size: to-rem($space-3xl);
+  font-size: to-rem($space-2xl);
   line-height: 1;
   display: flex;
   align-items: center;
@@ -176,7 +255,7 @@
   width: auto;
   display: block;
   border-radius: to-rem(3);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 to-rem($space-hairline) to-rem($space-xs) rgba($color-black, 0.25);
 }
 
 // Split flag: two country flags side by side with a thin dividing line
@@ -204,7 +283,7 @@
 }
 
 .pref-option-label {
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
   font-size: to-rem(16);
 }
@@ -212,6 +291,89 @@
 .pref-option-sub {
   font-size: to-rem(13);
   color: var(--text-muted);
+}
+
+// ─── Toggle Switch ─────────────────────────────────────────────────────────
+// Single row with label on left, iOS-style switch pill on right.
+// Replaces 2-button pattern for binary on/off toggles.
+
+$_B_SW: 'pref-switch';
+$_SW_W: 52; // switch pill width
+$_SW_H: 28; // switch pill height
+$_SW_KNOB: 22; // knob diameter
+$_SW_PAD: 3;  // padding inside pill
+
+.#{$_B_SW}-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: to-rem($space-md);
+  padding: to-rem($space-sm) 0;
+  border-bottom: to-rem(1) solid var(--border-color);
+  cursor: pointer;
+  user-select: none;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.#{$_B_SW}-info {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-2xs);
+  flex: 1;
+  min-width: 0;
+}
+
+.#{$_B_SW}-label {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: to-rem(15);
+  color: var(--text-primary);
+}
+
+.#{$_B_SW}-desc {
+  font-size: to-rem(13);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.#{$_B_SW} {
+  // The pill track
+  flex-shrink: 0;
+  display: inline-block;
+  width: to-rem($_SW_W);
+  height: to-rem($_SW_H);
+  background: var(--border-color);
+  border-radius: var(--radius-round);
+  position: relative;
+  transition: background 0.2s ease;
+  cursor: pointer;
+
+  // The knob
+  &::after {
+    content: '';
+    position: absolute;
+    top: to-rem($_SW_PAD);
+    left: to-rem($_SW_PAD);
+    width: to-rem($_SW_KNOB);
+    height: to-rem($_SW_KNOB);
+    border-radius: 50%;
+    background: var(--color-white-raw);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s ease;
+  }
+
+  // ON state
+  &--on {
+    background: var(--color-accent);
+
+    &::after {
+      transform: translateX(to-rem($_SW_W - $_SW_KNOB - $_SW_PAD * 2));
+      background: var(--bg-darkest);
+    }
+  }
 }
 
 .pref-footer {
@@ -232,7 +394,7 @@
   margin-top: to-rem($space-lg); // breathing room above
   color: var(--text-primary);
   background: transparent;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: to-rem(1);

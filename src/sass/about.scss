@@ -6,10 +6,9 @@
 
 .about {
   @extend %MAXAREA;
-  min-height: 460px;
 
-  border-top: 1px solid var(--grey-2);
-  padding-top: to-rem(120) !important;
+  border-top: to-rem($space-hairline) solid var(--grey-2);
+  padding-top: to-rem($space-5xl);
   // Smooth transition when masonry above changes height (hover expand/collapse)
   transition: padding-top 0.42s cubic-bezier(0.22, 1, 0.36, 1);
   // Isolate internal layout shifts from contributing to page-level CLS
@@ -19,7 +18,7 @@
   &-title {
     @extend .ttl-xl;
 
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--font-primary);
     font-weight: 100;
     text-align: left;
     text-transform: uppercase;
@@ -40,6 +39,9 @@
   }
 
   // ── Profile picture + 2-column text row ─────────────────────────────────
+  // Grid: [pic 2fr] [gap 1fr] [text-1 5fr] [gap 1fr] [text-2 5fr]
+  // The .about-profile-text wrapper uses display:contents at 1024px+ so its
+  // two children become direct grid items in columns 3 and 5.
   &-profile-section {
     display: flex;
     flex-direction: column;
@@ -47,49 +49,67 @@
     padding-bottom: to-rem($space-4xl);
 
     @include layout-768() {
-      flex-direction: row;
-      align-items: flex-start;
-      gap: to-rem($space-3xl);
+      // Tablet: picture on top (row 1, full width), text cols side-by-side below (row 2)
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: to-rem($space-2xl);
     }
-    @include layout-1440() {
-      gap: to-rem($space-4xl);
+
+    @include layout-1024() {
+      // Full grid: 2fr gap 5fr gap 5fr  (14 fractional units)
+      // Cols: 1=pic, 2=gap, 3=text-1, 4=gap, 5=text-2
+      grid-template-columns: 2fr 1fr 5fr 1fr 5fr;
+      grid-template-rows: auto;
+      gap: 0;
       padding-bottom: to-rem($space-5xl);
     }
+
     @include layout-2560() {
-      gap: to-rem($space-5xl);
       padding-bottom: to-rem($space-6xl);
     }
   }
 
   &-profile-picture {
     flex-shrink: 0;
-    width: to-rem(180);
-    height: to-rem(180);
+    // Mobile / 768px: fixed square size driven by space tokens
+    width: to-rem($space-5xl);
+    height: to-rem($space-5xl);
     margin: 0;
+    // Stay in column 1 on all grid layouts
+    grid-column: 1;
+    grid-row: 1;
 
     @include layout-540() {
-      width: to-rem(220);
-      height: to-rem(220);
-      margin: 0;
+      width: to-rem($space-6xl);
+      height: to-rem($space-6xl);
     }
+
     @include layout-768() {
-      width: to-rem(240);
-      height: to-rem(240);
-      margin: 0;
+      // Tablet: picture spans both columns (full width), sits in row 1
+      grid-column: 1 / 3;
+      grid-row: 1;
+      width: to-rem($space-6xl);
+      height: to-rem($space-6xl);
+      // Center the circular pic horizontally within full-width row
+      margin: 0 auto;
     }
+
     @include layout-1024() {
-      width: to-rem(280);
-      height: to-rem(280);
+      // On 5-col full grid: picture in col 1
+      grid-column: 1;
+      grid-row: 1;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
       margin: 0;
     }
+
     @include layout-1440() {
-      width: to-rem(360);
-      height: to-rem(360);
       margin: 0;
     }
+
     @include layout-2560() {
-      width: to-rem(480);
-      height: to-rem(480);
       margin: 0;
     }
 
@@ -97,7 +117,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
+      border-radius: var(--radius-full);
       display: block;
     }
 
@@ -105,8 +125,8 @@
     &-placeholder {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
-      background: linear-gradient(90deg, #f5f5f5 25%, #ececec 50%, #f5f5f5 75%);
+      border-radius: var(--radius-full);
+      background: linear-gradient(90deg, var(--skel-bg-1) 25%, var(--skel-bg-2) 50%, var(--skel-bg-3) 75%);
       background-size: 200% 100%;
       animation: skeleton-shimmer 2.4s ease-in-out infinite;
     }
@@ -114,14 +134,25 @@
 
   &-profile-text {
     flex: 1;
+    // Mobile: single column, no gap — paragraphs provide their own padding-bottom
     display: grid;
     grid-template-columns: 1fr;
-    gap: to-rem($space-xl);
+    gap: 0;
 
     @include layout-768() {
+      // Tablet: text wrapper spans both columns in row 2
+      grid-column: 1 / 3;
+      grid-row: 2;
       grid-template-columns: repeat(2, 1fr);
       gap: to-rem($space-2xl);
     }
+
+    @include layout-1024() {
+      // On full 5-col grid: profile-text uses display:contents so its
+      // two children become direct grid items in cols 3 and 5.
+      display: contents;
+    }
+
     @include layout-2560() {
       gap: to-rem($space-3xl);
     }
@@ -132,6 +163,19 @@
       overflow-wrap: break-word;
       word-break: normal;
       hyphens: none;
+
+      @include layout-1024() {
+        // First text col → grid column 3, second → grid column 5
+        // CSS auto-placement fills cols 3 then 5 after the picture in col 1
+        // and the gap columns 2 and 4 are skipped automatically.
+        &:first-child {
+          grid-column: 3;
+        }
+
+        &:last-child {
+          grid-column: 5;
+        }
+      }
     }
   }
 
@@ -143,23 +187,78 @@
     &-text {
       @extend .txt-md;
 
-      font-family: 'Raleway', sans-serif;
+      font-family: var(--font-primary);
       font-weight: 100;
       word-break: normal;
       overflow-wrap: break-word;
       hyphens: none;
-      padding-bottom: to-rem($space-lg);
+      padding-bottom: to-rem($space-md);
 
       @include layout-768() {
-        padding-bottom: to-rem($space-xl);
+        padding-bottom: to-rem($space-lg);
       }
       @include layout-1280() {
-        padding-bottom: to-rem($space-2xl);
+        padding-bottom: to-rem($space-xl);
       }
       @include layout-1680() {
-        padding-bottom: to-rem($space-3xl);
+        padding-bottom: to-rem($space-2xl);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: underline;
+        transition: opacity 0.3s ease-in;
+
+        &:hover,
+        &:focus {
+          opacity: 0.5;
+        }
+
+        &:visited {
+          text-decoration: line-through;
+        }
       }
     }
+  }
+
+  .skeleton-about-title {
+    display: inline-block;
+    width: 40%;
+    height: 1em;
+    border-radius: var(--radius-2xs);
+  }
+
+  .skeleton-about-p1 {
+    width: 100%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+    margin-bottom: 0.6em;
+  }
+
+  .skeleton-about-p2 {
+    width: 88%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+    margin-bottom: 0.6em;
+  }
+
+  .skeleton-about-p3 {
+    width: 70%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+  }
+
+  .skeleton-about-p4 {
+    width: 95%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+    margin-bottom: 0.6em;
+  }
+
+  .skeleton-about-p5 {
+    width: 80%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
   }
 
   &-container {
@@ -247,8 +346,8 @@
 
 // ── Awards footer (below Contact, same dark background) ──────────────────────
 .about-awards-footer {
-  background: var(--black);
-  color: var(--white);
+  background: var(--bg-dark);
+  color: $color-white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -286,7 +385,7 @@
   color: var(--white);
   width: 100%;
   padding: to-rem($space-lg) to-rem($space-lg) 0;
-  border-top: 1px solid var(--grey);
+  border-top: to-rem($space-hairline) solid var(--grey);
   margin-top: to-rem($space-lg);
 
   @include layout-768() {

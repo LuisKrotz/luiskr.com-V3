@@ -58,7 +58,31 @@
               "label": "Reduced",
               "sub": "Less motion"
             }
+          },
+          "closeLabel": "Close preferences",
+          "devTools": {
+            "title": "Developer Tools",
+            "statsForNerds": "Stats for Nerds",
+            "statsForNerdsDesc": "Live FPS, network, memory HUD — bottom-right corner",
+            "showGrid": "Show Grid",
+            "showGridDesc": "Overlay columns, gutters and max-area at every breakpoint",
+            "reducedMotion": "Reduced Motion",
+            "reducedMotionDesc": "Disable animations and transitions"
           }
+        },
+        "carousel": {
+          "prev": "Previous item",
+          "next": "Next item",
+          "ofLabel": "of"
+        },
+        "statsHud": {
+          "title": "Performance",
+          "fps": "FPS",
+          "cpu": "CPU",
+          "memory": "Memory",
+          "network": "Network",
+          "latency": "Latency",
+          "gpu": "GPU"
         }
       },
       "components": {
@@ -5516,7 +5540,31 @@
               "label": "Reduzida",
               "sub": "Menos movimento"
             }
+          },
+          "closeLabel": "Fechar preferências",
+          "devTools": {
+            "title": "Ferramentas de Dev",
+            "statsForNerds": "Stats para Nerds",
+            "statsForNerdsDesc": "HUD de FPS, rede e memória — canto inferior direito",
+            "showGrid": "Mostrar Grade",
+            "showGridDesc": "Sobrepor colunas, calhas e área máxima em cada breakpoint",
+            "reducedMotion": "Movimento Reduzido",
+            "reducedMotionDesc": "Desativar animações e transições"
           }
+        },
+        "carousel": {
+          "prev": "Item anterior",
+          "next": "Próximo item",
+          "ofLabel": "de"
+        },
+        "statsHud": {
+          "title": "Desempenho",
+          "fps": "FPS",
+          "cpu": "CPU",
+          "memory": "Memória",
+          "network": "Rede",
+          "latency": "Latência",
+          "gpu": "GPU"
         }
       },
       "components": {
@@ -10896,7 +10944,31 @@
               "label": "Reducido",
               "sub": "Menos movimiento"
             }
+          },
+          "closeLabel": "Cerrar preferencias",
+          "devTools": {
+            "title": "Herramientas de Dev",
+            "statsForNerds": "Stats para Nerds",
+            "statsForNerdsDesc": "HUD de FPS, red y memoria — esquina inferior derecha",
+            "showGrid": "Mostrar Cuadrícula",
+            "showGridDesc": "Superponer columnas, márgenes y área máx en cada breakpoint",
+            "reducedMotion": "Movimiento Reducido",
+            "reducedMotionDesc": "Desactivar animaciones y transiciones"
           }
+        },
+        "carousel": {
+          "prev": "Elemento anterior",
+          "next": "Elemento siguiente",
+          "ofLabel": "de"
+        },
+        "statsHud": {
+          "title": "Rendimiento",
+          "fps": "FPS",
+          "cpu": "CPU",
+          "memory": "Memoria",
+          "network": "Red",
+          "latency": "Latencia",
+          "gpu": "GPU"
         }
       },
       "components": {
@@ -16276,7 +16348,31 @@
               "label": "Reduziert",
               "sub": "Weniger Bewegung"
             }
+          },
+          "closeLabel": "Einstellungen schließen",
+          "devTools": {
+            "title": "Entwicklerwerkzeuge",
+            "statsForNerds": "Stats für Nerds",
+            "statsForNerdsDesc": "Live FPS, Netzwerk, RAM HUD — unten rechts",
+            "showGrid": "Raster anzeigen",
+            "showGridDesc": "Spalten, Abstände und Max-Bereich einblenden",
+            "reducedMotion": "Reduzierte Bewegung",
+            "reducedMotionDesc": "Animationen und Übergänge deaktivieren"
           }
+        },
+        "carousel": {
+          "prev": "Vorheriges Element",
+          "next": "Nächstes Element",
+          "ofLabel": "von"
+        },
+        "statsHud": {
+          "title": "Leistung",
+          "fps": "FPS",
+          "cpu": "CPU",
+          "memory": "RAM",
+          "network": "Netzwerk",
+          "latency": "Latenz",
+          "gpu": "GPU"
         }
       },
       "components": {
@@ -21656,7 +21752,31 @@
               "label": "Reduziert",
               "sub": "Wenig Bewegung"
             }
+          },
+          "closeLabel": "Close preferences",
+          "devTools": {
+            "title": "Developer Tools",
+            "statsForNerds": "Stats for Nerds",
+            "statsForNerdsDesc": "Live FPS, network, memory HUD — bottom-right corner",
+            "showGrid": "Show Grid",
+            "showGridDesc": "Overlay columns, gutters and max-area at every breakpoint",
+            "reducedMotion": "Reduced Motion",
+            "reducedMotionDesc": "Disable animations and transitions"
           }
+        },
+        "carousel": {
+          "prev": "Previous item",
+          "next": "Next item",
+          "ofLabel": "of"
+        },
+        "statsHud": {
+          "title": "Performance",
+          "fps": "FPS",
+          "cpu": "CPU",
+          "memory": "Memory",
+          "network": "Network",
+          "latency": "Latency",
+          "gpu": "GPU"
         }
       },
       "pages": {
@@ -27036,7 +27156,31 @@
               "label": "Reducido",
               "sub": "Menos movimiento"
             }
+          },
+          "closeLabel": "Close preferences",
+          "devTools": {
+            "title": "Developer Tools",
+            "statsForNerds": "Stats for Nerds",
+            "statsForNerdsDesc": "Live FPS, network, memory HUD — bottom-right corner",
+            "showGrid": "Show Grid",
+            "showGridDesc": "Overlay columns, gutters and max-area at every breakpoint",
+            "reducedMotion": "Reduced Motion",
+            "reducedMotionDesc": "Disable animations and transitions"
           }
+        },
+        "carousel": {
+          "prev": "Previous item",
+          "next": "Next item",
+          "ofLabel": "of"
+        },
+        "statsHud": {
+          "title": "Performance",
+          "fps": "FPS",
+          "cpu": "CPU",
+          "memory": "Memory",
+          "network": "Network",
+          "latency": "Latency",
+          "gpu": "GPU"
         }
       },
       "pages": {
@@ -32416,7 +32560,31 @@
               "label": "Reducido",
               "sub": "Menos movimiento"
             }
+          },
+          "closeLabel": "Close preferences",
+          "devTools": {
+            "title": "Developer Tools",
+            "statsForNerds": "Stats for Nerds",
+            "statsForNerdsDesc": "Live FPS, network, memory HUD — bottom-right corner",
+            "showGrid": "Show Grid",
+            "showGridDesc": "Overlay columns, gutters and max-area at every breakpoint",
+            "reducedMotion": "Reduced Motion",
+            "reducedMotionDesc": "Disable animations and transitions"
           }
+        },
+        "carousel": {
+          "prev": "Previous item",
+          "next": "Next item",
+          "ofLabel": "of"
+        },
+        "statsHud": {
+          "title": "Performance",
+          "fps": "FPS",
+          "cpu": "CPU",
+          "memory": "Memory",
+          "network": "Network",
+          "latency": "Latency",
+          "gpu": "GPU"
         }
       },
       "pages": {
@@ -37796,7 +37964,31 @@
               "label": "Michĩ",
               "sub": "Michĩva animación"
             }
+          },
+          "closeLabel": "Close preferences",
+          "devTools": {
+            "title": "Developer Tools",
+            "statsForNerds": "Stats for Nerds",
+            "statsForNerdsDesc": "Live FPS, network, memory HUD — bottom-right corner",
+            "showGrid": "Show Grid",
+            "showGridDesc": "Overlay columns, gutters and max-area at every breakpoint",
+            "reducedMotion": "Reduced Motion",
+            "reducedMotionDesc": "Disable animations and transitions"
           }
+        },
+        "carousel": {
+          "prev": "Previous item",
+          "next": "Next item",
+          "ofLabel": "of"
+        },
+        "statsHud": {
+          "title": "Performance",
+          "fps": "FPS",
+          "cpu": "CPU",
+          "memory": "Memory",
+          "network": "Network",
+          "latency": "Latency",
+          "gpu": "GPU"
         }
       },
       "pages": {
@@ -43158,7 +43350,31 @@
               "label": "Ridotto",
               "sub": "Meno movimento"
             }
+          },
+          "closeLabel": "Chiudi preferenze",
+          "devTools": {
+            "title": "Strumenti Dev",
+            "statsForNerds": "Stats per Nerd",
+            "statsForNerdsDesc": "HUD FPS, rete e memoria — angolo in basso a destra",
+            "showGrid": "Mostra griglia",
+            "showGridDesc": "Sovrapponi colonne, margini e area max ad ogni breakpoint",
+            "reducedMotion": "Movimento ridotto",
+            "reducedMotionDesc": "Disabilita animazioni e transizioni"
           }
+        },
+        "carousel": {
+          "prev": "Elemento precedente",
+          "next": "Elemento successivo",
+          "ofLabel": "di"
+        },
+        "statsHud": {
+          "title": "Prestazioni",
+          "fps": "FPS",
+          "cpu": "CPU",
+          "memory": "Memoria",
+          "network": "Rete",
+          "latency": "Latenza",
+          "gpu": "GPU"
         }
       },
       "pages": {
@@ -48538,7 +48754,31 @@
               "label": "Сокращённый",
               "sub": "Меньше движения"
             }
+          },
+          "closeLabel": "Закрыть настройки",
+          "devTools": {
+            "title": "Инструменты разработчика",
+            "statsForNerds": "Статистика для гиков",
+            "statsForNerdsDesc": "HUD с FPS, сетью и памятью — правый нижний угол",
+            "showGrid": "Показать сетку",
+            "showGridDesc": "Наложение колонок, отступов и макс. области",
+            "reducedMotion": "Уменьшить движение",
+            "reducedMotionDesc": "Отключить анимации и переходы"
           }
+        },
+        "carousel": {
+          "prev": "Предыдущий",
+          "next": "Следующий",
+          "ofLabel": "из"
+        },
+        "statsHud": {
+          "title": "Производительность",
+          "fps": "FPS",
+          "cpu": "CPU",
+          "memory": "Память",
+          "network": "Сеть",
+          "latency": "Задержка",
+          "gpu": "GPU"
         }
       },
       "pages": {
@@ -53918,7 +54158,31 @@
               "label": "Réduit",
               "sub": "Moins de mouvement"
             }
+          },
+          "closeLabel": "Fermer les préférences",
+          "devTools": {
+            "title": "Outils Développeur",
+            "statsForNerds": "Stats pour Nerds",
+            "statsForNerdsDesc": "HUD FPS, réseau et mémoire — coin inférieur droit",
+            "showGrid": "Afficher la grille",
+            "showGridDesc": "Superposer colonnes, gouttières et zone max à chaque breakpoint",
+            "reducedMotion": "Mouvement réduit",
+            "reducedMotionDesc": "Désactiver les animations et transitions"
           }
+        },
+        "carousel": {
+          "prev": "Élément précédent",
+          "next": "Élément suivant",
+          "ofLabel": "sur"
+        },
+        "statsHud": {
+          "title": "Performances",
+          "fps": "FPS",
+          "cpu": "CPU",
+          "memory": "Mémoire",
+          "network": "Réseau",
+          "latency": "Latence",
+          "gpu": "GPU"
         }
       },
       "pages": {
@@ -59298,7 +59562,31 @@
               "label": "Ridoto",
               "sub": "Meno movimento"
             }
+          },
+          "closeLabel": "Close preferences",
+          "devTools": {
+            "title": "Developer Tools",
+            "statsForNerds": "Stats for Nerds",
+            "statsForNerdsDesc": "Live FPS, network, memory HUD — bottom-right corner",
+            "showGrid": "Show Grid",
+            "showGridDesc": "Overlay columns, gutters and max-area at every breakpoint",
+            "reducedMotion": "Reduced Motion",
+            "reducedMotionDesc": "Disable animations and transitions"
           }
+        },
+        "carousel": {
+          "prev": "Previous item",
+          "next": "Next item",
+          "ofLabel": "of"
+        },
+        "statsHud": {
+          "title": "Performance",
+          "fps": "FPS",
+          "cpu": "CPU",
+          "memory": "Memory",
+          "network": "Network",
+          "latency": "Latency",
+          "gpu": "GPU"
         }
       },
       "pages": {
