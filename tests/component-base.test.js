@@ -7,6 +7,8 @@
  */
 
 import { BaseComponent } from '../src/core/Component.js'
+import { ATTRS, CLASSES } from '../src/core/constants.js'
+import { isSafari, applySafariClass } from '../src/utils/browser.js'
 
 // Create a minimal test subclass
 class TestComponent extends BaseComponent {
@@ -391,6 +393,39 @@ describe('BaseComponent (Component.js) — Shadow DOM & Lifecycle', () => {
       }
       expect(el.shadowRoot.querySelectorAll('style')).toHaveLength(1)
       expect(el.shadowRoot.querySelectorAll('[data-content]')).toHaveLength(1)
+    })
+  })
+
+  // ── Safari Scoping ────────────────────────────────────────────────────────────
+  describe('10. Safari Browser Scoping', () => {
+    test('isSafari is a boolean', () => {
+      expect(typeof isSafari).toBe('boolean')
+    })
+
+    test('applySafariClass applies attributes when isSafari is true', () => {
+      applySafariClass()
+
+      if (isSafari) {
+        expect(document.documentElement.getAttribute(ATTRS.DATA_SAFARI)).toBe(ATTRS.TRUE)
+
+        expect(document.documentElement.classList.contains(CLASSES.IS_SAFARI)).toBe(true)
+      } else {
+        expect(document.documentElement.getAttribute(ATTRS.DATA_SAFARI)).toBeNull()
+      }
+    })
+
+    test('BaseComponent assigns data-safari attribute when in Safari', () => {
+      const el4 = document.createElement('test-base-component')
+
+      document.body.appendChild(el4)
+
+      if (isSafari) {
+        expect(el4.getAttribute(ATTRS.DATA_SAFARI)).toBe(ATTRS.TRUE)
+      } else {
+        expect(el4.getAttribute(ATTRS.DATA_SAFARI)).toBeNull()
+      }
+
+      document.body.removeChild(el4)
     })
   })
 })

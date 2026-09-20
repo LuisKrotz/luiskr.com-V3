@@ -324,14 +324,17 @@ export class MediaFigure extends BaseComponent {
           <Fragment>
             <img
               decoding={ATTRS.DECODING_ASYNC}
+              loading={this.classes.includes(CLASSES.INTERNAL_MAIN_ITEM) ? undefined : ATTRS.LOADING_LAZY}
               className={`${CLASSES.RENDER_MEDIA} ${CLASSES.RENDER_MEDIA_THUMB} ${this.classes}`}
               width={mediaW}
               height={mediaH}
               alt={this.label}
               src={this.thumbSrc}
             />
+
             <img
               decoding={ATTRS.DECODING_ASYNC}
+              loading={ATTRS.LOADING_LAZY}
               className={`${CLASSES.RENDER_MEDIA} ${CLASSES.RENDER_MEDIA_HIGH} ${this.classes} ${this.isLoaded ? CLASSES.RENDER_MEDIA_LOADED : ''}`}
               width={mediaW}
               height={mediaH}

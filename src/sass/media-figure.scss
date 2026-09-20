@@ -325,4 +325,41 @@ video.render-media {
   display: none;
 }
 
+// ── Safari-Only media sizing & layout overrides ──────────────────────────────
+// Applied ONLY when data-safari="true" is set on the media-figure host.
+// Non-Safari browsers never match this selector and remain on standard styles.
+:host([data-safari="true"]) {
+  &.internal-extra-item,
+  &[classes*="internal-extra-item"] {
+    width: auto;
+    height: 100%;
+    display: inline-block;
+
+    figure {
+      height: 100%;
+      width: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .render-placeholder {
+      width: var(--mf-w, auto);
+      height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
+      max-width: var(--mf-max-w, none);
+      max-height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
+      object-fit: contain;
+    }
+
+    .render-media,
+    video.render-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
 

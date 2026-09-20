@@ -155,3 +155,23 @@
   }
 }
 
+// ── Safari-Only slide & container sizing ─────────────────────────────────────
+// Scoped exclusively to Safari via data-safari attribute.
+// Non-Safari browsers never match this selector and remain on standard styles.
+:host([data-safari="true"]) {
+  .carousel-slide {
+    height: var(--mf-h, auto);
+    min-height: var(--mf-h, auto);
+  }
+
+  .internal-extra-item {
+    width: auto;
+    height: 100%;
+  }
+
+  media-figure {
+    height: 100%;
+    width: auto;
+  }
+}
+

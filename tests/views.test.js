@@ -43,6 +43,7 @@ describe('ViewProject', () => {
     const skeletonCover = projectEl.shadowRoot.querySelector(`.${CLASSES.INTERNAL_MAIN_ITEM}`)
     expect(skeletonTitle).not.toBeNull()
     expect(skeletonCover).not.toBeNull()
+    expect(projectEl.shadowRoot.textContent).not.toContain('Loading')
   })
 
   test('renders title and cover media when translations are provided', () => {

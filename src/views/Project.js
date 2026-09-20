@@ -272,7 +272,7 @@ export class ViewProject extends BaseComponent {
     return (
       <article>
         <div id="main" className={`project ${CLASSES.MODAL_BELOW}`}>
-          <h2 className={CLASSES.INTERNAL_TITLE}>
+          <h2 className={CLASSES.INTERNAL_TITLE} aria-label={t?.title ? stripHtml(t.title) : undefined}>
             {t?.title ? (
               <draw-text text={t.title} trigger={ATTRS.TRIGGER_VIEWPORT} />
             ) : (
@@ -321,9 +321,10 @@ export class ViewProject extends BaseComponent {
                           {child.map((item, itemKey) => {
                             const delay = this.textDelay(child)
                             const offset = this.textOffset(child, itemKey)
+
                             if (childKey === 0 && itemKey < 1) {
                               return (
-                                <h3 key={itemKey} className={CLASSES.INTERNAL_DESCRIPTION_TEXT}>
+                                <h3 key={itemKey} className={CLASSES.INTERNAL_DESCRIPTION_TEXT} aria-label={stripHtml(item)}>
                                   <draw-text text={item} trigger={ATTRS.TRIGGER_VIEWPORT} delay={delay} offset={offset} />
                                 </h3>
                               )
@@ -352,9 +353,7 @@ export class ViewProject extends BaseComponent {
           ) : (
             <div>
               <div className={CLASSES.INTERNAL_DESCRIPTION}>
-                <h3 aria-hidden={ATTRS.TRUE} className={`${CLASSES.INTERNAL_DESCRIPTION_TEXT} ${CLASSES.SKELETON_SHIMMER} ${CLASSES.SKELETON_SECTION_TITLE}`}>
-                  <span className="sr-only">Loading</span>
-                </h3>
+                <div aria-hidden={ATTRS.TRUE} className={`${CLASSES.INTERNAL_DESCRIPTION_TEXT} ${CLASSES.SKELETON_SHIMMER} ${CLASSES.SKELETON_SECTION_TITLE}`} />
                 <p className={`${CLASSES.INTERNAL_DESCRIPTION_TEXT} ${CLASSES.SKELETON_SHIMMER} ${CLASSES.SKELETON_PARA_FULL}`} />
                 <p className={`${CLASSES.INTERNAL_DESCRIPTION_TEXT} ${CLASSES.SKELETON_SHIMMER} ${CLASSES.SKELETON_PARA_94}`} />
                 <p className={`${CLASSES.INTERNAL_DESCRIPTION_TEXT} ${CLASSES.SKELETON_SHIMMER} ${CLASSES.SKELETON_PARA_65}`} />

@@ -1,7 +1,8 @@
 import { h, Fragment } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
-import { CAROUSEL, CLASSES, TAGS } from '../core/constants.js'
+import { CAROUSEL, CLASSES, TAGS, ATTRS } from '../core/constants.js'
+import { isSafari } from '../utils/browser.js'
 import { calcCarouselRingOffset } from '../utils/wasm-layout.js'
 import carouselStyles from '../sass/carousel.scss?inline'
 import carouselHostStyles from '../sass/carousel-host.scss?inline'
@@ -142,8 +143,11 @@ export class CustomCarousel extends BaseComponent {
   _measureFit() {
     if (this._forceActive) return
 
-    // Only relevant for 2+ items
-    if (this.items.length < 2) return
+    // Never switch to side-by-side if there are more than 3 items
+    if (this.items.length !== 2 && this.items.length !== 3) return
+
+    // On Safari or mobile devices, keep carousel active to prevent layout breakages
+    if (isSafari || (typeof window !== 'undefined' && window.innerWidth < CAROUSEL.MOBILE_BREAKPOINT)) return
 
     const hostW = this.getBoundingClientRect().width
 
@@ -503,9 +507,10 @@ export class CustomCarousel extends BaseComponent {
     const label = item.label || ''
     const itemClass = item.class || ''
     const MediaFigure = TAGS.MEDIA_FIGURE
+    const extraClass = `${CLASSES.INTERNAL_EXTRA_ITEM} ${itemClass}`.trim()
 
     return (
-      <div className={`${CLASSES.INTERNAL_EXTRA_ITEM} ${itemClass}`}>
+      <div className={extraClass}>
         <MediaFigure
           src={src}
           width={itemW}
@@ -513,8 +518,8 @@ export class CustomCarousel extends BaseComponent {
           can-expand={canExpand}
           is-video={isVideo}
           label={label}
-          classes={itemClass}
-          class={itemClass}
+          classes={extraClass}
+          class={extraClass}
         />
       </div>
     )

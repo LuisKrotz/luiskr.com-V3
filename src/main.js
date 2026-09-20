@@ -5,12 +5,15 @@ import router from './core/router.js'
 import './core/store.js'
 import './App.js'
 import './utils/wasm-css.js'
+import { isSafari, applySafariClass } from './utils/browser.js'
+
+applySafariClass()
 
 // ── Safari / iOS compatibility CSS ─────────────────────────────────────────
-// Loaded only on browsers missing container-type support (iOS < 16, Safari < 16).
-// Chrome, Firefox, and modern Safari never download this chunk.
-// Vite code-splits the dynamic import — zero overhead for modern browsers.
-if (!CSS.supports('container-type', 'inline-size')) {
+// Loaded only on Safari/WebKit or browsers missing container-type support.
+// Chrome, Firefox, and Android never download this chunk.
+// Vite code-splits the dynamic import — zero overhead for modern non-Safari browsers.
+if (isSafari || !CSS.supports('container-type', 'inline-size')) {
   import('./safari-loader.js')
 }
 
