@@ -166,7 +166,8 @@ export class PortfolioRelated extends BaseComponent {
                       {project.imageSrc ? (
                         <img
                           src={project.imageSrc}
-                          alt={project.page}
+                          alt={ATTRS.EMPTY}
+                          aria-hidden={ATTRS.TRUE}
                           className={CLASSES.RELATED_MOSAIC_IMG}
                           loading={ATTRS.LOADING_LAZY}
                           decoding={ATTRS.DECODING_ASYNC}

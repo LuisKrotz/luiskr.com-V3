@@ -108,10 +108,8 @@ export class DrawText extends HTMLElement {
 
     const doneClass = this._hasAnimated ? 'draw-text--done' : ''
 
-    const plainText = stripHtml(this.text)
-
-    if (plainText && !this.getAttribute('aria-label')) {
-      this.setAttribute('aria-label', plainText)
+    if (this.hasAttribute(ATTRS.ARIA_LABEL)) {
+      this.removeAttribute(ATTRS.ARIA_LABEL)
     }
 
     // draw-text.scss provides ALL styles (including :host rules).

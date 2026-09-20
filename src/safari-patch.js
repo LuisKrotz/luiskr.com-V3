@@ -84,75 +84,7 @@ if (typeof customElements !== 'undefined') {
       this.shadowRoot.appendChild(safariStyle)
     }
 
-    const originalGoTo = CustomCarouselClass.prototype.goTo
-
-    CustomCarouselClass.prototype.goTo = function (idx) {
-      originalGoTo.call(this, idx)
-
-      const activeSlide = this.$(`.${CLASSES.CAROUSEL_SLIDE_ACTIVE}`)
-
-      if (activeSlide) {
-        const mf = activeSlide.querySelector(TAGS.MEDIA_FIGURE)
-
-        if (mf && typeof mf.loadHighRes === 'function') {
-          mf.loadHighRes()
-        }
-
-        const prevSlide = activeSlide.previousElementSibling
-
-        const nextSlide = activeSlide.nextElementSibling
-
-        if (prevSlide) {
-          const prevMf = prevSlide.querySelector(TAGS.MEDIA_FIGURE)
-
-          if (prevMf && typeof prevMf.loadHighRes === 'function') {
-            prevMf.loadHighRes()
-          }
-        }
-
-        if (nextSlide) {
-          const nextMf = nextSlide.querySelector(TAGS.MEDIA_FIGURE)
-
-          if (nextMf && typeof nextMf.loadHighRes === 'function') {
-            nextMf.loadHighRes()
-          }
-        }
-      }
-    }
-
-    const originalOnScroll = CustomCarouselClass.prototype.onScroll
-
-    CustomCarouselClass.prototype.onScroll = function () {
-      if (typeof originalOnScroll === 'function') {
-        originalOnScroll.call(this)
-      }
-
-      const slides = this.$$(`.${CLASSES.CAROUSEL_SLIDE}`)
-
-      slides.forEach((slide) => {
-        const mf = slide.querySelector(TAGS.MEDIA_FIGURE)
-
-        if (mf && typeof mf.loadHighRes === 'function') {
-          mf.loadHighRes()
-        }
-      })
-    }
-
-    const originalSetupAfterRender = CustomCarouselClass.prototype._setupAfterRender
-
-    CustomCarouselClass.prototype._setupAfterRender = function () {
-      originalSetupAfterRender.call(this)
-
-      const slides = this.$$(`.${CLASSES.CAROUSEL_SLIDE}`)
-
-      slides.forEach((slide) => {
-        const mf = slide.querySelector(TAGS.MEDIA_FIGURE)
-
-        if (mf && typeof mf.loadHighRes === 'function') {
-          mf.loadHighRes()
-        }
-      })
-    }
+    // No forced high-res loading in CustomCarousel — viewport IntersectionObserver manages loading
   })
 
   // ── MediaFigure ────────────────────────────────────────────────────────────
@@ -241,38 +173,146 @@ if (typeof customElements !== 'undefined') {
 
       const fig = this.$('figure')
 
-      // Ensure touch tap opens modal on iOS Safari
-      if (fig && this.canExpand) {
-        const handleOpen = (e) => {
-          if (e && e.type === 'touchend') {
-            e.preventDefault()
+      const vid = this.$('video')
 
-            e.stopPropagation()
+      // Video autoplay and loading optimization on iOS Safari
+      if (this.isVideo && vid) {
+        vid.defaultMuted = true
+
+        vid.muted = true
+
+        vid.setAttribute('muted', '')
+
+        vid.setAttribute('playsinline', '')
+
+        vid.setAttribute('webkit-playsinline', '')
+
+        const isMobileSafari =
+          typeof window !== 'undefined' &&
+          (window.innerWidth <= 960 || /iPhone|iPad|iPod/i.test(navigator.userAgent))
+
+        if (isMobileSafari && this.video && this.video.length >= 2) {
+          const scaledSrc = this.video[1]
+
+          if (scaledSrc) {
+            const srcEl = vid.querySelector('source')
+
+            if (srcEl && srcEl.src !== scaledSrc) {
+              srcEl.src = scaledSrc
+            }
           }
-
-          this.openModal()
         }
 
-        this.addScopedListener(fig, 'click', handleOpen)
+        const startPlay = () => {
+          if (store.getters.getReducedMotion()) return
 
-        this.addScopedListener(fig, 'touchend', handleOpen, { passive: false })
+          vid.defaultMuted = true
 
-        const btn = this.$(`.${CLASSES.EXPAND_MODAL_OPEN_1}`)
+          vid.muted = true
 
-        if (btn) {
-          this.addScopedListener(btn, 'click', handleOpen)
+          if (vid.readyState === 0) {
+            vid.load()
+          }
 
-          this.addScopedListener(btn, 'touchend', handleOpen, { passive: false })
+          const p = vid.play()
+
+          if (p && typeof p.catch === 'function') {
+            p.catch(() => {
+              const onFirstTouch = () => {
+                vid.play().catch(() => {})
+              }
+
+              window.addEventListener('touchstart', onFirstTouch, { once: true, passive: true })
+            })
+          }
+        }
+
+        if (isHero) {
+          startPlay()
+        }
+
+        if (typeof IntersectionObserver !== 'undefined') {
+          const vidObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  startPlay()
+                } else {
+                  vid.pause()
+                }
+              })
+            },
+            { threshold: 0.1 }
+          )
+
+          vidObserver.observe(fig || vid)
         }
       }
 
-      // If hero cover item, load immediately without waiting for observer
+      // Immediate touch response for tap-to-open over figures and videos
+      if (this.canExpand) {
+        let touchMoved = false
+
+        let startX = 0
+
+        let startY = 0
+
+        const onTouchStart = (e) => {
+          touchMoved = false
+
+          if (e.touches && e.touches[0]) {
+            startX = e.touches[0].clientX
+
+            startY = e.touches[0].clientY
+          }
+        }
+
+        const onTouchMove = (e) => {
+          if (e.touches && e.touches[0]) {
+            const dx = Math.abs(e.touches[0].clientX - startX)
+
+            const dy = Math.abs(e.touches[0].clientY - startY)
+
+            if (dx > 10 || dy > 10) {
+              touchMoved = true
+            }
+          }
+        }
+
+        const onTouchEnd = (e) => {
+          if (!touchMoved) {
+            if (e.cancelable) e.preventDefault()
+
+            e.stopPropagation()
+
+            this.openModal()
+          }
+        }
+
+        const targets = [fig, this.$(`.${CLASSES.EXPAND_MODAL_OPEN_1}`), vid].filter(Boolean)
+
+        targets.forEach((target) => {
+          this.addScopedListener(target, 'touchstart', onTouchStart, { passive: true })
+
+          this.addScopedListener(target, 'touchmove', onTouchMove, { passive: true })
+
+          this.addScopedListener(target, 'touchend', onTouchEnd, { passive: false })
+
+          this.addScopedListener(target, 'click', (e) => {
+            e.stopPropagation()
+
+            this.openModal()
+          })
+        })
+      }
+
+      // If hero cover item, load high-res immediately
       if (isHero) {
         this.loadHighRes()
       }
 
-      // On Safari, observe the figure element which always has definite dimensions
-      if (!this.isVideo && !this.isLoaded) {
+      // On Safari, observe figure strictly with narrow margin so offscreen images never load high-res
+      if (!this.isVideo && !this.isLoaded && !isHero) {
         const target = fig || this
 
         if (target && typeof IntersectionObserver !== 'undefined') {
@@ -294,7 +334,7 @@ if (typeof customElements !== 'undefined') {
                 }
               })
             },
-            { rootMargin: '200px 100px', threshold: 0.01 }
+            { rootMargin: '50px 0px', threshold: 0.01 }
           )
 
           this.imgObserver.observe(target)
@@ -464,6 +504,22 @@ if (typeof customElements !== 'undefined') {
 
         if (imgEl) {
           imgEl.src = this.source
+        }
+      } else if (this.isVideo) {
+        const vid = this.$('video')
+
+        if (vid) {
+          vid.defaultMuted = true
+
+          vid.muted = true
+
+          vid.setAttribute('muted', '')
+
+          vid.setAttribute('playsinline', '')
+
+          vid.setAttribute('webkit-playsinline', '')
+
+          vid.play().catch(() => {})
         }
       }
     }

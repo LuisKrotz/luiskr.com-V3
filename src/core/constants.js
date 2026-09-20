@@ -114,6 +114,7 @@ export const ATTRS = Object.freeze({
   FETCH_PRIORITY_HIGH: 'high',
   FETCH_PRIORITY_LOW: 'low',
   TRIGGER_VIEWPORT: 'viewport',
+  ARIA_LABEL: 'aria-label',
 })
 
 // ─── Shared Primitive Strings ───────────────────────────────────────────────

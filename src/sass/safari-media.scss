@@ -70,4 +70,10 @@ video.render-media {
 .expand-modal-open-1 {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+figure.internal-expand video.render-media {
+  pointer-events: none;
 }
