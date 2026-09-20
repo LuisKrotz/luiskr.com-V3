@@ -1,25 +1,43 @@
 // Multi-Threaded WebAssembly Worker Pool Dispatcher
+//
+// LAZY INITIALISATION: workers are spawned only on the first dispatch() call,
+// not at module-evaluation time. This avoids blocking the iOS/Android main
+// thread on page load (spawning 6–8 Workers synchronously caused page freezes).
+//
+// Worker count caps:
+//   mobile (iOS / Android)  → max 2 workers
+//   desktop                 → max 4 workers
+
+const _isMobile =
+  typeof navigator !== 'undefined' &&
+  /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent)
+
 class WasmWorkerPool {
-  constructor(
-    size = Math.max(2, (typeof navigator !== 'undefined' && navigator.hardwareConcurrency) || 4)
-  ) {
-    this.size = Math.min(8, size)
+  constructor() {
+    const cores = (typeof navigator !== 'undefined' && navigator.hardwareConcurrency) || 2
+    this.size = _isMobile ? Math.min(2, cores) : Math.min(4, Math.max(2, cores))
     this.workers = []
     this.nextWorkerIdx = 0
     this.pendingTasks = new Map()
     this.taskIdSeq = 0
-    this.initPool()
+    this._poolReady = false
+    // Lazy init: do NOT spawn workers here — wait until first dispatch()
   }
 
-  initPool() {
+  // Spawn workers on first use so module evaluation never blocks the main thread
+  _ensurePool() {
+    if (this._poolReady) return
+    this._poolReady = true
+
     if (typeof window === 'undefined' || typeof Worker === 'undefined') return
+
     for (let i = 0; i < this.size; i++) {
       try {
         const worker = new Worker('/workers/wasm-worker.js')
         worker.onmessage = (e) => this.handleMessage(e)
         this.workers.push(worker)
       } catch {
-        // Worker fallback
+        // Worker not available — dispatch() will resolve(null) gracefully
       }
     }
   }
@@ -51,6 +69,9 @@ class WasmWorkerPool {
   }
 
   dispatch(type, payload, transferables = []) {
+    // Lazy-spawn workers on first call — never during module evaluation
+    this._ensurePool()
+
     return new Promise((resolve) => {
       if (!this.workers.length) {
         resolve(null)

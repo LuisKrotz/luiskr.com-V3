@@ -68,11 +68,28 @@ $_skel-label:    rgba(255, 255, 255, 0.45); // dim label — white alpha only
     transform: translateY(0);
   }
 
-  // On mobile — smaller padding, tighter gap
-  @media (max-width: 480px) {
-    gap: to-rem($space-md);
-    padding: to-rem($space-2xs) to-rem($space-lg);
+  // ── Mobile responsive: wrap into 2 rows, pin to grid gutters ────────────────
+  // On ≤540px the 7 segments in a single nowrap row overflow the viewport.
+  // Pinning left+right to the grid gutter and using flex-wrap lets segments
+  // stack naturally into 2 rows. Segment border-right separators are removed
+  // at this size — they look broken at wrapped row-ends — row-gap handles spacing.
+  @media (max-width: 540px) {
+    right: to-rem($gap-272);
+    left: to-rem($gap-272);
+    max-width: none;
+    white-space: normal;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: to-rem($space-xs) to-rem($space-md);
+    padding: to-rem($space-xs) to-rem($space-lg);
     font-size: to-rem($space-md);
+
+    // Remove right-border separator on wrapped segments — it appears at row-ends
+    // and looks misaligned when the last item in a row is not the last segment.
+    &-segment:not(:last-child) {
+      padding-right: 0;
+      border-right: none;
+    }
   }
 
   // Stat segments separated by a hairline border

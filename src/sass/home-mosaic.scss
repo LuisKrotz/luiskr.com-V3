@@ -44,6 +44,8 @@
 // section below slide smoothly when a card expands / collapses on hover.
 .home-mosaic {
   transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  // Mobile: skip height transition — triggers layout recalc each frame
+  @media (max-width: 768px) { transition: none; }
   min-height: to-rem($space-11xl);
 
   @include layout-540() {
@@ -74,7 +76,12 @@
   box-sizing: border-box;
   container-type: inline-size; // enables cqw units for child text
 
-  // Smooth transitions — JS changes inline styles, CSS animates them
+  // Smooth transitions — JS changes inline styles, CSS animates them.
+  // Desktop: all properties (height/top/left are non-composited but tolerable
+  // at desktop GPU speeds).
+  // Mobile: only GPU-composited properties — height/top/left transitions
+  // trigger a layout recalc on EVERY frame, causing the animation freeze
+  // reported on iOS and Android.
   transition:
     height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     top 0.42s cubic-bezier(0.22, 1, 0.36, 1),
@@ -83,6 +90,13 @@
     box-shadow 0.36s ease,
     opacity 0.3s ease,
     filter 0.3s ease;
+
+  @media (max-width: 768px) {
+    // Drop layout-affecting properties — keep only compositor-thread properties
+    transition:
+      transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.3s ease;
+  }
 
   &--featured {
     box-shadow: var(--shadow-card-featured);
@@ -114,6 +128,7 @@
   overflow: hidden;
   // transition on height so the image area animates when card expands/collapses
   transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  @media (max-width: 768px) { transition: none; }
 }
 
 .home-mosaic-img {
@@ -164,6 +179,8 @@
   transition:
     height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.28s ease 0.1s;
+  // Mobile: drop non-composited height transition, keep opacity only
+  @media (max-width: 768px) { transition: opacity 0.28s ease 0.1s; }
   // Always dark to match card image aesthetic in both light and dark mode
   background: var(--bg-dark);
   border-bottom-left-radius: inherit;

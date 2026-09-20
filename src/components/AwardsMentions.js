@@ -114,8 +114,12 @@ export class AwardsMentions extends BaseComponent {
         this._hideProgress()
       })
 
-      // Start the first animation after the carousel is initialised
-      requestAnimationFrame(() => this._restartProgressAnimation())
+      // Double-RAF: gives the browser two paint frames to fully apply
+      // shadow-DOM styles and register the @keyframes rule before we add the
+      // --running class that starts the animation. Without this, iOS and fresh
+      // desktop first-loads silently ignore the animation on the first slide.
+      this._showProgress()
+      requestAnimationFrame(() => requestAnimationFrame(() => this._restartProgressAnimation()))
     }
   }
 

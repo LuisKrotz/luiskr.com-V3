@@ -15,6 +15,14 @@ class GPUAccelerator {
     // Detect WebNN NPU capability
     this.hasNPU = typeof navigator !== 'undefined' && 'ml' in navigator
 
+    // Skip WebGL context creation on mobile — the GPU context + shader
+    // compilation blocks the main thread during module init on iOS/Android.
+    // Mobile workloads fall back to the WASM/JS path which is faster for them.
+    const isMobile =
+      typeof navigator !== 'undefined' &&
+      /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent)
+    if (isMobile) return
+
     try {
       this.canvas = document.createElement('canvas')
       this.canvas.width = 1
