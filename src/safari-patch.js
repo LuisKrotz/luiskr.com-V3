@@ -133,15 +133,25 @@ if (typeof customElements !== 'undefined') {
 
         highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
 
-        if (highEl.complete) {
+        const onFinish = () => {
           this.isLoaded = true
+
+          const thumbEl = this.$(`.${CLASSES.RENDER_MEDIA_THUMB}`)
+
+          if (thumbEl) {
+            thumbEl.style.display = 'none'
+          }
+        }
+
+        if (highEl.complete) {
+          onFinish()
         } else {
           highEl.onload = () => {
-            this.isLoaded = true
+            onFinish()
           }
 
           highEl.onerror = () => {
-            this.isLoaded = true
+            onFinish()
           }
         }
       } else if (this._isMounted) {
@@ -231,21 +241,32 @@ if (typeof customElements !== 'undefined') {
           startPlay()
         }
 
+        // Clean up the duplicate observer created in originalMediaOnMounted
+        if (this.observer) {
+          this.observer.disconnect()
+
+          this.observer = null
+        }
+
         if (typeof IntersectionObserver !== 'undefined') {
-          const vidObserver = new IntersectionObserver(
+          this.observer = new IntersectionObserver(
             (entries) => {
               entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                  startPlay()
+                  if (vid.paused) {
+                    startPlay()
+                  }
                 } else {
-                  vid.pause()
+                  if (!vid.paused) {
+                    vid.pause()
+                  }
                 }
               })
             },
-            { threshold: 0.1 }
+            { threshold: 0.15 }
           )
 
-          vidObserver.observe(fig || vid)
+          this.observer.observe(fig || vid)
         }
       }
 
@@ -268,6 +289,8 @@ if (typeof customElements !== 'undefined') {
         }
 
         const onTouchMove = (e) => {
+          if (touchMoved) return
+
           if (e.touches && e.touches[0]) {
             const dx = Math.abs(e.touches[0].clientX - startX)
 

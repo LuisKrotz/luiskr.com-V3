@@ -1,9 +1,24 @@
 @import '_variables';
 @import '_mixins';
 
+.carousel {
+  will-change: auto;
+  transform: none;
+
+  &.carousel--in-view {
+    transform: none;
+  }
+}
+
+.carousel-track {
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .carousel-slide {
   height: var(--mf-h, auto);
   min-height: var(--mf-h, auto);
+  contain: layout paint;
 }
 
 .internal-extra-item {
