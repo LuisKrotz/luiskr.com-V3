@@ -74,7 +74,7 @@ class StatsHud extends BaseComponent {
     }
 
     if (cpuEl) {
-      cpuEl.textContent = cpuPercent > 0 ? `${cpuPercent}%` : '\u2014'
+      cpuEl.textContent = `${cpuPercent}%`
 
       cpuEl.className = `${_B}-value ${cpuPercent < 30 ? `${_B}-fps-good` : cpuPercent < 70 ? `${_B}-fps-mid` : `${_B}-fps-bad`}`
     }
@@ -108,17 +108,16 @@ class StatsHud extends BaseComponent {
   render() {
     const { fps, networkBytesPerSec, pendingRequests, memoryMB, cpuPercent, latencyMs } = this._stats
     const fpsClass = fps >= 55 ? `${_B}-fps-good` : fps >= 30 ? `${_B}-fps-mid` : `${_B}-fps-bad`
-    const cpuClass = cpuPercent < 30 ? `${_B}-fps-good` : cpuPercent < 70 ? `${_B}-fps-mid` : `${_B}-fps-bad`
+    const cpuClass = `${_B}-value ${cpuPercent < 30 ? `${_B}-fps-good` : cpuPercent < 70 ? `${_B}-fps-mid` : `${_B}-fps-bad`}`
     const latClass = latencyMs === 0 ? `${_B}-value` : latencyMs < 100 ? `${_B}-value ${_B}-fps-good` : latencyMs < 400 ? `${_B}-value ${_B}-fps-mid` : `${_B}-value ${_B}-fps-bad`
     const kb = (networkBytesPerSec / 1024).toFixed(1)
     const visible = this.visible
     const npu = npuPredict.getNpuAnalytics()
-    const accelLabel = npu.hasNPU ? 'NPU' : npu.hasGPU ? 'GPU' : 'WASM'
-    const accelClass = npu.hasNPU
-      ? `${_B}-value ${_B}-accel-npu`
-      : npu.hasGPU
-      ? `${_B}-value ${_B}-accel-gpu`
-      : `${_B}-value ${_B}-accel-wasm`
+    const gpuOn = npu.hasNPU || npu.hasGPU
+    const accelLabel = gpuOn ? 'ON' : 'OFF'
+    const accelClass = gpuOn
+      ? `${_B}-value ${_B}-fps-good`
+      : `${_B}-value ${_B}-fps-bad`
 
     return (
       <div className={`${_B}${visible ? ` ${_B}--visible` : ''}`} role="status" aria-live="off" aria-label="Performance stats">
@@ -129,7 +128,7 @@ class StatsHud extends BaseComponent {
 
         <span className={`${_B}-segment`}>
           <span className={`${_B}-label`}>CPU</span>
-          <span className={`${_B}-value ${cpuClass}`} data-stat="cpu">{cpuPercent > 0 ? `${cpuPercent}%` : '—'}</span>
+          <span className={cpuClass} data-stat="cpu">{`${cpuPercent}%`}</span>
         </span>
 
         <span className={`${_B}-segment`}>
@@ -153,7 +152,7 @@ class StatsHud extends BaseComponent {
         </span>
 
         <span className={`${_B}-segment`}>
-          <span className={`${_B}-label`}>AI</span>
+          <span className={`${_B}-label`}>GPU</span>
           <span className={accelClass} data-stat="accel">{accelLabel}</span>
         </span>
       </div>
