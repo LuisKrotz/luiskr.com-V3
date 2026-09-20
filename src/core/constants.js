@@ -110,7 +110,6 @@ export const ATTRS = Object.freeze({
   DECODING_ASYNC: 'async',
   LOADING_LAZY: 'lazy',
   TRIGGER_VIEWPORT: 'viewport',
-  DATA_SAFARI: 'data-safari',
 })
 
 // ─── Shared Primitive Strings ───────────────────────────────────────────────
@@ -563,7 +562,6 @@ export const CLASSES = Object.freeze({
   ROUTER_LINK_EXACT_ACTIVE: 'router-link-exact-active',
   ACTIVE: 'active',
   IS_OPEN: 'is-open',
-  IS_SAFARI: 'is-safari',
 })
 
 // ─── UI text tokens (used by both app and tests) ──────────────────────────────

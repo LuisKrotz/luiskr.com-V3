@@ -14,9 +14,6 @@
  *   when the element disconnects.
  */
 
-import { ATTRS } from './constants.js'
-import { isSafari } from '../utils/browser.js'
-
 const BASE_HOST_STYLES =
   ':host { display: block; font-family: var(--font-primary); color: var(--text-primary); box-sizing: border-box; }\n' +
   ':host > [data-content] { display: contents; }\n' +
@@ -59,18 +56,10 @@ export class BaseComponent extends HTMLElement {
   }
 
   connectedCallback() {
-    if (isSafari) {
-      this.setAttribute(ATTRS.DATA_SAFARI, ATTRS.TRUE)
-    }
-
     this.onInit?.()
-
     this._renderInitial()
-
     this._isMounted = true
-
     this.onMounted?.()
-
     this.onUpdated?.()
   }
 

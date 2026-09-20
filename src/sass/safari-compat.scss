@@ -106,9 +106,3 @@
     container-type: normal;
   }
 }
-
-// ── 4. Safari text block min-height reset ────────────────────────────────
-// On Safari, stacked sections must not inherit runaway min-height from carousels.
-.internal-description {
-  min-height: auto;
-}
