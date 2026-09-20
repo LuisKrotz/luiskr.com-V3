@@ -32,21 +32,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: to-rem($space-xl);
+  // Horizontal padding mirrors the MAXAREA gutter at each breakpoint so the
+  // dialog is always contained within the grid — never wider than the max area.
+  padding: to-rem($space-md) to-rem(calc(($un-272 - $grid-max-area-272) / 2));
   background: rgba($color-black, 0.65);
   backdrop-filter: blur(to-rem(8));
   -webkit-backdrop-filter: blur(to-rem(8));
   outline: none;
   overflow: hidden;
 
-  @media (max-width: $bk-540) {
-    padding: to-rem($space-sm);
-  }
+  @include layout-320()  { padding-left: to-rem(calc(($un-320  - $grid-max-area-320)  / 2)); padding-right: to-rem(calc(($un-320  - $grid-max-area-320)  / 2)); }
+  @include layout-375()  { padding-left: to-rem(calc(($un-375  - $grid-max-area-375)  / 2)); padding-right: to-rem(calc(($un-375  - $grid-max-area-375)  / 2)); }
+  @include layout-414()  { padding-left: to-rem(calc(($un-414  - $grid-max-area-414)  / 2)); padding-right: to-rem(calc(($un-414  - $grid-max-area-414)  / 2)); }
+  @include layout-540()  { padding-left: to-rem(calc(($un-540  - $grid-max-area-540)  / 2)); padding-right: to-rem(calc(($un-540  - $grid-max-area-540)  / 2)); }
+  @include layout-768()  { padding-left: to-rem(calc(($un-768  - $grid-max-area-768)  / 2)); padding-right: to-rem(calc(($un-768  - $grid-max-area-768)  / 2)); }
+  @include layout-1024() { padding-left: to-rem(calc(($un-1024 - $grid-max-area-1024) / 2)); padding-right: to-rem(calc(($un-1024 - $grid-max-area-1024) / 2)); }
+  @include layout-1440() { padding-left: to-rem(calc(($un-1440 - $grid-max-area-1440) / 2)); padding-right: to-rem(calc(($un-1440 - $grid-max-area-1440) / 2)); }
+  @include layout-1920() { padding-left: to-rem(calc(($un-1920 - $grid-max-area-1920) / 2)); padding-right: to-rem(calc(($un-1920 - $grid-max-area-1920) / 2)); }
 }
 
 .pref-dialog {
   width: 100%;
   box-sizing: border-box;
+  // The backdrop padding constrains the width to grid; 610px cap prevents
+  // the dialog from stretching too wide on large viewports.
   max-width: to-rem($space-8xl);
   max-height: calc(88vh);
   max-height: calc(88dvh);
@@ -191,11 +200,9 @@
 }
 
 .lang-dialog {
-  max-width: to-rem(480);
-
-  @media (max-width: $bk-540) {
-    max-width: 100%;
-  }
+  // 480px cap on wide screens; on narrow screens the backdrop padding
+  // already constrains width, so max-width: 100% lets it fill the grid.
+  max-width: min(to-rem(480), 100%);
 }
 
 .pref-option-btn {

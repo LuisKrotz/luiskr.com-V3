@@ -59,11 +59,13 @@ class StatsHud extends BaseComponent {
 
   _updateStatsDom() {
     const fpsEl = this.$(`[data-stat="fps"]`)
+    const cpuEl = this.$(`[data-stat="cpu"]`)
     const netEl = this.$(`[data-stat="net"]`)
+    const latEl = this.$(`[data-stat="lat"]`)
     const pendEl = this.$(`[data-stat="pend"]`)
     const memEl = this.$(`[data-stat="mem"]`)
 
-    const { fps, networkBytesPerSec, pendingRequests, memoryMB } = this._stats
+    const { fps, networkBytesPerSec, pendingRequests, memoryMB, cpuPercent, latencyMs } = this._stats
 
     if (fpsEl) {
       fpsEl.textContent = String(fps)
@@ -71,9 +73,27 @@ class StatsHud extends BaseComponent {
       fpsEl.className = `${_B}-value ${fps >= 55 ? `${_B}-fps-good` : fps >= 30 ? `${_B}-fps-mid` : `${_B}-fps-bad`}`
     }
 
+    if (cpuEl) {
+      cpuEl.textContent = cpuPercent > 0 ? `${cpuPercent}%` : '\u2014'
+
+      cpuEl.className = `${_B}-value ${cpuPercent < 30 ? `${_B}-fps-good` : cpuPercent < 70 ? `${_B}-fps-mid` : `${_B}-fps-bad`}`
+    }
+
     if (netEl) {
       const kb = (networkBytesPerSec / 1024).toFixed(1)
       netEl.textContent = `${kb} KB/s`
+    }
+
+    if (latEl) {
+      latEl.textContent = latencyMs > 0 ? `${latencyMs}ms` : '\u2014'
+
+      const latClass = latencyMs === 0
+        ? `${_B}-value`
+        : latencyMs < 100 ? `${_B}-value ${_B}-fps-good`
+        : latencyMs < 400 ? `${_B}-value ${_B}-fps-mid`
+        : `${_B}-value ${_B}-fps-bad`
+
+      latEl.className = latClass
     }
 
     if (pendEl) {
