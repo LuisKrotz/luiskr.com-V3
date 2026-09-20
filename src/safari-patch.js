@@ -1,7 +1,9 @@
-import { TAGS, CLASSES, MEDIA, ATTRS } from './core/constants.js'
+import { TAGS, CLASSES, MEDIA, ATTRS, MEDIA_DIMENSIONS } from './core/constants.js'
 import store from './core/store.js'
 import { gpuAccel } from './utils/gpu-accel.js'
 import { wasmPool } from './utils/wasm-pool.js'
+import { localMediaCache } from './utils/local-media-cache.js'
+import { wasmMediaThreads } from './utils/wasm-media-threads.js'
 import safariCarouselStyles from './sass/safari-carousel.scss?inline'
 import safariMediaStyles from './sass/safari-media.scss?inline'
 
@@ -13,8 +15,7 @@ if (typeof document !== 'undefined' && document.documentElement) {
 // ── 2. Disable GPU compositor layer bloat & WebGL textures on Safari/iOS ───────
 // On iOS Safari, forcing will-change: transform/opacity and translate3d on 100+
 // elements exhausts GPU backing store memory and crashes the WebKit process
-// ("A problem repeatedly occurred on this webpage"). Native iOS rendering is
-// already hardware accelerated.
+// ("A problem repeatedly occurred on this webpage").
 gpuAccel.accelerateElementGPU = function () {}
 
 gpuAccel.processTextureGPU = function () {}
@@ -25,10 +26,26 @@ gpuAccel.processBitmapGPU = function () {}
 
 gpuAccel.processVideoGPU = function () {}
 
-// ── 3. Bypass WASM worker pool on Safari/iOS ──────────────────────────────────
+// ── 3. Bypass WASM worker pool & memory-heavy caches on Safari/iOS ─────────────
 // Prevents worker thread memory spikes and createImageBitmap / DataCloneError
 // in Safari (especially in Private Browsing mode).
 wasmPool.dispatch = function () {
+  return Promise.resolve(null)
+}
+
+localMediaCache.fetchOrGetLocalMedia = function (url) {
+  return Promise.resolve(url)
+}
+
+localMediaCache.getLocalMedia = function () {
+  return Promise.resolve(null)
+}
+
+localMediaCache.storeLocalMedia = function (url) {
+  return Promise.resolve(url)
+}
+
+wasmMediaThreads.decodeMediaInSeparateThread = function () {
   return Promise.resolve(null)
 }
 
@@ -138,39 +155,38 @@ if (typeof customElements !== 'undefined') {
     }
 
     // Native progressive loading for iOS/Safari:
-    // Bypasses worker threads and IndexedDB cache (which fails in Private Browsing),
-    // and uses standard native Image loading for 100% reliability and zero crash risk.
+    // Streams image directly into the DOM high-res image element so Safari's
+    // progressive JPEG decoder renders as chunks arrive.
     MediaFigureClass.prototype.loadHighRes = function () {
       if (this.isLoaded) return
 
       const storage = store.getters.getStorage()
       const targetUrl = storage + this.mediaSrc + MEDIA.MOZ + MEDIA.Q50 + MEDIA.EXT
 
-      const finish = () => {
-        this.highResSrc = targetUrl
-        this.isLoaded = true
+      this.highResSrc = targetUrl
 
-        const highEl = this.$(`.${CLASSES.RENDER_MEDIA_HIGH}`)
+      const highEl = this.$(`.${CLASSES.RENDER_MEDIA_HIGH}`)
 
-        if (highEl) {
-          highEl.src = targetUrl
+      if (highEl) {
+        highEl.src = targetUrl
+
+        if (highEl.complete) {
+          this.isLoaded = true
           highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
-        } else if (this._isMounted) {
-          this._updateDom()
+        } else {
+          highEl.onload = () => {
+            this.isLoaded = true
+            highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
+          }
+
+          highEl.onerror = () => {
+            this.isLoaded = true
+            highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
+          }
         }
-      }
-
-      const ImageClass = typeof window !== 'undefined' && window.Image ? window.Image : Image
-      const img = new ImageClass()
-
-      img.decoding = ATTRS.DECODING_ASYNC
-      img.src = targetUrl
-
-      if (img.complete) {
-        finish()
-      } else {
-        img.onload = () => finish()
-        img.onerror = () => finish()
+      } else if (this._isMounted) {
+        this.isLoaded = true
+        this._updateDom()
       }
     }
 
@@ -184,6 +200,29 @@ if (typeof customElements !== 'undefined') {
       this.style.transform = ''
       this.style.backfaceVisibility = ''
 
+      const fig = this.$('figure')
+
+      // Ensure touch tap opens modal on iOS Safari
+      if (fig && this.canExpand) {
+        const handleOpen = (e) => {
+          if (e && e.type === 'touchend') {
+            e.preventDefault()
+          }
+
+          this.openModal()
+        }
+
+        this.addScopedListener(fig, 'click', handleOpen)
+        this.addScopedListener(fig, 'touchend', handleOpen, { passive: false })
+
+        const btn = this.$(`.${CLASSES.EXPAND_MODAL_OPEN_1}`)
+
+        if (btn) {
+          this.addScopedListener(btn, 'click', handleOpen)
+          this.addScopedListener(btn, 'touchend', handleOpen, { passive: false })
+        }
+      }
+
       // If hero cover item, load immediately without waiting for observer
       if (this.classes && this.classes.includes(CLASSES.INTERNAL_MAIN_ITEM)) {
         this.loadHighRes()
@@ -191,9 +230,9 @@ if (typeof customElements !== 'undefined') {
 
       // On Safari, observe the figure element which always has definite dimensions
       if (!this.isVideo && !this.isLoaded) {
-        const fig = this.$('figure') || this
+        const target = fig || this
 
-        if (fig && typeof IntersectionObserver !== 'undefined') {
+        if (target && typeof IntersectionObserver !== 'undefined') {
           if (this.imgObserver) {
             this.imgObserver.disconnect()
           }
@@ -214,7 +253,108 @@ if (typeof customElements !== 'undefined') {
             { rootMargin: '200px 100px', threshold: 0.01 }
           )
 
-          this.imgObserver.observe(fig)
+          this.imgObserver.observe(target)
+        }
+      }
+    }
+  })
+
+  // ── ViewProject (Modal Open/Close in ShadowRoot for Safari) ─────────────────
+  customElements.whenDefined(TAGS.VIEW_PROJECT).then(() => {
+    const ViewProjectClass = customElements.get(TAGS.VIEW_PROJECT)
+
+    if (!ViewProjectClass || !ViewProjectClass.prototype) return
+
+    ViewProjectClass.prototype._updateModalDOM = function () {
+      const modal = store.getters.getModal()
+      const above = this.$(`dialog.${CLASSES.MODAL_ABOVE}`) || this.$(`.${CLASSES.MODAL_ABOVE}`)
+      const below = this.$(`.${CLASSES.MODAL_BELOW}`)
+
+      if (modal?.open) {
+        if (below) {
+          below.style.transform = `translateY(-${modal.transform || 0}px)`
+        }
+
+        if (above) {
+          try {
+            if (typeof above.showModal === 'function' && !above.open) {
+              above.showModal()
+            }
+          } catch {}
+
+          above.setAttribute('open', '')
+          above.open = true
+          above.style.display = 'block'
+
+          const existing = above.querySelector(TAGS.MEDIA_EXPANDED)
+          const src = modal.media?.source || ''
+
+          if (!existing || existing.getAttribute('source') !== src) {
+            const expandedEl = document.createElement(TAGS.MEDIA_EXPANDED)
+
+            expandedEl.setAttribute('source', modal.media?.source || '')
+            expandedEl.setAttribute('thumb', modal.media?.thumb || '')
+            expandedEl.setAttribute('alt', modal.media?.alt || '')
+            expandedEl.setAttribute('width', String(modal.media?.width || MEDIA_DIMENSIONS.DEFAULT_WIDTH))
+            expandedEl.setAttribute('height', String(modal.media?.height || MEDIA_DIMENSIONS.DEFAULT_HEIGHT))
+            expandedEl.setAttribute('is-video', modal.media?.isVideo ? ATTRS.TRUE : ATTRS.FALSE)
+
+            above.replaceChildren(expandedEl)
+          }
+        }
+      } else {
+        if (below) {
+          below.style.transform = ''
+        }
+
+        if (above) {
+          try {
+            if (typeof above.close === 'function' && above.open) {
+              above.close()
+            }
+          } catch {}
+
+          above.removeAttribute('open')
+          above.open = false
+          above.style.display = 'none'
+          above.replaceChildren()
+        }
+      }
+    }
+  })
+
+  // ── MediaExpanded (Full-res image & touch close for Safari) ─────────────────
+  customElements.whenDefined(TAGS.MEDIA_EXPANDED).then(() => {
+    const MediaExpandedClass = customElements.get(TAGS.MEDIA_EXPANDED)
+
+    if (!MediaExpandedClass || !MediaExpandedClass.prototype) return
+
+    const originalExpandedMounted = MediaExpandedClass.prototype.onMounted
+
+    MediaExpandedClass.prototype.onMounted = function () {
+      originalExpandedMounted.call(this)
+
+      const closeBtns = this.$$(
+        `.${CLASSES.EXPAND_MODAL_CLOSE_BAR_BUTTON}, .${CLASSES.EXPAND_MODAL_CLOSE_BOTTOM}, .${CLASSES.EXPAND_MODAL_CLOSE_AREA}`
+      )
+
+      closeBtns.forEach((btn) => {
+        this.addScopedListener(
+          btn,
+          'touchend',
+          (e) => {
+            e.preventDefault()
+            this.startClose()
+          },
+          { passive: false }
+        )
+      })
+
+      if (!this.isVideo && this.source) {
+        const imgEl = this.$(`.${CLASSES.EXPAND_MODAL_MEDIA_ITEM}`)
+
+        if (imgEl) {
+          imgEl.src = this.source
         }
       }
     }

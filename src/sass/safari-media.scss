@@ -14,6 +14,17 @@ figure {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  border-radius: to-rem($space-md);
+  -webkit-border-radius: to-rem($space-md);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  @include layout-1024() {
+    border-radius: to-rem($space-lg);
+    -webkit-border-radius: to-rem($space-lg);
+  }
 }
 
 .render-placeholder {
@@ -31,6 +42,8 @@ video.render-media {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: inherit;
+  -webkit-border-radius: inherit;
 }
 
 .render-media {
@@ -49,4 +62,9 @@ video.render-media {
       opacity: 1;
     }
   }
+}
+
+.expand-modal-open-1 {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
