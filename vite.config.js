@@ -94,14 +94,19 @@ export default defineConfig({
         silenceDeprecations: ['import', 'global-builtin', 'legacy-js-api'],
       },
     },
+    // errorRecovery: preserve rules with unknown pseudo-classes like :host-context()
+    // instead of silently dropping them during minification.
+    lightningcss: {
+      errorRecovery: true,
+    },
   },
   build: {
     outDir: 'dist',
     target: 'esnext',
     cssTarget: 'chrome120',
-    sourcemap: false,
+    sourcemap: true,
     cssCodeSplit: true,
-    cssMinify: true,
+    cssMinify: 'lightningcss',
     modulePreload: {
       polyfill: true,
     },

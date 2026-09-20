@@ -5,6 +5,7 @@ import router from '../core/router.js'
 import { PROJECT_ALIASES, MEDIA, CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, STRINGS } from '../core/constants.js'
 import { fetchFirebaseDb } from '../utils/db.js'
 import { calcDrawTextDelay, calcDrawTextOffset } from '../utils/wasm-layout.js'
+import { wasmSmoothScroll } from '../utils/wasm-scroll.js'
 import { stripHtml, svgPlaceholder } from '../utils/media.js'
 import internalStyles from '../sass/internals.scss?inline'
 import modalStyles from '../sass/modal.scss?inline'
@@ -61,12 +62,10 @@ export class ViewProject extends BaseComponent {
       this.projectSlug = nextSlug
       this.translations = null
       this._updateDom()
-      import('../utils/wasm-scroll.js').then(({ wasmSmoothScroll }) => {
-        wasmSmoothScroll({
-          duration: 1000,
-          updateHistory: false,
-          scrollTo: 0,
-        })
+      wasmSmoothScroll({
+        duration: 1000,
+        updateHistory: false,
+        scrollTo: 0,
       })
       this.loadData(1000)
     } else {
