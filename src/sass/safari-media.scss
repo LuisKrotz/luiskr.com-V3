@@ -8,6 +8,7 @@
 }
 
 figure {
+  position: relative;
   height: 100%;
   width: auto;
   display: flex;
@@ -30,4 +31,22 @@ video.render-media {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.render-media {
+  &--thumb {
+    filter: blur(12px);
+    transform: scale(1.05);
+    z-index: 1;
+  }
+
+  &--high {
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &.render-media--loaded {
+      opacity: 1;
+    }
+  }
 }
