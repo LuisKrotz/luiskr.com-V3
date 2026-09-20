@@ -156,25 +156,25 @@
       // The .legal container is full-width (no %MAXAREA), so this
       // 25% padding IS the only source of indentation.
       @include layout-768() {
-        padding-top: to-rem($space-3xl);
-        padding-bottom: to-rem($space-2xl);
+        padding-top: to-rem($space-xl);
+        padding-bottom: to-rem($space-xl);
         // 12.5% = 1.5 cols on 8-col intermediate grid
       }
 
       @include layout-1024() {
-        padding-top: to-rem($space-3xl);
-        padding-bottom: to-rem($space-2xl);
+        padding-top: to-rem($space-xl);
+        padding-bottom: to-rem($space-xl);
         // 25% already applied by base rule — no override needed
       }
 
       @include layout-1920() {
-        padding-top: to-rem($space-4xl);
-        padding-bottom: to-rem($space-3xl);
+        padding-top: to-rem($space-2xl);
+        padding-bottom: to-rem($space-2xl);
       }
 
       @include layout-2560() {
-        padding-top: to-rem($space-5xl);
-        padding-bottom: to-rem($space-4xl);
+        padding-top: to-rem($space-3xl);
+        padding-bottom: to-rem($space-3xl);
       }
     }
 

@@ -615,24 +615,25 @@ html.reduced-motion *::after {
   opacity: 0;
 }
 
-// ── Nav flag images ───────────────────────────────────────────────────────────
-// Sized for the compact navbar button context (smaller than preferences modal).
+// ── Nav flag images ────────────────────────────────────────────────────────────
+// 13px ($space-lg) max height — sized to fit inline in the compact nav bar.
 .flag-img {
-  height: to-rem(28);
+  height: to-rem($space-lg);
   width: auto;
+  max-height: to-rem($space-lg);
   display: block;
   border-radius: to-rem($space-2xs);
-  box-shadow: 0 to-rem($space-hairline) to-rem($space-xs) var(--shadow-card);
 }
 
-// Split flag: two country codes side by side in one compact badge
+// Split flag: two country codes side by side
 .flag-split {
   display: inline-flex;
   align-items: center;
 
   .flag-img {
-    height: to-rem(28);
-    width: to-rem(21);
+    height: to-rem($space-lg);
+    width: to-rem($space-md);
+    max-height: to-rem($space-lg);
     object-fit: cover;
     border-radius: 0;
 
