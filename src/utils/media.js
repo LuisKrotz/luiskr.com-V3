@@ -1,4 +1,4 @@
-import { STRINGS, ATTRS, MEDIA, MEDIA_DIMENSIONS, PATHS } from '../core/constants.js'
+import { STRINGS, ATTRS, MEDIA, MEDIA_DIMENSIONS } from '../core/constants.js'
 
 export const isGravatarUrl = (urlStr) => {
   if (typeof urlStr !== STRINGS.STRING) return false
@@ -32,19 +32,6 @@ export const getOptimizedGravatar = (urlStr, size = 300) => {
   return urlStr
 }
 
-export const buildCoverUrls = (storage, imageName) => {
-  if (!imageName || !storage) {
-    return { src: ATTRS.EMPTY, fallbackSrc: ATTRS.EMPTY }
-  }
-
-  const base = `${storage}${PATHS.COVERS}${imageName}`
-
-  const src = `${base}${MEDIA.MOZ}${MEDIA.THUMB_SUFFIX}${MEDIA.EXT}`
-
-  const fallbackSrc = `${base}${MEDIA.EXT}`
-
-  return { src, fallbackSrc }
-}
 
 export const stripHtml = (str) => {
   if (!str || typeof str !== STRINGS.STRING) return ATTRS.EMPTY

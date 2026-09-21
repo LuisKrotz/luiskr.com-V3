@@ -9,7 +9,7 @@ import { gpuAccel } from './gpu-accel.js'
 import { wasmPool } from './wasm-pool.js'
 import { wasmImageDecoder } from './wasm-image-decoder.js'
 import { wasmMediaThreads } from './wasm-media-threads.js'
-import { STRINGS } from '../core/constants.js'
+import { STRINGS, WASM_ACTIONS } from '../core/constants.js'
 
 class WASMLazyloader {
   constructor() {
@@ -95,7 +95,7 @@ class WASMLazyloader {
         imgEls.map(async (el) => {
           const src = el.dataset.wasmSrc
           // WASM media analytics off main thread
-          wasmPool.dispatch('PROCESS_MEDIA_ANALYTICS', {
+          wasmPool.dispatch(WASM_ACTIONS.PROCESS_MEDIA_ANALYTICS, {
             width: el.clientWidth || 800,
             height: el.clientHeight || 450,
             isVideo: false,
@@ -137,7 +137,7 @@ class WASMLazyloader {
       const src = el.dataset.wasmSrc
       if (!src) continue
 
-      wasmPool.dispatch('PROCESS_MEDIA_ANALYTICS', {
+      wasmPool.dispatch(WASM_ACTIONS.PROCESS_MEDIA_ANALYTICS, {
         width: el.clientWidth || 800,
         height: el.clientHeight || 450,
         isVideo: el.tagName === 'VIDEO',

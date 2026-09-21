@@ -156,6 +156,7 @@ export const ATTRS = Object.freeze({
   TOUCH: 'touch',
   POINTER: 'pointer',
   DATA_INDEX: 'data-index',
+  DATA_LANG: 'data-lang',
 })
 
 // ─── Media Query Tokens ─────────────────────────────────────────────────────
@@ -328,6 +329,33 @@ export const STORAGE_KEYS = Object.freeze({
 // ─── CSS Custom Properties ──────────────────────────────────────────────────
 export const CSS_PROPS = Object.freeze({
   CAROUSEL_ITEM_HEIGHT: '--carousel-item-height',
+})
+
+// ─── IndexedDB & Network Cache Tokens ─────────────────────────────────────────
+export const IDB_CONFIG = Object.freeze({
+  MEDIA_DB_NAME: 'luiskr_media_disk_cache_v1',
+  MEDIA_DB_VERSION: 1,
+  MEDIA_STORE: 'media_blobs',
+  READONLY: 'readonly',
+  READWRITE: 'readwrite',
+})
+
+export const CACHE_CONFIG = Object.freeze({
+  FORCE_CACHE: 'force-cache',
+})
+
+// ─── WASM Worker Action Tokens ───────────────────────────────────────────────
+export const WASM_ACTIONS = Object.freeze({
+  DECODE_IMAGE_WASM: 'DECODE_IMAGE_WASM',
+  DECODE_IMAGE_BATCH_WASM: 'DECODE_IMAGE_BATCH_WASM',
+  PROCESS_MEDIA_ANALYTICS: 'PROCESS_MEDIA_ANALYTICS',
+  COMPUTE_MEDIA_HASH: 'COMPUTE_MEDIA_HASH',
+  COMPUTE_SPRING_PHYSICS: 'COMPUTE_SPRING_PHYSICS',
+  DECODE_MEDIA_URL_WASM: 'DECODE_MEDIA_URL_WASM',
+  PROBE_VIDEO_WASM: 'PROBE_VIDEO_WASM',
+  PREFETCH_VIDEO_WASM: 'PREFETCH_VIDEO_WASM',
+  DECODE_VIDEO_SEGMENT_WASM: 'DECODE_VIDEO_SEGMENT_WASM',
+  DECODE_SVG_WASM: 'DECODE_SVG_WASM',
 })
 
 // ─── Centralized CSS class name tokens ──────────────────────────────────────
@@ -762,4 +790,11 @@ export const EVENTS = Object.freeze({
   SLIDE_CHANGE:    'slidechange',
   AUTOPLAY_STOP:   'autoplaystop',
   AUTOPLAY_START:  'autoplaystart',
+  CANCEL:          'cancel',
+  CLOSE:           'close',
+})
+
+// ─── Keyboard Key Tokens ──────────────────────────────────────────────────────
+export const KEYS = Object.freeze({
+  ESCAPE: 'Escape',
 })

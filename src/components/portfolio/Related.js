@@ -4,7 +4,6 @@ import store from '../../core/store.js'
 import router from '../../core/router.js'
 import { CLASSES, URLS, PATHS, ATTRS, STRINGS } from '../../core/constants.js'
 import { fetchFirebaseDb } from '../../utils/db.js'
-import { buildCoverUrls } from '../../utils/media.js'
 import internalStyles from '../../sass/internals.scss?inline'
 import '../DrawText.js'
 
@@ -66,8 +65,7 @@ export class PortfolioRelated extends BaseComponent {
         link: cleanLink,
         fullPath: baseFull,
         featured: p.featured === true,
-        imageSrc: buildCoverUrls(this.storage, image).src,
-        imageFallbackSrc: `${this.storage}${PATHS.COVERS}${image}.jpg`,
+        imageSrc: `${this.storage}${PATHS.COVERS}${image}.jpg`,
         description: homeMatch?.description || p.description || '',
       }
     })
@@ -168,11 +166,6 @@ export class PortfolioRelated extends BaseComponent {
                       {project.imageSrc ? (
                         <img
                           src={project.imageSrc}
-                          onError={(e) => {
-                            if (project.imageFallbackSrc && e.currentTarget.src !== project.imageFallbackSrc) {
-                              e.currentTarget.src = project.imageFallbackSrc
-                            }
-                          }}
                           alt={ATTRS.EMPTY}
                           aria-hidden={ATTRS.TRUE}
                           className={CLASSES.RELATED_MOSAIC_IMG}

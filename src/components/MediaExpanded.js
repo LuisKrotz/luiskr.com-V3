@@ -1,7 +1,7 @@
 import { h, Fragment } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
-import { CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, STRINGS } from '../core/constants.js'
+import { CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, STRINGS, EVENTS, KEYS, WASM_ACTIONS } from '../core/constants.js'
 import { gpuAccel } from '../utils/gpu-accel.js'
 import { wasmPool } from '../utils/wasm-pool.js'
 import { localMediaCache } from '../utils/local-media-cache.js'
@@ -10,37 +10,37 @@ import modalStyles from '../sass/modal.scss?inline'
 
 export class MediaExpanded extends BaseComponent {
   static get observedAttributes() {
-    return ['source', 'thumb', 'alt', 'width', 'height', 'is-video']
+    return [ATTRS.SOURCE, ATTRS.THUMB, ATTRS.ALT, ATTRS.WIDTH, ATTRS.HEIGHT, ATTRS.IS_VIDEO]
   }
 
   constructor() {
     super(modalStyles)
     this.isClosing = false
-    this.currentSrc = ''
+    this.currentSrc = ATTRS.EMPTY
   }
 
   get source() {
-    return this.getAttribute('source') || ''
+    return this.getAttribute(ATTRS.SOURCE) || ATTRS.EMPTY
   }
 
   get thumb() {
-    return this.getAttribute('thumb') || ''
+    return this.getAttribute(ATTRS.THUMB) || ATTRS.EMPTY
   }
 
   get alt() {
-    return this.getAttribute('alt') || ''
+    return this.getAttribute(ATTRS.ALT) || ATTRS.EMPTY
   }
 
   get mediaWidth() {
-    return parseInt(this.getAttribute('width') || String(MEDIA_DIMENSIONS.DEFAULT_WIDTH), 10)
+    return parseInt(this.getAttribute(ATTRS.WIDTH) || String(MEDIA_DIMENSIONS.DEFAULT_WIDTH), 10)
   }
 
   get mediaHeight() {
-    return parseInt(this.getAttribute('height') || String(MEDIA_DIMENSIONS.DEFAULT_HEIGHT), 10)
+    return parseInt(this.getAttribute(ATTRS.HEIGHT) || String(MEDIA_DIMENSIONS.DEFAULT_HEIGHT), 10)
   }
 
   get isVideo() {
-    return this.hasAttribute('is-video') && this.getAttribute('is-video') !== ATTRS.FALSE
+    return this.hasAttribute(ATTRS.IS_VIDEO) && this.getAttribute(ATTRS.IS_VIDEO) !== ATTRS.FALSE
   }
 
   onInit() {
@@ -48,20 +48,20 @@ export class MediaExpanded extends BaseComponent {
   }
 
   onMounted() {
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    window.scrollTo({ top: 0, behavior: ATTRS.INSTANT })
 
     const modalAbove = document.querySelector(`.${CLASSES.MODAL_ABOVE}`)
     if (modalAbove) modalAbove.scrollTop = 0
 
     // ESC key closes modal
-    this.addScopedListener(window, 'keydown', (e) => {
-      if (e.key === 'Escape') this.startClose()
+    this.addScopedListener(window, EVENTS.KEYDOWN, (e) => {
+      if (e.key === KEYS.ESCAPE) this.startClose()
     })
 
     // Native dialog cancel event
     const dialog = this.closest('dialog') || document.querySelector(`dialog.${CLASSES.MODAL_ABOVE}`)
     if (dialog) {
-      this.addScopedListener(dialog, 'cancel', (e) => {
+      this.addScopedListener(dialog, EVENTS.CANCEL, (e) => {
         e.preventDefault()
         this.startClose()
       })
@@ -72,17 +72,17 @@ export class MediaExpanded extends BaseComponent {
       `.${CLASSES.EXPAND_MODAL_CLOSE_BAR_BUTTON}, .${CLASSES.EXPAND_MODAL_CLOSE_BOTTOM}, .${CLASSES.EXPAND_MODAL_CLOSE_AREA}`
     )
     closeBtns.forEach((btn) => {
-      this.addScopedListener(btn, 'click', () => this.startClose())
+      this.addScopedListener(btn, EVENTS.CLICK, () => this.startClose())
     })
 
-    wasmPool.dispatch('PROCESS_MEDIA_ANALYTICS', {
+    wasmPool.dispatch(WASM_ACTIONS.PROCESS_MEDIA_ANALYTICS, {
       width: this.mediaWidth || 0,
       height: this.mediaHeight || 0,
       isVideo: this.isVideo,
     })
 
     if (this.isVideo) {
-      const vid = this.$('video')
+      const vid = this.$(TAGS.VIDEO)
       if (vid && !store.getters.getReducedMotion()) {
         vid.play().catch(() => {})
       }

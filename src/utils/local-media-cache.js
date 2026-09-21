@@ -2,11 +2,9 @@
 // Stores loaded media locally in persistent IndexedDB disk storage & localStorage metadata index.
 // Computes media hashes in WASM worker thread and retrieves stored media instantly without network requests.
 import { wasmPool } from './wasm-pool.js'
-import { STRINGS } from '../core/constants.js'
+import { STRINGS, IDB_CONFIG, CACHE_CONFIG, WASM_ACTIONS } from '../core/constants.js'
 
-const DB_NAME = 'luiskr_media_disk_cache_v1'
-const DB_VERSION = 1
-const STORE_NAME = 'media_blobs'
+const { MEDIA_DB_NAME: DB_NAME, MEDIA_DB_VERSION: DB_VERSION, MEDIA_STORE: STORE_NAME, READONLY, READWRITE } = IDB_CONFIG
 
 class LocalMediaCache {
   constructor() {
@@ -24,6 +22,7 @@ class LocalMediaCache {
 
         req.onupgradeneeded = (e) => {
           const db = e.target.result
+
           if (!db.objectStoreNames.contains(STORE_NAME)) {
             db.createObjectStore(STORE_NAME, { keyPath: 'url' })
           }
@@ -31,6 +30,7 @@ class LocalMediaCache {
 
         req.onsuccess = (e) => {
           this.db = e.target.result
+
           resolve(true)
         }
 
@@ -46,46 +46,59 @@ class LocalMediaCache {
   // Get WASM hash for media URL
   async getWasmMediaHash(url) {
     try {
-      const res = await wasmPool.dispatch('COMPUTE_MEDIA_HASH', { url })
+      const res = await wasmPool.dispatch(WASM_ACTIONS.COMPUTE_MEDIA_HASH, { url })
+
       if (res && res.key) return res.key
     } catch {
       // Fallback hash
     }
+
     const cleanBtoa = btoa(url)
+
     const fallbackKey = cleanBtoa.replace(/[^a-zA-Z0-9]/g, '').slice(0, 32)
+
     return `media_${fallbackKey}`
   }
 
   // Retrieve media Blob / DataURL from local disk storage
   async getLocalMedia(url) {
     if (!url) return null
+
     if (this.memoryCache.has(url)) {
       return this.memoryCache.get(url)
     }
 
     await this.initPromise
+
     if (!this.db) {
       // LocalStorage fallback check
       try {
         const hashKey = 'luiskr_media_' + url
+
         const cached = localStorage.getItem(hashKey)
+
         if (cached) return cached
       } catch {
         // Fallback fail
       }
+
       return null
     }
 
     return new Promise((resolve) => {
       try {
-        const tx = this.db.transaction(STORE_NAME, 'readonly')
+        const tx = this.db.transaction(STORE_NAME, READONLY)
+
         const store = tx.objectStore(STORE_NAME)
+
         const req = store.get(url)
 
         req.onsuccess = () => {
           if (req.result && req.result.blob) {
             const objectUrl = URL.createObjectURL(req.result.blob)
+
             this.memoryCache.set(url, objectUrl)
+
             resolve(objectUrl)
           } else {
             resolve(null)
@@ -104,17 +117,21 @@ class LocalMediaCache {
     if (!url || !blob) return null
 
     await this.initPromise
+
     const hashKey = await this.getWasmMediaHash(url)
 
     // Save in memory cache
     const objectUrl = URL.createObjectURL(blob)
+
     this.memoryCache.set(url, objectUrl)
 
     // Save in IndexedDB persistent disk storage
     if (this.db) {
       try {
-        const tx = this.db.transaction(STORE_NAME, 'readwrite')
+        const tx = this.db.transaction(STORE_NAME, READWRITE)
+
         const store = tx.objectStore(STORE_NAME)
+
         store.put({
           url,
           hash: hashKey,
@@ -129,7 +146,9 @@ class LocalMediaCache {
     // Save metadata in localStorage
     try {
       const metaKey = 'luiskr_media_meta_' + hashKey
+
       const metaVal = JSON.stringify({ url, time: Date.now() })
+
       localStorage.setItem(metaKey, metaVal)
     } catch {
       // Storage quota exception fallback
@@ -144,6 +163,7 @@ class LocalMediaCache {
 
     // 1. Try retrieving from local disk storage first
     const cachedUrl = await this.getLocalMedia(url)
+
     if (cachedUrl) {
       return cachedUrl
     }
@@ -151,10 +171,13 @@ class LocalMediaCache {
     // 2. Fetch from remote network if missing locally (same-origin endpoints)
     if (typeof window !== STRINGS.UNDEFINED && url.startsWith(window.location.origin)) {
       try {
-        const res = await fetch(url, { cache: 'force-cache' })
+        const res = await fetch(url, { cache: CACHE_CONFIG.FORCE_CACHE })
+
         if (res.ok) {
           const blob = await res.blob()
+
           const localUrl = await this.storeLocalMedia(url, blob)
+
           return localUrl || url
         }
       } catch {

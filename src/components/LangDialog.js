@@ -3,7 +3,7 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
 import { LANG_OPTIONS, LANG_SLUGS } from '../core/i18n.js'
-import { TAGS, STRINGS } from '../core/constants.js'
+import { TAGS, STRINGS, CLASSES, ATTRS, EVENTS, KEYS } from '../core/constants.js'
 import preferencesStyles from '../sass/preferences.scss?inline'
 
 export class LangDialog extends BaseComponent {
@@ -20,7 +20,7 @@ export class LangDialog extends BaseComponent {
       this._bindEvents()
       if (this.isOpen) {
         requestAnimationFrame(() => {
-          const backdrop = this.$('.pref-backdrop')
+          const backdrop = this.$(`.${CLASSES.PREF_BACKDROP}`)
           if (backdrop) backdrop.focus()
         })
       }
@@ -76,23 +76,23 @@ export class LangDialog extends BaseComponent {
   _bindEvents() {
     if (!this.isOpen) return
 
-    const backdrop = this.$('.pref-backdrop')
+    const backdrop = this.$(`.${CLASSES.PREF_BACKDROP}`)
     if (backdrop) {
-      this.addScopedListener(backdrop, 'click', (e) => {
+      this.addScopedListener(backdrop, EVENTS.CLICK, (e) => {
         if (e.target === backdrop) this.close()
       })
     }
-    this.addScopedListener(window, 'keydown', (e) => {
-      if (e.key === 'Escape') this.close()
+    this.addScopedListener(window, EVENTS.KEYDOWN, (e) => {
+      if (e.key === KEYS.ESCAPE) this.close()
     })
 
-    const closeBtn = this.$('.pref-close-btn')
-    if (closeBtn) this.addScopedListener(closeBtn, 'click', () => this.close())
+    const closeBtn = this.$(`.${CLASSES.PREF_CLOSE_BTN}`)
+    if (closeBtn) this.addScopedListener(closeBtn, EVENTS.CLICK, () => this.close())
 
-    const langBtns = this.$$('[data-lang]')
+    const langBtns = this.$$(`[${ATTRS.DATA_LANG}]`)
     langBtns.forEach((btn) => {
-      this.addScopedListener(btn, 'click', () => {
-        const langCode = btn.getAttribute('data-lang')
+      this.addScopedListener(btn, EVENTS.CLICK, () => {
+        const langCode = btn.getAttribute(ATTRS.DATA_LANG)
         this.selectLang(langCode)
       })
     })
@@ -102,7 +102,7 @@ export class LangDialog extends BaseComponent {
     this._isOpen = false
     store.commit('toggleLangDialog', false)
     this._syncOpenState()
-    this.dispatchEvent(new CustomEvent('close'))
+    this.dispatchEvent(new CustomEvent(EVENTS.CLOSE))
   }
 
   selectLang(newLang) {

@@ -4,6 +4,7 @@
 // Supports parallel batch decoding via DECODE_IMAGE_BATCH_WASM fan-out.
 import { wasmPool } from './wasm-pool.js'
 import { gpuAccel } from './gpu-accel.js'
+import { CACHE_CONFIG, WASM_ACTIONS } from '../core/constants.js'
 
 class WASMImageDecoder {
   constructor() {
@@ -21,7 +22,7 @@ class WASMImageDecoder {
     }
 
     try {
-      const res = await fetch(url, { cache: 'force-cache' })
+      const res = await fetch(url, { cache: CACHE_CONFIG.FORCE_CACHE })
       if (!res.ok) return null
 
       const blob = await res.blob()
@@ -29,7 +30,7 @@ class WASMImageDecoder {
       // Pass width/height hints — the worker will supply them as
       // ImageBitmapOptions.resizeWidth/resizeHeight so the GPU performs
       // hardware-accelerated resize during decompression.
-      const workerRes = await wasmPool.dispatch('DECODE_IMAGE_WASM', {
+      const workerRes = await wasmPool.dispatch(WASM_ACTIONS.DECODE_IMAGE_WASM, {
         blob,
         width: targetW,
         height: targetH,
@@ -89,7 +90,7 @@ class WASMImageDecoder {
     // via round-robin inside wasmPool.dispatch
     const chunkResults = await Promise.all(
       chunks.map((chunk) =>
-        wasmPool.dispatch('DECODE_IMAGE_BATCH_WASM', { items: chunk })
+        wasmPool.dispatch(WASM_ACTIONS.DECODE_IMAGE_BATCH_WASM, { items: chunk })
       )
     )
 

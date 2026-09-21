@@ -1,7 +1,7 @@
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
-import { LAYOUT, CLASSES, SELECTORS, MEDIA_DIMENSIONS, ATTRS, TEXT, EVENTS, STRINGS } from '../core/constants.js'
+import { LAYOUT, CLASSES, SELECTORS, MEDIA_DIMENSIONS, ATTRS, TEXT, EVENTS, STRINGS, PATHS, MEDIA } from '../core/constants.js'
 import { h } from '../core/jsx.js'
 import {
   calcColumnWidth,
@@ -10,7 +10,6 @@ import {
 } from '../utils/wasm-layout.js'
 import { wasmPool } from '../utils/wasm-pool.js'
 import { npuPredict } from '../utils/npu-predict.js'
-import { buildCoverUrls } from '../utils/media.js'
 import homeMosaicStyles from '../sass/home-mosaic.scss?inline'
 
 const { FEAT_MULT, COMP_MULTS, GAP: GAP_PX } = LAYOUT
@@ -25,7 +24,7 @@ export class HomeMosaic extends BaseComponent {
     this.cards = []
     this.containerH = '0px'
     this.bottomHMap = {}
-    this.ext = '.jpg'
+    this.ext = MEDIA.EXT
     this._rafId = null
   }
 
@@ -445,13 +444,7 @@ export class HomeMosaic extends BaseComponent {
                     loading={i < 1 ? ATTRS.LOADING_EAGER : ATTRS.LOADING_LAZY}
                     fetchpriority={i < 1 ? ATTRS.FETCH_PRIORITY_HIGH : ATTRS.FETCH_PRIORITY_LOW}
                     className={CLASSES.HOME_MOSAIC_IMG}
-                    src={buildCoverUrls(this.storage, item.image).src}
-                    onError={(e) => {
-                      const fallback = `${this.storage}covers/${item.image}${this.ext}`
-                      if (e.currentTarget.src !== fallback) {
-                        e.currentTarget.src = fallback
-                      }
-                    }}
+                    src={`${this.storage}${PATHS.COVERS}${item.image}${this.ext}`}
                     alt={item.label}
                     width={MEDIA_DIMENSIONS.DEFAULT_WIDTH}
                     height={MEDIA_DIMENSIONS.DEFAULT_HEIGHT}

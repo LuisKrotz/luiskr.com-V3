@@ -1,7 +1,7 @@
 import { h } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
-import { TAGS, THEME, MOTION, CLASSES } from '../core/constants.js'
+import { TAGS, THEME, MOTION, CLASSES, EVENTS, KEYS } from '../core/constants.js'
 import { npuPredict } from '../utils/npu-predict.js'
 import preferencesStyles from '../sass/preferences.scss?inline'
 
@@ -129,8 +129,8 @@ export class PreferencesModal extends BaseComponent {
 
   // Only backdrop + Escape — everything else is JSX onClick
   _bindBackdropEvents() {
-    this.addScopedListener(window, 'keydown', (e) => {
-      if (e.key === 'Escape' && this.isOpen) this.close()
+    this.addScopedListener(window, EVENTS.KEYDOWN, (e) => {
+      if (e.key === KEYS.ESCAPE && this.isOpen) this.close()
     })
   }
 
