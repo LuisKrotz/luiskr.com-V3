@@ -209,16 +209,6 @@ export class DrawText extends HTMLElement {
     }
 
     if (trigger === ATTRS.TRIGGER_VIEWPORT) {
-      if (typeof window !== STRINGS.UNDEFINED) {
-        const rect = this.getBoundingClientRect()
-
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          onScrollStop(() => this._startAnimation())
-
-          return
-        }
-      }
-
       if (this._observer) this._observer.disconnect()
 
       this._observer = new IntersectionObserver(

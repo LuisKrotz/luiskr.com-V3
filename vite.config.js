@@ -85,6 +85,30 @@ export default defineConfig({
         }
       },
     },
+    {
+      name: 'inline-critical-css',
+      enforce: 'post',
+      apply: 'build',
+      transformIndexHtml: {
+        order: 'post',
+        handler(html, ctx) {
+          if (!ctx || !ctx.bundle) return html
+          let newHtml = html
+          for (const [fileName, file] of Object.entries(ctx.bundle)) {
+            if (fileName.endsWith('.css') && fileName.startsWith('assets/index-')) {
+              const css = file.source ? file.source.toString() : ''
+              if (css) {
+                // Remove render-blocking stylesheet link
+                newHtml = newHtml.replace(new RegExp(`<link rel="stylesheet"[^>]*href="[/]${fileName}"[^>]*>`, 'i'), '')
+                // Inject as inline <style> in <head> for zero-latency instant render
+                newHtml = newHtml.replace('</head>', `<style id="critical-css">${css}</style></head>`)
+              }
+            }
+          }
+          return newHtml
+        },
+      },
+    },
   ],
   esbuild: {
     jsxFactory: 'h',

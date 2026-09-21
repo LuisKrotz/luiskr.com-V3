@@ -212,17 +212,22 @@ export class HomeMosaic extends BaseComponent {
   }
 
   layout() {
-    const el = this.$('.home-mosaic')
+    const el = this.$(`.${CLASSES.HOME_MOSAIC}`)
     if (!el || !this.processedItems.length) return
-    const W = el.getBoundingClientRect().width
-    if (!W) {
+
+    const vw = typeof window !== STRINGS.UNDEFINED ? window.innerWidth : 0
+    if (!vw) return
+
+    const pad = calcResponsivePadding(vw)
+    const W = Math.floor(vw - pad * 2)
+
+    if (!W || W <= 0) {
       this.quickLayout()
       this.scheduleLayout()
       return
     }
 
     const gap = GAP_PX
-    const vw = window.innerWidth
     const N = calcColsForWidth(vw)
     const colW = Math.floor(calcColumnWidth(N, W, gap))
     const colH = Array(N).fill(0)

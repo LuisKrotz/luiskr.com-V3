@@ -324,6 +324,7 @@ export const STORAGE_KEYS = Object.freeze({
   STATS_FOR_NERDS: 'statsForNerds',
   SHOW_GRID: 'showGrid',
   COOKIE: 'cookie',
+  FB_CACHE_PREFIX: 'fb_',
 })
 
 // ─── CSS Custom Properties ──────────────────────────────────────────────────

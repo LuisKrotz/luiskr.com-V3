@@ -203,15 +203,16 @@ export class HomeCarousel extends BaseComponent {
     const track = this.$(`.${CLASSES.HC_TRACK}`)
     const slide = track?.children[idx + 1]
     if (!slide || !track) return
-    const trackRect = track.getBoundingClientRect()
-    const slideRect = slide.getBoundingClientRect()
-    if (!trackRect.width || !slideRect.width) {
+
+    const trackWidth = track.clientWidth
+    const slideWidth = slide.clientWidth
+    if (!trackWidth || !slideWidth) {
       requestAnimationFrame(() => this._jumpToSlide(idx, smooth))
       return
     }
-    const scrollLeft =
-      track.scrollLeft + slideRect.left - trackRect.left - (trackRect.width - slideRect.width) / 2
-    track.scrollTo({ left: scrollLeft, behavior: smooth ? 'smooth' : 'instant' })
+
+    const scrollLeft = slide.offsetLeft - (trackWidth - slideWidth) / 2
+    track.scrollTo({ left: scrollLeft, behavior: smooth ? ATTRS.SMOOTH : ATTRS.INSTANT })
   }
 
   onPrevClick() {
