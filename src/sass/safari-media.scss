@@ -17,6 +17,9 @@ figure {
   overflow: hidden;
   border-radius: to-rem($space-md);
   -webkit-border-radius: to-rem($space-md);
+  -webkit-mask-image: -webkit-radial-gradient(var(--color-white-raw), var(--black));
+  mask-image: -webkit-radial-gradient(var(--color-white-raw), var(--black));
+  background-color: var(--bg-dark);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 

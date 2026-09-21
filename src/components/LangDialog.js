@@ -3,7 +3,7 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
 import { LANG_OPTIONS, LANG_SLUGS } from '../core/i18n.js'
-import { TAGS } from '../core/constants.js'
+import { TAGS, STRINGS } from '../core/constants.js'
 import preferencesStyles from '../sass/preferences.scss?inline'
 
 export class LangDialog extends BaseComponent {
@@ -32,7 +32,7 @@ export class LangDialog extends BaseComponent {
   }
 
   get isOpen() {
-    return typeof store.getters.getLangDialogOpen === 'function'
+    return typeof store.getters.getLangDialogOpen === STRINGS.FUNCTION
       ? store.getters.getLangDialogOpen()
       : this._isOpen
   }

@@ -4,7 +4,7 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import { calcCarouselRingOffset } from '../utils/wasm-layout.js'
 import homeCarouselStyles from '../sass/home-carousel.scss?inline'
-import { CLASSES, TAGS, EVENTS } from '../core/constants.js'
+import { CLASSES, TAGS, EVENTS, STRINGS } from '../core/constants.js'
 
 const CIRCUMFERENCE = 2 * Math.PI * 19
 
@@ -228,7 +228,7 @@ export class HomeCarousel extends BaseComponent {
     const root = this.$(`.${CLASSES.HC}`)
     if (!root) return
 
-    if (typeof IntersectionObserver === 'undefined') {
+    if (typeof IntersectionObserver === STRINGS.UNDEFINED) {
       this.isFullyVisible = true
       this.isEnteredViewport = true
       root.classList.add(CLASSES.HC_IN_VIEW)

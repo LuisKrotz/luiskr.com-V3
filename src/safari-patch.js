@@ -1,4 +1,4 @@
-import { TAGS, CLASSES, MEDIA, ATTRS, MEDIA_DIMENSIONS } from './core/constants.js'
+import { TAGS, CLASSES, MEDIA, ATTRS, MEDIA_DIMENSIONS, EVENTS, STRINGS } from './core/constants.js'
 import store from './core/store.js'
 import { gpuAccel } from './utils/gpu-accel.js'
 import { wasmPool } from './utils/wasm-pool.js'
@@ -8,69 +8,54 @@ import safariCarouselStyles from './sass/safari-carousel.scss?inline'
 import safariMediaStyles from './sass/safari-media.scss?inline'
 
 // ── 1. Mark HTML element with Safari class ────────────────────────────────────
-if (typeof document !== 'undefined' && document.documentElement) {
+if (typeof document !== STRINGS.UNDEFINED && document.documentElement) {
   document.documentElement.classList.add(CLASSES.IS_SAFARI)
 }
 
 // ── 2. Disable GPU compositor layer bloat & WebGL textures on Safari/iOS ───────
-// On iOS Safari, forcing will-change: transform/opacity and translate3d on 100+
-// elements exhausts GPU backing store memory and crashes the WebKit process
-// ("A problem repeatedly occurred on this webpage").
-gpuAccel.accelerateElementGPU = function () {}
+gpuAccel.accelerateElementGPU = () => {}
 
-gpuAccel.processTextureGPU = function () {}
+gpuAccel.processTextureGPU = () => {}
 
-gpuAccel.processImageGPU = function () {}
+gpuAccel.processImageGPU = () => {}
 
-gpuAccel.processBitmapGPU = function () {}
+gpuAccel.processBitmapGPU = () => {}
 
-gpuAccel.processVideoGPU = function () {}
+gpuAccel.processVideoGPU = () => {}
 
 // ── 3. Bypass WASM worker pool & memory-heavy caches on Safari/iOS ─────────────
-// Prevents worker thread memory spikes and createImageBitmap / DataCloneError
-// in Safari (especially in Private Browsing mode).
-wasmPool.dispatch = function () {
-  return Promise.resolve(null)
-}
+wasmPool.dispatch = () => Promise.resolve(null)
 
-localMediaCache.fetchOrGetLocalMedia = function (url) {
-  return Promise.resolve(url)
-}
+localMediaCache.fetchOrGetLocalMedia = (url) => Promise.resolve(url)
 
-localMediaCache.getLocalMedia = function () {
-  return Promise.resolve(null)
-}
+localMediaCache.getLocalMedia = () => Promise.resolve(null)
 
-localMediaCache.storeLocalMedia = function (url) {
-  return Promise.resolve(url)
-}
+localMediaCache.storeLocalMedia = (url) => Promise.resolve(url)
 
-wasmMediaThreads.decodeMediaInSeparateThread = function () {
-  return Promise.resolve(null)
-}
+wasmMediaThreads.decodeMediaInSeparateThread = () => Promise.resolve(null)
 
 // ── 4. Retroactive cleanup of any existing DOM elements ───────────────────────
-if (typeof document !== 'undefined') {
+if (typeof document !== STRINGS.UNDEFINED) {
   const existingFigures = document.querySelectorAll(TAGS.MEDIA_FIGURE)
 
   existingFigures.forEach((mf) => {
-    mf.style.willChange = ''
-    mf.style.transform = ''
-    mf.style.backfaceVisibility = ''
+    mf.style.willChange = ATTRS.EMPTY
+
+    mf.style.transform = ATTRS.EMPTY
+
+    mf.style.backfaceVisibility = ATTRS.EMPTY
   })
 }
 
 // ── 5. Component Patches ──────────────────────────────────────────────────────
-if (typeof customElements !== 'undefined') {
+if (typeof customElements !== STRINGS.UNDEFINED) {
   // ── CustomCarousel ─────────────────────────────────────────────────────────
   customElements.whenDefined(TAGS.CUSTOM_CAROUSEL).then(() => {
     const CustomCarouselClass = customElements.get(TAGS.CUSTOM_CAROUSEL)
 
     if (!CustomCarouselClass || !CustomCarouselClass.prototype) return
 
-    CustomCarouselClass.prototype._measureFit = function () {
-      // Disabled on Safari to prevent false-positive side-by-side collapse
-    }
+    CustomCarouselClass.prototype._measureFit = () => {}
 
     const originalRenderInitial = CustomCarouselClass.prototype._renderInitial
 
@@ -83,8 +68,6 @@ if (typeof customElements !== 'undefined') {
 
       this.shadowRoot.appendChild(safariStyle)
     }
-
-    // No forced high-res loading in CustomCarousel — viewport IntersectionObserver manages loading
   })
 
   // ── MediaFigure ────────────────────────────────────────────────────────────
@@ -105,9 +88,6 @@ if (typeof customElements !== 'undefined') {
       this.shadowRoot.appendChild(safariStyle)
     }
 
-    // Native progressive loading for iOS/Safari:
-    // Streams image directly into the DOM high-res image element so Safari's
-    // progressive JPEG decoder renders as chunks arrive.
     MediaFigureClass.prototype.loadHighRes = function () {
       if (this.isLoaded) return
 
@@ -115,7 +95,6 @@ if (typeof customElements !== 'undefined') {
 
       const width = this.mediaWidth || 0
 
-      // Protection against massive full-page images (>4096px) on iOS to prevent WebKit memory exhaustion
       if (height > 4096 || width > 4096) {
         return
       }
@@ -131,19 +110,19 @@ if (typeof customElements !== 'undefined') {
       if (highEl) {
         highEl.src = targetUrl
 
-        highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
-
         const onFinish = () => {
           this.isLoaded = true
+
+          highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
 
           const thumbEl = this.$(`.${CLASSES.RENDER_MEDIA_THUMB}`)
 
           if (thumbEl) {
-            thumbEl.style.display = 'none'
+            thumbEl.style.display = ATTRS.NONE
           }
         }
 
-        if (highEl.complete) {
+        if (highEl.complete && highEl.naturalWidth > 0) {
           onFinish()
         } else {
           highEl.onload = () => {
@@ -151,7 +130,7 @@ if (typeof customElements !== 'undefined') {
           }
 
           highEl.onerror = () => {
-            onFinish()
+            this.isLoaded = true
           }
         }
       } else if (this._isMounted) {
@@ -166,14 +145,17 @@ if (typeof customElements !== 'undefined') {
     MediaFigureClass.prototype.onMounted = function () {
       originalMediaOnMounted.call(this)
 
-      // Ensure no GPU layer bloat was set
-      this.style.willChange = ''
+      this.style.willChange = ATTRS.EMPTY
 
-      this.style.transform = ''
+      this.style.transform = ATTRS.EMPTY
 
-      this.style.backfaceVisibility = ''
+      this.style.backfaceVisibility = ATTRS.EMPTY
 
-      const isHero = this.classes && this.classes.includes(CLASSES.INTERNAL_MAIN_ITEM)
+      const isHero =
+        (this.classes && this.classes.includes(CLASSES.INTERNAL_MAIN_ITEM)) ||
+        this.classList.contains(CLASSES.INTERNAL_MAIN_ITEM) ||
+        this.hasAttribute(ATTRS.AUTO_PLAY) ||
+        this.autoPlay
 
       const thumb = this.$(`.${CLASSES.RENDER_MEDIA_THUMB}`)
 
@@ -181,31 +163,34 @@ if (typeof customElements !== 'undefined') {
         thumb.setAttribute('loading', ATTRS.LOADING_LAZY)
       }
 
-      const fig = this.$('figure')
+      const fig = this.$(TAGS.FIGURE)
 
-      const vid = this.$('video')
+      const vid = this.$(TAGS.VIDEO)
 
-      // Video autoplay and loading optimization on iOS Safari
       if (this.isVideo && vid) {
         vid.defaultMuted = true
 
         vid.muted = true
 
-        vid.setAttribute('muted', '')
+        vid.setAttribute('muted', ATTRS.EMPTY)
 
-        vid.setAttribute('playsinline', '')
+        vid.setAttribute('playsinline', ATTRS.EMPTY)
 
-        vid.setAttribute('webkit-playsinline', '')
+        vid.setAttribute('webkit-playsinline', ATTRS.EMPTY)
+
+        vid.setAttribute('autoplay', ATTRS.EMPTY)
+
+        vid.autoplay = true
 
         const isMobileSafari =
-          typeof window !== 'undefined' &&
+          typeof window !== STRINGS.UNDEFINED &&
           (window.innerWidth <= 960 || /iPhone|iPad|iPod/i.test(navigator.userAgent))
 
         if (isMobileSafari && this.video && this.video.length >= 2) {
           const scaledSrc = this.video[1]
 
           if (scaledSrc) {
-            const srcEl = vid.querySelector('source')
+            const srcEl = vid.querySelector(ATTRS.SOURCE)
 
             if (srcEl && srcEl.src !== scaledSrc) {
               srcEl.src = scaledSrc
@@ -214,26 +199,48 @@ if (typeof customElements !== 'undefined') {
         }
 
         const startPlay = () => {
-          if (store.getters.getReducedMotion()) return
+          if (store.getters.getReducedMotion() || !store.getters.getVideoAutoplay()) return
 
           vid.defaultMuted = true
 
           vid.muted = true
 
-          if (vid.readyState === 0) {
-            vid.load()
+          vid.setAttribute('autoplay', ATTRS.EMPTY)
+
+          vid.autoplay = true
+
+          const doPlay = () => {
+            if (store.getters.getReducedMotion() || !store.getters.getVideoAutoplay()) return
+
+            const p = vid.play()
+
+            if (p && typeof p.catch === STRINGS.FUNCTION) {
+              p.catch(() => {
+                const onFirstTouch = () => {
+                  if (store.getters.getVideoAutoplay()) {
+                    vid.play().catch(() => {})
+                  }
+                }
+
+                window.addEventListener(EVENTS.TOUCHSTART, onFirstTouch, { once: true, passive: true })
+              })
+            }
           }
 
-          const p = vid.play()
+          if (vid.readyState >= 2) {
+            doPlay()
+          } else {
+            const onCanPlay = () => {
+              vid.removeEventListener('canplay', onCanPlay)
 
-          if (p && typeof p.catch === 'function') {
-            p.catch(() => {
-              const onFirstTouch = () => {
-                vid.play().catch(() => {})
-              }
+              doPlay()
+            }
 
-              window.addEventListener('touchstart', onFirstTouch, { once: true, passive: true })
-            })
+            vid.addEventListener('canplay', onCanPlay, { once: true })
+
+            if (vid.readyState === 0) {
+              vid.load()
+            }
           }
         }
 
@@ -241,17 +248,18 @@ if (typeof customElements !== 'undefined') {
           startPlay()
         }
 
-        // Clean up the duplicate observer created in originalMediaOnMounted
         if (this.observer) {
           this.observer.disconnect()
 
           this.observer = null
         }
 
-        if (typeof IntersectionObserver !== 'undefined') {
+        if (typeof IntersectionObserver !== STRINGS.UNDEFINED) {
           this.observer = new IntersectionObserver(
             (entries) => {
               entries.forEach((entry) => {
+                this.isIntersecting = entry.isIntersecting
+
                 if (entry.isIntersecting) {
                   if (vid.paused) {
                     startPlay()
@@ -270,7 +278,6 @@ if (typeof customElements !== 'undefined') {
         }
       }
 
-      // Immediate touch response for tap-to-open over figures and videos
       if (this.canExpand) {
         let touchMoved = false
 
@@ -315,13 +322,13 @@ if (typeof customElements !== 'undefined') {
         const targets = [fig, this.$(`.${CLASSES.EXPAND_MODAL_OPEN_1}`), vid].filter(Boolean)
 
         targets.forEach((target) => {
-          this.addScopedListener(target, 'touchstart', onTouchStart, { passive: true })
+          this.addScopedListener(target, EVENTS.TOUCHSTART, onTouchStart, { passive: true })
 
-          this.addScopedListener(target, 'touchmove', onTouchMove, { passive: true })
+          this.addScopedListener(target, EVENTS.TOUCHMOVE, onTouchMove, { passive: true })
 
-          this.addScopedListener(target, 'touchend', onTouchEnd, { passive: false })
+          this.addScopedListener(target, EVENTS.TOUCHEND, onTouchEnd, { passive: false })
 
-          this.addScopedListener(target, 'click', (e) => {
+          this.addScopedListener(target, EVENTS.CLICK, (e) => {
             e.stopPropagation()
 
             this.openModal()
@@ -329,16 +336,14 @@ if (typeof customElements !== 'undefined') {
         })
       }
 
-      // If hero cover item, load high-res immediately
       if (isHero) {
         this.loadHighRes()
       }
 
-      // On Safari, observe figure strictly with narrow margin so offscreen images never load high-res
       if (!this.isVideo && !this.isLoaded && !isHero) {
         const target = fig || this
 
-        if (target && typeof IntersectionObserver !== 'undefined') {
+        if (target && typeof IntersectionObserver !== STRINGS.UNDEFINED) {
           if (this.imgObserver) {
             this.imgObserver.disconnect()
           }
@@ -357,7 +362,7 @@ if (typeof customElements !== 'undefined') {
                 }
               })
             },
-            { rootMargin: '50px 0px', threshold: 0.01 }
+            { rootMargin: ATTRS.ROOT_MARGIN_50, threshold: 0.01 }
           )
 
           this.imgObserver.observe(target)
@@ -421,42 +426,42 @@ if (typeof customElements !== 'undefined') {
 
           above.style.padding = '0'
 
-          above.style.border = 'none'
+          above.style.border = ATTRS.NONE
 
-          above.setAttribute('open', '')
+          above.setAttribute('open', ATTRS.EMPTY)
 
           above.open = true
 
           const existing = above.querySelector(TAGS.MEDIA_EXPANDED)
 
-          const src = modal.media?.source || ''
+          const src = modal.media?.source || ATTRS.EMPTY
 
-          if (!existing || existing.getAttribute('source') !== src) {
+          if (!existing || existing.getAttribute(ATTRS.SOURCE) !== src) {
             const expandedEl = document.createElement(TAGS.MEDIA_EXPANDED)
 
-            expandedEl.setAttribute('source', modal.media?.source || '')
+            expandedEl.setAttribute(ATTRS.SOURCE, modal.media?.source || ATTRS.EMPTY)
 
-            expandedEl.setAttribute('thumb', modal.media?.thumb || '')
+            expandedEl.setAttribute(ATTRS.THUMB, modal.media?.thumb || ATTRS.EMPTY)
 
-            expandedEl.setAttribute('alt', modal.media?.alt || '')
+            expandedEl.setAttribute(ATTRS.ALT, modal.media?.alt || ATTRS.EMPTY)
 
-            expandedEl.setAttribute('width', String(modal.media?.width || MEDIA_DIMENSIONS.DEFAULT_WIDTH))
+            expandedEl.setAttribute(ATTRS.WIDTH, String(modal.media?.width || MEDIA_DIMENSIONS.DEFAULT_WIDTH))
 
-            expandedEl.setAttribute('height', String(modal.media?.height || MEDIA_DIMENSIONS.DEFAULT_HEIGHT))
+            expandedEl.setAttribute(ATTRS.HEIGHT, String(modal.media?.height || MEDIA_DIMENSIONS.DEFAULT_HEIGHT))
 
-            expandedEl.setAttribute('is-video', modal.media?.isVideo ? ATTRS.TRUE : ATTRS.FALSE)
+            expandedEl.setAttribute(ATTRS.IS_VIDEO, modal.media?.isVideo ? ATTRS.TRUE : ATTRS.FALSE)
 
             above.replaceChildren(expandedEl)
           }
         }
       } else {
         if (below) {
-          below.style.transform = ''
+          below.style.transform = ATTRS.EMPTY
         }
 
         if (above) {
           try {
-            if (typeof above.close === 'function' && above.open) {
+            if (typeof above.close === STRINGS.FUNCTION && above.open) {
               above.close()
             }
           } catch {}
@@ -465,7 +470,7 @@ if (typeof customElements !== 'undefined') {
 
           above.open = false
 
-          above.style.display = 'none'
+          above.style.display = ATTRS.NONE
 
           above.replaceChildren()
 
@@ -479,7 +484,7 @@ if (typeof customElements !== 'undefined') {
     const originalProjectDestroy = ViewProjectClass.prototype.onDestroy
 
     ViewProjectClass.prototype.onDestroy = function () {
-      if (typeof originalProjectDestroy === 'function') {
+      if (typeof originalProjectDestroy === STRINGS.FUNCTION) {
         originalProjectDestroy.call(this)
       }
 
@@ -508,7 +513,7 @@ if (typeof customElements !== 'undefined') {
 
       closeBtns.forEach((btn) => {
         const handleClose = (e) => {
-          if (e && e.type === 'touchend') {
+          if (e && e.type === EVENTS.TOUCHEND) {
             e.preventDefault()
 
             e.stopPropagation()
@@ -517,9 +522,9 @@ if (typeof customElements !== 'undefined') {
           this.startClose()
         }
 
-        this.addScopedListener(btn, 'click', handleClose)
+        this.addScopedListener(btn, EVENTS.CLICK, handleClose)
 
-        this.addScopedListener(btn, 'touchend', handleClose, { passive: false })
+        this.addScopedListener(btn, EVENTS.TOUCHEND, handleClose, { passive: false })
       })
 
       if (!this.isVideo && this.source) {
@@ -529,18 +534,18 @@ if (typeof customElements !== 'undefined') {
           imgEl.src = this.source
         }
       } else if (this.isVideo) {
-        const vid = this.$('video')
+        const vid = this.$(TAGS.VIDEO)
 
         if (vid) {
           vid.defaultMuted = true
 
           vid.muted = true
 
-          vid.setAttribute('muted', '')
+          vid.setAttribute('muted', ATTRS.EMPTY)
 
-          vid.setAttribute('playsinline', '')
+          vid.setAttribute('playsinline', ATTRS.EMPTY)
 
-          vid.setAttribute('webkit-playsinline', '')
+          vid.setAttribute('webkit-playsinline', ATTRS.EMPTY)
 
           vid.play().catch(() => {})
         }

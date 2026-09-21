@@ -275,7 +275,7 @@ lang-dialog.is-open {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top: to-rem($space-hairline) solid rgba($color-white, 0.15);
-  color: $color-white; // Banner bg is always dark — hardcode white text (var(--white) inverts in dark mode)
+  color: var(--color-white-raw); // Banner bg is always dark — raw white text token
   font-size: to-rem($space-lg);
   line-height: 1.5;
   box-shadow: 0 -#{to-rem($space-2xs)} to-rem($space-xl) rgba($color-black, 0.2);

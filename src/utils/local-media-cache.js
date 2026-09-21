@@ -2,6 +2,7 @@
 // Stores loaded media locally in persistent IndexedDB disk storage & localStorage metadata index.
 // Computes media hashes in WASM worker thread and retrieves stored media instantly without network requests.
 import { wasmPool } from './wasm-pool.js'
+import { STRINGS } from '../core/constants.js'
 
 const DB_NAME = 'luiskr_media_disk_cache_v1'
 const DB_VERSION = 1
@@ -15,7 +16,7 @@ class LocalMediaCache {
   }
 
   async initStorage() {
-    if (typeof window === 'undefined' || typeof indexedDB === 'undefined') return false
+    if (typeof window === STRINGS.UNDEFINED || typeof indexedDB === STRINGS.UNDEFINED) return false
 
     return new Promise((resolve) => {
       try {
@@ -148,7 +149,7 @@ class LocalMediaCache {
     }
 
     // 2. Fetch from remote network if missing locally (same-origin endpoints)
-    if (typeof window !== 'undefined' && url.startsWith(window.location.origin)) {
+    if (typeof window !== STRINGS.UNDEFINED && url.startsWith(window.location.origin)) {
       try {
         const res = await fetch(url, { cache: 'force-cache' })
         if (res.ok) {

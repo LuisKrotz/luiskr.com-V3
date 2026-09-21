@@ -5,6 +5,7 @@
  */
 
 import { sanitizeHtml } from '../utils/sanitize.js'
+import { STRINGS, ATTRS } from './constants.js'
 
 const SVG_TAGS = new Set([
   'svg', 'animate', 'circle', 'clipPath', 'defs', 'desc', 'ellipse',
@@ -50,7 +51,7 @@ const PROP_ATTR_MAP = {
  */
 export function h(tag, props, ...children) {
   // Functional component
-  if (typeof tag === 'function') {
+  if (typeof tag === STRINGS.FUNCTION) {
     return tag({ ...(props || {}), children: children.flat(Infinity) })
   }
 
@@ -65,7 +66,7 @@ export function h(tag, props, ...children) {
     for (const [key, val] of Object.entries(props)) {
       if (val === null || val === undefined || val === false) continue
 
-      if (key.startsWith('on') && typeof val === 'function') {
+      if (key.startsWith('on') && typeof val === STRINGS.FUNCTION) {
         const eventName = key.slice(2).toLowerCase()
         el.addEventListener(eventName, val)
       } else if (key === 'className' || key === 'class') {
@@ -75,15 +76,15 @@ export function h(tag, props, ...children) {
           el.className = String(val)
         }
       } else if (key === 'style') {
-        if (typeof val === 'string') {
+        if (typeof val === STRINGS.STRING) {
           el.style.cssText = val
-        } else if (typeof val === 'object') {
+        } else if (typeof val === STRINGS.OBJECT) {
           Object.assign(el.style, val)
         }
-      } else if (key === 'ref' && typeof val === 'function') {
+      } else if (key === 'ref' && typeof val === STRINGS.FUNCTION) {
         val(el)
       } else if (key === 'dangerouslySetInnerHTML') {
-        el.innerHTML = val?.__html != null ? sanitizeHtml(String(val.__html)) : ''
+        el.innerHTML = val?.__html != null ? sanitizeHtml(String(val.__html)) : ATTRS.EMPTY
       } else if (key === 'playsInline') {
         // 'playsInline' JSX → 'playsinline' attribute (must be lowercase, empty string value)
         el.setAttribute('playsinline', '')

@@ -2,7 +2,7 @@ import { h } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
-import { CLASSES, TAGS } from '../core/constants.js'
+import { CLASSES, TAGS, STRINGS, ATTRS } from '../core/constants.js'
 import { fetchFirebaseDb } from '../utils/db.js'
 import internalStyles from '../sass/internals.scss?inline'
 import awardsFooterStyles from '../sass/awards-footer.scss?inline'
@@ -39,12 +39,12 @@ export class ViewLegal extends BaseComponent {
       this.translations = null
       this._updateDom()
       this.loadData()
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      window.scrollTo({ top: 0, behavior: ATTRS.SMOOTH })
     }
   }
 
   onDestroy() {
-    if (typeof this._unsubRoute === 'function') {
+    if (typeof this._unsubRoute === STRINGS.FUNCTION) {
       this._unsubRoute()
       this._unsubRoute = null
     }

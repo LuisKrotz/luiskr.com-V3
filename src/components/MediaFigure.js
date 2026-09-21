@@ -1,7 +1,7 @@
 import { h, Fragment } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
-import { MEDIA, CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS } from '../core/constants.js'
+import { MEDIA, CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, EVENTS, STRINGS, TEXT } from '../core/constants.js'
 import { gpuAccel } from '../utils/gpu-accel.js'
 import { calcAspectScaled } from '../utils/wasm-layout.js'
 import { localMediaCache } from '../utils/local-media-cache.js'
@@ -10,76 +10,94 @@ import mediaFigureStyles from '../sass/media-figure.scss?inline'
 import internalStyles from '../sass/internals.scss?inline'
 import modalStyles from '../sass/modal.scss?inline'
 
-// All media URL suffix constants imported from core/constants.js — no duplication.
-
 export class MediaFigure extends BaseComponent {
   static get observedAttributes() {
-    return ['src', 'label', 'width', 'height', 'can-expand', 'is-video', 'auto-play', 'classes']
+    return [
+      ATTRS.SRC,
+      ATTRS.LABEL,
+      ATTRS.WIDTH,
+      ATTRS.HEIGHT,
+      ATTRS.CAN_EXPAND,
+      ATTRS.IS_VIDEO,
+      ATTRS.AUTO_PLAY,
+      ATTRS.CLASSES,
+    ]
   }
 
   constructor() {
-    // SCSS files provide ALL styles — no JS-injected style strings.
     super(`${mediaFigureStyles}\n${internalStyles}\n${modalStyles}`)
-    this.thumbSrc = ''
-    this.highResSrc = ''
+
+    this.thumbSrc = ATTRS.EMPTY
+
+    this.highResSrc = ATTRS.EMPTY
+
     this.isLoaded = false
+
     this.poster = []
+
     this.video = []
+
     this.observer = null
+
     this.imgObserver = null
+
+    this.isIntersecting = false
   }
 
   get canExpand() {
-    return this.hasAttribute('can-expand') && this.getAttribute('can-expand') !== ATTRS.FALSE
+    return this.hasAttribute(ATTRS.CAN_EXPAND) && this.getAttribute(ATTRS.CAN_EXPAND) !== ATTRS.FALSE
   }
 
   get isVideo() {
-    return this.hasAttribute('is-video') && this.getAttribute('is-video') !== ATTRS.FALSE
+    return this.hasAttribute(ATTRS.IS_VIDEO) && this.getAttribute(ATTRS.IS_VIDEO) !== ATTRS.FALSE
   }
 
   get autoPlay() {
-    return this.hasAttribute('auto-play') && this.getAttribute('auto-play') !== ATTRS.FALSE
+    return this.hasAttribute(ATTRS.AUTO_PLAY) && this.getAttribute(ATTRS.AUTO_PLAY) !== ATTRS.FALSE
   }
 
   get mediaWidth() {
-    return parseInt(this.getAttribute('width') || String(MEDIA_DIMENSIONS.DEFAULT_WIDTH), 10)
+    return parseInt(this.getAttribute(ATTRS.WIDTH) || String(MEDIA_DIMENSIONS.DEFAULT_WIDTH), 10)
   }
 
   get mediaHeight() {
-    return parseInt(this.getAttribute('height') || String(MEDIA_DIMENSIONS.DEFAULT_HEIGHT), 10)
+    return parseInt(this.getAttribute(ATTRS.HEIGHT) || String(MEDIA_DIMENSIONS.DEFAULT_HEIGHT), 10)
   }
 
   get label() {
-    return this.getAttribute('label') || ''
+    return this.getAttribute(ATTRS.LABEL) || ATTRS.EMPTY
   }
 
   get mediaSrc() {
-    return this.getAttribute('src') || ''
+    return this.getAttribute(ATTRS.SRC) || ATTRS.EMPTY
   }
 
   get classes() {
-    return this.getAttribute('classes') || ''
+    return this.getAttribute(ATTRS.CLASSES) || ATTRS.EMPTY
   }
 
   get displayWidth() {
     const MAX = 1920
+
     if (!this.isVideo || this.mediaWidth <= MAX) return this.mediaWidth
+
     return MAX
   }
 
   get displayHeight() {
     const MAX = 1920
+
     if (!this.isVideo || this.mediaWidth <= MAX) return this.mediaHeight
+
     return calcAspectScaled(this.mediaWidth, this.mediaHeight, MAX)
   }
 
-  // Returns highest-quality video src (index 0 = original, index 1 = scaled-down fallback)
   get videoSrcMain() {
-    return this.video[0] || ''
+    return this.video[0] || ATTRS.EMPTY
   }
 
   get videoSrcFallback() {
-    return this.video.length >= 2 ? this.video[1] : ''
+    return this.video.length >= 2 ? this.video[1] : ATTRS.EMPTY
   }
 
   onInit() {
@@ -88,14 +106,19 @@ export class MediaFigure extends BaseComponent {
         if (cls) this.classList.add(cls)
       })
     }
+
     const storage = store.getters.getStorage()
+
     if (this.isVideo) {
       const base = storage + this.mediaSrc
+
       const urls = [
         [base + MEDIA.VIDEO_THUMB_EXT, base + MEDIA.VIDEO_EXT],
         [base + MEDIA.VIDEO_SCALE + MEDIA.VIDEO_THUMB_EXT, base + MEDIA.VIDEO_SCALE + MEDIA.VIDEO_EXT],
       ]
+
       this.poster = urls.map((a) => a[0])
+
       this.video = urls.map((a) => a[1])
     } else {
       this.thumbSrc = storage + this.mediaSrc + MEDIA.MOZ + MEDIA.THUMB_SUFFIX + MEDIA.EXT
@@ -105,32 +128,43 @@ export class MediaFigure extends BaseComponent {
   onMounted() {
     gpuAccel.accelerateElementGPU(this)
 
+    this.subscribe(store)
+
     if (this.classes) {
       this.classes.split(/\s+/).forEach((cls) => {
         if (cls) this.classList.add(cls)
       })
     }
 
-    const fig = this.$('figure')
+    const fig = this.$(TAGS.FIGURE)
+
     if (fig && this.canExpand) {
-      this.addScopedListener(fig, 'click', () => this.openModal())
+      this.addScopedListener(fig, EVENTS.CLICK, () => this.openModal())
     }
 
     if (this.isVideo) {
       const isReduced = store.getters.getReducedMotion()
-      const vid = this.$('video')
+
+      const vid = this.$(TAGS.VIDEO)
+
       if (vid) {
-        this.addScopedListener(vid, 'mouseenter', (e) => this.playVideo(e.target))
-        this.addScopedListener(vid, 'mouseover', (e) => this.playVideo(e.target))
-        this.addScopedListener(vid, 'mouseleave', (e) => this.pauseVideo(e.target))
-        this.addScopedListener(vid, 'mouseout', (e) => this.pauseVideo(e.target))
-        this.addScopedListener(vid, 'mousedown', (e) => this.playVideo(e.target))
-        this.addScopedListener(vid, 'loadeddata', (e) => {
+        this.addScopedListener(vid, EVENTS.MOUSEENTER, (e) => this.playVideo(e.target))
+
+        this.addScopedListener(vid, EVENTS.MOUSEOVER, (e) => this.playVideo(e.target))
+
+        this.addScopedListener(vid, EVENTS.MOUSELEAVE, (e) => this.pauseVideo(e.target))
+
+        this.addScopedListener(vid, EVENTS.MOUSEOUT, (e) => this.pauseVideo(e.target))
+
+        this.addScopedListener(vid, EVENTS.MOUSEDOWN, (e) => this.playVideo(e.target))
+
+        this.addScopedListener(vid, EVENTS.LOADEDDATA, (e) => {
           gpuAccel.processVideoGPU(e.target, this.displayWidth || 640, this.displayHeight || 360)
         })
-        this.addScopedListener(vid, 'error', (e) => {
-          if (e?.target?.hasAttribute('poster')) {
-            e.target.removeAttribute('poster')
+
+        this.addScopedListener(vid, EVENTS.ERROR, (e) => {
+          if (e?.target?.hasAttribute(ATTRS.POSTER)) {
+            e.target.removeAttribute(ATTRS.POSTER)
           }
         })
 
@@ -138,53 +172,113 @@ export class MediaFigure extends BaseComponent {
           this.observer = new IntersectionObserver(
             (entries) => {
               entries.forEach((entry) => {
+                this.isIntersecting = entry.isIntersecting
+
                 if (entry.isIntersecting) {
-                  vid.play().catch(() => {})
+                  this._ensureVideoSource(vid)
+
+                  if (store.getters.getVideoAutoplay() && vid.paused) {
+                    vid.play().catch(() => {})
+                  }
                 } else {
-                  vid.pause()
+                  if (!vid.paused) {
+                    vid.pause()
+                  }
                 }
               })
             },
             { threshold: 0.15 }
           )
+
           this.observer.observe(vid)
         }
       }
     } else {
-      const highImg = this.$(`.${CLASSES.RENDER_MEDIA_HIGH}`) || this.$('figure')
+      const highImg = this.$(`.${CLASSES.RENDER_MEDIA_HIGH}`) || this.$(TAGS.FIGURE)
+
       if (highImg) {
         this.imgObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting && !this.isLoaded) {
                 this.loadHighRes()
+
                 if (this.imgObserver) {
                   this.imgObserver.disconnect()
+
                   this.imgObserver = null
                 }
               }
             })
           },
-          { rootMargin: '100px 50px', threshold: 0.01 }
+          { rootMargin: ATTRS.ROOT_MARGIN_100, threshold: 0.01 }
         )
+
         this.imgObserver.observe(highImg)
       }
     }
   }
 
+  _ensureVideoSource(vid) {
+    if (!vid || vid.querySelector(ATTRS.SOURCE)) return
+
+    const src1 = document.createElement(ATTRS.SOURCE)
+
+    src1.src = this.videoSrcMain
+
+    src1.type = ATTRS.VIDEO_MP4
+
+    vid.appendChild(src1)
+
+    if (this.videoSrcFallback) {
+      const src2 = document.createElement(ATTRS.SOURCE)
+
+      src2.src = this.videoSrcFallback
+
+      src2.type = ATTRS.VIDEO_MP4
+
+      vid.appendChild(src2)
+    }
+
+    vid.load()
+  }
+
   onDestroy() {
     if (this.observer) {
       this.observer.disconnect()
+
       this.observer = null
     }
+
     if (this.imgObserver) {
       this.imgObserver.disconnect()
+
       this.imgObserver = null
     }
   }
 
+  onStoreUpdate() {
+    if (this.isVideo) {
+      const vid = this.$(TAGS.VIDEO)
+
+      if (vid) {
+        if (!store.getters.getVideoAutoplay()) {
+          if (!vid.paused) {
+            vid.pause()
+          }
+        } else if (this.isIntersecting && vid.paused && !store.getters.getReducedMotion()) {
+          this._ensureVideoSource(vid)
+
+          vid.play().catch(() => {})
+        }
+      }
+    }
+  }
+
   playVideo(target) {
-    if (!store.getters.getReducedMotion() && target?.play) {
+    if (!store.getters.getReducedMotion() && store.getters.getVideoAutoplay() && target?.play) {
+      this._ensureVideoSource(target)
+
       target
         .play()
         .then(() => {
@@ -206,7 +300,9 @@ export class MediaFigure extends BaseComponent {
 
   async loadHighRes() {
     const storage = store.getters.getStorage()
+
     const targetUrl = storage + this.mediaSrc + MEDIA.MOZ + MEDIA.Q50 + MEDIA.EXT
+
     const localUrl = await localMediaCache.fetchOrGetLocalMedia(targetUrl)
 
     const bitmap = await wasmMediaThreads.decodeMediaInSeparateThread(
@@ -216,44 +312,53 @@ export class MediaFigure extends BaseComponent {
     )
 
     const ImageClass =
-      typeof window !== 'undefined' && window.Image
+      typeof window !== STRINGS.UNDEFINED && window.Image
         ? window.Image
-        : typeof Image !== 'undefined'
+        : typeof Image !== STRINGS.UNDEFINED
           ? Image
           : null
 
     const finish = () => {
       this.highResSrc = localUrl
+
       this.isLoaded = true
+
       const highEl = this.$(`.${CLASSES.RENDER_MEDIA_HIGH}`)
+
       if (highEl) {
         highEl.src = localUrl
+
         highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
       }
     }
 
     if (!ImageClass) {
       finish()
+
       return
     }
 
     const img = new ImageClass()
+
     img.src = localUrl
+
     img.onload = () => {
       if (!bitmap) {
         gpuAccel.processTextureGPU(img, this.displayWidth, this.displayHeight)
       }
+
       finish()
     }
+
     img.onerror = () => {
       finish()
     }
   }
 
   slugify(text) {
-    return (text || '')
+    return (text || ATTRS.EMPTY)
       .toLowerCase()
-      .replace(/[^\w\s-]/g, '')
+      .replace(/[^\w\s-]/g, ATTRS.EMPTY)
       .trim()
       .replace(/[\s_]+/g, '-')
       .replace(/--+/g, '-')
@@ -261,7 +366,9 @@ export class MediaFigure extends BaseComponent {
 
   openModal() {
     if (!this.canExpand) return
+
     const scrollY = window.scrollY
+
     const storage = store.getters.getStorage()
 
     store.commit('setModal', {
@@ -283,31 +390,46 @@ export class MediaFigure extends BaseComponent {
     })
 
     const slug = this.slugify(this.label)
+
     if (slug) {
-      const currentPath = window.location.pathname.replace(/\/$/, '')
+      const currentPath = window.location.pathname.replace(/\/$/, ATTRS.EMPTY)
+
       const segments = currentPath.split('/')
+
       const portIdx = segments.indexOf('portfolio')
+
       let basePath = currentPath
+
       if (portIdx !== -1 && segments.length > portIdx + 1) {
         basePath = segments.slice(0, portIdx + 2).join('/')
       }
+
       const newPath = `${basePath}/${slug}`
+
       if (window.location.pathname !== newPath) {
-        window.history.replaceState({}, '', newPath)
+        window.history.replaceState({}, ATTRS.EMPTY, newPath)
       }
     }
   }
 
   render() {
     const mediaW = this.displayWidth
+
     const mediaH = this.displayHeight
+
     const action = store.getters.getClickOrTap()
+
     const compLang = store.getters.getlang().components?.media || {}
-    const toOpen = compLang.toOpen || 'to expand'
+
+    const toOpen = compLang.toOpen || TEXT.TO_EXPAND
+
+    const isHeroItem = this.classes.includes(CLASSES.INTERNAL_MAIN_ITEM)
+
+    const shouldPreloadVideo = this.autoPlay || isHeroItem
 
     return (
       <figure
-        className={this.canExpand ? CLASSES.INTERNAL_EXPAND : ''}
+        className={this.canExpand ? CLASSES.INTERNAL_EXPAND : ATTRS.EMPTY}
         title={this.label}
       >
         <img
@@ -324,50 +446,55 @@ export class MediaFigure extends BaseComponent {
           <Fragment>
             <img
               decoding={ATTRS.DECODING_ASYNC}
+              loading={isHeroItem ? ATTRS.LOADING_EAGER : ATTRS.LOADING_LAZY}
               className={`${CLASSES.RENDER_MEDIA} ${CLASSES.RENDER_MEDIA_THUMB} ${this.classes}`}
               width={mediaW}
               height={mediaH}
               alt={this.label}
               src={this.thumbSrc}
             />
+
             <img
               decoding={ATTRS.DECODING_ASYNC}
-              className={`${CLASSES.RENDER_MEDIA} ${CLASSES.RENDER_MEDIA_HIGH} ${this.classes} ${this.isLoaded ? CLASSES.RENDER_MEDIA_LOADED : ''}`}
+              className={`${CLASSES.RENDER_MEDIA} ${CLASSES.RENDER_MEDIA_HIGH} ${this.classes} ${this.isLoaded ? CLASSES.RENDER_MEDIA_LOADED : ATTRS.EMPTY}`}
               width={mediaW}
               height={mediaH}
               alt={this.label}
-              src={this.highResSrc || ''}
+              src={this.highResSrc || ATTRS.EMPTY}
             />
           </Fragment>
         ) : (
           <video
             className={`${CLASSES.RENDER_MEDIA} ${this.classes}`}
-            poster={this.poster[0] || ''}
+            poster={this.poster[0] || ATTRS.EMPTY}
             width={mediaW}
             height={mediaH}
-            preload={this.autoPlay || this.classes.includes(CLASSES.INTERNAL_MAIN_ITEM) ? 'metadata' : ATTRS.NONE}
+            preload={shouldPreloadVideo ? ATTRS.METADATA : ATTRS.NONE}
             playsInline
             loop
             muted
+            autoPlay={this.autoPlay}
             controls={store.getters.getReducedMotion()}
           >
-            <source src={this.videoSrcMain} type="video/mp4" />
-            {this.videoSrcFallback ? <source src={this.videoSrcFallback} type="video/mp4" /> : null}
+            <source src={this.videoSrcMain} type={ATTRS.VIDEO_MP4} />
+
+            {this.videoSrcFallback ? <source src={this.videoSrcFallback} type={ATTRS.VIDEO_MP4} /> : null}
           </video>
         )}
 
         {this.canExpand && (
           <Fragment>
-            <button className={CLASSES.EXPAND_MODAL_OPEN_1} data-no-snippet type="button">
+            <button className={CLASSES.EXPAND_MODAL_OPEN_1} data-no-snippet type={ATTRS.BUTTON}>
               {action} {toOpen}
             </button>
+
             <button
               className={CLASSES.EXPAND_MODAL_OPEN_2}
               aria-label={`${action} ${toOpen}`}
               aria-hidden={ATTRS.TRUE}
-              tabIndex="-1"
+              tabIndex={-1}
               data-no-snippet
-              type="button"
+              type={ATTRS.BUTTON}
             />
           </Fragment>
         )}

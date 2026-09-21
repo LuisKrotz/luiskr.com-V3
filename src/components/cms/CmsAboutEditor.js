@@ -2,6 +2,7 @@ import { BaseComponent } from '../../core/Component.js'
 import { getDbInstance } from '../../firebase.js'
 import { ref, child, get, set } from 'firebase/database'
 import { h } from '../../core/jsx.js'
+import { STRINGS } from '../../core/constants.js'
 import cmsStyles from '../../sass/cms.scss?inline'
 
 const LANGS = ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln']
@@ -366,7 +367,7 @@ export class CmsAboutEditor extends BaseComponent {
             h('div', { class: 'cms-field-row cms-field-row--align' },
               h('div', { class: 'cms-field-group' },
                 h('label', null, 'Gravatar Image Size (px)'),
-                h('input', { id: 'about-size-input', class: 'cms-input cms-input--short', type: 'number', value: String(this.gravatarSize) }),
+                h('input', { id: 'about-size-input', class: 'cms-input cms-input--short', type: STRINGS.NUMBER, value: String(this.gravatarSize) }),
               ),
               h('div', { class: 'cms-field-group' },
                 h('label', null, 'Quick presets:'),

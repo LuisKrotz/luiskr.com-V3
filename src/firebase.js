@@ -1,13 +1,14 @@
 import { initializeApp } from 'firebase/app'
+import { STRINGS, ATTRS } from './core/constants.js'
 
 const getApiKey = () => {
-  if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_FIREBASE_API_KEY) {
+  if (typeof import.meta !== STRINGS.UNDEFINED && import.meta.env && import.meta.env.VITE_FIREBASE_API_KEY) {
     return import.meta.env.VITE_FIREBASE_API_KEY
   }
-  if (typeof atob === 'function') {
+  if (typeof atob === STRINGS.FUNCTION) {
     return atob('QUl6YVN5RGVEcjNMRGRjMzRJREJBUWMtNkJpVU9lSTMyX0hkN0hJ')
   }
-  return ''
+  return ATTRS.EMPTY
 }
 
 const firebaseConfig = {

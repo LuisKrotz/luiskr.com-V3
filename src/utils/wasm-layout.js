@@ -1,7 +1,9 @@
+import { STRINGS } from '../core/constants.js'
+
 let wasmInstance = null
 
 // Instantiate WebAssembly Engine module for high-performance carousel, animations, grid layout & media math
-if (typeof window !== 'undefined' && 'WebAssembly' in window) {
+if (typeof window !== STRINGS.UNDEFINED && 'WebAssembly' in window) {
   fetch('/wasm/engine.wasm')
     .then((res) => {
       if (!res.ok) throw new Error('WASM load error')

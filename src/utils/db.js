@@ -1,6 +1,8 @@
+import { STRINGS } from '../core/constants.js'
+
 const _dbCache = new Map()
 
-export async function fetchFirebaseDb(path) {
+export const fetchFirebaseDb = async (path) => {
   const cleanPath = path.startsWith('/') ? path.slice(1) : path
 
   if (_dbCache.has(cleanPath)) {
@@ -19,7 +21,7 @@ export async function fetchFirebaseDb(path) {
 
       const isNull = data === null || data === undefined
 
-      const wrapper = isNull || typeof data !== 'object' ? {} : data
+      const wrapper = isNull || typeof data !== STRINGS.OBJECT ? {} : data
 
       return Object.assign(wrapper, {
         exists: () => !isNull,

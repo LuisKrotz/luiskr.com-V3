@@ -34,13 +34,15 @@ const ALLOWED_ATTRS = new Set([
  * @param {string} html - Raw HTML string (possibly from CMS / i18n store).
  * @returns {string} Safe HTML string ready for use in innerHTML.
  */
-export function sanitizeHtml(html) {
-  if (typeof html !== 'string') return ''
-  if (!html.trim()) return ''
+import { STRINGS, ATTRS } from '../core/constants.js'
+
+export const sanitizeHtml = (html) => {
+  if (typeof html !== STRINGS.STRING) return ATTRS.EMPTY
+  if (!html.trim()) return ATTRS.EMPTY
 
   // SSR / worker environments: fall back to plain-text stripping
-  if (typeof document === 'undefined' || typeof DOMParser === 'undefined') {
-    return html.replace(/<[^>]*>/g, '')
+  if (typeof document === STRINGS.UNDEFINED || typeof DOMParser === STRINGS.UNDEFINED) {
+    return html.replace(/<[^>]*>/g, ATTRS.EMPTY)
   }
 
   const parser = new DOMParser()

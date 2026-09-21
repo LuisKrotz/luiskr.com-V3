@@ -2,7 +2,7 @@ import { h, Fragment } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
-import { CLASSES, EVENTS } from '../core/constants.js'
+import { CLASSES, EVENTS, STRINGS } from '../core/constants.js'
 import awardsFooterStyles from '../sass/awards-footer.scss?inline'
 import './HomeCarousel.js'
 
@@ -164,7 +164,7 @@ export class AwardsMentions extends BaseComponent {
   _bindLinks() {
     // Delegated click handler on shadowRoot: handles all legal links across DOM re-renders
     this.addScopedListener(this.shadowRoot, 'click', (e) => {
-      const path = typeof e.composedPath === 'function' ? e.composedPath() : []
+      const path = typeof e.composedPath === STRINGS.FUNCTION ? e.composedPath() : []
       const a =
         (e.target instanceof Element ? e.target : e.target?.parentElement)?.closest(`.${CLASSES.AWARDS_FOOTER_ITEM}`) ||
         path.find((el) => el instanceof Element && el.classList?.contains(CLASSES.AWARDS_FOOTER_ITEM))

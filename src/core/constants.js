@@ -115,6 +115,47 @@ export const ATTRS = Object.freeze({
   FETCH_PRIORITY_LOW: 'low',
   TRIGGER_VIEWPORT: 'viewport',
   ARIA_LABEL: 'aria-label',
+  SMOOTH: 'smooth',
+  INSTANT: 'instant',
+  BUTTON: 'button',
+  RING_VIEWBOX: '0 0 44 44',
+  RING_CX: '22',
+  RING_CY: '22',
+  RING_R: '19',
+  ROOT_MARGIN_50: '50px 0px',
+  ROOT_MARGIN_100: '100px 50px',
+  METADATA: 'metadata',
+  POSTER: 'poster',
+  SOURCE: 'source',
+  THUMB: 'thumb',
+  ALT: 'alt',
+  WIDTH: 'width',
+  HEIGHT: 'height',
+  IS_VIDEO: 'is-video',
+  CAN_EXPAND: 'can-expand',
+  AUTO_PLAY: 'auto-play',
+  CLASSES: 'classes',
+  TEXT: 'text',
+  DELAY: 'delay',
+  OFFSET: 'offset',
+  TRIGGER: 'trigger',
+  VISIBLE: 'visible',
+  PROP: 'prop',
+  SECTION: 'section',
+  PX: 'px',
+  VIDEO_MP4: 'video/mp4',
+  SRC: 'src',
+  LABEL: 'label',
+  TOUCH: 'touch',
+  POINTER: 'pointer',
+  DATA_INDEX: 'data-index',
+})
+
+// ─── Media Query Tokens ─────────────────────────────────────────────────────
+export const MEDIA_QUERIES = Object.freeze({
+  POINTER_FINE: '(pointer: fine)',
+  PREFERS_COLOR_DARK: '(prefers-color-scheme: dark)',
+  PREFERS_REDUCED_MOTION: '(prefers-reduced-motion: reduce)',
 })
 
 // ─── Shared Primitive Strings ───────────────────────────────────────────────
@@ -125,6 +166,10 @@ export const STRINGS = Object.freeze({
   STRING: 'string',
   BOOLEAN: 'boolean',
   NUMBER: 'number',
+  APPLE_VENDOR: 'Apple Computer, Inc.',
+  CONTAINER_TYPE: 'container-type',
+  INLINE_SIZE: 'inline-size',
+  GESTURE_EVENT: 'GestureEvent',
 })
 
 // ─── Fibonacci spacing scale (unitless — use with to-rem() in SCSS or rem in JS) ─
@@ -230,6 +275,10 @@ export const TAGS = Object.freeze({
   CMS_FOOTER_EDITOR: 'cms-footer-editor',
   CMS_LANG_EDITOR: 'cms-lang-editor',
   STATS_HUD: 'stats-hud',
+  FIGURE: 'figure',
+  VIDEO: 'video',
+  IMG: 'img',
+  BUTTON: 'button',
 })
 
 // ─── URL constants ───────────────────────────────────────────────────
@@ -245,6 +294,9 @@ export const PATHS = Object.freeze({
   COVERS: 'covers/',
   COMPONENTS_RELATED: '/components/related',
   COMPONENTS_RELATED_PROJECTS: '/components/related/projects',
+  TRANSLATIONS: 'translations/',
+  PAGES: '/pages/',
+  PROJECTS: '/projects/',
 })
 
 // ─── CMS data-key constants ───────────────────────────────────────────────
@@ -252,6 +304,23 @@ export const PATHS = Object.freeze({
 export const CMS_KEYS = Object.freeze({
   ABOUT_SECTION: 'about-section',
   LEGAL_FOOTER: 'legal-footer',
+  AUTOPLAY: 'autoplay',
+})
+
+// ─── LocalStorage Key constants ─────────────────────────────────────────────
+export const STORAGE_KEYS = Object.freeze({
+  VIDEO_AUTOPLAY: 'videoAutoplay',
+  LOCALE: 'locale',
+  REDUCED_MOTION: 'reducedMotion',
+  THEME: 'theme',
+  STATS_FOR_NERDS: 'statsForNerds',
+  SHOW_GRID: 'showGrid',
+  COOKIE: 'cookie',
+})
+
+// ─── CSS Custom Properties ──────────────────────────────────────────────────
+export const CSS_PROPS = Object.freeze({
+  CAROUSEL_ITEM_HEIGHT: '--carousel-item-height',
 })
 
 // ─── Centralized CSS class name tokens ──────────────────────────────────────
@@ -276,6 +345,7 @@ const _B_CMS = 'cms'
 const _B_NAV = 'nav'
 const _B_PREF = 'pref'
 const _B_COOKIES = 'cookies'
+const _B_HUD = 'stats-hud'
 
 export const CLASSES = Object.freeze({
   // Skeleton & Media
@@ -428,6 +498,7 @@ export const CLASSES = Object.freeze({
   DRAW_TEXT_CHAR: `${_B_DRAW_TEXT}__char`,
   DRAW_TEXT_SPACE: `${_B_DRAW_TEXT}__space`,
   DRAW_TEXT_VISIBLE: `${_B_DRAW_TEXT}--visible`,
+  DRAW_TEXT_DONE: `${_B_DRAW_TEXT}--done`,
 
   // Navigation buttons
   NAV: _B_NAV,
@@ -477,6 +548,7 @@ export const CLASSES = Object.freeze({
   // Cookie banner
   COOKIES: _B_COOKIES,
   COOKIES_INFO: `${_B_COOKIES}-info`,
+  COOKIES_BUTTONS: `${_B_COOKIES}-buttons`,
   COOKIES_BUTTONS_ACCEPT: `${_B_COOKIES}-buttons-accept`,
   COOKIES_BUTTONS_REFUSE: `${_B_COOKIES}-buttons-refuse`,
 
@@ -486,6 +558,7 @@ export const CLASSES = Object.freeze({
   CMS_BADGE: `${_B_CMS}-badge`,
 
   // Additional Carousel (all composed from _B_CAROUSEL_BTN / _B_CAROUSEL_SLIDE)
+  CAROUSEL_IN_VIEW: `${_B_CAROUSEL}--in-view`,
   CAROUSEL_FALLBACK: `${_B_CAROUSEL}-fallback`,
   CAROUSEL_FALLBACK_SIDE: `${_B_CAROUSEL}-fallback ${_B_CAROUSEL}-fallback--side`,
   CAROUSEL_CONTROLS: `${_B_CAROUSEL}-controls`,
@@ -568,6 +641,38 @@ export const CLASSES = Object.freeze({
   ACTIVE: 'active',
   IS_OPEN: 'is-open',
   IS_SAFARI: 'is-safari',
+  REDUCED_MOTION: 'reduced-motion',
+  DARK_MODE: 'dark-mode',
+  SHOW_GRID: 'show-grid',
+
+  // Stats HUD & Autoplay Toggle
+  STATS_HUD_BASE: _B_HUD,
+  STATS_HUD_VISIBLE: `${_B_HUD}--visible`,
+  STATS_HUD_SEGMENT: `${_B_HUD}-segment`,
+  STATS_HUD_LABEL: `${_B_HUD}-label`,
+  STATS_HUD_VALUE: `${_B_HUD}-value`,
+  STATS_HUD_TOGGLE: `${_B_HUD}-toggle`,
+  STATS_HUD_SWITCH: `${_B_HUD}-switch`,
+  STATS_HUD_SWITCH_ON: `${_B_HUD}-switch--on`,
+})
+
+// ─── Centralized DOM Selectors ──────────────────────────────────────────────
+export const SELECTORS = Object.freeze({
+  HOME_MOSAIC_ITEM: `.${_B_HOME_MOSAIC}-item`,
+  CAROUSEL: `.${_B_CAROUSEL}`,
+  CAROUSEL_TRACK: `.${_B_CAROUSEL}-track`,
+  CAROUSEL_FALLBACK: `.${_B_CAROUSEL}-fallback`,
+  CAROUSEL_BTN_PREV: `.${_B_CAROUSEL_BTN}--prev`,
+  CAROUSEL_BTN_NEXT: `.${_B_CAROUSEL_BTN}--next`,
+  CAROUSEL_BTN_RING_FILL: `.${_B_CAROUSEL_BTN}-ring-fill`,
+  CAROUSEL_DOT: `.${_B_CAROUSEL}-dot`,
+  CAROUSEL_COUNTER: `.${_B_CAROUSEL}-counter`,
+  CAROUSEL_SLIDE_CLONE_FIRST: `.${_B_CAROUSEL_SLIDE}--clone-first`,
+  CAROUSEL_SLIDE_CLONE_LAST: `.${_B_CAROUSEL_SLIDE}--clone-last`,
+  CAROUSEL_SLIDES_NOT_CLONE: `.${_B_CAROUSEL_SLIDE}:not(.${_B_CAROUSEL_SLIDE}--clone)`,
+  DRAW_TEXT: `.${_B_DRAW_TEXT}`,
+  COOKIES_BUTTONS_ACCEPT: `.${_B_COOKIES}-buttons-accept`,
+  COOKIES_BUTTONS_REFUSE: `.${_B_COOKIES}-buttons-refuse`,
 })
 
 // ─── UI text tokens (used by both app and tests) ──────────────────────────────
@@ -578,13 +683,45 @@ export const TEXT = Object.freeze({
   CONTACT: 'Contact',
   ABOUT_ME: 'About Me',
   GET_IN_TOUCH: 'Get in Touch',
+  CLICK_LABEL: 'Click',
+  TAP_LABEL: 'Tap',
+  SOME_MENTIONS: 'Some mentions',
+  PREV_ITEM: 'Previous item',
+  NEXT_ITEM: 'Next item',
+  OF: 'of',
   // Common labels
   FEATURED: 'Featured',
-  LOADING: 'Loading...',
+  LOADING: 'Loading',
+  LOADING_DOTS: 'Loading...',
   SAVING: 'Saving...',
   SIGNING_IN: 'Signing in...',
   SIGN_IN_GOOGLE: 'Sign in with Google',
   LOGOUT: 'Logout',
+  // Controls & HUD
+  VIDEO_AUTOPLAY: 'Video autoplay',
+  PERFORMANCE: 'Performance',
+  MEMORY: 'Memory',
+  NETWORK: 'Network',
+  LATENCY: 'Latency',
+  AI_ENGINE: 'AI Engine',
+  ACCEPT: 'Accept',
+  REFUSE: 'Refuse',
+  TO_EXPAND: 'to expand',
+  PERF_STATS_AND_CONTROLS: 'Performance stats and controls',
+  VIDEO_CONTROLS: 'Video controls',
+  ON: 'ON',
+  OFF: 'OFF',
+  FPS: 'FPS',
+  CPU: 'CPU',
+  NET: 'NET',
+  LAT: 'LAT',
+  REQ: 'REQ',
+  MEM: 'MEM',
+  GPU: 'GPU',
+  KB_S: 'KB/s',
+  MS: 'ms',
+  MB: 'MB',
+  DASH: '—',
 })
 
 // ─── DOM Event name tokens ────────────────────────────────────────────────────
@@ -592,9 +729,12 @@ export const EVENTS = Object.freeze({
   CLICK: 'click',
   MOUSEENTER: 'mouseenter',
   MOUSELEAVE: 'mouseleave',
+  MOUSEOVER: 'mouseover',
+  MOUSEOUT: 'mouseout',
   MOUSEDOWN: 'mousedown',
   MOUSEUP: 'mouseup',
   SCROLL: 'scroll',
+  SCROLLEND: 'scrollend',
   RESIZE: 'resize',
   TOUCHSTART: 'touchstart',
   TOUCHEND: 'touchend',
@@ -609,6 +749,9 @@ export const EVENTS = Object.freeze({
   TRANSITIONEND: 'transitionend',
   ANIMATIONEND: 'animationend',
   POPSTATE: 'popstate',
+  LOADEDDATA: 'loadeddata',
+  ERROR: 'error',
+  COOKIE_ACTION: 'cookieAction',
   SLIDE_CHANGE:    'slidechange',
   AUTOPLAY_STOP:   'autoplaystop',
   AUTOPLAY_START:  'autoplaystart',

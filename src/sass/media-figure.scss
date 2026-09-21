@@ -54,11 +54,15 @@
     max-height: 70dvh;
     overflow: hidden;
     margin: 0 auto;
-    border-radius: 0;
+    border-radius: to-rem($space-md);
+    -webkit-border-radius: to-rem($space-md);
+    -webkit-mask-image: -webkit-radial-gradient(var(--color-white-raw), var(--black));
+    mask-image: -webkit-radial-gradient(var(--color-white-raw), var(--black));
     background-color: var(--bg-dark);
 
     @include layout-1024() {
       border-radius: to-rem($space-lg);
+      -webkit-border-radius: to-rem($space-lg);
     }
   }
 
@@ -89,10 +93,8 @@
     // Cover section is always full-bleed: fill and crop anchored to top center.
     object-fit: cover;
     object-position: top center;
-
-    @include layout-1024() {
-      border-radius: to-rem($space-lg);
-    }
+    border-radius: inherit;
+    -webkit-border-radius: inherit;
   }
 }
 

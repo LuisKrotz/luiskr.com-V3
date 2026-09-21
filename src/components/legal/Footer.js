@@ -2,7 +2,7 @@ import { h, Fragment } from '../../core/jsx.js'
 import { BaseComponent } from '../../core/Component.js'
 import store from '../../core/store.js'
 import router from '../../core/router.js'
-import { CLASSES, TAGS, CMS_KEYS } from '../../core/constants.js'
+import { CLASSES, TAGS, CMS_KEYS, STRINGS } from '../../core/constants.js'
 import internalStyles from '../../sass/internals.scss?inline'
 
 import { LANG_SLUGS } from '../../core/i18n.js'
@@ -63,7 +63,7 @@ export class LegalFooter extends BaseComponent {
   }
 
   onDestroy() {
-    if (typeof this._unsubRouter === 'function') {
+    if (typeof this._unsubRouter === STRINGS.FUNCTION) {
       this._unsubRouter()
       this._unsubRouter = null
     }

@@ -2,7 +2,7 @@ import { h, Fragment } from '../../core/jsx.js'
 import { BaseComponent } from '../../core/Component.js'
 import store from '../../core/store.js'
 import router from '../../core/router.js'
-import { CLASSES, URLS, PATHS, ATTRS } from '../../core/constants.js'
+import { CLASSES, URLS, PATHS, ATTRS, STRINGS } from '../../core/constants.js'
 import { fetchFirebaseDb } from '../../utils/db.js'
 import internalStyles from '../../sass/internals.scss?inline'
 import '../DrawText.js'
@@ -83,7 +83,7 @@ export class PortfolioRelated extends BaseComponent {
   }
 
   onDestroy() {
-    if (typeof this._unsubRouter === 'function') {
+    if (typeof this._unsubRouter === STRINGS.FUNCTION) {
       this._unsubRouter()
       this._unsubRouter = null
     }
@@ -131,7 +131,7 @@ export class PortfolioRelated extends BaseComponent {
   render() {
     const projects = this.projectsList
     const socials = this.translations?.socials || []
-    const currentPath = typeof window !== 'undefined' ? window.location.pathname.replace(/\/$/, '') : ''
+    const currentPath = typeof window !== STRINGS.UNDEFINED ? window.location.pathname.replace(/\/$/, '') : ATTRS.EMPTY
 
     return (
       <footer className={CLASSES.INTERNAL_FOOTER}>

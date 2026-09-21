@@ -4,12 +4,13 @@ import { calcEaseOutCubic } from './wasm-layout.js'
 import { gpuAccel } from './gpu-accel.js'
 import { npuPredict } from './npu-predict.js'
 import { deepQuerySelector } from '../core/dom.js'
+import { STRINGS } from '../core/constants.js'
 
-export function wasmSmoothScroll(options = {}) {
-  if (typeof window === 'undefined') return
+export const wasmSmoothScroll = (options = {}) => {
+  if (typeof window === STRINGS.UNDEFINED) return
 
   const container = options.container
-    ? typeof options.container === 'string'
+    ? typeof options.container === STRINGS.STRING
       ? deepQuerySelector(options.container)
       : options.container
     : window
@@ -17,7 +18,7 @@ export function wasmSmoothScroll(options = {}) {
   const isWindow =
     container === window || container === document.documentElement || container === document.body
   const targetEl = options.element
-    ? typeof options.element === 'string'
+    ? typeof options.element === STRINGS.STRING
       ? deepQuerySelector(options.element)
       : options.element
     : null
@@ -29,9 +30,9 @@ export function wasmSmoothScroll(options = {}) {
     const containerTop = isWindow ? 0 : container.getBoundingClientRect().top
     const currentScroll = isWindow ? window.scrollY : container.scrollTop
     targetY = currentScroll + elRect.top - containerTop + (options.offset || 0)
-  } else if (typeof options.scrollTo === 'number') {
+  } else if (typeof options.scrollTo === STRINGS.NUMBER) {
     targetY = options.scrollTo + (options.offset || 0)
-  } else if (typeof options.scrollTo === 'object' && options.scrollTo !== null) {
+  } else if (typeof options.scrollTo === STRINGS.OBJECT && options.scrollTo !== null) {
     targetY = (options.scrollTo.y ?? options.scrollTo.top ?? 0) + (options.offset || 0)
   } else {
     targetY = 0

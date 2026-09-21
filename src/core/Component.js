@@ -14,6 +14,8 @@
  *   when the element disconnects.
  */
 
+import { STRINGS } from './constants.js'
+
 const BASE_HOST_STYLES =
   ':host { display: block; font-family: var(--font-primary); color: var(--text-primary); box-sizing: border-box; }\n' +
   ':host > [data-content] { display: contents; }\n' +
@@ -50,7 +52,7 @@ export class BaseComponent extends HTMLElement {
    * @param {Object|function} updater - Partial state object or updater function
    */
   setState(updater) {
-    const next = typeof updater === 'function' ? updater(this.state) : updater
+    const next = typeof updater === STRINGS.FUNCTION ? updater(this.state) : updater
     this.state = { ...this.state, ...next }
     this._updateDom()
   }
@@ -112,7 +114,7 @@ export class BaseComponent extends HTMLElement {
    * @param {Object} store - Store object with a .subscribe(fn) method
    */
   subscribe(store) {
-    if (!store || typeof store.subscribe !== 'function') return
+    if (!store || typeof store.subscribe !== STRINGS.FUNCTION) return
     const unsub = store.subscribe(() => {
       if (this._isMounted) {
         this.onStoreUpdate?.(store)

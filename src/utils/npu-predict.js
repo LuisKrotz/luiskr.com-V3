@@ -4,6 +4,7 @@
 import { wasmPool } from './wasm-pool.js'
 import { gpuAccel } from './gpu-accel.js'
 import { wasmImageDecoder } from './wasm-image-decoder.js'
+import { STRINGS } from '../core/constants.js'
 
 class NPUPredictor {
   constructor() {
@@ -28,10 +29,10 @@ class NPUPredictor {
   }
 
   async initHardware() {
-    if (typeof window === 'undefined') return
+    if (typeof window === STRINGS.UNDEFINED) return
 
     // 1. Detect Hardware NPU (Neural Processing Unit) via WebNN
-    if (typeof navigator !== 'undefined' && 'ml' in navigator && navigator.ml.createContext) {
+    if (typeof navigator !== STRINGS.UNDEFINED && 'ml' in navigator && navigator.ml.createContext) {
       try {
         this.mlContext = await navigator.ml.createContext({
           deviceType: 'npu',
@@ -54,7 +55,7 @@ class NPUPredictor {
   }
 
   bindInteractionListeners() {
-    if (typeof window === 'undefined') return
+    if (typeof window === STRINGS.UNDEFINED) return
 
     window.addEventListener(
       'pointermove',

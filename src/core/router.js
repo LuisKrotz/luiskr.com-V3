@@ -1,7 +1,7 @@
 import store from './store.js'
 import { VALID_LANGS, LANG_SLUGS, detectLangFromPath } from './i18n.js'
 import { deepQuerySelector } from './dom.js'
-import { BASE_TITLE, PROJECT_ALIASES, TAGS } from './constants.js'
+import { BASE_TITLE, PROJECT_ALIASES, TAGS, STRINGS } from './constants.js'
 
 export function normalizeProjectKey(slug) {
   if (!slug) return ''
@@ -21,7 +21,7 @@ export class Router {
   }
 
   _initPopstateListener() {
-    if (typeof window === 'undefined') return
+    if (typeof window === STRINGS.UNDEFINED) return
     window.addEventListener('popstate', () => {
       this.handleNavigation(window.location.pathname + window.location.search + window.location.hash)
     })
@@ -204,7 +204,7 @@ export class Router {
     for (const hook of this.beforeHooks) {
       const redirect = await hook(to, from)
       if (redirect) {
-        if (typeof redirect === 'string') {
+        if (typeof redirect === STRINGS.STRING) {
           return this.push(redirect)
         }
         if (redirect.path) {

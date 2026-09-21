@@ -2,12 +2,27 @@ import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import { compression } from 'vite-plugin-compression2'
 import { fileURLToPath, URL } from 'node:url'
+import { constants as zlibConstants } from 'node:zlib'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    compression({ algorithm: 'brotliCompress', exclude: [/\.(br|gz)$/i] }),
-    compression({ algorithm: 'gzip', exclude: [/\.(br|gz)$/i] }),
+    compression({
+      algorithm: 'brotliCompress',
+      exclude: [/\.(br|gz)$/i],
+      compressionOptions: {
+        params: {
+          [zlibConstants.BROTLI_PARAM_QUALITY]: 11,
+        },
+      },
+    }),
+    compression({
+      algorithm: 'gzip',
+      exclude: [/\.(br|gz)$/i],
+      compressionOptions: {
+        level: 9,
+      },
+    }),
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: 'script-defer',
@@ -76,6 +91,8 @@ export default defineConfig({
     jsxFragment: 'Fragment',
     loader: 'jsx',
     include: /src\/.*\.jsx?$/,
+    legalComments: 'none',
+    treeShaking: true,
   },
   optimizeDeps: {
     noDiscovery: true,

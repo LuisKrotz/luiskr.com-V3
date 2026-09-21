@@ -45,14 +45,37 @@
 
     figure {
       position: relative;
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 100%;
+      max-height: 70vh;
+      max-height: 70dvh;
+      overflow: hidden;
+      margin: 0 auto;
+      border-radius: to-rem($space-md);
+      -webkit-border-radius: to-rem($space-md);
+
+      @include layout-1024() {
+        border-radius: to-rem($space-lg);
+        -webkit-border-radius: to-rem($space-lg);
+      }
     }
 
     .render-placeholder {
       display: block;
       position: relative;
       height: auto;
+      width: 100%;
       max-width: 100%;
+
+      @include layout-768() {
+        width: auto;
+        max-width: 100%;
+        max-height: 70vh;
+        max-height: 70dvh;
+      }
     }
 
     .render-media {
@@ -352,7 +375,8 @@
       // CSS custom properties DO cross shadow boundaries — this is the only way
       // to pass sizing context into <media-figure>'s encapsulated shadow root.
       // media-figure.scss reads --mf-w / --mf-h / --mf-max-w to size the placeholder.
-      media-figure {
+      media-figure,
+      figure {
         --mf-w: calc(90vw - #{to-rem($space-xl * 2)});
         --mf-h: calc(70vh - #{to-rem($space-xl * 2)});
         --mf-h: calc(70dvh - #{to-rem($space-xl * 2)});
@@ -377,6 +401,27 @@
         @include layout-2560() {
           --mf-w: #{to-rem($space-8xl)};
           --mf-h: #{to-rem($space-9xl)};
+        }
+      }
+
+      figure {
+        position: relative;
+        display: block;
+        width: var(--mf-w);
+        height: var(--mf-h);
+        max-width: var(--mf-max-w, none);
+        overflow: hidden;
+        border-radius: to-rem($space-md);
+        margin: 0;
+
+        @include layout-1024() {
+          border-radius: to-rem($space-lg);
+        }
+
+        .render-placeholder {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
       }
 

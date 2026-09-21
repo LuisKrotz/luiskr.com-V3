@@ -40,7 +40,7 @@ export class ViewProject extends BaseComponent {
   }
 
   updateRobotsMeta(noindex) {
-    if (typeof document === 'undefined') return
+    if (typeof document === STRINGS.UNDEFINED) return
     let meta = document.querySelector('meta[name="robots"]')
     if (noindex) {
       if (!meta) {
@@ -94,7 +94,7 @@ export class ViewProject extends BaseComponent {
       if (below) below.style.transform = `translateY(-${modal.transform || 0}px)`
 
       if (above) {
-        if (typeof above.showModal === 'function' && !above.open) {
+        if (typeof above.showModal === STRINGS.FUNCTION && !above.open) {
           above.showModal()
         }
         // Check if media-expanded already mounted with same source
@@ -128,7 +128,7 @@ export class ViewProject extends BaseComponent {
   initProject() {
     const route = router.currentRoute
     this.projectSlug = route?.params?.projectSlug || route?.params?.rawSlug || ''
-    if (!this.projectSlug && typeof window !== 'undefined') {
+    if (!this.projectSlug && typeof window !== STRINGS.UNDEFINED) {
       const match = window.location.pathname.match(/\/portfolio\/([^/?#]+)/)
       if (match) this.projectSlug = match[1]
     }
@@ -137,7 +137,7 @@ export class ViewProject extends BaseComponent {
 
   loadData(wait = false) {
     let projectKey = this.projectSlug
-    if (!projectKey && typeof window !== 'undefined') {
+    if (!projectKey && typeof window !== STRINGS.UNDEFINED) {
       const match = window.location.pathname.match(/\/portfolio\/([^/?#]+)/)
       if (match) projectKey = match[1]
     }
@@ -221,7 +221,7 @@ export class ViewProject extends BaseComponent {
 
     for (const section of this.translations.sections || []) {
       for (const group of section) {
-        if (!Array.isArray(group) || typeof group[0] === 'string') continue
+        if (!Array.isArray(group) || typeof group[0] === STRINGS.STRING) continue
         for (const item of group) {
           if (slugify(item.label) === slug) {
             const isVideo = item.isVideo ?? false
@@ -315,7 +315,7 @@ export class ViewProject extends BaseComponent {
               {t.sections.map((section, parentKey) => (
                 <section key={parentKey}>
                   {section.map((child, childKey) => {
-                    if (typeof child[0] === 'string') {
+                    if (typeof child[0] === STRINGS.STRING) {
                       return (
                         <div key={childKey} className={CLASSES.INTERNAL_DESCRIPTION}>
                           {child.map((item, itemKey) => {

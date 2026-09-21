@@ -367,6 +367,10 @@ main {
     height: to-rem($space-xl);
     border-radius: to-rem($space-2xs);
     margin-bottom: to-rem($space-lg);
+
+    @include layout-1024() {
+      height: to-rem($space-2xl);
+    }
   }
 
   &--para-full {
@@ -376,6 +380,10 @@ main {
     height: to-rem($space-lg);
     border-radius: to-rem($space-2xs);
     margin-bottom: to-rem($space-sm);
+
+    @include layout-1024() {
+      height: to-rem($space-xl);
+    }
   }
 
   &--para-94 {
@@ -385,6 +393,10 @@ main {
     height: to-rem($space-lg);
     border-radius: to-rem($space-2xs);
     margin-bottom: to-rem($space-sm);
+
+    @include layout-1024() {
+      height: to-rem($space-xl);
+    }
   }
 
   &--para-98 {
@@ -394,6 +406,10 @@ main {
     height: to-rem($space-lg);
     border-radius: to-rem($space-2xs);
     margin-bottom: to-rem($space-sm);
+
+    @include layout-1024() {
+      height: to-rem($space-xl);
+    }
   }
 
   &--para-65 {
@@ -402,6 +418,10 @@ main {
     width: 65%;
     height: to-rem($space-lg);
     border-radius: to-rem($space-2xs);
+
+    @include layout-1024() {
+      height: to-rem($space-xl);
+    }
   }
 
   &--badge {

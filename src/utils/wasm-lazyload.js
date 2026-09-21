@@ -9,6 +9,7 @@ import { gpuAccel } from './gpu-accel.js'
 import { wasmPool } from './wasm-pool.js'
 import { wasmImageDecoder } from './wasm-image-decoder.js'
 import { wasmMediaThreads } from './wasm-media-threads.js'
+import { STRINGS } from '../core/constants.js'
 
 class WASMLazyloader {
   constructor() {
@@ -21,7 +22,7 @@ class WASMLazyloader {
   }
 
   initObserver() {
-    if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') return
+    if (typeof window === STRINGS.UNDEFINED || typeof IntersectionObserver === STRINGS.UNDEFINED) return
 
     this.observer = new IntersectionObserver(
       (entries) => {
@@ -55,7 +56,7 @@ class WASMLazyloader {
       if (batch.length) this._loadBatch(batch)
     }
 
-    if (typeof requestIdleCallback !== 'undefined') {
+    if (typeof requestIdleCallback !== STRINGS.UNDEFINED) {
       requestIdleCallback(flush, { timeout: 50 })
     } else {
       // rAF fallback — fires before next paint
@@ -65,7 +66,7 @@ class WASMLazyloader {
 
   observe(el, bindingValue) {
     if (!el) return
-    const src = typeof bindingValue === 'string' ? bindingValue : bindingValue?.src
+    const src = typeof bindingValue === STRINGS.STRING ? bindingValue : bindingValue?.src
     if (!src) return
 
     el.dataset.wasmSrc = src

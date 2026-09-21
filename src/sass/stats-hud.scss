@@ -37,7 +37,7 @@ $_skel-label:    rgba(255, 255, 255, 0.45); // dim label — white alpha only
   letter-spacing: to-rem(0.2);
   color: $cms-accent;
   white-space: nowrap;
-  pointer-events: none;
+  pointer-events: auto;
   user-select: none;
 
   opacity: 0;
@@ -69,9 +69,9 @@ $_skel-label:    rgba(255, 255, 255, 0.45); // dim label — white alpha only
   }
 
   // ── Mobile responsive: wrap into 2 rows, pin to grid gutters ────────────────
-  // On ≤540px the 7 segments in a single nowrap row overflow the viewport.
+  // On ≤540px the segments in a single nowrap row overflow the viewport.
   // Pinning left+right to the grid gutter and using flex-wrap lets segments
-  // stack naturally into 2 rows. Segment border-right separators are removed
+  // stack naturally into multiple rows. Segment border-right separators are removed
   // at this size — they look broken at wrapped row-ends — row-gap handles spacing.
   @media (max-width: 540px) {
     right: to-rem($gap-272);

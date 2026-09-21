@@ -1,7 +1,7 @@
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
-import { LAYOUT, CLASSES, MEDIA_DIMENSIONS, ATTRS, TEXT } from '../core/constants.js'
+import { LAYOUT, CLASSES, SELECTORS, MEDIA_DIMENSIONS, ATTRS, TEXT, EVENTS, STRINGS } from '../core/constants.js'
 import { h } from '../core/jsx.js'
 import {
   calcColumnWidth,
@@ -63,7 +63,7 @@ export class HomeMosaic extends BaseComponent {
   }
 
   get skeletonH() {
-    const vw = typeof window !== 'undefined' ? window.innerWidth : 375
+    const vw = typeof window !== STRINGS.UNDEFINED ? window.innerWidth : 375
     const pad = calcResponsivePadding(vw)
     const W = vw - pad * 2
     const N = calcColsForWidth(vw)
@@ -81,39 +81,53 @@ export class HomeMosaic extends BaseComponent {
   }
 
   onMounted() {
-    this.addScopedListener(this.shadowRoot, 'click', (e) => {
-      const itemEl = e.target.closest('.home-mosaic-item')
+    this.addScopedListener(this.shadowRoot, EVENTS.CLICK, (e) => {
+      const itemEl = e.target.closest(SELECTORS.HOME_MOSAIC_ITEM)
+
       if (!itemEl) return
-      const idx = parseInt(itemEl.getAttribute('data-index'), 10)
+
+      const idx = parseInt(itemEl.getAttribute(ATTRS.DATA_INDEX), 10)
+
       const item = this.processedItems[idx]
+
       if (item) this.onClick(item, idx)
     })
 
-    this.addScopedListener(this.shadowRoot, 'mouseover', (e) => {
-      const itemEl = e.target.closest('.home-mosaic-item')
+    this.addScopedListener(this.shadowRoot, EVENTS.MOUSEOVER, (e) => {
+      const itemEl = e.target.closest(SELECTORS.HOME_MOSAIC_ITEM)
+
       if (!itemEl) return
-      const idx = parseInt(itemEl.getAttribute('data-index'), 10)
+
+      const idx = parseInt(itemEl.getAttribute(ATTRS.DATA_INDEX), 10)
+
       if (this.hoveredIdx !== idx) {
         this.onHover(idx)
       }
     })
 
-    this.addScopedListener(this.shadowRoot, 'mouseout', (e) => {
-      const itemEl = e.target.closest('.home-mosaic-item')
+    this.addScopedListener(this.shadowRoot, EVENTS.MOUSEOUT, (e) => {
+      const itemEl = e.target.closest(SELECTORS.HOME_MOSAIC_ITEM)
+
       if (!itemEl) return
-      const related = e.relatedTarget ? e.relatedTarget.closest?.('.home-mosaic-item') : null
+
+      const related = e.relatedTarget ? e.relatedTarget.closest?.(SELECTORS.HOME_MOSAIC_ITEM) : null
+
       if (related === itemEl) return
+
       this.onLeave()
     })
 
     if (this.processedItems.length) {
       this._updateDom()
     }
+
     this.quickLayout()
+
     this.scheduleLayout()
 
-    this.addScopedListener(window, 'resize', () => {
+    this.addScopedListener(window, EVENTS.RESIZE, () => {
       this.quickLayout()
+
       this.scheduleLayout()
     })
   }
@@ -129,7 +143,7 @@ export class HomeMosaic extends BaseComponent {
   }
 
   quickLayout() {
-    const vw = typeof window !== 'undefined' ? window.innerWidth : 0
+    const vw = typeof window !== STRINGS.UNDEFINED ? window.innerWidth : 0
     if (!vw || !this.processedItems.length) return
 
     const pad = calcResponsivePadding(vw)
@@ -386,7 +400,7 @@ export class HomeMosaic extends BaseComponent {
   }
 
   skeletonStyle(n) {
-    const vw = typeof window !== 'undefined' ? window.innerWidth : 375
+    const vw = typeof window !== STRINGS.UNDEFINED ? window.innerWidth : 375
     const pad = calcResponsivePadding(vw)
     const W = vw - pad * 2
     const N = calcColsForWidth(vw)

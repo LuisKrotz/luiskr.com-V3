@@ -4,7 +4,7 @@ import store from './core/store.js'
 import router from './core/router.js'
 import { deepQuerySelector } from './core/dom.js'
 import { fetchFirebaseDb } from './utils/db.js'
-import { TAGS } from './core/constants.js'
+import { TAGS, STRINGS, CLASSES, ATTRS } from './core/constants.js'
 
 // Route depth: home = 0, all other views = 1
 
@@ -141,13 +141,13 @@ export class AppRoot extends BaseComponent {
     const modal = store.getters.getModal()
     const isOpen = !!modal?.open
 
-    if (typeof document !== 'undefined') {
-      document.documentElement.classList.toggle('modal-open', isOpen)
-      document.body.classList.toggle('modal-open', isOpen)
+    if (typeof document !== STRINGS.UNDEFINED) {
+      document.documentElement.classList.toggle(CLASSES.MODAL_OPEN, isOpen)
+      document.body.classList.toggle(CLASSES.MODAL_OPEN, isOpen)
     }
 
     if (wrapper) {
-      wrapper.className = modal?.class || ''
+      wrapper.className = modal?.class || ATTRS.EMPTY
     }
     if (modal?.open) {
       // Apply iOS Safari scroll lock: position:fixed on main prevents rubber-band scroll
@@ -306,7 +306,7 @@ export class AppRoot extends BaseComponent {
 
     const current = outlet.firstElementChild
     if (current && current.tagName.toLowerCase() === this.currentViewTag.toLowerCase()) {
-      if (typeof current.onRouteParamChange === 'function') {
+      if (typeof current.onRouteParamChange === STRINGS.FUNCTION) {
         current.onRouteParamChange(to || router.currentRoute)
       }
       return

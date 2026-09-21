@@ -1,4 +1,6 @@
 // Hardware GPU & NPU Acceleration Engine (WebGL2 Hardware GPU Texture Context & WebNN Hints)
+import { STRINGS, ATTRS } from '../core/constants.js'
+
 class GPUAccelerator {
   constructor() {
     this.canvas = null
@@ -10,16 +12,16 @@ class GPUAccelerator {
   }
 
   initGPU() {
-    if (typeof window === 'undefined') return
+    if (typeof window === STRINGS.UNDEFINED) return
 
     // Detect WebNN NPU capability
-    this.hasNPU = typeof navigator !== 'undefined' && 'ml' in navigator
+    this.hasNPU = typeof navigator !== STRINGS.UNDEFINED && 'ml' in navigator
 
     // Skip WebGL context creation on mobile — the GPU context + shader
     // compilation blocks the main thread during module init on iOS/Android.
     // Mobile workloads fall back to the WASM/JS path which is faster for them.
     const isMobile =
-      typeof navigator !== 'undefined' &&
+      typeof navigator !== STRINGS.UNDEFINED &&
       /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent)
     if (isMobile) return
 
@@ -99,7 +101,7 @@ class GPUAccelerator {
   // Promote DOM Element to GPU Compositor layer
   accelerateElementGPU(el) {
     if (!el || !el.style) return
-    if (typeof document !== 'undefined' && (el === document.documentElement || el === document.body)) {
+    if (typeof document !== STRINGS.UNDEFINED && (el === document.documentElement || el === document.body)) {
       el.style.willChange = 'scroll-position'
       return
     }
@@ -111,9 +113,9 @@ class GPUAccelerator {
   releaseElementGPU(el) {
     if (!el || !el.style) return
     el.style.willChange = 'auto'
-    if (typeof document !== 'undefined' && el !== document.documentElement && el !== document.body) {
-      el.style.transform = ''
-      el.style.backfaceVisibility = ''
+    if (typeof document !== STRINGS.UNDEFINED && el !== document.documentElement && el !== document.body) {
+      el.style.transform = ATTRS.EMPTY
+      el.style.backfaceVisibility = ATTRS.EMPTY
     }
   }
 

@@ -128,22 +128,29 @@ export class MediaExpanded extends BaseComponent {
     setTimeout(() => {
       // 1. Restore URL by removing image slug
       const currentPath = window.location.pathname.replace(/\/$/, '')
+
       const segments = currentPath.split('/')
+
       const portIdx = segments.indexOf('portfolio')
+
       if (portIdx !== -1 && segments.length > portIdx + 2) {
         const basePath = segments.slice(0, portIdx + 2).join('/')
+
         window.history.replaceState({}, '', basePath)
       }
 
       // 2. Native dialog close
       const dialog = this.closest('dialog') || document.querySelector(`dialog.${CLASSES.MODAL_ABOVE}`)
+
       if (dialog && typeof dialog.close === STRINGS.FUNCTION && dialog.open) {
         dialog.close()
       }
 
-      // 3. Remove modal-open class
+      // 3. Restore document scroll position and modal state cleanly
+      window.scrollTo(0, scroll)
+
       store.commit('setModal', {
-        transform: scroll,
+        transform: 0,
         class: '',
         open: false,
         media: {
@@ -154,26 +161,6 @@ export class MediaExpanded extends BaseComponent {
           height: 0,
           isVideo: false,
         },
-      })
-
-      // 4. Restore document height & scroll position
-      requestAnimationFrame(() => {
-        window.scrollTo(0, scroll)
-        requestAnimationFrame(() => {
-          store.commit('setModal', {
-            transform: 0,
-            class: '',
-            open: false,
-            media: {
-              source: '',
-              thumb: '',
-              alt: '',
-              width: 0,
-              height: 0,
-              isVideo: false,
-            },
-          })
-        })
       })
     }, 320)
   }

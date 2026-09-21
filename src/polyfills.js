@@ -10,11 +10,13 @@
  * main.js so ES module evaluation order guarantees they're in place.
  */
 
+import { STRINGS } from './core/constants.js'
+
 // ── structuredClone ────────────────────────────────────────────────────────
 // Native in iOS 15.4+ / Safari 15.4+.
 // Polyfill uses JSON round-trip (covers all POJO / array / primitive payloads
 // used in this app; Blob/Map/Set are handled by the try-catch in wasm-pool.js).
-if (typeof globalThis.structuredClone !== 'function') {
+if (typeof globalThis.structuredClone !== STRINGS.FUNCTION) {
   globalThis.structuredClone = function structuredClone(val) {
     try {
       return JSON.parse(JSON.stringify(val))
@@ -71,7 +73,7 @@ if (!Object.hasOwn) {
 
 // ── queueMicrotask ─────────────────────────────────────────────────────────
 // Available in Safari 12.1+. Safety net for very old devices.
-if (typeof globalThis.queueMicrotask !== 'function') {
+if (typeof globalThis.queueMicrotask !== STRINGS.FUNCTION) {
   globalThis.queueMicrotask = function queueMicrotask(fn) {
     Promise.resolve().then(fn).catch((e) => setTimeout(() => { throw e }))
   }
@@ -81,7 +83,7 @@ if (typeof globalThis.queueMicrotask !== 'function') {
 // Native in iOS 15.4+ / Safari 15.4+.
 // Without this, carousel ghost-clone slides are keyboard-focusable on older iOS,
 // which causes touch-event leakage into hidden slides and can break swipe gestures.
-if (typeof HTMLElement !== 'undefined' && !('inert' in HTMLElement.prototype)) {
+if (typeof HTMLElement !== STRINGS.UNDEFINED && !('inert' in HTMLElement.prototype)) {
   const INERT_SELECTOR = 'a,button,input,select,textarea,area,[tabindex]:not([tabindex="-1"])'
 
   Object.defineProperty(HTMLElement.prototype, 'inert', {

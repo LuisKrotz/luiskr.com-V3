@@ -8,13 +8,15 @@
 //   mobile (iOS / Android)  → max 2 workers
 //   desktop                 → max 4 workers
 
+import { STRINGS } from '../core/constants.js'
+
 const _isMobile =
-  typeof navigator !== 'undefined' &&
+  typeof navigator !== STRINGS.UNDEFINED &&
   /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent)
 
 class WasmWorkerPool {
   constructor() {
-    const cores = (typeof navigator !== 'undefined' && navigator.hardwareConcurrency) || 2
+    const cores = (typeof navigator !== STRINGS.UNDEFINED && navigator.hardwareConcurrency) || 2
     this.size = _isMobile ? Math.min(2, cores) : Math.min(4, Math.max(2, cores))
     this.workers = []
     this.nextWorkerIdx = 0
@@ -29,7 +31,7 @@ class WasmWorkerPool {
     if (this._poolReady) return
     this._poolReady = true
 
-    if (typeof window === 'undefined' || typeof Worker === 'undefined') return
+    if (typeof window === STRINGS.UNDEFINED || typeof Worker === STRINGS.UNDEFINED) return
 
     for (let i = 0; i < this.size; i++) {
       try {
@@ -55,10 +57,10 @@ class WasmWorkerPool {
   // Scan payload shallowly for ArrayBuffer / ImageBitmap transferables
   _extractTransferables(payload) {
     const list = []
-    if (!payload || typeof payload !== 'object') return list
+    if (!payload || typeof payload !== STRINGS.OBJECT) return list
     const scan = (val) => {
       if (val instanceof ArrayBuffer) { list.push(val); return }
-      if (typeof ImageBitmap !== 'undefined' && val instanceof ImageBitmap) { list.push(val); return }
+      if (typeof ImageBitmap !== STRINGS.UNDEFINED && val instanceof ImageBitmap) { list.push(val); return }
     }
     for (const val of Object.values(payload)) {
       scan(val)
@@ -88,7 +90,7 @@ class WasmWorkerPool {
       let safePayload = payload
       let effectiveTransferables = transferables
 
-      if (effectiveTransferables.length === 0 && payload !== null && typeof payload === 'object') {
+      if (effectiveTransferables.length === 0 && payload !== null && typeof payload === STRINGS.OBJECT) {
         const autoTransfer = this._extractTransferables(payload)
         if (autoTransfer.length > 0) {
           // Zero-copy transfer for ArrayBuffer / ImageBitmap

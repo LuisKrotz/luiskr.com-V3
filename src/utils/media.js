@@ -1,45 +1,52 @@
-/**
- * Media and URL utility helpers (DRY shared module)
- */
+import { STRINGS, ATTRS } from '../core/constants.js'
 
-export function isGravatarUrl(urlStr) {
-  if (typeof urlStr !== 'string') return false
+export const isGravatarUrl = (urlStr) => {
+  if (typeof urlStr !== STRINGS.STRING) return false
+
   try {
-    const parsed = new URL(urlStr, typeof window !== 'undefined' ? window.location.origin : 'http://localhost')
+    const parsed = new URL(urlStr, typeof window !== STRINGS.UNDEFINED ? window.location.origin : 'http://localhost')
     return parsed.hostname === 'gravatar.com' || parsed.hostname.endsWith('.gravatar.com')
   } catch {
     return false
   }
 }
 
-export function getGravatarSrcset(urlStr) {
-  if (!isGravatarUrl(urlStr)) return ''
-  const base = urlStr.replace(/(\?|&)size=\d+/, '')
+export const getGravatarSrcset = (urlStr) => {
+  if (!isGravatarUrl(urlStr)) return ATTRS.EMPTY
+
+  const base = urlStr.replace(/(\?|&)size=\d+/, ATTRS.EMPTY)
   const sep = base.includes('?') ? '&' : '?'
+
   return `${base}${sep}size=200 1x, ${base}${sep}size=300 2x, ${base}${sep}size=400 3x`
 }
 
-export function getOptimizedGravatar(urlStr, size = 300) {
-  if (!urlStr || typeof urlStr !== 'string') return ''
+export const getOptimizedGravatar = (urlStr, size = 300) => {
+  if (!urlStr || typeof urlStr !== STRINGS.STRING) return ATTRS.EMPTY
+
   if (isGravatarUrl(urlStr)) {
     return urlStr.replace(/size=\d+/, `size=${size}`)
   }
+
   return urlStr
 }
 
-export function stripHtml(str) {
-  if (!str || typeof str !== 'string') return ''
+export const stripHtml = (str) => {
+  if (!str || typeof str !== STRINGS.STRING) return ATTRS.EMPTY
+
   let prev
   let curr = str
+
   do {
     prev = curr
-    curr = curr.replace(/<[^>]*>/g, '')
+    curr = curr.replace(/<[^>]*>/g, ATTRS.EMPTY)
   } while (curr !== prev)
+
   return curr
 }
 
-export function svgPlaceholder(w = 1920, h = 1080) {
+export const svgPlaceholder = (w = 1920, h = 1080) => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"></svg>`
+
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`
 }
 

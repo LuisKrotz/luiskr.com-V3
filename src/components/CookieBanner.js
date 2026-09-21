@@ -1,22 +1,23 @@
 import { h } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
-import { TAGS } from '../core/constants.js'
+import { TAGS, CLASSES, SELECTORS, EVENTS, STORAGE_KEYS, ATTRS, TEXT } from '../core/constants.js'
 import appStyles from '../sass/app.scss?inline'
-
-const COOKIE_KEY = 'cookie'
-const COOKIE_EVENT = 'cookieAction'
 
 export class CookieBanner extends BaseComponent {
   constructor() {
     super(appStyles)
+
     this._translations = null
+
     this.hidden = false
   }
 
   set translations(val) {
     this._translations = val
+
     if (this._isMounted) {
       this._updateDom()
+
       this._bindEvents()
     }
   }
@@ -26,10 +27,13 @@ export class CookieBanner extends BaseComponent {
   }
 
   onMounted() {
-    const isConsentGiven = localStorage.getItem(COOKIE_KEY)
+    const isConsentGiven = localStorage.getItem(STORAGE_KEYS.COOKIE)
+
     if (isConsentGiven !== null) {
       this.hidden = true
-      this.style.display = 'none'
+
+      this.style.display = ATTRS.NONE
+
       this._updateDom()
     } else {
       this._bindEvents()
@@ -37,40 +41,54 @@ export class CookieBanner extends BaseComponent {
   }
 
   _bindEvents() {
-    const acceptBtn = this.$('.cookies-buttons-accept')
-    const refuseBtn = this.$('.cookies-buttons-refuse')
+    const acceptBtn = this.$(SELECTORS.COOKIES_BUTTONS_ACCEPT)
+
+    const refuseBtn = this.$(SELECTORS.COOKIES_BUTTONS_REFUSE)
 
     if (acceptBtn) {
-      this.addScopedListener(acceptBtn, 'click', () => this.handleAction(true))
+      this.addScopedListener(acceptBtn, EVENTS.CLICK, () => this.handleAction(true))
     }
+
     if (refuseBtn) {
-      this.addScopedListener(refuseBtn, 'click', () => this.handleAction(false))
+      this.addScopedListener(refuseBtn, EVENTS.CLICK, () => this.handleAction(false))
     }
   }
 
   handleAction(accepted) {
-    localStorage.setItem(COOKIE_KEY, JSON.stringify(accepted))
-    document.dispatchEvent(new Event(COOKIE_EVENT))
+    localStorage.setItem(STORAGE_KEYS.COOKIE, JSON.stringify(accepted))
+
+    document.dispatchEvent(new Event(EVENTS.COOKIE_ACTION))
+
     this.hidden = true
-    this.style.display = 'none'
+
+    this.style.display = ATTRS.NONE
+
     this._updateDom()
   }
 
   render() {
     if (this.hidden || !this.translations?.cookies) {
-      this.style.display = 'none'
+      this.style.display = ATTRS.NONE
+
       return null
     }
+
     this.style.display = 'block'
 
     const c = this.translations.cookies
 
     return (
-      <aside className="cookies">
-        <p className="cookies-info">{c.message || ''}</p>
-        <div className="cookies-buttons">
-          <button className="cookies-buttons-accept" type="button">{c.accept || 'Accept'}</button>
-          <button className="cookies-buttons-refuse" type="button">{c.refuse || 'Refuse'}</button>
+      <aside className={CLASSES.COOKIES}>
+        <p className={CLASSES.COOKIES_INFO} dangerouslySetInnerHTML={{ __html: c.message || ATTRS.EMPTY }} />
+
+        <div className={CLASSES.COOKIES_BUTTONS}>
+          <button className={CLASSES.COOKIES_BUTTONS_ACCEPT} type={ATTRS.BUTTON}>
+            {c.accept || TEXT.ACCEPT}
+          </button>
+
+          <button className={CLASSES.COOKIES_BUTTONS_REFUSE} type={ATTRS.BUTTON}>
+            {c.refuse || TEXT.REFUSE}
+          </button>
         </div>
       </aside>
     )

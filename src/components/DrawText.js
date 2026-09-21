@@ -1,87 +1,109 @@
 import drawTextStyles from '../sass/draw-text.scss?inline'
-import { ATTRS } from '../core/constants.js'
+import { ATTRS, CLASSES, SELECTORS, TAGS, STRINGS } from '../core/constants.js'
+import { onScrollStop } from '../utils/scroll-state.js'
 
-function stripHtml(s) {
-  if (!s || typeof s !== 'string') return ''
+const stripHtml = (s) => {
+  if (!s || typeof s !== STRINGS.STRING) return ATTRS.EMPTY
+
   let prev
+
   let curr = s
+
   do {
     prev = curr
-    curr = curr.replace(/<[^>]*>/g, '')
+
+    curr = curr.replace(/<[^>]*>/g, ATTRS.EMPTY)
   } while (curr !== prev)
+
   return curr
 }
 
 export class DrawText extends HTMLElement {
   static get observedAttributes() {
-    return ['text', 'delay', 'offset', 'trigger', 'visible']
+    return [ATTRS.TEXT, ATTRS.DELAY, ATTRS.OFFSET, ATTRS.TRIGGER, ATTRS.VISIBLE]
   }
 
   constructor() {
     super()
+
     this.attachShadow({ mode: 'open' })
+
     this._isVisible = false
+
     this._hasAnimated = false
+
     this._observer = null
+
     this._animTimer = null
+
     this._isMounted = false
+
+    this._styleEl = null
+
+    this._contentEl = null
   }
 
   get text() {
-    return this.getAttribute('text') || ''
+    return this.getAttribute(ATTRS.TEXT) || ATTRS.EMPTY
   }
 
   set text(val) {
-    this.setAttribute('text', val || '')
+    this.setAttribute(ATTRS.TEXT, val || ATTRS.EMPTY)
   }
 
   get delay() {
-    return parseInt(this.getAttribute('delay') || '100', 10)
+    return parseInt(this.getAttribute(ATTRS.DELAY) || '100', 10)
   }
 
   set delay(val) {
-    this.setAttribute('delay', String(val))
+    this.setAttribute(ATTRS.DELAY, String(val))
   }
 
   get offset() {
-    return parseInt(this.getAttribute('offset') || '0', 10)
+    return parseInt(this.getAttribute(ATTRS.OFFSET) || '0', 10)
   }
 
   set offset(val) {
-    this.setAttribute('offset', String(val))
+    this.setAttribute(ATTRS.OFFSET, String(val))
   }
 
   get triggerMode() {
-    return this.getAttribute('trigger') || 'auto'
+    return this.getAttribute(ATTRS.TRIGGER) || ATTRS.AUTO
   }
 
   set triggerMode(val) {
-    this.setAttribute('trigger', val)
+    this.setAttribute(ATTRS.TRIGGER, val)
   }
 
   get visible() {
-    return this.hasAttribute('visible') && this.getAttribute('visible') !== 'false'
+    return this.hasAttribute(ATTRS.VISIBLE) && this.getAttribute(ATTRS.VISIBLE) !== ATTRS.FALSE
   }
 
   set visible(val) {
-    if (val) this.setAttribute('visible', '')
-    else this.removeAttribute('visible')
+    if (val) this.setAttribute(ATTRS.VISIBLE, ATTRS.EMPTY)
+    else this.removeAttribute(ATTRS.VISIBLE)
   }
 
   connectedCallback() {
     this._isMounted = true
+
     this._updateDom()
+
     this._setupTrigger()
   }
 
   disconnectedCallback() {
     this._isMounted = false
+
     if (this._observer) {
       this._observer.disconnect()
+
       this._observer = null
     }
+
     if (this._animTimer) {
       clearTimeout(this._animTimer)
+
       this._animTimer = null
     }
   }
@@ -89,42 +111,54 @@ export class DrawText extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue === newValue) return
 
-    if (name === 'visible' && this.triggerMode === 'prop') {
+    if (name === ATTRS.VISIBLE && this.triggerMode === ATTRS.PROP) {
       if (this.visible && !this._isVisible) {
         this._startAnimation()
       }
-    } else if (name === 'text') {
+    } else if (name === ATTRS.TEXT) {
       if (this._isMounted) {
         this._hasAnimated = false
+
         this._isVisible = false
+
         this._updateDom()
+
         this._setupTrigger()
       }
     }
   }
 
   _updateDom() {
-    const visibleClass = this._isVisible && !this._hasAnimated ? 'draw-text--visible' : ''
+    const visibleClass = this._isVisible && !this._hasAnimated ? CLASSES.DRAW_TEXT_VISIBLE : ATTRS.EMPTY
 
-    const doneClass = this._hasAnimated ? 'draw-text--done' : ''
+    const doneClass = this._hasAnimated ? CLASSES.DRAW_TEXT_DONE : ATTRS.EMPTY
 
     if (this.hasAttribute(ATTRS.ARIA_LABEL)) {
       this.removeAttribute(ATTRS.ARIA_LABEL)
     }
 
-    // draw-text.scss provides ALL styles (including :host rules).
-    // No inline style strings here — styles are in SCSS files only.
-    this.shadowRoot.innerHTML = `
-      <style>${drawTextStyles}</style>
-      <span class="draw-text ${visibleClass} ${doneClass}">
-        ${this._renderContent()}
-      </span>
-    `
+    if (!this._styleEl) {
+      this._styleEl = document.createElement('style')
+
+      this._styleEl.textContent = drawTextStyles
+
+      this.shadowRoot.appendChild(this._styleEl)
+    }
+
+    if (!this._contentEl) {
+      this._contentEl = document.createElement('span')
+
+      this.shadowRoot.appendChild(this._contentEl)
+    }
+
+    this._contentEl.className = `${CLASSES.DRAW_TEXT} ${visibleClass} ${doneClass}`.trim()
+
+    this._contentEl.innerHTML = this._renderContent()
   }
 
   /** Cached shadow-root query for the draw-text span — used across multiple methods */
   get _rootEl() {
-    return this.shadowRoot.querySelector('.draw-text')
+    return this._contentEl || this.shadowRoot.querySelector(SELECTORS.DRAW_TEXT)
   }
 
   trigger() {
@@ -133,133 +167,176 @@ export class DrawText extends HTMLElement {
 
   reset() {
     this._isVisible = false
+
     this._hasAnimated = false
+
     if (this._animTimer) {
       clearTimeout(this._animTimer)
+
       this._animTimer = null
     }
+
     const rootEl = this._rootEl
+
     if (rootEl) {
-      rootEl.classList.remove('draw-text--visible', 'draw-text--done')
+      rootEl.classList.remove(CLASSES.DRAW_TEXT_VISIBLE, CLASSES.DRAW_TEXT_DONE)
     }
   }
 
   _setupTrigger() {
     const trigger = this.triggerMode
+
     const text = this.text
+
     if (!text) return
 
-    const isReduced = typeof document !== 'undefined' && document.documentElement.classList.contains('reduced-motion')
+    const isReduced = typeof document !== STRINGS.UNDEFINED && document.documentElement.classList.contains(CLASSES.REDUCED_MOTION)
+
     if (isReduced) {
       this._hasAnimated = true
+
       this._isVisible = true
+
       const rootEl = this._rootEl
+
       if (rootEl) {
-        rootEl.classList.add('draw-text--done')
-        rootEl.classList.remove('draw-text--visible')
+        rootEl.classList.add(CLASSES.DRAW_TEXT_DONE)
+
+        rootEl.classList.remove(CLASSES.DRAW_TEXT_VISIBLE)
       }
+
       return
     }
 
     if (trigger === ATTRS.TRIGGER_VIEWPORT) {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== STRINGS.UNDEFINED) {
         const rect = this.getBoundingClientRect()
+
         if (rect.top < window.innerHeight && rect.bottom > 0) {
-          this._startAnimation()
+          onScrollStop(() => this._startAnimation())
+
           return
         }
       }
+
       if (this._observer) this._observer.disconnect()
+
       this._observer = new IntersectionObserver(
         ([entry]) => {
           if (!entry || !entry.isIntersecting) return
+
           if (this._observer) {
             this._observer.disconnect()
+
             this._observer = null
           }
-          requestAnimationFrame(() => {
-            this._startAnimation()
+
+          onScrollStop(() => {
+            requestAnimationFrame(() => {
+              this._startAnimation()
+            })
           })
         },
-        { threshold: 0.05, rootMargin: '50px 0px' }
+        { threshold: 0.05, rootMargin: ATTRS.ROOT_MARGIN_50 }
       )
+
       this._observer.observe(this)
-    } else if (trigger === 'prop') {
+    } else if (trigger === ATTRS.PROP) {
       if (this.visible) {
         this._startAnimation()
       }
     } else {
-      // 'auto'
       this._startAnimation()
     }
   }
 
   _startAnimation() {
     if (this._isVisible) return
+
     this._isVisible = true
 
-    const isReduced = typeof document !== 'undefined' && document.documentElement.classList.contains('reduced-motion')
+    const isReduced = typeof document !== STRINGS.UNDEFINED && document.documentElement.classList.contains(CLASSES.REDUCED_MOTION)
+
     if (isReduced) {
       this._hasAnimated = true
+
       const rootEl = this._rootEl
+
       if (rootEl) {
-        rootEl.classList.add('draw-text--done')
+        rootEl.classList.add(CLASSES.DRAW_TEXT_DONE)
       }
+
       return
     }
 
     const rootEl = this._rootEl
+
     if (rootEl) {
-      rootEl.classList.add('draw-text--visible')
+      rootEl.classList.add(CLASSES.DRAW_TEXT_VISIBLE)
     }
 
     const text = this.text
+
     const delay = this.delay
+
     const offset = this.offset
+
     const chars = stripHtml(text).length
-    // Time until the very last character's CSS animation (0.8s duration) completes
+
     const lastCharDelay = offset + Math.max(0, chars - 1) * delay
+
     const totalMs = Math.min(lastCharDelay + 800, 2000)
 
     if (this._animTimer) clearTimeout(this._animTimer)
+
     this._animTimer = setTimeout(() => {
       this._hasAnimated = true
+
       if (rootEl) {
-        rootEl.classList.add('draw-text--done')
-        rootEl.classList.remove('draw-text--visible')
+        rootEl.classList.add(CLASSES.DRAW_TEXT_DONE)
+
+        rootEl.classList.remove(CLASSES.DRAW_TEXT_VISIBLE)
       }
     }, totalMs)
-    if (this._animTimer && typeof this._animTimer.unref === 'function') {
+
+    if (this._animTimer && typeof this._animTimer.unref === STRINGS.FUNCTION) {
       this._animTimer.unref()
     }
   }
-
 
   _parseTokens(text) {
     let ci = 0
 
     const parseText = (str) => {
       const chunks = []
-      // Split preserving spaces and punctuation
+
       const parts = str.split(' ')
+
       parts.forEach((part, idx) => {
         if (part.length) {
           const chars = []
+
           for (const ch of part) {
             chars.push({ ci: ci++, value: ch })
           }
+
           chunks.push({ type: 'word', chars })
         }
+
         if (idx < parts.length - 1) {
           ci++
+
           chunks.push({ type: 'space' })
         }
       })
+
       return chunks
     }
 
     const result = []
+
     const regex = /(<br\s*\/?>)|(<(\w+)([^>]*)>(.*?)<\/\3>)|([^<]+)/gi
+
     let match
 
     while ((match = regex.exec(text)) !== null) {
@@ -267,8 +344,11 @@ export class DrawText extends HTMLElement {
         result.push({ type: 'br' })
       } else if (match[2]) {
         const tag = match[3]
-        const attrStr = match[4] || ''
-        const inner = match[5] || ''
+
+        const attrStr = match[4] || ATTRS.EMPTY
+
+        const inner = match[5] || ATTRS.EMPTY
+
         result.push({ type: 'tag', tag, attrStr, inner, chunks: parseText(inner) })
       } else if (match[6]) {
         result.push(...parseText(match[6]))
@@ -280,15 +360,15 @@ export class DrawText extends HTMLElement {
 
   _renderContent() {
     const text = this.text
+
     const delay = this.delay
+
     const offset = this.offset
 
-    if (!text) return ''
+    if (!text) return ATTRS.EMPTY
 
     const tokens = this._parseTokens(text)
 
-    // wi = word index, used by mobile CSS for word-level stagger animation
-    // (reduces ~200 char animations to ~10-20 word animations on small screens)
     let wi = 0
 
     const renderWord = (chars) => {
@@ -297,43 +377,48 @@ export class DrawText extends HTMLElement {
       const charsHtml = chars
         .map(
           (ch) =>
-            `<span class="draw-text__char" style="--i: ${ch.ci}; --char-delay: ${delay}ms; --offset: ${offset}ms;">${ch.value}</span>`
+            `<span class="${CLASSES.DRAW_TEXT_CHAR}" style="--i: ${ch.ci}; --char-delay: ${delay}ms; --offset: ${offset}ms;">${ch.value}</span>`
         )
-        .join('')
+        .join(ATTRS.EMPTY)
 
-      // --word-delay: per-word stagger on mobile, capped at 120ms (never a marathon)
       const wordDelay = Math.min(delay * 4, 120)
 
-      return `<span class="draw-text__word" aria-hidden="true" style="--wi: ${wordIdx}; --word-delay: ${wordDelay}ms; --offset: ${offset}ms;">${charsHtml}</span>`
+      return `<span class="${CLASSES.DRAW_TEXT_WORD}" aria-hidden="true" style="--wi: ${wordIdx}; --word-delay: ${wordDelay}ms; --offset: ${offset}ms;">${charsHtml}</span>`
     }
 
     const htmlParts = tokens.map((token) => {
       if (token.type === 'br') return '<br aria-hidden="true" />'
-      if (token.type === 'space') return '<span class="draw-text__space" aria-hidden="true">&nbsp;</span>'
+
+      if (token.type === 'space') return `<span class="${CLASSES.DRAW_TEXT_SPACE}" aria-hidden="true">&nbsp;</span>`
+
       if (token.type === 'word') return renderWord(token.chars)
+
       if (token.type === 'tag') {
         const innerContent = token.chunks
           .map((chunk) => {
             if (chunk.type === 'word') return renderWord(chunk.chars)
-            if (chunk.type === 'space') return '<span class="draw-text__space" aria-hidden="true">&nbsp;</span>'
-            return ''
+
+            if (chunk.type === 'space') return `<span class="${CLASSES.DRAW_TEXT_SPACE}" aria-hidden="true">&nbsp;</span>`
+
+            return ATTRS.EMPTY
           })
-          .join('')
+          .join(ATTRS.EMPTY)
 
         const labelAttr =
           token.tag.toLowerCase() === 'a' && !token.attrStr.includes('aria-label')
-            ? ` aria-label="${stripHtml(token.inner || '')}"`
-            : ''
+            ? ` aria-label="${stripHtml(token.inner || ATTRS.EMPTY)}"`
+            : ATTRS.EMPTY
 
         return `<${token.tag} ${token.attrStr}${labelAttr}>${innerContent}</${token.tag}>`
       }
-      return ''
+
+      return ATTRS.EMPTY
     })
 
-    return htmlParts.join('')
+    return htmlParts.join(ATTRS.EMPTY)
   }
 }
 
-if (!customElements.get('draw-text')) {
-  customElements.define('draw-text', DrawText)
+if (!customElements.get(TAGS.DRAW_TEXT)) {
+  customElements.define(TAGS.DRAW_TEXT, DrawText)
 }

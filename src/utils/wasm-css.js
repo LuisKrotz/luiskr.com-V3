@@ -4,6 +4,7 @@
 // on documentElement) has been removed — it forced a full CSS cascade
 // recalculation on every frame and caused page-wide freezes on iOS.
 import { wasmPool } from './wasm-pool.js'
+import { STRINGS } from '../core/constants.js'
 
 let styleSheetEl = null
 
@@ -13,7 +14,7 @@ class WASMCSSManager {
   }
 
   initStyleSheet() {
-    if (typeof document === 'undefined') return
+    if (typeof document === STRINGS.UNDEFINED) return
 
     styleSheetEl = document.getElementById('wasm-dynamic-css')
 
@@ -43,8 +44,8 @@ class WASMCSSManager {
 
   // Calculate skeleton style object (dimensions only — animation is CSS-driven)
   calcWasmSkeletonStyle(width = '100%', height = '1.2em', borderRadius = 'var(--radius-2xs)') {
-    const numericWidth = typeof width === 'number' ? width : 200
-    const numericHeight = typeof height === 'number' ? height : 24
+    const numericWidth = typeof width === STRINGS.NUMBER ? width : 200
+    const numericHeight = typeof height === STRINGS.NUMBER ? height : 24
 
     // Offload analytics math to WASM worker
     wasmPool.dispatch('PROCESS_MEDIA_ANALYTICS', {
@@ -54,8 +55,8 @@ class WASMCSSManager {
     })
 
     return {
-      width: typeof width === 'number' ? `${width}px` : width,
-      height: typeof height === 'number' ? `${height}px` : height,
+      width: typeof width === STRINGS.NUMBER ? `${width}px` : width,
+      height: typeof height === STRINGS.NUMBER ? `${height}px` : height,
       borderRadius,
       display: 'inline-block',
     }

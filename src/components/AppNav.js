@@ -5,7 +5,7 @@ import router from '../core/router.js'
 import { deepQuerySelector } from '../core/dom.js'
 import { localePath, LANG_OPTIONS } from '../core/i18n.js'
 import { wasmSmoothScroll } from '../utils/wasm-scroll.js'
-import { TAGS, CLASSES, URLS } from '../core/constants.js'
+import { TAGS, CLASSES, URLS, STRINGS, ATTRS } from '../core/constants.js'
 import appStyles from '../sass/app.scss?inline'
 
 export class AppNav extends BaseComponent {
@@ -35,7 +35,7 @@ export class AppNav extends BaseComponent {
   }
 
   get isAdminRoute() {
-    const path = typeof window !== 'undefined' ? window.location.pathname : ''
+    const path = typeof window !== STRINGS.UNDEFINED ? window.location.pathname : ATTRS.EMPTY
     return path.startsWith('/admin') || path.startsWith('/cms')
   }
 
@@ -113,7 +113,7 @@ export class AppNav extends BaseComponent {
   _bindEvents() {
     // Delegated click handler on shadowRoot — survives all re-renders without re-binding.
     this.addScopedListener(this.shadowRoot, 'click', (e) => {
-      const path = typeof e.composedPath === 'function' ? e.composedPath() : []
+      const path = typeof e.composedPath === STRINGS.FUNCTION ? e.composedPath() : []
       const btn =
         (e.target instanceof Element ? e.target : e.target?.parentElement)?.closest('button, a') ||
         path.find((el) => el instanceof Element && (el.tagName === 'BUTTON' || el.tagName === 'A'))
@@ -150,7 +150,7 @@ export class AppNav extends BaseComponent {
     if (this.isHomePage) {
       this.activeSection = 'home'
       const root = localePath('', this.locale)
-      if (typeof window !== 'undefined' && window.location.pathname !== root) {
+      if (typeof window !== STRINGS.UNDEFINED && window.location.pathname !== root) {
         window.history.pushState({}, '', root)
       }
     }
@@ -185,7 +185,7 @@ export class AppNav extends BaseComponent {
       })
     }
     const target = localePath('about', this.locale)
-    if (typeof window !== 'undefined' && window.location.pathname !== target) {
+    if (typeof window !== STRINGS.UNDEFINED && window.location.pathname !== target) {
       window.history.pushState({}, '', target)
     }
   }
@@ -209,12 +209,12 @@ export class AppNav extends BaseComponent {
         })
       }
       const target = localePath('contact', this.locale)
-      if (typeof window !== 'undefined' && window.location.pathname !== target) {
+      if (typeof window !== STRINGS.UNDEFINED && window.location.pathname !== target) {
         window.history.pushState({}, '', target)
       }
     } else {
       const scrollHeight =
-        typeof document !== 'undefined'
+        typeof document !== STRINGS.UNDEFINED
           ? Math.max(document.documentElement.scrollHeight, document.body.scrollHeight)
           : 0
       const isReduced = store.getters.getReducedMotion()
@@ -265,7 +265,7 @@ export class AppNav extends BaseComponent {
     e?.preventDefault?.()
     e?.stopPropagation?.()
     store.commit('togglePreferencesModal', true)
-    if (typeof window !== 'undefined') {
+    if (typeof window !== STRINGS.UNDEFINED) {
       window.dispatchEvent(new CustomEvent('open-preferences-modal'))
     }
   }
@@ -274,7 +274,7 @@ export class AppNav extends BaseComponent {
     e?.preventDefault?.()
     e?.stopPropagation?.()
     store.commit('toggleLangDialog', true)
-    if (typeof window !== 'undefined') {
+    if (typeof window !== STRINGS.UNDEFINED) {
       window.dispatchEvent(new CustomEvent('open-lang-dialog'))
     }
   }
@@ -282,7 +282,7 @@ export class AppNav extends BaseComponent {
   render() {
     const modal = store.getters.getModal()
     if (modal?.open === true || this.isAdminRoute) {
-      return ''
+      return ATTRS.EMPTY
     }
 
     const t = this.translations

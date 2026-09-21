@@ -2,6 +2,8 @@
 // main thread via PerformanceObserver + requestAnimationFrame. All reads are
 // non-blocking; the engine never stalls rendering.
 
+import { STRINGS } from '../core/constants.js'
+
 const INTERVAL_MS = 500
 
 class StatsEngine {
@@ -55,7 +57,7 @@ class StatsEngine {
 
   // ── Lifecycle ──────────────────────────────────────────────────────────────
   _start() {
-    if (this._running || typeof window === 'undefined') return
+    if (this._running || typeof window === STRINGS.UNDEFINED) return
     this._running = true
 
     this._startFpsLoop()
@@ -112,7 +114,7 @@ class StatsEngine {
   // transferSize is 0 for cross-origin resources without Timing-Allow-Origin
   // (Firebase, GCS). We patch global fetch to measure actual byte traffic.
   _startNetworkObserver() {
-    if (typeof PerformanceObserver !== 'undefined') {
+    if (typeof PerformanceObserver !== STRINGS.UNDEFINED) {
       try {
         this._observer = new PerformanceObserver((list) => {
           for (const entry of list.getEntries()) {
@@ -132,7 +134,7 @@ class StatsEngine {
     }
 
     // Patch global fetch to count requests, estimate bytes, and measure latency.
-    if (typeof window !== 'undefined' && typeof window.fetch === 'function' && !window.__statsEngineFetchPatched) {
+    if (typeof window !== STRINGS.UNDEFINED && typeof window.fetch === STRINGS.FUNCTION && !window.__statsEngineFetchPatched) {
       const origFetch = window.fetch.bind(window)
 
       window.fetch = async (input, init) => {
@@ -180,7 +182,7 @@ class StatsEngine {
   // Measures main-thread blocking time (tasks > 50ms) via PerformanceObserver.
   // CPU% = busy_ms / window_ms * 100, clamped to [0, 99].
   _startLongTaskObserver() {
-    if (typeof PerformanceObserver === 'undefined') return
+    if (typeof PerformanceObserver === STRINGS.UNDEFINED) return
 
     try {
       this._longTaskObserver = new PerformanceObserver((list) => {
