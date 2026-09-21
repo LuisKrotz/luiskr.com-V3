@@ -10,6 +10,7 @@ import {
 } from '../utils/wasm-layout.js'
 import { wasmPool } from '../utils/wasm-pool.js'
 import { npuPredict } from '../utils/npu-predict.js'
+import { buildCoverUrls } from '../utils/media.js'
 import homeMosaicStyles from '../sass/home-mosaic.scss?inline'
 
 const { FEAT_MULT, COMP_MULTS, GAP: GAP_PX } = LAYOUT
@@ -422,7 +423,7 @@ export class HomeMosaic extends BaseComponent {
           {this.translations ? (
             <draw-text text={featuredText} />
           ) : (
-            <span className={CLASSES.SKELETON_SHIMMER}>{featuredText || TEXT.FEATURED}</span>
+            <span aria-hidden={ATTRS.TRUE} className={`${CLASSES.SKELETON_SHIMMER} ${CLASSES.SKELETON_TITLE_MD}`} />
           )}
         </h2>
 
@@ -444,9 +445,14 @@ export class HomeMosaic extends BaseComponent {
                     loading={i < 1 ? ATTRS.LOADING_EAGER : ATTRS.LOADING_LAZY}
                     fetchpriority={i < 1 ? ATTRS.FETCH_PRIORITY_HIGH : ATTRS.FETCH_PRIORITY_LOW}
                     className={CLASSES.HOME_MOSAIC_IMG}
-                    src={`${this.storage}covers/${item.image}${this.ext}`}
+                    src={buildCoverUrls(this.storage, item.image).src}
+                    onError={(e) => {
+                      const fallback = `${this.storage}covers/${item.image}${this.ext}`
+                      if (e.currentTarget.src !== fallback) {
+                        e.currentTarget.src = fallback
+                      }
+                    }}
                     alt={item.label}
-                    sizes="(max-width: 540px) 100vw, (max-width: 960px) 50vw, (max-width: 1440px) 33vw, 25vw"
                     width={MEDIA_DIMENSIONS.DEFAULT_WIDTH}
                     height={MEDIA_DIMENSIONS.DEFAULT_HEIGHT}
                   />

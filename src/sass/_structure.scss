@@ -266,6 +266,8 @@ main {
     position: relative;
     overflow: hidden;
     background: var(--skel-bg-1);
+    color: transparent;
+    user-select: none;
 
     &::before {
       content: '';

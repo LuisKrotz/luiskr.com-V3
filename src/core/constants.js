@@ -27,6 +27,13 @@ export const MEDIA = Object.freeze({
   VIDEO_SCALE: '.mp4-scaledown-2x',
 })
 
+// ─── Image Responsive Sizes ──────────────────────────────────────────────────
+export const IMAGE_SIZES = Object.freeze({
+  HOME_MOSAIC: '(max-width: 540px) 100vw, (max-width: 960px) 50vw, (max-width: 1440px) 33vw, 25vw',
+  RELATED_MOSAIC: '(max-width: 768px) 100vw, 50vw',
+  PROFILE_PICTURE: '200px',
+})
+
 // ─── Masonry layout constants ─────────────────────────────────────────────────
 // These match the Vue source values exactly. Any change must be reflected in
 // both the WASM layout worker and these constants.

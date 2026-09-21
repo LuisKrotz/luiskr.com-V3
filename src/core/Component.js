@@ -24,7 +24,7 @@ const BASE_HOST_STYLES =
   '.skeleton--title, .skeleton-title-sm, .skeleton-title-md, .skeleton-title-lg, .skeleton--hero, ' +
   '.skeleton--text-line, .skeleton-para-full, .skeleton-para-94, .skeleton-para-98, .skeleton-para-65, ' +
   '.skeleton-section-title, .skeleton-badge, .skeleton-footer-link, .skeleton-footer-note-1, .skeleton-footer-note-2 ' +
-  '{ position: relative; overflow: hidden; background: var(--skel-bg-1); }\n' +
+  '{ position: relative; overflow: hidden; background: var(--skel-bg-1); color: transparent; user-select: none; }\n' +
   '.skeleton::before, .skeleton--shimmer::before, .skeleton-cover::before, .skeleton-placeholder::before, .skeleton--media::before, .skeleton-media::before, ' +
   '.skeleton--title::before, .skeleton-title-sm::before, .skeleton-title-md::before, .skeleton-title-lg::before, .skeleton--hero::before, ' +
   '.skeleton--text-line::before, .skeleton-para-full::before, .skeleton-para-94::before, .skeleton-para-98::before, .skeleton-para-65::before, ' +

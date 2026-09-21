@@ -116,7 +116,7 @@ class WASMLazyloader {
       )
 
       // Apply results back to their target elements
-      for (const { el, url } of resolvedItems) {
+      for (const { el, url, width, height } of resolvedItems) {
         const bitmap = bitmapMap.get(url)
         el.src = url
         el.classList.add('wasm-lazy-loaded')
@@ -126,7 +126,7 @@ class WASMLazyloader {
           const img = new Image()
           img.src = url
           img.onload = () => {
-            gpuAccel.processImageGPU(img, el.clientWidth || 800, el.clientHeight || 450)
+            gpuAccel.processImageGPU(img, width, height)
           }
         }
       }

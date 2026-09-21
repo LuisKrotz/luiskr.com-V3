@@ -283,5 +283,32 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
     expect(violations).toEqual([])
   })
 
+  // ── 10. Zero text inside skeleton elements in JSX ──────────────────────────
+  test('Rule 10: ZERO text inside skeleton elements in JSX', () => {
+    const jsFiles = getAllFiles(srcDir, ['.js'])
+
+    const violations = []
+
+    for (const filePath of jsFiles) {
+      const content = fs.readFileSync(filePath, 'utf-8')
+      const lines = content.split('\n')
+
+      lines.forEach((line, idx) => {
+        const trimmed = line.trim()
+        if (trimmed.startsWith('//') || trimmed.startsWith('/*') || trimmed.startsWith('*')) {
+          return
+        }
+
+        // Match any JSX element with a skeleton class that has inner content before closing tag
+        if (/SKELETON/i.test(trimmed) && /<[a-z0-9-]+[^>]*>[^<]+<\/[a-z0-9-]+>/i.test(trimmed)) {
+          const rel = path.relative(srcDir, filePath)
+          violations.push(`${rel}:${idx + 1} [skeleton contains inner text] -> ${trimmed}`)
+        }
+      })
+    }
+
+    expect(violations).toEqual([])
+  })
+
 })
 
