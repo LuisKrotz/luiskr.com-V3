@@ -7,6 +7,7 @@ import { minify as htmlMinify } from 'html-minifier-terser'
 import fs from 'node:fs'
 import path from 'node:path'
 import zlib from 'node:zlib'
+import crypto from 'node:crypto'
 
 export default defineConfig(({ mode }) => {
   const isCompat = mode === 'compat' || process.env.BUILD_TARGET === 'compat'
@@ -28,17 +29,11 @@ export default defineConfig(({ mode }) => {
       'console.groupCollapsed',
       'console.groupEnd',
     ],
-    unsafe: true,
-    unsafe_arrows: true,
-    unsafe_methods: true,
-    unsafe_proto: true,
-    unsafe_regexp: true,
-    booleans_as_integers: true,
+    dead_code: true,
+    toplevel: true,
     hoist_funs: true,
     hoist_vars: true,
     keep_fargs: false,
-    dead_code: true,
-    toplevel: true,
   }
 
   const terserMangle = {
@@ -172,6 +167,7 @@ export default defineConfig(({ mode }) => {
         const distDir = path.resolve('dist')
         const compatDir = path.join(distDir, 'assets/compat')
         const indexPath = path.join(distDir, 'index.html')
+        const swPath = path.join(distDir, 'service-worker.js')
 
         if (!fs.existsSync(compatDir) || !fs.existsSync(indexPath)) return
 
@@ -186,7 +182,7 @@ export default defineConfig(({ mode }) => {
 
         if (match) {
           const modernSrc = match[1]
-          const loader = `<link rel="modulepreload" crossorigin href="${modernSrc}"><script type="module">(function(){var m=Boolean(typeof Promise.withResolvers==="function"&&typeof Object.groupBy==="function"&&typeof Array.prototype.toReversed==="function"&&typeof Set.prototype.intersection==="function");import(m?"${modernSrc}":"/assets/compat/${compatEntry}")})();</script>`
+          const loader = `<link rel="modulepreload" crossorigin href="${modernSrc}"><script type="module">function _l(){var m=Boolean(typeof Object.groupBy==="function"&&typeof Array.prototype.toReversed==="function");var s=document.createElement("script");s.type="module";s.crossOrigin="";s.src=m?"${modernSrc}":"/assets/compat/${compatEntry}";document.body.appendChild(s)}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",_l,{once:true})}else{_l()}</script>`
           html = html.replace(match[0], loader)
           fs.writeFileSync(indexPath, html, 'utf-8')
 
@@ -201,11 +197,30 @@ export default defineConfig(({ mode }) => {
             path.join(distDir, 'index.html.gz'),
             zlib.gzipSync(htmlBuf, { level: 9 })
           )
-        }
 
-        for (const file of compatFiles) {
-          if (file.endsWith('.css') || file.endsWith('.css.br') || file.endsWith('.css.gz')) {
-            fs.unlinkSync(path.join(compatDir, file))
+          // Update service-worker.js with new index.html revision so Workbox cache matches
+          if (fs.existsSync(swPath)) {
+            const htmlHash = crypto.createHash('md5').update(html).digest('hex')
+            let sw = fs.readFileSync(swPath, 'utf-8')
+            sw = sw.replace(/\{url:"index\.html",revision:"[^"]+"\}/, `{url:"index.html",revision:"${htmlHash}"}`)
+            fs.writeFileSync(swPath, sw, 'utf-8')
+            const swBuf = Buffer.from(sw, 'utf-8')
+            const swBrPath = path.join(distDir, 'service-worker.js.br')
+            const swGzPath = path.join(distDir, 'service-worker.js.gz')
+            if (fs.existsSync(swBrPath)) {
+              fs.writeFileSync(
+                swBrPath,
+                zlib.brotliCompressSync(swBuf, {
+                  params: { [zlibConstants.BROTLI_PARAM_QUALITY]: 11 },
+                })
+              )
+            }
+            if (fs.existsSync(swGzPath)) {
+              fs.writeFileSync(
+                swGzPath,
+                zlib.gzipSync(swBuf, { level: 9 })
+              )
+            }
           }
         }
       },

@@ -38,4 +38,5 @@ export const EVENTS = Object.freeze({
   CLOSE: 'close',
   OPEN_LANG_DIALOG: 'open-lang-dialog',
   OPEN_PREFERENCES_MODAL: 'open-preferences-modal',
+  DOM_CONTENT_LOADED: 'DOMContentLoaded',
 })

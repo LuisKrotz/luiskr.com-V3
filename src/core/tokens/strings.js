@@ -53,4 +53,5 @@ export const STRINGS = Object.freeze({
   MOSAIC_CARD: 'mosaic_card',
   DELAY_8: '8',
   BATCH_LAYOUT: 'BATCH_LAYOUT',
+  LOADING: 'loading',
 })
