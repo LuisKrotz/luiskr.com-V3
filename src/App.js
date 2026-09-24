@@ -92,7 +92,9 @@ export class AppRoot extends BaseComponent {
     }
 
     // Scroll listeners
-    requestAnimationFrame(() => {
+    const deferInitScroll = typeof window !== STRINGS.UNDEFINED && window.requestIdleCallback ? window.requestIdleCallback : (cb) => setTimeout(cb, 100)
+
+    deferInitScroll(() => {
       this.updateSectionTops()
       this.checkScroll()
     })

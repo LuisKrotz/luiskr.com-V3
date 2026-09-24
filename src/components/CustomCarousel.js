@@ -166,7 +166,9 @@ export class CustomCarousel extends BaseComponent {
 
       this._setHeightVar()
 
-      this._measureFit()
+      requestAnimationFrame(() => {
+        this._measureFit()
+      })
     })
   }
 
@@ -176,7 +178,9 @@ export class CustomCarousel extends BaseComponent {
     this._fitObserver = new ResizeObserver((entries) => {
       const width = entries[0]?.contentRect?.width || 0
 
-      this._measureFit(width)
+      requestAnimationFrame(() => {
+        this._measureFit(width)
+      })
     })
 
     this._fitObserver.observe(this)

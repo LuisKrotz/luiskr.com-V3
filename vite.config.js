@@ -3,12 +3,10 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { compression } from 'vite-plugin-compression2'
 import { fileURLToPath, URL } from 'node:url'
 import { constants as zlibConstants } from 'node:zlib'
-import { cssManglePlugin } from './plugins/vite-plugin-css-mangle.js'
+import { minify as htmlMinify } from 'html-minifier-terser'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    cssManglePlugin(),
     compression({
       algorithm: 'brotliCompress',
       exclude: [/\.(br|gz)$/i],
@@ -64,6 +62,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        globIgnores: ['**/cms-*', '**/cms.*', '**/Cms*', '**/Admin*', '**/vendor-firebase*'],
         navigateFallback: 'index.html',
         navigateFallbackDenylist: [/\.htaccess/, /urllist\.txt/],
         cleanupOutdatedCaches: true,
@@ -88,26 +87,32 @@ export default defineConfig({
       },
     },
     {
-      name: 'inline-critical-css',
+      name: 'lazyload-index-css',
       enforce: 'post',
       apply: 'build',
       transformIndexHtml: {
         order: 'post',
-        handler(html, ctx) {
-          if (!ctx || !ctx.bundle) return html
+        async handler(html, ctx) {
           let newHtml = html
-          for (const [fileName, file] of Object.entries(ctx.bundle)) {
-            if (fileName.endsWith('.css') && fileName.startsWith('assets/index-')) {
-              const css = file.source ? file.source.toString() : ''
-              if (css) {
-                // Remove render-blocking stylesheet link
-                newHtml = newHtml.replace(new RegExp(`<link rel="stylesheet"[^>]*href="[/]${fileName}"[^>]*>`, 'i'), '')
-                // Inject as inline <style> in <head> for zero-latency instant render
-                newHtml = newHtml.replace('</head>', `<style id="critical-css">${css}</style></head>`)
+          if (ctx && ctx.bundle) {
+            for (const [fileName] of Object.entries(ctx.bundle)) {
+              if (fileName.endsWith('.css') && fileName.startsWith('assets/index-')) {
+                // Convert render-blocking stylesheet link into lazyloaded link with preload
+                const linkRegex = new RegExp(`<link rel="stylesheet"[^>]*href="[/]${fileName}"[^>]*>`, 'i')
+                const lazyLink = `<link rel="preload" as="style" href="/${fileName}" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/${fileName}"></noscript>`
+                newHtml = newHtml.replace(linkRegex, lazyLink)
               }
             }
           }
-          return newHtml
+          return await htmlMinify(newHtml, {
+            collapseWhitespace: true,
+            removeComments: true,
+            minifyCSS: true,
+            minifyJS: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+          })
         },
       },
     },
@@ -155,16 +160,15 @@ export default defineConfig({
       polyfill: true,
     },
     rollupOptions: {
+      input: {
+        index: fileURLToPath(new URL('./index.html', import.meta.url)),
+        home: fileURLToPath(new URL('./src/sass/home.scss', import.meta.url)),
+        internal: fileURLToPath(new URL('./src/sass/internals.scss', import.meta.url)),
+        legal: fileURLToPath(new URL('./src/sass/legal.scss', import.meta.url)),
+        cms: fileURLToPath(new URL('./src/sass/cms.scss', import.meta.url)),
+      },
       output: {
         manualChunks(id) {
-          if (
-            id.includes('/src/components/cms/') ||
-            id.includes('/src/views/Cms') ||
-            id.includes('/src/views/AdminLogin') ||
-            id.includes('/src/core/cms/')
-          ) {
-            return 'cms-bundle'
-          }
           if (id.includes('node_modules')) {
             if (id.includes('firebase')) {
               return 'vendor-firebase'
