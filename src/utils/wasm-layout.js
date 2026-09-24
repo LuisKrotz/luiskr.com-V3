@@ -1,4 +1,4 @@
-import { STRINGS } from '../core/constants.js'
+import { STRINGS, MEDIA_DIMENSIONS } from '../core/constants.js'
 
 let wasmInstance = null
 
@@ -80,7 +80,7 @@ export function calcColsForWidth(vw) {
       ? 2
       : vw < 1440
         ? 3
-        : vw < 1920
+        : vw < MEDIA_DIMENSIONS.FHD_WIDTH
           ? 4
           : vw < 2100
             ? 5

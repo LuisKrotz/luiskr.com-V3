@@ -14,30 +14,14 @@
  *   when the element disconnects.
  */
 
-import { STRINGS } from './constants.js'
-
-const BASE_HOST_STYLES =
-  ':host { display: block; font-family: var(--font-primary); color: var(--text-primary); box-sizing: border-box; }\n' +
-  ':host > [data-content] { display: contents; }\n' +
-  '@keyframes skeleton-shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }\n' +
-  '.skeleton, .skeleton--shimmer, .skeleton-cover, .skeleton-placeholder, .skeleton--media, .skeleton-media, ' +
-  '.skeleton--title, .skeleton-title-sm, .skeleton-title-md, .skeleton-title-lg, .skeleton--hero, ' +
-  '.skeleton--text-line, .skeleton-para-full, .skeleton-para-94, .skeleton-para-98, .skeleton-para-65, ' +
-  '.skeleton-section-title, .skeleton-badge, .skeleton-footer-link, .skeleton-footer-note-1, .skeleton-footer-note-2 ' +
-  '{ position: relative; overflow: hidden; background: var(--skel-bg-1); color: transparent; user-select: none; }\n' +
-  '.skeleton::before, .skeleton--shimmer::before, .skeleton-cover::before, .skeleton-placeholder::before, .skeleton--media::before, .skeleton-media::before, ' +
-  '.skeleton--title::before, .skeleton-title-sm::before, .skeleton-title-md::before, .skeleton-title-lg::before, .skeleton--hero::before, ' +
-  '.skeleton--text-line::before, .skeleton-para-full::before, .skeleton-para-94::before, .skeleton-para-98::before, .skeleton-para-65::before, ' +
-  '.skeleton-section-title::before, .skeleton-badge::before, .skeleton-footer-link::before, .skeleton-footer-note-1::before, .skeleton-footer-note-2::before ' +
-  '{ content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 0%, var(--skel-bg-2) 50%, transparent 100%); transform: translateX(-100%); animation: skeleton-shimmer 2.4s ease-in-out infinite; will-change: transform; pointer-events: none; }\n' +
-  '.skeleton--round { border-radius: 50%; }\n' +
-  '.skeleton--block { display: block; }'
+import { STRINGS, ATTRS, TAGS, SELECTORS, BASE_HOST_STYLES } from './constants.js'
 
 export class BaseComponent extends HTMLElement {
 
-  constructor(styles = '') {
+  constructor(styles = STRINGS.EMPTY) {
     super()
-    this.attachShadow({ mode: 'open' })
+
+    this.attachShadow({ mode: ATTRS.OPEN })
     this._componentStyles = styles
     this._eventDisposers = []
     this._storeUnsubscribers = []
@@ -131,25 +115,25 @@ export class BaseComponent extends HTMLElement {
   _renderInitial() {
     // On re-mount (after disconnect → connect), shadowRoot retains its previous children.
     // Reuse existing nodes to prevent style duplication and content wrapper duplication.
-    const existingStyle = this.shadowRoot.querySelector('style')
+    const existingStyle = this.shadowRoot.querySelector(SELECTORS.STYLE)
     if (existingStyle) {
       // Re-mount: style node already exists — reuse it.
       this._styleNode = existingStyle
     } else {
       // First mount: create and append the persistent <style> node.
-      this._styleNode = document.createElement('style')
+      this._styleNode = document.createElement(TAGS.STYLE)
       this._styleNode.textContent = `${BASE_HOST_STYLES}\n${this._componentStyles}`
       this.shadowRoot.appendChild(this._styleNode)
     }
 
-    const existingContent = this.shadowRoot.querySelector('[data-content]')
+    const existingContent = this.shadowRoot.querySelector(SELECTORS.DATA_CONTENT)
     if (existingContent) {
       // Re-mount: content wrapper already exists — reuse and re-render it.
       this._contentNode = existingContent
     } else {
       // First mount: create and append the persistent content wrapper.
-      this._contentNode = document.createElement('div')
-      this._contentNode.setAttribute('data-content', '')
+      this._contentNode = document.createElement(TAGS.DIV)
+      this._contentNode.setAttribute(ATTRS.DATA_CONTENT, STRINGS.EMPTY)
       this.shadowRoot.appendChild(this._contentNode)
     }
 
@@ -169,8 +153,8 @@ export class BaseComponent extends HTMLElement {
 
     if (!this._contentNode) {
       // Fallback: create content node if somehow missing
-      this._contentNode = document.createElement('div')
-      this._contentNode.setAttribute('data-content', '')
+      this._contentNode = document.createElement(TAGS.DIV)
+      this._contentNode.setAttribute(ATTRS.DATA_CONTENT, STRINGS.EMPTY)
       this.shadowRoot.appendChild(this._contentNode)
     }
 
@@ -190,7 +174,7 @@ export class BaseComponent extends HTMLElement {
     } else if (Array.isArray(output)) {
       this._contentNode.replaceChildren(...output.filter(Boolean))
     } else {
-      this._contentNode.innerHTML = output || ''
+      this._contentNode.innerHTML = output || STRINGS.EMPTY
     }
   }
 
@@ -199,6 +183,6 @@ export class BaseComponent extends HTMLElement {
    * @returns {Node|string}
    */
   render() {
-    return ''
+    return STRINGS.EMPTY
   }
 }

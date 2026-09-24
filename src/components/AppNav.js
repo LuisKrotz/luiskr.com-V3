@@ -5,14 +5,15 @@ import router from '../core/router.js'
 import { deepQuerySelector } from '../core/dom.js'
 import { localePath, LANG_OPTIONS } from '../core/i18n.js'
 import { wasmSmoothScroll } from '../utils/wasm-scroll.js'
-import { TAGS, CLASSES, URLS, STRINGS, ATTRS, MEDIA_DIMENSIONS } from '../core/constants.js'
+import { TAGS, CLASSES, URLS, STRINGS, ATTRS, MEDIA_DIMENSIONS, ROUTE_NAMES, ROUTE_PREFIXES, SECTIONS, TEXT, EVENTS, PATHS, MUTATIONS, BASE_TITLE } from '../core/constants.js'
+import { predictiveLoader } from '../core/predictive-loader.js'
 import appStyles from '../sass/app.scss?inline'
 
 export class AppNav extends BaseComponent {
   constructor() {
     super(appStyles)
     this._translations = null
-    this.activeSection = 'home'
+    this.activeSection = SECTIONS.HOME
     this.onBottom = false
   }
 
@@ -30,13 +31,14 @@ export class AppNav extends BaseComponent {
   }
 
   get isHomePage() {
-    const name = this.currentRoute?.name || 'Home'
-    return name.startsWith('Home') || name.startsWith('About') || name.startsWith('Contact')
+    const name = this.currentRoute?.name || ROUTE_NAMES.HOME
+
+    return name.startsWith(ROUTE_PREFIXES.HOME) || name.startsWith(ROUTE_PREFIXES.ABOUT) || name.startsWith(ROUTE_PREFIXES.CONTACT)
   }
 
   get isAdminRoute() {
     const path = typeof window !== STRINGS.UNDEFINED ? window.location.pathname : ATTRS.EMPTY
-    return path.startsWith('/admin') || path.startsWith('/cms')
+    return path.startsWith(PATHS.ADMIN) || path.startsWith(PATHS.CMS)
   }
 
   get locale() {
@@ -61,7 +63,7 @@ export class AppNav extends BaseComponent {
         <span className={CLASSES.FLAG_SPLIT}>
           <img
             className={CLASSES.FLAG_IMG}
-            src={`${URLS.FLAG_CDN}${lang.cc}.svg`}
+            src={`${URLS.FLAG_CDN}${lang.cc}${STRINGS.SVG_EXT}`}
             alt={lang.label}
             width={MEDIA_DIMENSIONS.FLAG_NAV_SPLIT_WIDTH}
             height={MEDIA_DIMENSIONS.FLAG_NAV_HEIGHT}
@@ -70,7 +72,7 @@ export class AppNav extends BaseComponent {
           />
           <img
             className={CLASSES.FLAG_IMG}
-            src={`${URLS.FLAG_CDN}${lang.cc2}.svg`}
+            src={`${URLS.FLAG_CDN}${lang.cc2}${STRINGS.SVG_EXT}`}
             alt=""
             width={MEDIA_DIMENSIONS.FLAG_NAV_SPLIT_WIDTH}
             height={MEDIA_DIMENSIONS.FLAG_NAV_HEIGHT}
@@ -84,7 +86,7 @@ export class AppNav extends BaseComponent {
     return (
       <img
         className={CLASSES.FLAG_IMG}
-        src={`${URLS.FLAG_CDN}${lang.cc}.svg`}
+        src={`${URLS.FLAG_CDN}${lang.cc}${STRINGS.SVG_EXT}`}
         alt={lang.label}
         width={MEDIA_DIMENSIONS.FLAG_NAV_WIDTH}
         height={MEDIA_DIMENSIONS.FLAG_NAV_HEIGHT}
@@ -96,8 +98,16 @@ export class AppNav extends BaseComponent {
 
   onMounted() {
     this.subscribe(store)
+
     this.subscribeRouter()
+
     this._bindEvents()
+
+    predictiveLoader.scanAndObserve(this.shadowRoot)
+  }
+
+  onUpdated() {
+    predictiveLoader.scanAndObserve(this.shadowRoot)
   }
 
   subscribeRouter() {
@@ -128,27 +138,27 @@ export class AppNav extends BaseComponent {
         path.find((el) => el instanceof Element && (el.tagName === 'BUTTON' || el.tagName === 'A'))
       if (!btn) return
 
-      if (btn.classList.contains('nav-logo-btn')) {
+      if (btn.classList.contains(CLASSES.NAV_LOGO_BTN)) {
         this.handleLogo(e)
         return
       }
 
-      if (btn.classList.contains('nav-about-btn')) {
+      if (btn.classList.contains(CLASSES.NAV_ABOUT_BTN)) {
         this.handleAbout(e)
         return
       }
 
-      if (btn.classList.contains('nav-action-btn')) {
+      if (btn.classList.contains(CLASSES.NAV_ACTION_BTN)) {
         this.handleAction(e)
         return
       }
 
-      if (btn.classList.contains('nav-pref-btn')) {
+      if (btn.classList.contains(CLASSES.NAV_PREF_BTN)) {
         this.handlePreferences(e)
         return
       }
 
-      if (btn.classList.contains('nav-lang-open-btn')) {
+      if (btn.classList.contains(CLASSES.NAV_LANG_OPEN_BTN)) {
         this.handleLang(e)
         return
       }
@@ -157,7 +167,7 @@ export class AppNav extends BaseComponent {
 
   scrollTop() {
     if (this.isHomePage) {
-      this.activeSection = 'home'
+      this.activeSection = SECTIONS.HOME
       const root = localePath('', this.locale)
       if (typeof window !== STRINGS.UNDEFINED && window.location.pathname !== root) {
         window.history.pushState({}, '', root)
@@ -165,35 +175,35 @@ export class AppNav extends BaseComponent {
     }
     const isReduced = store.getters.getReducedMotion()
     try {
-      window.scrollTo({ top: 0, behavior: isReduced ? 'instant' : 'smooth' })
+      window.scrollTo({ top: 0, behavior: isReduced ? ATTRS.INSTANT : ATTRS.SMOOTH })
     } catch {
       window.scrollTo(0, 0)
     }
     wasmSmoothScroll({
-      duration: isReduced ? 2500 : 1000,
+      duration: isReduced ? MEDIA_DIMENSIONS.SCROLL_DURATION_REDUCED : MEDIA_DIMENSIONS.SCROLL_DURATION_FULL,
       updateHistory: true,
       scrollTo: 0,
     })
   }
 
   goToAbout() {
-    this.activeSection = 'about'
+    this.activeSection = SECTIONS.ABOUT
     const el = deepQuerySelector('#about') || deepQuerySelector(TAGS.ABOUT_SECTION)
     if (el) {
       const targetY = window.scrollY + el.getBoundingClientRect().top
       const isReduced = store.getters.getReducedMotion()
       try {
-        window.scrollTo({ top: targetY, behavior: isReduced ? 'instant' : 'smooth' })
+        window.scrollTo({ top: targetY, behavior: isReduced ? ATTRS.INSTANT : ATTRS.SMOOTH })
       } catch {
         window.scrollTo(0, targetY)
       }
       wasmSmoothScroll({
-        duration: isReduced ? 2500 : 1000,
+        duration: isReduced ? MEDIA_DIMENSIONS.SCROLL_DURATION_REDUCED : MEDIA_DIMENSIONS.SCROLL_DURATION_FULL,
         updateHistory: true,
         scrollTo: targetY,
       })
     }
-    const target = localePath('about', this.locale)
+    const target = localePath(STRINGS.ABOUT, this.locale)
     if (typeof window !== STRINGS.UNDEFINED && window.location.pathname !== target) {
       window.history.pushState({}, '', target)
     }
@@ -201,23 +211,23 @@ export class AppNav extends BaseComponent {
 
   scrollToContact() {
     if (this.isHomePage) {
-      this.activeSection = 'contact'
-      const el = deepQuerySelector('#contact') || deepQuerySelector('contact-section')
+      this.activeSection = SECTIONS.CONTACT
+      const el = deepQuerySelector('#contact') || deepQuerySelector(TAGS.CONTACT_SECTION)
       if (el) {
         const targetY = window.scrollY + el.getBoundingClientRect().top
         const isReduced = store.getters.getReducedMotion()
         try {
-          window.scrollTo({ top: targetY, behavior: isReduced ? 'instant' : 'smooth' })
+          window.scrollTo({ top: targetY, behavior: isReduced ? ATTRS.INSTANT : ATTRS.SMOOTH })
         } catch {
           window.scrollTo(0, targetY)
         }
         wasmSmoothScroll({
-          duration: isReduced ? 2500 : 1000,
+          duration: isReduced ? MEDIA_DIMENSIONS.SCROLL_DURATION_REDUCED : MEDIA_DIMENSIONS.SCROLL_DURATION_FULL,
           updateHistory: true,
           scrollTo: targetY,
         })
       }
-      const target = localePath('contact', this.locale)
+      const target = localePath(STRINGS.CONTACT, this.locale)
       if (typeof window !== STRINGS.UNDEFINED && window.location.pathname !== target) {
         window.history.pushState({}, '', target)
       }
@@ -228,12 +238,12 @@ export class AppNav extends BaseComponent {
           : 0
       const isReduced = store.getters.getReducedMotion()
       try {
-        window.scrollTo({ top: scrollHeight, behavior: isReduced ? 'instant' : 'smooth' })
+        window.scrollTo({ top: scrollHeight, behavior: isReduced ? ATTRS.INSTANT : ATTRS.SMOOTH })
       } catch {
         window.scrollTo(0, scrollHeight)
       }
       wasmSmoothScroll({
-        duration: isReduced ? 2500 : 1000,
+        duration: isReduced ? MEDIA_DIMENSIONS.SCROLL_DURATION_REDUCED : MEDIA_DIMENSIONS.SCROLL_DURATION_FULL,
         updateHistory: true,
         scrollTo: scrollHeight,
       })
@@ -273,18 +283,18 @@ export class AppNav extends BaseComponent {
   handlePreferences(e) {
     e?.preventDefault?.()
     e?.stopPropagation?.()
-    store.commit('togglePreferencesModal', true)
+    store.commit(MUTATIONS.TOGGLE_PREFERENCES_MODAL, true)
     if (typeof window !== STRINGS.UNDEFINED) {
-      window.dispatchEvent(new CustomEvent('open-preferences-modal'))
+      window.dispatchEvent(new CustomEvent(EVENTS.OPEN_PREFERENCES_MODAL))
     }
   }
 
   handleLang(e) {
     e?.preventDefault?.()
     e?.stopPropagation?.()
-    store.commit('toggleLangDialog', true)
+    store.commit(MUTATIONS.TOGGLE_LANG_DIALOG, true)
     if (typeof window !== STRINGS.UNDEFINED) {
-      window.dispatchEvent(new CustomEvent('open-lang-dialog'))
+      window.dispatchEvent(new CustomEvent(EVENTS.OPEN_LANG_DIALOG))
     }
   }
 
@@ -295,29 +305,35 @@ export class AppNav extends BaseComponent {
     }
 
     const t = this.translations
-    const title = t?.title || 'LK'
-    const aboutDesc = t?.about?.description || 'About'
-    const isNotFound = this.currentRoute?.name === 'Not Found'
+    const title = (t?.title && t.title !== TEXT.LK_MONOGRAM) ? t.title : BASE_TITLE
+
+    const aboutDesc = t?.about?.description || TEXT.ABOUT
+
+    const isNotFound = this.currentRoute?.name === ROUTE_NAMES.NOT_FOUND
+
     const isProjectRoute = this.currentRoute?.meta?.projectRoute === true
 
-    let actionLabel = t?.contact || 'Contact'
+    let actionLabel = t?.contact || TEXT.CONTACT
+
     if (this.onBottom) {
-      actionLabel = t?.scrollup || 'Scroll up'
+      actionLabel = t?.scrollup || TEXT.SCROLL_UP_ALT
     } else if (isProjectRoute) {
-      actionLabel = t?.related || 'Related'
+      actionLabel = t?.related || TEXT.RELATED
     }
 
-    let actionClasses = `${CLASSES.NAV_LINK} nav-action-btn`
+    let actionClasses = `${CLASSES.NAV_LINK} ${CLASSES.NAV_ACTION_BTN}`
+
     if (this.onBottom) {
-      actionClasses += ' scroll-up'
+      actionClasses += ` ${CLASSES.NAV_SCROLL_UP}`
     } else if (this.isHomePage) {
-      if (this.activeSection === 'contact') actionClasses += ' active'
+      if (this.activeSection === SECTIONS.CONTACT) actionClasses += ` ${CLASSES.NAV_ACTIVE}`
     } else {
-      actionClasses += ' scroll-down'
+      actionClasses += ` ${CLASSES.NAV_SCROLL_DOWN}`
     }
 
-    const logoClasses = `${CLASSES.NAV_LINK} ${!this.isHomePage ? 'back' : ''} ${this.isHomePage && this.activeSection === 'home' ? 'active' : ''} nav-logo-btn`
-    const aboutClasses = `${CLASSES.NAV_LINK} nav-about-btn ${this.isHomePage && this.activeSection === 'about' && !this.onBottom ? 'active' : ''}`
+    const logoClasses = `${CLASSES.NAV_LINK} ${!this.isHomePage ? CLASSES.NAV_BACK : STRINGS.EMPTY} ${this.isHomePage && this.activeSection === SECTIONS.HOME ? CLASSES.NAV_ACTIVE : STRINGS.EMPTY} ${CLASSES.NAV_LOGO_BTN}`
+
+    const aboutClasses = `${CLASSES.NAV_LINK} ${CLASSES.NAV_ABOUT_BTN} ${this.isHomePage && this.activeSection === SECTIONS.ABOUT && !this.onBottom ? CLASSES.NAV_ACTIVE : STRINGS.EMPTY}`
 
     return (
       <nav className={CLASSES.NAV} role="navigation">
@@ -352,18 +368,18 @@ export class AppNav extends BaseComponent {
             <span className={CLASSES.NAV_SEPARATOR}>|</span>
 
             <button
-              className={`${CLASSES.NAV_LINK} nav-pref-btn`}
-              title="Site preferences (Theme & Motion)"
+              className={`${CLASSES.NAV_LINK} ${CLASSES.NAV_PREF_BTN}`}
+              title={TEXT.SITE_PREFERENCES}
               type="button"
               onClick={(e) => this.handlePreferences(e)}
             >
-              {t?.preferences || 'Preferences'}
+              {t?.preferences || TEXT.PREFERENCES}
             </button>
 
             <span className={CLASSES.NAV_SEPARATOR}>|</span>
 
             <button
-              className={`${CLASSES.NAV_LINK} nav-lang-open-btn`}
+              className={`${CLASSES.NAV_LINK} ${CLASSES.NAV_LANG_OPEN_BTN}`}
               title={this.currentLangLabel}
               type="button"
               onClick={(e) => this.handleLang(e)}
@@ -376,16 +392,16 @@ export class AppNav extends BaseComponent {
         {!isNotFound && (
           <div className={CLASSES.NAV_MOBILE_STRIP}>
             <button
-              className={`${CLASSES.NAV_LINK} nav-pref-btn`}
-              title="Preferences"
+              className={`${CLASSES.NAV_LINK} ${CLASSES.NAV_PREF_BTN}`}
+              title={TEXT.PREFERENCES}
               type="button"
               onClick={(e) => this.handlePreferences(e)}
             >
-              {t?.preferences || 'Preferences'}
+              {t?.preferences || TEXT.PREFERENCES}
             </button>
             <span className={CLASSES.NAV_SEPARATOR}>|</span>
             <button
-              className={`${CLASSES.NAV_LINK} nav-lang-open-btn`}
+              className={`${CLASSES.NAV_LINK} ${CLASSES.NAV_LANG_OPEN_BTN}`}
               title={this.currentLangLabel}
               type="button"
               onClick={(e) => this.handleLang(e)}

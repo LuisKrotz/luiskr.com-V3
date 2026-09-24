@@ -9,7 +9,7 @@ import { gpuAccel } from './gpu-accel.js'
 import { wasmPool } from './wasm-pool.js'
 import { wasmImageDecoder } from './wasm-image-decoder.js'
 import { wasmMediaThreads } from './wasm-media-threads.js'
-import { STRINGS, WASM_ACTIONS } from '../core/constants.js'
+import { STRINGS, WASM_ACTIONS, MEDIA_DIMENSIONS } from '../core/constants.js'
 
 class WASMLazyloader {
   constructor() {
@@ -155,7 +155,7 @@ class WASMLazyloader {
         } catch { /* ignore malformed JSON */ }
 
         if (!variants) {
-          variants = [{ url: resolvedUrl, quality: 'default', width: el.clientWidth || 1920, height: el.clientHeight || 1080 }]
+          variants = [{ url: resolvedUrl, quality: 'default', width: el.clientWidth || MEDIA_DIMENSIONS.FHD_WIDTH, height: el.clientHeight || MEDIA_DIMENSIONS.FHD_HEIGHT }]
         }
 
         const posterUrl = el.dataset.wasmPoster || el.getAttribute('poster') || null

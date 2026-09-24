@@ -1,7 +1,20 @@
 import { h, Fragment } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
-import { CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, STRINGS, EVENTS, KEYS, WASM_ACTIONS } from '../core/constants.js'
+import {
+  CLASSES,
+  TAGS,
+  MEDIA_DIMENSIONS,
+  ATTRS,
+  STRINGS,
+  EVENTS,
+  KEYS,
+  WASM_ACTIONS,
+  TEXT,
+  MUTATIONS,
+  PATHS,
+} from '../core/constants.js'
+import { svgPlaceholder } from '../core/utils/dom.js'
 import { gpuAccel } from '../utils/gpu-accel.js'
 import { wasmPool } from '../utils/wasm-pool.js'
 import { localMediaCache } from '../utils/local-media-cache.js'
@@ -59,7 +72,7 @@ export class MediaExpanded extends BaseComponent {
     })
 
     // Native dialog cancel event
-    const dialog = this.closest('dialog') || document.querySelector(`dialog.${CLASSES.MODAL_ABOVE}`)
+    const dialog = this.closest(TAGS.DIALOG) || document.querySelector(`${TAGS.DIALOG}.${CLASSES.MODAL_ABOVE}`)
     if (dialog) {
       this.addScopedListener(dialog, EVENTS.CANCEL, (e) => {
         e.preventDefault()
@@ -113,7 +126,7 @@ export class MediaExpanded extends BaseComponent {
   }
 
   placeholder(width, height) {
-    return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" %3E%3C/svg%3E`
+    return svgPlaceholder(width, height)
   }
 
   startClose() {
@@ -127,20 +140,20 @@ export class MediaExpanded extends BaseComponent {
 
     setTimeout(() => {
       // 1. Restore URL by removing image slug
-      const currentPath = window.location.pathname.replace(/\/$/, '')
+      const currentPath = window.location.pathname.replace(/\/$/, ATTRS.EMPTY)
 
-      const segments = currentPath.split('/')
+      const segments = currentPath.split(STRINGS.SLASH)
 
-      const portIdx = segments.indexOf('portfolio')
+      const portIdx = segments.indexOf(PATHS.PORTFOLIO_SEGMENT)
 
       if (portIdx !== -1 && segments.length > portIdx + 2) {
-        const basePath = segments.slice(0, portIdx + 2).join('/')
+        const basePath = segments.slice(0, portIdx + 2).join(STRINGS.SLASH)
 
-        window.history.replaceState({}, '', basePath)
+        window.history.replaceState({}, ATTRS.EMPTY, basePath)
       }
 
       // 2. Native dialog close
-      const dialog = this.closest('dialog') || document.querySelector(`dialog.${CLASSES.MODAL_ABOVE}`)
+      const dialog = this.closest(TAGS.DIALOG) || document.querySelector(`${TAGS.DIALOG}.${CLASSES.MODAL_ABOVE}`)
 
       if (dialog && typeof dialog.close === STRINGS.FUNCTION && dialog.open) {
         dialog.close()
@@ -149,14 +162,14 @@ export class MediaExpanded extends BaseComponent {
       // 3. Restore document scroll position and modal state cleanly
       window.scrollTo(0, scroll)
 
-      store.commit('setModal', {
+      store.commit(MUTATIONS.SET_MODAL, {
         transform: 0,
-        class: '',
+        class: ATTRS.EMPTY,
         open: false,
         media: {
-          source: '',
-          thumb: '',
-          alt: '',
+          source: ATTRS.EMPTY,
+          thumb: ATTRS.EMPTY,
+          alt: ATTRS.EMPTY,
           width: 0,
           height: 0,
           isVideo: false,
@@ -167,20 +180,20 @@ export class MediaExpanded extends BaseComponent {
 
   render() {
     const compMedia = store.getters.getlang().components?.media || {}
-    const closeText = compMedia.close || 'Close'
+    const closeText = compMedia.close || TEXT.CLOSE
     const isReduced = store.getters.getReducedMotion()
     const mediaW = this.mediaWidth
     const mediaH = this.mediaHeight
 
     return (
       <div
-        className={`${CLASSES.EXPAND_MODAL_CONTENT} ${this.isClosing ? CLASSES.EXPAND_MODAL_CLOSING : ''} ${this.isVideo ? CLASSES.EXPAND_MODAL_CONTENT_VIDEO : ''}`}
+        className={`${CLASSES.EXPAND_MODAL_CONTENT} ${this.isClosing ? CLASSES.EXPAND_MODAL_CLOSING : ATTRS.EMPTY} ${this.isVideo ? CLASSES.EXPAND_MODAL_CONTENT_VIDEO : ATTRS.EMPTY}`}
       >
         <div className={CLASSES.EXPAND_MODAL_CLOSE_BAR}>
           <span className={CLASSES.EXPAND_MODAL_CLOSE_BAR_TITLE}>{this.alt}</span>
           <button
             className={CLASSES.EXPAND_MODAL_CLOSE_BAR_BUTTON}
-            type="button"
+            type={ATTRS.BUTTON}
             aria-label={closeText}
           >
             {closeText}
@@ -188,23 +201,23 @@ export class MediaExpanded extends BaseComponent {
         </div>
         <div className={CLASSES.EXPAND_MODAL_CLOSE_AREA} />
         <figure
-          className={`${CLASSES.EXPAND_MODAL_MEDIA_FIGURE} ${this.isVideo ? CLASSES.EXPAND_MODAL_MEDIA_FIGURE_VIDEO : ''}`}
+          className={`${CLASSES.EXPAND_MODAL_MEDIA_FIGURE} ${this.isVideo ? CLASSES.EXPAND_MODAL_MEDIA_FIGURE_VIDEO : ATTRS.EMPTY}`}
         >
           {!this.isVideo ? (
             <Fragment>
               <img
-                decoding="async"
+                decoding={ATTRS.DECODING_ASYNC}
                 className={CLASSES.EXPAND_MODAL_MEDIA_PLACEHOLDER}
                 src={this.placeholder(mediaW, mediaH)}
                 width={mediaW}
                 height={mediaH}
                 alt={ATTRS.EMPTY}
                 aria-hidden={ATTRS.TRUE}
-                tabIndex="-1"
+                tabIndex={STRINGS.MINUS_ONE}
                 data-nosnippet
               />
               <img
-                decoding="async"
+                decoding={ATTRS.DECODING_ASYNC}
                 className={CLASSES.EXPAND_MODAL_MEDIA_ITEM}
                 width={mediaW}
                 height={mediaH}
@@ -214,7 +227,7 @@ export class MediaExpanded extends BaseComponent {
             </Fragment>
           ) : (
             <video
-              decoding="async"
+              decoding={ATTRS.DECODING_ASYNC}
               className={`${CLASSES.EXPAND_MODAL_MEDIA_ITEM} ${CLASSES.EXPAND_MODAL_MEDIA_ITEM_VIDEO}`}
               width={mediaW}
               height={mediaH}
@@ -226,12 +239,12 @@ export class MediaExpanded extends BaseComponent {
               muted
               controls
             >
-              <source src={this.source} type="video/mp4" />
+              <source src={this.source} type={ATTRS.VIDEO_MP4} />
             </video>
           )}
         </figure>
 
-        <button className={CLASSES.EXPAND_MODAL_CLOSE_BOTTOM} type="button">
+        <button className={CLASSES.EXPAND_MODAL_CLOSE_BOTTOM} type={ATTRS.BUTTON}>
           {closeText}
         </button>
       </div>

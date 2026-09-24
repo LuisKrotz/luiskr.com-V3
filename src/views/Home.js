@@ -3,7 +3,8 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
 import { deepQuerySelector } from '../core/dom.js'
-import { TAGS, PATHS } from '../core/constants.js'
+import { TAGS, PATHS, LOCALES, TEXT, ATTRS, MUTATIONS, CMS_KEYS } from '../core/constants.js'
+import { generateWebsiteSchema, generateCarouselItemListSchema, updateJsonLd } from '../core/utils/index.js'
 import { fetchFirebaseDb } from '../utils/db.js'
 import homeStyles from '../sass/home.scss?inline'
 import '../components/HomeMosaic.js'
@@ -48,11 +49,11 @@ export class ViewHome extends BaseComponent {
         const el = this.$('#' + to.meta.scrollTo) || deepQuerySelector('#' + to.meta.scrollTo)
         if (el) {
           const targetY = window.scrollY + el.getBoundingClientRect().top
-          window.scrollTo({ top: targetY, behavior: 'smooth' })
+          window.scrollTo({ top: targetY, behavior: ATTRS.SMOOTH })
         }
       }, 100)
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      window.scrollTo({ top: 0, behavior: ATTRS.SMOOTH })
     }
   }
 
@@ -66,7 +67,7 @@ export class ViewHome extends BaseComponent {
         const el = this.$('#' + route.meta.scrollTo) || deepQuerySelector('#' + route.meta.scrollTo)
         if (el) {
           const targetY = window.scrollY + el.getBoundingClientRect().top
-          window.scrollTo({ top: targetY, behavior: 'smooth' })
+          window.scrollTo({ top: targetY, behavior: ATTRS.SMOOTH })
         }
       }, 300)
     } else {
@@ -86,19 +87,19 @@ export class ViewHome extends BaseComponent {
   loadData() {
     const lang = store.getters.getlang()
 
-    const currentLocale = lang.locale || 'en'
+    const currentLocale = lang.locale || LOCALES.EN
 
     this._lastLocale = currentLocale
 
     const basePath = lang.database + currentLocale
 
-    const homePath = basePath + lang.pagesPath + 'HOME'
+    const homePath = basePath + lang.pagesPath + CMS_KEYS.HOME
 
     const projectsPath = basePath + PATHS.COMPONENTS_RELATED_PROJECTS
 
-    const aboutPath = basePath + lang.pagesPath + 'about'
+    const aboutPath = basePath + lang.pagesPath + CMS_KEYS.ABOUT
 
-    const picPath = basePath + lang.pagesPath + 'about/profilePicture'
+    const picPath = basePath + lang.pagesPath + CMS_KEYS.ABOUT + '/profilePicture'
 
     fetchFirebaseDb(homePath)
       .then((homeSnap) => {
@@ -108,6 +109,14 @@ export class ViewHome extends BaseComponent {
           if (this.translations?.portfoliolist) {
             store.commit('setPortfolioList', this.translations.portfoliolist)
           }
+
+          const carouselSchema = generateCarouselItemListSchema(this.processedItems)
+
+          const homeGraph = [...generateWebsiteSchema()]
+
+          if (carouselSchema) homeGraph.push(carouselSchema)
+
+          updateJsonLd(homeGraph)
 
           this._updateDom()
 
@@ -142,8 +151,8 @@ export class ViewHome extends BaseComponent {
 
           this.aboutTranslations = about
 
-          store.commit('setMentions', {
-            title: about.mentions ?? 'Some mentions',
+          store.commit(MUTATIONS.SET_MENTIONS, {
+            title: about.mentions ?? TEXT.SOME_MENTIONS,
             items: about.mention_items ?? [],
           })
         }

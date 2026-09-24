@@ -4,7 +4,7 @@ import store from './core/store.js'
 import router from './core/router.js'
 import { deepQuerySelector } from './core/dom.js'
 import { fetchFirebaseDb } from './utils/db.js'
-import { TAGS, STRINGS, CLASSES, ATTRS } from './core/constants.js'
+import { TAGS, STRINGS, CLASSES, ATTRS, IDS, EVENTS, MUTATIONS, THEME, SECTIONS, ROUTE_PREFIXES, PATHS } from './core/constants.js'
 
 // Route depth: home = 0, all other views = 1
 
@@ -25,9 +25,9 @@ export class AppRoot extends BaseComponent {
     super(appStyles)
     this.translations = null
     this.routeLoading = false
-    this.activeSection = 'home'
+    this.activeSection = SECTIONS.HOME
     this.onBottom = false
-    this.currentViewTag = 'view-home'
+    this.currentViewTag = TAGS.VIEW_HOME
     this._aboutTop = 600
     this._contactTop = 1500
   }
@@ -41,38 +41,38 @@ export class AppRoot extends BaseComponent {
   }
 
   onMounted() {
-    store.commit('initTheme')
-    store.commit('initReducedMotion')
+    store.commit(MUTATIONS.INIT_THEME)
+    store.commit(MUTATIONS.INIT_REDUCED_MOTION)
     this.initInputListeners()
     this.loadData()
 
     if (store.getters.getShowGrid()) {
-      document.documentElement.classList.add('show-grid')
+      document.documentElement.classList.add(CLASSES.SHOW_GRID)
     }
 
     this.subscribe(store)
 
     // Listen to open-preferences-modal from app-nav
     const openPref = () => {
-      const pref = this.$('preferences-modal')
+      const pref = this.$(TAGS.PREFERENCES_MODAL)
       if (pref) pref.open = true
     }
-    this.addScopedListener(this, 'open-preferences-modal', openPref)
-    this.addScopedListener(window, 'open-preferences-modal', openPref)
+    this.addScopedListener(this, EVENTS.OPEN_PREFERENCES_MODAL, openPref)
+    this.addScopedListener(window, EVENTS.OPEN_PREFERENCES_MODAL, openPref)
 
     // Listen to open-lang-dialog from app-nav
     const openLang = () => {
-      const dialog = this.$('lang-dialog')
+      const dialog = this.$(TAGS.LANG_DIALOG)
       if (dialog) dialog.open = true
     }
-    this.addScopedListener(this, 'open-lang-dialog', openLang)
-    this.addScopedListener(window, 'open-lang-dialog', openLang)
+    this.addScopedListener(this, EVENTS.OPEN_LANG_DIALOG, openLang)
+    this.addScopedListener(window, EVENTS.OPEN_LANG_DIALOG, openLang)
 
     // Subscribe to router
     router.subscribe((to, from) => {
       this.routeLoading = true
-      const pBar = this.$('.progress-bar')
-      if (pBar) pBar.classList.add('progress-bar--active')
+      const pBar = this.$(`.${CLASSES.PROGRESS_BAR}`)
+      if (pBar) pBar.classList.add(CLASSES.PROGRESS_BAR_ACTIVE)
 
       this.currentViewTag = to.view
       this._updateViewContent(to, from)
@@ -80,7 +80,7 @@ export class AppRoot extends BaseComponent {
 
       setTimeout(() => {
         this.routeLoading = false
-        if (pBar) pBar.classList.remove('progress-bar--active')
+        if (pBar) pBar.classList.remove(CLASSES.PROGRESS_BAR_ACTIVE)
       }, 450)
     })
 
@@ -97,12 +97,12 @@ export class AppRoot extends BaseComponent {
       this.checkScroll()
     })
 
-    this.addScopedListener(window, 'scroll', () => this.checkScroll(), { passive: true })
+    this.addScopedListener(window, EVENTS.SCROLL, () => this.checkScroll(), { passive: true })
 
     let resizeTimer = null
     this.addScopedListener(
       window,
-      'resize',
+      EVENTS.RESIZE,
       () => {
         clearTimeout(resizeTimer)
         resizeTimer = setTimeout(() => {
@@ -115,11 +115,11 @@ export class AppRoot extends BaseComponent {
 
     if (window.matchMedia) {
       this.addScopedListener(
-        window.matchMedia('(prefers-color-scheme: dark)'),
-        'change',
+        window.matchMedia(STRINGS.DARK_SCHEME_QUERY),
+        EVENTS.CHANGE,
         () => {
-          if (store.getters.getTheme() === 'system') {
-            store.commit('applyTheme')
+          if (store.getters.getTheme() === THEME.SYSTEM) {
+            store.commit(MUTATIONS.APPLY_THEME)
           }
         }
       )
@@ -136,8 +136,8 @@ export class AppRoot extends BaseComponent {
   }
 
   _updateModalState() {
-    const wrapper = this.$('[data-app-wrapper]')
-    const mainEl = this.$('#main-content')
+    const wrapper = this.$(`[${ATTRS.DATA_APP_WRAPPER}]`)
+    const mainEl = this.$(`#${IDS.MAIN_CONTENT}`)
     const modal = store.getters.getModal()
     const isOpen = !!modal?.open
 
@@ -152,21 +152,21 @@ export class AppRoot extends BaseComponent {
     if (modal?.open) {
       // Apply iOS Safari scroll lock: position:fixed on main prevents rubber-band scroll
       const scrollY = modal.transform || 0
-      document.documentElement.style.setProperty('--modal-top', `-${scrollY}px`)
+      document.documentElement.style.setProperty('--modal-top', `-${scrollY}${STRINGS.PX}`)
       if (mainEl) {
-        mainEl.style.position = 'fixed'
-        mainEl.style.top = `-${scrollY}px`
-        mainEl.style.width = '100%'
-        mainEl.style.left = '0'
+        mainEl.style.position = STRINGS.FIXED
+        mainEl.style.top = `-${scrollY}${STRINGS.PX}`
+        mainEl.style.width = STRINGS.PERCENT_100
+        mainEl.style.left = STRINGS.ZERO
       }
     } else {
       // Restore scroll position when modal closes
       if (mainEl) {
         const top = mainEl.style.top
-        mainEl.style.position = ''
-        mainEl.style.top = ''
-        mainEl.style.width = ''
-        mainEl.style.left = ''
+        mainEl.style.position = STRINGS.EMPTY
+        mainEl.style.top = STRINGS.EMPTY
+        mainEl.style.width = STRINGS.EMPTY
+        mainEl.style.left = STRINGS.EMPTY
         if (top) {
           const scrollY = Math.abs(parseInt(top, 10)) || 0
           window.scrollTo(0, scrollY)
@@ -178,25 +178,25 @@ export class AppRoot extends BaseComponent {
 
   initInputListeners() {
     const setTouch = () => {
-      if (store.getters.getInputMethod() !== 'touch') store.commit('setInputMethod', 'touch')
+      if (store.getters.getInputMethod() !== STRINGS.TOUCH) store.commit(MUTATIONS.SET_INPUT_METHOD, STRINGS.TOUCH)
     }
     const setPointer = () => {
-      if (store.getters.getInputMethod() !== 'pointer') store.commit('setInputMethod', 'pointer')
+      if (store.getters.getInputMethod() !== STRINGS.POINTER) store.commit(MUTATIONS.SET_INPUT_METHOD, STRINGS.POINTER)
     }
 
     if (window.PointerEvent) {
       this.addScopedListener(
         window,
-        'pointerdown',
+        EVENTS.POINTERDOWN,
         (e) => {
-          if (e.pointerType === 'touch') setTouch()
-          else if (e.pointerType === 'mouse' || e.pointerType === 'pen') setPointer()
+          if (e.pointerType === STRINGS.TOUCH) setTouch()
+          else if (e.pointerType === STRINGS.MOUSE || e.pointerType === STRINGS.PEN) setPointer()
         },
         { passive: true }
       )
     } else {
-      this.addScopedListener(window, 'touchstart', setTouch, { passive: true })
-      this.addScopedListener(window, 'mousedown', setPointer, { passive: true })
+      this.addScopedListener(window, EVENTS.TOUCHSTART, setTouch, { passive: true })
+      this.addScopedListener(window, EVENTS.MOUSEDOWN, setPointer, { passive: true })
     }
   }
 
@@ -212,26 +212,26 @@ export class AppRoot extends BaseComponent {
 
     if (!this.translations) {
       promises.push(
-        fetchFirebaseDb(`${dbpath}/APP`).then((snapshot) => {
+        fetchFirebaseDb(`${dbpath}${PATHS.SLASH}APP`).then((snapshot) => {
           if (snapshot.exists()) {
             this.translations = snapshot.val()
-            store.commit('setClickOrTap', {
+            store.commit(MUTATIONS.SET_CLICK_OR_TAP, {
               click: this.translations.actions?.click,
               tap: this.translations.actions?.tap,
             })
-            const nav = this.$('app-nav')
+            const nav = this.$(TAGS.APP_NAV)
             if (nav) nav.translations = this.translations
-            const cookie = this.$('cookie-banner')
+            const cookie = this.$(TAGS.COOKIE_BANNER)
             if (cookie) cookie.translations = this.translations
-            const pref = this.$('preferences-modal')
+            const pref = this.$(TAGS.PREFERENCES_MODAL)
             if (pref) pref.pref = this.translations.pref
 
             if (this.translations.carousel) {
-              store.commit('setCarouselLang', this.translations.carousel)
+              store.commit(MUTATIONS.SET_CAROUSEL_LANG, this.translations.carousel)
             }
 
             if (this.translations.statsHud) {
-              store.commit('setStatsHudLang', this.translations.statsHud)
+              store.commit(MUTATIONS.SET_STATS_HUD_LANG, this.translations.statsHud)
             }
           }
         })
@@ -240,9 +240,9 @@ export class AppRoot extends BaseComponent {
 
     if (!store.getters.getlang()?.components) {
       promises.push(
-        fetchFirebaseDb(`${dbpath}/components`).then((snapshot) => {
+        fetchFirebaseDb(`${dbpath}${PATHS.COMPONENTS}`).then((snapshot) => {
           if (snapshot.exists()) {
-            store.commit('setComponentLang', snapshot.val())
+            store.commit(MUTATIONS.SET_COMPONENT_LANG, snapshot.val())
           }
         })
       )
@@ -252,8 +252,8 @@ export class AppRoot extends BaseComponent {
   }
 
   updateSectionTops() {
-    const aboutEl = deepQuerySelector('#about')
-    const contactEl = deepQuerySelector('#contact')
+    const aboutEl = deepQuerySelector(`#${IDS.ABOUT}`)
+    const contactEl = deepQuerySelector(`#${IDS.CONTACT}`)
     if (aboutEl) {
       const rect = aboutEl.getBoundingClientRect()
       this._aboutTop = rect.top + window.scrollY - 250
@@ -270,12 +270,12 @@ export class AppRoot extends BaseComponent {
     this.onBottom = scrollH - y <= window.innerHeight + 200
 
     const isHomePage =
-      router.currentRoute?.name?.startsWith('Home') ||
-      router.currentRoute?.name?.startsWith('About') ||
-      router.currentRoute?.name?.startsWith('Contact')
+      router.currentRoute?.name?.startsWith(ROUTE_PREFIXES.HOME) ||
+      router.currentRoute?.name?.startsWith(ROUTE_PREFIXES.ABOUT) ||
+      router.currentRoute?.name?.startsWith(ROUTE_PREFIXES.CONTACT)
 
     if (!isHomePage) {
-      const nav = this.$('app-nav')
+      const nav = this.$(TAGS.APP_NAV)
       if (nav) nav.updateScrollState(this.activeSection, this.onBottom)
       return
     }
@@ -285,23 +285,23 @@ export class AppRoot extends BaseComponent {
 
     let newSection
     if (y >= contactTop || this.onBottom) {
-      newSection = 'contact'
+      newSection = SECTIONS.CONTACT
     } else if (y >= aboutTop) {
-      newSection = 'about'
+      newSection = SECTIONS.ABOUT
     } else {
-      newSection = 'home'
+      newSection = SECTIONS.HOME
     }
 
     if (this.activeSection !== newSection) {
       this.activeSection = newSection
     }
 
-    const nav = this.$('app-nav')
+    const nav = this.$(TAGS.APP_NAV)
     if (nav) nav.updateScrollState(this.activeSection, this.onBottom)
   }
 
   _updateViewContent(to) {
-    const outlet = this.$('#view-outlet')
+    const outlet = this.$(`#${IDS.VIEW_OUTLET}`)
     if (!outlet) return
 
     const current = outlet.firstElementChild
@@ -334,22 +334,22 @@ export class AppRoot extends BaseComponent {
 
     const outgoing = outlet.firstElementChild
 
-    outgoing.classList.add('page-fade-out')
+    outgoing.classList.add(CLASSES.PAGE_FADE_OUT)
 
     setTimeout(() => {
       const incoming = document.createElement(toTag)
 
-      incoming.classList.add('page-fade-in')
+      incoming.classList.add(CLASSES.PAGE_FADE_IN)
       outlet.replaceChildren(incoming)
 
       void incoming.offsetHeight
 
-      incoming.classList.remove('page-fade-in')
+      incoming.classList.remove(CLASSES.PAGE_FADE_IN)
     }, FADE_MS)
   }
 
   render() {
-    const modalClass = this.modal?.class || ''
+    const modalClass = this.modal?.class || STRINGS.EMPTY
     const AppNav = TAGS.APP_NAV
     const PreferencesModal = TAGS.PREFERENCES_MODAL
     const LangDialog = TAGS.LANG_DIALOG
@@ -359,15 +359,15 @@ export class AppRoot extends BaseComponent {
 
     return (
       <div data-app-wrapper className={modalClass}>
-        <div className={`progress-bar ${this.routeLoading ? 'progress-bar--active' : ''}`} />
+        <div className={`${CLASSES.PROGRESS_BAR} ${this.routeLoading ? CLASSES.PROGRESS_BAR_ACTIVE : STRINGS.EMPTY}`} />
 
         <AppNav />
 
         <PreferencesModal />
         <LangDialog />
 
-        <main id="main-content">
-          <div id="view-outlet">
+        <main id={IDS.MAIN_CONTENT}>
+          <div id={IDS.VIEW_OUTLET}>
             <CurrentView />
           </div>
         </main>
@@ -379,11 +379,11 @@ export class AppRoot extends BaseComponent {
   }
 
   onUpdated() {
-    const nav = this.$('app-nav')
+    const nav = this.$(TAGS.APP_NAV)
     if (nav) nav.translations = this.translations
-    const cookie = this.$('cookie-banner')
+    const cookie = this.$(TAGS.COOKIE_BANNER)
     if (cookie) cookie.translations = this.translations
-    const pref = this.$('preferences-modal')
+    const pref = this.$(TAGS.PREFERENCES_MODAL)
     if (pref) pref.pref = this.translations?.pref
     this._updateModalState()
   }

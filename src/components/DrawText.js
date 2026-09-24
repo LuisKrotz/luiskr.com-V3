@@ -1,22 +1,7 @@
 import drawTextStyles from '../sass/draw-text.scss?inline'
-import { ATTRS, CLASSES, SELECTORS, TAGS, STRINGS } from '../core/constants.js'
+import { ATTRS, CLASSES, SELECTORS, TAGS, STRINGS, MEDIA_DIMENSIONS } from '../core/constants.js'
 import { onScrollStop } from '../utils/scroll-state.js'
-
-const stripHtml = (s) => {
-  if (!s || typeof s !== STRINGS.STRING) return ATTRS.EMPTY
-
-  let prev
-
-  let curr = s
-
-  do {
-    prev = curr
-
-    curr = curr.replace(/<[^>]*>/g, ATTRS.EMPTY)
-  } while (curr !== prev)
-
-  return curr
-}
+import { stripHtml } from '../core/utils/string.js'
 
 export class DrawText extends HTMLElement {
   static get observedAttributes() {
@@ -52,7 +37,7 @@ export class DrawText extends HTMLElement {
   }
 
   get delay() {
-    return parseInt(this.getAttribute(ATTRS.DELAY) || '100', 10)
+    return parseInt(this.getAttribute(ATTRS.DELAY) || String(MEDIA_DIMENSIONS.DRAW_DEFAULT_DELAY), 10)
   }
 
   set delay(val) {
@@ -227,7 +212,7 @@ export class DrawText extends HTMLElement {
             })
           })
         },
-        { threshold: 0.05, rootMargin: ATTRS.ROOT_MARGIN_50 }
+        { threshold: MEDIA_DIMENSIONS.DRAW_OBSERVER_THRESHOLD, rootMargin: ATTRS.ROOT_MARGIN_50 }
       )
 
       this._observer.observe(this)
@@ -275,7 +260,7 @@ export class DrawText extends HTMLElement {
 
     const lastCharDelay = offset + Math.max(0, chars - 1) * delay
 
-    const totalMs = Math.min(lastCharDelay + 800, 2000)
+    const totalMs = Math.min(lastCharDelay + MEDIA_DIMENSIONS.DRAW_ANIM_EXTRA_MS, MEDIA_DIMENSIONS.DRAW_ANIM_MAX_MS)
 
     if (this._animTimer) clearTimeout(this._animTimer)
 
@@ -300,7 +285,7 @@ export class DrawText extends HTMLElement {
     const parseText = (str) => {
       const chunks = []
 
-      const parts = str.split(' ')
+      const parts = str.split(STRINGS.SPACE_CHAR)
 
       parts.forEach((part, idx) => {
         if (part.length) {
@@ -310,13 +295,13 @@ export class DrawText extends HTMLElement {
             chars.push({ ci: ci++, value: ch })
           }
 
-          chunks.push({ type: 'word', chars })
+          chunks.push({ type: STRINGS.TOKEN_WORD, chars })
         }
 
         if (idx < parts.length - 1) {
           ci++
 
-          chunks.push({ type: 'space' })
+          chunks.push({ type: STRINGS.TOKEN_SPACE })
         }
       })
 
@@ -331,7 +316,7 @@ export class DrawText extends HTMLElement {
 
     while ((match = regex.exec(text)) !== null) {
       if (match[1]) {
-        result.push({ type: 'br' })
+        result.push({ type: STRINGS.TOKEN_BR })
       } else if (match[2]) {
         const tag = match[3]
 
@@ -339,7 +324,7 @@ export class DrawText extends HTMLElement {
 
         const inner = match[5] || ATTRS.EMPTY
 
-        result.push({ type: 'tag', tag, attrStr, inner, chunks: parseText(inner) })
+        result.push({ type: STRINGS.TOKEN_TAG, tag, attrStr, inner, chunks: parseText(inner) })
       } else if (match[6]) {
         result.push(...parseText(match[6]))
       }
@@ -371,31 +356,31 @@ export class DrawText extends HTMLElement {
         )
         .join(ATTRS.EMPTY)
 
-      const wordDelay = Math.min(delay * 4, 120)
+      const wordDelay = Math.min(delay * 4, MEDIA_DIMENSIONS.DRAW_WORD_MAX_DELAY)
 
       return `<span class="${CLASSES.DRAW_TEXT_WORD}" aria-hidden="true" style="--wi: ${wordIdx}; --word-delay: ${wordDelay}ms; --offset: ${offset}ms;">${charsHtml}</span>`
     }
 
     const htmlParts = tokens.map((token) => {
-      if (token.type === 'br') return '<br aria-hidden="true" />'
+      if (token.type === STRINGS.TOKEN_BR) return '<br aria-hidden="true" />'
 
-      if (token.type === 'space') return `<span class="${CLASSES.DRAW_TEXT_SPACE}" aria-hidden="true">&nbsp;</span>`
+      if (token.type === STRINGS.TOKEN_SPACE) return `<span class="${CLASSES.DRAW_TEXT_SPACE}" aria-hidden="true">&nbsp;</span>`
 
-      if (token.type === 'word') return renderWord(token.chars)
+      if (token.type === STRINGS.TOKEN_WORD) return renderWord(token.chars)
 
-      if (token.type === 'tag') {
+      if (token.type === STRINGS.TOKEN_TAG) {
         const innerContent = token.chunks
           .map((chunk) => {
-            if (chunk.type === 'word') return renderWord(chunk.chars)
+            if (chunk.type === STRINGS.TOKEN_WORD) return renderWord(chunk.chars)
 
-            if (chunk.type === 'space') return `<span class="${CLASSES.DRAW_TEXT_SPACE}" aria-hidden="true">&nbsp;</span>`
+            if (chunk.type === STRINGS.TOKEN_SPACE) return `<span class="${CLASSES.DRAW_TEXT_SPACE}" aria-hidden="true">&nbsp;</span>`
 
             return ATTRS.EMPTY
           })
           .join(ATTRS.EMPTY)
 
         const labelAttr =
-          token.tag.toLowerCase() === 'a' && !token.attrStr.includes('aria-label')
+          token.tag.toLowerCase() === STRINGS.A_TAG && !token.attrStr.includes(ATTRS.ARIA_LABEL)
             ? ` aria-label="${stripHtml(token.inner || ATTRS.EMPTY)}"`
             : ATTRS.EMPTY
 

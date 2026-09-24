@@ -9,17 +9,17 @@ import '../components/cms/CmsProjectsList.js'
 import '../components/cms/CmsAboutEditor.js'
 import '../components/cms/CmsFooterEditor.js'
 import '../components/cms/CmsLangEditor.js'
-import { CLASSES, TAGS } from '../core/constants.js'
+import { CMS_CLASSES, CMS_TAGS, CMS_EVENTS } from '../core/cms/tokens.js'
+import { ATTRS, EVENTS, PATHS, STRINGS, TEXT } from '../core/constants.js'
 
 export class ViewCmsDashboard extends BaseComponent {
   constructor() {
     super(cmsStyles)
     this.activeTab = 'portfolio'
     this.user = null
-    this.toastMessage = ''
+    this.toastMessage = ATTRS.EMPTY
     this.toastTimer = null
     this.unsubscribe = null
-    this.languages = ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln']
   }
 
   async onMounted() {
@@ -27,14 +27,14 @@ export class ViewCmsDashboard extends BaseComponent {
     this.unsubscribe = await onAuthChange((currentUser) => {
       this.user = currentUser
       if (!currentUser) {
-        router.push('/admin')
+        router.push(`${PATHS.ROOT}admin`)
       } else {
         this._updateDom()
         this._bindEvents()
       }
     })
 
-    this.addScopedListener(this, 'notify', (e) => {
+    this.addScopedListener(this, CMS_EVENTS.NOTIFY, (e) => {
       if (e.detail) this.showNotification(e.detail)
     })
   }
@@ -46,33 +46,33 @@ export class ViewCmsDashboard extends BaseComponent {
 
   async handleLogout() {
     await logoutUser()
-    router.push('/admin')
+    router.push(`${PATHS.ROOT}admin`)
   }
 
   showNotification(msg) {
     this.toastMessage = msg
-    const toast = this.$(`.${CLASSES.CMS_TOAST}`)
+    const toast = this.$(`.${CMS_CLASSES.CMS_TOAST}`)
     if (toast) {
       toast.style.display = 'flex'
-      const txt = toast.querySelector(`.${CLASSES.TOAST_TEXT}`)
+      const txt = toast.querySelector(`.${CMS_CLASSES.TOAST_TEXT}`)
       if (txt) txt.textContent = msg
     }
     if (this.toastTimer) clearTimeout(this.toastTimer)
     this.toastTimer = setTimeout(() => {
-      this.toastMessage = ''
-      if (toast) toast.style.display = 'none'
+      this.toastMessage = ATTRS.EMPTY
+      if (toast) toast.style.display = STRINGS.NONE
     }, 3500)
   }
 
   _bindEvents() {
-    const logoutBtn = this.$(`.${CLASSES.CMS_LOGOUT_BTN}`)
+    const logoutBtn = this.$(`.${CMS_CLASSES.CMS_LOGOUT_BTN}`)
     if (logoutBtn) {
-      this.addScopedListener(logoutBtn, 'click', () => this.handleLogout())
+      this.addScopedListener(logoutBtn, EVENTS.CLICK, () => this.handleLogout())
     }
 
-    const tabs = this.$$(`.${CLASSES.CMS_TAB_BTN}`)
+    const tabs = this.$$(`.${CMS_CLASSES.CMS_TAB_BTN}`)
     tabs.forEach((tab) => {
-      this.addScopedListener(tab, 'click', () => {
+      this.addScopedListener(tab, EVENTS.CLICK, () => {
         const tabKey = tab.getAttribute('data-tab')
         if (tabKey && this.activeTab !== tabKey) {
           this.activeTab = tabKey
@@ -94,84 +94,84 @@ export class ViewCmsDashboard extends BaseComponent {
 
   render() {
     return (
-      <div className={CLASSES.CMS_CONTAINER}>
-        <header className={CLASSES.CMS_HEADER}>
-          <div className={CLASSES.CMS_BRAND}>
-            <span className={CLASSES.CMS_LOGO}>LUIS KRÖTZ</span>
-            <span className={CLASSES.CMS_BADGE}>CMS CONTROL PANEL</span>
+      <div className={CMS_CLASSES.CMS_CONTAINER}>
+        <header className={CMS_CLASSES.CMS_HEADER}>
+          <div className={CMS_CLASSES.CMS_BRAND}>
+            <span className={CMS_CLASSES.CMS_LOGO}>LUIS KRÖTZ</span>
+            <span className={CMS_CLASSES.CMS_BADGE}>CMS CONTROL PANEL</span>
           </div>
 
-          <div className={CLASSES.CMS_USER_INFO}>
+          <div className={CMS_CLASSES.CMS_USER_INFO}>
             {this.user?.photoURL ? (
               <img
                 src={this.user.photoURL}
                 alt="Avatar"
-                className={CLASSES.CMS_AVATAR}
+                className={CMS_CLASSES.CMS_AVATAR}
               />
             ) : null}
-            <span className={CLASSES.CMS_EMAIL}>
+            <span className={CMS_CLASSES.CMS_EMAIL}>
               {this.user?.email || 'Admin User'}
             </span>
-            <button className={CLASSES.CMS_LOGOUT_BTN} type="button">
-              Logout
+            <button className={CMS_CLASSES.CMS_LOGOUT_BTN} type={ATTRS.BUTTON}>
+              {TEXT.LOGOUT}
             </button>
           </div>
         </header>
 
-        <nav className={CLASSES.CMS_NAV_TABS}>
+        <nav className={CMS_CLASSES.CMS_NAV_TABS}>
           <button
-            className={`${CLASSES.CMS_TAB_BTN} ${this.activeTab === 'portfolio' ? 'active' : ''}`}
+            className={`${CMS_CLASSES.CMS_TAB_BTN} ${this.activeTab === 'portfolio' ? 'active' : ''}`}
             data-tab="portfolio"
-            type="button"
+            type={ATTRS.BUTTON}
           >
             🖼️ Homepage &amp; Portfolio
           </button>
           <button
-            className={`${CLASSES.CMS_TAB_BTN} ${this.activeTab === 'projects' ? 'active' : ''}`}
+            className={`${CMS_CLASSES.CMS_TAB_BTN} ${this.activeTab === 'projects' ? 'active' : ''}`}
             data-tab="projects"
-            type="button"
+            type={ATTRS.BUTTON}
           >
             📁 Project Case Studies
           </button>
           <button
-            className={`${CLASSES.CMS_TAB_BTN} ${this.activeTab === 'about' ? 'active' : ''}`}
+            className={`${CMS_CLASSES.CMS_TAB_BTN} ${this.activeTab === 'about' ? 'active' : ''}`}
             data-tab="about"
-            type="button"
+            type={ATTRS.BUTTON}
           >
             👤 About &amp; Gravatar
           </button>
           <button
-            className={`${CLASSES.CMS_TAB_BTN} ${this.activeTab === 'footer' ? 'active' : ''}`}
+            className={`${CMS_CLASSES.CMS_TAB_BTN} ${this.activeTab === 'footer' ? 'active' : ''}`}
             data-tab="footer"
-            type="button"
+            type={ATTRS.BUTTON}
           >
             🦶 Footers &amp; Contact
           </button>
           <button
-            className={`${CLASSES.CMS_TAB_BTN} ${this.activeTab === 'languages' ? 'active' : ''}`}
+            className={`${CMS_CLASSES.CMS_TAB_BTN} ${this.activeTab === 'languages' ? 'active' : ''}`}
             data-tab="languages"
-            type="button"
+            type={ATTRS.BUTTON}
           >
             🌐 Language Dictionary &amp; Keys
           </button>
         </nav>
 
-        <main className={CLASSES.CMS_MAIN_CONTENT}>
+        <main className={CMS_CLASSES.CMS_MAIN_CONTENT}>
           {this.renderTabComponent()}
         </main>
 
         <div
-          className={CLASSES.CMS_TOAST}
-          style={{ display: this.toastMessage ? 'flex' : 'none' }}
+          className={CMS_CLASSES.CMS_TOAST}
+          style={{ display: this.toastMessage ? 'flex' : STRINGS.NONE }}
         >
           <span>✨</span>
-          <span className={CLASSES.TOAST_TEXT}>{this.toastMessage}</span>
+          <span className={CMS_CLASSES.TOAST_TEXT}>{this.toastMessage}</span>
         </div>
       </div>
     )
   }
 }
 
-if (!customElements.get(TAGS.VIEW_CMS_DASHBOARD)) {
-  customElements.define(TAGS.VIEW_CMS_DASHBOARD, ViewCmsDashboard)
+if (!customElements.get(CMS_TAGS.VIEW_CMS_DASHBOARD)) {
+  customElements.define(CMS_TAGS.VIEW_CMS_DASHBOARD, ViewCmsDashboard)
 }

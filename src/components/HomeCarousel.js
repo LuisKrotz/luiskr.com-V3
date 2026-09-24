@@ -4,7 +4,7 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import { calcCarouselRingOffset } from '../utils/wasm-layout.js'
 import homeCarouselStyles from '../sass/home-carousel.scss?inline'
-import { CLASSES, TAGS, EVENTS, STRINGS, ATTRS } from '../core/constants.js'
+import { CLASSES, TAGS, EVENTS, STRINGS, ATTRS, TEXT } from '../core/constants.js'
 
 const CIRCUMFERENCE = 2 * Math.PI * 19
 
@@ -392,7 +392,7 @@ export class HomeCarousel extends BaseComponent {
                   key={idx}
                   type="button"
                   className={`${CLASSES.HC_DOT} ${this.currentIndex === idx ? CLASSES.HC_DOT_ACTIVE : ''}`}
-                  aria-label={`Go to slide ${idx + 1}`}
+                  aria-label={`${TEXT.GO_TO_SLIDE} ${idx + 1}`}
                 />
               ))}
             </div>

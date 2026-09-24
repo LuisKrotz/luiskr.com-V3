@@ -1,13 +1,16 @@
+import { CMS_CLASSES, CMS_TAGS, CMS_EVENTS } from "../../core/cms/tokens.js"
 import { BaseComponent } from '../../core/Component.js'
 import { getDbInstance } from '../../firebase.js'
 import { ref, child, get, set } from 'firebase/database'
+import { LOCALES, PATHS } from '../../core/constants.js'
+import { VALID_LANGS } from '../../core/i18n.js'
 import cmsStyles from '../../sass/cms.scss?inline'
 
 export class CmsLangEditor extends BaseComponent {
   constructor() {
     super(cmsStyles)
-    this.languages = ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln']
-    this.selectedLang = 'en'
+    this.languages = VALID_LANGS
+    this.selectedLang = LOCALES.EN
     this.jsonContent = ''
     this.saving = false
   }
@@ -19,7 +22,7 @@ export class CmsLangEditor extends BaseComponent {
   async loadData() {
     try {
       const db = await getDbInstance()
-      const snap = await get(child(ref(db), `translations/${this.selectedLang}/APP`))
+      const snap = await get(child(ref(db), `${PATHS.TRANSLATIONS}${this.selectedLang}/APP`))
       if (snap.exists()) {
         this.jsonContent = JSON.stringify(snap.val(), null, 2)
       } else {
@@ -38,9 +41,9 @@ export class CmsLangEditor extends BaseComponent {
       this.saving = true
       this._updateDom()
       const db = await getDbInstance()
-      await set(ref(db, `translations/${this.selectedLang}/APP`), parsed)
+      await set(ref(db, `${PATHS.TRANSLATIONS}${this.selectedLang}/APP`), parsed)
       this.dispatchEvent(
-        new CustomEvent('notify', {
+        new CustomEvent(CMS_EVENTS.NOTIFY, {
           bubbles: true,
           composed: true,
           detail: `Dictionary for [${this.selectedLang.toUpperCase()}] saved!`,
@@ -57,11 +60,11 @@ export class CmsLangEditor extends BaseComponent {
 
   _bindEvents() {
     const saveBtn = this.$('#btn-save-lang')
-    if (saveBtn) this.addScopedListener(saveBtn, 'click', () => this.saveData())
+    if (saveBtn) this.addScopedListener(saveBtn, EVENTS.CLICK, () => this.saveData())
 
     const langSel = this.$('#select-dict-lang')
     if (langSel) {
-      this.addScopedListener(langSel, 'change', (e) => {
+      this.addScopedListener(langSel, EVENTS.CHANGE, (e) => {
         this.selectedLang = e.target.value
         this.loadData()
       })
@@ -69,7 +72,7 @@ export class CmsLangEditor extends BaseComponent {
 
     const textarea = this.$('#json-editor')
     if (textarea) {
-      this.addScopedListener(textarea, 'input', (e) => {
+      this.addScopedListener(textarea, EVENTS.INPUT, (e) => {
         this.jsonContent = e.target.value
       })
     }
@@ -106,6 +109,6 @@ export class CmsLangEditor extends BaseComponent {
   }
 }
 
-if (!customElements.get('cms-lang-editor')) {
-  customElements.define('cms-lang-editor', CmsLangEditor)
+if (!customElements.get(CMS_TAGS.CMS_LANG_EDITOR)) {
+  customElements.define(CMS_TAGS.CMS_LANG_EDITOR, CmsLangEditor)
 }

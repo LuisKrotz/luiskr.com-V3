@@ -1,4 +1,4 @@
-import { THEME, STRINGS, ATTRS, URLS, STORAGE_KEYS, CLASSES, TAGS, EVENTS, MEDIA_QUERIES, PATHS, TEXT } from './constants.js'
+import { THEME, STRINGS, ATTRS, URLS, STORAGE_KEYS, CLASSES, TAGS, EVENTS, MEDIA_QUERIES, PATHS, TEXT, LOCALES } from './constants.js'
 
 // Pure Vanilla JS Reactive State Management
 export class Store {
@@ -8,12 +8,12 @@ export class Store {
     this.state = {
       clickortap: ATTRS.EMPTY,
       inputMethod:
-        typeof window !== STRINGS.UNDEFINED && 'ontouchstart' in window && !matchMedia(MEDIA_QUERIES.POINTER_FINE).matches
+        typeof window !== STRINGS.UNDEFINED && STRINGS.ONTOUCHSTART in window && !matchMedia(MEDIA_QUERIES.POINTER_FINE).matches
           ? ATTRS.TOUCH
           : ATTRS.POINTER,
       actionTextMap: { click: TEXT.CLICK_LABEL, tap: TEXT.TAP_LABEL },
       has_touch:
-        typeof window !== STRINGS.UNDEFINED && 'ontouchstart' in window && !matchMedia(MEDIA_QUERIES.POINTER_FINE).matches,
+        typeof window !== STRINGS.UNDEFINED && STRINGS.ONTOUCHSTART in window && !matchMedia(MEDIA_QUERIES.POINTER_FINE).matches,
       lang: {
         components: false,
         carousel:   { prev: TEXT.PREV_ITEM, next: TEXT.NEXT_ITEM, ofLabel: TEXT.OF },
@@ -21,10 +21,10 @@ export class Store {
         database: PATHS.TRANSLATIONS,
         loading: {
           msg1: TEXT.LOADING,
-          msg2: '...',
-          msg3: 'Gathering some data on the server ... Hold on just a second while the Websockets are working!',
+          msg2: TEXT.ELLIPSIS,
+          msg3: TEXT.MSG_LOADING_EN_WS,
         },
-        locale: (typeof localStorage !== STRINGS.UNDEFINED && localStorage.getItem(STORAGE_KEYS.LOCALE)) || 'en',
+        locale: (typeof localStorage !== STRINGS.UNDEFINED && localStorage.getItem(STORAGE_KEYS.LOCALE)) || LOCALES.EN,
         pagesPath: PATHS.PAGES,
         projectPath: PATHS.PROJECTS,
       },
@@ -292,21 +292,29 @@ export class Store {
         this.state.mentions = { title: TEXT.SOME_MENTIONS, items: null }
 
         const msgs = {
-          br: {
-            msg1: 'Carregando',
-            msg2: '...',
-            msg3: 'Buscando dados no servidor… Aguarde um momento!',
+          [LOCALES.BR]: {
+            msg1: TEXT.CARREGANDO,
+            msg2: TEXT.ELLIPSIS,
+            msg3: TEXT.MSG_LOADING_BR,
           },
-          es: { msg1: 'Cargando', msg2: '...', msg3: '¡Obteniendo datos del servidor… Un momento!' },
-          de: { msg1: 'Lädt', msg2: '...', msg3: 'Daten werden abgerufen… Bitte warten!' },
-          en: {
+          [LOCALES.ES]: {
+            msg1: TEXT.CARGANDO,
+            msg2: TEXT.ELLIPSIS,
+            msg3: TEXT.MSG_LOADING_ES,
+          },
+          [LOCALES.DE]: {
+            msg1: TEXT.LADT,
+            msg2: TEXT.ELLIPSIS,
+            msg3: TEXT.MSG_LOADING_DE,
+          },
+          [LOCALES.EN]: {
             msg1: TEXT.LOADING,
-            msg2: '...',
-            msg3: 'Gathering some data on the server … Hold on just a second!',
+            msg2: TEXT.ELLIPSIS,
+            msg3: TEXT.MSG_LOADING_EN,
           },
         }
 
-        Object.assign(this.state.lang.loading, msgs[payload] || msgs.en)
+        Object.assign(this.state.lang.loading, msgs[payload] || msgs[LOCALES.EN])
       },
       setMarqueeAmount: () => {},
       setModal: (payload) => {

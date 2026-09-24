@@ -1,1 +1,50 @@
+/* ==========================================================================
+   CSS ABBREVIATION DICTIONARY (MINIFIED RUNTIME MAPPINGS)
+   ==========================================================================
+   /* Class Name Mappings: */
+   /* .home-mosaic -> .hm */
+   /* .home-mosaic-item -> .hmi */
+   /* .home-mosaic-media -> .hmm */
+   /* .home-mosaic-bottom -> .hmb */
+   /* .home-mosaic-title -> .hmt */
+   /* .home-mosaic-desc -> .hmd */
+   /* .home-mosaic-details -> .hmdt */
+   /* .carousel-track -> .ct */
+   /* .carousel-slide -> .cs */
+   /* .carousel-controls -> .cc */
+   /* .render-media -> .rm */
+   /* .render-media--thumb -> .rmt */
+   /* .render-media--high -> .rmh */
+   /* .render-media--loaded -> .rml */
+   /* .internal-main -> .im */
+   /* .internal-main-item -> .imi */
+   /* .internal-description -> .id */
+   /* .internal-description-text -> .idt */
+   /* .draw-text -> .dt */
+   /* .draw-text__word -> .dtw */
+   /* .draw-text__char -> .dtc */
+   /* .draw-text__space -> .dts */
+   /* .draw-text--visible -> .dtv */
+   /* .draw-text--done -> .dtd */
+   /* .cookie-banner -> .cb */
+   /* .preferences-modal -> .pm */
+   /* .lang-dialog -> .ld */
+   /* CSS Variable Mappings: */
+   /* --bg-primary -> --bg-1 */
+   /* --bg-secondary -> --bg-2 */
+   /* --bg-dark -> --bg-d */
+   /* --bg-darker -> --bg-dr */
+   /* --text-primary -> --tx-1 */
+   /* --text-secondary -> --tx-2 */
+   /* --text-muted -> --tx-m */
+   /* --border-color -> --bd-c */
+   /* --space-xs -> --sp-xs */
+   /* --space-sm -> --sp-sm */
+   /* --space-md -> --sp-md */
+   /* --space-lg -> --sp-lg */
+   /* --space-xl -> --sp-xl */
+   /* --radius-sm -> --r-sm */
+   /* --radius-md -> --r-md */
+   /* --radius-lg -> --r-lg */
+   ========================================================================== */
 @supports not (aspect-ratio:1){.hc--selected .hc-controls{height:0;padding-top:43.75%}.hc--selected .hc-cover{height:0;padding-top:43.75%;position:relative}.hc--selected .hc-cover-img{width:100%;height:100%;position:absolute;inset:0}.hc--selected .hc-cover--skel{height:0;padding-top:43.75%}.related-mosaic-item{height:0;padding-bottom:62.5%}.skeleton--hero{height:0;padding-top:43.75%}}@media (width>=1023px){@supports not (aspect-ratio:1){.related-mosaic-item--featured{height:0;padding-bottom:56.25%}}}@supports not (contain:style){.internal-description{contain:none}}@supports not (container-type:inline-size){.home-mosaic-item{container-type:normal}}.internal-description{min-height:auto}

@@ -1,0 +1,41 @@
+/**
+ * @file @core/tokens/events.js
+ * @description Centralized DOM event name tokens.
+ */
+
+export const EVENTS = Object.freeze({
+  CLICK: 'click',
+  MOUSEENTER: 'mouseenter',
+  MOUSELEAVE: 'mouseleave',
+  MOUSEOVER: 'mouseover',
+  MOUSEOUT: 'mouseout',
+  MOUSEDOWN: 'mousedown',
+  MOUSEUP: 'mouseup',
+  SCROLL: 'scroll',
+  SCROLLEND: 'scrollend',
+  RESIZE: 'resize',
+  TOUCHSTART: 'touchstart',
+  TOUCHEND: 'touchend',
+  TOUCHMOVE: 'touchmove',
+  POINTERDOWN: 'pointerdown',
+  KEYDOWN: 'keydown',
+  KEYUP: 'keyup',
+  FOCUS: 'focus',
+  BLUR: 'blur',
+  CHANGE: 'change',
+  INPUT: 'input',
+  SUBMIT: 'submit',
+  TRANSITIONEND: 'transitionend',
+  ANIMATIONEND: 'animationend',
+  POPSTATE: 'popstate',
+  LOADEDDATA: 'loadeddata',
+  ERROR: 'error',
+  COOKIE_ACTION: 'cookieAction',
+  SLIDE_CHANGE: 'slidechange',
+  AUTOPLAY_STOP: 'autoplaystop',
+  AUTOPLAY_START: 'autoplaystart',
+  CANCEL: 'cancel',
+  CLOSE: 'close',
+  OPEN_LANG_DIALOG: 'open-lang-dialog',
+  OPEN_PREFERENCES_MODAL: 'open-preferences-modal',
+})

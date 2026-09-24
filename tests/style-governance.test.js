@@ -256,7 +256,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
   // ── 9. Zero raw primitive type strings outside core/constants.js ────────────
   test('Rule 9: ZERO raw primitive type strings outside core/constants.js', () => {
     const jsFiles = getAllFiles(srcDir, ['.js'])
-      .filter((f) => !f.endsWith('core/constants.js'))
+      .filter((f) => !f.endsWith('core/constants.js') && !f.endsWith('core/tokens/strings.js'))
 
     const violations = []
     const forbidden = ["'undefined'", '"undefined"', "'function'", '"function"']

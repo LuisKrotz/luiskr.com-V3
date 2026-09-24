@@ -1,13 +1,16 @@
+import { CMS_CLASSES, CMS_TAGS, CMS_EVENTS } from "../../core/cms/tokens.js"
 import { BaseComponent } from '../../core/Component.js'
 import { getDbInstance } from '../../firebase.js'
 import { ref, child, get, set } from 'firebase/database'
+import { LOCALES, PATHS, URLS, MEDIA_DIMENSIONS } from '../../core/constants.js'
+import { VALID_LANGS } from '../../core/i18n.js'
 import cmsStyles from '../../sass/cms.scss?inline'
 
 export class CmsPortfolioList extends BaseComponent {
   constructor() {
     super(cmsStyles)
-    this.languages = ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln']
-    this.selectedLang = 'en'
+    this.languages = VALID_LANGS
+    this.selectedLang = LOCALES.EN
     this.items = []
     this.saving = false
   }
@@ -19,12 +22,12 @@ export class CmsPortfolioList extends BaseComponent {
   getImagePreview(imgName) {
     if (!imgName) return ''
     if (imgName.startsWith('http')) return imgName
-    return `https://storage.googleapis.com/luiskr.com/public/_v3/covers/${imgName}.jpg`
+    return `${URLS.CDN_BASE}covers/${imgName}.jpg`
   }
 
   updateDim(item, prop, idx, val) {
     if (!Array.isArray(item[prop])) {
-      item[prop] = idx === 0 ? [val, '768'] : ['1920', val]
+      item[prop] = idx === 0 ? [val, MEDIA_DIMENSIONS.MOSAIC_MOBILE_WIDTH_STR] : [MEDIA_DIMENSIONS.FHD_WIDTH_STR, val]
     } else {
       item[prop][idx] = val
     }
@@ -34,8 +37,8 @@ export class CmsPortfolioList extends BaseComponent {
     try {
       const db = await getDbInstance()
       const [pSnap, rSnap] = await Promise.all([
-        get(child(ref(db), `translations/${this.selectedLang}/pages/HOME/portfoliolist`)),
-        get(child(ref(db), `translations/${this.selectedLang}/components/related/projects`)),
+        get(child(ref(db), `${PATHS.TRANSLATIONS}${this.selectedLang}/pages/HOME/portfoliolist`)),
+        get(child(ref(db), `${PATHS.TRANSLATIONS}${this.selectedLang}/components/related/projects`)),
       ])
 
       const relatedMap = {}
@@ -58,8 +61,8 @@ export class CmsPortfolioList extends BaseComponent {
           return {
             ...item,
             featured: isFeat,
-            width: Array.isArray(item.width) ? [...item.width] : ['1920', '768'],
-            height: Array.isArray(item.height) ? [...item.height] : ['913', '340'],
+            width: Array.isArray(item.width) ? [...item.width] : [MEDIA_DIMENSIONS.FHD_WIDTH_STR, MEDIA_DIMENSIONS.MOSAIC_MOBILE_WIDTH_STR],
+            height: Array.isArray(item.height) ? [...item.height] : [MEDIA_DIMENSIONS.MOSAIC_DESKTOP_HEIGHT_STR, MEDIA_DIMENSIONS.MOSAIC_MOBILE_HEIGHT_STR],
           }
         })
       } else {
@@ -79,8 +82,8 @@ export class CmsPortfolioList extends BaseComponent {
       image: 'default-cover',
       description: 'New project description.',
       featured: false,
-      width: ['1920', '768'],
-      height: ['913', '340'],
+      width: [MEDIA_DIMENSIONS.FHD_WIDTH_STR, MEDIA_DIMENSIONS.MOSAIC_MOBILE_WIDTH_STR],
+      height: [MEDIA_DIMENSIONS.MOSAIC_DESKTOP_HEIGHT_STR, MEDIA_DIMENSIONS.MOSAIC_MOBILE_HEIGHT_STR],
     })
     this._updateDom()
     this._bindEvents()
@@ -126,7 +129,7 @@ export class CmsPortfolioList extends BaseComponent {
       for (const lang of this.languages) {
         if (lang === this.selectedLang) continue
 
-        const pSnap = await get(child(ref(db), `translations/${lang}/pages/HOME/portfoliolist`))
+        const pSnap = await get(child(ref(db), `${PATHS.TRANSLATIONS}${lang}/pages/HOME/portfoliolist`))
         let targetItems = []
         if (pSnap.exists()) {
           const val = pSnap.val()
@@ -141,14 +144,14 @@ export class CmsPortfolioList extends BaseComponent {
             image: srcItem.image || '',
             link: srcItem.link || '',
             featured: srcItem.featured === true,
-            width: Array.isArray(srcItem.width) ? [...srcItem.width] : ['1920', '768'],
-            height: Array.isArray(srcItem.height) ? [...srcItem.height] : ['913', '340'],
+            width: Array.isArray(srcItem.width) ? [...srcItem.width] : [MEDIA_DIMENSIONS.FHD_WIDTH_STR, MEDIA_DIMENSIONS.MOSAIC_MOBILE_WIDTH_STR],
+            height: Array.isArray(srcItem.height) ? [...srcItem.height] : [MEDIA_DIMENSIONS.MOSAIC_DESKTOP_HEIGHT_STR, MEDIA_DIMENSIONS.MOSAIC_MOBILE_HEIGHT_STR],
           }
         })
 
-        await set(ref(db, `translations/${lang}/pages/HOME/portfoliolist`), merged)
+        await set(ref(db, `${PATHS.TRANSLATIONS}${lang}/pages/HOME/portfoliolist`), merged)
 
-        const rSnap = await get(child(ref(db), `translations/${lang}/components/related/projects`))
+        const rSnap = await get(child(ref(db), `${PATHS.TRANSLATIONS}${lang}/components/related/projects`))
         if (rSnap.exists()) {
           const rVal = rSnap.val()
           const rArr = Array.isArray(rVal) ? JSON.parse(JSON.stringify(rVal)) : Object.values(rVal)
@@ -159,12 +162,12 @@ export class CmsPortfolioList extends BaseComponent {
               featured: match ? match.featured === true : p.featured === true,
             }
           })
-          await set(ref(db, `translations/${lang}/components/related/projects`), updatedRelated)
+          await set(ref(db, `${PATHS.TRANSLATIONS}${lang}/components/related/projects`), updatedRelated)
         }
       }
 
       this.dispatchEvent(
-        new CustomEvent('notify', {
+        new CustomEvent(CMS_EVENTS.NOTIFY, {
           bubbles: true,
           composed: true,
           detail: `Non-localized images, dimensions & slugs synced across all ${this.languages.length} languages!`,
@@ -185,9 +188,9 @@ export class CmsPortfolioList extends BaseComponent {
     this._updateDom()
     try {
       const db = await getDbInstance()
-      await set(ref(db, `translations/${this.selectedLang}/pages/HOME/portfoliolist`), this.items)
+      await set(ref(db, `${PATHS.TRANSLATIONS}${this.selectedLang}/pages/HOME/portfoliolist`), this.items)
 
-      const rSnap = await get(child(ref(db), `translations/${this.selectedLang}/components/related/projects`))
+      const rSnap = await get(child(ref(db), `${PATHS.TRANSLATIONS}${this.selectedLang}/components/related/projects`))
       if (rSnap.exists()) {
         const rVal = rSnap.val()
         const rArr = Array.isArray(rVal) ? JSON.parse(JSON.stringify(rVal)) : Object.values(rVal)
@@ -198,11 +201,11 @@ export class CmsPortfolioList extends BaseComponent {
             featured: match ? match.featured === true : p.featured === true,
           }
         })
-        await set(ref(db, `translations/${this.selectedLang}/components/related/projects`), updatedRelated)
+        await set(ref(db, `${PATHS.TRANSLATIONS}${this.selectedLang}/components/related/projects`), updatedRelated)
       }
 
       this.dispatchEvent(
-        new CustomEvent('notify', {
+        new CustomEvent(CMS_EVENTS.NOTIFY, {
           bubbles: true,
           composed: true,
           detail: `Portfolio list for [${this.selectedLang.toUpperCase()}] saved successfully!`,
@@ -220,17 +223,17 @@ export class CmsPortfolioList extends BaseComponent {
 
   _bindEvents() {
     const addBtn = this.$('#btn-add-item')
-    if (addBtn) this.addScopedListener(addBtn, 'click', () => this.addNewItem())
+    if (addBtn) this.addScopedListener(addBtn, EVENTS.CLICK, () => this.addNewItem())
 
     const syncBtn = this.$('#btn-sync-items')
-    if (syncBtn) this.addScopedListener(syncBtn, 'click', () => this.syncNonLocalizedToAllLangs())
+    if (syncBtn) this.addScopedListener(syncBtn, EVENTS.CLICK, () => this.syncNonLocalizedToAllLangs())
 
     const saveBtn = this.$('#btn-save-items')
-    if (saveBtn) this.addScopedListener(saveBtn, 'click', () => this.savePortfolio())
+    if (saveBtn) this.addScopedListener(saveBtn, EVENTS.CLICK, () => this.savePortfolio())
 
     const langSelect = this.$('#select-lang')
     if (langSelect) {
-      this.addScopedListener(langSelect, 'change', (e) => {
+      this.addScopedListener(langSelect, EVENTS.CHANGE, (e) => {
         this.selectedLang = e.target.value
         this.loadLangPortfolio()
       })
@@ -238,8 +241,8 @@ export class CmsPortfolioList extends BaseComponent {
 
     this.$$('[data-action]').forEach((btn) => {
       const action = btn.getAttribute('data-action')
-      const idx = parseInt(btn.getAttribute('data-idx'), 10)
-      this.addScopedListener(btn, 'click', () => {
+      const idx = parseInt(btn.getAttribute(ATTRS.DATA_IDX), 10)
+      this.addScopedListener(btn, EVENTS.CLICK, () => {
         if (action === 'up') this.moveUp(idx)
         else if (action === 'down') this.moveDown(idx)
         else if (action === 'delete') this.removeItem(idx)
@@ -247,25 +250,25 @@ export class CmsPortfolioList extends BaseComponent {
     })
 
     this.$$('.item-field').forEach((input) => {
-      const idx = parseInt(input.getAttribute('data-idx'), 10)
+      const idx = parseInt(input.getAttribute(ATTRS.DATA_IDX), 10)
       const field = input.getAttribute('data-field')
-      this.addScopedListener(input, 'input', (e) => {
+      this.addScopedListener(input, EVENTS.INPUT, (e) => {
         if (this.items[idx]) this.items[idx][field] = e.target.value
       })
     })
 
     this.$$('.dim-field').forEach((input) => {
-      const idx = parseInt(input.getAttribute('data-idx'), 10)
+      const idx = parseInt(input.getAttribute(ATTRS.DATA_IDX), 10)
       const prop = input.getAttribute('data-prop')
       const dimIdx = parseInt(input.getAttribute('data-dim-idx'), 10)
-      this.addScopedListener(input, 'input', (e) => {
+      this.addScopedListener(input, EVENTS.INPUT, (e) => {
         if (this.items[idx]) this.updateDim(this.items[idx], prop, dimIdx, e.target.value)
       })
     })
 
     this.$$('.feat-select').forEach((sel) => {
-      const idx = parseInt(sel.getAttribute('data-idx'), 10)
-      this.addScopedListener(sel, 'change', (e) => {
+      const idx = parseInt(sel.getAttribute(ATTRS.DATA_IDX), 10)
+      this.addScopedListener(sel, EVENTS.CHANGE, (e) => {
         if (this.items[idx]) this.items[idx].featured = e.target.value === 'true'
       })
     })
@@ -376,19 +379,19 @@ export class CmsPortfolioList extends BaseComponent {
                   <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:0.9rem;">
                     <div class="cms-field-group">
                       <label style="font-size:0.75rem;">Desktop Width</label>
-                      <input class="cms-input dim-field" data-idx="${idx}" data-prop="width" data-dim-idx="0" value="${(item.width && item.width[0]) || '1920'}" />
+                      <input class="cms-input dim-field" data-idx="${idx}" data-prop="width" data-dim-idx="0" value="${(item.width && item.width[0]) || MEDIA_DIMENSIONS.FHD_WIDTH_STR}" />
                     </div>
                     <div class="cms-field-group">
                       <label style="font-size:0.75rem;">Mobile Width</label>
-                      <input class="cms-input dim-field" data-idx="${idx}" data-prop="width" data-dim-idx="1" value="${(item.width && item.width[1]) || '768'}" />
+                      <input class="cms-input dim-field" data-idx="${idx}" data-prop="width" data-dim-idx="1" value="${(item.width && item.width[1]) || MEDIA_DIMENSIONS.MOSAIC_MOBILE_WIDTH_STR}" />
                     </div>
                     <div class="cms-field-group">
                       <label style="font-size:0.75rem;">Desktop Height</label>
-                      <input class="cms-input dim-field" data-idx="${idx}" data-prop="height" data-dim-idx="0" value="${(item.height && item.height[0]) || '913'}" />
+                      <input class="cms-input dim-field" data-idx="${idx}" data-prop="height" data-dim-idx="0" value="${(item.height && item.height[0]) || MEDIA_DIMENSIONS.MOSAIC_DESKTOP_HEIGHT_STR}" />
                     </div>
                     <div class="cms-field-group">
                       <label style="font-size:0.75rem;">Mobile Height</label>
-                      <input class="cms-input dim-field" data-idx="${idx}" data-prop="height" data-dim-idx="1" value="${(item.height && item.height[1]) || '340'}" />
+                      <input class="cms-input dim-field" data-idx="${idx}" data-prop="height" data-dim-idx="1" value="${(item.height && item.height[1]) || MEDIA_DIMENSIONS.MOSAIC_MOBILE_HEIGHT_STR}" />
                     </div>
                   </div>
                 </div>
@@ -414,6 +417,6 @@ export class CmsPortfolioList extends BaseComponent {
   }
 }
 
-if (!customElements.get('cms-portfolio-list')) {
-  customElements.define('cms-portfolio-list', CmsPortfolioList)
+if (!customElements.get(CMS_TAGS.CMS_PORTFOLIO_LIST)) {
+  customElements.define(CMS_TAGS.CMS_PORTFOLIO_LIST, CmsPortfolioList)
 }

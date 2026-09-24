@@ -1,17 +1,30 @@
-export const VALID_LANGS = [
-  'en',
-  'br',
-  'es',
-  'de',
-  'hrk',
-  'cas',
-  'riv',
-  'gn',
-  'it',
-  'ru',
-  'fr',
-  'tln',
+import { STRINGS, LOCALES, PATHS } from './constants.js'
+
+const _RAW_LANG_OPTIONS = [
+  { code: LOCALES.EN, label: 'English', cc: 'us', flag: '🇺🇸' },
+  { code: LOCALES.BR, short: 'PT', label: 'Português (BR)', cc: 'br', flag: '🇧🇷' },
+  { code: LOCALES.ES, label: 'Español', cc: 'es', flag: '🇪🇸' },
+  { code: LOCALES.DE, label: 'Deutsch', cc: 'ch', cc2: 'de', flag: '🇩🇪' },
+  { code: LOCALES.HRK, label: 'Hunsrik', cc: 'de', cc2: 'br', flag: '🇧🇷' },
+  { code: LOCALES.CAS, label: 'Castellano', cc: 'ar', cc2: 'uy', flag: '🇦🇷' },
+  { code: LOCALES.RIV, label: 'Portuñol', cc: 'uy', cc2: 'br', flag: '🇺🇾' },
+  { code: LOCALES.GN, label: 'Guaraní', cc: 'py', flag: '🇵🇾' },
+  { code: LOCALES.IT, label: 'Italiano', cc: 'it', flag: '🇮🇹' },
+  { code: LOCALES.RU, label: 'Русский', cc: 'ru', flag: '🇷🇺' },
+  { code: LOCALES.FR, label: 'Français', cc: 'fr', flag: '🇫🇷' },
+  { code: LOCALES.TLN, label: 'Talian', cc: 'it', cc2: 'br', flag: '🇮🇹' },
 ]
+
+export const LANG_OPTIONS = Object.freeze(
+  _RAW_LANG_OPTIONS.map((item) => ({
+    ...item,
+    short: item.short || item.code.toUpperCase(),
+  }))
+)
+
+export const VALID_LANGS = Object.freeze(
+  LANG_OPTIONS.map((item) => item.code)
+)
 
 export const LANG_SLUGS = {
   en: {
@@ -100,33 +113,25 @@ export const LANG_SLUGS = {
   },
 }
 
-export const LANG_OPTIONS = [
-  { code: 'en',  short: 'EN',  label: 'English',          cc: 'us',                flag: '🇺🇸' },
-  { code: 'br',  short: 'PT',  label: 'Português (BR)',    cc: 'br',                flag: '🇧🇷' },
-  { code: 'es',  short: 'ES',  label: 'Español',           cc: 'es',                flag: '🇪🇸' },
-  { code: 'de',  short: 'DE',  label: 'Deutsch',           cc: 'ch', cc2: 'de',     flag: '🇩🇪' },
-  { code: 'hrk', short: 'HRK', label: 'Hunsrik',           cc: 'de', cc2: 'br',     flag: '🇧🇷' },
-  { code: 'cas', short: 'CAS', label: 'Castellano',        cc: 'ar', cc2: 'uy',     flag: '🇦🇷' },
-  { code: 'riv', short: 'RIV', label: 'Portuñol',          cc: 'uy', cc2: 'br',     flag: '🇺🇾' },
-  { code: 'gn',  short: 'GN',  label: 'Guaraní',           cc: 'py',                flag: '🇵🇾' },
-  { code: 'it',  short: 'IT',  label: 'Italiano',          cc: 'it',                flag: '🇮🇹' },
-  { code: 'ru',  short: 'RU',  label: 'Русский',           cc: 'ru',                flag: '🇷🇺' },
-  { code: 'fr',  short: 'FR',  label: 'Français',          cc: 'fr',                flag: '🇫🇷' },
-  { code: 'tln', short: 'TLN', label: 'Talian',            cc: 'it', cc2: 'br',     flag: '🇮🇹' },
-]
 
 export function detectLangFromPath(pathname) {
-  const segments = pathname.split('/').filter(Boolean)
+  const segments = pathname.split(STRINGS.SLASH).filter(Boolean)
+
   if (segments.length > 0 && VALID_LANGS.includes(segments[0])) {
     return segments[0]
   }
-  return 'en'
+
+  return LOCALES.EN
 }
 
-export function localePath(key, lang = 'en') {
-  const base = lang === 'en' ? '' : '/' + lang
-  if (!key) return base + '/'
+export function localePath(key, lang = LOCALES.EN) {
+  const base = lang === LOCALES.EN ? STRINGS.EMPTY : `${PATHS.ROOT}${lang}`
+
+  if (!key) return `${base}${PATHS.ROOT}`
+
   const slugs = LANG_SLUGS[lang] ?? LANG_SLUGS.en
+
   const slug = slugs[key] ?? key
-  return base + '/' + slug
+
+  return `${base}${PATHS.ROOT}${slug}`
 }

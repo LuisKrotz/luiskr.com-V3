@@ -1,0 +1,23 @@
+{
+  "name": "@core",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./tokens": "./tokens/index.js",
+    "./tokens/*": "./tokens/*.js",
+    "./utils": "./utils/index.js",
+    "./utils/*": "./utils/*.js",
+    "./cms": "./cms/tokens.js",
+    "./cms/*": "./cms/*.js",
+    "./constants": "./constants.js",
+    "./store": "./store.js",
+    "./router": "./router.js",
+    "./jsx": "./jsx.js",
+    "./i18n": "./i18n.js",
+    "./Component": "./Component.js",
+    "./predictive-loader": "./predictive-loader.js"
+  },
+  "sideEffects": false
+}

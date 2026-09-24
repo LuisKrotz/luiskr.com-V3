@@ -3,10 +3,12 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { compression } from 'vite-plugin-compression2'
 import { fileURLToPath, URL } from 'node:url'
 import { constants as zlibConstants } from 'node:zlib'
+import { cssManglePlugin } from './plugins/vite-plugin-css-mangle.js'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    cssManglePlugin(),
     compression({
       algorithm: 'brotliCompress',
       exclude: [/\.(br|gz)$/i],
@@ -125,6 +127,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@core': fileURLToPath(new URL('./src/core', import.meta.url)),
     },
   },
   css: {
@@ -154,6 +157,14 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
+          if (
+            id.includes('/src/components/cms/') ||
+            id.includes('/src/views/Cms') ||
+            id.includes('/src/views/AdminLogin') ||
+            id.includes('/src/core/cms/')
+          ) {
+            return 'cms-bundle'
+          }
           if (id.includes('node_modules')) {
             if (id.includes('firebase')) {
               return 'vendor-firebase'

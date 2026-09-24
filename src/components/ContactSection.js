@@ -1,6 +1,6 @@
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
-import { CLASSES } from '../core/constants.js'
+import { CLASSES, LOCALES, PATHS, TEXT, MUTATIONS, TAGS } from '../core/constants.js'
 import { h, Fragment } from '../core/jsx.js'
 import contactStyles from '../sass/contact.scss?inline'
 
@@ -15,12 +15,14 @@ export class ContactSection extends BaseComponent {
     this.subscribe(store)
     if (!store.getters.getlang()?.components?.contact) {
       const lang = store.getters.getlang()
-      const locale = lang?.locale || 'en'
-      const dbpath = `${lang?.database || 'translations/'}${locale}/components`
+      const locale = lang?.locale || LOCALES.EN
+
+      const dbpath = `${lang?.database || PATHS.TRANSLATIONS}${locale}/components`
+
       fetchFirebaseDb(dbpath)
         .then((snapshot) => {
           if (snapshot?.exists()) {
-            store.commit('setComponentLang', snapshot.val())
+            store.commit(MUTATIONS.SET_COMPONENT_LANG, snapshot.val())
           }
         })
         .catch(console.error)
@@ -36,19 +38,15 @@ export class ContactSection extends BaseComponent {
 
     if (!translations) {
       return (
-        <footer className={CLASSES.CONTACT}>
+      <footer className={CLASSES.CONTACT}>
           <h2 id="contact" className={CLASSES.CONTACT_TITLE}>
             <span aria-hidden="true" className={`${CLASSES.SKELETON_SHIMMER} ${CLASSES.SKELETON_TITLE_SM}`} />
-            <span className="sr-only">Contact</span>
+            <span className={CLASSES.SR_ONLY}>{TEXT.CONTACT}</span>
           </h2>
           <div className={CLASSES.CONTACT_SOCIAL}>
-            <span className={`${CLASSES.CONTACT_SOCIAL_LINK} ${CLASSES.SKELETON_FOOTER_LINK}`} />
-            <span className={CLASSES.CONTACT_SEPARATOR}>•</span>
-            <span className={`${CLASSES.CONTACT_SOCIAL_LINK} ${CLASSES.SKELETON_FOOTER_LINK}`} />
-            <span className={CLASSES.CONTACT_SEPARATOR}>•</span>
-            <span className={`${CLASSES.CONTACT_SOCIAL_LINK} ${CLASSES.SKELETON_FOOTER_LINK}`} />
-            <span className={CLASSES.CONTACT_SEPARATOR}>•</span>
-            <span className={`${CLASSES.CONTACT_SOCIAL_LINK} ${CLASSES.SKELETON_FOOTER_LINK}`} />
+            {Array.from({ length: 4 }, (_, i) => (
+              <span key={i} className={`${CLASSES.CONTACT_SOCIAL_LINK} ${CLASSES.SKELETON_FOOTER_LINK}`} />
+            ))}
           </div>
         </footer>
       )
@@ -59,7 +57,7 @@ export class ContactSection extends BaseComponent {
     return (
       <footer className={CLASSES.CONTACT}>
         <h2 id="contact" className={CLASSES.CONTACT_TITLE}>
-          <span>{translations.title || 'Contact'}</span>
+          <span>{translations.title || TEXT.CONTACT}</span>
         </h2>
         <div className={CLASSES.CONTACT_SOCIAL}>
           {line1.map((item, n) => (
@@ -83,6 +81,6 @@ export class ContactSection extends BaseComponent {
   }
 }
 
-if (!customElements.get('contact-section')) {
-  customElements.define('contact-section', ContactSection)
+if (!customElements.get(TAGS.CONTACT_SECTION)) {
+  customElements.define(TAGS.CONTACT_SECTION, ContactSection)
 }

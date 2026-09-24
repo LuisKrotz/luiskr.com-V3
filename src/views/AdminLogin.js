@@ -4,13 +4,14 @@ import { BaseComponent } from '../core/Component.js'
 import router from '../core/router.js'
 import { signInWithGoogle, onAuthChange } from '../firebase.js'
 import cmsStyles from '../sass/cms.scss?inline'
-import { CLASSES, TAGS } from '../core/constants.js'
+import { CMS_CLASSES, CMS_TAGS } from '../core/cms/tokens.js'
+import { ATTRS, EVENTS, PATHS } from '../core/constants.js'
 
 export class ViewAdminLogin extends BaseComponent {
   constructor() {
     super(cmsStyles)
     this.loading = false
-    this.errorMsg = ''
+    this.errorMsg = ATTRS.EMPTY
     this.unsubscribe = null
     this._loginInProgress = false
   }
@@ -19,7 +20,7 @@ export class ViewAdminLogin extends BaseComponent {
     this._bindEvents()
     this.unsubscribe = await onAuthChange((user) => {
       if (user) {
-        router.push('/cms')
+        router.push(`${PATHS.ROOT}cms`)
       }
     })
   }
@@ -32,9 +33,9 @@ export class ViewAdminLogin extends BaseComponent {
   }
 
   _bindEvents() {
-    const btn = this.$(`.${CLASSES.GOOGLE_AUTH_BTN}`)
+    const btn = this.$(`.${CMS_CLASSES.GOOGLE_AUTH_BTN}`)
     if (btn) {
-      this.addScopedListener(btn, 'click', () => this.handleGoogleLogin())
+      this.addScopedListener(btn, EVENTS.CLICK, () => this.handleGoogleLogin())
     }
   }
 
@@ -43,19 +44,19 @@ export class ViewAdminLogin extends BaseComponent {
     if (this._loginInProgress) return
     this._loginInProgress = true
     this.loading = true
-    this.errorMsg = ''
+    this.errorMsg = ATTRS.EMPTY
     this._updateDom()
     this._bindEvents()
 
     try {
       const result = await signInWithGoogle()
       if (result?.user) {
-        router.push('/cms')
+        router.push(`${PATHS.ROOT}cms`)
       }
     } catch (err) {
       // Suppress cancelled-popup noise (user closed the popup)
       if (err?.code === 'auth/cancelled-popup-request' || err?.code === 'auth/popup-closed-by-user') {
-        this.errorMsg = ''
+        this.errorMsg = ATTRS.EMPTY
       } else {
         console.error('Google Sign-In Error:', err)
         this.errorMsg = err.message || 'Failed to sign in with Google.'
@@ -72,20 +73,20 @@ export class ViewAdminLogin extends BaseComponent {
 
   render() {
     return (
-      <div className={CLASSES.ADMIN_LOGIN_WRAPPER}>
-        <div className={CLASSES.ADMIN_LOGIN_CARD}>
-          <h1 className={CLASSES.ADMIN_TITLE}>Luis Krötz CMS</h1>
-          <p className={CLASSES.ADMIN_SUBTITLE}>
+      <div className={CMS_CLASSES.ADMIN_LOGIN_WRAPPER}>
+        <div className={CMS_CLASSES.ADMIN_LOGIN_CARD}>
+          <h1 className={CMS_CLASSES.ADMIN_TITLE}>Luis Krötz CMS</h1>
+          <p className={CMS_CLASSES.ADMIN_SUBTITLE}>
             Sign in to manage portfolio content, projects &amp; translations
           </p>
 
           <button
-            className={CLASSES.GOOGLE_AUTH_BTN}
+            className={CMS_CLASSES.GOOGLE_AUTH_BTN}
             disabled={this.loading}
-            type="button"
+            type={ATTRS.BUTTON}
             onClick={() => this.handleGoogleLogin()}
           >
-            <svg className={CLASSES.GOOGLE_ICON} viewBox="0 0 24 24" width="20" height="20">
+            <svg className={CMS_CLASSES.GOOGLE_ICON} viewBox="0 0 24 24" width="20" height="20">
               <path
                 fill="#4285F4"
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -107,7 +108,7 @@ export class ViewAdminLogin extends BaseComponent {
           </button>
 
           {this.errorMsg ? (
-            <div className={CLASSES.ADMIN_ERROR_MSG}>{this.errorMsg}</div>
+            <div className={CMS_CLASSES.ADMIN_ERROR_MSG}>{this.errorMsg}</div>
           ) : null}
         </div>
       </div>
@@ -115,6 +116,6 @@ export class ViewAdminLogin extends BaseComponent {
   }
 }
 
-if (!customElements.get(TAGS.VIEW_ADMIN_LOGIN)) {
-  customElements.define(TAGS.VIEW_ADMIN_LOGIN, ViewAdminLogin)
+if (!customElements.get(CMS_TAGS.VIEW_ADMIN_LOGIN)) {
+  customElements.define(CMS_TAGS.VIEW_ADMIN_LOGIN, ViewAdminLogin)
 }

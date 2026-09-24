@@ -3,7 +3,23 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
 import { LANG_OPTIONS, LANG_SLUGS } from '../core/i18n.js'
-import { TAGS, STRINGS, CLASSES, ATTRS, EVENTS, KEYS, URLS, MEDIA_DIMENSIONS } from '../core/constants.js'
+import {
+  TAGS,
+  STRINGS,
+  CLASSES,
+  ATTRS,
+  EVENTS,
+  KEYS,
+  URLS,
+  MEDIA_DIMENSIONS,
+  LOCALES,
+  MUTATIONS,
+  TEXT,
+  PATHS,
+  ROUTE_PREFIXES,
+  CMS_KEYS,
+  IDS,
+} from '../core/constants.js'
 import preferencesStyles from '../sass/preferences.scss?inline'
 
 export class LangDialog extends BaseComponent {
@@ -14,7 +30,7 @@ export class LangDialog extends BaseComponent {
 
   set open(val) {
     this._isOpen = !!val
-    store.commit('toggleLangDialog', this._isOpen)
+    store.commit(MUTATIONS.TOGGLE_LANG_DIALOG, this._isOpen)
     if (this._isMounted) {
       this._updateDom()
       this._bindEvents()
@@ -41,18 +57,18 @@ export class LangDialog extends BaseComponent {
     this.subscribe(store)
     this._syncOpenState()
     this._bindEvents()
-    this.addScopedListener(window, 'open-lang-dialog', () => {
+    this.addScopedListener(window, EVENTS.OPEN_LANG_DIALOG, () => {
       this.open = true
     })
   }
 
   _syncOpenState() {
     if (this.isOpen) {
-      this.setAttribute('open', '')
-      this.classList.add('is-open')
+      this.setAttribute(ATTRS.OPEN, ATTRS.EMPTY)
+      this.classList.add(CLASSES.IS_OPEN)
     } else {
-      this.removeAttribute('open')
-      this.classList.remove('is-open')
+      this.removeAttribute(ATTRS.OPEN)
+      this.classList.remove(CLASSES.IS_OPEN)
     }
   }
 
@@ -62,7 +78,7 @@ export class LangDialog extends BaseComponent {
     this._bindEvents()
     if (this.isOpen) {
       requestAnimationFrame(() => {
-        const backdrop = this.$('.pref-backdrop')
+        const backdrop = this.$(`.${CLASSES.PREF_BACKDROP}`)
         if (backdrop) backdrop.focus()
       })
     }
@@ -100,7 +116,7 @@ export class LangDialog extends BaseComponent {
 
   close() {
     this._isOpen = false
-    store.commit('toggleLangDialog', false)
+    store.commit(MUTATIONS.TOGGLE_LANG_DIALOG, false)
     this._syncOpenState()
     this.dispatchEvent(new CustomEvent(EVENTS.CLOSE))
   }
@@ -111,24 +127,24 @@ export class LangDialog extends BaseComponent {
     if (currentLang === newLang) return
 
     const route = router.currentRoute
-    const routeName = route?.name || ''
-    const s = LANG_SLUGS[newLang] || LANG_SLUGS.en
-    const base = newLang === 'en' ? '' : '/' + newLang
+    const routeName = route?.name || ATTRS.EMPTY
+    const s = LANG_SLUGS[newLang] || LANG_SLUGS[LOCALES.EN]
+    const base = newLang === LOCALES.EN ? ATTRS.EMPTY : `${PATHS.ROOT}${newLang}`
 
     let newPath
-    if (routeName.startsWith('Home')) newPath = base + '/'
-    else if (routeName.startsWith('About')) newPath = base + '/' + s.about
-    else if (routeName.startsWith('Contact')) newPath = base + '/' + s.contact
-    else if (routeName.startsWith('Privacy')) newPath = base + '/' + s.privacy
-    else if (routeName.startsWith('GDPR')) newPath = base + '/' + s.gdpr
-    else if (routeName.startsWith('Terms')) newPath = base + '/' + s.terms
+    if (routeName.startsWith(ROUTE_PREFIXES.HOME)) newPath = `${base}${PATHS.ROOT}`
+    else if (routeName.startsWith(ROUTE_PREFIXES.ABOUT)) newPath = `${base}${PATHS.ROOT}${s.about}`
+    else if (routeName.startsWith(ROUTE_PREFIXES.CONTACT)) newPath = `${base}${PATHS.ROOT}${s.contact}`
+    else if (routeName.startsWith(ROUTE_PREFIXES.PRIVACY)) newPath = `${base}${PATHS.ROOT}${s.privacy}`
+    else if (routeName.startsWith(ROUTE_PREFIXES.GDPR)) newPath = `${base}${PATHS.ROOT}${s.gdpr}`
+    else if (routeName.startsWith(ROUTE_PREFIXES.TERMS)) newPath = `${base}${PATHS.ROOT}${s.terms}`
     else {
       // Project pages: strip language prefix if present
-      const rawPath = window.location.pathname.replace(/^\/([a-z]{2,3})(\/|$)/, '/')
-      newPath = base + (rawPath.startsWith('/') ? rawPath : '/' + rawPath)
+      const rawPath = window.location.pathname.replace(/^\/([a-z]{2,3})(\/|$)/, PATHS.ROOT)
+      newPath = base + (rawPath.startsWith(PATHS.ROOT) ? rawPath : `${PATHS.ROOT}${rawPath}`)
     }
 
-    store.commit('setLang', newLang)
+    store.commit(MUTATIONS.SET_LANG, newLang)
     router.push(newPath)
   }
 
@@ -136,22 +152,30 @@ export class LangDialog extends BaseComponent {
     if (!this.isOpen) return null
 
     const currentLocale = store.getters.getLang()
+    const compLang = store.getters.getlang()?.components?.[CMS_KEYS.LANG_DIALOG] || {}
+    const dialogTitle = compLang.title || TEXT.LANGUAGE
+    const closeLabel = compLang.close || TEXT.CLOSE_LANG_SELECTOR
 
     return (
       <div
-        className="pref-backdrop"
-        tabIndex="-1"
+        className={CLASSES.PREF_BACKDROP}
+        tabIndex={STRINGS.MINUS_ONE}
         onClick={(e) => {
           if (e.target === e.currentTarget) this.close()
         }}
       >
-        <div className="pref-dialog lang-dialog" role="dialog" aria-modal="true" aria-labelledby="lang-dialog-title">
-          <header className="pref-header">
-            <h2 id="lang-dialog-title" className="pref-title">Language</h2>
+        <div
+          className={`${CLASSES.PREF_DIALOG} ${CLASSES.LANG_DIALOG}`}
+          role={ATTRS.ROLE_DIALOG}
+          aria-modal={ATTRS.TRUE}
+          aria-labelledby={IDS.LANG_DIALOG_TITLE}
+        >
+          <header className={CLASSES.PREF_HEADER}>
+            <h2 id={IDS.LANG_DIALOG_TITLE} className={CLASSES.PREF_TITLE}>{dialogTitle}</h2>
             <button
-              className="pref-close-btn"
-              aria-label="Close language selector"
-              type="button"
+              className={CLASSES.PREF_CLOSE_BTN}
+              aria-label={closeLabel}
+              type={ATTRS.BUTTON}
               onClick={() => this.close()}
             >
               ✕
@@ -163,12 +187,12 @@ export class LangDialog extends BaseComponent {
               {LANG_OPTIONS.map((l) => (
                 <button
                   key={l.code}
-                  className={`${CLASSES.PREF_OPTION_BTN} ${currentLocale === l.code ? CLASSES.ACTIVE : ''}`}
+                  className={`${CLASSES.PREF_OPTION_BTN} ${currentLocale === l.code ? CLASSES.ACTIVE : ATTRS.EMPTY}`}
                   data-lang={l.code}
-                  type="button"
+                  type={ATTRS.BUTTON}
                   onClick={() => this.selectLang(l.code)}
                 >
-                  <span className={CLASSES.PREF_OPTION_ICON} aria-hidden="true">
+                  <span className={CLASSES.PREF_OPTION_ICON} aria-hidden={ATTRS.TRUE}>
                     {l.cc2 ? (
                       <span className={CLASSES.FLAG_SPLIT}>
                         <img
@@ -183,7 +207,7 @@ export class LangDialog extends BaseComponent {
                         <img
                           className={CLASSES.FLAG_IMG}
                           src={`${URLS.FLAG_CDN}${l.cc2}.svg`}
-                          alt=""
+                          alt={ATTRS.EMPTY}
                           width={MEDIA_DIMENSIONS.FLAG_DIALOG_SPLIT_WIDTH}
                           height={MEDIA_DIMENSIONS.FLAG_DIALOG_HEIGHT}
                           decoding={ATTRS.DECODING_ASYNC}

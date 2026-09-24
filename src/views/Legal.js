@@ -2,7 +2,7 @@ import { h } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
-import { CLASSES, TAGS, STRINGS, ATTRS } from '../core/constants.js'
+import { CLASSES, TAGS, STRINGS, ATTRS, TRANSLATION_KEYS, LOCALES } from '../core/constants.js'
 import { fetchFirebaseDb } from '../utils/db.js'
 import internalStyles from '../sass/internals.scss?inline'
 import awardsFooterStyles from '../sass/awards-footer.scss?inline'
@@ -63,9 +63,11 @@ export class ViewLegal extends BaseComponent {
     if (route?.meta?.title) {
       document.title = route.meta.title
     }
-    const translationKey = route?.meta?.translation || 'privacy-policy'
+    const translationKey = route?.meta?.translation || TRANSLATION_KEYS.PRIVACY_POLICY
+
     const lang = store.getters.getlang()
-    const currentLocale = lang.locale || 'en'
+
+    const currentLocale = lang.locale || LOCALES.EN
     this._lastLocale = currentLocale
 
     const dbpath = `${lang.database}${currentLocale}${lang.pagesPath}${translationKey}`

@@ -87,6 +87,40 @@
   // Font stacks
   --font-mono: #{$font-mono};
   --font-primary: 'Raleway', sans-serif;
+
+  /* Abbreviated CSS custom property mappings for optimized footprint */
+  /* --bg-primary -> --bg-1 */
+  --bg-1: var(--bg-primary);
+  /* --bg-secondary -> --bg-2 */
+  --bg-2: var(--bg-secondary);
+  /* --bg-dark -> --bg-d */
+  --bg-d: var(--bg-dark);
+  /* --bg-darker -> --bg-dr */
+  --bg-dr: var(--bg-darker);
+  /* --text-primary -> --tx-1 */
+  --tx-1: var(--text-primary);
+  /* --text-secondary -> --tx-2 */
+  --tx-2: var(--text-secondary);
+  /* --text-muted -> --tx-m */
+  --tx-m: var(--text-muted);
+  /* --border-color -> --bd-c */
+  --bd-c: var(--border-color);
+  /* --space-xs -> --sp-xs */
+  --sp-xs: var(--space-xs);
+  /* --space-sm -> --sp-sm */
+  --sp-sm: var(--space-sm);
+  /* --space-md -> --sp-md */
+  --sp-md: var(--space-md);
+  /* --space-lg -> --sp-lg */
+  --sp-lg: var(--space-lg);
+  /* --space-xl -> --sp-xl */
+  --sp-xl: var(--space-xl);
+  /* --radius-sm -> --r-sm */
+  --r-sm: var(--radius-sm);
+  /* --radius-md -> --r-md */
+  --r-md: var(--radius-md);
+  /* --radius-lg -> --r-lg */
+  --r-lg: var(--radius-lg);
 }
 
 html {

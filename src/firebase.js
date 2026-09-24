@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { STRINGS, ATTRS } from './core/constants.js'
+import { STRINGS, ATTRS, URLS, STORAGE_KEYS } from './core/constants.js'
 
 const getApiKey = () => {
   if (typeof import.meta !== STRINGS.UNDEFINED && import.meta.env && import.meta.env.VITE_FIREBASE_API_KEY) {
@@ -14,7 +14,7 @@ const getApiKey = () => {
 const firebaseConfig = {
   apiKey: getApiKey(),
   authDomain: 'luiskr-com.firebaseapp.com',
-  databaseURL: 'https://luiskr-com.firebaseio.com',
+  databaseURL: URLS.FIREBASE_DB,
   projectId: 'luiskr-com',
   storageBucket: 'luiskr-com.appspot.com',
   messagingSenderId: '967717102790',
@@ -108,7 +108,7 @@ export async function fetchFirebaseDb(path) {
 
   // Fast sessionStorage cache lookup for zero latency
   try {
-    const cached = sessionStorage.getItem(`fb_cache_${cleanPath}`)
+    const cached = sessionStorage.getItem(STORAGE_KEYS.SESSION_FB_CACHE_PREFIX + cleanPath)
     if (cached) {
       const data = JSON.parse(cached)
       const cachedResult = Promise.resolve({
@@ -129,7 +129,7 @@ export async function fetchFirebaseDb(path) {
       const data = await res.json()
       try {
         if (data !== null && data !== undefined) {
-          sessionStorage.setItem(`fb_cache_${cleanPath}`, JSON.stringify(data))
+          sessionStorage.setItem(STORAGE_KEYS.SESSION_FB_CACHE_PREFIX + cleanPath, JSON.stringify(data))
         }
       } catch {
         /* ignore */

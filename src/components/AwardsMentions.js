@@ -2,31 +2,31 @@ import { h, Fragment } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
-import { CLASSES, EVENTS, STRINGS } from '../core/constants.js'
+import { CLASSES, EVENTS, STRINGS, TEXT, LOCALES, PATHS, MUTATIONS, TAGS } from '../core/constants.js'
 import awardsFooterStyles from '../sass/awards-footer.scss?inline'
 import './HomeCarousel.js'
 
 import { fetchFirebaseDb } from '../utils/db.js'
 
-const DEFAULT_LEGAL_LINKS = [
-  { link: '/privacy-policy', page: 'Privacy Policy' },
-  { link: '/gdpr', page: 'GDPR' },
-  { link: '/terms-of-use', page: 'Terms of Use' },
-]
+const DEFAULT_LEGAL_LINKS = Object.freeze([
+  { link: PATHS.PRIVACY_POLICY, page: TEXT.PRIVACY_POLICY },
+  { link: PATHS.GDPR, page: TEXT.GDPR },
+  { link: PATHS.TERMS_OF_USE, page: TEXT.TERMS_OF_USE },
+])
 
 import { getFallbackLegalLinks } from './legal/Footer.js'
 
 export class AwardsMentions extends BaseComponent {
   constructor() {
     super(awardsFooterStyles)
-    this._title = 'Some mentions'
+    this._title = TEXT.SOME_MENTIONS
     this._items = null
     this._lastLocale = null
     this._duration = 10000
   }
 
   set title(val) {
-    const newTitle = val || 'Some mentions'
+    const newTitle = val || TEXT.SOME_MENTIONS
     if (this._title === newTitle) return
     this._title = newTitle
     if (this._isMounted) this._updateDom()
@@ -82,12 +82,14 @@ export class AwardsMentions extends BaseComponent {
 
   _ensureData() {
     const lang = store.getters.getlang()
-    const locale = lang?.locale || 'en'
-    const dbpath = `${lang?.database || 'translations/'}${locale}/components`
+    const locale = lang?.locale || LOCALES.EN
+
+    const dbpath = `${lang?.database || PATHS.TRANSLATIONS}${locale}/components`
+
     fetchFirebaseDb(dbpath)
       .then((snapshot) => {
         if (snapshot?.exists()) {
-          store.commit('setComponentLang', snapshot.val())
+          store.commit(MUTATIONS.SET_COMPONENT_LANG, snapshot.val())
         }
       })
       .catch(console.error)
@@ -163,7 +165,7 @@ export class AwardsMentions extends BaseComponent {
 
   _bindLinks() {
     // Delegated click handler on shadowRoot: handles all legal links across DOM re-renders
-    this.addScopedListener(this.shadowRoot, 'click', (e) => {
+    this.addScopedListener(this.shadowRoot, EVENTS.CLICK, (e) => {
       const path = typeof e.composedPath === STRINGS.FUNCTION ? e.composedPath() : []
       const a =
         (e.target instanceof Element ? e.target : e.target?.parentElement)?.closest(`.${CLASSES.AWARDS_FOOTER_ITEM}`) ||
@@ -223,6 +225,6 @@ export class AwardsMentions extends BaseComponent {
   }
 }
 
-if (!customElements.get('awards-mentions')) {
-  customElements.define('awards-mentions', AwardsMentions)
+if (!customElements.get(TAGS.AWARDS_MENTIONS)) {
+  customElements.define(TAGS.AWARDS_MENTIONS, AwardsMentions)
 }

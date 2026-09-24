@@ -6,7 +6,17 @@ import router from '../core/router.js'
 import { fetchFirebaseDb } from '../utils/db.js'
 import notFoundStyles from '../sass/not-found.scss?inline'
 import '../components/DrawText.js'
-import { CLASSES, TAGS } from '../core/constants.js'
+import {
+  CLASSES,
+  TAGS,
+  STRINGS,
+  LOCALES,
+  PATHS,
+  EVENTS,
+  IDS,
+  ATTRS,
+  TEXT,
+} from '../core/constants.js'
 
 export class ViewNotFound extends BaseComponent {
   constructor() {
@@ -15,18 +25,18 @@ export class ViewNotFound extends BaseComponent {
   }
 
   get emojiLine() {
-    if (!this.translations?.title) return ''
-    return this.translations.title.split('<br>')[0] || ''
+    if (!this.translations?.title) return STRINGS.EMPTY
+    return this.translations.title.split(STRINGS.BR_TAG)[0] || STRINGS.EMPTY
   }
 
   get subtitle() {
-    if (!this.translations?.title) return ''
-    return this.translations.title.split('<br>')[1] || ''
+    if (!this.translations?.title) return STRINGS.EMPTY
+    return this.translations.title.split(STRINGS.BR_TAG)[1] || STRINGS.EMPTY
   }
 
   get homePath() {
     const locale = store.getters.getLang()
-    return locale && locale !== 'en' ? '/' + locale : '/'
+    return locale && locale !== LOCALES.EN ? `${PATHS.ROOT}${locale}` : PATHS.ROOT
   }
 
   onMounted() {
@@ -42,7 +52,7 @@ export class ViewNotFound extends BaseComponent {
   _bindLinks() {
     const link = this.$(`.${CLASSES.NOT_FOUND_LINK}`)
     if (link) {
-      this.addScopedListener(link, 'click', (e) => {
+      this.addScopedListener(link, EVENTS.CLICK, (e) => {
         e.preventDefault()
         router.push(this.homePath)
       })
@@ -51,8 +61,8 @@ export class ViewNotFound extends BaseComponent {
 
   loadData() {
     const lang = store.getters.getlang()
-    const currentLocale = lang.locale || 'en'
-    const dbpath = `${lang.database}${currentLocale}${lang.pagesPath}not-found`
+    const currentLocale = lang.locale || LOCALES.EN
+    const dbpath = `${lang.database}${currentLocale}${lang.pagesPath}${PATHS.NOT_FOUND}`
 
     fetchFirebaseDb(dbpath)
       .then((snapshot) => {
@@ -66,17 +76,17 @@ export class ViewNotFound extends BaseComponent {
 
   render() {
     return (
-      <div id="main" className={CLASSES.NOT_FOUND}>
+      <div id={IDS.MAIN} className={CLASSES.NOT_FOUND}>
         {this.translations?.title ? (
           <div>
             <h2 className={CLASSES.NOT_FOUND_TITLE}>
-              <span aria-hidden="true">{this.emojiLine}</span>
+              <span aria-hidden={ATTRS.TRUE}>{this.emojiLine}</span>
               <span className={CLASSES.NOT_FOUND_SUBTITLE}>
-                <draw-text text={this.subtitle} delay="30" trigger="auto" />
+                <draw-text text={this.subtitle} delay={STRINGS.DELAY_30} trigger={ATTRS.AUTO} />
               </span>
             </h2>
             <a className={CLASSES.NOT_FOUND_LINK} href={this.homePath}>
-              {this.translations.link || 'Home'}
+              {this.translations.link || TEXT.HOME}
             </a>
           </div>
         ) : null}

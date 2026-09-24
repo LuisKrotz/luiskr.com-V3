@@ -2,24 +2,28 @@ import { h, Fragment } from '../../core/jsx.js'
 import { BaseComponent } from '../../core/Component.js'
 import store from '../../core/store.js'
 import router from '../../core/router.js'
-import { CLASSES, TAGS, CMS_KEYS, STRINGS } from '../../core/constants.js'
+import { CLASSES, TAGS, CMS_KEYS, STRINGS, LOCALES, TEXT, PATHS, ATTRS, EVENTS, MUTATIONS } from '../../core/constants.js'
 import internalStyles from '../../sass/internals.scss?inline'
 
 import { LANG_SLUGS } from '../../core/i18n.js'
 import { fetchFirebaseDb } from '../../utils/db.js'
 
-export function getFallbackLegalLinks(locale = 'en') {
+export function getFallbackLegalLinks(locale = LOCALES.EN) {
   const slugs = LANG_SLUGS[locale] || LANG_SLUGS.en
-  const base = locale === 'en' ? '' : '/' + locale
-  const homeLabel = locale === 'br' ? 'Início' : locale === 'es' || locale === 'cas' ? 'Inicio' : locale === 'de' ? 'Startseite' : 'Home'
-  const privLabel = locale === 'br' ? 'Política de Privacidade' : locale === 'es' || locale === 'cas' ? 'Política de Privacidad' : locale === 'de' ? 'Datenschutz' : 'Privacy Policy'
-  const termsLabel = locale === 'br' ? 'Termos de Uso' : locale === 'es' || locale === 'cas' ? 'Términos de Uso' : locale === 'de' ? 'Nutzungsbedingungen' : 'Terms of Use'
+
+  const base = locale === LOCALES.EN ? STRINGS.EMPTY : `${PATHS.ROOT}${locale}`
+
+  const homeLabel = locale === LOCALES.BR ? TEXT.INICIO : (locale === LOCALES.ES || locale === LOCALES.CAS) ? TEXT.INICIO_ES : locale === LOCALES.DE ? TEXT.STARTSEITE : TEXT.HOME
+
+  const privLabel = locale === LOCALES.BR ? TEXT.POLITICA_DE_PRIVACIDADE : (locale === LOCALES.ES || locale === LOCALES.CAS) ? TEXT.POLITICA_DE_PRIVACIDAD : locale === LOCALES.DE ? TEXT.DATENSCHUTZ : TEXT.PRIVACY_POLICY
+
+  const termsLabel = locale === LOCALES.BR ? TEXT.TERMOS_DE_USO : (locale === LOCALES.ES || locale === LOCALES.CAS) ? TEXT.TERMINOS_DE_USO : locale === LOCALES.DE ? TEXT.NUTZUNGSBEDINGUNGEN : TEXT.TERMS_OF_USE
 
   return [
-    { link: base + '/', page: homeLabel },
-    { link: `${base}/${slugs.privacy || 'privacy-policy'}`, page: privLabel },
-    { link: `${base}/${slugs.gdpr || 'gdpr'}`, page: 'GDPR' },
-    { link: `${base}/${slugs.terms || 'terms-of-use'}`, page: termsLabel },
+    { link: `${base}${PATHS.ROOT}`, page: homeLabel },
+    { link: `${base}${PATHS.ROOT}${slugs.privacy || STRINGS.PRIVACY_POLICY}`, page: privLabel },
+    { link: `${base}${PATHS.ROOT}${slugs.gdpr || STRINGS.GDPR}`, page: TEXT.GDPR },
+    { link: `${base}${PATHS.ROOT}${slugs.terms || STRINGS.TERMS_OF_USE}`, page: termsLabel },
   ]
 }
 
@@ -31,6 +35,7 @@ export class LegalFooter extends BaseComponent {
 
   onMounted() {
     this.subscribe(store)
+
     this._ensureData()
 
     this._unsubRouter = router.subscribe(() => {
@@ -38,11 +43,14 @@ export class LegalFooter extends BaseComponent {
     })
 
     // Delegated click handler on shadowRoot
-    this.addScopedListener(this.shadowRoot, 'click', (e) => {
-      const a = e.target.closest('a')
+    this.addScopedListener(this.shadowRoot, EVENTS.CLICK, (e) => {
+      const a = e.target.closest(TAGS.A)
+
       if (a) {
         e.preventDefault()
-        const href = a.getAttribute('href')
+
+        const href = a.getAttribute(ATTRS.HREF)
+
         if (href) router.push(href)
       }
     })
@@ -50,12 +58,16 @@ export class LegalFooter extends BaseComponent {
 
   _ensureData() {
     const lang = store.getters.getlang()
-    const locale = lang?.locale || 'en'
-    const dbpath = `${lang?.database || 'translations/'}${locale}/components`
+
+    const locale = lang?.locale || LOCALES.EN
+
+    const dbpath = `${lang?.database || PATHS.TRANSLATIONS}${locale}${PATHS.COMPONENTS}`
+
     fetchFirebaseDb(dbpath)
       .then((snapshot) => {
         if (snapshot?.exists()) {
-          store.commit('setComponentLang', snapshot.val())
+          store.commit(MUTATIONS.SET_COMPONENT_LANG, snapshot.val())
+
           this._updateDom()
         }
       })
@@ -65,6 +77,7 @@ export class LegalFooter extends BaseComponent {
   onDestroy() {
     if (typeof this._unsubRouter === STRINGS.FUNCTION) {
       this._unsubRouter()
+
       this._unsubRouter = null
     }
   }
@@ -75,16 +88,20 @@ export class LegalFooter extends BaseComponent {
 
   render() {
     const locale = store.getters.getLang()
+
     const rawLinks = store.getters.getlang()?.components?.[CMS_KEYS.LEGAL_FOOTER]?.links
+
     const links = rawLinks && rawLinks.length ? rawLinks : getFallbackLegalLinks(locale)
-    const currentPath = router.currentRoute?.path || ''
+
+    const currentPath = router.currentRoute?.path || STRINGS.EMPTY
 
     return (
       <footer className={CLASSES.INTERNAL_FOOTER}>
         <div className={CLASSES.INTERNAL_FOOTER_ITEMS}>
           {links.map((item, n) => {
-            const isActive = currentPath === item.link || (item.link !== '/' && currentPath.endsWith(item.link))
-            const activeClass = isActive ? `${CLASSES.ROUTER_LINK_EXACT_ACTIVE} ${CLASSES.ROUTER_LINK_ACTIVE} ${CLASSES.ACTIVE}` : ''
+            const isActive = currentPath === item.link || (item.link !== PATHS.ROOT && currentPath.endsWith(item.link))
+
+            const activeClass = isActive ? `${CLASSES.ROUTER_LINK_EXACT_ACTIVE} ${CLASSES.ROUTER_LINK_ACTIVE} ${CLASSES.ACTIVE}` : STRINGS.EMPTY
 
             return (
               <Fragment key={item.link || n}>
@@ -93,6 +110,7 @@ export class LegalFooter extends BaseComponent {
                   href={item.link}
                   onClick={(e) => {
                     e.preventDefault()
+
                     if (item.link) router.push(item.link)
                   }}
                 >
@@ -100,7 +118,7 @@ export class LegalFooter extends BaseComponent {
                 </a>
                 {n < links.length - 1 && (
                   <span className={`${CLASSES.INTERNAL_FOOTER_ITEMS_SEP} ${CLASSES.CONTACT_SEPARATOR}`}>
-                    •
+                    {TEXT.DOT_SEP}
                   </span>
                 )}
               </Fragment>

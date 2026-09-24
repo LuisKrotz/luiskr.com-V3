@@ -50,58 +50,43 @@ class StatsHud extends BaseComponent {
   _updateStatsDom() {
     if (!this.showStats) return
 
-    const fpsEl = this.$(`[data-stat="fps"]`)
-
-    const cpuEl = this.$(`[data-stat="cpu"]`)
-
-    const netEl = this.$(`[data-stat="net"]`)
-
-    const latEl = this.$(`[data-stat="lat"]`)
-
-    const pendEl = this.$(`[data-stat="pend"]`)
-
-    const memEl = this.$(`[data-stat="mem"]`)
-
     const { fps, networkBytesPerSec, pendingRequests, memoryMB, cpuPercent, latencyMs } = this._stats
 
-    if (fpsEl) {
-      fpsEl.textContent = String(fps)
+    const kb = (networkBytesPerSec / 1024).toFixed(1)
 
-      fpsEl.className = `${CLASSES.STATS_HUD_VALUE} ${fps >= 55 ? `${CLASSES.STATS_HUD_BASE}-fps-good` : fps >= 30 ? `${CLASSES.STATS_HUD_BASE}-fps-mid` : `${CLASSES.STATS_HUD_BASE}-fps-bad`}`
-    }
+    const statUpdates = [
+      {
+        key: 'fps',
+        text: String(fps),
+        className: `${CLASSES.STATS_HUD_VALUE} ${fps >= 55 ? `${CLASSES.STATS_HUD_BASE}-fps-good` : fps >= 30 ? `${CLASSES.STATS_HUD_BASE}-fps-mid` : `${CLASSES.STATS_HUD_BASE}-fps-bad`}`,
+      },
+      {
+        key: 'cpu',
+        text: `${cpuPercent}%`,
+        className: `${CLASSES.STATS_HUD_VALUE} ${cpuPercent < 30 ? `${CLASSES.STATS_HUD_BASE}-fps-good` : cpuPercent < 70 ? `${CLASSES.STATS_HUD_BASE}-fps-mid` : `${CLASSES.STATS_HUD_BASE}-fps-bad`}`,
+      },
+      { key: 'net', text: `${kb} ${TEXT.KB_S}` },
+      {
+        key: 'lat',
+        text: latencyMs > 0 ? `${latencyMs}${TEXT.MS}` : TEXT.DASH,
+        className: latencyMs === 0
+          ? CLASSES.STATS_HUD_VALUE
+          : latencyMs < 100 ? `${CLASSES.STATS_HUD_VALUE} ${CLASSES.STATS_HUD_BASE}-fps-good`
+          : latencyMs < 400 ? `${CLASSES.STATS_HUD_VALUE} ${CLASSES.STATS_HUD_BASE}-fps-mid`
+          : `${CLASSES.STATS_HUD_VALUE} ${CLASSES.STATS_HUD_BASE}-fps-bad`,
+      },
+      { key: 'pend', text: String(pendingRequests) },
+      { key: 'mem', text: memoryMB > 0 ? `${memoryMB} ${TEXT.MB}` : TEXT.DASH },
+    ]
 
-    if (cpuEl) {
-      cpuEl.textContent = `${cpuPercent}%`
+    for (const { key, text, className } of statUpdates) {
+      const el = this.$(`[data-stat="${key}"]`)
 
-      cpuEl.className = `${CLASSES.STATS_HUD_VALUE} ${cpuPercent < 30 ? `${CLASSES.STATS_HUD_BASE}-fps-good` : cpuPercent < 70 ? `${CLASSES.STATS_HUD_BASE}-fps-mid` : `${CLASSES.STATS_HUD_BASE}-fps-bad`}`
-    }
+      if (el) {
+        el.textContent = text
 
-    if (netEl) {
-      const kb = (networkBytesPerSec / 1024).toFixed(1)
-
-      netEl.textContent = `${kb} ${TEXT.KB_S}`
-    }
-
-    if (latEl) {
-      latEl.textContent = latencyMs > 0 ? `${latencyMs}${TEXT.MS}` : TEXT.DASH
-
-      const latClass = latencyMs === 0
-        ? CLASSES.STATS_HUD_VALUE
-        : latencyMs < 100
-          ? `${CLASSES.STATS_HUD_VALUE} ${CLASSES.STATS_HUD_BASE}-fps-good`
-          : latencyMs < 400
-            ? `${CLASSES.STATS_HUD_VALUE} ${CLASSES.STATS_HUD_BASE}-fps-mid`
-            : `${CLASSES.STATS_HUD_VALUE} ${CLASSES.STATS_HUD_BASE}-fps-bad`
-
-      latEl.className = latClass
-    }
-
-    if (pendEl) {
-      pendEl.textContent = String(pendingRequests)
-    }
-
-    if (memEl && memoryMB > 0) {
-      memEl.textContent = `${memoryMB} ${TEXT.MB}`
+        if (className) el.className = className
+      }
     }
   }
 
@@ -114,11 +99,7 @@ class StatsHud extends BaseComponent {
 
     const { fps, networkBytesPerSec, pendingRequests, memoryMB, cpuPercent, latencyMs } = this._stats
 
-    const fpsClass = fps >= 55
-      ? `${CLASSES.STATS_HUD_BASE}-fps-good`
-      : fps >= 30
-        ? `${CLASSES.STATS_HUD_BASE}-fps-mid`
-        : `${CLASSES.STATS_HUD_BASE}-fps-bad`
+    const fpsClass = `${CLASSES.STATS_HUD_VALUE} ${fps >= 55 ? `${CLASSES.STATS_HUD_BASE}-fps-good` : fps >= 30 ? `${CLASSES.STATS_HUD_BASE}-fps-mid` : `${CLASSES.STATS_HUD_BASE}-fps-bad`}`
 
     const cpuClass = `${CLASSES.STATS_HUD_VALUE} ${cpuPercent < 30 ? `${CLASSES.STATS_HUD_BASE}-fps-good` : cpuPercent < 70 ? `${CLASSES.STATS_HUD_BASE}-fps-mid` : `${CLASSES.STATS_HUD_BASE}-fps-bad`}`
 
@@ -142,46 +123,28 @@ class StatsHud extends BaseComponent {
       ? `${CLASSES.STATS_HUD_VALUE} ${CLASSES.STATS_HUD_BASE}-fps-good`
       : `${CLASSES.STATS_HUD_VALUE} ${CLASSES.STATS_HUD_BASE}-fps-bad`
 
+    const statSegments = [
+      { label: TEXT.FPS, value: String(fps), className: fpsClass, stat: 'fps' },
+      { label: TEXT.CPU, value: `${cpuPercent}%`, className: cpuClass, stat: 'cpu' },
+      { label: TEXT.NET, value: `${kb} ${TEXT.KB_S}`, stat: 'net' },
+      { label: TEXT.LAT, value: latencyMs > 0 ? `${latencyMs}${TEXT.MS}` : TEXT.DASH, className: latClass, stat: 'lat' },
+      { label: TEXT.REQ, value: String(pendingRequests), stat: 'pend' },
+      { label: TEXT.MEM, value: memoryMB > 0 ? `${memoryMB} ${TEXT.MB}` : TEXT.DASH, stat: 'mem' },
+      { label: TEXT.GPU, value: accelLabel, className: accelClass, stat: 'accel' },
+    ]
+
     return (
       <aside
         className={`${CLASSES.STATS_HUD_BASE} ${CLASSES.STATS_HUD_VISIBLE}`}
         role="complementary"
         aria-label={TEXT.PERF_STATS_AND_CONTROLS}
       >
-        <span className={CLASSES.STATS_HUD_SEGMENT}>
-          <span className={CLASSES.STATS_HUD_LABEL}>{TEXT.FPS}</span>
-          <span className={`${CLASSES.STATS_HUD_VALUE} ${fpsClass}`} data-stat="fps">{String(fps)}</span>
-        </span>
-
-        <span className={CLASSES.STATS_HUD_SEGMENT}>
-          <span className={CLASSES.STATS_HUD_LABEL}>{TEXT.CPU}</span>
-          <span className={cpuClass} data-stat="cpu">{`${cpuPercent}%`}</span>
-        </span>
-
-        <span className={CLASSES.STATS_HUD_SEGMENT}>
-          <span className={CLASSES.STATS_HUD_LABEL}>{TEXT.NET}</span>
-          <span className={CLASSES.STATS_HUD_VALUE} data-stat="net">{`${kb} ${TEXT.KB_S}`}</span>
-        </span>
-
-        <span className={CLASSES.STATS_HUD_SEGMENT}>
-          <span className={CLASSES.STATS_HUD_LABEL}>{TEXT.LAT}</span>
-          <span className={latClass} data-stat="lat">{latencyMs > 0 ? `${latencyMs}${TEXT.MS}` : TEXT.DASH}</span>
-        </span>
-
-        <span className={CLASSES.STATS_HUD_SEGMENT}>
-          <span className={CLASSES.STATS_HUD_LABEL}>{TEXT.REQ}</span>
-          <span className={CLASSES.STATS_HUD_VALUE} data-stat="pend">{String(pendingRequests)}</span>
-        </span>
-
-        <span className={CLASSES.STATS_HUD_SEGMENT}>
-          <span className={CLASSES.STATS_HUD_LABEL}>{TEXT.MEM}</span>
-          <span className={CLASSES.STATS_HUD_VALUE} data-stat="mem">{memoryMB > 0 ? `${memoryMB} ${TEXT.MB}` : TEXT.DASH}</span>
-        </span>
-
-        <span className={CLASSES.STATS_HUD_SEGMENT}>
-          <span className={CLASSES.STATS_HUD_LABEL}>{TEXT.GPU}</span>
-          <span className={accelClass} data-stat="accel">{accelLabel}</span>
-        </span>
+        {statSegments.map(({ label, value, className, stat }) => (
+          <span key={stat} className={CLASSES.STATS_HUD_SEGMENT}>
+            <span className={CLASSES.STATS_HUD_LABEL}>{label}</span>
+            <span className={className || CLASSES.STATS_HUD_VALUE} data-stat={stat}>{value}</span>
+          </span>
+        ))}
       </aside>
     )
   }

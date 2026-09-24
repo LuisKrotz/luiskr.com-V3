@@ -1,20 +1,21 @@
+import { CMS_CLASSES, CMS_TAGS, CMS_EVENTS } from "../../core/cms/tokens.js"
 import { BaseComponent } from '../../core/Component.js'
 import { getDbInstance } from '../../firebase.js'
 import { ref, child, get, set, remove } from 'firebase/database'
 import { h } from '../../core/jsx.js'
+import { LOCALES, PATHS, URLS, MEDIA_DIMENSIONS } from '../../core/constants.js'
+import { VALID_LANGS } from '../../core/i18n.js'
 import cmsStyles from '../../sass/cms.scss?inline'
 
-const LANGS = ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln']
-
 function gcs(filename) {
-  return `https://storage.googleapis.com/luiskr.com/public/_v3/${filename}`
+  return `${URLS.CDN_BASE}${filename}`
 }
 
 export class CmsProjectsList extends BaseComponent {
   constructor() {
     super(cmsStyles)
-    this.languages = LANGS
-    this.selectedLang = 'en'
+    this.languages = VALID_LANGS
+    this.selectedLang = LOCALES.EN
     this.projectKeys = []
     this.selectedProjectKey = ''
     this.currentProject = null
@@ -33,7 +34,7 @@ export class CmsProjectsList extends BaseComponent {
   async loadProjectKeys() {
     try {
       const db = await getDbInstance()
-      const snap = await get(child(ref(db), `translations/${this.selectedLang}/projects`))
+      const snap = await get(child(ref(db), `${PATHS.TRANSLATIONS}${this.selectedLang}/projects`))
       if (snap.exists()) {
         const val = snap.val()
         this.projectKeys = Object.keys(val).sort()
@@ -57,7 +58,7 @@ export class CmsProjectsList extends BaseComponent {
     try {
       const db = await getDbInstance()
       const snap = await get(
-        child(ref(db), `translations/${this.selectedLang}/projects/${this.selectedProjectKey}`)
+        child(ref(db), `${PATHS.TRANSLATIONS}${this.selectedLang}/projects/${this.selectedProjectKey}`)
       )
       if (snap.exists()) {
         const val = snap.val()
@@ -65,7 +66,7 @@ export class CmsProjectsList extends BaseComponent {
           title: val.title || '',
           folder: val.folder || '',
           seo: val.seo || { noIndex: false },
-          cover: val.cover || { src: 'cover', label: '', size: [1920, 798], isVideo: false },
+          cover: val.cover || { src: 'cover', label: '', size: [MEDIA_DIMENSIONS.FHD_WIDTH, MEDIA_DIMENSIONS.COVER_HEIGHT_WIDE], isVideo: false },
           sections: Array.isArray(val.sections) ? val.sections : [],
         }
       } else {
@@ -90,7 +91,7 @@ export class CmsProjectsList extends BaseComponent {
       title: cleanKey.toUpperCase(),
       folder: `${cleanKey}/`,
       seo: { noIndex: false },
-      cover: { src: 'cover', label: `${cleanKey.toUpperCase()} Cover`, size: [1920, 798], isVideo: false },
+      cover: { src: 'cover', label: `${cleanKey.toUpperCase()} Cover`, size: [MEDIA_DIMENSIONS.FHD_WIDTH, MEDIA_DIMENSIONS.COVER_HEIGHT_WIDE], isVideo: false },
       sections: [],
     }
     this._updateDom(); this._bindEvents()
@@ -103,7 +104,7 @@ export class CmsProjectsList extends BaseComponent {
     try {
       const db = await getDbInstance()
       for (const lang of this.languages) {
-        await remove(ref(db, `translations/${lang}/projects/${this.selectedProjectKey}`))
+        await remove(ref(db, `${PATHS.TRANSLATIONS}${lang}/projects/${this.selectedProjectKey}`))
       }
       this.selectedProjectKey = ''
       this.currentProject = null
@@ -124,7 +125,7 @@ export class CmsProjectsList extends BaseComponent {
     try {
       const db = await getDbInstance()
       await set(
-        ref(db, `translations/${this.selectedLang}/projects/${this.selectedProjectKey}`),
+        ref(db, `${PATHS.TRANSLATIONS}${this.selectedLang}/projects/${this.selectedProjectKey}`),
         this.currentProject
       )
       this._notify(`Project [${this.selectedProjectKey.toUpperCase()}] saved!`)
@@ -173,7 +174,7 @@ export class CmsProjectsList extends BaseComponent {
   // ─── Section media ─────────────────────────────────────────────────────────
   addSectionMedia(sIdx) {
     this._ensureSectionShape(sIdx)
-    this.currentProject.sections[sIdx].media.push({ src: '', label: '', isVideo: false, size: [1920, 1080] })
+    this.currentProject.sections[sIdx].media.push({ src: '', label: '', isVideo: false, size: [MEDIA_DIMENSIONS.FHD_WIDTH, MEDIA_DIMENSIONS.FHD_HEIGHT] })
     this._updateDom(); this._bindEvents()
   }
 
@@ -189,7 +190,7 @@ export class CmsProjectsList extends BaseComponent {
   }
 
   _notify(msg) {
-    this.dispatchEvent(new CustomEvent('notify', { bubbles: true, composed: true, detail: msg }))
+    this.dispatchEvent(new CustomEvent(CMS_EVENTS.NOTIFY, { bubbles: true, composed: true, detail: msg }))
   }
 
   // ─── Render helpers ────────────────────────────────────────────────────────
@@ -197,78 +198,78 @@ export class CmsProjectsList extends BaseComponent {
     const texts = Array.isArray(sec.texts) ? sec.texts : (Array.isArray(sec[0]) ? sec[0] : [])
     const media = Array.isArray(sec.media) ? sec.media : (Array.isArray(sec[1]) ? sec[1] : [])
 
-    return h('div', { class: 'cms-card cms-section-card', key: `sec-${sIdx}` },
+    return h(TAGS.DIV, { class: 'cms-card cms-section-card', key: `sec-${sIdx}` },
       // Section header
-      h('div', { class: 'cms-section-header' },
-        h('span', { class: 'cms-section-title' }, `Section #${sIdx + 1}`),
-        h('div', { class: 'cms-item-controls' },
-          h('button', { class: 'cms-btn cms-btn--secondary sec-up-btn', 'data-idx': sIdx, type: 'button', disabled: sIdx === 0 }, '▲'),
-          h('button', { class: 'cms-btn cms-btn--secondary sec-down-btn', 'data-idx': sIdx, type: 'button', disabled: sIdx === total - 1 }, '▼'),
-          h('button', { class: 'cms-btn cms-btn--danger sec-del-btn', 'data-idx': sIdx, type: 'button' }, '✕ Remove'),
+      h(TAGS.DIV, { class: 'cms-section-header' },
+        h(TAGS.SPAN, { class: CMS_CLASSES.CMS_SECTION_TITLE }, `Section #${sIdx + 1}`),
+        h(TAGS.DIV, { class: 'cms-item-controls' },
+          h(TAGS.BUTTON, { class: 'cms-btn cms-btn--secondary sec-up-btn', [ATTRS.DATA_IDX]: sIdx, type: 'button', disabled: sIdx === 0 }, '▲'),
+          h(TAGS.BUTTON, { class: 'cms-btn cms-btn--secondary sec-down-btn', [ATTRS.DATA_IDX]: sIdx, type: 'button', disabled: sIdx === total - 1 }, '▼'),
+          h(TAGS.BUTTON, { class: 'cms-btn cms-btn--danger sec-del-btn', [ATTRS.DATA_IDX]: sIdx, type: 'button' }, '✕ Remove'),
         ),
       ),
 
       // Text paragraphs
-      h('div', { class: 'cms-subsection' },
-        h('span', { class: 'cms-subsection-title' }, 'Text Paragraphs'),
+      h(TAGS.DIV, { class: 'cms-subsection' },
+        h(TAGS.SPAN, { class: 'cms-subsection-title' }, 'Text Paragraphs'),
         ...texts.map((t, tIdx) =>
-          h('div', { class: 'cms-para-item', key: `t-${sIdx}-${tIdx}` },
-            h('textarea', {
+          h(TAGS.DIV, { class: 'cms-para-item', key: `t-${sIdx}-${tIdx}` },
+            h(TAGS.TEXTAREA, {
               class: 'cms-textarea sec-text-input',
-              'data-sec': sIdx, 'data-tidx': tIdx,
+              [ATTRS.DATA_SEC]: sIdx, 'data-tidx': tIdx,
               rows: '3',
               innerHTML: t,
             }),
-            h('button', { class: 'cms-btn cms-btn--danger sec-text-del', 'data-sec': sIdx, 'data-tidx': tIdx, type: 'button' }, '✕'),
+            h(TAGS.BUTTON, { class: 'cms-btn cms-btn--danger sec-text-del', [ATTRS.DATA_SEC]: sIdx, 'data-tidx': tIdx, type: 'button' }, '✕'),
           )
         ),
-        h('button', { class: 'cms-btn cms-btn--secondary sec-add-text', 'data-sec': sIdx, type: 'button' }, '+ Add Paragraph'),
+        h(TAGS.BUTTON, { class: 'cms-btn cms-btn--secondary sec-add-text', [ATTRS.DATA_SEC]: sIdx, type: 'button' }, '+ Add Paragraph'),
       ),
 
       // Media items
-      h('div', { class: 'cms-subsection' },
-        h('span', { class: 'cms-subsection-title' }, 'Media Items'),
+      h(TAGS.DIV, { class: 'cms-subsection' },
+        h(TAGS.SPAN, { class: 'cms-subsection-title' }, 'Media Items'),
         ...media.map((m, mIdx) =>
-          h('div', { class: 'cms-media-item', key: `m-${sIdx}-${mIdx}` },
+          h(TAGS.DIV, { class: 'cms-media-item', key: `m-${sIdx}-${mIdx}` },
             m.src
               ? h('img', {
                   src: gcs(`${this.currentProject.folder || ''}${m.src}`),
                   class: 'cms-media-thumb', alt: 'thumb', loading: 'lazy',
                 })
-              : h('div', { class: 'cms-media-thumb-placeholder' }, '📷'),
-            h('div', { class: 'cms-media-fields' },
-              h('div', { class: 'cms-field-row' },
-                h('div', { class: 'cms-field-group' },
-                  h('label', null, 'Filename (no ext)'),
-                  h('input', { class: 'cms-input media-src', 'data-sec': sIdx, 'data-midx': mIdx, value: m.src || '', placeholder: 'image-name' }),
+              : h(TAGS.DIV, { class: 'cms-media-thumb-placeholder' }, '📷'),
+            h(TAGS.DIV, { class: 'cms-media-fields' },
+              h(TAGS.DIV, { class: 'cms-field-row' },
+                h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+                  h(TAGS.LABEL, null, 'Filename (no ext)'),
+                  h(TAGS.INPUT, { class: 'cms-input media-src', [ATTRS.DATA_SEC]: sIdx, [ATTRS.DATA_MIDX]: mIdx, value: m.src || '', placeholder: 'image-name' }),
                 ),
-                h('div', { class: 'cms-field-group' },
-                  h('label', null, 'Label / Alt'),
-                  h('input', { class: 'cms-input media-label', 'data-sec': sIdx, 'data-midx': mIdx, value: m.label || '', placeholder: 'Description' }),
+                h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+                  h(TAGS.LABEL, null, 'Label / Alt'),
+                  h(TAGS.INPUT, { class: 'cms-input media-label', [ATTRS.DATA_SEC]: sIdx, [ATTRS.DATA_MIDX]: mIdx, value: m.label || '', placeholder: 'Description' }),
                 ),
-                h('div', { class: 'cms-field-group cms-field-group--small' },
-                  h('label', null, 'Type'),
-                  h('select', { class: 'cms-select media-type', 'data-sec': sIdx, 'data-midx': mIdx },
-                    h('option', { value: 'false', selected: !m.isVideo ? '' : null }, 'Image'),
-                    h('option', { value: 'true', selected: m.isVideo ? '' : null }, 'Video'),
+                h(TAGS.DIV, { class: 'cms-field-group cms-field-group--small' },
+                  h(TAGS.LABEL, null, 'Type'),
+                  h(TAGS.SELECT, { class: 'cms-select media-type', [ATTRS.DATA_SEC]: sIdx, [ATTRS.DATA_MIDX]: mIdx },
+                    h(TAGS.OPTION, { value: 'false', selected: !m.isVideo ? '' : null }, 'Image'),
+                    h(TAGS.OPTION, { value: 'true', selected: m.isVideo ? '' : null }, 'Video'),
                   ),
                 ),
               ),
-              h('div', { class: 'cms-field-row' },
-                h('div', { class: 'cms-field-group cms-field-group--small' },
-                  h('label', null, 'Width'),
-                  h('input', { class: 'cms-input media-w', 'data-sec': sIdx, 'data-midx': mIdx, value: String((m.size && m.size[0]) || 1920) }),
+              h(TAGS.DIV, { class: 'cms-field-row' },
+                h(TAGS.DIV, { class: 'cms-field-group cms-field-group--small' },
+                  h(TAGS.LABEL, null, 'Width'),
+                  h(TAGS.INPUT, { class: 'cms-input media-w', [ATTRS.DATA_SEC]: sIdx, [ATTRS.DATA_MIDX]: mIdx, value: String((m.size && m.size[0]) || MEDIA_DIMENSIONS.FHD_WIDTH) }),
                 ),
-                h('div', { class: 'cms-field-group cms-field-group--small' },
-                  h('label', null, 'Height'),
-                  h('input', { class: 'cms-input media-h', 'data-sec': sIdx, 'data-midx': mIdx, value: String((m.size && m.size[1]) || 1080) }),
+                h(TAGS.DIV, { class: 'cms-field-group cms-field-group--small' },
+                  h(TAGS.LABEL, null, 'Height'),
+                  h(TAGS.INPUT, { class: 'cms-input media-h', [ATTRS.DATA_SEC]: sIdx, [ATTRS.DATA_MIDX]: mIdx, value: String((m.size && m.size[1]) || MEDIA_DIMENSIONS.FHD_HEIGHT) }),
                 ),
-                h('button', { class: 'cms-btn cms-btn--danger media-del', 'data-sec': sIdx, 'data-midx': mIdx, type: 'button' }, '✕ Remove'),
+                h(TAGS.BUTTON, { class: 'cms-btn cms-btn--danger media-del', [ATTRS.DATA_SEC]: sIdx, [ATTRS.DATA_MIDX]: mIdx, type: 'button' }, '✕ Remove'),
               ),
             ),
           )
         ),
-        h('button', { class: 'cms-btn cms-btn--secondary sec-add-media', 'data-sec': sIdx, type: 'button' }, '+ Add Media Item'),
+        h(TAGS.BUTTON, { class: 'cms-btn cms-btn--secondary sec-add-media', [ATTRS.DATA_SEC]: sIdx, type: 'button' }, '+ Add Media Item'),
       ),
     )
   }
@@ -278,107 +279,107 @@ export class CmsProjectsList extends BaseComponent {
     const on = (sel, ev, fn) => { const el = this.$(sel); if (el) this.addScopedListener(el, ev, fn) }
     const all = (sel, fn) => this.$$(sel).forEach(fn)
 
-    on('#btn-create-proj', 'click', () => this.createProjectPrompt())
-    on('#btn-delete-proj', 'click', () => this.deleteProject())
-    on('#btn-save-proj', 'click', () => this.saveProjectData())
-    on('#btn-add-section', 'click', () => this.addSection())
+    on('#btn-create-proj', EVENTS.CLICK, () => this.createProjectPrompt())
+    on('#btn-delete-proj', EVENTS.CLICK, () => this.deleteProject())
+    on('#btn-save-proj', EVENTS.CLICK, () => this.saveProjectData())
+    on('#btn-add-section', EVENTS.CLICK, () => this.addSection())
 
-    on('#select-proj-lang', 'change', (e) => { this.selectedLang = e.target.value; this.loadProjectData() })
-    on('#select-proj-key', 'change', (e) => { this.selectedProjectKey = e.target.value; this.loadProjectData() })
+    on('#select-proj-lang', EVENTS.CHANGE, (e) => { this.selectedLang = e.target.value; this.loadProjectData() })
+    on('#select-proj-key', EVENTS.CHANGE, (e) => { this.selectedProjectKey = e.target.value; this.loadProjectData() })
 
     if (this.currentProject) {
-      on('#proj-title-input', 'input', (e) => { this.currentProject.title = e.target.value })
-      on('#proj-folder-input', 'input', (e) => { this.currentProject.folder = e.target.value })
-      on('#proj-noindex', 'change', (e) => { this.currentProject.seo.noIndex = e.target.checked })
-      on('#cover-src-input', 'input', (e) => { this.currentProject.cover.src = e.target.value })
-      on('#cover-label-input', 'input', (e) => { this.currentProject.cover.label = e.target.value })
-      on('#cover-isvideo', 'change', (e) => { this.currentProject.cover.isVideo = e.target.value === 'true' })
-      on('#cover-w-input', 'input', (e) => { this.currentProject.cover.size[0] = parseInt(e.target.value, 10) || 1920 })
-      on('#cover-h-input', 'input', (e) => { this.currentProject.cover.size[1] = parseInt(e.target.value, 10) || 798 })
+      on('#proj-title-input', EVENTS.INPUT, (e) => { this.currentProject.title = e.target.value })
+      on('#proj-folder-input', EVENTS.INPUT, (e) => { this.currentProject.folder = e.target.value })
+      on('#proj-noindex', EVENTS.CHANGE, (e) => { this.currentProject.seo.noIndex = e.target.checked })
+      on('#cover-src-input', EVENTS.INPUT, (e) => { this.currentProject.cover.src = e.target.value })
+      on('#cover-label-input', EVENTS.INPUT, (e) => { this.currentProject.cover.label = e.target.value })
+      on('#cover-isvideo', EVENTS.CHANGE, (e) => { this.currentProject.cover.isVideo = e.target.value === 'true' })
+      on('#cover-w-input', EVENTS.INPUT, (e) => { this.currentProject.cover.size[0] = parseInt(e.target.value, 10) || MEDIA_DIMENSIONS.FHD_WIDTH })
+      on('#cover-h-input', EVENTS.INPUT, (e) => { this.currentProject.cover.size[1] = parseInt(e.target.value, 10) || MEDIA_DIMENSIONS.COVER_HEIGHT_WIDE })
     }
 
     // Section controls
-    all('.sec-up-btn', (btn) => { const i = parseInt(btn.getAttribute('data-idx'), 10); this.addScopedListener(btn, 'click', () => this.moveSection(i, -1)) })
-    all('.sec-down-btn', (btn) => { const i = parseInt(btn.getAttribute('data-idx'), 10); this.addScopedListener(btn, 'click', () => this.moveSection(i, 1)) })
-    all('.sec-del-btn', (btn) => { const i = parseInt(btn.getAttribute('data-idx'), 10); this.addScopedListener(btn, 'click', () => this.removeSection(i)) })
-    all('.sec-add-text', (btn) => { const s = parseInt(btn.getAttribute('data-sec'), 10); this.addScopedListener(btn, 'click', () => this.addSectionText(s)) })
-    all('.sec-add-media', (btn) => { const s = parseInt(btn.getAttribute('data-sec'), 10); this.addScopedListener(btn, 'click', () => this.addSectionMedia(s)) })
+    all('.sec-up-btn', (btn) => { const i = parseInt(btn.getAttribute(ATTRS.DATA_IDX), 10); this.addScopedListener(btn, EVENTS.CLICK, () => this.moveSection(i, -1)) })
+    all('.sec-down-btn', (btn) => { const i = parseInt(btn.getAttribute(ATTRS.DATA_IDX), 10); this.addScopedListener(btn, EVENTS.CLICK, () => this.moveSection(i, 1)) })
+    all('.sec-del-btn', (btn) => { const i = parseInt(btn.getAttribute(ATTRS.DATA_IDX), 10); this.addScopedListener(btn, EVENTS.CLICK, () => this.removeSection(i)) })
+    all('.sec-add-text', (btn) => { const s = parseInt(btn.getAttribute(ATTRS.DATA_SEC), 10); this.addScopedListener(btn, EVENTS.CLICK, () => this.addSectionText(s)) })
+    all('.sec-add-media', (btn) => { const s = parseInt(btn.getAttribute(ATTRS.DATA_SEC), 10); this.addScopedListener(btn, EVENTS.CLICK, () => this.addSectionMedia(s)) })
 
     // Section text editing
     all('.sec-text-input', (ta) => {
-      const s = parseInt(ta.getAttribute('data-sec'), 10)
+      const s = parseInt(ta.getAttribute(ATTRS.DATA_SEC), 10)
       const t = parseInt(ta.getAttribute('data-tidx'), 10)
-      this.addScopedListener(ta, 'input', (e) => {
+      this.addScopedListener(ta, EVENTS.INPUT, (e) => {
         this._ensureSectionShape(s)
         this.currentProject.sections[s].texts[t] = e.target.value
       })
     })
     all('.sec-text-del', (btn) => {
-      const s = parseInt(btn.getAttribute('data-sec'), 10)
+      const s = parseInt(btn.getAttribute(ATTRS.DATA_SEC), 10)
       const t = parseInt(btn.getAttribute('data-tidx'), 10)
-      this.addScopedListener(btn, 'click', () => this.removeSectionText(s, t))
+      this.addScopedListener(btn, EVENTS.CLICK, () => this.removeSectionText(s, t))
     })
 
     // Media field editing
     all('.media-src', (inp) => {
-      const s = parseInt(inp.getAttribute('data-sec'), 10); const m = parseInt(inp.getAttribute('data-midx'), 10)
-      this.addScopedListener(inp, 'input', (e) => { this.currentProject.sections[s].media[m].src = e.target.value; this._updateDom() })
+      const s = parseInt(inp.getAttribute(ATTRS.DATA_SEC), 10); const m = parseInt(inp.getAttribute(ATTRS.DATA_MIDX), 10)
+      this.addScopedListener(inp, EVENTS.INPUT, (e) => { this.currentProject.sections[s].media[m].src = e.target.value; this._updateDom() })
     })
     all('.media-label', (inp) => {
-      const s = parseInt(inp.getAttribute('data-sec'), 10); const m = parseInt(inp.getAttribute('data-midx'), 10)
-      this.addScopedListener(inp, 'input', (e) => { this.currentProject.sections[s].media[m].label = e.target.value })
+      const s = parseInt(inp.getAttribute(ATTRS.DATA_SEC), 10); const m = parseInt(inp.getAttribute(ATTRS.DATA_MIDX), 10)
+      this.addScopedListener(inp, EVENTS.INPUT, (e) => { this.currentProject.sections[s].media[m].label = e.target.value })
     })
     all('.media-type', (sel) => {
-      const s = parseInt(sel.getAttribute('data-sec'), 10); const m = parseInt(sel.getAttribute('data-midx'), 10)
-      this.addScopedListener(sel, 'change', (e) => { this.currentProject.sections[s].media[m].isVideo = e.target.value === 'true' })
+      const s = parseInt(sel.getAttribute(ATTRS.DATA_SEC), 10); const m = parseInt(sel.getAttribute(ATTRS.DATA_MIDX), 10)
+      this.addScopedListener(sel, EVENTS.CHANGE, (e) => { this.currentProject.sections[s].media[m].isVideo = e.target.value === 'true' })
     })
     all('.media-w', (inp) => {
-      const s = parseInt(inp.getAttribute('data-sec'), 10); const m = parseInt(inp.getAttribute('data-midx'), 10)
-      this.addScopedListener(inp, 'input', (e) => { this.currentProject.sections[s].media[m].size[0] = parseInt(e.target.value, 10) || 1920 })
+      const s = parseInt(inp.getAttribute(ATTRS.DATA_SEC), 10); const m = parseInt(inp.getAttribute(ATTRS.DATA_MIDX), 10)
+      this.addScopedListener(inp, EVENTS.INPUT, (e) => { this.currentProject.sections[s].media[m].size[0] = parseInt(e.target.value, 10) || MEDIA_DIMENSIONS.FHD_WIDTH })
     })
     all('.media-h', (inp) => {
-      const s = parseInt(inp.getAttribute('data-sec'), 10); const m = parseInt(inp.getAttribute('data-midx'), 10)
-      this.addScopedListener(inp, 'input', (e) => { this.currentProject.sections[s].media[m].size[1] = parseInt(e.target.value, 10) || 1080 })
+      const s = parseInt(inp.getAttribute(ATTRS.DATA_SEC), 10); const m = parseInt(inp.getAttribute(ATTRS.DATA_MIDX), 10)
+      this.addScopedListener(inp, EVENTS.INPUT, (e) => { this.currentProject.sections[s].media[m].size[1] = parseInt(e.target.value, 10) || MEDIA_DIMENSIONS.FHD_HEIGHT })
     })
     all('.media-del', (btn) => {
-      const s = parseInt(btn.getAttribute('data-sec'), 10); const m = parseInt(btn.getAttribute('data-midx'), 10)
-      this.addScopedListener(btn, 'click', () => this.removeSectionMedia(s, m))
+      const s = parseInt(btn.getAttribute(ATTRS.DATA_SEC), 10); const m = parseInt(btn.getAttribute(ATTRS.DATA_MIDX), 10)
+      this.addScopedListener(btn, EVENTS.CLICK, () => this.removeSectionMedia(s, m))
     })
   }
 
   render() {
     const p = this.currentProject
 
-    const root = h('div', { class: 'cms-projects-manager' },
+    const root = h(TAGS.DIV, { class: 'cms-projects-manager' },
       // ── Header ──────────────────────────────────────────────────────────────
-      h('div', { class: 'cms-card cms-card--header' },
-        h('div', null,
+      h(TAGS.DIV, { class: 'cms-card cms-card--header' },
+        h(TAGS.DIV, null,
           h('h2', { class: 'cms-card-title' }, 'Project Case Studies Manager'),
-          h('p', { class: 'cms-card-subtitle' }, 'Manage sections, text paragraphs, and image/video carousels for all project case studies.'),
+          h(TAGS.P, { class: 'cms-card-subtitle' }, 'Manage sections, text paragraphs, and image/video carousels for all project case studies.'),
         ),
-        h('div', { class: 'cms-btn-group' },
-          h('button', { id: 'btn-create-proj', class: 'cms-btn cms-btn--secondary', type: 'button' }, '+ Create New Project'),
-          h('button', { id: 'btn-delete-proj', class: 'cms-btn cms-btn--danger', type: 'button', disabled: !this.selectedProjectKey }, '🗑️ Delete Project'),
-          h('button', { id: 'btn-save-proj', class: 'cms-btn', type: 'button', disabled: this.saving || !p }, this.saving ? 'Saving...' : '💾 Save Project to Firebase'),
+        h(TAGS.DIV, { class: 'cms-btn-group' },
+          h(TAGS.BUTTON, { id: 'btn-create-proj', class: CMS_CLASSES.CMS_BTN_SECONDARY, type: 'button' }, '+ Create New Project'),
+          h(TAGS.BUTTON, { id: 'btn-delete-proj', class: CMS_CLASSES.CMS_BTN_DANGER, type: 'button', disabled: !this.selectedProjectKey }, '🗑️ Delete Project'),
+          h(TAGS.BUTTON, { id: 'btn-save-proj', class: CMS_CLASSES.CMS_BTN, type: 'button', disabled: this.saving || !p }, this.saving ? 'Saving...' : '💾 Save Project to Firebase'),
         ),
       ),
 
       // ── Selectors ────────────────────────────────────────────────────────────
-      h('div', { class: 'cms-card' },
-        h('div', { class: 'cms-field-row' },
-          h('div', { class: 'cms-field-group' },
-            h('label', null, 'Target Language'),
-            h('select', { id: 'select-proj-lang', class: 'cms-select' },
+      h(TAGS.DIV, { class: CMS_CLASSES.CMS_CARD },
+        h(TAGS.DIV, { class: 'cms-field-row' },
+          h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+            h(TAGS.LABEL, null, 'Target Language'),
+            h(TAGS.SELECT, { id: 'select-proj-lang', class: CMS_CLASSES.CMS_SELECT },
               ...this.languages.map((l) =>
-                h('option', { value: l, selected: this.selectedLang === l ? '' : null }, l.toUpperCase())
+                h(TAGS.OPTION, { value: l, selected: this.selectedLang === l ? '' : null }, l.toUpperCase())
               ),
             ),
           ),
-          h('div', { class: 'cms-field-group' },
-            h('label', null, `Select Project (${this.projectKeys.length} total)`),
-            h('select', { id: 'select-proj-key', class: 'cms-select' },
+          h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+            h(TAGS.LABEL, null, `Select Project (${this.projectKeys.length} total)`),
+            h(TAGS.SELECT, { id: 'select-proj-key', class: CMS_CLASSES.CMS_SELECT },
               ...this.projectKeys.map((pk) =>
-                h('option', { value: pk, selected: this.selectedProjectKey === pk ? '' : null }, pk.toUpperCase())
+                h(TAGS.OPTION, { value: pk, selected: this.selectedProjectKey === pk ? '' : null }, pk.toUpperCase())
               ),
             ),
           ),
@@ -386,23 +387,23 @@ export class CmsProjectsList extends BaseComponent {
       ),
 
       // ── Project Editor ───────────────────────────────────────────────────────
-      p ? h('div', null,
+      p ? h(TAGS.DIV, null,
         // Basic fields
-        h('div', { class: 'cms-card' },
-          h('h3', { class: 'cms-section-title' }, `Editing: [${this.selectedProjectKey.toUpperCase()}] — ${this.selectedLang.toUpperCase()}`),
-          h('div', { class: 'cms-field-row' },
-            h('div', { class: 'cms-field-group' },
-              h('label', null, 'Project Title'),
-              h('input', { id: 'proj-title-input', class: 'cms-input', value: p.title || '', placeholder: 'METCHA' }),
+        h(TAGS.DIV, { class: CMS_CLASSES.CMS_CARD },
+          h(TAGS.H3, { class: CMS_CLASSES.CMS_SECTION_TITLE }, `Editing: [${this.selectedProjectKey.toUpperCase()}] — ${this.selectedLang.toUpperCase()}`),
+          h(TAGS.DIV, { class: 'cms-field-row' },
+            h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+              h(TAGS.LABEL, null, 'Project Title'),
+              h(TAGS.INPUT, { id: 'proj-title-input', class: CMS_CLASSES.CMS_INPUT, value: p.title || '', placeholder: 'METCHA' }),
             ),
-            h('div', { class: 'cms-field-group' },
-              h('label', null, 'Assets Folder'),
-              h('input', { id: 'proj-folder-input', class: 'cms-input', value: p.folder || '', placeholder: 'metcha/' }),
+            h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+              h(TAGS.LABEL, null, 'Assets Folder'),
+              h(TAGS.INPUT, { id: 'proj-folder-input', class: CMS_CLASSES.CMS_INPUT, value: p.folder || '', placeholder: 'metcha/' }),
             ),
-            h('div', { class: 'cms-field-group cms-field-group--small' },
-              h('label', null, 'SEO'),
-              h('label', { class: 'cms-checkbox-label' },
-                h('input', { id: 'proj-noindex', type: 'checkbox', checked: p.seo?.noIndex ? '' : null }),
+            h(TAGS.DIV, { class: 'cms-field-group cms-field-group--small' },
+              h(TAGS.LABEL, null, 'SEO'),
+              h(TAGS.LABEL, { class: 'cms-checkbox-label' },
+                h(TAGS.INPUT, { id: 'proj-noindex', type: 'checkbox', checked: p.seo?.noIndex ? '' : null }),
                 ' noIndex',
               ),
             ),
@@ -410,41 +411,41 @@ export class CmsProjectsList extends BaseComponent {
         ),
 
         // Cover
-        h('div', { class: 'cms-card' },
-          h('h3', { class: 'cms-section-title' }, 'Cover Image / Video'),
-          h('div', { class: 'cms-cover-layout' },
+        h(TAGS.DIV, { class: CMS_CLASSES.CMS_CARD },
+          h(TAGS.H3, { class: CMS_CLASSES.CMS_SECTION_TITLE }, 'Cover Image / Video'),
+          h(TAGS.DIV, { class: 'cms-cover-layout' },
             p.cover?.src
               ? h('img', {
                   src: gcs(`${p.folder || ''}${p.cover.src}`),
                   class: 'cms-cover-thumb', alt: 'cover', loading: 'lazy',
                 })
-              : h('div', { class: 'cms-media-thumb-placeholder' }, '🖼️'),
-            h('div', { class: 'cms-cover-fields' },
-              h('div', { class: 'cms-field-row' },
-                h('div', { class: 'cms-field-group' },
-                  h('label', null, 'Filename (no ext)'),
-                  h('input', { id: 'cover-src-input', class: 'cms-input', value: p.cover?.src || 'cover', placeholder: 'cover' }),
+              : h(TAGS.DIV, { class: 'cms-media-thumb-placeholder' }, '🖼️'),
+            h(TAGS.DIV, { class: 'cms-cover-fields' },
+              h(TAGS.DIV, { class: 'cms-field-row' },
+                h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+                  h(TAGS.LABEL, null, 'Filename (no ext)'),
+                  h(TAGS.INPUT, { id: 'cover-src-input', class: CMS_CLASSES.CMS_INPUT, value: p.cover?.src || 'cover', placeholder: 'cover' }),
                 ),
-                h('div', { class: 'cms-field-group' },
-                  h('label', null, 'Label / Alt'),
-                  h('input', { id: 'cover-label-input', class: 'cms-input', value: p.cover?.label || '', placeholder: 'Cover image label' }),
+                h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+                  h(TAGS.LABEL, null, 'Label / Alt'),
+                  h(TAGS.INPUT, { id: 'cover-label-input', class: CMS_CLASSES.CMS_INPUT, value: p.cover?.label || '', placeholder: 'Cover image label' }),
                 ),
-                h('div', { class: 'cms-field-group cms-field-group--small' },
-                  h('label', null, 'Type'),
-                  h('select', { id: 'cover-isvideo', class: 'cms-select' },
-                    h('option', { value: 'false', selected: !p.cover?.isVideo ? '' : null }, 'Image'),
-                    h('option', { value: 'true', selected: p.cover?.isVideo ? '' : null }, 'Video'),
+                h(TAGS.DIV, { class: 'cms-field-group cms-field-group--small' },
+                  h(TAGS.LABEL, null, 'Type'),
+                  h(TAGS.SELECT, { id: 'cover-isvideo', class: CMS_CLASSES.CMS_SELECT },
+                    h(TAGS.OPTION, { value: 'false', selected: !p.cover?.isVideo ? '' : null }, 'Image'),
+                    h(TAGS.OPTION, { value: 'true', selected: p.cover?.isVideo ? '' : null }, 'Video'),
                   ),
                 ),
               ),
-              h('div', { class: 'cms-field-row' },
-                h('div', { class: 'cms-field-group cms-field-group--small' },
-                  h('label', null, 'Width'),
-                  h('input', { id: 'cover-w-input', class: 'cms-input', value: String((p.cover?.size && p.cover.size[0]) || 1920) }),
+              h(TAGS.DIV, { class: 'cms-field-row' },
+                h(TAGS.DIV, { class: 'cms-field-group cms-field-group--small' },
+                  h(TAGS.LABEL, null, 'Width'),
+                  h(TAGS.INPUT, { id: 'cover-w-input', class: CMS_CLASSES.CMS_INPUT, value: String((p.cover?.size && p.cover.size[0]) || MEDIA_DIMENSIONS.FHD_WIDTH) }),
                 ),
-                h('div', { class: 'cms-field-group cms-field-group--small' },
-                  h('label', null, 'Height'),
-                  h('input', { id: 'cover-h-input', class: 'cms-input', value: String((p.cover?.size && p.cover.size[1]) || 798) }),
+                h(TAGS.DIV, { class: 'cms-field-group cms-field-group--small' },
+                  h(TAGS.LABEL, null, 'Height'),
+                  h(TAGS.INPUT, { id: 'cover-h-input', class: CMS_CLASSES.CMS_INPUT, value: String((p.cover?.size && p.cover.size[1]) || 798) }),
                 ),
               ),
             ),
@@ -452,12 +453,12 @@ export class CmsProjectsList extends BaseComponent {
         ),
 
         // Sections
-        h('div', { class: 'cms-card' },
-          h('div', { class: 'cms-section-header' },
-            h('h3', { class: 'cms-section-title' }, `Sections & Paragraphs (${(p.sections || []).length})`),
-            h('button', { id: 'btn-add-section', class: 'cms-btn cms-btn--secondary', type: 'button' }, '+ Add Section'),
+        h(TAGS.DIV, { class: CMS_CLASSES.CMS_CARD },
+          h(TAGS.DIV, { class: 'cms-section-header' },
+            h(TAGS.H3, { class: CMS_CLASSES.CMS_SECTION_TITLE }, `Sections & Paragraphs (${(p.sections || []).length})`),
+            h(TAGS.BUTTON, { id: 'btn-add-section', class: CMS_CLASSES.CMS_BTN_SECONDARY, type: 'button' }, '+ Add Section'),
           ),
-          h('div', { class: 'cms-sections-list' },
+          h(TAGS.DIV, { class: 'cms-sections-list' },
             ...(p.sections || []).map((sec, sIdx) => this._renderSection(sec, sIdx, p.sections.length)),
           ),
         ),
@@ -470,6 +471,6 @@ export class CmsProjectsList extends BaseComponent {
   }
 }
 
-if (!customElements.get('cms-projects-list')) {
-  customElements.define('cms-projects-list', CmsProjectsList)
+if (!customElements.get(CMS_TAGS.CMS_PROJECTS_LIST)) {
+  customElements.define(CMS_TAGS.CMS_PROJECTS_LIST, CmsProjectsList)
 }

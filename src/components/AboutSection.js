@@ -1,5 +1,5 @@
 import { BaseComponent } from '../core/Component.js'
-import { CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, TEXT, IMAGE_SIZES } from '../core/constants.js'
+import { CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, TEXT, IMAGE_SIZES, IDS } from '../core/constants.js'
 import { h } from '../core/jsx.js'
 import { calcDrawTextDelay, calcDrawTextOffset } from '../utils/wasm-layout.js'
 import { stripHtml, getGravatarSrcset, getOptimizedGravatar } from '../utils/media.js'
@@ -61,12 +61,12 @@ export class AboutSection extends BaseComponent {
   }
 
   render() {
-    const title = this.aboutTranslations?.title || ''
+    const title = this.aboutTranslations?.title || ATTRS.EMPTY
     const drawData = this.aboutDrawData
     const DrawText = TAGS.DRAW_TEXT
 
     return (
-      <section id="about" className={CLASSES.ABOUT}>
+      <section id={IDS.ABOUT} className={CLASSES.ABOUT}>
         <h2 className={CLASSES.ABOUT_TITLE} aria-label={title || TEXT.ABOUT_ME}>
           {this.aboutTranslations ? (
             <DrawText text={title} trigger={ATTRS.TRIGGER_VIEWPORT} />
@@ -78,8 +78,8 @@ export class AboutSection extends BaseComponent {
           <div className={CLASSES.ABOUT_PROFILE_PICTURE}>
             {this.aboutTranslations && this.profilePicture ? (
               <img
-                decoding="async"
-                loading="lazy"
+                decoding={ATTRS.DECODING_ASYNC}
+                loading={ATTRS.LOADING_LAZY}
                 className={CLASSES.ABOUT_PROFILE_PICTURE_IMG}
                 src={this.optimizedProfilePicture}
                 srcset={this.profilePictureSrcset || undefined}
@@ -101,7 +101,7 @@ export class AboutSection extends BaseComponent {
                       text={item.text}
                       delay={drawData.charDelay}
                       offset={item.offset}
-                      trigger="viewport"
+                      trigger={ATTRS.TRIGGER_VIEWPORT}
                     />
                   </p>
                 ))
@@ -121,7 +121,7 @@ export class AboutSection extends BaseComponent {
                       text={item.text}
                       delay={drawData.charDelay}
                       offset={item.offset}
-                      trigger="viewport"
+                      trigger={ATTRS.TRIGGER_VIEWPORT}
                     />
                   </p>
                 ))
@@ -139,6 +139,6 @@ export class AboutSection extends BaseComponent {
   }
 }
 
-if (!customElements.get('about-section')) {
-  customElements.define('about-section', AboutSection)
+if (!customElements.get(TAGS.ABOUT_SECTION)) {
+  customElements.define(TAGS.ABOUT_SECTION, AboutSection)
 }

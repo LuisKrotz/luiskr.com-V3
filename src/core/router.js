@@ -1,20 +1,38 @@
 import store from './store.js'
 import { VALID_LANGS, LANG_SLUGS, detectLangFromPath } from './i18n.js'
 import { deepQuerySelector } from './dom.js'
-import { BASE_TITLE, PROJECT_ALIASES, TAGS, STRINGS } from './constants.js'
+import {
+  BASE_TITLE,
+  PROJECT_ALIASES,
+  TAGS,
+  STRINGS,
+  PATHS,
+  ROUTE_NAMES,
+  TRANSLATION_KEYS,
+  EVENTS,
+  LOCALES,
+  ATTRS,
+  IDS,
+  TEXT,
+  MUTATIONS,
+} from './constants.js'
 
 export function normalizeProjectKey(slug) {
-  if (!slug) return ''
+  if (!slug) return STRINGS.EMPTY
+
   return PROJECT_ALIASES[slug] || slug
 }
 
 export class Router {
-
   constructor() {
     this.routes = []
+
     this.currentRoute = null
+
     this.listeners = new Set()
+
     this.beforeHooks = []
+
     this.afterHooks = []
 
     this._initPopstateListener()
@@ -22,7 +40,8 @@ export class Router {
 
   _initPopstateListener() {
     if (typeof window === STRINGS.UNDEFINED) return
-    window.addEventListener('popstate', () => {
+
+    window.addEventListener(EVENTS.POPSTATE, () => {
       this.handleNavigation(window.location.pathname + window.location.search + window.location.hash)
     })
   }
@@ -37,6 +56,7 @@ export class Router {
 
   subscribe(listener) {
     this.listeners.add(listener)
+
     return () => this.listeners.delete(listener)
   }
 
@@ -51,14 +71,17 @@ export class Router {
   }
 
   parsePath(pathname) {
-    const cleanPath = pathname.split('?')[0].split('#')[0] || '/'
-    const segments = cleanPath.split('/').filter(Boolean)
+    const cleanPath = pathname.split(STRINGS.QUESTION)[0].split(STRINGS.HASH)[0] || PATHS.ROOT
 
-    let lang = 'en'
+    const segments = cleanPath.split(STRINGS.SLASH).filter(Boolean)
+
+    let lang = LOCALES.EN
+
     let pathSegments = [...segments]
 
     if (segments.length > 0 && VALID_LANGS.includes(segments[0])) {
       lang = segments[0]
+
       pathSegments = segments.slice(1)
     }
 
@@ -67,11 +90,11 @@ export class Router {
     // Root home
     if (pathSegments.length === 0) {
       return {
-        name: 'Home',
-        view: 'view-home',
+        name: ROUTE_NAMES.HOME,
+        view: TAGS.VIEW_HOME,
         lang,
         path: cleanPath,
-        meta: { title: BASE_TITLE, translation: 'HOME' },
+        meta: { title: BASE_TITLE, translation: TRANSLATION_KEYS.HOME },
         params: {},
       }
     }
@@ -79,25 +102,25 @@ export class Router {
     const first = pathSegments[0]
 
     // Admin login
-    if (first === 'admin') {
+    if (first === STRINGS.ADMIN) {
       return {
-        name: 'Admin Login',
-        view: 'view-admin-login',
+        name: ROUTE_NAMES.ADMIN_LOGIN,
+        view: TAGS.VIEW_ADMIN_LOGIN,
         lang,
         path: cleanPath,
-        meta: { title: `${BASE_TITLE} | Admin Login` },
+        meta: { title: `${BASE_TITLE} ${TEXT.PIPE_SEP} ${TEXT.ADMIN_LOGIN}` },
         params: {},
       }
     }
 
     // Protected CMS
-    if (first === 'cms') {
+    if (first === STRINGS.CMS) {
       return {
-        name: 'CMS Dashboard',
-        view: 'view-cms-dashboard',
+        name: ROUTE_NAMES.CMS_DASHBOARD,
+        view: TAGS.VIEW_CMS_DASHBOARD,
         lang,
         path: cleanPath,
-        meta: { title: `${BASE_TITLE} | CMS Dashboard`, requiresAuth: true },
+        meta: { title: `${BASE_TITLE} ${TEXT.PIPE_SEP} ${TEXT.CMS_DASHBOARD}`, requiresAuth: true },
         params: {},
       }
     }
@@ -105,11 +128,11 @@ export class Router {
     // Check localized about slug
     if (first === slugs.about) {
       return {
-        name: 'About',
-        view: 'view-home',
+        name: ROUTE_NAMES.ABOUT,
+        view: TAGS.VIEW_HOME,
         lang,
         path: cleanPath,
-        meta: { title: `${BASE_TITLE} | About`, translation: 'HOME', scrollTo: 'about' },
+        meta: { title: `${BASE_TITLE} ${TEXT.PIPE_SEP} ${TEXT.ABOUT}`, translation: TRANSLATION_KEYS.HOME, scrollTo: IDS.ABOUT },
         params: {},
       }
     }
@@ -117,73 +140,74 @@ export class Router {
     // Check localized contact slug
     if (first === slugs.contact) {
       return {
-        name: 'Contact',
-        view: 'view-home',
+        name: ROUTE_NAMES.CONTACT,
+        view: TAGS.VIEW_HOME,
         lang,
         path: cleanPath,
-        meta: { title: `${BASE_TITLE} | Contact`, translation: 'HOME', scrollTo: 'contact' },
+        meta: { title: `${BASE_TITLE} ${TEXT.PIPE_SEP} ${TEXT.CONTACT}`, translation: TRANSLATION_KEYS.HOME, scrollTo: IDS.CONTACT },
         params: {},
       }
     }
 
     // Check dynamic portfolio route: portfolio/:projectSlug/:slug?
-    if (first === 'portfolio' && pathSegments.length >= 2) {
-
+    if (first === PATHS.PORTFOLIO_SEGMENT && pathSegments.length >= 2) {
       const rawSlug = pathSegments[1]
+
       const projectSlug = normalizeProjectKey(rawSlug)
+
       const slug = pathSegments[2] || undefined
+
       return {
-        name: 'DynamicProject',
-        view: 'view-project',
+        name: ROUTE_NAMES.PROJECT,
+        view: TAGS.VIEW_PROJECT,
         lang,
         path: cleanPath,
-        meta: { title: `${BASE_TITLE} | Project`, projectRoute: true },
+        meta: { title: `${BASE_TITLE} ${TEXT.PIPE_SEP} Project`, projectRoute: true },
         params: { projectSlug, rawSlug, slug },
       }
     }
 
-
     // Check legal routes
-    if (first === slugs.privacy || first === 'privacy' || first === 'privacy-policy') {
+    if (first === slugs.privacy || first === STRINGS.PRIVACY || first === STRINGS.PRIVACY_POLICY) {
       return {
-        name: 'Privacy Policy',
-        view: 'view-legal',
+        name: ROUTE_NAMES.PRIVACY,
+        view: TAGS.VIEW_LEGAL,
         lang,
         path: cleanPath,
-        meta: { title: `${BASE_TITLE} | Privacy Policy`, translation: 'privacy-policy', legalRoute: true },
+        meta: { title: `${BASE_TITLE} ${TEXT.PIPE_SEP} ${TEXT.PRIVACY_POLICY}`, translation: TRANSLATION_KEYS.PRIVACY_POLICY, legalRoute: true },
         params: {},
       }
     }
 
-    if (first === slugs.gdpr || first === 'gdpr') {
+    if (first === slugs.gdpr || first === STRINGS.GDPR) {
       return {
-        name: 'GDPR',
-        view: 'view-legal',
+        name: ROUTE_NAMES.GDPR,
+        view: TAGS.VIEW_LEGAL,
         lang,
         path: cleanPath,
-        meta: { title: `${BASE_TITLE} | GDPR`, translation: 'GDPR', legalRoute: true },
+        meta: { title: `${BASE_TITLE} ${TEXT.PIPE_SEP} ${TEXT.GDPR}`, translation: TRANSLATION_KEYS.GDPR, legalRoute: true },
         params: {},
       }
     }
 
-    if (first === slugs.terms || first === 'terms' || first === 'terms-of-use') {
+    if (first === slugs.terms || first === STRINGS.TERMS || first === STRINGS.TERMS_OF_USE) {
       return {
-        name: 'Terms of Use',
-        view: 'view-legal',
+        name: ROUTE_NAMES.TERMS,
+        view: TAGS.VIEW_LEGAL,
         lang,
         path: cleanPath,
-        meta: { title: `${BASE_TITLE} | Terms of Use`, translation: 'terms-of-use', legalRoute: true },
+        meta: { title: `${BASE_TITLE} ${TEXT.PIPE_SEP} ${TEXT.TERMS_OF_USE}`, translation: TRANSLATION_KEYS.TERMS_OF_USE, legalRoute: true },
         params: {},
       }
     }
 
     // 404
     return {
-      name: 'Not Found',
-      view: 'view-not-found',
+      name: ROUTE_NAMES.NOT_FOUND,
+      view: TAGS.VIEW_NOT_FOUND,
       lang,
       path: cleanPath,
-      meta: { title: `${BASE_TITLE} | Page not found`, translation: 'not-found' },
+      meta: { title: `${BASE_TITLE} ${TEXT.PIPE_SEP} ${TEXT.PAGE_NOT_FOUND}`, translation: TRANSLATION_KEYS.NOT_FOUND },
       params: {},
     }
   }
@@ -198,57 +222,68 @@ export class Router {
 
   async handleNavigation(path, replace = false) {
     const to = this.parsePath(path)
+
     const from = this.currentRoute
 
     // Execute before hooks
     for (const hook of this.beforeHooks) {
       const redirect = await hook(to, from)
+
       if (redirect) {
         if (typeof redirect === STRINGS.STRING) {
           return this.push(redirect)
         }
+
         if (redirect.path) {
           return this.push(redirect.path)
         }
-        if (redirect.name === 'Admin Login') {
-          return this.push('/admin')
+
+        if (redirect.name === ROUTE_NAMES.ADMIN_LOGIN) {
+          return this.push(PATHS.ADMIN)
         }
       }
     }
 
     // History update
     if (replace) {
-      window.history.replaceState({}, '', path)
+      window.history.replaceState({}, STRINGS.EMPTY, path)
     } else if (window.location.pathname !== to.path) {
-      window.history.pushState({}, '', path)
+      window.history.pushState({}, STRINGS.EMPTY, path)
     }
 
     this.currentRoute = to
+
     document.title = to.meta.title || BASE_TITLE
 
     // Sync canonical link
-    let canonicalEl = document.querySelector('link[rel="canonical"]')
+    let canonicalEl = document.querySelector(STRINGS.LINK_CANONICAL)
+
     if (!canonicalEl) {
-      canonicalEl = document.createElement('link')
-      canonicalEl.setAttribute('rel', 'canonical')
+      canonicalEl = document.createElement(TAGS.LINK)
+
+      canonicalEl.setAttribute(STRINGS.REL, STRINGS.REL_CANONICAL)
+
       document.head.appendChild(canonicalEl)
     }
-    const cleanPath = to.path === '/' ? '' : to.path
-    canonicalEl.setAttribute('href', `https://luiskr.com${cleanPath}`)
+
+    const cleanPath = to.path === PATHS.ROOT ? STRINGS.EMPTY : to.path
+
+    canonicalEl.setAttribute(ATTRS.HREF, `${STRINGS.SITE_URL}${cleanPath}`)
 
     // Handle scroll
     if (to.meta.scrollTo) {
       setTimeout(() => {
-        const el = deepQuerySelector('#' + to.meta.scrollTo)
+        const el = deepQuerySelector(STRINGS.HASH + to.meta.scrollTo)
+
         if (el) {
           const targetY = window.scrollY + el.getBoundingClientRect().top
-          window.scrollTo({ top: targetY, behavior: 'smooth' })
+
+          window.scrollTo({ top: targetY, behavior: ATTRS.SMOOTH })
         }
       }, 300)
     } else {
       window.scrollTo(0, 0)
     }
-
 
     // Execute after hooks
     for (const hook of this.afterHooks) {
@@ -289,16 +324,18 @@ router.beforeEach(async (to) => {
       const authInstance = await getAuthInstance()
 
       if (!authInstance?.currentUser) {
-        return '/admin'
+        return PATHS.ADMIN
       }
     } catch {
-      return '/admin'
+      return PATHS.ADMIN
     }
   }
 
   // Update store locale
   const lang = detectLangFromPath(to.path)
-  store.commit('setLang', lang)
+
+  store.commit(MUTATIONS.SET_LANG, lang)
 })
 
 export default router
+

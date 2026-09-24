@@ -2,7 +2,7 @@ import { describe, test, expect, beforeEach, afterEach, jest } from '@jest/globa
 import { AppNav } from '../src/components/AppNav.js'
 import { PreferencesModal } from '../src/components/PreferencesModal.js'
 import { LangDialog } from '../src/components/LangDialog.js'
-import { THEME, MOTION, CLASSES, TAGS, TEXT } from '../src/core/constants.js'
+import { THEME, MOTION, CLASSES, TAGS, TEXT, BASE_TITLE } from '../src/core/constants.js'
 import { SCSS, mount } from './fixtures/test-constants.js'
 import store from '../src/core/store.js'
 import router from '../src/core/router.js'
@@ -53,11 +53,11 @@ describe('AppNav', () => {
     expect(logoBtn.textContent).toContain('LK PORTFOLIO')
   })
 
-  test('renders default LK logo title when translations are null', () => {
+  test('renders default Luis Krötz logo title when translations are null', () => {
     navEl.translations = null
     navEl._updateDom()
     const logoBtn = navEl.shadowRoot.querySelector(S.NAV_LOGO_BTN)
-    expect(logoBtn.textContent).toContain('LK')
+    expect(logoBtn.textContent).toContain(BASE_TITLE)
   })
 
   test('renders desktop nav and mobile strip on standard routes', () => {

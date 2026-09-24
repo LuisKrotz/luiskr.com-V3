@@ -2,11 +2,11 @@ import { h } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
-import { PROJECT_ALIASES, MEDIA, CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, STRINGS } from '../core/constants.js'
+import { PROJECT_ALIASES, MEDIA, CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, STRINGS, LOCALES, MUTATIONS, TEXT } from '../core/constants.js'
 import { fetchFirebaseDb } from '../utils/db.js'
 import { calcDrawTextDelay, calcDrawTextOffset } from '../utils/wasm-layout.js'
 import { wasmSmoothScroll } from '../utils/wasm-scroll.js'
-import { stripHtml, svgPlaceholder } from '../utils/media.js'
+import { stripHtml, svgPlaceholder, slugify, generateProjectArticleSchema, updateJsonLd } from '../core/utils/index.js'
 import internalStyles from '../sass/internals.scss?inline'
 import modalStyles from '../sass/modal.scss?inline'
 import '../components/DrawText.js'
@@ -32,7 +32,7 @@ export class ViewProject extends BaseComponent {
     this.initProject()
     setTimeout(() => {
       window.scrollTo(0, 0)
-    }, 500)
+    }, MEDIA_DIMENSIONS.SCROLL_INIT_DELAY)
   }
 
   onDestroy() {
@@ -41,14 +41,14 @@ export class ViewProject extends BaseComponent {
 
   updateRobotsMeta(noindex) {
     if (typeof document === STRINGS.UNDEFINED) return
-    let meta = document.querySelector('meta[name="robots"]')
+    let meta = document.querySelector(STRINGS.META_ROBOTS)
     if (noindex) {
       if (!meta) {
         meta = document.createElement('meta')
         meta.name = 'robots'
         document.head.appendChild(meta)
       }
-      meta.content = 'noindex, nofollow'
+      meta.content = STRINGS.NOINDEX_NOFOLLOW
     } else {
       if (meta) {
         meta.remove()
@@ -63,11 +63,11 @@ export class ViewProject extends BaseComponent {
       this.translations = null
       this._updateDom()
       wasmSmoothScroll({
-        duration: 1000,
+        duration: MEDIA_DIMENSIONS.SCROLL_DURATION_FULL,
         updateHistory: false,
         scrollTo: 0,
       })
-      this.loadData(1000)
+      this.loadData(MEDIA_DIMENSIONS.SCROLL_DURATION_FULL)
     } else {
       this.checkAutoOpenModal()
     }
@@ -143,7 +143,7 @@ export class ViewProject extends BaseComponent {
     }
     if (!projectKey) return
     const lang = store.getters.getlang()
-    const currentLocale = lang.locale || 'en'
+    const currentLocale = lang.locale || LOCALES.EN
     this._lastLocale = currentLocale
 
     // Normalize legacy slugs using the shared aliases map from constants.js
@@ -155,20 +155,33 @@ export class ViewProject extends BaseComponent {
       .then((snap) => {
         if (snap?.exists()) {
           const data = snap.val()
+
           if (data.title) {
-            document.title = 'Luis Krötz | ' + data.title
+            document.title = TEXT.LK_TITLE_PREFIX + data.title
           }
+
           this.updateRobotsMeta(data.noindex === true)
+
+          const schemaGraph = generateProjectArticleSchema(data, projectKey, currentLocale)
+
+          updateJsonLd(schemaGraph)
+
           if (!wait) {
             this.translations = data
+
             this._updateDom()
+
             this._bindCarousels()
+
             this.checkAutoOpenModal()
           } else {
             setTimeout(() => {
               this.translations = data
+
               this._updateDom()
+
               this._bindCarousels()
+
               this.checkAutoOpenModal()
             }, wait)
           }
@@ -177,23 +190,28 @@ export class ViewProject extends BaseComponent {
       .catch(console.error)
   }
 
-
   textDelay(items) {
     if (!Array.isArray(items)) return 14
+
     const totalChars =
       items.reduce((sum, str) => {
         return sum + stripHtml(str).length
       }, 0) || 1
+
     return calcDrawTextDelay(totalChars, 1500)
   }
 
   textOffset(items, idx) {
     if (!Array.isArray(items)) return 0
+
     const delay = this.textDelay(items)
+
     let charsBefore = 0
+
     for (let i = 0; i < idx; i++) {
       charsBefore += stripHtml(items[i]).length
     }
+
     return calcDrawTextOffset(idx, charsBefore, delay)
   }
 
@@ -205,18 +223,13 @@ export class ViewProject extends BaseComponent {
 
   checkAutoOpenModal() {
     const route = router.currentRoute
+
     const slug = route?.params?.slug
+
     if (!slug || !this.translations) return
 
-    const slugify = (text) =>
-      (text || '')
-        .toLowerCase()
-        .replace(/[^\w\s-]/g, '')
-        .trim()
-        .replace(/[\s_]+/g, '-')
-        .replace(/--+/g, '-')
-
     const storage = store.getters.getStorage()
+
     const folder = this.translations.folder || ''
 
     for (const section of this.translations.sections || []) {
@@ -232,7 +245,7 @@ export class ViewProject extends BaseComponent {
               ? `${storage}${folder}${item.src}${MEDIA.VIDEO_THUMB_EXT}`
               : `${storage}${folder}${item.src}${MEDIA.MOZ}${MEDIA.THUMB_SUFFIX}${MEDIA.EXT}`
 
-            store.commit('setModal', {
+            store.commit(MUTATIONS.SET_MODAL, {
               transform: window.scrollY,
               class: 'modal-open',
               open: true,
@@ -271,7 +284,7 @@ export class ViewProject extends BaseComponent {
 
     return (
       <article>
-        <div id="main" className={`project ${CLASSES.MODAL_BELOW}`}>
+        <div id="main" className={`${CLASSES.PROJECT} ${CLASSES.MODAL_BELOW}`}>
           <h2 className={CLASSES.INTERNAL_TITLE} aria-label={t?.title ? stripHtml(t.title) : undefined}>
             {t?.title ? (
               <draw-text text={t.title} trigger={ATTRS.TRIGGER_VIEWPORT} />
@@ -397,7 +410,7 @@ export class ViewProject extends BaseComponent {
         </div>
 
         {/* Modal above: native dialog populated imperatively by _updateModalDOM() */}
-        <dialog className={CLASSES.MODAL_ABOVE} aria-label="Media preview" />
+        <dialog className={CLASSES.MODAL_ABOVE} aria-label={TEXT.MEDIA_PREVIEW} />
       </article>
     )
   }

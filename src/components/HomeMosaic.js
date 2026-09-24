@@ -1,7 +1,22 @@
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
-import { LAYOUT, CLASSES, SELECTORS, MEDIA_DIMENSIONS, ATTRS, TEXT, EVENTS, STRINGS, PATHS, MEDIA, IMAGE_SIZES } from '../core/constants.js'
+import {
+  LAYOUT,
+  CLASSES,
+  SELECTORS,
+  MEDIA_DIMENSIONS,
+  ATTRS,
+  TEXT,
+  EVENTS,
+  STRINGS,
+  PATHS,
+  MEDIA,
+  IMAGE_SIZES,
+  LOCALES,
+  TAGS,
+  MEDIA_QUERIES,
+} from '../core/constants.js'
 import { h } from '../core/jsx.js'
 import {
   calcColumnWidth,
@@ -10,6 +25,7 @@ import {
 } from '../utils/wasm-layout.js'
 import { wasmPool } from '../utils/wasm-pool.js'
 import { npuPredict } from '../utils/npu-predict.js'
+import { predictiveLoader } from '../core/predictive-loader.js'
 import homeMosaicStyles from '../sass/home-mosaic.scss?inline'
 
 const { FEAT_MULT, COMP_MULTS, GAP: GAP_PX } = LAYOUT
@@ -22,7 +38,7 @@ export class HomeMosaic extends BaseComponent {
     this.hoveredIdx = null
     this.touchIdx = null
     this.cards = []
-    this.containerH = '0px'
+    this.containerH = `${STRINGS.ZERO}${STRINGS.PX}`
     this.bottomHMap = {}
     this.ext = MEDIA.EXT
     this._rafId = null
@@ -77,7 +93,8 @@ export class HomeMosaic extends BaseComponent {
       for (let c = 1; c < N; c++) if (colH[c] < colH[best]) best = c
       colH[best] += imageH + gap
     }
-    return Math.max(...colH) - gap + 'px'
+
+    return Math.max(...colH) - gap + ATTRS.PX
   }
 
   onMounted() {
@@ -124,6 +141,8 @@ export class HomeMosaic extends BaseComponent {
     this.quickLayout()
 
     this.scheduleLayout()
+
+    predictiveLoader.scanAndObserve(this.shadowRoot)
 
     this.addScopedListener(window, EVENTS.RESIZE, () => {
       this.quickLayout()
@@ -181,30 +200,30 @@ export class HomeMosaic extends BaseComponent {
       return {
         bottomH,
         card: {
-          position: 'absolute',
+          position: STRINGS.ABSOLUTE,
           top: `${top}px`,
           left: `${left}px`,
           width: `${itemW}px`,
           height: `${totalH}px`,
-          overflow: 'hidden',
+          overflow: STRINGS.HIDDEN,
         },
         media: {
-          position: 'relative',
-          width: '100%',
+          position: STRINGS.RELATIVE,
+          width: STRINGS.PERCENT_100,
           height: `${imageH}px`,
-          overflow: 'hidden',
-          flexShrink: '0',
+          overflow: STRINGS.HIDDEN,
+          flexShrink: STRINGS.ZERO,
         },
         bottom: {
-          width: '100%',
+          width: STRINGS.PERCENT_100,
           height: `${bottomH}px`,
-          overflow: 'hidden',
+          overflow: STRINGS.HIDDEN,
         },
       }
     })
 
-    this.containerH = Math.max(...colH) - gap + 'px'
-    const mosaicEl = this.$('.home-mosaic')
+    this.containerH = Math.max(...colH) - gap + ATTRS.PX
+    const mosaicEl = this.$(SELECTORS.HOME_MOSAIC)
     if (mosaicEl) {
       mosaicEl.style.height = this.containerH
       this._applyCardStyles()
@@ -235,7 +254,7 @@ export class HomeMosaic extends BaseComponent {
     // WASM Worker acceleration (only when no card is expanded)
     if (this.hoveredIdx === null && this.touchIdx === null) {
       wasmPool
-        .dispatch('BATCH_LAYOUT', {
+        .dispatch(STRINGS.BATCH_LAYOUT, {
           items: this.processedItems.map((item) => ({ featured: !!item.featured })),
           cols: N,
           containerW: W,
@@ -243,7 +262,7 @@ export class HomeMosaic extends BaseComponent {
         })
         .then((res) => {
           if (this.hoveredIdx === null && this.touchIdx === null && res && res.totalHeight) {
-            this.containerH = res.totalHeight + 'px'
+            this.containerH = res.totalHeight + ATTRS.PX
             if (el) el.style.height = this.containerH
           }
         })
@@ -277,29 +296,29 @@ export class HomeMosaic extends BaseComponent {
       return {
         bottomH,
         card: {
-          position: 'absolute',
+          position: STRINGS.ABSOLUTE,
           top: `${top}px`,
           left: `${left}px`,
           width: `${itemW}px`,
           height: `${totalH}px`,
-          overflow: 'hidden',
+          overflow: STRINGS.HIDDEN,
         },
         media: {
-          position: 'relative',
-          width: '100%',
+          position: STRINGS.RELATIVE,
+          width: STRINGS.PERCENT_100,
           height: `${imageH}px`,
-          overflow: 'hidden',
-          flexShrink: '0',
+          overflow: STRINGS.HIDDEN,
+          flexShrink: STRINGS.ZERO,
         },
         bottom: {
-          width: '100%',
+          width: STRINGS.PERCENT_100,
           height: `${bottomH}px`,
-          overflow: 'hidden',
+          overflow: STRINGS.HIDDEN,
         },
       }
     })
 
-    this.containerH = Math.max(...colH) - gap + 'px'
+    this.containerH = Math.max(...colH) - gap + ATTRS.PX
     if (el) {
       el.style.height = this.containerH
     }
@@ -324,16 +343,21 @@ export class HomeMosaic extends BaseComponent {
     if (this.hasTouch) return
     this.hoveredIdx = i
     this.layout()
-    npuPredict.predictTargetLikelihood('mosaic_card', this.processedItems[i]?.link, 150)
+    npuPredict.predictTargetLikelihood(STRINGS.MOSAIC_CARD, this.processedItems[i]?.link, 150)
 
     const item = this.processedItems[i]
     const detail = this.$(`.${CLASSES.HOME_MOSAIC_DETAILS}[data-index="${i}"]`)
     if (detail && item?.description) {
       let descEl = detail.querySelector(`.${CLASSES.HOME_MOSAIC_DESC}`)
       if (!descEl) {
-        descEl = document.createElement('p')
+        descEl = document.createElement(TAGS.P)
         descEl.className = CLASSES.HOME_MOSAIC_DESC
-        descEl.innerHTML = `<draw-text text="${item.description.replace(/"/g, '&quot;')}" delay="8"></draw-text>`
+
+        const drawTextEl = document.createElement(TAGS.DRAW_TEXT)
+        drawTextEl.setAttribute(ATTRS.TEXT, item.description)
+        drawTextEl.setAttribute(ATTRS.DELAY, STRINGS.DELAY_8)
+        descEl.appendChild(drawTextEl)
+
         const btn = detail.querySelector(`.${CLASSES.HOME_MOSAIC_BTN}`)
         if (btn) detail.insertBefore(descEl, btn)
         else detail.appendChild(descEl)
@@ -341,7 +365,7 @@ export class HomeMosaic extends BaseComponent {
     }
 
     requestAnimationFrame(() => {
-      const detail = this.$(`.home-mosaic-details[data-index="${i}"]`)
+      const detail = this.$(`.${CLASSES.HOME_MOSAIC_DETAILS}[data-index="${i}"]`)
       if (detail) {
         this.bottomHMap[i] = Math.max(detail.scrollHeight + 24, 130)
       }
@@ -367,29 +391,29 @@ export class HomeMosaic extends BaseComponent {
     // Match Vue: detect touch via store hasTouch OR ontouchstart OR coarse pointer
     const isTouch =
       Boolean(this.hasTouch) ||
-      'ontouchstart' in window ||
-      (window.matchMedia && window.matchMedia('(pointer: coarse)').matches)
+      EVENTS.TOUCHSTART in window ||
+      (window.matchMedia && window.matchMedia(MEDIA_QUERIES.POINTER_COARSE).matches)
 
     if (!item.link) return
     const lang = store.getters.getLang()
-    const prefix = lang === 'en' ? '' : '/' + lang
-    const dest = `${prefix}/portfolio/${item.link}`
+    const prefix = lang === LOCALES.EN ? ATTRS.EMPTY : `${PATHS.ROOT}${lang}`
+    const dest = `${prefix}${PATHS.PORTFOLIO}${item.link}`
 
     if (isTouch) {
       if (this.touchIdx !== i) {
         const prevIdx = this.touchIdx
         this.touchIdx = i
         if (prevIdx !== null && prevIdx !== i) {
-          const prevDetail = this.$(`.home-mosaic-details[data-index="${prevIdx}"]`)
+          const prevDetail = this.$(`.${CLASSES.HOME_MOSAIC_DETAILS}[data-index="${prevIdx}"]`)
           if (prevDetail) {
-            const descEl = prevDetail.querySelector('.home-mosaic-desc')
+            const descEl = prevDetail.querySelector(SELECTORS.HOME_MOSAIC_DESC)
             if (descEl) descEl.remove()
           }
           delete this.bottomHMap[prevIdx]
         }
         this._updateDom()
         requestAnimationFrame(() => {
-          const d = this.$(`.home-mosaic-details[data-index="${i}"]`)
+          const d = this.$(`.${CLASSES.HOME_MOSAIC_DETAILS}[data-index="${i}"]`)
           if (d) {
             const detailH = d.scrollHeight
             if (detailH > 0) this.bottomHMap[i] = detailH + 24
@@ -418,8 +442,8 @@ export class HomeMosaic extends BaseComponent {
   }
 
   render() {
-    const featuredText = this.translations?.featured || ''
-    const exploreText = this.translations?.explore || 'Check out'
+    const featuredText = this.translations?.featured || ATTRS.EMPTY
+    const exploreText = this.translations?.explore || TEXT.CHECK_OUT
 
     return (
       <section className={CLASSES.HOME_PORTFOLIO_SECTION}>
@@ -434,16 +458,16 @@ export class HomeMosaic extends BaseComponent {
         {this.processedItems.length ? (
           <div
             className={CLASSES.HOME_MOSAIC}
-            style={{ position: 'relative', width: '100%', height: this.containerH }}
+            style={{ position: STRINGS.RELATIVE, width: STRINGS.PERCENT_100, height: this.containerH }}
           >
             {this.processedItems.map((item, i) => (
               <div
                 key={item.link || i}
-                className={`${CLASSES.HOME_MOSAIC_ITEM} ${item.featured ? CLASSES.HOME_MOSAIC_ITEM_FEATURED : ''}`}
+                className={`${CLASSES.HOME_MOSAIC_ITEM} ${item.featured ? CLASSES.HOME_MOSAIC_ITEM_FEATURED : ATTRS.EMPTY}`}
                 data-index={i}
-                style={this.cards[i]?.card || ''}
+                style={this.cards[i]?.card || ATTRS.EMPTY}
               >
-                <div className={CLASSES.HOME_MOSAIC_MEDIA} style={this.cards[i]?.media || ''}>
+                <div className={CLASSES.HOME_MOSAIC_MEDIA} style={this.cards[i]?.media || ATTRS.EMPTY}>
                   <img
                     decoding={i < 1 ? ATTRS.DECODING_SYNC : ATTRS.DECODING_ASYNC}
                     loading={i < 1 ? ATTRS.LOADING_EAGER : ATTRS.LOADING_LAZY}
@@ -459,14 +483,14 @@ export class HomeMosaic extends BaseComponent {
                     <h3 className={CLASSES.HOME_MOSAIC_TITLE}>{item.label}</h3>
                   </div>
                 </div>
-                <div className={CLASSES.HOME_MOSAIC_BOTTOM} style={this.cards[i]?.bottom || ''}>
+                <div className={CLASSES.HOME_MOSAIC_BOTTOM} style={this.cards[i]?.bottom || ATTRS.EMPTY}>
                   <div className={CLASSES.HOME_MOSAIC_DETAILS} data-index={i}>
                     {item.description && (this.hoveredIdx === i || this.touchIdx === i) && (
                       <p className={CLASSES.HOME_MOSAIC_DESC}>
-                        <draw-text text={item.description} delay="8" />
+                        <draw-text text={item.description} delay={STRINGS.DELAY_8} />
                       </p>
                     )}
-                    <button className={CLASSES.HOME_MOSAIC_BTN} type="button">
+                    <button className={CLASSES.HOME_MOSAIC_BTN} type={ATTRS.BUTTON}>
                       {exploreText}
                     </button>
                   </div>
@@ -475,7 +499,7 @@ export class HomeMosaic extends BaseComponent {
             ))}
           </div>
         ) : (
-          <div className={CLASSES.HOME_MOSAIC} style={{ position: 'relative', width: '100%', height: this.skeletonH }}>
+          <div className={CLASSES.HOME_MOSAIC} style={{ position: STRINGS.RELATIVE, width: STRINGS.PERCENT_100, height: this.skeletonH }}>
             {Array.from({ length: 7 }, (_, idx) => idx + 1).map((n) => (
               <div key={n} className={CLASSES.SKELETON_SHIMMER} style={this.skeletonStyle(n)} />
             ))}
@@ -487,10 +511,12 @@ export class HomeMosaic extends BaseComponent {
 
   onUpdated() {
     this._applyCardStyles()
+
+    predictiveLoader.scanAndObserve(this.shadowRoot)
   }
 
 }
 
-if (!customElements.get('home-mosaic')) {
-  customElements.define('home-mosaic', HomeMosaic)
+if (!customElements.get(TAGS.HOME_MOSAIC)) {
+  customElements.define(TAGS.HOME_MOSAIC, HomeMosaic)
 }

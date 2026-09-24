@@ -5,6 +5,7 @@
 
 import { wasmPool } from './wasm-pool.js'
 import { gpuAccel } from './gpu-accel.js'
+import { MEDIA_DIMENSIONS } from '../core/constants.js'
 
 class WASMMediaThreadManager {
   constructor() {
@@ -86,7 +87,7 @@ class WASMMediaThreadManager {
 
         // Upload poster to GPU VRAM immediately if available
         if (result.poster) {
-          gpuAccel.processBitmapGPU(result.poster, result.best?.width || 1920, result.best?.height || 1080)
+          gpuAccel.processBitmapGPU(result.poster, result.best?.width || MEDIA_DIMENSIONS.FHD_WIDTH, result.best?.height || MEDIA_DIMENSIONS.FHD_HEIGHT)
         }
       }
 
@@ -133,7 +134,7 @@ class WASMMediaThreadManager {
     }
 
     if (prefetchResult.poster) {
-      gpuAccel.processBitmapGPU(prefetchResult.poster, videoEl.clientWidth || 1920, videoEl.clientHeight || 1080)
+      gpuAccel.processBitmapGPU(prefetchResult.poster, videoEl.clientWidth || MEDIA_DIMENSIONS.FHD_WIDTH, videoEl.clientHeight || MEDIA_DIMENSIONS.FHD_HEIGHT)
     }
   }
 }

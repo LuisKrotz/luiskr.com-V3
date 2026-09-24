@@ -1,12 +1,13 @@
+import { CMS_CLASSES, CMS_TAGS, CMS_EVENTS } from "../../core/cms/tokens.js"
 import { BaseComponent } from '../../core/Component.js'
 import { getDbInstance } from '../../firebase.js'
 import { ref, child, get, set } from 'firebase/database'
 import { h } from '../../core/jsx.js'
-import { STRINGS } from '../../core/constants.js'
+import { TAGS, ATTRS, EVENTS, STRINGS, LOCALES, TEXT, PATHS } from "../../core/constants.js"
+import { VALID_LANGS } from '../../core/i18n.js'
 import cmsStyles from '../../sass/cms.scss?inline'
 
-const LANGS = ['en', 'br', 'es', 'de', 'hrk', 'cas', 'riv', 'gn', 'it', 'ru', 'fr', 'tln']
-const SIZE_PRESETS = [150, 200, 256, 300, 400, 512]
+const SIZE_PRESETS = Object.freeze([150, 200, 256, 300, 400, 512])
 
 async function emailToGravatarHash(email) {
   const normalized = email.trim().toLowerCase()
@@ -20,18 +21,18 @@ async function emailToGravatarHash(email) {
 export class CmsAboutEditor extends BaseComponent {
   constructor() {
     super(cmsStyles)
-    this.languages = LANGS
-    this.selectedLang = 'en'
+    this.languages = VALID_LANGS
+    this.selectedLang = LOCALES.EN
     this.gravatarSize = 512
     this.emailInput = ''
     this.saving = false
     this.syncingAll = false
     this.aboutData = {
-      title: 'About',
-      profilePicture: '',
+      title: TEXT.ABOUT,
+      profilePicture: STRINGS.EMPTY,
       col1: [],
       col2: [],
-      mentions: 'Some mentions',
+      mentions: TEXT.SOME_MENTIONS,
       mention_items: [],
     }
   }
@@ -48,18 +49,18 @@ export class CmsAboutEditor extends BaseComponent {
   async loadAboutData() {
     try {
       const db = await getDbInstance()
-      const snap = await get(child(ref(db), `translations/${this.selectedLang}/pages/about`))
+      const snap = await get(child(ref(db), `${PATHS.TRANSLATIONS}${this.selectedLang}/pages/about`))
       if (snap.exists()) {
         const val = snap.val()
-        const rawUrl = val.profilePicture || ''
+        const rawUrl = val.profilePicture || STRINGS.EMPTY
         const sizeMatch = rawUrl.match(/[?&]s=(\d+)/)
         if (sizeMatch) this.gravatarSize = parseInt(sizeMatch[1], 10)
         this.aboutData = {
-          title: val.title || 'About',
+          title: val.title || TEXT.ABOUT,
           profilePicture: rawUrl,
           col1: Array.isArray(val.col1) ? [...val.col1] : [],
           col2: Array.isArray(val.col2) ? [...val.col2] : [],
-          mentions: val.mentions || 'Some mentions',
+          mentions: val.mentions || TEXT.SOME_MENTIONS,
           mention_items: Array.isArray(val.mention_items) ? [...val.mention_items] : [],
         }
       }
@@ -136,7 +137,7 @@ export class CmsAboutEditor extends BaseComponent {
       const db = await getDbInstance()
       for (const lang of this.languages) {
         if (lang === this.selectedLang) continue
-        await set(ref(db, `translations/${lang}/pages/about/profilePicture`), this.aboutData.profilePicture)
+        await set(ref(db, `${PATHS.TRANSLATIONS}${lang}/pages/about/profilePicture`), this.aboutData.profilePicture)
       }
       this._notify(`Profile picture synced to all ${this.languages.length} languages!`)
     } catch (err) {
@@ -155,9 +156,9 @@ export class CmsAboutEditor extends BaseComponent {
       const db = await getDbInstance()
       for (const lang of this.languages) {
         if (lang === this.selectedLang) continue
-        const snap = await get(child(ref(db), `translations/${lang}/pages/about`))
+        const snap = await get(child(ref(db), `${PATHS.TRANSLATIONS}${lang}/pages/about`))
         const existing = snap.exists() ? snap.val() : {}
-        await set(ref(db, `translations/${lang}/pages/about`), {
+        await set(ref(db, `${PATHS.TRANSLATIONS}${lang}/pages/about`), {
           ...existing,
           profilePicture: this.aboutData.profilePicture,
           mentions: this.aboutData.mentions,
@@ -179,7 +180,7 @@ export class CmsAboutEditor extends BaseComponent {
     this._updateDom()
     try {
       const db = await getDbInstance()
-      await set(ref(db, `translations/${this.selectedLang}/pages/about`), this.aboutData)
+      await set(ref(db, `${PATHS.TRANSLATIONS}${this.selectedLang}/pages/about`), this.aboutData)
       this._notify(`About section [${this.selectedLang.toUpperCase()}] saved!`)
     } catch (err) {
       alert('Failed to save: ' + (err.message || err))
@@ -190,7 +191,7 @@ export class CmsAboutEditor extends BaseComponent {
   }
 
   _notify(msg) {
-    this.dispatchEvent(new CustomEvent('notify', { bubbles: true, composed: true, detail: msg }))
+    this.dispatchEvent(new CustomEvent(CMS_EVENTS.NOTIFY, { bubbles: true, composed: true, detail: msg }))
   }
 
   // ─── Events ────────────────────────────────────────────────────────────────
@@ -198,225 +199,225 @@ export class CmsAboutEditor extends BaseComponent {
     const on = (sel, ev, fn) => { const el = this.$(sel); if (el) this.addScopedListener(el, ev, fn) }
     const all = (sel, fn) => this.$$(sel).forEach(fn)
 
-    on('#btn-save-about', 'click', () => this.saveAboutData())
-    on('#btn-sync-picture', 'click', () => this.applyPictureToAllLangs())
-    on('#btn-sync-all', 'click', () => this.syncNonLocalizedToAllLangs())
-    on('#btn-gen-gravatar', 'click', () => this.generateGravatarUrl())
-    on('#select-about-lang', 'change', (e) => { this.selectedLang = e.target.value; this.loadAboutData() })
-    on('#about-title-input', 'input', (e) => { this.aboutData.title = e.target.value })
-    on('#about-mentions-title', 'input', (e) => { this.aboutData.mentions = e.target.value })
-    on('#email-gravatar-input', 'input', (e) => { this.emailInput = e.target.value })
-    on('#about-size-input', 'input', (e) => { this.setGravatarSize(parseInt(e.target.value, 10) || 512) })
-    on('#about-pic-input', 'input', (e) => {
+    on('#btn-save-about', EVENTS.CLICK, () => this.saveAboutData())
+    on('#btn-sync-picture', EVENTS.CLICK, () => this.applyPictureToAllLangs())
+    on('#btn-sync-all', EVENTS.CLICK, () => this.syncNonLocalizedToAllLangs())
+    on('#btn-gen-gravatar', EVENTS.CLICK, () => this.generateGravatarUrl())
+    on('#select-about-lang', EVENTS.CHANGE, (e) => { this.selectedLang = e.target.value; this.loadAboutData() })
+    on('#about-title-input', EVENTS.INPUT, (e) => { this.aboutData.title = e.target.value })
+    on('#about-mentions-title', EVENTS.INPUT, (e) => { this.aboutData.mentions = e.target.value })
+    on('#email-gravatar-input', EVENTS.INPUT, (e) => { this.emailInput = e.target.value })
+    on('#about-size-input', EVENTS.INPUT, (e) => { this.setGravatarSize(parseInt(e.target.value, 10) || 512) })
+    on('#about-pic-input', EVENTS.INPUT, (e) => {
       this.aboutData.profilePicture = e.target.value
       const previewImg = this.$('#gravatar-preview')
       if (previewImg) previewImg.src = e.target.value
     })
 
     all('.size-preset-btn', (btn) => {
-      const size = parseInt(btn.getAttribute('data-size'), 10)
-      this.addScopedListener(btn, 'click', () => this.setGravatarSize(size))
+      const size = parseInt(btn.getAttribute(ATTRS.DATA_SIZE), 10)
+      this.addScopedListener(btn, EVENTS.CLICK, () => this.setGravatarSize(size))
     })
     all('.col-add-btn', (btn) => {
-      const col = btn.getAttribute('data-col')
-      this.addScopedListener(btn, 'click', () => this.addParagraph(col))
+      const col = btn.getAttribute(ATTRS.DATA_COL)
+      this.addScopedListener(btn, EVENTS.CLICK, () => this.addParagraph(col))
     })
     all('.para-input', (ta) => {
-      const col = ta.getAttribute('data-col')
-      const idx = parseInt(ta.getAttribute('data-idx'), 10)
-      this.addScopedListener(ta, 'input', (e) => { if (this.aboutData[col]) this.aboutData[col][idx] = e.target.value })
+      const col = ta.getAttribute(ATTRS.DATA_COL)
+      const idx = parseInt(ta.getAttribute(ATTRS.DATA_IDX), 10)
+      this.addScopedListener(ta, EVENTS.INPUT, (e) => { if (this.aboutData[col]) this.aboutData[col][idx] = e.target.value })
     })
     all('.para-remove-btn', (btn) => {
-      const col = btn.getAttribute('data-col')
-      const idx = parseInt(btn.getAttribute('data-idx'), 10)
-      this.addScopedListener(btn, 'click', () => this.removeParagraph(col, idx))
+      const col = btn.getAttribute(ATTRS.DATA_COL)
+      const idx = parseInt(btn.getAttribute(ATTRS.DATA_IDX), 10)
+      this.addScopedListener(btn, EVENTS.CLICK, () => this.removeParagraph(col, idx))
     })
     all('.para-up-btn', (btn) => {
-      const col = btn.getAttribute('data-col'); const idx = parseInt(btn.getAttribute('data-idx'), 10)
-      this.addScopedListener(btn, 'click', () => this.moveParagraph(col, idx, -1))
+      const col = btn.getAttribute(ATTRS.DATA_COL); const idx = parseInt(btn.getAttribute(ATTRS.DATA_IDX), 10)
+      this.addScopedListener(btn, EVENTS.CLICK, () => this.moveParagraph(col, idx, -1))
     })
     all('.para-down-btn', (btn) => {
-      const col = btn.getAttribute('data-col'); const idx = parseInt(btn.getAttribute('data-idx'), 10)
-      this.addScopedListener(btn, 'click', () => this.moveParagraph(col, idx, 1))
+      const col = btn.getAttribute(ATTRS.DATA_COL); const idx = parseInt(btn.getAttribute(ATTRS.DATA_IDX), 10)
+      this.addScopedListener(btn, EVENTS.CLICK, () => this.moveParagraph(col, idx, 1))
     })
 
-    on('#btn-add-mention', 'click', () => this.addMentionItem())
+    on('#btn-add-mention', EVENTS.CLICK, () => this.addMentionItem())
     all('.mention-field', (inp) => {
-      const idx = parseInt(inp.getAttribute('data-idx'), 10)
-      const field = inp.getAttribute('data-field')
-      this.addScopedListener(inp, 'input', (e) => {
+      const idx = parseInt(inp.getAttribute(ATTRS.DATA_IDX), 10)
+      const field = inp.getAttribute(ATTRS.DATA_FIELD)
+      this.addScopedListener(inp, EVENTS.INPUT, (e) => {
         if (this.aboutData.mention_items[idx]) this.aboutData.mention_items[idx][field] = e.target.value
       })
     })
     all('.mention-remove-btn', (btn) => {
-      const idx = parseInt(btn.getAttribute('data-idx'), 10)
-      this.addScopedListener(btn, 'click', () => this.removeMentionItem(idx))
+      const idx = parseInt(btn.getAttribute(ATTRS.DATA_IDX), 10)
+      this.addScopedListener(btn, EVENTS.CLICK, () => this.removeMentionItem(idx))
     })
     all('.mention-up-btn', (btn) => {
-      const idx = parseInt(btn.getAttribute('data-idx'), 10)
-      this.addScopedListener(btn, 'click', () => this.moveMentionItem(idx, -1))
+      const idx = parseInt(btn.getAttribute(ATTRS.DATA_IDX), 10)
+      this.addScopedListener(btn, EVENTS.CLICK, () => this.moveMentionItem(idx, -1))
     })
     all('.mention-down-btn', (btn) => {
-      const idx = parseInt(btn.getAttribute('data-idx'), 10)
-      this.addScopedListener(btn, 'click', () => this.moveMentionItem(idx, 1))
+      const idx = parseInt(btn.getAttribute(ATTRS.DATA_IDX), 10)
+      this.addScopedListener(btn, EVENTS.CLICK, () => this.moveMentionItem(idx, 1))
     })
   }
 
   // ─── Render helpers ────────────────────────────────────────────────────────
   _renderParagraphList(col) {
     const arr = this.aboutData[col] || []
-    return h('div', { class: 'cms-para-list' },
+    return h(TAGS.DIV, { class: 'cms-para-list' },
       ...arr.map((p, idx) =>
-        h('div', { class: 'cms-para-item' },
-          h('div', { class: 'cms-para-controls' },
-            h('button', { class: 'cms-btn cms-btn--secondary para-up-btn', 'data-col': col, 'data-idx': idx, type: 'button', disabled: idx === 0 ? '' : null }, '▲'),
-            h('button', { class: 'cms-btn cms-btn--secondary para-down-btn', 'data-col': col, 'data-idx': idx, type: 'button', disabled: idx === arr.length - 1 ? '' : null }, '▼'),
-            h('button', { class: 'cms-btn cms-btn--danger para-remove-btn', 'data-col': col, 'data-idx': idx, type: 'button' }, '✕'),
+        h(TAGS.DIV, { class: 'cms-para-item' },
+          h(TAGS.DIV, { class: 'cms-para-controls' },
+            h(TAGS.BUTTON, { class: 'cms-btn cms-btn--secondary para-up-btn', [ATTRS.DATA_COL]: col, [ATTRS.DATA_IDX]: idx, type: 'button', disabled: idx === 0 ? '' : null }, '▲'),
+            h(TAGS.BUTTON, { class: 'cms-btn cms-btn--secondary para-down-btn', [ATTRS.DATA_COL]: col, [ATTRS.DATA_IDX]: idx, type: 'button', disabled: idx === arr.length - 1 ? '' : null }, '▼'),
+            h(TAGS.BUTTON, { class: 'cms-btn cms-btn--danger para-remove-btn', [ATTRS.DATA_COL]: col, [ATTRS.DATA_IDX]: idx, type: 'button' }, '✕'),
           ),
-          h('textarea', { class: 'cms-textarea para-input', 'data-col': col, 'data-idx': idx, rows: '3', innerHTML: p }),
+          h(TAGS.TEXTAREA, { class: 'cms-textarea para-input', [ATTRS.DATA_COL]: col, [ATTRS.DATA_IDX]: idx, rows: '3', innerHTML: p }),
         )
       ),
-      h('button', { class: 'cms-btn cms-btn--secondary col-add-btn', 'data-col': col, type: 'button' }, '+ Add Paragraph'),
+      h(TAGS.BUTTON, { class: 'cms-btn cms-btn--secondary col-add-btn', [ATTRS.DATA_COL]: col, type: 'button' }, '+ Add Paragraph'),
     )
   }
 
   _renderMentionItems() {
     const items = this.aboutData.mention_items || []
-    return h('div', { class: 'cms-mention-list' },
+    return h(TAGS.DIV, { class: 'cms-mention-list' },
       ...items.map((item, idx) =>
-        h('div', { class: 'cms-card cms-mention-item' },
-          h('div', { class: 'cms-item-header' },
-            h('span', { class: 'cms-item-label' }, `#${idx + 1}`),
-            h('div', { class: 'cms-item-controls' },
-              h('button', { class: 'cms-btn cms-btn--secondary mention-up-btn', 'data-idx': idx, type: 'button', disabled: idx === 0 ? '' : null }, '▲'),
-              h('button', { class: 'cms-btn cms-btn--secondary mention-down-btn', 'data-idx': idx, type: 'button', disabled: idx === items.length - 1 ? '' : null }, '▼'),
-              h('button', { class: 'cms-btn cms-btn--danger mention-remove-btn', 'data-idx': idx, type: 'button' }, '✕'),
+        h(TAGS.DIV, { class: 'cms-card cms-mention-item' },
+          h(TAGS.DIV, { class: 'cms-item-header' },
+            h(TAGS.SPAN, { class: 'cms-item-label' }, `#${idx + 1}`),
+            h(TAGS.DIV, { class: 'cms-item-controls' },
+              h(TAGS.BUTTON, { class: 'cms-btn cms-btn--secondary mention-up-btn', [ATTRS.DATA_IDX]: idx, type: 'button', disabled: idx === 0 ? '' : null }, '▲'),
+              h(TAGS.BUTTON, { class: 'cms-btn cms-btn--secondary mention-down-btn', [ATTRS.DATA_IDX]: idx, type: 'button', disabled: idx === items.length - 1 ? '' : null }, '▼'),
+              h(TAGS.BUTTON, { class: 'cms-btn cms-btn--danger mention-remove-btn', [ATTRS.DATA_IDX]: idx, type: 'button' }, '✕'),
             ),
           ),
-          h('div', { class: 'cms-field-row' },
-            h('div', { class: 'cms-field-group' },
-              h('label', null, 'Description'),
-              h('input', { class: 'cms-input mention-field', 'data-idx': idx, 'data-field': 'description', value: item.description || '', placeholder: 'e.g. Site of the Day' }),
+          h(TAGS.DIV, { class: 'cms-field-row' },
+            h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+              h(TAGS.LABEL, null, 'Description'),
+              h(TAGS.INPUT, { class: 'cms-input mention-field', [ATTRS.DATA_IDX]: idx, 'data-field': 'description', value: item.description || '', placeholder: 'e.g. Site of the Day' }),
             ),
-            h('div', { class: 'cms-field-group' },
-              h('label', null, 'Link URL'),
-              h('input', { class: 'cms-input mention-field', 'data-idx': idx, 'data-field': 'link', value: item.link || '', placeholder: 'https://...' }),
+            h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+              h(TAGS.LABEL, null, 'Link URL'),
+              h(TAGS.INPUT, { class: 'cms-input mention-field', [ATTRS.DATA_IDX]: idx, 'data-field': 'link', value: item.link || '', placeholder: 'https://...' }),
             ),
-            h('div', { class: 'cms-field-group cms-field-group--small' },
-              h('label', null, 'Icon / Emoji'),
-              h('input', { class: 'cms-input mention-field', 'data-idx': idx, 'data-field': 'icon', value: item.icon || '', placeholder: '🏆' }),
+            h(TAGS.DIV, { class: 'cms-field-group cms-field-group--small' },
+              h(TAGS.LABEL, null, 'Icon / Emoji'),
+              h(TAGS.INPUT, { class: 'cms-input mention-field', [ATTRS.DATA_IDX]: idx, 'data-field': 'icon', value: item.icon || '', placeholder: '🏆' }),
             ),
           ),
         )
       ),
-      h('button', { id: 'btn-add-mention', class: 'cms-btn cms-btn--secondary', type: 'button' }, '+ Add Award / Mention'),
+      h(TAGS.BUTTON, { id: 'btn-add-mention', class: CMS_CLASSES.CMS_BTN_SECONDARY, type: 'button' }, '+ Add Award / Mention'),
     )
   }
 
   // ─── render() ─────────────────────────────────────────────────────────────
   render() {
-    const picUrl = this.aboutData.profilePicture || ''
+    const picUrl = this.aboutData.profilePicture || STRINGS.EMPTY
 
-    return h('div', { class: 'cms-about-manager' },
+    return h(TAGS.DIV, { class: 'cms-about-manager' },
       // Header
-      h('div', { class: 'cms-card cms-card--header' },
-        h('div', null,
+      h(TAGS.DIV, { class: 'cms-card cms-card--header' },
+        h(TAGS.DIV, null,
           h('h2', { class: 'cms-card-title' }, 'About Section & Gravatar Editor'),
-          h('p', { class: 'cms-card-subtitle' }, 'Manage your bio, Gravatar profile picture, intro text, and awards/mentions.'),
+          h(TAGS.P, { class: 'cms-card-subtitle' }, 'Manage your bio, Gravatar profile picture, intro text, and awards/mentions.'),
         ),
-        h('div', { class: 'cms-btn-group' },
-          h('button', { id: 'btn-sync-all', class: 'cms-btn cms-btn--secondary', type: 'button', disabled: this.syncingAll ? '' : null },
+        h(TAGS.DIV, { class: 'cms-btn-group' },
+          h(TAGS.BUTTON, { id: 'btn-sync-all', class: CMS_CLASSES.CMS_BTN_SECONDARY, type: 'button', disabled: this.syncingAll ? '' : null },
             this.syncingAll ? 'Syncing...' : '🔄 Sync All Non-Localized (Gravatar + Awards)'),
-          h('button', { id: 'btn-save-about', class: 'cms-btn', type: 'button', disabled: this.saving ? '' : null },
+          h(TAGS.BUTTON, { id: 'btn-save-about', class: CMS_CLASSES.CMS_BTN, type: 'button', disabled: this.saving ? '' : null },
             this.saving ? 'Saving...' : '💾 Save to Firebase'),
         ),
       ),
 
       // Language selector
-      h('div', { class: 'cms-card cms-card--lang' },
-        h('label', { class: 'cms-label' }, 'Target Language:'),
-        h('select', { id: 'select-about-lang', class: 'cms-select' },
+      h(TAGS.DIV, { class: 'cms-card cms-card--lang' },
+        h(TAGS.LABEL, { class: 'cms-label' }, 'Target Language:'),
+        h(TAGS.SELECT, { id: 'select-about-lang', class: CMS_CLASSES.CMS_SELECT },
           ...this.languages.map((l) =>
-            h('option', { value: l, selected: this.selectedLang === l ? '' : null }, l.toUpperCase())
+            h(TAGS.OPTION, { value: l, selected: this.selectedLang === l ? '' : null }, l.toUpperCase())
           ),
         ),
       ),
 
       // Profile Picture & Gravatar
-      h('div', { class: 'cms-card' },
-        h('div', { class: 'cms-section-header' },
-          h('div', null,
-            h('h3', { class: 'cms-section-title' }, 'Profile Picture & Gravatar'),
-            h('p', { class: 'cms-card-subtitle' }, 'Non-localized: same URL using per-language profile.'),
+      h(TAGS.DIV, { class: CMS_CLASSES.CMS_CARD },
+        h(TAGS.DIV, { class: 'cms-section-header' },
+          h(TAGS.DIV, null,
+            h(TAGS.H3, { class: CMS_CLASSES.CMS_SECTION_TITLE }, 'Profile Picture & Gravatar'),
+            h(TAGS.P, { class: 'cms-card-subtitle' }, 'Non-localized: same URL using per-language profile.'),
           ),
-          h('button', { id: 'btn-sync-picture', class: 'cms-btn cms-btn--secondary', type: 'button', disabled: this.syncingAll ? '' : null },
+          h(TAGS.BUTTON, { id: 'btn-sync-picture', class: CMS_CLASSES.CMS_BTN_SECONDARY, type: 'button', disabled: this.syncingAll ? '' : null },
             '🔄 Apply Picture & Size to All Languages'),
         ),
-        h('div', { class: 'cms-gravatar-layout' },
-          h('div', { class: 'cms-gravatar-preview' },
+        h(TAGS.DIV, { class: 'cms-gravatar-layout' },
+          h(TAGS.DIV, { class: 'cms-gravatar-preview' },
             picUrl
               ? h('img', { id: 'gravatar-preview', src: picUrl, alt: 'Gravatar Preview', class: 'cms-gravatar-img', loading: 'lazy' })
-              : h('div', { class: 'cms-gravatar-placeholder' }, '👤'),
-            h('span', { class: 'cms-gravatar-label' }, 'Live Preview'),
+              : h(TAGS.DIV, { class: 'cms-gravatar-placeholder' }, '👤'),
+            h(TAGS.SPAN, { class: 'cms-gravatar-label' }, 'Live Preview'),
           ),
-          h('div', { class: 'cms-gravatar-controls' },
-            h('div', { class: 'cms-field-group' },
-              h('label', null, 'Profile Picture URL'),
-              h('input', { id: 'about-pic-input', class: 'cms-input', value: picUrl, placeholder: 'https://www.gravatar.com/avatar/...' }),
+          h(TAGS.DIV, { class: 'cms-gravatar-controls' },
+            h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+              h(TAGS.LABEL, null, 'Profile Picture URL'),
+              h(TAGS.INPUT, { id: 'about-pic-input', class: CMS_CLASSES.CMS_INPUT, value: picUrl, placeholder: 'https://www.gravatar.com/avatar/...' }),
             ),
-            h('div', { class: 'cms-field-row cms-field-row--align' },
-              h('div', { class: 'cms-field-group' },
-                h('label', null, 'Gravatar Image Size (px)'),
-                h('input', { id: 'about-size-input', class: 'cms-input cms-input--short', type: STRINGS.NUMBER, value: String(this.gravatarSize) }),
+            h(TAGS.DIV, { class: 'cms-field-row cms-field-row--align' },
+              h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+                h(TAGS.LABEL, null, 'Gravatar Image Size (px)'),
+                h(TAGS.INPUT, { id: 'about-size-input', class: 'cms-input cms-input--short', type: STRINGS.NUMBER, value: String(this.gravatarSize) }),
               ),
-              h('div', { class: 'cms-field-group' },
-                h('label', null, 'Quick presets:'),
-                h('div', { class: 'cms-preset-row' },
+              h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+                h(TAGS.LABEL, null, 'Quick presets:'),
+                h(TAGS.DIV, { class: 'cms-preset-row' },
                   ...SIZE_PRESETS.map((s) =>
-                    h('button', {
+                    h(TAGS.BUTTON, {
                       class: `cms-btn cms-btn--preset size-preset-btn${s === this.gravatarSize ? ' cms-btn--active' : ''}`,
-                      'data-size': s, type: 'button',
+                      [ATTRS.DATA_SIZE]: s, type: 'button',
                     }, `${s}px`)
                   ),
                 ),
               ),
             ),
-            h('div', { class: 'cms-field-row' },
-              h('input', { id: 'email-gravatar-input', class: 'cms-input', placeholder: 'Enter email to generate Gravatar URL', value: this.emailInput }),
-              h('button', { id: 'btn-gen-gravatar', class: 'cms-btn cms-btn--secondary', type: 'button' }, 'Generate Gravatar URL'),
+            h(TAGS.DIV, { class: 'cms-field-row' },
+              h(TAGS.INPUT, { id: 'email-gravatar-input', class: CMS_CLASSES.CMS_INPUT, placeholder: 'Enter email to generate Gravatar URL', value: this.emailInput }),
+              h(TAGS.BUTTON, { id: 'btn-gen-gravatar', class: CMS_CLASSES.CMS_BTN_SECONDARY, type: 'button' }, 'Generate Gravatar URL'),
             ),
-            h('p', { class: 'cms-hint' }, 'Changing size updates the ?s= query parameter on the URL in real-time. Click "Apply Picture & Size to All Languages" to sync it across all languages immediately.'),
+            h(TAGS.P, { class: 'cms-hint' }, 'Changing size updates the ?s= query parameter on the URL in real-time. Click "Apply Picture & Size to All Languages" to sync it across all languages immediately.'),
           ),
         ),
       ),
 
       // Title & Intro Callout
-      h('div', { class: 'cms-card' },
-        h('h3', { class: 'cms-section-title' }, `Title & Intro Callout [${this.selectedLang.toUpperCase()}]`),
-        h('div', { class: 'cms-field-group' },
-          h('label', null, 'Section Title'),
-          h('input', { id: 'about-title-input', class: 'cms-input', value: this.aboutData.title || '', placeholder: 'About me' }),
+      h(TAGS.DIV, { class: CMS_CLASSES.CMS_CARD },
+        h(TAGS.H3, { class: CMS_CLASSES.CMS_SECTION_TITLE }, `Title & Intro Callout [${this.selectedLang.toUpperCase()}]`),
+        h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+          h(TAGS.LABEL, null, 'Section Title'),
+          h(TAGS.INPUT, { id: 'about-title-input', class: CMS_CLASSES.CMS_INPUT, value: this.aboutData.title || '', placeholder: 'About me' }),
         ),
       ),
 
       // Bio Column 1
-      h('div', { class: 'cms-card' },
-        h('h3', { class: 'cms-section-title' }, `Left Column Paragraphs [${this.selectedLang.toUpperCase()}]`),
+      h(TAGS.DIV, { class: CMS_CLASSES.CMS_CARD },
+        h(TAGS.H3, { class: CMS_CLASSES.CMS_SECTION_TITLE }, `Left Column Paragraphs [${this.selectedLang.toUpperCase()}]`),
         this._renderParagraphList('col1'),
       ),
 
       // Bio Column 2
-      h('div', { class: 'cms-card' },
-        h('h3', { class: 'cms-section-title' }, `Right Column Paragraphs [${this.selectedLang.toUpperCase()}]`),
+      h(TAGS.DIV, { class: CMS_CLASSES.CMS_CARD },
+        h(TAGS.H3, { class: CMS_CLASSES.CMS_SECTION_TITLE }, `Right Column Paragraphs [${this.selectedLang.toUpperCase()}]`),
         this._renderParagraphList('col2'),
       ),
 
       // Awards & Mentions
-      h('div', { class: 'cms-card' },
-        h('h3', { class: 'cms-section-title' }, 'Awards & Mentions (Non-localized)'),
-        h('div', { class: 'cms-field-group' },
-          h('label', null, 'Section Title'),
-          h('input', { id: 'about-mentions-title', class: 'cms-input', value: this.aboutData.mentions || '', placeholder: 'Some mentions' }),
+      h(TAGS.DIV, { class: CMS_CLASSES.CMS_CARD },
+        h(TAGS.H3, { class: CMS_CLASSES.CMS_SECTION_TITLE }, 'Awards & Mentions (Non-localized)'),
+        h(TAGS.DIV, { class: CMS_CLASSES.CMS_FIELD_GROUP },
+          h(TAGS.LABEL, null, 'Section Title'),
+          h(TAGS.INPUT, { id: 'about-mentions-title', class: CMS_CLASSES.CMS_INPUT, value: this.aboutData.mentions || STRINGS.EMPTY, placeholder: TEXT.SOME_MENTIONS }),
         ),
         this._renderMentionItems(),
       ),
@@ -424,6 +425,6 @@ export class CmsAboutEditor extends BaseComponent {
   }
 }
 
-if (!customElements.get('cms-about-editor')) {
-  customElements.define('cms-about-editor', CmsAboutEditor)
+if (!customElements.get(CMS_TAGS.CMS_ABOUT_EDITOR)) {
+  customElements.define(CMS_TAGS.CMS_ABOUT_EDITOR, CmsAboutEditor)
 }

@@ -46,6 +46,12 @@ export const LAYOUT = Object.freeze({
   GAP: 16,
 })
 
+export const SECTIONS = Object.freeze({
+  HOME: 'home',
+  ABOUT: 'about',
+  CONTACT: 'contact',
+})
+
 // ─── Carousel constants ───────────────────────────────────────────────────────
 export const CAROUSEL = Object.freeze({
   /** Autoplay interval in milliseconds before advancing to next slide */
@@ -74,6 +80,15 @@ export const ANIMATION = Object.freeze({
   CAROUSEL_FADE_DURATION: 800,
 })
 
+// ─── Predictive Prefetching Configuration ─────────────────────────────────────
+export const PREFETCH_CONFIG = Object.freeze({
+  IDLE_TIMEOUT: 2000,
+  FALLBACK_DELAY: 120,
+  ROOT_MARGIN: '200px 0px',
+  THRESHOLD: 0.1,
+  PORTFOLIO_REGEX: /\/portfolio\/([^/?#]+)/,
+})
+
 // ─── Application constants ────────────────────────────────────────────────────
 export const BASE_TITLE = 'Luis Krötz'
 
@@ -93,12 +108,30 @@ export const MEDIA_DIMENSIONS = Object.freeze({
   DEFAULT_WIDTH: 800,
   DEFAULT_HEIGHT: 450,
   PROFILE_SIZE: 200,
-  FLAG_NAV_WIDTH: 18,
-  FLAG_NAV_HEIGHT: 13,
-  FLAG_NAV_SPLIT_WIDTH: 8,
-  FLAG_DIALOG_WIDTH: 60,
-  FLAG_DIALOG_HEIGHT: 44,
-  FLAG_DIALOG_SPLIT_WIDTH: 33,
+  FHD_WIDTH: 1920,
+  FHD_HEIGHT: 1080,
+  COVER_HEIGHT_WIDE: 798,
+  MOSAIC_DESKTOP_WIDTH: 1920,
+  MOSAIC_MOBILE_WIDTH: 768,
+  MOSAIC_DESKTOP_HEIGHT: 913,
+  MOSAIC_MOBILE_HEIGHT: 340,
+  GRAVATAR_SIZE_1X: 200,
+  GRAVATAR_SIZE_2X: 300,
+  GRAVATAR_SIZE_3X: 400,
+  FHD_WIDTH_STR: '1920',
+  MOSAIC_MOBILE_WIDTH_STR: '768',
+  MOSAIC_DESKTOP_HEIGHT_STR: '913',
+  MOSAIC_MOBILE_HEIGHT_STR: '340',
+  VIDEO_DEFAULT_WIDTH: 640,
+  VIDEO_DEFAULT_HEIGHT: 360,
+  SCROLL_DURATION_FULL: 1000,
+  SCROLL_DURATION_REDUCED: 2500,
+  DRAW_ANIM_EXTRA_MS: 800,
+  DRAW_ANIM_MAX_MS: 2000,
+  DRAW_WORD_MAX_DELAY: 120,
+  DRAW_DEFAULT_DELAY: 100,
+  DRAW_OBSERVER_THRESHOLD: 0.05,
+  SCROLL_INIT_DELAY: 500,
 })
 
 // ─── Theme & Motion Tokens ──────────────────────────────────────────────────
@@ -115,55 +148,77 @@ export const MOTION = Object.freeze({
 
 // ─── Common Semantic Attributes ─────────────────────────────────────────────
 export const ATTRS = Object.freeze({
-  EMPTY: '',
-  TRUE: 'true',
-  FALSE: 'false',
-  NONE: 'none',
-  AUTO: 'auto',
-  DECODING_ASYNC: 'async',
-  DECODING_SYNC: 'sync',
-  LOADING_LAZY: 'lazy',
-  LOADING_EAGER: 'eager',
-  FETCH_PRIORITY_HIGH: 'high',
-  FETCH_PRIORITY_LOW: 'low',
-  TRIGGER_VIEWPORT: 'viewport',
-  CAPTIONS: 'captions',
-  ARIA_LABEL: 'aria-label',
-  SMOOTH: 'smooth',
-  INSTANT: 'instant',
-  BUTTON: 'button',
-  RING_VIEWBOX: '0 0 44 44',
-  RING_CX: '22',
-  RING_CY: '22',
-  RING_R: '19',
-  ROOT_MARGIN_50: '50px 0px',
-  ROOT_MARGIN_100: '100px 50px',
-  METADATA: 'metadata',
-  POSTER: 'poster',
-  SOURCE: 'source',
-  THUMB: 'thumb',
-  ALT: 'alt',
-  WIDTH: 'width',
-  HEIGHT: 'height',
-  IS_VIDEO: 'is-video',
-  CAN_EXPAND: 'can-expand',
-  AUTO_PLAY: 'auto-play',
-  CLASSES: 'classes',
-  TEXT: 'text',
-  DELAY: 'delay',
-  OFFSET: 'offset',
-  TRIGGER: 'trigger',
-  VISIBLE: 'visible',
-  PROP: 'prop',
-  SECTION: 'section',
-  PX: 'px',
-  VIDEO_MP4: 'video/mp4',
-  SRC: 'src',
-  LABEL: 'label',
-  TOUCH: 'touch',
-  POINTER: 'pointer',
-  DATA_INDEX: 'data-index',
-  DATA_LANG: 'data-lang',
+  EMPTY: "",
+  TRUE: "true",
+  FALSE: "false",
+  NONE: "none",
+  BLOCK: "block",
+  AUTO: "auto",
+  DECODING_ASYNC: "async",
+  DECODING_SYNC: "sync",
+  LOADING_LAZY: "lazy",
+  LOADING_EAGER: "eager",
+  FETCH_PRIORITY_HIGH: "high",
+  FETCH_PRIORITY_LOW: "low",
+  TRIGGER_VIEWPORT: "viewport",
+  CAPTIONS: "captions",
+  ARIA_LABEL: "aria-label",
+  SMOOTH: "smooth",
+  INSTANT: "instant",
+  BUTTON: "button",
+  TEXT: "text",
+  CHECKBOX: "checkbox",
+  DEFAULT_LANG: "en",
+  SOURCE: "source",
+  THUMB: "thumb",
+  ALT: "alt",
+  WIDTH: "width",
+  HEIGHT: "height",
+  IS_VIDEO: "is-video",
+  CAN_EXPAND: "can-expand",
+  AUTO_PLAY: "auto-play",
+  CLASSES: "classes",
+  DELAY: "delay",
+  OFFSET: "offset",
+  TRIGGER: "trigger",
+  VISIBLE: "visible",
+  PROP: "prop",
+  SECTION: "section",
+  PX: "px",
+  VIDEO_MP4: "video/mp4",
+  SRC: "src",
+  HREF: "href",
+  TYPE: "type",
+  NAME: "name",
+  VALUE: "value",
+  OPEN: "open",
+  LABEL: "label",
+  TOUCH: "touch",
+  POINTER: "pointer",
+  DATA_INDEX: "data-index",
+  DATA_LANG: "data-lang",
+  CLASS_NAME: "className",
+  CLASS: "class",
+  ID: "id",
+  ROLE_DIALOG: "dialog",
+  ROLE_GROUP: "group",
+  ROLE_SWITCH: "switch",
+  ARIA_LABELLEDBY: "aria-labelledby",
+  ARIA_MODAL: "aria-modal",
+  TABINDEX: "tabindex",
+  DATA_IDX: "data-idx",
+  DATA_SEC: "data-sec",
+  DATA_COL: "data-col",
+  DATA_MIDX: "data-midx",
+  DATA_SIZE: "data-size",
+  DATA_ACTION: "data-action",
+  DATA_FIELD: "data-field",
+  DATA_DIM_IDX: "data-dim-idx",
+  DATA_PROP: "data-prop",
+  DATA_THEME: "data-theme",
+  DATA_CONTENT: "data-content",
+  ARIA_HIDDEN: "aria-hidden",
+  HIDDEN: "hidden",
 })
 
 // ─── Media Query Tokens ─────────────────────────────────────────────────────
@@ -185,6 +240,119 @@ export const STRINGS = Object.freeze({
   CONTAINER_TYPE: 'container-type',
   INLINE_SIZE: 'inline-size',
   GESTURE_EVENT: 'GestureEvent',
+  BR_TAG: '<br>',
+  DELAY_30: '30',
+  EMPTY: '',
+  SLASH: '/',
+  DOUBLE_SLASH: '//',
+  COLON: ':',
+  SEMICOLON: ';',
+  COMMA: ',',
+  DOT: '.',
+  DASH: '-',
+  UNDERSCORE: '_',
+  EQUALS: '=',
+  QUESTION: '?',
+  AMPERSAND: '&',
+  HASH: '#',
+  PERCENT: '%',
+  ZERO: '0',
+  ONE: '1',
+  PX: 'px',
+  REM: 'rem',
+  NONE: 'none',
+  BLOCK: 'block',
+  AUTO: 'auto',
+  SMOOTH: 'smooth',
+  INSTANT: 'instant',
+  TRUE: 'true',
+  FALSE: 'false',
+  OPEN: 'open',
+  CLASS: 'class',
+  CLASS_NAME: 'className',
+  ID: 'id',
+  SRC: 'src',
+  HREF: 'href',
+  ALT: 'alt',
+  TYPE: 'type',
+  NAME: 'name',
+  VALUE: 'value',
+  EN: 'en',
+  BR: 'br',
+  PT: 'pt',
+  ES: 'es',
+  DE: 'de',
+  FR: 'fr',
+  IT: 'it',
+  RU: 'ru',
+  HRX: 'hrx',
+  HRK: 'hrk',
+  CAS: 'cas',
+  RIV: 'riv',
+  GN: 'gn',
+  TLI: 'tli',
+  TLN: 'tln',
+  ADMIN: 'admin',
+  CMS: 'cms',
+  FIXED: 'fixed',
+  PERCENT_100: '100%',
+  MOUSE: 'mouse',
+  PEN: 'pen',
+  TOUCH: 'touch',
+  POINTER: 'pointer',
+  SYSTEM: 'system',
+  DARK_SCHEME_QUERY: '(prefers-color-scheme: dark)',
+  PORTFOLIO: 'portfolio',
+  PRIVACY: 'privacy',
+  GDPR: 'gdpr',
+  TERMS: 'terms',
+  TERMS_OF_USE: 'terms-of-use',
+  PRIVACY_POLICY: 'privacy-policy',
+  ABOUT: 'about',
+  CONTACT: 'contact',
+  POINTERENTER: 'pointerenter',
+  TOUCHSTART: 'touchstart',
+  ONTOUCHSTART: 'ontouchstart',
+  FOCUS: 'focus',
+  ROOT_MARGIN_200: '200px 0px',
+  ROOT_MARGIN_100: '100px 0px',
+  ROOT_MARGIN_50: '50px 0px',
+  SELECTOR_LINKS: 'a[href^="/"], [data-route]',
+  DATA_ROUTE: 'data-route',
+  LINK_CANONICAL: 'link[rel="canonical"]',
+  REL_CANONICAL: 'canonical',
+  REL: 'rel',
+  SITE_URL: 'https://luiskr.com',
+  GRAVATAR_BASE: 'https://www.gravatar.com/avatar/',
+  ONE_EM: '1em',
+  VAR_RADIUS_FULL: 'var(--radius-full)',
+  VAR_RADIUS_2XS: 'var(--radius-2xs)',
+  MINUS_ONE: '-1',
+  ABSOLUTE: 'absolute',
+  RELATIVE: 'relative',
+  HIDDEN: 'hidden',
+  MOSAIC_CARD: 'mosaic_card',
+  DELAY_8: '8',
+  BATCH_LAYOUT: 'BATCH_LAYOUT',
+  SVG_XMLNS: 'http://www.w3.org/2000/svg',
+  SVG_DATA_URI_PREFIX: 'data:image/svg+xml,',
+  SVG_EXT: '.svg',
+  HTTP_LOCALHOST: 'http://localhost',
+  GRAVATAR_HOSTNAME: 'gravatar.com',
+  GRAVATAR_HOSTNAME_SUFFIX: '.gravatar.com',
+  TOKEN_WORD: 'word',
+  TOKEN_SPACE: 'space',
+  TOKEN_BR: 'br',
+  TOKEN_TAG: 'tag',
+  SPACE_CHAR: ' ',
+  A_TAG: 'a',
+  SCHEMA_CONTEXT: 'https://schema.org',
+  NOINDEX_NOFOLLOW: 'noindex, nofollow',
+  META_ROBOTS: 'meta[name="robots"]',
+  JSON_LD_SCRIPT_TYPE: 'application/ld+json',
+  JSON_LD_SCRIPT_ID: 'jsonld-graph',
+  SCHEMA_PUBLISHED_DATE: '2021-01-01T00:00:00+00:00',
+  SCHEMA_VIDEO_DURATION: 'PT1M00S',
 })
 
 // ─── Fibonacci spacing scale (unitless — use with to-rem() in SCSS or rem in JS) ─
@@ -294,6 +462,11 @@ export const TAGS = Object.freeze({
   VIDEO: 'video',
   IMG: 'img',
   BUTTON: 'button',
+  LINK: 'link',
+  STYLE: 'style',
+  DIV: 'div',
+  SPAN: 'span',
+  A: 'a',
 })
 
 // ─── URL constants ───────────────────────────────────────────────────
@@ -301,25 +474,81 @@ export const TAGS = Object.freeze({
 export const URLS = Object.freeze({
   CDN_BASE: 'https://storage.googleapis.com/luiskr.com/public/_v3/',
   FLAG_CDN: 'https://flagcdn.com/',
+  SITE: 'https://luiskr.com',
+  FIREBASE_DB: 'https://luiskr-com.firebaseio.com',
+  GITHUB: 'https://github.com/LuisKrotz',
+  LINKEDIN: 'https://www.linkedin.com/in/luis-kr%C3%B6tz/?locale=en_US',
 })
 
 // ─── Path constants ───────────────────────────────────────────────────
 // URL path segments and Firebase path suffixes — never inline in components.
 export const PATHS = Object.freeze({
-  COVERS: 'covers/',
-  COMPONENTS_RELATED: '/components/related',
-  COMPONENTS_RELATED_PROJECTS: '/components/related/projects',
-  TRANSLATIONS: 'translations/',
-  PAGES: '/pages/',
-  PROJECTS: '/projects/',
+  ROOT: "/",
+  COVERS: "covers/",
+  COMPONENTS_RELATED: "/components/related",
+  COMPONENTS_RELATED_PROJECTS: "/components/related/projects",
+  TRANSLATIONS: "translations/",
+  PAGES: "/pages/",
+  PROJECTS: "/projects/",
+  PORTFOLIO: "/portfolio/",
+  PORTFOLIO_SEGMENT: "portfolio",
+  ADMIN: "/admin",
+  CMS: "/cms",
+  PRIVACY_POLICY: "/privacy-policy",
+  GDPR: "/gdpr",
+  TERMS_OF_USE: "/terms-of-use",
+  NOT_FOUND: "not-found",
 })
 
 // ─── CMS data-key constants ───────────────────────────────────────────────
 // Keys used to read from the Firebase translation / CMS data objects.
+
+// ─── Route Meta Translation Keys ──────────────────────────────────────────────
+// Values used in route.meta.translation to identify the Firebase translation doc.
+export const TRANSLATION_KEYS = Object.freeze({
+  HOME: 'HOME',
+  PRIVACY_POLICY: 'privacy-policy',
+  GDPR: 'GDPR',
+  TERMS_OF_USE: 'terms-of-use',
+  NOT_FOUND: 'not-found',
+})
+
+// ─── Route Name Tokens ────────────────────────────────────────────────────────
+export const ROUTE_NAMES = Object.freeze({
+  HOME: "Home",
+  ABOUT: "About",
+  CONTACT: "Contact",
+  PRIVACY: "Privacy Policy",
+  GDPR: "GDPR",
+  TERMS: "Terms of Use",
+  PROJECT: "DynamicProject",
+  NOT_FOUND: "Not Found",
+  ADMIN_LOGIN: "Admin Login",
+  CMS_DASHBOARD: "CMS Dashboard",
+})
+
+export const ROUTE_PREFIXES = Object.freeze({
+  HOME: "Home",
+  ABOUT: "About",
+  CONTACT: "Contact",
+  PRIVACY: "Privacy",
+  GDPR: "GDPR",
+  TERMS: "Terms",
+})
+
 export const CMS_KEYS = Object.freeze({
   ABOUT_SECTION: 'about-section',
   LEGAL_FOOTER: 'legal-footer',
+  RELATED_FOOTER: 'related-footer',
   AUTOPLAY: 'autoplay',
+  RELATED: 'related',
+  CONTACT: 'contact',
+  LANG_DIALOG: 'lang-dialog',
+  APP: 'APP',
+  HOME: 'HOME',
+  ABOUT: 'about',
+  PORTFOLIOLIST: 'portfoliolist',
+  MEDIA: 'media',
 })
 
 // ─── LocalStorage Key constants ─────────────────────────────────────────────
@@ -332,6 +561,7 @@ export const STORAGE_KEYS = Object.freeze({
   SHOW_GRID: 'showGrid',
   COOKIE: 'cookie',
   FB_CACHE_PREFIX: 'fb_',
+  SESSION_FB_CACHE_PREFIX: 'fb_cache_',
 })
 
 // ─── CSS Custom Properties ──────────────────────────────────────────────────
@@ -353,32 +583,57 @@ export const CACHE_CONFIG = Object.freeze({
 })
 
 // ─── WASM Worker Action Tokens ───────────────────────────────────────────────
-export const WASM_ACTIONS = Object.freeze({
-  DECODE_IMAGE_WASM: 'DECODE_IMAGE_WASM',
-  DECODE_IMAGE_BATCH_WASM: 'DECODE_IMAGE_BATCH_WASM',
-  PROCESS_MEDIA_ANALYTICS: 'PROCESS_MEDIA_ANALYTICS',
-  COMPUTE_MEDIA_HASH: 'COMPUTE_MEDIA_HASH',
-  COMPUTE_SPRING_PHYSICS: 'COMPUTE_SPRING_PHYSICS',
-  DECODE_MEDIA_URL_WASM: 'DECODE_MEDIA_URL_WASM',
-  PROBE_VIDEO_WASM: 'PROBE_VIDEO_WASM',
-  PREFETCH_VIDEO_WASM: 'PREFETCH_VIDEO_WASM',
-  DECODE_VIDEO_SEGMENT_WASM: 'DECODE_VIDEO_SEGMENT_WASM',
-  DECODE_SVG_WASM: 'DECODE_SVG_WASM',
-})
+const _WASM_ACTION_LIST = [
+  'DECODE_IMAGE_WASM',
+  'DECODE_IMAGE_BATCH_WASM',
+  'PROCESS_MEDIA_ANALYTICS',
+  'COMPUTE_MEDIA_HASH',
+  'COMPUTE_SPRING_PHYSICS',
+  'DECODE_MEDIA_URL_WASM',
+  'PROBE_VIDEO_WASM',
+  'PREFETCH_VIDEO_WASM',
+  'DECODE_VIDEO_SEGMENT_WASM',
+  'DECODE_SVG_WASM',
+]
+
+export const WASM_ACTIONS = Object.freeze(
+  Object.fromEntries(_WASM_ACTION_LIST.map((key) => [key, key]))
+)
 
 // ─── Centralized CSS class name tokens ──────────────────────────────────────
 // Base block identifiers defined once and composed
 const _B_SKELETON = 'skeleton'
+const _B_SKELETON_ABOUT = `${_B_SKELETON}-about`
+const _B_SKELETON_ABOUT_P = `${_B_SKELETON_ABOUT}-p`
+const _B_SKELETON_FOOTER = `${_B_SKELETON}--footer`
 const _B_RENDER = 'render'
+const _B_RENDER_MEDIA = `${_B_RENDER}-media`
+const _B_RENDER_PLACEHOLDER = `${_B_RENDER}-placeholder`
 const _B_HOME_MOSAIC = 'home-mosaic'
 const _B_CAROUSEL = 'carousel'
-const _B_CAROUSEL_BTN = 'carousel-btn'
-const _B_CAROUSEL_SLIDE = 'carousel-slide'
+const _B_CAROUSEL_BTN = `${_B_CAROUSEL}-btn`
+const _B_CAROUSEL_SLIDE = `${_B_CAROUSEL}-slide`
 const _B_ABOUT = 'about'
+const _B_ABOUT_PROFILE = `${_B_ABOUT}-profile`
+const _B_ABOUT_PROFILE_PICTURE = `${_B_ABOUT_PROFILE}-picture`
+const _B_ABOUT_PROFILE_TEXT = `${_B_ABOUT_PROFILE}-text`
 const _B_AWARDS_FOOTER = 'awards-footer'
+const _B_AWARDS_FOOTER_PROGRESS = `${_B_AWARDS_FOOTER}-progress`
+const _B_AWARDS_FOOTER_PROGRESS_FILL = `${_B_AWARDS_FOOTER_PROGRESS}-fill`
 const _B_CONTACT = 'contact'
 const _B_MODAL = 'modal'
+const _B_EXPAND_MODAL = 'expand-modal'
+const _B_EXPAND_MODAL_CONTENT = `${_B_EXPAND_MODAL}-content`
+const _B_EXPAND_MODAL_CLOSE = `${_B_EXPAND_MODAL}-close`
+const _B_EXPAND_MODAL_CLOSE_BAR = `${_B_EXPAND_MODAL_CLOSE}-bar`
+const _B_EXPAND_MODAL_MEDIA = `${_B_EXPAND_MODAL}-media`
+const _B_EXPAND_MODAL_MEDIA_FIGURE = `${_B_EXPAND_MODAL_MEDIA}-figure`
+const _B_EXPAND_MODAL_MEDIA_ITEM = `${_B_EXPAND_MODAL_MEDIA}-item`
 const _B_INTERNAL = 'internal'
+const _B_INTERNAL_DESCRIPTION = `${_B_INTERNAL}-description`
+const _B_INTERNAL_EXTRA = `${_B_INTERNAL}-extra`
+const _B_INTERNAL_FOOTER = `${_B_INTERNAL}-footer`
+const _B_INTERNAL_FOOTER_ITEMS = `${_B_INTERNAL_FOOTER}-items`
 const _B_DRAW_TEXT = 'draw-text'
 const _B_RELATED = 'related-mosaic'
 const _B_HC = 'hc'
@@ -387,11 +642,16 @@ const _B_ADMIN = 'admin'
 const _B_CMS = 'cms'
 const _B_NAV = 'nav'
 const _B_PREF = 'pref'
+const _B_PREF_OPTIONS = `${_B_PREF}-options`
+const _B_PREF_OPTION = `${_B_PREF}-option`
+const _B_PREF_SWITCH = `${_B_PREF}-switch`
 const _B_COOKIES = 'cookies'
+const _B_COOKIES_BUTTONS = `${_B_COOKIES}-buttons`
 const _B_HUD = 'stats-hud'
 
 export const CLASSES = Object.freeze({
   // Skeleton & Media
+  SR_ONLY: 'sr-only',
   SKELETON: _B_SKELETON,
   SKELETON_SHIMMER: `${_B_SKELETON}--shimmer`,
   SKELETON_MEDIA: `${_B_SKELETON}--media`,
@@ -405,22 +665,22 @@ export const CLASSES = Object.freeze({
   SKELETON_PARA_98: `${_B_SKELETON}--para-98`,
   SKELETON_PARA_65: `${_B_SKELETON}--para-65`,
   SKELETON_BADGE: `${_B_SKELETON}--badge`,
-  SKELETON_ABOUT_TITLE: `${_B_SKELETON}-about-title`,
-  SKELETON_ABOUT_P1: `${_B_SKELETON}-about-p1`,
-  SKELETON_ABOUT_P2: `${_B_SKELETON}-about-p2`,
-  SKELETON_ABOUT_P3: `${_B_SKELETON}-about-p3`,
-  SKELETON_ABOUT_P4: `${_B_SKELETON}-about-p4`,
-  SKELETON_ABOUT_P5: `${_B_SKELETON}-about-p5`,
-  SKELETON_FOOTER_LINK: `${_B_SKELETON}--footer-link`,
-  SKELETON_FOOTER_NOTE_1: `${_B_SKELETON}--footer-note-1`,
-  SKELETON_FOOTER_NOTE_2: `${_B_SKELETON}--footer-note-2`,
-  RENDER_MEDIA: `${_B_RENDER}-media`,
-  RENDER_MEDIA_HIGH: `${_B_RENDER}-media--high`,
-  RENDER_MEDIA_EXPAND: `${_B_RENDER}-media--can-expand`,
-  RENDER_MEDIA_THUMB: `${_B_RENDER}-media--thumb`,
-  RENDER_MEDIA_LOADED: `${_B_RENDER}-media--loaded`,
-  RENDER_PLACEHOLDER: `${_B_RENDER}-placeholder`,
-  RENDER_PLACEHOLDER_FIGURE: `${_B_RENDER}-placeholder-figure`,
+  SKELETON_ABOUT_TITLE: `${_B_SKELETON_ABOUT}-title`,
+  SKELETON_ABOUT_P1: `${_B_SKELETON_ABOUT_P}1`,
+  SKELETON_ABOUT_P2: `${_B_SKELETON_ABOUT_P}2`,
+  SKELETON_ABOUT_P3: `${_B_SKELETON_ABOUT_P}3`,
+  SKELETON_ABOUT_P4: `${_B_SKELETON_ABOUT_P}4`,
+  SKELETON_ABOUT_P5: `${_B_SKELETON_ABOUT_P}5`,
+  SKELETON_FOOTER_LINK: `${_B_SKELETON_FOOTER}-link`,
+  SKELETON_FOOTER_NOTE_1: `${_B_SKELETON_FOOTER}-note-1`,
+  SKELETON_FOOTER_NOTE_2: `${_B_SKELETON_FOOTER}-note-2`,
+  RENDER_MEDIA: _B_RENDER_MEDIA,
+  RENDER_MEDIA_HIGH: `${_B_RENDER_MEDIA}--high`,
+  RENDER_MEDIA_EXPAND: `${_B_RENDER_MEDIA}--can-expand`,
+  RENDER_MEDIA_THUMB: `${_B_RENDER_MEDIA}--thumb`,
+  RENDER_MEDIA_LOADED: `${_B_RENDER_MEDIA}--loaded`,
+  RENDER_PLACEHOLDER: _B_RENDER_PLACEHOLDER,
+  RENDER_PLACEHOLDER_FIGURE: `${_B_RENDER_PLACEHOLDER}-figure`,
   MEDIA_FIGURE: 'media-figure',
 
   // Home Mosaic
@@ -454,21 +714,21 @@ export const CLASSES = Object.freeze({
   // About & Contact
   ABOUT: _B_ABOUT,
   ABOUT_TITLE: `${_B_ABOUT}-title`,
-  ABOUT_PROFILE_SECTION: `${_B_ABOUT}-profile-section`,
-  ABOUT_PROFILE_PICTURE: `${_B_ABOUT}-profile-picture`,
-  ABOUT_PROFILE_PICTURE_IMG: `${_B_ABOUT}-profile-picture-img`,
-  ABOUT_PROFILE_PICTURE_PLACEHOLDER: `${_B_ABOUT}-profile-picture-placeholder`,
-  ABOUT_PROFILE_TEXT: `${_B_ABOUT}-profile-text`,
-  ABOUT_PROFILE_TEXT_COL: `${_B_ABOUT}-profile-text-col`,
+  ABOUT_PROFILE_SECTION: `${_B_ABOUT_PROFILE}-section`,
+  ABOUT_PROFILE_PICTURE: _B_ABOUT_PROFILE_PICTURE,
+  ABOUT_PROFILE_PICTURE_IMG: `${_B_ABOUT_PROFILE_PICTURE}-img`,
+  ABOUT_PROFILE_PICTURE_PLACEHOLDER: `${_B_ABOUT_PROFILE_PICTURE}-placeholder`,
+  ABOUT_PROFILE_TEXT: _B_ABOUT_PROFILE_TEXT,
+  ABOUT_PROFILE_TEXT_COL: `${_B_ABOUT_PROFILE_TEXT}-col`,
   ABOUT_ITEM: `${_B_ABOUT}-item`,
   ABOUT_ITEM_TEXT: `${_B_ABOUT}-item-text`,
   AWARDS_FOOTER: _B_AWARDS_FOOTER,
   AWARDS_FOOTER_TITLE: `${_B_AWARDS_FOOTER}-title`,
   AWARDS_FOOTER_HEADER: `${_B_AWARDS_FOOTER}-header`,
-  AWARDS_FOOTER_PROGRESS:             `${_B_AWARDS_FOOTER}-progress`,
-  AWARDS_FOOTER_PROGRESS_FILL:        `${_B_AWARDS_FOOTER}-progress-fill`,
-  AWARDS_FOOTER_PROGRESS_FILL_RUNNING:`${_B_AWARDS_FOOTER}-progress-fill--running`,
-  AWARDS_FOOTER_PROGRESS_HIDDEN:      `${_B_AWARDS_FOOTER}-progress--hidden`,
+  AWARDS_FOOTER_PROGRESS:             _B_AWARDS_FOOTER_PROGRESS,
+  AWARDS_FOOTER_PROGRESS_FILL:        _B_AWARDS_FOOTER_PROGRESS_FILL,
+  AWARDS_FOOTER_PROGRESS_FILL_RUNNING:`${_B_AWARDS_FOOTER_PROGRESS_FILL}--running`,
+  AWARDS_FOOTER_PROGRESS_HIDDEN:      `${_B_AWARDS_FOOTER_PROGRESS}--hidden`,
   AWARDS_FOOTER_LINKS: `${_B_AWARDS_FOOTER}-links`,
   AWARDS_FOOTER_ITEM: `${_B_AWARDS_FOOTER}-links-item`,
   AWARDS_FOOTER_SEP: `${_B_AWARDS_FOOTER}-links-sep`,
@@ -485,23 +745,24 @@ export const CLASSES = Object.freeze({
   MODAL_OPEN: `${_B_MODAL}-open`,
   MODAL_ABOVE: `${_B_MODAL}-above`,
   MODAL_BELOW: `${_B_MODAL}-below`,
+  PROJECT: 'project',
   MODAL_CLOSE_BAR: `${_B_MODAL}-close-bar`,
   MODAL_BTN: `${_B_MODAL}-btn`,
-  EXPAND_MODAL_CONTENT: 'expand-modal-content',
-  EXPAND_MODAL_CONTENT_VIDEO: 'expand-modal-content--video',
-  EXPAND_MODAL_CLOSING: 'expand-modal--closing',
-  EXPAND_MODAL_CLOSE_BAR: 'expand-modal-close-bar',
-  EXPAND_MODAL_CLOSE_BAR_TITLE: 'expand-modal-close-bar-title',
-  EXPAND_MODAL_CLOSE_BAR_BUTTON: 'expand-modal-close-bar-button',
-  EXPAND_MODAL_CLOSE_AREA: 'expand-modal-close-area',
-  EXPAND_MODAL_CLOSE_BOTTOM: 'expand-modal-close-bottom',
-  EXPAND_MODAL_MEDIA_FIGURE: 'expand-modal-media-figure',
-  EXPAND_MODAL_MEDIA_FIGURE_VIDEO: 'expand-modal-media-figure--video',
-  EXPAND_MODAL_MEDIA_PLACEHOLDER: 'expand-modal-media-placeholder',
-  EXPAND_MODAL_MEDIA_ITEM: 'expand-modal-media-item',
-  EXPAND_MODAL_MEDIA_ITEM_VIDEO: 'expand-modal-media-item--video',
-  EXPAND_MODAL_OPEN_1: 'expand-modal-open-1',
-  EXPAND_MODAL_OPEN_2: 'expand-modal-open-2',
+  EXPAND_MODAL_CONTENT: _B_EXPAND_MODAL_CONTENT,
+  EXPAND_MODAL_CONTENT_VIDEO: `${_B_EXPAND_MODAL_CONTENT}--video`,
+  EXPAND_MODAL_CLOSING: `${_B_EXPAND_MODAL}--closing`,
+  EXPAND_MODAL_CLOSE_BAR: _B_EXPAND_MODAL_CLOSE_BAR,
+  EXPAND_MODAL_CLOSE_BAR_TITLE: `${_B_EXPAND_MODAL_CLOSE_BAR}-title`,
+  EXPAND_MODAL_CLOSE_BAR_BUTTON: `${_B_EXPAND_MODAL_CLOSE_BAR}-button`,
+  EXPAND_MODAL_CLOSE_AREA: `${_B_EXPAND_MODAL_CLOSE}-area`,
+  EXPAND_MODAL_CLOSE_BOTTOM: `${_B_EXPAND_MODAL_CLOSE}-bottom`,
+  EXPAND_MODAL_MEDIA_FIGURE: _B_EXPAND_MODAL_MEDIA_FIGURE,
+  EXPAND_MODAL_MEDIA_FIGURE_VIDEO: `${_B_EXPAND_MODAL_MEDIA_FIGURE}--video`,
+  EXPAND_MODAL_MEDIA_PLACEHOLDER: `${_B_EXPAND_MODAL_MEDIA}-placeholder`,
+  EXPAND_MODAL_MEDIA_ITEM: _B_EXPAND_MODAL_MEDIA_ITEM,
+  EXPAND_MODAL_MEDIA_ITEM_VIDEO: `${_B_EXPAND_MODAL_MEDIA_ITEM}--video`,
+  EXPAND_MODAL_OPEN_1: `${_B_EXPAND_MODAL}-open-1`,
+  EXPAND_MODAL_OPEN_2: `${_B_EXPAND_MODAL}-open-2`,
 
   // Internal / Project
   INTERNAL: _B_INTERNAL,
@@ -511,18 +772,18 @@ export const CLASSES = Object.freeze({
   // Zoom-to-fill modifier: cover video that intentionally fills and crops the frame.
   // Apply alongside INTERNAL_MAIN_ITEM when the video should use object-fit:cover.
   ZTF_VIDEO: 'ztf-video',
-  INTERNAL_DESCRIPTION: `${_B_INTERNAL}-description`,
-  INTERNAL_DESCRIPTION_TEXT: `${_B_INTERNAL}-description-text`,
-  INTERNAL_EXTRA: `${_B_INTERNAL}-extra`,
-  INTERNAL_EXTRA_SCROLL: `${_B_INTERNAL}-extra-scroll`,
-  INTERNAL_EXTRA_ITEM: `${_B_INTERNAL}-extra-item`,
-  INTERNAL_FOOTER: `${_B_INTERNAL}-footer`,
-  INTERNAL_FOOTER_TITLE: `${_B_INTERNAL}-footer-title`,
-  INTERNAL_FOOTER_RELATED: `${_B_INTERNAL}-footer-related`,
-  INTERNAL_FOOTER_ITEMS: `${_B_INTERNAL}-footer-items`,
-  INTERNAL_FOOTER_ITEMS_LINK: `${_B_INTERNAL}-footer-items-link`,
-  INTERNAL_FOOTER_ITEMS_SEP: `${_B_INTERNAL}-footer-items-separator`,
-  INTERNAL_FOOTER_ITEMS_NOTE: `${_B_INTERNAL}-footer-items-note`,
+  INTERNAL_DESCRIPTION: _B_INTERNAL_DESCRIPTION,
+  INTERNAL_DESCRIPTION_TEXT: `${_B_INTERNAL_DESCRIPTION}-text`,
+  INTERNAL_EXTRA: _B_INTERNAL_EXTRA,
+  INTERNAL_EXTRA_SCROLL: `${_B_INTERNAL_EXTRA}-scroll`,
+  INTERNAL_EXTRA_ITEM: `${_B_INTERNAL_EXTRA}-item`,
+  INTERNAL_FOOTER: _B_INTERNAL_FOOTER,
+  INTERNAL_FOOTER_TITLE: `${_B_INTERNAL_FOOTER}-title`,
+  INTERNAL_FOOTER_RELATED: `${_B_INTERNAL_FOOTER}-related`,
+  INTERNAL_FOOTER_ITEMS: _B_INTERNAL_FOOTER_ITEMS,
+  INTERNAL_FOOTER_ITEMS_LINK: `${_B_INTERNAL_FOOTER_ITEMS}-link`,
+  INTERNAL_FOOTER_ITEMS_SEP: `${_B_INTERNAL_FOOTER_ITEMS}-separator`,
+  INTERNAL_FOOTER_ITEMS_NOTE: `${_B_INTERNAL_FOOTER_ITEMS}-note`,
 
   // Related Mosaic
   RELATED_MOSAIC: _B_RELATED,
@@ -569,35 +830,39 @@ export const CLASSES = Object.freeze({
   PREF_SECTION:         `${_B_PREF}-section`,
   PREF_SECTION_TITLE:   `${_B_PREF}-section-title`,
   PREF_SECTION_DESC:    `${_B_PREF}-section-desc`,
-  PREF_OPTIONS:         `${_B_PREF}-options`,
-  PREF_OPTIONS_2:       `${_B_PREF}-options ${_B_PREF}-options--2`,
-  PREF_OPTIONS_3:       `${_B_PREF}-options ${_B_PREF}-options--3`,
-  PREF_OPTIONS_4:       `${_B_PREF}-options ${_B_PREF}-options--4`,
-  PREF_OPTION_BTN:      `${_B_PREF}-option-btn`,
-  PREF_OPTION_ICON:     `${_B_PREF}-option-icon`,
-  PREF_OPTION_LABEL:    `${_B_PREF}-option-label`,
-  PREF_OPTION_SUB:      `${_B_PREF}-option-sub`,
+  PREF_OPTIONS:         _B_PREF_OPTIONS,
+  PREF_OPTIONS_2:       `${_B_PREF_OPTIONS} ${_B_PREF_OPTIONS}--2`,
+  PREF_OPTIONS_3:       `${_B_PREF_OPTIONS} ${_B_PREF_OPTIONS}--3`,
+  PREF_OPTIONS_4:       `${_B_PREF_OPTIONS} ${_B_PREF_OPTIONS}--4`,
+  PREF_OPTION_BTN:      `${_B_PREF_OPTION}-btn`,
+  PREF_OPTION_ICON:     `${_B_PREF_OPTION}-icon`,
+  PREF_OPTION_LABEL:    `${_B_PREF_OPTION}-label`,
+  PREF_OPTION_SUB:      `${_B_PREF_OPTION}-sub`,
   PREF_STAT_CARD:       `${_B_PREF}-stat-card`,
   PREF_FOOTER:          `${_B_PREF}-footer`,
   PREF_DONE_BTN:        `${_B_PREF}-done-btn`,
-  PREF_SWITCH_ROW:      `${_B_PREF}-switch-row`,
-  PREF_SWITCH_INFO:     `${_B_PREF}-switch-info`,
-  PREF_SWITCH_LABEL:    `${_B_PREF}-switch-label`,
-  PREF_SWITCH_DESC:     `${_B_PREF}-switch-desc`,
-  PREF_SWITCH:          `${_B_PREF}-switch`,
-  PREF_SWITCH_ON:       `${_B_PREF}-switch ${_B_PREF}-switch--on`,
+  PREF_SWITCH_ROW:      `${_B_PREF_SWITCH}-row`,
+  PREF_SWITCH_INFO:     `${_B_PREF_SWITCH}-info`,
+  PREF_SWITCH_LABEL:    `${_B_PREF_SWITCH}-label`,
+  PREF_SWITCH_DESC:     `${_B_PREF_SWITCH}-desc`,
+  PREF_SWITCH:          _B_PREF_SWITCH,
+  PREF_SWITCH_ON:       `${_B_PREF_SWITCH} ${_B_PREF_SWITCH}--on`,
   LANG_DIALOG:          'lang-dialog',
 
   // Cookie banner
   COOKIES: _B_COOKIES,
   COOKIES_INFO: `${_B_COOKIES}-info`,
-  COOKIES_BUTTONS: `${_B_COOKIES}-buttons`,
-  COOKIES_BUTTONS_ACCEPT: `${_B_COOKIES}-buttons-accept`,
-  COOKIES_BUTTONS_REFUSE: `${_B_COOKIES}-buttons-refuse`,
+  COOKIES_BUTTONS: _B_COOKIES_BUTTONS,
+  COOKIES_BUTTONS_ACCEPT: `${_B_COOKIES_BUTTONS}-accept`,
+  COOKIES_BUTTONS_REFUSE: `${_B_COOKIES_BUTTONS}-refuse`,
 
   // App layout
   PROGRESS_BAR: 'progress-bar',
+  PROGRESS_BAR_ACTIVE: 'progress-bar--active',
   VIEW_OUTLET: 'view-outlet',
+  SHOW_GRID: 'show-grid',
+  PAGE_FADE_IN: 'page-fade-in',
+  PAGE_FADE_OUT: 'page-fade-out',
   CMS_BADGE: `${_B_CMS}-badge`,
 
   // Additional Carousel (all composed from _B_CAROUSEL_BTN / _B_CAROUSEL_SLIDE)
@@ -678,6 +943,17 @@ export const CLASSES = Object.freeze({
   HC_SLIDE_CONTENT: `${_B_HC}-slide-content`,
   HC_AWARDS: `${_B_HC}--awards`,
 
+  // Navigation sub-class modifiers (used by AppNav delegated event handler)
+  NAV_LOGO_BTN: `${_B_NAV}-logo-btn`,
+  NAV_ABOUT_BTN: `${_B_NAV}-about-btn`,
+  NAV_ACTION_BTN: `${_B_NAV}-action-btn`,
+  NAV_PREF_BTN: `${_B_NAV}-pref-btn`,
+  NAV_LANG_OPEN_BTN: `${_B_NAV}-lang-open-btn`,
+  NAV_BACK: 'back',
+  NAV_SCROLL_UP: 'scroll-up',
+  NAV_SCROLL_DOWN: 'scroll-down',
+  NAV_ACTIVE: 'active',
+
   // Router active-link classes (used by AppNav, Footer, Related)
   ROUTER_LINK_ACTIVE: 'router-link-active',
   ROUTER_LINK_EXACT_ACTIVE: 'router-link-exact-active',
@@ -716,22 +992,75 @@ export const SELECTORS = Object.freeze({
   DRAW_TEXT: `.${_B_DRAW_TEXT}`,
   COOKIES_BUTTONS_ACCEPT: `.${_B_COOKIES}-buttons-accept`,
   COOKIES_BUTTONS_REFUSE: `.${_B_COOKIES}-buttons-refuse`,
+  STYLE: 'style',
+  DATA_CONTENT: '[data-content]',
 })
 
 // ─── UI text tokens (used by both app and tests) ──────────────────────────────
+
+export const IDS = Object.freeze({
+  APP: "app",
+  MAIN: "main",
+  MAIN_CONTENT: "main-content",
+  VIEW_OUTLET: "view-outlet",
+  ABOUT: "about",
+  CONTACT: "contact",
+  LANG_DIALOG_TITLE: "lang-dialog-title",
+  PREF_TITLE: "pref-title",
+  CRITICAL_CSS: "critical-css",
+})
+
 export const TEXT = Object.freeze({
   // Navigation actions
   SCROLL_UP: 'Back to Top',
   SCROLL_UP_ALT: 'Scroll up',
   CONTACT: 'Contact',
+  RELATED: 'Related',
+  ABOUT: 'About',
   ABOUT_ME: 'About Me',
   GET_IN_TOUCH: 'Get in Touch',
+  LK_MONOGRAM: 'LK',
   CLICK_LABEL: 'Click',
   TAP_LABEL: 'Tap',
   SOME_MENTIONS: 'Some mentions',
   PREV_ITEM: 'Previous item',
   NEXT_ITEM: 'Next item',
   OF: 'of',
+  HOME: 'Home',
+  INICIO: 'Início',
+  INICIO_ES: 'Inicio',
+  STARTSEITE: 'Startseite',
+  PRIVACY_POLICY: 'Privacy Policy',
+  POLITICA_DE_PRIVACIDADE: 'Política de Privacidade',
+  POLITICA_DE_PRIVACIDAD: 'Política de Privacidad',
+  DATENSCHUTZ: 'Datenschutz',
+  GDPR: 'GDPR',
+  TERMS: 'Terms',
+  PRIVACY: 'Privacy',
+  TERMS_OF_USE: 'Terms of Use',
+  TERMOS_DE_USO: 'Termos de Uso',
+  TERMINOS_DE_USO: 'Términos de Uso',
+  NUTZUNGSBEDINGUNGEN: 'Nutzungsbedingungen',
+  DOT_SEP: '•',
+  PIPE_SEP: '|',
+  ADMIN_LOGIN: 'Admin Login',
+  CMS_DASHBOARD: 'CMS Dashboard',
+  PAGE_NOT_FOUND: 'Page not found',
+  CARREGANDO: 'Carregando',
+  CARGANDO: 'Cargando',
+  LADT: 'Lädt',
+  ELLIPSIS: '...',
+  MSG_LOADING_BR: 'Buscando dados no servidor… Aguarde um momento!',
+  MSG_LOADING_EN: 'Gathering some data on the server … Hold on just a second!',
+  MSG_LOADING_EN_WS: 'Gathering some data on the server ... Hold on just a second while the Websockets are working!',
+  MSG_LOADING_ES: '¡Obteniendo datos del servidor… Un momento!',
+  MSG_LOADING_DE: 'Daten werden abgerufen… Bitte warten!',
+  EXPLORE: 'Explore',
+  CHECK_OUT: 'Check out',
+  PREFERENCES: 'Preferences',
+  LANGUAGE: 'Language',
+  CLOSE_LANG_SELECTOR: 'Close language selector',
+  CLOSE: 'Close',
   // Common labels
   FEATURED: 'Featured',
   LOADING: 'Loading',
@@ -765,6 +1094,10 @@ export const TEXT = Object.freeze({
   MS: 'ms',
   MB: 'MB',
   DASH: '—',
+  SITE_PREFERENCES: 'Site preferences (Theme & Motion)',
+  GO_TO_SLIDE: 'Go to slide',
+  MEDIA_PREVIEW: 'Media preview',
+  LK_TITLE_PREFIX: 'Luis Krötz | ',
 })
 
 // ─── DOM Event name tokens ────────────────────────────────────────────────────
@@ -782,8 +1115,10 @@ export const EVENTS = Object.freeze({
   TOUCHSTART: 'touchstart',
   TOUCHEND: 'touchend',
   TOUCHMOVE: 'touchmove',
+  POINTERDOWN: 'pointerdown',
   KEYDOWN: 'keydown',
   KEYUP: 'keyup',
+  POINTERENTER: 'pointerenter',
   FOCUS: 'focus',
   BLUR: 'blur',
   CHANGE: 'change',
@@ -800,9 +1135,47 @@ export const EVENTS = Object.freeze({
   AUTOPLAY_START:  'autoplaystart',
   CANCEL:          'cancel',
   CLOSE:           'close',
+  OPEN_LANG_DIALOG: 'open-lang-dialog',
+  OPEN_PREFERENCES_MODAL: 'open-preferences-modal',
+  NOTIFY: 'notify',
 })
 
 // ─── Keyboard Key Tokens ──────────────────────────────────────────────────────
 export const KEYS = Object.freeze({
   ESCAPE: 'Escape',
 })
+
+
+export { LOCALES } from './tokens/locales.js'
+
+export const MUTATIONS = Object.freeze({
+  TOGGLE_LANG_DIALOG: "toggleLangDialog",
+  TOGGLE_PREFERENCES_MODAL: "togglePreferencesModal",
+  TOGGLE_STATS_FOR_NERDS: "toggleStatsForNerds",
+  TOGGLE_SHOW_GRID: "toggleShowGrid",
+  TOGGLE_REDUCED_MOTION: "toggleReducedMotion",
+  SET_LANG: "setLang",
+  SET_COMPONENT_LANG: "setComponentLang",
+  SET_STORAGE: "setStorage",
+  SET_THEME: "setTheme",
+  SET_MODAL: "setModal",
+  INIT_THEME: "initTheme",
+  INIT_REDUCED_MOTION: "initReducedMotion",
+  APPLY_THEME: "applyTheme",
+  SET_CLICK_OR_TAP: "setClickOrTap",
+  SET_CAROUSEL_LANG: "setCarouselLang",
+  SET_STATS_HUD_LANG: "setStatsHudLang",
+  SET_INPUT_METHOD: "setInputMethod",
+  SET_PORTFOLIO_LIST: "setPortfolioList",
+  SET_MENTIONS: "setMentions",
+  TOGGLE_VIDEO_AUTOPLAY: "toggleVideoAutoplay",
+  SET_VIDEO_AUTOPLAY: "setVideoAutoplay",
+  SET_HOVER: "setHover",
+  SET_CLEAR: "setClear",
+  SET_MARQUEE_AMOUNT: "setMarqueeAmount",
+  SET_MODAL: "setModal",
+  SET_ON_MOUSE_MOVE: "setOnMouseMove",
+  SET_MENTIONS_ITEMS: "setMentionsItems",
+})
+
+export { BASE_HOST_STYLES } from './tokens/styles.js'

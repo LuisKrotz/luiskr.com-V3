@@ -1,7 +1,8 @@
 import { h, Fragment } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
-import { MEDIA, CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, EVENTS, STRINGS, TEXT } from '../core/constants.js'
+import { MEDIA, CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, EVENTS, STRINGS, TEXT, MUTATIONS, PATHS } from '../core/constants.js'
+import { svgPlaceholder, slugify } from '@core/utils'
 import { gpuAccel } from '../utils/gpu-accel.js'
 import { calcAspectScaled } from '../utils/wasm-layout.js'
 import { localMediaCache } from '../utils/local-media-cache.js'
@@ -77,7 +78,7 @@ export class MediaFigure extends BaseComponent {
   }
 
   get displayWidth() {
-    const MAX = 1920
+    const MAX = MEDIA_DIMENSIONS.FHD_WIDTH
 
     if (!this.isVideo || this.mediaWidth <= MAX) return this.mediaWidth
 
@@ -85,7 +86,7 @@ export class MediaFigure extends BaseComponent {
   }
 
   get displayHeight() {
-    const MAX = 1920
+    const MAX = MEDIA_DIMENSIONS.FHD_WIDTH
 
     if (!this.isVideo || this.mediaWidth <= MAX) return this.mediaHeight
 
@@ -148,18 +149,19 @@ export class MediaFigure extends BaseComponent {
       const vid = this.$(TAGS.VIDEO)
 
       if (vid) {
-        this.addScopedListener(vid, EVENTS.MOUSEENTER, (e) => this.playVideo(e.target))
+        const videoPlayEvents = [EVENTS.MOUSEENTER, EVENTS.MOUSEOVER, EVENTS.MOUSEDOWN]
+        const videoPauseEvents = [EVENTS.MOUSELEAVE, EVENTS.MOUSEOUT]
 
-        this.addScopedListener(vid, EVENTS.MOUSEOVER, (e) => this.playVideo(e.target))
+        for (const evt of videoPlayEvents) {
+          this.addScopedListener(vid, evt, (e) => this.playVideo(e.target))
+        }
 
-        this.addScopedListener(vid, EVENTS.MOUSELEAVE, (e) => this.pauseVideo(e.target))
-
-        this.addScopedListener(vid, EVENTS.MOUSEOUT, (e) => this.pauseVideo(e.target))
-
-        this.addScopedListener(vid, EVENTS.MOUSEDOWN, (e) => this.playVideo(e.target))
+        for (const evt of videoPauseEvents) {
+          this.addScopedListener(vid, evt, (e) => this.pauseVideo(e.target))
+        }
 
         this.addScopedListener(vid, EVENTS.LOADEDDATA, (e) => {
-          gpuAccel.processVideoGPU(e.target, this.displayWidth || 640, this.displayHeight || 360)
+          gpuAccel.processVideoGPU(e.target, this.displayWidth || MEDIA_DIMENSIONS.VIDEO_DEFAULT_WIDTH, this.displayHeight || MEDIA_DIMENSIONS.VIDEO_DEFAULT_HEIGHT)
         })
 
         this.addScopedListener(vid, EVENTS.ERROR, (e) => {
@@ -282,7 +284,7 @@ export class MediaFigure extends BaseComponent {
       target
         .play()
         .then(() => {
-          gpuAccel.processVideoGPU(target, this.displayWidth || 640, this.displayHeight || 360)
+          gpuAccel.processVideoGPU(target, this.displayWidth || MEDIA_DIMENSIONS.VIDEO_DEFAULT_WIDTH, this.displayHeight || MEDIA_DIMENSIONS.VIDEO_DEFAULT_HEIGHT)
         })
         .catch(() => {})
     }
@@ -295,7 +297,7 @@ export class MediaFigure extends BaseComponent {
   }
 
   placeholder(w, h) {
-    return `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}"%3E%3C/svg%3E`
+    return `${STRINGS.SVG_DATA_URI_PREFIX}%3Csvg xmlns="${STRINGS.SVG_XMLNS}" viewBox="0 0 ${w} ${h}"%3E%3C/svg%3E`
   }
 
   async loadHighRes() {
@@ -364,12 +366,7 @@ export class MediaFigure extends BaseComponent {
   }
 
   slugify(text) {
-    return (text || ATTRS.EMPTY)
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, ATTRS.EMPTY)
-      .trim()
-      .replace(/[\s_]+/g, '-')
-      .replace(/--+/g, '-')
+    return slugify(text)
   }
 
   openModal() {
@@ -379,7 +376,7 @@ export class MediaFigure extends BaseComponent {
 
     const storage = store.getters.getStorage()
 
-    store.commit('setModal', {
+    store.commit(MUTATIONS.SET_MODAL, {
       transform: scrollY,
       class: CLASSES.MODAL_OPEN,
       open: true,
@@ -402,17 +399,17 @@ export class MediaFigure extends BaseComponent {
     if (slug) {
       const currentPath = window.location.pathname.replace(/\/$/, ATTRS.EMPTY)
 
-      const segments = currentPath.split('/')
+      const segments = currentPath.split(PATHS.ROOT)
 
-      const portIdx = segments.indexOf('portfolio')
+      const portIdx = segments.indexOf(STRINGS.PORTFOLIO)
 
       let basePath = currentPath
 
       if (portIdx !== -1 && segments.length > portIdx + 1) {
-        basePath = segments.slice(0, portIdx + 2).join('/')
+        basePath = segments.slice(0, portIdx + 2).join(PATHS.ROOT)
       }
 
-      const newPath = `${basePath}/${slug}`
+      const newPath = `${basePath}${PATHS.ROOT}${slug}`
 
       if (window.location.pathname !== newPath) {
         window.history.replaceState({}, ATTRS.EMPTY, newPath)

@@ -1,6 +1,6 @@
 import { h } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
-import { CLASSES } from '../core/constants.js'
+import { CLASSES, ATTRS, STRINGS, TAGS } from '../core/constants.js'
 import { calcWasmSkeletonStyle } from '../utils/wasm-css.js'
 
 const skeletonStyles = `
@@ -43,7 +43,7 @@ const skeletonStyles = `
 
 export class UiSkeleton extends BaseComponent {
   static get observedAttributes() {
-    return ['width', 'height', 'rounded', 'block']
+    return [ATTRS.WIDTH, ATTRS.HEIGHT, ATTRS.ROUNDED, ATTRS.BLOCK]
   }
 
   constructor() {
@@ -57,24 +57,29 @@ export class UiSkeleton extends BaseComponent {
   }
 
   render() {
-    const width = this.getAttribute('width') || '100%'
-    const height = this.getAttribute('height') || '1em'
-    const rounded = this.hasAttribute('rounded')
-    const block = this.hasAttribute('block')
-    const radius = rounded ? 'var(--radius-full)' : 'var(--radius-2xs)'
+    const width = this.getAttribute(ATTRS.WIDTH) || STRINGS.PERCENT_100
+
+    const height = this.getAttribute(ATTRS.HEIGHT) || STRINGS.ONE_EM
+
+    const rounded = this.hasAttribute(ATTRS.ROUNDED)
+
+    const block = this.hasAttribute(ATTRS.BLOCK)
+
+    const radius = rounded ? STRINGS.VAR_RADIUS_FULL : STRINGS.VAR_RADIUS_2XS
 
     const wasmStyle = calcWasmSkeletonStyle(width, height, radius)
 
     return (
       <div
-        className={`${CLASSES.SKELETON} ${rounded ? CLASSES.SKELETON_ROUND : ''} ${block ? CLASSES.SKELETON_BLOCK : ''}`}
+        className={`${CLASSES.SKELETON} ${rounded ? CLASSES.SKELETON_ROUND : STRINGS.EMPTY} ${block ? CLASSES.SKELETON_BLOCK : STRINGS.EMPTY}`}
         style={wasmStyle}
-        aria-hidden="true"
+        aria-hidden={ATTRS.TRUE}
       />
     )
   }
 }
 
-if (!customElements.get('ui-skeleton')) {
-  customElements.define('ui-skeleton', UiSkeleton)
+if (!customElements.get(TAGS.UI_SKELETON)) {
+  customElements.define(TAGS.UI_SKELETON, UiSkeleton)
 }
+

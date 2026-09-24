@@ -1,5 +1,5 @@
 // Hardware GPU & NPU Acceleration Engine (WebGL2 Hardware GPU Texture Context & WebNN Hints)
-import { STRINGS, ATTRS } from '../core/constants.js'
+import { STRINGS, ATTRS, MEDIA_DIMENSIONS } from '../core/constants.js'
 
 class GPUAccelerator {
   constructor() {
@@ -119,29 +119,34 @@ class GPUAccelerator {
     }
   }
 
+  // Shared WebGL texture upload + draw — called by all three public process* methods
+  _uploadTextureAndDraw(source, targetW, targetH) {
+    this.canvas.width = targetW
+    this.canvas.height = targetH
+    this.gl.viewport(0, 0, targetW, targetH)
+    this.gl.useProgram(this.program)
+
+    this.gl.bindTexture(this.gl.TEXTURE_2D, this.texture)
+    this.gl.texImage2D(
+      this.gl.TEXTURE_2D,
+      0,
+      this.gl.RGBA,
+      this.gl.RGBA,
+      this.gl.UNSIGNED_BYTE,
+      source
+    )
+    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR)
+    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.CLAMP_TO_EDGE)
+    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.CLAMP_TO_EDGE)
+
+    this.gl.drawArrays(this.gl.TRIANGLES, 0, 6)
+  }
+
   // Upload HTML5 Video frames directly to WebGL GPU hardware texture
-  processVideoGPU(videoEl, targetW = 640, targetH = 360) {
+  processVideoGPU(videoEl, targetW = MEDIA_DIMENSIONS.VIDEO_DEFAULT_WIDTH, targetH = MEDIA_DIMENSIONS.VIDEO_DEFAULT_HEIGHT) {
     if (!this.gl || !videoEl || videoEl.readyState < 2) return null
     try {
-      this.canvas.width = targetW
-      this.canvas.height = targetH
-      this.gl.viewport(0, 0, targetW, targetH)
-      this.gl.useProgram(this.program)
-
-      this.gl.bindTexture(this.gl.TEXTURE_2D, this.texture)
-      this.gl.texImage2D(
-        this.gl.TEXTURE_2D,
-        0,
-        this.gl.RGBA,
-        this.gl.RGBA,
-        this.gl.UNSIGNED_BYTE,
-        videoEl
-      )
-      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR)
-      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.CLAMP_TO_EDGE)
-      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.CLAMP_TO_EDGE)
-
-      this.gl.drawArrays(this.gl.TRIANGLES, 0, 6)
+      this._uploadTextureAndDraw(videoEl, targetW, targetH)
       return true
     } catch {
       return false
@@ -149,28 +154,10 @@ class GPUAccelerator {
   }
 
   // Upload HTML5 Image element directly to WebGL GPU hardware texture
-  processImageGPU(imageEl, targetW = 800, targetH = 450) {
+  processImageGPU(imageEl, targetW = MEDIA_DIMENSIONS.DEFAULT_WIDTH, targetH = MEDIA_DIMENSIONS.DEFAULT_HEIGHT) {
     if (!this.gl || !imageEl) return null
     try {
-      this.canvas.width = targetW
-      this.canvas.height = targetH
-      this.gl.viewport(0, 0, targetW, targetH)
-      this.gl.useProgram(this.program)
-
-      this.gl.bindTexture(this.gl.TEXTURE_2D, this.texture)
-      this.gl.texImage2D(
-        this.gl.TEXTURE_2D,
-        0,
-        this.gl.RGBA,
-        this.gl.RGBA,
-        this.gl.UNSIGNED_BYTE,
-        imageEl
-      )
-      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR)
-      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.CLAMP_TO_EDGE)
-      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.CLAMP_TO_EDGE)
-
-      this.gl.drawArrays(this.gl.TRIANGLES, 0, 6)
+      this._uploadTextureAndDraw(imageEl, targetW, targetH)
       return true
     } catch {
       return false
@@ -182,28 +169,10 @@ class GPUAccelerator {
   }
 
   // Upload ImageBitmap directly to WebGL2 GPU hardware VRAM texture
-  processBitmapGPU(bitmap, targetW = 800, targetH = 450) {
+  processBitmapGPU(bitmap, targetW = MEDIA_DIMENSIONS.DEFAULT_WIDTH, targetH = MEDIA_DIMENSIONS.DEFAULT_HEIGHT) {
     if (!this.gl || !bitmap) return null
     try {
-      this.canvas.width = targetW
-      this.canvas.height = targetH
-      this.gl.viewport(0, 0, targetW, targetH)
-      this.gl.useProgram(this.program)
-
-      this.gl.bindTexture(this.gl.TEXTURE_2D, this.texture)
-      this.gl.texImage2D(
-        this.gl.TEXTURE_2D,
-        0,
-        this.gl.RGBA,
-        this.gl.RGBA,
-        this.gl.UNSIGNED_BYTE,
-        bitmap
-      )
-      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR)
-      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.CLAMP_TO_EDGE)
-      this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.CLAMP_TO_EDGE)
-
-      this.gl.drawArrays(this.gl.TRIANGLES, 0, 6)
+      this._uploadTextureAndDraw(bitmap, targetW, targetH)
       return true
     } catch {
       return false
