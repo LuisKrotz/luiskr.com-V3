@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "vite",
     "serve": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --mode compat",
     "preview": "vite preview",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit",
     "test:lighthouse": "node scripts/test-lighthouse.js",
