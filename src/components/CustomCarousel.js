@@ -178,6 +178,10 @@ export class CustomCarousel extends BaseComponent {
     this._fitObserver = new ResizeObserver((entries) => {
       const width = entries[0]?.contentRect?.width || 0
 
+      if (Math.abs(width - (this._lastObservedWidth || 0)) < 4) return
+
+      this._lastObservedWidth = width
+
       requestAnimationFrame(() => {
         this._measureFit(width)
       })
@@ -190,6 +194,19 @@ export class CustomCarousel extends BaseComponent {
     if (this._forceActive) return
 
     if (this.items.length < 2) return
+
+    // Groups with more than 2 items or containing any landscape items cannot fit side-by-side.
+    if (this.items.length > 2 || this.items.some((i) => i?.class === 'landscape')) {
+      if (this._isSideBySide) {
+        this._isSideBySide = false
+
+        this._updateDom()
+
+        this._setupAfterRender()
+      }
+
+      return
+    }
 
     if (typeof window !== STRINGS.UNDEFINED && window.innerWidth < 960) {
       if (this._isSideBySide) {
@@ -205,23 +222,21 @@ export class CustomCarousel extends BaseComponent {
 
     if (hostW <= 0) return
 
+    const maxH = typeof window !== STRINGS.UNDEFINED ? Math.round(window.innerHeight * 0.7) : 600
+
     let totalW = 0
 
-    if (this._isSideBySide) {
-      const fallbackEl = this.$(SELECTORS.CAROUSEL_FALLBACK)
+    for (const item of this.items) {
+      const w = item.size?.[0] || 800
 
-      if (!fallbackEl) return
+      const h = item.size?.[1] || 1200
 
-      const children = Array.from(fallbackEl.children)
+      const ratio = w / h
 
-      totalW = children.reduce((sum, child) => sum + (child.clientWidth || 0), 0)
-    } else {
-      const slides = this.$$(SELECTORS.CAROUSEL_SLIDES_NOT_CLONE)
-
-      totalW = Array.from(slides).reduce((sum, slide) => sum + (slide.clientWidth || 0), 0)
+      totalW += ratio * maxH + 32
     }
 
-    const fits = totalW > 0 && totalW <= hostW + 16
+    const fits = totalW > 0 && totalW <= hostW
 
     const changed = fits !== this._isSideBySide
 
@@ -266,7 +281,13 @@ export class CustomCarousel extends BaseComponent {
     const section = this.closest(ATTRS.SECTION)
 
     if (section) {
-      section.style.setProperty(CSS_PROPS.CAROUSEL_ITEM_HEIGHT, `${Math.min(slideH, maxH)}${ATTRS.PX}`)
+      const currentH = section.style.getPropertyValue(CSS_PROPS.CAROUSEL_ITEM_HEIGHT)
+
+      const nextH = `${Math.min(slideH, maxH)}${ATTRS.PX}`
+
+      if (currentH !== nextH) {
+        section.style.setProperty(CSS_PROPS.CAROUSEL_ITEM_HEIGHT, nextH)
+      }
     }
   }
 

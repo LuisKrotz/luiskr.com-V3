@@ -272,8 +272,11 @@ export class ViewProject extends BaseComponent {
       const secIdx = parseInt(c.getAttribute('data-sec-idx'), 10)
       if (this.translations?.sections?.[secIdx]?.[idx]) {
         const items = this.translations.sections[secIdx][idx]
-        c.forceActive = this.isLandscapeGroup(items)
+
+        c.forceActive = this.isLandscapeGroup(items) || items.length > 2 || items.some((i) => i?.class === 'landscape')
+
         c.folder = this.translations.folder || ''
+
         c.items = items
       }
     })
