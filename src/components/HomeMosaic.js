@@ -1,7 +1,7 @@
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
-import { LAYOUT, CLASSES, SELECTORS, MEDIA_DIMENSIONS, ATTRS, TEXT, EVENTS, STRINGS, PATHS, MEDIA } from '../core/constants.js'
+import { LAYOUT, CLASSES, SELECTORS, MEDIA_DIMENSIONS, ATTRS, TEXT, EVENTS, STRINGS, PATHS, MEDIA, IMAGE_SIZES } from '../core/constants.js'
 import { h } from '../core/jsx.js'
 import {
   calcColumnWidth,
@@ -453,6 +453,7 @@ export class HomeMosaic extends BaseComponent {
                     alt={item.label}
                     width={MEDIA_DIMENSIONS.DEFAULT_WIDTH}
                     height={MEDIA_DIMENSIONS.DEFAULT_HEIGHT}
+                    sizes={IMAGE_SIZES.HOME_MOSAIC}
                   />
                   <div className={CLASSES.HOME_MOSAIC_TITLE_OVERLAY}>
                     <h3 className={CLASSES.HOME_MOSAIC_TITLE}>{item.label}</h3>

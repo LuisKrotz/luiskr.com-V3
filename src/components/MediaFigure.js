@@ -299,17 +299,41 @@ export class MediaFigure extends BaseComponent {
   }
 
   async loadHighRes() {
+    if (this.isVideo || this.isLoaded) return
+
+    const height = this.mediaHeight || 0
+
+    const width = this.mediaWidth || 0
+
+    if (height > 4096 || width > 4096) {
+      return
+    }
+
     const storage = store.getters.getStorage()
 
     const targetUrl = storage + this.mediaSrc + MEDIA.MOZ + MEDIA.Q50 + MEDIA.EXT
 
-    const localUrl = await localMediaCache.fetchOrGetLocalMedia(targetUrl)
+    this.highResSrc = targetUrl
 
-    const bitmap = await wasmMediaThreads.decodeMediaInSeparateThread(
-      localUrl,
-      this.displayWidth || 800,
-      this.displayHeight || 450
-    )
+    const highEl = this.$(`.${CLASSES.RENDER_MEDIA_HIGH}`)
+
+    const finish = () => {
+      this.isLoaded = true
+
+      if (highEl) {
+        highEl.src = targetUrl
+
+        highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
+
+        const thumbEl = this.$(`.${CLASSES.RENDER_MEDIA_THUMB}`)
+
+        if (thumbEl) {
+          thumbEl.style.display = ATTRS.NONE
+        }
+      } else if (this._isMounted) {
+        this._updateDom()
+      }
+    }
 
     const ImageClass =
       typeof window !== STRINGS.UNDEFINED && window.Image
@@ -317,20 +341,6 @@ export class MediaFigure extends BaseComponent {
         : typeof Image !== STRINGS.UNDEFINED
           ? Image
           : null
-
-    const finish = () => {
-      this.highResSrc = localUrl
-
-      this.isLoaded = true
-
-      const highEl = this.$(`.${CLASSES.RENDER_MEDIA_HIGH}`)
-
-      if (highEl) {
-        highEl.src = localUrl
-
-        highEl.classList.add(CLASSES.RENDER_MEDIA_LOADED)
-      }
-    }
 
     if (!ImageClass) {
       finish()
@@ -340,18 +350,16 @@ export class MediaFigure extends BaseComponent {
 
     const img = new ImageClass()
 
-    img.src = localUrl
+    img.src = targetUrl
 
     img.onload = () => {
-      if (!bitmap) {
-        gpuAccel.processTextureGPU(img, this.displayWidth, this.displayHeight)
-      }
+      gpuAccel.processTextureGPU(img, this.displayWidth, this.displayHeight)
 
       finish()
     }
 
     img.onerror = () => {
-      finish()
+      this.isLoaded = true
     }
   }
 
@@ -447,6 +455,7 @@ export class MediaFigure extends BaseComponent {
             <img
               decoding={ATTRS.DECODING_ASYNC}
               loading={isHeroItem ? ATTRS.LOADING_EAGER : ATTRS.LOADING_LAZY}
+              fetchpriority={isHeroItem ? ATTRS.FETCH_PRIORITY_HIGH : ATTRS.FETCH_PRIORITY_LOW}
               className={`${CLASSES.RENDER_MEDIA} ${CLASSES.RENDER_MEDIA_THUMB} ${this.classes}`}
               width={mediaW}
               height={mediaH}
@@ -470,12 +479,15 @@ export class MediaFigure extends BaseComponent {
             width={mediaW}
             height={mediaH}
             preload={shouldPreloadVideo ? ATTRS.METADATA : ATTRS.NONE}
+            fetchpriority={isHeroItem ? ATTRS.FETCH_PRIORITY_HIGH : undefined}
             playsInline
             loop
             muted
             autoPlay={this.autoPlay}
             controls={store.getters.getReducedMotion()}
           >
+            <track kind={ATTRS.CAPTIONS} />
+
             <source src={this.videoSrcMain} type={ATTRS.VIDEO_MP4} />
 
             {this.videoSrcFallback ? <source src={this.videoSrcFallback} type={ATTRS.VIDEO_MP4} /> : null}

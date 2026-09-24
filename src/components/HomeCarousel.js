@@ -4,7 +4,7 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import { calcCarouselRingOffset } from '../utils/wasm-layout.js'
 import homeCarouselStyles from '../sass/home-carousel.scss?inline'
-import { CLASSES, TAGS, EVENTS, STRINGS } from '../core/constants.js'
+import { CLASSES, TAGS, EVENTS, STRINGS, ATTRS } from '../core/constants.js'
 
 const CIRCUMFERENCE = 2 * Math.PI * 19
 
@@ -196,7 +196,7 @@ export class HomeCarousel extends BaseComponent {
     if (!trackRect.width || !slideRect.width) return
     const scrollLeft =
       track.scrollLeft + slideRect.left - trackRect.left - (trackRect.width - slideRect.width) / 2
-    track.scrollTo({ left: scrollLeft, behavior: 'smooth' })
+    track.scrollTo({ left: scrollLeft, behavior: ATTRS.SMOOTH })
   }
 
   _jumpToSlide(idx, smooth = false) {

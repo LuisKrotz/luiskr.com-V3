@@ -93,6 +93,12 @@ export const MEDIA_DIMENSIONS = Object.freeze({
   DEFAULT_WIDTH: 800,
   DEFAULT_HEIGHT: 450,
   PROFILE_SIZE: 200,
+  FLAG_NAV_WIDTH: 18,
+  FLAG_NAV_HEIGHT: 13,
+  FLAG_NAV_SPLIT_WIDTH: 8,
+  FLAG_DIALOG_WIDTH: 60,
+  FLAG_DIALOG_HEIGHT: 44,
+  FLAG_DIALOG_SPLIT_WIDTH: 33,
 })
 
 // ─── Theme & Motion Tokens ──────────────────────────────────────────────────
@@ -121,6 +127,7 @@ export const ATTRS = Object.freeze({
   FETCH_PRIORITY_HIGH: 'high',
   FETCH_PRIORITY_LOW: 'low',
   TRIGGER_VIEWPORT: 'viewport',
+  CAPTIONS: 'captions',
   ARIA_LABEL: 'aria-label',
   SMOOTH: 'smooth',
   INSTANT: 'instant',

@@ -3,7 +3,7 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
 import { LANG_OPTIONS, LANG_SLUGS } from '../core/i18n.js'
-import { TAGS, STRINGS, CLASSES, ATTRS, EVENTS, KEYS } from '../core/constants.js'
+import { TAGS, STRINGS, CLASSES, ATTRS, EVENTS, KEYS, URLS, MEDIA_DIMENSIONS } from '../core/constants.js'
 import preferencesStyles from '../sass/preferences.scss?inline'
 
 export class LangDialog extends BaseComponent {
@@ -158,28 +158,52 @@ export class LangDialog extends BaseComponent {
             </button>
           </header>
 
-          <div className="pref-body">
-            <div className="pref-options pref-options--4">
+          <div className={CLASSES.PREF_BODY}>
+            <div className={CLASSES.PREF_OPTIONS_4}>
               {LANG_OPTIONS.map((l) => (
                 <button
                   key={l.code}
-                  className={`pref-option-btn ${currentLocale === l.code ? 'active' : ''}`}
+                  className={`${CLASSES.PREF_OPTION_BTN} ${currentLocale === l.code ? CLASSES.ACTIVE : ''}`}
                   data-lang={l.code}
                   type="button"
                   onClick={() => this.selectLang(l.code)}
                 >
-                  <span className="pref-option-icon" aria-hidden="true">
+                  <span className={CLASSES.PREF_OPTION_ICON} aria-hidden="true">
                     {l.cc2 ? (
-                      <span className="flag-split">
-                        <img className="flag-img" src={`https://flagcdn.com/${l.cc}.svg`} alt={l.label} loading="lazy" />
-                        <img className="flag-img" src={`https://flagcdn.com/${l.cc2}.svg`} alt="" loading="lazy" />
+                      <span className={CLASSES.FLAG_SPLIT}>
+                        <img
+                          className={CLASSES.FLAG_IMG}
+                          src={`${URLS.FLAG_CDN}${l.cc}.svg`}
+                          alt={l.label}
+                          width={MEDIA_DIMENSIONS.FLAG_DIALOG_SPLIT_WIDTH}
+                          height={MEDIA_DIMENSIONS.FLAG_DIALOG_HEIGHT}
+                          decoding={ATTRS.DECODING_ASYNC}
+                          loading={ATTRS.LOADING_LAZY}
+                        />
+                        <img
+                          className={CLASSES.FLAG_IMG}
+                          src={`${URLS.FLAG_CDN}${l.cc2}.svg`}
+                          alt=""
+                          width={MEDIA_DIMENSIONS.FLAG_DIALOG_SPLIT_WIDTH}
+                          height={MEDIA_DIMENSIONS.FLAG_DIALOG_HEIGHT}
+                          decoding={ATTRS.DECODING_ASYNC}
+                          loading={ATTRS.LOADING_LAZY}
+                        />
                       </span>
                     ) : (
-                      <img className="flag-img" src={`https://flagcdn.com/${l.cc}.svg`} alt={l.label} loading="lazy" />
+                      <img
+                        className={CLASSES.FLAG_IMG}
+                        src={`${URLS.FLAG_CDN}${l.cc}.svg`}
+                        alt={l.label}
+                        width={MEDIA_DIMENSIONS.FLAG_DIALOG_WIDTH}
+                        height={MEDIA_DIMENSIONS.FLAG_DIALOG_HEIGHT}
+                        decoding={ATTRS.DECODING_ASYNC}
+                        loading={ATTRS.LOADING_LAZY}
+                      />
                     )}
                   </span>
-                  <span className="pref-option-label">{l.short}</span>
-                  <span className="pref-option-sub">{l.label}</span>
+                  <span className={CLASSES.PREF_OPTION_LABEL}>{l.short}</span>
+                  <span className={CLASSES.PREF_OPTION_SUB}>{l.label}</span>
                 </button>
               ))}
             </div>

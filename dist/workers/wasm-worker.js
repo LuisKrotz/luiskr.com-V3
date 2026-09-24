@@ -165,8 +165,14 @@ self.onmessage = async (e) => {
       return
     }
 
+    const isCrossOrigin = (u) => typeof u === 'string' && u.startsWith('http') && !u.startsWith(self.location.origin)
+
     const decodeOne = async ({ url, width, height, index }) => {
       try {
+        if (!url || isCrossOrigin(url)) {
+          return { index, url, bitmap: null, error: 'Cross-origin fetch avoided' }
+        }
+
         const res = await fetch(url, { cache: 'force-cache' })
         if (!res.ok) return { index, bitmap: null, error: `HTTP ${res.status}` }
         const blob = await res.blob()
@@ -209,6 +215,11 @@ self.onmessage = async (e) => {
     const { url } = payload
     if (!url) return
 
+    if (typeof url === 'string' && url.startsWith('http') && !url.startsWith(self.location.origin)) {
+      self.postMessage({ id, type: 'DECODE_MEDIA_URL_WASM_ERROR', error: 'Cross-origin fetch avoided' })
+      return
+    }
+
     fetch(url, { cache: 'force-cache' })
       .then((res) => {
         if (!res.ok) throw new Error('Fetch failed')
@@ -242,6 +253,10 @@ self.onmessage = async (e) => {
 
     const fetchVariant = async ({ url: vUrl, quality, width, height }) => {
       try {
+        if (!vUrl || (typeof vUrl === 'string' && vUrl.startsWith('http') && !vUrl.startsWith(self.location.origin))) {
+          return { url: vUrl, quality, width, height, primed: false, error: 'Cross-origin avoided' }
+        }
+
         // Range-request first 256 KB to prime the browser cache without a full
         // download — enough for the browser to begin buffering immediately.
         const rangeRes = await fetch(vUrl, {
@@ -265,7 +280,7 @@ self.onmessage = async (e) => {
     // Parallel fetch all quality variants + poster simultaneously
     const [variantResults, posterBitmap] = await Promise.all([
       Promise.all(variants.map(fetchVariant)),
-      posterUrl
+      posterUrl && typeof posterUrl === 'string' && (!posterUrl.startsWith('http') || posterUrl.startsWith(self.location.origin))
         ? fetch(posterUrl, { cache: 'force-cache' })
             .then((r) => (r.ok ? r.blob() : null))
             .then((b) => (b ? createImageBitmap(b) : null))
@@ -294,7 +309,10 @@ self.onmessage = async (e) => {
     // Used by the NPU predictor to pick the best quality variant early.
     // payload: { url }
     const { url: probeUrl } = payload
-    if (!probeUrl) return
+    if (!probeUrl || (typeof probeUrl === 'string' && probeUrl.startsWith('http') && !probeUrl.startsWith(self.location.origin))) {
+      self.postMessage({ id, type: 'PROBE_VIDEO_WASM_RESULT', results: null })
+      return
+    }
 
     try {
       const res = await fetch(probeUrl, {

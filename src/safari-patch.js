@@ -89,7 +89,7 @@ if (typeof customElements !== STRINGS.UNDEFINED) {
     }
 
     MediaFigureClass.prototype.loadHighRes = function () {
-      if (this.isLoaded) return
+      if (this.isVideo || this.isLoaded) return
 
       const height = this.mediaHeight || 0
 

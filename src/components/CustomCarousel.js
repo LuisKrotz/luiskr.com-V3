@@ -167,31 +167,37 @@ export class CustomCarousel extends BaseComponent {
       this._setHeightVar()
 
       this._measureFit()
-
-      const activeFig = this.$$(SELECTORS.CAROUSEL_SLIDES_NOT_CLONE)[0]?.querySelector(TAGS.MEDIA_FIGURE)
-
-      if (activeFig && typeof activeFig.loadHighRes === STRINGS.FUNCTION) {
-        activeFig.loadHighRes()
-      }
     })
   }
 
   _startFitObserver() {
     if (typeof ResizeObserver === STRINGS.UNDEFINED) return
 
-    this._fitObserver = new ResizeObserver(() => {
-      this._measureFit()
+    this._fitObserver = new ResizeObserver((entries) => {
+      const width = entries[0]?.contentRect?.width || 0
+
+      this._measureFit(width)
     })
 
     this._fitObserver.observe(this)
   }
 
-  _measureFit() {
+  _measureFit(observedWidth) {
     if (this._forceActive) return
 
     if (this.items.length < 2) return
 
-    const hostW = this.getBoundingClientRect().width
+    if (typeof window !== STRINGS.UNDEFINED && window.innerWidth < 960) {
+      if (this._isSideBySide) {
+        this._isSideBySide = false
+
+        this._updateDom()
+      }
+
+      return
+    }
+
+    const hostW = observedWidth || this.clientWidth || 0
 
     if (hostW <= 0) return
 
@@ -204,11 +210,11 @@ export class CustomCarousel extends BaseComponent {
 
       const children = Array.from(fallbackEl.children)
 
-      totalW = children.reduce((sum, child) => sum + child.getBoundingClientRect().width, 0)
+      totalW = children.reduce((sum, child) => sum + (child.clientWidth || 0), 0)
     } else {
       const slides = this.$$(SELECTORS.CAROUSEL_SLIDES_NOT_CLONE)
 
-      totalW = Array.from(slides).reduce((sum, slide) => sum + slide.getBoundingClientRect().width, 0)
+      totalW = Array.from(slides).reduce((sum, slide) => sum + (slide.clientWidth || 0), 0)
     }
 
     const fits = totalW > 0 && totalW <= hostW + 16
@@ -237,7 +243,17 @@ export class CustomCarousel extends BaseComponent {
 
     if (!firstSlide) return
 
-    const slideH = firstSlide.getBoundingClientRect().height
+    const firstItem = this.items?.[0]
+
+    let slideH = 0
+
+    if (firstItem?.size?.[0] && firstItem?.size?.[1]) {
+      const hostW = this.clientWidth || (typeof window !== STRINGS.UNDEFINED ? window.innerWidth : 800)
+
+      slideH = Math.round((firstItem.size[1] / firstItem.size[0]) * hostW)
+    } else {
+      slideH = firstSlide.clientHeight || 0
+    }
 
     if (slideH <= 0) return
 

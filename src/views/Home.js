@@ -85,65 +85,104 @@ export class ViewHome extends BaseComponent {
 
   loadData() {
     const lang = store.getters.getlang()
+
     const currentLocale = lang.locale || 'en'
+
     this._lastLocale = currentLocale
+
     const basePath = lang.database + currentLocale
 
-    Promise.all([
-      fetchFirebaseDb(basePath + lang.pagesPath + 'HOME'),
-      fetchFirebaseDb(basePath + PATHS.COMPONENTS_RELATED_PROJECTS),
-      fetchFirebaseDb(basePath + lang.pagesPath + 'about'),
-      fetchFirebaseDb(basePath + lang.pagesPath + 'about/profilePicture'),
-    ])
-      .then(([homeSnap, projectsSnap, aboutSnap, picSnap]) => {
+    const homePath = basePath + lang.pagesPath + 'HOME'
+
+    const projectsPath = basePath + PATHS.COMPONENTS_RELATED_PROJECTS
+
+    const aboutPath = basePath + lang.pagesPath + 'about'
+
+    const picPath = basePath + lang.pagesPath + 'about/profilePicture'
+
+    fetchFirebaseDb(homePath)
+      .then((homeSnap) => {
         if (homeSnap?.exists()) {
           this.translations = homeSnap.val()
+
           if (this.translations?.portfoliolist) {
             store.commit('setPortfolioList', this.translations.portfoliolist)
           }
+
+          this._updateDom()
+
+          this._passDataToChildren()
         }
+      })
+      .catch(console.error)
+
+    fetchFirebaseDb(projectsPath)
+      .then((projectsSnap) => {
         if (projectsSnap?.exists()) {
           const links = new Set()
+
           Object.values(projectsSnap.val()).forEach((p) => {
             if (p.featured === true && p.link) links.add(p.link)
           })
+
           this.featuredLinks = links
+
+          this._passDataToChildren()
         }
+      })
+      .catch(console.error)
+
+    Promise.all([
+      fetchFirebaseDb(aboutPath),
+      fetchFirebaseDb(picPath),
+    ])
+      .then(([aboutSnap, picSnap]) => {
         if (aboutSnap?.exists()) {
           const about = aboutSnap.val()
+
           this.aboutTranslations = about
+
           store.commit('setMentions', {
             title: about.mentions ?? 'Some mentions',
             items: about.mention_items ?? [],
           })
         }
+
         if (picSnap?.exists()) {
           this.profilePicture = picSnap.val()
         }
 
         this._updateDom()
+
         this._passDataToChildren()
       })
       .catch(console.error)
   }
 
   _passDataToChildren() {
-    const mosaic = this.$('home-mosaic')
+    const mosaic = this.$(TAGS.HOME_MOSAIC)
+
     if (mosaic) {
       mosaic.processedItems = this.processedItems
+
       mosaic.translations = this.translations
     }
 
     const aboutSec = this.$(TAGS.ABOUT_SECTION)
+
     if (aboutSec) {
       aboutSec.aboutTranslations = this.aboutTranslations
+
       aboutSec.profilePicture = this.profilePicture
     }
 
-    const awards = this.$('awards-mentions')
+    const awards = this.$(TAGS.AWARDS_MENTIONS)
+
     if (awards) {
       const mentions = store.getters.getMentions()
+
       awards.title = mentions.title
+
       awards.items = mentions.items
     }
   }

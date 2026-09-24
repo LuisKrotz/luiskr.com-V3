@@ -5,7 +5,7 @@ import router from '../core/router.js'
 import { deepQuerySelector } from '../core/dom.js'
 import { localePath, LANG_OPTIONS } from '../core/i18n.js'
 import { wasmSmoothScroll } from '../utils/wasm-scroll.js'
-import { TAGS, CLASSES, URLS, STRINGS, ATTRS } from '../core/constants.js'
+import { TAGS, CLASSES, URLS, STRINGS, ATTRS, MEDIA_DIMENSIONS } from '../core/constants.js'
 import appStyles from '../sass/app.scss?inline'
 
 export class AppNav extends BaseComponent {
@@ -63,13 +63,19 @@ export class AppNav extends BaseComponent {
             className={CLASSES.FLAG_IMG}
             src={`${URLS.FLAG_CDN}${lang.cc}.svg`}
             alt={lang.label}
-            loading="lazy"
+            width={MEDIA_DIMENSIONS.FLAG_NAV_SPLIT_WIDTH}
+            height={MEDIA_DIMENSIONS.FLAG_NAV_HEIGHT}
+            decoding={ATTRS.DECODING_ASYNC}
+            loading={ATTRS.LOADING_EAGER}
           />
           <img
             className={CLASSES.FLAG_IMG}
             src={`${URLS.FLAG_CDN}${lang.cc2}.svg`}
             alt=""
-            loading="lazy"
+            width={MEDIA_DIMENSIONS.FLAG_NAV_SPLIT_WIDTH}
+            height={MEDIA_DIMENSIONS.FLAG_NAV_HEIGHT}
+            decoding={ATTRS.DECODING_ASYNC}
+            loading={ATTRS.LOADING_EAGER}
           />
         </span>
       )
@@ -80,7 +86,10 @@ export class AppNav extends BaseComponent {
         className={CLASSES.FLAG_IMG}
         src={`${URLS.FLAG_CDN}${lang.cc}.svg`}
         alt={lang.label}
-        loading="lazy"
+        width={MEDIA_DIMENSIONS.FLAG_NAV_WIDTH}
+        height={MEDIA_DIMENSIONS.FLAG_NAV_HEIGHT}
+        decoding={ATTRS.DECODING_ASYNC}
+        loading={ATTRS.LOADING_EAGER}
       />
     )
   }
