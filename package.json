@@ -21,7 +21,8 @@
     "lighthouse": "node scripts/test-lighthouse.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "format": "prettier --write \"src/**/*.{js,scss}\""
+    "format": "prettier --write \"src/**/*.{js,scss}\"",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@rolldown/binding-linux-x64-gnu": "^1.2.3",
