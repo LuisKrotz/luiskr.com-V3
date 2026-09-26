@@ -327,8 +327,8 @@ $_B_SPP: '#{$_B_SP}-panel';
     align-items: center;
     justify-content: space-between;
     gap: to-rem($space-md);
-    padding: to-rem($space-2xs) 0;
-    font-size: to-rem(13);
+    padding: to-rem($space-xs) 0;
+    font-size: to-rem(15);
     color: var(--text-primary);
     font-family: var(--font-ui);
 
@@ -336,8 +336,8 @@ $_B_SPP: '#{$_B_SP}-panel';
       flex-shrink: 0;
       min-width: to-rem($space-6xl);
       color: var(--text-primary);
-      font-size: to-rem(13);
-      font-weight: 500;
+      font-size: to-rem(15);
+      font-weight: 600;
       letter-spacing: 0.03em;
     }
 
@@ -550,18 +550,19 @@ $_B_SPP: '#{$_B_SP}-panel';
 
   &-val {
     font-family: var(--font-mono);
-    font-size: to-rem(12);
+    font-size: to-rem(14);
     color: var(--color-accent);
-    font-weight: 600;
+    font-weight: 700;
     min-width: to-rem($space-3xl);
     text-align: right;
     user-select: none;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
   }
 
   &-readout {
     font-family: var(--font-mono, monospace);
-    font-size: to-rem(13);
+    font-size: to-rem(14);
+    font-weight: 600;
     color: var(--color-accent);
     padding: to-rem($space-xs) to-rem($space-sm);
     white-space: pre;
@@ -572,7 +573,7 @@ $_B_SPP: '#{$_B_SP}-panel';
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: to-rem($space-xs) 0;
+    padding: to-rem($space-sm) 0;
   }
 
   &-btn {
@@ -583,15 +584,15 @@ $_B_SPP: '#{$_B_SP}-panel';
     justify-content: center;
     position: relative;
     width: auto;
-    min-width: to-rem(160);
-    padding: to-rem($space-sm) to-rem($space-2xl);
+    min-width: to-rem(180);
+    padding: to-rem($space-md) to-rem($space-3xl);
     border-radius: var(--radius-none);
     background: transparent;
     color: var(--color-white-raw);
-    font-size: to-rem(13);
+    font-size: to-rem(15);
     font-family: var(--font-ui);
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     cursor: pointer;
     text-align: center;

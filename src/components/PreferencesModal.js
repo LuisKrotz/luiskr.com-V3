@@ -1,7 +1,7 @@
 import { h } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
-import { TAGS, THEME, MOTION, CLASSES, EVENTS, KEYS, ATTRS, MUTATIONS, STRINGS } from '../core/constants.js'
+import { TAGS, THEME, MOTION, CLASSES, EVENTS, KEYS, ATTRS, MUTATIONS, STRINGS, IDS } from '../core/constants.js'
 import { npuPredict } from '../utils/npu-predict.js'
 import { ThemeSliderWebGL } from '../utils/canvas/theme-slider.js'
 import { SwitchWebGL } from '../utils/canvas/switch-slider.js'
@@ -375,6 +375,33 @@ export class PreferencesModal extends BaseComponent {
           </header>
 
           <div className={CLASSES.PREF_BODY}>
+            <svg
+              width="0"
+              height="0"
+              style="position:absolute;width:0;height:0;pointer-events:none;overflow:hidden;"
+              aria-hidden={ATTRS.TRUE}
+            >
+              <filter
+                id={IDS.FILTER}
+                color-interpolation-filters="linearRGB"
+                filterUnits="objectBoundingBox"
+                primitiveUnits="userSpaceOnUse"
+              >
+                <feDisplacementMap
+                  in="SourceGraphic"
+                  in2="SourceGraphic"
+                  scale="5"
+                  xChannelSelector="A"
+                  yChannelSelector="A"
+                  x="5"
+                  y="-5"
+                  width="100%"
+                  height="100%"
+                  result="displacementMap"
+                />
+              </filter>
+            </svg>
+
             <section className={CLASSES.PREF_SECTION}>
               <h3 className={CLASSES.PREF_SECTION_TITLE}>{t.appearance.title}</h3>
               <p className={CLASSES.PREF_SECTION_DESC}>{t.appearance.desc}</p>

@@ -189,6 +189,19 @@ export class SpacePlayground extends BaseComponent {
     this._savedSettings = {}
     this._posRafId      = null
     this._checkboxes    = {}
+    this._canvasEl      = null
+  }
+
+  _getCanvasEl() {
+    if (!this._canvasEl) {
+      this._canvasEl = document.createElement(TAGS.CANVAS)
+
+      this._canvasEl.className = `${_B_SP}-canvas`
+
+      this._canvasEl.setAttribute(ATTRS.ARIA_HIDDEN, ATTRS.TRUE)
+    }
+
+    return this._canvasEl
   }
 
   onMounted() {
@@ -203,10 +216,7 @@ export class SpacePlayground extends BaseComponent {
 
     this._loadTranslations()
 
-    // Only init the WebGPU engine on desktop (≥ 1024px) — saves mobile bandwidth + GPU
-    if (window.innerWidth >= 1024) {
-      this._initEarth()
-    }
+    this._initEarth()
 
     this._bindControls()
 
@@ -227,6 +237,10 @@ export class SpacePlayground extends BaseComponent {
     this._syncPanel()
 
     this._mountCheckboxCanvases()
+
+    if (!this._earthBg) {
+      this._initEarth()
+    }
   }
 
   onDestroy() {
@@ -235,6 +249,8 @@ export class SpacePlayground extends BaseComponent {
     this._earthBg?.destroy()
 
     this._earthBg = null
+
+    this._canvasEl = null
 
     if (this._posRafId) cancelAnimationFrame(this._posRafId)
 
@@ -290,9 +306,9 @@ export class SpacePlayground extends BaseComponent {
   }
 
   _initEarth() {
-    const canvas = this.$(`.${_B_SP}-canvas`)
+    const canvas = this._getCanvasEl()
 
-    if (!canvas) return
+    if (!canvas || this._earthBg) return
 
     this._earthBg = new EarthBackground(canvas, {
       onProgress: (msg, pct) => {
@@ -427,9 +443,9 @@ export class SpacePlayground extends BaseComponent {
 
   _startPositionLoop() {
     const update = () => {
-      if (!this._earthBg) return
-
       this._posRafId = requestAnimationFrame(update)
+
+      if (!this._earthBg) return
 
       const state = this._earthBg.getCameraState()
 
@@ -693,7 +709,7 @@ export class SpacePlayground extends BaseComponent {
 
     return (
       <Fragment>
-        <canvas className={`${_B_SP}-canvas`} aria-hidden={ATTRS.TRUE} />
+        {this._getCanvasEl()}
 
         {/* Sci-Fi System Boot Loader */}
         <div className={`${_B_SP}-loader`}>

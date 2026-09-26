@@ -356,6 +356,8 @@ export class AppRoot extends BaseComponent {
       await import('./views/AdminLogin.js')
     } else if (toTag === TAGS.VIEW_CMS_DASHBOARD) {
       await import('./views/CmsDashboard.js')
+    } else if (toTag === TAGS.VIEW_SPACE_PLAYGROUND) {
+      await import('./views/SpacePlayground.js')
     }
 
     if (reduced || !outlet.firstElementChild) {

@@ -494,12 +494,29 @@ export class AppNav extends BaseComponent {
         <svg
           width="0"
           height="0"
-          style="position:absolute;width:0;height:0;pointer-events:none;"
+          style="position:absolute;width:0;height:0;pointer-events:none;overflow:hidden;"
           aria-hidden={ATTRS.TRUE}
-          dangerouslySetInnerHTML={{
-            __html: `<filter id="${IDS.FILTER}" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse"><feDisplacementMap in="SourceGraphic" in2="SourceGraphic" scale="5" xChannelSelector="A" yChannelSelector="A" x="5" y="-5" width="100%" height="100%" result="displacementMap"/></filter>`,
-          }}
-        />
+        >
+          <filter
+            id={IDS.FILTER}
+            color-interpolation-filters="linearRGB"
+            filterUnits="objectBoundingBox"
+            primitiveUnits="userSpaceOnUse"
+          >
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="SourceGraphic"
+              scale="5"
+              xChannelSelector="A"
+              yChannelSelector="A"
+              x="5"
+              y="-5"
+              width="100%"
+              height="100%"
+              result="displacementMap"
+            />
+          </filter>
+        </svg>
       </nav>
     )
   }

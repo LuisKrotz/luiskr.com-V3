@@ -86,6 +86,7 @@ export class EarthBackground {
       await this.#bootstrap()
     } catch (e) {
       console.error('[EarthBG] Bootstrap failed:', e)
+      this.#onReady?.()
     }
   }
 
@@ -1032,6 +1033,21 @@ export class EarthBackground {
 
     this.#updateLensFlare()
     this.#controls?.update()
-    if (this.#renderer && this.#pipeline) this.#pipeline.render()
+
+    if (this.#renderer) {
+      try {
+        if (this.#pipeline) {
+          this.#pipeline.render()
+        } else if (this.#scene && this.#camera) {
+          this.#renderer.render(this.#scene, this.#camera)
+        }
+      } catch (e) {
+        console.warn('[EarthBG] Render error, fallback to direct render:', e)
+        this.#pipeline = null
+        if (this.#scene && this.#camera) {
+          this.#renderer.render(this.#scene, this.#camera)
+        }
+      }
+    }
   }
 }
