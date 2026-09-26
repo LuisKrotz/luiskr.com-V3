@@ -3,7 +3,8 @@ import { CLASSES, TAGS, MEDIA_DIMENSIONS, ATTRS, TEXT, IMAGE_SIZES, IDS } from '
 import { h } from '../core/jsx.js'
 import { calcDrawTextDelay, calcDrawTextOffset } from '../utils/wasm-layout.js'
 import { stripHtml, getGravatarSrcset, getOptimizedGravatar } from '../utils/media.js'
-import aboutStyles from '../sass/about.scss?inline'
+import './DrawText.js'
+import aboutStyles from '../sass/components/about.scss?inline'
 
 export class AboutSection extends BaseComponent {
   constructor() {

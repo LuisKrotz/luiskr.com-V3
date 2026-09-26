@@ -1,0 +1,128 @@
+@import '../base/variables';
+@import '../base/mixins';
+@import '../base/placeholders';
+@import '../base/structure';
+
+// ─── Stats for Nerds HUD ────────────────────────────────────────────────────
+// Fixed overlay anchored to the bottom-right corner above the nav bar.
+// Non-interactive — pointer-events: none. Hidden by default.
+
+$_B_STATS: 'stats-hud';
+
+$_skel-border:   rgba(255, 255, 255, 0.18); // separator — white alpha only (AGENTS.md shadow exception: no hex)
+$_skel-label:    rgba(255, 255, 255, 0.45); // dim label — white alpha only
+
+.#{$_B_STATS} {
+  position: fixed;
+  right: to-rem($gap-272);
+  bottom: to-rem($space-2xl);
+  z-index: var(--z-hud);
+
+  display: flex;
+  align-items: center;
+  gap: to-rem($space-lg);
+
+  padding: to-rem($space-xs) to-rem($space-xl);
+  border-radius: var(--radius-round);
+
+  background: rgba(0, 0, 0, 0.78); // pure black alpha — no theme hex
+  backdrop-filter: blur(#{to-rem($space-md)});
+  -webkit-backdrop-filter: blur(#{to-rem($space-md)});
+  border: var(--border-item-hover);
+  box-shadow: var(--shadow-card);
+
+  font-family: var(--font-mono);
+  font-size: to-rem($space-lg);
+  font-weight: 500;
+  letter-spacing: to-rem(0.2);
+  color: $cms-accent;
+  white-space: nowrap;
+  pointer-events: auto;
+  user-select: none;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(to-rem($space-sm));
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+
+  // Match %MAXAREA gutter at each breakpoint
+  @include layout-320()  { right: to-rem($gap-320); }
+  @include layout-375()  { right: to-rem($gap-375); }
+  @include layout-414()  { right: to-rem($gap-414); }
+  @include layout-540()  { right: to-rem($gap-540); }
+  @include layout-768()  { right: to-rem($gap-768); }
+  @include layout-960()  { right: to-rem($gap-960); }
+  @include layout-1024() { right: to-rem($gap-1024); }
+  @include layout-1280() { right: to-rem($gap-1280); }
+  @include layout-1440() { right: to-rem($gap-1440); }
+  @include layout-1680() { right: to-rem($gap-1680); }
+  @include layout-1920() { right: to-rem($gap-1920); }
+  @include layout-2560() { right: to-rem($gap-2560); }
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  // ── Mobile responsive: wrap into 2 rows, pin to grid gutters ────────────────
+  // On ≤540px the segments in a single nowrap row overflow the viewport.
+  // Pinning left+right to the grid gutter and using flex-wrap lets segments
+  // stack naturally into multiple rows. Segment border-right separators are removed
+  // at this size — they look broken at wrapped row-ends — row-gap handles spacing.
+  @media (max-width: 540px) {
+    right: to-rem($gap-272);
+    left: to-rem($gap-272);
+    max-width: none;
+    white-space: normal;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: to-rem($space-xs) to-rem($space-md);
+    padding: to-rem($space-xs) to-rem($space-lg);
+    font-size: to-rem($space-md);
+
+    // Remove right-border separator on wrapped segments — it appears at row-ends
+    // and looks misaligned when the last item in a row is not the last segment.
+    &-segment:not(:last-child) {
+      padding-right: 0;
+      border-right: none;
+    }
+  }
+
+  // Stat segments separated by a hairline border
+  &-segment {
+    display: flex;
+    align-items: center;
+    gap: to-rem($space-xs);
+
+    &:not(:last-child) {
+      padding-right: to-rem($space-lg);
+      border-right: to-rem($space-hairline) solid $_skel-border;
+    }
+  }
+
+  &-label {
+    color: $_skel-label;
+    font-size: to-rem($space-md);
+    text-transform: uppercase;
+    letter-spacing: to-rem(0.6);
+  }
+
+  &-value {
+    color: $cms-accent;
+    font-weight: 700;
+  }
+
+  // FPS color states — green when healthy, amber/red when low
+  &-fps-good { color: $cms-badge-green; }
+  &-fps-mid  { color: $cms-badge-warn; }
+  &-fps-bad  { color: $cms-danger; }
+
+  // AI acceleration color states
+  &-accel-npu  { color: $cms-badge-green; } // Hardware NPU — best
+  &-accel-gpu  { color: $cms-badge-warn;  } // GPU WebGL fallback
+  &-accel-wasm { color: $cms-accent;      } // WASM software fallback
+}

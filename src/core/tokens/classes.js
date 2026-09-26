@@ -45,9 +45,11 @@ const _B_PREF = 'pref'
 const _B_PREF_OPTIONS = `${_B_PREF}-options`
 const _B_PREF_OPTION = `${_B_PREF}-option`
 const _B_PREF_SWITCH = `${_B_PREF}-switch`
+const _B_PREF_THEME = `${_B_PREF}-theme`
 const _B_COOKIES = 'cookies'
 const _B_COOKIES_BUTTONS = `${_B_COOKIES}-buttons`
 const _B_HUD = 'stats-hud'
+const _B_FLAG = 'flag'
 
 export const CLASSES = Object.freeze({
   // Skeleton & Media
@@ -250,8 +252,11 @@ export const CLASSES = Object.freeze({
   NAV_ACTION_BTN: `${_B_NAV}-action-btn`,
   NAV_PREF_BTN: `${_B_NAV}-pref-btn`,
   NAV_LANG_OPEN_BTN: `${_B_NAV}-lang-open-btn`,
-  FLAG_IMG: 'flag-img',
-  FLAG_SPLIT: 'flag-split',
+  NAV_FLAG_WRAPPER: `${_B_NAV}-flag-wrapper`,
+  FLAG_IMG: `${_B_FLAG}-img`,
+  FLAG_SPLIT: `${_B_FLAG}-split`,
+  FLAG_CANVAS: `${_B_FLAG}-canvas`,
+  FLAG_CANVAS_NAV: `${_B_FLAG}-canvas--nav`,
 
   // Preferences & Lang modal
   PREF_BACKDROP: `${_B_PREF}-backdrop`,
@@ -259,6 +264,7 @@ export const CLASSES = Object.freeze({
   PREF_HEADER: `${_B_PREF}-header`,
   PREF_TITLE: `${_B_PREF}-title`,
   PREF_CLOSE_BTN: `${_B_PREF}-close-btn`,
+  PREF_CLOSE_CANVAS: `${_B_PREF}-close-canvas`,
   PREF_BODY: `${_B_PREF}-body`,
   PREF_SECTION: `${_B_PREF}-section`,
   PREF_SECTION_TITLE: `${_B_PREF}-section-title`,
@@ -280,6 +286,13 @@ export const CLASSES = Object.freeze({
   PREF_SWITCH_DESC: `${_B_PREF_SWITCH}-desc`,
   PREF_SWITCH: _B_PREF_SWITCH,
   PREF_SWITCH_ON: `${_B_PREF_SWITCH} ${_B_PREF_SWITCH}--on`,
+  PREF_SWITCH_CANVAS: `${_B_PREF_SWITCH}-canvas`,
+  PREF_THEME_WRAPPER: `${_B_PREF_THEME}-wrapper`,
+  PREF_THEME_SLIDER: `${_B_PREF_THEME}-slider`,
+  PREF_THEME_CANVAS: `${_B_PREF_THEME}-canvas`,
+  PREF_THEME_LABELS: `${_B_PREF_THEME}-labels`,
+  PREF_THEME_BTN: `${_B_PREF_THEME}-btn`,
+  PREF_THEME_BTN_ACTIVE: `${_B_PREF_THEME}-btn--active`,
   LANG_DIALOG: 'lang-dialog',
 
   // Cookie banner
@@ -321,6 +334,7 @@ export const CLASSES = Object.freeze({
   CAROUSEL_BTN_RING_TRACK: `${_B_CAROUSEL_BTN}-ring-track`,
   CAROUSEL_BTN_RING_FILL: `${_B_CAROUSEL_BTN}-ring-fill`,
   CAROUSEL_BTN_ARROW: `${_B_CAROUSEL_BTN}-arrow`,
+  CAROUSEL_BTN_CANVAS: `${_B_CAROUSEL_BTN}-canvas`,
   CAROUSEL_SLIDE_CLONE: `${_B_CAROUSEL_SLIDE} ${_B_CAROUSEL_SLIDE}--clone`,
   CAROUSEL_SLIDE_CLONE_LAST: `${_B_CAROUSEL_SLIDE} ${_B_CAROUSEL_SLIDE}--clone ${_B_CAROUSEL_SLIDE}--clone-last`,
   CAROUSEL_SLIDE_CLONE_FIRST: `${_B_CAROUSEL_SLIDE} ${_B_CAROUSEL_SLIDE}--clone ${_B_CAROUSEL_SLIDE}--clone-first`,
@@ -345,6 +359,7 @@ export const CLASSES = Object.freeze({
   HC_BTN_RING_TRACK: `${_B_HC}-btn-ring-track`,
   HC_BTN_RING_FILL: `${_B_HC}-btn-ring-fill`,
   HC_BTN_ARROW: `${_B_HC}-btn-arrow`,
+  HC_BTN_CANVAS: `${_B_HC}-btn-canvas`,
   HC_SPACER: `${_B_HC}-spacer`,
   HC_AWARD: `${_B_HC}-award`,
   HC_AWARD_MEDIA: `${_B_HC}-award-media`,

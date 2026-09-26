@@ -4,7 +4,7 @@ import store from '../../core/store.js'
 import router from '../../core/router.js'
 import { CLASSES, URLS, PATHS, ATTRS, STRINGS, LOCALES, MUTATIONS, TAGS, TEXT, MEDIA, CMS_KEYS } from '../../core/constants.js'
 import { fetchFirebaseDb } from '../../utils/db.js'
-import internalStyles from '../../sass/internals.scss?inline'
+import internalStyles from '../../sass/components/internals.scss?inline'
 import '../DrawText.js'
 
 export class PortfolioRelated extends BaseComponent {

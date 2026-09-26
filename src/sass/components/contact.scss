@@ -1,0 +1,130 @@
+@import '../base/variables';
+@import '../base/mixins';
+@import '../base/fonts';
+@import '../base/placeholders';
+@import '../base/structure';
+
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.contact {
+  @extend %MAXAREA;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding-top: to-rem($space-3xl);
+  padding-bottom: to-rem($space-3xl);
+  background-color: var(--bg-dark);
+  color: var(--color-white-raw);
+  border-top: to-rem($space-hairline) solid transparent;
+  border-image: var(--metallic-hairline) 1;
+  background-image: var(--filament-glow);
+  display: block;
+  text-align: center;
+  max-width: 100%;
+
+  @include layout-768() {
+    padding-top: to-rem($space-4xl);
+    padding-bottom: to-rem($space-3xl);
+  }
+
+  &-title {
+    @extend .ttl-lg;
+
+    text-transform: uppercase;
+    color: inherit;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    padding: to-rem($space-2xl) 0 to-rem($space-xl);
+
+    @include layout-768() {
+      padding: to-rem($space-3xl) 0 to-rem($space-2xl);
+    }
+  }
+
+  &-social,
+  &-other {
+    @extend .ttl-xs;
+
+    color: inherit;
+
+    &-link {
+      transition: opacity 0.3s ease-in;
+      color: inherit;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        opacity: 0.5;
+      }
+    }
+
+    &-separator {
+      padding: 0 to-rem($space-md);
+      font-weight: 200;
+      display: none;
+      font-weight: 700;
+
+      @include layout-768() {
+        display: inline-block;
+      }
+
+      @include layout-2560() {
+        padding: 0 to-rem($space-lg);
+      }
+    }
+  }
+
+  &-social {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 0 to-rem($space-2xl);
+
+    @include layout-768() {
+      padding: 0 0 to-rem($space-lg);
+    }
+
+    &-link {
+      @extend .ttl-sm;
+
+      display: block;
+      line-height: to-rem($space-3xl);
+      cursor: pointer;
+
+      @include layout-768() {
+        display: inline-block;
+      }
+    }
+  }
+
+  &-other {
+    padding: to-rem($space-2xl) to-rem($space-lg) 0;
+
+    @include layout-768() {
+      padding: to-rem($space-lg) to-rem($space-4xl) 0;
+    }
+
+    &-link {
+      @extend .ttl-xs;
+
+      display: block;
+      line-height: to-rem($space-3xl);
+      font-weight: 700;
+      position: relative;
+
+      @include layout-768() {
+        display: inline-block;
+      }
+
+      &.router-link-active {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}

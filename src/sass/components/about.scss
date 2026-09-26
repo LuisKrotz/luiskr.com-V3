@@ -1,0 +1,432 @@
+@import '../base/variables';
+@import '../base/mixins';
+@import '../base/fonts';
+@import '../base/placeholders';
+@import '../base/structure';
+
+:host {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.about {
+  @extend %MAXAREA;
+
+  border-top: to-rem($space-hairline) solid transparent;
+  border-image: var(--metallic-hairline) 1;
+  background-image: var(--filament-glow);
+  padding-top: to-rem($space-5xl);
+  // Smooth transition when masonry above changes height (hover expand/collapse)
+  transition: padding-top 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  // Isolate internal layout shifts from contributing to page-level CLS
+  contain: layout;
+
+  // ── Title ───────────────────────────────────────────────────────────────
+  &-title {
+    @extend .ttl-xl;
+
+    font-family: var(--font-primary);
+    font-weight: 100;
+    text-align: left;
+    text-transform: uppercase;
+    padding: 0 0 to-rem($space-xl);
+
+    @include layout-768() {
+      padding: 0 0 to-rem($space-3xl);
+    }
+    @include layout-1024() {
+      padding: 0 0 to-rem($space-3xl);
+    }
+    @include layout-1440() {
+      padding: 0 0 to-rem($space-4xl);
+    }
+    @include layout-2560() {
+      padding: 0 0 to-rem($space-5xl);
+    }
+  }
+
+  // ── Profile picture + 2-column text row ─────────────────────────────────
+  // Grid: [pic 2fr] [gap 1fr] [text-1 5fr] [gap 1fr] [text-2 5fr]
+  // The .ab-pf-text wrapper uses display:contents at 1024px+ so its
+  // two children become direct grid items in columns 3 and 5.
+  &-profile-section {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem($space-2xl);
+    padding-bottom: to-rem($space-4xl);
+
+    @include layout-768() {
+      // Tablet: picture on top (row 1, full width), text cols side-by-side below (row 2)
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: to-rem($space-2xl);
+    }
+
+    @include layout-1024() {
+      // Full grid: 2fr gap 5fr gap 5fr  (14 fractional units)
+      // Cols: 1=pic, 2=gap, 3=text-1, 4=gap, 5=text-2
+      grid-template-columns: 2fr 1fr 5fr 1fr 5fr;
+      grid-template-rows: auto;
+      gap: 0;
+      padding-bottom: to-rem($space-5xl);
+    }
+
+    @include layout-2560() {
+      padding-bottom: to-rem($space-6xl);
+    }
+  }
+
+  &-profile-picture {
+    flex-shrink: 0;
+    // Mobile / 768px: fixed square size driven by space tokens
+    width: to-rem($space-5xl);
+    height: to-rem($space-5xl);
+    margin: 0;
+    // Stay in column 1 on all grid layouts
+    grid-column: 1;
+    grid-row: 1;
+
+    @include layout-540() {
+      width: to-rem($space-6xl);
+      height: to-rem($space-6xl);
+    }
+
+    @include layout-768() {
+      // Tablet: picture spans both columns (full width), sits in row 1
+      grid-column: 1 / 3;
+      grid-row: 1;
+      width: to-rem($space-6xl);
+      height: to-rem($space-6xl);
+      // Center the circular pic horizontally within full-width row
+      margin: 0 auto;
+    }
+
+    @include layout-1024() {
+      // On 5-col full grid: picture in col 1
+      grid-column: 1;
+      grid-row: 1;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      margin: 0;
+    }
+
+    @include layout-1440() {
+      margin: 0;
+    }
+
+    @include layout-2560() {
+      margin: 0;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius-full);
+      display: block;
+    }
+
+    // Skeleton shimmer while loading
+    &-placeholder {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-full);
+      position: relative;
+      overflow: hidden;
+      background: var(--skel-bg-1);
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent 0%, var(--skel-bg-2) 50%, transparent 100%);
+        transform: translateX(-100%);
+        animation: skeleton-shimmer 2.4s ease-in-out infinite;
+        will-change: transform;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &-profile-text {
+    flex: 1;
+    // Mobile: single column, no gap — paragraphs provide their own padding-bottom
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    @include layout-768() {
+      // Tablet: text wrapper spans both columns in row 2
+      grid-column: 1 / 3;
+      grid-row: 2;
+      grid-template-columns: repeat(2, 1fr);
+      gap: to-rem($space-2xl);
+    }
+
+    @include layout-1024() {
+      // On full 5-col grid: profile-text uses display:contents so its
+      // two children become direct grid items in cols 3 and 5.
+      display: contents;
+    }
+
+    @include layout-2560() {
+      gap: to-rem($space-3xl);
+    }
+
+    &-col {
+      display: flex;
+      flex-direction: column;
+      overflow-wrap: break-word;
+      word-break: normal;
+      hyphens: none;
+
+      @include layout-1024() {
+        // First text col → grid column 3, second → grid column 5
+        // CSS auto-placement fills cols 3 then 5 after the picture in col 1
+        // and the gap columns 2 and 4 are skipped automatically.
+        &:first-child {
+          grid-column: 3;
+        }
+
+        &:last-child {
+          grid-column: 5;
+        }
+      }
+    }
+  }
+
+  // ── Shared item/text ────────────────────────────────────────────────────
+  &-item {
+    box-sizing: border-box;
+    position: relative;
+
+    &-text {
+      @extend .txt-md;
+
+      font-family: var(--font-primary);
+      font-weight: 250;
+      word-break: normal;
+      overflow-wrap: break-word;
+      hyphens: none;
+      padding-bottom: to-rem($space-md);
+
+      @include layout-768() {
+        padding-bottom: to-rem($space-lg);
+      }
+      @include layout-1280() {
+        padding-bottom: to-rem($space-xl);
+      }
+      @include layout-1680() {
+        padding-bottom: to-rem($space-2xl);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: underline;
+        transition: opacity 0.3s ease-in;
+
+        &:hover,
+        &:focus {
+          opacity: 0.5;
+        }
+
+        &:visited {
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+
+  .skeleton-about-title {
+    display: inline-block;
+    width: 40%;
+    height: 1em;
+    border-radius: var(--radius-2xs);
+  }
+
+  .skeleton-about-p1 {
+    width: 100%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+    margin-bottom: 0.6em;
+  }
+
+  .skeleton-about-p2 {
+    width: 88%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+    margin-bottom: 0.6em;
+  }
+
+  .skeleton-about-p3 {
+    width: 70%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+  }
+
+  .skeleton-about-p4 {
+    width: 95%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+    margin-bottom: 0.6em;
+  }
+
+  .skeleton-about-p5 {
+    width: 80%;
+    height: 1.4em;
+    border-radius: var(--radius-2xs);
+  }
+
+  &-container {
+    margin: 0;
+    padding: 0;
+    padding-bottom: to-rem($space-4xl);
+
+    @include layout-1440() {
+      padding-bottom: to-rem($space-5xl);
+    }
+    @include layout-2560() {
+      padding-bottom: to-rem($space-6xl);
+    }
+  }
+
+  // ── Awards grid ─────────────────────────────────────────────────────────
+  .awards {
+    display: grid;
+    grid-gap: to-rem($space-2xl);
+
+    @include layout-540() {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include layout-768() {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include layout-1024() {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @include layout-1920() {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    @include layout-3840() {
+      grid-template-columns: repeat(8, 1fr);
+    }
+
+    &-item {
+      border-radius: to-rem($space-sm);
+      background: var(--grey-2);
+      box-shadow: to-rem($space-2xs) to-rem($space-2xs) to-rem($space-sm) 0 rgba($color-black, 0.15);
+      overflow: hidden;
+
+      &-link {
+        display: grid;
+        grid-template-columns: to-rem($space-4xl) auto;
+        min-height: 100%;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+
+        @include layout-2560() {
+          grid-template-columns: to-rem($space-5xl) auto;
+        }
+
+        &-media {
+          width: 100%;
+          height: auto;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--grey-2);
+          font-size: to-rem($space-2xl);
+          line-height: to-rem($space-4xl);
+          min-height: 100%;
+
+          @include layout-2560() {
+            font-size: to-rem($space-3xl);
+            line-height: to-rem($space-5xl);
+          }
+        }
+
+        &-text {
+          @extend .txt-xs;
+          padding: 0 to-rem($space-lg);
+
+          @include layout-1440() {
+            padding: 0 to-rem($space-xl);
+          }
+        }
+      }
+    }
+  }
+}
+
+// ── Awards footer (below Contact, same dark background) ──────────────────────
+.about-aw-ft {
+  background: var(--bg-dark);
+  color: $color-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: to-rem($space-2xl) to-rem($space-lg) to-rem($space-3xl);
+
+  @include layout-768() {
+    padding: to-rem($space-2xl) to-rem($space-4xl) to-rem($space-3xl);
+  }
+  @include layout-2560() {
+    padding: to-rem($space-3xl) to-rem($space-5xl) to-rem($space-4xl);
+  }
+
+  // The awards carousel itself — limit max width so it feels compact & centred
+  .hc--awards {
+    max-width: to-rem($space-8xl);
+    width: 100%;
+  }
+
+  // Legal links row: same border + padding as .contact-social
+  &-skel {
+    display: flex;
+    justify-content: center;
+    padding: to-rem($space-xl) 0;
+  }
+}
+
+.about-awards-links {
+  @extend .ttl-xs;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  color: var(--white);
+  width: 100%;
+  padding: to-rem($space-lg) to-rem($space-lg) 0;
+  border-top: to-rem($space-hairline) solid var(--grey);
+  margin-top: to-rem($space-lg);
+
+  @include layout-768() {
+    padding: to-rem($space-lg) to-rem($space-4xl) 0;
+  }
+
+  &-item {
+    @extend .ttl-xs;
+
+    color: var(--white);
+    text-decoration: none;
+    line-height: to-rem($space-3xl);
+    transition: opacity 0.2s;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+  }
+
+  &-sep {
+    padding: 0 to-rem($space-md);
+    font-weight: 200;
+  }
+}

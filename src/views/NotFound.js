@@ -4,7 +4,7 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
 import { fetchFirebaseDb } from '../utils/db.js'
-import notFoundStyles from '../sass/not-found.scss?inline'
+import notFoundStyles from '../sass/views/not-found.scss?inline'
 import '../components/DrawText.js'
 import {
   CLASSES,

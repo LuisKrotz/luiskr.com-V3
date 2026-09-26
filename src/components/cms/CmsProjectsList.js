@@ -5,7 +5,7 @@ import { ref, child, get, set, remove } from 'firebase/database'
 import { h } from '../../core/jsx.js'
 import { LOCALES, PATHS, URLS, MEDIA_DIMENSIONS } from '../../core/constants.js'
 import { VALID_LANGS } from '../../core/i18n.js'
-import cmsStyles from '../../sass/cms.scss?inline'
+import cmsStyles from '../../sass/views/cms.scss?inline'
 
 function gcs(filename) {
   return `${URLS.CDN_BASE}${filename}`

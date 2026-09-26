@@ -27,7 +27,8 @@
   "dependencies": {
     "@rolldown/binding-linux-x64-gnu": "^1.2.3",
     "firebase": "^12.17.1",
-    "register-service-worker": "^1.7.2"
+    "register-service-worker": "^1.7.2",
+    "three": "0.184.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -3,7 +3,7 @@ import { h } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import router from '../core/router.js'
 import { signInWithGoogle, onAuthChange } from '../firebase.js'
-import cmsStyles from '../sass/cms.scss?inline'
+import cmsStyles from '../sass/views/cms.scss?inline'
 import { CMS_CLASSES, CMS_TAGS } from '../core/cms/tokens.js'
 import { ATTRS, EVENTS, PATHS } from '../core/constants.js'
 

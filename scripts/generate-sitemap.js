@@ -24,10 +24,16 @@ async function run() {
   urlSet.add('/gdpr')
   urlSet.add('/terms-of-use')
 
+  // Earth / Space Playground (default English)
+  urlSet.add('/earth-playground')
+  urlSet.add('/space-playground')
+
   // Localized routes from LANG_SLUGS
   for (const lang of VALID_LANGS) {
     if (lang === 'en') continue
     urlSet.add(`/${lang}`)
+    urlSet.add(`/${lang}/earth-playground`)
+    urlSet.add(`/${lang}/space-playground`)
     const slugs = LANG_SLUGS[lang]
     if (slugs) {
       if (slugs.privacy) urlSet.add(`/${lang}/${slugs.privacy}`)
@@ -105,9 +111,11 @@ async function run() {
       const priority =
         u === '/'
           ? '1.0'
-          : u.startsWith('/portfolio/') && u.split('/').length > 3
-            ? '0.6'
-            : '0.8'
+          : u.includes('/earth-playground') || u.includes('/space-playground')
+            ? '0.9'
+            : u.startsWith('/portfolio/') && u.split('/').length > 3
+              ? '0.6'
+              : '0.8'
       return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${now}</lastmod>\n    <priority>${priority}</priority>\n  </url>`
     })
     .join('\n')

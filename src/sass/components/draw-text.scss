@@ -1,0 +1,211 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+// ── DrawText: per-character writing animation ──────────────────────────────
+// --i          : character index (set from template)
+// --char-delay : ms between each character (set from template, default 100ms)
+// --offset     : ms base delay before any character starts (for sequencing)
+
+:host {
+  display: inline-block;
+  vertical-align: baseline;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+.draw-text {
+  display: inline;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+
+  &__word {
+    display: inline-block;
+    white-space: nowrap; // keeps all chars of this word on one line — never splits mid-word
+  }
+
+  &__space {
+    display: inline-block;
+    width: 0.3em; // one space-width gap between words; breakable line-break point
+  }
+
+  &__char {
+    display: inline-block;
+    opacity: 0;
+    // NO will-change here — adding it to every char span creates hundreds of GPU layers
+    // and destroys mobile scroll performance. Only promote during the actual animation.
+  }
+
+  a,
+  a:link,
+  a:visited {
+    color: inherit;
+    text-decoration: underline;
+    transition: opacity 0.3s ease-in;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+  }
+}
+
+// ── Section titles: animate on mount (replayed via :key re-mount) ──────────
+.home-section-title .draw-text__char {
+  will-change: opacity, transform; // promote only during animation
+  animation: char-draw 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 100ms));
+}
+
+// ── Inside slides: animate only when the slide becomes active ──────────────
+.hc-slide--active .draw-text__char {
+  will-change: opacity, transform;
+  animation: char-draw 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 100ms));
+}
+
+
+// ── Viewport trigger: animate when scrolled into view ──────────────────────
+// .draw-text--visible is added by IntersectionObserver in the component
+.draw-text--visible .draw-text__char {
+  will-change: opacity, transform;
+  animation: char-draw 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 100ms));
+}
+
+// Frozen state: animation complete, chars permanently visible, no re-trigger possible
+.draw-text--done .draw-text__char {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  animation: none;
+  will-change: auto; // release GPU layer after animation is done
+}
+
+// ── Related Mosaic: animate write effect ─────────────────────────────────────
+.related-mosaic-desc .draw-text__char {
+  will-change: opacity, transform;
+  animation: char-draw 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 15ms));
+}
+
+// ── Character draw keyframes ────────────────────────────────────────────────
+// Desktop: full effect with blur + scale
+@keyframes char-draw {
+  0% {
+    opacity: 0;
+    transform: translateY(0.12em) scaleY(0.3);
+    filter: blur(3px);
+  }
+  30% {
+    opacity: 0.5;
+    transform: translateY(0.04em) scaleY(0.85);
+    filter: blur(1px);
+  }
+  60% {
+    opacity: 0.85;
+    transform: translateY(0.01em) scaleY(0.97);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+// Mobile: no filter:blur (extremely expensive on mobile GPUs), no scaleY
+// Keep only opacity + small translateY for a light, performant fade-in effect
+@media (max-width: 960px) {
+  @keyframes char-draw {
+    0% {
+      opacity: 0;
+      transform: translateY(0.1em);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  // NO per-character will-change on mobile.
+  // Creating a compositor layer for every character span (potentially 200+) simultaneously
+  // overwhelms the mobile GPU and freezes scroll. CSS transform/opacity animations are
+  // automatically GPU-composited by mobile browsers without an explicit hint.
+  // The browser promotes layers on demand as characters become active — far cheaper.
+  .draw-text--visible .draw-text__char,
+  .home-section-title .draw-text__char,
+  .hc-slide--active .draw-text__char,
+  .related-mosaic-desc .draw-text__char {
+    will-change: auto;
+  }
+}
+
+// ── Word-level animation on small screens (≤768px) ──────────────────────────
+// Root cause of mobile freeze: per-character animation creates 100–300+
+// simultaneous CSS animations (one per span). Mobile browsers cannot schedule
+// that many compositor operations without dropping frames.
+//
+// Fix: animate the .draw-text__word wrapper instead of each char.
+// JS sets --wi (word index) and --word-delay on every word span.
+// Result: ~10–20 word animations instead of ~200+ char animations.
+@media (max-width: 768px) {
+  @keyframes word-draw {
+    from {
+      opacity: 0;
+      transform: translateY(0.08em);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  // Word-level stagger replaces char-level stagger
+  .draw-text--visible .draw-text__word,
+  .home-section-title .draw-text__word,
+  .hc-slide--active .draw-text__word,
+  .related-mosaic-desc .draw-text__word {
+    opacity: 0;
+    animation: word-draw 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--offset, 0ms) + var(--wi, 0) * var(--word-delay, 100ms));
+  }
+
+  // Chars inside animated words are immediately visible — word wrapper handles the fade
+  .draw-text--visible .draw-text__char,
+  .home-section-title .draw-text__char,
+  .hc-slide--active .draw-text__char,
+  .related-mosaic-desc .draw-text__char {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    will-change: auto;
+  }
+
+  // Done state: release word GPU layers once animation is complete
+  .draw-text--done .draw-text__word {
+    opacity: 1;
+    animation: none;
+    will-change: auto;
+  }
+}
+
+// ── Reduced Motion Override ────────────────────────────────────────────────
+html.reduced-motion .draw-text__char {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw-text__char {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+}

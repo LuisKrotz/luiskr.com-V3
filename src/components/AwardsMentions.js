@@ -2,8 +2,8 @@ import { h, Fragment } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
-import { CLASSES, EVENTS, STRINGS, TEXT, LOCALES, PATHS, MUTATIONS, TAGS } from '../core/constants.js'
-import awardsFooterStyles from '../sass/awards-footer.scss?inline'
+import { CLASSES, EVENTS, STRINGS, TEXT, LOCALES, PATHS, URLS, MUTATIONS, TAGS, ATTRS } from '../core/constants.js'
+import awardsFooterStyles from '../sass/components/awards-footer.scss?inline'
 import './HomeCarousel.js'
 
 import { fetchFirebaseDb } from '../utils/db.js'
@@ -194,7 +194,7 @@ export class AwardsMentions extends BaseComponent {
         {this.items && this.items.length ? (
           <home-carousel className="hc--awards" />
         ) : (
-          <div className="awards-footer-skel">
+          <div className="aw-ft-skel">
             <span className={CLASSES.SKELETON_BADGE} />
             <span className={CLASSES.SKELETON_BADGE} />
             <span className={CLASSES.SKELETON_BADGE} />
@@ -215,11 +215,24 @@ export class AwardsMentions extends BaseComponent {
                 {link.page}
               </a>
               {i < links.length - 1 && (
-                <span className={CLASSES.AWARDS_FOOTER_SEP}>•</span>
+                <span className={CLASSES.AWARDS_FOOTER_SEP}>&bull;</span>
               )}
             </Fragment>
           ))}
         </nav>
+
+        <p className={CLASSES.FOOTER_SOURCE}>
+          {TEXT.SOURCE_CODE_LABEL}
+          {ATTRS.SPACE_CHAR}
+          <a
+            className={CLASSES.FOOTER_SOURCE_LINK}
+            href={URLS.GITHUB_REPO}
+            target={ATTRS.BLANK}
+            rel={ATTRS.NOOPENER}
+          >
+            {TEXT.GIT}
+          </a>
+        </p>
       </footer>
     )
   }

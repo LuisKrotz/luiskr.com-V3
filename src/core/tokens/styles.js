@@ -48,5 +48,7 @@ export const BASE_HOST_STYLES = Object.freeze(
 ${_SKEL_SELECTORS} { position: relative; overflow: hidden; background: var(--skel-bg-1); color: transparent; user-select: none; }
 ${_SKEL_BEFORE_SELECTORS} { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 0%, var(--skel-bg-2) 50%, transparent 100%); transform: translateX(-100%); animation: ${_SKEL}-shimmer 2.4s ease-in-out infinite; will-change: transform; pointer-events: none; }
 ${_D_SKEL}--round { border-radius: 50%; }
-${_D_SKEL}--block { display: block; }`
+${_D_SKEL}--block { display: block; }
+:host-context(html.reduced-motion) *, :host-context(html.reduced-motion) *::before, :host-context(html.reduced-motion) *::after { animation-duration: 0.001ms; animation-iteration-count: 1; transition-duration: 0.001ms; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms; animation-iteration-count: 1; transition-duration: 0.001ms; } }`
 )

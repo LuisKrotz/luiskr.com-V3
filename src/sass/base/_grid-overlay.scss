@@ -1,0 +1,88 @@
+@import 'variables';
+@import 'mixins';
+
+// ─── Design Grid Overlay ─────────────────────────────────────────────────────
+// Activated by `html.show-grid` class (toggled from Preferences → Show Grid).
+//
+// Renders two layers:
+//  1. ::before — outer gutter shading (left + right side of max-area)
+//  2. a CSS grid-based column guide injected via CSS custom properties
+//
+// RULES:
+//  - pointer-events: none on all pseudo-elements — non-interactive
+//  - z-index: var(--z-overlay) — above content, below HUD/modals
+//  - rgba(255,255,255,...) is ALLOWED for overlays per AGENTS.md shadow exception
+//  - rgba($cms-accent-rgb,...) approximated via rgba() — accent column tint
+//  - No hardcoded dimensions — all sizes from $gap-* and $grid-max-area-* tokens
+
+$_col-fill:   rgba(102, 252, 241, 0.08);  // column highlight — $cms-accent tint
+$_col-gap:    rgba(0, 0, 0, 0);            // gutter between columns — transparent
+$_outer-fill: rgba(255, 255, 255, 0.05);   // outer gutter shading
+$_boundary:   rgba(102, 252, 241, 0.35);   // boundary line colour — $cms-accent
+
+html.show-grid {
+  // ── CSS custom props per breakpoint — drive both pseudo-elements ───────────
+  --_grid-gutter:   #{to-rem($gap-272)};
+  --_grid-cols:     4;
+  --_grid-col-gap:  #{to-rem($space-md)};
+
+  @include layout-320()  { --_grid-gutter: #{to-rem($gap-320)};  --_grid-cols: 4; }
+  @include layout-375()  { --_grid-gutter: #{to-rem($gap-375)};  --_grid-cols: 4; }
+  @include layout-540()  { --_grid-gutter: #{to-rem($gap-540)};  --_grid-cols: 6; }
+  @include layout-768()  { --_grid-gutter: #{to-rem($gap-768)};  --_grid-cols: 8; }
+  @include layout-1024() { --_grid-gutter: #{to-rem($gap-1024)}; --_grid-cols: 12; }
+  @include layout-1680() { --_grid-gutter: #{to-rem($gap-1680)}; --_grid-cols: 12; }
+  @include layout-2560() { --_grid-gutter: #{to-rem($gap-2560)}; --_grid-cols: 12; }
+
+  // ── Outer gutter shade + column guides ────────────────────────────────────
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-overlay);
+    pointer-events: none;
+
+    // Column guides rendered as repeating-linear-gradient inside the max-area.
+    // Each "tile" = one column width + one gap.
+    // Outer gutters are shaded on the sides.
+    background:
+      // Left gutter shade
+      linear-gradient(
+        to right,
+        $_outer-fill var(--_grid-gutter),
+        transparent var(--_grid-gutter)
+      ),
+      // Right gutter shade
+      linear-gradient(
+        to left,
+        $_outer-fill var(--_grid-gutter),
+        transparent var(--_grid-gutter)
+      ),
+      // Column fill stripes repeating across the full width
+      repeating-linear-gradient(
+        to right,
+        $_col-fill 0,
+        $_col-fill calc((100% - var(--_grid-gutter) * 2 - var(--_grid-col-gap) * (var(--_grid-cols) - 1)) / var(--_grid-cols)),
+        $_col-gap calc((100% - var(--_grid-gutter) * 2 - var(--_grid-col-gap) * (var(--_grid-cols) - 1)) / var(--_grid-cols)),
+        $_col-gap calc((100% - var(--_grid-gutter) * 2 - var(--_grid-col-gap) * (var(--_grid-cols) - 1)) / var(--_grid-cols) + var(--_grid-col-gap))
+      );
+
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    background-position: left, right, var(--_grid-gutter) 0;
+    background-size: auto, auto, calc(100% - var(--_grid-gutter) * 2) 100%;
+  }
+
+  // ── Max-area boundary hairlines ───────────────────────────────────────────
+  &::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-overlay);
+    pointer-events: none;
+
+    // Left and right boundary lines at the gutter edge
+    background:
+      linear-gradient(to right, transparent calc(var(--_grid-gutter) - 1px), $_boundary calc(var(--_grid-gutter) - 1px), $_boundary var(--_grid-gutter), transparent var(--_grid-gutter)),
+      linear-gradient(to left,  transparent calc(var(--_grid-gutter) - 1px), $_boundary calc(var(--_grid-gutter) - 1px), $_boundary var(--_grid-gutter), transparent var(--_grid-gutter));
+  }
+}

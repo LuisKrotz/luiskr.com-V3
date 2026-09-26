@@ -1,0 +1,33 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.carousel {
+  will-change: auto;
+  transform: none;
+
+  &.carousel--in-view {
+    transform: none;
+    transition: none;
+  }
+}
+
+.carousel-track {
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-slide {
+  height: var(--mf-h, auto);
+  min-height: var(--mf-h, auto);
+  contain: layout paint;
+}
+
+.internal-extra-item {
+  width: auto;
+  height: 100%;
+}
+
+media-figure {
+  height: 100%;
+  width: auto;
+}

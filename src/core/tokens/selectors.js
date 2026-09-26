@@ -30,4 +30,7 @@ export const SELECTORS = Object.freeze({
   COOKIES_BUTTONS_REFUSE: `.${_B_COOKIES}-buttons-refuse`,
   STYLE: 'style',
   DATA_CONTENT: '[data-content]',
+  BUTTON_OR_ANCHOR: 'button, a',
+  ID_ABOUT: '#about',
+  ID_CONTACT: '#contact',
 })

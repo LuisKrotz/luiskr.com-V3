@@ -1,0 +1,713 @@
+@import '../base/variables';
+@import '../base/mixins';
+@import '../base/fonts';
+@import '../base/placeholders';
+@import '../base/structure';
+@import '../base/grid-overlay';
+@import 'intro-loader';
+
+
+// ── CSS Cascade Layers ────────────────────────────────────────────────────────
+// Declaring the layer ORDER here ensures the cascade priority is locked in,
+// regardless of which file imports which layer first.
+// Layers: base → layout → components → overrides → ios-compat
+// Un-layered rules (most of this codebase) are always stronger than any layer,
+// so this declaration is non-breaking — it's purely additive for future use.
+@layer base, layout, components, overrides, ios-compat;
+
+app-nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+[data-app-wrapper] {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+preferences-modal:not([open]):not(.is-open),
+lang-dialog:not([open]):not(.is-open) {
+  display: none;
+}
+
+preferences-modal[open],
+preferences-modal.is-open,
+lang-dialog[open],
+lang-dialog.is-open {
+  display: block;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 10000;
+  pointer-events: auto;
+}
+
+.nav {
+  @extend %MAXAREA;
+  z-index: 100;
+  left: 0;
+  top: to-rem($space-lg);
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  pointer-events: auto;
+
+  &-link {
+    @extend .ttl-xs;
+    @extend %RESETBTN;
+
+    font-weight: 500;
+    color: var(--grey-3);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      opacity 0.3s ease-in,
+      color 0.2s ease;
+    position: relative;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &.router-link-exact-active,
+    &.active {
+      color: var(--black);
+      font-weight: 700;
+
+      &::after {
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: -#{to-rem($space-2xs)};
+        left: 0;
+        width: 100%;
+        height: to-rem($space-2xs);
+        border-radius: to-rem($space-hairline);
+        background: var(--grey);
+      }
+    }
+
+    &.scroll-up {
+      cursor: n-resize;
+    }
+
+    &.scroll-down {
+      cursor: s-resize;
+    }
+  }
+
+  &-separator {
+    @extend .ttl-xs;
+
+    font-weight: 700;
+    color: var(--grey);
+    padding: 0 to-rem(10);
+  }
+
+  // ── Language selector pill group ─────────────────────────────────────────
+  &-lang {
+    display: flex;
+    align-items: center;
+    gap: to-rem(4);
+  }
+
+  &-lang-btn {
+    letter-spacing: 0.04em;
+    opacity: 0.45;
+    transition:
+      opacity 0.2s ease,
+      color 0.2s ease;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+
+    &.active {
+      opacity: 1;
+      font-weight: 700;
+      color: var(--black);
+
+      &::after {
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: -#{to-rem($space-2xs)};
+        left: 0;
+        width: 100%;
+        height: to-rem($space-2xs);
+        border-radius: to-rem($space-hairline);
+        background: var(--grey);
+      }
+    }
+  }
+}
+
+// ── Responsive nav ──────────────────────────────────────────────────────────
+// ≤ 960px: hide desktop links; show mobile strip (Prefs + Lang only)
+
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 0; // spacing handled by separators
+}
+
+// Slim mobile strip — only visible below the breakpoint
+.nav-mobile-strip {
+  display: none;
+  align-items: center;
+  gap: 0;
+}
+
+// ── Language dialog variant (4-column option grid) ───────────────────────────
+.pref-options--4 {
+  grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: $bk-540) {
+    // 540px
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.lang-dialog {
+  max-width: to-rem(480);
+}
+
+// ── Breakpoint: below 960px ───────────────────────────────────────────────────
+@media (max-width: $bk-960) {
+  // 960px
+  .nav-desktop {
+    display: none;
+  }
+  .nav-mobile-strip {
+    display: flex;
+  }
+}
+
+// When modal is open, the nav shows these instead of page links.
+.modal-nav-title {
+  @extend .ttl-xs;
+
+  font-weight: 200;
+  color: var(--grey);
+  text-transform: uppercase;
+  letter-spacing: to-rem(2);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 60%;
+  opacity: 0.7;
+}
+
+.modal-nav-close {
+  @extend %RESETBTN;
+  @extend .ttl-xs;
+
+  font-weight: 700;
+  color: var(--grey);
+  cursor: pointer;
+  position: relative;
+  padding: to-rem($space-xs) to-rem($space-md);
+  transition: color 0.2s ease;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: to-rem($space-md);
+    height: to-rem($space-md);
+    transition:
+      width 0.2s ease,
+      height 0.2s ease;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    border-top: 1px solid currentColor;
+    border-left: 1px solid currentColor;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+  }
+
+  &:hover {
+    color: var(--white);
+
+    &::before,
+    &::after {
+      width: calc(100% - #{to-rem($space-xs)});
+      height: calc(100% - #{to-rem($space-xs)});
+    }
+  }
+}
+
+.cookies {
+  @extend %MAXAREA;
+
+  font-family: var(--font-primary);
+  font-weight: 300;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: to-rem($space-md);
+  flex-wrap: wrap;
+
+  padding-top: to-rem($space-md);
+  padding-bottom: to-rem($space-md);
+  background: rgba($color-black, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: to-rem($space-hairline) solid rgba($color-white, 0.15);
+  color: var(--color-white-raw); // Banner bg is always dark — raw white text token
+  font-size: to-rem($space-lg);
+  line-height: 1.5;
+  box-shadow: 0 -#{to-rem($space-2xs)} to-rem($space-xl) rgba($color-black, 0.2);
+
+  // Mobile: no backdrop-filter — extremely expensive on mobile GPUs.
+  // Solid background looks identical and costs nothing.
+  @media (max-width: 768px) {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba($color-black, 0.98);
+  }
+
+  @include layout-768() {
+    padding-top: to-rem($space-lg);
+    padding-bottom: to-rem($space-lg);
+    font-size: to-rem($space-lg);
+  }
+
+  &-info {
+    flex: 1;
+    min-width: to-rem(260);
+    padding: 0;
+    margin: 0;
+    opacity: 0.9;
+    font-weight: 300;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-buttons {
+    display: flex;
+    align-items: center;
+    gap: to-rem($space-sm);
+    flex-shrink: 0;
+
+    &-accept,
+    &-refuse {
+      @extend %RESETBTN;
+      @extend .ttl-xs;
+
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: to-rem($space-pixel);
+      cursor: pointer;
+      position: relative;
+      padding: to-rem($space-xs) to-rem($space-lg);
+      color: rgba($color-white, 0.7); // Always light on always-dark banner bg
+      background: transparent;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
+      white-space: nowrap;
+
+      // Animated corner borders
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: to-rem($space-xs);
+        height: to-rem($space-xs);
+        transition:
+          width 0.2s ease,
+          height 0.2s ease;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        border-top: to-rem($space-hairline) solid currentColor;
+        border-left: to-rem($space-hairline) solid currentColor;
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+        border-bottom: to-rem($space-hairline) solid currentColor;
+        border-right: to-rem($space-hairline) solid currentColor;
+      }
+
+      &:hover,
+      &:focus {
+        color: $color-white;
+
+        &::before,
+        &::after {
+          width: calc(100% - #{to-rem($space-2xs)});
+          height: calc(100% - #{to-rem($space-2xs)});
+        }
+      }
+    }
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.55s ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// ── Skeleton shimmer ───────────────────────────────────────────────────────
+// Uses project palette greys, lighter tones, subtler animation.
+@keyframes skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background: var(--skel-bg-1);
+  border-radius: to-rem($space-xs);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, var(--skel-bg-2) 50%, transparent 100%);
+    transform: translateX(-100%);
+    animation: skeleton-shimmer 2.4s ease-in-out infinite;
+    will-change: transform;
+    pointer-events: none;
+  }
+
+  &--block {
+    display: block;
+  }
+  &--round {
+    border-radius: 50%;
+  }
+
+  // Image-placeholder skeleton: fill the render-placeholder SVG slot
+  &--media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translate3d(200%, 0, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(200%, 0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-bottom {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slide-out-bottom {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 10;
+  }
+}
+
+// ── Progress bar ─────────────────────────────────────────────────────────────
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: to-rem(2);
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--grey);
+  z-index: 9999;
+  transition:
+    transform 0.1s ease,
+    opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+
+  &--active {
+    transform: scaleX(0.7);
+    opacity: 1;
+    transition: transform 8s cubic-bezier(0.04, 0.6, 0.2, 1);
+  }
+}
+
+// ── Page transitions ──────────────────────────────────────────────────────────
+// All use mode="out-in" in App.vue
+
+// Fade
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// Slide left: new page enters from right
+.slide-left-enter-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.slide-left-leave-active {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+.slide-left-enter-from {
+  opacity: 0;
+  transform: translateX(to-rem(48));
+}
+.slide-left-leave-to {
+  opacity: 0;
+  transform: translateX(to-rem(-32));
+}
+
+// Slide right: new page enters from left
+.slide-right-enter-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.slide-right-leave-active {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+.slide-right-enter-from {
+  opacity: 0;
+  transform: translateX(to-rem(-48));
+}
+.slide-right-leave-to {
+  opacity: 0;
+  transform: translateX(to-rem(32));
+}
+
+// Slide up: new page enters from bottom
+.slide-up-enter-active {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+.slide-up-leave-active {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(to-rem(48));
+}
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(to-rem(-24));
+}
+
+// Slide down: when leaving About/Legal
+.slide-down-enter-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+.slide-down-leave-active {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+.slide-down-enter-from {
+  opacity: 0;
+  transform: translateY(to-rem(-32));
+}
+.slide-down-leave-to {
+  opacity: 0;
+  transform: translateY(to-rem(32));
+}
+
+// ── Global Reduced Motion Override ─────────────────────────────────────────
+html.reduced-motion,
+html.reduced-motion *,
+html.reduced-motion *::before,
+html.reduced-motion *::after {
+  animation-duration: 0.001ms;
+  animation-iteration-count: 1;
+  transition-duration: 0.001ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms;
+    animation-iteration-count: 1;
+    transition-duration: 0.001ms;
+  }
+}
+
+// ── 3D Book Page Flip Transition ──────────────────────────────────────────────
+// ── Page cross-fade transition ───────────────────────────────────────────────
+// Outgoing view fades to opacity 0 (350ms), then incoming view fades in.
+// Driven by JS in App._flipToView(); no direction logic needed.
+#view-outlet > * {
+  transition: opacity 0.35s ease;
+}
+
+.page-fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+// Incoming view starts invisible; JS removes this class after a reflow
+// so the CSS transition drives the fade-in automatically.
+.page-fade-in {
+  opacity: 0;
+}
+
+$_B_FLAG: 'flag';
+$_B_NAV: 'nav';
+
+// ── Nav flag images & WebGL Canvas ────────────────────────────────────────────
+.#{$_B_NAV}-lang-open-btn {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.2s ease;
+
+  &:hover {
+    filter: url(#filter);
+    transform: scale(1.15);
+  }
+}
+
+.#{$_B_NAV}-flag-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:has(.#{$_B_FLAG}-canvas:not(.is-fallback):not([style*="display: none"])) {
+    .#{$_B_FLAG}-img,
+    .#{$_B_FLAG}-split {
+      display: none;
+    }
+  }
+
+  .#{$_B_FLAG}-canvas {
+    height: to-rem($space-lg);
+    width: auto;
+    display: block;
+    border-radius: to-rem($space-2xs);
+  }
+}
+
+.#{$_B_FLAG}-img {
+  height: to-rem($space-lg);
+  width: auto;
+  max-height: to-rem($space-lg);
+  display: block;
+  border-radius: to-rem($space-2xs);
+}
+
+// Split flag: two country codes side by side
+.#{$_B_FLAG}-split {
+  display: inline-flex;
+  align-items: center;
+
+  .#{$_B_FLAG}-img {
+    height: to-rem($space-lg);
+    width: to-rem($space-md);
+    max-height: to-rem($space-lg);
+    object-fit: cover;
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: to-rem($space-2xs) 0 0 to-rem($space-2xs);
+      object-position: left center;
+    }
+
+    &:last-child {
+      border-radius: 0 to-rem($space-2xs) to-rem($space-2xs) 0;
+      object-position: right center;
+    }
+  }
+}

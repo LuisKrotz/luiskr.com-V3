@@ -201,6 +201,18 @@ export class Router {
       }
     }
 
+    // Earth / Space Playground
+    if (first === PATHS.EARTH_PLAYGROUND_SEGMENT || first === PATHS.SPACE_PLAYGROUND_SEGMENT) {
+      return {
+        name: ROUTE_NAMES.EARTH_PLAYGROUND,
+        view: TAGS.VIEW_SPACE_PLAYGROUND,
+        lang,
+        path: cleanPath,
+        meta: { title: TEXT.EARTH_PLAYGROUND_TITLE, translation: TRANSLATION_KEYS.EARTH_PLAYGROUND },
+        params: {},
+      }
+    }
+
     // 404
     return {
       name: ROUTE_NAMES.NOT_FOUND,
@@ -294,6 +306,8 @@ export class Router {
       await import('../views/AdminLogin.js')
     } else if (to.view === TAGS.VIEW_CMS_DASHBOARD) {
       await import('../views/CmsDashboard.js')
+    } else if (to.view === TAGS.VIEW_SPACE_PLAYGROUND) {
+      await import('../views/SpacePlayground.js')
     }
 
     this.notify(to, from)

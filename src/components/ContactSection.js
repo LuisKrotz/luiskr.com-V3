@@ -2,7 +2,7 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import { CLASSES, LOCALES, PATHS, TEXT, MUTATIONS, TAGS } from '../core/constants.js'
 import { h, Fragment } from '../core/jsx.js'
-import contactStyles from '../sass/contact.scss?inline'
+import contactStyles from '../sass/components/contact.scss?inline'
 
 import { fetchFirebaseDb } from '../utils/db.js'
 
@@ -39,7 +39,7 @@ export class ContactSection extends BaseComponent {
     if (!translations) {
       return (
       <footer className={CLASSES.CONTACT}>
-          <h2 id="contact" className={CLASSES.CONTACT_TITLE}>
+          <h2 className={CLASSES.CONTACT_TITLE}>
             <span aria-hidden="true" className={`${CLASSES.SKELETON_SHIMMER} ${CLASSES.SKELETON_TITLE_SM}`} />
             <span className={CLASSES.SR_ONLY}>{TEXT.CONTACT}</span>
           </h2>
@@ -56,7 +56,7 @@ export class ContactSection extends BaseComponent {
 
     return (
       <footer className={CLASSES.CONTACT}>
-        <h2 id="contact" className={CLASSES.CONTACT_TITLE}>
+        <h2 className={CLASSES.CONTACT_TITLE}>
           <span>{translations.title || TEXT.CONTACT}</span>
         </h2>
         <div className={CLASSES.CONTACT_SOCIAL}>

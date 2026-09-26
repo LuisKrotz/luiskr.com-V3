@@ -7,9 +7,9 @@ import { gpuAccel } from '../utils/gpu-accel.js'
 import { calcAspectScaled } from '../utils/wasm-layout.js'
 import { localMediaCache } from '../utils/local-media-cache.js'
 import { wasmMediaThreads } from '../utils/wasm-media-threads.js'
-import mediaFigureStyles from '../sass/media-figure.scss?inline'
-import internalStyles from '../sass/internals.scss?inline'
-import modalStyles from '../sass/modal.scss?inline'
+import mediaFigureStyles from '../sass/components/media-figure.scss?inline'
+import internalStyles from '../sass/components/internals.scss?inline'
+import modalStyles from '../sass/components/modal.scss?inline'
 
 export class MediaFigure extends BaseComponent {
   static get observedAttributes() {
@@ -480,6 +480,8 @@ export class MediaFigure extends BaseComponent {
             playsInline
             loop
             muted
+            controlsList={ATTRS.NO_DOWNLOAD}
+            disablePictureInPicture
             autoPlay={this.autoPlay}
             controls={store.getters.getReducedMotion()}
           >

@@ -1,5 +1,5 @@
 import './registerServiceWorker'
-import './sass/app.scss'
+import './sass/components/app.scss'
 import router from './core/router.js'
 import './core/store.js'
 import './App.js'

@@ -1,4 +1,4 @@
-import { STRINGS, MEDIA_DIMENSIONS } from '../core/constants.js'
+import { STRINGS, MEDIA_DIMENSIONS, GRID_GAP, MOSAIC_COLS } from '../core/constants.js'
 
 let wasmInstance = null
 
@@ -73,6 +73,22 @@ export function calcDrawTextOffset(idx, charsBefore, delay) {
   return charsBefore * delay + idx * 30
 }
 
+// Resolve a stepped breakpoint map for a given viewport width.
+// Iterates keys in ascending order and returns the value for the last key ≤ vw.
+function _resolveBreakpoint(map, vw, fallback) {
+  const keys = Object.keys(map)
+    .map(Number)
+    .sort((a, b) => a - b)
+
+  let result = fallback
+
+  for (const k of keys) {
+    if (vw >= k) result = map[k]
+  }
+
+  return result
+}
+
 export function calcColsForWidth(vw) {
   return vw < 540
     ? 1
@@ -87,6 +103,16 @@ export function calcColsForWidth(vw) {
             : vw < 2560
               ? 6
               : 7
+}
+
+export function calcMosaicCols(vw) {
+  return _resolveBreakpoint(MOSAIC_COLS, vw, 1)
+}
+
+export function calcMosaicGap(vw) {
+  if (vw < 640) return 0
+
+  return 13
 }
 
 export function calcResponsivePadding(vw) {

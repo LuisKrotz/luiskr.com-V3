@@ -4,8 +4,8 @@ import { gpuAccel } from './utils/gpu-accel.js'
 import { wasmPool } from './utils/wasm-pool.js'
 import { localMediaCache } from './utils/local-media-cache.js'
 import { wasmMediaThreads } from './utils/wasm-media-threads.js'
-import safariCarouselStyles from './sass/safari-carousel.scss?inline'
-import safariMediaStyles from './sass/safari-media.scss?inline'
+import safariCarouselStyles from './sass/components/safari-carousel.scss?inline'
+import safariMediaStyles from './sass/components/safari-media.scss?inline'
 
 // ── 1. Mark HTML element with Safari class ────────────────────────────────────
 if (typeof document !== STRINGS.UNDEFINED && document.documentElement) {

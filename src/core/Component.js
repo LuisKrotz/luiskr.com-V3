@@ -16,6 +16,10 @@
 
 import { STRINGS, ATTRS, TAGS, SELECTORS, BASE_HOST_STYLES } from './constants.js'
 
+// Module-level CSSStyleSheet cache — each unique style string is parsed once
+// and the resulting sheet is shared across all component instances via adoptedStyleSheets.
+const _sharedSheets = new Map()
+
 export class BaseComponent extends HTMLElement {
 
   constructor(styles = STRINGS.EMPTY) {
@@ -115,18 +119,39 @@ export class BaseComponent extends HTMLElement {
   _renderInitial() {
     // On re-mount (after disconnect → connect), shadowRoot retains its previous children.
     // Reuse existing nodes to prevent style duplication and content wrapper duplication.
-    const existingStyle = this.shadowRoot.querySelector(SELECTORS.STYLE)
-    if (existingStyle) {
-      // Re-mount: style node already exists — reuse it.
-      this._styleNode = existingStyle
+    const sr = this.shadowRoot
+
+    // ── Constructable StyleSheet (adoptedStyleSheets) ─────────────────────────
+    // One CSSStyleSheet is parsed once per unique style string and shared across
+    // all instances — far cheaper than injecting a <style> tag per element.
+    // Fallback: <style> injection for browsers without constructable stylesheet support.
+    if (typeof CSSStyleSheet !== STRINGS.UNDEFINED && CSSStyleSheet.prototype.replaceSync) {
+      const styleText = `${BASE_HOST_STYLES}\n${this._componentStyles}`
+
+      if (!_sharedSheets.has(styleText)) {
+        const sheet = new CSSStyleSheet()
+
+        sheet.replaceSync(styleText)
+
+        _sharedSheets.set(styleText, sheet)
+      }
+
+      sr.adoptedStyleSheets = [_sharedSheets.get(styleText)]
     } else {
-      // First mount: create and append the persistent <style> node.
-      this._styleNode = document.createElement(TAGS.STYLE)
-      this._styleNode.textContent = `${BASE_HOST_STYLES}\n${this._componentStyles}`
-      this.shadowRoot.appendChild(this._styleNode)
+      // Legacy fallback: reuse existing <style> node across re-mounts
+      const existingStyle = sr.querySelector(SELECTORS.STYLE)
+
+      if (existingStyle) {
+        this._styleNode = existingStyle
+      } else {
+        this._styleNode = document.createElement(TAGS.STYLE)
+        this._styleNode.textContent = `${BASE_HOST_STYLES}\n${this._componentStyles}`
+        sr.appendChild(this._styleNode)
+      }
     }
 
-    const existingContent = this.shadowRoot.querySelector(SELECTORS.DATA_CONTENT)
+    const existingContent = sr.querySelector(SELECTORS.DATA_CONTENT)
+
     if (existingContent) {
       // Re-mount: content wrapper already exists — reuse and re-render it.
       this._contentNode = existingContent
@@ -134,7 +159,7 @@ export class BaseComponent extends HTMLElement {
       // First mount: create and append the persistent content wrapper.
       this._contentNode = document.createElement(TAGS.DIV)
       this._contentNode.setAttribute(ATTRS.DATA_CONTENT, STRINGS.EMPTY)
-      this.shadowRoot.appendChild(this._contentNode)
+      sr.appendChild(this._contentNode)
     }
 
     // Render content on mount/re-mount (supports DOM nodes/JSX and HTML strings).

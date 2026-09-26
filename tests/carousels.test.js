@@ -6,8 +6,6 @@ import { CLASSES, TAGS } from '../src/core/constants.js'
 // ─── Local selector helpers (derived from CLASSES) ────────────────────────────
 const S = {
   HC_TRACK:           `.${CLASSES.HC_TRACK}`,
-  HC_BTN_PREV:        `.${CLASSES.HC_BTN_PREV}`,
-  HC_BTN_NEXT:        `.${CLASSES.HC_BTN_NEXT}`,
   HC_SLIDE:           `.${CLASSES.HC_SLIDE}`,
   HC_SLIDE_CLONE:     `.${CLASSES.HC_SLIDE_CLONE}`,
   HC_SLIDE_CLONE_LAST:`.${CLASSES.HC_SLIDE_CLONE_LAST}`,
@@ -69,15 +67,13 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
       expect(carousel.shadowRoot.mode).toBe('open')
     })
 
-    test('renders track and navigation controls', () => {
+    test('renders track', () => {
       const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
       const shadow = carousel.shadowRoot
       expect(shadow.querySelector(S.HC_TRACK)).not.toBeNull()
-      expect(shadow.querySelector(S.HC_BTN_PREV)).not.toBeNull()
-      expect(shadow.querySelector(S.HC_BTN_NEXT)).not.toBeNull()
     })
 
     test('renders slides plus clone slides for infinite loop', () => {
@@ -176,21 +172,21 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
       expect(slides[0].classList.contains(CLASSES.HC_SLIDE_ACTIVE)).toBe(false)
     })
 
-    test('next button click advances to next slide', () => {
+    test('goTo advances to next slide', () => {
       const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
-      carousel.onNextClick()
+      carousel.goTo(carousel.currentIndex + 1)
       expect(carousel.currentIndex).toBe(1)
     })
 
-    test('prev button click from index 0 wraps to last slide', () => {
+    test('goTo(-1) from index 0 wraps to last slide', () => {
       const carousel = document.createElement(TAGS.HOME_CAROUSEL)
       carousel.items = sampleProjects
       document.body.appendChild(carousel)
 
-      carousel.onPrevClick()
+      carousel.goTo(-1)
       expect(carousel.currentIndex).toBe(sampleProjects.length - 1)
     })
 
@@ -371,6 +367,25 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
       expect(() => {
         window.dispatchEvent(new Event('resize'))
       }).not.toThrow()
+    })
+
+    test('once autoplay stopped the line regresses backwards to zero and is not re-added', () => {
+      const cc = document.createElement(TAGS.CUSTOM_CAROUSEL)
+      cc.items = [
+        { src: 'f1', width: 1000, height: 500 },
+        { src: 'f2', width: 1000, height: 500 },
+      ]
+      document.body.appendChild(cc)
+
+      cc.ringProgress = 0.6
+      cc.autoplayRunning = true
+      cc._stopAutoplay(true)
+
+      expect(cc.autoplayRunning).toBe(false)
+      expect(cc._autoplayPermanentlyStopped).toBe(true)
+
+      cc._startAutoplay()
+      expect(cc.autoplayRunning).toBe(false)
     })
   })
 })

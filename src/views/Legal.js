@@ -4,7 +4,7 @@ import store from '../core/store.js'
 import router from '../core/router.js'
 import { CLASSES, TAGS, STRINGS, ATTRS, TRANSLATION_KEYS, LOCALES } from '../core/constants.js'
 import { fetchFirebaseDb } from '../utils/db.js'
-import legalStyles from '../sass/legal.scss?inline'
+import legalStyles from '../sass/views/legal.scss?inline'
 import '../components/legal/Footer.js'
 
 export class ViewLegal extends BaseComponent {

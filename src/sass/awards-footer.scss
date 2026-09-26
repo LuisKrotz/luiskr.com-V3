@@ -147,3 +147,37 @@ $_B_AFP: 'awards-footer-progress';
     animation: awards-progress-fill var(--progress-duration, 10s) linear forwards;
   }
 }
+
+// ── Source code row ──────────────────────────────────────────────────────────
+// Centered mini-line at the very bottom of every footer that bears it.
+
+.footer-source {
+  @extend .ttl-xs;
+
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: to-rem($space-2xs);
+  width: 100%;
+  text-align: center;
+  margin-top: to-rem($space-lg);
+  color: var(--color-white-raw);
+  opacity: 0.45;
+  font-weight: 300;
+
+  &-link {
+    @extend .ttl-xs;
+
+    color: var(--color-white-raw);
+    text-decoration: underline;
+    text-underline-offset: to-rem($space-2xs);
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}

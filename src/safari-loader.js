@@ -11,5 +11,5 @@
  * Chrome, Firefox, and Safari 16+ never request this chunk.
  */
 import './polyfills.js'
-import './sass/safari-compat.scss'
+import './sass/components/safari-compat.scss'
 import './safari-patch.js'

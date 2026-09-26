@@ -4,7 +4,7 @@ import store from '../core/store.js'
 import { CLASSES, TAGS, TEXT } from '../core/constants.js'
 import { statsEngine } from '../utils/stats-engine.js'
 import { npuPredict } from '../utils/npu-predict.js'
-import statsHudStyles from '../sass/stats-hud.scss?inline'
+import statsHudStyles from '../sass/components/stats-hud.scss?inline'
 
 // ─── Stats & Controls HUD ───────────────────────────────────────────────────
 // Fixed pill overlay anchored above the bottom nav.

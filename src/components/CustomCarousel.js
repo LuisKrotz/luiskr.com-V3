@@ -3,9 +3,10 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import { CAROUSEL, CLASSES, SELECTORS, TAGS, ATTRS, EVENTS, STRINGS, CSS_PROPS } from '../core/constants.js'
 import { calcCarouselRingOffset } from '../utils/wasm-layout.js'
-import carouselStyles from '../sass/carousel.scss?inline'
-import carouselHostStyles from '../sass/carousel-host.scss?inline'
-import internalStyles from '../sass/internals.scss?inline'
+import { CarouselArrowWebGL } from '../utils/canvas/carousel-controls.js'
+import carouselStyles from '../sass/components/carousel.scss?inline'
+import carouselHostStyles from '../sass/components/carousel-host.scss?inline'
+import internalStyles from '../sass/components/internals.scss?inline'
 import './MediaFigure.js'
 
 // ─── ES6 Calculation Helpers ────────────────────────────────────────────────
@@ -31,6 +32,10 @@ export class CustomCarousel extends BaseComponent {
     this._folder = ATTRS.EMPTY
 
     this.forceActive = false
+
+    this._prevArrow = null
+
+    this._nextArrow = null
 
     this.currentIndex = 0
 
@@ -65,6 +70,10 @@ export class CustomCarousel extends BaseComponent {
     this._isSideBySide = false
 
     this._fitObserver = null
+
+    this._autoplayPermanentlyStopped = false
+
+    this._isRegressing = false
 
     this.isMobile =
       typeof window !== STRINGS.UNDEFINED
@@ -146,6 +155,10 @@ export class CustomCarousel extends BaseComponent {
     const isReduced = store.getters.getReducedMotion()
 
     const isModal = Boolean(store.getters.getModal()?.open)
+
+    this._prevArrow?.setReducedMotion(isReduced)
+
+    this._nextArrow?.setReducedMotion(isReduced)
 
     if (isReduced || isModal) {
       this._stopAutoplay()
@@ -298,9 +311,31 @@ export class CustomCarousel extends BaseComponent {
 
     const track = this.$(SELECTORS.CAROUSEL_TRACK)
 
-    if (prevBtn) this.addScopedListener(prevBtn, EVENTS.CLICK, () => this.onPrevClick())
+    if (prevBtn) {
+      this.addScopedListener(prevBtn, EVENTS.CLICK, () => this.onPrevClick())
 
-    if (nextBtn) this.addScopedListener(nextBtn, EVENTS.CLICK, () => this.onNextClick())
+      this.addScopedListener(prevBtn, EVENTS.MOUSEENTER, () => {
+        this._stopAutoplay(true)
+
+        this._prevArrow?.setHover(true)
+      })
+
+      this.addScopedListener(prevBtn, EVENTS.MOUSELEAVE, () => this._prevArrow?.setHover(false))
+    }
+
+    if (nextBtn) {
+      this.addScopedListener(nextBtn, EVENTS.CLICK, () => this.onNextClick())
+
+      this.addScopedListener(nextBtn, EVENTS.MOUSEENTER, () => {
+        this._stopAutoplay(true)
+
+        this._nextArrow?.setHover(true)
+      })
+
+      this.addScopedListener(nextBtn, EVENTS.MOUSELEAVE, () => this._nextArrow?.setHover(false))
+    }
+
+    this._mountWebGLArrows()
 
     const dots = this.$$(SELECTORS.CAROUSEL_DOT)
 
@@ -315,6 +350,8 @@ export class CustomCarousel extends BaseComponent {
         track,
         EVENTS.TOUCHSTART,
         (e) => {
+          this._stopAutoplay(true)
+
           this.touchStartX = e.touches[0].clientX
         },
         { passive: true }
@@ -327,7 +364,7 @@ export class CustomCarousel extends BaseComponent {
           const delta = e.changedTouches[0].clientX - this.touchStartX
 
           if (Math.abs(delta) > CAROUSEL.SWIPE_THRESHOLD) {
-            this._stopAutoplay()
+            this._stopAutoplay(true)
 
             if (delta < 0) this.goTo(this.currentIndex + 1)
             else this.goTo(this.currentIndex - 1)
@@ -340,8 +377,52 @@ export class CustomCarousel extends BaseComponent {
     this.addScopedListener(window, EVENTS.RESIZE, () => this._onResize(), { passive: true })
   }
 
+  _mountWebGLArrows() {
+    if (typeof window === STRINGS.UNDEFINED) return
+
+    const prevCanvas = this.$(`${SELECTORS.CAROUSEL_BTN_PREV} ${SELECTORS.CAROUSEL_BTN_CANVAS}`)
+
+    if (prevCanvas) {
+      if (this._prevArrow && this._prevArrow.canvas !== prevCanvas) {
+        this._prevArrow.destroy()
+
+        this._prevArrow = null
+      }
+
+      if (!this._prevArrow) {
+        this._prevArrow = new CarouselArrowWebGL(prevCanvas, 'prev', () => this.onPrevClick())
+      }
+    }
+
+    const nextCanvas = this.$(`${SELECTORS.CAROUSEL_BTN_NEXT} ${SELECTORS.CAROUSEL_BTN_CANVAS}`)
+
+    if (nextCanvas) {
+      if (this._nextArrow && this._nextArrow.canvas !== nextCanvas) {
+        this._nextArrow.destroy()
+
+        this._nextArrow = null
+      }
+
+      if (!this._nextArrow) {
+        this._nextArrow = new CarouselArrowWebGL(nextCanvas, 'next', () => this.onNextClick())
+      }
+    }
+  }
+
   onDestroy() {
     this._stopAutoplay()
+
+    if (this._prevArrow) {
+      this._prevArrow.destroy()
+
+      this._prevArrow = null
+    }
+
+    if (this._nextArrow) {
+      this._nextArrow.destroy()
+
+      this._nextArrow = null
+    }
 
     if (this.observer) {
       this.observer.disconnect()
@@ -539,19 +620,23 @@ export class CustomCarousel extends BaseComponent {
   }
 
   onPrevClick() {
-    this._stopAutoplay()
+    this._prevArrow?.triggerClick()
+
+    this._stopAutoplay(true)
 
     this.goTo(this.currentIndex - 1)
   }
 
   onNextClick() {
-    this._stopAutoplay()
+    this._nextArrow?.triggerClick()
+
+    this._stopAutoplay(true)
 
     this.goTo(this.currentIndex + 1)
   }
 
   onDotClick(idx) {
-    this._stopAutoplay()
+    this._stopAutoplay(true)
 
     this.goTo(idx)
   }
@@ -608,25 +693,83 @@ export class CustomCarousel extends BaseComponent {
   }
 
   _startAutoplay() {
+    if (this._autoplayPermanentlyStopped) return
+
     if (this.autoplayRunning) return
 
     this.autoplayRunning = true
 
     this.autoplayStart = performance.now() - this.autoplayElapsed
 
+    this._prevArrow?.setPlaying(true)
+
+    this._nextArrow?.setPlaying(true)
+
     this.rafId = requestAnimationFrame((ts) => this._tick(ts))
   }
 
-  _stopAutoplay() {
-    if (!this.autoplayRunning) return
+  _stopAutoplay(permanently = false) {
+    if (permanently) {
+      this._autoplayPermanentlyStopped = true
+    }
+
+    if (!this.autoplayRunning && !this._isRegressing) return
 
     this.autoplayRunning = false
+
+    this._prevArrow?.setPlaying(false)
+
+    this._nextArrow?.setPlaying(false)
 
     if (this.rafId) {
       cancelAnimationFrame(this.rafId)
 
       this.rafId = null
     }
+
+    this._regressRingToZero()
+  }
+
+  _regressRingToZero() {
+    if (this.ringProgress <= 0) {
+      this.ringProgress = 0
+
+      this.autoplayElapsed = 0
+
+      this._updateRingDom()
+
+      return
+    }
+
+    this._isRegressing = true
+
+    const regressStep = () => {
+      if (this.autoplayRunning) {
+        this._isRegressing = false
+
+        return
+      }
+
+      if (this.ringProgress > 0) {
+        this.ringProgress = Math.max(0, this.ringProgress - 0.04)
+
+        this.autoplayElapsed = this.ringProgress * CAROUSEL.AUTOPLAY_DURATION
+
+        this._updateRingDom()
+
+        requestAnimationFrame(regressStep)
+      } else {
+        this.ringProgress = 0
+
+        this.autoplayElapsed = 0
+
+        this._isRegressing = false
+
+        this._updateRingDom()
+      }
+    }
+
+    requestAnimationFrame(regressStep)
   }
 
   _tick(timestamp) {
@@ -661,6 +804,10 @@ export class CustomCarousel extends BaseComponent {
     fills.forEach((fill) => {
       fill.style.strokeDashoffset = `${offset}`
     })
+
+    this._prevArrow?.setProgress(this.ringProgress, this.autoplayRunning)
+
+    this._nextArrow?.setProgress(this.ringProgress, this.autoplayRunning)
   }
 
   renderSlide(item) {
@@ -745,6 +892,8 @@ export class CustomCarousel extends BaseComponent {
             return (
               <Fragment>
                 <button className={CLASSES.CAROUSEL_BTN_PREV} aria-label={lang.prev} type={ATTRS.BUTTON}>
+                  <canvas className={CLASSES.CAROUSEL_BTN_CANVAS} />
+
                   <svg className={CLASSES.CAROUSEL_BTN_RING} viewBox={ATTRS.RING_VIEWBOX} aria-hidden={ATTRS.TRUE}>
                     <circle className={CLASSES.CAROUSEL_BTN_RING_TRACK} cx={ATTRS.RING_CX} cy={ATTRS.RING_CY} r={ATTRS.RING_R} />
 
@@ -779,6 +928,8 @@ export class CustomCarousel extends BaseComponent {
                 </div>
 
                 <button className={CLASSES.CAROUSEL_BTN_NEXT} aria-label={lang.next} type={ATTRS.BUTTON}>
+                  <canvas className={CLASSES.CAROUSEL_BTN_CANVAS} />
+
                   <svg className={CLASSES.CAROUSEL_BTN_RING} viewBox={ATTRS.RING_VIEWBOX} aria-hidden={ATTRS.TRUE}>
                     <circle className={CLASSES.CAROUSEL_BTN_RING_TRACK} cx={ATTRS.RING_CX} cy={ATTRS.RING_CY} r={ATTRS.RING_R} />
 

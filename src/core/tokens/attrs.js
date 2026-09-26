@@ -73,4 +73,11 @@ export const ATTRS = Object.freeze({
   DATA_CONTENT: 'data-content',
   ARIA_HIDDEN: 'aria-hidden',
   HIDDEN: 'hidden',
+  ROLE_NAVIGATION: 'navigation',
+  TYPE_BUTTON: 'button',
+  AUDIO_OGG: 'audio/ogg',
+  AUDIO_MPEG: 'audio/mpeg',
+  CONTROLS: 'controls',
+  AUTOPLAY: 'autoplay',
+  LOOP: 'loop',
 })

@@ -1,0 +1,116 @@
+// ════════════════════════════════════════════════════════════════════════════
+//  safari-compat.scss
+//  Safari / iOS compatibility overrides — loaded ONLY via safari-loader.js.
+//
+//  ⚠  NEVER import this from app.scss or any component stylesheet.
+//     Modern browsers (Chrome, Firefox, Safari 16+) never download this file.
+//
+//  Loading condition: !CSS.supports('container-type', 'inline-size')
+//  catches: iOS < 16, macOS Safari < 16, and all legacy WebKit browsers.
+//
+//  Each @supports not block is a secondary safety net — the file is harmless
+//  if accidentally loaded in a modern browser.
+// ════════════════════════════════════════════════════════════════════════════
+
+@import '../base/variables';
+@import '../base/mixins';
+
+// ── 1. aspect-ratio on position:absolute and flex-child elements ───────────
+//  iOS 14–15.x bug: aspect-ratio is silently ignored on position:absolute
+//  elements and behaves inconsistently on flex children. The elements end up
+//  with height:0, breaking the entire carousel layout.
+//  Fix: the CSS padding-top trick — padding-% is always relative to width,
+//  so `padding-top: 43.75%` on a width:100% element equals height = 7/16ths.
+//  Modern browsers that DO support aspect-ratio are never served this file.
+//
+@supports not (aspect-ratio: 1) {
+
+  // ── Home carousel: selected work ────────────────────────────────────────
+
+  // Controls overlay — position:absolute, height driven by aspect-ratio in
+  // modern CSS, broken on iOS 14-15.x. Restore height via padding-top.
+  .hc--selected .hc-controls {
+    height: 0;
+    padding-top: 43.75%; // 7 ÷ 16 = 43.75%
+  }
+
+  // Cover image wrapper — flex child with aspect-ratio; iOS needs padding-top.
+  .hc--selected .hc-cover {
+    height: 0;
+    padding-top: 43.75%;
+    position: relative; // creates the BFC the absolutely-positioned img needs
+
+    // Image fills the padding-box
+    &-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // Cover skeleton — same shape as the live cover image
+  .hc--selected .hc-cover--skel {
+    height: 0;
+    padding-top: 43.75%;
+  }
+
+  // ── Internals: related mosaic grid ──────────────────────────────────────
+
+  .related-mosaic-item,
+  .rltd-ms-item {
+    height: 0;
+    padding-bottom: 62.5%; // 10 ÷ 16 = 62.5%
+  }
+
+  // ── Structure: hero skeleton ────────────────────────────────────────────
+  .skeleton--hero {
+    height: 0;
+    padding-top: 43.75%; // 7 ÷ 16 = 43.75%
+  }
+
+}
+
+// Featured mosaic card (aspect-ratio: 16/9 at 1024+)
+// Written outside the @supports not block to allow @include layout-1024()
+// — Sass cannot nest @include mixins inside @supports not blocks in older Sass.
+.related-mosaic-item--featured,
+.rltd-ms-item--featured {
+  @include layout-1024() {
+    @supports not (aspect-ratio: 1) {
+      height: 0;
+      padding-bottom: 56.25%; // 9 ÷ 16 = 56.25%
+    }
+  }
+}
+
+// ── 2. contain: layout style — flex-column height collapse ────────────────
+//  iOS < 15.4: `contain: style` is not recognised. The full shorthand
+//  `contain: layout style` becomes an invalid declaration and is DROPPED.
+//  On certain WebKit builds this causes the flex column to collapse to 0
+//  when min-height resolves to 'auto'. Force contain:none as a safety net.
+//
+@supports not (contain: style) {
+  .internal-description {
+    contain: none;
+  }
+}
+
+// ── 3. container-type: inline-size ────────────────────────────────────────
+//  iOS < 16: container queries are not supported. cqw values already have
+//  rem fallbacks inside each clamp() call in hm.scss, so the
+//  layout won't break — but we reset container-type so WebKit doesn't try
+//  to create a broken partial containment context.
+//
+@supports not (container-type: inline-size) {
+  .home-mosaic-item,
+  .hm-item {
+    container-type: normal;
+  }
+}
+
+// ── 4. Safari text block min-height reset ────────────────────────────────
+// On Safari, stacked sections must not inherit runaway min-height from carousels.
+.internal-description {
+  min-height: auto;
+}

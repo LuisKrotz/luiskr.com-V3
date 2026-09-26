@@ -4,7 +4,7 @@ import { getDbInstance } from '../../firebase.js'
 import { ref, child, get, set } from 'firebase/database'
 import { LOCALES, PATHS, URLS, MEDIA_DIMENSIONS } from '../../core/constants.js'
 import { VALID_LANGS } from '../../core/i18n.js'
-import cmsStyles from '../../sass/cms.scss?inline'
+import cmsStyles from '../../sass/views/cms.scss?inline'
 
 export class CmsPortfolioList extends BaseComponent {
   constructor() {

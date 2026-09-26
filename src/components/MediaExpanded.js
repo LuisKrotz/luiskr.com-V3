@@ -19,7 +19,8 @@ import { gpuAccel } from '../utils/gpu-accel.js'
 import { wasmPool } from '../utils/wasm-pool.js'
 import { localMediaCache } from '../utils/local-media-cache.js'
 import { wasmMediaThreads } from '../utils/wasm-media-threads.js'
-import modalStyles from '../sass/modal.scss?inline'
+import { CloseButtonWebGL } from '../utils/canvas/close-button.js'
+import modalStyles from '../sass/components/modal.scss?inline'
 
 export class MediaExpanded extends BaseComponent {
   static get observedAttributes() {
@@ -28,8 +29,12 @@ export class MediaExpanded extends BaseComponent {
 
   constructor() {
     super(modalStyles)
+
     this.isClosing = false
+
     this.currentSrc = ATTRS.EMPTY
+
+    this._closeBtn = null
   }
 
   get source() {
@@ -82,11 +87,17 @@ export class MediaExpanded extends BaseComponent {
 
     // Click events
     const closeBtns = this.$$(
-      `.${CLASSES.EXPAND_MODAL_CLOSE_BAR_BUTTON}, .${CLASSES.EXPAND_MODAL_CLOSE_BOTTOM}, .${CLASSES.EXPAND_MODAL_CLOSE_AREA}`
+      `.${CLASSES.PREF_CLOSE_BTN}, .${CLASSES.EXPAND_MODAL_CLOSE_BAR_BUTTON}, .${CLASSES.EXPAND_MODAL_CLOSE_BOTTOM}, .${CLASSES.EXPAND_MODAL_CLOSE_AREA}`
     )
     closeBtns.forEach((btn) => {
       this.addScopedListener(btn, EVENTS.CLICK, () => this.startClose())
     })
+
+    const closeCanvas = this.$(`.${CLASSES.PREF_CLOSE_CANVAS}`)
+
+    if (closeCanvas) {
+      this._closeBtn = new CloseButtonWebGL(closeCanvas, () => this.startClose())
+    }
 
     wasmPool.dispatch(WASM_ACTIONS.PROCESS_MEDIA_ANALYTICS, {
       width: this.mediaWidth || 0,
@@ -178,11 +189,23 @@ export class MediaExpanded extends BaseComponent {
     }, 320)
   }
 
+  onDestroy() {
+    if (this._closeBtn) {
+      this._closeBtn.destroy()
+
+      this._closeBtn = null
+    }
+  }
+
   render() {
     const compMedia = store.getters.getlang().components?.media || {}
+
     const closeText = compMedia.close || TEXT.CLOSE
+
     const isReduced = store.getters.getReducedMotion()
+
     const mediaW = this.mediaWidth
+
     const mediaH = this.mediaHeight
 
     return (
@@ -191,12 +214,14 @@ export class MediaExpanded extends BaseComponent {
       >
         <div className={CLASSES.EXPAND_MODAL_CLOSE_BAR}>
           <span className={CLASSES.EXPAND_MODAL_CLOSE_BAR_TITLE}>{this.alt}</span>
+
           <button
-            className={CLASSES.EXPAND_MODAL_CLOSE_BAR_BUTTON}
+            className={CLASSES.PREF_CLOSE_BTN}
             type={ATTRS.BUTTON}
             aria-label={closeText}
+            onClick={() => this.startClose()}
           >
-            {closeText}
+            <canvas className={CLASSES.PREF_CLOSE_CANVAS} />
           </button>
         </div>
         <div className={CLASSES.EXPAND_MODAL_CLOSE_AREA} />
@@ -238,6 +263,8 @@ export class MediaExpanded extends BaseComponent {
               loop
               muted
               controls
+              controlsList={ATTRS.NO_DOWNLOAD}
+              disablePictureInPicture
             >
               <source src={this.source} type={ATTRS.VIDEO_MP4} />
             </video>

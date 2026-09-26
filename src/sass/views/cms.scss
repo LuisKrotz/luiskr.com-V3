@@ -1,0 +1,801 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+// ── CMS & Admin Theme System ─────────────────────────────────────────
+
+.cms-container,
+.admin-login-wrapper {
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+.cms-container {
+  min-height: 100vh;
+  background-color: $cms-bg-darkest;
+  color: $cms-text-primary;
+  font-family:
+    'Raleway',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+// ── Admin Login Card ──────────────────────────────────────────────────
+.admin-login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 30%, $cms-bg-dark 0%, $cms-bg-darkest 70%);
+  padding: 2rem;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: $cms-card-max-width;
+  background: rgba(31, 40, 51, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  text-align: center;
+
+  .admin-title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    color: $color-white;
+  }
+
+  .admin-subtitle {
+    font-size: 0.95rem;
+    color: $cms-text-subtle;
+    margin-bottom: 2.5rem;
+  }
+
+  .google-auth-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: to-rem($space-lg);
+    background: $color-white;
+    color: $color-black;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: $color-grey-2;
+      transform: translateY(-#{to-rem($space-2xs)});
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .google-icon {
+      width: to-rem($space-xl);
+      height: to-rem($space-xl);
+      flex-shrink: 0;
+    }
+  }
+
+  .admin-error-msg {
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background: rgba(255, 75, 75, 0.15);
+    border: 1px solid rgba(255, 75, 75, 0.3);
+    border-radius: var(--radius-sm);
+    color: $cms-error;
+    font-size: 0.88rem;
+  }
+}
+
+// ── CMS Header & Layout ───────────────────────────────────────────────
+.cms-header {
+  min-height: $cms-header-min-height;
+  background: rgba(15, 20, 28, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .cms-brand {
+    display: flex;
+    align-items: center;
+    gap: to-rem($space-lg);
+
+    .cms-logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: to-rem($space-2xs);
+      color: $cms-accent;
+    }
+
+    .cms-badge {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      padding: to-rem($space-xs) to-rem($space-md);
+      background: rgba(102, 252, 241, 0.15);
+      color: $cms-accent;
+      border-radius: var(--radius-xs);
+      letter-spacing: to-rem($space-hairline);
+    }
+  }
+
+  // ── Quick Cloud & AI Admin Bar ─────────────────────────────────────
+  .cms-quick-tools {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin: 0.4rem 0;
+
+    .cms-dropdown {
+      position: relative;
+      display: inline-block;
+
+      &:hover .cms-dropdown-menu,
+      &:focus-within .cms-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+    }
+
+    .cms-quick-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: to-rem($space-sm);
+      background: rgba(31, 40, 51, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: $cms-text-primary;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+
+      .cms-btn-icon {
+        font-size: 0.95rem;
+      }
+
+      .cms-caret {
+        font-size: 0.7rem;
+        color: $cms-text-subtle;
+        transition: transform 0.2s ease;
+      }
+
+      &:hover {
+        background: rgba(45, 58, 74, 0.9);
+        border-color: rgba(102, 252, 241, 0.4);
+        color: $color-white;
+
+        .cms-caret {
+          color: $cms-accent;
+          transform: rotate(180deg);
+        }
+      }
+
+      &--ai {
+        background: rgba(102, 252, 241, 0.12);
+        border-color: rgba(102, 252, 241, 0.35);
+        color: $cms-accent;
+
+        &:hover {
+          background: rgba(102, 252, 241, 0.22);
+          box-shadow: 0 0 12px rgba(102, 252, 241, 0.25);
+        }
+      }
+
+      &--bucket {
+        &:hover {
+          border-color: $cms-badge-warn;
+        }
+      }
+
+      &--firebase {
+        &:hover {
+          border-color: $cms-badge-amber;
+        }
+      }
+
+      &--billing {
+        &:hover {
+          border-color: $cms-badge-green;
+        }
+      }
+    }
+
+    .cms-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: $cms-dropdown-min-width;
+      background: $cms-bg-card;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: to-rem($space-xs);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(to-rem($space-xs));
+      transition:
+        opacity 0.15s ease,
+        transform 0.15s ease,
+        visibility 0.15s ease;
+      pointer-events: none;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -#{to-rem($space-md)};
+        left: 0;
+        right: 0;
+        height: to-rem($space-md);
+      }
+
+      .cms-dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: to-rem($space-md);
+        padding: 0.65rem 0.85rem;
+        color: $cms-text-primary;
+        text-decoration: none;
+        font-size: 0.84rem;
+        font-weight: 500;
+        border-radius: var(--radius-xs);
+        transition: all 0.15s ease;
+        cursor: pointer;
+
+        .item-icon {
+          font-size: 1rem;
+        }
+
+        &:hover {
+          background: rgba(102, 252, 241, 0.15);
+          color: $cms-accent;
+          transform: translateX(to-rem($space-xs));
+        }
+      }
+    }
+  }
+
+  .cms-user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .cms-avatar {
+      width: to-rem($space-2xl);
+      height: to-rem($space-2xl);
+      border-radius: var(--radius-round);
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .cms-email {
+      font-size: 0.9rem;
+      color: $cms-text-muted;
+    }
+
+    .cms-logout-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: $color-white;
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-xs);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+// ── CMS Tabs & Sub-header ─────────────────────────────────────────────
+.cms-nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  .cms-tab-btn {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: $cms-text-subtle;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      color: $color-white;
+    }
+
+    &.active {
+      color: $cms-accent;
+      border-bottom-color: $cms-accent;
+    }
+  }
+}
+
+.cms-main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: $cms-container-max-width;
+  width: 100%;
+  margin: 0 auto;
+}
+
+// ── CMS Cards & Form Controls ─────────────────────────────────────────
+.cms-card {
+  background: rgba(31, 40, 51, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  .cms-card-title {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: $color-white;
+  }
+}
+
+.cms-field-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    font-size: 0.82rem;
+    color: $cms-text-subtle;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+}
+
+.cms-input,
+.cms-select,
+.cms-textarea {
+  width: 100%;
+  background: rgba(11, 12, 16, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.9rem;
+  color: $color-white;
+  font-size: 0.92rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: $cms-accent;
+  }
+}
+
+.cms-btn {
+  background: $cms-accent;
+  color: $cms-bg-darkest;
+  font-weight: 600;
+  padding: 0.65rem 1.2rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: $cms-accent-hover;
+    transform: translateY(-#{to-rem($space-hairline)});
+  }
+
+  &--danger {
+    background: $cms-danger;
+    color: $color-white;
+
+    &:hover {
+      background: $cms-danger-dark;
+    }
+  }
+
+  &--secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: $color-white;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+// ── Notification Toast ────────────────────────────────────────────────
+.cms-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: $cms-bg-dark;
+  border: 1px solid $cms-accent;
+  color: $color-white;
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: to-rem($space-md);
+}
+
+@keyframes cmsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-#{to-rem($space-xs)});
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ── CMS Editor Layout Helpers (About, Footer, Projects) ───────────────
+
+.cms-card--header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: to-rem($space-md);
+}
+
+.cms-card--lang {
+  display: flex;
+  align-items: center;
+  gap: to-rem($space-md);
+  flex-wrap: wrap;
+}
+
+.cms-btn-group {
+  display: flex;
+  gap: to-rem($space-sm);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cms-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: to-rem($space-sm);
+  margin-bottom: to-rem($space-md);
+}
+
+.cms-section-title {
+  font-size: to-rem($space-lg);
+  font-weight: 600;
+  color: $cms-accent;
+  margin: 0 0 to-rem($space-sm);
+  display: block;
+}
+
+.cms-subsection {
+  margin-top: to-rem($space-md);
+  padding: to-rem($space-md);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+}
+
+.cms-subsection-title {
+  font-size: to-rem($space-md);
+  font-weight: 600;
+  color: $cms-text-muted;
+  display: block;
+  margin-bottom: to-rem($space-sm);
+}
+
+.cms-field-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(to-rem(200px), 1fr));
+  gap: to-rem($space-md);
+  margin-bottom: to-rem($space-md);
+}
+
+.cms-field-row--align {
+  align-items: end;
+}
+
+.cms-field-group--small {
+  max-width: to-rem(160px);
+}
+
+.cms-label {
+  color: $cms-text-muted;
+  font-weight: 500;
+}
+
+.cms-hint {
+  font-size: to-rem($space-md);
+  color: $cms-text-subtle;
+  margin-top: to-rem($space-sm);
+}
+
+.cms-card-subtitle {
+  font-size: to-rem($space-md);
+  color: $cms-text-muted;
+  margin: 0;
+}
+
+// ── Gravatar Editor ───────────────────────────────────────────────────
+.cms-gravatar-layout {
+  display: flex;
+  gap: to-rem($space-xl);
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.cms-gravatar-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: to-rem($space-sm);
+  flex-shrink: 0;
+}
+
+.cms-gravatar-img {
+  width: to-rem(96px);
+  height: to-rem(96px);
+  border-radius: var(--radius-round);
+  object-fit: cover;
+  border: to-rem($space-3xs) solid $cms-accent;
+}
+
+.cms-gravatar-placeholder {
+  width: to-rem(96px);
+  height: to-rem(96px);
+  border-radius: var(--radius-round);
+  background: $cms-bg-darker;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: to-rem(40px);
+  border: to-rem($space-3xs) dashed $cms-border;
+}
+
+.cms-gravatar-label {
+  font-size: to-rem($space-sm);
+  color: $cms-text-subtle;
+}
+
+.cms-gravatar-controls {
+  flex: 1;
+  min-width: to-rem(280px);
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-sm);
+}
+
+.cms-preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: to-rem($space-2xs);
+}
+
+.cms-input--short {
+  max-width: to-rem(110px);
+}
+
+.cms-btn--preset {
+  font-size: to-rem($space-sm);
+  padding: to-rem($space-2xs) to-rem($space-sm);
+}
+
+.cms-btn--active {
+  border-color: $cms-accent;
+  color: $cms-accent;
+}
+
+// ── Paragraph List Editor ─────────────────────────────────────────────
+.cms-para-list {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-sm);
+}
+
+.cms-para-item {
+  display: flex;
+  gap: to-rem($space-sm);
+  align-items: flex-start;
+
+  textarea {
+    flex: 1;
+  }
+}
+
+.cms-para-controls {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-2xs);
+  flex-shrink: 0;
+}
+
+// ── Channel / Link List Editor ─────────────────────────────────────────
+.cms-channel-list {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-sm);
+}
+
+.cms-channel-item {
+  display: grid;
+  grid-template-columns: to-rem(130px) 1fr auto;
+  gap: to-rem($space-sm);
+  align-items: center;
+}
+
+.cms-channel-label {
+  flex-shrink: 0;
+}
+
+.cms-input--label {
+  font-size: to-rem($space-md);
+}
+
+.cms-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: to-rem($space-sm);
+}
+
+.cms-item-label {
+  font-weight: 600;
+  color: $cms-accent;
+}
+
+.cms-item-controls {
+  display: flex;
+  gap: to-rem($space-2xs);
+}
+
+// ── Mention Items ─────────────────────────────────────────────────────
+.cms-mention-list {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-sm);
+}
+
+.cms-mention-item {
+  margin-bottom: 0;
+}
+
+// ── Section Card ──────────────────────────────────────────────────────
+.cms-section-card {
+  border-left: to-rem($space-3xs) solid $cms-accent;
+}
+
+.cms-sections-list {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-md);
+}
+
+// ── Media Item ────────────────────────────────────────────────────────
+.cms-media-item {
+  display: flex;
+  gap: to-rem($space-md);
+  align-items: flex-start;
+  padding: to-rem($space-sm);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+  margin-bottom: to-rem($space-sm);
+}
+
+.cms-media-thumb {
+  width: to-rem(72px);
+  height: to-rem(44px);
+  object-fit: cover;
+  border-radius: var(--radius-xs);
+  border: to-rem($space-3xs) solid $cms-border;
+  flex-shrink: 0;
+}
+
+.cms-media-thumb-placeholder {
+  width: to-rem(72px);
+  height: to-rem(44px);
+  border-radius: var(--radius-xs);
+  background: $cms-bg-darker;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: to-rem($space-xl);
+  border: to-rem($space-3xs) dashed $cms-border;
+  flex-shrink: 0;
+}
+
+.cms-media-fields {
+  flex: 1;
+}
+
+// ── Cover Layout ──────────────────────────────────────────────────────
+.cms-cover-layout {
+  display: flex;
+  gap: to-rem($space-lg);
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.cms-cover-thumb {
+  width: to-rem(120px);
+  height: to-rem(72px);
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: to-rem($space-3xs) solid $cms-border;
+  flex-shrink: 0;
+}
+
+.cms-cover-fields {
+  flex: 1;
+  min-width: to-rem(280px);
+}
+
+// ── Checkbox ──────────────────────────────────────────────────────────
+.cms-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: to-rem($space-sm);
+  color: $cms-text-primary;
+  font-size: to-rem($space-md);
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    width: to-rem($space-md);
+    height: to-rem($space-md);
+    accent-color: $cms-accent;
+    cursor: pointer;
+  }
+}

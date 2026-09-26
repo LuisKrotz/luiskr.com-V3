@@ -4,21 +4,21 @@ import store from './core/store.js'
 import router from './core/router.js'
 import { deepQuerySelector } from './core/dom.js'
 import { fetchFirebaseDb } from './utils/db.js'
-import { TAGS, STRINGS, CLASSES, ATTRS, IDS, EVENTS, MUTATIONS, THEME, SECTIONS, ROUTE_PREFIXES, PATHS } from './core/constants.js'
+import { TAGS, STRINGS, CLASSES, ATTRS, IDS, EVENTS, MUTATIONS, THEME, SECTIONS, ROUTE_PREFIXES, PATHS, URLS } from './core/constants.js'
+
 
 // Route depth: home = 0, all other views = 1
 
 
-import appStyles from './sass/app.scss?inline'
+import appStyles from './sass/components/app.scss?inline'
 import './components/AppNav.js'
 import './components/PreferencesModal.js'
 import './components/LangDialog.js'
 import './components/CookieBanner.js'
 import './components/StatsHud.js'
+import './components/DrawText.js'
 import './views/Home.js'
-import './views/Project.js'
-import './views/Legal.js'
-import './views/NotFound.js'
+import { IntroLoader } from './utils/canvas/intro-loader.js'
 
 export class AppRoot extends BaseComponent {
   constructor() {
@@ -30,6 +30,7 @@ export class AppRoot extends BaseComponent {
     this.currentViewTag = TAGS.VIEW_HOME
     this._aboutTop = 600
     this._contactTop = 1500
+
   }
 
   get modal() {
@@ -126,15 +127,26 @@ export class AppRoot extends BaseComponent {
         }
       )
     }
+
+    this._introLoader = new IntroLoader(document.body)
+
+  }
+
+  onDestroy() {
+    this._introLoader?.destroy()
   }
 
   onStoreUpdate() {
     const currentLocale = store.getters.getLang()
+
     if (this._loadedLang && this._loadedLang !== currentLocale) {
       this.loadData()
     }
+
     // Update modal class on the root wrapper imperatively (no full DOM wipe)
     this._updateModalState()
+
+
   }
 
   _updateModalState() {
@@ -200,6 +212,18 @@ export class AppRoot extends BaseComponent {
       this.addScopedListener(window, EVENTS.TOUCHSTART, setTouch, { passive: true })
       this.addScopedListener(window, EVENTS.MOUSEDOWN, setPointer, { passive: true })
     }
+
+    this.addScopedListener(window, EVENTS.CONTEXTMENU, (e) => {
+      if (e.target?.closest?.('img, video, audio')) {
+        e.preventDefault()
+      }
+    })
+
+    this.addScopedListener(window, EVENTS.DRAGSTART, (e) => {
+      if (e.target?.closest?.('img, video, audio')) {
+        e.preventDefault()
+      }
+    })
   }
 
   loadData() {
@@ -322,7 +346,13 @@ export class AppRoot extends BaseComponent {
     const toTag   = this.currentViewTag
     const FADE_MS = 350 // half-duration: fade-out then fade-in
 
-    if (toTag === TAGS.VIEW_ADMIN_LOGIN) {
+    if (toTag === TAGS.VIEW_LEGAL) {
+      await import('./views/Legal.js')
+    } else if (toTag === TAGS.VIEW_PROJECT) {
+      await import('./views/Project.js')
+    } else if (toTag === TAGS.VIEW_NOT_FOUND) {
+      await import('./views/NotFound.js')
+    } else if (toTag === TAGS.VIEW_ADMIN_LOGIN) {
       await import('./views/AdminLogin.js')
     } else if (toTag === TAGS.VIEW_CMS_DASHBOARD) {
       await import('./views/CmsDashboard.js')
@@ -386,7 +416,9 @@ export class AppRoot extends BaseComponent {
     const cookie = this.$(TAGS.COOKIE_BANNER)
     if (cookie) cookie.translations = this.translations
     const pref = this.$(TAGS.PREFERENCES_MODAL)
-    if (pref) pref.pref = this.translations?.pref
+    if (pref) {
+      pref.pref = this.translations?.pref
+    }
     this._updateModalState()
   }
 }

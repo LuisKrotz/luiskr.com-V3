@@ -309,10 +309,10 @@ export default defineConfig(({ mode }) => {
         rollupOptions: {
           input: {
             index: fileURLToPath(new URL('./index.html', import.meta.url)),
-            home: fileURLToPath(new URL('./src/sass/home.scss', import.meta.url)),
-            internal: fileURLToPath(new URL('./src/sass/internals.scss', import.meta.url)),
-            legal: fileURLToPath(new URL('./src/sass/legal.scss', import.meta.url)),
-            cms: fileURLToPath(new URL('./src/sass/cms.scss', import.meta.url)),
+            home: fileURLToPath(new URL('./src/sass/views/home.scss', import.meta.url)),
+            internal: fileURLToPath(new URL('./src/sass/components/internals.scss', import.meta.url)),
+            legal: fileURLToPath(new URL('./src/sass/views/legal.scss', import.meta.url)),
+            cms: fileURLToPath(new URL('./src/sass/views/cms.scss', import.meta.url)),
           },
           output: {
             manualChunks(id) {
@@ -338,7 +338,15 @@ export default defineConfig(({ mode }) => {
     },
     optimizeDeps: {
       noDiscovery: true,
-      include: ['firebase/app', 'firebase/auth', 'firebase/database', 'register-service-worker'],
+      include: [
+        'firebase/app', 'firebase/auth', 'firebase/database', 'register-service-worker',
+        'three', 'three/webgpu', 'three/tsl',
+        'three/examples/jsm/controls/OrbitControls.js',
+        'three/examples/jsm/tsl/display/BloomNode.js',
+        'three/examples/jsm/tsl/display/SMAANode.js',
+        'three/examples/jsm/tsl/display/ChromaticAberrationNode.js',
+        'three/examples/jsm/tsl/display/FilmNode.js',
+      ],
     },
     resolve: {
       alias: {

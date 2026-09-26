@@ -1,0 +1,655 @@
+@import '../base/variables';
+@import '../base/mixins';
+@import '../base/fonts';
+@import '../base/placeholders';
+@import '../base/structure';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Preferences Modal Dialog
+// ─────────────────────────────────────────────────────────────────────────────
+
+:host {
+  display: none;
+}
+
+:host([open]),
+:host(.is-open) {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.pref-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // Simple uniform padding — box-sizing:border-box ensures width:100% accounts
+  // for this padding so the dialog always fits within the viewport and
+  // flexbox centering works symmetrically on all viewport sizes.
+  padding: to-rem($space-xl);
+  background: rgba($color-black, 0.65);
+  backdrop-filter: blur(to-rem(8));
+  -webkit-backdrop-filter: blur(to-rem(8));
+  outline: none;
+  overflow: hidden;
+}
+
+.pref-dialog {
+  width: 100%;
+  box-sizing: border-box;
+  // The backdrop padding constrains the width to grid; 610px cap prevents
+  // the dialog from stretching too wide on large viewports.
+  max-width: to-rem($space-8xl);
+  max-height: calc(88vh);
+  max-height: calc(88dvh);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: to-rem(1) solid var(--border-color);
+  border-radius: to-rem($space-xl);
+  box-shadow: 0 to-rem(24) to-rem(48) to-rem(-12) rgba($color-black, 0.35);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pref-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: to-rem($space-xl) to-rem($space-2xl);
+  border-bottom: to-rem(1) solid var(--border-color);
+}
+
+.pref-title {
+  @extend .ttl-sm;
+
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  letter-spacing: to-rem(-0.2);
+  color: inherit;
+}
+
+$_B_PREF_CLOSE: 'pref-close';
+
+.#{$_B_PREF_CLOSE}-btn {
+  @extend %RESETBTN;
+
+  flex-shrink: 0;
+  width: to-rem($space-3xl);
+  height: to-rem($space-3xl);
+  border-radius: var(--radius-round);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  background: var(--border-color);
+  transition:
+    background 0.2s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+
+  // WebGL Canvas
+  .#{$_B_PREF_CLOSE}-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-round);
+    display: block;
+    pointer-events: none;
+  }
+
+  // CSS-drawn X via pseudo-elements fallback only when canvas is absent
+  &:not(:has(.#{$_B_PREF_CLOSE}-canvas)) {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: to-rem($space-xl);
+      height: to-rem($space-hairline + 1);
+      background: var(--text-secondary);
+      border-radius: var(--radius-round);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &::before { transform: rotate(45deg); }
+    &::after  { transform: rotate(-45deg); }
+
+    &:hover,
+    &:focus {
+      background: var(--border-color-hover, var(--border-color));
+
+      &::before { transform: rotate(135deg); }
+      &::after  { transform: rotate(45deg); }
+    }
+  }
+}
+
+.pref-body {
+  flex: 1;           // Fill remaining space in the flex-column dialog
+  min-height: 0;     // Allow shrinking so overflow-y:auto actually scrolls
+  padding: to-rem($space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-3xl);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+
+  // Scrollbar — themed to match modal dialog background
+  scrollbar-color: var(--border-color) transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: to-rem($space-xs);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--radius-round);
+  }
+}
+
+.pref-section {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-md);
+}
+
+.pref-section-title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: to-rem(18);
+  text-transform: uppercase;
+  letter-spacing: to-rem(0.8);
+  color: var(--text-primary);
+}
+
+.pref-section-desc {
+  margin: 0;
+  font-size: to-rem(15);
+  color: var(--text-muted);
+}
+
+.pref-options {
+  display: grid;
+  gap: to-rem($space-md);
+  position: relative;
+
+  &--4 {
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (max-width: $bk-540) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.lang-glass-follower {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: to-rem($space-lg);
+  border: to-rem($space-hairline) solid var(--border-color);
+  background: var(--btn-accent-fill);
+  backdrop-filter: blur(to-rem($space-xs));
+  -webkit-backdrop-filter: blur(to-rem($space-xs));
+  filter: url(#filter);
+  box-shadow: var(--shadow-card-featured);
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 0.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+    height 0.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.2s ease;
+  z-index: 2;
+  opacity: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at center, var(--btn-accent-fill) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.lang-dialog {
+  // 480px cap on wide screens; on narrow screens the backdrop padding
+  // already constrains width, so max-width: 100% lets it fill the grid.
+  max-width: min(to-rem(480), 100%);
+}
+
+.pref-theme-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: to-rem($space-md);
+  width: 100%;
+}
+
+.pref-theme-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.pref-theme-canvas {
+  width: 100%;
+  max-width: 100%;
+  height: to-rem(64);
+  border-radius: to-rem(32);
+  display: block;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+.pref-theme-labels {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: to-rem($space-sm);
+  width: 100%;
+}
+
+.pref-theme-wrapper.has-fallback .pref-theme-labels,
+.pref-theme-slider:not(:has(.pref-theme-canvas:not(.is-fallback):not([style*="display: none"]))) + .pref-theme-labels {
+  display: grid;
+}
+
+.pref-theme-btn {
+  @extend %RESETBTN;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: to-rem($space-xs);
+  padding: to-rem($space-sm) to-rem($space-md);
+  background: var(--bg-secondary);
+  border: to-rem($space-hairline) solid var(--border-color);
+  border-radius: to-rem($space-md);
+  color: var(--text-primary);
+  font-size: to-rem($space-lg);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    border-color: var(--text-muted);
+    background: var(--bg-primary);
+  }
+
+  &--active {
+    border-color: var(--text-primary);
+    background: var(--bg-primary);
+    box-shadow: 0 to-rem($space-2xs) to-rem($space-sm) rgba($color-black, 0.08);
+  }
+}
+
+.pref-option-btn {
+  @extend %RESETBTN;
+
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: to-rem($space-xs);
+  padding: to-rem($space-xl) to-rem($space-sm);
+  background: var(--bg-secondary);
+  border: to-rem(2) solid transparent;
+  border-radius: to-rem($space-lg);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition:
+    transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.2s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--btn-accent-fill);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  &:hover {
+    border-color: var(--text-muted);
+    filter: url(#filter);
+    transform: translateY(to-rem(-$space-3xs)) scale(1.03);
+
+    &::before {
+      opacity: 1;
+    }
+
+    > * {
+      transform: scale(1.04);
+    }
+  }
+
+  &.active {
+    border-color: var(--text-primary);
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+.pref-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: to-rem($space-2xs);
+  padding: to-rem($space-lg) to-rem($space-sm);
+  background: var(--bg-secondary);
+  border: to-rem(1) solid var(--border-color);
+  border-radius: to-rem($space-lg);
+  color: var(--text-primary);
+  text-align: center;
+}
+
+$_B_FLAG: 'flag';
+
+.pref-option-icon {
+  font-size: to-rem($space-2xl);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:has(.#{$_B_FLAG}-canvas:not(.is-fallback):not([style*="display: none"])) {
+    .#{$_B_FLAG}-img,
+    .#{$_B_FLAG}-split {
+      display: none;
+    }
+  }
+}
+
+// Flag images & WebGL Canvas — SVG from local repo
+.#{$_B_FLAG}-img {
+  height: to-rem(44);
+  width: auto;
+  display: block;
+  border-radius: to-rem(3);
+  box-shadow: 0 to-rem($space-hairline) to-rem($space-xs) rgba($color-black, 0.25);
+}
+
+.#{$_B_FLAG}-canvas {
+  height: to-rem(44);
+  width: auto;
+  display: block;
+  border-radius: to-rem(3);
+  box-shadow: 0 to-rem($space-hairline) to-rem($space-xs) rgba($color-black, 0.25);
+  pointer-events: none;
+}
+
+// Split flag: two country flags side by side with a thin dividing line
+.flag-split {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+
+  .flag-img {
+    height: to-rem(44);
+    width: to-rem(33); // force equal width so both flags share space evenly
+    object-fit: cover;
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: to-rem(3) 0 0 to-rem(3);
+      object-position: left center;
+    }
+    &:last-child {
+      border-radius: 0 to-rem(3) to-rem(3) 0;
+      object-position: right center;
+    }
+  }
+}
+
+.pref-option-label {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: to-rem(16);
+}
+
+.pref-option-sub {
+  font-size: to-rem(13);
+  color: var(--text-muted);
+}
+
+// ─── Toggle Switch ─────────────────────────────────────────────────────────
+// Single row with label on left, iOS-style switch pill on right.
+// Replaces 2-button pattern for binary on/off toggles.
+
+$_B_SW: 'pref-switch';
+$_SW_W: 52; // switch pill width
+$_SW_H: 28; // switch pill height
+$_SW_KNOB: 22; // knob diameter
+$_SW_PAD: 3;  // padding inside pill
+
+.#{$_B_SW}-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: to-rem($space-md);
+  padding: to-rem($space-sm) 0;
+  border-bottom: to-rem(1) solid var(--border-color);
+  cursor: pointer;
+  user-select: none;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.#{$_B_SW}-info {
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-2xs);
+  flex: 1;
+  min-width: 0;
+}
+
+.#{$_B_SW}-label {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: to-rem(15);
+  color: var(--text-primary);
+}
+
+.#{$_B_SW}-desc {
+  font-size: to-rem(13);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.#{$_B_SW} {
+  // The pill track
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: to-rem($_SW_W);
+  height: to-rem($_SW_H);
+  background: var(--border-color);
+  border-radius: var(--radius-round);
+  position: relative;
+  transition: background 0.2s ease;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+
+  &-canvas {
+    width: to-rem($_SW_W);
+    height: to-rem($_SW_H);
+    border-radius: var(--radius-round);
+    display: block;
+    pointer-events: none;
+  }
+
+  &:has(.#{$_B_SW}-canvas:not(.is-fallback):not([style*="display: none"])) {
+    background: transparent;
+  }
+
+  // Fallback CSS knob when canvas is not present
+  &:not(:has(.#{$_B_SW}-canvas)) {
+    &::after {
+      content: '';
+      position: absolute;
+      top: to-rem($_SW_PAD);
+      left: to-rem($_SW_PAD);
+      width: to-rem($_SW_KNOB);
+      height: to-rem($_SW_KNOB);
+      border-radius: 50%;
+      background: var(--color-white-raw);
+      box-shadow: var(--shadow-card);
+      transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s ease;
+    }
+
+    &.#{$_B_SW}--on::after {
+      transform: translateX(to-rem($_SW_W - $_SW_KNOB - $_SW_PAD * 2));
+      background: var(--bg-darkest);
+    }
+  }
+
+  // ON state
+  &--on {
+    background: var(--color-accent);
+  }
+}
+
+.pref-footer {
+  padding: to-rem($space-lg) to-rem($space-2xl);
+  border-top: to-rem(1) solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pref-done-btn {
+  @extend %RESETBTN;
+  @extend .ttl-xs;
+
+  position: relative;
+  display: inline-block;
+  padding: to-rem($space-sm) to-rem($space-2xl); // taller + wider for all lang labels
+  min-width: to-rem(160); // never squishes in DE/PT/ES
+  margin-top: to-rem($space-lg); // breathing room above
+  color: var(--text-primary);
+  background: transparent;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: to-rem(1);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+
+  // Animated corner borders (same style & animation as Check Out button)
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: to-rem($space-md);
+    height: to-rem($space-md);
+    transition:
+      width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      height 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    border-top: to-rem(1) solid var(--text-primary);
+    border-left: to-rem(1) solid var(--text-primary);
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: to-rem(1) solid var(--text-primary);
+    border-right: to-rem(1) solid var(--text-primary);
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--text-primary);
+    opacity: 0.85;
+
+    &::before,
+    &::after {
+      width: calc(100% - #{to-rem($space-2xs)});
+      height: calc(100% - #{to-rem($space-2xs)});
+    }
+  }
+}
+
+// Vue modal transition
+.pref-fade-enter-active,
+.pref-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+.pref-fade-enter-active .pref-dialog,
+.pref-fade-leave-active .pref-dialog {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pref-fade-enter-from,
+.pref-fade-leave-to {
+  opacity: 0;
+}
+.pref-fade-enter-from .pref-dialog,
+.pref-fade-leave-to .pref-dialog {
+  transform: scale(0.94);
+}

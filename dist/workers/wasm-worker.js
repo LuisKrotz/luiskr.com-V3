@@ -22,10 +22,11 @@ self.onmessage = async (e) => {
   if (type === 'BATCH_LAYOUT') {
     const { items, cols, containerW, gap } = payload
     const N = cols || 1
-    const colW =
+    const colW = Math.floor(
       wasmInstance && wasmInstance.calc_column_width
         ? wasmInstance.calc_column_width(N, containerW, gap)
         : (containerW - (N - 1) * gap) / N
+    )
 
     const colH = Array(N).fill(0)
     const COMP_MULTS = [0.56, 0.58, 0.54, 0.57, 0.55]
@@ -33,13 +34,17 @@ self.onmessage = async (e) => {
     const results = (items || []).map((item, i) => {
       const isFeat = !!item.featured
       const mult = isFeat ? 0.48 : COMP_MULTS[i % COMP_MULTS.length]
-      const span = isFeat && N > 1 ? 2 : 1
+      const span = N >= 14 ? (isFeat ? 6 : 4) : (isFeat && N > 1 ? 2 : 1)
       const itemW = span * colW + (span - 1) * gap
       const imageH = Math.round(itemW * mult)
 
+      const candidates = N >= 14
+        ? (span === 6 ? [0, 8, 4] : [0, 4, 6, 8, 10])
+        : Array.from({ length: N - span + 1 }, (_, c) => c)
+
       let bestCol = 0
       let bestTop = Infinity
-      for (let c = 0; c <= N - span; c++) {
+      for (const c of candidates) {
         let top = 0
         for (let s = 0; s < span; s++) top = Math.max(top, colH[c + s])
         if (top < bestTop) {

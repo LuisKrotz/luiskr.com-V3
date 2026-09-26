@@ -1,0 +1,64 @@
+@import '../base/variables';
+@import '../base/mixins';
+@import '../base/placeholders';
+
+$_B_LOADER: 'intro-loader';
+
+.#{$_B_LOADER} {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--bg-dark);
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition:
+    opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+
+  &--hidden {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+  }
+
+  &-percent {
+    @extend .ttl-xl;
+
+    font-size: to-rem($space-4xl);
+    font-weight: 900;
+    color: var(--color-white-raw);
+    letter-spacing: to-rem($space-2xs);
+    text-shadow: 0 0 to-rem($space-md) var(--shadow-ambient);
+    margin-bottom: to-rem($space-lg);
+    font-variant-numeric: tabular-nums;
+  }
+
+  &-terminal {
+    font-family: monospace;
+    font-size: to-rem($space-sm);
+    color: var(--grey);
+    line-height: 1.6;
+    max-width: to-rem(360);
+    width: 90%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: to-rem($space-2xs);
+  }
+
+  &-line {
+    opacity: 0.9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

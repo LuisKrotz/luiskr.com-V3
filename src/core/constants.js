@@ -147,6 +147,8 @@ export const MOTION = Object.freeze({
 })
 
 // ─── Common Semantic Attributes ─────────────────────────────────────────────
+const _DATA = 'data-'
+
 export const ATTRS = Object.freeze({
   EMPTY: "",
   TRUE: "true",
@@ -195,8 +197,8 @@ export const ATTRS = Object.freeze({
   LABEL: "label",
   TOUCH: "touch",
   POINTER: "pointer",
-  DATA_INDEX: "data-index",
-  DATA_LANG: "data-lang",
+  DATA_INDEX: `${_DATA}index`,
+  DATA_LANG: `${_DATA}lang`,
   CLASS_NAME: "className",
   CLASS: "class",
   ID: "id",
@@ -206,19 +208,31 @@ export const ATTRS = Object.freeze({
   ARIA_LABELLEDBY: "aria-labelledby",
   ARIA_MODAL: "aria-modal",
   TABINDEX: "tabindex",
-  DATA_IDX: "data-idx",
-  DATA_SEC: "data-sec",
-  DATA_COL: "data-col",
-  DATA_MIDX: "data-midx",
-  DATA_SIZE: "data-size",
-  DATA_ACTION: "data-action",
-  DATA_FIELD: "data-field",
-  DATA_DIM_IDX: "data-dim-idx",
-  DATA_PROP: "data-prop",
-  DATA_THEME: "data-theme",
-  DATA_CONTENT: "data-content",
+  DATA_IDX: `${_DATA}idx`,
+  DATA_SEC: `${_DATA}sec`,
+  DATA_COL: `${_DATA}col`,
+  DATA_MIDX: `${_DATA}midx`,
+  DATA_SIZE: `${_DATA}size`,
+  DATA_ACTION: `${_DATA}action`,
+  DATA_FIELD: `${_DATA}field`,
+  DATA_DIM_IDX: `${_DATA}dim-idx`,
+  DATA_PROP: `${_DATA}prop`,
+  DATA_THEME: `${_DATA}theme`,
+  DATA_CONTENT: `${_DATA}content`,
+  DATA_PARAM: `${_DATA}param`,
   ARIA_HIDDEN: "aria-hidden",
   HIDDEN: "hidden",
+  ROLE_NAVIGATION: "navigation",
+  TYPE_BUTTON: "button",
+  AUDIO_OGG: "audio/ogg",
+  AUDIO_MPEG: "audio/mpeg",
+  CONTROLS: "controls",
+  AUTOPLAY: "autoplay",
+  LOOP: "loop",
+  CONTROLS_LIST: "controlslist",
+  NO_DOWNLOAD: "nodownload",
+  DISABLE_PICTURE_IN_PICTURE: "disablePictureInPicture",
+  DRAGGABLE: "draggable",
 })
 
 // ─── Media Query Tokens ─────────────────────────────────────────────────────
@@ -269,6 +283,8 @@ export const STRINGS = Object.freeze({
   FALSE: 'false',
   OPEN: 'open',
   CLASS: 'class',
+  IMAGE_PNG: 'image/png',
+  BLOB_COLON: 'blob:',
   CLASS_NAME: 'className',
   ID: 'id',
   SRC: 'src',
@@ -318,7 +334,7 @@ export const STRINGS = Object.freeze({
   ROOT_MARGIN_100: '100px 0px',
   ROOT_MARGIN_50: '50px 0px',
   SELECTOR_LINKS: 'a[href^="/"], [data-route]',
-  DATA_ROUTE: 'data-route',
+  DATA_ROUTE: `${_DATA}route`,
   LINK_CANONICAL: 'link[rel="canonical"]',
   REL_CANONICAL: 'canonical',
   REL: 'rel',
@@ -353,7 +369,10 @@ export const STRINGS = Object.freeze({
   JSON_LD_SCRIPT_ID: 'jsonld-graph',
   SCHEMA_PUBLISHED_DATE: '2021-01-01T00:00:00+00:00',
   SCHEMA_VIDEO_DURATION: 'PT1M00S',
+  BLANK: '_blank',
+  NOOPENER: 'noopener noreferrer',
 })
+
 
 // ─── Fibonacci spacing scale (unitless — use with to-rem() in SCSS or rem in JS) ─
 export const SPACE = Object.freeze({
@@ -413,18 +432,25 @@ export const GRID_GAP = Object.freeze({
   1920: 144,
   2560: 233,
   3840: 377,
+  5120: 377,
+  7680: 610,
+  10240: 610,
 })
 
 // ─── Mosaic column counts per breakpoint ─────────────────────────────────────
-// Must match calcColsForWidth() in wasm-layout.js
+// Must match calcColsForWidth() / calcMosaicCols() in wasm-layout.js
 export const MOSAIC_COLS = Object.freeze({
-  0: 1,    // < 540px: 1 column
-  540: 2,  // 540–959px: 2 columns
-  960: 3,  // 960–1279px: 3 columns
-  1280: 4, // 1280–1679px: 4 columns
-  1680: 5, // 1680–1919px: 5 columns
-  1920: 6, // 1920–2559px: 6 columns
-  2560: 7, // ≥ 2560px: 7 columns
+  0: 1,     // < 540px: 1 column
+  540: 2,   // 540–959px: 2 columns
+  960: 3,   // 960–1279px: 3 columns
+  1280: 4,  // 1280–1679px: 4 columns
+  1680: 5,  // 1680–1919px: 5 columns
+  1920: 6,  // 1920–2559px: 6 columns
+  2560: 7,  // 2560–3839px: 7 columns
+  3840: 8,  // 3840–5119px: 8 columns (4K)
+  5120: 10, // 5120–7679px: 10 columns (5K)
+  7680: 12, // 7680–10239px: 12 columns (8K)
+  10240: 14, // ≥ 10240px: 14 columns (10K)
 })
 
 // ─── Centralized Custom Element Tags ───────────────────────────────────────
@@ -452,6 +478,8 @@ export const TAGS = Object.freeze({
   VIEW_NOT_FOUND: 'view-not-found',
   VIEW_ADMIN_LOGIN: 'view-admin-login',
   VIEW_CMS_DASHBOARD: 'view-cms-dashboard',
+  VIEW_SPACE_PLAYGROUND: 'view-space-playground',
+  VIEW_EARTH_PLAYGROUND: 'view-earth-playground',
   CMS_PORTFOLIO_LIST: 'cms-portfolio-list',
   CMS_PROJECTS_LIST: 'cms-projects-list',
   CMS_ABOUT_EDITOR: 'cms-about-editor',
@@ -467,6 +495,8 @@ export const TAGS = Object.freeze({
   DIV: 'div',
   SPAN: 'span',
   A: 'a',
+  P: 'p',
+  CANVAS: 'canvas',
 })
 
 // ─── URL constants ───────────────────────────────────────────────────
@@ -477,6 +507,7 @@ export const URLS = Object.freeze({
   SITE: 'https://luiskr.com',
   FIREBASE_DB: 'https://luiskr-com.firebaseio.com',
   GITHUB: 'https://github.com/LuisKrotz',
+  GITHUB_REPO: 'https://github.com/LuisKrotz/luiskr.com-V3',
   LINKEDIN: 'https://www.linkedin.com/in/luis-kr%C3%B6tz/?locale=en_US',
 })
 
@@ -498,6 +529,175 @@ export const PATHS = Object.freeze({
   GDPR: "/gdpr",
   TERMS_OF_USE: "/terms-of-use",
   NOT_FOUND: "not-found",
+  EARTH_PLAYGROUND: "/earth-playground",
+  EARTH_PLAYGROUND_SEGMENT: "earth-playground",
+  SPACE_PLAYGROUND: "/space-playground",
+  SPACE_PLAYGROUND_SEGMENT: "space-playground",
+})
+
+// ─── Space Playground action + param tokens ───────────────────────────────────
+export const SP_ACTIONS = Object.freeze({
+  RESET: 'reset',
+  TOGGLE_ROTATE: 'toggle-rotate',
+  PANEL_TOGGLE: 'panel-toggle',
+  PANEL_OPEN: 'panel-open',
+  SCREENSHOT: 'screenshot',
+  COPY_CONSTANTS: 'copy-constants',
+  TOGGLE_MUSIC: 'toggle-music',
+})
+
+export const SP_MUSIC = Object.freeze({
+  OGG: '/music/Christopher_Tin_feat._Soweto_Gospel_Choir_-_Baba_Yetu.ogg',
+  MP3: '/music/Christopher_Tin_feat._Soweto_Gospel_Choir_-_Baba_Yetu.mp3',
+  TITLE: 'Baba Yetu — Christopher Tin ft. Soweto Gospel Choir',
+})
+
+export const SP_PARAMS = Object.freeze({
+  FOV: 'fov',
+  ROTATE_SPEED: 'rotate-speed',
+  EARTH_SPEED: 'earth-speed',
+  BLOOM: 'bloom',
+  BLOOM_STRENGTH: 'bloom-strength',
+  BLOOM_RADIUS: 'bloom-radius',
+  BLOOM_THRESHOLD: 'bloom-threshold',
+  VIGNETTE: 'vignette',
+  VIGNETTE_DARKNESS: 'vignette-darkness',
+  VIGNETTE_OFFSET: 'vignette-offset',
+  CHROMATIC: 'chromatic',
+  CA_STRENGTH: 'ca-strength',
+  CONTRAST: 'contrast',
+  SATURATION: 'saturation',
+  BLACK_LEVEL: 'black-level',
+  BUMP_SCALE: 'bump-scale',
+  SELF_SHADOW: 'self-shadow',
+  SELF_SHADOW_OFFSET: 'self-shadow-offset',
+  WATER_METALNESS: 'water-metalness',
+  RES_SCALE: 'res-scale',
+  FILM_GRAIN: 'film-grain',
+  AUTO_ROTATE: 'auto-rotate',
+  SUN_AUTO_ROTATE: 'sun-auto-rotate',
+  SHOW_STATS: 'show-stats',
+})
+
+// ─── Earth WebGPU texture paths ───────────────────────────────────────────────
+export const EARTH_TEXTURES = Object.freeze({
+  ALBEDO:    '/textures/earth/8k_earth_daymap.jpg',
+  ALBEDO_2K: '/textures/earth/2k_earth_daymap.jpg',
+  NIGHT:     '/textures/earth/2k_earth_nightmap.jpg',
+  SPECULAR:  '/textures/earth/2k_earth_specular_map.jpg',
+  NORMAL:    '/textures/earth/8k_earth_normal_map.jpg',
+  CLOUDS:    '/textures/earth/2k_earth_clouds.jpg',
+  STARS:     '/textures/earth/starmap_2k.jpg',
+  MOON:      '/textures/earth/2k_moon.jpg',
+  MOON_DISP: '/textures/earth/ldem_4.png',
+})
+
+// ─── Space Playground default engine & GUI start values ───────────────────────
+export const DEFAULT_SP_GUI = Object.freeze({
+  SHOW: true,
+  COLOR_GRADING: Object.freeze({
+    CONTRAST: 1,
+    SATURATION: 1.5,
+    BLACK_LEVEL: 0.015,
+    BLUE_GREEN_BOOST: 0,
+  }),
+  MOON: Object.freeze({
+    ENABLED: true,
+    SPEED: 0.0002,
+    DISTANCE: 50,
+    INCLINATION: 0,
+  }),
+  LENS_FLARE: Object.freeze({
+    ENABLED: true,
+    INTENSITY: 0.15,
+  }),
+  ANAMORPHIC: Object.freeze({
+    ENABLED: false,
+    INTENSITY: 0.5,
+    THICKNESS: 2,
+    SIZE: 0.2,
+    COLOR: 0xffffff,
+    INNER_FADE: 0.08,
+    OUTER_FADE: 0.08,
+  }),
+  BLOOM: Object.freeze({
+    ENABLED: true,
+    STRENGTH: 0.1,
+    RADIUS: 0.3,
+    THRESHOLD: 0.9,
+  }),
+  VIGNETTE: Object.freeze({
+    ENABLED: true,
+    DARKNESS: 1,
+    OFFSET: 0.5,
+  }),
+  CHROMATIC_ABERRATION: Object.freeze({
+    ENABLED: true,
+    STRENGTH: 0.25,
+    SCALE: 0.5,
+  }),
+  FILM_GRAIN: Object.freeze({
+    ENABLED: false,
+    INTENSITY: 0.25,
+  }),
+  ATMOSPHERE: Object.freeze({
+    MODE: 'Airglow',
+    DENSITY: 20,
+    RAYLEIGH_COLOR: 0x3377ff,
+    MIE_COLOR: 0x0d374a,
+    TWILIGHT_COLOR: 0xff5533,
+    AIRGLOW_COLOR: 0x44ff55,
+  }),
+  CLOUD_SHADOWS: Object.freeze({
+    DISTANCE: 1.2,
+    INTENSITY: 0.8,
+    COLOR: 0x334059,
+  }),
+  OCEAN: Object.freeze({
+    ROUGHNESS: 0,
+    METALNESS: 0,
+  }),
+  EARTH: Object.freeze({
+    ROTATION_SPEED: 0.0001,
+    BUMP_SCALE: 5,
+    TERRAIN_SHADOW_INTENSITY: 1,
+    TERRAIN_SHADOW_OFFSET: 0.002,
+    TRUE_INCLINATION: true,
+  }),
+  CAMERA: Object.freeze({
+    FOV: 45,
+    POSITION: Object.freeze({
+      x: 21.856154240766372,
+      y: -3.6712368727086657,
+      z: 20.125738437375286,
+    }),
+    TARGET: Object.freeze({
+      x: 0,
+      y: 0,
+      z: 0,
+    }),
+    AUTO_ROTATE: false,
+    AUTO_ROTATE_SPEED: 1.6631,
+  }),
+  ENVIRONMENT: Object.freeze({
+    SKYBOX_INTENSITY: 0.5,
+    SKYBOX_AZIMUTH: 1.75,
+    SKYBOX_PITCH: 0,
+    SKYBOX_ROLL: 0,
+    DARK_SIDE_BRIGHTNESS: 0.055,
+    CITY_LIGHTS: 6.3,
+  }),
+  DEBUG: Object.freeze({
+    STATS: false,
+    RESOLUTION_SCALE: 2,
+  }),
+  SUN: Object.freeze({
+    INTENSITY: 2.5,
+    COLOR: 0xffffff,
+    AUTO_ROTATE: true,
+    SPEED: 0.05,
+    INCLINATION: 0.076,
+  }),
 })
 
 // ─── CMS data-key constants ───────────────────────────────────────────────
@@ -511,6 +711,8 @@ export const TRANSLATION_KEYS = Object.freeze({
   GDPR: 'GDPR',
   TERMS_OF_USE: 'terms-of-use',
   NOT_FOUND: 'not-found',
+  EARTH_PLAYGROUND: 'earth-playground',
+  SPACE_PLAYGROUND: 'earth-playground',
 })
 
 // ─── Route Name Tokens ────────────────────────────────────────────────────────
@@ -525,7 +727,10 @@ export const ROUTE_NAMES = Object.freeze({
   NOT_FOUND: "Not Found",
   ADMIN_LOGIN: "Admin Login",
   CMS_DASHBOARD: "CMS Dashboard",
+  EARTH_PLAYGROUND: "Earth Playground",
+  SPACE_PLAYGROUND: "Earth Playground",
 })
+
 
 export const ROUTE_PREFIXES = Object.freeze({
   HOME: "Home",
@@ -549,6 +754,8 @@ export const CMS_KEYS = Object.freeze({
   ABOUT: 'about',
   PORTFOLIOLIST: 'portfoliolist',
   MEDIA: 'media',
+  EARTH_PLAYGROUND: 'earthPlayground',
+  SPACE_PLAYGROUND: 'spacePlayground',
 })
 
 // ─── LocalStorage Key constants ─────────────────────────────────────────────
@@ -562,11 +769,14 @@ export const STORAGE_KEYS = Object.freeze({
   COOKIE: 'cookie',
   FB_CACHE_PREFIX: 'fb_',
   SESSION_FB_CACHE_PREFIX: 'fb_cache_',
+  EARTH_PLAYGROUND: 'earthPlayground',
+  SPACE_PLAYGROUND: 'spacePlayground',
 })
 
 // ─── CSS Custom Properties ──────────────────────────────────────────────────
 export const CSS_PROPS = Object.freeze({
   CAROUSEL_ITEM_HEIGHT: '--carousel-item-height',
+  RANGE_PCT: '--range-pct',
 })
 
 // ─── IndexedDB & Network Cache Tokens ─────────────────────────────────────────
@@ -645,9 +855,19 @@ const _B_PREF = 'pref'
 const _B_PREF_OPTIONS = `${_B_PREF}-options`
 const _B_PREF_OPTION = `${_B_PREF}-option`
 const _B_PREF_SWITCH = `${_B_PREF}-switch`
+const _B_PREF_THEME = `${_B_PREF}-theme`
 const _B_COOKIES = 'cookies'
 const _B_COOKIES_BUTTONS = `${_B_COOKIES}-buttons`
 const _B_HUD = 'stats-hud'
+const _B_FLAG = 'flag'
+const _B_LOADER = 'intro-loader'
+const _B_FLUID_BG = 'fluid-background'
+const _B_CURSOR = 'magnetic-cursor'
+const _B_DISTORT = 'image-distort'
+const _B_FOOTER_SOURCE = 'footer-source'
+const _B_SP = 'sp'
+const _B_SPP = `${_B_SP}-panel`
+const _B_LANG_GLASS = 'lang-glass-follower'
 
 export const CLASSES = Object.freeze({
   // Skeleton & Media
@@ -816,9 +1036,12 @@ export const CLASSES = Object.freeze({
   NAV_ACTION_BTN: `${_B_NAV}-action-btn`,
   NAV_PREF_BTN: `${_B_NAV}-pref-btn`,
   NAV_LANG_OPEN_BTN: `${_B_NAV}-lang-open-btn`,
-  // Flag images — SVG from flagcdn.com
-  FLAG_IMG: 'flag-img',
-  FLAG_SPLIT: 'flag-split',
+  NAV_FLAG_WRAPPER: `${_B_NAV}-flag-wrapper`,
+  // Flag images — SVG from local repo
+  FLAG_IMG: `${_B_FLAG}-img`,
+  FLAG_SPLIT: `${_B_FLAG}-split`,
+  FLAG_CANVAS: `${_B_FLAG}-canvas`,
+  FLAG_CANVAS_NAV: `${_B_FLAG}-canvas--nav`,
 
   // Preferences & Lang modal — ALL class names composed from _B_PREF
   PREF_BACKDROP:        `${_B_PREF}-backdrop`,
@@ -826,6 +1049,7 @@ export const CLASSES = Object.freeze({
   PREF_HEADER:          `${_B_PREF}-header`,
   PREF_TITLE:           `${_B_PREF}-title`,
   PREF_CLOSE_BTN:       `${_B_PREF}-close-btn`,
+  PREF_CLOSE_CANVAS:    `${_B_PREF}-close-canvas`,
   PREF_BODY:            `${_B_PREF}-body`,
   PREF_SECTION:         `${_B_PREF}-section`,
   PREF_SECTION_TITLE:   `${_B_PREF}-section-title`,
@@ -847,6 +1071,13 @@ export const CLASSES = Object.freeze({
   PREF_SWITCH_DESC:     `${_B_PREF_SWITCH}-desc`,
   PREF_SWITCH:          _B_PREF_SWITCH,
   PREF_SWITCH_ON:       `${_B_PREF_SWITCH} ${_B_PREF_SWITCH}--on`,
+  PREF_SWITCH_CANVAS:   `${_B_PREF_SWITCH}-canvas`,
+  PREF_THEME_WRAPPER:   `${_B_PREF_THEME}-wrapper`,
+  PREF_THEME_SLIDER:    `${_B_PREF_THEME}-slider`,
+  PREF_THEME_CANVAS:    `${_B_PREF_THEME}-canvas`,
+  PREF_THEME_LABELS:    `${_B_PREF_THEME}-labels`,
+  PREF_THEME_BTN:       `${_B_PREF_THEME}-btn`,
+  PREF_THEME_BTN_ACTIVE:`${_B_PREF_THEME}-btn--active`,
   LANG_DIALOG:          'lang-dialog',
 
   // Cookie banner
@@ -879,6 +1110,7 @@ export const CLASSES = Object.freeze({
   CAROUSEL_BTN_RING_TRACK: `${_B_CAROUSEL_BTN}-ring-track`,
   CAROUSEL_BTN_RING_FILL: `${_B_CAROUSEL_BTN}-ring-fill`,
   CAROUSEL_BTN_ARROW: `${_B_CAROUSEL_BTN}-arrow`,
+  CAROUSEL_BTN_CANVAS: `${_B_CAROUSEL_BTN}-canvas`,
   CAROUSEL_SLIDE_CLONE: `${_B_CAROUSEL_SLIDE} ${_B_CAROUSEL_SLIDE}--clone`,
   CAROUSEL_SLIDE_CLONE_LAST: `${_B_CAROUSEL_SLIDE} ${_B_CAROUSEL_SLIDE}--clone ${_B_CAROUSEL_SLIDE}--clone-last`,
   CAROUSEL_SLIDE_CLONE_FIRST: `${_B_CAROUSEL_SLIDE} ${_B_CAROUSEL_SLIDE}--clone ${_B_CAROUSEL_SLIDE}--clone-first`,
@@ -935,6 +1167,7 @@ export const CLASSES = Object.freeze({
   HC_BTN_RING_TRACK: `${_B_HC}-btn-ring-track`,
   HC_BTN_RING_FILL: `${_B_HC}-btn-ring-fill`,
   HC_BTN_ARROW: `${_B_HC}-btn-arrow`,
+  HC_BTN_CANVAS: `${_B_HC}-btn-canvas`,
   HC_SPACER: `${_B_HC}-spacer`,
   HC_AWARD: `${_B_HC}-award`,
   HC_AWARD_MEDIA: `${_B_HC}-award-media`,
@@ -973,16 +1206,64 @@ export const CLASSES = Object.freeze({
   STATS_HUD_TOGGLE: `${_B_HUD}-toggle`,
   STATS_HUD_SWITCH: `${_B_HUD}-switch`,
   STATS_HUD_SWITCH_ON: `${_B_HUD}-switch--on`,
+
+  // Intro Loader
+  INTRO_LOADER: _B_LOADER,
+  INTRO_LOADER_PERCENT: `${_B_LOADER}-percent`,
+  INTRO_LOADER_TERMINAL: `${_B_LOADER}-terminal`,
+  INTRO_LOADER_LINE: `${_B_LOADER}-line`,
+  INTRO_LOADER_HIDDEN: `${_B_LOADER}--hidden`,
+
+  // Fluid 3D Sculptural Background
+  FLUID_BG: _B_FLUID_BG,
+  FLUID_BG_CANVAS: `${_B_FLUID_BG}-canvas`,
+
+  // Magnetic Metallic Cursor
+  MAGNETIC_CURSOR: _B_CURSOR,
+  MAGNETIC_CURSOR_DOT: `${_B_CURSOR}-dot`,
+  MAGNETIC_CURSOR_HOVER: `${_B_CURSOR}--hover`,
+  MAGNETIC_CURSOR_HIDDEN: `${_B_CURSOR}--hidden`,
+
+  // WebGL Image Liquid Distortion
+  IMAGE_DISTORT: _B_DISTORT,
+  IMAGE_DISTORT_CANVAS: `${_B_DISTORT}-canvas`,
+
+
+  // Footer source code row
+  FOOTER_SOURCE: _B_FOOTER_SOURCE,
+  FOOTER_SOURCE_LINK: `${_B_FOOTER_SOURCE}-link`,
+
+  // Earth / Space Playground controls
+  SP_CONTROLS_WRAP: `${_B_SP}-controls-wrap`,
+  SP_RANGE_WRAPPER: `${_B_SPP}-range-wrapper`,
+  SP_RANGE_CANVAS: `${_B_SPP}-range-canvas`,
+  SP_CHECK_WRAPPER: `${_B_SPP}-check-wrapper`,
+  SP_CHECK_CANVAS: `${_B_SPP}-check-canvas`,
+  SP_CHECK_BOX: `${_B_SPP}-check-box`,
+  SP_CHECK_INPUT: `${_B_SPP}-check-input`,
+  SP_CHECK_ICON: `${_B_SPP}-check-icon`,
+  SP_ACTION_WRAP: `${_B_SPP}-action-wrap`,
+  SP_ROW_LABEL: `${_B_SPP}-row-label`,
+  SP_ROW_CTRL: `${_B_SPP}-row-ctrl`,
+  SP_SWITCH: `${_B_SPP}-switch`,
+  SP_SWITCH_TRACK: `${_B_SPP}-switch-track`,
+  SP_VAL: `${_B_SPP}-val`,
+
+  // Language liquid glass follower
+  LANG_GLASS_FOLLOWER: _B_LANG_GLASS,
 })
+
 
 // ─── Centralized DOM Selectors ──────────────────────────────────────────────
 export const SELECTORS = Object.freeze({
+  HOME_MOSAIC: `.${_B_HOME_MOSAIC}`,
   HOME_MOSAIC_ITEM: `.${_B_HOME_MOSAIC}-item`,
   CAROUSEL: `.${_B_CAROUSEL}`,
   CAROUSEL_TRACK: `.${_B_CAROUSEL}-track`,
   CAROUSEL_FALLBACK: `.${_B_CAROUSEL}-fallback`,
   CAROUSEL_BTN_PREV: `.${_B_CAROUSEL_BTN}--prev`,
   CAROUSEL_BTN_NEXT: `.${_B_CAROUSEL_BTN}--next`,
+  CAROUSEL_BTN_CANVAS: `.${_B_CAROUSEL_BTN}-canvas`,
   CAROUSEL_BTN_RING_FILL: `.${_B_CAROUSEL_BTN}-ring-fill`,
   CAROUSEL_DOT: `.${_B_CAROUSEL}-dot`,
   CAROUSEL_COUNTER: `.${_B_CAROUSEL}-counter`,
@@ -994,6 +1275,10 @@ export const SELECTORS = Object.freeze({
   COOKIES_BUTTONS_REFUSE: `.${_B_COOKIES}-buttons-refuse`,
   STYLE: 'style',
   DATA_CONTENT: '[data-content]',
+  PREF_THEME_CANVAS: `.${_B_PREF_THEME}-canvas`,
+  BUTTON_OR_ANCHOR: 'button, a',
+  ID_ABOUT: '#about',
+  ID_CONTACT: '#contact',
 })
 
 // ─── UI text tokens (used by both app and tests) ──────────────────────────────
@@ -1008,6 +1293,8 @@ export const IDS = Object.freeze({
   LANG_DIALOG_TITLE: "lang-dialog-title",
   PREF_TITLE: "pref-title",
   CRITICAL_CSS: "critical-css",
+  EARTH_CANVAS: "earth-canvas",
+  FILTER: "filter",
 })
 
 export const TEXT = Object.freeze({
@@ -1098,6 +1385,58 @@ export const TEXT = Object.freeze({
   GO_TO_SLIDE: 'Go to slide',
   MEDIA_PREVIEW: 'Media preview',
   LK_TITLE_PREFIX: 'Luis Krötz | ',
+  EARTH_PLAYGROUND: 'Earth Playground',
+  EARTH_PLAYGROUND_TITLE: 'Earth Playground | Luis Krötz',
+  SPACE_PLAYGROUND: 'Earth Playground',
+  SPACE_PLAYGROUND_TITLE: 'Earth Playground | Luis Krötz',
+  SOURCE_CODE_LABEL: 'PROJECT SOURCE CODE:',
+  GIT: 'GIT',
+  // Space Playground control labels (English defaults)
+  SP_CAMERA: 'Camera',
+  SP_FOV: 'FOV',
+  SP_ROTATE_SPEED: 'Rotate Speed',
+  SP_AUTO_ROTATE: 'Auto-Rotate',
+  SP_RESET_VIEW: 'Reset View',
+  SP_EARTH: 'Earth',
+  SP_SPIN_SPEED: 'Spin Speed',
+  SP_POST_FX: 'Post Processing',
+  SP_BLOOM: 'Bloom',
+  SP_BLOOM_STR: 'Bloom Strength',
+  SP_BLOOM_RADIUS: 'Bloom Radius',
+  SP_BLOOM_THRESHOLD: 'Bloom Threshold',
+  SP_VIGNETTE: 'Vignette',
+  SP_VIGNETTE_DARKNESS: 'Darkness',
+  SP_VIGNETTE_OFFSET: 'Offset',
+  SP_CHROMATIC_AB: 'Chromatic Ab.',
+  SP_CA_STRENGTH: 'CA Strength',
+  SP_FILM_GRAIN: 'Film Grain',
+  SP_COLOR: 'Color',
+  SP_CONTRAST: 'Contrast',
+  SP_SATURATION: 'Saturation',
+  SP_BLACK_LEVEL: 'Black Level',
+  SP_ENGINE: 'Engine Settings',
+  SP_WATER_METALNESS: 'Water Metalness',
+  SP_TERRAIN: 'Terrain Settings',
+  SP_BUMP_SCALE: 'Bump Map Scale',
+  SP_SELF_SHADOW: 'Self-Shadow Intensity',
+  SP_SELF_SHADOW_OFFSET: 'Self-Shadow Offset',
+  SP_SCREENSHOT: 'Take 4K Screenshot',
+  SP_COPY_CONSTANTS: 'Copy GUI Constants',
+  SP_DISPLAY_DEBUG: 'Display & Debug',
+  SP_SHOW_STATS: 'Show Stats',
+  SP_RES_SCALE: 'Resolution Scale',
+  SP_SUN_AUTO_ROTATE: 'Sun Auto-Rotate',
+  SP_POSITION: 'Position (Current)',
+  SP_TARGET: 'Target (Current)',
+  SP_EXPERIENCE_SETTINGS: 'Experience Settings',
+  SP_EXPERIENCE_SETTINGS_ES: 'Ajustes de Experiencia',
+  SP_EXPERIENCE_SETTINGS_BR: 'Configurações da Experiência',
+  SP_EXPERIENCE_SETTINGS_DE: 'Erlebniseinstellungen',
+  SP_SYSTEM_BOOT: 'System Boot',
+  SP_INIT_WEBGPU: 'Initializing WebGPU Renderer',
+  // Input types
+  INPUT_RANGE: 'range',
+  INPUT_CHECKBOX: 'checkbox',
 })
 
 // ─── DOM Event name tokens ────────────────────────────────────────────────────
@@ -1116,6 +1455,9 @@ export const EVENTS = Object.freeze({
   TOUCHEND: 'touchend',
   TOUCHMOVE: 'touchmove',
   POINTERDOWN: 'pointerdown',
+  POINTERMOVE: 'pointermove',
+  POINTERUP: 'pointerup',
+  POINTERCANCEL: 'pointercancel',
   KEYDOWN: 'keydown',
   KEYUP: 'keyup',
   POINTERENTER: 'pointerenter',
@@ -1138,6 +1480,9 @@ export const EVENTS = Object.freeze({
   OPEN_LANG_DIALOG: 'open-lang-dialog',
   OPEN_PREFERENCES_MODAL: 'open-preferences-modal',
   NOTIFY: 'notify',
+  WHEEL: 'wheel',
+  CONTEXTMENU: 'contextmenu',
+  DRAGSTART: 'dragstart',
 })
 
 // ─── Keyboard Key Tokens ──────────────────────────────────────────────────────

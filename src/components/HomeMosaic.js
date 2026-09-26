@@ -26,7 +26,7 @@ import {
 import { wasmPool } from '../utils/wasm-pool.js'
 import { npuPredict } from '../utils/npu-predict.js'
 import { predictiveLoader } from '../core/predictive-loader.js'
-import homeMosaicStyles from '../sass/home-mosaic.scss?inline'
+import homeMosaicStyles from '../sass/components/home-mosaic.scss?inline'
 
 const { FEAT_MULT, COMP_MULTS, GAP: GAP_PX } = LAYOUT
 

@@ -1,0 +1,123 @@
+@import '../base/variables';
+@import '../base/mixins';
+@import '../base/fonts';
+@import '../base/placeholders';
+@import '../base/structure';
+@import '../components/awards-footer';
+
+// ── Legal Document Isolated Styles ───────────────────────────────────────────
+$_B_INTERNAL: 'internal';
+
+.legal {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.#{$_B_INTERNAL}-title {
+  @extend %MAXAREA;
+  @extend .ttl-lg;
+  @extend .ttl-special;
+
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+  padding: to-rem($space-4xl) to-rem($space-xl) to-rem($space-2xl);
+  color: var(--text-primary);
+
+  @include layout-768() {
+    padding: to-rem($space-4xl) to-rem($space-2xl) to-rem($space-3xl);
+  }
+
+  @include layout-1024() {
+    padding: to-rem($space-4xl) to-rem($space-3xl) to-rem($space-3xl);
+  }
+
+  @include layout-1920() {
+    padding: to-rem($space-5xl) to-rem($space-4xl);
+  }
+
+  span {
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+.#{$_B_INTERNAL}-description {
+  @extend %MAXAREA;
+
+  margin: 0 auto;
+  padding-top: to-rem($space-2xl);
+  padding-bottom: to-rem($space-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include layout-768() {
+    padding-top: to-rem($space-xl);
+    padding-bottom: to-rem($space-xl);
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+  }
+
+  @include layout-1024() {
+    padding-top: to-rem($space-xl);
+    padding-bottom: to-rem($space-xl);
+    padding-left: 25%;
+    padding-right: 25%;
+  }
+
+  @include layout-1920() {
+    padding-top: to-rem($space-2xl);
+    padding-bottom: to-rem($space-2xl);
+  }
+
+  @include layout-2560() {
+    padding-top: to-rem($space-3xl);
+    padding-bottom: to-rem($space-3xl);
+  }
+
+  &:last-of-type {
+    @include layout-1024() {
+      padding-bottom: to-rem($space-4xl);
+    }
+
+    @include layout-1920() {
+      padding-bottom: to-rem($space-5xl);
+    }
+
+    @include layout-2560() {
+      padding-bottom: to-rem($space-6xl);
+    }
+  }
+
+  &-text {
+    @extend .txt-md;
+
+    font-family: var(--font-primary);
+    font-weight: 100;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: none;
+    padding-bottom: to-rem($space-lg);
+    color: var(--text-secondary);
+
+    @include layout-768() {
+      padding-bottom: to-rem($space-lg);
+    }
+
+    @include layout-1024() {
+      padding-bottom: to-rem($space-xl);
+    }
+
+    @include layout-1920() {
+      padding-bottom: to-rem($space-2xl);
+    }
+
+    @include layout-2560() {
+      padding-bottom: to-rem($space-3xl);
+    }
+  }
+}

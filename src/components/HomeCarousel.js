@@ -2,11 +2,8 @@
 import { h } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
-import { calcCarouselRingOffset } from '../utils/wasm-layout.js'
-import homeCarouselStyles from '../sass/home-carousel.scss?inline'
+import homeCarouselStyles from '../sass/components/home-carousel.scss?inline'
 import { CLASSES, TAGS, EVENTS, STRINGS, ATTRS, TEXT } from '../core/constants.js'
-
-const CIRCUMFERENCE = 2 * Math.PI * 19
 
 export class HomeCarousel extends BaseComponent {
   constructor() {
@@ -19,7 +16,6 @@ export class HomeCarousel extends BaseComponent {
     this.autoplayRunning = false
     this.autoplayStart = null
     this.autoplayElapsed = 0
-    this.ringProgress = 0
     this.rafId = null
     this.teleportTimer = null
     this.touchStartX = 0
@@ -84,12 +80,7 @@ export class HomeCarousel extends BaseComponent {
   }
 
   _bindEvents() {
-    const prevBtn = this.$(`.${CLASSES.HC_BTN_PREV}`)
-    const nextBtn = this.$(`.${CLASSES.HC_BTN_NEXT}`)
     const track = this.$(`.${CLASSES.HC_TRACK}`)
-
-    if (prevBtn) this.addScopedListener(prevBtn, 'click', () => this.onPrevClick())
-    if (nextBtn) this.addScopedListener(nextBtn, 'click', () => this.onNextClick())
 
     const dots = this.$$(`.${CLASSES.HC_DOT}`)
     dots.forEach((dot, idx) => {
@@ -215,15 +206,6 @@ export class HomeCarousel extends BaseComponent {
     track.scrollTo({ left: scrollLeft, behavior: smooth ? ATTRS.SMOOTH : ATTRS.INSTANT })
   }
 
-  onPrevClick() {
-    this._stopAutoplay()
-    this.goTo(this.currentIndex - 1)
-  }
-
-  onNextClick() {
-    this._stopAutoplay()
-    this.goTo(this.currentIndex + 1)
-  }
 
   _setupObserver() {
     const root = this.$(`.${CLASSES.HC}`)
@@ -293,43 +275,31 @@ export class HomeCarousel extends BaseComponent {
     // Notify listeners (e.g. AwardsMentions progress bar) that autoplay is live
     this.dispatchEvent(new CustomEvent(EVENTS.AUTOPLAY_START, { bubbles: false }))
 
-    this._tickRing()
+    this._tickAutoplay()
   }
 
   _stopAutoplay() {
     this.autoplayRunning = false
+
     if (this.rafId) cancelAnimationFrame(this.rafId)
     this.rafId = null
-    this.ringProgress = 0
-    this._updateRing()
+
     this.dispatchEvent(new CustomEvent(EVENTS.AUTOPLAY_STOP, { bubbles: false }))
   }
 
-  _tickRing() {
+  _tickAutoplay() {
     if (!this.autoplayRunning) return
+
     const now = performance.now()
     const elapsed = now - this.autoplayStart + this.autoplayElapsed
-    // WASM ring calculation
-    this.ringProgress = Math.min(calcCarouselRingOffset(elapsed, this.duration, 1), 1)
-    this._updateRing()
 
     if (elapsed >= this.duration) {
       this.goTo(this.currentIndex + 1)
       this.autoplayElapsed = 0
       this.autoplayStart = performance.now()
-      this.ringProgress = 0
-      this._updateRing()
     }
 
-    this.rafId = requestAnimationFrame(() => this._tickRing())
-  }
-
-  _updateRing() {
-    const fills = this.$$(`.${CLASSES.HC_BTN_RING_FILL}`)
-    const offset = CIRCUMFERENCE * (1 - this.ringProgress)
-    fills.forEach((fill) => {
-      fill.style.strokeDashoffset = `${offset}`
-    })
+    this.rafId = requestAnimationFrame(() => this._tickAutoplay())
   }
 
   renderItem(item) {
@@ -390,7 +360,7 @@ export class HomeCarousel extends BaseComponent {
               {this.items.map((_, idx) => (
                 <button
                   key={idx}
-                  type="button"
+                  type={ATTRS.BUTTON}
                   className={`${CLASSES.HC_DOT} ${this.currentIndex === idx ? CLASSES.HC_DOT_ACTIVE : ''}`}
                   aria-label={`${TEXT.GO_TO_SLIDE} ${idx + 1}`}
                 />
@@ -425,56 +395,6 @@ export class HomeCarousel extends BaseComponent {
             {this.renderItem(firstItem)}
           </div>
         </div>
-
-        {this.variant === 'selected' || this.variant === 'explore' ? (
-          <div className={CLASSES.HC_CONTROLS}>
-            <button
-              className={`${CLASSES.HC_BTN} ${CLASSES.HC_BTN_PREV}`}
-              aria-label="Previous"
-              type="button"
-            >
-              <svg className={CLASSES.HC_BTN_RING} viewBox="0 0 44 44" aria-hidden="true">
-                <circle className={CLASSES.HC_BTN_RING_TRACK} cx="22" cy="22" r="19" />
-                <circle
-                  className={CLASSES.HC_BTN_RING_FILL}
-                  cx="22"
-                  cy="22"
-                  r="19"
-                  style={{
-                    strokeDasharray: `${CIRCUMFERENCE}`,
-                    strokeDashoffset: `${CIRCUMFERENCE}`,
-                  }}
-                />
-              </svg>
-              <span className={CLASSES.HC_BTN_ARROW} aria-hidden="true">
-                &#8592;
-              </span>
-            </button>
-            <div className={CLASSES.HC_SPACER} />
-            <button
-              className={`${CLASSES.HC_BTN} ${CLASSES.HC_BTN_NEXT}`}
-              aria-label="Next"
-              type="button"
-            >
-              <svg className={CLASSES.HC_BTN_RING} viewBox="0 0 44 44" aria-hidden="true">
-                <circle className={CLASSES.HC_BTN_RING_TRACK} cx="22" cy="22" r="19" />
-                <circle
-                  className={CLASSES.HC_BTN_RING_FILL}
-                  cx="22"
-                  cy="22"
-                  r="19"
-                  style={{
-                    strokeDasharray: `${CIRCUMFERENCE}`,
-                    strokeDashoffset: `${CIRCUMFERENCE}`,
-                  }}
-                />
-              </svg>
-              <span className={CLASSES.HC_BTN_ARROW} aria-hidden="true">
-                &#8594;
-              </span>
-            </button>
-          </div>
-        ) : null}
       </div>
     )
   }

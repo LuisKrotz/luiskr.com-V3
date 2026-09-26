@@ -1,4 +1,4 @@
-import drawTextStyles from '../sass/draw-text.scss?inline'
+import drawTextStyles from '../sass/components/draw-text.scss?inline'
 import { ATTRS, CLASSES, SELECTORS, TAGS, STRINGS, MEDIA_DIMENSIONS } from '../core/constants.js'
 import { onScrollStop } from '../utils/scroll-state.js'
 import { stripHtml } from '../core/utils/string.js'
@@ -141,7 +141,7 @@ export class DrawText extends HTMLElement {
     this._contentEl.innerHTML = this._renderContent()
   }
 
-  /** Cached shadow-root query for the draw-text span — used across multiple methods */
+  /** Cached shadow-root query for the drw-tx span — used across multiple methods */
   get _rootEl() {
     return this._contentEl || this.shadowRoot.querySelector(SELECTORS.DRAW_TEXT)
   }

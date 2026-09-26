@@ -13,4 +13,5 @@ export const IDS = Object.freeze({
   LANG_DIALOG_TITLE: 'lang-dialog-title',
   PREF_TITLE: 'pref-title',
   CRITICAL_CSS: 'critical-css',
+  EARTH_CANVAS: 'earth-canvas',
 })

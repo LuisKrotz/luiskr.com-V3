@@ -1,7 +1,7 @@
 import { h } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import { TAGS, CLASSES, SELECTORS, EVENTS, STORAGE_KEYS, ATTRS, TEXT } from '../core/constants.js'
-import appStyles from '../sass/app.scss?inline'
+import appStyles from '../sass/components/app.scss?inline'
 
 export class CookieBanner extends BaseComponent {
   constructor() {

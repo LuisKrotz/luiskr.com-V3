@@ -5,7 +5,7 @@ import { ref, child, get, set } from 'firebase/database'
 import { h } from '../../core/jsx.js'
 import { TAGS, ATTRS, EVENTS, STRINGS, LOCALES, TEXT, PATHS } from "../../core/constants.js"
 import { VALID_LANGS } from '../../core/i18n.js'
-import cmsStyles from '../../sass/cms.scss?inline'
+import cmsStyles from '../../sass/views/cms.scss?inline'
 
 
 
