@@ -67,8 +67,6 @@ export class LangDialog extends BaseComponent {
   }
 
   onMounted() {
-    this._ensureSvgFilter()
-
     this.subscribe(store)
 
     this._syncOpenState()
@@ -78,26 +76,6 @@ export class LangDialog extends BaseComponent {
     this.addScopedListener(window, EVENTS.OPEN_LANG_DIALOG, () => {
       this.open = true
     })
-  }
-
-  _ensureSvgFilter() {
-    if (typeof document === STRINGS.UNDEFINED) return
-
-    if (!document.getElementById(IDS.FILTER)) {
-      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-
-      svg.setAttribute(ATTRS.WIDTH, STRINGS.ZERO)
-
-      svg.setAttribute(ATTRS.HEIGHT, STRINGS.ZERO)
-
-      svg.setAttribute(ATTRS.STYLE, 'position:absolute;width:0;height:0;pointer-events:none;overflow:hidden;')
-
-      svg.setAttribute(ATTRS.ARIA_HIDDEN, ATTRS.TRUE)
-
-      svg.innerHTML = '<filter id="filter" color-interpolation-filters="linearRGB" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse"><feDisplacementMap in="SourceGraphic" in2="SourceGraphic" scale="5" xChannelSelector="A" yChannelSelector="A" x="5" y="-5" width="100%" height="100%" result="displacementMap"/></filter>'
-
-      document.body.appendChild(svg)
-    }
   }
 
   _syncOpenState() {
@@ -392,33 +370,6 @@ export class LangDialog extends BaseComponent {
           </header>
 
           <div className={CLASSES.PREF_BODY}>
-            <svg
-              width="0"
-              height="0"
-              style="position:absolute;width:0;height:0;pointer-events:none;overflow:hidden;"
-              aria-hidden={ATTRS.TRUE}
-            >
-              <filter
-                id={IDS.FILTER}
-                color-interpolation-filters="linearRGB"
-                filterUnits="objectBoundingBox"
-                primitiveUnits="userSpaceOnUse"
-              >
-                <feDisplacementMap
-                  in="SourceGraphic"
-                  in2="SourceGraphic"
-                  scale="5"
-                  xChannelSelector="A"
-                  yChannelSelector="A"
-                  x="5"
-                  y="-5"
-                  width="100%"
-                  height="100%"
-                  result="displacementMap"
-                />
-              </filter>
-            </svg>
-
             <div className={CLASSES.PREF_OPTIONS_4}>
               <div className={CLASSES.LANG_GLASS_FOLLOWER} aria-hidden={ATTRS.TRUE} />
               {LANG_OPTIONS.map((l) => (

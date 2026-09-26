@@ -11,6 +11,7 @@
   // without referencing $cms-* SCSS variables (which are _structure.scss-only).
   --color-accent: #{$cms-accent};
   --color-accent-hover: #{$cms-accent-hover};
+  --color-accent-contrast: #{$cms-accent-contrast};
   --bg-darkest: #{$cms-bg-darkest};
 
   // Light theme default tokens
@@ -138,6 +139,7 @@ html.dark-mode {
   --text-secondary: #e0e0e0;
   --text-muted: #a79e9e;
   --border-color: #383838;
+  --color-accent-contrast: #{$cms-accent};
 
   // Dark mode: strong shadows match original production values
   --shadow-card:          0 0.125rem 1rem rgba(0, 0, 0, 0.30);
@@ -156,6 +158,8 @@ html.dark-mode {
 }
 
 html {
+  background-color: var(--bg-primary);
+  min-height: 100%;
   overflow-x: hidden;
   overflow-y: scroll; // always show scrollbar to prevent layout shift on navigation
   -webkit-font-smoothing: antialiased;
@@ -171,9 +175,7 @@ html.modal-open {
 }
 
 body {
-  overflow: hidden; // body never scrolls — html handles it
   width: 100%;
-  height: 100%;
   min-height: 100vh;
   margin: 0;
   padding: 0;

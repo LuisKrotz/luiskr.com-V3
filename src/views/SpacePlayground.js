@@ -190,6 +190,7 @@ export class SpacePlayground extends BaseComponent {
     this._posRafId      = null
     this._checkboxes    = {}
     this._canvasEl      = null
+    this._isInitializingEarth = false
   }
 
   _getCanvasEl() {
@@ -208,6 +209,12 @@ export class SpacePlayground extends BaseComponent {
     this.subscribe(store)
 
     this._isDark = document.documentElement.classList.contains(CLASSES.DARK_MODE)
+
+    const canvas = this._getCanvasEl()
+
+    if (!this.shadowRoot.contains(canvas)) {
+      this.shadowRoot.insertBefore(canvas, this._contentNode)
+    }
 
     // Load persisted settings
     const saved = _loadSettings()
@@ -234,11 +241,17 @@ export class SpacePlayground extends BaseComponent {
   }
 
   onUpdated() {
+    const canvas = this._getCanvasEl()
+
+    if (!this.shadowRoot.contains(canvas)) {
+      this.shadowRoot.insertBefore(canvas, this._contentNode)
+    }
+
     this._syncPanel()
 
     this._mountCheckboxCanvases()
 
-    if (!this._earthBg) {
+    if (!this._earthBg && !this._isInitializingEarth) {
       this._initEarth()
     }
   }
@@ -251,6 +264,8 @@ export class SpacePlayground extends BaseComponent {
     this._earthBg = null
 
     this._canvasEl = null
+
+    this._isInitializingEarth = false
 
     if (this._posRafId) cancelAnimationFrame(this._posRafId)
 
@@ -308,7 +323,9 @@ export class SpacePlayground extends BaseComponent {
   _initEarth() {
     const canvas = this._getCanvasEl()
 
-    if (!canvas || this._earthBg) return
+    if (!canvas || this._earthBg || this._isInitializingEarth) return
+
+    this._isInitializingEarth = true
 
     this._earthBg = new EarthBackground(canvas, {
       onProgress: (msg, pct) => {
@@ -321,6 +338,8 @@ export class SpacePlayground extends BaseComponent {
         if (loaderBar) loaderBar.style.width = `${pct}%`
       },
       onReady: () => {
+        this._isInitializingEarth = false
+
         this._earthBg.setReducedMotion(store.getters.getReducedMotion())
 
         // Apply persisted settings
@@ -333,14 +352,16 @@ export class SpacePlayground extends BaseComponent {
 
         if (loader) {
           loader.style.opacity = '0'
-          loader.style.filter = 'blur(4px)'
 
           setTimeout(() => loader.remove(), 800)
         }
       },
     })
 
-    this._earthBg.init()
+    this._earthBg.init().catch((err) => {
+      console.error('[SpacePlayground] Earth init error:', err)
+      this._isInitializingEarth = false
+    })
   }
 
   _applyPersistedSettings() {
@@ -442,6 +463,8 @@ export class SpacePlayground extends BaseComponent {
   }
 
   _startPositionLoop() {
+    if (this._posRafId) cancelAnimationFrame(this._posRafId)
+
     const update = () => {
       this._posRafId = requestAnimationFrame(update)
 
@@ -709,8 +732,6 @@ export class SpacePlayground extends BaseComponent {
 
     return (
       <Fragment>
-        {this._getCanvasEl()}
-
         {/* Sci-Fi System Boot Loader */}
         <div className={`${_B_SP}-loader`}>
           <div className={`${_B_SP}-loader-glow`} />

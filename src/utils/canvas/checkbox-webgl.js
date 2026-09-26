@@ -32,6 +32,10 @@ export class CheckboxWebGL {
     this.isChecked = Boolean(val)
 
     this.targetP = this.isChecked ? 1.0 : 0.0
+
+    if (!this.animId) {
+      this._startLoop()
+    }
   }
 
   init() {
@@ -51,22 +55,30 @@ export class CheckboxWebGL {
       this.ctx2d = null
     }
 
-    this._startLoop()
+    this._draw()
   }
 
   _startLoop() {
-    const render = () => {
-      this.animId = requestAnimationFrame(render)
+    if (this.animId) return
 
+    const render = () => {
       this.progress += (this.targetP - this.progress) * 0.22
 
       if (Math.abs(this.targetP - this.progress) < 0.005) {
         this.progress = this.targetP
+
+        this._draw()
+
+        this.animId = null
+
+        return
       }
 
       this.pulseTime += 0.04
 
       this._draw()
+
+      this.animId = requestAnimationFrame(render)
     }
 
     this.animId = requestAnimationFrame(render)

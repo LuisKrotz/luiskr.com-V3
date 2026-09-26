@@ -651,10 +651,9 @@ $_B_NAV: 'nav';
 .#{$_B_NAV}-lang-open-btn {
   display: inline-flex;
   align-items: center;
-  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.2s ease;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 
   &:hover {
-    filter: url(#filter);
     transform: scale(1.15);
   }
 }

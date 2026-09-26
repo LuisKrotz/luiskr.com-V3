@@ -46,6 +46,11 @@ export class EarthBackground {
   #sunMesh   = null
   #sunLight  = null
   #loader    = null
+  #cloudsMesh = null
+  #three      = null
+  #vecA       = null
+  #vecB       = null
+  #vecC       = null
 
   // TSL uniforms
   #sunDirU   = null
@@ -404,11 +409,15 @@ export class EarthBackground {
     const { WebGPURenderer, MeshPhysicalNodeMaterial, MeshBasicNodeMaterial } = await import('three/webgpu')
     const TSL = await import('three/tsl')
     const { bloom }               = await import('three/examples/jsm/tsl/display/BloomNode.js')
-    const { smaa }                = await import('three/examples/jsm/tsl/display/SMAANode.js')
     const { chromaticAberration } = await import('three/examples/jsm/tsl/display/ChromaticAberrationNode.js')
     const { film }                = await import('three/examples/jsm/tsl/display/FilmNode.js')
     const { OrbitControls }       = await import('three/examples/jsm/controls/OrbitControls.js')
     const { RenderPipeline }      = await import('three/webgpu')
+
+    this.#three = THREE
+    this.#vecA = new THREE.Vector3()
+    this.#vecB = new THREE.Vector3()
+    this.#vecC = new THREE.Vector3()
 
     if (this.#disposed) return
 
@@ -646,7 +655,7 @@ export class EarthBackground {
     finalNode = chromaticAberration(finalNode, caStrU, TSL.vec2(0.5, 0.5), caScU)
     finalNode = film(finalNode, filmU)
 
-    this.#pipeline.outputNode = smaa(finalNode)
+    this.#pipeline.outputNode = finalNode
     this.#render.resolutionScale = DEFAULT_SP_GUI.DEBUG.RESOLUTION_SCALE
 
     /* Resize + start */
@@ -689,7 +698,6 @@ export class EarthBackground {
     for (const t of [colorTex, specTex, normalTex, cloudsTex, nightTex]) t.anisotropy = maxAniso
 
     const mkGeo = (r, s) => new THREE.SphereGeometry(r, s, s)
-    const geo = [SEG_HIGH, SEG_MED, SEG_LOW].map(s => mkGeo(EARTH_RADIUS, s))
 
     const mat = new MeshPhysicalNodeMaterial()
     const sunDir   = this.#sunDirU
@@ -779,10 +787,9 @@ export class EarthBackground {
       darkSideBrightness: darkBr,
     }
 
-    const [eH, eM, eL] = geo.map(g => new THREE.Mesh(g, mat))
+    const earthMesh = new THREE.Mesh(mkGeo(EARTH_RADIUS, SEG_HIGH), mat)
 
     /* Clouds */
-    const cGeo  = [SEG_HIGH, SEG_MED, SEG_LOW].map(s => mkGeo(EARTH_RADIUS + 0.05, s))
     const cMat  = new MeshPhysicalNodeMaterial()
     cMat.transparent = true; cMat.depthWrite = false; cMat.blending = THREE.NormalBlending
     cMat.colorNode   = vec3(1).mul(twilTint).mul(eclDim)
@@ -790,10 +797,11 @@ export class EarthBackground {
     cMat.normalNode  = bumpMap(texture(cloudsTex), float(0.02).mul(bumpFade))
     cMat.opacityNode = texture(cloudsTex).r
 
-    const clouds = cGeo.map(g => { const m = new THREE.Mesh(g, cMat); m.name = 'clouds'; return m })
+    const cloudsMesh = new THREE.Mesh(mkGeo(EARTH_RADIUS + 0.05, SEG_HIGH), cMat)
+    cloudsMesh.name = 'clouds'
+    this.#cloudsMesh = cloudsMesh
 
     /* Outer atmosphere */
-    const aGeo  = [SEG_HIGH, SEG_MED, SEG_LOW].map(s => mkGeo(ATMOS_RADIUS, s))
     const aMat  = new MeshBasicNodeMaterial()
     aMat.transparent = true; aMat.side = THREE.BackSide; aMat.depthWrite = false; aMat.blending = THREE.AdditiveBlending
 
@@ -826,10 +834,9 @@ export class EarthBackground {
 
     aMat.colorNode = mix(finalScat, finalAirglow, atmosMode)
 
-    const atmos = aGeo.map(g => new THREE.Mesh(g, aMat))
+    const atmosMesh = new THREE.Mesh(mkGeo(ATMOS_RADIUS, SEG_HIGH), aMat)
 
     /* Inner atmosphere (fresnel) */
-    const iGeo  = [SEG_HIGH, SEG_MED, SEG_LOW].map(s => mkGeo(EARTH_RADIUS + 0.02, s))
     const iMat  = new MeshBasicNodeMaterial()
     iMat.transparent = true; iMat.side = THREE.FrontSide; iMat.depthWrite = false; iMat.blending = THREE.AdditiveBlending
 
@@ -841,16 +848,9 @@ export class EarthBackground {
 
     iMat.colorNode = mix(innerFinalScat, innerFinalAirglow, atmosMode)
 
-    const inner = iGeo.map(g => new THREE.Mesh(g, iMat))
+    const innerMesh = new THREE.Mesh(mkGeo(EARTH_RADIUS + 0.02, SEG_HIGH), iMat)
 
-    /* LOD */
-    const lod = new THREE.LOD()
-
-    lod.addLevel((g => { g.add(eH, clouds[0], atmos[0], inner[0]); return g })(new THREE.Group()), 0)
-    lod.addLevel((g => { g.add(eM, clouds[1], atmos[1], inner[1]); return g })(new THREE.Group()), 20)
-    lod.addLevel((g => { g.add(eL, clouds[2], atmos[2], inner[2]); return g })(new THREE.Group()), 45)
-
-    group.add(lod)
+    group.add(earthMesh, cloudsMesh, atmosMesh, innerMesh)
 
     return group
   }
@@ -966,18 +966,20 @@ export class EarthBackground {
   }
 
   #updateLensFlare() {
-    if (!this.#sunMesh || !this.#flarePosU || !this.#camera) return
-    const p    = this.#sunMesh.position.clone().project(this.#camera)
-    const sDist = this.#sunMesh.position.distanceTo(this.#camera.position)
-    const sDir  = this.#sunMesh.position.clone().sub(this.#camera.position).normalize()
-    const c2R   = this.#camera.position.clone().negate()
-    const proj  = c2R.dot(sDir)
+    if (!this.#sunMesh || !this.#flarePosU || !this.#camera || !this.#vecA) return
+    const sunPos = this.#sunMesh.position
+    const camPos = this.#camera.position
+    const p    = this.#vecA.copy(sunPos).project(this.#camera)
+    const sDist = sunPos.distanceTo(camPos)
+    const sDir  = this.#vecB.copy(sunPos).sub(camPos).normalize()
+    const proj  = -camPos.dot(sDir)
     let occlusion = 1
     if (proj > 0 && proj < sDist) {
-      const closest = this.#camera.position.clone().add(sDir.clone().multiplyScalar(proj))
+      const closest = this.#vecC.copy(camPos).addScaledVector(sDir, proj)
       const r = EARTH_RADIUS * 1.02
-      if (closest.length() < r) occlusion = 0
-      else if (closest.length() < r * 1.05) occlusion = (closest.length() - r) / (r * 0.05)
+      const len = closest.length()
+      if (len < r) occlusion = 0
+      else if (len < r * 1.05) occlusion = (len - r) / (r * 0.05)
     }
     if (p.z > 1) {
       this.#flarePosU.value.set(-999, -999)
@@ -1028,7 +1030,7 @@ export class EarthBackground {
     if (this.#earth && this.#earth_) {
       this.#earth.rotation.y += this.#earth_.rotationSpeed
       this.#earth.rotation.z = this.#earth_.trueInclination ? (23.44 * Math.PI) / 180 : 0
-      this.#earth.traverse(c => { if (c.name === 'clouds') c.rotation.y += this.#earth_.rotationSpeed * 0.2 })
+      if (this.#cloudsMesh) this.#cloudsMesh.rotation.y += this.#earth_.rotationSpeed * 0.2
     }
 
     this.#updateLensFlare()

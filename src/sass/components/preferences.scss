@@ -221,7 +221,6 @@ $_B_PREF_CLOSE: 'pref-close';
   background: var(--btn-accent-fill);
   backdrop-filter: blur(to-rem($space-xs));
   -webkit-backdrop-filter: blur(to-rem($space-xs));
-  filter: url(#filter);
   box-shadow: var(--shadow-card-featured);
   transition:
     transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
@@ -364,7 +363,6 @@ $_B_PREF_CLOSE: 'pref-close';
 
   &:hover {
     border-color: var(--text-muted);
-    filter: url(#filter);
     transform: translateY(to-rem(-$space-3xs)) scale(1.03);
 
     &::before {

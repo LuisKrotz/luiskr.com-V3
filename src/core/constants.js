@@ -581,11 +581,11 @@ export const SP_PARAMS = Object.freeze({
 
 // ─── Earth WebGPU texture paths ───────────────────────────────────────────────
 export const EARTH_TEXTURES = Object.freeze({
-  ALBEDO:    '/textures/earth/8k_earth_daymap.jpg',
+  ALBEDO:    '/textures/earth/2k_earth_daymap.jpg',
   ALBEDO_2K: '/textures/earth/2k_earth_daymap.jpg',
   NIGHT:     '/textures/earth/2k_earth_nightmap.jpg',
   SPECULAR:  '/textures/earth/2k_earth_specular_map.jpg',
-  NORMAL:    '/textures/earth/8k_earth_normal_map.jpg',
+  NORMAL:    '/textures/earth/2k_earth_normal_map.jpg',
   CLOUDS:    '/textures/earth/2k_earth_clouds.jpg',
   STARS:     '/textures/earth/starmap_2k.jpg',
   MOON:      '/textures/earth/2k_moon.jpg',
