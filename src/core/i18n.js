@@ -33,6 +33,7 @@ export const LANG_SLUGS = {
     privacy: 'privacy-policy',
     gdpr: 'gdpr',
     terms: 'terms-of-use',
+    earthPlayground: 'earth-playground',
   },
   br: {
     about: 'sobre',
@@ -40,6 +41,7 @@ export const LANG_SLUGS = {
     privacy: 'politica-de-privacidade',
     gdpr: 'lgpd',
     terms: 'termos-de-uso',
+    earthPlayground: 'playground-da-terra',
   },
   es: {
     about: 'acerca',
@@ -47,6 +49,7 @@ export const LANG_SLUGS = {
     privacy: 'politica-de-privacidad',
     gdpr: 'rgpd',
     terms: 'terminos-de-uso',
+    earthPlayground: 'playground-de-la-tierra',
   },
   de: {
     about: 'ueber',
@@ -54,6 +57,7 @@ export const LANG_SLUGS = {
     privacy: 'datenschutzrichtlinie',
     gdpr: 'dsgvo',
     terms: 'nutzungsbedingungen',
+    earthPlayground: 'erde-playground',
   },
   hrk: {
     about: 'iwwer-mich',
@@ -61,6 +65,7 @@ export const LANG_SLUGS = {
     privacy: 'dateschutz-erklerung',
     gdpr: 'datenschutz',
     terms: 'nutzungsbedingunge',
+    earthPlayground: 'erd-playground',
   },
   cas: {
     about: 'sobre-mi',
@@ -68,6 +73,7 @@ export const LANG_SLUGS = {
     privacy: 'politica-de-privacidad',
     gdpr: 'rgpd',
     terms: 'terminos-de-uso',
+    earthPlayground: 'playground-de-la-tierra',
   },
   riv: {
     about: 'sobre-yo',
@@ -75,6 +81,7 @@ export const LANG_SLUGS = {
     privacy: 'politica-de-privacidade',
     gdpr: 'lgpd-gdpr',
     terms: 'termos-de-uso',
+    earthPlayground: 'playground-da-terra',
   },
   gn: {
     about: 'che-rehegua',
@@ -82,6 +89,7 @@ export const LANG_SLUGS = {
     privacy: 'marandu-nangarekoha',
     gdpr: 'lgpd-gdpr',
     terms: 'oipuruva-nemoarandu',
+    earthPlayground: 'yvy-nembosarai',
   },
   it: {
     about: 'chi-sono',
@@ -89,6 +97,7 @@ export const LANG_SLUGS = {
     privacy: 'informativa-sulla-privacy',
     gdpr: 'gdpr',
     terms: 'termini-di-utilizzo',
+    earthPlayground: 'playground-della-terra',
   },
   ru: {
     about: 'obo-mne',
@@ -96,6 +105,7 @@ export const LANG_SLUGS = {
     privacy: 'politika-konfidentsialnosti',
     gdpr: 'gdpr',
     terms: 'usloviya-ispolzovaniya',
+    earthPlayground: 'zemnaya-pesochnitsa',
   },
   fr: {
     about: 'a-propos',
@@ -103,6 +113,7 @@ export const LANG_SLUGS = {
     privacy: 'politique-de-confidentialite',
     gdpr: 'rgpd',
     terms: 'conditions-utilisation',
+    earthPlayground: 'playground-de-la-terre',
   },
   tln: {
     about: 'de-mi',
@@ -110,6 +121,7 @@ export const LANG_SLUGS = {
     privacy: 'informativa-su-la-privacy',
     gdpr: 'gdpr',
     terms: 'condission-de-uso',
+    earthPlayground: 'playground-della-terra',
   },
 }
 

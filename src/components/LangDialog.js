@@ -323,7 +323,7 @@ export class LangDialog extends BaseComponent {
     else if (routeName.startsWith(ROUTE_PREFIXES.GDPR)) newPath = `${base}${PATHS.ROOT}${s.gdpr}`
     else if (routeName.startsWith(ROUTE_PREFIXES.TERMS)) newPath = `${base}${PATHS.ROOT}${s.terms}`
     else if (routeName === ROUTE_NAMES.EARTH_PLAYGROUND || routeName === ROUTE_NAMES.SPACE_PLAYGROUND) {
-      newPath = `${base}${PATHS.ROOT}${PATHS.EARTH_PLAYGROUND_SEGMENT}`
+      newPath = `${base}${PATHS.ROOT}${s.earthPlayground || PATHS.EARTH_PLAYGROUND_SEGMENT}`
     } else {
       const rawPath = window.location.pathname.replace(/^\/([a-z]{2,3})(\/|$)/, PATHS.ROOT)
 

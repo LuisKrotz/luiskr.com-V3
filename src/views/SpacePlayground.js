@@ -664,7 +664,7 @@ export class SpacePlayground extends BaseComponent {
               type={_C}
               className={CLASSES.SP_CHECK_INPUT}
               data-param={ctrl.param}
-              defaultChecked={isChecked}
+              checked={isChecked}
             />
             <span className={CLASSES.SP_CHECK_BOX}>
               <canvas className={CLASSES.SP_CHECK_CANVAS} data-check={ctrl.param} />
@@ -692,7 +692,7 @@ export class SpacePlayground extends BaseComponent {
             min={String(ctrl.min)}
             max={String(ctrl.max)}
             step={String(ctrl.step)}
-            defaultValue={String(val)}
+            value={String(val)}
             style={`${CSS_PROPS.RANGE_PCT}:${pct}%;`}
           />
           <span className={CLASSES.SP_VAL}>{val}</span>

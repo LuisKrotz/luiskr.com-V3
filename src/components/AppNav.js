@@ -3,9 +3,9 @@ import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
 import { deepQuerySelector } from '../core/dom.js'
-import { localePath, LANG_OPTIONS } from '../core/i18n.js'
+import { localePath, LANG_OPTIONS, LANG_SLUGS } from '../core/i18n.js'
 import { wasmSmoothScroll } from '../utils/wasm-scroll.js'
-import { TAGS, CLASSES, URLS, STRINGS, ATTRS, MEDIA_DIMENSIONS, ROUTE_NAMES, ROUTE_PREFIXES, SECTIONS, TEXT, EVENTS, PATHS, MUTATIONS, BASE_TITLE, SELECTORS, IDS, EARTH_PLAYGROUND_LABELS } from '../core/constants.js'
+import { TAGS, CLASSES, URLS, STRINGS, ATTRS, MEDIA_DIMENSIONS, ROUTE_NAMES, ROUTE_PREFIXES, SECTIONS, TEXT, EVENTS, PATHS, MUTATIONS, BASE_TITLE, SELECTORS, IDS, EARTH_PLAYGROUND_LABELS, CMS_KEYS } from '../core/constants.js'
 import { predictiveLoader } from '../core/predictive-loader.js'
 import { FlagWebGL } from '../utils/canvas/flag-webgl.js'
 import appStyles from '../sass/components/app.scss?inline'
@@ -45,7 +45,13 @@ export class AppNav extends BaseComponent {
 
     const path = typeof window !== STRINGS.UNDEFINED ? window.location.pathname : ATTRS.EMPTY
 
-    return path.includes(PATHS.EARTH_PLAYGROUND_SEGMENT) || path.includes(PATHS.SPACE_PLAYGROUND_SEGMENT)
+    const segments = path.split(STRINGS.SLASH).filter(Boolean)
+
+    const last = segments[segments.length - 1]
+
+    if (last === PATHS.EARTH_PLAYGROUND_SEGMENT || last === PATHS.SPACE_PLAYGROUND_SEGMENT) return true
+
+    return Object.values(LANG_SLUGS).some((s) => s.earthPlayground && last === s.earthPlayground)
   }
 
   get isAdminRoute() {
@@ -441,7 +447,7 @@ export class AppNav extends BaseComponent {
                   onClick={(e) => {
                     e.preventDefault()
 
-                    router.push(localePath(PATHS.EARTH_PLAYGROUND_SEGMENT, this.locale))
+                    router.push(localePath(CMS_KEYS.EARTH_PLAYGROUND, this.locale))
                   }}
                 >
                   {t?.earthPlayground || t?.spacePlayground || EARTH_PLAYGROUND_LABELS[this.locale] || TEXT.EARTH_PLAYGROUND}

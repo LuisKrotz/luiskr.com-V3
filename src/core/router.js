@@ -203,7 +203,7 @@ export class Router {
     }
 
     // Earth / Space Playground
-    if (first === PATHS.EARTH_PLAYGROUND_SEGMENT || first === PATHS.SPACE_PLAYGROUND_SEGMENT) {
+    if (first === slugs.earthPlayground || first === PATHS.EARTH_PLAYGROUND_SEGMENT || first === PATHS.SPACE_PLAYGROUND_SEGMENT) {
       return {
         name: ROUTE_NAMES.EARTH_PLAYGROUND,
         view: TAGS.VIEW_SPACE_PLAYGROUND,

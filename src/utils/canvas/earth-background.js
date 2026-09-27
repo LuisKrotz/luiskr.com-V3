@@ -1050,7 +1050,17 @@ export class EarthBackground {
     this.#controls?.update()
 
     if (this.#renderer && this.#scene && this.#camera) {
-      if (this.#pipeline && this.#bloom_?.enabled) {
+      const anyPostFx = this.#pipeline && (
+        this.#bloom_?.enabled ||
+        this.#vig?.enabled ||
+        this.#ca?.enabled ||
+        this.#film?.enabled ||
+        this.#cg?.contrast !== 1 ||
+        this.#cg?.saturation !== 1 ||
+        this.#cg?.blackLevel !== 0.015
+      )
+
+      if (anyPostFx) {
         try {
           this.#pipeline.render()
         } catch {
