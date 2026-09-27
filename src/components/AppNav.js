@@ -16,7 +16,7 @@ export class AppNav extends BaseComponent {
     this._translations = null
     this.activeSection = SECTIONS.HOME
     this.onBottom = false
-    this._navFlag = null
+    this._navFlags = []
   }
 
   set translations(val) {
@@ -134,31 +134,35 @@ export class AppNav extends BaseComponent {
   _mountNavFlag() {
     if (typeof window === STRINGS.UNDEFINED) return
 
-    const canvas = this.$(`.${CLASSES.FLAG_CANVAS_NAV}`)
+    const canvases = this.$$(`.${CLASSES.FLAG_CANVAS_NAV}`)
 
-    if (!canvas) return
+    if (!canvases.length) return
 
-    if (this._navFlag && this._navFlag.canvas !== canvas) {
-      this._navFlag.destroy()
+    const currentLang = this.currentLang
 
-      this._navFlag = null
-    }
+    // Destroy stale instances whose canvas is no longer in the DOM
+    const staleFlags = this._navFlags.filter((f) => !canvases.includes(f.canvas))
 
-    if (!this._navFlag) {
-      const currentLang = this.currentLang
+    staleFlags.forEach((f) => f.destroy())
 
-      if (currentLang) {
-        this._navFlag = new FlagWebGL(canvas, currentLang)
-      }
+    this._navFlags = this._navFlags.filter((f) => canvases.includes(f.canvas))
+
+    // Create FlagWebGL for any canvas that doesn't have one yet
+    if (currentLang) {
+      canvases.forEach((canvas) => {
+        const existing = this._navFlags.find((f) => f.canvas === canvas)
+
+        if (!existing) {
+          this._navFlags.push(new FlagWebGL(canvas, currentLang))
+        }
+      })
     }
   }
 
   _destroyNavFlag() {
-    if (this._navFlag) {
-      this._navFlag.destroy()
+    this._navFlags.forEach((f) => f.destroy())
 
-      this._navFlag = null
-    }
+    this._navFlags = []
   }
 
   subscribeRouter() {
@@ -174,7 +178,7 @@ export class AppNav extends BaseComponent {
 
     this._mountNavFlag()
 
-    this._navFlag?.setReducedMotion(store.getters.getReducedMotion())
+    this._navFlags.forEach((f) => f.setReducedMotion(store.getters.getReducedMotion()))
   }
 
   updateScrollState(activeSection, onBottom) {

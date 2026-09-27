@@ -2,7 +2,7 @@ import { h, Fragment } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
 import router from '../core/router.js'
-import { CLASSES, EVENTS, STRINGS, TEXT, LOCALES, PATHS, URLS, MUTATIONS, TAGS, ATTRS } from '../core/constants.js'
+import { CLASSES, EVENTS, STRINGS, TEXT, LOCALES, PATHS, URLS, MUTATIONS, TAGS, ATTRS, CMS_KEYS } from '../core/constants.js'
 import awardsFooterStyles from '../sass/components/awards-footer.scss?inline'
 import './HomeCarousel.js'
 
@@ -222,7 +222,7 @@ export class AwardsMentions extends BaseComponent {
         </nav>
 
         <p className={CLASSES.FOOTER_SOURCE}>
-          {TEXT.SOURCE_CODE_LABEL}
+          {store.getters.getlang()?.components?.[CMS_KEYS.SOURCE_CODE]?.label || TEXT.SOURCE_CODE_LABEL}
           {ATTRS.SPACE_CHAR}
           <a
             className={CLASSES.FOOTER_SOURCE_LINK}
@@ -230,7 +230,7 @@ export class AwardsMentions extends BaseComponent {
             target={ATTRS.BLANK}
             rel={ATTRS.NOOPENER}
           >
-            {TEXT.GIT}
+            {store.getters.getlang()?.components?.[CMS_KEYS.SOURCE_CODE]?.link || TEXT.GIT}
           </a>
         </p>
       </footer>

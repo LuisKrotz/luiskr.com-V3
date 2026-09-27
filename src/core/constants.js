@@ -773,6 +773,8 @@ export const CMS_KEYS = Object.freeze({
   MEDIA: 'media',
   EARTH_PLAYGROUND: 'earthPlayground',
   SPACE_PLAYGROUND: 'spacePlayground',
+  SOURCE_CODE: 'source-code',
+  PREFERENCES_MODAL: 'preferences-modal',
 })
 
 // ─── LocalStorage Key constants ─────────────────────────────────────────────

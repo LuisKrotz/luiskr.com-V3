@@ -231,6 +231,18 @@
               "network": "Github"
             }
           ]
+        },
+        "lang-dialog": {
+          "title": "Language",
+          "close": "Close language selector"
+        },
+        "source-code": {
+          "label": "PROJECT SOURCE CODE:",
+          "link": "Git"
+        },
+        "preferences-modal": {
+          "title": "Preferences",
+          "close": "Close preferences"
         }
       },
       "pages": {
@@ -5797,6 +5809,18 @@
               "network": "Github"
             }
           ]
+        },
+        "lang-dialog": {
+          "title": "Idioma",
+          "close": "Fechar seletor de idioma"
+        },
+        "source-code": {
+          "label": "CÓDIGO FONTE DO PROJETO:",
+          "link": "Git"
+        },
+        "preferences-modal": {
+          "title": "Preferências",
+          "close": "Fechar preferências"
         }
       },
       "pages": {
@@ -11285,6 +11309,18 @@
               "network": "Github"
             }
           ]
+        },
+        "lang-dialog": {
+          "title": "Idioma",
+          "close": "Cerrar selector de idioma"
+        },
+        "source-code": {
+          "label": "CÓDIGO FUENTE DEL PROYECTO:",
+          "link": "Git"
+        },
+        "preferences-modal": {
+          "title": "Preferencias",
+          "close": "Cerrar preferencias"
         }
       },
       "pages": {
@@ -16773,6 +16809,18 @@
               "network": "Github"
             }
           ]
+        },
+        "lang-dialog": {
+          "title": "Sprache",
+          "close": "Sprachauswahl schließen"
+        },
+        "source-code": {
+          "label": "PROJEKT-QUELLCODE:",
+          "link": "Git"
+        },
+        "preferences-modal": {
+          "title": "Einstellungen",
+          "close": "Einstellungen schließen"
         }
       },
       "pages": {
@@ -22092,12 +22140,12 @@
           "closeLabel": "Close preferences",
           "devTools": {
             "title": "Developer Tools",
-            "statsForNerds": "Stats for Nerds",
-            "statsForNerdsDesc": "Live FPS, network, memory HUD — bottom-right corner",
-            "showGrid": "Show Grid",
-            "showGridDesc": "Overlay columns, gutters and max-area at every breakpoint",
-            "reducedMotion": "Reduced Motion",
-            "reducedMotionDesc": "Disable animations and transitions"
+            "statsForNerds": "Stats für Nerds",
+            "statsForNerdsDesc": "Live FPS, Netzwerk, Speicher HUD — rechts unte",
+            "showGrid": "Gitter aazeige",
+            "showGridDesc": "Spalte, Abständ und Max-Bereich zeige bei jedem Breakpoint",
+            "reducedMotion": "Weniger Bewächig",
+            "reducedMotionDesc": "Animatione und Übergäng abstelle"
           }
         },
         "carousel": {
@@ -27522,6 +27570,18 @@
               "network": "Github"
             }
           ]
+        },
+        "lang-dialog": {
+          "title": "Schproch",
+          "close": "Schprochauswahl zuemache"
+        },
+        "source-code": {
+          "label": "PROJEKT-QUELLCODE:",
+          "link": "Git"
+        },
+        "preferences-modal": {
+          "title": "Einstelunge",
+          "close": "Einstelunge zuemache"
         }
       }
     },
@@ -27579,13 +27639,13 @@
           },
           "closeLabel": "Close preferences",
           "devTools": {
-            "title": "Developer Tools",
-            "statsForNerds": "Stats for Nerds",
-            "statsForNerdsDesc": "Live FPS, network, memory HUD — bottom-right corner",
-            "showGrid": "Show Grid",
-            "showGridDesc": "Overlay columns, gutters and max-area at every breakpoint",
-            "reducedMotion": "Reduced Motion",
-            "reducedMotionDesc": "Disable animations and transitions"
+            "title": "Herramientas de Dev",
+            "statsForNerds": "Stats para Nerds",
+            "statsForNerdsDesc": "HUD de FPS, red y memoria — esquina inferior derecha",
+            "showGrid": "Mostrar Cuadrícula",
+            "showGridDesc": "Columnas, márgenes y área máxima en cada breakpoint",
+            "reducedMotion": "Movimiento Reducido",
+            "reducedMotionDesc": "Desactivar animaciones y transiciones"
           }
         },
         "carousel": {
@@ -33010,6 +33070,18 @@
               "network": "Github"
             }
           ]
+        },
+        "lang-dialog": {
+          "title": "Idioma",
+          "close": "Cerrar selector de idioma"
+        },
+        "source-code": {
+          "label": "CÓDIGO FUENTE DEL PROYECTO:",
+          "link": "Git"
+        },
+        "preferences-modal": {
+          "title": "Preferencias",
+          "close": "Cerrar preferencias"
         }
       }
     },
@@ -33067,13 +33139,13 @@
           },
           "closeLabel": "Close preferences",
           "devTools": {
-            "title": "Developer Tools",
-            "statsForNerds": "Stats for Nerds",
-            "statsForNerdsDesc": "Live FPS, network, memory HUD — bottom-right corner",
-            "showGrid": "Show Grid",
-            "showGridDesc": "Overlay columns, gutters and max-area at every breakpoint",
-            "reducedMotion": "Reduced Motion",
-            "reducedMotionDesc": "Disable animations and transitions"
+            "title": "Ferramentas de Dev",
+            "statsForNerds": "Stats pa' Nerds",
+            "statsForNerdsDesc": "HUD de FPS, rede e memória — canto inferior direito",
+            "showGrid": "Mostrar Grilla",
+            "showGridDesc": "Columnas, espacios y área máxima en cada breakpoint",
+            "reducedMotion": "Movimento Reduzido",
+            "reducedMotionDesc": "Desativar animações e transições"
           }
         },
         "carousel": {
@@ -38498,6 +38570,18 @@
               "network": "Github"
             }
           ]
+        },
+        "lang-dialog": {
+          "title": "Lengua",
+          "close": "Cerrar selector de lengua"
+        },
+        "source-code": {
+          "label": "CÓDIGO FONTE DO PROJETO:",
+          "link": "Git"
+        },
+        "preferences-modal": {
+          "title": "Preferencias",
+          "close": "Cerrar preferencias"
         }
       }
     },
@@ -38555,13 +38639,13 @@
           },
           "closeLabel": "Close preferences",
           "devTools": {
-            "title": "Developer Tools",
-            "statsForNerds": "Stats for Nerds",
-            "statsForNerdsDesc": "Live FPS, network, memory HUD — bottom-right corner",
-            "showGrid": "Show Grid",
-            "showGridDesc": "Overlay columns, gutters and max-area at every breakpoint",
-            "reducedMotion": "Reduced Motion",
-            "reducedMotionDesc": "Disable animations and transitions"
+            "title": "Tembipuru Developer-pe guarã",
+            "statsForNerds": "Stats Nerds-pe guarã",
+            "statsForNerdsDesc": "FPS, ñanduti ha mandu'ahápe HUD — yvýpe oñondivepa",
+            "showGrid": "Ohechauka Cuadrícula",
+            "showGridDesc": "Columna, espacio ha área guasu opaite breakpoint-pe",
+            "reducedMotion": "Movimiento Michĩ",
+            "reducedMotionDesc": "Oipe'a animación ha transición"
           }
         },
         "carousel": {
@@ -43968,6 +44052,18 @@
               "network": "Github"
             }
           ]
+        },
+        "lang-dialog": {
+          "title": "Ñe'ẽ",
+          "close": "Ñe'ẽ jeporavo oñemboty"
+        },
+        "source-code": {
+          "label": "PROYECTO KÓDIGONTE:",
+          "link": "Git"
+        },
+        "preferences-modal": {
+          "title": "Oñembopyahu",
+          "close": "Oñembopyahu oñemboty"
         }
       }
     },
@@ -49456,6 +49552,18 @@
               "network": "Github"
             }
           ]
+        },
+        "lang-dialog": {
+          "title": "Lingua",
+          "close": "Chiudi selettore lingua"
+        },
+        "source-code": {
+          "label": "CODICE SORGENTE DEL PROGETTO:",
+          "link": "Git"
+        },
+        "preferences-modal": {
+          "title": "Preferenze",
+          "close": "Chiudi preferenze"
         }
       }
     },
@@ -54944,6 +55052,18 @@
               "network": "Github"
             }
           ]
+        },
+        "lang-dialog": {
+          "title": "Язык",
+          "close": "Закрыть выбор языка"
+        },
+        "source-code": {
+          "label": "ИСХОДНЫЙ КОД ПРОЕКТА:",
+          "link": "Git"
+        },
+        "preferences-modal": {
+          "title": "Настройки",
+          "close": "Закрыть настройки"
         }
       }
     },
@@ -60432,6 +60552,18 @@
               "network": "Github"
             }
           ]
+        },
+        "lang-dialog": {
+          "title": "Langue",
+          "close": "Fermer le sélecteur de langue"
+        },
+        "source-code": {
+          "label": "CODE SOURCE DU PROJET:",
+          "link": "Git"
+        },
+        "preferences-modal": {
+          "title": "Préférences",
+          "close": "Fermer les préférences"
         }
       }
     },
@@ -60489,13 +60621,13 @@
           },
           "closeLabel": "Close preferences",
           "devTools": {
-            "title": "Developer Tools",
-            "statsForNerds": "Stats for Nerds",
-            "statsForNerdsDesc": "Live FPS, network, memory HUD — bottom-right corner",
-            "showGrid": "Show Grid",
-            "showGridDesc": "Overlay columns, gutters and max-area at every breakpoint",
-            "reducedMotion": "Reduced Motion",
-            "reducedMotionDesc": "Disable animations and transitions"
+            "title": "Strumenti Developer",
+            "statsForNerds": "Stats par Nerd",
+            "statsForNerdsDesc": "HUD de FPS, rete e memòria — àngolo in basso a destra",
+            "showGrid": "Mostrar Griglia",
+            "showGridDesc": "Colonne, margini e area massima a ogni breakpoint",
+            "reducedMotion": "Movimento Ridoto",
+            "reducedMotionDesc": "Disabilitar animassion e transission"
           }
         },
         "carousel": {
@@ -65920,6 +66052,18 @@
               "network": "Github"
             }
           ]
+        },
+        "lang-dialog": {
+          "title": "Lengua",
+          "close": "Serar el seletor de lengua"
+        },
+        "source-code": {
+          "label": "CÒDICE FONTE DEL PROJÈTO:",
+          "link": "Git"
+        },
+        "preferences-modal": {
+          "title": "Preferense",
+          "close": "Serar le preferense"
         }
       }
     }
