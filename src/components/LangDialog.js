@@ -16,6 +16,7 @@ import {
   TEXT,
   PATHS,
   ROUTE_PREFIXES,
+  ROUTE_NAMES,
   CMS_KEYS,
   IDS,
 } from '../core/constants.js'
@@ -321,7 +322,9 @@ export class LangDialog extends BaseComponent {
     else if (routeName.startsWith(ROUTE_PREFIXES.PRIVACY)) newPath = `${base}${PATHS.ROOT}${s.privacy}`
     else if (routeName.startsWith(ROUTE_PREFIXES.GDPR)) newPath = `${base}${PATHS.ROOT}${s.gdpr}`
     else if (routeName.startsWith(ROUTE_PREFIXES.TERMS)) newPath = `${base}${PATHS.ROOT}${s.terms}`
-    else {
+    else if (routeName === ROUTE_NAMES.EARTH_PLAYGROUND || routeName === ROUTE_NAMES.SPACE_PLAYGROUND) {
+      newPath = `${base}${PATHS.ROOT}${PATHS.EARTH_PLAYGROUND_SEGMENT}`
+    } else {
       const rawPath = window.location.pathname.replace(/^\/([a-z]{2,3})(\/|$)/, PATHS.ROOT)
 
       newPath = base + (rawPath.startsWith(PATHS.ROOT) ? rawPath : `${PATHS.ROOT}${rawPath}`)

@@ -5,6 +5,8 @@
  * re-declare in individual component files.
  */
 
+import { LOCALES } from './tokens/locales.js'
+
 // ─── Media asset suffix tokens ────────────────────────────────────────────────
 // All suffixes match the exact Firebase Storage naming convention used by the
 // Kodak MSSIM blur-up pipeline and mozjpeg encoding passes.
@@ -677,7 +679,7 @@ export const DEFAULT_SP_GUI = Object.freeze({
       z: 0,
     }),
     AUTO_ROTATE: false,
-    AUTO_ROTATE_SPEED: 1.6631,
+    AUTO_ROTATE_SPEED: 0.05,
   }),
   ENVIRONMENT: Object.freeze({
     SKYBOX_INTENSITY: 0.5,
@@ -698,6 +700,21 @@ export const DEFAULT_SP_GUI = Object.freeze({
     SPEED: 0.05,
     INCLINATION: 0.076,
   }),
+})
+
+export const EARTH_PLAYGROUND_LABELS = Object.freeze({
+  [LOCALES.EN]: 'Earth Playground',
+  [LOCALES.BR]: 'Playground da Terra',
+  [LOCALES.CAS]: 'Playground de la Tierra',
+  [LOCALES.DE]: 'Erde-Playground',
+  [LOCALES.HRK]: 'Erd-Playground',
+  [LOCALES.ES]: 'Playground de la Tierra',
+  [LOCALES.RIV]: 'Playground da Terra',
+  [LOCALES.GN]: 'Yvy Ñembosarái',
+  [LOCALES.IT]: 'Playground della Terra',
+  [LOCALES.RU]: 'Земная песочница',
+  [LOCALES.FR]: 'Playground de la Terre',
+  [LOCALES.TLN]: 'Playground della Terra',
 })
 
 // ─── CMS data-key constants ───────────────────────────────────────────────

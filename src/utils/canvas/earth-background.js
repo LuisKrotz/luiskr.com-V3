@@ -18,7 +18,7 @@
  *   get settings            → current settings snapshot
  *   destroy()
  */
-import { STRINGS, EARTH_TEXTURES as TEXTURES, DEFAULT_SP_GUI } from '../../core/constants.js'
+import { STRINGS, TAGS, EARTH_TEXTURES as TEXTURES, DEFAULT_SP_GUI } from '../../core/constants.js'
 
 const EARTH_RADIUS   = 10
 const ATMOS_RADIUS   = 10.2
@@ -122,17 +122,21 @@ export class EarthBackground {
   }
 
   async takeScreenshot() {
-    if (!this.#canvas || !this.#renderer || !this.#pipeline) return
+    if (!this.#canvas || !this.#renderer) return
 
     const old = this.#render.resolutionScale
-    this.#render.resolutionScale = 4
+    this.#render.resolutionScale = 2
     this.#handleResize()
 
     try {
-      if (typeof this.#pipeline.renderAsync === STRINGS.FUNCTION) {
-        await this.#pipeline.renderAsync()
-      } else {
-        this.#pipeline.render()
+      if (this.#pipeline) {
+        if (typeof this.#pipeline.renderAsync === STRINGS.FUNCTION) {
+          await this.#pipeline.renderAsync()
+        } else {
+          this.#pipeline.render()
+        }
+      } else if (this.#scene && this.#camera) {
+        this.#renderer.render(this.#scene, this.#camera)
       }
 
       let dataUrl = ''
@@ -152,9 +156,9 @@ export class EarthBackground {
       }
 
       if (dataUrl) {
-        const a = document.createElement('a')
+        const a = document.createElement(TAGS.A)
 
-        a.style.display = 'none'
+        a.style.display = STRINGS.NONE
 
         a.download = `earth-4k-${Date.now()}.png`
 
@@ -348,7 +352,7 @@ export class EarthBackground {
 
   updateRender({ resolutionScale } = {}) {
     if (resolutionScale !== undefined) {
-      this.#render.resolutionScale = resolutionScale
+      this.#render.resolutionScale = Math.min(resolutionScale, 2)
 
       this.#handleResize()
     }
@@ -578,36 +582,6 @@ export class EarthBackground {
       this.#earth.rotation.z = (23.44 * Math.PI) / 180
     }
 
-    /* Render pipeline */
-    this.#onProgress?.('Building post-processing pipeline…', 70)
-    try {
-      this.#pipeline = new RenderPipeline(this.#renderer)
-      const scenePass = TSL.pass(this.#scene, this.#camera)
-      const sceneColor = scenePass.getTextureNode('output')
-
-      this.#bloom_ = {
-        enabled: DEFAULT_SP_GUI.BLOOM.ENABLED,
-        strength: DEFAULT_SP_GUI.BLOOM.STRENGTH,
-        radius: DEFAULT_SP_GUI.BLOOM.RADIUS,
-        threshold: DEFAULT_SP_GUI.BLOOM.THRESHOLD,
-      }
-      this.#bloomPass = bloom(sceneColor, this.#bloom_.strength, this.#bloom_.radius, this.#bloom_.threshold)
-      this.#pipeline.outputNode = sceneColor.add(this.#bloomPass)
-    } catch (e) {
-      console.warn('[EarthBG] RenderPipeline setup skipped:', e)
-      this.#pipeline = null
-    }
-
-    /* Lens flare */
-    this.#flarePosU = TSL.uniform(new THREE.Vector2(-99, -99))
-    this.#flareIntU = TSL.uniform(DEFAULT_SP_GUI.LENS_FLARE.INTENSITY)
-    this.#flare     = {
-      enabled: DEFAULT_SP_GUI.LENS_FLARE.ENABLED,
-      intensity: DEFAULT_SP_GUI.LENS_FLARE.INTENSITY,
-    }
-
-
-
     /* Color grading */
     this.#cg = {
       contrast: DEFAULT_SP_GUI.COLOR_GRADING.CONTRAST,
@@ -646,6 +620,48 @@ export class EarthBackground {
     this.#caUniforms  = { strength: caStrU, scale: caScU }
     this.#vigUniforms = { darkness: vigDU, offset: vigOU }
     this.#filmU       = filmU
+
+    /* Render pipeline */
+    this.#onProgress?.('Building post-processing pipeline…', 70)
+    try {
+      this.#pipeline = new RenderPipeline(this.#renderer)
+      const scenePass = TSL.pass(this.#scene, this.#camera)
+      const sceneColor = scenePass.getTextureNode('output')
+
+      this.#bloom_ = {
+        enabled: DEFAULT_SP_GUI.BLOOM.ENABLED,
+        strength: DEFAULT_SP_GUI.BLOOM.STRENGTH,
+        radius: DEFAULT_SP_GUI.BLOOM.RADIUS,
+        threshold: DEFAULT_SP_GUI.BLOOM.THRESHOLD,
+      }
+      this.#bloomPass = bloom(sceneColor, this.#bloom_.enabled ? this.#bloom_.strength : 0, this.#bloom_.radius, this.#bloom_.threshold)
+
+      const caNode = chromaticAberration(sceneColor, caStrU, TSL.vec2(0.5, 0.5), caScU)
+      const baseWithBloom = caNode.add(this.#bloomPass)
+
+      const { colorGradeNode, vignetteNode } = this.#makePostNodes(TSL)
+      const graded = colorGradeNode({
+        color: baseWithBloom,
+        contrast: cgCU,
+        saturation: cgSU,
+        blackLevel: cgBLU,
+        blueGreenBoost: cgBGU,
+      })
+
+      const withVig = vignetteNode({
+        color: graded,
+        uv: TSL.screenCoordinate.div(TSL.screenSize),
+        darkness: vigDU,
+        offset: vigOU,
+      })
+
+      const finalNode = film(withVig, filmU)
+
+      this.#pipeline.outputNode = finalNode
+    } catch (e) {
+      console.warn('[EarthBG] RenderPipeline setup skipped:', e)
+      this.#pipeline = null
+    }
 
     this.#render.resolutionScale = DEFAULT_SP_GUI.DEBUG.RESOLUTION_SCALE
 
@@ -920,10 +936,12 @@ export class EarthBackground {
   }
 
   #makePostNodes(TSL) {
-    const { Fn, vec3, float, max, mix } = TSL
+    const { Fn, vec3, vec4, float, max, mix, min } = TSL
 
     const colorGradeNode = Fn(({ color, contrast, saturation, blackLevel, blueGreenBoost }) => {
-      const c = color.sub(0.5).mul(contrast).add(0.5)
+      const rgb = color.rgb
+
+      const c = rgb.sub(0.5).mul(contrast).add(0.5)
 
       const luma = c.dot(vec3(0.299, 0.587, 0.114))
 
@@ -931,7 +949,9 @@ export class EarthBackground {
 
       const blk = max(sat.sub(vec3(blackLevel)), vec3(0.0))
 
-      return blk.mul(vec3(1.0, blueGreenBoost.mul(0.5).add(1.0), blueGreenBoost.add(1.0)))
+      const finalRgb = blk.mul(vec3(float(1.0), blueGreenBoost.mul(0.5).add(1.0), blueGreenBoost.add(1.0)))
+
+      return vec4(finalRgb, color.a)
     })
 
     const vignetteNode = Fn(({ color, uv, darkness, offset }) => {
@@ -939,7 +959,9 @@ export class EarthBackground {
 
       const v = float(1.0).sub(d.length().mul(offset)).clamp(0.0, 1.0)
 
-      return color.mul(v.pow(darkness))
+      const factor = mix(float(1.0), v.pow(max(darkness, float(0.001))), min(darkness, float(1.0)))
+
+      return vec4(color.rgb.mul(factor), color.a)
     })
 
     return { colorGradeNode, vignetteNode }

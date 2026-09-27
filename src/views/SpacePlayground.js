@@ -1,7 +1,7 @@
 import { h, Fragment } from '../core/jsx.js'
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
-import { CLASSES, EVENTS, ATTRS, TEXT, TAGS, TRANSLATION_KEYS, LOCALES, SP_ACTIONS, SP_PARAMS, SP_MUSIC, STORAGE_KEYS, CSS_PROPS, STRINGS } from '../core/constants.js'
+import { CLASSES, EVENTS, ATTRS, TEXT, TAGS, TRANSLATION_KEYS, LOCALES, EARTH_PLAYGROUND_LABELS, SP_ACTIONS, SP_PARAMS, SP_MUSIC, STORAGE_KEYS, CSS_PROPS, STRINGS } from '../core/constants.js'
 import { EarthBackground } from '../utils/canvas/earth-background.js'
 import { CheckboxWebGL } from '../utils/canvas/checkbox-webgl.js'
 import { fetchFirebaseDb } from '../utils/db.js'
@@ -96,7 +96,7 @@ const SLIDER_GROUPS = Object.freeze([
     controls: [
       { label: 'fov',         param: SP_PARAMS.FOV,          type: _R, min: 15, max: 90, step: 1,   def: 45 },
       { label: 'autoRotate',  param: SP_PARAMS.AUTO_ROTATE,  type: _C, checked: false },
-      { label: 'rotateSpeed', param: SP_PARAMS.ROTATE_SPEED, type: _R, min: -5, max: 5,  step: 0.01, def: 1.66 },
+      { label: 'rotateSpeed', param: SP_PARAMS.ROTATE_SPEED, type: _R, min: -5, max: 5,  step: 0.01, def: 0.05 },
     ],
     actions: [
       { label: 'resetView', action: SP_ACTIONS.RESET },
@@ -120,7 +120,7 @@ const SLIDER_GROUPS = Object.freeze([
   {
     label: 'displayDebug', collapsed: true,
     controls: [
-      { label: 'resScale', param: SP_PARAMS.RES_SCALE, type: _R, min: 0.5, max: 4, step: 0.1, def: 2 },
+      { label: 'resScale', param: SP_PARAMS.RES_SCALE, type: _R, min: 0.5, max: 2, step: 0.1, def: 1 },
     ],
     actions: [
       { label: 'copyConstants', action: SP_ACTIONS.COPY_CONSTANTS },
@@ -157,7 +157,7 @@ const PARAM_HANDLERS = Object.freeze({
 })
 
 // ─── localStorage helpers ────────────────────────────────────────────────────
-const SP_VERSION = '3.2'
+const SP_VERSION = '3.3'
 
 const _loadSettings = () => {
   try {
@@ -722,11 +722,13 @@ export class SpacePlayground extends BaseComponent {
   }
 
   render() {
-    const t = { ...SP_DEFAULTS, ...(this.translations ?? {}) }
-
     const lang = store.getters.getLang()
 
     const locale = lang?.locale || lang || LOCALES.EN
+
+    const defaultTitle = EARTH_PLAYGROUND_LABELS[locale] || SP_DEFAULTS.title
+
+    const t = { ...SP_DEFAULTS, title: defaultTitle, ...(this.translations ?? {}) }
 
     const expLabel = t.experienceSettings || (locale === LOCALES.BR ? TEXT.SP_EXPERIENCE_SETTINGS_BR : (locale === LOCALES.ES || locale === LOCALES.CAS) ? TEXT.SP_EXPERIENCE_SETTINGS_ES : locale === LOCALES.DE ? TEXT.SP_EXPERIENCE_SETTINGS_DE : TEXT.SP_EXPERIENCE_SETTINGS)
 

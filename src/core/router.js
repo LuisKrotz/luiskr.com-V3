@@ -15,6 +15,7 @@ import {
   IDS,
   TEXT,
   MUTATIONS,
+  EARTH_PLAYGROUND_LABELS,
 } from './constants.js'
 
 export function normalizeProjectKey(slug) {
@@ -208,7 +209,7 @@ export class Router {
         view: TAGS.VIEW_SPACE_PLAYGROUND,
         lang,
         path: cleanPath,
-        meta: { title: TEXT.EARTH_PLAYGROUND_TITLE, translation: TRANSLATION_KEYS.EARTH_PLAYGROUND },
+        meta: { title: `${EARTH_PLAYGROUND_LABELS[lang] || TEXT.EARTH_PLAYGROUND} ${TEXT.PIPE_SEP} ${BASE_TITLE}`, translation: TRANSLATION_KEYS.EARTH_PLAYGROUND },
         params: {},
       }
     }

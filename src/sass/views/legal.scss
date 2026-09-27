@@ -8,7 +8,25 @@
 // ── Legal Document Isolated Styles ───────────────────────────────────────────
 $_B_INTERNAL: 'internal';
 
+:host {
+  display: block;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+article {
+  display: block;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 .legal {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   min-height: 100vh;
   min-height: 100dvh;
 }
