@@ -621,18 +621,18 @@ export const DEFAULT_SP_GUI = Object.freeze({
     OUTER_FADE: 0.08,
   }),
   BLOOM: Object.freeze({
-    ENABLED: true,
+    ENABLED: false,
     STRENGTH: 0.1,
     RADIUS: 0.3,
     THRESHOLD: 0.9,
   }),
   VIGNETTE: Object.freeze({
-    ENABLED: true,
+    ENABLED: false,
     DARKNESS: 1,
     OFFSET: 0.5,
   }),
   CHROMATIC_ABERRATION: Object.freeze({
-    ENABLED: true,
+    ENABLED: false,
     STRENGTH: 0.25,
     SCALE: 0.5,
   }),

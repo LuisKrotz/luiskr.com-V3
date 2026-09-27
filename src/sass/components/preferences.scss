@@ -218,9 +218,7 @@ $_B_PREF_CLOSE: 'pref-close';
   pointer-events: none;
   border-radius: to-rem($space-lg);
   border: to-rem($space-hairline) solid var(--border-color);
-  background: var(--btn-accent-fill);
-  backdrop-filter: blur(to-rem($space-xs));
-  -webkit-backdrop-filter: blur(to-rem($space-xs));
+  background: transparent;
   box-shadow: var(--shadow-card-featured);
   transition:
     transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
@@ -229,15 +227,6 @@ $_B_PREF_CLOSE: 'pref-close';
     opacity 0.2s ease;
   z-index: 2;
   opacity: 0;
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(circle at center, var(--btn-accent-fill) 0%, transparent 70%);
-    pointer-events: none;
-  }
 }
 
 .lang-dialog {

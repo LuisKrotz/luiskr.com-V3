@@ -79,14 +79,14 @@ const SLIDER_GROUPS = Object.freeze([
   {
     label: 'postFx', collapsed: true,
     controls: [
-      { label: 'bloom',          param: SP_PARAMS.BLOOM,            type: _C, checked: true },
+      { label: 'bloom',          param: SP_PARAMS.BLOOM,            type: _C, checked: false },
       { label: 'bloomStr',       param: SP_PARAMS.BLOOM_STRENGTH,   type: _R, min: 0,   max: 3,    step: 0.05, def: 0.1 },
       { label: 'bloomRadius',    param: SP_PARAMS.BLOOM_RADIUS,     type: _R, min: 0,   max: 2,    step: 0.05, def: 0.3 },
       { label: 'bloomThreshold', param: SP_PARAMS.BLOOM_THRESHOLD,  type: _R, min: 0,   max: 1.5,  step: 0.01, def: 0.9 },
-      { label: 'vignette',       param: SP_PARAMS.VIGNETTE,         type: _C, checked: true },
+      { label: 'vignette',       param: SP_PARAMS.VIGNETTE,         type: _C, checked: false },
       { label: 'vigDarkness',    param: SP_PARAMS.VIGNETTE_DARKNESS, type: _R, min: 0, max: 2, step: 0.05, def: 1 },
       { label: 'vigOffset',      param: SP_PARAMS.VIGNETTE_OFFSET,   type: _R, min: 0, max: 1, step: 0.01, def: 0.5 },
-      { label: 'chromaticAb',    param: SP_PARAMS.CHROMATIC,          type: _C, checked: true },
+      { label: 'chromaticAb',    param: SP_PARAMS.CHROMATIC,          type: _C, checked: false },
       { label: 'caStrength',     param: SP_PARAMS.CA_STRENGTH,        type: _R, min: 0, max: 2, step: 0.01, def: 0.25 },
       { label: 'filmGrain',     param: SP_PARAMS.FILM_GRAIN,          type: _R, min: 0, max: 1, step: 0.01, def: 0 },
     ],

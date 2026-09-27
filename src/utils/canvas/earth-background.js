@@ -450,7 +450,7 @@ export class EarthBackground {
 
       const oldCanvas = this.#canvas
 
-      const parent = oldCanvas?.parentElement
+      const parent = oldCanvas?.parentNode
 
       if (parent) {
         const newCanvas = oldCanvas.cloneNode(true)
@@ -474,7 +474,7 @@ export class EarthBackground {
 
     if (this.#disposed) return
 
-    this.#renderer.toneMapping         = THREE.NoToneMapping
+    this.#renderer.toneMapping         = THREE.ACESFilmicToneMapping
     this.#renderer.toneMappingExposure = 1
     this.#renderer.shadowMap.enabled   = false
 
@@ -580,16 +580,23 @@ export class EarthBackground {
 
     /* Render pipeline */
     this.#onProgress?.('Building post-processing pipeline…', 70)
-    this.#pipeline = new RenderPipeline(this.#renderer)
-    const scenePass = TSL.pass(this.#scene, this.#camera)
+    try {
+      this.#pipeline = new RenderPipeline(this.#renderer)
+      const scenePass = TSL.pass(this.#scene, this.#camera)
+      const sceneColor = scenePass.getTextureNode('output')
 
-    this.#bloom_ = {
-      enabled: DEFAULT_SP_GUI.BLOOM.ENABLED,
-      strength: DEFAULT_SP_GUI.BLOOM.STRENGTH,
-      radius: DEFAULT_SP_GUI.BLOOM.RADIUS,
-      threshold: DEFAULT_SP_GUI.BLOOM.THRESHOLD,
+      this.#bloom_ = {
+        enabled: DEFAULT_SP_GUI.BLOOM.ENABLED,
+        strength: DEFAULT_SP_GUI.BLOOM.STRENGTH,
+        radius: DEFAULT_SP_GUI.BLOOM.RADIUS,
+        threshold: DEFAULT_SP_GUI.BLOOM.THRESHOLD,
+      }
+      this.#bloomPass = bloom(sceneColor, this.#bloom_.strength, this.#bloom_.radius, this.#bloom_.threshold)
+      this.#pipeline.outputNode = sceneColor.add(this.#bloomPass)
+    } catch (e) {
+      console.warn('[EarthBG] RenderPipeline setup skipped:', e)
+      this.#pipeline = null
     }
-    this.#bloomPass = bloom(scenePass, this.#bloom_.strength, this.#bloom_.radius, this.#bloom_.threshold)
 
     /* Lens flare */
     this.#flarePosU = TSL.uniform(new THREE.Vector2(-99, -99))
@@ -599,12 +606,7 @@ export class EarthBackground {
       intensity: DEFAULT_SP_GUI.LENS_FLARE.INTENSITY,
     }
 
-    const { lensflareNode, ccNode } = this.#makeLensflareNodes(TSL)
-    const baseUv    = TSL.screenCoordinate.div(TSL.screenSize).sub(TSL.vec2(0.5))
-    const aspect    = TSL.screenSize.x.div(TSL.screenSize.y)
-    const flareUv   = TSL.vec2(baseUv.x.mul(aspect), baseUv.y)
-    const lF        = lensflareNode({ uv: flareUv, pos: this.#flarePosU, iTime: TSL.time })
-    const colorFlare = TSL.mul(ccNode({ color: lF, factor: 0.5, factor2: 0.1 }), this.#flareIntU)
+
 
     /* Color grading */
     this.#cg = {
@@ -618,11 +620,6 @@ export class EarthBackground {
     const cgBLU = TSL.uniform(this.#cg.blackLevel)
     const cgBGU = TSL.uniform(this.#cg.blueGreenBoost)
     this.#cgUniforms = { contrast: cgCU, saturation: cgSU, blackLevel: cgBLU, blueGreenBoost: cgBGU }
-
-    const { colorGradeNode, vignetteNode } = this.#makePostNodes(TSL)
-    const preGrade  = scenePass.add(this.#bloomPass).add(colorFlare)
-    const hdrGraded = colorGradeNode({ color: preGrade, contrast: cgCU, saturation: cgSU, blackLevel: cgBLU, blueGreenBoost: cgBGU })
-    const sdrToned  = hdrGraded.toneMapping(THREE.ACESFilmicToneMapping)
 
     /* Post: CA, film, vignette */
     this.#ca  = {
@@ -650,12 +647,6 @@ export class EarthBackground {
     this.#vigUniforms = { darkness: vigDU, offset: vigOU }
     this.#filmU       = filmU
 
-    let finalNode = sdrToned
-    finalNode = vignetteNode({ color: finalNode, uv: TSL.screenCoordinate.div(TSL.screenSize), darkness: vigDU, offset: vigOU })
-    finalNode = chromaticAberration(finalNode, caStrU, TSL.vec2(0.5, 0.5), caScU)
-    finalNode = film(finalNode, filmU)
-
-    this.#pipeline.outputNode = finalNode
     this.#render.resolutionScale = DEFAULT_SP_GUI.DEBUG.RESOLUTION_SCALE
 
     /* Resize + start */
@@ -1036,19 +1027,15 @@ export class EarthBackground {
     this.#updateLensFlare()
     this.#controls?.update()
 
-    if (this.#renderer) {
-      try {
-        if (this.#pipeline) {
+    if (this.#renderer && this.#scene && this.#camera) {
+      if (this.#pipeline && this.#bloom_?.enabled) {
+        try {
           this.#pipeline.render()
-        } else if (this.#scene && this.#camera) {
+        } catch {
           this.#renderer.render(this.#scene, this.#camera)
         }
-      } catch (e) {
-        console.warn('[EarthBG] Render error, fallback to direct render:', e)
-        this.#pipeline = null
-        if (this.#scene && this.#camera) {
-          this.#renderer.render(this.#scene, this.#camera)
-        }
+      } else {
+        this.#renderer.render(this.#scene, this.#camera)
       }
     }
   }
