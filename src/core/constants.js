@@ -1439,7 +1439,7 @@ export const TEXT = Object.freeze({
   SP_BUMP_SCALE: 'Bump Map Scale',
   SP_SELF_SHADOW: 'Self-Shadow Intensity',
   SP_SELF_SHADOW_OFFSET: 'Self-Shadow Offset',
-  SP_SCREENSHOT: 'Take 4K Screenshot',
+  SP_SCREENSHOT: 'Take Screenshot',
   SP_COPY_CONSTANTS: 'Copy GUI Constants',
   SP_DISPLAY_DEBUG: 'Display & Debug',
   SP_SHOW_STATS: 'Show Stats',

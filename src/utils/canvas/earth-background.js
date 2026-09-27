@@ -8,7 +8,7 @@
  *   init()                  → async bootstrap
  *   setReducedMotion(bool)  → pause/resume RAF
  *   setTheme(isDark)        → rotate sun to show lit or night hemisphere
- *   takeScreenshot()        → download 4K PNG
+ *   takeScreenshot()        → download PNG
  *   updateBloom(opts)       → live bloom tweaks
  *   updateColorGrading(opts)
  *   updateCamera(opts)
@@ -125,19 +125,21 @@ export class EarthBackground {
     if (!this.#canvas || !this.#renderer) return
 
     const old = this.#render.resolutionScale
+
     this.#render.resolutionScale = 2
+
     this.#handleResize()
 
     try {
+      // Render one frame at high res
       if (this.#pipeline) {
-        if (typeof this.#pipeline.renderAsync === STRINGS.FUNCTION) {
-          await this.#pipeline.renderAsync()
-        } else {
-          this.#pipeline.render()
-        }
+        this.#pipeline.render()
       } else if (this.#scene && this.#camera) {
         this.#renderer.render(this.#scene, this.#camera)
       }
+
+      // Wait a frame for GPU to finish writing to canvas
+      await new Promise((r) => requestAnimationFrame(r))
 
       let dataUrl = ''
 
@@ -160,7 +162,7 @@ export class EarthBackground {
 
         a.style.display = STRINGS.NONE
 
-        a.download = `earth-4k-${Date.now()}.png`
+        a.download = `earth-screenshot-${Date.now()}.png`
 
         a.href = dataUrl
 
@@ -178,6 +180,7 @@ export class EarthBackground {
       console.error('[EarthBG] Screenshot failed:', e)
     } finally {
       this.#render.resolutionScale = old
+
       this.#handleResize()
     }
   }
@@ -1050,17 +1053,7 @@ export class EarthBackground {
     this.#controls?.update()
 
     if (this.#renderer && this.#scene && this.#camera) {
-      const anyPostFx = this.#pipeline && (
-        this.#bloom_?.enabled ||
-        this.#vig?.enabled ||
-        this.#ca?.enabled ||
-        this.#film?.enabled ||
-        this.#cg?.contrast !== 1 ||
-        this.#cg?.saturation !== 1 ||
-        this.#cg?.blackLevel !== 0.015
-      )
-
-      if (anyPostFx) {
+      if (this.#pipeline) {
         try {
           this.#pipeline.render()
         } catch {

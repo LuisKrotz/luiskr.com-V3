@@ -10,6 +10,11 @@ import { predictiveLoader } from '../core/predictive-loader.js'
 import { FlagWebGL } from '../utils/canvas/flag-webgl.js'
 import appStyles from '../sass/components/app.scss?inline'
 
+// Pre-compute all localized playground slugs for fast O(1) lookup
+const _PLAYGROUND_SLUGS = new Set(
+  Object.values(LANG_SLUGS).map((s) => s.earthPlayground).filter(Boolean)
+)
+
 export class AppNav extends BaseComponent {
   constructor() {
     super(appStyles)
@@ -51,7 +56,7 @@ export class AppNav extends BaseComponent {
 
     if (last === PATHS.EARTH_PLAYGROUND_SEGMENT || last === PATHS.SPACE_PLAYGROUND_SEGMENT) return true
 
-    return Object.values(LANG_SLUGS).some((s) => s.earthPlayground && last === s.earthPlayground)
+    return _PLAYGROUND_SLUGS.has(last)
   }
 
   get isAdminRoute() {
@@ -481,6 +486,22 @@ export class AppNav extends BaseComponent {
 
         {!isNotFound && (
           <div className={CLASSES.NAV_MOBILE_STRIP}>
+            {!this.isPlaygroundPage && (
+              <Fragment>
+                <button
+                  className={CLASSES.NAV_LINK}
+                  type={ATTRS.TYPE_BUTTON}
+                  onClick={(e) => {
+                    e.preventDefault()
+
+                    router.push(localePath(CMS_KEYS.EARTH_PLAYGROUND, this.locale))
+                  }}
+                >
+                  {t?.earthPlayground || t?.spacePlayground || EARTH_PLAYGROUND_LABELS[this.locale] || TEXT.EARTH_PLAYGROUND}
+                </button>
+                <span className={CLASSES.NAV_SEPARATOR}>|</span>
+              </Fragment>
+            )}
             <button
               className={`${CLASSES.NAV_LINK} ${CLASSES.NAV_PREF_BTN}`}
               title={TEXT.PREFERENCES}

@@ -732,28 +732,32 @@ export class SpacePlayground extends BaseComponent {
 
     const expLabel = t.experienceSettings || (locale === LOCALES.BR ? TEXT.SP_EXPERIENCE_SETTINGS_BR : (locale === LOCALES.ES || locale === LOCALES.CAS) ? TEXT.SP_EXPERIENCE_SETTINGS_ES : locale === LOCALES.DE ? TEXT.SP_EXPERIENCE_SETTINGS_DE : TEXT.SP_EXPERIENCE_SETTINGS)
 
+    const earthReady = !!this._earthBg
+
     return (
       <Fragment>
-        {/* Sci-Fi System Boot Loader */}
-        <div className={`${_B_SP}-loader`}>
-          <div className={`${_B_SP}-loader-glow`} />
-          <div className={`${_B_SP}-loader-grid`} />
-          <div className={`${_B_SP}-loader-content`}>
-            <div className={`${_B_SP}-loader-spinner-outer`} />
-            <div className={`${_B_SP}-loader-spinner-inner`} />
-            <div className={`${_B_SP}-loader-counter`}>
-              <span className={`${_B_SP}-loader-percent`}>
-                <span className={`${_B_SP}-loader-val`}>0</span>
-                <span className={`${_B_SP}-loader-sym`}>%</span>
-              </span>
-            </div>
-            <div className={`${_B_SP}-loader-title`}>{t.systemBoot || TEXT.SP_SYSTEM_BOOT}</div>
-            <div className={`${_B_SP}-loader-msg`}>{TEXT.SP_INIT_WEBGPU}</div>
-            <div className={`${_B_SP}-loader-bar`}>
-              <div className={`${_B_SP}-loader-bar-fill`} />
+        {/* Sci-Fi System Boot Loader — only shown during initial load */}
+        {!earthReady && (
+          <div className={`${_B_SP}-loader`}>
+            <div className={`${_B_SP}-loader-glow`} />
+            <div className={`${_B_SP}-loader-grid`} />
+            <div className={`${_B_SP}-loader-content`}>
+              <div className={`${_B_SP}-loader-spinner-outer`} />
+              <div className={`${_B_SP}-loader-spinner-inner`} />
+              <div className={`${_B_SP}-loader-counter`}>
+                <span className={`${_B_SP}-loader-percent`}>
+                  <span className={`${_B_SP}-loader-val`}>0</span>
+                  <span className={`${_B_SP}-loader-sym`}>%</span>
+                </span>
+              </div>
+              <div className={`${_B_SP}-loader-title`}>{t.systemBoot || TEXT.SP_SYSTEM_BOOT}</div>
+              <div className={`${_B_SP}-loader-msg`}>{TEXT.SP_INIT_WEBGPU}</div>
+              <div className={`${_B_SP}-loader-bar`}>
+                <div className={`${_B_SP}-loader-bar-fill`} />
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Controls wrapper aligned with top nav %MAXAREA */}
         <div className={CLASSES.SP_CONTROLS_WRAP}>
