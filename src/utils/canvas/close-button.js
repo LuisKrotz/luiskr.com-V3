@@ -386,11 +386,34 @@ export class CloseButtonWebGL {
 
   /**
    * Called when the reduced-motion preference changes.
-   * Restarts the animation loop if motion is now allowed.
+   * Restarts the animation loop if motion is now allowed,
+   * or renders a final static frame when entering reduced mode.
    */
   setReducedMotion(isReduced) {
-    if (!isReduced && !this.animId) {
+    if (isReduced) {
+      this._renderStatic()
+    } else if (!this.animId) {
       this.animate()
+    }
+  }
+
+  /**
+   * Render a single static frame with the X fully drawn.
+   * Used when reduced-motion is active so the button remains visible.
+   */
+  _renderStatic() {
+    this.drawProgress = 1.0
+
+    this.hoverLevel = this.isHovered ? 1.0 : 0.0
+
+    this.rotation = this.hoverLevel * Math.PI
+
+    const now = performance.now()
+
+    if (this.useWebGL && this.gl) {
+      this._renderWebGL(now)
+    } else if (this.ctx) {
+      this._renderCanvas2D(now)
     }
   }
 
@@ -398,8 +421,12 @@ export class CloseButtonWebGL {
     if (store.getters.getReducedMotion()) {
       if (this.animId) {
         cancelAnimationFrame(this.animId)
+
         this.animId = null
       }
+
+      this._renderStatic()
+
       return
     }
 

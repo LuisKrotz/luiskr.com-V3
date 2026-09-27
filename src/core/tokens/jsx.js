@@ -97,7 +97,7 @@ export const PROP_ATTR_MAP = Object.freeze({
  * the live state (e.g. slider thumb position, input text).
  */
 export const DOM_PROPS = Object.freeze(
-  new Set(['value', 'selectedIndex'])
+  new Set(['value', 'selectedIndex', 'innerHTML'])
 )
 
 export const JSX_PROPS = Object.freeze({

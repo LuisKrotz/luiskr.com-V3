@@ -2,7 +2,7 @@ import { CMS_CLASSES, CMS_TAGS, CMS_EVENTS } from "../../core/cms/tokens.js"
 import { BaseComponent } from '../../core/Component.js'
 import { getDbInstance } from '../../firebase.js'
 import { ref, child, get, set } from 'firebase/database'
-import { LOCALES, PATHS } from '../../core/constants.js'
+import { LOCALES, PATHS, EVENTS } from '../../core/constants.js'
 import { VALID_LANGS } from '../../core/i18n.js'
 import cmsStyles from '../../sass/views/cms.scss?inline'
 

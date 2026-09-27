@@ -8,6 +8,14 @@ class GPUAccelerator {
     this.program = null
     this.texture = null
     this.hasNPU = false
+    this._ready = false
+  }
+
+  _ensureReady() {
+    if (this._ready) return
+
+    this._ready = true
+
     this.initGPU()
   }
 
@@ -144,6 +152,8 @@ class GPUAccelerator {
 
   // Upload HTML5 Video frames directly to WebGL GPU hardware texture
   processVideoGPU(videoEl, targetW = MEDIA_DIMENSIONS.VIDEO_DEFAULT_WIDTH, targetH = MEDIA_DIMENSIONS.VIDEO_DEFAULT_HEIGHT) {
+    this._ensureReady()
+
     if (!this.gl || !videoEl || videoEl.readyState < 2) return null
     try {
       this._uploadTextureAndDraw(videoEl, targetW, targetH)
@@ -155,6 +165,8 @@ class GPUAccelerator {
 
   // Upload HTML5 Image element directly to WebGL GPU hardware texture
   processImageGPU(imageEl, targetW = MEDIA_DIMENSIONS.DEFAULT_WIDTH, targetH = MEDIA_DIMENSIONS.DEFAULT_HEIGHT) {
+    this._ensureReady()
+
     if (!this.gl || !imageEl) return null
     try {
       this._uploadTextureAndDraw(imageEl, targetW, targetH)
@@ -170,6 +182,8 @@ class GPUAccelerator {
 
   // Upload ImageBitmap directly to WebGL2 GPU hardware VRAM texture
   processBitmapGPU(bitmap, targetW = MEDIA_DIMENSIONS.DEFAULT_WIDTH, targetH = MEDIA_DIMENSIONS.DEFAULT_HEIGHT) {
+    this._ensureReady()
+
     if (!this.gl || !bitmap) return null
     try {
       this._uploadTextureAndDraw(bitmap, targetW, targetH)

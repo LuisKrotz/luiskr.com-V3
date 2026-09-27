@@ -70,6 +70,11 @@ export class ViewCmsDashboard extends BaseComponent {
       this.addScopedListener(logoutBtn, EVENTS.CLICK, () => this.handleLogout())
     }
 
+    const brand = this.$(`.${CMS_CLASSES.CMS_BRAND}`)
+    if (brand) {
+      this.addScopedListener(brand, EVENTS.CLICK, () => router.push('/'))
+    }
+
     const tabs = this.$$(`.${CMS_CLASSES.CMS_TAB_BTN}`)
     tabs.forEach((tab) => {
       this.addScopedListener(tab, EVENTS.CLICK, () => {

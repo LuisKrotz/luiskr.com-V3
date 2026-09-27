@@ -612,15 +612,38 @@ export class ThemeSliderWebGL {
     this.rippleTime = (performance.now() - this.startTime) * 0.001
 
     this.ripplePos = this._pToKnobX(this.targetP)
+
+    if (store.getters.getReducedMotion()) this._renderStatic()
   }
 
   /**
    * Called when the reduced-motion preference changes.
-   * Restarts the animation loop if motion is now allowed.
+   * Restarts the animation loop if motion is now allowed,
+   * or renders a final static frame when entering reduced mode.
    */
   setReducedMotion(isReduced) {
-    if (!isReduced && !this.animId) {
+    if (isReduced) {
+      this._renderStatic()
+    } else if (!this.animId) {
       this.animate()
+    }
+  }
+
+  /**
+   * Snap state to target and render a single static frame.
+   * Used when reduced-motion is active so controls remain visible.
+   */
+  _renderStatic() {
+    this.currentP = this.targetP
+
+    this.knobX = this._pToKnobX(this.currentP)
+
+    const now = performance.now()
+
+    if (this.useWebGL && this.gl) {
+      this._renderWebGL(now)
+    } else if (this.ctx) {
+      this._renderCanvas2D()
     }
   }
 
@@ -628,8 +651,12 @@ export class ThemeSliderWebGL {
     if (store.getters.getReducedMotion()) {
       if (this.animId) {
         cancelAnimationFrame(this.animId)
+
         this.animId = null
       }
+
+      this._renderStatic()
+
       return
     }
 

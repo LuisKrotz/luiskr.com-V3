@@ -123,7 +123,7 @@ export class PortfolioRelated extends BaseComponent {
 
     const locale = lang.locale || LOCALES.EN
 
-    const dbpath = `${lang.database}${locale}${lang.pagesPath}${CMS_KEYS.HOME_UPPER}`
+    const dbpath = `${lang.database}${locale}${lang.pagesPath}${CMS_KEYS.HOME}`
 
     const relatedPath = `${lang.database}${locale}${PATHS.COMPONENTS_RELATED}`
 

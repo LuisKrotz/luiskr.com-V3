@@ -356,11 +356,28 @@ export class CarouselArrowWebGL {
 
   /**
    * Called when the reduced-motion preference changes.
-   * Restarts the animation loop if motion is now allowed.
+   * Restarts the animation loop if motion is now allowed,
+   * or renders a final static frame when entering reduced mode.
    */
   setReducedMotion(isReduced) {
-    if (!isReduced && !this.animId) {
+    if (isReduced) {
+      this._renderStatic()
+    } else if (!this.animId) {
       this.animate()
+    }
+  }
+
+  /**
+   * Render a single static frame with the arrow visible.
+   * Used when reduced-motion is active so controls remain visible.
+   */
+  _renderStatic() {
+    this.hoverLevel = this.isHovered ? 1.0 : 0.0
+
+    const now = performance.now()
+
+    if (this.ctx) {
+      this._renderCanvas2D(now)
     }
   }
 
@@ -368,8 +385,12 @@ export class CarouselArrowWebGL {
     if (store.getters.getReducedMotion()) {
       if (this.animId) {
         cancelAnimationFrame(this.animId)
+
         this.animId = null
       }
+
+      this._renderStatic()
+
       return
     }
 

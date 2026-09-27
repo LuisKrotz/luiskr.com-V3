@@ -337,21 +337,46 @@ export class SwitchWebGL {
     this.targetP = this.isActive ? 1.0 : 0.0
 
     this.onToggle?.(this.isActive)
+
+    if (store.getters.getReducedMotion()) this._renderStatic()
   }
 
   setActive(active) {
     this.isActive = Boolean(active)
 
     this.targetP = this.isActive ? 1.0 : 0.0
+
+    if (store.getters.getReducedMotion()) this._renderStatic()
   }
 
   /**
    * Called when the reduced-motion preference changes.
-   * Restarts the animation loop if motion is now allowed.
+   * Restarts the animation loop if motion is now allowed,
+   * or renders a final static frame when entering reduced mode.
    */
   setReducedMotion(isReduced) {
-    if (!isReduced && !this.animId) {
+    if (isReduced) {
+      this._renderStatic()
+    } else if (!this.animId) {
       this.animate()
+    }
+  }
+
+  /**
+   * Snap state to target and render a single static frame.
+   * Used when reduced-motion is active so controls remain visible.
+   */
+  _renderStatic() {
+    this.currentP = this.targetP
+
+    this.knobX = this._pToKnobX(this.currentP)
+
+    const now = performance.now()
+
+    if (this.useWebGL && this.gl) {
+      this._renderWebGL(now)
+    } else if (this.ctx) {
+      this._renderCanvas2D(now)
     }
   }
 
@@ -359,8 +384,12 @@ export class SwitchWebGL {
     if (store.getters.getReducedMotion()) {
       if (this.animId) {
         cancelAnimationFrame(this.animId)
+
         this.animId = null
       }
+
+      this._renderStatic()
+
       return
     }
 

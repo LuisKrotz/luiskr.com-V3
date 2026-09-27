@@ -44,7 +44,12 @@
 }
 
 @function to-rem($value) {
-  @return #{decimal-round(calc(($value / 16)), 3)}rem;
+  // Strip px unit if present so the result is always unitless before appending rem
+  @if unit($value) == 'px' {
+    $value:calc($value / 1px);
+  }
+
+  @return #{decimal-round((calc($value / 16)), 3)}rem;
 }
 
 // Calculate percentual value related to the given area

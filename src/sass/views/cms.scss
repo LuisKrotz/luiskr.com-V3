@@ -1,5 +1,5 @@
-@import '../base/variables';
 @import '../base/mixins';
+@import '../base/variables';
 
 // ── CMS & Admin Theme System ─────────────────────────────────────────
 
@@ -129,6 +129,7 @@
     display: flex;
     align-items: center;
     gap: to-rem($space-lg);
+    cursor: pointer;
 
     .cms-logo {
       font-size: 1.2rem;

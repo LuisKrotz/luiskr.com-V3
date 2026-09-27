@@ -324,10 +324,7 @@ export class CmsFooterEditor extends BaseComponent {
         ),
       ),
     )
-
-    this.shadowRoot.innerHTML = `<style>${cmsStyles}</style>`
-    this.shadowRoot.appendChild(root)
-    this._bindEvents()
+    return root
   }
 }
 

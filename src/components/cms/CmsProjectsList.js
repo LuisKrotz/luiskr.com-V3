@@ -3,7 +3,7 @@ import { BaseComponent } from '../../core/Component.js'
 import { getDbInstance } from '../../firebase.js'
 import { ref, child, get, set, remove } from 'firebase/database'
 import { h } from '../../core/jsx.js'
-import { LOCALES, PATHS, URLS, MEDIA_DIMENSIONS } from '../../core/constants.js'
+import { TAGS, ATTRS, EVENTS, LOCALES, PATHS, URLS, MEDIA_DIMENSIONS } from '../../core/constants.js'
 import { VALID_LANGS } from '../../core/i18n.js'
 import cmsStyles from '../../sass/views/cms.scss?inline'
 
@@ -464,10 +464,7 @@ export class CmsProjectsList extends BaseComponent {
         ),
       ) : null,
     )
-
-    this.shadowRoot.innerHTML = `<style>${cmsStyles}</style>`
-    this.shadowRoot.appendChild(root)
-    this._bindEvents()
+    return root
   }
 }
 

@@ -55,6 +55,9 @@ export default defineConfig(({ mode }) => {
 
   const terserMangle = {
     toplevel: true,
+    // Protect browser DOM globals from being mangled — they are not bundled
+    // variables but runtime-provided constructors/interfaces.
+    reserved: ['Node', 'Element', 'HTMLElement', 'Document', 'DOMParser', 'CustomEvent', 'Event', 'MutationObserver', 'IntersectionObserver', 'ResizeObserver', 'AbortController', 'URL', 'URLSearchParams', 'WebSocket', 'Worker', 'MessageChannel', 'MessagePort', 'Performance', 'Request', 'Response', 'Headers', 'Cache', 'CacheStorage'],
     properties: {
       // Matches single words ('CLASS', 'ID', 'PX') and snake_case ('RENDER_MEDIA_THUMB')
       // Case-sensitive, no lowercase allowed
@@ -65,6 +68,24 @@ export default defineConfig(({ mode }) => {
 
       // Ensures obj['CLASS'] and obj.CLASS both mangle to the same token
       keep_quoted: false,
+
+      // Protect WebGL / WebGLRenderingContext enum constants — these are
+      // runtime-provided numeric properties on the GL context, not bundled
+      // code. Mangling them corrupts texture format, filter, and draw calls.
+      reserved: [
+        // WebGL enums used in gpu-accel.js, flag-webgl.js, checkbox-webgl.js, earth-background.js
+        'ARRAY_BUFFER', 'STATIC_DRAW', 'FLOAT', 'UNSIGNED_BYTE',
+        'VERTEX_SHADER', 'FRAGMENT_SHADER', 'COMPILE_STATUS', 'LINK_STATUS',
+        'TEXTURE_2D', 'TEXTURE0', 'TEXTURE1',
+        'TEXTURE_MIN_FILTER', 'TEXTURE_MAG_FILTER',
+        'TEXTURE_WRAP_S', 'TEXTURE_WRAP_T',
+        'LINEAR', 'LINEAR_MIPMAP_LINEAR', 'CLAMP_TO_EDGE',
+        'RGBA', 'COLOR_BUFFER_BIT',
+        'TRIANGLES', 'TRIANGLE_STRIP',
+        'BLEND', 'SRC_ALPHA', 'ONE', 'ONE_MINUS_SRC_ALPHA',
+        // Three.js runtime constants
+        'LOD', 'MOUSE', 'PAN', 'RIGHT',
+      ],
     },
   }
 

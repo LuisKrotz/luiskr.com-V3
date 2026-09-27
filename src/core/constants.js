@@ -501,6 +501,15 @@ export const TAGS = Object.freeze({
   A: 'a',
   P: 'p',
   CANVAS: 'canvas',
+  SELECT: 'select',
+  OPTION: 'option',
+  INPUT: 'input',
+  TEXTAREA: 'textarea',
+  LABEL: 'label',
+  H3: 'h3',
+  NAV: 'nav',
+  HEADER: 'header',
+  MAIN: 'main',
 })
 
 // ─── URL constants ───────────────────────────────────────────────────
@@ -520,6 +529,7 @@ export const URLS = Object.freeze({
 export const PATHS = Object.freeze({
   ROOT: "/",
   COVERS: "covers/",
+  COMPONENTS: "/components",
   COMPONENTS_RELATED: "/components/related",
   COMPONENTS_RELATED_PROJECTS: "/components/related/projects",
   TRANSLATIONS: "translations/",
@@ -527,6 +537,7 @@ export const PATHS = Object.freeze({
   PROJECTS: "/projects/",
   PORTFOLIO: "/portfolio/",
   PORTFOLIO_SEGMENT: "portfolio",
+  PORTFOLIO_SLASH: "/portfolio/",
   ADMIN: "/admin",
   CMS: "/cms",
   PRIVACY_POLICY: "/privacy-policy",

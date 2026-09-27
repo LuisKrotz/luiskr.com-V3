@@ -171,18 +171,22 @@ export class ViewProject extends BaseComponent {
 
             this._updateDom()
 
-            this._bindCarousels()
+            requestAnimationFrame(() => {
+              this._bindCarousels()
 
-            this.checkAutoOpenModal()
+              this.checkAutoOpenModal()
+            })
           } else {
             setTimeout(() => {
               this.translations = data
 
               this._updateDom()
 
-              this._bindCarousels()
+              requestAnimationFrame(() => {
+                this._bindCarousels()
 
-              this.checkAutoOpenModal()
+                this.checkAutoOpenModal()
+              })
             }, wait)
           }
         }
@@ -419,8 +423,11 @@ export class ViewProject extends BaseComponent {
   }
 
   onUpdated() {
-    this._bindCarousels()
-    this._updateModalDOM()
+    requestAnimationFrame(() => {
+      this._bindCarousels()
+
+      this._updateModalDOM()
+    })
   }
 
 }

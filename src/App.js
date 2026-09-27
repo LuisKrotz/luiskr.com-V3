@@ -238,7 +238,7 @@ export class AppRoot extends BaseComponent {
 
     if (!this.translations) {
       promises.push(
-        fetchFirebaseDb(`${dbpath}${PATHS.SLASH}APP`).then((snapshot) => {
+        fetchFirebaseDb(`${dbpath}${STRINGS.SLASH}APP`).then((snapshot) => {
           if (snapshot.exists()) {
             this.translations = snapshot.val()
             store.commit(MUTATIONS.SET_CLICK_OR_TAP, {
