@@ -36,6 +36,7 @@ $vw-272: 272px; //x340 // Watch OS
 $vw-320: 320px; // iphone SE
 $vw-375: 375px; // iphone
 $vw-414: 414px; // Phablet
+$vw-475: 475px; // Mobile menu breakpoint
 $vw-540: 540px; // Phablet
 $vw-768: 768px; // iPad
 $vw-960: 960px; // Tablet
@@ -115,6 +116,7 @@ $grid-max-area-7680: $un-7680 - $gap-7680 * 2;
 $bk-320: $vw-320 - 1px;
 $bk-375: $vw-375 - 1px;
 $bk-414: $vw-414 - 1px;
+$bk-475: $vw-475 - 1px;
 $bk-540: $vw-540 - 1px;
 $bk-768: $vw-768 - 1px;
 $bk-960: $vw-960 - 1px;

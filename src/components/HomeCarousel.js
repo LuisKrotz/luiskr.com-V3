@@ -311,8 +311,8 @@ export class HomeCarousel extends BaseComponent {
         <a
           className={CLASSES.HC_AWARD}
           href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
+          target={STRINGS.BLANK}
+          rel={STRINGS.NOOPENER}
         >
           {!item.media ? (
             <span className={CLASSES.HC_AWARD_MEDIA}>{item.icon || ''}</span>

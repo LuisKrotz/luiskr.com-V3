@@ -186,7 +186,7 @@ export class AwardsMentions extends BaseComponent {
         <div className={CLASSES.AWARDS_FOOTER_HEADER}>
           <h2 className={CLASSES.AWARDS_FOOTER_TITLE}>{this.title}</h2>
 
-          <div className={CLASSES.AWARDS_FOOTER_PROGRESS} role="progressbar" aria-label="Time until next award" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div className={CLASSES.AWARDS_FOOTER_PROGRESS} role="progressbar" aria-label={TEXT.TIME_UNTIL_NEXT_AWARD} aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
             <div className={CLASSES.AWARDS_FOOTER_PROGRESS_FILL} />
           </div>
         </div>
@@ -201,7 +201,7 @@ export class AwardsMentions extends BaseComponent {
           </div>
         )}
 
-        <nav className={CLASSES.AWARDS_FOOTER_LINKS} aria-label="Legal">
+        <nav className={CLASSES.AWARDS_FOOTER_LINKS} aria-label={TEXT.LEGAL}>
           {links.map((link, i) => (
             <Fragment key={link.link || i}>
               <a

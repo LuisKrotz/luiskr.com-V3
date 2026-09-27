@@ -1,6 +1,6 @@
 import { BaseComponent } from '../core/Component.js'
 import store from '../core/store.js'
-import { CLASSES, LOCALES, PATHS, TEXT, MUTATIONS, TAGS } from '../core/constants.js'
+import { CLASSES, LOCALES, PATHS, TEXT, MUTATIONS, TAGS, STRINGS } from '../core/constants.js'
 import { h, Fragment } from '../core/jsx.js'
 import contactStyles from '../sass/components/contact.scss?inline'
 
@@ -64,8 +64,8 @@ export class ContactSection extends BaseComponent {
             <Fragment key={item.link}>
               <a
                 href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={STRINGS.BLANK}
+                rel={STRINGS.NOOPENER}
                 className={CLASSES.CONTACT_SOCIAL_LINK}
               >
                 {item.description}

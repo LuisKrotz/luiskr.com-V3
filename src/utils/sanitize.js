@@ -87,8 +87,8 @@ function sanitizeNode(node) {
       if (tag === 'a') {
         const href = child.getAttribute('href') || ''
         if (href.startsWith('http') || href.startsWith('//')) {
-          child.setAttribute('target', '_blank')
-          child.setAttribute('rel', 'noopener noreferrer')
+          child.setAttribute(ATTRS.TARGET, STRINGS.BLANK)
+          child.setAttribute(ATTRS.REL, STRINGS.NOOPENER)
         }
         // Strip javascript: and data: URIs
         if (/^(javascript|data|vbscript):/i.test(href)) {

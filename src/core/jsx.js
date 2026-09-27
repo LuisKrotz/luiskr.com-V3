@@ -10,6 +10,7 @@ import {
   SVG_NS,
   SVG_TAGS,
   BOOL_PROPS,
+  DOM_PROPS,
   PROP_ATTR_MAP,
   JSX_PROPS,
 } from './tokens/jsx.js'
@@ -69,6 +70,10 @@ export function h(tag, props, ...children) {
         } catch (_) {}
 
         el.setAttribute(attrName, STRINGS.EMPTY)
+      } else if (DOM_PROPS.has(key)) {
+        el[key] = val
+
+        el.setAttribute(key, String(val))
       } else {
         const attrName = PROP_ATTR_MAP[key] || key
 

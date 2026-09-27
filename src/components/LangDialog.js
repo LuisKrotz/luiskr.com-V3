@@ -389,7 +389,7 @@ export class LangDialog extends BaseComponent {
                       <span className={CLASSES.FLAG_SPLIT}>
                         <img
                           className={CLASSES.FLAG_IMG}
-                          src={`/flags/${l.cc}.svg`}
+                          src={`${PATHS.FLAGS_PREFIX}${l.cc}${PATHS.SVG_EXT}`}
                           alt={l.label}
                           width={MEDIA_DIMENSIONS.FLAG_DIALOG_SPLIT_WIDTH}
                           height={MEDIA_DIMENSIONS.FLAG_DIALOG_HEIGHT}
@@ -398,7 +398,7 @@ export class LangDialog extends BaseComponent {
                         />
                         <img
                           className={CLASSES.FLAG_IMG}
-                          src={`/flags/${l.cc2}.svg`}
+                          src={`${PATHS.FLAGS_PREFIX}${l.cc2}${PATHS.SVG_EXT}`}
                           alt={ATTRS.EMPTY}
                           width={MEDIA_DIMENSIONS.FLAG_DIALOG_SPLIT_WIDTH}
                           height={MEDIA_DIMENSIONS.FLAG_DIALOG_HEIGHT}
@@ -409,7 +409,7 @@ export class LangDialog extends BaseComponent {
                     ) : (
                       <img
                         className={CLASSES.FLAG_IMG}
-                        src={`/flags/${l.cc}.svg`}
+                        src={`${PATHS.FLAGS_PREFIX}${l.cc}${PATHS.SVG_EXT}`}
                         alt={l.label}
                         width={MEDIA_DIMENSIONS.FLAG_DIALOG_WIDTH}
                         height={MEDIA_DIMENSIONS.FLAG_DIALOG_HEIGHT}

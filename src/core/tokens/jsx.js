@@ -91,6 +91,15 @@ export const PROP_ATTR_MAP = Object.freeze({
   crossOrigin: 'crossorigin',
 })
 
+/**
+ * Properties that must be set via the DOM property (el[key] = val)
+ * rather than el.setAttribute(key, val) so the browser reflects
+ * the live state (e.g. slider thumb position, input text).
+ */
+export const DOM_PROPS = Object.freeze(
+  new Set(['value', 'selectedIndex'])
+)
+
 export const JSX_PROPS = Object.freeze({
   CLASS_NAME: 'className',
   CLASS: 'class',

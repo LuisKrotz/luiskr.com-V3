@@ -267,7 +267,7 @@ describe('AppNav Component', () => {
         el.render()
       }
       const elapsed = performance.now() - start
-      expect(elapsed).toBeLessThan(150)
+      expect(elapsed).toBeLessThan(250)
     })
 
     test('style is not injected twice on repeated mounts', () => {

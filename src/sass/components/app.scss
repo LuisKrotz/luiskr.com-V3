@@ -157,12 +157,19 @@ lang-dialog.is-open {
 }
 
 // ── Responsive nav ──────────────────────────────────────────────────────────
-// ≤ 960px: hide desktop links; show mobile strip (Prefs + Lang only)
+// ≥ 475px: full desktop nav with all links.
+// < 475px: hide the 2 menu links on the right and flags; show mobile burger.
 
 .nav-desktop {
   display: flex;
   align-items: center;
-  gap: 0; // spacing handled by separators
+  gap: 0;
+}
+
+.nav-desktop-right {
+  display: flex;
+  align-items: center;
+  gap: 0;
 }
 
 // Slim mobile strip — only visible below the breakpoint
@@ -170,6 +177,15 @@ lang-dialog.is-open {
   display: none;
   align-items: center;
   gap: 0;
+}
+
+// ── Burger button (WebGL canvas) ──────────────────────────────────────────
+.nav-burger-canvas {
+  width: to-rem($space-2xl);
+  height: to-rem($space-2xl);
+  cursor: pointer;
+  display: block;
+  border-radius: var(--radius-sm);
 }
 
 // ── Language dialog variant (4-column option grid) ───────────────────────────
@@ -186,12 +202,202 @@ lang-dialog.is-open {
   max-width: to-rem(480);
 }
 
-// ── Breakpoint: below 960px ───────────────────────────────────────────────────
-@media (max-width: $bk-960) {
-  // 960px
+// ── Fullscreen mobile menu modal ──────────────────────────────────────────
+.nav-menu-modal {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--bg-darkest, var(--bg-primary));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+
+  &--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+.nav-menu-modal-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.nav-menu-modal-header {
+  @extend %MAXAREA;
+
+  position: absolute;
+  top: to-rem($space-lg);
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 2;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(-#{to-rem($space-xs)});
+  transition:
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  .nav-menu-modal--open & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-menu-modal-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: to-rem($space-xl);
+  padding: to-rem($space-2xl);
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(to-rem($space-lg)) scale(0.96);
+  transition:
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+  .nav-menu-modal--open & {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.nav-menu-modal-item {
+  @extend %RESETBTN;
+
+  // "Click to open" / "click to expand" line style with animated corner borders
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: to-rem($space-md);
+  padding: to-rem($space-md) to-rem($space-xl);
+  width: to-rem($space-7xl);
+  max-width: calc(100vw - #{to-rem($space-3xl)});
+  box-sizing: border-box;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-size: to-rem($space-lg);
+  font-weight: 700;
+  letter-spacing: to-rem($space-2xs);
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+  backdrop-filter: blur(to-rem($space-2xs));
+  -webkit-backdrop-filter: blur(to-rem($space-2xs));
+  transition:
+    color 0.2s ease,
+    transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: to-rem($space-md);
+    height: to-rem($space-md);
+    transition:
+      width 0.25s ease,
+      height 0.25s ease;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    border-top: 1px solid var(--text-primary);
+    border-left: 1px solid var(--text-primary);
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid var(--text-primary);
+    border-right: 1px solid var(--text-primary);
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--text-primary);
+    transform: scale(1.04);
+
+    &::before,
+    &::after {
+      width: calc(100% - #{to-rem($space-xs)});
+      height: calc(100% - #{to-rem($space-xs)});
+    }
+  }
+
+  // Flag image inside the button
+  .flag-canvas {
+    width: to-rem($space-xl);
+    height: to-rem($space-lg);
+    border-radius: to-rem($space-3xs);
+  }
+
+  .flag-img {
+    width: to-rem($space-xl);
+    height: auto;
+    border-radius: to-rem($space-3xs);
+  }
+}
+
+// WebGL close button — positioned inside modal header at exact same place & size as burger
+.nav-menu-modal .pref-close-btn {
+  @extend %RESETBTN;
+
+  position: relative;
+  flex-shrink: 0;
+  width: to-rem($space-2xl);
+  height: to-rem($space-2xl);
+  border-radius: var(--radius-round);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  background: var(--border-color);
+  overflow: hidden;
+  z-index: 2;
+  transition:
+    background 0.2s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-menu-modal .pref-close-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-round);
+  display: block;
+  pointer-events: none;
+}
+
+// ── Breakpoint: mobile (≤ 768px) ──────────────────────────────────────────────
+@media (max-width: $bk-768) {
+  // On mobile: hide desktop menu; show hamburger
   .nav-desktop {
     display: none;
   }
+
   .nav-mobile-strip {
     display: flex;
   }

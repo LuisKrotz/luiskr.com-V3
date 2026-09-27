@@ -235,6 +235,8 @@ export const ATTRS = Object.freeze({
   NO_DOWNLOAD: "nodownload",
   DISABLE_PICTURE_IN_PICTURE: "disablePictureInPicture",
   DRAGGABLE: "draggable",
+  TARGET: "target",
+  REL: "rel",
 })
 
 // ─── Media Query Tokens ─────────────────────────────────────────────────────
@@ -535,6 +537,8 @@ export const PATHS = Object.freeze({
   EARTH_PLAYGROUND_SEGMENT: "earth-playground",
   SPACE_PLAYGROUND: "/space-playground",
   SPACE_PLAYGROUND_SEGMENT: "space-playground",
+  FLAGS_PREFIX: '/flags/',
+  SVG_EXT: '.svg',
 })
 
 // ─── Space Playground action + param tokens ───────────────────────────────────
@@ -714,7 +718,51 @@ export const EARTH_PLAYGROUND_LABELS = Object.freeze({
   [LOCALES.IT]: 'Playground della Terra',
   [LOCALES.RU]: 'Земная песочница',
   [LOCALES.FR]: 'Playground de la Terre',
-  [LOCALES.TLN]: 'Playground della Terra',
+})
+
+export const PREFERENCES_LABELS = Object.freeze({
+  [LOCALES.EN]: 'Preferences',
+  [LOCALES.BR]: 'Preferências',
+  [LOCALES.CAS]: 'Preferencias',
+  [LOCALES.DE]: 'Einstellungen',
+  [LOCALES.HRK]: 'Einstelunge',
+  [LOCALES.ES]: 'Preferencias',
+  [LOCALES.RIV]: 'Preferencias',
+  [LOCALES.GN]: 'Oñembopyahu',
+  [LOCALES.IT]: 'Preferenze',
+  [LOCALES.RU]: 'Настройки',
+  [LOCALES.FR]: 'Préférences',
+  [LOCALES.TLN]: 'Preferense',
+})
+
+export const MENU_LABELS = Object.freeze({
+  [LOCALES.EN]: 'Menu',
+  [LOCALES.BR]: 'Menu',
+  [LOCALES.CAS]: 'Menú',
+  [LOCALES.DE]: 'Menü',
+  [LOCALES.HRK]: 'Izbornik',
+  [LOCALES.ES]: 'Menú',
+  [LOCALES.RIV]: 'Menú',
+  [LOCALES.GN]: 'Menú',
+  [LOCALES.IT]: 'Menu',
+  [LOCALES.RU]: 'Меню',
+  [LOCALES.FR]: 'Menu',
+  [LOCALES.TLN]: 'Menyu',
+})
+
+export const CLOSE_LABELS = Object.freeze({
+  [LOCALES.EN]: 'Close',
+  [LOCALES.BR]: 'Fechar',
+  [LOCALES.CAS]: 'Tancar',
+  [LOCALES.DE]: 'Schließen',
+  [LOCALES.HRK]: 'Zatvori',
+  [LOCALES.ES]: 'Cerrar',
+  [LOCALES.RIV]: 'Cerrar',
+  [LOCALES.GN]: 'Mboty',
+  [LOCALES.IT]: 'Chiudi',
+  [LOCALES.RU]: 'Закрыть',
+  [LOCALES.FR]: 'Fermer',
+  [LOCALES.TLN]: 'Isara',
 })
 
 // ─── CMS data-key constants ───────────────────────────────────────────────
@@ -1048,6 +1096,7 @@ export const CLASSES = Object.freeze({
   NAV_LINK: `${_B_NAV}-link`,
   NAV_LINK_ACTIVE: 'router-link-exact-active',
   NAV_DESKTOP: `${_B_NAV}-desktop`,
+  NAV_DESKTOP_RIGHT: `${_B_NAV}-desktop-right`,
   NAV_SEPARATOR: `${_B_NAV}-separator`,
   NAV_MOBILE_STRIP: `${_B_NAV}-mobile-strip`,
   NAV_LOGO_BTN: `${_B_NAV}-logo-btn`,
@@ -1056,6 +1105,16 @@ export const CLASSES = Object.freeze({
   NAV_PREF_BTN: `${_B_NAV}-pref-btn`,
   NAV_LANG_OPEN_BTN: `${_B_NAV}-lang-open-btn`,
   NAV_FLAG_WRAPPER: `${_B_NAV}-flag-wrapper`,
+  NAV_BURGER_BTN: `${_B_NAV}-burger-btn`,
+  NAV_BURGER_OPEN: `${_B_NAV}-burger--open`,
+  NAV_BURGER_CANVAS: `${_B_NAV}-burger-canvas`,
+  NAV_MENU_MODAL: `${_B_NAV}-menu-modal`,
+  NAV_MENU_MODAL_OPEN: `${_B_NAV}-menu-modal--open`,
+  NAV_MENU_MODAL_CANVAS: `${_B_NAV}-menu-modal-canvas`,
+  NAV_MENU_MODAL_HEADER: `${_B_NAV}-menu-modal-header`,
+  NAV_MENU_MODAL_CONTENT: `${_B_NAV}-menu-modal-content`,
+  NAV_MENU_MODAL_ITEM: `${_B_NAV}-menu-modal-item`,
+  NAV_MENU_MODAL_CLOSE: `${_B_NAV}-menu-modal-close`,
   // Flag images — SVG from local repo
   FLAG_IMG: `${_B_FLAG}-img`,
   FLAG_SPLIT: `${_B_FLAG}-split`,
@@ -1456,6 +1515,10 @@ export const TEXT = Object.freeze({
   // Input types
   INPUT_RANGE: 'range',
   INPUT_CHECKBOX: 'checkbox',
+  // Aria/accessibility labels
+  TIME_UNTIL_NEXT_AWARD: 'Time until next award',
+  LEGAL: 'Legal',
+  MENU: 'Menu',
 })
 
 // ─── DOM Event name tokens ────────────────────────────────────────────────────

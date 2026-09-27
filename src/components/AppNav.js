@@ -5,9 +5,12 @@ import router from '../core/router.js'
 import { deepQuerySelector } from '../core/dom.js'
 import { localePath, LANG_OPTIONS, LANG_SLUGS } from '../core/i18n.js'
 import { wasmSmoothScroll } from '../utils/wasm-scroll.js'
-import { TAGS, CLASSES, URLS, STRINGS, ATTRS, MEDIA_DIMENSIONS, ROUTE_NAMES, ROUTE_PREFIXES, SECTIONS, TEXT, EVENTS, PATHS, MUTATIONS, BASE_TITLE, SELECTORS, IDS, EARTH_PLAYGROUND_LABELS, CMS_KEYS } from '../core/constants.js'
+import { TAGS, CLASSES, URLS, STRINGS, ATTRS, MEDIA_DIMENSIONS, ROUTE_NAMES, ROUTE_PREFIXES, SECTIONS, TEXT, EVENTS, PATHS, MUTATIONS, BASE_TITLE, SELECTORS, IDS, EARTH_PLAYGROUND_LABELS, PREFERENCES_LABELS, MENU_LABELS, CLOSE_LABELS, CMS_KEYS } from '../core/constants.js'
 import { predictiveLoader } from '../core/predictive-loader.js'
 import { FlagWebGL } from '../utils/canvas/flag-webgl.js'
+import { MenuBackgroundWebGL } from '../utils/canvas/menu-background-webgl.js'
+import { CloseButtonWebGL } from '../utils/canvas/close-button.js'
+import { BurgerButtonWebGL } from '../utils/canvas/burger-button-webgl.js'
 import appStyles from '../sass/components/app.scss?inline'
 
 // Pre-compute all localized playground slugs for fast O(1) lookup
@@ -22,14 +25,25 @@ export class AppNav extends BaseComponent {
     this.activeSection = SECTIONS.HOME
     this.onBottom = false
     this._navFlags = []
+    this._menuOpen = false
+    this._menuBg = null
+    this._menuCloseBtn = null
+    this._burgerBtn = null
   }
 
   set translations(val) {
     this._translations = val
+
+    this._translationsLocale = this.locale
+
     if (this._isMounted) this._updateDom()
   }
 
   get translations() {
+    if (this._translationsLocale && this._translationsLocale !== this.locale) {
+      return null
+    }
+
     return this._translations
   }
 
@@ -130,16 +144,38 @@ export class AppNav extends BaseComponent {
     predictiveLoader.scanAndObserve(this.shadowRoot)
 
     this._mountNavFlag()
+
+    this._mountBurgerWebGL()
   }
 
   onUpdated() {
     predictiveLoader.scanAndObserve(this.shadowRoot)
 
     this._mountNavFlag()
+
+    this._mountBurgerWebGL()
   }
 
   onDestroy() {
     this._destroyNavFlag()
+
+    if (this._burgerBtn) {
+      this._burgerBtn.destroy()
+
+      this._burgerBtn = null
+    }
+
+    if (this._menuCloseBtn) {
+      this._menuCloseBtn.destroy()
+
+      this._menuCloseBtn = null
+    }
+
+    if (this._menuBg) {
+      this._menuBg.destroy?.()
+
+      this._menuBg = null
+    }
   }
 
   _mountNavFlag() {
@@ -341,7 +377,7 @@ export class AppNav extends BaseComponent {
     e?.preventDefault?.()
     e?.stopPropagation?.()
     if (!this.isHomePage) {
-      router.push(localePath('about', this.locale))
+      router.push(localePath(CMS_KEYS.ABOUT, this.locale))
     } else {
       this.goToAbout()
     }
@@ -468,7 +504,7 @@ export class AppNav extends BaseComponent {
               type={ATTRS.TYPE_BUTTON}
               onClick={(e) => this.handlePreferences(e)}
             >
-              {t?.preferences || TEXT.PREFERENCES}
+              {t?.preferences || t?.pref?.title || PREFERENCES_LABELS[this.locale] || TEXT.PREFERENCES}
             </button>
 
             <span className={CLASSES.NAV_SEPARATOR}>|</span>
@@ -486,43 +522,157 @@ export class AppNav extends BaseComponent {
 
         {!isNotFound && (
           <div className={CLASSES.NAV_MOBILE_STRIP}>
-            {!this.isPlaygroundPage && (
-              <Fragment>
-                <button
-                  className={CLASSES.NAV_LINK}
-                  type={ATTRS.TYPE_BUTTON}
-                  onClick={(e) => {
-                    e.preventDefault()
-
-                    router.push(localePath(CMS_KEYS.EARTH_PLAYGROUND, this.locale))
-                  }}
-                >
-                  {t?.earthPlayground || t?.spacePlayground || EARTH_PLAYGROUND_LABELS[this.locale] || TEXT.EARTH_PLAYGROUND}
-                </button>
-                <span className={CLASSES.NAV_SEPARATOR}>|</span>
-              </Fragment>
-            )}
-            <button
-              className={`${CLASSES.NAV_LINK} ${CLASSES.NAV_PREF_BTN}`}
-              title={TEXT.PREFERENCES}
-              type={ATTRS.TYPE_BUTTON}
-              onClick={(e) => this.handlePreferences(e)}
-            >
-              {t?.preferences || TEXT.PREFERENCES}
-            </button>
-            <span className={CLASSES.NAV_SEPARATOR}>|</span>
-            <button
-              className={`${CLASSES.NAV_LINK} ${CLASSES.NAV_LANG_OPEN_BTN}`}
-              title={this.currentLangLabel}
-              type={ATTRS.TYPE_BUTTON}
-              onClick={(e) => this.handleLang(e)}
-            >
-              {this.renderLocaleFlag()}
-            </button>
+            <canvas
+              className={CLASSES.NAV_BURGER_CANVAS}
+              width="68"
+              height="68"
+              role={ATTRS.ROLE_BUTTON}
+              aria-label={t?.menu || MENU_LABELS[this.locale] || TEXT.MENU}
+            />
           </div>
         )}
+
+        {/* Fullscreen mobile menu modal */}
+        <div className={`${CLASSES.NAV_MENU_MODAL}${this._menuOpen ? ` ${CLASSES.NAV_MENU_MODAL_OPEN}` : STRINGS.EMPTY}`}>
+          <canvas className={CLASSES.NAV_MENU_MODAL_CANVAS} />
+
+          <div className={CLASSES.NAV_MENU_MODAL_HEADER}>
+            <button
+              className={CLASSES.PREF_CLOSE_BTN}
+              type={ATTRS.TYPE_BUTTON}
+              aria-label={t?.close || CLOSE_LABELS[this.locale] || TEXT.CLOSE}
+              onClick={() => this._closeMenu()}
+            >
+              <canvas className={CLASSES.PREF_CLOSE_CANVAS} />
+            </button>
+          </div>
+
+          <div className={CLASSES.NAV_MENU_MODAL_CONTENT}>
+            {!this.isPlaygroundPage && (
+              <button
+                className={CLASSES.NAV_MENU_MODAL_ITEM}
+                type={ATTRS.TYPE_BUTTON}
+                onClick={() => {
+                  this._closeMenu()
+
+                  router.push(localePath(CMS_KEYS.EARTH_PLAYGROUND, this.locale))
+                }}
+              >
+                {t?.earthPlayground || t?.spacePlayground || EARTH_PLAYGROUND_LABELS[this.locale] || TEXT.EARTH_PLAYGROUND}
+              </button>
+            )}
+
+            <button
+              className={CLASSES.NAV_MENU_MODAL_ITEM}
+              type={ATTRS.TYPE_BUTTON}
+              onClick={() => {
+                this._closeMenu()
+
+                this.handlePreferences()
+              }}
+            >
+              {t?.preferences || t?.pref?.title || PREFERENCES_LABELS[this.locale] || TEXT.PREFERENCES}
+            </button>
+
+            <button
+              className={CLASSES.NAV_MENU_MODAL_ITEM}
+              type={ATTRS.TYPE_BUTTON}
+              onClick={() => {
+                this._closeMenu()
+
+                this.handleLang()
+              }}
+            >
+              {this.renderLocaleFlag()}
+              <span>{this.currentLangLabel}</span>
+            </button>
+          </div>
+        </div>
       </nav>
     )
+  }
+
+  _toggleMenu() {
+    this._menuOpen = !this._menuOpen
+
+    this._updateDom()
+
+    if (this._menuOpen) {
+      requestAnimationFrame(() => {
+        const canvas = this.$(`.${CLASSES.NAV_MENU_MODAL_CANVAS}`)
+
+        if (canvas && !this._menuBg) {
+          this._menuBg = new MenuBackgroundWebGL(canvas)
+        }
+
+        if (this._menuBg) this._menuBg.start()
+
+        // Mount WebGL close button
+        const closeCanvas = this.$(`.${CLASSES.NAV_MENU_MODAL} .${CLASSES.PREF_CLOSE_CANVAS}`)
+
+        if (closeCanvas && !this._menuCloseBtn) {
+          this._menuCloseBtn = new CloseButtonWebGL(closeCanvas, () => this._closeMenu())
+        }
+      })
+    } else {
+      setTimeout(() => {
+        if (!this._menuOpen) {
+          if (this._menuBg) this._menuBg.stop()
+
+          if (this._menuCloseBtn) {
+            this._menuCloseBtn.destroy()
+
+            this._menuCloseBtn = null
+          }
+        }
+      }, 380)
+    }
+  }
+
+  _mountBurgerWebGL() {
+    if (typeof window === STRINGS.UNDEFINED) return
+
+    const burgerCanvas = this.$(`.${CLASSES.NAV_BURGER_CANVAS}`)
+
+    if (!burgerCanvas) {
+      if (this._burgerBtn) {
+        this._burgerBtn.destroy()
+
+        this._burgerBtn = null
+      }
+
+      return
+    }
+
+    if (this._burgerBtn && this._burgerBtn.canvas !== burgerCanvas) {
+      this._burgerBtn.destroy()
+
+      this._burgerBtn = null
+    }
+
+    if (!this._burgerBtn) {
+      this._burgerBtn = new BurgerButtonWebGL(burgerCanvas, () => this._toggleMenu())
+    }
+  }
+
+  _closeMenu() {
+    if (!this._menuOpen) return
+
+    this._menuOpen = false
+
+    this._updateDom()
+
+    setTimeout(() => {
+      if (!this._menuOpen) {
+        if (this._menuBg) this._menuBg.stop()
+
+        if (this._menuCloseBtn) {
+          this._menuCloseBtn.destroy()
+
+          this._menuCloseBtn = null
+        }
+      }
+    }, 380)
   }
 }
 

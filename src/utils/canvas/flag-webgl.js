@@ -1,4 +1,4 @@
-import { EVENTS, STRINGS } from '../../core/constants.js'
+import { EVENTS, STRINGS, PATHS } from '../../core/constants.js'
 import store from '../../core/store.js'
 
 /**
@@ -158,7 +158,7 @@ export class FlagWebGL {
       this._triggerFallback()
     }
 
-    this.img1.src = `/flags/${cc}.svg`
+    this.img1.src = `${PATHS.FLAGS_PREFIX}${cc}${PATHS.SVG_EXT}`
 
     if (this.img1.complete && this.img1.naturalWidth) {
       loaded1 = true
@@ -183,7 +183,7 @@ export class FlagWebGL {
         this._triggerFallback()
       }
 
-      this.img2.src = `/flags/${cc2}.svg`
+      this.img2.src = `${PATHS.FLAGS_PREFIX}${cc2}${PATHS.SVG_EXT}`
 
       if (this.img2.complete && this.img2.naturalWidth) {
         loaded2 = true
