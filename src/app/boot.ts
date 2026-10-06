@@ -76,7 +76,12 @@ export function mountAppShell(c: AppRoot): void {
   router.subscribe((to, from) => {
     c.routeLoading = true
     const pBar = c.$(`.${APP_CLASSES.PROGRESS_BAR}`)
-    if (pBar) pBar.classList.add(APP_CLASSES.PROGRESS_BAR_ACTIVE)
+    if (pBar) {
+      // A stale --done from the previous navigation would pin the bar at
+      // scaleX(1)/opacity:0 — clear it so the crawl restarts visibly.
+      pBar.classList.remove(APP_CLASSES.PROGRESS_BAR_DONE)
+      pBar.classList.add(APP_CLASSES.PROGRESS_BAR_ACTIVE)
+    }
 
     c.currentViewTag = to.view
     c._updateViewContent(to, from)
@@ -84,7 +89,18 @@ export function mountAppShell(c: AppRoot): void {
 
     setTimeout(() => {
       c.routeLoading = false
-      if (pBar) pBar.classList.remove(APP_CLASSES.PROGRESS_BAR_ACTIVE)
+      if (pBar) {
+        // Swap crawl for done: the bar completes to 100% and fades in
+        // place instead of retracting to 0. The reset timeout removes
+        // --done once the fade finished so the next navigation starts
+        // clean (transform reset lands while opacity is still 0).
+        pBar.classList.remove(APP_CLASSES.PROGRESS_BAR_ACTIVE)
+        pBar.classList.add(APP_CLASSES.PROGRESS_BAR_DONE)
+
+        setTimeout(() => {
+          pBar.classList.remove(APP_CLASSES.PROGRESS_BAR_DONE)
+        }, ANIMATION_DURATIONS.PROGRESS_BAR_RESET)
+      }
     }, ANIMATION_DURATIONS.ROUTE_DURATION)
   })
 

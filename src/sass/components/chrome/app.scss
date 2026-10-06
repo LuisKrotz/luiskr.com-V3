@@ -1017,6 +1017,17 @@ $_TURB-B: 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 widt
     opacity: 1;
     transition: transform 8s cubic-bezier(0.04, 0.6, 0.2, 1);
   }
+
+  // Route finished: sweep to 100% quickly, then fade out in place — the
+  // later class removal snaps scaleX back to 0 while opacity is already
+  // 0, so the bar never visibly retracts (nprogress-style completion).
+  &--done {
+    transform: scaleX(1);
+    opacity: 0;
+    transition:
+      transform 0.3s ease-out,
+      opacity 0.4s ease 0.3s;
+  }
 }
 
 // ── Page transitions ──────────────────────────────────────────────────────────

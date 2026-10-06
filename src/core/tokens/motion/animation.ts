@@ -17,6 +17,12 @@ export const EASING = Object.freeze({
 export const ANIMATION_DURATIONS = Object.freeze({
   /** Route transition duration (ms) */
   ROUTE_DURATION: 450,
+  /**
+   * Delay before the progress bar's --done class is removed (ms) — must
+   * outlast the CSS sweep-to-100% (0.3s) + delayed fade-out (0.3s delay +
+   * 0.4s fade) so the transform reset happens while the bar is invisible.
+   */
+  PROGRESS_BAR_RESET: 1100,
   /** Mosaic expand/collapse transition duration (ms) */
   MOSAIC_DURATION: 420,
   /** Carousel fade-in transition duration (ms) */

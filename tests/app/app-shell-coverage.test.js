@@ -1103,7 +1103,7 @@ describe('AppRoot tails', () => {
       router.currentRoute
     )
 
-    await flush(ANIMATION_DURATIONS.ROUTE_DURATION + 480)
+    await flush(ANIMATION_DURATIONS.ROUTE_DURATION + ANIMATION_DURATIONS.PROGRESS_BAR_RESET + 80)
     expect(el.routeLoading).toBe(false)
 
     globalThis.fetch = origFetch
