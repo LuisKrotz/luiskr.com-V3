@@ -1,1 +1,0 @@
-var Co,qo;import{Ot as aX}from"./store-BIqOIzI_.js";Co=Object.freeze({hd:"legal"}),qo=Object.freeze({ri:aX,od:`${aX}-title`,nd:`${aX}-subtitle`,td:`${aX}-link`});export{qo as n,Co as t};

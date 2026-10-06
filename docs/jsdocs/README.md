@@ -348,6 +348,7 @@
 | File | What it does |
 |---|---|
 | [`dom.ts`](components/media/draw-text/dom.md) | — |
+| [`fit.ts`](components/media/draw-text/fit.md) | — |
 | [`render.ts`](components/media/draw-text/render.md) | — |
 | [`sheet.ts`](components/media/draw-text/sheet.md) | — |
 | [`trigger.ts`](components/media/draw-text/trigger.md) | — |

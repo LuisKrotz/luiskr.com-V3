@@ -1,1 +1,0 @@
-import{tn as MX}from"./store-0Pq0Hy-o.js";var _n=Object.freeze({oi:"cookieAction",gm:"slidechange",vc:"autoplaystop",kc:"autoplaystart",zr:"cancel",wn:MX,Jn:"open-lang-dialog",Kn:"open-preferences-modal",kO:"notify"});export{_n as t};

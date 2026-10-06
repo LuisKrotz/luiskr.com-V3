@@ -1,0 +1,1 @@
+var fr,go;import{Dt as oX}from"./store-DR5Q3k3-.js";fr=Object.freeze({hd:"legal"}),go=Object.freeze({cn:oX,od:`${oX}-title`,nd:`${oX}-subtitle`,ed:`${oX}-link`});export{go as n,fr as t};

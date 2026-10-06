@@ -61,6 +61,10 @@ Returns characters to the hidden start state so the animation can replay.
 
 Wires the active trigger mode (delegate — ./draw-text/trigger.ts).
 
+### `_setupFit`
+
+Installs the fit-to-width pipeline (delegate — ./draw-text/fit.ts).
+
 ### `_startAnimation`
 
 Runs the reveal sequence (delegate — ./draw-text/trigger.ts).

@@ -1,0 +1,1 @@
+var bi,aq;import{P as et}from"./store-CysD3BK6.js";bi=Object.freeze({ERROR:et.ERROR,sa:"info",XO:"success"}),aq=Object.freeze({bb:5e3,gb:4,xO:2500,VO:64});export{bi as n,aq as t};

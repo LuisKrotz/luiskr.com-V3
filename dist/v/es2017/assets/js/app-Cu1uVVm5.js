@@ -1,1 +1,0 @@
-import{tn as MX}from"./store-DFYSF09z.js";var _i=Object.freeze({rn:"cookieAction",fm:"slidechange",kc:"autoplaystop",vc:"autoplaystart",Va:"cancel",gi:MX,Ki:"open-lang-dialog",qi:"open-preferences-modal",kO:"notify"});export{_i as t};
