@@ -86,3 +86,33 @@ inline-SVG `feTurbulence` posterization masks (terraced alpha ≙ topographic
 bands) drifting at different speeds — not hard geometric rings. The entrance
 mirrors the shader's 2600 ms centre-out reveal; `--menu-ink`/`--menu-ink-2`
 keep it theme-aware.
+
+## Compute placement — GPU vs wasm vs main thread
+
+Per-frame math (contour fields, widget shaders, three.js scene updates) runs
+on the **GPU** — GLSL fragment shaders for the 2D widgets/loaders, WebGPU/TSL
+for the Earth engine. That is the GPU acceleration story: every pixel's math
+executes in parallel on the graphics device, and moving it to wasm would be a
+regression (wasm is CPU SIMD; it cannot beat thousands of shader cores, and an
+`await` inside a frame would blow the frame budget).
+
+Batch CPU work that is _not_ per-frame routes through the wasm worker pool
+(`src/utils/wasm/wasm-pool.ts` → `public/workers/wasm-worker.js`, lazily
+spawned, 2 workers on mobile / 4 on desktop): mosaic batch layout,
+spring-physics integration, draw-text timing, media hashing, GPU-hardware
+image decode (`createImageBitmap` with decode-time resize). Every dispatch
+resolves `null` on failure so callers degrade to the local JS path — the
+worker-side `wasmInstance` checks do the same inside each kernel, so the site
+works identically with or without `engine.wasm`.
+
+Small synchronous math (uniform interpolation, easing, hit tests) stays inline
+in JS — below a certain size the JIT matches wasm and the call overhead isn't
+worth it.
+
+## Diagnostics — zero-console
+
+No `console.*` calls anywhere in `src/` (AGENTS.md rule 12). WebGL init
+warnings, shader-compile failures, context-loss notices and error paths all
+write to `src/core/devlog.ts` — a capped ring buffer (`DEV_LOG.MAX_ENTRIES`)
+inspectable in devtools via `__lkDevLog()`. Fallback behavior is unchanged;
+only the reporting channel moved.

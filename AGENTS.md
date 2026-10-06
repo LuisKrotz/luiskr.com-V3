@@ -77,10 +77,10 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - `tests/style-governance.test.js` must validate and pass all these rules automatically on every test run.
     - When a new rule is added here, a corresponding automated check must be added to `style-governance.test.js`.
 
-12. **Zero Forbidden Console Calls**:
-    - `console.log`, `console.debug`, `console.trace`, `console.table`, and `console.group*` are forbidden anywhere in `src/` — they are debug leftovers and must never ship.
-    - `console.warn`/`console.error`/`console.info` are allowed only as intentional signal (fallback warnings, `.catch(console.error)` error paths).
-    - Enforced by `scripts/verify/console-scan.mjs` → `reports/console-scan.json`; file-level exemptions need an in-file justification in the script's ALLOWLIST.
+12. **Zero Console Calls**:
+    - Every `console.*` call is forbidden anywhere in `src/` — no exceptions.
+    - All diagnostics route through `src/core/devlog.ts` (`devWarn` / `devError` / `devInfo`), which buffers entries in a capped ring buffer; inspect in devtools via `__lkDevLog()` or assert in tests via `getDevLog()`.
+    - Enforced by `scripts/verify/console-scan.mjs` → `reports/console-scan.json`; any callsite is a violation that fails the gate.
 
 13. **Security Scans Gate the Build**:
     - `scripts/verify/security-scan.mjs` runs `snyk test` when `SNYK_TOKEN` is set, falling back to `npm audit` (same advisory data). High/critical vulnerabilities fail the gate; unfixable dev-only risks live in `security-exceptions.json` with justification + review date — never blanket-suppress.
@@ -117,7 +117,14 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Coverage-tail tests live under `tests/coverage/<domain>/<subdomain>/` mirroring the source tree — `core/{component,env,firebase,jsx,loader,schema,store,ui,utils}`, `components/{carousel,dialogs,feedback,footer,home,media}`, `canvas/{infra,loaders,widgets}`, `cms/{deploy,editors,facade}`, `routes/{pages,router}`, `playground/{earth,space}`, `utils/{data,gpu,media,motion,perf,wasm}`, plus `app/`, `legacy-polyfills/`, `safari/`, and `sweep/` (cross-domain grab-bags only) — one file per describe, named after the module under test.
     - Never call `jest.resetModules()` mid-file after exercising a module: istanbul counters are per module instance, and re-instantiation discards previously recorded hits in the merged report. Reset-free tails files exist for post-reset coverage.
 
-20. **JSDoc Required on All Declarations**:
+20. **Recursion Preferred for Self-Similar Traversal & Compute Placement**:
+    - When logic walks a self-similar structure (nested children, filesystem trees, token groups, DOM subtrees), write a recursive function — do NOT hand-roll stack/queue emulation (`const stack=[...]; while(stack.length){ pop/push }`).
+    - Recursion must be total: every path reaches a base case; graph-shaped input guards cycles with a visited set. Generators (`yield*`) are the preferred recursive shape for streaming traversal (see `src/cms/media-convert/files.ts` `traverseEntry`).
+    - Bounded dismissal/drain loops (`while (list.length > CAP)`) and async pagination (`readEntries` batches) are legitimately iterative — annotate why when the shape could read as stack emulation.
+    - **Compute placement for performance**: per-frame canvas/WebGL math lives in GPU shaders or local synchronous math — never `await`ed per frame. Batch CPU work (mosaic layout, spring physics, text timing, media hashing, image decode) routes through `src/utils/wasm/wasm-pool.ts` worker dispatch with JS fallbacks. three.js scenes likewise keep per-frame work on the GPU (WebGPU/GLSL/TSL); only non-per-frame batch work is a wasm-pool candidate.
+    - Checked by `tests/governance/style-governance.test.js` — flags manual stack-emulation traversal patterns.
+
+21. **JSDoc Required on All Declarations**:
     - Every exported declaration (function, class, const, type, interface) must carry a JSDoc block (`/** ... */`) stating its purpose, what it does, and its effect — with `@param`/`@returns` tags where the signature has them.
     - Internal top-level helpers and class members follow the same rule — purpose + effect, not a name restatement.
     - Calculations, WebGL draw/calc code, and three.js plumbing get _detailed_ multi-line explanations (the math, the units, why the constants are what they are).
