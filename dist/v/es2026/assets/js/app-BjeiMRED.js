@@ -1,0 +1,1 @@
+import{Nt as f0}from"./urls-SF9-38iP.js";var wn=Object.freeze({oa:"cookieAction",km:"slidechange",fh:"autoplaystop",hh:"autoplaystart",Ho:"cancel",_n:f0,Jn:"open-lang-dialog",Kn:"open-preferences-modal",Fs:"notify"});export{wn as t};

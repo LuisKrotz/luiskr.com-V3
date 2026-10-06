@@ -1,1 +1,0 @@
-var gn,fq;import{k as _t}from"./store-DELMNO-m.js";gn=Object.freeze({ERROR:_t.ERROR,ii:"info",sD:"success"}),fq=Object.freeze({Zb:5e3,ek:4,ED:2500,eD:64});export{gn as n,fq as t};

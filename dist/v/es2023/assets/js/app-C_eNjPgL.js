@@ -1,0 +1,1 @@
+import{tn as MX}from"./store-BItKZghp.js";var _n=Object.freeze({oa:"cookieAction",Ed:"slidechange",vc:"autoplaystop",kc:"autoplaystart",Vo:"cancel",wn:MX,Jn:"open-lang-dialog",Kn:"open-preferences-modal",kO:"notify"});export{_n as t};

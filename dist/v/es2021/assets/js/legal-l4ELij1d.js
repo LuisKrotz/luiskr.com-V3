@@ -1,1 +1,0 @@
-var Co,qo;import{Ot as aX}from"./store-0mNUkC4y.js";Co=Object.freeze({fd:"legal"}),qo=Object.freeze({ai:aX,od:`${aX}-title`,nd:`${aX}-subtitle`,td:`${aX}-link`});export{qo as n,Co as t};

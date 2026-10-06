@@ -1,1 +1,0 @@
-import{tn as MX}from"./store-CWMeyhF7.js";var _n=Object.freeze({aa:"cookieAction",$d:"slidechange",uc:"autoplaystop",wc:"autoplaystart",Fo:"cancel",gn:MX,Kn:"open-lang-dialog",qn:"open-preferences-modal",kO:"notify"});export{_n as t};

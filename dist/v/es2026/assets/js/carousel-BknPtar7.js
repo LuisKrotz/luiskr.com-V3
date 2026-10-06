@@ -1,1 +1,0 @@
-var Cr=Object.freeze({Ml:"--carousel-item-height",Lu:"--range-pct"});export{Cr as t};

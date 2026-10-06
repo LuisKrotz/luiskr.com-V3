@@ -1,0 +1,1 @@
+var bi,aq;import{F as He}from"./store-DH5v9EYO.js";bi=Object.freeze({ERROR:He.ERROR,sa:"info",DO:"success"}),aq=Object.freeze({fb:5e3,bb:4,CO:2500,IO:64});export{bi as n,aq as t};

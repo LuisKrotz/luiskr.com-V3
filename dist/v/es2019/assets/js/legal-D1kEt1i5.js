@@ -1,1 +1,0 @@
-var Mr,Nn;import{Ot as aX}from"./store-g_SamuV2.js";Mr=Object.freeze({fd:"legal"}),Nn=Object.freeze({ai:aX,od:`${aX}-title`,nd:`${aX}-subtitle`,td:`${aX}-link`});export{Nn as n,Mr as t};

@@ -1,0 +1,1 @@
+var qr,go;import{Dt as oX}from"./store-BJle4yTe.js";qr=Object.freeze({hd:"legal"}),go=Object.freeze({cn:oX,od:`${oX}-title`,nd:`${oX}-subtitle`,ed:`${oX}-link`});export{go as n,qr as t};

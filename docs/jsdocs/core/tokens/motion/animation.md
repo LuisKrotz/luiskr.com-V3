@@ -25,6 +25,12 @@ The ANIMATION_DURATIONS constant.
 
 Route transition duration (ms)
 
+### `PROGRESS_BAR_RESET`
+
+Delay before the progress bar's --done class is removed (ms) — must
+outlast the CSS sweep-to-100% (0.3s) + delayed fade-out (0.3s delay +
+0.4s fade) so the transform reset happens while the bar is invisible.
+
 ### `MOSAIC_DURATION`
 
 Mosaic expand/collapse transition duration (ms)
