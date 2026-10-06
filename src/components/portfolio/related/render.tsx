@@ -100,17 +100,32 @@ const renderSocials = (host: PortfolioRelated, socials: RelatedSocial[]) => (
       </Fragment>
     ))}
     {/*
-      Disclaimer: justified, clamped to its first line (CSS ellipsis) and
-      toggled open by clicking it — a real <button> so keyboard users can
-      expand it with Enter/Space and screen readers get aria-expanded.
+      Disclaimer: justified text clamped to its first line (CSS ellipsis)
+      inside -note-text; the trailing -note-more dots pulse while the note
+      is truncated and collapsed — the "show more" affordance. The whole
+      thing is a real <button> so Enter/Space expand it and screen readers
+      get aria-expanded; is-truncated is measured from the DOM because CSS
+      cannot detect whether line-clamp actually clipped.
     */}
     <button
       type={FORM_ATTRS.TYPE_BUTTON}
-      className={`${INTERNAL_CLASSES.INTERNAL_FOOTER_ITEMS_NOTE} ${host._noteOpen ? STATE_CLASSES.IS_OPEN : CHAR_STRINGS.EMPTY}`}
+      className={`${INTERNAL_CLASSES.INTERNAL_FOOTER_ITEMS_NOTE} ${host._noteOpen ? STATE_CLASSES.IS_OPEN : CHAR_STRINGS.EMPTY} ${host._noteTruncated ? STATE_CLASSES.IS_TRUNCATED : CHAR_STRINGS.EMPTY}`}
       aria-expanded={host._noteOpen ? ATTR_VALUES.TRUE : ATTR_VALUES.FALSE}
       onClick={() => host._toggleNote()}
-      dangerouslySetInnerHTML={{ __html: host.translations.note || CHAR_STRINGS.EMPTY }}
-    />
+    >
+      <span
+        className={INTERNAL_CLASSES.INTERNAL_FOOTER_ITEMS_NOTE_TEXT}
+        dangerouslySetInnerHTML={{ __html: host.translations.note || CHAR_STRINGS.EMPTY }}
+      />
+      <span
+        className={INTERNAL_CLASSES.INTERNAL_FOOTER_ITEMS_NOTE_MORE}
+        aria-hidden={ATTR_VALUES.TRUE}
+      >
+        {[0, 1, 2].map((i) => (
+          <i key={i} className={INTERNAL_CLASSES.INTERNAL_FOOTER_ITEMS_NOTE_DOT} />
+        ))}
+      </span>
+    </button>
   </div>
 )
 

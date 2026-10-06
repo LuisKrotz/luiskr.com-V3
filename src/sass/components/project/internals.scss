@@ -606,14 +606,13 @@
         @extend .ttl-xxs;
         @extend %MAXAREA;
 
-        // Collapsed: justified, clamped to its first line with the CSS
-        // ellipsis as the "show more" affordance — the element is a real
-        // <button> so Enter/Space expand it (aria-expanded exposes state).
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-        line-clamp: 1;
-        overflow: hidden;
+        // Collapsed: -note-text is justified and clamped to its first line
+        // (CSS ellipsis); -note-more renders three dots that pulse while the
+        // note is truncated — the "show more" affordance. The element is a
+        // real <button> so Enter/Space expand it (aria-expanded + :focus-visible).
+        display: flex;
+        align-items: baseline;
+        gap: to-rem($space-2xs);
         clear: both;
         width: 100%;
         padding: 0;
@@ -622,23 +621,113 @@
         font-family: inherit;
         font-weight: 300;
         line-height: to-rem($space-xl);
-        text-align: justify;
-        text-align-last: left;
+        text-align: left;
         color: inherit;
         background: none;
         cursor: pointer;
 
+        &-text {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
+          line-clamp: 1;
+          overflow: hidden;
+          flex: 1 1 auto;
+          min-width: 0;
+          text-align: justify;
+          text-align-last: left;
+          text-decoration: underline;
+          text-decoration-color: transparent;
+          text-underline-offset: to-rem($space-3xs);
+          transition: text-decoration-color 0.35s ease;
+        }
+
+        // Trailing "···" affordance — hidden until JS measures real
+        // truncation (is-truncated); dots pulse in a staggered wave.
+        &-more {
+          flex: none;
+          display: inline-flex;
+          align-items: baseline;
+          gap: to-rem($space-3xs);
+          padding-bottom: to-rem($space-3xs);
+          opacity: 0;
+          transform: translateY(to-rem($space-3xs));
+          transition:
+            opacity 0.3s ease,
+            transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+            gap 0.3s ease;
+        }
+
+        &-dot {
+          width: to-rem($space-3xs);
+          height: to-rem($space-3xs);
+          border-radius: var(--radius-round);
+          background: currentColor;
+          animation: note-dot-pulse 2.4s ease-in-out infinite;
+
+          &:nth-child(2) {
+            animation-delay: 0.25s;
+          }
+
+          &:nth-child(3) {
+            animation-delay: 0.5s;
+          }
+        }
+
+        &.is-truncated &-more {
+          opacity: 0.75;
+          transform: translateY(0);
+        }
+
         &.is-open {
           display: block;
+        }
+
+        &.is-open &-text {
+          display: block;
           overflow: visible;
+          text-decoration: none;
+        }
+
+        &.is-open &-more {
+          display: none;
         }
 
         &:hover,
         &:focus-visible {
           color: var(--color-accent-contrast);
         }
+
+        &:hover &-text,
+        &:focus-visible &-text {
+          text-decoration-color: currentColor;
+        }
+
+        &:hover &-more,
+        &:focus-visible &-more {
+          opacity: 1;
+          gap: to-rem($space-2xs);
+        }
+
+        &:active &-more {
+          gap: to-rem($space-3xs);
+          transform: translateY(to-rem($space-3xs)) scale(0.9);
+        }
       }
     }
+  }
+}
+
+// Three-dot pulse for the disclaimer "more" affordance — each dot eases
+// between dim and full ink; nth-child delays stagger the wave.
+@keyframes note-dot-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 1;
   }
 }
 
