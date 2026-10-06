@@ -134,7 +134,12 @@ export const regressRingToZero = (c: CarouselAutoplayHost): void => {
 export const tickCarouselAutoplay = (c: CarouselAutoplayHost, timestamp: number): void => {
   if (!c.autoplayRunning) return
 
-  c.autoplayElapsed = timestamp - c.autoplayStart
+  // Clock guard: heal a NaN start (e.g. backdated from a NaN elapsed),
+  // then clamp NaN/negative deltas — a poisoned clock must never write
+  // NaN into ringProgress, where it survives the regression's >0 drain.
+  if (!Number.isFinite(c.autoplayStart)) c.autoplayStart = timestamp
+
+  c.autoplayElapsed = Math.max(0, timestamp - c.autoplayStart) || 0
 
   c.ringProgress = Math.min(c.autoplayElapsed / CAROUSEL_TIMING.AUTOPLAY_DURATION, 1)
 

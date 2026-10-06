@@ -694,6 +694,25 @@ describe('CustomCarousel tails', () => {
     cleanup(el)
   })
 
+  test('autoplay tick heals a NaN clock instead of poisoning ringProgress', async () => {
+    const el = makeCarousel()
+
+    el.autoplayRunning = true
+    el.autoplayStart = NaN
+    el._tick(NaN) // NaN timestamp: start stays NaN, elapsed clamps to 0
+
+    expect(el.ringProgress).toBe(0)
+    expect(Number.isNaN(el.ringProgress)).toBe(false)
+
+    el._tick(100) // finite timestamp rebases the NaN start
+    expect(el.autoplayStart).toBe(100)
+    expect(el.ringProgress).toBe(0)
+
+    el.autoplayRunning = false
+    await new Promise((r) => setTimeout(r, 40))
+    cleanup(el)
+  })
+
   test('autoplay tick advances the slide at cycle end then idles', async () => {
     const el = makeCarousel()
 
