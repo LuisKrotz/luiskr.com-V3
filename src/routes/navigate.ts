@@ -17,6 +17,7 @@ import { NET_STRINGS } from '@/core/tokens/strings/net.js'
 import { QUERY_STRINGS } from '@/core/tokens/strings/queries.js'
 import { ROUTE_STRINGS } from '@/core/tokens/strings/routes.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { SPACE } from '@/core/tokens/layout/space.js'
 import { deepQuerySelector } from '@/core/utils/dom.js'
 import { notifyLoadFailed } from '@/utils/notify.js'
 import { parsePath } from './parse-path.js'
@@ -72,7 +73,10 @@ function syncScroll(to: RouteDescriptor): void {
       const el = deepQuerySelector(CHAR_STRINGS.HASH + scrollTo)
 
       if (el) {
-        const targetY = window.scrollY + el.getBoundingClientRect().top
+        // Park the anchor below the fixed nav (top 13px + ~47px row) —
+        // 4XL (89px) matches the .home-portfolio-section padding-top so
+        // the scrolled-to section clears the logo/burger on every size.
+        const targetY = Math.max(0, window.scrollY + el.getBoundingClientRect().top - SPACE['4XL'])
 
         window.scrollTo({ top: targetY, behavior: ATTR_VALUES.SMOOTH })
       }
