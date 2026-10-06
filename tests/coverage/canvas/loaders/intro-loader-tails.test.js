@@ -85,14 +85,16 @@ describe('intro-loader tails', () => {
     const done = jest.fn()
     const loader = new IntroLoader(undefined, done)
 
-    await flush(1800)
+    // Poll instead of a fixed wait: under parallel load the setTimeout-RAF
+    // ticks fire slower than 4ms, so a hard 1800ms can starve the run.
+    for (let i = 0; i < 100 && !done.mock.calls.length; i++) await flush(60)
 
     globalThis.requestAnimationFrame = origRaf
 
     expect(done).toHaveBeenCalled()
 
     loader.container?.remove()
-  }, 10000)
+  }, 15000)
 
   test('init is a no-op without document', () => {
     const saved = globalThis.document

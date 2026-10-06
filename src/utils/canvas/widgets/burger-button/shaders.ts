@@ -50,18 +50,22 @@ export const BURGER_FS_BODY = `
         // Subtle fluid wave: a ripple travels along each bar, out of phase
         // per bar (1.3 rad offsets ≈ 2π/5 — no two bars crest together),
         // while the bars gently breathe in length — organic motion.
+        // Period ~9s (t·0.7): on a 34px icon, faster motion makes the
+        // hairline edges crawl faster than the eye can track, which reads
+        // as temporal aliasing even under the supersampled AA stack.
         // Amplitude stays well under the bar height so edges stay clean.
-        float wave1 = sin(uv.x * 5.0 - t * 2.0) * 0.012;
-        float wave2 = sin(uv.x * 5.0 - t * 2.0 + 1.3) * 0.012;
-        float wave3 = sin(uv.x * 5.0 - t * 2.0 + 2.6) * 0.012;
+        float wave1 = sin(uv.x * 5.0 - t * 0.7) * 0.009;
+        float wave2 = sin(uv.x * 5.0 - t * 0.7 + 1.3) * 0.009;
+        float wave3 = sin(uv.x * 5.0 - t * 0.7 + 2.6) * 0.009;
 
-        float bob1 = sin(t * 1.6) * 0.006;
-        float bob2 = sin(t * 1.6 + 1.2) * 0.006;
-        float bob3 = sin(t * 1.6 + 2.4) * 0.006;
+        float bob1 = sin(t * 0.55) * 0.004;
+        float bob2 = sin(t * 0.55 + 1.2) * 0.004;
+        float bob3 = sin(t * 0.55 + 2.4) * 0.004;
 
-        // Breathing: outer bars grow ±5% while the middle bar counter-shrinks
+        // Breathing: outer bars grow ±4% while the middle bar counter-shrinks
         // via (2.0 − grow) — the trio's total visual mass stays constant.
-        float grow = 1.0 + 0.05 * sin(t * 1.1);
+        // ~14s period keeps the length change below perception-as-motion.
+        float grow = 1.0 + 0.04 * sin(t * 0.45);
 
         float d1 = sdHBar(vec2(uv.x, uv.y + wave1), 0.5 - gap + bob1, barW * grow, barH);
         float d2 = sdHBar(vec2(uv.x, uv.y + wave2), 0.5 + bob2, (barW + 0.03) * (2.0 - grow), barH);
@@ -83,8 +87,10 @@ export const BURGER_FS_BODY = `
         float glow = smoothstep(0.06, 0.0, bar) * 0.2;
         #endif
 
-        // Subtle breathing pulse
-        float pulse = 0.92 + 0.08 * sin(t * 1.5);
+        // Barely-there breathing: ±2% luminance over ~12s. A stronger pulse
+        // reads as brightness flicker — the eye interprets it as the AA
+        // edge shimmering, not as intentional motion.
+        float pulse = 0.98 + 0.02 * sin(t * 0.5);
 
         // Color based on theme:
         // Dark theme: crisp bright white/ice
@@ -93,13 +99,15 @@ export const BURGER_FS_BODY = `
         vec3 colLight = vec3(0.10, 0.10, 0.14) * pulse;
         vec3 col = mix(colLight, colDark, u_dark);
 
-        // Subtle glow color
-        vec3 glowDark = vec3(0.3, 0.6, 0.9);
+        // Glow stays in the ink's own hue family — a saturated tinted halo
+        // against the bars produces a chromatic fringe that reads as
+        // broken anti-aliasing, so both themes use a desaturated ink tint.
+        vec3 glowDark = vec3(0.55, 0.58, 0.65);
         vec3 glowLight = vec3(0.15, 0.15, 0.22);
         vec3 glowCol = mix(glowLight, glowDark, u_dark);
 
         vec3 finalCol = col * alpha + glowCol * glow;
-        float finalAlpha = max(alpha, glow * 0.35);
+        float finalAlpha = max(alpha, glow * 0.25);
 
         gl_FragColor = vec4(finalCol, finalAlpha);
       }
