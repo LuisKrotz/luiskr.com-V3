@@ -38,7 +38,7 @@ export default {
   // Recycle workers once their idle heap exceeds 4GB — keeps parallel
   // throughput high without the aggregate-RAM contention that produced
   // "worker failed to exit gracefully" under the old higher-worker runs.
-  workerIdleMemoryLimit: '2GB',
+  workerIdleMemoryLimit: '512MB',
   // Workers with large instrumented heaps legitimately need >500ms to tear
   // down under parallel load; jest's default grace force-kills them and
   // prints a leak warning despite zero actual open handles (verified via
