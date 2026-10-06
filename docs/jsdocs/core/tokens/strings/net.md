@@ -1,6 +1,6 @@
 # `core/tokens/strings/net.ts`
 
-Network/URL string tokens — grouped subset of STRINGS.
+Network/URL string tokens — token group.
 
 | | |
 |---|---|

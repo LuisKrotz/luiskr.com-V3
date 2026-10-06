@@ -33,7 +33,7 @@ CDN base URL for card media.
 
 Packs skeleton tiles with the same lowest-column algorithm as
 quickLayout(), using the real featured pattern (first
-SKELETON.MOSAIC_FEATURED tiles span 2 columns) so the placeholder wall
+SKELETON_MOSAIC.MOSAIC_FEATURED tiles span 2 columns) so the placeholder wall
 matches the loaded geometry instead of a uniform grid — avoids a
 jarring layout shift when real data lands. Returns {boxes, height}.
 

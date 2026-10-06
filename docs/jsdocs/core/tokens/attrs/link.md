@@ -1,6 +1,6 @@
 # `core/tokens/attrs/link.ts`
 
-Anchor/link attribute tokens — grouped subset of ATTRS.
+Anchor/link attribute tokens — token group.
 
 | | |
 |---|---|

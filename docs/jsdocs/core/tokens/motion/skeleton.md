@@ -76,7 +76,3 @@ The SKELETON_WARN constant.
 ### `SOFTWARE_RENDERERS`
 
 Renderer strings of CPU rasterizers where the field would cost main-thread time
-
-### `SKELETON`
-
-Composed view — backwards-compatible registry.

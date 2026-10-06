@@ -28,7 +28,3 @@ The SOURCE_COMPONENT_KEYS constant.
 ### `SECTION_COMPONENT_KEYS`
 
 The SECTION_COMPONENT_KEYS constant.
-
-### `COMPONENT_KEYS`
-
-Composed view — backwards-compatible registry.

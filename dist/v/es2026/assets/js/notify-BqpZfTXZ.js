@@ -1,0 +1,1 @@
+var gn,fq;import{k as wt}from"./store-DTyx9Wcz.js";gn=Object.freeze({ERROR:wt.ERROR,ai:"info",sD:"success"}),fq=Object.freeze({Hb:5e3,Jb:4,ED:2500,eD:64});export{gn as n,fq as t};

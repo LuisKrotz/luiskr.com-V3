@@ -1,0 +1,239 @@
+{
+  "generatedAt": "2026-10-06T13:40:41.905Z",
+  "policy": {
+    "forbidden": [
+      "log",
+      "debug",
+      "trace",
+      "table",
+      "group",
+      "groupEnd",
+      "groupCollapsed"
+    ],
+    "allowed": [
+      "warn",
+      "error",
+      "info"
+    ],
+    "allowlist": {
+      "src/registerServiceWorker.ts": {
+        "methods": [
+          "log"
+        ],
+        "reason": "Service-worker lifecycle logging is the standard SW pattern — workers have no other user-visible output channel for install/update/offline events."
+      }
+    }
+  },
+  "ok": true,
+  "totals": {
+    "callsites": 40,
+    "violations": 0,
+    "warn": 14,
+    "error": 16,
+    "info": 10,
+    "exempted": 0
+  },
+  "violations": [],
+  "allowedUsage": [
+    {
+      "file": "src/cms/about/data.ts",
+      "line": 40,
+      "method": "error"
+    },
+    {
+      "file": "src/cms/dev/firebase-mock.ts",
+      "line": 69,
+      "method": "info"
+    },
+    {
+      "file": "src/cms/dev/firebase-mock.ts",
+      "line": 73,
+      "method": "info"
+    },
+    {
+      "file": "src/cms/dev/firebase-mock.ts",
+      "line": 78,
+      "method": "info"
+    },
+    {
+      "file": "src/cms/dev/firebase-mock.ts",
+      "line": 114,
+      "method": "info"
+    },
+    {
+      "file": "src/cms/footer/data.ts",
+      "line": 62,
+      "method": "error"
+    },
+    {
+      "file": "src/cms/lang/CmsLangEditor.tsx",
+      "line": 60,
+      "method": "error"
+    },
+    {
+      "file": "src/cms/playground-editor/data.ts",
+      "line": 51,
+      "method": "error"
+    },
+    {
+      "file": "src/cms/portfolio/data.ts",
+      "line": 93,
+      "method": "error"
+    },
+    {
+      "file": "src/cms/portfolio/data.ts",
+      "line": 159,
+      "method": "error"
+    },
+    {
+      "file": "src/cms/portfolio/data.ts",
+      "line": 192,
+      "method": "error"
+    },
+    {
+      "file": "src/cms/projects/data.ts",
+      "line": 34,
+      "method": "error"
+    },
+    {
+      "file": "src/cms/projects/data.ts",
+      "line": 71,
+      "method": "error"
+    },
+    {
+      "file": "src/cms/routes/AdminLogin.tsx",
+      "line": 68,
+      "method": "error"
+    },
+    {
+      "file": "src/core/store.ts",
+      "line": 56,
+      "method": "warn"
+    },
+    {
+      "file": "src/core/store.ts",
+      "line": 76,
+      "method": "error"
+    },
+    {
+      "file": "src/firebase.ts",
+      "line": 185,
+      "method": "warn"
+    },
+    {
+      "file": "src/playground/earth/runtime/screenshot.ts",
+      "line": 41,
+      "method": "warn"
+    },
+    {
+      "file": "src/playground/earth/runtime/screenshot.ts",
+      "line": 74,
+      "method": "error"
+    },
+    {
+      "file": "src/playground/earth/setup/bootstrap.ts",
+      "line": 41,
+      "method": "warn"
+    },
+    {
+      "file": "src/playground/earth/setup/post-setup.ts",
+      "line": 138,
+      "method": "warn"
+    },
+    {
+      "file": "src/playground/earth/setup/renderer-setup.ts",
+      "line": 50,
+      "method": "warn"
+    },
+    {
+      "file": "src/playground/earth-background.ts",
+      "line": 84,
+      "method": "error"
+    },
+    {
+      "file": "src/playground/space/boot.ts",
+      "line": 63,
+      "method": "error"
+    },
+    {
+      "file": "src/registerServiceWorker.ts",
+      "line": 23,
+      "method": "info"
+    },
+    {
+      "file": "src/registerServiceWorker.ts",
+      "line": 29,
+      "method": "info"
+    },
+    {
+      "file": "src/registerServiceWorker.ts",
+      "line": 32,
+      "method": "info"
+    },
+    {
+      "file": "src/registerServiceWorker.ts",
+      "line": 35,
+      "method": "info"
+    },
+    {
+      "file": "src/registerServiceWorker.ts",
+      "line": 38,
+      "method": "info"
+    },
+    {
+      "file": "src/registerServiceWorker.ts",
+      "line": 42,
+      "method": "info"
+    },
+    {
+      "file": "src/registerServiceWorker.ts",
+      "line": 45,
+      "method": "error"
+    },
+    {
+      "file": "src/routes/router.ts",
+      "line": 87,
+      "method": "error"
+    },
+    {
+      "file": "src/utils/canvas/gl-program.ts",
+      "line": 76,
+      "method": "warn"
+    },
+    {
+      "file": "src/utils/canvas/loaders/skeleton/renderer.ts",
+      "line": 222,
+      "method": "warn"
+    },
+    {
+      "file": "src/utils/canvas/widgets/close-button/init.ts",
+      "line": 157,
+      "method": "warn"
+    },
+    {
+      "file": "src/utils/canvas/widgets/close-button/init.ts",
+      "line": 202,
+      "method": "warn"
+    },
+    {
+      "file": "src/utils/canvas/widgets/flag/gl.ts",
+      "line": 101,
+      "method": "warn"
+    },
+    {
+      "file": "src/utils/canvas/widgets/switch-slider/init.ts",
+      "line": 104,
+      "method": "warn"
+    },
+    {
+      "file": "src/utils/canvas/widgets/switch-slider/init.ts",
+      "line": 142,
+      "method": "warn"
+    },
+    {
+      "file": "src/utils/canvas/widgets/theme-slider/init.ts",
+      "line": 163,
+      "method": "warn"
+    }
+  ]
+}

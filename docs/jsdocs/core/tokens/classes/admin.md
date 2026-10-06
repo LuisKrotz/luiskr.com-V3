@@ -1,6 +1,6 @@
 # `core/tokens/classes/admin.ts`
 
-Admin login view class tokens — grouped subset of CLASSES.
+Admin login view class tokens — token group.
 
 | | |
 |---|---|

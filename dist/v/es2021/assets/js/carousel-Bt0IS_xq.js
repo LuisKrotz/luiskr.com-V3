@@ -1,0 +1,1 @@
+var bo=Object.freeze({Vs:"--carousel-item-height",Df:"--range-pct"});export{bo as t};

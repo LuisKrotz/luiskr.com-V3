@@ -1,0 +1,1 @@
+import{Nt as f0}from"./urls-6DjGQFtm.js";var wn=Object.freeze({na:"cookieAction",fm:"slidechange",oh:"autoplaystop",rh:"autoplaystart",Fo:"cancel",vn:f0,Yn:"open-lang-dialog",Wn:"open-preferences-modal",Fs:"notify"});export{wn as t};

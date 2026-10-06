@@ -1,6 +1,6 @@
 # `core/tokens/classes/loader.ts`
 
-Intro loader class tokens — grouped subset of CLASSES.
+Intro loader class tokens — token group.
 
 | | |
 |---|---|

@@ -1,0 +1,1 @@
+var bi,aq;import{P as et}from"./store-CtoVV_yl.js";bi=Object.freeze({ERROR:et.ERROR,aa:"info",jO:"success"}),aq=Object.freeze({bb:5e3,gb:4,XO:2500,xO:64});export{bi as n,aq as t};

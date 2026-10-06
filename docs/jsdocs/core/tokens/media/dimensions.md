@@ -40,7 +40,3 @@ scrolls timings.
 ### `DRAW_TIMINGS`
 
 Draws timings.
-
-### `MEDIA_DIMENSIONS`
-
-Composed view of every dimension/timing token — backwards-compatible.

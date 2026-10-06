@@ -1,0 +1,1 @@
+var go=Object.freeze({Vs:"--carousel-item-height",$h:"--range-pct"});export{go as t};

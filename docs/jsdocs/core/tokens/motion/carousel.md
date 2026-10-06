@@ -60,7 +60,3 @@ Below-the-fold carousels are rendered this many at a time in idle periods
 ### `DEFERRED_TIMEOUT`
 
 Upper bound before a deferred batch runs anyway (ms)
-
-### `CAROUSEL`
-
-Composed view — backwards-compatible registry.

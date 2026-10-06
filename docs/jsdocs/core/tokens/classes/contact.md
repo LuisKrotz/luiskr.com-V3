@@ -1,6 +1,6 @@
 # `core/tokens/classes/contact.ts`
 
-Contact section class tokens — grouped subset of CLASSES.
+Contact section class tokens — token group.
 
 | | |
 |---|---|

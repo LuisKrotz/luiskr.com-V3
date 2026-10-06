@@ -1,0 +1,1 @@
+var Do,qo;import{Dt as oX}from"./store-CtoVV_yl.js";Do=Object.freeze({Zl:"legal"}),qo=Object.freeze({ni:oX,od:`${oX}-title`,nd:`${oX}-subtitle`,td:`${oX}-link`});export{qo as n,Do as t};

@@ -1,0 +1,145 @@
+{
+  "generatedAt": "2026-10-06T13:40:59.411Z",
+  "engine": "axe-core@4.13.0",
+  "totals": {
+    "violations": 0,
+    "criticalOrSerious": 0,
+    "incomplete": 14,
+    "passes": 163
+  },
+  "surfaces": [
+    {
+      "surface": "home-composed",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast-enhanced",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AAA enhanced contrast ratio thresholds",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": 1
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+          "nodes": 1
+        }
+      ],
+      "passes": 32
+    },
+    {
+      "surface": "preferences-modal",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast-enhanced",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AAA enhanced contrast ratio thresholds",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": 1
+        }
+      ],
+      "passes": 33
+    },
+    {
+      "surface": "lang-dialog",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast-enhanced",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AAA enhanced contrast ratio thresholds",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": 1
+        }
+      ],
+      "passes": 31
+    },
+    {
+      "surface": "legal-view",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast-enhanced",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AAA enhanced contrast ratio thresholds",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": 1
+        }
+      ],
+      "passes": 21
+    },
+    {
+      "surface": "not-found-view",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast-enhanced",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AAA enhanced contrast ratio thresholds",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": 1
+        }
+      ],
+      "passes": 21
+    },
+    {
+      "surface": "media-figures",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast-enhanced",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AAA enhanced contrast ratio thresholds",
+          "nodes": 1
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": 1
+        }
+      ],
+      "passes": 18
+    },
+    {
+      "surface": "static-shell",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "bypass",
+          "impact": "serious",
+          "description": "Ensure each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
+          "nodes": 1
+        }
+      ],
+      "passes": 7
+    }
+  ]
+}

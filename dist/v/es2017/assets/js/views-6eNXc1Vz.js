@@ -1,0 +1,1 @@
+var hi=Object.freeze({dn:"view-home",Vn:"view-project",jn:"view-legal",Bn:"view-not-found",eI:"view-admin-login",EI:"view-cms-dashboard",Un:"view-space-playground"});export{hi as t};

@@ -1,0 +1,1 @@
+var j8=Object.defineProperty,KQ=(e,r)=>{let t={};for(var a in e)j8(t,a,{get:e[a],enumerable:!0});return r||j8(t,Symbol.toStringTag,{value:"Module"}),t};export{KQ as t};

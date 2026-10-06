@@ -32,7 +32,3 @@ The UA_PATTERNS constant.
 ### `MOBILE_UA`
 
 Mobile user agents — WebGL hinting is irrelevant (single GPU path)
-
-### `GPU`
-
-Composed view — backwards-compatible registry.

@@ -12,7 +12,3 @@ Routing tokens — URL path segments, route names, localized
 ### `BASE_TITLE`
 
 The BASE_TITLE constant.
-
-### `PATHS`
-
-Composed view of every path token — backwards-compatible registry.

@@ -1,6 +1,6 @@
 # `core/tokens/classes/flags.ts`
 
-Language flag class tokens — grouped subset of CLASSES.
+Language flag class tokens — token group.
 
 | | |
 |---|---|

@@ -1,6 +1,6 @@
 # `core/tokens/classes/playground.ts`
 
-Earth/Space playground control class tokens (`sp-*` block) —
+Earth/Space playground class tokens (`sp-*` block) —
 
 | | |
 |---|---|

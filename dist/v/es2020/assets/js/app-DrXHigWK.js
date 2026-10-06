@@ -1,0 +1,1 @@
+import{nn as IX}from"./store-olJfVmLA.js";var _i=Object.freeze({tn:"cookieAction",gm:"slidechange",fc:"autoplaystop",hc:"autoplaystart",ua:"cancel",hi:IX,Wi:"open-lang-dialog",Gi:"open-preferences-modal",NO:"notify"});export{_i as t};

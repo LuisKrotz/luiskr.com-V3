@@ -1,6 +1,6 @@
 # `core/tokens/ids/cms.ts`
 
-CMS root mount id token — grouped subset of IDS.
+CMS root mount id token — token group.
 
 | | |
 |---|---|

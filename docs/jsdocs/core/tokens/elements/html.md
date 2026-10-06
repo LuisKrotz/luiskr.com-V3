@@ -1,6 +1,6 @@
 # `core/tokens/elements/html.ts`
 
-Native HTML tag-name tokens — grouped subset of TAGS.
+Native HTML tag-name tokens — token group.
 
 | | |
 |---|---|

@@ -1,6 +1,6 @@
 # `core/tokens/attrs/form.ts`
 
-Form control attribute tokens — grouped subset of ATTRS.
+Form control attribute tokens — token group.
 
 | | |
 |---|---|

@@ -1,6 +1,6 @@
 # `core/tokens/classes/awards.ts`
 
-Awards footer class tokens — grouped subset of CLASSES.
+Awards footer class tokens — token group.
 
 | | |
 |---|---|

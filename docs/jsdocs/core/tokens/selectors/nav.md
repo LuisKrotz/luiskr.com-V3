@@ -1,6 +1,6 @@
 # `core/tokens/selectors/nav.ts`
 
-Navigation selector tokens — grouped subset of SELECTORS.
+Navigation selector tokens — token group.
 
 | | |
 |---|---|

@@ -1,6 +1,6 @@
 # `core/tokens/classes/lang.ts`
 
-Language dialog class tokens — grouped subset of CLASSES.
+Language dialog class tokens — token group.
 
 | | |
 |---|---|

@@ -1,0 +1,1 @@
+var Ot=Object.freeze({e_:'a[href^="/"], [data-route]',__:'link[rel="canonical"]',_l:'meta[name="robots"]',O_:"200px 0px",ha:"100px 0px",$s:"50px 0px",pi:"(prefers-color-scheme: dark)",la:"container-type",ca:"inline-size"});export{Ot as t};

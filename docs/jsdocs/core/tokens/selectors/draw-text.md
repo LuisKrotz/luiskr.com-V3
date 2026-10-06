@@ -1,6 +1,6 @@
 # `core/tokens/selectors/draw-text.ts`
 
-DrawText selector tokens — grouped subset of SELECTORS.
+DrawText selector tokens — token group.
 
 | | |
 |---|---|

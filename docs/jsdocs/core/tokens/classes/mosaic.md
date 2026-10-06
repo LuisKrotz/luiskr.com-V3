@@ -1,6 +1,6 @@
 # `core/tokens/classes/mosaic.ts`
 
-Home mosaic grid class tokens — grouped subset of CLASSES.
+Home mosaic grid class tokens — token group.
 
 | | |
 |---|---|

@@ -1,0 +1,1 @@
+var Mr,Nn;import{Ot as aX}from"./store-B2ucXUhu.js";Mr=Object.freeze({Zl:"legal"}),Nn=Object.freeze({ni:aX,od:`${aX}-title`,nd:`${aX}-subtitle`,td:`${aX}-link`});export{Nn as n,Mr as t};

@@ -24,7 +24,3 @@ The SP_GRADE_PARAMS constant.
 ### `SP_DEBUG_PARAMS`
 
 The SP_DEBUG_PARAMS constant.
-
-### `SP_PARAMS`
-
-Composed view — backwards-compatible registry.

@@ -1,6 +1,6 @@
 # `core/tokens/attrs/aria.ts`
 
-ARIA attribute + role-value tokens — grouped subset of ATTRS.
+ARIA attribute + role-value tokens — token group.
 
 | | |
 |---|---|

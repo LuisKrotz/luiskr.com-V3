@@ -1,6 +1,6 @@
 # `core/tokens/selectors/cookies.ts`
 
-Cookie banner selector tokens — grouped subset of SELECTORS.
+Cookie banner selector tokens — token group.
 
 | | |
 |---|---|

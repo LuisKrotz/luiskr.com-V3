@@ -9,6 +9,14 @@ GLSL sources for BurgerButtonWebGL, extracted from
 
 ## Members
 
-### `BURGER_FS`
+### `BURGER_VS`
 
-Hairline menu-icon fragment shader.
+Shared fullscreen-quad vertex shader.
+
+### `BURGER_FS_BODY`
+
+Hairline menu-icon fragment shader body (prefix with the deriv prelude).
+
+### `burgerFsSource`
+
+Full FS source for the current GL capability set.

@@ -1,6 +1,6 @@
 # `core/tokens/selectors/mosaic.ts`
 
-Home mosaic selector tokens — grouped subset of SELECTORS.
+Home mosaic selector tokens — token group.
 
 | | |
 |---|---|

@@ -44,7 +44,3 @@ Menu modal entrance settle time (ms) — longest item delay (0.76s) + item durat
 ### `DIALOG_LEAVE_DURATION`
 
 Dialog genie zoom-out duration (ms) — must match .pref-backdrop--leave transition
-
-### `ANIMATION`
-
-Composed view — backwards-compatible registry.

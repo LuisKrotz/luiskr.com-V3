@@ -17,10 +17,6 @@ The CMS_TABS constant.
 
 The CMS_TAGS constant.
 
-### `CMS_CLASSES`
-
-Composed view — backwards-compatible registry of all CMS classes.
-
 ### `CMS_EVENTS`
 
 The CMS_EVENTS constant.

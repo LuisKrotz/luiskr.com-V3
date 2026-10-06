@@ -1,6 +1,6 @@
 # `core/tokens/classes/about.ts`
 
-About section class tokens — grouped subset of CLASSES.
+About section class tokens — token group.
 
 | | |
 |---|---|

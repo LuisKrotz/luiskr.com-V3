@@ -1,6 +1,6 @@
 # `core/tokens/strings/routes.ts`
 
-Route/CMS name string tokens — grouped subset of STRINGS.
+Route/CMS name string tokens — token group.
 
 | | |
 |---|---|

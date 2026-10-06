@@ -1,6 +1,6 @@
 # `core/tokens/attrs/common.ts`
 
-Generic DOM attribute tokens — grouped subset of ATTRS.
+Generic DOM attribute tokens — token group.
 
 | | |
 |---|---|

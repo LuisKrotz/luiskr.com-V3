@@ -1,0 +1,1 @@
+import{tn as MX}from"./store-CtoVV_yl.js";var _i=Object.freeze({tn:"cookieAction",fm:"slidechange",gc:"autoplaystop",hc:"autoplaystart",Ba:"cancel",hi:MX,Wi:"open-lang-dialog",Gi:"open-preferences-modal",kO:"notify"});export{_i as t};

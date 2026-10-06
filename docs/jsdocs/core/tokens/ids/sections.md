@@ -1,6 +1,6 @@
 # `core/tokens/ids/sections.ts`
 
-Page-section anchor id tokens — grouped subset of IDS.
+Page-section anchor id tokens — token group.
 
 | | |
 |---|---|

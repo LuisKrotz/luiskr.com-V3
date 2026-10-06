@@ -16,7 +16,3 @@ The CDN_URLS constant.
 ### `SOCIAL_URLS`
 
 The SOCIAL_URLS constant.
-
-### `URLS`
-
-Composed view of every URL token — backwards-compatible registry.

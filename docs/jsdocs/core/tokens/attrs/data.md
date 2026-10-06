@@ -1,6 +1,6 @@
 # `core/tokens/attrs/data.ts`
 
-`data-*` attribute tokens — grouped subset of ATTRS.
+`data-*` attribute tokens — token group.
 
 | | |
 |---|---|

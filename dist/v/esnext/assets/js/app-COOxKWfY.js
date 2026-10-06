@@ -1,0 +1,1 @@
+import{tn as MX}from"./store-BBafv889.js";var wn=Object.freeze({na:"cookieAction",kd:"slidechange",fc:"autoplaystop",hc:"autoplaystart",Bo:"cancel",vn:MX,Yn:"open-lang-dialog",Wn:"open-preferences-modal",kO:"notify"});export{wn as t};

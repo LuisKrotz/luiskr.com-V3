@@ -1,6 +1,6 @@
 # `core/tokens/classes/cookies.ts`
 
-Cookie banner class tokens — grouped subset of CLASSES.
+Cookie banner class tokens — token group.
 
 | | |
 |---|---|

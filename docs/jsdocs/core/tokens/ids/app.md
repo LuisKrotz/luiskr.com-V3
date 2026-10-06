@@ -1,6 +1,6 @@
 # `core/tokens/ids/app.ts`
 
-App shell element id tokens — grouped subset of IDS.
+App shell element id tokens — token group.
 
 | | |
 |---|---|

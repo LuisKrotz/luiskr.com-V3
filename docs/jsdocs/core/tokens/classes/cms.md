@@ -1,6 +1,6 @@
 # `core/tokens/classes/cms.ts`
 
-CMS shell class tokens — grouped subset of CLASSES.
+CMS shell class tokens — token group.
 
 | | |
 |---|---|

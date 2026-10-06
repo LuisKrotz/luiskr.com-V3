@@ -121,6 +121,7 @@
 | [`CmsMediaConverter.tsx`](cms/media-convert/CmsMediaConverter.md) | &lt;cms-media-converter&gt; — localhost-only batch media |
 | [`consts.ts`](cms/media-convert/consts.md) | — |
 | [`events.ts`](cms/media-convert/events.md) | — |
+| [`exts.ts`](cms/media-convert/exts.md) | — |
 | [`files.ts`](cms/media-convert/files.md) | — |
 | [`job.ts`](cms/media-convert/job.md) | — |
 | [`render.tsx`](cms/media-convert/render.md) | — |
@@ -501,14 +502,14 @@
 
 | File | What it does |
 |---|---|
-| [`aria.ts`](core/tokens/attrs/aria.md) | ARIA attribute + role-value tokens — grouped subset of ATTRS. |
-| [`common.ts`](core/tokens/attrs/common.md) | Generic DOM attribute tokens — grouped subset of ATTRS. |
-| [`data.ts`](core/tokens/attrs/data.md) | `data-*` attribute tokens — grouped subset of ATTRS. |
-| [`form.ts`](core/tokens/attrs/form.md) | Form control attribute tokens — grouped subset of ATTRS. |
-| [`link.ts`](core/tokens/attrs/link.md) | Anchor/link attribute tokens — grouped subset of ATTRS. |
+| [`aria.ts`](core/tokens/attrs/aria.md) | ARIA attribute + role-value tokens — token group. |
+| [`common.ts`](core/tokens/attrs/common.md) | Generic DOM attribute tokens — token group. |
+| [`data.ts`](core/tokens/attrs/data.md) | `data-*` attribute tokens — token group. |
+| [`form.ts`](core/tokens/attrs/form.md) | Form control attribute tokens — token group. |
+| [`link.ts`](core/tokens/attrs/link.md) | Anchor/link attribute tokens — token group. |
 | [`media.ts`](core/tokens/attrs/media.md) | Media element attribute + MIME-type tokens — grouped subset |
-| [`svg.ts`](core/tokens/attrs/svg.md) | SVG geometry attribute values — grouped subset of ATTRS. |
-| [`values.ts`](core/tokens/attrs/values.md) | Generic attribute-value tokens — grouped subset of ATTRS. |
+| [`svg.ts`](core/tokens/attrs/svg.md) | SVG geometry attribute values — token group. |
+| [`values.ts`](core/tokens/attrs/values.md) | Generic attribute-value tokens — token group. |
 
 ## Core engine
 
@@ -516,32 +517,32 @@
 
 | File | What it does |
 |---|---|
-| [`a11y.ts`](core/tokens/classes/a11y.md) | Accessibility-only class tokens — grouped subset of CLASSES. |
-| [`about.ts`](core/tokens/classes/about.md) | About section class tokens — grouped subset of CLASSES. |
-| [`admin.ts`](core/tokens/classes/admin.md) | Admin login view class tokens — grouped subset of CLASSES. |
+| [`a11y.ts`](core/tokens/classes/a11y.md) | Accessibility-only class tokens — token group. |
+| [`about.ts`](core/tokens/classes/about.md) | About section class tokens — token group. |
+| [`admin.ts`](core/tokens/classes/admin.md) | Admin login view class tokens — token group. |
 | [`app.ts`](core/tokens/classes/app.md) | App shell class tokens — progress bar + view outlet |
-| [`awards.ts`](core/tokens/classes/awards.md) | Awards footer class tokens — grouped subset of CLASSES. |
+| [`awards.ts`](core/tokens/classes/awards.md) | Awards footer class tokens — token group. |
 | [`carousel.ts`](core/tokens/classes/carousel.md) | Custom carousel class tokens (project/related carousels) — |
-| [`cms.ts`](core/tokens/classes/cms.md) | CMS shell class tokens — grouped subset of CLASSES. |
-| [`contact.ts`](core/tokens/classes/contact.md) | Contact section class tokens — grouped subset of CLASSES. |
-| [`cookies.ts`](core/tokens/classes/cookies.md) | Cookie banner class tokens — grouped subset of CLASSES. |
+| [`cms.ts`](core/tokens/classes/cms.md) | CMS shell class tokens — token group. |
+| [`contact.ts`](core/tokens/classes/contact.md) | Contact section class tokens — token group. |
+| [`cookies.ts`](core/tokens/classes/cookies.md) | Cookie banner class tokens — token group. |
 | [`draw-text.ts`](core/tokens/classes/draw-text.md) | DrawText word/char reveal class tokens — grouped subset of |
 | [`effects.ts`](core/tokens/classes/effects.md) | Ambient effect canvas class tokens — fluid background, |
-| [`flags.ts`](core/tokens/classes/flags.md) | Language flag class tokens — grouped subset of CLASSES. |
+| [`flags.ts`](core/tokens/classes/flags.md) | Language flag class tokens — token group. |
 | [`footer.ts`](core/tokens/classes/footer.md) | Footer source-code row class tokens — grouped subset of |
 | [`home-carousel.ts`](core/tokens/classes/home-carousel.md) | Home carousel (`hc-*` block) class tokens — grouped subset of |
-| [`lang.ts`](core/tokens/classes/lang.md) | Language dialog class tokens — grouped subset of CLASSES. |
+| [`lang.ts`](core/tokens/classes/lang.md) | Language dialog class tokens — token group. |
 | [`legal.ts`](core/tokens/classes/legal.md) | Legal pages + not-found view class tokens — grouped subset of |
-| [`loader.ts`](core/tokens/classes/loader.md) | Intro loader class tokens — grouped subset of CLASSES. |
+| [`loader.ts`](core/tokens/classes/loader.md) | Intro loader class tokens — token group. |
 | [`media.ts`](core/tokens/classes/media.md) | Media render/placeholder class tokens — grouped subset of |
 | [`modal.ts`](core/tokens/classes/modal.md) | Generic modal + media expand-modal class tokens — grouped |
-| [`mosaic.ts`](core/tokens/classes/mosaic.md) | Home mosaic grid class tokens — grouped subset of CLASSES. |
+| [`mosaic.ts`](core/tokens/classes/mosaic.md) | Home mosaic grid class tokens — token group. |
 | [`nav.ts`](core/tokens/classes/nav.md) | Navigation class tokens — links, burger button and the |
-| [`playground.ts`](core/tokens/classes/playground.md) | Earth/Space playground control class tokens (`sp-*` block) — |
+| [`playground.ts`](core/tokens/classes/playground.md) | Earth/Space playground class tokens (`sp-*` block) — |
 | [`preferences.ts`](core/tokens/classes/preferences.md) | Preferences modal class tokens — all composed from the `pref` |
 | [`project.ts`](core/tokens/classes/project.md) | Project/internal page class tokens (`internal-*` block) — |
 | [`related.ts`](core/tokens/classes/related.md) | Related-projects mosaic class tokens — grouped subset of |
-| [`router.ts`](core/tokens/classes/router.md) | Router active-link class tokens — grouped subset of CLASSES. |
+| [`router.ts`](core/tokens/classes/router.md) | Router active-link class tokens — token group. |
 | [`skeleton.ts`](core/tokens/classes/skeleton.md) | Skeleton/shimmer placeholder class tokens — grouped subset of |
 | [`state.ts`](core/tokens/classes/state.md) | Global state modifier class tokens — grouped subset of |
 | [`stats.ts`](core/tokens/classes/stats.md) | Stats HUD / autoplay toggle class tokens — grouped subset of |
@@ -580,7 +581,7 @@
 |---|---|
 | [`cms.ts`](core/tokens/elements/cms.md) | CMS editor custom-element tag tokens — grouped subset of |
 | [`components.ts`](core/tokens/elements/components.md) | Component custom-element tag tokens — grouped subset of |
-| [`html.ts`](core/tokens/elements/html.md) | Native HTML tag-name tokens — grouped subset of TAGS. |
+| [`html.ts`](core/tokens/elements/html.md) | Native HTML tag-name tokens — token group. |
 | [`views.ts`](core/tokens/elements/views.md) | Route-view custom element tag tokens — grouped subset of |
 
 ## Core engine
@@ -599,11 +600,11 @@
 
 | File | What it does |
 |---|---|
-| [`app.ts`](core/tokens/ids/app.md) | App shell element id tokens — grouped subset of IDS. |
+| [`app.ts`](core/tokens/ids/app.md) | App shell element id tokens — token group. |
 | [`assets.ts`](core/tokens/ids/assets.md) | Dynamically-created element id tokens (critical CSS, WASM |
-| [`cms.ts`](core/tokens/ids/cms.md) | CMS root mount id token — grouped subset of IDS. |
+| [`cms.ts`](core/tokens/ids/cms.md) | CMS root mount id token — token group. |
 | [`dialogs.ts`](core/tokens/ids/dialogs.md) | Dialog title id tokens (aria-labelledby targets) — grouped |
-| [`sections.ts`](core/tokens/ids/sections.md) | Page-section anchor id tokens — grouped subset of IDS. |
+| [`sections.ts`](core/tokens/ids/sections.md) | Page-section anchor id tokens — token group. |
 
 ## Core engine
 
@@ -683,10 +684,10 @@
 |---|---|
 | [`carousel.ts`](core/tokens/selectors/carousel.md) | Custom carousel selector tokens — grouped subset of |
 | [`common.ts`](core/tokens/selectors/common.md) | Generic/shared selector tokens — grouped subset of |
-| [`cookies.ts`](core/tokens/selectors/cookies.md) | Cookie banner selector tokens — grouped subset of SELECTORS. |
-| [`draw-text.ts`](core/tokens/selectors/draw-text.md) | DrawText selector tokens — grouped subset of SELECTORS. |
-| [`mosaic.ts`](core/tokens/selectors/mosaic.md) | Home mosaic selector tokens — grouped subset of SELECTORS. |
-| [`nav.ts`](core/tokens/selectors/nav.md) | Navigation selector tokens — grouped subset of SELECTORS. |
+| [`cookies.ts`](core/tokens/selectors/cookies.md) | Cookie banner selector tokens — token group. |
+| [`draw-text.ts`](core/tokens/selectors/draw-text.md) | DrawText selector tokens — token group. |
+| [`mosaic.ts`](core/tokens/selectors/mosaic.md) | Home mosaic selector tokens — token group. |
+| [`nav.ts`](core/tokens/selectors/nav.md) | Navigation selector tokens — token group. |
 | [`skeleton.ts`](core/tokens/selectors/skeleton.md) | Skeleton placeholder selector tokens — grouped subset of |
 
 ## Core engine
@@ -700,17 +701,17 @@
 | [`debug.ts`](core/tokens/strings/debug.md) | URL `debug` parameter vocabulary |
 | [`dom.ts`](core/tokens/strings/dom.md) | DOM property/markup string tokens — grouped subset of |
 | [`input.ts`](core/tokens/strings/input.md) | Input-modality string tokens (pointer types, touch event |
-| [`langs.ts`](core/tokens/strings/langs.md) | Locale code string tokens — grouped subset of STRINGS. |
-| [`net.ts`](core/tokens/strings/net.md) | Network/URL string tokens — grouped subset of STRINGS. |
+| [`langs.ts`](core/tokens/strings/langs.md) | Locale code string tokens — token group. |
+| [`net.ts`](core/tokens/strings/net.md) | Network/URL string tokens — token group. |
 | [`queries.ts`](core/tokens/strings/queries.md) | Selector/media-query/rootMargin string tokens — grouped |
-| [`routes.ts`](core/tokens/strings/routes.md) | Route/CMS name string tokens — grouped subset of STRINGS. |
+| [`routes.ts`](core/tokens/strings/routes.md) | Route/CMS name string tokens — token group. |
 | [`schema.ts`](core/tokens/strings/schema.md) | Schema.org / SEO JSON-LD string tokens — grouped subset of |
 | [`state.ts`](core/tokens/strings/state.md) | State/display value string tokens — grouped subset of |
 | [`svg.ts`](core/tokens/strings/svg.md) | SVG namespace/data-URI string tokens — grouped subset of |
 | [`text.ts`](core/tokens/strings/text.md) | Non-localized UI text tokens (units, dev-facing labels) — |
-| [`types.ts`](core/tokens/strings/types.md) | `typeof` result string tokens — grouped subset of STRINGS. |
+| [`types.ts`](core/tokens/strings/types.md) | `typeof` result string tokens — token group. |
 | [`vendor.ts`](core/tokens/strings/vendor.md) | Vendor fingerprint + platform string tokens — grouped subset |
-| [`wasm.ts`](core/tokens/strings/wasm.md) | WASM worker vocab string tokens — grouped subset of STRINGS. |
+| [`wasm.ts`](core/tokens/strings/wasm.md) | WASM worker vocab string tokens — token group. |
 | [`webgl.ts`](core/tokens/strings/webgl.md) | WebGL context/extension/power-preference string tokens — |
 
 ## Core engine
