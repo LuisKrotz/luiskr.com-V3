@@ -1,0 +1,24 @@
+{
+  "customSyntax": "postcss-scss",
+  "rules": {
+    "block-no-empty": true,
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "ignore": ["consecutive-duplicates-with-different-values"]
+      }
+    ],
+    "no-duplicate-selectors": true,
+    "no-invalid-double-slash-comments": true,
+    "comment-no-empty": true,
+    "no-empty-source": null,
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignore": ["custom-elements"]
+      }
+    ],
+    "declaration-block-no-shorthand-property-overrides": true,
+    "no-irregular-whitespace": true
+  }
+}

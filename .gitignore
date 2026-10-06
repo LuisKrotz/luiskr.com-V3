@@ -1,6 +1,11 @@
 .DS_Store
 node_modules
 
+# Test/audit artifacts
+coverage/
+.lighthouseci/
+lighthouse-reports/
+
 
 # local env files
 .env.local
@@ -15,9 +20,14 @@ firebase-debug.log*
 
 # Editor directories and files
 .idea
-.vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+reports/
+# Local headless Chrome used for Lighthouse audits (not part of the repo)
+chrome-headless-shell/

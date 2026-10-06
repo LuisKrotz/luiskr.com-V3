@@ -1,0 +1,87 @@
+{
+  "exceptions": [
+    {
+      "package": "extract-zip",
+      "advisory": "*",
+      "severity": "high",
+      "reason": "No upstream fix exists (extract-zip@2.0.1 is the latest published release). Dev-only dependency inside @lhci/cli \u2192 @puppeteer/browsers \u2014 it only ever extracts Chrome binaries downloaded from Google's CDN during local Lighthouse runs; never processes untrusted archives in the shipped site.",
+      "added": "2026-02-17",
+      "reviewBy": "2026-08-17"
+    },
+    {
+      "package": "@puppeteer/browsers",
+      "advisory": "*",
+      "reason": "Flagged transitively via extract-zip \u2014 same accepted-risk scope.",
+      "added": "2026-02-17",
+      "reviewBy": "2026-08-17"
+    },
+    {
+      "package": "puppeteer-core",
+      "advisory": "*",
+      "reason": "Flagged transitively via extract-zip \u2014 same accepted-risk scope.",
+      "added": "2026-02-17",
+      "reviewBy": "2026-08-17"
+    },
+    {
+      "package": "lighthouse",
+      "advisory": "*",
+      "reason": "Flagged transitively via extract-zip \u2014 same accepted-risk scope.",
+      "added": "2026-02-17",
+      "reviewBy": "2026-08-17"
+    },
+    {
+      "package": "@lhci/utils",
+      "advisory": "*",
+      "reason": "Flagged transitively via extract-zip \u2014 same accepted-risk scope.",
+      "added": "2026-02-17",
+      "reviewBy": "2026-08-17"
+    },
+    {
+      "package": "@lhci/cli",
+      "advisory": "*",
+      "reason": "Flagged transitively via extract-zip \u2014 same accepted-risk scope.",
+      "added": "2026-02-17",
+      "reviewBy": "2026-08-17"
+    },
+    {
+      "package": "stylelint",
+      "advisory": "*",
+      "severity": "high",
+      "reason": "Dev-only lint tool \u2014 stylelint only ever reads local .scss at CI/dev time and never ships to the site or processes untrusted input. Transitive chain stylelint > globby > fast-glob > micromatch > braces has no published fix (stylelint@17.16.0 is the latest release). Revisit when upstream releases a patched tree.",
+      "added": "2026-10-05",
+      "reviewBy": "2027-04-05"
+    },
+    {
+      "package": "globby",
+      "advisory": "*",
+      "severity": "high",
+      "reason": "Flagged transitively via stylelint \u2014 same accepted-risk scope (dev-only linter).",
+      "added": "2026-10-05",
+      "reviewBy": "2027-04-05"
+    },
+    {
+      "package": "fast-glob",
+      "advisory": "*",
+      "severity": "high",
+      "reason": "Flagged transitively via stylelint \u2014 same accepted-risk scope (dev-only linter).",
+      "added": "2026-10-05",
+      "reviewBy": "2027-04-05"
+    },
+    {
+      "package": "micromatch",
+      "advisory": "*",
+      "severity": "high",
+      "reason": "Flagged transitively via stylelint \u2014 same accepted-risk scope (dev-only linter).",
+      "added": "2026-10-05",
+      "reviewBy": "2027-04-05"
+    },
+    {
+      "package": "braces",
+      "advisory": "*",
+      "severity": "high",
+      "reason": "Flagged transitively via stylelint \u2014 same accepted-risk scope (dev-only linter).",
+      "added": "2026-10-05",
+      "reviewBy": "2027-04-05"
+    }
+  ]
+}
