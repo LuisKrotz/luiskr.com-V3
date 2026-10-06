@@ -107,7 +107,7 @@ export const renderAppNav = (nav: AppNav) => {
 
   return (
     <nav
-      className={`${NAV_CLASSES.NAV}${onDark ? ` ${NAV_CLASSES.NAV_ON_DARK}` : CHAR_STRINGS.EMPTY}`}
+      className={`${NAV_CLASSES.NAV}${onDark ? ` ${NAV_CLASSES.NAV_ON_DARK}` : CHAR_STRINGS.EMPTY}${nav.isPlaygroundPage ? ` ${NAV_CLASSES.NAV_PLAYGROUND}` : CHAR_STRINGS.EMPTY}`}
       role={ARIA_ATTRS.ROLE_NAVIGATION}
     >
       <button

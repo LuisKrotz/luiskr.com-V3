@@ -20,6 +20,7 @@ export const NAV_CLASSES = Object.freeze({
   NAV_LINK: `${_B_NAV}-link`,
   NAV_LINK_ACTIVE: _K_ROUTER_LINK_EXACT_ACTIVE,
   NAV_ON_DARK: `${_B_NAV}--on-dark`,
+  NAV_PLAYGROUND: `${_B_NAV}--playground`,
   NAV_DESKTOP: `${_B_NAV}-desktop`,
   NAV_DESKTOP_RIGHT: `${_B_NAV}-desktop-right`,
   NAV_SEPARATOR: `${_B_NAV}-separator`,

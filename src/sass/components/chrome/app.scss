@@ -434,6 +434,17 @@ $_TURB-B: 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 widt
   display: block;
 }
 
+// Playground routes: the fullscreen scene behind the modal is always
+// dark, so pin the menu surface + inks to the dark variant regardless of
+// the global theme — links, the contour shader (which samples the
+// canvas's computed --menu-ink*), and the CSS fallback all stay
+// white-on-dark there.
+.#{$_B_NAV}--playground .#{$_B_NAV}-menu-modal {
+  --menu-bg: var(--bg-darkest);
+  --menu-ink: var(--color-white-raw);
+  --menu-ink-2: var(--color-white-raw);
+}
+
 // Menu overlay top row: title + circular close button.
 .#{$_B_NAV}-menu-modal-header {
   @extend %MAXAREA;
