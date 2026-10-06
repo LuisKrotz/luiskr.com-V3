@@ -1,0 +1,12 @@
+# `cms/portfolio/data.ts`
+
+| | |
+|---|---|
+| **Source** | `src/cms/portfolio/data.ts` |
+| **UX surface** | Portfolio list + related-projects editor card. |
+
+## Members
+
+### (module scope)
+
+Featured flags propagate into the `related` node — same write in save + sync.

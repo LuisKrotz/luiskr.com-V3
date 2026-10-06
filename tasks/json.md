@@ -1,7 +1,9 @@
 VSCode
 
 ---
->minify document
+
+> minify document
 
 ---
+
 alt+shift+f > pretify

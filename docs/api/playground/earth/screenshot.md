@@ -1,0 +1,14 @@
+# `playground/earth/screenshot.ts`
+
+PNG capture for the Earth engine, extracted from
+
+| | |
+|---|---|
+| **Source** | `src/playground/earth/screenshot.ts` |
+| **UX surface** | The /earth-playground WebGPU experience. |
+
+## Members
+
+### `takeEarthScreenshot`
+
+Renders one frame at 2× resolutionScale and downloads it as PNG.

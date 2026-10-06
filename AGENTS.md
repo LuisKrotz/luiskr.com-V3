@@ -14,7 +14,7 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
 2. **Zero Hardcoded Spacing & Dimensions**:
    - All spacing, margins, paddings, and layout dimensions must come from the Fibonacci token scale via `to-rem($space-*)` or `var(--space-*)`.
    - Never write inline dimension styles with raw numbers (e.g. `height: 180px;`, `width: 35%;`, `height: 1em;`).
-   - CSS custom property *values* in `_structure.scss` that contain lengths must use raw `rem` literals (e.g. `0.125rem`) because `to-rem()` is SCSS-only and is not valid inside a CSS var string.
+   - CSS custom property _values_ in `_structure.scss` that contain lengths must use raw `rem` literals (e.g. `0.125rem`) because `to-rem()` is SCSS-only and is not valid inside a CSS var string.
 
 3. **Zero Hardcoded Border Radii**:
    - Border radii must come from CSS tokens (`var(--radius-*)`, `to-rem($space-2xs)`).
@@ -35,7 +35,9 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
      - `'about-section'`, `'legal-footer'` → `CMS_KEYS.ABOUT_SECTION`, `CMS_KEYS.LEGAL_FOOTER`
      - `'decoding'`, `'loading'`, `'trigger'` → `ATTRS.DECODING`, `ATTRS.LOADING`, `ATTRS.TRIGGER`
      - All event names (e.g. `'cookieAction'`, `'resize'`) → `EVENTS.*`
-   - Tests must import all string constants and use them — never assert against inline string literals.
+   - **Test files (`tests/**/*.js`) follow the same rule**: tests must import all application string values from `src/core/constants.js` (`TAGS`, `CLASSES`, `ATTRS`, `EVENTS`, `MUTATIONS`, `PATHS`, `SELECTORS`, `IDS`, `STORAGE_KEYS`, `LOCALES`, `THEME`, `STRINGS`, `CSS_PROPS`, `URLS`, `MEDIA`, `TEXT`, `ROUTE_NAMES`, `TRANSLATION_KEYS`, `UI_KEYS`, `COMPONENT_KEYS`, `CMS_KEYS`, `KEYS`, `ANIMATION`, …) or CMS tokens from `src/cms/tokens.js` — never assert against, query, or dispatch with inline string literals when a token exists.
+   - Test-only vocabulary (fixture element tags, sample project IDs/slugs, sample text, sample award names) must be declared once in `tests/fixtures/test-constants.js` (`TEST_TAGS`, `TEST_TEXT`, `TEST_PROJECTS`, `TEST_AWARDS`) and imported from there — never repeated inline.
+   - Strings that are legitimately not tokens — import paths, test `describe()`/`test()` names, Node API arguments (`'fs'`, `'path'`, `'utf-8'`), regex syntax fragments, and unique one-off fixture data — may remain literal.
 
 6. **JSX Only (No HTML String Interpolation)**:
    - All components returning DOM structure must return native JSX elements using `h` and `Fragment` from `src/core/jsx.js`.
@@ -74,3 +76,50 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
 11. **Continuous Automated Governance**:
     - `tests/style-governance.test.js` must validate and pass all these rules automatically on every test run.
     - When a new rule is added here, a corresponding automated check must be added to `style-governance.test.js`.
+
+12. **Zero Forbidden Console Calls**:
+    - `console.log`, `console.debug`, `console.trace`, `console.table`, and `console.group*` are forbidden anywhere in `src/` — they are debug leftovers and must never ship.
+    - `console.warn`/`console.error`/`console.info` are allowed only as intentional signal (fallback warnings, `.catch(console.error)` error paths).
+    - Enforced by `scripts/verify/console-scan.mjs` → `reports/console-scan.json`; file-level exemptions need an in-file justification in the script's ALLOWLIST.
+
+13. **Security Scans Gate the Build**:
+    - `scripts/verify/security-scan.mjs` runs `snyk test` when `SNYK_TOKEN` is set, falling back to `npm audit` (same advisory data). High/critical vulnerabilities fail the gate; unfixable dev-only risks live in `security-exceptions.json` with justification + review date — never blanket-suppress.
+    - `tests/governance/axe-scan.test.js` runs axe-core (WCAG A/AA/AAA rule tags) on real mounted surfaces — violations of moderate impact or higher fail the suite; `tests/governance/contrast-aaa.test.js` enforces computed WCAG AAA contrast ratios on the compiled token sheet (7:1 text / 3:1 UI) since happy-dom cannot measure paint contrast.
+
+14. **Verification Pipeline (pre-commit + pre-build)**:
+    - `npm run verify` is the single gate: console-scan → eslint (src+tests) → jest coverage (incl. axe scan) → coverage-gate → security-scan.
+    - `prebuild` runs verify automatically — a failing check means NO new `dist` is generated.
+    - `.git/hooks/pre-commit` (installed via `scripts/install-hooks.sh`, versioned at `scripts/git-hooks/pre-commit`) runs the same verify.
+    - Test coverage must be **100% on every file** for statements, branches, functions, and lines — `jest.config.js` global threshold + `scripts/verify/coverage-gate.mjs` per-file enforcement.
+    - All scan reports land in `reports/` → bundled into `dist/deploy-info/` by `scripts/build/deploy-info.mjs` → shown in the CMS "Deploy Info" tab.
+
+15. **Component Self-Containment (Portability)**:
+    - A component folder must be copyable (JS/TS + SCSS) into another project and work with different data.
+    - No component may import from another component's folder; shared helpers live in `src/utils/` or `src/core/`.
+    - Components may only import from shared roots: `src/core`, `src/utils`, `src/sass`, `src/firebase`, `src/data`, plus the `router`/`types` infra singletons.
+    - Never import from `src/routes` (view logic), `src/cms`, or `src/app` inside `src/components`.
+    - Enforced by `tests/governance/component-portability.test.js`.
+
+16. **Deployment Prohibition**:
+    - Agents must NEVER run `npm run deploy`, `firebase deploy`, or any deployment command without an explicit, in-conversation user instruction for that specific deploy.
+    - Verification, builds, and tests never include a deploy step.
+
+17. **Tests Are JavaScript On Purpose**:
+    - All files under `tests/` are written in JavaScript by design — they exercise the runtime surface as a consumer/browser would and stay decoupled from internal type churn.
+    - Do not migrate tests to TypeScript; do still enforce token imports and the zero-hardcoding rule in tests.
+
+18. **Debug URL Parameters**:
+    - `?debug=sendNotificationTest` mounts a real `<site-toast>` test notification.
+    - `?debug=webGLMode:active` forces normal WebGL probing; `?debug=webGLMode:fallback` forces every WebGL acquisition to fail → the CSS/2D fallback path.
+    - All WebGL `getContext` calls must go through `src/utils/canvas/webgl-mode.ts` (`webglContext`) so the fallback param stays authoritative — never call `canvas.getContext('webgl…')` directly.
+
+19. **Coverage Tails Organization**:
+    - Coverage-tail tests live under `tests/coverage/<domain>/<subdomain>/` mirroring the source tree — `core/{component,env,firebase,jsx,loader,schema,store,ui,utils}`, `components/{carousel,dialogs,feedback,footer,home,media}`, `canvas/{infra,loaders,widgets}`, `cms/{deploy,editors,facade}`, `routes/{pages,router}`, `playground/{earth,space}`, `utils/{data,gpu,media,motion,perf,wasm}`, plus `app/`, `legacy-polyfills/`, `safari/`, and `sweep/` (cross-domain grab-bags only) — one file per describe, named after the module under test.
+    - Never call `jest.resetModules()` mid-file after exercising a module: istanbul counters are per module instance, and re-instantiation discards previously recorded hits in the merged report. Reset-free tails files exist for post-reset coverage.
+
+20. **JSDoc Required on All Declarations**:
+    - Every exported declaration (function, class, const, type, interface) must carry a JSDoc block (`/** ... */`) stating its purpose, what it does, and its effect — with `@param`/`@returns` tags where the signature has them.
+    - Internal top-level helpers and class members follow the same rule — purpose + effect, not a name restatement.
+    - Calculations, WebGL draw/calc code, and three.js plumbing get _detailed_ multi-line explanations (the math, the units, why the constants are what they are).
+    - Every `.scss` file opens with a header comment block explaining which UI surface/component it styles and whether it is shared.
+    - Enforced by `tests/governance/jsdoc-coverage.test.js`.
