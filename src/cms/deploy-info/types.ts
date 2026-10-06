@@ -2,6 +2,7 @@
  * @file cms/deploy-info/types.ts — report shapes for the Deploy Info tab.
  * Mirrors the JSON written into dist/deploy-info/ by deploy-info.mjs.
  */
+/* istanbul ignore file */
 
 export interface DeployIndex {
   files?: Record<string, string>

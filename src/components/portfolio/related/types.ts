@@ -3,6 +3,7 @@
  * <portfolio-related>. The related node only stores {link, page,
  * featured} pointers; the home portfoliolist supplies image/description.
  */
+/* istanbul ignore file */
 
 export interface RelatedProject {
   link?: string

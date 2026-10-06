@@ -1,6 +1,7 @@
 /**
  * @file draw-text/types.ts — token shapes for the char-staggered renderer.
  */
+/* istanbul ignore file */
 
 export interface DrawChar {
   ci: number

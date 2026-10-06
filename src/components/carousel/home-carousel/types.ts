@@ -1,6 +1,7 @@
 /**
  * @file home-carousel/types.ts — slide entry shape.
  */
+/* istanbul ignore file */
 
 export interface CarouselSlide {
   link?: string

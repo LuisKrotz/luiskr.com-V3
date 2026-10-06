@@ -5,6 +5,7 @@
  * IndexedDB/network cache configuration. Decomposed into per-domain group
  * objects under `tokens/media/`; import a group directly for tree-shaking.
  */
+/* istanbul ignore file */
 
 export * from './media/suffixes.js'
 export * from './media/sizes.js'

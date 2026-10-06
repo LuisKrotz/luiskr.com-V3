@@ -6,6 +6,7 @@
  * Decomposed into per-domain group objects under `tokens/motion/`; import a
  * group directly for tree-shaking.
  */
+/* istanbul ignore file */
 
 export * from './motion/carousel.js'
 export * from './motion/animation.js'

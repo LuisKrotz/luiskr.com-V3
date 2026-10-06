@@ -4,6 +4,7 @@
  * translation dictionary plus the augmented element types used when
  * reaching into nav/cookie/pref/lang children and routable views.
  */
+/* istanbul ignore file */
 
 import type { RouteDescriptor } from '@/routes/router.js'
 

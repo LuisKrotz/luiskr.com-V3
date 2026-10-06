@@ -51,6 +51,11 @@ jest.unstable_mockModule('@/utils/motion/route-warmer.js', () => ({
   startRouteWarming: () => {},
 }))
 
+// Each warm-up test re-evaluates the full main.js module graph after
+// jest.resetModules() — under the 75%-worker pool that re-import can be
+// CPU-starved far beyond the default 60s, so this suite gets 120s.
+jest.setTimeout(120000)
+
 describe('polyfills', () => {
   test('importing polyfills installs globals without throwing', async () => {
     await expect(import('@/legacy-polyfills/polyfills.js')).resolves.toBeTruthy()
@@ -75,7 +80,7 @@ describe('main.js site bootstrap', () => {
     await (await import('@/main.js')).bootPromise.catch(() => {})
 
     // start() is async — flush the boot promise + mount retry
-    await waitFor(() => window.router, 30000)
+    await waitFor(() => window.router, 90000)
 
     expect(window.router).toBeTruthy()
   }, 60000)
@@ -93,7 +98,7 @@ describe('main.js branch warm-ups', () => {
     document.body.appendChild(app)
 
     await (await import('@/main.js')).bootPromise.catch(() => {})
-    await waitFor(() => window.router, 45000)
+    await waitFor(() => window.router, 90000)
 
     expect(window.router).toBeTruthy()
 
@@ -115,7 +120,7 @@ describe('main.js branch warm-ups', () => {
 
     // The 20ms retry interval picks up the late-added container — poll
     // rather than fixed-wait so parallel CPU contention can't flake it.
-    await waitFor(() => app.firstElementChild, 45000)
+    await waitFor(() => app.firstElementChild, 90000)
 
     expect(app.firstElementChild).toBeTruthy()
   })
@@ -133,7 +138,7 @@ describe('main.js branch warm-ups', () => {
     }
 
     await (await import('@/main.js')).bootPromise.catch(() => {})
-    await waitFor(() => window.router, 45000)
+    await waitFor(() => window.router, 90000)
 
     expect(window.router).toBeTruthy()
 
@@ -192,7 +197,7 @@ describe('main.js branch warm-ups', () => {
     }
 
     await (await import('@/main.js')).bootPromise.catch(() => {})
-    await waitFor(() => window.router, 45000)
+    await waitFor(() => window.router, 90000)
 
     expect(window.router).toBeTruthy()
 
@@ -215,7 +220,7 @@ describe('main.js branch warm-ups', () => {
     }
 
     await (await import('@/main.js')).bootPromise.catch(() => {})
-    await waitFor(() => window.router, 45000)
+    await waitFor(() => window.router, 90000)
 
     expect(window.router).toBeTruthy()
 

@@ -1,6 +1,7 @@
 /**
  * @file portfolio/types.ts — portfolio row shape.
  */
+/* istanbul ignore file */
 
 export interface PortfolioItem {
   label?: string

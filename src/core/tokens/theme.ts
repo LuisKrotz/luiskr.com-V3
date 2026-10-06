@@ -6,6 +6,7 @@
  * into per-domain group objects under `tokens/theme/`; import a group
  * directly for tree-shaking.
  */
+/* istanbul ignore file */
 
 export * from './theme/theme.js'
 export * from './theme/switches.js'

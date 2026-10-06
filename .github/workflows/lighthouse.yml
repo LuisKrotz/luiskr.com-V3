@@ -1,0 +1,32 @@
+name: 'Lighthouse CI'
+
+on:
+  push:
+    branches: ['main', 'development']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  lighthouse:
+    name: Lighthouse audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # npm run lighthouse already runs the production build (prebuild →
+      # verify gate → vite build) before lhci autorun.
+      # LHCI_GITHUB_APP_TOKEN comes from the repo Actions secret — installing
+      # the Lighthouse CI GitHub App mints it; lhci autorun picks it up
+      # automatically and posts commit status checks on the PR/commit.
+      - name: Lighthouse CI
+        run: npm run lighthouse
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

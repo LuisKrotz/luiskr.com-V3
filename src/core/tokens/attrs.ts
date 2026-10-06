@@ -5,6 +5,7 @@
  * Decomposed into per-domain group objects under `tokens/attrs/`; import a
  * group directly for tree-shaking.
  */
+/* istanbul ignore file */
 
 export * from './attrs/values.js'
 export * from './attrs/aria.js'

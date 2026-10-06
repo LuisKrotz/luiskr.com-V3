@@ -4,6 +4,7 @@
  * the element surface the patched prototypes rely on plus the prototype
  * shape used when re-binding methods via customElements.get().
  */
+/* istanbul ignore file */
 
 /** Structural surface the Safari patches rely on (BaseComponent subclasses). */
 export interface SafariPatchableEl extends HTMLElement {

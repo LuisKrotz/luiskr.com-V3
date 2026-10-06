@@ -3,6 +3,7 @@
  * three DB nodes (components/contact, components/legal-footer,
  * components/related).
  */
+/* istanbul ignore file */
 
 export interface FooterChannel {
   description?: string

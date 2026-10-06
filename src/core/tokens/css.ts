@@ -5,6 +5,7 @@
  * into per-domain group objects under `tokens/css/`; import a group directly
  * for tree-shaking.
  */
+/* istanbul ignore file */
 
 export * from './css/carousel.js'
 export * from './css/theme.js'

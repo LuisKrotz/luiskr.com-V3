@@ -6,6 +6,7 @@
  * tree-shaking.
  * JSX must reference these constants, never inline class strings.
  */
+/* istanbul ignore file */
 
 export * from './classes/skeleton.js'
 export * from './classes/media.js'

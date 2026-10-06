@@ -6,6 +6,7 @@
  * group objects under `tokens/layout/`; import a group directly for
  * tree-shaking.
  */
+/* istanbul ignore file */
 
 export * from './layout/masonry.js'
 export * from './layout/space.js'

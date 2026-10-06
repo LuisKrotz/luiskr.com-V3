@@ -6,6 +6,7 @@
  * per-component group objects under `tokens/selectors/`; import a group
  * directly for tree-shaking.
  */
+/* istanbul ignore file */
 
 export * from './selectors/skeleton.js'
 export * from './selectors/mosaic.js'

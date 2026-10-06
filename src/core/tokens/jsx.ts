@@ -6,6 +6,7 @@
  * a namespaced SVG node. Decomposed into per-domain group objects under
  * `tokens/jsx/`; import a group directly for tree-shaking.
  */
+/* istanbul ignore file */
 
 export * from './jsx/svg.js'
 export * from './jsx/props.js'

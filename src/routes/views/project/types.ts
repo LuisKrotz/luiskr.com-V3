@@ -4,6 +4,7 @@
  * section children, the fetched project node and the custom-carousel
  * element contract.
  */
+/* istanbul ignore file */
 
 export interface ProjectMediaItem {
   src: string

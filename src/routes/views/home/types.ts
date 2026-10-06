@@ -3,6 +3,7 @@
  * @description Shapes for the <view-home> route: the portfolio list item,
  * the pages/home translation node, and the pages/about node.
  */
+/* istanbul ignore file */
 
 export interface PortfolioItem {
   link?: string

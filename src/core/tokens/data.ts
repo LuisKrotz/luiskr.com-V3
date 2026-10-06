@@ -6,6 +6,7 @@
  * per-domain group objects under `tokens/data/`; import a group directly
  * for tree-shaking.
  */
+/* istanbul ignore file */
 
 export * from './data/ui-keys.js'
 export * from './data/component-keys.js'

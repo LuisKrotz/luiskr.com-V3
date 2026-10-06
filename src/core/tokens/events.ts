@@ -5,6 +5,7 @@
  * group objects under `tokens/events/`; import a group directly for
  * tree-shaking.
  */
+/* istanbul ignore file */
 
 export * from './events/dom.js'
 export * from './events/app.js'

@@ -2,6 +2,7 @@
  * @file routes/types.ts — route descriptor shape + hook/listener
  * signatures shared by parse-path, navigate and the Router facade.
  */
+/* istanbul ignore file */
 
 export interface RouteMeta {
   title?: string
