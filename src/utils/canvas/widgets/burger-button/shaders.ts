@@ -40,22 +40,24 @@ export const BURGER_FS_BODY = `
         vec2 uv = gl_FragCoord.xy / u_res;
         float t = u_time;
 
-        // Bar geometry in UV units: 54% width, ~4% height, ±0.16 vertical
-        // spacing — a hairline-weight icon matching the nav's minimal style.
+        // Bar geometry in UV units: 54% width, ~4.5% height, ±0.16 vertical
+        // spacing — hairline-weight but with enough mass for the heavy AA
+        // stack (supersampled buffer + fwidth edge) to stay silky.
         float barW = 0.54;
-        float barH = 0.038;
+        float barH = 0.045;
         float gap = 0.16;
 
         // Subtle fluid wave: a ripple travels along each bar, out of phase
         // per bar (1.3 rad offsets ≈ 2π/5 — no two bars crest together),
-        // while the bars gently breathe in length — organic motion
-        float wave1 = sin(uv.x * 5.0 - t * 2.0) * 0.018;
-        float wave2 = sin(uv.x * 5.0 - t * 2.0 + 1.3) * 0.018;
-        float wave3 = sin(uv.x * 5.0 - t * 2.0 + 2.6) * 0.018;
+        // while the bars gently breathe in length — organic motion.
+        // Amplitude stays well under the bar height so edges stay clean.
+        float wave1 = sin(uv.x * 5.0 - t * 2.0) * 0.012;
+        float wave2 = sin(uv.x * 5.0 - t * 2.0 + 1.3) * 0.012;
+        float wave3 = sin(uv.x * 5.0 - t * 2.0 + 2.6) * 0.012;
 
-        float bob1 = sin(t * 1.6) * 0.008;
-        float bob2 = sin(t * 1.6 + 1.2) * 0.008;
-        float bob3 = sin(t * 1.6 + 2.4) * 0.008;
+        float bob1 = sin(t * 1.6) * 0.006;
+        float bob2 = sin(t * 1.6 + 1.2) * 0.006;
+        float bob3 = sin(t * 1.6 + 2.4) * 0.006;
 
         // Breathing: outer bars grow ±5% while the middle bar counter-shrinks
         // via (2.0 − grow) — the trio's total visual mass stays constant.
@@ -68,16 +70,17 @@ export const BURGER_FS_BODY = `
         float bar = min(min(d1, d2), d3);
 
         // Anti-aliased edge: with derivatives, convert the SDF distance to
-        // pixel distance so the hairline stays ~1px smooth at any buffer
-        // size (the buffer is supersampled, so band width ≈ pixel-constant
-        // before the CSS downsample adds another pass).
+        // pixel distance so the edge falloff spans ~2.2px — deliberately
+        // wider than a standard 1px band; on the ×4-supersampled buffer
+        // this yields a very soft, heavily anti-aliased hairline after the
+        // CSS downsample adds a second smoothing pass.
         #ifdef HAS_DERIV
         float px = max(fwidth(bar), 1e-4);
-        float alpha = 1.0 - smoothstep(-px * 0.8, px * 0.8, bar);
-        float glow = (1.0 - smoothstep(0.0, px * 4.5, bar)) * 0.22;
+        float alpha = 1.0 - smoothstep(-px * 1.1, px * 1.1, bar);
+        float glow = (1.0 - smoothstep(0.0, px * 5.5, bar)) * 0.2;
         #else
-        float alpha = smoothstep(0.012, 0.0, bar);
-        float glow = smoothstep(0.045, 0.0, bar) * 0.22;
+        float alpha = smoothstep(0.02, 0.0, bar);
+        float glow = smoothstep(0.06, 0.0, bar) * 0.2;
         #endif
 
         // Subtle breathing pulse

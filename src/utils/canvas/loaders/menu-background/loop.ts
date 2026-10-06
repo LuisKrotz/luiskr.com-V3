@@ -14,9 +14,13 @@ import type { MenuBackgroundWebGL } from '../menu-background-webgl.js'
 const REVEAL_OPEN_MS = 2600
 const REVEAL_CLOSE_MS = 1100
 
-/** Line alpha per theme — near-identical; the ink colors carry contrast. */
-const ALPHA_DARK = 0.16
-const ALPHA_LIGHT = 0.15
+/**
+ * Line alpha per theme — the field is a background texture, not content:
+ * dark mode keeps a touch more since white hairlines on black blend
+ * harder than deep blue on foam.
+ */
+const ALPHA_DARK = 0.1
+const ALPHA_LIGHT = 0.11
 
 /**
  * Begins the render loop on menu open: resamples theme inks, sizes the

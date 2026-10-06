@@ -191,10 +191,10 @@ export class BurgerButtonWebGL {
   _checkResize() {
     if (!this.canvas || !this.gl) return
 
-    // Supersample ×3 past DPR: a 34px icon renders at ~102–204px and the
+    // Supersample ×4 past DPR: a 34px icon renders at ~136–272px and the
     // CSS downsample smooths the hairline edges on top of the shader's
     // analytic AA — a tiny canvas makes this essentially free.
-    const dpr = Math.min(window.devicePixelRatio || 1, 2) * 3
+    const dpr = Math.min(window.devicePixelRatio || 1, 2) * 4
 
     const rect = this.canvas.getBoundingClientRect()
 

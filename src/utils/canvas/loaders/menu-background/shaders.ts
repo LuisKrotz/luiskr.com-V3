@@ -59,25 +59,27 @@ export const MENU_BG_FS_BODY = `
           vec2 r=vec2(fbm(p*1.6+2.2*q+vec2(1.7,9.2)+t*0.6),fbm(p*1.6+2.2*q+vec2(8.3,2.8)-t*0.4));
           float f=fbm(p*1.6+2.0*r);
 
-          // Isolines: quantize the field into 22 level bands; fract()
-          // measures distance to the nearest contour boundary.
+          // Isolines: quantize the field into 14 level bands — a sparse
+          // set so the field reads as delicate fabric folds rather than a
+          // dense screen-wide texture. fract() measures distance to the
+          // nearest contour boundary.
           // With derivatives available, convert band-space distance to
           // *pixel* distance (d / |∇q|) so every contour is a consistent
-          // ~1.2px hairline with a proper AA falloff — no crawling or
+          // ~1px hairline with a proper AA falloff — no crawling or
           // width pumping as the field drifts. Without them, fall back to
           // the fixed-width smoothstep band (softened by supersampling).
-          float levels=22.;
+          float levels=14.;
           float band=f*levels;
           float v=fract(band);
           float d=min(v,1.-v);
           #ifdef HAS_DERIV
           float grad=max(fwidth(band),1e-4);
           float dpx=d/grad;
-          float line=1.-smoothstep(0.55,1.35,dpx);
-          float majorLine=1.-smoothstep(0.85,1.85,dpx);
+          float line=1.-smoothstep(0.45,1.05,dpx);
+          float majorLine=1.-smoothstep(0.7,1.5,dpx);
           #else
-          float line=1.-smoothstep(0.,0.035,d);
-          float majorLine=1.-smoothstep(0.,0.05,d);
+          float line=1.-smoothstep(0.,0.028,d);
+          float majorLine=1.-smoothstep(0.,0.045,d);
           #endif
           float major=step(mod(floor(band),6.),0.5);
           line=mix(line,max(line,majorLine*0.9),major);
@@ -85,8 +87,12 @@ export const MENU_BG_FS_BODY = `
           // Reveal: vign fades lines toward the edges and rev multiplies
           // alpha for a soft global fade — the field itself stays stable;
           // no radial window, so open/close never reads as a zoom.
+          // The vignette reaches in further (0.15→0.7 of the half-frame)
+          // than a generic edge fade so contours concentrate around the
+          // link column like pleated fabric instead of covering the
+          // viewport uniformly.
           float len=length(p);
-          float vign=1.-smoothstep(0.3,0.95,len);
+          float vign=1.-smoothstep(0.15,0.7,len);
           float rev=smoothstep(0.,1.,u_reveal);
           float a=line*vign*rev*u_alpha;
 
