@@ -1,10 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import { execSync } from 'child_process'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const rootDir = path.resolve(__dirname, '..')
+const rootDir = path.resolve(__dirname, '..', '..')
 const dbPath = path.join(rootDir, 'database.json')
 
 const TRANSLATIONS_MAP = {
@@ -305,10 +304,18 @@ const TRANSLATIONS_MAP = {
 }
 
 // Fallbacks for regional dialects
-TRANSLATIONS_MAP.hrk = { ...TRANSLATIONS_MAP.de, earthPlayground: 'Erd-Playground', title: 'Erd-Playground' }
+TRANSLATIONS_MAP.hrk = {
+  ...TRANSLATIONS_MAP.de,
+  earthPlayground: 'Erd-Playground',
+  title: 'Erd-Playground',
+}
 TRANSLATIONS_MAP.cas = { ...TRANSLATIONS_MAP.es }
 TRANSLATIONS_MAP.riv = { ...TRANSLATIONS_MAP.br }
-TRANSLATIONS_MAP.gn  = { ...TRANSLATIONS_MAP.es, earthPlayground: 'Yvy Ñembosarái', title: 'Yvy Ñembosarái' }
+TRANSLATIONS_MAP.gn = {
+  ...TRANSLATIONS_MAP.es,
+  earthPlayground: 'Yvy Ñembosarái',
+  title: 'Yvy Ñembosarái',
+}
 TRANSLATIONS_MAP.tln = { ...TRANSLATIONS_MAP.it }
 
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
@@ -331,4 +338,6 @@ for (const [locale, data] of Object.entries(TRANSLATIONS_MAP)) {
 }
 
 fs.writeFileSync(dbPath, JSON.stringify(db, null, 2), 'utf8')
-console.log('✅ database.json patched successfully with Earth Playground translations across all locales.')
+console.log(
+  '✅ database.json patched successfully with Earth Playground translations across all locales.'
+)

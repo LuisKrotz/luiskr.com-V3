@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# luiskr.com pre-commit gate —
+#   1. prettier --write on every staged file (autofix, then re-stage)
+#   2. npm run verify: console-scan → typecheck → eslint (src+tests,
+#      zero-warning) → stylelint → jest coverage (incl. axe a11y scan) →
+#      coverage-gate → security-scan. Any failure blocks the commit.
+#
+# Installed by scripts/install-hooks.sh → .git/hooks/pre-commit
+
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+# ── 1. Format staged files and re-stage them ─────────────────────────────────
+STAGED="$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(js|mjs|cjs|ts|tsx|scss|css|json|md|yml|yaml|html)$' || true)"
+
+if [ -n "$STAGED" ]; then
+  echo "── pre-commit: prettier --write on staged files ──"
+  echo "$STAGED" | xargs npx prettier --write --ignore-unknown
+  echo "$STAGED" | xargs git add
+fi
+
+echo "── pre-commit: running verify (lint, tests+coverage, scans) ──"
+npm run verify

@@ -1,5 +1,7 @@
 import fs from 'fs'
-import { LANG_SLUGS, VALID_LANGS } from '../src/core/i18n.js'
+import { LANG_SLUGS } from '../../src/core/locale/lang-slugs.ts'
+
+const VALID_LANGS = Object.keys(LANG_SLUGS)
 
 function slugify(text) {
   return (text || '')
@@ -50,9 +52,12 @@ async function run() {
     const res = await fetch('https://luiskr-com.firebaseio.com/translations/en/projects.json')
     data = await res.json()
   } catch (err) {
-    console.error('Failed to fetch remote projects, falling back to local translations-full.json', err)
-    if (fs.existsSync('scripts/translations-full.json')) {
-      const full = JSON.parse(fs.readFileSync('scripts/translations-full.json', 'utf-8'))
+    console.error(
+      'Failed to fetch remote projects, falling back to local translations-full.json',
+      err
+    )
+    if (fs.existsSync('scripts/i18n/translations-full.json')) {
+      const full = JSON.parse(fs.readFileSync('scripts/i18n/translations-full.json', 'utf-8'))
       data = full.translations?.en?.projects || {}
     }
   }
@@ -90,7 +95,7 @@ async function run() {
     'brazilian-leather': 'cicb',
     'clinica-de-desenvolvimento-nathalia-bond': 'nathalia-bond',
     'genesysinf-sageweb': 'sage',
-    'minimelissa': 'mini-melissa',
+    minimelissa: 'mini-melissa',
   }
   for (const alias of Object.keys(aliases)) {
     urlSet.add(`/portfolio/${alias}`)

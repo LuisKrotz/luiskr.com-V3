@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url'
 import { execSync } from 'child_process'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const rootDir = path.resolve(__dirname, '..')
+const rootDir = path.resolve(__dirname, '..', '..')
 const dbPath = path.join(rootDir, 'database.json')
 
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
@@ -21,7 +21,11 @@ for (const loc of locales) {
   const tmpPage = path.join(rootDir, `tmp-ep-${loc}.json`)
   const tmpApp = path.join(rootDir, `tmp-app-${loc}.json`)
   fs.writeFileSync(tmpPage, JSON.stringify(earthData), 'utf8')
-  fs.writeFileSync(tmpApp, JSON.stringify({ earthPlayground: appEarth, spacePlayground: appEarth }), 'utf8')
+  fs.writeFileSync(
+    tmpApp,
+    JSON.stringify({ earthPlayground: appEarth, spacePlayground: appEarth }),
+    'utf8'
+  )
 
   try {
     execSync(`firebase database:set /translations/${loc}/pages/earth-playground ${tmpPage} -f`, {

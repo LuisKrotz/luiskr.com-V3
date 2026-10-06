@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# luiskr.com pre-push gate — the strictest hook. Runs the same `npm run verify`
+# pipeline as pre-commit PLUS Prettier autofix and the Lighthouse audit on the
+# production build, so nothing reaches the remote unformatted or unverified.
+#
+#   1. prettier --write over the whole tree (fix, not just check)
+#   2. npm run verify — console-scan, tsc, eslint, stylelint, jest+coverage,
+#      coverage-gate, security-scan
+#   3. npm run test:lighthouse — all categories must score 100 except
+#      performance (see lighthouserc.cjs)
+#
+# Installed by scripts/install-hooks.sh → .git/hooks/pre-push
+
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+echo "── pre-push: prettier --write (autofix everything) ──"
+npm run format
+
+echo "── pre-push: full verify gate ──"
+npm run verify
+
+echo "── pre-push: lighthouse audit ──"
+npm run test:lighthouse
+
+echo "── pre-push: all gates passed ──"

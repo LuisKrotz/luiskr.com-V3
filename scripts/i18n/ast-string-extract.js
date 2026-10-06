@@ -14,11 +14,8 @@ import { fileURLToPath } from 'node:url'
 import { parse } from '@babel/parser'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const ROOT = path.resolve(__dirname, '..')
+const ROOT = path.resolve(__dirname, '..', '..')
 const SRC_DIR = path.resolve(ROOT, 'src')
-
-// Zero exclusions — all strings are extracted into constants inventory
-const EXCLUDED_TOKENS = new Set([])
 
 function scanDirectory(dir, fileList = []) {
   const entries = fs.readdirSync(dir, { withFileTypes: true })
@@ -31,8 +28,9 @@ function scanDirectory(dir, fileList = []) {
         scanDirectory(fullPath, fileList)
       }
     } else if (entry.isFile() && (entry.name.endsWith('.js') || entry.name.endsWith('.jsx'))) {
-      // Exclude constants.js itself since it is the single-source-of-truth dictionary
-      if (!fullPath.includes('src/core/constants.js')) {
+      // Exclude constants.js and its domain modules under core/tokens/ — they
+      // are the single-source-of-truth dictionary, not duplication candidates.
+      if (!fullPath.includes('src/core/constants.js') && !fullPath.includes('src/core/tokens/')) {
         fileList.push(fullPath)
       }
     }
@@ -67,7 +65,9 @@ function extractStrings() {
 
       // Don't extract import sources (e.g. import ... from '...')
       if (
-        (parent?.type === 'ImportDeclaration' || parent?.type === 'ExportNamedDeclaration' || parent?.type === 'ExportAllDeclaration') &&
+        (parent?.type === 'ImportDeclaration' ||
+          parent?.type === 'ExportNamedDeclaration' ||
+          parent?.type === 'ExportAllDeclaration') &&
         node === parent.source
       ) {
         return

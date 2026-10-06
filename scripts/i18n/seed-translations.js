@@ -1,6 +1,6 @@
 /**
  * seed-translations.js — pushes new i18n keys to Firebase RTDB
- * Usage: node scripts/seed-translations.js
+ * Usage: node scripts/i18n/seed-translations.js
  * Requires: .firebase-admin-key.json in project root
  */
 import admin from 'firebase-admin'
@@ -10,7 +10,7 @@ import { dirname, join } from 'path'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const serviceAccount = JSON.parse(
-  readFileSync(join(__dirname, '../.firebase-admin-key.json'), 'utf8')
+  readFileSync(join(__dirname, '../../.firebase-admin-key.json'), 'utf8')
 )
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -33,7 +33,14 @@ const TRANSLATIONS = {
       },
     },
     carousel: { prev: 'Previous item', next: 'Next item', ofLabel: 'of' },
-    statsHud: { title: 'Performance', fps: 'FPS', memory: 'Memory', network: 'Network', latency: 'Latency', ai: 'AI Engine' },
+    statsHud: {
+      title: 'Performance',
+      fps: 'FPS',
+      memory: 'Memory',
+      network: 'Network',
+      latency: 'Latency',
+      ai: 'AI Engine',
+    },
   },
   br: {
     pref: {
@@ -49,7 +56,14 @@ const TRANSLATIONS = {
       },
     },
     carousel: { prev: 'Item anterior', next: 'Próximo item', ofLabel: 'de' },
-    statsHud: { title: 'Desempenho', fps: 'FPS', memory: 'Memória', network: 'Rede', latency: 'Latência', ai: 'Motor de IA' },
+    statsHud: {
+      title: 'Desempenho',
+      fps: 'FPS',
+      memory: 'Memória',
+      network: 'Rede',
+      latency: 'Latência',
+      ai: 'Motor de IA',
+    },
   },
   es: {
     pref: {
@@ -65,7 +79,14 @@ const TRANSLATIONS = {
       },
     },
     carousel: { prev: 'Elemento anterior', next: 'Elemento siguiente', ofLabel: 'de' },
-    statsHud: { title: 'Rendimiento', fps: 'FPS', memory: 'Memoria', network: 'Red', latency: 'Latencia', ai: 'Motor de IA' },
+    statsHud: {
+      title: 'Rendimiento',
+      fps: 'FPS',
+      memory: 'Memoria',
+      network: 'Red',
+      latency: 'Latencia',
+      ai: 'Motor de IA',
+    },
   },
   de: {
     pref: {
@@ -81,7 +102,14 @@ const TRANSLATIONS = {
       },
     },
     carousel: { prev: 'Vorheriges Element', next: 'Nächstes Element', ofLabel: 'von' },
-    statsHud: { title: 'Leistung', fps: 'FPS', memory: 'RAM', network: 'Netzwerk', latency: 'Latenz', ai: 'KI-Engine' },
+    statsHud: {
+      title: 'Leistung',
+      fps: 'FPS',
+      memory: 'RAM',
+      network: 'Netzwerk',
+      latency: 'Latenz',
+      ai: 'KI-Engine',
+    },
   },
   it: {
     pref: {
@@ -97,7 +125,14 @@ const TRANSLATIONS = {
       },
     },
     carousel: { prev: 'Elemento precedente', next: 'Elemento successivo', ofLabel: 'di' },
-    statsHud: { title: 'Prestazioni', fps: 'FPS', memory: 'Memoria', network: 'Rete', latency: 'Latenza', ai: 'Motore IA' },
+    statsHud: {
+      title: 'Prestazioni',
+      fps: 'FPS',
+      memory: 'Memoria',
+      network: 'Rete',
+      latency: 'Latenza',
+      ai: 'Motore IA',
+    },
   },
   fr: {
     pref: {
@@ -113,7 +148,14 @@ const TRANSLATIONS = {
       },
     },
     carousel: { prev: 'Élément précédent', next: 'Élément suivant', ofLabel: 'sur' },
-    statsHud: { title: 'Performances', fps: 'FPS', memory: 'Mémoire', network: 'Réseau', latency: 'Latence', ai: 'Moteur IA' },
+    statsHud: {
+      title: 'Performances',
+      fps: 'FPS',
+      memory: 'Mémoire',
+      network: 'Réseau',
+      latency: 'Latence',
+      ai: 'Moteur IA',
+    },
   },
   ru: {
     pref: {
@@ -129,7 +171,14 @@ const TRANSLATIONS = {
       },
     },
     carousel: { prev: 'Предыдущий', next: 'Следующий', ofLabel: 'из' },
-    statsHud: { title: 'Производительность', fps: 'FPS', memory: 'Память', network: 'Сеть', latency: 'Задержка', ai: 'ИИ' },
+    statsHud: {
+      title: 'Производительность',
+      fps: 'FPS',
+      memory: 'Память',
+      network: 'Сеть',
+      latency: 'Задержка',
+      ai: 'ИИ',
+    },
   },
 }
 
@@ -159,4 +208,7 @@ async function seed() {
   process.exit(0)
 }
 
-seed().catch(e => { console.error('❌', e); process.exit(1) })
+seed().catch((e) => {
+  console.error('❌', e)
+  process.exit(1)
+})

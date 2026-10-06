@@ -15,11 +15,13 @@ try {
   console.log('\n⚡ Step 2: Running Lighthouse CI (lhci autorun)...')
   execSync('npx lhci autorun', { stdio: 'inherit' })
 
+  console.log('\n📦 Step 3: Packaging last-deploy info into dist/deploy-info/ ...')
+  execSync('node scripts/build/deploy-info.mjs', { stdio: 'inherit' })
+
   console.log('\n============================================================')
   console.log('  LIGHTHOUSE CI AUDIT COMPLETE')
   console.log('============================================================')
   console.log(`\n📄 Local audit reports saved to: ${REPORTS_DIR}\n`)
-
 } catch (err) {
   console.error('\n❌ Lighthouse CI run encountered warnings or failures:', err.message)
   process.exit(1)
