@@ -20,6 +20,7 @@ import { h } from '@/core/jsx.js'
 import { VALID_LANGS } from '@/core/i18n.js'
 import cmsStyles from '@/cms/sass/cms.scss?inline'
 import { CMS_BUTTON_CLASSES, CMS_CARD_CLASSES, CMS_FORM_CLASSES } from '@/cms/tokens.js'
+import { devError } from '@/core/devlog.js'
 
 /**
  * The CmsLangEditor — lang editor class.
@@ -57,7 +58,7 @@ export class CmsLangEditor extends BaseComponent {
       this._updateDom()
       this._bindEvents()
     } catch (err) {
-      console.error('Error loading language dictionary:', err)
+      devError('Error loading language dictionary:', err)
     }
   }
 

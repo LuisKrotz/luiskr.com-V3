@@ -8,6 +8,7 @@ import { ref, child, get, set, remove } from 'firebase/database'
 import type { CmsProjectsList } from './CmsProjectsList.js'
 import { defaultCover } from './types.js'
 import { normalizeSection } from './sections.js'
+import { devError } from '@/core/devlog.js'
 
 /**
  * Loads project keys.
@@ -31,7 +32,7 @@ export async function loadProjectKeys(host: CmsProjectsList) {
       host._bindEvents()
     }
   } catch (err) {
-    console.error('Error loading project keys:', err)
+    devError('Error loading project keys:', err)
   }
 }
 
@@ -68,7 +69,7 @@ export async function loadProjectData(host: CmsProjectsList) {
     host._updateDom()
     host._bindEvents()
   } catch (err) {
-    console.error('Error loading project data:', err)
+    devError('Error loading project data:', err)
   }
 }
 

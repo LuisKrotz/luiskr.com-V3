@@ -14,6 +14,7 @@ import { webglPool } from '../../webgl-pool.js'
 import { SWITCH_SLIDER_FS, SWITCH_SLIDER_VS } from './shaders.js'
 import { glContextOptions } from '@/utils/gpu/gpu-info.js'
 import type { SwitchWebGL } from '../switch-slider.js'
+import { devWarn } from '@/core/devlog.js'
 
 /**
  * Backing store at clamp(devicePixelRatio, 2, 3) — the 2px floor keeps
@@ -101,7 +102,7 @@ export function initWebGL(host: SwitchWebGL): void {
 
     const built = createQuadProgram(gl, SWITCH_SLIDER_VS, SWITCH_SLIDER_FS, 'SwitchWebGL', {
       warn: (stage: string, info: unknown) =>
-        console.warn(
+        devWarn(
           stage === WEBGL_STRINGS.LINK_STAGE
             ? 'SwitchWebGL Program link error:'
             : `SwitchWebGL ${stage} error:`,
@@ -139,7 +140,7 @@ export function initWebGL(host: SwitchWebGL): void {
 
     host.useWebGL = true
   } catch (e) {
-    console.warn('SwitchWebGL fallback:', e)
+    devWarn('SwitchWebGL fallback:', e)
 
     host.useWebGL = false
   }

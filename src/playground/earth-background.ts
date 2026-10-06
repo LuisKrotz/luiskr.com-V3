@@ -51,6 +51,7 @@ import {
 } from './earth/runtime/updates.js'
 import { takeEarthScreenshot } from './earth/runtime/screenshot.js'
 import { buildSettingsSnapshot } from './earth/settings.js'
+import { devError } from '@/core/devlog.js'
 
 /**
  * Owns the full WebGPU/WebGL Earth scene: renderer, camera rig, sun+moon
@@ -81,7 +82,7 @@ export class EarthBackground {
     try {
       await bootstrapEarth(this.#s)
     } catch (e) {
-      console.error('[EarthBG] Bootstrap failed:', e)
+      devError('[EarthBG] Bootstrap failed:', e)
       this.#s.onReady?.()
     }
   }

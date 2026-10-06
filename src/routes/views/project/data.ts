@@ -25,6 +25,7 @@ import type { RouteDescriptor } from '@/routes/router.js'
 import type { ViewProject } from '@/routes/views/project/Project.js'
 import type { ProjectTranslations } from './types.js'
 import { SCROLL_TIMINGS } from '@/core/tokens/media/dimensions.js'
+import { devError } from '@/core/devlog.js'
 
 /** Toggles the noindex meta for draft/hidden projects. */
 export function updateRobotsMeta(noindex: boolean): void {
@@ -122,7 +123,7 @@ export function loadData(view: ViewProject, wait: number | false = false): void 
     }
   }
 
-  fetchFirebaseDb(dbpath, apply).then(apply).catch(console.error)
+  fetchFirebaseDb(dbpath, apply).then(apply).catch(devError)
 }
 
 /** Router hook — project→project navigations reload data without remounting. */

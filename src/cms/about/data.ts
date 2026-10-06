@@ -8,6 +8,7 @@ import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 import { DB_PATHS } from '@/core/tokens/routes/paths.js'
 import { NAV_TEXT } from '@/core/tokens/strings/text.js'
 import type { CmsAboutEditor } from './CmsAboutEditor.js'
+import { devError } from '@/core/devlog.js'
 
 /**
  * Loads about data.
@@ -37,7 +38,7 @@ export async function loadAboutData(host: CmsAboutEditor) {
     }
     host._updateDom()
   } catch (err) {
-    console.error('Error loading about data:', err)
+    devError('Error loading about data:', err)
   }
 }
 

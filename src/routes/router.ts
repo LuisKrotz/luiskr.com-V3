@@ -16,6 +16,7 @@ import { detectLangFromPath } from '@/core/i18n.js'
 import { normalizeProjectKey, parsePath } from './parse-path.js'
 import { handleNavigation } from './navigate.js'
 import type { NavHook, RouteDescriptor, RouteListener, RouteMeta } from './types.js'
+import { devError } from '@/core/devlog.js'
 
 export { normalizeProjectKey }
 export type { NavHook, RouteDescriptor, RouteListener, RouteMeta }
@@ -84,7 +85,7 @@ export class Router {
       try {
         listener(to, from)
       } catch (e) {
-        console.error('[Router] listener error:', e)
+        devError('[Router] listener error:', e)
       }
     }
   }

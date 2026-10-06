@@ -15,6 +15,7 @@ import { getDbInstance } from '@/firebase.js'
 import { SP_DB_DEFAULT_SEED } from '@/playground/space/controls.js'
 import { ref, child, get, set } from 'firebase/database'
 import type { CmsPlaygroundEditor } from './CmsPlaygroundEditor.js'
+import { devError } from '@/core/devlog.js'
 
 /** Reads the playground + slugs nodes for the selected locale. */
 export async function loadAllData(ed: CmsPlaygroundEditor): Promise<void> {
@@ -48,7 +49,7 @@ export async function loadAllData(ed: CmsPlaygroundEditor): Promise<void> {
 
     ed._updateDom()
   } catch (err) {
-    console.error('Error loading playground data:', err)
+    devError('Error loading playground data:', err)
 
     // Same seeding on failure — the defaults still exist, the read failed.
     ed.epDefaults = { ...SP_DB_DEFAULT_SEED }

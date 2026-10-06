@@ -10,6 +10,7 @@ import { ref, child, get, set, type Database } from 'firebase/database'
 import type { CmsPortfolioList } from './CmsPortfolioList.js'
 import type { PortfolioItem } from './types.js'
 import { COVER_DIMENSIONS, MOSAIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
+import { devError } from '@/core/devlog.js'
 
 /** Featured flags propagate into the `related` node — same write in save + sync. */
 async function syncRelatedFeatured(
@@ -90,7 +91,7 @@ export async function loadLangPortfolio(host: CmsPortfolioList) {
     host._updateDom()
     host._bindEvents()
   } catch (err) {
-    console.error('Error loading portfolio list:', err)
+    devError('Error loading portfolio list:', err)
   }
 }
 
@@ -156,7 +157,7 @@ export async function syncNonLocalizedToAllLangs(host: CmsPortfolioList) {
       })
     )
   } catch (err) {
-    console.error('Error syncing non-localized info:', err)
+    devError('Error syncing non-localized info:', err)
     alert('Failed to sync non-localized portfolio info: ' + ((err as Error).message || err))
   } finally {
     host.saving = false
@@ -189,7 +190,7 @@ export async function savePortfolio(host: CmsPortfolioList) {
       })
     )
   } catch (err) {
-    console.error('Error saving portfolio list:', err)
+    devError('Error saving portfolio list:', err)
     alert('Failed to save portfolio list to Firebase: ' + ((err as Error).message || err))
   } finally {
     host.saving = false

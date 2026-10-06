@@ -1,3 +1,4 @@
+import { devInfo } from '@/core/devlog.js'
 /**
  * @file dev/firebase-mock.js (cms)
  * @description Dev-only offline stub for Firebase Auth + RTDB. Enabled by
@@ -66,16 +67,15 @@ export const get = async (r: MockRef) => {
  * @param r — the value
  * @param v — the value
  */
-export const set = async (r: MockRef, v: unknown) => console.info('[CMS-MOCK] set', r.__path, v)
+export const set = async (r: MockRef, v: unknown) => devInfo('[CMS-MOCK] set', r.__path, v)
 /**
  * The remove helper.
  */
-export const remove = async (r: MockRef) => console.info('[CMS-MOCK] remove', r.__path)
+export const remove = async (r: MockRef) => devInfo('[CMS-MOCK] remove', r.__path)
 /**
  * The update helper.
  */
-export const update = async (r: MockRef, v: unknown) =>
-  console.info('[CMS-MOCK] update', r.__path, v)
+export const update = async (r: MockRef, v: unknown) => devInfo('[CMS-MOCK] update', r.__path, v)
 /**
  * Gets database.
  */
@@ -111,7 +111,7 @@ export const signInWithGoogle = async () => MOCK_USER
 /**
  * The logout user helper.
  */
-export const logoutUser = async () => console.info('[CMS-MOCK] logout')
+export const logoutUser = async () => devInfo('[CMS-MOCK] logout')
 /**
  * Fetches firebase db.
  * @param path — the path

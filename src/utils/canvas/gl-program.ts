@@ -9,6 +9,7 @@
  */
 import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
 import { webglContext } from './webgl-mode.js'
+import { devWarn } from '@/core/devlog.js'
 
 /**
  * Probes the canvas for a WebGL context — prefers `webgl`, falls back to
@@ -73,7 +74,7 @@ export const createQuadProgram = (
   opts: QuadProgramOptions = {}
 ): { program: WebGLProgram; quadBuffer: WebGLBuffer } | null => {
   const warn =
-    opts.warn ?? ((stage: string, info: unknown) => console.warn(`${label} ${stage} error:`, info))
+    opts.warn ?? ((stage: string, info: unknown) => devWarn(`${label} ${stage} error:`, info))
 
   // Throws propagate to the caller's own catch (its 'X fallback:' warn),
   // matching the pre-extraction single-warn behavior.

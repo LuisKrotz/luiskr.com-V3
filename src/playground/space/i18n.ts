@@ -20,6 +20,7 @@ import {
   type SpParamValue,
 } from './controls.js'
 import type { SpacePlayground } from '../SpacePlayground.js'
+import { devError } from '@/core/devlog.js'
 
 /**
  * Loads space translations.
@@ -48,7 +49,7 @@ export function loadSpaceTranslations(c: SpacePlayground): void {
         })
       }
     })
-    .catch(console.error)
+    .catch(devError)
 }
 
 /**

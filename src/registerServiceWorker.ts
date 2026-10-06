@@ -7,6 +7,7 @@
 
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { register } from 'register-service-worker'
+import { devError, devInfo } from '@/core/devlog.js'
 
 /**
  * Registers `<base>service-worker.js` on window load when `env.PROD` is set.
@@ -20,29 +21,29 @@ export const registerServiceWorker = (env: { PROD?: boolean; BASE_URL?: string }
   window.addEventListener('load', () => {
     register(`${env.BASE_URL}service-worker.js`, {
       ready() {
-        console.info(
+        devInfo(
           'App is being served from cache by a service worker.\n' +
             'For more details, visit https://goo.gl/AFskqB'
         )
       },
       registered() {
-        console.info('Service worker has been registered.')
+        devInfo('Service worker has been registered.')
       },
       cached() {
-        console.info('Content has been cached for offline use.')
+        devInfo('Content has been cached for offline use.')
       },
       updatefound() {
-        console.info('New content is downloading.')
+        devInfo('New content is downloading.')
       },
       updated() {
-        console.info('New content is available; refreshing page.')
+        devInfo('New content is available; refreshing page.')
         window.location.reload()
       },
       offline() {
-        console.info('No internet connection found. App is running in offline mode.')
+        devInfo('No internet connection found. App is running in offline mode.')
       },
       error(error) {
-        console.error('Error during service worker registration:', error)
+        devError('Error during service worker registration:', error)
       },
     })
   })

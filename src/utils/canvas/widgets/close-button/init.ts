@@ -15,6 +15,7 @@ import { CLOSE_BUTTON_FS, CLOSE_BUTTON_VS } from './shaders.js'
 import { glContextOptions } from '@/utils/gpu/gpu-info.js'
 import type { CloseButtonWebGL } from '../close-button.js'
 import { webglContext } from '../../webgl-mode.js'
+import { devWarn } from '@/core/devlog.js'
 
 /** Design dimension of the expand-modal close button (px). */
 const FALLBACK_SIZE = 55
@@ -154,7 +155,7 @@ export function initWebGL(host: CloseButtonWebGL): void {
     const built = createQuadProgram(gl, CLOSE_BUTTON_VS, CLOSE_BUTTON_FS, 'CloseButton', {
       premultiplied: false,
       warn: (stage: string, info: unknown) =>
-        console.warn(
+        devWarn(
           `CloseButton ${stage === WEBGL_STRINGS.VERTEX_STAGE ? 'vs' : stage === WEBGL_STRINGS.FRAGMENT_STAGE ? 'fs' : 'program'} error:`,
           info
         ),
@@ -199,7 +200,7 @@ export function initWebGL(host: CloseButtonWebGL): void {
 
     host.useWebGL = true
   } catch (e) {
-    console.warn('CloseButton WebGL fallback:', e)
+    devWarn('CloseButton WebGL fallback:', e)
 
     host.useWebGL = false
 

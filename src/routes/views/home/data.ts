@@ -23,6 +23,7 @@ import { fetchFirebaseDb } from '@/utils/data/db.js'
 import type { DbSnapshot } from '@/utils/data/db.js'
 import type { ViewHome } from './Home.js'
 import type { AboutNode, HomeTranslations, PortfolioItem } from './types.js'
+import { devError } from '@/core/devlog.js'
 
 /**
  * Featured detection accepts three sources: explicit boolean/string/1
@@ -97,7 +98,7 @@ export function loadHomeData(view: ViewHome): void {
 
   fetchFirebaseDb(homePath, (snap) => applyHomeSnapshot(view, snap))
     .then((snap) => applyHomeSnapshot(view, snap))
-    .catch(console.error)
+    .catch(devError)
 
   fetchFirebaseDb(projectsPath)
     .then((projectsSnap) => {
@@ -115,7 +116,7 @@ export function loadHomeData(view: ViewHome): void {
         view._passDataToChildren()
       }
     })
-    .catch(console.error)
+    .catch(devError)
 
   Promise.all([fetchFirebaseDb(aboutPath), fetchFirebaseDb(picPath)])
     .then(([aboutSnap, picSnap]) => {
@@ -140,7 +141,7 @@ export function loadHomeData(view: ViewHome): void {
 
       view._passDataToChildren()
     })
-    .catch(console.error)
+    .catch(devError)
 }
 
 /** Store change → reload all data on locale switch. */

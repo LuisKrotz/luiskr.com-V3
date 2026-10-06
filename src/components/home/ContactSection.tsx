@@ -25,6 +25,7 @@ import contactStyles from '@/sass/components/home/contact.scss?inline'
 
 import { fetchFirebaseDb } from '@/utils/data/db.js'
 import { SECTION_COMPONENT_KEYS } from '@/core/tokens/data/component-keys.js'
+import { devError } from '@/core/devlog.js'
 
 interface ContactLink {
   link: string
@@ -63,7 +64,7 @@ export class ContactSection extends BaseComponent {
             store.commit(LANG_MUTATIONS.SET_COMPONENT_LANG, snapshot.val())
           }
         })
-        .catch(console.error)
+        .catch(devError)
     }
   }
 

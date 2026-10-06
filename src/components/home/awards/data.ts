@@ -15,6 +15,7 @@ import store from '@/core/store.js'
 import { fetchFirebaseDb } from '@/utils/data/db.js'
 import { getFallbackLegalLinks } from '@/utils/data/legal-links.js'
 import type { AwardsMentions } from '../AwardsMentions.js'
+import { devError } from '@/core/devlog.js'
 
 /**
  * The AwardLink value.
@@ -68,5 +69,5 @@ export function ensureAwardsData(_el: AwardsMentions): void {
         store.commit(LANG_MUTATIONS.SET_COMPONENT_LANG, snapshot.val())
       }
     })
-    .catch(console.error)
+    .catch(devError)
 }

@@ -10,6 +10,7 @@ import { DB_PATHS } from '@/core/tokens/routes/paths.js'
 import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 import { NAV_TEXT } from '@/core/tokens/strings/text.js'
 import type { CmsFooterEditor } from './CmsFooterEditor.js'
+import { devError } from '@/core/devlog.js'
 
 /** Components node path for one locale. */
 const nodePath = (lang: string, node: string): string =>
@@ -59,7 +60,7 @@ export async function loadAllData(host: CmsFooterEditor): Promise<void> {
 
     host._updateDom()
   } catch (err) {
-    console.error('Error loading footer data:', err)
+    devError('Error loading footer data:', err)
   }
 }
 

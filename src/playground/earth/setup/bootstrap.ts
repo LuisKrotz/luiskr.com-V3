@@ -23,6 +23,7 @@ import {
 import { buildEarthPostPipeline, seedPostState } from './post-setup.js'
 import { handleEarthResize, tickEarth } from '../runtime/frame.js'
 import type { EarthState } from '../runtime/state.js'
+import { devWarn } from '@/core/devlog.js'
 
 /**
  * Pre-compiles the scene's shader programs so the first visible frame doesn't
@@ -38,7 +39,7 @@ export async function warmUpShaders(
   try {
     if (scene && camera) await renderer.compileAsync(scene, camera)
   } catch (err) {
-    console.warn('[EarthBG] Shader compile warmup notice:', err)
+    devWarn('[EarthBG] Shader compile warmup notice:', err)
   }
 }
 

@@ -15,6 +15,7 @@ import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
 import type { SkeletonWebGL } from '../skeleton-webgl.js'
 import { webglContext } from '../../webgl-mode.js'
 import { SKELETON_WARN } from '@/core/tokens/motion/skeleton.js'
+import { devWarn } from '@/core/devlog.js'
 
 /**
  * Single shared WebGL context for every skeleton layer on the page. Layers
@@ -219,7 +220,7 @@ export class SkeletonRenderer {
   _initProgram(gl: WebGLRenderingContext): boolean {
     const built = createQuadProgram(gl, SKELETON_VS, SKELETON_FS, 'SkeletonWebGL', {
       verts: new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
-      warn: (_stage: string, info: unknown) => console.warn(SKELETON_WARN.SHADER_WARN, info),
+      warn: (_stage: string, info: unknown) => devWarn(SKELETON_WARN.SHADER_WARN, info),
     })
 
     if (!built) return false

@@ -10,6 +10,7 @@ import { NET_STRINGS } from '@/core/tokens/strings/net.js'
 import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 import { handleEarthResize } from './frame.js'
 import type { EarthState } from './state.js'
+import { devError, devWarn } from '@/core/devlog.js'
 
 /** Renders one frame at 2× resolutionScale and downloads it as PNG. */
 export const takeEarthScreenshot = async (s: EarthState): Promise<void> => {
@@ -38,7 +39,7 @@ export const takeEarthScreenshot = async (s: EarthState): Promise<void> => {
     try {
       dataUrl = canvas.toDataURL(NET_STRINGS.IMAGE_PNG)
     } catch (err) {
-      console.warn('[EarthBG] toDataURL fallback:', err)
+      devWarn('[EarthBG] toDataURL fallback:', err)
     }
 
     if (!dataUrl || dataUrl === 'data:,') {
@@ -71,7 +72,7 @@ export const takeEarthScreenshot = async (s: EarthState): Promise<void> => {
       }, 1000)
     }
   } catch (e) {
-    console.error('[EarthBG] Screenshot failed:', e)
+    devError('[EarthBG] Screenshot failed:', e)
   } finally {
     s.render.resolutionScale = old
 

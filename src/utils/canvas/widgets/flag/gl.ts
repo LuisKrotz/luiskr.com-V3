@@ -13,6 +13,7 @@ import { FLAG_FS, FLAG_VS } from './shaders.js'
 import { createQuadProgram, getUniforms } from '../../gl-program.js'
 import type { FlagRenderer } from './renderer.js'
 import { webglContext } from '../../webgl-mode.js'
+import { devWarn } from '@/core/devlog.js'
 
 /** Creates the GL context, flag shaders and textures. */
 export function initFlagGL(renderer: FlagRenderer): void {
@@ -98,7 +99,7 @@ export function initFlagProgram(renderer: FlagRenderer, gl: WebGLRenderingContex
   try {
     built = createQuadProgram(gl, FLAG_VS, FLAG_FS, 'FlagWebGL')
   } catch (e) {
-    console.warn('FlagWebGL fallback:', e)
+    devWarn('FlagWebGL fallback:', e)
 
     return false
   }

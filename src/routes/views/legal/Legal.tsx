@@ -31,6 +31,7 @@ import { FALLBACK_PAGES } from '@/core/locale/fallback.js'
 import '@/components/media/DrawText.js'
 import legalStyles from './legal.scss?inline'
 import '@/components/legal/Footer.js'
+import { devError } from '@/core/devlog.js'
 
 interface LegalSection {
   title?: string
@@ -141,7 +142,7 @@ export class ViewLegal extends BaseComponent {
       }
     }
 
-    fetchFirebaseDb(dbpath, apply).then(apply).catch(console.error)
+    fetchFirebaseDb(dbpath, apply).then(apply).catch(devError)
   }
 
   /**

@@ -16,6 +16,7 @@ import { releaseQuadGL, watchContextLoss } from '../../gl-lifecycle.js'
 import { webglPool } from '../../webgl-pool.js'
 import { THEME_SLIDER_FS, THEME_SLIDER_VS } from './shaders.js'
 import type { ThemeSliderWebGL } from '../theme-slider.js'
+import { devWarn } from '@/core/devlog.js'
 
 /**
  * Backing-store oversampling: max(devicePixelRatio, 2) × 2 — deliberately
@@ -160,7 +161,7 @@ export function initWebGL(host: ThemeSliderWebGL): void {
 
     host.useWebGL = true
   } catch (e) {
-    console.warn('ThemeSlider WebGL fallback:', e)
+    devWarn('ThemeSlider WebGL fallback:', e)
 
     host.useWebGL = false
   }

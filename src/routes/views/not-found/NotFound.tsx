@@ -25,6 +25,7 @@ import { stripHtml } from '@/core/utils/index.js'
 import notFoundStyles from './not-found.scss?inline'
 import '@/components/media/DrawText.js'
 import { FALLBACK_PAGES } from '@/core/locale/fallback.js'
+import { devError } from '@/core/devlog.js'
 
 interface NotFoundNode {
   title?: string
@@ -102,7 +103,7 @@ export class ViewNotFound extends BaseComponent {
           this._updateDom()
         }
       })
-      .catch(console.error)
+      .catch(devError)
   }
 
   /** JSX template for the view's shadow DOM. */

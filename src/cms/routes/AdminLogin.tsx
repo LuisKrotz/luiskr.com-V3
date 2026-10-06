@@ -17,6 +17,7 @@ import { BaseComponent } from '@/core/Component.js'
 import { signInWithGoogle } from '@/firebase.js'
 import cmsStyles from '@/cms/sass/cms.scss?inline'
 import { CMS_ADMIN_CLASSES } from '@/cms/tokens.js'
+import { devError } from '@/core/devlog.js'
 
 /**
  * The ViewAdminLogin — admin login class.
@@ -65,7 +66,7 @@ export class ViewAdminLogin extends BaseComponent {
       if (e?.code === 'auth/cancelled-popup-request' || e?.code === 'auth/popup-closed-by-user') {
         this.errorMsg = ATTR_VALUES.EMPTY
       } else {
-        console.error('Google Sign-In Error:', err)
+        devError('Google Sign-In Error:', err)
         this.errorMsg = e.message || 'Failed to sign in with Google.'
       }
       this._updateDom()

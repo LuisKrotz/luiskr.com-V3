@@ -11,6 +11,7 @@ import type { Node } from 'three/webgpu'
 import { DEFAULT_SP_GUI } from '@/core/tokens/playground.js'
 import { makePostNodes } from '../scene/post-nodes.js'
 import type { EarthState } from '../runtime/state.js'
+import { devWarn } from '@/core/devlog.js'
 
 type TslNs = typeof import('three/tsl')
 type WebGpuModule = typeof import('three/webgpu')
@@ -135,7 +136,7 @@ export function buildEarthPostPipeline(s: EarthState, deps: EarthPostDeps): void
 
     s.pipeline.outputNode = film(withVig, filmU)
   } catch (e) {
-    console.warn('[EarthBG] RenderPipeline setup skipped:', e)
+    devWarn('[EarthBG] RenderPipeline setup skipped:', e)
 
     s.pipeline = null
   }

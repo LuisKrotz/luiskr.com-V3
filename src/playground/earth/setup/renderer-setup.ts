@@ -10,6 +10,7 @@ import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import type { EarthState } from '../runtime/state.js'
 import { webglAllowed } from '@/utils/canvas/webgl-mode.js'
 import { canUseWebGPU } from '@/core/browser/detect.js'
+import { devWarn } from '@/core/devlog.js'
 
 type WebGpuModule = typeof import('three/webgpu')
 
@@ -47,7 +48,7 @@ export async function initEarthRenderer(
 
     await s.renderer.init()
   } catch (e) {
-    console.warn('[EarthBG] WebGPU init failed, falling back to WebGL:', e)
+    devWarn('[EarthBG] WebGPU init failed, falling back to WebGL:', e)
 
     const oldCanvas = s.canvas
 

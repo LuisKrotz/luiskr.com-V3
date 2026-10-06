@@ -13,6 +13,7 @@ import store from '@/core/store.js'
 import { EarthBackground } from '../earth-background.js'
 import { PARAM_HANDLERS, SP_INPUT_TYPES } from './controls.js'
 import type { SpacePlayground } from '../SpacePlayground.js'
+import { devError } from '@/core/devlog.js'
 
 /**
  * Updates space loader.
@@ -60,7 +61,7 @@ export function initSpaceEarth(c: SpacePlayground): void {
   })
 
   c._earthBg.init().catch((err) => {
-    console.error('[SpacePlayground] Earth init error:', err)
+    devError('[SpacePlayground] Earth init error:', err)
     c._isInitializingEarth = false
     c._earthReady = true
 

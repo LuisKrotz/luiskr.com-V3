@@ -12,6 +12,7 @@ import { fetchFirebaseDb } from '@/utils/data/db.js'
 import type { DbSnapshot } from '@/utils/data/db.js'
 import type { AppNavEl, AppTranslations, CookieBannerEl, PrefModalEl } from './types.js'
 import type { AppRoot } from '../App.js'
+import { devError } from '@/core/devlog.js'
 
 /**
  * Loads app data.
@@ -75,5 +76,5 @@ export function loadAppData(c: AppRoot): void {
     )
   }
 
-  Promise.all(promises).catch(console.error)
+  Promise.all(promises).catch(devError)
 }

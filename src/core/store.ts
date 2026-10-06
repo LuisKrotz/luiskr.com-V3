@@ -16,6 +16,7 @@ import { createGetters } from './store/getters.js'
 import { createMutations } from './store/mutations.js'
 import { createInitialState } from './store/state.js'
 import type { MutationMap, StoreGetters, StoreState, Subscriber } from './store/state.js'
+import { devError, devWarn } from '@/core/devlog.js'
 
 export type { StoreState } from './store/state.js'
 
@@ -53,7 +54,7 @@ export class Store {
         this.notify()
       }
     } else {
-      console.warn(`[Store] Unknown mutation: ${mutationName}`)
+      devWarn(`[Store] Unknown mutation: ${mutationName}`)
     }
   }
 
@@ -73,7 +74,7 @@ export class Store {
       try {
         sub(this.state)
       } catch (err) {
-        console.error('[Store] Subscriber error:', err)
+        devError('[Store] Subscriber error:', err)
       }
     }
   }

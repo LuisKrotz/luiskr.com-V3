@@ -28,6 +28,7 @@ import internalStyles from '@/sass/components/project/internals.scss?inline'
 
 import { fetchFirebaseDb } from '@/utils/data/db.js'
 import { getFallbackLegalLinks, type LegalLink } from '@/utils/data/legal-links.js'
+import { devError } from '@/core/devlog.js'
 
 export { getFallbackLegalLinks }
 
@@ -81,7 +82,7 @@ export class LegalFooter extends BaseComponent {
           this._updateDom()
         }
       })
-      .catch(console.error)
+      .catch(devError)
   }
 
   override onDestroy() {

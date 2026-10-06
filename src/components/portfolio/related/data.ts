@@ -12,6 +12,7 @@ import store from '@/core/store.js'
 import { fetchFirebaseDb } from '@/utils/data/db.js'
 import type { HomeItem, RelatedTranslations } from './types.js'
 import type { PortfolioRelated } from '../Related.js'
+import { devError } from '@/core/devlog.js'
 
 /** components/related translations from the store dictionary, if loaded. */
 export function storedTranslations(): RelatedTranslations {
@@ -59,5 +60,5 @@ export function fetchData(host: PortfolioRelated): void {
 
       host._updateDom()
     })
-    .catch(console.error)
+    .catch(devError)
 }

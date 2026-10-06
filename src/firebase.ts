@@ -19,6 +19,7 @@ import type { Auth, User, Unsubscribe } from 'firebase/auth'
 import type { Database } from 'firebase/database'
 import { CDN_URLS } from '@/core/tokens/media/urls.js'
 import { CACHE_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
+import { devWarn } from '@/core/devlog.js'
 
 /**
  * Resolves the API key from the build env (VITE_FIREBASE_API_KEY) or the
@@ -182,7 +183,7 @@ export async function fetchFirebaseDb(path: string): Promise<DbSnapshot> {
         val: () => data,
       }
     } catch (err) {
-      console.warn('REST DB fetch failed, falling back to SDK', err)
+      devWarn('REST DB fetch failed, falling back to SDK', err)
       const { ref, child, get } = await import('firebase/database')
       const db = await getDbInstance()
       return (await get(child(ref(db), cleanPath))) as unknown as DbSnapshot

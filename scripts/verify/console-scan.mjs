@@ -2,10 +2,10 @@
 /**
  * @file console-scan.mjs
  * @description Scans every .ts/.tsx/.js file under src/ for console usage. Policy:
- *   - console.log / debug / trace / table / group* → VIOLATION (debug
- *     leftovers — none should ship in production bundles)
- *   - console.warn / error / info → allowed but reported (intentional
- *     signal: WebGL-fallback warnings, .catch(console.error) error paths)
+ *   - EVERY console.* call → VIOLATION. The project is zero-console: all
+ *     diagnostics route through src/core/devlog.ts (devWarn / devError /
+ *     devInfo), which buffers entries for devtools inspection via the
+ *     `__lkDevLog()` global handle without touching console.*.
  *
  * File-level exemptions live in ALLOWLIST below with a justification.
  * Output: reports/console-scan.json → dist/deploy-info/ via deploy-info.mjs.
@@ -20,18 +20,23 @@ const SRC_DIR = path.join(ROOT, 'src')
 const REPORTS_DIR = path.join(ROOT, 'reports')
 const REPORT_FILE = path.join(REPORTS_DIR, 'console-scan.json')
 
-const FORBIDDEN = ['log', 'debug', 'trace', 'table', 'group', 'groupEnd', 'groupCollapsed']
-const ALLOWED = ['warn', 'error', 'info']
+const FORBIDDEN = [
+  'log',
+  'debug',
+  'trace',
+  'table',
+  'group',
+  'groupEnd',
+  'groupCollapsed',
+  'warn',
+  'error',
+  'info',
+]
+const ALLOWED = []
 
-// Files allowed to use forbidden methods, with justification.
-const ALLOWLIST = {
-  'src/registerServiceWorker.ts': {
-    methods: ['log'],
-    reason:
-      'Service-worker lifecycle logging is the standard SW pattern — workers ' +
-      'have no other user-visible output channel for install/update/offline events.',
-  },
-}
+// Files allowed to use forbidden methods, with justification. Empty — the
+// zero-console policy has no exemptions.
+const ALLOWLIST = {}
 
 const CONSOLE_RE =
   /console\.(log|debug|trace|table|group|groupEnd|groupCollapsed|warn|error|info)\s*\(/g
@@ -117,15 +122,11 @@ for (const file of listSrcFiles(SRC_DIR)) {
       const entry = { file: rel, line: i + 1, method }
       findings.push(entry)
 
-      if (FORBIDDEN.includes(method)) {
-        const exemption = ALLOWLIST[rel]
-        if (exemption?.methods.includes(method)) {
-          allowedUsage.push({ ...entry, reason: exemption.reason })
-        } else {
-          violations.push(entry)
-        }
+      const exemption = ALLOWLIST[rel]
+      if (exemption?.methods.includes(method)) {
+        allowedUsage.push({ ...entry, reason: exemption.reason })
       } else {
-        allowedUsage.push(entry)
+        violations.push(entry)
       }
     }
   })
