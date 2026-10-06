@@ -1,0 +1,1 @@
+var St=Object.freeze({ri:"Apple Computer, Inc.",si:"GestureEvent",Ie:"anonymous",Of:"other"});export{St as t};

@@ -1,1 +1,0 @@
-var Gi=Object.freeze({Po:"-mozjpg",pa:"3-MSSIM-tuned-kodak",Eo:"-50",Ea:"-uncompressed",To:".jpg",ua:".mp4",ha:".mp4.jpg-thumb.jpg",fa:".mp4-scaledown-2x"});export{Gi as t};

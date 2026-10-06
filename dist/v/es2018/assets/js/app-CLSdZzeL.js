@@ -1,0 +1,1 @@
+import{nn as IX}from"./store-QDFqnnA2.js";var _i=Object.freeze({nn:"cookieAction",gm:"slidechange",wc:"autoplaystop",xc:"autoplaystart",Fa:"cancel",fi:IX,qi:"open-lang-dialog",Hi:"open-preferences-modal",NO:"notify"});export{_i as t};

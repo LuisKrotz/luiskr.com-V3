@@ -1,1 +1,0 @@
-var Lr=Object.freeze({Qo:"--carousel-item-height",Df:"--range-pct"});export{Lr as t};

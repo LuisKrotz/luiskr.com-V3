@@ -13,7 +13,9 @@ Reveal durations: slow bloom on open, quicker dissolve on close.
 
 ### `ALPHA_DARK`
 
-Line alpha per theme — near-identical; the ink colors carry contrast.
+Line alpha per theme — the field is a background texture, not content:
+dark mode keeps a touch more since white hairlines on black blend
+harder than deep blue on foam.
 
 ### `start`
 

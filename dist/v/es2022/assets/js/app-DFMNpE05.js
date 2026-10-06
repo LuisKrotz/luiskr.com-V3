@@ -1,0 +1,1 @@
+import{tn as MX}from"./store-dDgEzzph.js";var _n=Object.freeze({ii:"cookieAction",gm:"slidechange",uc:"autoplaystop",wc:"autoplaystart",Rr:"cancel",gn:MX,Kn:"open-lang-dialog",qn:"open-preferences-modal",kO:"notify"});export{_n as t};

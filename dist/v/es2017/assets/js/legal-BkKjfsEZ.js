@@ -1,0 +1,1 @@
+var Do,qo;import{Dt as oX}from"./store-iI5g8vyQ.js";Do=Object.freeze({pd:"legal"}),qo=Object.freeze({ai:oX,od:`${oX}-title`,nd:`${oX}-subtitle`,td:`${oX}-link`});export{qo as n,Do as t};

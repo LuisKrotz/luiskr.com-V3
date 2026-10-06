@@ -17,6 +17,21 @@ The PortfolioRelated — related class.
 
 Toggles the clamped footer disclaimer between one-line and full text.
 
+### `_measureNote`
+
+Detects whether the clamped note actually overflows — CSS cannot
+detect line-clamp truncation, so scrollHeight vs clientHeight does
+it here. The flag drives the `is-truncated` class that reveals the
+pulsing "···" affordance; measured only while collapsed (open state
+is unclamped by definition, and the affordance hides anyway).
+
+### `_watchNoteTruncation`
+
+Binds a ResizeObserver to the note button so font loads, viewport
+resizes and locale swaps re-evaluate truncation. The element is
+recreated on every render, so the observer re-binds whenever the
+node identity changes instead of watching a detached element.
+
 ### `storage`
 
 CDN base URL for project media.
@@ -36,7 +51,7 @@ re-runs the fuzzy match against the new page's related list.
 
 ### (module scope)
 
-Lifecycle: removes the router subscription.
+Lifecycle: removes the router subscription + the note observer.
 
 ### `fetchData`
 
