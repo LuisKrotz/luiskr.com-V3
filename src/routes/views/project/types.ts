@@ -1,0 +1,49 @@
+/**
+ * @file project/types.ts
+ * @description Shared shapes for the <view-project> route: media items,
+ * section children, the fetched project node and the custom-carousel
+ * element contract.
+ */
+
+export interface ProjectMediaItem {
+  src: string
+  size: number[]
+  label?: string
+  class?: string
+  isVideo?: boolean
+  [key: string]: unknown
+}
+
+/**
+ * The CoverMedia value.
+ */
+export interface CoverMedia {
+  src: string
+  size: number[]
+  isVideo?: boolean
+  label?: string
+}
+
+/**
+ * The SectionChild value.
+ */
+export type SectionChild = string[] | ProjectMediaItem[]
+
+/**
+ * Type contract for project translations.
+ */
+export interface ProjectTranslations {
+  title?: string
+  noindex?: boolean
+  folder?: string
+  cover?: CoverMedia
+  sections?: SectionChild[][]
+  [key: string]: unknown
+}
+
+/**
+ * The CustomCarouselElement value.
+ */
+export interface CustomCarouselElement extends HTMLElement {
+  configure(_opts: { items: unknown[]; folder: string; forceActive: boolean }): void
+}
