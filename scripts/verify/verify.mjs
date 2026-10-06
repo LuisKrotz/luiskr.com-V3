@@ -22,6 +22,9 @@
 
 import { execSync } from 'node:child_process'
 
+// FORCE_COLOR=1 keeps ANSI colors on jest/eslint/stylelint output even when
+// the gate runs piped (pre-commit hook, CI log capture) — the tool CLIs
+// would otherwise auto-disable color on non-TTY stdio.
 const JEST =
   'node --experimental-vm-modules --disable-warning=ExperimentalWarning node_modules/jest/bin/jest.js --coverage'
 
@@ -50,7 +53,11 @@ for (const [name, cmd] of steps) {
   console.log(`\n═══ verify: ${name} ═══`)
 
   try {
-    execSync(cmd, { stdio: 'inherit', cwd: process.cwd() })
+    execSync(cmd, {
+      stdio: 'inherit',
+      cwd: process.cwd(),
+      env: { ...process.env, FORCE_COLOR: '1' },
+    })
     console.log(`✓ ${name}`)
   } catch {
     failures.push(name)

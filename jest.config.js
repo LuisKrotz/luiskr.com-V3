@@ -30,11 +30,15 @@ export default {
   // runs starve real timers, so both the timeout and the worker cap are
   // sized for the coverage run, not the solo-run ideal.
   testTimeout: 60000,
-  // ~50% of cores: at 60%+ the instrumented coverage heaps (≈1GB+ each on
-  // this 19-core/15GB box) contended for RAM, making workers slow enough at
-  // teardown to trip jest's "failed to exit gracefully" warning. Fewer
-  // workers = CPU + heap headroom, cleaner exits.
-  maxWorkers: '50%',
+  // ~90% of cores for maximum throughput — the RAM ceiling that previously
+  // capped this at 50% is now handled by workerIdleMemoryLimit below, which
+  // recycles a worker the moment its heap goes idle over the cap instead of
+  // letting instrumented heaps (~1GB+ each) contend for RAM until teardown.
+  maxWorkers: '90%',
+  // Recycle workers once their idle heap exceeds 4GB — keeps parallel
+  // throughput high without the aggregate-RAM contention that produced
+  // "worker failed to exit gracefully" under the old higher-worker runs.
+  workerIdleMemoryLimit: '2GB',
   // Workers with large instrumented heaps legitimately need >500ms to tear
   // down under parallel load; jest's default grace force-kills them and
   // prints a leak warning despite zero actual open handles (verified via
