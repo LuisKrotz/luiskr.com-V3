@@ -109,6 +109,21 @@ export class AppNav extends BaseComponent {
   _menuFlagCanvasEl: HTMLCanvasElement | null = null
   _menuFlagLang: string | null = null
 
+  /**
+   * Snapshot of the store inputs the template actually consumes —
+   * compared in onStoreUpdate so unrelated commits (dialog open/close,
+   * modal origin, scroll flags) don't force a DOM wipe that replays the
+   * draw-text letter animation.
+   */
+  _navStoreSig: {
+    locale: unknown
+    app: unknown
+    components: unknown
+    slugs: unknown
+    modalOpen: boolean
+    reduced: boolean
+  } | null = null
+
   constructor() {
     super(appStyles)
   }
@@ -294,16 +309,50 @@ export class AppNav extends BaseComponent {
   }
 
   /**
-   * Store change → re-render + flag re-mount (locale may have switched) +
-   * propagate reduced-motion to live flag widgets so they freeze their
-   * wave animation without waiting for a rebuild.
+   * Store change → re-render only when a value the template consumes
+   * actually moved: the locale, the live dictionaries `appText` resolves
+   * against (app/components/slugs — mutations replace them wholesale, so
+   * identity comparison works), the media-modal open flag (nav renders
+   * empty behind it) and reduced-motion. Dialog open/close, modal-origin
+   * and other commits leave the DOM alone — critically, while the menu
+   * is open behind a dialog this keeps every <draw-text> label mounted
+   * and already-drawn instead of replaying the letter animation.
+   * Reduced-motion still reaches live flag widgets on every commit so
+   * they freeze without waiting for a rebuild.
    */
   override onStoreUpdate() {
-    this._updateDom()
+    const lang = store.getters.getlang()
 
-    this._mountNavFlag()
+    const modalOpen = store.getters.getModal()?.open === true
 
-    this._navFlags.forEach((f) => f.setReducedMotion(store.getters.getReducedMotion()))
+    const reduced = store.getters.getReducedMotion()
+
+    const prev = this._navStoreSig
+
+    if (
+      !prev ||
+      lang.locale !== prev.locale ||
+      lang.app !== prev.app ||
+      lang.components !== prev.components ||
+      lang.slugs !== prev.slugs ||
+      modalOpen !== prev.modalOpen ||
+      reduced !== prev.reduced
+    ) {
+      this._navStoreSig = {
+        locale: lang.locale,
+        app: lang.app,
+        components: lang.components,
+        slugs: lang.slugs,
+        modalOpen,
+        reduced,
+      }
+
+      this._updateDom()
+
+      this._mountNavFlag()
+    }
+
+    this._navFlags.forEach((f) => f.setReducedMotion(reduced))
   }
 
   /** Receives active-section + near-bottom flags from <app-root>'s scroll tracker and toggles the --on-dark variant. */

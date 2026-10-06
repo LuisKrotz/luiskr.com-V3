@@ -227,6 +227,33 @@ describe('AppNav', () => {
     expect(nav).toBeNull()
   })
 
+  test('store commits that change no render input skip the DOM wipe', () => {
+    // First update seeds the render signature (the !prev arm renders once).
+    navEl.onStoreUpdate()
+
+    const spy = jest.spyOn(navEl, '_updateDom')
+
+    // Dialog open/close + modal-origin commits don't feed the template —
+    // the signature stays equal so the render is skipped entirely, which
+    // keeps the menu's draw-text labels mounted (no letter replay).
+    store.commit(MODAL_MUTATIONS.TOGGLE_PREFERENCES_MODAL, true)
+    store.commit(MODAL_MUTATIONS.TOGGLE_LANG_DIALOG, true)
+    store.commit(MODAL_MUTATIONS.SET_MODAL_ORIGIN, { x: 10, y: 10 })
+    navEl.onStoreUpdate()
+
+    expect(spy).not.toHaveBeenCalled()
+
+    // A render-relevant change (modal open → nav empties) still renders.
+    store.commit(MODAL_MUTATIONS.SET_MODAL, { open: true })
+
+    expect(spy).toHaveBeenCalledTimes(1)
+
+    store.commit(MODAL_MUTATIONS.SET_MODAL, { open: false })
+    store.commit(MODAL_MUTATIONS.TOGGLE_PREFERENCES_MODAL, false)
+    store.commit(MODAL_MUTATIONS.TOGGLE_LANG_DIALOG, false)
+    spy.mockRestore()
+  })
+
   test('handleLogo calls window.scrollTo with top 0 when on home page', () => {
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation(() => {})
     navEl.handleLogo(new Event(MOUSE_EVENTS.CLICK))
