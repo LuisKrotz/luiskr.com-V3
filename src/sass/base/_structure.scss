@@ -1,3 +1,14 @@
+// ════════════════════════════════════════════════════════════════════════════
+//  _structure.scss — the runtime design system.
+//  Publishes every SCSS token as a CSS custom property on :root (+ the
+//  html.dark-mode overrides and the skeleton/theme surface tokens). This file
+//  is THE layer where $ vars become var()s — component stylesheets must read
+//  the vars, never the $ tokens. Also defines the reset, the global skeleton
+//  shimmer keyframes (pure CSS animation — no JS loop), the genie dialog
+//  transform-origin contract (--genie-x/--genie-y), and the z-index scale.
+// ════════════════════════════════════════════════════════════════════════════
+
+// Publish every design token as CSS custom properties — the ONLY place $ vars become var()s.
 :root {
   // Base raw colors
   --color-white-raw: #{$color-white};
@@ -12,6 +23,10 @@
   --color-accent: #{$cms-accent};
   --color-accent-hover: #{$cms-accent-hover};
   --color-accent-contrast: #{$cms-accent-contrast};
+  // Keyboard focus ring ink — tracks the theme-aware control accent
+  // (deep teal in light mode, signature cyan in dark via the override
+  // below), so Tab affordance matches the project palette in both themes.
+  --focus-ring: var(--color-accent-contrast);
   --bg-darkest: #{$cms-bg-darkest};
 
   // Light theme default tokens
@@ -21,7 +36,10 @@
   --bg-darker: #161616; // Deep black blocks in light mode
   --text-primary: #262626; // Main text
   --text-secondary: #515151; // Muted text
-  --text-muted: #a79e9e;
+  --text-muted: #545454; // 7:1 on white AND --bg-secondary (WCAG AAA)
+  // Muted ink for always-dark surfaces (contact band, modals, photo
+  // overlays, loaders): 7.6:1 on --bg-dark in both themes.
+  --text-muted-on-dark: #b8b8b8;
   --border-color: #e2e2e2;
   --border-item: transparent;
   --border-item-hover: rgba(255, 255, 255, 0.22);
@@ -29,11 +47,17 @@
   --btn-accent-fill: rgba(0, 0, 0, 0.05);
   --glass-bg: rgba(255, 255, 255, 0.94);
 
+  // Fullscreen menu — light mode reads as water: pale foam surface with
+  // deep→light blue inks feeding the contour-field shader and items.
+  --menu-bg: #eaf4f9;
+  --menu-ink: #0f5270; // 7.6:1 on --menu-bg — AAA for the small menu labels too
+  --menu-ink-2: #5cb9d8;
+
   // Card shadow tokens — light theme: elevated shadows show card lift clearly
   // with a subtle hairline shadow border
-  --shadow-card:          0 0 0 0.0625rem rgba(0, 0, 0, 0.06), 0 0.125rem 0.75rem rgba(0, 0, 0, 0.10);
-  --shadow-card-featured: 0 0 0 0.0625rem rgba(0, 0, 0, 0.10), 0 0.5rem 1.75rem rgba(0, 0, 0, 0.22);
-  --shadow-card-hover:    0 0 0 0.0625rem rgba(0, 0, 0, 0.15), 0 1.25rem 3.125rem rgba(0, 0, 0, 0.45);
+  --shadow-card: 0 0 0 0.0625rem rgba(0, 0, 0, 0.06), 0 0.125rem 0.75rem rgba(0, 0, 0, 0.1);
+  --shadow-card-featured: 0 0 0 0.0625rem rgba(0, 0, 0, 0.1), 0 0.5rem 1.75rem rgba(0, 0, 0, 0.22);
+  --shadow-card-hover: 0 0 0 0.0625rem rgba(0, 0, 0, 0.15), 0 1.25rem 3.125rem rgba(0, 0, 0, 0.45);
 
   --white: #ffffff;
   --black: #262626;
@@ -42,9 +66,14 @@
   --grey-3: #515151;
   --blue: #{$color-blue};
 
-  --skel-bg-1: #f5f5f5;
-  --skel-bg-2: #ececec;
-  --skel-bg-3: #f5f5f5;
+  // Skeleton shades sit close to real surfaces; dark containers redeclare
+  // them via %SKEL_DARK_SURFACE so tiles lift the local dark tone.
+  --skel-ink: var(--text-primary);
+  --skel-bg-1: color-mix(in srgb, var(--bg-secondary) 93%, var(--bg-dark) 7%);
+  --skel-bg-2: color-mix(in srgb, var(--bg-secondary) 83%, var(--bg-dark) 17%);
+  --skel-bg-3: var(--skel-bg-1);
+  // One line box of the element the skeleton stands in for (resolves at the usage site)
+  --skel-line: 1lh;
 
   // Spacing tokens (Fibonacci scale, unitless — multiply with rem in CSS)
   --space-none: #{$space-none};
@@ -80,12 +109,12 @@
   --radius-round: 9999px;
 
   // Z-index layering system \u2014 exposed from $z-* SCSS tokens
-  --z-overlay:  #{$z-overlay};
-  --z-hud:      #{$z-hud};
-  --z-modal:    #{$z-modal};
-  --z-cookies:  #{$z-cookies};
-  --z-nav:      #{$z-nav};
-  --z-top:      #{$z-top};
+  --z-overlay: #{$z-overlay};
+  --z-hud: #{$z-hud};
+  --z-modal: #{$z-modal};
+  --z-cookies: #{$z-cookies};
+  --z-nav: #{$z-nav};
+  --z-top: #{$z-top};
 
   // Font stacks
   --font-mono: #{$font-mono};
@@ -123,13 +152,17 @@
   /* --radius-md -> --r-md */
   --r-md: var(--radius-md);
   --filament-glow: none;
-  --metallic-hairline: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.25) 20%, rgba(55, 167, 212, 0.45) 50%, rgba(255, 255, 255, 0.25) 80%, transparent 100%);
+  --metallic-hairline: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 20%,
+    rgba(55, 167, 212, 0.45) 50%,
+    rgba(255, 255, 255, 0.25) 80%,
+    transparent 100%
+  );
 }
 
-html {
-  color-scheme: light;
-}
-
+// Dark theme token overrides — flips all --bg-*/--text-*/--menu-* vars when .dark-mode is on <html>.
 html.dark-mode {
   color-scheme: dark;
 
@@ -147,13 +180,32 @@ html.dark-mode {
   --btn-accent-fill: rgba(255, 255, 255, 0.08);
   --glass-bg: rgba(11, 12, 16, 0.92);
 
-  --filament-glow: radial-gradient(circle at 50% 30%, rgba(95, 218, 255, 0.05) 0%, rgba(40, 244, 255, 0.015) 50%, transparent 80%);
-  --metallic-hairline: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.25) 20%, rgba(55, 167, 212, 0.45) 50%, rgba(255, 255, 255, 0.25) 80%, transparent 100%);
+  // Menu inks resolve to the current monochrome field — identical rendering.
+  --menu-bg: var(--bg-darkest);
+  --menu-ink: var(--text-primary);
+  --menu-ink-2: var(--text-primary);
+
+  --filament-glow: radial-gradient(
+    circle at 50% 30%,
+    rgba(95, 218, 255, 0.05) 0%,
+    rgba(40, 244, 255, 0.015) 50%,
+    transparent 80%
+  );
+  --metallic-hairline: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 20%,
+    rgba(55, 167, 212, 0.45) 50%,
+    rgba(255, 255, 255, 0.25) 80%,
+    transparent 100%
+  );
 
   // Dark mode: subtle shadow border highlights card and cover boundaries on pitch black
-  --shadow-card:          0 0 0 0.0625rem rgba(255, 255, 255, 0.12), 0 0.125rem 1rem rgba(0, 0, 0, 0.45);
-  --shadow-card-featured: 0 0 0 0.0625rem rgba(255, 255, 255, 0.18), 0 0.5rem 2rem rgba(0, 0, 0, 0.65);
-  --shadow-card-hover:    0 0 0 0.0625rem rgba(255, 255, 255, 0.28), 0 1.25rem 3.125rem rgba(0, 0, 0, 0.85);
+  --shadow-card: 0 0 0 0.0625rem rgba(255, 255, 255, 0.12), 0 0.125rem 1rem rgba(0, 0, 0, 0.45);
+  --shadow-card-featured:
+    0 0 0 0.0625rem rgba(255, 255, 255, 0.18), 0 0.5rem 2rem rgba(0, 0, 0, 0.65);
+  --shadow-card-hover:
+    0 0 0 0.0625rem rgba(255, 255, 255, 0.28), 0 1.25rem 3.125rem rgba(0, 0, 0, 0.85);
 
   --white: #0a0b10;
   --black: #ffffff;
@@ -161,12 +213,15 @@ html.dark-mode {
   --grey-2: #abacac0e;
   --grey-3: #cbd5e1;
 
-  --skel-bg-1: #17181a;
-  --skel-bg-2: #151313;
-  --skel-bg-3: #141414;
+  --skel-ink: var(--text-primary);
+  --skel-bg-1: color-mix(in srgb, var(--bg-secondary) 93%, var(--color-white-raw) 7%);
+  --skel-bg-2: color-mix(in srgb, var(--bg-secondary) 83%, var(--color-white-raw) 17%);
+  --skel-bg-3: var(--skel-bg-1);
 }
 
+// Page base styles (html then html.dark-mode overrides below).
 html {
+  color-scheme: light;
   background-color: var(--bg-primary);
   min-height: 100%;
   overflow-x: hidden;
@@ -179,10 +234,12 @@ html {
   scrollbar-width: thin;
 }
 
+// Scroll-lock applied while a modal is open (JS toggles this class).
 html.modal-open {
   overflow-y: hidden; // hide background scrollbar when any modal is open
 }
 
+// Document body base: bg-primary fill, text-primary ink, primary font.
 body {
   width: 100%;
   min-height: 100vh;
@@ -202,6 +259,7 @@ body {
   hyphens: none; // no automatic hyphenation
 }
 
+// App mount point — fills the viewport.
 #app {
   position: relative;
   z-index: 1;
@@ -227,7 +285,6 @@ figure,
 video,
 image,
 iframe,
-figure,
 picture,
 blockquote {
   margin: 0;
@@ -279,7 +336,7 @@ draw-text {
   display: inline;
 }
 
-
+// Routed content host (#main).
 main {
   .modal-open & {
     position: fixed;
@@ -296,6 +353,7 @@ main {
   min-height: 100vh;
 }
 
+// Section markers the nav's scroll tracker measures (#about/#contact offsets).
 #home,
 #about,
 #contact {
@@ -303,6 +361,7 @@ main {
   width: 100%;
 }
 
+// Home section top anchor.
 #home {
   @include layout-1024() {
     min-height: 100vh;
@@ -319,6 +378,7 @@ main {
   }
 }
 
+// Skeleton placeholder surface + shimmer — driven entirely by CSS (no JS loop; the old rAF version froze iOS).
 .skeleton {
   &--shimmer,
   &-cover,
@@ -334,13 +394,14 @@ main {
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        90deg,
-        transparent 0%,
-        var(--skel-bg-2) 50%,
-        transparent 100%
+        105deg,
+        transparent 30%,
+        var(--skel-bg-2) 45%,
+        var(--skel-bg-2) 55%,
+        transparent 70%
       );
       transform: translateX(-100%);
-      animation: skeleton-shimmer 2.4s ease-in-out infinite;
+      animation: skeleton-shimmer 1.8s linear infinite;
       will-change: transform;
       pointer-events: none;
     }
@@ -425,65 +486,41 @@ main {
   &--section-title {
     @extend .skeleton--shimmer;
     display: block;
-    width: 35%;
-    height: to-rem($space-xl);
+    width: 55%;
+    height: calc(var(--skel-line) * 2);
     border-radius: to-rem($space-2xs);
-    margin-bottom: to-rem($space-lg);
-
-    @include layout-1024() {
-      height: to-rem($space-2xl);
-    }
   }
 
   &--para-full {
     @extend .skeleton--shimmer;
     display: block;
     width: 100%;
-    height: to-rem($space-lg);
+    height: calc(var(--skel-line) * 3);
     border-radius: to-rem($space-2xs);
-    margin-bottom: to-rem($space-sm);
-
-    @include layout-1024() {
-      height: to-rem($space-xl);
-    }
   }
 
   &--para-94 {
     @extend .skeleton--shimmer;
     display: block;
     width: 94%;
-    height: to-rem($space-lg);
+    height: calc(var(--skel-line) * 2);
     border-radius: to-rem($space-2xs);
-    margin-bottom: to-rem($space-sm);
-
-    @include layout-1024() {
-      height: to-rem($space-xl);
-    }
   }
 
   &--para-98 {
     @extend .skeleton--shimmer;
     display: block;
     width: 98%;
-    height: to-rem($space-lg);
+    height: calc(var(--skel-line) * 3);
     border-radius: to-rem($space-2xs);
-    margin-bottom: to-rem($space-sm);
-
-    @include layout-1024() {
-      height: to-rem($space-xl);
-    }
   }
 
   &--para-65 {
     @extend .skeleton--shimmer;
     display: block;
     width: 65%;
-    height: to-rem($space-lg);
+    height: calc(var(--skel-line) * 2);
     border-radius: to-rem($space-2xs);
-
-    @include layout-1024() {
-      height: to-rem($space-xl);
-    }
   }
 
   &--badge {
@@ -520,4 +557,42 @@ main {
     height: to-rem($space-lg);
     border-radius: to-rem($space-2xs);
   }
+
+  // WebGL glyph field: absolutely-positioned overlay above the placeholders,
+  // sized + translated inline by SkeletonWebGL. Content stays interactive.
+  &-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  // Content arriving under a resolving layer fades in while glyphs collapse.
+  // The class lands on the [data-content] wrapper (display: contents), so the
+  // animation must target its children to be visible.
+  &-content-in > * {
+    animation: skeleton-content-in 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 }
+
+// The canvas is a direct child of the shadow root: anchor its containing
+// block to the host while a layer is active.
+:host(.has-skeleton-layer) {
+  position: relative;
+}
+
+@keyframes skeleton-content-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// ── Keyboard focus ring ─────────────────────────────────────────────────────
+// Emitted here so it lands in the document AND inside every component shadow
+// root that imports this file — :focus-visible fires for keyboard focus only,
+// so mouse users never see the ring.
+@include focus-ring-scope;

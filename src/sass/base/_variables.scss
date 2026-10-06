@@ -1,3 +1,11 @@
+// ════════════════════════════════════════════════════════════════════════════
+//  _variables.scss — COMPILE-TIME design tokens (the single source of truth).
+//  $color-*/$space-*/$cms-* values exist ONLY here + _structure.scss; every
+//  component stylesheet must consume the CSS custom properties emitted from
+//  _structure.scss (var(--bg-primary) etc) — never these $ vars directly.
+//  Scale: spacing follows Fibonacci; grid-max-area tracks the max content width.
+// ════════════════════════════════════════════════════════════════════════════
+
 $color-white: #fff;
 $color-black: #262626;
 $color-grey: #a79e9e;
@@ -111,6 +119,50 @@ $grid-max-area-3840: $un-3840 - $gap-3840 * 2;
 $grid-max-area-5120: $un-5120 - $gap-5120 * 2;
 $grid-max-area-7680: $un-7680 - $gap-7680 * 2;
 
+// Single source of truth for the stepped content grid: step px → gutter px.
+// %MAXAREA (content gutters) and the show-grid debug overlay BOTH iterate
+// this map via the `grid-steps` mixin so the overlay can never drift from
+// the real layout breakpoints — every $un-$step-… token pair listed here
+// produces one media query at `min-width: ($step - 1)px`.
+$grid-steps: (
+  272: $gap-272,
+  320: $gap-320,
+  375: $gap-375,
+  414: $gap-414,
+  540: $gap-540,
+  768: $gap-768,
+  960: $gap-960,
+  1024: $gap-1024,
+  1280: $gap-1280,
+  1440: $gap-1440,
+  1680: $gap-1680,
+  1920: $gap-1920,
+  2560: $gap-2560,
+  3840: $gap-3840,
+  5120: $gap-5120,
+  7680: $gap-7680,
+);
+
+// Design-grid column count per step — shown by the show-grid overlay.
+$grid-cols: (
+  272: 4,
+  320: 4,
+  375: 4,
+  414: 4,
+  540: 6,
+  768: 8,
+  960: 8,
+  1024: 12,
+  1280: 12,
+  1440: 12,
+  1680: 12,
+  1920: 12,
+  2560: 12,
+  3840: 12,
+  5120: 12,
+  7680: 12,
+);
+
 // @type pixels
 // used for media queries
 $bk-320: $vw-320 - 1px;
@@ -166,14 +218,16 @@ $space-16xl: 46368; // fib(24)
 $space-17xl: 75025; // fib(25)
 
 // Z-indexes — layering system, every value declared once here
-$z-header:       50;
-$z-loader:       100;
-$z-overlay:      200;  // grid overlay, debug overlays
-$z-hud:          500;  // stats-for-nerds HUD
-$z-modal:        1000; // modals, drawers
-$z-cookies:      1000; // cookie banner
-$z-nav:          1100; // app-nav
-$z-top:          9999; // top-level elements (dialogs)
+$z-header: 50;
+$z-loader: 100;
+$z-overlay: 200; // grid overlay, debug overlays
+$z-hud: 500; // stats-for-nerds HUD
+$z-modal: 1000; // modals, drawers
+$z-cookies: 1000; // cookie banner
+$z-nav: 1100; // app-nav
+$z-top: 9999; // top-level elements (dialogs)
 
 // System monospace font stack — no external download required
-$font-mono: 'ui-monospace', 'SF Mono', 'SFMono-Regular', 'Cascadia Mono', 'Segoe UI Mono', 'Ubuntu Mono', 'Roboto Mono', monospace;
+$font-mono:
+  'ui-monospace', 'SF Mono', 'SFMono-Regular', 'Cascadia Mono', 'Segoe UI Mono', 'Ubuntu Mono',
+  'Roboto Mono', monospace;

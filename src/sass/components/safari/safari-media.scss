@@ -1,0 +1,106 @@
+// ════════════════════════════════════════════════════════════════════════════
+//  safari-media.scss — Safari-only <media-figure> overrides injected into the
+//  shadow root by safari-patch.js: old-Safari border-radius + mask-image clip
+//  workaround and autoplay video sizing.
+// ════════════════════════════════════════════════════════════════════════════
+
+@import '../../base/variables';
+@import '../../base/mixins';
+
+:host {
+  width: auto;
+  height: 100%;
+  display: inline-block;
+}
+
+figure {
+  position: relative;
+  height: 100%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  // Old Safari fails to clip replaced content (img/video) to border-radius —
+  // the mask-image gradient forces the compositor to clip at the corners.
+  -webkit-border-radius: to-rem($space-md);
+  border-radius: to-rem($space-md);
+  -webkit-mask-image: -webkit-radial-gradient(var(--color-white-raw), var(--black));
+  mask-image: -webkit-radial-gradient(var(--color-white-raw), var(--black));
+  background-color: var(--bg-dark);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  @include layout-1024() {
+    -webkit-border-radius: to-rem($space-lg);
+    border-radius: to-rem($space-lg);
+  }
+}
+
+.render-placeholder {
+  width: var(--mf-w, auto);
+  height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
+  max-width: var(--mf-max-w, none);
+  max-height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
+  object-fit: contain;
+}
+
+.render-media,
+video.render-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-border-radius: inherit;
+  border-radius: inherit;
+}
+
+.render-media {
+  // Layer 1: the tiny preview — always visible underneath at 70% opacity.
+  &--thumb {
+    filter: none;
+    transform: none;
+    z-index: 1;
+    opacity: 0.7;
+    transition: opacity 0.25s ease;
+  }
+
+  // Layer 2: the full-res media — starts transparent above the thumb, fades
+  // in once loaded (the crossfade replaces the blur-up technique Safari
+  // can't composite smoothly).
+  &--high {
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.25s ease;
+
+    &[src]:not([src='']) {
+      opacity: 1;
+    }
+
+    &.render-media--loaded {
+      opacity: 1;
+    }
+  }
+}
+
+figure:has(.render-media--loaded) .render-media--thumb,
+figure:has(.render-media--high.render-media--loaded) .render-media--thumb {
+  display: none;
+}
+
+.exp-md-open-1 {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+figure.internal-expand video.render-media {
+  pointer-events: none;
+}
+
+// Keyboard focus ring on this shadow root's tabbable elements — the file
+// doesn't import _structure (which emits it globally), so include the
+// shared scope explicitly.
+@include focus-ring-scope;

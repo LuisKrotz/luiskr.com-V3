@@ -1,3 +1,10 @@
+// ════════════════════════════════════════════════════════════════════════════
+//  _fonts.scss — the type ramp: .ttl-xxl..xxs display classes + .txt body
+//  classes. All Raleway, deliberately thin weights (100–300) for the
+//  portfolio's light aesthetic. Sizes/letter-spacing scale up across the
+//  layout-{320..3840} breakpoints — titles grow ~4× from phone to 4K.
+// ════════════════════════════════════════════════════════════════════════════
+
 // All typography uses Raleway exclusively.
 // Titles: weight 100–200. Body text: weight 100–300. No 700.
 
@@ -44,7 +51,7 @@
 
   &-xl {
     font-weight: 100;
-    font-size: to-rem(21);
+    font-size: to-rem(34);
     letter-spacing: to-rem(5);
 
     @include layout-768() {
@@ -121,7 +128,7 @@
 
   &-xxs {
     font-weight: 200;
-    font-size: to-rem(8);
+    font-size: to-rem(13);
     text-transform: uppercase;
 
     @include layout-2560() {

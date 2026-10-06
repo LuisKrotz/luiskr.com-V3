@@ -1,3 +1,9 @@
+// ════════════════════════════════════════════════════════════════════════════
+//  _mixins.scss — Sass-only helpers: decimal-round, to-rem() unit conversion,
+//  and the layout-{320..4096} breakpoint mixins used everywhere for responsive
+//  design. None of these emit CSS by themselves.
+// ════════════════════════════════════════════════════════════════════════════
+
 // MIXINS
 // Decimal Round
 @function decimal-round($number, $digits: 0, $mode: round) {
@@ -186,5 +192,47 @@
 @mixin layout-7680 {
   @media (min-width: #{$bk-7680}) {
     @content;
+  }
+}
+
+// Iterates every $grid-steps breakpoint, emitting one min-width media query
+// per step (matching the layout-N mixins' `$bk-* = vw − 1px` semantics).
+// @content receives ($step, $gap, $cols) so %MAXAREA and the show-grid
+// overlay share the exact same breakpoint→gutter table — add a step to
+// $grid-steps and BOTH update together.
+@mixin grid-steps {
+  @each $step, $gap in $grid-steps {
+    @if $step > 272 {
+      @media (min-width: #{$step - 1}px) {
+        @content ($step, $gap, map-get($grid-cols, $step));
+      }
+    }
+  }
+}
+
+// Keyboard focus ring — a crisp hairline + offset, inked by the theme-aware
+// --focus-ring token (deep teal light / signature cyan dark). Emits
+// declarations only — nest under `&:focus-visible` at the call site.
+@mixin focus-ring {
+  outline: to-rem($space-2xs) solid var(--focus-ring);
+  outline-offset: to-rem($space-2xs);
+}
+
+// Emits the ring for every tabbable element in scope — component stylesheets
+// pull this in so shadow-DOM interactives get the same affordance as light
+// DOM (document-level rules never cross the shadow boundary). tabindex=-1
+// targets are programmatically-focused containers, not controls.
+@mixin focus-ring-scope {
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible,
+  [role='button']:focus-visible,
+  [role='switch']:focus-visible,
+  [role='slider']:focus-visible,
+  [tabindex]:not([tabindex='-1']):focus-visible {
+    @include focus-ring;
   }
 }

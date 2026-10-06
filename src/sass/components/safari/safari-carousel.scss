@@ -1,0 +1,50 @@
+// ════════════════════════════════════════════════════════════════════════════
+//  safari-carousel.scss — Safari-only carousel overrides injected into the
+//  carousel shadow root by safari-patch.js: removes GPU-promotion hints that
+//  cause iOS compositing artifacts.
+// ════════════════════════════════════════════════════════════════════════════
+
+@import '../../base/variables';
+@import '../../base/mixins';
+
+// Chrome uses will-change/transform on the carousel for the fade-in; on iOS
+// that promotion creates a persistent compositor layer that flickers during
+// scroll — so these overrides strip it and let the slide just appear.
+.carousel {
+  will-change: auto;
+  transform: none;
+
+  &.carousel--in-view {
+    transform: none;
+    transition: none;
+  }
+}
+
+// Native scroll, no smooth-scroll interpolation (JS drives the snapping).
+.carousel-track {
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Slides take the media-figure height contract; contain isolates each slide
+// so a layout shift in one doesn't reflow the whole track.
+.carousel-slide {
+  height: var(--mf-h, auto);
+  min-height: var(--mf-h, auto);
+  contain: layout paint;
+}
+
+.internal-extra-item {
+  width: auto;
+  height: 100%;
+}
+
+media-figure {
+  height: 100%;
+  width: auto;
+}
+
+// Keyboard focus ring on this shadow root's tabbable elements — the file
+// doesn't import _structure (which emits it globally), so include the
+// shared scope explicitly.
+@include focus-ring-scope;

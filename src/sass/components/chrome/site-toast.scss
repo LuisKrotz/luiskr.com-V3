@@ -1,0 +1,134 @@
+@import '../../base/variables';
+@import '../../base/mixins';
+@import '../../base/placeholders';
+@import '../../base/structure';
+
+// ─── Site Toast ─────────────────────────────────────────────────────────────
+// Failure/notice pill stack. Desktop: bottom-left column above the fold edge.
+// Mobile: full-width bottom bar so thumb-reach dismiss stays easy. The accent
+// edge bar uses the site accent token — same dark-glass language as the
+// stats HUD and cookie banner.
+
+$_B_TOAST: 'site-toast';
+
+.#{$_B_TOAST} {
+  position: fixed;
+  left: to-rem($space-xl);
+  bottom: calc(#{to-rem($space-xl)} + env(safe-area-inset-bottom));
+  z-index: var(--z-top);
+
+  display: flex;
+  flex-direction: column;
+  gap: to-rem($space-sm);
+
+  max-width: to-rem(400);
+  pointer-events: none;
+
+  font-family: var(--font-primary);
+  font-weight: 300;
+
+  // Mobile: span the viewport edge-to-edge, stack above the bottom nav
+  @media (max-width: $bk-768) {
+    left: to-rem($space-sm);
+    right: to-rem($space-sm);
+    bottom: calc(#{to-rem($space-sm)} + env(safe-area-inset-bottom));
+    max-width: none;
+  }
+
+  &-item {
+    pointer-events: auto;
+
+    display: flex;
+    align-items: flex-start;
+    gap: to-rem($space-md);
+
+    padding: to-rem($space-md) to-rem($space-lg);
+    border-radius: var(--radius-md);
+    border: var(--border-item-hover);
+    border-left: to-rem($space-2xs) solid var(--color-accent);
+    background: rgba(0, 0, 0, 0.78); // pure black alpha — no theme hex
+    -webkit-backdrop-filter: blur(#{to-rem($space-md)});
+    backdrop-filter: blur(#{to-rem($space-md)});
+    box-shadow: var(--shadow-card);
+
+    color: var(--color-white-raw);
+    font-size: to-rem($space-lg);
+    line-height: 1.4;
+
+    animation: #{$_B_TOAST}-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+    // Backdrop blur is expensive on mobile GPUs — solid fallback like cookies
+    @media (max-width: $bk-768) {
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      background: rgba(0, 0, 0, 0.92);
+    }
+  }
+
+  &-title {
+    display: block;
+
+    margin: 0 0 to-rem($space-2xs);
+
+    font-weight: 500;
+    font-size: to-rem($space-md);
+    text-transform: uppercase;
+    letter-spacing: to-rem(0.6);
+    opacity: 0.7;
+  }
+
+  &-text {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-close {
+    flex: 0 0 auto;
+
+    margin: calc(-1 * #{to-rem($space-2xs)}) calc(-1 * #{to-rem($space-2xs)}) 0 0;
+    padding: to-rem($space-2xs) to-rem($space-sm);
+
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--color-white-raw);
+    opacity: 0.7;
+    font-size: to-rem($space-xl);
+    line-height: 1;
+    cursor: pointer;
+
+    transition: opacity 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      // --color-accent is near-invisible on light surfaces; the contrast
+      // variant keeps the focus ring ≥3:1 in both themes (WCAG 2.4.13).
+      outline: to-rem($space-hairline) solid var(--color-accent-contrast);
+      outline-offset: to-rem($space-2xs);
+    }
+  }
+}
+
+@keyframes #{$_B_TOAST}-in {
+  from {
+    opacity: 0;
+    transform: translateY(to-rem($space-sm));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Reduced motion: skip the slide-in entirely
+@media (prefers-reduced-motion: reduce) {
+  .#{$_B_TOAST}-item {
+    animation: none;
+  }
+}
