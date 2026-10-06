@@ -278,54 +278,6 @@ export const TEST_UA = Object.freeze({
   UNKNOWN: 'curl/8.0.1',
 })
 
-// ─── Expected console noise ───────────────────────────────────────────────────
-// Per project rule 12 every console.warn/error/info in src is intentional
-// signal — and tests deliberately exercise those paths, so the messages DO
-// fire during test runs. `tests/setup.js` filters the signatures below out of
-// test output; anything NOT listed still prints and should be investigated.
-// Each entry documents why the noise is expected rather than suppressed.
-export const TEST_NOISE = Object.freeze([
-  // Firebase SDK offline writes — tests run with no credentials, so the
-  // database logs permission_denied through its own Logger before our
-  // setLogLevel('silent') reaches lazily-created instances.
-  'FIREBASE WARNING',
-  'permission_denied',
-  '@firebase/',
-  // Dev-only Firebase mock backend logs each call by design.
-  '[CMS-MOCK]',
-  // Engine bootstrap racing jest teardown — the lazy `import()` throws
-  // "outside of the scope of the test code" after the sandbox is gone.
-  'outside of the scope of the test code',
-  '[EarthBG]',
-  '[SpacePlayground]',
-  // Service-worker lifecycle logs fired by the mocked registration in tests.
-  'App is being served from cache',
-  // Intentional fallback signal (AGENTS.md rule 12) — shader-failure tests
-  // deliberately trigger the warn path to prove the fallback engages.
-  'SkeletonWebGL shader error',
-  'Service worker has been registered',
-  'Content has been cached for offline use',
-  'New content is downloading',
-  'New content is available; refreshing page',
-  'No internet connection found',
-  'Error during service worker registration',
-  // Widget/shader warn paths — tests intentionally force fallback branches.
-  'CloseButton',
-  'SwitchWebGL',
-  'ThemeSlider',
-  'FlagWebGL',
-  'Program link error',
-  // Store/router error paths exercised by dedicated failure tests.
-  '[Store]',
-  '[Router] listener error',
-  // CMS offline fetch + auth failure paths under the no-credential env.
-  'REST DB fetch failed',
-  'Google Sign-In Error',
-  'Error loading',
-  'Error saving',
-  'Error syncing',
-])
-
 /**
  * Poll `fn` until truthy or `ms` elapses. Replaces fixed `setTimeout` waits —
  * under parallel-suite CPU contention a 200ms wait can fire late while the

@@ -1,26 +1,18 @@
 import { GlobalWindow } from 'happy-dom'
 import { setLogLevel as firebaseSetLogLevel, getApps, deleteApp } from 'firebase/app'
-import { TEST_NOISE } from './fixtures/test-constants.js'
-import { TYPE_STRINGS } from '../src/core/tokens/strings/types.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
 // Tests run with no Firebase credentials — the SDK's offline/permission_denied
 // console.warn chatter is expected, not a failure signal. Silence it so test
-// output stays clean and real warnings remain visible.
+// output stays clean.
 firebaseSetLogLevel('silent')
 
-// Silence expected-noise console output (TEST_NOISE in fixtures): Firebase's
-// lazy Logger instances are created after this setup runs, engine bootstraps
-// race test teardown, and dedicated tests deliberately hit src warn/error
-// paths. Non-matching console output still prints — real signal is kept.
-const noiseText = (args) =>
-  args.map((a) => (a instanceof Error ? a.stack || String(a) : String(a))).join(' ')
-
-for (const method of ['warn', 'error', 'info']) {
-  const orig = console[method].bind(console)
-
-  console[method] = (...args) => {
-    if (!TEST_NOISE.some((sig) => noiseText(args).includes(sig))) orig(...args)
-  }
+// Zero-console test policy: no console output of any kind during test runs.
+// Src routes diagnostics through core/devlog.ts (assert via getDevLog());
+// remaining console callers are third-party noise (Firebase SDK logger,
+// three.js, happy-dom) that carries no assertion signal.
+for (const method of ['warn', 'error', 'info', 'log', 'debug', 'trace']) {
+  console[method] = () => {}
 }
 
 const win = new GlobalWindow({

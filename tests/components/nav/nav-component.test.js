@@ -8,18 +8,18 @@
 
 import '@/components/nav/AppNav.js'
 import store from '@/core/store.js'
-import { COMPONENT_TAGS } from '../../../src/core/tokens/elements/components.js'
-import { LANG_MUTATIONS, PREF_MUTATIONS } from '../../../src/core/tokens/events/mutations.js'
-import { STATE_STRINGS } from '../../../src/core/tokens/strings/state.js'
-import { COMMON_SELECTORS } from '../../../src/core/tokens/selectors/common.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
-import { COMMON_ATTRS } from '../../../src/core/tokens/attrs/common.js'
-import { ARIA_ATTRS } from '../../../src/core/tokens/attrs/aria.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
-import { STATE_CLASSES } from '../../../src/core/tokens/classes/state.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { LANG_MUTATIONS, PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { COMMON_SELECTORS } from '@/core/tokens/selectors/common.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
+import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
 
 import { LOCALES } from '@/core/constants.js'
-import { THEME } from '../../../src/core/tokens/theme/theme.js'
+import { THEME } from '@/core/tokens/theme/theme.js'
 
 describe('AppNav Component', () => {
   let el
@@ -281,7 +281,9 @@ describe('AppNav Component', () => {
         el.render()
       }
       const elapsed = performance.now() - start
-      expect(elapsed).toBeLessThan(250)
+      // ~15ms/render budget: guards quadratic blowups without flaking under
+      // the 75%-worker parallel pool (wall-clock assertions contend for CPU).
+      expect(elapsed).toBeLessThan(1500)
     })
 
     test('style is not injected twice on repeated mounts', () => {

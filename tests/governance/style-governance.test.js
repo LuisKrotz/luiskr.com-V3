@@ -3,26 +3,26 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import * as CORE_TOKENS from '@/core/constants.js'
 import { TEST_AWARDS, TEST_PROJECTS, TEST_TAGS, TEST_TEXT } from '../fixtures/test-constants.js'
-import { DOM_STRINGS } from '../../src/core/tokens/strings/dom.js'
-import { CHAR_STRINGS } from '../../src/core/tokens/strings/chars.js'
-import { SKELETON_CLASSES } from '../../src/core/tokens/classes/skeleton.js'
-import { TYPE_STRINGS } from '../../src/core/tokens/strings/types.js'
-import { HOME_MOSAIC_CLASSES } from '../../src/core/tokens/classes/mosaic.js'
-import { COMPONENT_TAGS } from '../../src/core/tokens/elements/components.js'
-import { AWARDS_CLASSES } from '../../src/core/tokens/classes/awards.js'
-import { ABOUT_CLASSES } from '../../src/core/tokens/classes/about.js'
-import { SECTION_IDS } from '../../src/core/tokens/ids/sections.js'
-import { DB_PATHS } from '../../src/core/tokens/routes/paths.js'
-import { CAROUSEL_CLASSES } from '../../src/core/tokens/classes/carousel.js'
-import { CAROUSEL_SELECTORS } from '../../src/core/tokens/selectors/carousel.js'
-import { DRAW_TEXT_CLASSES } from '../../src/core/tokens/classes/draw-text.js'
-import { COOKIE_CLASSES } from '../../src/core/tokens/classes/cookies.js'
-import { MEDIA_ATTRS } from '../../src/core/tokens/attrs/media.js'
-import { FORM_ATTRS } from '../../src/core/tokens/attrs/form.js'
-import { HTML_TAGS } from '../../src/core/tokens/elements/html.js'
-import { LABEL_TEXT } from '../../src/core/tokens/strings/text.js'
-import { MOUSE_EVENTS } from '../../src/core/tokens/events/dom.js'
-import { PREF_STORAGE_KEYS } from '../../src/core/tokens/data/storage.js'
+import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { SKELETON_CLASSES } from '@/core/tokens/classes/skeleton.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { HOME_MOSAIC_CLASSES } from '@/core/tokens/classes/mosaic.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { AWARDS_CLASSES } from '@/core/tokens/classes/awards.js'
+import { ABOUT_CLASSES } from '@/core/tokens/classes/about.js'
+import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
+import { DB_PATHS } from '@/core/tokens/routes/paths.js'
+import { CAROUSEL_CLASSES } from '@/core/tokens/classes/carousel.js'
+import { CAROUSEL_SELECTORS } from '@/core/tokens/selectors/carousel.js'
+import { DRAW_TEXT_CLASSES } from '@/core/tokens/classes/draw-text.js'
+import { COOKIE_CLASSES } from '@/core/tokens/classes/cookies.js'
+import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
+import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { LABEL_TEXT } from '@/core/tokens/strings/text.js'
+import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.join(__dirname, '..', '..')
@@ -456,5 +456,55 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
     requiredScripts.slice(0, 3).forEach((file) => {
       expect(verifySrc).toContain(path.basename(file))
     })
+  })
+
+  // ── 15. Rule 20: recursion preferred — no manual stack/queue emulation ─────
+  test('Rule 20: no hand-rolled traversal-stack loops in src/', () => {
+    // Heuristic for stack/queue emulation: a `while`/`for` loop whose body
+    // both removes (pop/shift) and appends (push) elements of the SAME local
+    // array — the signature of simulating recursion iteratively. Bounded
+    // drains (`while (list.length > CAP)`) don't push, so they don't match.
+    const stackLoopRe =
+      /(?:while|for)\s*\([^)]*\)[\s\S]{0,400}?\.(?:pop|shift)\(\)[\s\S]{0,400}?\.push\(/
+    const offenders = []
+
+    for (const file of getAllFiles(srcDir, ['.ts', '.tsx', '.js'])) {
+      const code = fs.readFileSync(file, 'utf-8')
+
+      // Strip comments so commented-out loops don't false-positive.
+      const codeOnly = code.replace(/\/\*[\s\S]*?\*\//g, ' ').replace(/\/\/[^\n]*/g, ' ')
+
+      if (stackLoopRe.test(codeOnly)) offenders.push(path.relative(rootDir, file))
+    }
+
+    expect(offenders).toEqual([])
+  })
+
+  test('Rule 20b: AGENTS.md documents the recursion + compute-placement rule', () => {
+    const agents = fs.readFileSync(path.join(rootDir, 'AGENTS.md'), 'utf-8')
+
+    expect(agents).toContain('Recursion Preferred for Self-Similar Traversal')
+    expect(agents).toContain('wasm-pool')
+  })
+
+  // ── 16. Zero-console: src must never call console.* ────────────────────────
+  test('Rule 12b: ZERO console.* callsites in src/ (devlog sink only)', () => {
+    const consoleRe =
+      /console\.(log|debug|trace|table|group|groupEnd|groupCollapsed|warn|error|info)\s*\(/
+    const offenders = []
+
+    for (const file of getAllFiles(srcDir, ['.ts', '.tsx', '.js'])) {
+      const raw = fs.readFileSync(file, 'utf-8')
+
+      // Blank comments + string literals so `console.x` in prose isn't flagged.
+      const codeOnly = raw
+        .replace(/\/\*[\s\S]*?\*\//g, ' ')
+        .replace(/\/\/[^\n]*/g, ' ')
+        .replace(/'[^'\n]*'|"[^"\n]*"|`[^`]*`/g, ' ')
+
+      if (consoleRe.test(codeOnly)) offenders.push(path.relative(rootDir, file))
+    }
+
+    expect(offenders).toEqual([])
   })
 })

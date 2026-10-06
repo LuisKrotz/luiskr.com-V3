@@ -4,6 +4,8 @@
  */
 
 import { jest } from '@jest/globals'
+import { clearDevLog, getDevLog } from '@/core/devlog.js'
+import { LOG_LEVELS } from '@/core/tokens/data/log.js'
 import { DEBUG_PARAMS, WEBGL_MODES } from '@/core/tokens/strings/debug.js'
 import { createEarthState } from '@/playground/earth/runtime/state.js'
 import { syncEarthSun, tickEarth } from '@/playground/earth/runtime/frame.js'
@@ -49,12 +51,12 @@ describe('earth tails', () => {
 
     await warmUpShaders({ compileAsync: compile }, { scene: null, camera: null })
 
-    const warn = jest.spyOn(console, 'warn').mockImplementation(() => {})
+    clearDevLog()
 
     await warmUpShaders({ compileAsync: async () => Promise.reject(new Error('x')) }, { scene: {}, camera: {} })
-    expect(warn).toHaveBeenCalled()
-
-    warn.mockRestore()
+    expect(
+      getDevLog().filter((e) => e.level === LOG_LEVELS.WARN).length
+    ).toBeGreaterThan(0)
   })
 
   test('updateEarthRender — no options → default-arg + skip arms', () => {

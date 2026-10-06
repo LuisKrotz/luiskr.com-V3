@@ -6,10 +6,12 @@
  * destroy path executes without a GPU.
  */
 import { describe, test, expect, jest } from '@jest/globals'
-import { HTML_TAGS } from '../../src/core/tokens/elements/html.js'
-import { MOUSE_EVENTS } from '../../src/core/tokens/events/dom.js'
-import { TYPE_STRINGS } from '../../src/core/tokens/strings/types.js'
-import { STATE_STRINGS } from '../../src/core/tokens/strings/state.js'
+import { clearDevLog, getDevLog } from '@/core/devlog.js'
+import { LOG_LEVELS } from '@/core/tokens/data/log.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 
 const { EarthBackground } = await import('@/playground/earth-background.js')
 
@@ -42,10 +44,8 @@ describe('EarthBackground', () => {
   test('bootstraps the full three.js scene and fires onReady', async () => {
     const progress = []
     const ready = jest.fn()
-    const errors = []
-    const origError = console.error
 
-    console.error = (...a) => errors.push(a.map(String).join(' '))
+    clearDevLog()
 
     const bg = new EarthBackground(makeCanvas(), {
       onReady: ready,
@@ -56,9 +56,7 @@ describe('EarthBackground', () => {
 
     await waitBoot()
 
-    console.error = origError
-
-    expect(errors).toEqual([])
+    expect(getDevLog().filter((e) => e.level === LOG_LEVELS.ERROR)).toEqual([])
     expect(ready).toHaveBeenCalled()
     expect(progress.length).toBeGreaterThan(3)
 
@@ -420,17 +418,12 @@ describe('EarthBackground', () => {
       .spyOn(WebGPURenderer.prototype, 'init')
       .mockRejectedValueOnce(new Error('no-adapter'))
     const canvas = document.createElement(HTML_TAGS.CANVAS)
-    const origWarn = console.warn
-
-    console.warn = () => {}
 
     const bg = new EarthBackground(canvas)
 
     bg.init()
 
     await waitBoot()
-
-    console.warn = origWarn
 
     expect(spy).toHaveBeenCalled()
 
@@ -555,18 +548,14 @@ describe('EarthBackground', () => {
     const spy = jest.spyOn(WebGPURenderer.prototype, 'init').mockRejectedValue(new Error('dead'))
     const ready = jest.fn()
     const bg = new EarthBackground(makeCanvas(), { onReady: ready })
-    const origError = console.error
-    const errs = []
 
-    console.error = (...a) => errs.push(a)
+    clearDevLog()
     bg.init()
 
     await waitBoot()
 
-    console.error = origError
-
     expect(ready).toHaveBeenCalled()
-    expect(errs.length).toBeGreaterThan(0)
+    expect(getDevLog().filter((e) => e.level === LOG_LEVELS.ERROR).length).toBeGreaterThan(0)
 
     spy.mockRestore()
     bg.destroy()
@@ -630,13 +619,7 @@ describe('EarthBackground', () => {
     expect(pipeSpy).toHaveBeenCalled()
     expect(renderSpy).toHaveBeenCalled()
 
-    const origError = console.error
-
-    console.error = () => {}
-
     await bg.takeScreenshot()
-
-    console.error = origError
 
     pipeSpy.mockRestore()
     renderSpy.mockRestore()
@@ -695,17 +678,11 @@ describe('EarthBackground', () => {
       configurable: true,
     })
 
-    const origWarn = console.warn
-
-    console.warn = () => {}
-
     const bg = new EarthBackground(makeCanvas(), { onReady: ready })
 
     bg.init()
 
     await waitBoot()
-
-    console.warn = origWarn
 
     if (desc) {
       Object.defineProperty(RenderPipeline.prototype, 'outputNode', desc)
@@ -726,17 +703,12 @@ describe('EarthBackground', () => {
       .spyOn(WebGPURenderer.prototype, 'compileAsync')
       .mockRejectedValueOnce(new Error('no-shaders'))
     const ready = jest.fn()
-    const origWarn = console.warn
-
-    console.warn = () => {}
 
     const bg = new EarthBackground(makeCanvas(), { onReady: ready })
 
     bg.init()
 
     await waitBoot()
-
-    console.warn = origWarn
 
     expect(ready).toHaveBeenCalled()
 
@@ -903,9 +875,6 @@ describe('EarthBackground', () => {
 describe('EarthBackground residual arms', () => {
   test('pipeline ctor failure falls back to plain renderer.render in tick + screenshot', async () => {
     const { __setPipelineCtorFails } = await import('three/webgpu')
-    const origWarn = console.warn
-
-    console.warn = () => {}
     __setPipelineCtorFails(true)
 
     const bg = new EarthBackground(makeCanvas())
@@ -920,16 +889,11 @@ describe('EarthBackground residual arms', () => {
     // now that #pipeline is null.
     await bg.takeScreenshot()
 
-    console.warn = origWarn
-
     bg.destroy()
   })
 
   test('screenshot after a mid-boot destroy has no scene to render', async () => {
     const { __setRendererInitDelay } = await import('three/webgpu')
-    const origError = console.error
-
-    console.error = () => {}
     __setRendererInitDelay(80)
 
     const bg = new EarthBackground(makeCanvas())
@@ -943,8 +907,6 @@ describe('EarthBackground residual arms', () => {
     __setRendererInitDelay(0)
 
     await bg.takeScreenshot()
-
-    console.error = origError
   })
 
   test('sun angle wraps past 2π on the next tick', async () => {

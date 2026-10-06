@@ -34,7 +34,7 @@ import '@/routes/views/project/data.js'
 import _router from '@/routes/router.js'
 import '@/playground/space/panel-render.js'
 import { SP_INPUT_TYPES } from '@/playground/space/controls.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 import { CMS_PROJECTS_CLASSES } from '@/cms/tokens.js'
 
 
@@ -195,7 +195,6 @@ describe('final tails', () => {
     const { initSpaceEarth } = await import('@/playground/space/boot.js')
     const { EarthBackground } = await import('@/playground/earth-background.js')
     const initSpy = jest.spyOn(EarthBackground.prototype, 'init').mockRejectedValue(new Error('boot-fail'))
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
     const c = {
       _earthBg: null,
       _earthReady: false,
@@ -215,7 +214,6 @@ describe('final tails', () => {
     expect(c._dismissLoader).toHaveBeenCalled()
 
     initSpy.mockRestore()
-    errSpy.mockRestore()
   })
 
   test('renderSpControl range — missing min/max ?? arms', async () => {

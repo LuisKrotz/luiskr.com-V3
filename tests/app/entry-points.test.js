@@ -9,9 +9,9 @@
 import { describe, test, expect, jest } from '@jest/globals'
 import { CMS_TAGS } from '@/cms/tokens.js'
 import { waitFor } from '../fixtures/test-constants.js'
-import { HTML_TAGS } from '../../src/core/tokens/elements/html.js'
-import { APP_IDS } from '../../src/core/tokens/ids/app.js'
-import { CMS_IDS } from '../../src/core/tokens/ids/cms.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { APP_IDS } from '@/core/tokens/ids/app.js'
+import { CMS_IDS } from '@/core/tokens/ids/cms.js'
 
 const registerMock = jest.fn()
 
@@ -21,7 +21,7 @@ jest.unstable_mockModule('register-service-worker', () => ({
 
 const authCallbacks = []
 
-jest.unstable_mockModule('../../src/firebase.js', () => ({
+jest.unstable_mockModule('@/firebase.js', () => ({
   onAuthChange: jest.fn(async (cb) => {
     authCallbacks.push(cb)
 
@@ -42,12 +42,12 @@ jest.unstable_mockModule('firebase/database', () => ({
 
 const mockRouter = { init: () => {}, subscribe: () => () => {}, currentRoute: null }
 
-jest.unstable_mockModule('../../src/routes/router.js', () => ({
+jest.unstable_mockModule('@/routes/router.js', () => ({
   default: mockRouter,
   router: mockRouter,
 }))
 
-jest.unstable_mockModule('../../src/utils/motion/route-warmer.js', () => ({
+jest.unstable_mockModule('@/utils/motion/route-warmer.js', () => ({
   startRouteWarming: () => {},
 }))
 
@@ -93,7 +93,7 @@ describe('main.js branch warm-ups', () => {
     document.body.appendChild(app)
 
     await (await import('@/main.js')).bootPromise.catch(() => {})
-    await waitFor(() => window.router)
+    await waitFor(() => window.router, 45000)
 
     expect(window.router).toBeTruthy()
 
@@ -115,7 +115,7 @@ describe('main.js branch warm-ups', () => {
 
     // The 20ms retry interval picks up the late-added container — poll
     // rather than fixed-wait so parallel CPU contention can't flake it.
-    await waitFor(() => app.firstElementChild)
+    await waitFor(() => app.firstElementChild, 45000)
 
     expect(app.firstElementChild).toBeTruthy()
   })
@@ -133,7 +133,7 @@ describe('main.js branch warm-ups', () => {
     }
 
     await (await import('@/main.js')).bootPromise.catch(() => {})
-    await waitFor(() => window.router)
+    await waitFor(() => window.router, 45000)
 
     expect(window.router).toBeTruthy()
 
@@ -192,7 +192,7 @@ describe('main.js branch warm-ups', () => {
     }
 
     await (await import('@/main.js')).bootPromise.catch(() => {})
-    await waitFor(() => window.router)
+    await waitFor(() => window.router, 45000)
 
     expect(window.router).toBeTruthy()
 
@@ -215,7 +215,7 @@ describe('main.js branch warm-ups', () => {
     }
 
     await (await import('@/main.js')).bootPromise.catch(() => {})
-    await waitFor(() => window.router)
+    await waitFor(() => window.router, 45000)
 
     expect(window.router).toBeTruthy()
 

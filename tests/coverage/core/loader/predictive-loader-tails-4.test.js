@@ -16,11 +16,11 @@ import store from '@/core/store.js'
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { LINK_ATTRS } from '../../../../src/core/tokens/attrs/link.js'
-import { ROUTE_PATHS } from '../../../../src/core/tokens/routes/paths.js'
-import { FOCUS_EVENTS, POINTER_EVENTS, TOUCH_EVENTS } from '../../../../src/core/tokens/events/dom.js'
-import { CHAR_STRINGS } from '../../../../src/core/tokens/strings/chars.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { FOCUS_EVENTS, POINTER_EVENTS, TOUCH_EVENTS } from '@/core/tokens/events/dom.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 
 
 
@@ -56,21 +56,23 @@ describe('predictive-loader tails', () => {
     const { predictiveLoader } = await import('@/core/predictive-loader.js')
     const spy = jest.spyOn(predictiveLoader, 'prefetchRoute')
 
-    const a = makeLink(`${ROUTE_PATHS.PORTFOLIO_SLASH}some-slug`)
+    const href = `${ROUTE_PATHS.PORTFOLIO_SLASH}some-slug`
+    const a = makeLink(href)
 
     predictiveLoader.observeLink(a)
 
     // Mock IO auto-fires isIntersecting:true after ~10ms — schedule then
-    // forwards to prefetchRoute once idle time arrives. Poll instead of a
-    // fixed sleep: under parallel-suite CPU load a single 300ms window is
-    // not guaranteed to cover IO delay + idle scheduling + microtask drain.
-    const deadline = Date.now() + 3000
+    // forwards to prefetchRoute once idle time arrives. Poll for THIS
+    // link's call specifically: links observed by earlier tests stay in the
+    // singleton's observedLinks set, and their stale IO callbacks can land
+    // mid-test and satisfy a `calls.length > 0` wait before the real one.
+    const deadline = Date.now() + 5000
 
-    while (spy.mock.calls.length === 0 && Date.now() < deadline) {
+    while (!spy.mock.calls.some((c) => c[0] === href) && Date.now() < deadline) {
       await new Promise((r) => setTimeout(r, 25))
     }
 
-    expect(spy).toHaveBeenCalledWith(`${ROUTE_PATHS.PORTFOLIO_SLASH}some-slug`)
+    expect(spy).toHaveBeenCalledWith(href)
 
     // non-intersecting entry and an entry whose target has no href/dataset
     const cb = predictiveLoader.observer.callback
@@ -229,20 +231,21 @@ describe('predictive-loader tails', () => {
     const { predictiveLoader } = await import('@/core/predictive-loader.js')
     const spy = jest.spyOn(predictiveLoader, 'prefetchRoute')
     const a = document.createElement(HTML_TAGS.A)
+    const href = `${ROUTE_PATHS.ROOT}idle-link`
 
-    a.setAttribute(LINK_ATTRS.HREF, `${ROUTE_PATHS.ROOT}idle-link`)
+    a.setAttribute(LINK_ATTRS.HREF, href)
     predictiveLoader.observeLink(a)
 
-    // Poll: under parallel-suite load the mock-IO fire + idle chain can
-    // exceed a fixed 300ms window.
-    const deadline = Date.now() + 3000
+    // Poll for THIS link's call — stale IO callbacks for links observed by
+    // earlier tests can land mid-wait (singleton observedLinks persists).
+    const deadline = Date.now() + 5000
 
-    while (spy.mock.calls.length === 0 && Date.now() < deadline) {
+    while (!spy.mock.calls.some((c) => c[0] === href) && Date.now() < deadline) {
       await new Promise((r) => setTimeout(r, 25))
     }
 
     expect(calls.length).toBeGreaterThan(0)
-    expect(spy).toHaveBeenCalledWith(`${ROUTE_PATHS.ROOT}idle-link`)
+    expect(spy).toHaveBeenCalledWith(href)
 
     spy.mockRestore()
     window.requestIdleCallback = origIdle

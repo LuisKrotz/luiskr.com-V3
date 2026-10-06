@@ -7,24 +7,21 @@
  * confirm/alert/prompt and Notification are stubbed per test.
  */
 import { describe, test, expect, jest, beforeEach } from '@jest/globals'
+import { clearDevLog, getDevLog } from '@/core/devlog.js'
+import { LOG_LEVELS } from '@/core/tokens/data/log.js'
 import { CMS_KEYS, LOCALES, SECTIONS, TRANSLATION_KEYS } from '@/core/constants.js'
 import { CMS_EVENTS, CMS_TAGS, CMS_TABS } from '@/cms/tokens.js'
 import { TEST_TEXT, TEST_URLS } from '../fixtures/test-constants.js'
-import { CHAR_STRINGS } from '../../src/core/tokens/strings/chars.js'
-import {
-  DRAG_EVENTS,
-  FORM_EVENTS,
-  MOUSE_EVENTS,
-  WINDOW_EVENTS,
-} from '../../src/core/tokens/events/dom.js'
-import { STATE_STRINGS } from '../../src/core/tokens/strings/state.js'
-import { DB_PATHS } from '../../src/core/tokens/routes/paths.js'
-import { MEDIA_ATTRS } from '../../src/core/tokens/attrs/media.js'
-import { STATE_CLASSES } from '../../src/core/tokens/classes/state.js'
-import { DATA_ATTRS } from '../../src/core/tokens/attrs/data.js'
-import { HTML_TAGS } from '../../src/core/tokens/elements/html.js'
-import { ATTR_VALUES } from '../../src/core/tokens/attrs/values.js'
-import { COVER_DIMENSIONS, MOSAIC_DIMENSIONS } from '../../src/core/tokens/media/dimensions.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { DRAG_EVENTS, FORM_EVENTS, MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { DB_PATHS } from '@/core/tokens/routes/paths.js'
+import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
+import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
+import { COVER_DIMENSIONS, MOSAIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 import { CMS_ADMIN_CLASSES, CMS_DASHBOARD_CLASSES, CMS_ITEM_CLASSES } from '@/cms/tokens.js'
 
 const authCallbacks = []
@@ -38,7 +35,7 @@ const defaultVal = { title: TEST_TEXT.HEADING }
 
 const snapOf = (val, exists = true) => ({ exists: () => exists, val: () => val })
 
-jest.unstable_mockModule('../../src/firebase.js', () => ({
+jest.unstable_mockModule('@/firebase.js', () => ({
   onAuthChange: jest.fn(async (cb) => {
     authCallbacks.push(cb)
 
@@ -306,12 +303,11 @@ describe('CmsAboutEditor', () => {
       },
     })
 
-    const errSpy = jest.spyOn(console, WINDOW_EVENTS.ERROR).mockImplementation(() => {})
+    clearDevLog()
 
     await el.loadAboutData()
 
-    expect(errSpy).toHaveBeenCalled()
-    errSpy.mockRestore()
+    expect(getDevLog().filter((e) => e.level === LOG_LEVELS.ERROR).length).toBeGreaterThan(0)
     snapRoutes.length = 0
 
     // rejection without .message -> the `err.message || err` right arm
@@ -583,12 +579,11 @@ describe('CmsFooterEditor', () => {
       },
     })
 
-    const errSpy = jest.spyOn(console, WINDOW_EVENTS.ERROR).mockImplementation(() => {})
+    clearDevLog()
 
     await el.loadAllData()
 
-    expect(errSpy).toHaveBeenCalled()
-    errSpy.mockRestore()
+    expect(getDevLog().filter((e) => e.level === LOG_LEVELS.ERROR).length).toBeGreaterThan(0)
 
     snapRoutes.length = 0
 
@@ -1355,13 +1350,12 @@ describe('CmsPlaygroundEditor branches', () => {
       },
     })
 
-    const errSpy = jest.spyOn(console, WINDOW_EVENTS.ERROR).mockImplementation(() => {})
+    clearDevLog()
 
     await el.loadAllData()
 
-    expect(errSpy).toHaveBeenCalled()
+    expect(getDevLog().filter((e) => e.level === LOG_LEVELS.ERROR).length).toBeGreaterThan(0)
 
-    errSpy.mockRestore()
     el.remove()
   })
 

@@ -11,20 +11,20 @@ import { describe, test, expect, jest, beforeEach, afterEach } from '@jest/globa
 import { AppRoot } from '@/App.js'
 import store from '@/core/store.js'
 import router from '@/routes/router.js'
-import { mount, TEST_TEXT } from '../fixtures/test-constants.js'
+import { mount, TEST_TEXT, waitFor } from '../fixtures/test-constants.js'
 import { LANG_SLUGS } from '@/core/i18n.js'
-import { VIEW_TAGS } from '../../src/core/tokens/elements/views.js'
-import { COMPONENT_TAGS } from '../../src/core/tokens/elements/components.js'
+import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 import {
   LANG_MUTATIONS,
   MODAL_MUTATIONS,
   PREF_MUTATIONS,
   UI_MUTATIONS,
-} from '../../src/core/tokens/events/mutations.js'
-import { MODAL_CLASSES } from '../../src/core/tokens/classes/modal.js'
-import { APP_IDS } from '../../src/core/tokens/ids/app.js'
-import { STATE_STRINGS } from '../../src/core/tokens/strings/state.js'
-import { CHAR_STRINGS } from '../../src/core/tokens/strings/chars.js'
+} from '@/core/tokens/events/mutations.js'
+import { MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
+import { APP_IDS } from '@/core/tokens/ids/app.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 import {
   DRAG_EVENTS,
   FORM_EVENTS,
@@ -33,28 +33,24 @@ import {
   POINTER_EVENTS,
   TOUCH_EVENTS,
   WINDOW_EVENTS,
-} from '../../src/core/tokens/events/dom.js'
-import { INPUT_STRINGS } from '../../src/core/tokens/strings/input.js'
-import { HTML_TAGS } from '../../src/core/tokens/elements/html.js'
-import { ROUTE_PATHS } from '../../src/core/tokens/routes/paths.js'
-import { FLAG_CLASSES } from '../../src/core/tokens/classes/flags.js'
-import { ANIMATION_DURATIONS } from '../../src/core/tokens/motion/animation.js'
-import { SECTION_IDS } from '../../src/core/tokens/ids/sections.js'
-import { TYPE_STRINGS } from '../../src/core/tokens/strings/types.js'
-import { ATTR_VALUES } from '../../src/core/tokens/attrs/values.js'
-import {
-  NAV_BURGER_CLASSES,
-  NAV_CLASSES,
-  NAV_MENU_CLASSES,
-} from '../../src/core/tokens/classes/nav.js'
-import { PREF_CLASSES } from '../../src/core/tokens/classes/preferences.js'
-import { APP_CLASSES } from '../../src/core/tokens/classes/app.js'
-import { STATE_CLASSES } from '../../src/core/tokens/classes/state.js'
-import { APP_EVENTS } from '../../src/core/tokens/events/app.js'
-import { DATA_ATTRS } from '../../src/core/tokens/attrs/data.js'
+} from '@/core/tokens/events/dom.js'
+import { INPUT_STRINGS } from '@/core/tokens/strings/input.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { FLAG_CLASSES } from '@/core/tokens/classes/flags.js'
+import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
+import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
+import { NAV_BURGER_CLASSES, NAV_CLASSES, NAV_MENU_CLASSES } from '@/core/tokens/classes/nav.js'
+import { PREF_CLASSES } from '@/core/tokens/classes/preferences.js'
+import { APP_CLASSES } from '@/core/tokens/classes/app.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
+import { APP_EVENTS } from '@/core/tokens/events/app.js'
+import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
 
 import { KEYS, LOCALES, ROUTE_NAMES, SECTIONS } from '@/core/constants.js'
-import { THEME } from '../../src/core/tokens/theme/theme.js'
+import { THEME } from '@/core/tokens/theme/theme.js'
 
 const flush = (ms = 0) => new Promise((r) => setTimeout(r, ms))
 
@@ -259,9 +255,16 @@ describe('AppRoot — view outlet', () => {
     el.currentViewTag = VIEW_TAGS.VIEW_NOT_FOUND
     el._updateViewContent({})
 
-    await flush(450)
-
+    // The lazy view import + cross-fade settle on wall-clock timers — poll
+    // instead of a fixed sleep so parallel-suite CPU contention can't flake
+    // the swap.
     const outlet = el.shadowRoot.querySelector(`#${APP_IDS.VIEW_OUTLET}`)
+
+    await waitFor(
+      () =>
+        outlet.firstElementChild &&
+        outlet.firstElementChild.tagName.toLowerCase() === VIEW_TAGS.VIEW_NOT_FOUND
+    )
 
     expect(outlet.firstElementChild.tagName.toLowerCase()).toBe(VIEW_TAGS.VIEW_NOT_FOUND)
 
@@ -281,9 +284,13 @@ describe('AppRoot — view outlet', () => {
     el.currentViewTag = VIEW_TAGS.VIEW_LEGAL
     el._updateViewContent({})
 
-    await flush(60)
-
     const outlet = el.shadowRoot.querySelector(`#${APP_IDS.VIEW_OUTLET}`)
+
+    await waitFor(
+      () =>
+        outlet.firstElementChild &&
+        outlet.firstElementChild.tagName.toLowerCase() === VIEW_TAGS.VIEW_LEGAL
+    )
 
     expect(outlet.firstElementChild.tagName.toLowerCase()).toBe(VIEW_TAGS.VIEW_LEGAL)
 

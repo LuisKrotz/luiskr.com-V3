@@ -20,14 +20,14 @@ import {
   attachNoGL,
 } from '../../fixtures/mock-webgl.js'
 import store from '@/core/store.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
-import { PREF_MUTATIONS } from '../../../src/core/tokens/events/mutations.js'
-import { STATE_CLASSES } from '../../../src/core/tokens/classes/state.js'
-import { GL_EVENTS, KEYBOARD_EVENTS, MOUSE_EVENTS } from '../../../src/core/tokens/events/dom.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
+import { GL_EVENTS, KEYBOARD_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
 import { ARROW_TYPES, KEYS, SWITCH_TYPES } from '@/core/constants.js'
-import { THEME } from '../../../src/core/tokens/theme/theme.js'
+import { THEME } from '@/core/tokens/theme/theme.js'
 
 const makeCanvas = () => document.createElement(HTML_TAGS.CANVAS)
 
@@ -941,10 +941,8 @@ describe('CloseButtonWebGL', () => {
         }
       )
 
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {})
     const btn = new CloseButtonWebGL(canvas)
 
-    warnSpy.mockRestore()
     btn.destroy()
   })
 

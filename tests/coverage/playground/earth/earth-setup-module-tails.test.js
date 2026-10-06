@@ -17,7 +17,7 @@ import '@/cms/footer/CmsFooterEditor.js'
 import '@/cms/deploy-info/CmsDeployInfo.js'
 
 import '@/playground/earth/setup/bootstrap.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 globalThis.alert = jest.fn()
@@ -49,7 +49,6 @@ describe('earth setup module tails', () => {
     const { WebGPURenderer } = await import('three/webgpu')
     const { initEarthRenderer: initR } = await import('@/playground/earth/setup/renderer-setup.js')
     const { createEarthState: mkState } = await import('@/playground/earth/runtime/state.js')
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {})
 
     Object.defineProperty(navigator, 'gpu', { value: { requestAdapter: async () => ({}) }, configurable: true })
 
@@ -117,8 +116,6 @@ describe('earth setup module tails', () => {
     const s6 = mkState(null, undefined, undefined)
 
     await initR(s6, makeFlaky())
-
-    warnSpy.mockRestore()
   })
 
   test('setupSun / setupStarfield / setupMoon / setupEarthGroup guard arms', async () => {
@@ -247,10 +244,7 @@ describe('earth setup module tails', () => {
     // RenderPipeline ctor failure → catch arm leaves pipeline null
     __setPipelineCtorFails(true)
 
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {})
-
     pipelineFn(s, deps)
-    warnSpy.mockRestore()
     __setPipelineCtorFails(false)
     expect(s.pipeline).toBeNull()
   })
