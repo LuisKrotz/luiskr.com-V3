@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T18:59:47.861Z",
+  "generatedAt": "2026-10-06T19:31:16.308Z",
   "scanner": "npm-audit (snyk unavailable — set SNYK_TOKEN)",
   "ok": true,
   "totals": {
@@ -117,8 +117,8 @@
       "packageName": "@jest/core",
       "severity": "moderate",
       "advisoryId": null,
-      "title": "@jest/core affected via @jest/core → jest > jest-cli",
-      "from": "@jest/core → jest > jest-cli",
+      "title": "@jest/core affected via @jest/core → jest",
+      "from": "@jest/core → jest",
       "fixedIn": "25.0.0",
       "isUpgradable": true,
       "isPatchable": false,
@@ -367,8 +367,8 @@
       "packageName": "jest-config",
       "severity": "moderate",
       "advisoryId": null,
-      "title": "jest-config affected via jest-config",
-      "from": "jest-config",
+      "title": "jest-config affected via jest-config → jest-cli",
+      "from": "jest-config → jest-cli",
       "fixedIn": "yes",
       "isUpgradable": true,
       "isPatchable": false,
