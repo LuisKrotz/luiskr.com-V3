@@ -122,6 +122,7 @@ export class ViewNotFound extends BaseComponent {
                   text={this.subtitle}
                   delay={CHAR_STRINGS.DELAY_30}
                   trigger={ATTR_VALUES.AUTO}
+                  fit={ATTR_VALUES.EMPTY}
                 />
               </span>
             </h1>

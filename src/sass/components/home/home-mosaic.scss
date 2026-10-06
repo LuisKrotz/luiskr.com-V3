@@ -24,10 +24,13 @@
 }
 
 // Section wrapper — %MAXAREA column.
+// padding-top must clear the fixed .nav (top: $space-lg + ~$space-2xl row
+// height ≈ 47px) with breathing room — 4xl (89px) keeps the title from
+// sliding under the logo/burger on every breakpoint.
 .home-portfolio-section {
   @extend %MAXAREA;
   width: 100%;
-  padding-top: to-rem($space-2xl);
+  padding-top: to-rem($space-4xl);
   padding-bottom: to-rem($space-2xl);
   box-sizing: border-box;
   border-top: to-rem($space-hairline) solid transparent;
@@ -35,12 +38,10 @@
   background-image: var(--filament-glow);
 
   @include layout-768() {
-    padding-top: to-rem($space-3xl);
     padding-bottom: to-rem($space-4xl);
   }
 
   @include layout-1024() {
-    padding-top: to-rem($space-4xl);
     padding-bottom: to-rem($space-5xl);
   }
 

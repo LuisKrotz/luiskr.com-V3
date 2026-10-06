@@ -172,7 +172,12 @@ export class ViewLegal extends BaseComponent {
             }
           >
             {t?.title ? (
-              <draw-text key="ttl1" text={t.title} trigger={COMMON_ATTRS.TRIGGER_VIEWPORT} />
+              <draw-text
+                key="ttl1"
+                text={t.title}
+                trigger={COMMON_ATTRS.TRIGGER_VIEWPORT}
+                fit={ATTR_VALUES.EMPTY}
+              />
             ) : (
               <span
                 key="ttl2"
