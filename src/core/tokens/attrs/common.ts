@@ -28,4 +28,5 @@ export const COMMON_ATTRS = Object.freeze({
   TRIGGER_VIEWPORT: 'viewport',
   TOUCH: 'touch',
   POINTER: 'pointer',
+  FIT: 'fit',
 })

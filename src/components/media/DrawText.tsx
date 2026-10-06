@@ -18,6 +18,7 @@ import { DRAW_TEXT_CLASSES } from '@/core/tokens/classes/draw-text.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 import { DRAW_TEXT_SELECTORS } from '@/core/tokens/selectors/draw-text.js'
 import { updateDom } from './draw-text/dom.js'
+import { fitText, setupFit, teardownFit } from './draw-text/fit.js'
 import { parseTokens, renderContent } from './draw-text/render.js'
 import { setupTrigger, startAnimation } from './draw-text/trigger.js'
 import type { DrawTimer, DrawToken } from './draw-text/types.js'
@@ -34,6 +35,7 @@ export class DrawText extends HTMLElement {
   _isMounted = false // connectedCallback ran
   _styleEl: HTMLStyleElement | CSSStyleSheet | null = null // adopted shared sheet OR per-instance <style>
   _contentEl: HTMLSpanElement | null = null // cached content wrapper (skips re-query)
+  _fitObserver: ResizeObserver | null = null // parent-size watcher for the `fit` scale-down
 
   static get observedAttributes() {
     return [
@@ -42,6 +44,7 @@ export class DrawText extends HTMLElement {
       COMMON_ATTRS.OFFSET,
       COMMON_ATTRS.TRIGGER,
       COMMON_ATTRS.VISIBLE,
+      COMMON_ATTRS.FIT,
     ]
   }
 
@@ -114,10 +117,14 @@ export class DrawText extends HTMLElement {
     this._updateDom()
 
     this._setupTrigger()
+
+    this._setupFit()
   }
 
   disconnectedCallback() {
     this._isMounted = false
+
+    teardownFit(this)
 
     if (this._observer) {
       this._observer.disconnect()
@@ -149,6 +156,12 @@ export class DrawText extends HTMLElement {
 
         this._setupTrigger()
       }
+    } else if (name === COMMON_ATTRS.FIT && this._isMounted) {
+      if (this.hasAttribute(COMMON_ATTRS.FIT)) {
+        this._setupFit()
+      } else {
+        teardownFit(this)
+      }
     }
   }
 
@@ -167,6 +180,8 @@ export class DrawText extends HTMLElement {
 
   _updateDom() {
     updateDom(this)
+
+    fitText(this)
   }
 
   /** The animated content element inside the shadow root — cached by _applyContent so repeated queries are free. */
@@ -204,6 +219,12 @@ export class DrawText extends HTMLElement {
 
   _setupTrigger() {
     setupTrigger(this)
+  }
+
+  /** Installs the fit-to-width pipeline (delegate — ./draw-text/fit.ts). */
+
+  _setupFit() {
+    setupFit(this)
   }
 
   /** Runs the reveal sequence (delegate — ./draw-text/trigger.ts). */
