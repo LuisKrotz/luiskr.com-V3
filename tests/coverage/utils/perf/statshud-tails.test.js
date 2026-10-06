@@ -20,9 +20,9 @@ import '@/components/dialogs/PreferencesModal.js'
 import '@/components/carousel/HomeCarousel.js'
 import '@/routes/views/home/Home.js'
 import '@/routes/views/legal/Legal.js'
-import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
-import { STATS_CLASSES } from '../../../../src/core/tokens/classes/stats.js'
-import { PREF_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { STATS_CLASSES } from '@/core/tokens/classes/stats.js'
+import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
 
 
 

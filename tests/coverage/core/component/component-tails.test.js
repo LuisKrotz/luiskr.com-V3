@@ -11,8 +11,8 @@
 import _store from '@/core/store.js'
 
 import '@/components/feedback/CookieBanner.js'
-import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 

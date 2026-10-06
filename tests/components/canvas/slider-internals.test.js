@@ -16,13 +16,13 @@ import {
   createMockGL,
 } from '../../fixtures/mock-webgl.js'
 import store from '@/core/store.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
-import { GL_EVENTS, MOUSE_EVENTS } from '../../../src/core/tokens/events/dom.js'
-import { STATE_STRINGS } from '../../../src/core/tokens/strings/state.js'
-import { WEBGL_STRINGS } from '../../../src/core/tokens/strings/webgl.js'
-import { PREF_MUTATIONS } from '../../../src/core/tokens/events/mutations.js'
-import { PREF_CLASSES } from '../../../src/core/tokens/classes/preferences.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { GL_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
+import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { PREF_CLASSES } from '@/core/tokens/classes/preferences.js'
 
 const makeCanvas = () => {
   const canvas = document.createElement(HTML_TAGS.CANVAS)

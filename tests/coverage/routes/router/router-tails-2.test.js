@@ -13,12 +13,12 @@ import router from '@/routes/router.js'
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
 import '@/routes/views/legal/Legal.js'
 import '@/routes/views/home/Home.js'
-import { QUERY_STRINGS } from '../../../../src/core/tokens/strings/queries.js'
-import { ROUTE_PATHS } from '../../../../src/core/tokens/routes/paths.js'
-import { VIEW_TAGS } from '../../../../src/core/tokens/elements/views.js'
-import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { SECTION_IDS } from '../../../../src/core/tokens/ids/sections.js'
+import { QUERY_STRINGS } from '@/core/tokens/strings/queries.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
 
 
 

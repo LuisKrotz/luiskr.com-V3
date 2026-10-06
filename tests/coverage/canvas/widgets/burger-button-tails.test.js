@@ -11,8 +11,8 @@ import { jest } from '@jest/globals'
 import _store from '@/core/store.js'
 
 import '@/components/feedback/CookieBanner.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { GL_EVENTS, WINDOW_EVENTS } from '../../../../src/core/tokens/events/dom.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { GL_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
 
 
 

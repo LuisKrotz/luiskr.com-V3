@@ -6,7 +6,7 @@
 
 import fs from 'fs'
 import path from 'path'
-import { HTML_TAGS } from '../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 const ROOT = path.resolve('src/sass/components')
 const internals = fs.readFileSync(path.join(ROOT, 'project/internals.scss'), 'utf8')

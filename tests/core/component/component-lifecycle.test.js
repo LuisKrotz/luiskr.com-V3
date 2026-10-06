@@ -9,11 +9,11 @@ import { BaseComponent } from '@/core/Component.js'
 import store from '@/core/store.js'
 import { THEME } from '@/core/constants.js'
 import { TEST_TAGS } from '../../fixtures/test-constants.js'
-import { STATE_STRINGS } from '../../../src/core/tokens/strings/state.js'
-import { COMMON_SELECTORS } from '../../../src/core/tokens/selectors/common.js'
-import { MOUSE_EVENTS, WINDOW_EVENTS } from '../../../src/core/tokens/events/dom.js'
-import { PREF_MUTATIONS } from '../../../src/core/tokens/events/mutations.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { COMMON_SELECTORS } from '@/core/tokens/selectors/common.js'
+import { MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
 // Create a minimal test component for lifecycle testing
 class TestComponent extends BaseComponent {

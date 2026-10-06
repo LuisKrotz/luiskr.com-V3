@@ -22,9 +22,9 @@ import '@/cms/deploy-info/CmsDeployInfo.js'
 import '@/cms/lang/CmsLangEditor.js'
 import '@/cms/footer/CmsFooterEditor.js'
 import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { LINK_ATTRS } from '../../../../src/core/tokens/attrs/link.js'
-import { ROUTE_PATHS } from '../../../../src/core/tokens/routes/paths.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
 
 
 

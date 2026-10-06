@@ -17,7 +17,7 @@ import { renderProject } from '@/routes/views/project/render.js'
 import { patchViewProject } from '@/safari/patches/view-project.js'
 
 import '@/routes/views/not-found/NotFound.js'
-import { LANG_MUTATIONS, MODAL_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
+import { LANG_MUTATIONS, MODAL_MUTATIONS } from '@/core/tokens/events/mutations.js'
 
 
 const flush = (ms = 60) => new Promise((r) => setTimeout(r, ms))

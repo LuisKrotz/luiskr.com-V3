@@ -19,12 +19,12 @@ import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import { LANG_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
-import { MEDIA_COMPONENT_KEYS } from '../../../../src/core/tokens/data/component-keys.js'
+import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { MEDIA_COMPONENT_KEYS } from '@/core/tokens/data/component-keys.js'
 
 
 
-jest.unstable_mockModule('../../../../src/firebase.js', () => ({
+jest.unstable_mockModule('@/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),

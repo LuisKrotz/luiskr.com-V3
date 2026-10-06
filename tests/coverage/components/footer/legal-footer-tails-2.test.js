@@ -23,10 +23,10 @@ import '@/cms/deploy-info/CmsDeployInfo.js'
 import '@/cms/lang/CmsLangEditor.js'
 import '@/cms/footer/CmsFooterEditor.js'
 import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import { LANG_STRINGS } from '../../../../src/core/tokens/strings/langs.js'
-import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { MOUSE_EVENTS } from '../../../../src/core/tokens/events/dom.js'
+import { LANG_STRINGS } from '@/core/tokens/strings/langs.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
 
 
 

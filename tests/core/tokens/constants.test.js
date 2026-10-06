@@ -20,8 +20,8 @@ import {
   CAROUSEL_LAYOUT,
   CAROUSEL_LOADING,
   CAROUSEL_TIMING,
-} from '../../../src/core/tokens/motion/carousel.js'
-import { ANIMATION_DURATIONS, EASING } from '../../../src/core/tokens/motion/animation.js'
+} from '@/core/tokens/motion/carousel.js'
+import { ANIMATION_DURATIONS, EASING } from '@/core/tokens/motion/animation.js'
 
 describe('Core Constants — Token coverage', () => {
   // ── MEDIA constants ──────────────────────────────────────────────────────

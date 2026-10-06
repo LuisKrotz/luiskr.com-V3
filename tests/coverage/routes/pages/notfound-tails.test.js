@@ -13,8 +13,8 @@
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { VIEW_TAGS } from '../../../../src/core/tokens/elements/views.js'
-import { MOUSE_EVENTS } from '../../../../src/core/tokens/events/dom.js'
+import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
 
 
 

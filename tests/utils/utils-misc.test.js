@@ -10,11 +10,11 @@ import { statsEngine } from '@/utils/perf/stats-engine.js'
 import { predictiveLoader } from '@/core/predictive-loader.js'
 import { localMediaCache } from '@/utils/media/local-media-cache.js'
 import { calcAspectScaled } from '@/core/utils/aspect.js'
-import { HTML_TAGS } from '../../src/core/tokens/elements/html.js'
-import { LINK_ATTRS } from '../../src/core/tokens/attrs/link.js'
-import { ROUTE_PATHS } from '../../src/core/tokens/routes/paths.js'
-import { POINTER_EVENTS } from '../../src/core/tokens/events/dom.js'
-import { NET_STRINGS } from '../../src/core/tokens/strings/net.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { POINTER_EVENTS } from '@/core/tokens/events/dom.js'
+import { NET_STRINGS } from '@/core/tokens/strings/net.js'
 
 const flush = (ms = 60) => new Promise((resolve) => setTimeout(resolve, ms))
 

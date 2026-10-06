@@ -7,7 +7,7 @@
  */
 import { readdirSync, readFileSync, statSync } from 'fs'
 import path from 'path'
-import { DOM_STRINGS } from '../../src/core/tokens/strings/dom.js'
+import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
 
 const SRC = path.join(process.cwd(), DOM_STRINGS.SRC)
 

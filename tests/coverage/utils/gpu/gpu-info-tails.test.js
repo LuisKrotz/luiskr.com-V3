@@ -15,9 +15,9 @@ import { getGPUInfo, glContextOptions } from '@/utils/gpu/gpu-info.js'
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { WEBGL_STRINGS } from '../../../../src/core/tokens/strings/webgl.js'
-import { CHAR_STRINGS } from '../../../../src/core/tokens/strings/chars.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 
 
 

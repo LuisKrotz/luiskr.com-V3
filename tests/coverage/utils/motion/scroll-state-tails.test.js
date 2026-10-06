@@ -17,8 +17,8 @@ import { isScrolling, onScrollStop } from '@/utils/motion/scroll-state.js'
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { TYPE_STRINGS } from '../../../../src/core/tokens/strings/types.js'
-import { WINDOW_EVENTS } from '../../../../src/core/tokens/events/dom.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
 
 
 

@@ -15,8 +15,8 @@ import store from '@/core/store.js'
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { LANG_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
-import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
+import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 
 
 

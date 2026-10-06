@@ -21,9 +21,9 @@ import { paintThemeSlider2D } from '@/utils/canvas/widgets/theme-slider/paint-2d
 import { renderFrame } from '@/utils/canvas/loaders/menu-background/loop.js'
 import { attachMockGL, attachNoGL, createMockGL } from '../../../fixtures/mock-webgl.js'
 import { ARROW_TYPES, LOCALES} from '@/core/constants.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { TYPE_STRINGS } from '../../../../src/core/tokens/strings/types.js'
-import { WEBGL_STRINGS } from '../../../../src/core/tokens/strings/webgl.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
 
 
 

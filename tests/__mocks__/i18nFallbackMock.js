@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
-import { NOT_FOUND_CLASSES } from '../../src/core/tokens/classes/legal.js'
-import { ROUTE_PATHS } from '../../src/core/tokens/routes/paths.js'
+import { NOT_FOUND_CLASSES } from '@/core/tokens/classes/legal.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..')
 

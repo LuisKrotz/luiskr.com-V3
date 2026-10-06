@@ -16,12 +16,12 @@ import { wasmCSS, calcWasmSkeletonStyle } from '@/utils/wasm/wasm-css.js'
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { COMMON_ATTRS } from '../../../../src/core/tokens/attrs/common.js'
-import { ASSET_IDS } from '../../../../src/core/tokens/ids/assets.js'
+import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
+import { ASSET_IDS } from '@/core/tokens/ids/assets.js'
 
 
 
-jest.unstable_mockModule('../../../../src/firebase.js', () => ({
+jest.unstable_mockModule('@/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),

@@ -15,13 +15,13 @@ import '@/core/utils/dom.js'
 
 import '@/routes/views/legal/Legal.js'
 import '@/routes/views/home/Home.js'
-import { VIEW_TAGS } from '../../../../src/core/tokens/elements/views.js'
-import { LANG_MUTATIONS, UI_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
-import { COMMON_ATTRS } from '../../../../src/core/tokens/attrs/common.js'
-import { INPUT_STRINGS } from '../../../../src/core/tokens/strings/input.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { CHAR_STRINGS } from '../../../../src/core/tokens/strings/chars.js'
-import { ROUTE_PATHS } from '../../../../src/core/tokens/routes/paths.js'
+import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+import { LANG_MUTATIONS, UI_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
+import { INPUT_STRINGS } from '@/core/tokens/strings/input.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
 
 
 

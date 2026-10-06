@@ -15,10 +15,10 @@ import {
   updateJsonLd,
 } from '@/core/utils/schema.js'
 import { TEST_PROJECTS, TEST_TEXT, TEST_URLS } from '../../fixtures/test-constants.js'
-import { NET_STRINGS } from '../../../src/core/tokens/strings/net.js'
-import { ROUTE_PATHS } from '../../../src/core/tokens/routes/paths.js'
-import { SCHEMA_STRINGS } from '../../../src/core/tokens/strings/schema.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
+import { NET_STRINGS } from '@/core/tokens/strings/net.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { SCHEMA_STRINGS } from '@/core/tokens/strings/schema.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
 // ─── schema.js generators ────────────────────────────────────────────────────
 

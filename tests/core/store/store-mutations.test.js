@@ -15,10 +15,10 @@ import {
   LANG_MUTATIONS,
   MODAL_MUTATIONS,
   PREF_MUTATIONS,
-} from '../../../src/core/tokens/events/mutations.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
-import { STATE_STRINGS } from '../../../src/core/tokens/strings/state.js'
-import { CDN_URLS } from '../../../src/core/tokens/media/urls.js'
+} from '@/core/tokens/events/mutations.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { CDN_URLS } from '@/core/tokens/media/urls.js'
 
 // Helper to reset store to default state
 const resetStore = () => {

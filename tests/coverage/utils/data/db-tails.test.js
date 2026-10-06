@@ -12,7 +12,7 @@ import { LOCALES} from '@/core/constants.js'
 import _store from '@/core/store.js'
 
 import '@/components/feedback/CookieBanner.js'
-import { DB_PATHS, ROUTE_PATHS } from '../../../../src/core/tokens/routes/paths.js'
+import { DB_PATHS, ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
 
 
 

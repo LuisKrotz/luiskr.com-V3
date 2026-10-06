@@ -15,10 +15,10 @@ import {
   MODAL_MUTATIONS,
   PREF_MUTATIONS,
   UI_MUTATIONS,
-} from '../../../src/core/tokens/events/mutations.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
-import { CDN_URLS } from '../../../src/core/tokens/media/urls.js'
-import { INPUT_STRINGS } from '../../../src/core/tokens/strings/input.js'
+} from '@/core/tokens/events/mutations.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { CDN_URLS } from '@/core/tokens/media/urls.js'
+import { INPUT_STRINGS } from '@/core/tokens/strings/input.js'
 
 describe('Store — State Management', () => {
   afterEach(() => {

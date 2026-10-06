@@ -28,16 +28,16 @@ import {
   buildMediaUrls,
 } from '@/core/utils/media.js'
 import { isScrolling, onScrollStop } from '@/utils/motion/scroll-state.js'
-import { TYPE_STRINGS } from '../../src/core/tokens/strings/types.js'
-import { POINTER_EVENTS, WINDOW_EVENTS } from '../../src/core/tokens/events/dom.js'
-import { CACHE_STORAGE_KEYS } from '../../src/core/tokens/data/storage.js'
-import { ROUTE_PATHS } from '../../src/core/tokens/routes/paths.js'
-import { DOM_STRINGS } from '../../src/core/tokens/strings/dom.js'
-import { HTML_TAGS } from '../../src/core/tokens/elements/html.js'
-import { STATE_STRINGS } from '../../src/core/tokens/strings/state.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { POINTER_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import { CACHE_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 
 import { IDB_CONFIG, LOCALES } from '@/core/constants.js'
-import { MEDIA } from '../../src/core/tokens/media/suffixes.js'
+import { MEDIA } from '@/core/tokens/media/suffixes.js'
 
 const flush = (ms = 0) => new Promise((r) => setTimeout(r, ms))
 

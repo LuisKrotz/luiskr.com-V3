@@ -18,21 +18,21 @@ import { renderCanvas2D } from '@/utils/canvas/widgets/switch-slider/render.js'
 import { drawFlag } from '@/utils/canvas/widgets/flag/draw.js'
 import { createMockGL, createMock2D } from '../../../fixtures/mock-webgl.js'
 import store from '@/core/store.js'
-import { WEBGL_STRINGS } from '../../../../src/core/tokens/strings/webgl.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { TYPE_STRINGS } from '../../../../src/core/tokens/strings/types.js'
-import { GL_EVENTS, KEYBOARD_EVENTS, WINDOW_EVENTS } from '../../../../src/core/tokens/events/dom.js'
-import { NAV_BURGER_CLASSES, NAV_MENU_CLASSES } from '../../../../src/core/tokens/classes/nav.js'
-import { STATE_CLASSES } from '../../../../src/core/tokens/classes/state.js'
-import { STATE_STRINGS } from '../../../../src/core/tokens/strings/state.js'
-import { SKELETON_CLASSES } from '../../../../src/core/tokens/classes/skeleton.js'
-import { PREF_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
+import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { GL_EVENTS, KEYBOARD_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import { NAV_BURGER_CLASSES, NAV_MENU_CLASSES } from '@/core/tokens/classes/nav.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { SKELETON_CLASSES } from '@/core/tokens/classes/skeleton.js'
+import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
 
 import { KEYS,
   LOCALES,
   PREF_CLASSES,
   SWITCH_TYPES } from '@/core/constants.js'
-import { THEME } from '../../../../src/core/tokens/theme/theme.js'
+import { THEME } from '@/core/tokens/theme/theme.js'
 
 const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))
 

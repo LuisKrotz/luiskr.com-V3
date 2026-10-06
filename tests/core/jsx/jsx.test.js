@@ -1,9 +1,9 @@
 import { h, Fragment } from '@/core/jsx.js'
 import { TEST_TEXT } from '../../fixtures/test-constants.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
-import { SVG_STRINGS } from '../../../src/core/tokens/strings/svg.js'
-import { CHAR_STRINGS } from '../../../src/core/tokens/strings/chars.js'
-import { MEDIA_ATTRS } from '../../../src/core/tokens/attrs/media.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { SVG_STRINGS } from '@/core/tokens/strings/svg.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
 
 describe('JSX Runtime & Native DOM Construction', () => {
   test('creates simple HTML element with properties', () => {

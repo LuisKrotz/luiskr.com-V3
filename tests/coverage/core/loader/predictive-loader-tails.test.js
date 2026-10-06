@@ -13,10 +13,10 @@ import _store from '@/core/store.js'
 import '@/components/feedback/CookieBanner.js'
 
 import { TEST_URLS, TEST_PROJECTS } from '../../../fixtures/test-constants.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { LINK_ATTRS } from '../../../../src/core/tokens/attrs/link.js'
-import { ROUTE_PATHS } from '../../../../src/core/tokens/routes/paths.js'
-import { FOCUS_EVENTS, POINTER_EVENTS, TOUCH_EVENTS } from '../../../../src/core/tokens/events/dom.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { FOCUS_EVENTS, POINTER_EVENTS, TOUCH_EVENTS } from '@/core/tokens/events/dom.js'
 
 
 

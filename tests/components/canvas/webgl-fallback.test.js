@@ -9,14 +9,14 @@ import { MenuBackgroundWebGL } from '@/utils/canvas/loaders/menu-background-webg
 import { BurgerButtonWebGL } from '@/utils/canvas/widgets/burger-button-webgl.js'
 import { attachMockGL, createMockGL } from '../../fixtures/mock-webgl.js'
 import { TEST_COLORS } from '../../fixtures/test-constants.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
-import { NAV_BURGER_CLASSES, NAV_MENU_CLASSES } from '../../../src/core/tokens/classes/nav.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
-import { STATE_CLASSES } from '../../../src/core/tokens/classes/state.js'
-import { STATE_STRINGS } from '../../../src/core/tokens/strings/state.js'
-import { GL_EVENTS } from '../../../src/core/tokens/events/dom.js'
-import { WEBGL_STRINGS } from '../../../src/core/tokens/strings/webgl.js'
-import { CHAR_STRINGS } from '../../../src/core/tokens/strings/chars.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { NAV_BURGER_CLASSES, NAV_MENU_CLASSES } from '@/core/tokens/classes/nav.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { GL_EVENTS } from '@/core/tokens/events/dom.js'
+import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 
 describe('WebGL Fallback Mechanism — Android Chrome Compatibility', () => {
   // ── MenuBackgroundWebGL Fallback ───────────────────────────────────────────────

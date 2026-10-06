@@ -27,8 +27,8 @@ import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
 import { AWARDS_CLASSES } from '@/core/tokens/classes/awards.js'
 import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
 import { TEST_URLS as FIXTURE_URLS } from '../../../fixtures/test-constants.js'
-import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 

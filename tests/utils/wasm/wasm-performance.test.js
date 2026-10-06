@@ -23,10 +23,10 @@ import { wasmSmoothScroll } from '@/utils/wasm/wasm-scroll.js'
 import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
 import { npuPredict } from '@/utils/gpu/npu-predict.js'
 import { TEST_TEXT } from '../../fixtures/test-constants.js'
-import { FORM_ATTRS } from '../../../src/core/tokens/attrs/form.js'
-import { CDN_URLS } from '../../../src/core/tokens/media/urls.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
-import { STATE_STRINGS } from '../../../src/core/tokens/strings/state.js'
+import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
+import { CDN_URLS } from '@/core/tokens/media/urls.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 
 describe('WASM, Math Models, Media & Performance Engine (60+ Tests)', () => {
   describe('1. Responsive Fibonacci Column & Padding Calculations', () => {

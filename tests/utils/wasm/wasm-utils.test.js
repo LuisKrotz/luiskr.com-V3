@@ -33,12 +33,12 @@ import { wasmMediaThreads } from '@/utils/wasm/wasm-media-threads.js'
 import { wasmImageDecoder } from '@/utils/wasm/wasm-image-decoder.js'
 import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
 import { attachMockGL } from '../../fixtures/mock-webgl.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
-import { CHAR_STRINGS } from '../../../src/core/tokens/strings/chars.js'
-import { ASSET_IDS } from '../../../src/core/tokens/ids/assets.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
-import { CSS_STRINGS } from '../../../src/core/tokens/strings/css.js'
-import { ATTR_VALUES } from '../../../src/core/tokens/attrs/values.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { ASSET_IDS } from '@/core/tokens/ids/assets.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { CSS_STRINGS } from '@/core/tokens/strings/css.js'
+import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 
 // The shared setup rAF stub calls cb() with no timestamp — wasm-scroll's
 // easing math needs `now`. Re-stub here to pass monotonic timestamps.

@@ -19,12 +19,12 @@ import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
 
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import { VIEW_TAGS } from '../../../../src/core/tokens/elements/views.js'
-import { DOM_STRINGS } from '../../../../src/core/tokens/strings/dom.js'
-import { TYPE_STRINGS } from '../../../../src/core/tokens/strings/types.js'
-import { CHAR_STRINGS } from '../../../../src/core/tokens/strings/chars.js'
-import { NOT_FOUND_CLASSES } from '../../../../src/core/tokens/classes/legal.js'
-import { MOUSE_EVENTS } from '../../../../src/core/tokens/events/dom.js'
+import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { NOT_FOUND_CLASSES } from '@/core/tokens/classes/legal.js'
+import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
 
 
 
@@ -32,7 +32,7 @@ import { MOUSE_EVENTS } from '../../../../src/core/tokens/events/dom.js'
 
 
 
-jest.unstable_mockModule('../../../../src/firebase.js', () => ({
+jest.unstable_mockModule('@/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),

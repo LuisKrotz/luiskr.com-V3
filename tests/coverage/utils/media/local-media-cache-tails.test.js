@@ -16,7 +16,7 @@ import { localMediaCache } from '@/utils/media/local-media-cache.js'
 import { wasmPool } from '@/utils/wasm/wasm-pool.js'
 import { IDB_CONFIG } from '@/core/constants.js'
 import { TEST_TEXT, TEST_URLS } from '../../../fixtures/test-constants.js'
-import { TYPE_STRINGS } from '../../../../src/core/tokens/strings/types.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
 
 

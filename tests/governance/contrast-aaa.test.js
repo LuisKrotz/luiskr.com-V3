@@ -12,9 +12,9 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
 import * as sass from 'sass'
-import { DOM_STRINGS } from '../../src/core/tokens/strings/dom.js'
-import { THEME_CSS_PROPS } from '../../src/core/tokens/css/theme.js'
-import { MENU_CSS_PROPS } from '../../src/core/tokens/css/menu.js'
+import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
+import { THEME_CSS_PROPS } from '@/core/tokens/css/theme.js'
+import { MENU_CSS_PROPS } from '@/core/tokens/css/menu.js'
 
 const C = { ...THEME_CSS_PROPS, ...MENU_CSS_PROPS }
 

@@ -8,15 +8,15 @@
 
 import { LOCALES } from '@/core/constants.js'
 import { VALID_LANGS, LANG_SLUGS, detectLangFromPath } from '@/core/i18n.js'
-import { COMMON_ATTRS } from '../../../src/core/tokens/attrs/common.js'
-import { LANG_STRINGS } from '../../../src/core/tokens/strings/langs.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
-import { SECTION_IDS } from '../../../src/core/tokens/ids/sections.js'
-import { ROUTE_STRINGS } from '../../../src/core/tokens/strings/routes.js'
-import { ROUTE_PATHS } from '../../../src/core/tokens/routes/paths.js'
-import { ABOUT_CLASSES } from '../../../src/core/tokens/classes/about.js'
-import { CONTACT_CLASSES } from '../../../src/core/tokens/classes/contact.js'
-import { VIEW_TAGS } from '../../../src/core/tokens/elements/views.js'
+import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
+import { LANG_STRINGS } from '@/core/tokens/strings/langs.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
+import { ROUTE_STRINGS } from '@/core/tokens/strings/routes.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { ABOUT_CLASSES } from '@/core/tokens/classes/about.js'
+import { CONTACT_CLASSES } from '@/core/tokens/classes/contact.js'
+import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
 
 describe('i18n — Internationalization System', () => {
   // ── VALID_LANGS ─────────────────────────────────────────────────────────────

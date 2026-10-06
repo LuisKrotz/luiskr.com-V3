@@ -13,8 +13,8 @@ import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
 
 import '@/routes/views/legal/Legal.js'
 import '@/routes/views/home/Home.js'
-import { TYPE_STRINGS } from '../../../../src/core/tokens/strings/types.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 

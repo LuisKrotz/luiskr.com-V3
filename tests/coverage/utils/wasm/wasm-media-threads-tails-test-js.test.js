@@ -19,7 +19,7 @@ import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
 
-jest.unstable_mockModule('../../../../src/firebase.js', () => ({
+jest.unstable_mockModule('@/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),

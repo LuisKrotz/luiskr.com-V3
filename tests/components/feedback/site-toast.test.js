@@ -10,20 +10,16 @@ import { describe, test, expect, jest, beforeEach, afterEach, beforeAll } from '
 import { NOTIFY, NOTIFY_TYPES } from '@/core/constants.js'
 import { appText } from '@/core/locale/ui-text.js'
 import { TEST_TEXT } from '../../fixtures/test-constants.js'
-import { COMPONENT_TAGS } from '../../../src/core/tokens/elements/components.js'
-import { TOAST_CLASSES } from '../../../src/core/tokens/classes/toast.js'
-import { CHAR_STRINGS } from '../../../src/core/tokens/strings/chars.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
-import { ARIA_ATTRS } from '../../../src/core/tokens/attrs/aria.js'
-import {
-  NAV_UI_KEYS,
-  NOTIFY_UI_KEYS,
-  SECTION_UI_KEYS,
-} from '../../../src/core/tokens/data/ui-keys.js'
-import { ATTR_VALUES } from '../../../src/core/tokens/attrs/values.js'
-import { MOUSE_EVENTS, WINDOW_EVENTS } from '../../../src/core/tokens/events/dom.js'
-import { STATE_STRINGS } from '../../../src/core/tokens/strings/state.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { TOAST_CLASSES } from '@/core/tokens/classes/toast.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
+import { NAV_UI_KEYS, NOTIFY_UI_KEYS, SECTION_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
+import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
+import { MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
 

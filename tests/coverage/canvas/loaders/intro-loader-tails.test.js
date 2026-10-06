@@ -13,7 +13,7 @@ import store from '@/core/store.js'
 import { IntroLoader } from '@/utils/canvas/loaders/intro-loader.js'
 
 import '@/components/feedback/CookieBanner.js'
-import { PREF_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
+import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
 
 
 const flush = (ms = 60) => new Promise((r) => setTimeout(r, ms))

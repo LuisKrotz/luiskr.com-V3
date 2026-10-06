@@ -19,16 +19,16 @@ import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
 
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { MOUSE_EVENTS } from '../../../../src/core/tokens/events/dom.js'
-import { COMMON_ATTRS } from '../../../../src/core/tokens/attrs/common.js'
-import { CHAR_STRINGS } from '../../../../src/core/tokens/strings/chars.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 
 
 
 
 
-jest.unstable_mockModule('../../../../src/firebase.js', () => ({
+jest.unstable_mockModule('@/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),

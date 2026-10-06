@@ -15,8 +15,8 @@ import _router from '@/routes/router.js'
 
 import '@/routes/views/legal/Legal.js'
 import '@/routes/views/home/Home.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { STATE_CLASSES } from '../../../../src/core/tokens/classes/state.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
 
 
 

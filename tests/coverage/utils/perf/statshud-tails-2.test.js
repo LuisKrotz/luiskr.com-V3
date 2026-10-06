@@ -23,8 +23,8 @@ import '@/cms/deploy-info/CmsDeployInfo.js'
 import '@/cms/lang/CmsLangEditor.js'
 import '@/cms/footer/CmsFooterEditor.js'
 import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import { PREF_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
-import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
+import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 
 
 

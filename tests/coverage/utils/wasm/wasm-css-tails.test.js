@@ -15,8 +15,8 @@ import { wasmCSS, calcWasmSkeletonStyle } from '@/utils/wasm/wasm-css.js'
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { ASSET_IDS } from '../../../../src/core/tokens/ids/assets.js'
-import { TYPE_STRINGS } from '../../../../src/core/tokens/strings/types.js'
+import { ASSET_IDS } from '@/core/tokens/ids/assets.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
 
 

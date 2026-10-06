@@ -9,29 +9,29 @@ import { describe, test, expect, jest, beforeEach, afterEach } from '@jest/globa
 import store from '@/core/store.js'
 import { LOCALES, SP_ACTIONS } from '@/core/constants.js'
 import { TEST_TEXT } from '../fixtures/test-constants.js'
-import { VIEW_TAGS } from '../../src/core/tokens/elements/views.js'
-import { STATE_CLASSES } from '../../src/core/tokens/classes/state.js'
-import { PREF_MUTATIONS } from '../../src/core/tokens/events/mutations.js'
-import { HTML_TAGS } from '../../src/core/tokens/elements/html.js'
-import { DATA_ATTRS } from '../../src/core/tokens/attrs/data.js'
+import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
+import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
 import {
   SP_CAMERA_PARAMS,
   SP_DEBUG_PARAMS,
   SP_GRADE_PARAMS,
   SP_POST_PARAMS,
   SP_SCENE_PARAMS,
-} from '../../src/core/tokens/playground/params.js'
-import { FORM_ATTRS } from '../../src/core/tokens/attrs/form.js'
-import { PREF_STORAGE_KEYS } from '../../src/core/tokens/data/storage.js'
-import { ARIA_ATTRS } from '../../src/core/tokens/attrs/aria.js'
-import { TYPE_STRINGS } from '../../src/core/tokens/strings/types.js'
-import { FORM_EVENTS, MOUSE_EVENTS } from '../../src/core/tokens/events/dom.js'
-import { SP_CLASSES } from '../../src/core/tokens/classes/playground.js'
-import { ATTR_VALUES } from '../../src/core/tokens/attrs/values.js'
+} from '@/core/tokens/playground/params.js'
+import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
+import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
+import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { FORM_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { SP_CLASSES } from '@/core/tokens/classes/playground.js'
+import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 
 const dbData = { title: 'Space', engine: 'Engine' }
 
-jest.unstable_mockModule('../../src/utils/data/db.js', () => ({
+jest.unstable_mockModule('@/utils/data/db.js', () => ({
   fetchFirebaseDb: jest.fn(async () => ({ exists: () => true, val: () => dbData })),
 }))
 

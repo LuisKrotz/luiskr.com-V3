@@ -29,7 +29,7 @@ import { pToKnobX } from '@/utils/canvas/widgets/theme-slider/math.js'
 import { FlagRenderer } from '@/utils/canvas/widgets/flag/renderer.js'
 import { flagTexture } from '@/utils/canvas/widgets/flag/texture.js'
 import { getWebGLContext, createQuadProgram } from '@/utils/canvas/gl-program.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 globalThis.alert = jest.fn()

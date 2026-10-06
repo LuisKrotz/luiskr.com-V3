@@ -17,14 +17,14 @@ import '@/utils/data/sanitize.js'
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { MODAL_MUTATIONS, PREF_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { PREF_CLASSES } from '../../../../src/core/tokens/classes/preferences.js'
+import { MODAL_MUTATIONS, PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { PREF_CLASSES } from '@/core/tokens/classes/preferences.js'
 
 
 
 
-jest.unstable_mockModule('../../../../src/firebase.js', () => ({
+jest.unstable_mockModule('@/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),

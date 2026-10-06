@@ -7,8 +7,8 @@
 
 import { jest, describe, test, expect } from '@jest/globals'
 import { PortfolioRelated } from '@/components/portfolio/Related.js'
-import { INTERNAL_CLASSES } from '../../../../src/core/tokens/classes/project.js'
-import { STATE_CLASSES } from '../../../../src/core/tokens/classes/state.js'
+import { INTERNAL_CLASSES } from '@/core/tokens/classes/project.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
 import { mount, TEST_TEXT } from '../../../fixtures/test-constants.js'
 
 const NOTE_SEL = `.${INTERNAL_CLASSES.INTERNAL_FOOTER_ITEMS_NOTE}`

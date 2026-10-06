@@ -8,9 +8,9 @@
 
 import { PROJECT_ALIASES } from '@/core/constants.js'
 import { TEST_PROJECTS } from '../fixtures/test-constants.js'
-import { TYPE_STRINGS } from '../../src/core/tokens/strings/types.js'
-import { VIEW_TAGS } from '../../src/core/tokens/elements/views.js'
-import { DATA_MUTATIONS } from '../../src/core/tokens/events/mutations.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+import { DATA_MUTATIONS } from '@/core/tokens/events/mutations.js'
 
 // Portfolio data is loaded from Firebase — use the known project slugs for tests
 const KNOWN_PROJECTS = [

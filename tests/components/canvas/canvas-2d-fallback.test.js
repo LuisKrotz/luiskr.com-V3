@@ -14,9 +14,9 @@ import { CarouselArrowWebGL } from '@/utils/canvas/widgets/carousel-controls.js'
 import { attachMock2D, attachMockGL, createMock2D } from '../../fixtures/mock-webgl.js'
 import store from '@/core/store.js'
 import { ARROW_TYPES, SWITCH_TYPES, THEME } from '@/core/constants.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
-import { PREF_MUTATIONS } from '../../../src/core/tokens/events/mutations.js'
-import { STATE_CLASSES } from '../../../src/core/tokens/classes/state.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
 
 const makeCanvas = () => document.createElement(HTML_TAGS.CANVAS)
 const flushFrames = (ms = 80) => new Promise((resolve) => setTimeout(resolve, ms))

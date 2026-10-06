@@ -12,7 +12,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import * as sass from 'sass'
 import fs from 'fs'
-import { DOM_STRINGS } from '../../src/core/tokens/strings/dom.js'
+import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const SASS_BASE = path.join(__dirname, '..', '..', DOM_STRINGS.SRC, 'sass', 'base')

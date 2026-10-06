@@ -15,9 +15,9 @@ import { fetchFirebaseDb } from '@/utils/data/db.js'
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { CACHE_STORAGE_KEYS } from '../../../../src/core/tokens/data/storage.js'
-import { TYPE_STRINGS } from '../../../../src/core/tokens/strings/types.js'
-import { DB_PATHS } from '../../../../src/core/tokens/routes/paths.js'
+import { CACHE_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { DB_PATHS } from '@/core/tokens/routes/paths.js'
 
 
 

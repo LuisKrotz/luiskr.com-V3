@@ -15,11 +15,11 @@ import router from '@/routes/router.js'
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
 import '@/routes/views/legal/Legal.js'
 import '@/routes/views/home/Home.js'
-import { VIEW_TAGS } from '../../../../src/core/tokens/elements/views.js'
-import { ROUTE_PATHS } from '../../../../src/core/tokens/routes/paths.js'
-import { LANG_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
-import { CHAR_STRINGS } from '../../../../src/core/tokens/strings/chars.js'
-import { SECTION_UI_KEYS } from '../../../../src/core/tokens/data/ui-keys.js'
+import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { SECTION_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
 
 
 

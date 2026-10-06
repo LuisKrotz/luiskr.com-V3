@@ -13,8 +13,8 @@
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { PREF_STORAGE_KEYS } from '../../../../src/core/tokens/data/storage.js'
-import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
+import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 
 
 

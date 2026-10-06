@@ -15,7 +15,7 @@ import { h } from '@/core/jsx.js'
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 

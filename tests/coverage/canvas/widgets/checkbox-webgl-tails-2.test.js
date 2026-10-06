@@ -15,7 +15,7 @@ import { CheckboxWebGL } from '@/playground/space/checkbox-webgl.js'
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 

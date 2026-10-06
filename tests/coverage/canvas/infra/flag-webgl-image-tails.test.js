@@ -19,7 +19,7 @@ import '@/cms/footer/CmsFooterEditor.js'
 import '@/cms/deploy-info/CmsDeployInfo.js'
 
 import { flagRenderer } from '@/utils/canvas/widgets/flag/renderer.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 globalThis.alert = jest.fn()

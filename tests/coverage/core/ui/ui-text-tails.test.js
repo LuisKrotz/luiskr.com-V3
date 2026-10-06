@@ -18,9 +18,9 @@ import { TEST_TEXT } from '../../../fixtures/test-constants.js'
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { LANG_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
-import { SECTION_UI_KEYS } from '../../../../src/core/tokens/data/ui-keys.js'
-import { TYPE_STRINGS } from '../../../../src/core/tokens/strings/types.js'
+import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { SECTION_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
 
 

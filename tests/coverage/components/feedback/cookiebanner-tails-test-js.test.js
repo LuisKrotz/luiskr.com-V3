@@ -17,18 +17,18 @@ import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
 
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
-import { PREF_STORAGE_KEYS } from '../../../../src/core/tokens/data/storage.js'
-import { STATE_STRINGS } from '../../../../src/core/tokens/strings/state.js'
-import { COOKIE_SELECTORS } from '../../../../src/core/tokens/selectors/cookies.js'
-import { MOUSE_EVENTS } from '../../../../src/core/tokens/events/dom.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { COOKIE_SELECTORS } from '@/core/tokens/selectors/cookies.js'
+import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
 
 
 
 
 
 
-jest.unstable_mockModule('../../../../src/firebase.js', () => ({
+jest.unstable_mockModule('@/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),

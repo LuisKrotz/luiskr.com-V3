@@ -7,14 +7,14 @@
 import { describe, test, expect, jest, beforeEach } from '@jest/globals'
 import { CMS_TABS, CMS_TAGS } from '@/cms/tokens.js'
 import { SP_DB_DEFAULT_SEED } from '@/playground/space/controls.js'
-import { ATTR_VALUES } from '../../src/core/tokens/attrs/values.js'
+import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 import { CMS_ADMIN_CLASSES } from '@/cms/tokens.js'
 
 const authCallbacks = []
 const setCalls = []
 const snapVal = { headingKey: 'x', bodyKey: 'y' }
 
-jest.unstable_mockModule('../../src/firebase.js', () => ({
+jest.unstable_mockModule('@/firebase.js', () => ({
   onAuthChange: jest.fn(async (cb) => {
     authCallbacks.push(cb)
 

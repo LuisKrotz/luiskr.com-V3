@@ -16,43 +16,35 @@ import store from '@/core/store.js'
 import router from '@/routes/router.js'
 import { npuPredict } from '@/utils/gpu/npu-predict.js'
 import { appText } from '@/core/locale/ui-text.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
-import {
-  NAV_BURGER_CLASSES,
-  NAV_CLASSES,
-  NAV_MENU_CLASSES,
-} from '../../../src/core/tokens/classes/nav.js'
-import { PREF_CLASSES } from '../../../src/core/tokens/classes/preferences.js'
-import { FORM_ATTRS } from '../../../src/core/tokens/attrs/form.js'
-import { CMS_KEYS } from '../../../src/core/tokens/data/cms-keys.js'
-import { LANG_CLASSES } from '../../../src/core/tokens/classes/lang.js'
-import {
-  LANG_MUTATIONS,
-  MODAL_MUTATIONS,
-  PREF_MUTATIONS,
-} from '../../../src/core/tokens/events/mutations.js'
-import { ARIA_ATTRS } from '../../../src/core/tokens/attrs/aria.js'
-import { NAV_TEXT } from '../../../src/core/tokens/strings/text.js'
-import { SECTION_IDS } from '../../../src/core/tokens/ids/sections.js'
-import { APP_EVENTS } from '../../../src/core/tokens/events/app.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { NAV_BURGER_CLASSES, NAV_CLASSES, NAV_MENU_CLASSES } from '@/core/tokens/classes/nav.js'
+import { PREF_CLASSES } from '@/core/tokens/classes/preferences.js'
+import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
+import { CMS_KEYS } from '@/core/tokens/data/cms-keys.js'
+import { LANG_CLASSES } from '@/core/tokens/classes/lang.js'
+import { LANG_MUTATIONS, MODAL_MUTATIONS, PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
+import { NAV_TEXT } from '@/core/tokens/strings/text.js'
+import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
+import { APP_EVENTS } from '@/core/tokens/events/app.js'
 import {
   FOCUS_EVENTS,
   KEYBOARD_EVENTS,
   MOUSE_EVENTS,
   POINTER_EVENTS,
   WINDOW_EVENTS,
-} from '../../../src/core/tokens/events/dom.js'
-import { NAV_SELECTORS } from '../../../src/core/tokens/selectors/nav.js'
-import { ANIMATION_DURATIONS } from '../../../src/core/tokens/motion/animation.js'
-import { COMMON_ATTRS } from '../../../src/core/tokens/attrs/common.js'
-import { CHAR_STRINGS } from '../../../src/core/tokens/strings/chars.js'
-import { FLAG_CLASSES } from '../../../src/core/tokens/classes/flags.js'
-import { DATA_ATTRS } from '../../../src/core/tokens/attrs/data.js'
-import { STATE_CLASSES } from '../../../src/core/tokens/classes/state.js'
-import { ROUTE_PATHS } from '../../../src/core/tokens/routes/paths.js'
-import { ATTR_VALUES } from '../../../src/core/tokens/attrs/values.js'
-import { COMPONENT_TAGS } from '../../../src/core/tokens/elements/components.js'
-import { ENGINE_UI_KEYS } from '../../../src/core/tokens/data/ui-keys.js'
+} from '@/core/tokens/events/dom.js'
+import { NAV_SELECTORS } from '@/core/tokens/selectors/nav.js'
+import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
+import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { FLAG_CLASSES } from '@/core/tokens/classes/flags.js'
+import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { ENGINE_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
 
 // ─── Local selector helpers (derived from CLASSES) ────────────────────────────
 const S = {

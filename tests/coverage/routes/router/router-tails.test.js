@@ -19,8 +19,8 @@ import '@/components/dialogs/PreferencesModal.js'
 import '@/components/carousel/HomeCarousel.js'
 import '@/routes/views/home/Home.js'
 import '@/routes/views/legal/Legal.js'
-import { WINDOW_EVENTS } from '../../../../src/core/tokens/events/dom.js'
-import { ROUTE_PATHS } from '../../../../src/core/tokens/routes/paths.js'
+import { WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
 
 
 

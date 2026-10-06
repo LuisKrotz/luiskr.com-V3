@@ -25,7 +25,7 @@ import { tokenToHtml, renderWordHtml } from '@/components/media/draw-text/render
 import { bootstrapEarth } from '@/playground/earth/setup/bootstrap.js'
 import { createEarthState } from '@/playground/earth/runtime/state.js'
 import router from '@/routes/router.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))

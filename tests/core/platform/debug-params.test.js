@@ -10,7 +10,7 @@ import { debugParams, hasDebugFlag, runDebugActions } from '@/core/debug/params.
 import { webglAllowed, webglContext, webglMode } from '@/utils/canvas/webgl-mode.js'
 import { getWebGLContext } from '@/utils/canvas/gl-program.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 const setSearch = (s) => window.history.replaceState(null, '', s)
 

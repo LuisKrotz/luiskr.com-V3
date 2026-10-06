@@ -10,14 +10,9 @@ import { describe, test, expect, jest, beforeEach } from '@jest/globals'
 import { LOCALES } from '@/core/constants.js'
 import { CMS_TAGS } from '@/cms/tokens.js'
 import { TEST_TEXT, TEST_PROJECTS } from '../fixtures/test-constants.js'
-import { CHAR_STRINGS } from '../../src/core/tokens/strings/chars.js'
-import {
-  DRAG_EVENTS,
-  FORM_EVENTS,
-  MOUSE_EVENTS,
-  WINDOW_EVENTS,
-} from '../../src/core/tokens/events/dom.js'
-import { STATE_STRINGS } from '../../src/core/tokens/strings/state.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { DRAG_EVENTS, FORM_EVENTS, MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 import { CMS_ITEM_CLASSES } from '@/cms/tokens.js'
 
 const setCalls = []
@@ -26,7 +21,7 @@ const snapVal = {
   sections: [{ text: [TEST_TEXT.BODY], media: [] }],
 }
 
-jest.unstable_mockModule('../../src/firebase.js', () => ({
+jest.unstable_mockModule('@/firebase.js', () => ({
   onAuthChange: jest.fn(async () => () => {}),
   signInWithGoogle: jest.fn(async () => ({})),
   logoutUser: jest.fn(async () => {}),

@@ -27,7 +27,7 @@ import '@/utils/canvas/widgets/flag/renderer.js'
 import '@/utils/canvas/widgets/flag/texture.js'
 
 import '@/utils/gpu/gpu-accel.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 globalThis.alert = jest.fn()

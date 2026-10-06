@@ -1,6 +1,6 @@
-import { TYPE_STRINGS } from '../../src/core/tokens/strings/types.js'
-import { HTML_TAGS } from '../../src/core/tokens/elements/html.js'
-import { WEBGL_STRINGS } from '../../src/core/tokens/strings/webgl.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
 
 /**
  * @file mock-webgl.js

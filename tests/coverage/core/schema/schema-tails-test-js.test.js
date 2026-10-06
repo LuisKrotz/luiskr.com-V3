@@ -19,10 +19,10 @@ import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
 
 import { TEST_TEXT, TEST_URLS } from '../../../fixtures/test-constants.js'
-import { NET_STRINGS } from '../../../../src/core/tokens/strings/net.js'
+import { NET_STRINGS } from '@/core/tokens/strings/net.js'
 
 
-jest.unstable_mockModule('../../../../src/firebase.js', () => ({
+jest.unstable_mockModule('@/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),

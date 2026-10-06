@@ -15,7 +15,7 @@ import { wasmMediaThreads } from '@/utils/wasm/wasm-media-threads.js'
 import { TEST_URLS } from '../../../fixtures/test-constants.js'
 import '@/routes/views/legal/Legal.js'
 import '@/routes/views/home/Home.js'
-import { TYPE_STRINGS } from '../../../../src/core/tokens/strings/types.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
 
 

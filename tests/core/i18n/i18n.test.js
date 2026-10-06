@@ -7,10 +7,10 @@ import {
 } from '@/core/i18n.js'
 import { LOCALES } from '@/core/constants.js'
 import { TEST_PROJECTS } from '../../fixtures/test-constants.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
-import { SECTION_IDS } from '../../../src/core/tokens/ids/sections.js'
-import { ROUTE_STRINGS } from '../../../src/core/tokens/strings/routes.js'
-import { ROUTE_PATHS } from '../../../src/core/tokens/routes/paths.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
+import { ROUTE_STRINGS } from '@/core/tokens/strings/routes.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
 
 describe('Core i18n & Localization Architecture (60+ Tests)', () => {
   describe('1. Valid Languages & Metadata Structure', () => {

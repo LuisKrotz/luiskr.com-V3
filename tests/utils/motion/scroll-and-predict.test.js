@@ -11,9 +11,9 @@ import { npuPredict } from '@/utils/gpu/npu-predict.js'
 import { localMediaCache } from '@/utils/media/local-media-cache.js'
 import { startRouteWarming, stopRouteWarming } from '@/utils/motion/route-warmer.js'
 import { TEST_URLS } from '../../fixtures/test-constants.js'
-import { POINTER_EVENTS, WINDOW_EVENTS } from '../../../src/core/tokens/events/dom.js'
-import { CHAR_STRINGS } from '../../../src/core/tokens/strings/chars.js'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
+import { POINTER_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
 const flush = (ms = 200) => new Promise((resolve) => setTimeout(resolve, ms))
 

@@ -13,7 +13,7 @@ import _store from '@/core/store.js'
 import { webglPool } from '@/utils/canvas/webgl-pool.js'
 
 import '@/components/feedback/CookieBanner.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 

@@ -19,8 +19,8 @@ import '@/components/dialogs/PreferencesModal.js'
 import '@/components/carousel/HomeCarousel.js'
 import '@/routes/views/home/Home.js'
 import '@/routes/views/legal/Legal.js'
-import { ROUTE_PATHS } from '../../../../src/core/tokens/routes/paths.js'
-import { VIEW_TAGS } from '../../../../src/core/tokens/elements/views.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
 
 
 

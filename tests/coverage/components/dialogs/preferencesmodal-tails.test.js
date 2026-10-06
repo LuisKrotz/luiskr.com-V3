@@ -19,7 +19,7 @@ import '@/components/dialogs/PreferencesModal.js'
 import '@/components/carousel/HomeCarousel.js'
 import '@/routes/views/home/Home.js'
 import '@/routes/views/legal/Legal.js'
-import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 
 
 const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))

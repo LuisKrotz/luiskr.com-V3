@@ -24,11 +24,11 @@ import '@/components/dialogs/PreferencesModal.js'
 import '@/components/carousel/HomeCarousel.js'
 import '@/routes/views/home/Home.js'
 import '@/routes/views/legal/Legal.js'
-import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
-import { CHAR_STRINGS } from '../../../../src/core/tokens/strings/chars.js'
-import { LANG_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
-import { MOUSE_EVENTS } from '../../../../src/core/tokens/events/dom.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 

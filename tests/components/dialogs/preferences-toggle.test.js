@@ -6,7 +6,7 @@
  */
 
 import store from '@/core/store.js'
-import { PREF_MUTATIONS } from '../../../src/core/tokens/events/mutations.js'
+import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
 
 const resetToggles = () => {
   if (store.state.showStatsForNerds) store.commit(PREF_MUTATIONS.TOGGLE_STATS_FOR_NERDS)

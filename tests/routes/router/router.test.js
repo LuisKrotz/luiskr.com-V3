@@ -3,11 +3,11 @@ import { detectLangFromPath, LANG_SLUGS, VALID_LANGS } from '@/core/i18n.js'
 import '@/core/store.js'
 import { LOCALES, ROUTE_NAMES, ROUTE_PREFIXES, TRANSLATION_KEYS } from '@/core/constants.js'
 import { TEST_PROJECTS } from '../../fixtures/test-constants.js'
-import { ROUTE_PATHS } from '../../../src/core/tokens/routes/paths.js'
-import { VIEW_TAGS } from '../../../src/core/tokens/elements/views.js'
-import { SECTION_IDS } from '../../../src/core/tokens/ids/sections.js'
-import { QUERY_STRINGS } from '../../../src/core/tokens/strings/queries.js'
-import { LINK_ATTRS } from '../../../src/core/tokens/attrs/link.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
+import { QUERY_STRINGS } from '@/core/tokens/strings/queries.js'
+import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
 
 describe('Core Router - Path Parsing, i18n & Navigation Guards (60+ Tests)', () => {
   beforeEach(() => {

@@ -16,7 +16,7 @@ import { TEST_URLS } from '../../../fixtures/test-constants.js'
 import '@/components/feedback/CookieBanner.js'
 import '@/components/home/ContactSection.js'
 import '@/routes/views/not-found/NotFound.js'
-import { TYPE_STRINGS } from '../../../../src/core/tokens/strings/types.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
 
 

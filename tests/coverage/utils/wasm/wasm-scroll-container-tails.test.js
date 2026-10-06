@@ -14,7 +14,7 @@ import { wasmSmoothScroll } from '@/utils/wasm/wasm-scroll.js'
 
 import '@/routes/views/legal/Legal.js'
 import '@/routes/views/home/Home.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))

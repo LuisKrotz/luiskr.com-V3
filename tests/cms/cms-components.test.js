@@ -11,11 +11,11 @@ import { describe, test, expect, jest, beforeEach } from '@jest/globals'
 import { LOCALES, ROUTE_PREFIXES } from '@/core/constants.js'
 import { CMS_TAGS } from '@/cms/tokens.js'
 import { TEST_PROJECTS } from '../fixtures/test-constants.js'
-import { NAV_TEXT } from '../../src/core/tokens/strings/text.js'
-import { ROUTE_PATHS } from '../../src/core/tokens/routes/paths.js'
-import { APP_IDS } from '../../src/core/tokens/ids/app.js'
-import { DOM_STRINGS } from '../../src/core/tokens/strings/dom.js'
-import { NET_STRINGS } from '../../src/core/tokens/strings/net.js'
+import { NAV_TEXT } from '@/core/tokens/strings/text.js'
+import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { APP_IDS } from '@/core/tokens/ids/app.js'
+import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
+import { NET_STRINGS } from '@/core/tokens/strings/net.js'
 
 // Path-keyed DB fixture — `get(child(ref(db), path))` resolves from here.
 const DB = {

@@ -16,7 +16,7 @@ import '@/components/feedback/CookieBanner.js'
 
 import { attachMock2D } from '../../../fixtures/mock-webgl.js'
 import { TEST_COLORS, TEST_TEXT } from '../../../fixtures/test-constants.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 
 const flush = (ms = 60) => new Promise((r) => setTimeout(r, ms))

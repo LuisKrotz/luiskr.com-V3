@@ -22,8 +22,8 @@ import '@/cms/deploy-info/CmsDeployInfo.js'
 import '@/cms/lang/CmsLangEditor.js'
 import '@/cms/footer/CmsFooterEditor.js'
 import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
-import { MEDIA_ATTRS } from '../../../../src/core/tokens/attrs/media.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
 
 
 

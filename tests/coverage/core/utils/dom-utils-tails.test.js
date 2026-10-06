@@ -14,9 +14,9 @@ import { deepQuerySelector, deepQuerySelectorAll } from '@/core/utils/dom.js'
 
 import '@/routes/views/legal/Legal.js'
 import '@/routes/views/home/Home.js'
-import { HTML_TAGS } from '../../../../src/core/tokens/elements/html.js'
-import { COMMON_ATTRS } from '../../../../src/core/tokens/attrs/common.js'
-import { SVG_STRINGS } from '../../../../src/core/tokens/strings/svg.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
+import { SVG_STRINGS } from '@/core/tokens/strings/svg.js'
 
 
 

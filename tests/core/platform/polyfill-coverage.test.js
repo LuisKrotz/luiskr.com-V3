@@ -10,13 +10,13 @@
  */
 
 import { describe, test, expect, jest, afterEach } from '@jest/globals'
-import { TYPE_STRINGS } from '../../../src/core/tokens/strings/types.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
-import { ARIA_ATTRS } from '../../../src/core/tokens/attrs/aria.js'
-import { STATE_STRINGS } from '../../../src/core/tokens/strings/state.js'
-import { CHAR_STRINGS } from '../../../src/core/tokens/strings/chars.js'
-import { MEDIA_EVENTS, WINDOW_EVENTS } from '../../../src/core/tokens/events/dom.js'
-import { SECTION_UI_KEYS } from '../../../src/core/tokens/data/ui-keys.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { MEDIA_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import { SECTION_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
 
 const cssVarsMock = jest.fn()
 const ResizeObserverShim = class MockRO {
@@ -686,7 +686,7 @@ describe('route-warmer', () => {
 
   test('swallows a failing route chunk and keeps warming the rest', async () => {
     jest.resetModules()
-    jest.unstable_mockModule('../../../src/routes/views/home/Home.js', () => {
+    jest.unstable_mockModule('@/routes/views/home/Home.js', () => {
       throw new Error('warm-fail')
     })
     saveKey('requestIdleCallback', window)

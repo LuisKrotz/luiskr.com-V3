@@ -16,15 +16,15 @@ import {
   calcCarouselRingOffset,
 } from '@/utils/wasm/wasm-layout.js'
 
-import { TYPE_STRINGS } from '../../src/core/tokens/strings/types.js'
-import { CAROUSEL_LAYOUT, CAROUSEL_TIMING } from '../../src/core/tokens/motion/carousel.js'
-import { COMPONENT_TAGS } from '../../src/core/tokens/elements/components.js'
-import { MEDIA_ATTRS } from '../../src/core/tokens/attrs/media.js'
-import { STATE_STRINGS } from '../../src/core/tokens/strings/state.js'
-import { COVER_DIMENSIONS } from '../../src/core/tokens/media/dimensions.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { CAROUSEL_LAYOUT, CAROUSEL_TIMING } from '@/core/tokens/motion/carousel.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { COVER_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 
-import { SPACE } from '../../src/core/tokens/layout/space.js'
-import { LAYOUT } from '../../src/core/tokens/layout/masonry.js'
+import { SPACE } from '@/core/tokens/layout/space.js'
+import { LAYOUT } from '@/core/tokens/layout/masonry.js'
 
 // Derive GRID_GAP from SPACE (Fibonacci scale matches design system)
 const GRID_GAP = {

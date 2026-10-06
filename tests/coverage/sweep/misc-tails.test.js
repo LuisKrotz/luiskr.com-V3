@@ -23,8 +23,8 @@ import { BurgerButtonWebGL } from '@/utils/canvas/widgets/burger-button-webgl.js
 import { sanitizeHtml } from '@/utils/data/sanitize.js'
 import store from '@/core/store.js'
 import { createMockGL } from '../../fixtures/mock-webgl.js'
-import { HTML_TAGS } from '../../../src/core/tokens/elements/html.js'
-import { DATA_MUTATIONS, MODAL_MUTATIONS, PREF_MUTATIONS } from '../../../src/core/tokens/events/mutations.js'
+import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { DATA_MUTATIONS, MODAL_MUTATIONS, PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
 import { CMS_PROJECTS_CLASSES } from '@/cms/tokens.js'
 
 

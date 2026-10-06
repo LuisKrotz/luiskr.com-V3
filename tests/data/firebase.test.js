@@ -8,10 +8,10 @@
  */
 
 import { describe, test, expect, jest, beforeEach } from '@jest/globals'
-import { APP_IDS } from '../../src/core/tokens/ids/app.js'
-import { TYPE_STRINGS } from '../../src/core/tokens/strings/types.js'
-import { CACHE_STORAGE_KEYS } from '../../src/core/tokens/data/storage.js'
-import { CHAR_STRINGS } from '../../src/core/tokens/strings/chars.js'
+import { APP_IDS } from '@/core/tokens/ids/app.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { CACHE_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 
 const mockAuth = { currentUser: null, marker: 'auth-instance' }
 const mockDb = { marker: 'db-instance' }

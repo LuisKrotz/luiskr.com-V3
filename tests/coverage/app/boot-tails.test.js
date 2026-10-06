@@ -8,7 +8,7 @@
 import { jest } from '@jest/globals'
 import { mountAppShell } from '@/app/boot.js'
 import router from '@/routes/router.js'
-import { VIEW_TAGS } from '../../../src/core/tokens/elements/views.js'
+import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
 
 describe('app boot tails', () => {
   test('mountAppShell — resolves the boot view + re-measures on document growth', () => {
