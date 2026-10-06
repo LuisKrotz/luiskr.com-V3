@@ -211,19 +211,11 @@
 
   // ── Side info (extended bio) ────────────────────────────────────────────
   // The second text column reads as secondary info: far-right grid slot on
-  // ≥1024px, and on narrow viewports a hairline separator + secondary ink
-  // carry the hierarchy without any collapsible control.
+  // ≥1024px, secondary ink alone carries the hierarchy on narrow viewports
+  // (no separator — a hairline above the mentions read as a stray divider).
   &-side-info {
-    border-top: to-rem($space-hairline) solid var(--border-color);
-    padding-top: to-rem($space-md);
-
     .about-item-text {
       color: var(--text-secondary);
-    }
-
-    @include layout-768() {
-      border-top: none;
-      padding-top: 0;
     }
 
     @include layout-1024() {
