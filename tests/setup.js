@@ -1,4 +1,27 @@
 import { GlobalWindow } from 'happy-dom'
+import { setLogLevel as firebaseSetLogLevel, getApps, deleteApp } from 'firebase/app'
+import { TEST_NOISE } from './fixtures/test-constants.js'
+import { TYPE_STRINGS } from '../src/core/tokens/strings/types.js'
+
+// Tests run with no Firebase credentials — the SDK's offline/permission_denied
+// console.warn chatter is expected, not a failure signal. Silence it so test
+// output stays clean and real warnings remain visible.
+firebaseSetLogLevel('silent')
+
+// Silence expected-noise console output (TEST_NOISE in fixtures): Firebase's
+// lazy Logger instances are created after this setup runs, engine bootstraps
+// race test teardown, and dedicated tests deliberately hit src warn/error
+// paths. Non-matching console output still prints — real signal is kept.
+const noiseText = (args) =>
+  args.map((a) => (a instanceof Error ? a.stack || String(a) : String(a))).join(' ')
+
+for (const method of ['warn', 'error', 'info']) {
+  const orig = console[method].bind(console)
+
+  console[method] = (...args) => {
+    if (!TEST_NOISE.some((sig) => noiseText(args).includes(sig))) orig(...args)
+  }
+}
 
 const win = new GlobalWindow({
   url: 'http://localhost:5173',
@@ -22,13 +45,67 @@ globalThis.sessionStorage = win.sessionStorage
 globalThis.DOMParser = win.DOMParser
 globalThis.requestAnimationFrame = (cb) => {
   const t = setTimeout(cb, 16)
-  if (t && typeof t.unref === 'function') t.unref()
+  if (t && typeof t.unref === TYPE_STRINGS.FUNCTION) t.unref()
   return t
 }
 globalThis.cancelAnimationFrame = (id) => clearTimeout(id)
+// Unref every timer so component timeouts left pending past teardown
+// (menu close, teleport, autoplay) can't hold a jest worker alive — the
+// "worker failed to exit gracefully" warning under parallel load. The
+// wrapper calls the impl captured at setup time; jest.useFakeTimers()
+// replaces globalThis.setTimeout entirely, so fake-timer tests bypass this
+// wrapper and are unaffected.
+const _realSetTimeout = globalThis.setTimeout
+const _realSetInterval = globalThis.setInterval
+
+globalThis.setTimeout = (cb, ms, ...rest) => {
+  const t = _realSetTimeout(cb, ms, ...rest)
+  if (t && typeof t.unref === TYPE_STRINGS.FUNCTION) t.unref()
+  return t
+}
+globalThis.setInterval = (cb, ms, ...rest) => {
+  const t = _realSetInterval(cb, ms, ...rest)
+  if (t && typeof t.unref === TYPE_STRINGS.FUNCTION) t.unref()
+  return t
+}
+
+// Tear down the happy-dom window after each test file — its async-task
+// manager owns ref'd Node timers (async fetches, deferred reactions) that
+// otherwise keep the jest worker alive after the suite finishes.
+afterAll(async () => {
+  try {
+    // abort() is synchronous and cancels the async-task timers; close() is
+    // NOT used — it returns a promise whose rejection escapes this hook and
+    // crashes the worker after the suite already passed.
+    win.happyDOM?.abort?.()
+  } catch {
+    // happy-dom teardown is best-effort — must never fail the suite.
+  }
+
+  try {
+    // Firebase RTDB/auth instances opened during the suite hold ref'd
+    // sockets and retry timers — deleteApp tears down every SDK component,
+    // which is the difference between a worker exiting and a force-kill.
+    await Promise.all(getApps().map((a) => deleteApp(a)))
+  } catch {
+    // Best-effort — suites that never touched firebase have no apps.
+  }
+})
+// Deterministic idle callbacks — the real rIC can defer arbitrarily under
+// parallel-suite CPU load, which made prefetch assertions flaky.
+const immediateIdle = (cb) => {
+  const t = setTimeout(cb, 0)
+  if (t && typeof t.unref === TYPE_STRINGS.FUNCTION) t.unref()
+  return t
+}
+// Note: only assigned on `win`, never globalThis — the dom polyfill shim
+// probes bare `requestIdleCallback` (globalThis scope) and must see it
+// absent so its install path stays testable.
+win.requestIdleCallback = immediateIdle
+win.cancelIdleCallback = (id) => clearTimeout(id)
 globalThis.Image = win.Image || class Image {}
 
-if (typeof globalThis.TouchEvent === 'undefined') {
+if (typeof globalThis.TouchEvent === TYPE_STRINGS.UNDEFINED) {
   globalThis.TouchEvent = class TouchEvent extends (win.UIEvent || win.Event) {
     constructor(type, dict = {}) {
       super(type, dict)
@@ -40,7 +117,7 @@ if (typeof globalThis.TouchEvent === 'undefined') {
   win.TouchEvent = globalThis.TouchEvent
 }
 
-if (typeof globalThis.KeyboardEvent === 'undefined') {
+if (typeof globalThis.KeyboardEvent === TYPE_STRINGS.UNDEFINED) {
   globalThis.KeyboardEvent = class KeyboardEvent extends (win.UIEvent || win.Event) {
     constructor(type, dict = {}) {
       super(type, dict)
@@ -52,7 +129,6 @@ if (typeof globalThis.KeyboardEvent === 'undefined') {
   win.KeyboardEvent = globalThis.KeyboardEvent
 }
 
-
 class MockIntersectionObserver {
   constructor(callback) {
     this.callback = callback
@@ -63,7 +139,7 @@ class MockIntersectionObserver {
     const t = setTimeout(() => {
       this.callback([{ isIntersecting: true, intersectionRatio: 1.0, target: el }], this)
     }, 10)
-    if (t && typeof t.unref === 'function') t.unref()
+    if (t && typeof t.unref === TYPE_STRINGS.FUNCTION) t.unref()
   }
   unobserve(el) {
     this.elements.delete(el)
@@ -72,7 +148,6 @@ class MockIntersectionObserver {
     this.elements.clear()
   }
 }
-
 
 globalThis.IntersectionObserver = MockIntersectionObserver
 win.IntersectionObserver = MockIntersectionObserver
@@ -94,14 +169,23 @@ win.matchMedia = matchMediaMock
 globalThis.scrollTo = () => {}
 win.scrollTo = () => {}
 
-const mockFetch = async (url) => ({
-  ok: true,
-  status: 200,
-  json: async () => ({}),
-  text: async () => '',
-  arrayBuffer: async () => new ArrayBuffer(0),
-})
+const mockFetch = async (_url) => {
+  const res = {
+    ok: true,
+    status: 200,
+    headers: { get: () => null },
+    json: async () => ({}),
+    text: async () => '',
+    blob: async () => new Blob([]),
+    arrayBuffer: async () => new ArrayBuffer(0),
+  }
+
+  res.clone = () => ({ ...res })
+
+  return res
+}
 
 globalThis.fetch = mockFetch
 win.fetch = mockFetch
 
+globalThis.getComputedStyle = (...args) => win.getComputedStyle(...args)

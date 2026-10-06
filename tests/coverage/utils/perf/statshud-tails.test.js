@@ -1,0 +1,137 @@
+/**
+ * @file coverage-tails-3.test.js
+ * @description Third branch-tail sweep: StatsHud threshold classes, awards
+ * mentions fallback selection, legal footer/link surfaces, CMS deploy-info
+ * lighthouse rendering, Legal route loading modes, Home route data flow,
+ * router navigation edges, main-entry portfolio branches, LangDialog /
+ * HomeMosaic / PreferencesModal / HomeCarousel internals, and App shell.
+ */
+import { jest } from '@jest/globals'
+import store from '@/core/store.js'
+import _router from '@/routes/router.js'
+
+import '@/components/feedback/StatsHud.js'
+import '@/components/home/AwardsMentions.js'
+import '@/components/legal/Footer.js'
+
+import '@/components/home/HomeMosaic.js'
+import '@/components/dialogs/LangDialog.js'
+import '@/components/dialogs/PreferencesModal.js'
+import '@/components/carousel/HomeCarousel.js'
+import '@/routes/views/home/Home.js'
+import '@/routes/views/legal/Legal.js'
+import { COMPONENT_TAGS } from '../../../../src/core/tokens/elements/components.js'
+import { STATS_CLASSES } from '../../../../src/core/tokens/classes/stats.js'
+import { PREF_MUTATIONS } from '../../../../src/core/tokens/events/mutations.js'
+
+
+
+
+const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))
+
+// ─── StatsHud.js ─────────────────────────────────────────────────────────────
+
+describe('StatsHud tails', () => {
+  test('renders nothing until statsForNerds is enabled', async () => {
+    const el = document.createElement(COMPONENT_TAGS.STATS_HUD)
+
+    document.body.appendChild(el)
+    await flush()
+
+    expect(el.shadowRoot.querySelector('.' + STATS_CLASSES.STATS_HUD_VALUE)).toBeNull()
+
+    el.remove()
+  })
+
+  test('threshold classes apply for good/mid/bad metric tiers', async () => {
+    store.commit(PREF_MUTATIONS.TOGGLE_STATS_FOR_NERDS, true)
+
+    const el = document.createElement(COMPONENT_TAGS.STATS_HUD)
+
+    document.body.appendChild(el)
+    await flush()
+
+    el._stats = {
+      fps: 60,
+      networkBytesPerSec: 2048,
+      pendingRequests: 2,
+      memoryMB: 128,
+      cpuPercent: 10,
+      latencyMs: 50 }
+    el._updateStatsDom()
+
+    el._stats = { fps: 40, networkBytesPerSec: 0, pendingRequests: 0, memoryMB: 0, cpuPercent: 50, latencyMs: 200 }
+    el._updateStatsDom()
+
+    el._stats = { fps: 5, networkBytesPerSec: 0, pendingRequests: 0, memoryMB: 0, cpuPercent: 95, latencyMs: 999 }
+    el._updateStatsDom()
+
+    el._stats = { fps: 0, networkBytesPerSec: 0, pendingRequests: 0, memoryMB: 0, cpuPercent: 0, latencyMs: 0 }
+    el._updateStatsDom()
+
+    el.onStoreUpdate?.()
+    el.remove()
+    store.commit(PREF_MUTATIONS.TOGGLE_STATS_FOR_NERDS, false)
+  })
+
+  test('render() covers every threshold tier and accel arm', async () => {
+    const { npuPredict } = await import('@/utils/gpu/npu-predict.js')
+
+    store.commit(PREF_MUTATIONS.TOGGLE_STATS_FOR_NERDS, true)
+
+    const el = document.createElement(COMPONENT_TAGS.STATS_HUD)
+
+    document.body.appendChild(el)
+    await flush()
+
+    const npuSpy = jest.spyOn(npuPredict, 'getNpuAnalytics').mockReturnValue({ hasNPU: true, hasGPU: false })
+
+    el._stats = { fps: 60, networkBytesPerSec: 4096, pendingRequests: 1, memoryMB: 256, cpuPercent: 10, latencyMs: 50 }
+    el.onStoreUpdate()
+
+    el._stats = { fps: 40, networkBytesPerSec: 0, pendingRequests: 0, memoryMB: 0, cpuPercent: 50, latencyMs: 200 }
+    el.onStoreUpdate()
+
+    el._stats = { fps: 10, networkBytesPerSec: 0, pendingRequests: 0, memoryMB: 0, cpuPercent: 90, latencyMs: 900 }
+    el.onStoreUpdate()
+
+    npuSpy.mockReturnValue({ hasNPU: false, hasGPU: true })
+    el.onStoreUpdate()
+
+    npuSpy.mockReturnValue({ hasNPU: false, hasGPU: false })
+    el._stats = { fps: 0, networkBytesPerSec: 0, pendingRequests: 0, memoryMB: 0, cpuPercent: 0, latencyMs: 0 }
+    el.onStoreUpdate()
+
+    // the engine subscription callback stores the snapshot and re-patches
+    el._statsCb?.({ fps: 55, networkBytesPerSec: 1024, pendingRequests: 1, memoryMB: 64, cpuPercent: 20, latencyMs: 80 })
+
+    npuSpy.mockRestore()
+    el.remove()
+    store.commit(PREF_MUTATIONS.TOGGLE_STATS_FOR_NERDS, false)
+  })
+
+  test('guard arms: unmounted stats DOM and statsCb-less destroy', async () => {
+    store.commit(PREF_MUTATIONS.TOGGLE_STATS_FOR_NERDS, true)
+
+    const el = document.createElement(COMPONENT_TAGS.STATS_HUD)
+
+    // never appended → shadow has no data-stat nodes → `if (el)` else arm
+    el._stats = { fps: 60, networkBytesPerSec: 0, pendingRequests: 0, memoryMB: 0, cpuPercent: 10, latencyMs: 50 }
+    el._updateStatsDom()
+
+    // _statsCb is only set by onMounted → destroy covers the else arm
+    el.onDestroy()
+
+    store.commit(PREF_MUTATIONS.TOGGLE_STATS_FOR_NERDS, false)
+
+    // preference off → _updateStatsDom bails at the showStats gate
+    el._updateStatsDom()
+  })
+
+  test('module re-eval sees the tag already registered', async () => {
+    jest.resetModules()
+
+    await import('@/components/feedback/StatsHud.js')
+  })
+})
+

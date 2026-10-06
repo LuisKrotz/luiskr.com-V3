@@ -3,6 +3,7 @@ node_modules
 
 # Test/audit artifacts
 coverage/
+!tests/coverage/
 .lighthouseci/
 lighthouse-reports/
 
