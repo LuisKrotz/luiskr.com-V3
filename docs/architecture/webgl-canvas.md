@@ -17,18 +17,24 @@ Shared GL infrastructure stays at `canvas/` root: `gl-program.ts`
 `css-color.ts`, `webgl-pool.ts`, `webgl-mode.ts` (the authoritative
 `webglContext` acquisition — supports `?debug=webGLMode:*`).
 
-| Facade                             | Modules                                                           | Used by                                             | Fallback                   |
-| ---------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------- | -------------------------- |
-| `webgl-pool.ts`                    | —                                                                 | everything below                                    | —                          |
-| `loaders/menu-background-webgl.ts` | `loaders/menu-background/{init,loop,shaders,theme}`               | AppNav menu backdrop                                | plain backdrop, no canvas  |
-| `loaders/skeleton-webgl.ts`        | `loaders/skeleton/{init,loop,measure,renderer,shaders,theme}`     | BaseComponent skeleton layer                        | CSS shimmer only           |
-| `loaders/intro-loader.ts`          | —                                                                 | App bootstrap                                       | text loader                |
-| `widgets/burger-button-webgl.ts`   | `widgets/burger-button/shaders`                                   | AppNav burger                                       | CSS lines                  |
-| `widgets/close-button.ts`          | `widgets/close-button/{init,render,shaders}`                      | AppNav, LangDialog, PreferencesModal, MediaExpanded | `is-fallback` → CSS × mark |
-| `widgets/flag-webgl.ts`            | `widgets/flag/{anim,draw,gl,loop,renderer,shaders,texture}`       | AppNav, LangDialog                                  | static flag image          |
-| `widgets/theme-slider.ts`          | `widgets/theme-slider/{events,init,math,paint-2d,render,shaders}` | PreferencesModal                                    | native checkbox            |
-| `widgets/switch-slider.ts`         | `widgets/switch-slider/{init,paint-2d,render,shaders}`            | PreferencesModal                                    | native checkbox            |
-| `widgets/carousel-controls.ts`     | `widgets/carousel-controls/paint-2d`                              | CustomCarousel arrows                               | CSS arrows                 |
+| Facade                             | Modules                                                       | Used by                                             | Fallback                   |
+| ---------------------------------- | ------------------------------------------------------------- | --------------------------------------------------- | -------------------------- |
+| `webgl-pool.ts`                    | —                                                             | everything below                                    | —                          |
+| `loaders/menu-background-webgl.ts` | `loaders/menu-background/{init,loop,shaders,theme}`           | AppNav menu backdrop                                | plain backdrop, no canvas  |
+| `loaders/skeleton-webgl.ts`        | `loaders/skeleton/{init,loop,measure,renderer,shaders,theme}` | BaseComponent skeleton layer                        | CSS shimmer only           |
+| `loaders/intro-loader.ts`          | —                                                             | App bootstrap                                       | text loader                |
+| `widgets/burger-button-webgl.ts`   | `widgets/burger-button/shaders`                               | AppNav burger                                       | CSS lines                  |
+| `widgets/close-button.ts`          | `widgets/close-button/{init,render,shaders}`                  | AppNav, LangDialog, PreferencesModal, MediaExpanded | `is-fallback` → CSS × mark |
+| `widgets/flag-webgl.ts`            | `widgets/flag/{anim,draw,gl,loop,renderer,shaders,texture}`   | AppNav, LangDialog                                  | static flag image          |
+
+`flag/texture.ts` prefers the wasm pool: `decodeImageWASM` fetches the flag
+SVG and rasterizes it in a worker via `createImageBitmap` with GPU resize
+hints, so the texture uploads a POT-sized `ImageBitmap` directly (no
+main-thread decode or 2D-canvas resample). The `<img>` decode stays as the
+fallback and the natural-aspect probe.
+| `widgets/theme-slider.ts` | `widgets/theme-slider/{events,init,math,paint-2d,render,shaders}` | PreferencesModal | native checkbox |
+| `widgets/switch-slider.ts` | `widgets/switch-slider/{init,paint-2d,render,shaders}` | PreferencesModal | native checkbox |
+| `widgets/carousel-controls.ts` | `widgets/carousel-controls/paint-2d` | CustomCarousel arrows | CSS arrows |
 
 `earth-background.ts` and `space/checkbox-webgl.ts` are **not** here — they
 are playground-owned and live in `src/playground/`.
@@ -56,10 +62,26 @@ are playground-owned and live in `src/playground/`.
 
 ## Skeletons
 
-`syncSkeletonLayer(host, boxes, resolve)` samples the host's computed style
-(incl. `color-mix()` results) per rect, builds a glyph/"decoding" shader layer
-and sits on top of the CSS shimmer. On `resolve()` the canvas fades, the
-content fades in (`content-in`), then the GL context is destroyed.
+`syncSkeletonLayer(component)` scans the content wrapper for `skeleton-*`
+placeholders, measures each rect, and draws the glyph/"decoding" field on an
+overlay canvas while the CSS placeholders stay in flow but transparent (they
+remain the fallback when WebGL is unavailable). Details:
+
+- Rects are positioned and **clipped against the host's padding box**, so a
+  placeholder that overflows its component can never let the overlay paint
+  into siblings.
+- Computed styles are read once per placeholder and cached (`_styleCache`);
+  `sampleTheme()` drops the cache on a theme flip. This avoids a forced
+  style resolution per rect per refresh.
+- The ResizeObserver set re-syncs to the live placeholder nodes on every
+  measure — content rebuilds swap nodes, and zero-sized placeholders get
+  tracked once they grow.
+- The layer paints one static frame at mount; the animated loop still starts
+  on the idle callback so first paint is never blank.
+- On `resolve()` the canvas sinks below the incoming content
+  (`isolation: isolate` on the host keeps the negative stacking scoped) and
+  dissolves while `.skeleton-content-in` fades real markup in — stale
+  placeholder geometry never paints over the real layout.
 
 ## Context loss
 
@@ -100,7 +122,9 @@ Batch CPU work that is _not_ per-frame routes through the wasm worker pool
 (`src/utils/wasm/wasm-pool.ts` → `public/workers/wasm-worker.js`, lazily
 spawned, 2 workers on mobile / 4 on desktop): mosaic batch layout,
 spring-physics integration, draw-text timing, media hashing, GPU-hardware
-image decode (`createImageBitmap` with decode-time resize). Every dispatch
+image decode (`createImageBitmap` with decode-time resize — including flag
+SVGs for the nav/lang widgets), media URL decode/probe/prefetch and ranged
+video-segment fetches. Every dispatch
 resolves `null` on failure so callers degrade to the local JS path — the
 worker-side `wasmInstance` checks do the same inside each kernel, so the site
 works identically with or without `engine.wasm`.

@@ -31,6 +31,7 @@ via CSS custom properties defined on `:root` in `sass/base/_structure.scss`.
 | `PreferencesModal`                                           | Theme/motion/HUD prefs                             | WebGL theme slider + switches                                                                                                                            |
 | `StatsHud`                                                   | Perf overlay                                       | All labels from `APP.statsHud` via `appText(UI_KEYS.STATS_*)`                                                                                            |
 | `CookieBanner`                                               | Consent bar                                        | Renders sanitized message HTML                                                                                                                           |
+| `SiteToast`                                                  | In-page notification stack (notify() fallback)     | Bottom-right column on desktop, full-width safe-area bar on mobile; `role=alert`/`status` per type, reduced-motion safe                                  |
 | `Skeleton`                                                   | Placeholder tiles                                  | Theme-aware shimmer; see below                                                                                                                           |
 | `portfolio/*`                                                | Related footer, source-code links                  | `Related.tsx` reads `components/related`; the disclaimer note is a justified one-line-clamped `<button>` (`aria-expanded`) that expands on click/Enter   |
 | `legal/*`                                                    | Legal doc footer nav                               | reads `components/legal-footer` link list (`page`/`link` fields)                                                                                         |
@@ -49,11 +50,13 @@ via CSS custom properties defined on `:root` in `sass/base/_structure.scss`.
   so the swap is layout-stable.
 - Colors derive from theme tokens; dark sections get `%SKEL_DARK_SURFACE`
   overrides so tiles lift off the local background.
-- `resolve()` crossfades: skeleton fades out while `.content-in` fades real
-  markup in — no hard cut.
-- The WebGL layer samples `getComputedStyle` (including `color-mix()` results)
-  per rect so canvas tiles match CSS tiles exactly, then **destroys its GL
-  context** on resolve — the effect is gone but the decoded content remains.
+- `resolve()` crossfades: the layer drops behind the incoming content
+  (`--resolving` + host `isolation`) and dissolves while `.skeleton-content-in`
+  fades real markup in — no hard cut and no stale boxes over real data.
+- The WebGL layer clips measured rects to the host box (no bleed into
+  siblings), caches per-placeholder computed styles (cleared on theme flip),
+  and re-syncs its ResizeObserver to rebuilt nodes so geometry tracks the
+  real layout as data lands — then **destroys its GL context** on resolve.
 
 ## Dialogs
 
