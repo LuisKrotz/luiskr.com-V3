@@ -145,6 +145,11 @@ export function init(host: CloseButtonWebGL): void {
 
 /** Creates the WebGL context, compiles the shader program and sets up uniforms/buffers; falls back on any failure. */
 export function initWebGL(host: CloseButtonWebGL): void {
+  // Fallback-first: the semantic button shows its CSS X immediately and keeps
+  // it through unsupported/context/program-failure paths. A successful first
+  // frame removes this marker synchronously after GL setup.
+  host.canvas.classList.add(STATE_CLASSES.IS_FALLBACK)
+
   try {
     const attrs = glContextOptions({ alpha: true, antialias: true })
 
@@ -199,6 +204,8 @@ export function initWebGL(host: CloseButtonWebGL): void {
     host.aPos = gl.getAttribLocation(built.program, WEBGL_STRINGS.A_POS)
 
     host.useWebGL = true
+
+    host.canvas.classList.remove(STATE_CLASSES.IS_FALLBACK)
   } catch (e) {
     devWarn('CloseButton WebGL fallback:', e)
 

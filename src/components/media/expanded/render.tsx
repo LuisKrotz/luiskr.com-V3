@@ -13,6 +13,7 @@ import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 import { EXPAND_MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
 import { PREF_CLASSES } from '@/core/tokens/classes/preferences.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
 import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 import { h, Fragment } from '@/core/jsx.js'
 import store from '@/core/store.js'
@@ -49,7 +50,11 @@ export function renderMediaExpanded(el: MediaExpanded) {
           aria-label={closeText}
           onClick={() => el.startClose()}
         >
-          <canvas className={PREF_CLASSES.PREF_CLOSE_CANVAS} />
+          <canvas className={`${PREF_CLASSES.PREF_CLOSE_CANVAS} ${STATE_CLASSES.IS_FALLBACK}`} />
+          <span
+            className={EXPAND_MODAL_CLASSES.EXPAND_MODAL_CLOSE_BAR_FALLBACK}
+            aria-hidden={ATTR_VALUES.TRUE}
+          />
         </button>
       </div>
       <div className={EXPAND_MODAL_CLASSES.EXPAND_MODAL_CLOSE_AREA} />

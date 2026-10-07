@@ -18,7 +18,8 @@ import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 import { MODAL_MUTATIONS, PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
 import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
+import { EXPAND_MODAL_CLASSES, MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
 import { KEYBOARD_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
 import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 import { APP_EVENTS } from '@/core/tokens/events/app.js'
@@ -74,6 +75,14 @@ describe('MediaExpanded', () => {
     const el = mountExpanded()
 
     await flush()
+
+    const closeCanvas = el.shadowRoot?.querySelector(`.${PREF_CLASSES.PREF_CLOSE_CANVAS}`)
+    const closeFallback = el.shadowRoot?.querySelector(
+      `.${EXPAND_MODAL_CLASSES.EXPAND_MODAL_CLOSE_BAR_FALLBACK}`
+    )
+
+    expect(closeCanvas?.classList.contains(STATE_CLASSES.IS_FALLBACK)).toBe(true)
+    expect(closeFallback).toBeTruthy()
 
     el.shadowRoot?.querySelectorAll(HTML_TAGS.CANVAS).forEach((c) => attachMockGL(c))
 

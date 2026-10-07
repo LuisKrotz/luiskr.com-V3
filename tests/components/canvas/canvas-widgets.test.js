@@ -693,6 +693,7 @@ describe('CloseButtonWebGL', () => {
     const btn = new CloseButtonWebGL(canvas)
 
     expect(btn.useWebGL).toBe(true)
+    expect(canvas.classList.contains(STATE_CLASSES.IS_FALLBACK)).toBe(false)
 
     btn.destroy()
   })
@@ -705,6 +706,7 @@ describe('CloseButtonWebGL', () => {
     const btn = new CloseButtonWebGL(canvas)
 
     expect(btn.useWebGL).toBe(false)
+    expect(canvas.classList.contains(STATE_CLASSES.IS_FALLBACK)).toBe(true)
 
     btn.destroy()
   })
