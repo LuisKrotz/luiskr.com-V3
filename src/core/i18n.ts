@@ -67,14 +67,21 @@ export type LangOption = (typeof LANG_OPTIONS)[number]
 export const VALID_LANGS = Object.freeze(LANG_OPTIONS.map((item) => item.code))
 
 /**
- * Type contract for lang slug map.
+ * Localized route slugs for one locale — every navigable page key maps to
+ * its translated path segment (`about` → 'sobre'/'ueber', …).
  */
 export interface LangSlugMap {
+  /** '/<loc>/about' segment. */
   about: string
+  /** Contact page segment. */
   contact: string
+  /** Privacy-policy page segment. */
   privacy: string
+  /** GDPR page segment. */
   gdpr: string
+  /** Terms-of-use page segment. */
   terms: string
+  /** Earth playground segment. */
   earthPlayground: string
 }
 
