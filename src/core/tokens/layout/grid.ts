@@ -48,3 +48,50 @@ export const MOSAIC_COLS = Object.freeze({
   7680: 12, // 7680–10239px: 12 columns (8K)
   10240: 14, // ≥ 10240px: 14 columns (10K)
 })
+
+/**
+ * Legacy stepped column table consumed by calcColsForWidth — predates
+ * MOSAIC_COLS (which caps at 14 cols and starts the wide jumps earlier).
+ * Kept as data so the function shares `_resolveBreakpoint` instead of a
+ * ternary chain; keys are viewport widths, values are column counts.
+ */
+export const LEGACY_MOSAIC_COLS = Object.freeze({
+  0: 1,
+  540: 2,
+  960: 3,
+  1440: 4,
+  1920: 5,
+  2100: 6,
+  2560: 7,
+})
+
+/**
+ * Mosaic gutter step table (px) — 0 below 640 (edge-to-edge tiles on
+ * phones), 13 above. Consumed by calcMosaicGap via `_resolveBreakpoint`.
+ */
+export const MOSAIC_GAP_STEPS = Object.freeze({
+  0: 0,
+  640: 13,
+})
+
+/**
+ * Fibonacci-scaled outer page padding per breakpoint — 13 up to 320,
+ * then 21/34/55/89 and 144 at ≥1680. Consumed by calcResponsivePadding
+ * via `_resolveBreakpoint`.
+ */
+export const RESPONSIVE_PADDING_STEPS = Object.freeze({
+  0: 13,
+  320: 21,
+  540: 34,
+  768: 55,
+  1024: 89,
+  1680: 144,
+})
+
+/**
+ * Frozen layout-math constants — `ASPECT_FALLBACK` is the 16:9 default
+ * ratio when CMS rows lack intrinsic size so card heights stay sane.
+ */
+export const LAYOUT_MATH = Object.freeze({
+  ASPECT_FALLBACK: 1.777,
+})
