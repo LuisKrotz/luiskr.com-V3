@@ -26,6 +26,11 @@ export interface LangSlugMap {
  * prefix. English is canonical/un-prefixed; every other locale maps its
  * routes through this table (`/br/sobre`, `/de/nutzungsbedingungen`, …).
  * CMS may override these at runtime via `translations/<loc>/slugs`.
+ *
+ * Slugs are ASCII-folded (no diacritics — `ueber` not `über`,
+ * `termes-d-us` not `termes-d'ús`) so URLs survive servers and clients
+ * that mishandle percent-encoded UTF-8, and stay readable when pasted
+ * into plain-text contexts.
  */
 export const LANG_SLUGS: Record<string, LangSlugMap> = {
   en: {
