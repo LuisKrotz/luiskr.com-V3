@@ -15,7 +15,9 @@ import {
 } from '../base.js'
 
 /**
- * The LANG_COMPONENT_KEYS constant.
+ * Frozen lang component key map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const LANG_COMPONENT_KEYS = Object.freeze({
   LANG_TITLE: `${_B_LANG_DIALOG}.title`,
@@ -23,7 +25,9 @@ export const LANG_COMPONENT_KEYS = Object.freeze({
 })
 
 /**
- * The MEDIA_COMPONENT_KEYS constant.
+ * Frozen media component key map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const MEDIA_COMPONENT_KEYS = Object.freeze({
   MEDIA_CLOSE: `${_K_MEDIA}.${_K_CLOSE}`,
@@ -31,14 +35,18 @@ export const MEDIA_COMPONENT_KEYS = Object.freeze({
 })
 
 /**
- * The LEGAL_COMPONENT_KEYS constant.
+ * Frozen legal component key map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const LEGAL_COMPONENT_KEYS = Object.freeze({
   LEGAL_LINKS: `${_K_LEGAL_FOOTER}.links`,
 })
 
 /**
- * The SOURCE_COMPONENT_KEYS constant.
+ * Frozen source component key map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const SOURCE_COMPONENT_KEYS = Object.freeze({
   SOURCE_LABEL: `${_K_SOURCE_CODE}.label`,
@@ -46,7 +54,9 @@ export const SOURCE_COMPONENT_KEYS = Object.freeze({
 })
 
 /**
- * The SECTION_COMPONENT_KEYS constant.
+ * Frozen section component key map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const SECTION_COMPONENT_KEYS = Object.freeze({
   RELATED_TITLE: `${_K_RELATED}.title`,
