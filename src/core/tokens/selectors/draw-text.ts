@@ -7,7 +7,9 @@ import { _B_DRAW_TEXT } from '../base.js'
 import { DRAW_TEXT_CLASSES } from '../classes/draw-text.js'
 
 /**
- * Draws text selectors.
+ * Selector strings for the draw-text surface — the component root plus
+ * the word/char/space spans the stagger animation targets. Composed from
+ * the class tokens so selectors stay correct if a class name changes.
  */
 export const DRAW_TEXT_SELECTORS = Object.freeze({
   DRAW_TEXT: `.${_B_DRAW_TEXT}`,
