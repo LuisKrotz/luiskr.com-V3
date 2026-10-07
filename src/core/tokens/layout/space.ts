@@ -4,6 +4,11 @@
  * or rem in JS).
  */
 
+/**
+ * Fibonacci spacing scale (unitless. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const SPACE = Object.freeze({
   NONE: 0,
   HAIRLINE: 1,
