@@ -28,7 +28,7 @@ export type JSXComponent<P = Record<string, unknown>> = (
 ) => Node | DocumentFragment | null
 
 /**
- * The JSXTag value.
+ * Type contract for JSXTag — the shape consumers rely on.
  */
 export type JSXTag<P = Record<string, unknown>> = string | JSXComponent<P>
 
