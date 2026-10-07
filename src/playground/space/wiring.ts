@@ -26,7 +26,13 @@ import {
 import type { SpacePlayground } from '../SpacePlayground.js'
 import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
 
-/** Synchronizes one group's collapsed class, accessibility state, and focusability. */
+/**
+ * Synchronizes one group's collapsed class, accessibility state, and
+ * focusability — aria-expanded on the header, `inert` on the content so a
+ * collapsed group's controls leave the tab order entirely.
+ * @param group The .sp-group element.
+ * @param collapsed Whether to collapse.
+ */
 function setGroupCollapsed(group: Element, collapsed: boolean): void {
   group.classList.toggle(SP_CLASSES.SP_GROUP_COLLAPSED, collapsed)
 
@@ -39,8 +45,13 @@ function setGroupCollapsed(group: Element, collapsed: boolean): void {
 }
 
 /**
- * Binds space controls.
- * @param c — the component
+ * Binds the whole panel via four delegated scoped listeners on the shadow
+ * root: click (panel toggle, reopen, collapsible headers, data-action
+ * buttons), focusin/focusout (keyboard traversal temporarily expands a
+ * collapsed group while focus is inside), input (sliders), and change
+ * (checkboxes) — the last two both route to _handleInput. Delegation means
+ * a re-render doesn't lose handlers.
+ * @param c The SpacePlayground element.
  */
 export function bindSpaceControls(c: SpacePlayground): void {
   // Delegated click listener on shadowRoot
@@ -136,8 +147,11 @@ export function bindSpaceControls(c: SpacePlayground): void {
 }
 
 /**
- * Starts space position loop.
- * @param c — the component
+ * Starts the rAF loop mirroring camera position/target into the panel
+ * readout each frame — cheap textContent writes, skipped entirely while
+ * the engine handle is absent. Cancels any previous loop first so remount
+ * can't double-arm the RAF chain.
+ * @param c The SpacePlayground element.
  */
 export function startSpacePositionLoop(c: SpacePlayground): void {
   if (c._posRafId) cancelAnimationFrame(c._posRafId)
@@ -166,10 +180,14 @@ export function startSpacePositionLoop(c: SpacePlayground): void {
 }
 
 /**
- * Handles space action.
- * @param c — the component
- * @param action — the value
- * @param btn — the value
+ * Dispatches a data-action button: panel-open is engine-free; the rest
+ * need a live _earthBg — reset (view + saved settings + inputs back to
+ * defaults), toggle-rotate (flips autoRotate and mirrors aria-pressed),
+ * screenshot, and copy-constants (serializes the GUI settings to the
+ * clipboard for pasting into source).
+ * @param c The SpacePlayground element.
+ * @param action The data-action token, or null.
+ * @param btn The clicked button (aria-pressed target for toggles).
  */
 export function handleSpaceAction(c: SpacePlayground, action: string | null, btn: Element): void {
   if (action === SP_ACTIONS.PANEL_OPEN) {
@@ -241,9 +259,12 @@ export function handleSpaceAction(c: SpacePlayground, action: string | null, btn
 }
 
 /**
- * Handles space input.
- * @param c — the component
- * @param input — the value
+ * Routes one param input to the engine: reads checked (checkbox) or
+ * Number(value) (slider), repaints the slider's track-fill % + row label,
+ * syncs the WebGL checkbox twin, dispatches the PARAM_HANDLERS setter,
+ * then persists the param so a reload restores it.
+ * @param c The SpacePlayground element.
+ * @param input The changed input carrying a data-param attribute.
  */
 export function handleSpaceInput(c: SpacePlayground, input: HTMLInputElement): void {
   if (!c._earthBg) return
@@ -286,10 +307,11 @@ export function handleSpaceInput(c: SpacePlayground, input: HTMLInputElement): v
 }
 
 /**
- * persists space param.
- * @param c — the component
- * @param param — the value
- * @param val — the value
+ * Writes one param into the saved-settings map and persists the whole map
+ * to localStorage — the single write point for panel state.
+ * @param c The SpacePlayground element.
+ * @param param Engine param name (key into PARAM_HANDLERS).
+ * @param val New value (number or boolean).
  */
 export function persistSpaceParam(c: SpacePlayground, param: string, val: SpParamValue): void {
   c._savedSettings[param] = val
@@ -298,8 +320,9 @@ export function persistSpaceParam(c: SpacePlayground, param: string, val: SpPara
 }
 
 /**
- * Syncs space panel.
- * @param c — the component
+ * Reflects `_panelOpen` into the DOM — the collapsed class on the panel
+ * and the reopen button's display (hidden while the panel is open).
+ * @param c The SpacePlayground element.
  */
 export function syncSpacePanel(c: SpacePlayground): void {
   const panel = c.$(`.${SP_CLASSES.SP_PANEL}`)
@@ -311,13 +334,15 @@ export function syncSpacePanel(c: SpacePlayground): void {
   const reopenBtn = c.$(`.${SP_CLASSES.SP_REOPEN}`)
 
   if (reopenBtn) {
-    reopenBtn.style.display = c._panelOpen ? 'none' : 'flex'
+    reopenBtn.style.display = c._panelOpen ? ATTR_VALUES.NONE : ATTR_VALUES.FLEX
   }
 }
 
 /**
- * Mounts space checkbox canvases.
- * @param c — the component
+ * Mounts one CheckboxWebGL twin per checkbox canvas: destroys a stale
+ * twin when the canvas element changed identity across a re-render,
+ * creates missing ones, and re-syncs checked state on existing ones.
+ * @param c The SpacePlayground element.
  */
 export function mountSpaceCheckboxCanvases(c: SpacePlayground): void {
   if (typeof window === TYPE_STRINGS.UNDEFINED) return
@@ -352,8 +377,9 @@ export function mountSpaceCheckboxCanvases(c: SpacePlayground): void {
 }
 
 /**
- * The destroySpaceCheckboxCanvases value.
- * @param c — the component
+ * Tears down every CheckboxWebGL twin — frees their GL contexts via the
+ * shared release path and clears the registry so a remount starts clean.
+ * @param c The SpacePlayground element.
  */
 export function destroySpaceCheckboxCanvases(c: SpacePlayground): void {
   if (c._checkboxes) {
