@@ -18,7 +18,7 @@ import type { AwardsMentions } from '../AwardsMentions.js'
 import { devError } from '@/core/devlog.js'
 
 /**
- * The AwardLink value.
+ * Type contract for AwardLink — the shape consumers rely on.
  */
 export interface AwardLink {
   link?: string
@@ -26,7 +26,7 @@ export interface AwardLink {
 }
 
 /**
- * The LegalLink value.
+ * Type contract for LegalLink — the shape consumers rely on.
  */
 export interface LegalLink {
   link: string
