@@ -14,7 +14,9 @@ export const COVER_DIMENSIONS = Object.freeze({
 })
 
 /**
- * The GENERIC_DIMENSIONS constant.
+ * Frozen generic dimension map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const GENERIC_DIMENSIONS = Object.freeze({
   DEFAULT_WIDTH: 800,
@@ -29,7 +31,9 @@ export const IMAGE_DIMENSIONS = Object.freeze({
 })
 
 /**
- * The VIDEO_DIMENSIONS constant.
+ * Frozen video dimension map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const VIDEO_DIMENSIONS = Object.freeze({
   VIDEO_DEFAULT_WIDTH: 640,
@@ -51,14 +55,18 @@ export const FLAG_DIMENSIONS = Object.freeze({
 })
 
 /**
- * The NAV_DIMENSIONS constant.
+ * Frozen nav dimension map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const NAV_DIMENSIONS = Object.freeze({
   BURGER_CANVAS_SIZE: 68,
 })
 
 /**
- * The MOSAIC_DIMENSIONS constant.
+ * Frozen mosaic dimension map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const MOSAIC_DIMENSIONS = Object.freeze({
   MOSAIC_DESKTOP_WIDTH: 1920,
@@ -71,7 +79,9 @@ export const MOSAIC_DIMENSIONS = Object.freeze({
 })
 
 /**
- * The GRAVATAR_SIZES constant.
+ * Frozen gravatar map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const GRAVATAR_SIZES = Object.freeze({
   GRAVATAR_SIZE_1X: 200,
