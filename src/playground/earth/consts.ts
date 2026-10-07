@@ -46,7 +46,7 @@ export interface ColorGradeNodeArgs {
 }
 
 /**
- * The VignetteNodeArgs value.
+ * Type contract for VignetteNodeArgs — the shape consumers rely on.
  */
 export interface VignetteNodeArgs {
   [key: string]: unknown
