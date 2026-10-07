@@ -31,39 +31,53 @@ import {
 // grid), GAP_PX = the fixed gap between cards/columns.
 const { FEAT_MULT, COMP_MULTS, GAP: GAP_PX } = LAYOUT
 
-/**
- * Type contract for MosaicItem — the shape consumers rely on.
- */
+/** One project tile as consumed by the packer. */
 export interface MosaicItem {
+  /** Route the card links to. */
   link?: string
+  /** Cover image stem. */
   image?: string
+  /** Accessible label. */
   label?: string
+  /** Card heading. */
   title?: string
+  /** Expanded-panel text. */
   description?: string
+  /** Featured tiles span 2 columns (on multi-column layouts). */
   featured?: boolean
 }
 
-/**
- * Type contract for MosaicCardStyle — the shape consumers rely on.
- */
+/** Style objects emitted per placed tile. */
 export interface MosaicCardStyle {
+  /** Expanded-bottom height in px — the card grows by this when open. */
   bottomH: number
+  /** Absolutely-positioned card shell box. */
   card: Record<string, string>
+  /** Media region inside the card. */
   media: Record<string, string>
+  /** Bottom/details region inside the card. */
   bottom: Record<string, string>
 }
 
-/**
- * Type contract for SkeletonBox — the shape consumers rely on.
- */
+/** A packed skeleton placeholder rect (CSS px). */
 export interface SkeletonBox {
+  /** Top edge within the wall. */
   top: number
+  /** Left edge within the wall. */
   left: number
+  /** Placeholder width. */
   w: number
+  /** Placeholder height. */
   h: number
 }
 
-/** Column-count + column-width for a viewport width, or null when unusable. */
+/**
+ * Resolves column count + pixel column width for a viewport — null when
+ * the content width collapses to ≤0 (ultra-narrow/zero-size viewports get
+ * no layout rather than NaN styles).
+ * @param vw Viewport width in px.
+ * @returns {N, colW} or null.
+ */
 const mosaicGrid = (vw: number): { N: number; colW: number } | null => {
   const pad = calcResponsivePadding(vw)
 
@@ -80,6 +94,9 @@ const mosaicGrid = (vw: number): { N: number; colW: number } | null => {
  * Lowest-column placement: a span-N tile sits on the tallest column in
  * its footprint; pick the column range whose peak is lowest so the wall
  * stays roughly level instead of column-by-column fill.
+ * @param colH Per-column occupied heights.
+ * @param span Columns the tile covers.
+ * @returns The best column index + its top y.
  */
 const lowestColumnPeak = (colH: number[], span: number): { col: number; top: number } => {
   let best = 0
@@ -100,7 +117,18 @@ const lowestColumnPeak = (colH: number[], span: number): { col: number; top: num
   return { col: best, top }
 }
 
-/** Style objects for one placed tile (card shell / media / bottom). */
+/**
+ * Style objects for one placed tile — the card shell gets the absolute
+ * box (top/left/width, height = image+bottom), the media region gets the
+ * image height, and the bottom region reserves the expanded-details slot
+ * (0px when closed so the DOM stays mounted but invisible).
+ * @param top Placement y.
+ * @param left Placement x.
+ * @param itemW Tile width incl. covered gap.
+ * @param imageH Media region height.
+ * @param bottomH Details region height (0 when closed).
+ * @returns The three style objects.
+ */
 const tileStyles = (
   top: number,
   left: number,
@@ -133,7 +161,14 @@ const tileStyles = (
 
 /**
  * Full packing pass: returns per-card style objects + packed height.
- * `bottomHFor(i)` supplies the expanded details height (0 when closed).
+ * `bottomHFor(i)` supplies the expanded details height (0 when closed) —
+ * the card GROWS the wall rather than overlaying so expanding a tile
+ * reflows the cards below it. The container height subtracts the trailing
+ * gap so it hugs the last tile.
+ * @param vw Viewport width.
+ * @param items The tile list.
+ * @param bottomHFor Expanded-bottom height lookup per index.
+ * @returns {cards, height} or null for empty/degenerate grids.
  */
 export const computeMosaicLayout = (
   vw: number,
@@ -173,6 +208,8 @@ export const computeMosaicLayout = (
  * Skeleton variant: packs placeholder tiles (no items needed — featured
  * count + aspect cycle come from SKELETON/LAYOUT tokens) so the loading
  * wall matches the real geometry.
+ * @param vw Viewport width.
+ * @returns {boxes, height} — empty boxes on degenerate grids.
  */
 export const packMosaicSkeleton = (vw: number): { boxes: SkeletonBox[]; height: number } => {
   const grid = mosaicGrid(vw)
