@@ -20,6 +20,9 @@ Three.js WebGPU/WebGL visuals, Vite (rolldown) build.
 | [build.md](guides/build.md)                           | Vite config, snapshot plugin, compat bundle, terser pitfalls             |
 | [testing.md](guides/testing.md)                       | Jest suites, governance tests, Lighthouse workflow                       |
 | [api/](api/README.md)                                 | Generated per-file docs from JSDoc — `yarn docs:api`                     |
+| [jsdocs/](jsdocs/)                                    | Generated JSDoc site — `yarn docs:jsdocs` (also runs in `yarn build`)    |
+| [typedoc/](typedoc/)                                  | TypeDoc API reference (TS/TSX) — `yarn docs:typedoc`                     |
+| [sassdoc/](sassdoc/)                                  | SassDoc token/mixin reference (`///` comments) — `yarn docs:sassdoc`     |
 
 ## One-paragraph mental model
 
@@ -135,7 +138,8 @@ scripts/
 │              coverage-gaps, uncov, test-lighthouse
 ├── build/     build-targets, build-locale-pages, build-wasm,
 │              browser-loader, deploy-info, generate-sitemap
-├── docs/      gen-docs (JSDoc → docs/jsdocs, docs/api)
+├── docs/      gen-docs (JSDoc → docs/jsdocs, docs/api), sassdoc-vars
+│              codemod (inserts /// blocks into Sass token files)
 ├── i18n/      translation tooling (seed, extract, patch, upload)
 ├── codemod/   codemod-token-imports
 ├── git-hooks/ versioned pre-commit / pre-push (install via install-hooks.sh)
@@ -163,6 +167,8 @@ yarn verify       # full gate: console-scan → typecheck → eslint →
                      # stylelint → jest coverage (incl. axe) → coverage-gate
                      # → security-scan
 yarn build        # verify → multi-tier build → deploy-info → docs/jsdocs
+                  # emits .map sourcemaps for JS (esbuild→terser chain) and
+                  # CSS (sass→lightningcss inputSourceMap chain)
 yarn test             # jest (no coverage)
 yarn test:coverage # jest + coverage (per-file 100% gate via coverage-gate)
 yarn lint         # eslint src tests (zero warnings)
@@ -172,6 +178,9 @@ yarn format:check # prettier --check (CI gate)
 yarn typecheck    # tsc --noEmit
 yarn docs:api     # generated JSDoc docs → docs/api
 yarn docs:jsdocs  # generated JSDoc docs → docs/jsdocs (build step)
+yarn docs:typedoc # TypeDoc API reference → docs/typedoc
+yarn docs:sassdoc # SassDoc token/mixin reference → docs/sassdoc
+yarn docs         # all four generators in sequence
 yarn lighthouse   # Lighthouse CI assertions (100 everywhere except perf)
 yarn deploy:info  # bundle reports/ → dist/deploy-info
 ```
