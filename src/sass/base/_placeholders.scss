@@ -5,6 +5,10 @@
 // ════════════════════════════════════════════════════════════════════════════
 
 // Reset buttons
+
+/// Bare-button reset — removes UA chrome (background, border, outline,
+/// padding) plus the iOS tap highlight; extended by every icon-only or
+/// custom-styled control.
 %RESETBTN {
   background-color: transparent;
   border: none;
@@ -15,6 +19,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+/// The site's main layout constraint — full-width content column whose
+/// horizontal padding IS the grid gutter per breakpoint. Iterates
+/// $grid-steps via the `grid-steps` mixin so the content gutters and the
+/// show-grid debug overlay always read the same table.
 %MAXAREA {
   width: 100%;
   position: relative;
@@ -41,6 +49,12 @@
 // custom properties are declared here (not derived from --skel-surface)
 // because color-mix() inside a custom property is evaluated where the
 // property is declared — descendants would otherwise inherit :root values.
+
+/// Dark-surface skeleton palette — redefines --skel-bg-*/--skel-ink as
+/// color-mix() lifts of --bg-dark toward white. The vars are redeclared
+/// (not derived from --skel-surface) because color-mix() inside a custom
+/// property resolves at the declaration site — descendants would
+/// otherwise inherit the :root light-surface values.
 %SKEL_DARK_SURFACE {
   --skel-bg-1: color-mix(in srgb, var(--bg-dark) 90%, var(--color-white-raw) 10%);
   --skel-bg-2: color-mix(in srgb, var(--bg-dark) 78%, var(--color-white-raw) 22%);
