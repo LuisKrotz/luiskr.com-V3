@@ -5,6 +5,11 @@
  */
 /* istanbul ignore file */
 
+/**
+ * One contact/social row in the footer editors — `description` is the
+ * visible label, `page`/`network` categorize it, `link` is the href. The index
+ * signature absorbs extra CMS fields without widening every schema bump.
+ */
 export interface FooterChannel {
   description?: string
   page?: string
@@ -14,7 +19,8 @@ export interface FooterChannel {
 }
 
 /**
- * contacts data.
+ * The components/contact DB node — `title` plus two channel columns
+ * (`line1`/`line2`) rendered side by side in the footer.
  */
 export interface ContactData {
   title: string
@@ -23,7 +29,8 @@ export interface ContactData {
 }
 
 /**
- * Type contract for RelatedFooter — the shape consumers rely on.
+ * The components/related DB node — `title`/`note` copy plus the
+ * `socials` channel list the related-projects footer renders.
  */
 export interface RelatedFooter {
   title: string
