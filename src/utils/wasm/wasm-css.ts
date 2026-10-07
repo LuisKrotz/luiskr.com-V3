@@ -19,7 +19,7 @@ import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { wasmPool } from './wasm-pool.js'
 
 /**
- * The WasmSkeletonStyle value.
+ * Type contract for WasmSkeletonStyle — the shape consumers rely on.
  */
 export interface WasmSkeletonStyle {
   width: string
