@@ -7,14 +7,18 @@
 import { _B_NOT_FOUND } from '../base.js'
 
 /**
- * The LEGAL_CLASSES constant.
+ * Frozen legal class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const LEGAL_CLASSES = Object.freeze({
   LEGAL: 'legal',
 })
 
 /**
- * The NOT_FOUND_CLASSES constant.
+ * Frozen not found class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const NOT_FOUND_CLASSES = Object.freeze({
   NOT_FOUND: _B_NOT_FOUND,
