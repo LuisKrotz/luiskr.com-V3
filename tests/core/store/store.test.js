@@ -1,3 +1,12 @@
+/**
+ * @file store.test.js
+ * @description Covers src/core/store.js — the mutation/getter contract
+ * for every state domain: theme + OS sync, reduced motion, all 12
+ * locales, input modality, modal transform state, and the lists
+ * (mentions/portfolio). Mutations are the single write path; the suite
+ * locks each key's default, mutation, and getter triple.
+ */
+
 import store from '@/core/store.js'
 import { CMS_KEYS, LOCALES, ROUTE_PREFIXES, THEME } from '@/core/constants.js'
 import { TEST_AWARDS } from '../../fixtures/test-constants.js'
