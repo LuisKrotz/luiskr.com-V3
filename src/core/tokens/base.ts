@@ -10,7 +10,8 @@
 // Canonical identifiers reused across namespaces (section ids, CMS/DB keys,
 // tag names, BEM class blocks). Declared once, composed everywhere below.
 /**
- * The _B_ABOUT constant.
+ * BEM block fragment `about` — declared once here; every domain class token composes from
+ * this fragment (zero-hardcoding rule 9).
  */
 export const _B_ABOUT = 'about'
 /**
@@ -22,7 +23,8 @@ export const _B_CONTACT = 'contact'
  */
 export const _B_NAV = 'nav'
 /**
- * The _B_PREF constant.
+ * BEM block fragment `pref` — declared once here; every domain class token composes from
+ * this fragment (zero-hardcoding rule 9).
  */
 export const _B_PREF = 'pref'
 /**
@@ -34,7 +36,8 @@ export const _B_CMS = 'cms'
  */
 export const _B_ADMIN = 'admin'
 /**
- * The _B_NOT_FOUND constant.
+ * BEM block fragment `not-found` — declared once here; every domain class token composes
+ * from this fragment (zero-hardcoding rule 9).
  */
 export const _B_NOT_FOUND = 'not-found'
 /**
@@ -46,7 +49,8 @@ export const _B_STATS_HUD = 'stats-hud'
  */
 export const _B_DRAW_TEXT = 'draw-text'
 /**
- * The _B_HOME_MOSAIC constant.
+ * BEM block fragment `home-mosaic` — declared once here; every domain class token composes
+ * from this fragment (zero-hardcoding rule 9).
  */
 export const _B_HOME_MOSAIC = 'home-mosaic'
 /**
@@ -58,7 +62,8 @@ export const _B_MEDIA_FIGURE = 'media-figure'
  */
 export const _B_LANG_DIALOG = 'lang-dialog'
 /**
- * The _B_PROGRESS_BAR constant.
+ * BEM block fragment `progress-bar` — declared once here; every domain class token composes
+ * from this fragment (zero-hardcoding rule 9).
  */
 export const _B_PROGRESS_BAR = 'progress-bar'
 /**
@@ -70,7 +75,8 @@ export const _B_SKELETON = 'skeleton'
  */
 export const _B_CAROUSEL = 'carousel'
 /**
- * The _B_COOKIES constant.
+ * BEM block fragment `cookies` — declared once here; every domain class token composes from
+ * this fragment (zero-hardcoding rule 9).
  */
 export const _B_COOKIES = 'cookies'
 /**
@@ -82,7 +88,8 @@ export const _B_SITE_TOAST = 'site-toast'
  */
 export const _B_MODAL = 'modal'
 /**
- * The _B_INTERNAL constant.
+ * BEM block fragment `internal` — declared once here; every domain class token composes from
+ * this fragment (zero-hardcoding rule 9).
  */
 export const _B_INTERNAL = 'internal'
 /**
@@ -94,7 +101,8 @@ export const _B_RELATED = 'related-mosaic'
  */
 export const _B_AWC = 'aw-c'
 /**
- * The _B_FLAG constant.
+ * BEM block fragment `flag` — declared once here; every domain class token composes from
+ * this fragment (zero-hardcoding rule 9).
  */
 export const _B_FLAG = 'flag'
 /**
@@ -106,7 +114,8 @@ export const _B_LOADER = 'intro-loader'
  */
 export const _B_FLUID_BG = 'fluid-background'
 /**
- * The _B_CURSOR constant.
+ * BEM block fragment `magnetic-cursor` — declared once here; every domain class token
+ * composes from this fragment (zero-hardcoding rule 9).
  */
 export const _B_CURSOR = 'magnetic-cursor'
 /**
@@ -118,7 +127,8 @@ export const _B_DISTORT = 'image-distort'
  */
 export const _B_FOOTER_SOURCE = 'footer-source'
 /**
- * The _B_SP constant.
+ * BEM block fragment `sp` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_SP = 'sp'
 /**
@@ -129,7 +139,8 @@ export const _B_LANG_GLASS = 'lang-glass-follower'
 // ─── Composed blocks — declared once, reused by the per-component class ────
 // groups under tokens/classes/ and the selector token files.
 /**
- * The _B_SKELETON_ABOUT constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_SKELETON_ABOUT = `${_B_SKELETON}-about`
 /**
@@ -141,7 +152,8 @@ export const _B_SKELETON_ABOUT_P = `${_B_SKELETON_ABOUT}-p`
  */
 export const _B_SKELETON_FOOTER = `${_B_SKELETON}--footer`
 /**
- * The _B_RENDER constant.
+ * BEM block fragment `render` — declared once here; every domain class token composes from
+ * this fragment (zero-hardcoding rule 9).
  */
 export const _B_RENDER = 'render'
 /**
@@ -153,7 +165,8 @@ export const _B_RENDER_MEDIA = `${_B_RENDER}-media`
  */
 export const _B_RENDER_PLACEHOLDER = `${_B_RENDER}-placeholder`
 /**
- * The _B_CAROUSEL_BTN constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_CAROUSEL_BTN = `${_B_CAROUSEL}-btn`
 /**
@@ -165,7 +178,8 @@ export const _B_CAROUSEL_SLIDE = `${_B_CAROUSEL}-slide`
  */
 export const _B_CAROUSEL_DOT = `${_B_CAROUSEL}-dot`
 /**
- * The _B_CAROUSEL_BTN_RING constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_CAROUSEL_BTN_RING = `${_B_CAROUSEL_BTN}-ring`
 /**
@@ -177,7 +191,8 @@ export const _B_CAROUSEL_SLIDE_CLONE = `${_B_CAROUSEL_SLIDE}--clone`
  */
 export const _B_ABOUT_PROFILE = `${_B_ABOUT}-profile`
 /**
- * The _B_ABOUT_PROFILE_PICTURE constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_ABOUT_PROFILE_PICTURE = `${_B_ABOUT_PROFILE}-picture`
 /**
@@ -189,7 +204,8 @@ export const _B_ABOUT_PROFILE_TEXT = `${_B_ABOUT_PROFILE}-text`
  */
 export const _B_ABOUT_ITEM = `${_B_ABOUT}-item`
 /**
- * The _B_AWARDS_FOOTER constant.
+ * BEM block fragment `awards-footer` — declared once here; every domain class token composes
+ * from this fragment (zero-hardcoding rule 9).
  */
 export const _B_AWARDS_FOOTER = 'awards-footer'
 /**
@@ -201,7 +217,8 @@ export const _B_AWARDS_FOOTER_PROGRESS = `${_B_AWARDS_FOOTER}-progress`
  */
 export const _B_AWARDS_FOOTER_PROGRESS_FILL = `${_B_AWARDS_FOOTER_PROGRESS}-fill`
 /**
- * The _B_AWARDS_FOOTER_LINKS constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_AWARDS_FOOTER_LINKS = `${_B_AWARDS_FOOTER}-links`
 /**
@@ -213,7 +230,8 @@ export const _B_CONTACT_SOCIAL = `${_B_CONTACT}-social`
  */
 export const _B_CONTACT_OTHER = `${_B_CONTACT}-other`
 /**
- * The _B_EXPAND_MODAL constant.
+ * BEM block fragment `expand-modal` — declared once here; every domain class token composes
+ * from this fragment (zero-hardcoding rule 9).
  */
 export const _B_EXPAND_MODAL = 'expand-modal'
 /**
@@ -225,7 +243,8 @@ export const _B_EXPAND_MODAL_CONTENT = `${_B_EXPAND_MODAL}-content`
  */
 export const _B_EXPAND_MODAL_CLOSE = `${_B_EXPAND_MODAL}-close`
 /**
- * The _B_EXPAND_MODAL_CLOSE_BAR constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_EXPAND_MODAL_CLOSE_BAR = `${_B_EXPAND_MODAL_CLOSE}-bar`
 /**
@@ -237,7 +256,8 @@ export const _B_EXPAND_MODAL_MEDIA = `${_B_EXPAND_MODAL}-media`
  */
 export const _B_EXPAND_MODAL_MEDIA_FIGURE = `${_B_EXPAND_MODAL_MEDIA}-figure`
 /**
- * The _B_EXPAND_MODAL_MEDIA_ITEM constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_EXPAND_MODAL_MEDIA_ITEM = `${_B_EXPAND_MODAL_MEDIA}-item`
 /**
@@ -249,7 +269,8 @@ export const _B_INTERNAL_DESCRIPTION = `${_B_INTERNAL}-description`
  */
 export const _B_INTERNAL_EXTRA = `${_B_INTERNAL}-extra`
 /**
- * The _B_INTERNAL_FOOTER constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_INTERNAL_FOOTER = `${_B_INTERNAL}-footer`
 /**
@@ -261,7 +282,8 @@ export const _B_INTERNAL_FOOTER_ITEMS = `${_B_INTERNAL_FOOTER}-items`
  */
 export const _B_INTERNAL_MAIN = `${_B_INTERNAL}-main`
 /**
- * The _B_PREF_OPTIONS constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_PREF_OPTIONS = `${_B_PREF}-options`
 /**
@@ -273,7 +295,8 @@ export const _B_PREF_OPTION = `${_B_PREF}-option`
  */
 export const _B_PREF_SWITCH = `${_B_PREF}-switch`
 /**
- * The _B_PREF_THEME constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_PREF_THEME = `${_B_PREF}-theme`
 /**
@@ -285,7 +308,8 @@ export const _B_PREF_BACKDROP = `${_B_PREF}-backdrop`
  */
 export const _B_PREF_CLOSE = `${_B_PREF}-close`
 /**
- * The _B_PREF_SECTION constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_PREF_SECTION = `${_B_PREF}-section`
 /**
@@ -297,7 +321,8 @@ export const _B_PREF_THEME_BTN = `${_B_PREF_THEME}-btn`
  */
 export const _B_COOKIES_BUTTONS = `${_B_COOKIES}-buttons`
 /**
- * The _B_FLAG_CANVAS constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_FLAG_CANVAS = `${_B_FLAG}-canvas`
 /**
@@ -309,7 +334,8 @@ export const _B_NAV_BURGER = `${_B_NAV}-burger`
  */
 export const _B_NAV_MENU_MODAL = `${_B_NAV}-menu-modal`
 /**
- * The _B_AWC_DOT constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_AWC_DOT = `${_B_AWC}-dot`
 /**
@@ -321,7 +347,8 @@ export const _B_AWC_SLIDE = `${_B_AWC}-slide`
  */
 export const _B_AWC_SLIDE_CLONE = `${_B_AWC_SLIDE}--clone`
 /**
- * The _B_AWC_BTN constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_AWC_BTN = `${_B_AWC}-btn`
 /**
@@ -333,7 +360,8 @@ export const _B_AWC_BTN_RING = `${_B_AWC_BTN}-ring`
  */
 export const _B_AWC_AWARD = `${_B_AWC}-award`
 /**
- * The _B_SPP constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_SPP = `${_B_SP}-panel`
 /**
@@ -345,7 +373,8 @@ export const _B_SPP_RANGE = `${_B_SPP}-range`
  */
 export const _B_SPP_CHECK = `${_B_SPP}-check`
 /**
- * The _B_SPP_ROW constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_SPP_ROW = `${_B_SPP}-row`
 /**
@@ -354,7 +383,8 @@ export const _B_SPP_ROW = `${_B_SPP}-row`
 export const _B_SPP_SWITCH = `${_B_SPP}-switch`
 
 /**
- * The _K_RELATED constant.
+ * Shared key token `related` — single source for a literal repeated across modules
+ * (zero-hardcoding rule 5).
  */
 export const _K_RELATED = 'related'
 /**
@@ -366,7 +396,8 @@ export const _K_HOME = 'HOME'
  */
 export const _K_CLOSE = 'close'
 /**
- * The _K_ACTIVE constant.
+ * Shared key token `active` — single source for a literal repeated across modules
+ * (zero-hardcoding rule 5).
  */
 export const _K_ACTIVE = 'active'
 /**
@@ -378,7 +409,8 @@ export const _K_PRIVACY_POLICY = 'privacy-policy'
  */
 export const _K_TERMS_OF_USE = 'terms-of-use'
 /**
- * The _K_EARTH_PLAYGROUND constant.
+ * Shared key token `earthPlayground` — single source for a literal repeated across modules
+ * (zero-hardcoding rule 5).
  */
 export const _K_EARTH_PLAYGROUND = 'earthPlayground'
 /**
@@ -390,7 +422,8 @@ export const _K_ABOUT_SECTION = 'about-section'
  */
 export const _K_LEGAL_FOOTER = 'legal-footer'
 /**
- * The _K_PREFERENCES_MODAL constant.
+ * Shared key token `preferences-modal` — single source for a literal repeated across modules
+ * (zero-hardcoding rule 5).
  */
 export const _K_PREFERENCES_MODAL = 'preferences-modal'
 /**
@@ -402,7 +435,8 @@ export const _K_MEDIA = 'media'
  */
 export const _K_SOURCE_CODE = 'source-code'
 /**
- * The _K_VIEW_OUTLET constant.
+ * Shared key token `view-outlet` — single source for a literal repeated across modules
+ * (zero-hardcoding rule 5).
  */
 export const _K_VIEW_OUTLET = 'view-outlet'
 /**
@@ -414,7 +448,8 @@ export const _K_ROUTER_LINK_EXACT_ACTIVE = 'router-link-exact-active'
  */
 export const _K_SYSTEM = 'system'
 /**
- * The _K_INPUT constant.
+ * Shared key token `input` — single source for a literal repeated across modules
+ * (zero-hardcoding rule 5).
  */
 export const _K_INPUT = 'input'
 /**
@@ -426,7 +461,8 @@ export const _K_STYLE = 'style'
  */
 export const _K_DIALOG = 'dialog'
 /**
- * The _K_TITLE constant.
+ * Shared key token `title` — single source for a literal repeated across modules
+ * (zero-hardcoding rule 5).
  */
 export const _K_TITLE = 'title'
 /**
@@ -438,7 +474,8 @@ export const _K_TOUCHSTART = 'touchstart'
  */
 export const _K_POINTERENTER = 'pointerenter'
 /**
- * The _K_FOCUS constant.
+ * Shared key token `focus` — single source for a literal repeated across modules
+ * (zero-hardcoding rule 5).
  */
 export const _K_FOCUS = 'focus'
 /**
@@ -447,12 +484,14 @@ export const _K_FOCUS = 'focus'
 export const _K_SITE_URL = 'https://luiskr.com'
 
 /**
- * The _DATA constant.
+ * Internal scalar token `data-` — composed by the token groups in this module.
  */
 export const _DATA = 'data-'
 
 /**
- * The sections helper.
+ * Frozen sections map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const SECTIONS = Object.freeze({
   HOME: 'home',
