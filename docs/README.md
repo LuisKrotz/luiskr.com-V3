@@ -98,8 +98,8 @@ src/
 │   ├── base/            tokens: variables, mixins, fonts, placeholders,
 │   │                    structure (CSS custom properties live here)
 │   └── components/      per-component shadow styles by domain
-│                        (carousel/, chrome/, dialogs/, home/, media/,
-│                        project/, safari/), consumed via ?inline
+│                        (carousel/, dialogs/, feedback/, home/, media/,
+│                        project/, safari/, shell/), consumed via ?inline
 └── utils/               services grouped by domain
     ├── canvas/          shared GL infra (gl-program, css-color, webgl-mode,
     │   │                webgl-pool) + two families:

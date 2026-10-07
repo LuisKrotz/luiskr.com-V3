@@ -43,7 +43,7 @@ import type { RouteDescriptor } from '@/routes/router.js'
 
 // Route depth: home = 0, all other views = 1
 
-import appStyles from '@/sass/components/chrome/app.scss?inline'
+import appStyles from '@/sass/components/shell/app.scss?inline'
 import '@/components/nav/AppNav.js'
 import '@/components/feedback/CookieBanner.js'
 

@@ -18,7 +18,7 @@ import { appText } from '@/core/locale/ui-text.js'
 import { statsEngine } from '@/utils/perf/stats-engine.js'
 import type { StatsSnapshot } from '@/utils/perf/stats-engine.js'
 import { npuPredict } from '@/utils/gpu/npu-predict.js'
-import statsHudStyles from '@/sass/components/chrome/stats-hud.scss?inline'
+import statsHudStyles from '@/sass/components/feedback/stats-hud.scss?inline'
 
 // ─── Stats & Controls HUD ───────────────────────────────────────────────────
 // Fixed pill overlay anchored above the bottom nav.

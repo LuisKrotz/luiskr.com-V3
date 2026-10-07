@@ -34,9 +34,9 @@ describe('SASS/CSS Structure & Style Isolation', () => {
   // ── File Existence ────────────────────────────────────────────────────────────
   describe('1. SASS File Existence', () => {
     const expectedFiles = [
-      'src/sass/components/chrome/app.scss',
+      'src/sass/components/shell/app.scss',
       'src/sass/base/_variables.scss',
-      'src/sass/components/chrome/draw-text.scss',
+      'src/sass/components/media/draw-text.scss',
       'src/routes/views/home/home.scss',
       'src/sass/components/carousel/carousel.scss',
     ]
@@ -58,11 +58,11 @@ describe('SASS/CSS Structure & Style Isolation', () => {
     })
 
     test('draw-text.scss exists', () => {
-      expect(existsSync(resolve(root, 'src/sass/components/chrome/draw-text.scss'))).toBe(true)
+      expect(existsSync(resolve(root, 'src/sass/components/media/draw-text.scss'))).toBe(true)
     })
 
     test('app.scss (main entry) exists', () => {
-      expect(existsSync(resolve(root, 'src/sass/components/chrome/app.scss'))).toBe(true)
+      expect(existsSync(resolve(root, 'src/sass/components/shell/app.scss'))).toBe(true)
     })
 
     test('_variables.scss exists', () => {
@@ -99,19 +99,19 @@ describe('SASS/CSS Structure & Style Isolation', () => {
   describe('2. CSS Variables — Design Tokens', () => {
     test('CSS variables are defined', () => {
       const combined =
-        readSass('src/sass/base/_variables.scss') + readSass('src/sass/components/chrome/app.scss')
+        readSass('src/sass/base/_variables.scss') + readSass('src/sass/components/shell/app.scss')
       expect(combined.length).toBeGreaterThan(0)
     })
 
     test('design tokens use CSS custom properties (--var-name) or SASS vars', () => {
       const combined =
-        readSass('src/sass/base/_variables.scss') + readSass('src/sass/components/chrome/app.scss')
+        readSass('src/sass/base/_variables.scss') + readSass('src/sass/components/shell/app.scss')
       expect(combined.length).toBeGreaterThan(50)
     })
 
     test('SASS variables are declared with $ prefix', () => {
       const content =
-        readSass('src/sass/base/_variables.scss') || readSass('src/sass/components/chrome/app.scss')
+        readSass('src/sass/base/_variables.scss') || readSass('src/sass/components/shell/app.scss')
       const hasVars = content.includes('$') || content.includes(CSS_STRINGS.CSS_VAR_PREFIX)
       expect(content.length).toBeGreaterThan(0)
       expect(hasVars).toBe(true)
@@ -125,7 +125,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
 
   // ── DrawText SASS ─────────────────────────────────────────────────────────────
   describe('3. draw-text.scss — Animation Styles', () => {
-    const css = readSass('src/sass/components/chrome/draw-text.scss')
+    const css = readSass('src/sass/components/media/draw-text.scss')
 
     test('draw-text.scss is not empty', () => {
       expect(css.length).toBeGreaterThan(0)
@@ -163,7 +163,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
 
   // ── base.scss ─────────────────────────────────────────────────────────────────
   describe('4. app.scss — Global Styles', () => {
-    const css = readSass('src/sass/components/chrome/app.scss')
+    const css = readSass('src/sass/components/shell/app.scss')
 
     test('app.scss is not empty', () => {
       expect(css.length).toBeGreaterThan(0)
@@ -267,7 +267,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
   // ── Component SASS Files ──────────────────────────────────────────────────────
   describe('7. Component SASS Files Exist', () => {
     const componentSassFiles = [
-      'src/sass/components/chrome/draw-text.scss',
+      'src/sass/components/media/draw-text.scss',
       'src/routes/views/home/home.scss',
       'src/sass/components/carousel/carousel.scss',
       'src/sass/components/home/about.scss',
@@ -285,7 +285,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
   // ── Dark Mode Support ─────────────────────────────────────────────────────────
   describe('8. Dark Mode — Theme Support', () => {
     const allSass = [
-      'src/sass/components/chrome/app.scss',
+      'src/sass/components/shell/app.scss',
       'src/sass/base/_variables.scss',
       'src/routes/views/home/home.scss',
     ]
@@ -307,11 +307,11 @@ describe('SASS/CSS Structure & Style Isolation', () => {
 
   // ── Reduced Motion Support ────────────────────────────────────────────────────
   describe('9. Accessibility — Reduced Motion', () => {
-    const drawTextCss = readSass('src/sass/components/chrome/draw-text.scss')
+    const drawTextCss = readSass('src/sass/components/media/draw-text.scss')
     const allSass = [
-      'src/sass/components/chrome/app.scss',
+      'src/sass/components/shell/app.scss',
       'src/routes/views/home/home.scss',
-      'src/sass/components/chrome/draw-text.scss',
+      'src/sass/components/media/draw-text.scss',
     ]
       .map((f) => readSass(f))
       .join('\n')
@@ -354,14 +354,14 @@ describe('SASS/CSS Structure & Style Isolation', () => {
   // ── No Style Duplication ─────────────────────────────────────────────────────
   describe('11. No Style Duplication — DRY CSS', () => {
     test('draw-text.scss does not duplicate nav styles', () => {
-      const drawTextCss = readSass('src/sass/components/chrome/draw-text.scss')
+      const drawTextCss = readSass('src/sass/components/media/draw-text.scss')
       // DrawText styles should not reference nav-specific selectors
       expect(drawTextCss).not.toContain(NAV_SELECTORS.NAV_LINK)
       expect(drawTextCss).not.toContain('.nav-btn')
     })
 
     test('variables.scss is imported by other SASS files, not duplicated', () => {
-      const main = readSass('src/sass/components/chrome/app.scss')
+      const main = readSass('src/sass/components/shell/app.scss')
       const base = readSass('src/sass/base/_structure.scss')
       // Variables should be centralized (imported) not defined in multiple places
       const mainHasVarDefs = (main.match(/\$[a-z-]+\s*:/g) || []).length
@@ -384,7 +384,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
     })
 
     test('component sass file sizes are non-trivial (> 100 bytes)', () => {
-      const files = ['src/sass/components/chrome/draw-text.scss', 'src/sass/base/_structure.scss']
+      const files = ['src/sass/components/media/draw-text.scss', 'src/sass/base/_structure.scss']
       files.forEach((f) => {
         const content = readSass(f)
         if (content.length > 0) {
@@ -394,7 +394,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
     })
 
     test('draw-text.scss handles character span animation', () => {
-      const css = readSass('src/sass/components/chrome/draw-text.scss')
+      const css = readSass('src/sass/components/media/draw-text.scss')
       const hasCharAnimation =
         css.includes(HTML_TAGS.SPAN) ||
         css.includes('char') ||

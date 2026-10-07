@@ -576,7 +576,7 @@ describe('notify service', () => {
 // only place `left:` may appear.
 describe('SiteToast placement contract', () => {
   const scssPath = fileURLToPath(
-    new URL('../../../src/sass/components/chrome/site-toast.scss', import.meta.url)
+    new URL('../../../src/sass/components/feedback/site-toast.scss', import.meta.url)
   )
   const scss = fs.readFileSync(scssPath, 'utf-8')
 

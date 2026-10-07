@@ -15,7 +15,7 @@ import { COOKIE_SELECTORS } from '@/core/tokens/selectors/cookies.js'
 import { h } from '@/core/jsx.js'
 import { BaseComponent } from '@/core/Component.js'
 import { appText } from '@/core/locale/ui-text.js'
-import appStyles from '@/sass/components/chrome/app.scss?inline'
+import appStyles from '@/sass/components/shell/app.scss?inline'
 import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
 
 interface CookieCopy {

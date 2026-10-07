@@ -48,7 +48,7 @@ import {
   openNavMenu,
   toggleNavMenu,
 } from './menu.js'
-import appStyles from '@/sass/components/chrome/app.scss?inline'
+import appStyles from '@/sass/components/shell/app.scss?inline'
 
 // Pre-compute all localized playground slugs for fast O(1) lookup
 const _PLAYGROUND_SLUGS = new Set(

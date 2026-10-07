@@ -283,17 +283,17 @@ describe('Animation System — Timing, Easing & Reduced Motion (200+ tests)', ()
     })
 
     test('SCSS: reduced-motion forces opacity: 1 on chars', () => {
-      const css = readSass('chrome/draw-text.scss')
+      const css = readSass('media/draw-text.scss')
       expect(css).toMatch(/reduced-motion[^}]*\.draw-text__char[^}]*opacity:\s*1/)
     })
 
     test('SCSS: reduced-motion forces animation: none', () => {
-      const css = readSass('chrome/draw-text.scss')
+      const css = readSass('media/draw-text.scss')
       expect(css).toMatch(/reduced-motion[^}]*\.draw-text__char[^}]*animation:\s*none/)
     })
 
     test('SCSS: @media prefers-reduced-motion forces opacity: 1', () => {
-      const css = readSass('chrome/draw-text.scss')
+      const css = readSass('media/draw-text.scss')
       expect(css).toMatch(/prefers-reduced-motion[^}]*opacity:\s*1/)
     })
   })
@@ -385,8 +385,8 @@ describe('Animation System — Timing, Easing & Reduced Motion (200+ tests)', ()
     let drawTextCss, appCss, homeCarouselCss
 
     beforeAll(() => {
-      drawTextCss = readSass('chrome/draw-text.scss')
-      appCss = readSass('chrome/app.scss')
+      drawTextCss = readSass('media/draw-text.scss')
+      appCss = readSass('shell/app.scss')
       homeCarouselCss = readSass('home/home-carousel.scss')
     })
 
@@ -596,7 +596,7 @@ describe('Animation System — Timing, Easing & Reduced Motion (200+ tests)', ()
     let css
 
     beforeAll(() => {
-      css = readSass('chrome/app.scss')
+      css = readSass('shell/app.scss')
     })
 
     test('.nav-link has transition', () => {

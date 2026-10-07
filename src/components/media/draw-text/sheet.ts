@@ -4,7 +4,7 @@
  */
 
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import drawTextStyles from '@/sass/components/chrome/draw-text.scss?inline'
+import drawTextStyles from '@/sass/components/media/draw-text.scss?inline'
 
 let sharedSheet: CSSStyleSheet | null = null
 

@@ -28,7 +28,7 @@ import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { h } from '@/core/jsx.js'
 import { BaseComponent } from '@/core/Component.js'
 import { appText } from '@/core/locale/ui-text.js'
-import toastStyles from '@/sass/components/chrome/site-toast.scss?inline'
+import toastStyles from '@/sass/components/feedback/site-toast.scss?inline'
 
 interface ToastItem {
   id: number

@@ -14,13 +14,13 @@ const readScss = (name) => fs.readFileSync(path.join(ROOT_DIR, name), 'utf-8')
 
 export const SCSS = {
   about: readScss('src/sass/components/home/about.scss'),
-  app: readScss('src/sass/components/chrome/app.scss'),
+  app: readScss('src/sass/components/shell/app.scss'),
   awardsFooter: readScss('src/sass/components/home/awards-footer.scss'),
   carouselHost: readScss('src/sass/components/carousel/carousel-host.scss'),
   carousel: readScss('src/sass/components/carousel/carousel.scss'),
   cms: readScss('src/cms/sass/cms.scss'),
   contact: readScss('src/sass/components/home/contact.scss'),
-  drawText: readScss('src/sass/components/chrome/draw-text.scss'),
+  drawText: readScss('src/sass/components/media/draw-text.scss'),
   fonts: readScss('src/sass/base/_fonts.scss'),
   homeCarousel: readScss('src/sass/components/home/home-carousel.scss'),
   homeMosaic: readScss('src/sass/components/home/home-mosaic.scss'),

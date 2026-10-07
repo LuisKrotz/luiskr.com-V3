@@ -118,7 +118,7 @@ const emitCss = async (t) => {
   const sass = await import('sass')
   const { transform } = await import('lightningcss')
 
-  const compiled = sass.compile(path.join(ROOT, 'src/sass/components/chrome/app.scss'), {
+  const compiled = sass.compile(path.join(ROOT, 'src/sass/components/shell/app.scss'), {
     loadPaths: [path.join(ROOT, 'src/sass')],
     silenceDeprecations: ['import', 'global-builtin', 'legacy-js-api'],
   })
