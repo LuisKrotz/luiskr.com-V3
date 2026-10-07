@@ -7,7 +7,7 @@ import { CDN_URLS } from '@/core/tokens/media/urls.js'
 import { COVER_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 
 /**
- * The CmsMediaItem value.
+ * Type contract for CmsMediaItem — the shape consumers rely on.
  */
 export interface CmsMediaItem {
   src: string
@@ -17,7 +17,7 @@ export interface CmsMediaItem {
 }
 
 /**
- * The CmsSection value.
+ * Type contract for CmsSection — the shape consumers rely on.
  */
 export type CmsSection = [string[], CmsMediaItem[]]
 
