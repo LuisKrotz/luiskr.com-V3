@@ -14,6 +14,7 @@ export const ATTR_VALUES = Object.freeze({
   FALSE: 'false',
   NONE: 'none',
   BLOCK: 'block',
+  FLEX: 'flex',
   AUTO: 'auto',
   SMOOTH: 'smooth',
   INSTANT: 'instant',
