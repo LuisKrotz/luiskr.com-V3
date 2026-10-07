@@ -19,7 +19,7 @@ import { webglAllowed } from '../canvas/webgl-mode.js'
 import { GPU_PATTERNS, UA_PATTERNS } from '@/core/tokens/motion/gpu.js'
 
 /**
- * The GPUInfo value.
+ * Type contract for GPUInfo — the shape consumers rely on.
  */
 export interface GPUInfo {
   renderer: string
