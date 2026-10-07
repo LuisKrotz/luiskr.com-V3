@@ -10,7 +10,10 @@
 export const SVG_NS = 'http://www.w3.org/2000/svg'
 
 /**
- * The svg tags helper.
+ * Tag names that require `createElementNS(SVG_NS, tag)` — the `h()` JSX
+ * factory consults this set; any tag not listed goes through the HTML
+ * path. Covers the full SVG2 tag vocabulary so consumers never maintain
+ * their own lists.
  */
 export const SVG_TAGS = Object.freeze(
   new Set([
