@@ -1,3 +1,13 @@
+/**
+ * @file carousels.test.js
+ * @description Covers src/components/carousel/AwardsCarousel.js +
+ * CustomCarousel.js — the full interaction surface: clone-based infinite
+ * looping (first/last clones + the post-transition teleport that must not
+ * visibly jump), autoplay progression, swipe physics, dot/arrow nav, and
+ * responsive sizing. Clones must stay aria-hidden/inert so assistive tech
+ * never announces duplicated slides.
+ */
+
 import { jest } from '@jest/globals'
 import '@/components/carousel/AwardsCarousel.js'
 import '@/components/carousel/CustomCarousel.js'
