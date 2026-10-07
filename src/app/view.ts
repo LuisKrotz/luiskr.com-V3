@@ -43,7 +43,7 @@ export function updateAppViewContent(
 }
 
 /**
- * The flipAppView value.
+ * Helper for this module — see implementation for behavior.
  */
 export async function flipAppView(
   c: AppRoot,
