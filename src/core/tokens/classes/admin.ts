@@ -6,7 +6,10 @@
 import { _B_ADMIN } from '../base.js'
 
 /**
- * admins classes.
+ * Admin-login view classes. The `ADMIN_*` entries compose the `admin` BEM
+ * block; `GOOGLE_AUTH_BTN`/`GOOGLE_ICON` are standalone blocks (different
+ * block prefix) since Google's sign-in widget styling is applied to those
+ * nodes and must not inherit admin-* selectors.
  */
 export const ADMIN_CLASSES = Object.freeze({
   ADMIN_LOGIN_WRAPPER: `${_B_ADMIN}-login-wrapper`,
