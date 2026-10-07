@@ -15,7 +15,7 @@ export interface RelatedProject {
 }
 
 /**
- * The RelatedSocial value.
+ * Type contract for RelatedSocial — the shape consumers rely on.
  */
 export interface RelatedSocial {
   link?: string
@@ -23,7 +23,7 @@ export interface RelatedSocial {
 }
 
 /**
- * The RelatedTranslations value.
+ * Type contract for RelatedTranslations — the shape consumers rely on.
  */
 export interface RelatedTranslations {
   title?: string
@@ -34,7 +34,7 @@ export interface RelatedTranslations {
 }
 
 /**
- * The HomeItem value.
+ * Type contract for HomeItem — the shape consumers rely on.
  */
 export interface HomeItem {
   link?: string
@@ -45,7 +45,7 @@ export interface HomeItem {
 }
 
 /**
- * The RelatedCard value.
+ * Type contract for RelatedCard — the shape consumers rely on.
  */
 export interface RelatedCard {
   page: string
