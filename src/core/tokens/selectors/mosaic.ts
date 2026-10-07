@@ -6,7 +6,9 @@
 import { _B_HOME_MOSAIC } from '../base.js'
 
 /**
- * The MOSAIC_SELECTORS constant.
+ * Frozen mosaic selector map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const MOSAIC_SELECTORS = Object.freeze({
   HOME_MOSAIC: `.${_B_HOME_MOSAIC}`,
