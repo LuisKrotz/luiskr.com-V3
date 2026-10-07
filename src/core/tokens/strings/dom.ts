@@ -23,6 +23,7 @@ export const DOM_STRINGS = Object.freeze({
   VALUE: 'value',
   REL: 'rel',
   REL_CANONICAL: 'canonical',
+  REL_PREFETCH: 'prefetch',
   BLANK: '_blank',
   NOOPENER: 'noopener noreferrer',
   DATA_ROUTE: `${_DATA}route`,
