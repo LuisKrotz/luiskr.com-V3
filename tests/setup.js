@@ -1,3 +1,12 @@
+/**
+ * @file setup.js
+ * @description Jest environment setup — installs the happy-dom window as
+ * the global DOM surface, silences console output (zero-console policy:
+ * src diagnostics route through devlog; remaining console callers are
+ * third-party noise), sets the Firebase log level to silent, and deletes
+ * any initialized Firebase app between runs.
+ */
+
 import { GlobalWindow } from 'happy-dom'
 import { setLogLevel as firebaseSetLogLevel, getApps, deleteApp } from 'firebase/app'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
