@@ -3,6 +3,11 @@
  * @description Generic attribute-value tokens — token group.
  */
 
+/**
+ * Generic attribute-value tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const ATTR_VALUES = Object.freeze({
   EMPTY: '',
   TRUE: 'true',
