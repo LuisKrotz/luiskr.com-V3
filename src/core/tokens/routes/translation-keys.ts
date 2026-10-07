@@ -7,7 +7,9 @@
 import { _B_ABOUT, _B_NOT_FOUND, _K_HOME, _K_PRIVACY_POLICY, _K_TERMS_OF_USE } from '../base.js'
 
 /**
- * The TRANSLATION_KEYS constant.
+ * Frozen translation key map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const TRANSLATION_KEYS = Object.freeze({
   HOME: _K_HOME,
