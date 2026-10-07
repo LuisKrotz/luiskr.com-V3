@@ -14,7 +14,7 @@ import { DEFAULT_SP_GUI } from '@/core/tokens/playground.js'
 type TslNs = typeof import('three/tsl')
 
 /**
- * The SurfaceMaterialArgs value.
+ * Type contract for SurfaceMaterialArgs — the shape consumers rely on.
  */
 export interface SurfaceMaterialArgs {
   THREE: typeof THREE_NS
@@ -30,7 +30,7 @@ export interface SurfaceMaterialArgs {
 }
 
 /**
- * The SurfaceMaterialResult value.
+ * Type contract for SurfaceMaterialResult — the shape consumers rely on.
  */
 export interface SurfaceMaterialResult {
   mat: MeshPhysicalNodeMaterial
