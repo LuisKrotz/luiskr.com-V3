@@ -12,22 +12,26 @@
 // The previous JS-driven shimmer loop (rAF at 60fps calling style.setProperty
 // on documentElement) has been removed — it forced a full CSS cascade
 // recalculation on every frame and caused page-wide freezes on iOS.
-import { WASM_ACTIONS } from '@/core/tokens/data/wasm.js'
+import { WASM_ACTIONS, WASM_CSS } from '@/core/tokens/data/wasm.js'
 import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 import { ASSET_IDS } from '@/core/tokens/ids/assets.js'
+import { CSS_STRINGS } from '@/core/tokens/strings/css.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { wasmPool } from './wasm-pool.js'
 
-/**
- * Type contract for WasmSkeletonStyle — the shape consumers rely on.
- */
+/** Skeleton-placeholder style tuple produced by calcWasmSkeletonStyle. */
 export interface WasmSkeletonStyle {
+  /** CSS width — `${n}px` for numeric input, passthrough for strings. */
   width: string
+  /** CSS height — `${n}px` for numeric input, passthrough for strings. */
   height: string
+  /** CSS border-radius — a var() token reference. */
   borderRadius: string
+  /** CSS display — inline-block so the placeholder participates in text flow. */
   display: string
 }
 
+/** The lazily-created managed <style> node in <head>. */
 let styleSheetEl: HTMLStyleElement | null = null
 
 /**
@@ -41,7 +45,10 @@ class WASMCSSManager {
     this.initStyleSheet()
   }
 
-  /** Finds-or-creates the shared <style> node and injects the static rule set. */
+  /**
+   * Finds-or-creates the shared <style id="wasm-dynamic-css"> node and
+   * injects the static rule set. SSR-safe: returns early without document.
+   */
   initStyleSheet(): void {
     if (typeof document === TYPE_STRINGS.UNDEFINED) return
 
@@ -56,14 +63,18 @@ class WASMCSSManager {
     this.injectStaticWasmCSS()
   }
 
-  /** Writes the baseline rules (GPU-compositor promotion class). */
+  /**
+   * Writes the baseline rules — the GPU compositor-promotion utility class
+   * (will-change + translate3d + backface-visibility) used by carousel and
+   * media components. Skeleton shimmer stays CSS-only in _structure.scss.
+   */
   injectStaticWasmCSS(): void {
     if (!styleSheetEl) return
 
     // GPU-acceleration utility class used by carousel and media components.
     // Skeleton shimmer is CSS-only (see _structure.scss) — no JS loop needed.
     styleSheetEl.textContent = `
-      .wasm-gpu-accelerated {
+      .${WASM_CSS.GPU_CLASS} {
         will-change: transform, opacity;
         transform: translate3d(0, 0, 0);
         -webkit-backface-visibility: hidden;
@@ -72,15 +83,28 @@ class WASMCSSManager {
     `
   }
 
-  // Calculate skeleton style object (dimensions only — animation is CSS-driven)
+  /**
+   * Computes the skeleton-placeholder style tuple (dimensions only — the
+   * shimmer animation is CSS-driven). Numeric inputs become px strings;
+   * strings pass through. As a side effect it dispatches a media-analytics
+   * job to the pool so sizing telemetry feeds the WASM analytics pipeline.
+   * @param width CSS width or pixel number (default 100%).
+   * @param height CSS height or pixel number (default 1.2em ≈ one text line).
+   * @param borderRadius CSS radius (default var(--radius-2xs)).
+   * @returns The style tuple for inline application.
+   */
   calcWasmSkeletonStyle(
-    width: string | number = '100%',
-    height: string | number = '1.2em',
-    borderRadius = 'var(--radius-2xs)'
+    width: string | number = WASM_CSS.DEFAULT_WIDTH,
+    height: string | number = WASM_CSS.DEFAULT_HEIGHT,
+    borderRadius: string = CSS_STRINGS.VAR_RADIUS_2XS
   ): WasmSkeletonStyle {
-    const numericWidth = (typeof width === TYPE_STRINGS.NUMBER ? width : 200) as number
+    const numericWidth = (
+      typeof width === TYPE_STRINGS.NUMBER ? width : WASM_CSS.FALLBACK_WIDTH_PX
+    ) as number
 
-    const numericHeight = (typeof height === TYPE_STRINGS.NUMBER ? height : 24) as number
+    const numericHeight = (
+      typeof height === TYPE_STRINGS.NUMBER ? height : WASM_CSS.FALLBACK_HEIGHT_PX
+    ) as number
 
     // Offload analytics math to WASM worker
     wasmPool.dispatch(WASM_ACTIONS.PROCESS_MEDIA_ANALYTICS, {
@@ -93,11 +117,16 @@ class WASMCSSManager {
       width: typeof width === TYPE_STRINGS.NUMBER ? `${width}px` : (width as string),
       height: typeof height === TYPE_STRINGS.NUMBER ? `${height}px` : (height as string),
       borderRadius,
-      display: 'inline-block',
+      display: WASM_CSS.DISPLAY,
     }
   }
 
-  /** Appends a new selector rule once (dedupes by selector substring). */
+  /**
+   * Appends a new selector rule once — dedupes by selector substring so
+   * repeat calls can't bloat the sheet with identical rules.
+   * @param selector CSS selector text.
+   * @param declarations Declaration body (`prop: value; …`).
+   */
   setWasmCSSRule(selector: string, declarations: string): void {
     if (!styleSheetEl) return
 
@@ -110,11 +139,18 @@ class WASMCSSManager {
 }
 
 /**
- * The wasmCSS constant.
+ * Shared injector singleton — one managed <style> node serves every
+ * runtime rule so the head never accumulates duplicate sheets.
  */
 export const wasmCSS = new WASMCSSManager()
+
 /**
- * The calc wasm skeleton style helper.
+ * Convenience wrapper over wasmCSS.calcWasmSkeletonStyle — the historical
+ * free-function API kept so call sites stay on the old import.
+ * @param w Width (CSS string or px number).
+ * @param h Height (CSS string or px number).
+ * @param r Border-radius override.
+ * @returns The skeleton style tuple.
  */
 export const calcWasmSkeletonStyle = (
   w?: string | number,
