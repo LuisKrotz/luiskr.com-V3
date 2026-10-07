@@ -4,6 +4,11 @@
  * grouped subsets of TEXT.
  */
 
+/**
+ * Non-localized UI text tokens (units, dev-facing labels) Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const NAV_TEXT = Object.freeze({
   SCROLL_UP: 'Back to Top',
   SCROLL_UP_ALT: 'Scroll up',
