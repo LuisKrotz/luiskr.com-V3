@@ -863,6 +863,23 @@ describe('ViewLegal', () => {
     expect(sectionDraws[0].getAttribute(FORM_ATTRS.TEXT)).toBe('Data Collection')
   })
 
+  test('renders sections in order when translations arrive without a title', () => {
+    legalEl.translations = {
+      sections: [{ title: 'Only Section', content: ['Body copy.'] }],
+    }
+    legalEl._updateDom()
+
+    // No title → the h1 keeps the skeleton slot while the ordered draw plan
+    // still schedules section items from a zero cursor.
+    const titleSkel = legalEl.shadowRoot.querySelector(`.${SKELETON_CLASSES.SKELETON_TITLE_SM}`)
+    expect(titleSkel).not.toBeNull()
+
+    const sections = legalEl.shadowRoot.querySelectorAll(
+      `.${INTERNAL_CLASSES.INTERNAL_DESCRIPTION}`
+    )
+    expect(sections.length).toBe(1)
+  })
+
   test('renders legal-footer component at the bottom', () => {
     const footer = legalEl.shadowRoot.querySelector(COMPONENT_TAGS.LEGAL_FOOTER)
     expect(footer).not.toBeNull()

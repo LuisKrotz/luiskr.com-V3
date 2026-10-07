@@ -12,6 +12,7 @@ import { CMS_TAGS } from '@/cms/tokens.js'
 import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { AUTH_STRINGS } from '@/core/tokens/strings/auth.js'
 import { h } from '@/core/jsx.js'
 import { BaseComponent } from '@/core/Component.js'
 import { signInWithGoogle } from '@/firebase.js'
@@ -63,7 +64,10 @@ export class ViewAdminLogin extends BaseComponent {
       // Suppress cancelled-popup noise (user closed the popup)
       const e = err as { code?: string; message?: string }
 
-      if (e?.code === 'auth/cancelled-popup-request' || e?.code === 'auth/popup-closed-by-user') {
+      if (
+        e?.code === AUTH_STRINGS.ERR_CANCELLED_POPUP ||
+        e?.code === AUTH_STRINGS.ERR_POPUP_CLOSED
+      ) {
         this.errorMsg = ATTR_VALUES.EMPTY
       } else {
         devError('Google Sign-In Error:', err)

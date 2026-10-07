@@ -54,6 +54,11 @@
 
   @include layout-1024() {
     border-radius: to-rem($space-lg);
+    // Desktop: keep ≥24px of margin on each side of every slide item — the
+    // media box inside can never sit closer to its neighbours than
+    // padding + 24px, which keeps the "click to open" affordance and the
+    // corner borders clear of adjacent slides.
+    margin-inline: to-rem(24);
   }
 
   @include layout-1440() {
@@ -110,7 +115,6 @@
     --mf-w: calc(90vw - #{to-rem($space-xl * 2)});
     --mf-h: calc(70vh - #{to-rem($space-xl * 2)});
     --mf-h: calc(70dvh - #{to-rem($space-xl * 2)});
-    --mf-max-w: none;
 
     @include layout-768() {
       --mf-w: calc(90vw - #{to-rem($space-2xl * 2)});

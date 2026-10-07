@@ -4,6 +4,7 @@
  * persisted to localStorage; hidden once answered or when consent exists.
  */
 
+import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
 import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 import { COOKIE_CLASSES } from '@/core/tokens/classes/cookies.js'
@@ -11,12 +12,14 @@ import { COOKIE_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 import { APP_EVENTS } from '@/core/tokens/events/app.js'
 import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { COOKIE_CSS_PROPS } from '@/core/tokens/css/cookies.js'
 import { COOKIE_SELECTORS } from '@/core/tokens/selectors/cookies.js'
 import { h } from '@/core/jsx.js'
 import { BaseComponent } from '@/core/Component.js'
 import { appText } from '@/core/locale/ui-text.js'
 import appStyles from '@/sass/components/shell/app.scss?inline'
 import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
+import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
 interface CookieCopy {
   message?: string
@@ -33,6 +36,7 @@ interface CookieTranslations {
  */
 export class CookieBanner extends BaseComponent {
   private _translations: CookieTranslations | null = null
+  private _resizeObserver: ResizeObserver | null = null // watches banner reflow so --cookie-banner-h stays accurate
 
   constructor() {
     super(appStyles)
@@ -49,6 +53,8 @@ export class CookieBanner extends BaseComponent {
       this._updateDom()
 
       this._bindEvents()
+
+      this._syncBannerSpace()
     }
   }
 
@@ -68,6 +74,66 @@ export class CookieBanner extends BaseComponent {
     } else {
       this._bindEvents()
     }
+
+    this._syncBannerSpace()
+  }
+
+  /** Lifecycle: re-measures after any render flips banner visibility. */
+  override onUpdated() {
+    this._syncBannerSpace()
+  }
+
+  /** Lifecycle: releases the height observer when the element detaches. */
+  override onDestroy() {
+    this._resizeObserver?.disconnect()
+
+    this._resizeObserver = null
+  }
+
+  /**
+   * Publishes the banner's rendered height to --cookie-banner-h on the
+   * document root so page content gets bottom clearance on every route —
+   * the fixed banner would otherwise cover the footer until answered.
+   * Removes the property entirely while hidden so pages reclaim the space.
+   */
+  private _syncBannerSpace(): void {
+    const root = document.documentElement
+
+    if (this.hidden) {
+      root.style.removeProperty(COOKIE_CSS_PROPS.BANNER_H)
+
+      this._resizeObserver?.disconnect()
+      this._resizeObserver = null
+
+      return
+    }
+
+    const publish = () => {
+      // The aside is position:fixed so the host's own box stays 0 — measure
+      // the banner element itself.
+      const banner = this.$(COOKIE_SELECTORS.COOKIES)
+
+      if (banner instanceof HTMLElement) {
+        root.style.setProperty(
+          COOKIE_CSS_PROPS.BANNER_H,
+          `${banner.offsetHeight}${COMMON_ATTRS.PX}`
+        )
+      }
+    }
+
+    publish()
+
+    // _updateDom rebuilds the aside each render — always re-observe the
+    // current node rather than a possibly-detached one.
+    this._resizeObserver?.disconnect()
+
+    if (typeof ResizeObserver !== TYPE_STRINGS.UNDEFINED && !this._resizeObserver) {
+      this._resizeObserver = new ResizeObserver(publish)
+    }
+
+    const banner = this.$(COOKIE_SELECTORS.COOKIES)
+
+    if (banner) this._resizeObserver?.observe(banner)
   }
 
   /** Wires accept/decline button clicks. */
@@ -98,6 +164,8 @@ export class CookieBanner extends BaseComponent {
     this.style.display = ATTR_VALUES.NONE
 
     this._updateDom()
+
+    this._syncBannerSpace()
   }
 
   /** JSX template for the component's shadow DOM. */

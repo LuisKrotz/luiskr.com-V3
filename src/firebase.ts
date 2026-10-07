@@ -13,9 +13,10 @@
  */
 
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
+import { AUTH_REDIRECT_FALLBACK_CODES } from '@/core/tokens/strings/auth.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { initializeApp } from 'firebase/app'
-import type { Auth, User, Unsubscribe } from 'firebase/auth'
+import type { Auth, User, Unsubscribe, UserCredential } from 'firebase/auth'
 import type { Database } from 'firebase/database'
 import { CDN_URLS } from '@/core/tokens/media/urls.js'
 import { CACHE_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
@@ -110,14 +111,31 @@ export async function getDbInstance() {
 /**
  * CMS login — Google OAuth popup. `prompt: 'select_account'` forces the
  * account chooser so a CMS editor isn't silently signed into a wrong Google account.
- * @returns The SDK UserCredential.
+ * When the environment can't complete the popup handshake (popup blockers,
+ * COOP window.closed blocking, partitioned web storage, unsupported
+ * contexts — the AUTH_REDIRECT_FALLBACK_CODES set), retries transparently
+ * via signInWithRedirect, which navigates away and never resolves.
+ * @returns The SDK UserCredential, or nothing when the redirect fallback fires.
  */
-export async function signInWithGoogle() {
+export async function signInWithGoogle(): Promise<UserCredential | void> {
   const auth = await getAuthInstance()
-  const { GoogleAuthProvider, signInWithPopup } = await import('firebase/auth')
+  const { GoogleAuthProvider, signInWithPopup, signInWithRedirect } = await import('firebase/auth')
   const provider = new GoogleAuthProvider()
+
   provider.setCustomParameters({ prompt: 'select_account' })
-  return await signInWithPopup(auth, provider)
+
+  try {
+    return await signInWithPopup(auth, provider)
+  } catch (err) {
+    const code = (err as { code?: string })?.code
+
+    if (code && AUTH_REDIRECT_FALLBACK_CODES.includes(code)) {
+      devWarn('Popup sign-in unavailable, falling back to redirect', code)
+      return await signInWithRedirect(auth, provider)
+    }
+
+    throw err
+  }
 }
 
 /** Signs the CMS user out via the lazily-loaded auth SDK. */
@@ -129,12 +147,22 @@ export async function logoutUser() {
 
 /**
  * Subscribes to auth state after lazily loading firebase/auth.
+ * First resolves a pending redirect sign-in (the signInWithGoogle popup
+ * fallback) so the callback fires with the fresh session on return — a
+ * failed redirect logs the error and falls through to the normal listener.
  * @param callback Invoked with the User (or null on sign-out) on every auth transition.
  * @returns {Promise<Function>} the SDK's unsubscribe function
  */
 export async function onAuthChange(callback: (_user: User | null) => void): Promise<Unsubscribe> {
   const auth = await getAuthInstance()
-  const { onAuthStateChanged } = await import('firebase/auth')
+  const { getRedirectResult, onAuthStateChanged } = await import('firebase/auth')
+
+  try {
+    await getRedirectResult(auth)
+  } catch (err) {
+    devWarn('Redirect sign-in resolution failed', err)
+  }
+
   return onAuthStateChanged(auth, callback)
 }
 

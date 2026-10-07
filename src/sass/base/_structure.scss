@@ -116,6 +116,11 @@
   --z-nav: #{$z-nav};
   --z-top: #{$z-top};
 
+  // Consent-banner live height — CookieBanner writes the real px value on
+  // documentElement while visible and removes it when dismissed; the 0px
+  // default keeps `main` unpadded when no banner is up.
+  --cookie-banner-h: 0px;
+
   // Font stacks
   --font-mono: #{$font-mono};
   --font-primary: 'Raleway', sans-serif;
@@ -342,6 +347,10 @@ draw-text {
 
 // Routed content host (#main).
 main {
+  // Clearance for the fixed cookie banner — without it the banner covers
+  // the page bottom (legal footer unreachable) until consent is answered.
+  padding-bottom: var(--cookie-banner-h);
+
   .modal-open & {
     position: fixed;
     top: var(

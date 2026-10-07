@@ -374,7 +374,6 @@
         --mf-w: calc(90vw - #{to-rem($space-xl * 2)});
         --mf-h: calc(70vh - #{to-rem($space-xl * 2)});
         --mf-h: calc(70dvh - #{to-rem($space-xl * 2)});
-        --mf-max-w: none;
 
         @include layout-768() {
           --mf-w: calc(90vw - #{to-rem($space-2xl * 2)});
@@ -933,6 +932,13 @@ $_B_RELATED: 'related-mosaic';
 // gaps between them in the carousel track.
 // ─────────────────────────────────────────────────────────────────────────────
 .carousel .internal-extra-item {
+  @include layout-1024() {
+    // Desktop clearance: ≥24px margin on each side of the item — combined
+    // with the item padding this keeps every media box (and its
+    // click-to-open affordance) visually separated from neighbours.
+    margin-inline: to-rem(24);
+  }
+
   &:first-of-type {
     padding-left: to-rem($space-lg);
   }

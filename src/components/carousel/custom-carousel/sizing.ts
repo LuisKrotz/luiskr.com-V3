@@ -45,13 +45,16 @@ export function startFitObserver(c: CustomCarousel) {
 
 /**
  * Decides whether the items fit side-by-side (no carousel chrome) or need
- * the scroll track. Side-by-side requires: ≤2 items, no landscape item
- * (too wide to pair), viewport ≥ SIDE_BY_SIDE_BREAKPOINT, and projected
- * total width ≤ host width. Projection: each item lays out at
- * maxH = MAX_HEIGHT_VH of viewport height, so rendered width ≈
- * (w/h)·maxH plus ITEM_GAP_PX flex gap. Items missing intrinsic sizes
- * use GENERIC_DIMENSIONS defaults (conservative portrait) so a partial
- * CMS row can't silently flip to scroll mode.
+ * the scroll track. Side-by-side requires: ≤2 items, viewport
+ * ≥ SIDE_BY_SIDE_BREAKPOINT, and projected total width ≤ host width.
+ * The projection mirrors the shadow-DOM contract in media-figure.scss +
+ * carousel-host.scss exactly: strip height is --mf-h (70dvh minus a pad
+ * under 1024, fixed $space-* steps above), media width is
+ * ratio·stripH floored at MEDIA_MIN_WIDTH on ≥375px viewports and capped
+ * by the regular gutter cap or the landscape --mf-max-w ladder, and each
+ * item adds its breakpoint padding + desktop side margin. Items missing
+ * intrinsic sizes use GENERIC_DIMENSIONS defaults (conservative portrait)
+ * so a partial CMS row can't silently flip to scroll mode.
  * @param c The CustomCarousel element.
  * @param observedWidth Fresh RO width when known — avoids a layout read.
  */
@@ -60,8 +63,8 @@ export function measureFit(c: CustomCarousel, observedWidth?: number) {
 
   if (c.items.length < 2) return
 
-  // Groups with more than 2 items or containing any landscape items cannot fit side-by-side.
-  if (c.items.length > 2 || c.items.some((i) => i?.class === STATE_STRINGS.LANDSCAPE)) {
+  // Groups with more than 2 items always need the scroll track + controls.
+  if (c.items.length > 2) {
     if (c._isSideBySide) {
       c._isSideBySide = false
 
@@ -73,10 +76,9 @@ export function measureFit(c: CustomCarousel, observedWidth?: number) {
     return
   }
 
-  if (
-    typeof window !== TYPE_STRINGS.UNDEFINED &&
-    window.innerWidth < CAROUSEL_LAYOUT.SIDE_BY_SIDE_BREAKPOINT
-  ) {
+  const vw = typeof window !== TYPE_STRINGS.UNDEFINED ? window.innerWidth : 0
+
+  if (vw < CAROUSEL_LAYOUT.SIDE_BY_SIDE_BREAKPOINT) {
     if (c._isSideBySide) {
       c._isSideBySide = false
 
@@ -90,10 +92,54 @@ export function measureFit(c: CustomCarousel, observedWidth?: number) {
 
   if (hostW <= 0) return
 
-  const maxH =
-    typeof window !== TYPE_STRINGS.UNDEFINED
-      ? Math.round((window.innerHeight * CAROUSEL_LAYOUT.MAX_HEIGHT_VH) / 100)
-      : CAROUSEL_LAYOUT.MAX_HEIGHT_FALLBACK
+  // Past the <960 guard window is provably defined — vh reads directly.
+  const vh = window.innerHeight
+
+  // --mf-h ladder (media-figure.scss / carousel-host.scss): 70dvh minus a
+  // pad below 1024, fixed $space-* steps at 1024/1440/2560.
+  const vh70 = Math.round((vh * CAROUSEL_LAYOUT.MAX_HEIGHT_VH) / 100)
+
+  const stripH =
+    vw >= 2560
+      ? CAROUSEL_LAYOUT.STRIP_H_2560
+      : vw >= 1440
+        ? CAROUSEL_LAYOUT.STRIP_H_1440
+        : vw >= CAROUSEL_LAYOUT.ITEM_MARGIN_VW
+          ? CAROUSEL_LAYOUT.STRIP_H_1024
+          : vh70 - CAROUSEL_LAYOUT.STRIP_SUB_TABLET
+
+  // vw ≥ 960 > MEDIA_MIN_WIDTH_VW here — the 320px floor always applies.
+  const mediaMinW = CAROUSEL_LAYOUT.MEDIA_MIN_WIDTH
+
+  // Item horizontal padding (both sides) per breakpoint — mirrors the
+  // .internal-extra-item padding-inline ladder; ≥960 always lands on the
+  // ≥768 rung or above so the sub-768 default has no case here.
+  const itemPad =
+    vw >= 1920
+      ? CAROUSEL_LAYOUT.ITEM_PAD_1920
+      : vw >= 1440
+        ? CAROUSEL_LAYOUT.ITEM_PAD_1440
+        : CAROUSEL_LAYOUT.ITEM_PAD_768
+
+  // Desktop-only item side margins — only ≥1024 viewports pay them.
+  const itemMargin = vw >= CAROUSEL_LAYOUT.ITEM_MARGIN_VW ? CAROUSEL_LAYOUT.ITEM_MARGIN_PX * 2 : 0
+
+  // Media max-width caps: landscape items use their own --mf-max-w ladder
+  // at ≥1024; regular items get the viewport-gutter cap at ≥1024 and the
+  // 90vw-minus-pad cap below.
+  const landscapeCap =
+    vw >= 1920
+      ? vw - CAROUSEL_LAYOUT.LAND_CAP_SUB_1920
+      : vw >= 1440
+        ? vw - CAROUSEL_LAYOUT.LAND_CAP_SUB_1440
+        : vw >= 1280
+          ? vw - CAROUSEL_LAYOUT.LAND_CAP_SUB_1280
+          : vw - CAROUSEL_LAYOUT.LAND_CAP_SUB_1024
+
+  const regularCap =
+    vw >= CAROUSEL_LAYOUT.ITEM_MARGIN_VW
+      ? vw - CAROUSEL_LAYOUT.REG_CAP_SUB
+      : vw * 0.9 - CAROUSEL_LAYOUT.STRIP_SUB_TABLET
 
   let totalW = 0
 
@@ -102,9 +148,15 @@ export function measureFit(c: CustomCarousel, observedWidth?: number) {
 
     const h = item.size?.[1] || GENERIC_DIMENSIONS.ITEM_FALLBACK_HEIGHT
 
-    const ratio = w / h
+    const natural = (w / h) * stripH
 
-    totalW += ratio * maxH + CAROUSEL_LAYOUT.ITEM_GAP_PX
+    const cap = item?.class === STATE_STRINGS.LANDSCAPE ? landscapeCap : regularCap
+
+    // CSS order: max-width clamps first, then min-width can override it —
+    // a floored media keeps 320px even when the cap is smaller.
+    const mediaW = Math.max(mediaMinW, Math.min(natural, cap))
+
+    totalW += mediaW + itemPad + itemMargin + CAROUSEL_LAYOUT.ITEM_GAP_PX
   }
 
   const fits = totalW > 0 && totalW <= hostW

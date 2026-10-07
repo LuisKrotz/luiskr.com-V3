@@ -6,7 +6,6 @@
 import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import type { ViewProject } from './Project.js'
 import type { CustomCarouselElement, ProjectMediaItem } from './types.js'
@@ -28,13 +27,16 @@ export function bindProjectCarousels(view: ViewProject): void {
 
     if (!items) return
 
+    // forceActive skips the fit projection entirely — reserve it for the
+    // cases the projection can't decide: >2 items (controls needed) and
+    // all-landscape groups (author intent — the CMS flag is the only hint
+    // when intrinsic sizes are missing). A mixed or mislabeled-landscape
+    // 2-item group still gets measured by measureFit, which mirrors the
+    // real CSS caps and centers the pair when it fits.
     c.configure({
       items,
       folder: view.translations?.folder || ATTR_VALUES.EMPTY,
-      forceActive:
-        view.isLandscapeGroup(items) ||
-        items.length > 2 ||
-        items.some((i) => i?.class === STATE_STRINGS.LANDSCAPE),
+      forceActive: view.isLandscapeGroup(items) || items.length > 2,
     })
   }
 

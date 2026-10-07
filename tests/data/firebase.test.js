@@ -9,6 +9,7 @@
 
 import { describe, test, expect, jest, beforeEach } from '@jest/globals'
 import { APP_IDS } from '@/core/tokens/ids/app.js'
+import { AUTH_STRINGS } from '@/core/tokens/strings/auth.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { CACHE_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
 import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
@@ -20,6 +21,8 @@ jest.unstable_mockModule('firebase/auth', () => ({
   getAuth: jest.fn(() => mockAuth),
   GoogleAuthProvider: jest.fn(() => ({ setCustomParameters: jest.fn() })),
   signInWithPopup: jest.fn(async () => ({ user: { uid: 'u1' } })),
+  signInWithRedirect: jest.fn(async () => undefined),
+  getRedirectResult: jest.fn(async () => null),
   signOut: jest.fn(async () => undefined),
   onAuthStateChanged: jest.fn((_a, cb) => () => cb),
 }))
@@ -78,9 +81,62 @@ describe('firebase — bootstrap & lazy loaders', () => {
     expect(signOut).toHaveBeenCalledWith(mockAuth)
   })
 
+  test('signInWithGoogle falls back to redirect when the popup environment fails', async () => {
+    const { signInWithPopup, signInWithRedirect } = await import('firebase/auth')
+
+    signInWithPopup.mockRejectedValueOnce({ code: AUTH_STRINGS.ERR_INTERNAL })
+
+    const res = await firebase.signInWithGoogle()
+
+    expect(signInWithRedirect).toHaveBeenCalled()
+    expect(res).toBeUndefined()
+  })
+
+  test('signInWithGoogle redirects for every popup-environment code', async () => {
+    const { signInWithPopup, signInWithRedirect } = await import('firebase/auth')
+
+    const before = signInWithRedirect.mock.calls.length
+
+    for (const code of [
+      AUTH_STRINGS.ERR_POPUP_BLOCKED,
+      AUTH_STRINGS.ERR_STORAGE_UNSUPPORTED,
+      AUTH_STRINGS.ERR_ENV_UNSUPPORTED,
+    ]) {
+      signInWithPopup.mockRejectedValueOnce({ code })
+      await firebase.signInWithGoogle()
+    }
+
+    expect(signInWithRedirect.mock.calls.length).toBe(before + 3)
+  })
+
+  test('signInWithGoogle rethrows user cancellations instead of redirecting', async () => {
+    const { signInWithPopup, signInWithRedirect } = await import('firebase/auth')
+
+    const before = signInWithRedirect.mock.calls.length
+
+    signInWithPopup.mockRejectedValueOnce({ code: AUTH_STRINGS.ERR_POPUP_CLOSED })
+
+    await expect(firebase.signInWithGoogle()).rejects.toEqual({
+      code: AUTH_STRINGS.ERR_POPUP_CLOSED,
+    })
+
+    expect(signInWithRedirect.mock.calls.length).toBe(before) // no new fallback
+  })
+
   test('onAuthChange subscribes via onAuthStateChanged', async () => {
     const { onAuthStateChanged } = await import('firebase/auth')
     const unsub = await firebase.onAuthChange(() => {})
+    expect(onAuthStateChanged).toHaveBeenCalled()
+    expect(typeof unsub).toBe(TYPE_STRINGS.FUNCTION)
+  })
+
+  test('onAuthChange still subscribes when the redirect result rejects', async () => {
+    const { getRedirectResult, onAuthStateChanged } = await import('firebase/auth')
+
+    getRedirectResult.mockRejectedValueOnce(new Error('redirect failed'))
+
+    const unsub = await firebase.onAuthChange(() => {})
+
     expect(onAuthStateChanged).toHaveBeenCalled()
     expect(typeof unsub).toBe(TYPE_STRINGS.FUNCTION)
   })

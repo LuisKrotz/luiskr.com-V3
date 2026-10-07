@@ -26,7 +26,8 @@ import { fetchFirebaseDb } from '@/utils/data/db.js'
 import type { DbSnapshot } from '@/utils/data/db.js'
 import type { RouteDescriptor } from '../../router.js'
 import { stripHtml } from '@/core/utils/index.js'
-import { calcDrawTextDelay, calcDrawTextOffset } from '@/utils/wasm/wasm-layout.js'
+import { calcDrawTextDelay, calcDrawTextOrderedOffset } from '@/utils/wasm/wasm-layout.js'
+import { DRAW_TIMINGS } from '@/core/tokens/media/dimensions.js'
 import { FALLBACK_PAGES } from '@/core/locale/fallback.js'
 import '@/components/media/DrawText.js'
 import legalStyles from './legal.scss?inline'
@@ -156,6 +157,39 @@ export class ViewLegal extends BaseComponent {
     const t = this.translations
     const LegalFooter = COMPONENT_TAGS.LEGAL_FOOTER
 
+    /**
+     * Ordered reveal plan — one running cursor across the whole document
+     * so titles and paragraphs cascade in reading order even when several
+     * sections are in the viewport at once. Each item's offset is the
+     * cumulative duration of every item before it (chars × its section's
+     * per-char delay) plus a global index step; the `ordered` attribute
+     * makes draw-text read that offset against the shared session clock.
+     */
+    const drawPlan: { section: LegalSection; offsets: number[]; delay: number }[] = []
+
+    // The <h1> title leads the schedule — index 0, its reveal duration
+    // (chars × DRAW_DEFAULT_DELAY, the attr-free default) seeds the cursor.
+    let scheduledMs = t?.title ? stripHtml(t.title).length * DRAW_TIMINGS.DRAW_DEFAULT_DELAY : 0
+    let itemIdx = t?.title ? 1 : 0
+
+    for (const section of t?.sections || []) {
+      const items = [section.title || CHAR_STRINGS.EMPTY, ...(section.content || [])]
+
+      const totalChars = items.reduce((sum, str) => sum + stripHtml(str).length, 0) || 1
+
+      const delay = calcDrawTextDelay(totalChars)
+
+      const offsets = items.map((str) => {
+        const offset = calcDrawTextOrderedOffset(itemIdx++, scheduledMs)
+
+        scheduledMs += stripHtml(str).length * delay
+
+        return offset
+      })
+
+      drawPlan.push({ section, offsets, delay })
+    }
+
     return (
       <article>
         <div id="main" className={LEGAL_CLASSES.LEGAL}>
@@ -178,6 +212,7 @@ export class ViewLegal extends BaseComponent {
                 text={t.title}
                 trigger={COMMON_ATTRS.TRIGGER_VIEWPORT}
                 fit={ATTR_VALUES.EMPTY}
+                ordered={ATTR_VALUES.TRUE}
               />
             ) : (
               <span
@@ -189,46 +224,33 @@ export class ViewLegal extends BaseComponent {
 
           {t?.sections ? (
             <div>
-              {t.sections.map((section, key) => {
-                const items = [section.title || CHAR_STRINGS.EMPTY, ...(section.content || [])]
-
-                const totalChars = items.reduce((sum, str) => sum + stripHtml(str).length, 0) || 1
-
-                const delay = calcDrawTextDelay(totalChars)
-
-                const offsetFor = (idx: number) =>
-                  calcDrawTextOffset(
-                    idx,
-                    items.slice(0, idx).reduce((sum, str) => sum + stripHtml(str).length, 0),
-                    delay
-                  )
-
-                return (
-                  <section key={key} className={INTERNAL_CLASSES.INTERNAL_DESCRIPTION}>
-                    <h2
-                      className={INTERNAL_CLASSES.INTERNAL_DESCRIPTION_TEXT}
-                      aria-label={stripHtml(section.title || CHAR_STRINGS.EMPTY) || undefined}
-                    >
+              {drawPlan.map(({ section, offsets, delay }, key) => (
+                <section key={key} className={INTERNAL_CLASSES.INTERNAL_DESCRIPTION}>
+                  <h2
+                    className={INTERNAL_CLASSES.INTERNAL_DESCRIPTION_TEXT}
+                    aria-label={stripHtml(section.title || CHAR_STRINGS.EMPTY) || undefined}
+                  >
+                    <draw-text
+                      text={section.title || CHAR_STRINGS.EMPTY}
+                      trigger={COMMON_ATTRS.TRIGGER_VIEWPORT}
+                      delay={delay}
+                      offset={offsets[0]}
+                      ordered={ATTR_VALUES.TRUE}
+                    />
+                  </h2>
+                  {(section.content || []).map((paragraph, pKey) => (
+                    <p key={pKey} className={INTERNAL_CLASSES.INTERNAL_DESCRIPTION_TEXT}>
                       <draw-text
-                        text={section.title || CHAR_STRINGS.EMPTY}
+                        text={paragraph}
                         trigger={COMMON_ATTRS.TRIGGER_VIEWPORT}
                         delay={delay}
-                        offset={offsetFor(0)}
+                        offset={offsets[pKey + 1]}
+                        ordered={ATTR_VALUES.TRUE}
                       />
-                    </h2>
-                    {(section.content || []).map((paragraph, pKey) => (
-                      <p key={pKey} className={INTERNAL_CLASSES.INTERNAL_DESCRIPTION_TEXT}>
-                        <draw-text
-                          text={paragraph}
-                          trigger={COMMON_ATTRS.TRIGGER_VIEWPORT}
-                          delay={delay}
-                          offset={offsetFor(pKey + 1)}
-                        />
-                      </p>
-                    ))}
-                  </section>
-                )
-              })}
+                    </p>
+                  ))}
+                </section>
+              ))}
             </div>
           ) : (
             <div key="data-load">

@@ -48,6 +48,12 @@ export const COMMON_ATTRS = Object.freeze({
   CLASSES: 'classes',
   /** `trigger` — DrawText trigger attribute name (viewport/manual). */
   TRIGGER: 'trigger',
+  /**
+   * `ordered` — DrawText queue flag: marks the element as part of the
+   * document-order reveal session, so its `offset` is read as a scheduled
+   * start on the shared clock instead of a delay after its own trigger.
+   */
+  ORDERED: 'ordered',
   /** `viewport` trigger value — DrawText plays when scrolled into view. */
   TRIGGER_VIEWPORT: 'viewport',
   /** `touch` input-method value — primary-input is coarse (see store/state.ts probe). */

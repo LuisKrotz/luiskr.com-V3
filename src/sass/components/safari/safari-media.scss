@@ -48,6 +48,23 @@ figure {
   object-fit: contain;
 }
 
+// Carousel strip contract (same as media-figure.scss): slides share the
+// --mf-h strip height so media always fills the row; width stays
+// aspect-driven with a 320px floor on ≥375px viewports so tall media
+// never collapse to slivers. The placeholder is transparent — the media
+// layers cover-crop the box, so the floor never distorts the image.
+:host(.internal-extra-item) .render-placeholder,
+:host([classes*='internal-extra-item']) .render-placeholder {
+  height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
+  width: auto;
+  max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-3xl * 2)} - #{to-rem(48)}));
+  max-height: none;
+
+  @include layout-375() {
+    min-width: to-rem(320);
+  }
+}
+
 .render-media,
 video.render-media {
   position: absolute;

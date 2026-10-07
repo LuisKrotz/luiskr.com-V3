@@ -20,7 +20,12 @@ import { DRAW_TEXT_SELECTORS } from '@/core/tokens/selectors/draw-text.js'
 import { updateDom } from './draw-text/dom.js'
 import { fitText, setupFit, teardownFit } from './draw-text/fit.js'
 import { parseTokens, renderContent } from './draw-text/render.js'
-import { setupTrigger, startAnimation } from './draw-text/trigger.js'
+import {
+  registerOrdered,
+  setupTrigger,
+  startAnimation,
+  teardownTrigger,
+} from './draw-text/trigger.js'
 import type { DrawTimer, DrawToken } from './draw-text/types.js'
 import { DRAW_TIMINGS } from '@/core/tokens/media/dimensions.js'
 
@@ -36,6 +41,7 @@ export class DrawText extends HTMLElement {
   _styleEl: HTMLStyleElement | CSSStyleSheet | null = null // adopted shared sheet OR per-instance <style>
   _contentEl: HTMLSpanElement | null = null // cached content wrapper (skips re-query)
   _fitObserver: ResizeObserver | null = null // parent-size watcher for the `fit` scale-down
+  _effectiveOffset: number | null = null // resolved start offset — set at trigger time (ordered elements subtract elapsed session time)
 
   static get observedAttributes() {
     return [
@@ -45,6 +51,7 @@ export class DrawText extends HTMLElement {
       COMMON_ATTRS.TRIGGER,
       COMMON_ATTRS.VISIBLE,
       COMMON_ATTRS.FIT,
+      COMMON_ATTRS.ORDERED,
     ]
   }
 
@@ -97,6 +104,16 @@ export class DrawText extends HTMLElement {
     this.setAttribute(COMMON_ATTRS.TRIGGER, val)
   }
 
+  /**
+   * Ordered-queue flag — when set, `offset` is a scheduled start on the
+   * shared session clock (document-order cascade) rather than a delay
+   * after this element's own trigger.
+   */
+
+  get ordered() {
+    return this.hasAttribute(COMMON_ATTRS.ORDERED)
+  }
+
   /** Setter/getter — visibility flag used by the auto trigger. */
 
   get visible() {
@@ -125,6 +142,8 @@ export class DrawText extends HTMLElement {
     this._isMounted = false
 
     teardownFit(this)
+
+    teardownTrigger(this)
 
     if (this._observer) {
       this._observer.disconnect()
@@ -161,6 +180,12 @@ export class DrawText extends HTMLElement {
         this._setupFit()
       } else {
         teardownFit(this)
+      }
+    } else if (name === COMMON_ATTRS.ORDERED && this._isMounted) {
+      if (this.ordered) {
+        registerOrdered(this)
+      } else {
+        teardownTrigger(this)
       }
     }
   }
@@ -202,6 +227,8 @@ export class DrawText extends HTMLElement {
 
     this._hasAnimated = false
 
+    this._effectiveOffset = null
+
     if (this._animTimer) {
       clearTimeout(this._animTimer)
 
@@ -242,7 +269,7 @@ export class DrawText extends HTMLElement {
   /** Builds the animated span tree (delegate — ./draw-text/render.ts). */
 
   _renderContent(withChars = true): string {
-    return renderContent(this.text, this.delay, this.offset, withChars)
+    return renderContent(this.text, this.delay, this._effectiveOffset ?? this.offset, withChars)
   }
 }
 

@@ -11,7 +11,6 @@ import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
 import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
 import { APP_IDS } from '@/core/tokens/ids/app.js'
 import { LOCALES } from '@/core/tokens/locales.js'
-import { ROUTE_NAMES } from '@/core/tokens/routes/names.js'
 import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
 import { TRANSLATION_KEYS } from '@/core/tokens/routes/translation-keys.js'
 import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
@@ -36,7 +35,15 @@ interface NotFoundNode {
  * The ViewNotFound — not found class.
  */
 export class ViewNotFound extends BaseComponent {
-  translations: NotFoundNode | null = null
+  /**
+   * Seeded with the build-time English snapshot so the 404 renders
+   * meaningful copy instantly — and still renders when the Firebase fetch
+   * fails or the locale node is missing. Replaced by the live translation
+   * once `loadData()` resolves.
+   */
+  translations: NotFoundNode | null = FALLBACK_PAGES[
+    TRANSLATION_KEYS.NOT_FOUND
+  ] as NotFoundNode | null
 
   constructor() {
     super(notFoundStyles)
@@ -94,7 +101,7 @@ export class ViewNotFound extends BaseComponent {
   loadData(): void {
     const lang = store.getters.getlang()
     const currentLocale = lang.locale || LOCALES.EN
-    const dbpath = `${lang.database}${currentLocale}${lang.pagesPath}${ROUTE_NAMES.NOT_FOUND}`
+    const dbpath = `${lang.database}${currentLocale}${lang.pagesPath}${TRANSLATION_KEYS.NOT_FOUND}`
 
     fetchFirebaseDb(dbpath)
       .then((snapshot) => {

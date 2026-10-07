@@ -11,6 +11,7 @@ import { _B_COOKIES } from '../base.js'
  * the token contract immutable at runtime.
  */
 export const COOKIE_SELECTORS = Object.freeze({
+  COOKIES: `.${_B_COOKIES}`,
   COOKIES_BUTTONS_ACCEPT: `.${_B_COOKIES}-buttons-accept`,
   COOKIES_BUTTONS_REFUSE: `.${_B_COOKIES}-buttons-refuse`,
 })

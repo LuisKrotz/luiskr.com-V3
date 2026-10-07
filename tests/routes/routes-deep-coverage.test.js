@@ -19,12 +19,13 @@ import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
 import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 import { NOT_FOUND_CLASSES } from '@/core/tokens/classes/legal.js'
 import { MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
 
 import { LOCALES, ROUTE_NAMES } from '@/core/constants.js'
 import { TRANSLATION_KEYS } from '@/core/tokens/routes/translation-keys.js'
+import { FALLBACK_PAGES } from '@/core/locale/fallback.js'
+import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
 
 const flush = (ms = 0) => new Promise((r) => setTimeout(r, ms))
 
@@ -203,8 +204,12 @@ describe('ViewNotFound branches', () => {
   test('getters derive emoji/subtitle/home path from translations + locale', () => {
     const el = new ViewNotFound()
 
-    expect(el.emojiLine).toBe(CHAR_STRINGS.EMPTY)
-    expect(el.subtitle).toBe(CHAR_STRINGS.EMPTY)
+    // Seeded from the build-time English snapshot — meaningful copy
+    // renders before (and without) the Firebase fetch resolving.
+    const seeded = FALLBACK_PAGES[TRANSLATION_KEYS.NOT_FOUND]
+
+    expect(el.emojiLine).toBe(seeded.title.split(DOM_STRINGS.BR_TAG)[0])
+    expect(el.subtitle).toBe(seeded.title.split(DOM_STRINGS.BR_TAG)[1])
     expect(el.homePath).toBe('/')
 
     el.translations = { title: '🔍<br>Signal lost', link: 'Go home' }

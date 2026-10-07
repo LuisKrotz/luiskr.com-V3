@@ -117,6 +117,25 @@
       max-height: 70vh;
       max-height: 70dvh;
     }
+
+    @include layout-2560() {
+      // Ultra-wide bleed cap: without it, width:100% on a 5K viewport
+      // makes the 70vh height clamp crop the video to a panoramic sliver
+      // (≈5:1 displayed aspect). 175dvh keeps ≈2.5:1 — still full-bleed
+      // cinematic, but the top-anchored crop stays readable.
+      max-width: 175vh;
+      max-width: 175dvh;
+    }
+  }
+
+  figure {
+    // The placeholder caps the bleed, but the media layers absolutely
+    // fill the *figure* — it must carry the same cap or the crop remains.
+    @include layout-2560() {
+      max-width: 175vh;
+      max-width: 175dvh;
+      margin-inline: auto;
+    }
   }
 
   .render-media,
@@ -237,57 +256,82 @@ figure {
 @supports selector(:host-context(*)) {
   :host-context(.internal-extra-item) .render-placeholder {
     position: relative;
-    // Intrinsic size from the width/height attrs; the mf vars are caps —
-    // never upscale past the source resolution.
+    // Carousel strip contract: every slide shares the --mf-h strip height
+    // so media always fills the row. Width stays aspect-driven (auto →
+    // height × intrinsic ratio) capped by --mf-w on mobile/tablet and
+    // --mf-max-w (or the viewport gutter calc) on desktop, with a 320px
+    // floor at ≥375px viewports — very tall media used to collapse to
+    // unusable slivers when only max-* caps applied.
+    height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
+    height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
     width: auto;
-    height: auto;
     max-width: var(--mf-w, calc(90vw - #{to-rem($space-xl * 2)}));
-    max-height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
-    max-height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
+
+    @include layout-375() {
+      min-width: to-rem(320);
+    }
+
+    @include layout-1024() {
+      max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-3xl * 2)} - #{to-rem(48)}));
+    }
   }
 }
 
-// When inside .internal-extra-item context (carousel slides): the img's
-// width/height attrs carry the natural media size, so `auto` dimensions
-// render it at source resolution and the mf vars act purely as caps —
-// mixed slide widths coexist and no image is ever stretched beyond its
-// natural size. These vars cross the shadow boundary from internals.scss.
+// When inside .internal-extra-item context (carousel slides): the strip
+// height is pinned to --mf-h so every slide fills the carousel row, width
+// is aspect-driven (auto → height × intrinsic ratio) capped by --mf-w on
+// mobile/tablet and by --mf-max-w (or the viewport-gutter calc: item
+// padding + 24px margins per side) on desktop, and floored at 320px on
+// ≥375px viewports so tall media keep a usable touch target instead of
+// collapsing to slivers. The transparent placeholder only sizes the box —
+// the real media layers cover-crop it, so a floored/capped width never
+// distorts the image. These vars cross the shadow boundary from
+// internals.scss / carousel-host.scss.
 :host(.internal-extra-item) .render-placeholder,
 :host([classes*='internal-extra-item']) .render-placeholder {
   position: relative;
+  height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
+  height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
   width: auto;
-  height: auto;
   max-width: var(--mf-w, calc(90vw - #{to-rem($space-xl * 2)}));
-  max-height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
-  max-height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
+
+  @include layout-375() {
+    min-width: to-rem(320);
+  }
 
   @include layout-768() {
+    height: var(--mf-h, calc(70vh - #{to-rem($space-2xl * 2)}));
+    height: var(--mf-h, calc(70dvh - #{to-rem($space-2xl * 2)}));
     max-width: var(--mf-w, calc(90vw - #{to-rem($space-2xl * 2)}));
-    max-height: var(--mf-h, calc(70vh - #{to-rem($space-2xl * 2)}));
-    max-height: var(--mf-h, calc(70dvh - #{to-rem($space-2xl * 2)}));
   }
 
   @include layout-1024() {
-    max-width: var(--mf-w, #{to-rem($space-6xl)});
-    max-height: var(--mf-h, #{to-rem($space-7xl)});
+    height: var(--mf-h, #{to-rem($space-7xl)});
+    // --mf-max-w is only declared for landscape items — regular slides get
+    // the viewport-gutter cap (padding + 24px margin clearance per side).
+    max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-3xl * 2)} - #{to-rem(48)}));
   }
 
   @include layout-1440() {
-    max-width: var(--mf-w, #{to-rem($space-7xl)});
-    max-height: var(--mf-h, #{to-rem($space-8xl)});
+    height: var(--mf-h, #{to-rem($space-8xl)});
+    max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-3xl * 2)} - #{to-rem(48)}));
   }
 
   @include layout-2560() {
-    max-width: var(--mf-w, #{to-rem($space-8xl)});
-    max-height: var(--mf-h, #{to-rem($space-9xl)});
+    height: var(--mf-h, #{to-rem($space-9xl)});
+    max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-4xl * 2)} - #{to-rem(48)}));
   }
 }
 
+// Landscape items keep the same fixed --mf-h strip height as every other
+// slide — only the width cap relaxes to viewport-gutter margins so wide
+// media can stretch across most of the viewport. max-height must NOT be
+// re-declared here: with an explicit `height` the max-* constraint would
+// still clamp the used height and re-introduce the ragged-height bug.
 :host(.internal-extra-item.landscape) .render-placeholder,
 :host([classes*='internal-extra-item'][classes*='landscape']) .render-placeholder {
   @include layout-1024() {
     max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-3xl)}));
-    max-height: var(--mf-h, #{to-rem($space-7xl)});
   }
 
   @include layout-1280() {
@@ -296,15 +340,10 @@ figure {
 
   @include layout-1440() {
     max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-7xl)}));
-    max-height: var(--mf-h, #{to-rem($space-8xl)});
   }
 
   @include layout-1920() {
     max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-6xl)}));
-  }
-
-  @include layout-2560() {
-    max-height: var(--mf-h, #{to-rem($space-9xl)});
   }
 }
 

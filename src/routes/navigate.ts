@@ -30,8 +30,9 @@ const ANCHOR_SCROLL_DELAY = 300
 /**
  * The CMS is a separate document/app (cms/index.html) — /cms and /admin
  * are hard navigations so the CMS boots in isolation. In production the
- * firebase.json rewrites cover this; in dev the SPA fallback hands the
- * path to us, so we hand it back to the real CMS document.
+ * firebase.json rewrites cover this; in dev Vite resolves /cms to the
+ * CMS document directly. The clean /cms path keeps index.html out of the
+ * address bar — the rewrite stays internal to hosting.
  */
 function isCmsPath(path: string): boolean {
   const firstSeg = path.split(CHAR_STRINGS.SLASH).filter(Boolean)[0]
@@ -128,7 +129,7 @@ async function runBeforeHooks(
  */
 export async function handleNavigation(host: Router, path: string, replace = false): Promise<void> {
   if (isCmsPath(path)) {
-    window.location.replace(`${ROUTE_PATHS.CMS}/index.html`)
+    window.location.replace(ROUTE_PATHS.CMS)
 
     return
   }

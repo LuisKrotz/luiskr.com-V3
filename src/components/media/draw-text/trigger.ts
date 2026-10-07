@@ -33,8 +33,63 @@ function isReducedMotion(): boolean {
   )
 }
 
+/**
+ * Ordered-reveal session clock. Elements carrying the `ordered` attribute
+ * treat `offset` as a scheduled start time on this shared clock rather
+ * than a delay after their own trigger — so a document's draw-texts
+ * cascade in document order even when several enter the viewport in the
+ * same frame. `_orderedT0` anchors at the first ordered trigger; when an
+ * ordered element triggers late (user scrolled past un-played items),
+ * elapsed time is subtracted so it starts immediately instead of waiting
+ * out a stale schedule. The clock resets when the last ordered element
+ * disconnects (view swap), so each page starts a fresh session.
+ */
+let _orderedT0: number | null = null
+
+/** Connected `ordered` draw-texts — the session ends when this empties. */
+const _orderedLive = new Set<DrawText>()
+
+/**
+ * Registers an ordered element in the reveal session. Idempotent —
+ * setupTrigger re-runs on text/attr changes, the Set dedups.
+ * @param host The draw-text host element.
+ */
+export function registerOrdered(host: DrawText): void {
+  if (host.ordered) _orderedLive.add(host)
+}
+
+/**
+ * Drops the element from the ordered session; resets the shared clock
+ * when the set empties so the next view starts a fresh cascade.
+ * @param host The draw-text host element.
+ */
+export function teardownTrigger(host: DrawText): void {
+  _orderedLive.delete(host)
+
+  if (_orderedLive.size === 0) _orderedT0 = null
+}
+
+/**
+ * Resolves how long this element must still wait: ordered elements
+ * subtract elapsed session time from their scheduled offset (never below
+ * zero), unordered elements keep their raw offset semantics.
+ * @param host The draw-text host element.
+ * @returns The effective start offset in ms for this trigger.
+ */
+function resolveEffectiveOffset(host: DrawText): number {
+  if (!host.ordered) return host.offset
+
+  const now = performance.now()
+
+  if (_orderedT0 === null) _orderedT0 = now
+
+  return Math.max(0, host.offset - (now - _orderedT0))
+}
+
 /** Wires the active trigger mode (observer, hover, manual). */
 export function setupTrigger(host: DrawText): void {
+  registerOrdered(host)
+
   const trigger = host.triggerMode
 
   const text = host.text
@@ -98,6 +153,12 @@ export function startAnimation(host: DrawText): void {
     return
   }
 
+  // Ordered elements read their offset against the shared session clock —
+  // resolved once here so the rendered --offset and the done-timer agree.
+  const effectiveOffset = resolveEffectiveOffset(host)
+
+  host._effectiveOffset = effectiveOffset
+
   // Mount the per-character spans only now, in the visible state
   host._updateDom()
 
@@ -105,7 +166,7 @@ export function startAnimation(host: DrawText): void {
 
   const chars = stripHtml(host.text).length
 
-  const lastCharDelay = host.offset + Math.max(0, chars - 1) * host.delay
+  const lastCharDelay = effectiveOffset + Math.max(0, chars - 1) * host.delay
 
   const totalMs = Math.min(
     lastCharDelay + DRAW_TIMINGS.DRAW_ANIM_EXTRA_MS,

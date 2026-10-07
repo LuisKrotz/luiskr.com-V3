@@ -80,6 +80,7 @@ describe('wasm-layout', () => {
     expect(mod.calcEaseOutCubic(0.5)).toBe(46)
     expect(mod.calcDrawTextDelay(10, 1000)).toBe(22) // clamped to 22ms max
     expect(mod.calcDrawTextOffset(1, 2, 3)).toBe(48)
+    expect(mod.calcDrawTextOrderedOffset(2, 500)).toBe(48) // same WASM op, delay=1 passthrough
 
     WebAssembly.instantiate = origInstantiate
     globalThis.fetch = origFetch
@@ -108,6 +109,7 @@ describe('wasm-layout', () => {
     expect(mod.calcDrawTextDelay(0, 1000)).toBe(22)
     expect(mod.calcDrawTextDelay(1000, 1000)).toBe(1)
     expect(mod.calcDrawTextOffset(2, 3, 10)).toBe(3 * 10 + 2 * 30)
+    expect(mod.calcDrawTextOrderedOffset(2, 500)).toBe(500 + 2 * 30)
     expect(mod.calcColsForWidth(300)).toBe(1)
     expect(mod.calcColsForWidth(700)).toBe(2)
     expect(mod.calcColsForWidth(1200)).toBe(3)

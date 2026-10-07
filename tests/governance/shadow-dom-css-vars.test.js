@@ -40,8 +40,11 @@ describe('internals.scss CSS var declarations on media-figure', () => {
   test('default --mf-h is 70vh calc', () => {
     expect(ic).toMatch(/--mf-h:\s*calc\(70vh/)
   })
-  test('default --mf-max-w is none', () => {
-    expect(ic).toMatch(/--mf-max-w:\s*none/)
+  test('--mf-max-w has no default (landscape-only so var() fallback works)', () => {
+    // A `--mf-max-w: none` default would resolve `max-width: none` on every
+    // item — the placeholder contract needs the var *unset* outside
+    // landscape so `var(--mf-max-w, …)` falls back to the gutter cap.
+    expect(ic).not.toMatch(/--mf-max-w:\s*none/)
   })
   test('768px --mf-w is 90vw calc', () => {
     expect(ic).toMatch(/layout-768[\s\S]*?--mf-w:\s*calc\(90vw/)
@@ -257,8 +260,8 @@ describe('carousel-host.scss redeclares CSS vars for nested media-figure', () =>
   test('default --mf-h is 70vh calc', () => {
     expect(chc).toMatch(/--mf-h:\s*calc\(70vh/)
   })
-  test('default --mf-max-w is none', () => {
-    expect(chc).toMatch(/--mf-max-w:\s*none/)
+  test('--mf-max-w has no default (landscape-only so var() fallback works)', () => {
+    expect(chc).not.toMatch(/--mf-max-w:\s*none/)
   })
   test('768px --mf-w is 90vw calc', () => {
     expect(chc).toMatch(/layout-768[\s\S]*?--mf-w:\s*calc\(90vw/)

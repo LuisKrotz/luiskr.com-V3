@@ -181,6 +181,25 @@ export function calcDrawTextOffset(idx: number, charsBefore: number, delay: numb
 }
 
 /**
+ * Ordered-queue offset for document-wide cascades: `scheduledMs` is the
+ * cumulative reveal duration of every item that precedes this one across
+ * the whole document (a shared clock position, not a character count), so
+ * the draw-text elements animate strictly in reading order even when
+ * several enter the viewport in the same frame. Reuses the
+ * calc_draw_text_offset op with delay=1 — scheduledMs is already in ms —
+ * plus idx·DRAW_INDEX_STEP_MS so equal-length items still stagger.
+ * @param idx Global index of this item in the document's reveal order.
+ * @param scheduledMs Sum of all preceding items' durations in ms.
+ * @returns Start offset in ms on the shared clock.
+ */
+export function calcDrawTextOrderedOffset(idx: number, scheduledMs: number): number {
+  return (
+    _call('calc_draw_text_offset', idx, scheduledMs, DRAW_TIMINGS.DRAW_DELAY_MIN_MS) ??
+    scheduledMs + idx * DRAW_TIMINGS.DRAW_INDEX_STEP_MS
+  )
+}
+
+/**
  * Resolves a stepped breakpoint map for a viewport width: iterates keys
  * ascending and keeps the value of the last key ≤ vw (a "floor" lookup).
  * Fallback serves widths below the first key.
