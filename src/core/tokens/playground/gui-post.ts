@@ -5,6 +5,11 @@
  * aberration, film grain, debug. Grouped subsets of DEFAULT_SP_GUI.
  */
 
+/**
+ * Post-processing start values for the Earth Playground. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const SP_COLOR_GRADING_DEFAULTS = Object.freeze({
   CONTRAST: 1,
   SATURATION: 1.5,
