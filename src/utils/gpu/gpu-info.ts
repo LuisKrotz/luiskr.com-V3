@@ -18,16 +18,21 @@ import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
 import { webglAllowed } from '../canvas/webgl-mode.js'
 import { GPU_PATTERNS, UA_PATTERNS } from '@/core/tokens/motion/gpu.js'
 
-/**
- * Type contract for GPUInfo — the shape consumers rely on.
- */
+/** Classified GPU probe result — frozen so consumers can't mutate the cache. */
 export interface GPUInfo {
+  /** Unmasked renderer string ('ANGLE (NVIDIA…)', 'Apple M1', 'SwiftShader', …). */
   renderer: string
+  /** Discrete-card class detected (NVIDIA/AMD/Radeon Pro). */
   dedicated: boolean
+  /** Apple Silicon detected — unified memory but GPU-class performance. */
   apple: boolean
+  /** Integrated GPU detected (Intel UHD/Iris, basic ANGLE adapters). */
   integrated: boolean
+  /** Software rasterizer (SwiftShader/llvmpipe) — GPU work falls back to CSS. */
   software: boolean
+  /** Mobile-class user agent — deprioritizes GPU pinning regardless of chip. */
   mobile: boolean
+  /** Worth pinning GPU work to — desktop discrete or Apple Silicon. */
   capable: boolean
 }
 
