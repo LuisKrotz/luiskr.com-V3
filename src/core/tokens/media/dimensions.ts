@@ -27,6 +27,8 @@ export const GENERIC_DIMENSIONS = Object.freeze({
   DEFAULT_WIDTH: 800,
   DEFAULT_HEIGHT: 450,
   PROFILE_SIZE: 200,
+  /** Fallback intrinsic px for award-icon images when the CMS row omits width/height — declares a stable box so lazy loads don't shift layout. */
+  AWARD_ICON_SIZE: 60,
 })
 
 /** Image decode budgets shared by progressive media pipelines. */
