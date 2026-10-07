@@ -1,6 +1,9 @@
 /**
  * @file @core/index.js
- * @description Unified barrel export for the core layer with "sideEffects": false for clean tree-shaking.
+ * @description Unified barrel export for the core layer. package.json marks
+ * "sideEffects": false, so re-export chains like this are what let bundlers
+ * tree-shake: consumers importing a single token pay for only that module.
+ * istanbul ignores it because re-export lines have no executable logic to cover.
  */
 /* istanbul ignore file */
 
