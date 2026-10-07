@@ -32,7 +32,7 @@ import {
 const { FEAT_MULT, COMP_MULTS, GAP: GAP_PX } = LAYOUT
 
 /**
- * The MosaicItem value.
+ * Type contract for MosaicItem — the shape consumers rely on.
  */
 export interface MosaicItem {
   link?: string
@@ -44,7 +44,7 @@ export interface MosaicItem {
 }
 
 /**
- * The MosaicCardStyle value.
+ * Type contract for MosaicCardStyle — the shape consumers rely on.
  */
 export interface MosaicCardStyle {
   bottomH: number
@@ -54,7 +54,7 @@ export interface MosaicCardStyle {
 }
 
 /**
- * The SkeletonBox value.
+ * Type contract for SkeletonBox — the shape consumers rely on.
  */
 export interface SkeletonBox {
   top: number
