@@ -18,7 +18,9 @@ export const GPU_PATTERNS = Object.freeze({
 })
 
 /**
- * The UA_PATTERNS constant.
+ * Frozen ua map — sole declaration site for these tokens; consumers read members and never
+ * re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token contract
+ * immutable at runtime.
  */
 export const UA_PATTERNS = Object.freeze({
   /** Mobile user agents — WebGL hinting is irrelevant (single GPU path) */
