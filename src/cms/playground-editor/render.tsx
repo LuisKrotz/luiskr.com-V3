@@ -22,7 +22,7 @@ import {
 // Canonical slug keys edited under translations/<locale>/slugs.
 // Order mirrors i18n LANG_SLUGS so the form is stable across locales.
 /**
- * The SLUG_KEYS constant.
+ * Frozen slug list — the ordered source for this token set.
  */
 export const SLUG_KEYS = Object.freeze([
   'about',
