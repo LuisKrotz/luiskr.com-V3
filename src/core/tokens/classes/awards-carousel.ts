@@ -15,7 +15,9 @@ import {
 } from '../base.js'
 
 /**
- * The AWC_CLASSES constant.
+ * Frozen awc class-name map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const AWC_CLASSES = Object.freeze({
   AWC: _B_AWC,
