@@ -14,6 +14,8 @@ export const CAROUSEL_TIMING = Object.freeze({
   AUTOPLAY_DURATION: 5000,
   /** Teleport animation duration (ms) — must match CSS transition */
   TELEPORT_DELAY: 420,
+  /** Window (ms) scroll-handler teleports stay suppressed after a programmatic nav — just under TELEPORT_DELAY so a wrap scroll can finish before scroll events re-arm */
+  NAVIGATION_SETTLE_DELAY: 400,
 })
 
 /**
