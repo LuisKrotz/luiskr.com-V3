@@ -18,6 +18,9 @@ import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
 /** Theme + reduced-motion mutation group. */
 export const themeMutations = (store: Store): MutationMap => ({
   initTheme: () => {
+    // Persisted choice wins; absent/unreadable storage → 'system' so the OS
+    // scheme decides. `||` (not `??`) also treats '' as missing — an empty
+    // stored value is never a valid theme.
     const stored =
       (typeof localStorage !== TYPE_STRINGS.UNDEFINED &&
         localStorage.getItem(PREF_STORAGE_KEYS.THEME)) ||
@@ -25,11 +28,15 @@ export const themeMutations = (store: Store): MutationMap => ({
 
     store.state.theme = stored
 
+    // Direct mutator call (not commit) — the outer commit still owes one
+    // notify() for this mutation, and a nested commit would double-fan-out.
     store.mutations.applyTheme()
   },
   setTheme: (payload) => {
     store.state.theme = String(payload)
 
+    // Persist before resolving so a mid-flight failure can't leave the
+    // visible theme and the remembered choice diverged.
     if (typeof localStorage !== TYPE_STRINGS.UNDEFINED)
       localStorage.setItem(PREF_STORAGE_KEYS.THEME, store.state.theme)
 
@@ -46,6 +53,9 @@ export const themeMutations = (store: Store): MutationMap => ({
     } else if (store.state.theme === THEME.LIGHT) {
       isDark = false
     } else {
+      // 'system' (or any unrecognized value): re-probe the OS scheme live —
+      // matchMedia is evaluated per call so an OS-level flip while the page
+      // is open applies on the next notify cycle.
       isDark =
         typeof window !== TYPE_STRINGS.UNDEFINED &&
         window.matchMedia &&
@@ -67,6 +77,10 @@ export const themeMutations = (store: Store): MutationMap => ({
       typeof localStorage !== TYPE_STRINGS.UNDEFINED &&
       localStorage.getItem(PREF_STORAGE_KEYS.REDUCED_MOTION)
 
+    // Only an explicit stored choice overrides the OS-derived seed from
+    // createInitialState — absent storage leaves the media-query default.
+    // (getItem returns string|null, so `!== false` is belt-and-suspenders
+    // for non-browser shims that return booleans.)
     if (stored !== null && stored !== false) {
       store.state.reducedMotion = stored === ATTR_VALUES.TRUE
     }
@@ -80,6 +94,9 @@ export const themeMutations = (store: Store): MutationMap => ({
     }
   },
   setReducedMotion: (payload) => {
+    // Boolean payload sets explicitly; anything else (click events pass the
+    // event object) toggles — the toggle arm exists because callers don't
+    // always know the current value.
     store.state.reducedMotion =
       typeof payload === TYPE_STRINGS.BOOLEAN ? (payload as boolean) : !store.state.reducedMotion
 
