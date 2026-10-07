@@ -7,7 +7,9 @@
 import { _B_SP, _B_SPP, _B_SPP_CHECK, _B_SPP_RANGE, _B_SPP_ROW, _B_SPP_SWITCH } from '../base.js'
 
 /**
- * The SP_CLASSES constant.
+ * Frozen sp class-name map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const SP_CLASSES = Object.freeze({
   // ── Loader overlay ────────────────────────────────────────────────────────
