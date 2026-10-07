@@ -13,91 +13,103 @@ import type BloomNode from 'three/examples/jsm/tsl/display/BloomNode.js'
 import { DEFAULT_SP_GUI } from '@/core/tokens/playground.js'
 
 /**
- * earths progress fn.
- * @param _label — the value
- * @param percent — the value
+ * Progress callback signature — label + percent so the loader UI can show
+ * which asset is streaming and how far along the whole boot is.
+ * @param _label Asset label for the loader text.
+ * @param percent 0–100 progress through the boot sequence.
  */
 export type EarthProgressFn = (_label: string, percent: number) => void
 
-/**
- * Type contract for earth sun state.
- */
+/** Sun settings driven by the control panel. */
 export interface EarthSunState {
+  /** Whether the sun orbits automatically. */
   autoRotate: boolean
+  /** Orbit angular speed (rad/frame scale). */
   speed: number
+  /** Orbit plane inclination (rad). */
   inclination: number
+  /** Directional-light intensity. */
   intensity: number
+  /** Packed RGB light color. */
   color: number
+  /** Current orbit angle (rad) — advanced per frame when autoRotate. */
   angle: number
 }
 
-/**
- * earths moon state.
- */
+/** Moon orbit settings driven by the control panel. */
 export interface EarthMoonState {
+  /** Whether the moon layer is rendered at all. */
   enabled: boolean
+  /** Orbit angular speed. */
   speed: number
+  /** Orbit radius in world units. */
   distance: number
+  /** Orbit plane inclination (rad). */
   inclination: number
+  /** Current orbit angle (rad). */
   angle: number
 }
 
-/**
- * earths spin state.
- */
+/** Earth self-rotation settings. */
 export interface EarthSpinState {
+  /** Y-rotation speed applied per frame. */
   rotationSpeed: number
+  /** When true the real 23.44° tilt is applied to the group. */
   trueInclination: boolean
 }
 
-/**
- * earths bloom state.
- */
+/** Bloom post-pass settings. */
 export interface EarthBloomState {
   enabled: boolean
+  /** Bloom intensity multiplier. */
   strength: number
+  /** Bloom kernel radius. */
   radius: number
+  /** Luminance threshold above which pixels bleed. */
   threshold: number
 }
 
-/**
- * earths ca state.
- */
+/** Chromatic-aberration post-pass settings. */
 export interface EarthCaState {
   enabled: boolean
+  /** RGB channel split magnitude. */
   strength: number
+  /** Effect radial scale. */
   scale: number
 }
 
-/**
- * earths vig state.
- */
+/** Vignette post-pass settings. */
 export interface EarthVigState {
   enabled: boolean
+  /** Edge darkening amount. */
   darkness: number
+  /** Where the falloff starts (0–1 UV distance). */
   offset: number
 }
 
-/**
- * earths film state.
- */
+/** Film-grain post-pass settings. */
 export interface EarthFilmState {
   enabled: boolean
+  /** Grain opacity/intensity. */
   intensity: number
 }
 
-/**
- * earths grade state.
- */
+/** Color-grade post-pass settings. */
 export interface EarthGradeState {
+  /** Contrast multiplier around mid-gray. */
   contrast: number
+  /** Saturation multiplier (1 = unchanged). */
   saturation: number
+  /** Lift applied to the black point. */
   blackLevel: number
+  /** Extra blue/green channel gain for the oceanic palette. */
   blueGreenBoost: number
 }
 
 /**
- * earths state.
+ * The single mutable bag for the whole engine — every async-created GPU
+ * handle is nullable because bootstrap fills them progressively and a
+ * mid-boot dispose must see exactly what's live.
  */
 export interface EarthState {
   /** RAF handle for the render loop; null while paused/reduced-motion. */
@@ -145,7 +157,13 @@ export interface EarthState {
 }
 
 /**
- * Creates earth state.
+ * Builds the initial null-everything state bag — every GPU handle starts
+ * null so bootstrap can fill them in any order and dispose can skip
+ * whatever never got created.
+ * @param canvas The target canvas element.
+ * @param onReady Callback once the scene is first rendered.
+ * @param onProgress Boot progress reporter.
+ * @returns The zeroed state bag.
  */
 export const createEarthState = (
   canvas: HTMLCanvasElement,
