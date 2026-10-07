@@ -1,3 +1,12 @@
+/**
+ * @file router.test.js
+ * @description Covers src/routes/router.js — path parsing across all 12
+ * locales, legacy/aliased project-slug normalization, localized static
+ * routes (about/contact/legal), dynamic portfolio routes, the not-found
+ * fallback, and navigation guards/hooks. Route table drift and locale
+ * slug mismatches are the regressions this suite exists to catch.
+ */
+
 import router, { normalizeProjectKey } from '@/routes/router.js'
 import { detectLangFromPath, LANG_SLUGS, VALID_LANGS } from '@/core/i18n.js'
 import '@/core/store.js'
