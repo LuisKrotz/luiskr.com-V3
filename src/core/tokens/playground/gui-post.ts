@@ -13,7 +13,9 @@ export const SP_COLOR_GRADING_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_LENS_FLARE_DEFAULTS constant.
+ * Frozen sp lens flare map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const SP_LENS_FLARE_DEFAULTS = Object.freeze({
   ENABLED: true,
@@ -21,7 +23,9 @@ export const SP_LENS_FLARE_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_ANAMORPHIC_DEFAULTS constant.
+ * Frozen sp anamorphic map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const SP_ANAMORPHIC_DEFAULTS = Object.freeze({
   ENABLED: false,
@@ -34,7 +38,9 @@ export const SP_ANAMORPHIC_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_BLOOM_DEFAULTS constant.
+ * Frozen sp bloom map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const SP_BLOOM_DEFAULTS = Object.freeze({
   ENABLED: false,
@@ -44,7 +50,9 @@ export const SP_BLOOM_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_VIGNETTE_DEFAULTS constant.
+ * Frozen sp vignette map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const SP_VIGNETTE_DEFAULTS = Object.freeze({
   ENABLED: false,
@@ -53,7 +61,9 @@ export const SP_VIGNETTE_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_CHROMATIC_DEFAULTS constant.
+ * Frozen sp chromatic map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const SP_CHROMATIC_DEFAULTS = Object.freeze({
   ENABLED: false,
@@ -62,7 +72,9 @@ export const SP_CHROMATIC_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_FILM_GRAIN_DEFAULTS constant.
+ * Frozen sp film grain map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const SP_FILM_GRAIN_DEFAULTS = Object.freeze({
   ENABLED: false,
@@ -70,7 +82,9 @@ export const SP_FILM_GRAIN_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_DEBUG_DEFAULTS constant.
+ * Frozen sp debug map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const SP_DEBUG_DEFAULTS = Object.freeze({
   STATS: false,
