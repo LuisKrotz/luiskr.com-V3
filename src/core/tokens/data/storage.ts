@@ -4,6 +4,11 @@
  * grouped subsets of STORAGE_KEYS.
  */
 
+/**
+ * localStorage/sessionStorage key tokens split by scope. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const PREF_STORAGE_KEYS = Object.freeze({
   VIDEO_AUTOPLAY: 'videoAutoplay',
   LOCALE: 'locale',
