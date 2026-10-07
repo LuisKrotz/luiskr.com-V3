@@ -10,9 +10,14 @@ import { devInfo } from '@/core/devlog.js'
  * because it cannot be reached from the shipped bundle.
  */
 
+/** Session cache for the committed snapshot — fetched once, reused. */
 let _dbCache: Record<string, unknown> | null = null
 
-/** Fetches and caches the committed database snapshot once per session. */
+/**
+ * Fetches and caches the committed `database.json` snapshot once per
+ * session — the mock's entire "remote" state.
+ * @returns The parsed database object.
+ */
 async function loadDb(): Promise<Record<string, unknown>> {
   if (!_dbCache) {
     const res = await fetch('/database.json')
@@ -22,7 +27,12 @@ async function loadDb(): Promise<Record<string, unknown>> {
   return _dbCache
 }
 
-/** Walks a `a/b/c` path down the snapshot; returns the node or undefined. */
+/**
+ * Walks a `a/b/c` path down the snapshot; returns the node or undefined.
+ * Empty segments are filtered so trailing slashes can't produce misses.
+ * @param path Slash-separated RTDB-style path.
+ * @returns The node at the path, or undefined when absent.
+ */
 async function getNode(path: string): Promise<unknown> {
   const db = await loadDb()
 
@@ -35,26 +45,34 @@ async function getNode(path: string): Promise<unknown> {
   return node
 }
 
+/** Minimal ref stand-in — just the path the SDK would encapsulate. */
 interface MockRef {
   __path: string
 }
 
 // ─── firebase/database surface ──────────────────────────────────────────────
 /**
- * The ref constant.
- * @param _db — the value
- * @param path — the path
- * @returns MockRef
+ * Mock of firebase/database `ref()` — wraps a path so `child()`/`get()`
+ * can compose it like the real SDK.
+ * @param _db Unused database handle (kept for signature parity).
+ * @param path Root path for the ref.
+ * @returns A {__path} ref stand-in.
  */
 export const ref = (_db: unknown, path = ''): MockRef => ({ __path: path })
+
 /**
- * Helper for this module — see implementation for behavior.
+ * Mock of firebase/database `child()` — appends a segment to a ref's path.
+ * @param r Parent ref.
+ * @param path Child segment.
+ * @returns A ref for the joined path.
  */
 export const child = (r: MockRef, path: string): MockRef => ({ __path: `${r.__path}/${path}` })
 
 /**
- * Gets.
- * @param r — the value
+ * Mock of firebase/database `get()` — resolves the ref's path in the
+ * snapshot and returns the SDK-shaped {exists, val} result.
+ * @param r The ref to read.
+ * @returns A snapshot-shaped promise.
  */
 export const get = async (r: MockRef) => {
   const node = await getNode(r.__path)
@@ -63,36 +81,37 @@ export const get = async (r: MockRef) => {
 }
 
 /**
- * Sets.
- * @param r — the value
- * @param v — the value
+ * Mock of firebase/database `set()` — logs the write; nothing persists so
+ * dev sessions stay reproducible against the committed snapshot.
+ * @param r Target ref.
+ * @param v Value that would be written.
  */
 export const set = async (r: MockRef, v: unknown) => devInfo('[CMS-MOCK] set', r.__path, v)
-/**
- * Helper for this module — see implementation for behavior.
- */
+
+/** Mock of firebase/database `remove()` — logs the delete, persists nothing. */
 export const remove = async (r: MockRef) => devInfo('[CMS-MOCK] remove', r.__path)
-/**
- * Helper for this module — see implementation for behavior.
- */
+
+/** Mock of firebase/database `update()` — logs the patch, persists nothing. */
 export const update = async (r: MockRef, v: unknown) => devInfo('[CMS-MOCK] update', r.__path, v)
-/**
- * Gets database.
- */
+
+/** Mock of firebase/database `getDatabase()` — returns a marker handle. */
 export const getDatabase = () => ({ __mock: true })
 
 // ─── firebase.js surface ────────────────────────────────────────────────────
+/** Fixed stand-in user so CMS screens render authenticated without OAuth. */
 const MOCK_USER = Object.freeze({
   email: 'cms-dev@localhost',
   displayName: 'CMS Dev',
   uid: 'cms-mock',
 })
 
+/** The MOCK_USER shape. */
 type MockUser = typeof MOCK_USER
 
 /**
- * The onAuthChange constant.
- * @param cb — the callback
+ * Mock onAuthChange — immediately reports the signed-in mock user and
+ * returns a no-op unsubscribe.
+ * @param cb The auth-state callback.
  */
 export const onAuthChange = async (cb: (_user: MockUser | null) => void) => {
   cb(MOCK_USER)
@@ -100,20 +119,17 @@ export const onAuthChange = async (cb: (_user: MockUser | null) => void) => {
   return () => {}
 }
 
-/**
- * Gets db instance.
- */
+/** Mock getDbInstance — returns the marker handle (no SDK). */
 export const getDbInstance = async () => ({ __mock: true })
-/**
- * The sign in with google helper.
- */
+
+/** Mock signInWithGoogle — resolves the mock user with no popup. */
 export const signInWithGoogle = async () => MOCK_USER
-/**
- * The logout user helper.
- */
+
+/** Mock logoutUser — logs; the next onAuthChange still reports MOCK_USER. */
 export const logoutUser = async () => devInfo('[CMS-MOCK] logout')
+
 /**
- * Fetches firebase db.
- * @param path — the path
+ * Mock fetchFirebaseDb — reads straight from the committed snapshot.
+ * @param path Slash-separated DB path.
  */
 export const fetchFirebaseDb = async (path: string) => getNode(path)
