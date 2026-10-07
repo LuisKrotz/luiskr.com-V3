@@ -29,6 +29,8 @@ export const GENERIC_DIMENSIONS = Object.freeze({
   PROFILE_SIZE: 200,
   /** Fallback intrinsic px for award-icon images when the CMS row omits width/height — declares a stable box so lazy loads don't shift layout. */
   AWARD_ICON_SIZE: 60,
+  /** Fallback intrinsic height for media items missing `size` — portrait-leaning so the aspect projection stays conservative */
+  ITEM_FALLBACK_HEIGHT: 1200,
 })
 
 /** Image decode budgets shared by progressive media pipelines. */
