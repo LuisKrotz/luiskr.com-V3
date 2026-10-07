@@ -5,6 +5,9 @@
  * CMS-only: never imported by the public site bundle.
  */
 
+/**
+ * CMS-private BEM block names See the module header for usage.
+ */
 export const _B_CMS = 'cms'
 /**
  * BEM block fragment "b admin" — composed by the token groups below into full class names.
