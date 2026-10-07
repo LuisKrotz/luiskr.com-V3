@@ -5,6 +5,11 @@
  * surface, sun, camera, environment. Grouped subsets of DEFAULT_SP_GUI.
  */
 
+/**
+ * Scene-subsystem start values for the Earth Playground. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const SP_MOON_DEFAULTS = Object.freeze({
   ENABLED: true,
   SPEED: 0.0002,
