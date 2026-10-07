@@ -31,6 +31,25 @@ export const stripHtml = (str: string): string => {
 }
 
 /**
+ * Escapes HTML-significant characters for safe insertion into innerHTML or
+ * double-quoted attributes. `&` must be replaced first so the entities
+ * emitted by the later replacements are not double-escaped.
+ * Pure ESM utility function, tree-shakeable.
+ * @param {string} str — raw text that may contain &, <, >, ", '
+ * @returns {string} entity-escaped text safe for markup contexts
+ */
+export const escapeHtml = (str: string): string => {
+  if (!str || typeof str !== TYPE_STRINGS.STRING) return ATTR_VALUES.EMPTY
+
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+/**
  * Converts a string into a clean, URL-safe and DOM-id-safe slug.
  * Pipeline: lowercase → drop non-word/non-space/non-dash chars → collapse
  * whitespace+underscores to `-` → collapse consecutive dashes. e.g.

@@ -45,17 +45,60 @@
     // and destroys mobile scroll performance. Only promote during the actual animation.
   }
 
+  // Inline links (color:inherit keeps :visited from going browser-purple —
+  // color is the only link ink :visited is allowed to change). A parent
+  // pseudo-element draws the underline because native text-decoration skips
+  // the inline-block word spans and otherwise paints only beneath whitespace.
   a,
   a:link,
   a:visited {
+    position: relative;
+    display: inline-block;
     color: inherit;
-    text-decoration: underline;
-    transition: opacity 0.3s ease-in;
+    text-decoration: none;
 
-    &:hover,
-    &:focus {
-      opacity: 0.5;
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: to-rem($space-hairline);
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.35s ease 0.55s;
     }
+
+    &:hover::after,
+    &:focus-visible::after,
+    &:active::after {
+      transform: scaleX(1);
+    }
+  }
+
+  // Replay the letter draw when the link is interacted with; the underline
+  // follows via the delayed text-decoration-color transition above.
+  // Word spans are targeted (not __char) because the done state collapses
+  // chars back into plain word text — words exist in both render modes.
+  a:hover .draw-text__word,
+  a:focus-visible .draw-text__word,
+  a:active .draw-text__word {
+    animation: link-word-draw 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--wi, 0) * var(--word-delay, 100ms) * 0.3);
+  }
+}
+
+// Link hover redraw: a subtler, quicker version of char-draw — a soft
+// opacity dip + small rise, no blur (cheap to replay on every interaction).
+@keyframes link-word-draw {
+  from {
+    opacity: 0;
+    transform: translateY(0.06em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -204,19 +247,33 @@
 }
 
 // ── Reduced Motion Override ────────────────────────────────────────────────
-html.reduced-motion .draw-text__char {
+html.reduced-motion .draw-text__char,
+html.reduced-motion .draw-text a:hover .draw-text__word,
+html.reduced-motion .draw-text a:focus-visible .draw-text__word,
+html.reduced-motion .draw-text a:active .draw-text__word {
   opacity: 1;
   transform: none;
   filter: none;
   animation: none;
 }
 
+html.reduced-motion .draw-text a::after {
+  transition-delay: 0s;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .draw-text__char {
+  .draw-text__char,
+  .draw-text a:hover .draw-text__word,
+  .draw-text a:focus-visible .draw-text__word,
+  .draw-text a:active .draw-text__word {
     opacity: 1;
     transform: none;
     filter: none;
     animation: none;
+  }
+
+  .draw-text a::after {
+    transition-delay: 0s;
   }
 }
 

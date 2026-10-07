@@ -14,7 +14,7 @@ import { DRAW_TEXT_CLASSES } from '@/core/tokens/classes/draw-text.js'
 import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 import { CSS_STRINGS } from '@/core/tokens/strings/css.js'
 import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
-import { stripHtml } from '@/core/utils/string.js'
+import { escapeHtml, stripHtml } from '@/core/utils/string.js'
 import type { DrawChar, DrawToken } from './types.js'
 import { DRAW_TIMINGS } from '@/core/tokens/media/dimensions.js'
 
@@ -56,29 +56,41 @@ export function parseTokens(text: string): DrawToken[] {
     return chunks
   }
 
-  const result: DrawToken[] = []
+  /**
+   * Walks one segment of text — tag inner content recurses through this same
+   * walker so nested markup (e.g. `<a><span>x</span></a>`) tokenizes instead
+   * of leaking raw `<`/`>` chars into the output. `ci` is shared via closure
+   * so the char stagger stays globally sequential across nesting levels.
+   */
+  const tokenize = (str: string): DrawToken[] => {
+    const result: DrawToken[] = []
 
-  const regex = /(<br\s*\/?>)|(<(\w+)([^>]*)>(.*?)<\/\3>)|([^<]+)/gi
+    const regex = /(<br\s*\/?>)|(<(\w+)([^>]*)>(.*?)<\/\3>)|([^<]+)|(<)/gi
 
-  let match: RegExpExecArray | null
+    let match: RegExpExecArray | null
 
-  while ((match = regex.exec(text)) !== null) {
-    if (match[1]) {
-      result.push({ type: CSS_STRINGS.TOKEN_BR })
-    } else if (match[2]) {
-      const tag = match[3]
+    while ((match = regex.exec(str)) !== null) {
+      if (match[1]) {
+        result.push({ type: CSS_STRINGS.TOKEN_BR })
+      } else if (match[2]) {
+        const tag = match[3]
 
-      const attrStr = match[4] || ATTR_VALUES.EMPTY
+        const attrStr = match[4] || ATTR_VALUES.EMPTY
 
-      const inner = match[5] || ATTR_VALUES.EMPTY
+        const inner = match[5] || ATTR_VALUES.EMPTY
 
-      result.push({ type: CSS_STRINGS.TOKEN_TAG, tag, attrStr, inner, chunks: parseText(inner) })
-    } else {
-      result.push(...parseText(match[6]))
+        result.push({ type: CSS_STRINGS.TOKEN_TAG, tag, attrStr, inner, chunks: tokenize(inner) })
+      } else {
+        // Bare text run — or a stray `<` that matched no tag alternative;
+        // parseText indexes its chars so the renderer escapes it as `&lt;`.
+        result.push(...parseText(match[6] || match[7]))
+      }
     }
+
+    return result
   }
 
-  return result
+  return tokenize(text)
 }
 
 /**
@@ -106,6 +118,11 @@ const chunkToHtml = (chunk: DrawToken, renderWord: RenderWord): string => {
   // visible-text check (label-content-name-mismatch), so the space must reach the parent.
   if (chunk.type === CSS_STRINGS.TOKEN_SPACE) return CHAR_STRINGS.NBSP
 
+  if (chunk.type === CSS_STRINGS.TOKEN_BR) return '<br aria-hidden="true" />'
+
+  // Nested tag (e.g. <a><span>label</span></a>) — recurse so children render.
+  if (chunk.type === CSS_STRINGS.TOKEN_TAG) return tagToHtml(chunk, renderWord)
+
   return ATTR_VALUES.EMPTY
 }
 
@@ -130,9 +147,11 @@ const tagToHtml = (token: DrawToken, renderWord: RenderWord): string => {
   const labelAttr =
     token.tag.toLowerCase() === DOM_STRINGS.A_TAG &&
     !(token.attrStr || ATTR_VALUES.EMPTY).includes(ARIA_ATTRS.ARIA_LABEL)
-      ? ` aria-label="${stripHtml(token.inner || ATTR_VALUES.EMPTY)
-          .split(CHAR_STRINGS.SPACE_CHAR)
-          .join(CHAR_STRINGS.NBSP)}"`
+      ? ` aria-label="${escapeHtml(
+          stripHtml(token.inner || ATTR_VALUES.EMPTY)
+            .split(CHAR_STRINGS.SPACE_CHAR)
+            .join(CHAR_STRINGS.NBSP)
+        )}"`
       : ATTR_VALUES.EMPTY
 
   return `<${token.tag} ${token.attrStr || ATTR_VALUES.EMPTY}${labelAttr}>${innerContent}</${token.tag}>`
@@ -173,10 +192,10 @@ export const renderWordHtml = (
     ? chars
         .map(
           (ch) =>
-            `<span class="${DRAW_TEXT_CLASSES.DRAW_TEXT_CHAR}" style="--i: ${ch.ci}; --char-delay: ${delay}ms; --offset: ${offset}ms;">${ch.value}</span>`
+            `<span class="${DRAW_TEXT_CLASSES.DRAW_TEXT_CHAR}" style="--i: ${ch.ci}; --char-delay: ${delay}ms; --offset: ${offset}ms;">${escapeHtml(ch.value)}</span>`
         )
         .join(ATTR_VALUES.EMPTY)
-    : chars.map((ch) => ch.value).join(ATTR_VALUES.EMPTY)
+    : chars.map((ch) => escapeHtml(ch.value)).join(ATTR_VALUES.EMPTY)
 
   // Word-level extra stagger (delay×4, capped) — multi-word phrases
   // cascade gently word-by-word on top of the per-char stagger.
