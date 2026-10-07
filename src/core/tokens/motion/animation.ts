@@ -4,6 +4,11 @@
  * of ANIMATION.
  */
 
+/**
+ * Easing curve + transition duration tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const EASING = Object.freeze({
   /** Smooth cubic-bezier used throughout the design system */
   EASING: 'cubic-bezier(0.22, 1, 0.36, 1)',
