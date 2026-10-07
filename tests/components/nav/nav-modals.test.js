@@ -1,3 +1,12 @@
+/**
+ * @file nav-modals.test.js
+ * @description Covers AppNav + the two top-layer dialogs
+ * (PreferencesModal, LangDialog): burger open/close, keyboard (Escape /
+ * focus) behavior, theme + reduced-motion + language persistence to the
+ * store and storage, and the NPU hover-prediction hooks on nav links.
+ * Modal layer-ordering and preference persistence are the bug-prone seams.
+ */
+
 import { describe, test, expect, beforeEach, afterEach, jest } from '@jest/globals'
 import { AppNav } from '@/components/nav/AppNav.js'
 import { PreferencesModal } from '@/components/dialogs/PreferencesModal.js'
