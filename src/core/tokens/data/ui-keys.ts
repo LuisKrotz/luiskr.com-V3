@@ -16,7 +16,9 @@ import {
 } from '../base.js'
 
 /**
- * The SECTION_UI_KEYS constant.
+ * Frozen section ui key map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const SECTION_UI_KEYS = Object.freeze({
   ABOUT_DESCRIPTION: 'about.description',
@@ -30,7 +32,9 @@ export const SECTION_UI_KEYS = Object.freeze({
 })
 
 /**
- * The NAV_UI_KEYS constant.
+ * Frozen nav ui key map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const NAV_UI_KEYS = Object.freeze({
   SCROLL_UP: 'scrollup',
@@ -42,7 +46,9 @@ export const NAV_UI_KEYS = Object.freeze({
 })
 
 /**
- * The COOKIE_UI_KEYS constant.
+ * Frozen cookie ui key map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const COOKIE_UI_KEYS = Object.freeze({
   COOKIES_ACCEPT: 'cookies.accept',
@@ -51,7 +57,9 @@ export const COOKIE_UI_KEYS = Object.freeze({
 })
 
 /**
- * The PREF_UI_KEYS constant.
+ * Frozen pref ui key map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const PREF_UI_KEYS = Object.freeze({
   PREF: _B_PREF,
@@ -59,7 +67,9 @@ export const PREF_UI_KEYS = Object.freeze({
 })
 
 /**
- * The CAROUSEL_UI_KEYS constant.
+ * Frozen carousel ui key map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CAROUSEL_UI_KEYS = Object.freeze({
   CAROUSEL_PREV: 'carousel.prev',
@@ -68,7 +78,9 @@ export const CAROUSEL_UI_KEYS = Object.freeze({
 })
 
 /**
- * The STATS_UI_KEYS constant.
+ * Frozen stats ui key map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const STATS_UI_KEYS = Object.freeze({
   STATS_TITLE: 'statsHud.title',
@@ -82,7 +94,9 @@ export const STATS_UI_KEYS = Object.freeze({
 })
 
 /**
- * The LOADER_UI_KEYS constant.
+ * Frozen loader ui key map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const LOADER_UI_KEYS = Object.freeze({
   LOADER_LINES: 'loader.lines',
@@ -90,7 +104,9 @@ export const LOADER_UI_KEYS = Object.freeze({
 })
 
 /**
- * The ENGINE_UI_KEYS constant.
+ * Frozen engine ui key map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const ENGINE_UI_KEYS = Object.freeze({
   ENGINE_TITLE: 'engine.title',
@@ -103,7 +119,9 @@ export const ENGINE_UI_KEYS = Object.freeze({
 })
 
 /**
- * The MEDIA_UI_KEYS constant.
+ * Frozen media ui key map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const MEDIA_UI_KEYS = Object.freeze({
   MEDIA_PREVIEW: 'media.preview',
@@ -114,7 +132,9 @@ export const MEDIA_UI_KEYS = Object.freeze({
 })
 
 /**
- * The AWARDS_UI_KEYS constant.
+ * Frozen awards ui key map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const AWARDS_UI_KEYS = Object.freeze({
   AWARDS_NEXT: 'awards.nextAward',
