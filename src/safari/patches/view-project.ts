@@ -17,7 +17,7 @@ import type { PatchableCtor, SafariPatchableEl } from '../types.js'
 import { GENERIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 
 /**
- * The patchViewProject value.
+ * Helper for this module — see implementation for behavior.
  */
 export function patchViewProject(): void {
   // ── ViewProject (Modal Open/Close in ShadowRoot for Safari) ─────────────────
