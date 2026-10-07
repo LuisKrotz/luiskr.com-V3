@@ -78,7 +78,7 @@ describe('canvas misc tails', () => {
   test('flagTexture cache-hit / missing-image / incomplete-image arms', async () => {
     const { flagTexture } = await import('@/utils/canvas/widgets/flag/texture.js')
     const gl = createMockGL()
-    const r = { gl, textures: new Map(), images: new Map() }
+    const r = { gl, textures: new Map(), images: new Map(), bitmaps: new Map() }
 
     // cache hit → return tex arm
     const tex = {}
@@ -95,7 +95,9 @@ describe('canvas misc tails', () => {
     expect(flagTexture(r, 'fr')).toBeNull()
 
     // no gl → first guard
-    expect(flagTexture({ gl: null, textures: new Map(), images: new Map() }, 'us')).toBeNull()
+    expect(
+      flagTexture({ gl: null, textures: new Map(), images: new Map(), bitmaps: new Map() }, 'us')
+    ).toBeNull()
   })
 
   test('switch-slider renderWebGL guard arms', async () => {

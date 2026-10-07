@@ -22,6 +22,15 @@ import { loop, render, resolve, upload } from './skeleton/loop.js'
 import type { BaseComponent } from '@/core/Component.js'
 import { SKELETON_RENDER } from '@/core/tokens/motion/skeleton.js'
 
+/** Per-placeholder computed style, cached between measures (cleared on theme flip). */
+export interface SkelStyle {
+  lineHeight: number
+  radius: number
+  textLike: boolean
+  baseStr: string
+  inkStr: string
+}
+
 /** One measured placeholder: geometry (CSS px) + sampled palette for the shader. */
 export interface SkelRect {
   x: number
@@ -82,6 +91,10 @@ export class SkeletonWebGL {
   _onResize = (): void => this.refresh()
   /** Placeholder nodes currently observed for size changes — rebuilt on each measure. */
   _observed: Set<Element> = new Set()
+  /** Per-placeholder computed-style cache — cleared by sampleTheme() on a theme flip. */
+  _styleCache = new WeakMap<Element, SkelStyle>()
+  /** Last sampled dark-mode flag — drives the style-cache invalidation. */
+  _wasDark: boolean | null = null
 
   constructor(host: HTMLElement, root: ShadowRoot, content: Element) {
     this.host = host

@@ -27,6 +27,10 @@ export class FlagRenderer {
   quadBuffer: WebGLBuffer | null = null
   textures = new Map<string, WebGLTexture>()
   images = new Map<string, HTMLImageElement>()
+  /** Worker-decoded flag bitmaps (WASM pool) — preferred texImage2D source. */
+  bitmaps = new Map<string, ImageBitmap>()
+  /** Country codes with an in-flight worker decode — dedupes kickWasmDecode. */
+  _bitmapPending = new Set<string>()
   refs = 0
   lost = false
   aPos = 0

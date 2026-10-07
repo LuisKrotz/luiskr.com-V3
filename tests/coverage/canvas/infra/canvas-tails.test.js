@@ -205,10 +205,12 @@ describe('canvas tails', () => {
 
     expect(typeof r.image('br')).toBe('object')
 
-    expect(flagTexture({ gl: null, textures: new Map(), images: new Map() }, 'x')).toBeNull()
+    expect(
+      flagTexture({ gl: null, textures: new Map(), images: new Map(), bitmaps: new Map() }, 'x')
+    ).toBeNull()
 
     const gl = createMockGL()
-    const host = { gl, textures: new Map(), images: new Map() }
+    const host = { gl, textures: new Map(), images: new Map(), bitmaps: new Map() }
 
     expect(flagTexture(host, 'x')).toBeNull()
 

@@ -168,7 +168,12 @@ describe('flag texture/draw — creation guards', () => {
     )
 
     const img = { complete: true, naturalWidth: 4 }
-    const r = { gl, textures: new Map(), images: new Map([['us', img]]) }
+    const r = {
+      gl,
+      textures: new Map(),
+      images: new Map([['us', img]]),
+      bitmaps: new Map(),
+    }
 
     // flagTexture draws the flag into an internal pot canvas — stub the
     // prototype 2D context so the pipeline reaches gl.createTexture itself.

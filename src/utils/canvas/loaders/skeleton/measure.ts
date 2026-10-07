@@ -78,13 +78,28 @@ export function measureSkeleton(layer: SkeletonWebGL): void {
     .map((el): SkelRectMaybe => {
       const r = el.getBoundingClientRect()
 
-      const cs = getComputedStyle(el)
+      // getComputedStyle forces a style resolution per node per measure —
+      // cache it per element (placeholder styles only change on a theme
+      // flip, which sampleTheme() detects and clears this cache on).
+      let style = layer._styleCache.get(el)
 
-      const lh = parseFloat(cs.lineHeight)
+      if (!style) {
+        const cs = getComputedStyle(el)
 
-      const isText =
-        el.matches(SKELETON_SELECTORS.SKELETON_TEXT_LIKE) ||
-        (r.height < SKELETON_GLYPH.TEXT_MAX_HEIGHT && r.height > 0)
+        style = {
+          lineHeight: parseFloat(cs.lineHeight),
+          radius: parseFloat(cs.borderTopLeftRadius) || 0,
+          textLike: el.matches(SKELETON_SELECTORS.SKELETON_TEXT_LIKE),
+          baseStr: cs.getPropertyValue(SKELETON_CSS_PROPS.SKEL_BG_1),
+          inkStr: cs.getPropertyValue(SKELETON_CSS_PROPS.SKEL_INK),
+        }
+
+        layer._styleCache.set(el, style)
+      }
+
+      const lh = style.lineHeight
+
+      const isText = style.textLike || (r.height < SKELETON_GLYPH.TEXT_MAX_HEIGHT && r.height > 0)
 
       const row =
         isText && Number.isFinite(lh) && lh > 0 && r.height > lh * 1.4 ? lh : isText ? r.height : 0
@@ -98,11 +113,9 @@ export function measureSkeleton(layer: SkeletonWebGL): void {
 
       // Per-rect palette: dark surfaces override --skel-* tokens locally, so
       // each placeholder contributes the shade it actually shows.
-      const base =
-        layer._parseCssColor(cs.getPropertyValue(SKELETON_CSS_PROPS.SKEL_BG_1)) || layer.base
+      const base = layer._parseCssColor(style.baseStr) || layer.base
 
-      const ink =
-        layer._parseCssColor(cs.getPropertyValue(SKELETON_CSS_PROPS.SKEL_INK)) || layer.ink
+      const ink = layer._parseCssColor(style.inkStr) || layer.ink
 
       const x = Math.max(r.left - hostRect.left - padX, 0)
 
@@ -117,7 +130,7 @@ export function measureSkeleton(layer: SkeletonWebGL): void {
         y,
         w,
         h,
-        radius: parseFloat(cs.borderTopLeftRadius) || 0,
+        radius: style.radius,
         cell,
         row,
         base,

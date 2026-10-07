@@ -25,6 +25,14 @@ export function sampleTheme(host: SkeletonWebGL): void {
 
   const isDark = document.documentElement.classList.contains(STATE_CLASSES.DARK_MODE)
 
+  // Theme flip → per-rect palettes/radii are stale: drop the style cache so
+  // the next measure re-reads computed styles once, not per refresh.
+  if (host._wasDark !== isDark) {
+    host._wasDark = isDark
+
+    host._styleCache = new WeakMap()
+  }
+
   host.base =
     read(cs, SKELETON_CSS_PROPS.SKEL_BG_1) ||
     read(rootCs, SKELETON_CSS_PROPS.SKEL_BG_1) ||

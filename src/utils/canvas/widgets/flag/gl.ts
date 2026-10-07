@@ -83,6 +83,12 @@ export function disposeFlagGL(renderer: FlagRenderer): void {
 
   renderer.textures.clear()
 
+  renderer.bitmaps.forEach((bitmap) => bitmap.close?.())
+
+  renderer.bitmaps.clear()
+
+  renderer._bitmapPending.clear()
+
   renderer.gl = null
 
   renderer.canvas = null
