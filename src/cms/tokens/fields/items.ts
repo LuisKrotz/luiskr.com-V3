@@ -7,7 +7,9 @@
 import { _B_CMS, _B_CMS_ITEM, _B_CMS_KV, _B_CMS_MEDIA, _B_CMS_PARA } from '../base.js'
 
 /**
- * The CMS_ITEM_CLASSES constant.
+ * Frozen cms item class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CMS_ITEM_CLASSES = Object.freeze({
   CMS_ITEM_CONTROLS: `${_B_CMS_ITEM}-controls`,
