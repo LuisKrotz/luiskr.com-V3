@@ -7,7 +7,9 @@
 import { _K_FOCUS, _K_INPUT, _K_POINTERENTER, _K_TOUCHSTART } from '../base.js'
 
 /**
- * The MOUSE_EVENTS constant.
+ * Frozen mouse event-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const MOUSE_EVENTS = Object.freeze({
   CLICK: 'click',
@@ -22,7 +24,9 @@ export const MOUSE_EVENTS = Object.freeze({
 })
 
 /**
- * The TOUCH_EVENTS constant.
+ * Frozen touch event-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const TOUCH_EVENTS = Object.freeze({
   TOUCHSTART: _K_TOUCHSTART,
@@ -31,7 +35,9 @@ export const TOUCH_EVENTS = Object.freeze({
 })
 
 /**
- * The POINTER_EVENTS constant.
+ * Frozen pointer event-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const POINTER_EVENTS = Object.freeze({
   POINTERDOWN: 'pointerdown',
@@ -43,7 +49,9 @@ export const POINTER_EVENTS = Object.freeze({
 })
 
 /**
- * The KEYBOARD_EVENTS constant.
+ * Frozen keyboard event-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const KEYBOARD_EVENTS = Object.freeze({
   KEYDOWN: 'keydown',
@@ -61,7 +69,9 @@ export const FOCUS_EVENTS = Object.freeze({
 })
 
 /**
- * The FORM_EVENTS constant.
+ * Frozen form event-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const FORM_EVENTS = Object.freeze({
   CHANGE: 'change',
@@ -80,7 +90,9 @@ export const DRAG_EVENTS = Object.freeze({
 })
 
 /**
- * The WINDOW_EVENTS constant.
+ * Frozen window event-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const WINDOW_EVENTS = Object.freeze({
   SCROLL: 'scroll',
@@ -94,7 +106,9 @@ export const WINDOW_EVENTS = Object.freeze({
 })
 
 /**
- * The MEDIA_EVENTS constant.
+ * Frozen media event-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const MEDIA_EVENTS = Object.freeze({
   LOADEDDATA: 'loadeddata',
@@ -102,7 +116,9 @@ export const MEDIA_EVENTS = Object.freeze({
 })
 
 /**
- * The ANIMATION_EVENTS constant.
+ * Frozen animation event-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const ANIMATION_EVENTS = Object.freeze({
   TRANSITIONEND: 'transitionend',
@@ -110,7 +126,9 @@ export const ANIMATION_EVENTS = Object.freeze({
 })
 
 /**
- * The GL_EVENTS constant.
+ * Frozen gl event-name map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const GL_EVENTS = Object.freeze({
   WEBGL_CONTEXT_LOST: 'webglcontextlost',
