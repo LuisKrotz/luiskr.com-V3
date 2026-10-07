@@ -5,6 +5,11 @@
  * src/core/debug/params.ts at boot.
  */
 
+/**
+ * URL `debug` parameter vocabulary. `?debug=<value>` may appear multiple times on a URL; every value listed here is parsed by src/core/debug/params.ts at boot. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const DEBUG_PARAMS = Object.freeze({
   /** The query-string key — `?debug=…`. */
   KEY: 'debug',
