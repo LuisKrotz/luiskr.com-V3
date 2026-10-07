@@ -4,6 +4,11 @@
  * TAGS.
  */
 
+/**
+ * Route-view custom element tag tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const VIEW_TAGS = Object.freeze({
   VIEW_HOME: 'view-home',
   VIEW_PROJECT: 'view-project',
