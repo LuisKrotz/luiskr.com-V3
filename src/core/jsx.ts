@@ -27,9 +27,7 @@ export type JSXComponent<P = Record<string, unknown>> = (
   _props: P & { children?: unknown[] }
 ) => Node | DocumentFragment | null
 
-/**
- * Type contract for JSXTag — the shape consumers rely on.
- */
+/** JSX tag position type — a tag name ('div', 'media-figure') or a functional component. */
 export type JSXTag<P = Record<string, unknown>> = string | JSXComponent<P>
 
 /**
