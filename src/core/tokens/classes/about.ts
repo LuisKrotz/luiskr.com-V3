@@ -12,7 +12,9 @@ import {
 } from '../base.js'
 
 /**
- * The ABOUT_CLASSES constant.
+ * Frozen about class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const ABOUT_CLASSES = Object.freeze({
   ABOUT: _B_ABOUT,
