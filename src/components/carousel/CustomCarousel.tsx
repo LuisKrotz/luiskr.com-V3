@@ -53,13 +53,19 @@ import '@/components/media/MediaFigure.js'
 import { CAROUSEL_LAYOUT } from '@/core/tokens/motion/carousel.js'
 
 /**
- * The CustomCarousel — carousel class.
+ * <custom-carousel> element — the full-featured infinite carousel: media
+ * slides (image/video via <media-figure>), clone-ended wrap, WebGL
+ * prev/next arrows with a progress ring, dot nav, lazy media near the
+ * active index, IntersectionObserver-gated autoplay, and a side-by-side
+ * mode that drops all chrome when ≤2 items fit. Behavior delegates to
+ * `./custom-carousel/*`; this class is the state holder + facade.
  */
 export class CustomCarousel extends BaseComponent {
   /** Slide descriptors {src, size:[w,h], label, class, isVideo, canExpand}. */
   _items: CarouselItem[] = []
   /** CDN folder prefix prepended to each item's src. */
   _folder: string = ATTR_VALUES.EMPTY
+  /** Host-forced active flag — keeps the carousel live even when side-by-side would fit. */
   _forceActive = false
   /** Live CarouselArrowWebGL widgets (null until viewport entry). */
   _prevArrow: CarouselArrowWebGL | null = null
@@ -69,12 +75,16 @@ export class CustomCarousel extends BaseComponent {
   // Autoplay clock: autoplayStart is the performance.now() the current
   // cycle began at (offset by elapsed on resume); autoplayElapsed is the
   // accumulated ms into the AUTOPLAY_DURATION cycle.
+  /** RAF cycle active flag. */
   autoplayRunning = false
+  /** performance.now() the current dwell cycle started at. */
   autoplayStart = 0
+  /** Accumulated ms into the cycle — survives pause→resume. */
   autoplayElapsed = 0
   /** 0–1 fraction of the autoplay cycle — drives both the SVG ring and
    *  the WebGL arrows' progress arc. */
   ringProgress = 0
+  /** Autoplay RAF handle — cancelled by _stopAutoplay. */
   rafId: number | null = null
   /** Scroll debounce — _checkInfiniteLoop runs 150ms after the last event. */
   scrollTimeout: ReturnType<typeof setTimeout> | null = null
@@ -83,24 +93,30 @@ export class CustomCarousel extends BaseComponent {
   /** True while a programmatic scroll is animating — suppresses the
    *  scroll-handler teleport so the goTo-driven clone jump isn't undone. */
   isNavigating = false
+  /** Swipe origin X for the threshold check in the touchend handler. */
   touchStartX = 0
   /** Per-index lazy flag: media src assigned only for slides near the
    *  active one (±2 positions, wrapping). */
   slideLoaded: boolean[] = []
   /** 2πr of the progress ring — used as stroke-dasharray/dashoffset. */
   circumference = CAROUSEL_LAYOUT.CIRCUMFERENCE
-  /** Viewport flags from the IntersectionObserver — gate autoplay. */
+  /** ≥50% visible — the autoplay gate. */
   isFullyVisible = false
+  /** Any viewport visibility ever observed. */
   isEnteredViewport = false
+  /** IntersectionObserver driving the visibility flags + lazy media. */
   observer: IntersectionObserver | null = null
   /** True when ≤2 items fit side-by-side at ≥960px — no carousel chrome. */
   _isSideBySide = false
+  /** ResizeObserver on the host for _measureFit re-runs. */
   _fitObserver: ResizeObserver | null = null
+  /** Last width the fit observer saw — dedups sub-pixel RO noise. */
   _lastObservedWidth = 0
   /** Latched by any user interaction — autoplay never resumes after. */
   _autoplayPermanentlyStopped = false
   /** Ring regress animation in flight (drains progress on stop). */
   _isRegressing = false
+  /** Viewport under the mobile breakpoint at construct time. */
   isMobile =
     typeof window !== TYPE_STRINGS.UNDEFINED
       ? window.innerWidth < CAROUSEL_LAYOUT.MOBILE_BREAKPOINT
@@ -202,6 +218,7 @@ export class CustomCarousel extends BaseComponent {
     onMounted(this)
   }
 
+  /** Extra unmount hook the Safari patch calls — releases the fit observer early. */
   onUnmounted() {
     onUnmounted(this)
   }
@@ -383,18 +400,22 @@ export class CustomCarousel extends BaseComponent {
     startCarouselAutoplay(this)
   }
 
+  /** Stops autoplay; `permanently` latches _autoplayPermanentlyStopped so no resume follows a user gesture. */
   _stopAutoplay(permanently = false) {
     stopCarouselAutoplay(this, permanently)
   }
 
+  /** Animates ringProgress back to 0 (drain effect when autoplay stops). */
   _regressRingToZero() {
     regressRingToZero(this)
   }
 
+  /** Autoplay RAF frame — advances the ring clock, flips slides on cycle end. */
   _tick(timestamp: number): void {
     tickCarouselAutoplay(this, timestamp)
   }
 
+  /** Writes ringProgress into the SVG dashoffset + arrow widget arc. */
   _updateRingDom() {
     updateCarouselRingDom(this)
   }
@@ -417,6 +438,8 @@ export class CustomCarousel extends BaseComponent {
   }
 }
 
+// Registration guard: define() throws on duplicate tag — `get` check keeps
+// module re-evaluation (HMR, coverage re-imports) safe.
 if (!customElements.get(COMPONENT_TAGS.CUSTOM_CAROUSEL)) {
   customElements.define(COMPONENT_TAGS.CUSTOM_CAROUSEL, CustomCarousel)
 }
