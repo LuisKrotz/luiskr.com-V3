@@ -6,7 +6,9 @@
 import { _K_DIALOG } from '../base.js'
 
 /**
- * The ARIA_ATTRS constant.
+ * Frozen aria attribute-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const ARIA_ATTRS = Object.freeze({
   ARIA_LABEL: 'aria-label',
