@@ -13,7 +13,7 @@ import { ATMOS_RADIUS, EARTH_RADIUS, SEG_HIGH } from '../consts.js'
 type TslNs = typeof import('three/tsl')
 
 /**
- * The AtmosShellsArgs value.
+ * Type contract for AtmosShellsArgs — the shape consumers rely on.
  */
 export interface AtmosShellsArgs {
   THREE: typeof THREE_NS
@@ -23,7 +23,7 @@ export interface AtmosShellsArgs {
 }
 
 /**
- * The AtmosShellsResult value.
+ * Type contract for AtmosShellsResult — the shape consumers rely on.
  */
 export interface AtmosShellsResult {
   atmosMesh: THREE_NS.Mesh
