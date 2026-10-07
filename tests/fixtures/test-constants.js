@@ -15,6 +15,7 @@ const readScss = (name) => fs.readFileSync(path.join(ROOT_DIR, name), 'utf-8')
 export const SCSS = {
   about: readScss('src/sass/components/home/about.scss'),
   app: readScss('src/sass/components/shell/app.scss'),
+  awardsCarousel: readScss('src/sass/components/carousel/awards-carousel.scss'),
   awardsFooter: readScss('src/sass/components/home/awards-footer.scss'),
   carouselHost: readScss('src/sass/components/carousel/carousel-host.scss'),
   carousel: readScss('src/sass/components/carousel/carousel.scss'),
@@ -22,7 +23,6 @@ export const SCSS = {
   contact: readScss('src/sass/components/home/contact.scss'),
   drawText: readScss('src/sass/components/media/draw-text.scss'),
   fonts: readScss('src/sass/base/_fonts.scss'),
-  homeCarousel: readScss('src/sass/components/home/home-carousel.scss'),
   homeMosaic: readScss('src/sass/components/home/home-mosaic.scss'),
   internals: readScss('src/sass/components/project/internals.scss'),
   mediaFigure: readScss('src/sass/components/media/media-figure.scss'),
@@ -84,13 +84,13 @@ export const SRC = {
     'src/components/media/draw-text/sheet.js',
     'src/components/media/draw-text/trigger.js'
   ),
-  HomeCarousel: readJsTree(
-    'src/components/carousel/HomeCarousel.js',
-    'src/components/carousel/home-carousel/autoplay.js',
-    'src/components/carousel/home-carousel/events.js',
-    'src/components/carousel/home-carousel/nav.js',
-    'src/components/carousel/home-carousel/observer.js',
-    'src/components/carousel/home-carousel/render.js'
+  AwardsCarousel: readJsTree(
+    'src/components/carousel/AwardsCarousel.js',
+    'src/components/carousel/awards-carousel/autoplay.js',
+    'src/components/carousel/awards-carousel/events.js',
+    'src/components/carousel/awards-carousel/nav.js',
+    'src/components/carousel/awards-carousel/observer.js',
+    'src/components/carousel/awards-carousel/render.js'
   ),
   HomeMosaic: readJsTree(
     'src/components/home/HomeMosaic.js',

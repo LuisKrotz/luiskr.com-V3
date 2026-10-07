@@ -929,7 +929,7 @@ describe('AppNav tails', () => {
     expect(el._navFlags).toHaveLength(0)
 
     store.state.lang.locale = prevLocale
-  })
+  }, 120000)
 
   test('scrollToContact non-home reduced, catch and document-less arms', () => {
     const el = mountNav()

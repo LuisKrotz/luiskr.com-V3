@@ -9,6 +9,42 @@ Canonical pixel dimensions + media timing tokens split per
 
 ## Members
 
-### `MEDIA_DIMENSIONS`
+### `GENERIC_DIMENSIONS`
 
-Composed view of every dimension/timing token — backwards-compatible.
+The GENERIC_DIMENSIONS constant.
+
+### `IMAGE_DIMENSIONS`
+
+Image decode budgets shared by progressive media pipelines.
+
+### `MAX_DECODE_PIXELS`
+
+4096² pixels: preserves the former memory ceiling without rejecting tall, narrow screenshots.
+
+### `VIDEO_DIMENSIONS`
+
+The VIDEO_DIMENSIONS constant.
+
+### `FLAG_DIMENSIONS`
+
+flags dimensions.
+
+### `NAV_DIMENSIONS`
+
+The NAV_DIMENSIONS constant.
+
+### `MOSAIC_DIMENSIONS`
+
+The MOSAIC_DIMENSIONS constant.
+
+### `GRAVATAR_SIZES`
+
+The GRAVATAR_SIZES constant.
+
+### `SCROLL_TIMINGS`
+
+scrolls timings.
+
+### `DRAW_TIMINGS`
+
+Draws timings.

@@ -9,6 +9,10 @@
 
 ## Members
 
+### `ViewAdminLogin`
+
+The ViewAdminLogin — admin login class.
+
 ### (module scope)
 
 Lifecycle: binds the login button.

@@ -45,6 +45,18 @@ Glyph cell size for media/image placeholders (CSS px)
 
 Placeholders shorter than this are treated as text lines
 
+### `EDGE_SOFTNESS`
+
+Narrow signed-distance transition keeps text glyph edges crisp instead of blurred.
+
+### `TEXT_DENSITY_BASE`
+
+Text rows use a sparse, low-contrast field so they read as placeholders—not faux copy.
+
+### `INK_SURFACE_MIX_NEAR`
+
+Pull glyph ink toward the surface to keep the decoding texture restrained.
+
 ### `SKELETON_RESOLVE`
 
 The SKELETON_RESOLVE constant.

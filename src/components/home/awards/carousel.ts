@@ -1,7 +1,7 @@
 /**
  * @file home/awards/carousel.ts
  * @description Carousel wiring for <awards-mentions>: configures the
- * embedded <home-carousel> (awards variant, dots, dwell) and binds the
+ * embedded <awards-carousel> (awards variant, dots, dwell) and binds the
  * auto-advance lifecycle — AUTOPLAY_START shows + restarts the progress
  * arc, SLIDE_CHANGE re-arms it per slide, AUTOPLAY_STOP hides it but
  * only after autoplay has started once (the initial off-screen stop must
@@ -9,10 +9,12 @@
  */
 
 import { AWARDS_CLASSES } from '@/core/tokens/classes/awards.js'
+import { AWC_VARIANTS } from '@/core/tokens/classes/awards-carousel.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 import { APP_EVENTS } from '@/core/tokens/events/app.js'
 import type { AwardsMentions } from '../AwardsMentions.js'
 
-interface HomeCarouselEl extends HTMLElement {
+interface AwardsCarouselEl extends HTMLElement {
   items?: unknown[] | null
   variant?: string
   duration?: number
@@ -21,29 +23,29 @@ interface HomeCarouselEl extends HTMLElement {
 
 /** Builds the auto-advance loop: progress arc + timed slide transitions. */
 export function setupAwardsCarousel(el: AwardsMentions): void {
-  const hc = el.$<HomeCarouselEl>('home-carousel')
+  const awc = el.$<AwardsCarouselEl>(COMPONENT_TAGS.AWARDS_CAROUSEL)
 
-  if (!(hc && el.items)) return
+  if (!(awc && el.items)) return
 
-  hc.variant = 'awards'
-  hc.duration = el._duration
-  hc.showDots = true
-  hc.items = el.items
+  awc.variant = AWC_VARIANTS.AWARDS
+  awc.duration = el._duration
+  awc.showDots = true
+  awc.items = el.items
 
   el._autoplayEverStarted = false
 
-  el.addScopedListener(hc, APP_EVENTS.AUTOPLAY_START, () => {
+  el.addScopedListener(awc, APP_EVENTS.AUTOPLAY_START, () => {
     el._autoplayEverStarted = true
     el._showProgress()
     el._restartProgressAnimation()
   })
 
-  el.addScopedListener(hc, APP_EVENTS.SLIDE_CHANGE, () => {
+  el.addScopedListener(awc, APP_EVENTS.SLIDE_CHANGE, () => {
     el._showProgress()
     el._restartProgressAnimation()
   })
 
-  el.addScopedListener(hc, APP_EVENTS.AUTOPLAY_STOP, () => {
+  el.addScopedListener(awc, APP_EVENTS.AUTOPLAY_STOP, () => {
     if (el._autoplayEverStarted) el._hideProgress()
   })
 

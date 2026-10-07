@@ -9,6 +9,15 @@ Image decode pipeline: fetch → worker-side createImageBitmap
 
 ## Members
 
+### (module scope)
+
+Decodes item.
+
+### `WASMImageDecoder`
+
+Decodes images via createImageBitmap with GPU resize hints and caches the
+resulting ImageBitmaps keyed by URL, so repeat draws skip decode entirely.
+
 ### `decodeImageBatchWASM`
 
 Batch decode: splits the pending list across the pool's workers and
@@ -18,3 +27,7 @@ served from bitmapCache without a worker hop.
 ### `clearCache`
 
 Releases every cached ImageBitmap (frees GPU-backed memory) and clears the map.
+
+### `wasmImageDecoder`
+
+The wasmImageDecoder constant.

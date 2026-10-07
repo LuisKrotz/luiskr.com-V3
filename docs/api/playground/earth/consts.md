@@ -15,6 +15,11 @@ Scene-graph scale constants. The Earth sphere is 10 world units across the
 radius — an arbitrary "comfortable" scale that keeps camera distances and
 light falloff in the 10–200 range where float precision is excellent.
 
+### `EARTH_AXIAL_TILT`
+
+earths axial tilt.
+- `@param` 23 — the value
+
 ### `ATMOS_RADIUS`
 
 Outer atmosphere shell radius. 2% larger than the surface (10.2/10) — real
@@ -32,3 +37,7 @@ the silhouette stays smooth when the camera zooms to 1.2× radius — below
 Arg shapes for the Fn-defined post nodes — per-node-type annotations
  unlock the typed swizzle/fluent-op surface (vec4 gets .rgb/.a, float
  gets .mul/.add etc.).
+
+### (module scope)
+
+The VignetteNodeArgs value.

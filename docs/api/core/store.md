@@ -9,6 +9,10 @@ Framework-free reactive state container (tiny pub/sub).
 
 ## Members
 
+### `Store`
+
+The Store class.
+
 ### `commit`
 
 Runs a named mutation then notifies subscribers — unless the mutation
@@ -22,3 +26,7 @@ Subscribes to state changes.
 ### `notify`
 
 Calls every subscriber; one throwing subscriber can't break the rest.
+
+### `store`
+
+The store constant.

@@ -27,9 +27,9 @@ import {
 import { renderAwards } from './awards/render.js'
 import type { LegalLink } from './awards/data.js'
 import awardsFooterStyles from '@/sass/components/home/awards-footer.scss?inline'
-import '@/components/carousel/HomeCarousel.js'
+import '@/components/carousel/AwardsCarousel.js'
 
-interface HomeCarouselEl extends HTMLElement {
+interface AwardsCarouselEl extends HTMLElement {
   items?: unknown[] | null
 }
 
@@ -76,10 +76,10 @@ export class AwardsMentions extends BaseComponent {
     this._items = val
 
     if (this._isMounted) {
-      const hc = this.$<HomeCarouselEl>('home-carousel')
+      const awc = this.$<AwardsCarouselEl>(COMPONENT_TAGS.AWARDS_CAROUSEL)
 
-      if (hc) {
-        hc.items = this.items
+      if (awc) {
+        awc.items = this.items
       } else {
         this._updateDom()
 

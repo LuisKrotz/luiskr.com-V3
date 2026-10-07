@@ -9,6 +9,10 @@
 
 ## Members
 
+### `CustomCarousel`
+
+The CustomCarousel — carousel class.
+
 ### `_items`
 
 Slide descriptors {src, size:[w,h], label, class, isVideo, canExpand}.
@@ -36,7 +40,7 @@ Scroll debounce — _checkInfiniteLoop runs 150ms after the last event.
 
 ### `teleportTimer`
 
-Pending clone→real instant jump (CAROUSEL.TELEPORT_DELAY).
+Pending clone→real instant jump (CAROUSEL_TIMING.TELEPORT_DELAY).
 
 ### `isNavigating`
 

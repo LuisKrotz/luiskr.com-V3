@@ -20,6 +20,12 @@ Properties that must be set via the DOM property (el[key] = val)
 rather than el.setAttribute(key, val) so the browser reflects
 the live state (e.g. slider thumb position, input text).
 
+### `JSX_METADATA_PROPS`
+
+Compiler-only JSX metadata. OXC/Babel may inject these in development
+transforms; they describe source locations/runtime ownership and must never
+leak into rendered HTML as `"[object Object]"` attributes.
+
 ### `JSX_PROPS`
 
 Special prop names handled by `h()` before the generic setAttribute

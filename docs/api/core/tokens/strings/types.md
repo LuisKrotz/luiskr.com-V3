@@ -1,6 +1,6 @@
 # `core/tokens/strings/types.ts`
 
-`typeof` result string tokens — grouped subset of STRINGS.
+`typeof` result string tokens — token group.
 
 | | |
 |---|---|

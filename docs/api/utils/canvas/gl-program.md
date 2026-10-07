@@ -12,8 +12,9 @@ Shared WebGL boilerplate for the canvas widgets — every
 ### `getWebGLContext`
 
 Probes the canvas for a WebGL context — prefers `webgl`, falls back to
-`experimental-webgl`. Returns null when the browser has no GL support
-(callers then take their CSS/2D fallback path).
+`experimental-webgl`. Returns null when the browser has no GL support or
+when `?debug=webGLMode:fallback` forces the CSS/2D surface (callers then
+take their fallback path).
 
 ### `compileShader`
 
@@ -38,6 +39,10 @@ Custom warn sink — stage is 'VS' | 'FS' | 'Link' | 'fallback'.
 
 Blend factors — default premultiplied (ONE, ONE_MINUS_SRC_ALPHA);
  false gives straight-alpha (SRC_ALPHA, ONE_MINUS_SRC_ALPHA).
+
+### `createQuadProgram`
+
+Creates quad program.
 
 ### `getUniforms`
 

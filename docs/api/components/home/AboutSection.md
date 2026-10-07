@@ -9,6 +9,10 @@
 
 ## Members
 
+### `AboutSection`
+
+The AboutSection — section class.
+
 ### `aboutTranslations`
 
 Setter/getter — the about-page translation node pushed by the parent view.

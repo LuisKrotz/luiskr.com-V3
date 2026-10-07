@@ -84,3 +84,7 @@ Navigates without adding a history entry (redirects, boot).
 ### `init`
 
 Bootstraps the router from the current URL (replaces, not pushes).
+
+### `router`
+
+The router constant.

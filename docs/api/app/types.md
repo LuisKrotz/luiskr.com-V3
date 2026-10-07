@@ -12,3 +12,23 @@ Shared structural types for the App shell — the APP
 ### (module scope)
 
 Shape of the translations/<locale>/APP dictionary node.
+
+### (module scope)
+
+The AppNavEl value.
+
+### (module scope)
+
+The CookieBannerEl value.
+
+### (module scope)
+
+Type contract for pref modal el.
+
+### (module scope)
+
+Type contract for lang dialog el.
+
+### (module scope)
+
+The RoutableView value.

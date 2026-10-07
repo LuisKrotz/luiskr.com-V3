@@ -46,7 +46,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'app-nav': HTMLElement
     'home-mosaic': HTMLElement
-    'home-carousel': HTMLElement
+    'awards-carousel': HTMLElement
     'custom-carousel': HTMLElement
     'media-figure': HTMLElement
     'media-expanded': HTMLElement

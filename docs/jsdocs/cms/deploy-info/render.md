@@ -41,7 +41,7 @@ Renders the axe-core accessibility scan (violations grouped by surface).
 
 ### `renderSnyk`
 
-Renders the dependency vulnerability scan (Snyk or npm-audit fallback).
+Renders the dependency vulnerability scan (Snyk or yarn-audit fallback).
 
 ### `renderConsoleScan`
 

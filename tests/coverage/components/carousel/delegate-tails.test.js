@@ -17,8 +17,8 @@ import '@/components/home/AwardsMentions.js'
 import '@/playground/SpacePlayground.js'
 import '@/cms/projects/CmsProjectsList.js'
 import { scrollToElement, updateActiveClasses, jumpToSlide, carouselOnScroll } from '@/components/carousel/custom-carousel/nav.js'
-import { jumpToSlide as hcJumpToSlide } from '@/components/carousel/home-carousel/nav.js'
-import { setupObserver as hcSetupObserver } from '@/components/carousel/home-carousel/observer.js'
+import { jumpToSlide as hcJumpToSlide } from '@/components/carousel/awards-carousel/nav.js'
+import { setupObserver as hcSetupObserver } from '@/components/carousel/awards-carousel/observer.js'
 import { cardIdxFromEvent } from '@/components/home/mosaic/interactions.js'
 import { computeMosaicLayout, packMosaicSkeleton } from '@/components/home/mosaic/pack.js'
 import { renderWordHtml, tokenToHtml } from '@/components/media/draw-text/render.js'
@@ -128,7 +128,7 @@ describe('carousel nav — counter + scroll arms', () => {
     expect(counter.textContent.length).toBeGreaterThan(0)
   })
 
-  test('home-carousel jumpToSlide uses the non-smooth default', () => {
+  test('awards-carousel jumpToSlide uses the non-smooth default', () => {
     const slide = document.createElement('div')
     const track = document.createElement('div')
 
@@ -146,20 +146,20 @@ describe('carousel nav — counter + scroll arms', () => {
     expect(track.scrollTo).toHaveBeenCalled()
   })
 
-  test('home-carousel jumpToSlide early-returns when the track lookup fails', () => {
+  test('awards-carousel jumpToSlide early-returns when the track lookup fails', () => {
     const host = { $: () => null }
 
     expect(() => hcJumpToSlide(host, 0)).not.toThrow()
   })
 
-  test('home-carousel jumpToSlide early-returns when the slide is missing', () => {
+  test('awards-carousel jumpToSlide early-returns when the slide is missing', () => {
     const track = document.createElement('div')
     const host = { $: () => track }
 
     expect(() => hcJumpToSlide(host, 0)).not.toThrow()
   })
 
-  test('home-carousel setupObserver early-returns without a root element', () => {
+  test('awards-carousel setupObserver early-returns without a root element', () => {
     const host = { $: () => null }
 
     expect(() => hcSetupObserver(host)).not.toThrow()

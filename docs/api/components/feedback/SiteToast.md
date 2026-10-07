@@ -9,6 +9,10 @@
 
 ## Members
 
+### `SiteToast`
+
+The SiteToast — toast class.
+
 ### `push`
 
 Queues a toast item and starts its auto-dismiss clock.

@@ -9,13 +9,9 @@
 
 ## Members
 
-### (module scope)
+### `LegalFooter`
 
-Builds the legal link list for a locale from bundled data: the four
-fixed destinations (home, privacy, GDPR, terms) resolve through
-LANG_SLUGS so localized paths work offline; labels come from the
-components dictionary — index-aligned with slugFor so labels[i]
-describes destination i.
+The LegalFooter — footer class.
 
 ### (module scope)
 

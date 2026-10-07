@@ -14,6 +14,10 @@
 Application shell element. Extends the shared BaseComponent (shadow DOM,
 scoped listeners, store subscription, _updateDom re-render pipeline).
 
+### `_docObserver`
+
+Watches document height so onBottom/activeSection never go stale.
+
 ### `modal`
 
 Current modal descriptor from the store ({ open, class, transform }).
@@ -31,7 +35,7 @@ modal/dialog/HUD chunks so they aren't on the critical path.
 
 ### (module scope)
 
-Lifecycle: releases the intro loader when the element disconnects.
+Lifecycle: releases the intro loader + document observer when the element disconnects.
 
 ### (module scope)
 

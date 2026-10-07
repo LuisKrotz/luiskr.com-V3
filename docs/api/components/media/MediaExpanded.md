@@ -9,6 +9,10 @@
 
 ## Members
 
+### `MediaExpanded`
+
+The MediaExpanded — expanded class.
+
 ### `source`
 
 Full-res media URL (from the source attribute).

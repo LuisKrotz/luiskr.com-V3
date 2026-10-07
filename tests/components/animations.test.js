@@ -382,12 +382,12 @@ describe('Animation System — Timing, Easing & Reduced Motion (200+ tests)', ()
 
   // ── CSS Animation Class Existence in SCSS ──────────────────────────────────
   describe('6. CSS Animation Classes Must Exist in SCSS', () => {
-    let drawTextCss, appCss, homeCarouselCss
+    let drawTextCss, appCss, awardsCarouselCss
 
     beforeAll(() => {
       drawTextCss = readSass('media/draw-text.scss')
       appCss = readSass('shell/app.scss')
-      homeCarouselCss = readSass('home/home-carousel.scss')
+      awardsCarouselCss = readSass('carousel/awards-carousel.scss')
     })
 
     test('draw-text.scss has @keyframes char-draw', () => {
@@ -422,8 +422,8 @@ describe('Animation System — Timing, Easing & Reduced Motion (200+ tests)', ()
       expect(appCss).toContain('@keyframes skeleton-shimmer')
     })
 
-    test('home-carousel.scss has animation classes for slide transitions', () => {
-      expect(homeCarouselCss).toBeDefined()
+    test('awards-carousel.scss has animation classes for slide transitions', () => {
+      expect(awardsCarouselCss).toBeDefined()
     })
 
     test('carousel.scss carousel fade-in transition is 0.8s', () => {

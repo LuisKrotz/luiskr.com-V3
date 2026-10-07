@@ -11,7 +11,7 @@ import store from '@/core/store.js'
 import router from '@/routes/router.js'
 import '@/components/feedback/StatsHud.js'
 import '@/routes/views/project/Project.js'
-import { TEST_PROJECTS, TEST_TEXT, TEST_URLS } from '../fixtures/test-constants.js'
+import { TEST_PROJECTS, TEST_TEXT, TEST_URLS, waitFor } from '../fixtures/test-constants.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 import { MODAL_MUTATIONS, PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
 import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
@@ -475,12 +475,17 @@ describe('ViewProject tails', () => {
     const el = makeView()
 
     const origFetch = globalThis.fetch
+    let fetchCalls = 0
 
     globalThis.fetch = async () => ({
       ok: true,
       status: 200,
       headers: { get: () => null },
-      json: async () => ({ title: TEST_TEXT.HEADING, noindex: true, sections: [] }),
+      json: async () => {
+        fetchCalls += 1
+
+        return { title: TEST_TEXT.HEADING, noindex: true, sections: [] }
+      },
       text: async () => CHAR_STRINGS.EMPTY,
       blob: async () => new Blob([]),
       arrayBuffer: async () => new ArrayBuffer(0),
@@ -500,14 +505,14 @@ describe('ViewProject tails', () => {
       el.projectSlug = TEST_PROJECTS.SAGE
       el.loadData(5)
 
-      await new Promise((r) => setTimeout(r, 60))
+      await waitFor(() => el.translations?.title === TEST_TEXT.HEADING)
 
       expect(el.translations?.title).toBe(TEST_TEXT.HEADING)
 
       el.projectSlug = TEST_PROJECTS.CICB
       el.loadData()
 
-      await new Promise((r) => setTimeout(r, 30))
+      await waitFor(() => fetchCalls > 1)
     } finally {
       globalThis.fetch = origFetch
       lang.database = prevDb

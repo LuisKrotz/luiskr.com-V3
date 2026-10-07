@@ -8,7 +8,7 @@ import '@/components/home/ContactSection.js'
 import '@/components/dialogs/PreferencesModal.js'
 import '@/components/dialogs/LangDialog.js'
 import '@/components/carousel/CustomCarousel.js'
-import '@/components/carousel/HomeCarousel.js'
+import '@/components/carousel/AwardsCarousel.js'
 import '@/components/media/MediaFigure.js'
 import '@/components/media/MediaExpanded.js'
 import '@/routes/views/home/Home.js'
@@ -24,7 +24,7 @@ import { DRAW_TEXT_SELECTORS } from '@/core/tokens/selectors/draw-text.js'
 import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
 import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { HC_CLASSES } from '@/core/tokens/classes/home-carousel.js'
+import { AWC_CLASSES } from '@/core/tokens/classes/awards-carousel.js'
 import { CAROUSEL_SELECTORS } from '@/core/tokens/selectors/carousel.js'
 import { NAV_TEXT } from '@/core/tokens/strings/text.js'
 import { NAV_SELECTORS } from '@/core/tokens/selectors/nav.js'
@@ -130,27 +130,27 @@ describe('Automated End-to-End Feature & Fidelity Test Suite (50+ Tests)', () =>
   })
 
   describe('2. Carousel Interaction & Seamless Infinite Looping', () => {
-    test('HomeCarousel initializes, creates clones, and updates on dot click', () => {
-      const hc = document.createElement(COMPONENT_TAGS.HOME_CAROUSEL)
-      hc.variant = 'awards'
-      hc.showDots = true
-      hc.items = [
+    test('AwardsCarousel initializes, creates clones, and updates on dot click', () => {
+      const awc = document.createElement(COMPONENT_TAGS.AWARDS_CAROUSEL)
+      awc.variant = 'awards'
+      awc.showDots = true
+      awc.items = [
         { description: TEST_AWARDS.FWA_OF_THE_DAY, link: 'https://thefwa.com', icon: '🏆' },
         { description: TEST_AWARDS.AWWARDS_SOTD, link: 'https://awwwards.com', icon: '⭐' },
         { description: 'CSSDA Best UI', link: 'https://cssdesignawards.com', icon: '🎖️' },
       ]
-      document.body.appendChild(hc)
+      document.body.appendChild(awc)
 
-      const shadow = hc.shadowRoot
-      expect(shadow.querySelectorAll('.hc-slide').length).toBe(5) // 3 + 2 clones
+      const shadow = awc.shadowRoot
+      expect(shadow.querySelectorAll('.aw-c-slide').length).toBe(5) // 3 + 2 clones
 
-      const dots = shadow.querySelectorAll('.hc-dot')
+      const dots = shadow.querySelectorAll('.aw-c-dot')
       expect(dots.length).toBe(3)
-      expect(dots[0].classList.contains(HC_CLASSES.HC_DOT_ACTIVE)).toBe(true)
+      expect(dots[0].classList.contains(AWC_CLASSES.AWC_DOT_ACTIVE)).toBe(true)
 
       dots[1].click()
-      expect(hc.currentIndex).toBe(1)
-      expect(dots[1].classList.contains(HC_CLASSES.HC_DOT_ACTIVE)).toBe(true)
+      expect(awc.currentIndex).toBe(1)
+      expect(dots[1].classList.contains(AWC_CLASSES.AWC_DOT_ACTIVE)).toBe(true)
     })
 
     test('CustomCarousel renders responsive slides and updates height variable', () => {

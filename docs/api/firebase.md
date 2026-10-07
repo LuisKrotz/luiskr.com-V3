@@ -16,6 +16,11 @@ base64-encoded fallback baked at build time. Firebase API keys identify
 the project, not a secret — but the fallback still avoids a plaintext
 literal for casual scraping.
 
+### `app`
+
+The app constant.
+- `@param` firebaseConfig — the value
+
 ### (module scope)
 
 Lazily imports firebase/auth once and returns the shared Auth instance.

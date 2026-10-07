@@ -9,6 +9,22 @@ Off-main-thread media pipeline built on the WASM worker pool:
 
 ## Members
 
+### (module scope)
+
+The VideoVariant value.
+
+### (module scope)
+
+The VideoProbe value.
+
+### (module scope)
+
+Prefetches result.
+
+### (module scope)
+
+The MediaSegment value.
+
 ### `WASMMediaThreadManager`
 
 Orchestrator over wasmPool.dispatch + gpuAccel. Three memoization maps
@@ -61,3 +77,7 @@ results are still usable — the caller decides if gaps are fatal).
 ### `applyBestVariant`
 
 After prefetchVideoVariants resolves: sets the winning URL on the element and uploads the poster to GPU.
+
+### `wasmMediaThreads`
+
+The wasmMediaThreads constant.

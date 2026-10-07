@@ -9,6 +9,10 @@
 
 ## Members
 
+### `CmsPlaygroundEditor`
+
+The CmsPlaygroundEditor — playground editor class.
+
 ### (module scope)
 
 Lifecycle: loads playground data.

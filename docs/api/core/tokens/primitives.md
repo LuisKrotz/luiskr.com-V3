@@ -9,10 +9,10 @@ Primitive string tokens — typeof results, punctuation,
 
 ## Members
 
-### `STRINGS`
+### `MEDIA_QUERIES`
 
-Composed view of every primitive string — backwards-compatible registry.
+The MEDIA_QUERIES constant.
 
-### `TEXT`
+### `KEYS`
 
-Composed view of the non-localized UI text vocabulary.
+The KEYS constant.

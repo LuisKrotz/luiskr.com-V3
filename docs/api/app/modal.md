@@ -6,3 +6,10 @@ Modal-state DOM sync for AppRoot — toggles modal-open on html/body, copies the
 |---|---|
 | **Source** | `src/app/modal.ts` |
 | **UX surface** | Boot surfaces: what the user sees first on each bundle. |
+
+## Members
+
+### `updateAppModalState`
+
+Updates app modal state.
+- `@param` c — the component

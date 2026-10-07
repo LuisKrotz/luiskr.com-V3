@@ -17,15 +17,18 @@ first playable <source>), or the thumb URL for images.
 
 ### `mediaPlaceholder`
 
-Inline SVG placeholder — a URL-encoded empty <svg> with the media's
-real viewBox. Browsers stretch an empty SVG to its intrinsic ratio,
-so the layout box reserves the exact aspect before any bytes arrive
-(zero-CLS without shipping a real image).
+Inline SVG placeholder — a URL-encoded empty <svg> carrying the media's
+real width/height (definite intrinsic size) plus the viewBox aspect.
+The width/height attrs matter: a viewBox-only SVG is intrinsic-ratio-only
+and the <img> would collapse to the ~300×150 default replaced size under
+`width:auto`, so carousel placeholders keep their natural box before any
+bytes arrive (zero-CLS without shipping a real image).
 
 ### (module scope)
 
 Thumb → high-res swap. A detached Image preloads the Q50 variant;
 on load the visible element swaps src + gets the loaded class (the
-CSS crossfade) and the thumb hides. The 4096px guard skips absurd
-source sizes (decode/memory cap). Errors mark loaded anyway — a
-broken image must not pin the skeleton shimmer forever.
+CSS crossfade) and the thumb hides. The 4096²-pixel budget caps decode
+memory without rejecting tall, narrow full-page screenshots solely because
+one dimension exceeds 4096px. Errors mark loaded anyway — a broken image
+must not pin the skeleton shimmer forever.

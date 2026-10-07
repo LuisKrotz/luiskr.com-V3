@@ -27,7 +27,10 @@ shadow trees — used for sweeps like "pause every video on the page".
 ### `svgPlaceholder`
 
 Generates an ultra-lightweight inline SVG placeholder data URI with exact
-dimensions. An empty `<svg viewBox="0 0 w h">` weighs ~90 bytes, decodes
-instantly, and — crucially — gives the `<img>` the right intrinsic aspect
-ratio so layout is stable while the real image streams in (zero CLS).
-Default is FHD 1920×1080 (16:9), the common media shape.
+dimensions. An empty `<svg width height viewBox>` weighs ~110 bytes,
+decodes instantly, and — crucially — gives the `<img>` a definite intrinsic
+size AND aspect ratio, so `width:auto` layouts reserve the real natural box
+while the actual image streams in (zero CLS, no uniform-width stretching).
+Without the width/height attrs the SVG is intrinsic-ratio-only and the img
+collapses to the ~300×150 default replaced size. Default is FHD
+1920×1080 (16:9), the common media shape.

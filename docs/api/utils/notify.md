@@ -63,8 +63,8 @@ in-page toast otherwise.
 ### `notifyError`
 
 Generic failure shortcut — the localized "something went wrong" string.
-Used by global handlers where the raw error detail belongs in console,
-not on screen.
+Used by global handlers where the raw error detail belongs in the devlog
+buffer (`core/devlog.ts`), not on screen.
 
 ### `notifyLoadFailed`
 

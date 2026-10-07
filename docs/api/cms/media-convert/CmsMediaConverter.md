@@ -9,6 +9,15 @@
 
 ## Members
 
+### `IS_LOCALHOST`
+
+Returns whether localhost.
+- `@param` localhost — the value
+
+### `CmsMediaConverter`
+
+The CmsMediaConverter component.
+
 ### (module scope)
 
 Lifecycle: binds drop-zone + input events.

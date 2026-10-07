@@ -9,6 +9,17 @@ Shared GPU capability detection + WebGL context-option hints.
 
 ## Members
 
+### (module scope)
+
+The GPUInfo value.
+
+### `_probeRenderer`
+
+Reads the real GPU renderer string via WEBGL_debug_renderer_info —
+tries WebGL2 then WebGL1, preferring the unmasked constants so the result
+identifies the actual adapter instead of the vendor redaction string.
+- `@returns` {string} the renderer description, or "" when GPU probing is impossible
+
 ### `getGPUInfo`
 
 Detects GPU capabilities once and caches the result.

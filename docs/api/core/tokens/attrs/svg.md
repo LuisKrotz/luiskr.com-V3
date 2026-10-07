@@ -1,6 +1,6 @@
 # `core/tokens/attrs/svg.ts`
 
-SVG geometry attribute values — grouped subset of ATTRS.
+SVG geometry attribute values — token group.
 
 | | |
 |---|---|

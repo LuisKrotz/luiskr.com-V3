@@ -120,7 +120,7 @@
 }
 
 // ── Inside slides: animate only when the slide becomes active ──────────────
-.hc-slide--active .draw-text__char {
+.aw-c-slide--active .draw-text__char {
   will-change: opacity, transform;
   animation: char-draw 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: calc(var(--offset, 0ms) + var(--i, 0) * var(--char-delay, 100ms));
@@ -201,7 +201,7 @@
   // The browser promotes layers on demand as characters become active — far cheaper.
   .draw-text--visible .draw-text__char,
   .home-section-title .draw-text__char,
-  .hc-slide--active .draw-text__char,
+  .aw-c-slide--active .draw-text__char,
   .related-mosaic-desc .draw-text__char {
     will-change: auto;
   }
@@ -230,7 +230,7 @@
   // Word-level stagger replaces char-level stagger
   .draw-text--visible .draw-text__word,
   .home-section-title .draw-text__word,
-  .hc-slide--active .draw-text__word,
+  .aw-c-slide--active .draw-text__word,
   .related-mosaic-desc .draw-text__word {
     opacity: 0;
     animation: word-draw 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -240,7 +240,7 @@
   // Chars inside animated words are immediately visible — word wrapper handles the fade
   .draw-text--visible .draw-text__char,
   .home-section-title .draw-text__char,
-  .hc-slide--active .draw-text__char,
+  .aw-c-slide--active .draw-text__char,
   .related-mosaic-desc .draw-text__char {
     opacity: 1;
     transform: none;

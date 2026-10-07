@@ -24,17 +24,17 @@
 //  Modern browsers that DO support aspect-ratio are never served this file.
 //
 @supports not (aspect-ratio: 1) {
-  // ── Home carousel: selected work ────────────────────────────────────────
+  // ── Awards carousel: selected work ────────────────────────────────────────
 
   // Controls overlay — position:absolute, height driven by aspect-ratio in
   // modern CSS, broken on iOS 14-15.x. Restore height via padding-top.
-  .hc--selected .hc-controls {
+  .aw-c--selected .aw-c-controls {
     height: 0;
     padding-top: 43.75%; // 7 ÷ 16 = 43.75%
   }
 
   // Cover image wrapper — flex child with aspect-ratio; iOS needs padding-top.
-  .hc--selected .hc-cover {
+  .aw-c--selected .aw-c-cover {
     height: 0;
     padding-top: 43.75%;
     position: relative; // creates the BFC the absolutely-positioned img needs
@@ -49,7 +49,7 @@
   }
 
   // Cover skeleton — same shape as the live cover image
-  .hc--selected .hc-cover--skel {
+  .aw-c--selected .aw-c-cover--skel {
     height: 0;
     padding-top: 43.75%;
   }

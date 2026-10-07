@@ -1,6 +1,6 @@
 # `core/tokens/strings/langs.ts`
 
-Locale code string tokens — grouped subset of STRINGS.
+Locale code string tokens — token group.
 
 | | |
 |---|---|

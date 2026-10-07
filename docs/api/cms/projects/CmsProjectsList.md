@@ -9,6 +9,10 @@ CMS projects editor: full case-study editing — project
 
 ## Members
 
+### `CmsProjectsList`
+
+The CmsProjectsList — projects list class.
+
 ### (module scope)
 
 Lifecycle: loads the project keys + data.

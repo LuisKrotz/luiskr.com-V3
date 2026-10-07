@@ -9,6 +9,18 @@
 
 ## Members
 
-### `SP_PARAMS`
+### `SP_SCENE_PARAMS`
 
-Composed view — backwards-compatible registry.
+The SP_SCENE_PARAMS constant.
+
+### `SP_POST_PARAMS`
+
+The SP_POST_PARAMS constant.
+
+### `SP_GRADE_PARAMS`
+
+The SP_GRADE_PARAMS constant.
+
+### `SP_DEBUG_PARAMS`
+
+The SP_DEBUG_PARAMS constant.

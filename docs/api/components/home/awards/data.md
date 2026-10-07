@@ -9,6 +9,14 @@ Data helpers for &lt;awards-mentions&gt;: the legal-links list
 
 ## Members
 
+### (module scope)
+
+The AwardLink value.
+
+### (module scope)
+
+The LegalLink value.
+
 ### `legalLinks`
 
 Legal-page links for the footer row (CMS preferred, fallback otherwise).

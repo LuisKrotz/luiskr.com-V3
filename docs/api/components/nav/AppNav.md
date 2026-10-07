@@ -9,6 +9,10 @@
 
 ## Members
 
+### `AppNav`
+
+The AppNav — nav class.
+
 ### `_translations`
 
 APP dictionary pushed by <app-root>; null until first fetch lands.
@@ -40,6 +44,13 @@ BurgerButtonWebGL on the persistent burger canvas.
 ### `_menuFlagCanvasEl`
 
 Menu flag canvas + the locale it was built for (rebuilt on change).
+
+### `_navStoreSig`
+
+Snapshot of the store inputs the template actually consumes —
+compared in onStoreUpdate so unrelated commits (dialog open/close,
+modal origin, scroll flags) don't force a DOM wipe that replays the
+draw-text letter animation.
 
 ### `translations`
 
@@ -110,9 +121,16 @@ Subscribes to route changes so nav state/links refresh per page.
 
 ### (module scope)
 
-Store change → re-render + flag re-mount (locale may have switched) +
-propagate reduced-motion to live flag widgets so they freeze their
-wave animation without waiting for a rebuild.
+Store change → re-render only when a value the template consumes
+actually moved: the locale, the live dictionaries `appText` resolves
+against (app/components/slugs — mutations replace them wholesale, so
+identity comparison works), the media-modal open flag (nav renders
+empty behind it) and reduced-motion. Dialog open/close, modal-origin
+and other commits leave the DOM alone — critically, while the menu
+is open behind a dialog this keeps every <draw-text> label mounted
+and already-drawn instead of replaying the letter animation.
+Reduced-motion still reaches live flag widgets on every commit so
+they freeze without waiting for a rebuild.
 
 ### `updateScrollState`
 

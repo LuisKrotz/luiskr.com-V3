@@ -9,6 +9,10 @@ Live performance-metrics collector behind the Stats-for-nerds
 
 ## Members
 
+### (module scope)
+
+The StatsSnapshot value.
+
 ### `StatsEngine`
 
 Metrics engine: starts observers lazily on first subscribe, stops them
@@ -57,3 +61,7 @@ Manual in-flight counter increment for non-fetch request paths.
 ### `trackRequestEnd`
 
 Manual in-flight counter decrement (floor at 0).
+
+### `statsEngine`
+
+The statsEngine constant.

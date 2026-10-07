@@ -9,6 +9,10 @@
 
 ## Members
 
+### `ContactSection`
+
+contacts section.
+
 ### (module scope)
 
 JSX template for the component's shadow DOM.

@@ -1,6 +1,6 @@
 # `core/tokens/attrs/values.ts`
 
-Generic attribute-value tokens — grouped subset of ATTRS.
+Generic attribute-value tokens — token group.
 
 | | |
 |---|---|

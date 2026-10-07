@@ -9,6 +9,10 @@ CMS about-page editor: bio paragraphs per column, the
 
 ## Members
 
+### `CmsAboutEditor`
+
+The CmsAboutEditor — about editor class.
+
 ### (module scope)
 
 Lifecycle: loads the about data and binds events.

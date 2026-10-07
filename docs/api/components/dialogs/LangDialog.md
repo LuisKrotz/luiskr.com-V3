@@ -9,6 +9,10 @@
 
 ## Members
 
+### `LangDialog`
+
+The LangDialog — dialog class.
+
 ### `open`
 
 Setter/getter — controls the dialog's open state.

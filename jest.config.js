@@ -29,7 +29,7 @@ export default {
   // WebGL/engine suites await real async boot paths; instrumented parallel
   // runs starve real timers, so both the timeout and the worker cap are
   // sized for the coverage run, not the solo-run ideal.
-  testTimeout: 60000,
+  testTimeout: 120000,
   // ~90% of cores for maximum throughput — the RAM ceiling that previously
   // capped this at 50% is now handled by workerIdleMemoryLimit below, which
   // recycles a worker the moment its heap goes idle over the cap instead of

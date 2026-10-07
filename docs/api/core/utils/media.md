@@ -9,6 +9,14 @@ Media-URL builders — the single place where CDN filename
 
 ## Members
 
+### (module scope)
+
+The MediaUrlItem value.
+
+### (module scope)
+
+The MediaUrls value.
+
 ### `isGravatarUrl`
 
 Checks if a given URL belongs to gravatar.com (exact host or any

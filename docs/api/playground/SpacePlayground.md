@@ -9,6 +9,10 @@
 
 ## Members
 
+### `SpacePlayground`
+
+The SpacePlayground — playground class.
+
 ### `_getCanvasEl`
 
 The WebGL canvas the EarthBackground engine renders into.

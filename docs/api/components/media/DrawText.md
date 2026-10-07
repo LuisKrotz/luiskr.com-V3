@@ -9,6 +9,10 @@
 
 ## Members
 
+### `DrawText`
+
+Draws text.
+
 ### `text`
 
 Setter/getter — the text content to animate.
@@ -56,6 +60,10 @@ Returns characters to the hidden start state so the animation can replay.
 ### `_setupTrigger`
 
 Wires the active trigger mode (delegate — ./draw-text/trigger.ts).
+
+### `_setupFit`
+
+Installs the fit-to-width pipeline (delegate — ./draw-text/fit.ts).
 
 ### `_startAnimation`
 

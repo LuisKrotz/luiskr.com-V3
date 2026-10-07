@@ -24,7 +24,7 @@ export const COMPONENT_TAGS = Object.freeze({
   MEDIA_FIGURE: _B_MEDIA_FIGURE,
   DRAW_TEXT: _B_DRAW_TEXT,
   CUSTOM_CAROUSEL: 'custom-carousel',
-  HOME_CAROUSEL: 'home-carousel',
+  AWARDS_CAROUSEL: 'awards-carousel',
   HOME_MOSAIC: _B_HOME_MOSAIC,
   ABOUT_SECTION: _K_ABOUT_SECTION,
   CONTACT_SECTION: 'contact-section',

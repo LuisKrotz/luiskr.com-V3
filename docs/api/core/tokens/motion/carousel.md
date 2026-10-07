@@ -17,6 +17,10 @@ Autoplay interval in milliseconds before advancing to next slide
 
 Teleport animation duration (ms) — must match CSS transition
 
+### `CAROUSEL_LAYOUT`
+
+The CAROUSEL_LAYOUT constant.
+
 ### `CIRCUMFERENCE`
 
 SVG countdown ring circumference: 2π × r (r=19)
@@ -41,6 +45,10 @@ Slide height cap as a fraction of the viewport height
 
 Skeleton sections reserve the same capped height so content loads without shifting
 
+### `CAROUSEL_LOADING`
+
+The CAROUSEL_LOADING constant.
+
 ### `EAGER_COUNT`
 
 Carousels rendered synchronously with the page (the ones that can be in the first viewport)
@@ -52,7 +60,3 @@ Below-the-fold carousels are rendered this many at a time in idle periods
 ### `DEFERRED_TIMEOUT`
 
 Upper bound before a deferred batch runs anyway (ms)
-
-### `CAROUSEL`
-
-Composed view — backwards-compatible registry.

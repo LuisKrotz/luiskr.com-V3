@@ -25,10 +25,10 @@ Integrated/mobile GPUs where the discrete hint is meaningless
 
 CPU rasterizers — never request high-performance
 
+### `UA_PATTERNS`
+
+The UA_PATTERNS constant.
+
 ### `MOBILE_UA`
 
 Mobile user agents — WebGL hinting is irrelevant (single GPU path)
-
-### `GPU`
-
-Composed view — backwards-compatible registry.

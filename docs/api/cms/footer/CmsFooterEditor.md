@@ -9,6 +9,10 @@ CMS footer editor: credit/source lines and the social/other
 
 ## Members
 
+### `CmsFooterEditor`
+
+The CmsFooterEditor — footer editor class.
+
 ### (module scope)
 
 Lifecycle: loads footer data.

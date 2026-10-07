@@ -9,6 +9,10 @@
 
 ## Members
 
+### `PreferencesModal`
+
+The PreferencesModal — modal class.
+
 ### `pref`
 
 Setter/getter — the pref.* translation node for labels.

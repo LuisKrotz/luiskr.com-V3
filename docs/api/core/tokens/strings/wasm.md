@@ -1,6 +1,6 @@
 # `core/tokens/strings/wasm.ts`
 
-WASM worker vocab string tokens — grouped subset of STRINGS.
+WASM worker vocab string tokens — token group.
 
 | | |
 |---|---|

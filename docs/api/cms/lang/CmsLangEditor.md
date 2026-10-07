@@ -9,6 +9,10 @@
 
 ## Members
 
+### `CmsLangEditor`
+
+The CmsLangEditor — lang editor class.
+
 ### (module scope)
 
 Lifecycle: loads language data.

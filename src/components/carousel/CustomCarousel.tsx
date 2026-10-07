@@ -1,7 +1,7 @@
 /**
  * @file CustomCarousel.js
  * @description <custom-carousel> — infinite-loop horizontal carousel used by
- * the home carousel and related-projects strip. Native-scroll based with
+ * the awards carousel and related-projects strip. Native-scroll based with
  * clone slides at both ends for wrap-around (teleport on reaching a clone),
  * WebGL prev/next arrow controls with progress ring, dot navigation,
  * IntersectionObserver-driven lazy media, and autoplay. Clone slides are

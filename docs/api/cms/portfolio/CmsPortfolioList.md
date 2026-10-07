@@ -9,6 +9,10 @@ CMS portfolio-list editor: the home page's ordered project
 
 ## Members
 
+### `CmsPortfolioList`
+
+The CmsPortfolioList — portfolio list class.
+
 ### (module scope)
 
 Lifecycle: loads the portfolio list.

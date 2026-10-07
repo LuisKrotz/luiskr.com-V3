@@ -6,3 +6,15 @@ Scroll tracking for AppRoot — measures the #about/#contact section tops and ke
 |---|---|
 | **Source** | `src/app/scroll.ts` |
 | **UX surface** | Boot surfaces: what the user sees first on each bundle. |
+
+## Members
+
+### `updateAppSectionTops`
+
+Updates app section tops.
+- `@param` c — the component
+
+### `checkAppScroll`
+
+Checks app scroll.
+- `@param` c — the component

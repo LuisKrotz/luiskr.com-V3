@@ -6,3 +6,13 @@ View outlet reconciliation for AppRoot — same-tag routes delegate to onRoutePa
 |---|---|
 | **Source** | `src/app/view.ts` |
 | **UX surface** | Boot surfaces: what the user sees first on each bundle. |
+
+## Members
+
+### `updateAppViewContent`
+
+Updates app view content.
+
+### (module scope)
+
+The flipAppView value.

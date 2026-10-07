@@ -17,6 +17,10 @@ Any child value `h()`/`Fragment` accept — nodes, scalars, nested arrays.
 
 Functional component tag — receives `{...props, children}` and returns a node.
 
+### (module scope)
+
+The JSXTag value.
+
 ### `h`
 
 JSX factory function — every `render()` in the app funnels through here.

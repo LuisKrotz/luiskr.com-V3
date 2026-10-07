@@ -7,6 +7,7 @@
  */
 
 import { AWARDS_CLASSES } from '@/core/tokens/classes/awards.js'
+import { AWC_CLASSES } from '@/core/tokens/classes/awards-carousel.js'
 import { FOOTER_CLASSES } from '@/core/tokens/classes/footer.js'
 import { SKELETON_CLASSES } from '@/core/tokens/classes/skeleton.js'
 import { AWARDS_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
@@ -44,7 +45,7 @@ export function renderAwards(el: AwardsMentions) {
       </div>
 
       {el.items && el.items.length ? (
-        <home-carousel className="hc--awards" />
+        <awards-carousel className={AWC_CLASSES.AWC_AWARDS} />
       ) : (
         <div className="aw-ft-skel">
           <span className={SKELETON_CLASSES.SKELETON_BADGE} />

@@ -9,6 +9,10 @@ Control wiring for SpacePlayground — panel event binding,
 
 ## Members
 
+### `setGroupCollapsed`
+
+Synchronizes one group's collapsed class, accessibility state, and focusability.
+
 ### `bindSpaceControls`
 
 Binds space controls.

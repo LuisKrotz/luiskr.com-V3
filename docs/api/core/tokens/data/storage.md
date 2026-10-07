@@ -9,6 +9,6 @@ localStorage/sessionStorage key tokens split by scope —
 
 ## Members
 
-### `STORAGE_KEYS`
+### `CACHE_STORAGE_KEYS`
 
-Composed view — backwards-compatible registry.
+Caches storage keys.

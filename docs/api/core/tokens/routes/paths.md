@@ -9,6 +9,18 @@ Path tokens split by function — public URL routes, Firebase
 
 ## Members
 
+### `ROUTE_PATHS`
+
+routes paths.
+
+### `DB_PATHS`
+
+The DB_PATHS constant.
+
 ### `PROJECTS_SEGMENT`
 
 Segment names inside translations/<locale>/ used by the bootstrap chunks
+
+### `ASSET_PATHS`
+
+The ASSET_PATHS constant.

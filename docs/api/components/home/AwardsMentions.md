@@ -9,6 +9,10 @@
 
 ## Members
 
+### `AwardsMentions`
+
+The AwardsMentions — mentions class.
+
 ### (module scope)
 
 Setter/getter — section heading text.

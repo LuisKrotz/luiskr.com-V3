@@ -11,7 +11,8 @@ BaseComponent — Custom Element base class with Shadow DOM encapsulation,
 
 ### (module scope)
 
-Loose reactive state bag — subclasses narrow via their own declarations.
+Type contract for component state — a loose reactive state bag subclasses
+narrow via their own declarations.
 
 ### `BaseComponent`
 

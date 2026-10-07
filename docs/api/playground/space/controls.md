@@ -9,6 +9,30 @@ Control schema + persistence for &lt;view-space-playground&gt;,
 
 ## Members
 
+### `SP_DEFAULTS`
+
+The SP_DEFAULTS constant.
+
+### (module scope)
+
+The SpControl value.
+
+### (module scope)
+
+The SpAction value.
+
+### (module scope)
+
+The SpGroup value.
+
+### (module scope)
+
+The SpParamValue value.
+
+### (module scope)
+
+Type contract for sp saved settings.
+
 ### `SP_INPUT_TYPES`
 
 Input-type discriminator shared with the panel renderer/binder.
@@ -27,7 +51,27 @@ new engine knob needs no JSX change. Per control:
   actions group-level buttons (reset view, screenshot, copy settings)
 `collapsed` controls whether the group starts folded in the panel.
 
+### `SP_DEF_BASELINE`
+
+The SP_DEF_BASELINE constant.
+
+### `SP_DB_DEFAULT_SEED`
+
+Label-keyed seed for the CMS-managed `earth-playground/defaults` node —
+`{ waterMetalness: 0, bumpScale: 5, … }`. The CMS prefills its defaults
+card from this map when the DB node is absent so the editor always
+shows the real shipped values instead of claiming none exist.
+
+### `PARAM_HANDLERS`
+
+The PARAM_HANDLERS constant.
+
 ### `loadSpaceSettings`
 
 Reads the persisted panel settings, discarding blobs from another
 SP_VERSION or corrupted JSON — both collapse to "no saved state".
+
+### `saveSpaceSettings`
+
+Saves space settings.
+- `@param` settings — the value

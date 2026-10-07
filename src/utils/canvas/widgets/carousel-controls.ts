@@ -1,6 +1,6 @@
 /**
  * @file carousel-controls.js
- * @description WebGL control button for the home carousel: a circular
+ * @description WebGL control button for the awards carousel: a circular
  * progress ring (WASM-driven ring offset) around an animated arrow icon,
  * with play/pause morphing when used as the autoplay control. Hovers
  * accent the ring. Pooled via webglPool (purge/restore offscreen);

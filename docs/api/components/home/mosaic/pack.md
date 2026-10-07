@@ -9,6 +9,18 @@ Masonry packing engine for &lt;home-mosaic&gt;, extracted from
 
 ## Members
 
+### (module scope)
+
+The MosaicItem value.
+
+### (module scope)
+
+The MosaicCardStyle value.
+
+### (module scope)
+
+The SkeletonBox value.
+
 ### `mosaicGrid`
 
 Column-count + column-width for a viewport width, or null when unusable.

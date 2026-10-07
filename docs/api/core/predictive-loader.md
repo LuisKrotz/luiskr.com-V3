@@ -43,3 +43,7 @@ Firebase into `fetchFirebaseDb`'s memory/session cache, so the actual
 navigation renders instantly from cache. Other routes are marked
 prefetched and skipped (their code chunks are warmed by route-warmer).
 Idempotent per path; skips the current route and external links.
+
+### `predictiveLoader`
+
+The predictiveLoader constant.

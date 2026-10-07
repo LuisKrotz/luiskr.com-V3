@@ -9,6 +9,22 @@ Dotted paths into translations/&lt;locale&gt;/components — grouped
 
 ## Members
 
-### `COMPONENT_KEYS`
+### `LANG_COMPONENT_KEYS`
 
-Composed view — backwards-compatible registry.
+The LANG_COMPONENT_KEYS constant.
+
+### `MEDIA_COMPONENT_KEYS`
+
+The MEDIA_COMPONENT_KEYS constant.
+
+### `LEGAL_COMPONENT_KEYS`
+
+The LEGAL_COMPONENT_KEYS constant.
+
+### `SOURCE_COMPONENT_KEYS`
+
+The SOURCE_COMPONENT_KEYS constant.
+
+### `SECTION_COMPONENT_KEYS`
+
+The SECTION_COMPONENT_KEYS constant.

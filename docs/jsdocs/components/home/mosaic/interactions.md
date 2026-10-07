@@ -39,6 +39,12 @@ reflows to its final geometry. npuPredict warms the likely route
 
 Pointer-leave: clears hover state.
 
+### `projectHref`
+
+Builds the localized destination URL for one mosaic project card.
+- `@param` item project metadata containing the route slug
+- `@returns` localized portfolio URL, or an empty string without a slug
+
 ### `onClick`
 
 Card activation. Desktop: straight to the project route. Touch:

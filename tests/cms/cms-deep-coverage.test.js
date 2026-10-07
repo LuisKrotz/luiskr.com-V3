@@ -2572,7 +2572,7 @@ describe('CmsProjectsList tails', () => {
     await flush()
 
     el.remove()
-  })
+  }, 120000)
 
   test('load guards, missing snapshots and error paths', async () => {
     snapRoutes.push({

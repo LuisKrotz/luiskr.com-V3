@@ -9,6 +9,10 @@
 
 ## Members
 
+### `CookieBanner`
+
+The CookieBanner — banner class.
+
 ### `translations`
 
 Setter/getter — APP translations for the banner copy.

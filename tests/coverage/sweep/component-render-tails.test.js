@@ -46,7 +46,7 @@ describe('component render tails', () => {
     fresh.profilePicture = 'https://x/y.png'
   })
 
-  test('AwardsMentions populated-items arm renders home-carousel', async () => {
+  test('AwardsMentions populated-items arm renders awards-carousel', async () => {
     await import('@/components/home/AwardsMentions.js')
 
     const el = document.createElement('awards-mentions')

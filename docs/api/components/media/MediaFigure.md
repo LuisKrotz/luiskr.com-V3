@@ -9,6 +9,10 @@
 
 ## Members
 
+### `MediaFigure`
+
+The MediaFigure — figure class.
+
 ### `canExpand`
 
 Whether the figure may open the expand modal.

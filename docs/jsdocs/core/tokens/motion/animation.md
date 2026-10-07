@@ -25,6 +25,10 @@ The ANIMATION_DURATIONS constant.
 
 Route transition duration (ms)
 
+### `PAGE_FADE_HALF`
+
+Half-duration of the view cross-fade (ms) — fade-out leg, then fade-in
+
 ### `PROGRESS_BAR_RESET`
 
 Delay before the progress bar's --done class is removed (ms) — must

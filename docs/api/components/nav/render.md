@@ -6,3 +6,10 @@ JSX template for &lt;app-nav&gt;, extracted from AppNav.tsx —
 |---|---|
 | **Source** | `src/components/nav/render.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
+
+## Members
+
+### `renderAppNav`
+
+Renders app nav.
+- `@param` nav — the value

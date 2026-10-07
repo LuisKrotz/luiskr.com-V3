@@ -89,9 +89,9 @@ The _B_INTERNAL constant.
 
 BEM block fragment "b related" — composed by the token groups below into full class names.
 
-### `_B_HC`
+### `_B_AWC`
 
-BEM block fragment "b hc" — composed by the token groups below into full class names.
+BEM block fragment "b awc" — composed by the token groups below into full class names.
 
 ### `_B_FLAG`
 
@@ -305,29 +305,29 @@ BEM block fragment "b nav burger" — composed by the token groups below into fu
 
 BEM block fragment "b nav menu modal" — composed by the token groups below into full class names.
 
-### `_B_HC_DOT`
+### `_B_AWC_DOT`
 
-The _B_HC_DOT constant.
+The _B_AWC_DOT constant.
 
-### `_B_HC_SLIDE`
+### `_B_AWC_SLIDE`
 
-BEM block fragment "b hc slide" — composed by the token groups below into full class names.
+BEM block fragment "b awc slide" — composed by the token groups below into full class names.
 
-### `_B_HC_SLIDE_CLONE`
+### `_B_AWC_SLIDE_CLONE`
 
-BEM block fragment "b hc slide clone" — composed by the token groups below into full class names.
+BEM block fragment "b awc slide clone" — composed by the token groups below into full class names.
 
-### `_B_HC_BTN`
+### `_B_AWC_BTN`
 
-The _B_HC_BTN constant.
+The _B_AWC_BTN constant.
 
-### `_B_HC_BTN_RING`
+### `_B_AWC_BTN_RING`
 
-BEM block fragment "b hc btn ring" — composed by the token groups below into full class names.
+BEM block fragment "b awc btn ring" — composed by the token groups below into full class names.
 
-### `_B_HC_AWARD`
+### `_B_AWC_AWARD`
 
-BEM block fragment "b hc award" — composed by the token groups below into full class names.
+BEM block fragment "b awc award" — composed by the token groups below into full class names.
 
 ### `_B_SPP`
 

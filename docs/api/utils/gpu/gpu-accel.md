@@ -63,3 +63,7 @@ Back-compat alias of processImageGPU.
 ### `processBitmapGPU`
 
 Uploads a pre-decoded ImageBitmap (from the WASM decoder path) — zero-copy into VRAM.
+
+### `gpuAccel`
+
+The gpuAccel constant.

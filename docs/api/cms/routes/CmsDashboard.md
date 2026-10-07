@@ -9,6 +9,10 @@
 
 ## Members
 
+### `ViewCmsDashboard`
+
+The ViewCmsDashboard — cms dashboard class.
+
 ### (module scope)
 
 Lifecycle: verifies auth session and binds tab/navigation events.

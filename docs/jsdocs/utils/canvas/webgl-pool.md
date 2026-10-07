@@ -11,7 +11,7 @@ Lifecycle pool for the shared WebGL contexts: registers
 
 ### (module scope)
 
-Widget contract the pool drives on visibility flips.
+Widget contract the pool drives on visibility flips and recovery actions.
 
 ### `WebGLPoolManager`
 
@@ -26,9 +26,30 @@ Automatically monitors registered WebGL canvases with an IntersectionObserver.
 
 Creates the offscreen-detection IntersectionObserver.
 
+### `initRecoverySignals`
+
+Registers global actions that can coincide with a healthier rendering
+context: user clicks/keys, browser history changes, and app modal opens.
+One listener set serves every widget; retries are deferred until the
+triggering action finishes mounting/updating its UI.
+
+### `scheduleFallbackRetry`
+
+Coalesces all actions in one turn into a single fallback retry pass.
+
+### (module scope)
+
+True when a visible registered widget is currently using its fallback.
+
+### `retryFallbacks`
+
+Retries visible fallback widgets when WebGL is preferred. Reduced motion
+and the explicit debug fallback mode are authoritative and suppress all
+recovery attempts.
+
 ### `register`
 
-Associates a widget instance with its canvas for purge/restore.
+Associates a widget instance with its canvas for purge/restore/retry.
 
 ### `unregister`
 

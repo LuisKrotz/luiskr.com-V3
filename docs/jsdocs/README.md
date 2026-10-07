@@ -219,8 +219,21 @@
 
 | File | What it does |
 |---|---|
+| [`AwardsCarousel.tsx`](components/carousel/AwardsCarousel.md) | &lt;awards-carousel&gt; — lightweight carousel used by the awards |
 | [`CustomCarousel.tsx`](components/carousel/CustomCarousel.md) | &lt;custom-carousel&gt; — infinite-loop horizontal carousel used by |
-| [`HomeCarousel.tsx`](components/carousel/HomeCarousel.md) | &lt;home-carousel&gt; — lightweight carousel used by the awards |
+
+## Site components
+
+*Shadow-DOM widgets — the visible UI of the public site.*
+
+| File | What it does |
+|---|---|
+| [`autoplay.ts`](components/carousel/awards-carousel/autoplay.md) | — |
+| [`events.ts`](components/carousel/awards-carousel/events.md) | — |
+| [`nav.ts`](components/carousel/awards-carousel/nav.md) | — |
+| [`observer.ts`](components/carousel/awards-carousel/observer.md) | — |
+| [`render.tsx`](components/carousel/awards-carousel/render.md) | — |
+| [`types.ts`](components/carousel/awards-carousel/types.md) | — |
 
 ## Site components
 
@@ -234,19 +247,6 @@
 | [`nav.ts`](components/carousel/custom-carousel/nav.md) | Navigation engine for CustomCarousel — goTo/prev/next/dot |
 | [`render.tsx`](components/carousel/custom-carousel/render.md) | Pure JSX render helpers for &lt;custom-carousel&gt;, extracted |
 | [`sizing.ts`](components/carousel/custom-carousel/sizing.md) | Fit/height measurement for CustomCarousel — the |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`autoplay.ts`](components/carousel/home-carousel/autoplay.md) | — |
-| [`events.ts`](components/carousel/home-carousel/events.md) | — |
-| [`nav.ts`](components/carousel/home-carousel/nav.md) | — |
-| [`observer.ts`](components/carousel/home-carousel/observer.md) | — |
-| [`render.tsx`](components/carousel/home-carousel/render.md) | — |
-| [`types.ts`](components/carousel/home-carousel/types.md) | — |
 
 ## Site components
 
@@ -523,6 +523,7 @@
 | [`about.ts`](core/tokens/classes/about.md) | About section class tokens — token group. |
 | [`admin.ts`](core/tokens/classes/admin.md) | Admin login view class tokens — token group. |
 | [`app.ts`](core/tokens/classes/app.md) | App shell class tokens — progress bar + view outlet |
+| [`awards-carousel.ts`](core/tokens/classes/awards-carousel.md) | Awards carousel (`aw-c-*` block) class tokens — grouped subset of |
 | [`awards.ts`](core/tokens/classes/awards.md) | Awards footer class tokens — token group. |
 | [`carousel.ts`](core/tokens/classes/carousel.md) | Custom carousel class tokens (project/related carousels) — |
 | [`cms.ts`](core/tokens/classes/cms.md) | CMS shell class tokens — token group. |
@@ -532,7 +533,6 @@
 | [`effects.ts`](core/tokens/classes/effects.md) | Ambient effect canvas class tokens — fluid background, |
 | [`flags.ts`](core/tokens/classes/flags.md) | Language flag class tokens — token group. |
 | [`footer.ts`](core/tokens/classes/footer.md) | Footer source-code row class tokens — grouped subset of |
-| [`home-carousel.ts`](core/tokens/classes/home-carousel.md) | Home carousel (`hc-*` block) class tokens — grouped subset of |
 | [`lang.ts`](core/tokens/classes/lang.md) | Language dialog class tokens — token group. |
 | [`legal.ts`](core/tokens/classes/legal.md) | Legal pages + not-found view class tokens — grouped subset of |
 | [`loader.ts`](core/tokens/classes/loader.md) | Intro loader class tokens — token group. |
@@ -959,7 +959,7 @@
 | File | What it does |
 |---|---|
 | [`burger-button-webgl.ts`](utils/canvas/widgets/burger-button-webgl.md) | WebGL hamburger icon for the nav burger button: three |
-| [`carousel-controls.ts`](utils/canvas/widgets/carousel-controls.md) | WebGL control button for the home carousel: a circular |
+| [`carousel-controls.ts`](utils/canvas/widgets/carousel-controls.md) | WebGL control button for the awards carousel: a circular |
 | [`close-button.ts`](utils/canvas/widgets/close-button.md) | WebGL animated circular close (X) button used by the expand |
 | [`flag-webgl.ts`](utils/canvas/widgets/flag-webgl.md) | WebGL flag renderer for the language dialog: draws each |
 | [`switch-slider.ts`](utils/canvas/widgets/switch-slider.md) | WebGL toggle switch for preferences/stats contexts: a pill |

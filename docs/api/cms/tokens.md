@@ -9,9 +9,17 @@ CMS-restricted tokens, tags, classes, and actions.
 
 ## Members
 
-### `CMS_CLASSES`
+### `CMS_TABS`
 
-Composed view — backwards-compatible registry of all CMS classes.
+The CMS_TABS constant.
+
+### `CMS_TAGS`
+
+The CMS_TAGS constant.
+
+### `CMS_EVENTS`
+
+The CMS_EVENTS constant.
 
 ### `CMS_ACTIONS`
 
@@ -24,3 +32,7 @@ Class-prefix conventions for the editable channel lists in the footer/about edit
 ### `CMS_FIELD_KEYS`
 
 Record field names the channel lists bind to (label prop varies per DB node).
+
+### `CMS_LANG_NODES`
+
+The CMS_LANG_NODES constant.

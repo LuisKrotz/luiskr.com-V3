@@ -11,6 +11,10 @@ rAF-driven smooth scroller: animates window (or a container)
 
 ### (module scope)
 
+The WasmScrollOptions value.
+
+### (module scope)
+
 Scroll container — selector (pierces shadow DOM), element, or window.
 
 ### (module scope)

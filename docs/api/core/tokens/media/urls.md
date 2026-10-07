@@ -9,6 +9,10 @@ External base URLs split by function — grouped subsets of
 
 ## Members
 
-### `URLS`
+### `CDN_URLS`
 
-Composed view of every URL token — backwards-compatible registry.
+The CDN_URLS constant.
+
+### `SOCIAL_URLS`
+
+The SOCIAL_URLS constant.

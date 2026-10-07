@@ -63,7 +63,7 @@ src/
 │   ├── home/            HomeMosaic (+mosaic/), AwardsMentions (+awards/),
 │   │                    AboutSection, ContactSection
 │   ├── carousel/        CustomCarousel (+custom-carousel/),
-│   │                    HomeCarousel (+home-carousel/)
+│   │                    AwardsCarousel (+awards-carousel/)
 │   ├── media/           MediaFigure (+figure/), MediaExpanded (+expanded/),
 │   │                    DrawText (+draw-text/)
 │   ├── dialogs/         LangDialog (+lang-dialog/), PreferencesModal (+preferences/)

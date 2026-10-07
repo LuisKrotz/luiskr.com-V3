@@ -10,7 +10,7 @@ import store from '@/core/store.js'
 import router from '@/routes/router.js'
 import { COOKIE_CLASSES } from '@/core/tokens/classes/cookies.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { HC_CLASSES } from '@/core/tokens/classes/home-carousel.js'
+import { AWC_CLASSES } from '@/core/tokens/classes/awards-carousel.js'
 import { SKELETON_CLASSES } from '@/core/tokens/classes/skeleton.js'
 import { NAV_TEXT } from '@/core/tokens/strings/text.js'
 import { ABOUT_CLASSES } from '@/core/tokens/classes/about.js'
@@ -39,8 +39,8 @@ const S = {
   COOKIES_INFO: `.${COOKIE_CLASSES.COOKIES_INFO}`,
   COOKIES_ACCEPT: `.${COOKIE_CLASSES.COOKIES_BUTTONS_ACCEPT}`,
   COOKIES_REFUSE: `.${COOKIE_CLASSES.COOKIES_BUTTONS_REFUSE}`,
-  HC_AWARDS: `${COMPONENT_TAGS.HOME_CAROUSEL}.${HC_CLASSES.HC_AWARDS}`,
-  HOME_CAROUSEL: COMPONENT_TAGS.HOME_CAROUSEL,
+  AWC_AWARDS: `${COMPONENT_TAGS.AWARDS_CAROUSEL}.${AWC_CLASSES.AWC_AWARDS}`,
+  AWARDS_CAROUSEL: COMPONENT_TAGS.AWARDS_CAROUSEL,
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -285,12 +285,12 @@ describe('AwardsMentions', () => {
     expect(skels.length).toBe(3)
   })
 
-  test('renders home-carousel with hc--awards class when items has data', () => {
+  test('renders awards-carousel with aw-c--awards class when items has data', () => {
     awardsEl.items = [
       { text: TEST_AWARDS.AWWARDS_SOTD, sub: '2024' },
       { text: TEST_AWARDS.FWA_OF_THE_DAY, sub: '2023' },
     ]
-    const carousel = awardsEl.shadowRoot.querySelector(S.HC_AWARDS)
+    const carousel = awardsEl.shadowRoot.querySelector(S.AWC_AWARDS)
     expect(carousel).not.toBeNull()
   })
 
@@ -372,61 +372,61 @@ describe('AwardsMentions', () => {
     expect(SCSS.awardsFooter).toMatch(/&-sep\s*\{/)
   })
 
-  test('does not re-render home-carousel when unrelated store mutation occurs', () => {
+  test('does not re-render awards-carousel when unrelated store mutation occurs', () => {
     awardsEl.items = [
       { text: TEST_AWARDS.AWWARDS_SOTD, sub: '2024' },
       { text: TEST_AWARDS.FWA_OF_THE_DAY, sub: '2023' },
     ]
-    const initialCarousel = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
+    const initialCarousel = awardsEl.shadowRoot.querySelector(S.AWARDS_CAROUSEL)
     expect(initialCarousel).not.toBeNull()
 
     store.commit(UI_MUTATIONS.SET_INPUT_METHOD, INPUT_STRINGS.POINTER)
     awardsEl.onStoreUpdate()
 
-    const currentCarousel = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
+    const currentCarousel = awardsEl.shadowRoot.querySelector(S.AWARDS_CAROUSEL)
     expect(currentCarousel).toBe(initialCarousel)
   })
 
-  test('items setter updates home-carousel items without replacing the DOM node', () => {
+  test('items setter updates awards-carousel items without replacing the DOM node', () => {
     awardsEl.items = [
       { text: TEST_AWARDS.AWWARDS_SOTD, sub: '2024' },
       { text: TEST_AWARDS.FWA_OF_THE_DAY, sub: '2023' },
     ]
-    const initialCarousel = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
+    const initialCarousel = awardsEl.shadowRoot.querySelector(S.AWARDS_CAROUSEL)
     awardsEl.items = [
       { text: TEST_AWARDS.AWWARDS_SOTD, sub: '2024' },
       { text: TEST_AWARDS.FWA_OF_THE_DAY, sub: '2023' },
       { text: 'CSS Design Awards', sub: '2022' },
     ]
-    const updatedCarousel = awardsEl.shadowRoot.querySelector(COMPONENT_TAGS.HOME_CAROUSEL)
+    const updatedCarousel = awardsEl.shadowRoot.querySelector(COMPONENT_TAGS.AWARDS_CAROUSEL)
     expect(updatedCarousel).toBe(initialCarousel)
     expect(updatedCarousel.items.length).toBe(3)
   })
 
-  test('HomeCarousel dot click navigates to target slide and stops autoplay', () => {
+  test('AwardsCarousel dot click navigates to target slide and stops autoplay', () => {
     awardsEl.items = [
       { text: 'Award 1', sub: '2024' },
       { text: 'Award 2', sub: '2023' },
       { text: 'Award 3', sub: '2022' },
     ]
-    const hc = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
-    expect(hc).not.toBeNull()
-    hc.autoplayRunning = true
-    const dots = hc.shadowRoot.querySelectorAll(`.${HC_CLASSES.HC_DOT}`)
+    const awc = awardsEl.shadowRoot.querySelector(S.AWARDS_CAROUSEL)
+    expect(awc).not.toBeNull()
+    awc.autoplayRunning = true
+    const dots = awc.shadowRoot.querySelectorAll(`.${AWC_CLASSES.AWC_DOT}`)
     expect(dots.length).toBe(3)
     dots[1].click()
-    expect(hc.currentIndex).toBe(1)
-    expect(hc.autoplayRunning).toBe(false)
+    expect(awc.currentIndex).toBe(1)
+    expect(awc.autoplayRunning).toBe(false)
   })
 
-  test('HomeCarousel dot buttons have type="button" and aria-label', () => {
+  test('AwardsCarousel dot buttons have type="button" and aria-label', () => {
     awardsEl.items = [
       { text: 'Award 1', sub: '2024' },
       { text: 'Award 2', sub: '2023' },
     ]
-    const hc = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
-    expect(hc).not.toBeNull()
-    const dotBtn = hc.shadowRoot.querySelector(`button.${HC_CLASSES.HC_DOT}`)
+    const awc = awardsEl.shadowRoot.querySelector(S.AWARDS_CAROUSEL)
+    expect(awc).not.toBeNull()
+    const dotBtn = awc.shadowRoot.querySelector(`button.${AWC_CLASSES.AWC_DOT}`)
     expect(dotBtn).not.toBeNull()
     expect(dotBtn.getAttribute(FORM_ATTRS.TYPE)).toBe(HTML_TAGS.BUTTON)
     expect(dotBtn.getAttribute(ARIA_ATTRS.ARIA_LABEL)).toContain('1')
@@ -440,9 +440,9 @@ describe('AwardsMentions', () => {
         icon: '⭐',
       },
     ]
-    const hc = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
-    expect(hc).not.toBeNull()
-    const awardText = hc.shadowRoot.querySelector(`.${HC_CLASSES.HC_AWARD_TEXT}`)
+    const awc = awardsEl.shadowRoot.querySelector(S.AWARDS_CAROUSEL)
+    expect(awc).not.toBeNull()
+    const awardText = awc.shadowRoot.querySelector(`.${AWC_CLASSES.AWC_AWARD_TEXT}`)
     expect(awardText).not.toBeNull()
     expect(awardText.innerHTML).toContain('<strong>Site of the Day</strong>')
   })
@@ -455,8 +455,8 @@ describe('AwardsMentions', () => {
         icon: '🏆',
       },
     ]
-    const hc = awardsEl.shadowRoot.querySelector(S.HOME_CAROUSEL)
-    const awardText = hc.shadowRoot.querySelector(`.${HC_CLASSES.HC_AWARD_TEXT}`)
+    const awc = awardsEl.shadowRoot.querySelector(S.AWARDS_CAROUSEL)
+    const awardText = awc.shadowRoot.querySelector(`.${AWC_CLASSES.AWC_AWARD_TEXT}`)
     const emEl = awardText.querySelector('em')
     const linkEl = awardText.querySelector('a')
     expect(emEl).not.toBeNull()

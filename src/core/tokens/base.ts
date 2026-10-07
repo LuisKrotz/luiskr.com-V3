@@ -90,9 +90,9 @@ export const _B_INTERNAL = 'internal'
  */
 export const _B_RELATED = 'related-mosaic'
 /**
- * BEM block fragment "b hc" — composed by the token groups below into full class names.
+ * BEM block fragment "b awc" — composed by the token groups below into full class names.
  */
-export const _B_HC = 'hc'
+export const _B_AWC = 'aw-c'
 /**
  * The _B_FLAG constant.
  */
@@ -309,29 +309,29 @@ export const _B_NAV_BURGER = `${_B_NAV}-burger`
  */
 export const _B_NAV_MENU_MODAL = `${_B_NAV}-menu-modal`
 /**
- * The _B_HC_DOT constant.
+ * The _B_AWC_DOT constant.
  */
-export const _B_HC_DOT = `${_B_HC}-dot`
+export const _B_AWC_DOT = `${_B_AWC}-dot`
 /**
- * BEM block fragment "b hc slide" — composed by the token groups below into full class names.
+ * BEM block fragment "b awc slide" — composed by the token groups below into full class names.
  */
-export const _B_HC_SLIDE = `${_B_HC}-slide`
+export const _B_AWC_SLIDE = `${_B_AWC}-slide`
 /**
- * BEM block fragment "b hc slide clone" — composed by the token groups below into full class names.
+ * BEM block fragment "b awc slide clone" — composed by the token groups below into full class names.
  */
-export const _B_HC_SLIDE_CLONE = `${_B_HC_SLIDE}--clone`
+export const _B_AWC_SLIDE_CLONE = `${_B_AWC_SLIDE}--clone`
 /**
- * The _B_HC_BTN constant.
+ * The _B_AWC_BTN constant.
  */
-export const _B_HC_BTN = `${_B_HC}-btn`
+export const _B_AWC_BTN = `${_B_AWC}-btn`
 /**
- * BEM block fragment "b hc btn ring" — composed by the token groups below into full class names.
+ * BEM block fragment "b awc btn ring" — composed by the token groups below into full class names.
  */
-export const _B_HC_BTN_RING = `${_B_HC_BTN}-ring`
+export const _B_AWC_BTN_RING = `${_B_AWC_BTN}-ring`
 /**
- * BEM block fragment "b hc award" — composed by the token groups below into full class names.
+ * BEM block fragment "b awc award" — composed by the token groups below into full class names.
  */
-export const _B_HC_AWARD = `${_B_HC}-award`
+export const _B_AWC_AWARD = `${_B_AWC}-award`
 /**
  * The _B_SPP constant.
  */

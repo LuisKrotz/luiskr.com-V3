@@ -9,6 +9,12 @@ Three-tier media cache: in-memory Map (object URLs) →
 
 ## Members
 
+### `LocalMediaCache`
+
+Two-tier media cache — an in-memory Map for the current session plus
+an IndexedDB backing store for cross-session persistence. `initPromise`
+resolves once the IDB database is open (or failed → memory-only).
+
 ### `initStorage`
 
 Opens the media IndexedDB, creating the blob store on first run. Resolves false when IDB is unavailable (private mode, SSR).
@@ -32,3 +38,7 @@ Cache-through read: returns the cached object URL if present, otherwise fetches 
 ### `getCacheStats`
 
 Diagnostic snapshot for the stats HUD (memory entries, IDB availability).
+
+### `localMediaCache`
+
+locals media cache.

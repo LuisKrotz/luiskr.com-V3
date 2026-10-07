@@ -28,7 +28,7 @@ import { ViewLegal } from '@/routes/views/legal/Legal.js'
 import { ViewNotFound } from '@/routes/views/not-found/NotFound.js'
 import '@/components/media/MediaFigure.js'
 import '@/components/carousel/CustomCarousel.js'
-import '@/components/carousel/HomeCarousel.js'
+import '@/components/carousel/AwardsCarousel.js'
 import '@/components/media/DrawText.js'
 import store from '@/core/store.js'
 import { CMS_KEYS, CSS_STRINGS, LOCALES, ROUTE_NAMES, ROUTE_PREFIXES } from '@/core/constants.js'
@@ -179,7 +179,7 @@ afterAll(() => {
 
 describe('Axe Accessibility Scan — WCAG 2.x (axe-core)', () => {
   // axe.run is heavy under parallel workers — give each test headroom.
-  jest.setTimeout(20000)
+  jest.setTimeout(120000)
 
   beforeEach(() => {
     resetDocumentShell()

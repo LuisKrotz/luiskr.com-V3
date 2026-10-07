@@ -9,6 +9,10 @@ JSX sections for &lt;cms-playground-editor&gt;: the playground
 
 ## Members
 
+### `SLUG_KEYS`
+
+The SLUG_KEYS constant.
+
 ### `renderLabelRows`
 
 JSX for the playground label key rows.

@@ -16,7 +16,7 @@ import '@/components/home/HomeMosaic.js'
 import '@/components/feedback/StatsHud.js'
 import '@/components/media/MediaExpanded.js'
 import '@/components/dialogs/PreferencesModal.js'
-import '@/components/carousel/HomeCarousel.js'
+import '@/components/carousel/AwardsCarousel.js'
 import '@/components/media/MediaFigure.js'
 import '@/components/dialogs/LangDialog.js'
 import '@/cms/deploy-info/CmsDeployInfo.js'
@@ -60,14 +60,14 @@ describe('AwardsMentions tails 2', () => {
     document.body.appendChild(el)
     await flush(150)
 
-    const hc = el.shadowRoot.querySelector(COMPONENT_TAGS.HOME_CAROUSEL)
+    const awc = el.shadowRoot.querySelector(COMPONENT_TAGS.AWARDS_CAROUSEL)
 
-    hc?.dispatchEvent(new Event(APP_EVENTS.AUTOPLAY_START))
-    hc?.dispatchEvent(new Event(APP_EVENTS.SLIDE_CHANGE))
-    hc?.dispatchEvent(new Event(APP_EVENTS.AUTOPLAY_STOP))
+    awc?.dispatchEvent(new Event(APP_EVENTS.AUTOPLAY_START))
+    awc?.dispatchEvent(new Event(APP_EVENTS.SLIDE_CHANGE))
+    awc?.dispatchEvent(new Event(APP_EVENTS.AUTOPLAY_STOP))
 
     el._autoplayEverStarted = true
-    hc?.dispatchEvent(new Event(APP_EVENTS.AUTOPLAY_STOP))
+    awc?.dispatchEvent(new Event(APP_EVENTS.AUTOPLAY_STOP))
 
     el._restartProgressAnimation?.()
     el._showProgress?.()

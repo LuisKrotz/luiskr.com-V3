@@ -4,7 +4,7 @@
  * mentions fallback selection, legal footer/link surfaces, CMS deploy-info
  * lighthouse rendering, Legal route loading modes, Home route data flow,
  * router navigation edges, main-entry portfolio branches, LangDialog /
- * HomeMosaic / PreferencesModal / HomeCarousel internals, and App shell.
+ * HomeMosaic / PreferencesModal / AwardsCarousel internals, and App shell.
  */
 import { jest } from '@jest/globals'
 import { CMS_KEYS, ROUTE_NAMES} from '@/core/constants.js'
@@ -21,7 +21,7 @@ import { LANG_SLUGS } from '@/core/i18n.js'
 import '@/components/home/HomeMosaic.js'
 import '@/components/dialogs/LangDialog.js'
 import '@/components/dialogs/PreferencesModal.js'
-import '@/components/carousel/HomeCarousel.js'
+import '@/components/carousel/AwardsCarousel.js'
 import '@/routes/views/home/Home.js'
 import '@/routes/views/legal/Legal.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'

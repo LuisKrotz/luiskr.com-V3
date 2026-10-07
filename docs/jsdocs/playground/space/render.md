@@ -9,6 +9,10 @@ JSX for SpacePlayground's render() — boot loader overlay
 
 ## Members
 
+### `groupContentId`
+
+Builds a stable relationship id for a group header and its content.
+
 ### `renderSpacePlayground`
 
 Renders space playground.

@@ -9,6 +9,10 @@ Flush interval for the stats engine: every INTERVAL_MS it
 
 ## Members
 
+### `INTERVAL_MS`
+
+The INTERVAL_MS constant.
+
 ### (module scope)
 
 Chrome-only `performance.memory` extension.

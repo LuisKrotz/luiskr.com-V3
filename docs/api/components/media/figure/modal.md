@@ -6,3 +6,10 @@ Expand-modal open for MediaFigure — commits the media descriptor to the store 
 |---|---|
 | **Source** | `src/components/media/figure/modal.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
+
+## Members
+
+### `openMediaModal`
+
+Opens media modal.
+- `@param` c — the component
