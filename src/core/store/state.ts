@@ -18,7 +18,8 @@ import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
 import { CDN_URLS } from '@/core/tokens/media/urls.js'
 
 /**
- * The ActionTextMap value.
+ * Localized action verbs for pointer hints — 'Click' on fine-pointer
+ * devices, 'Tap' on touch. Loaded per locale from APP.actions.
  */
 export interface ActionTextMap {
   click: string
@@ -26,7 +27,10 @@ export interface ActionTextMap {
 }
 
 /**
- * The LangState value.
+ * The locale slice of StoreState: fetched dictionary nodes (components,
+ * app, slugs) plus the DB path grammar and resolved locale code.
+ * `components`/`app`/`slugs` are false/null until the Firebase fetch lands —
+ * readers must treat falsy as "load pending", never as "empty".
  */
 export interface LangState {
   components: unknown
@@ -41,7 +45,8 @@ export interface LangState {
 }
 
 /**
- * The MentionsState value.
+ * Awards-mentions strip state — null fields mean "not loaded yet" so the
+ * section renders its skeleton until the fetch resolves.
  */
 export interface MentionsState {
   title: string | null
@@ -49,7 +54,9 @@ export interface MentionsState {
 }
 
 /**
- * The ModalMedia value.
+ * One media item inside the expand-modal: full-size source, thumbnail,
+ * accessibility alt, intrinsic dimensions (kept so the lightbox can reserve
+ * the box before the asset lands), and the video discriminator.
  */
 export interface ModalMedia {
   source: string
@@ -61,7 +68,10 @@ export interface ModalMedia {
 }
 
 /**
- * The ModalObject value.
+ * Expand-modal descriptor written by MediaExpanded and read by the modal
+ * component: `open` drives mount/visibility, `class` carries the figure's
+ * orientation class so the lightbox inherits aspect styling, `transform` is
+ * the carousel translateX offset at open time.
  */
 export interface ModalObject {
   transform: number
@@ -71,7 +81,8 @@ export interface ModalObject {
 }
 
 /**
- * pages pos.
+ * Last known pointer position in page coordinates — feeds the magnetic
+ * cursor follower and the modal-origin calculation.
  */
 export interface PagePos {
   left: number
@@ -79,7 +90,10 @@ export interface PagePos {
 }
 
 /**
- * The StoreState value.
+ * The whole reactive state bag. Field naming follows the shape the legacy
+ * CMS data already uses (clickortap, marqueeamount, portfoliolist are
+ * snake/flat because they mirror DB keys verbatim — renaming would break
+ * the translation payload contract).
  */
 export interface StoreState {
   clickortap: string
@@ -107,23 +121,29 @@ export interface StoreState {
 }
 
 /**
- * The Mutation value.
- * @param _payload — the value
+ * One named mutation: receives an optional payload, mutates store.state,
+ * and returns `false` to suppress notify() for no-op writes (any other
+ * return value means "state changed, fan out").
+ * @param _payload Caller-supplied mutation input.
  */
 export type Mutation = (_payload?: unknown) => void | boolean
-/**
- * Type contract for mutation map.
- */
+
+/** Map of mutation name → mutator built by createMutations(). */
 export type MutationMap = Record<string, Mutation>
 
 /**
- * subscribers.
- * @param _state — the value
+ * Subscriber callback — invoked by notify() with the state bag after every
+ * commit that didn't suppress notification.
+ * @param _state The post-mutation state.
  */
 export type Subscriber = (_state: StoreState) => void
 
 /**
- * Type contract for store getters.
+ * The getter facade — components read state exclusively through these
+ * accessors so the StoreState layout can evolve without touching every
+ * consumer. getLang (lowercase-l variant `getlang` returns the full LangState
+ * slice) returns just the locale code — both spellings exist for legacy
+ * call-site compatibility.
  */
 export interface StoreGetters {
   getTheme: () => string
@@ -162,6 +182,10 @@ export interface StoreGetters {
 
 /** Builds the initial StoreState — device/localStorage probing lives here. */
 export const createInitialState = (): StoreState => {
+  // Touch detection needs BOTH signals: `ontouchstart in window` alone is true
+  // on touch-capable laptops with fine pointers, so `pointer: fine` must ALSO
+  // be false (MDN: the media query distinguishes primary-input precision,
+  // not mere touch capability).
   const hasTouch =
     typeof window !== TYPE_STRINGS.UNDEFINED &&
     INPUT_STRINGS.ONTOUCHSTART in window &&
