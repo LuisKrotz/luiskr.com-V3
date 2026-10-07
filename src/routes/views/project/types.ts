@@ -16,7 +16,7 @@ export interface ProjectMediaItem {
 }
 
 /**
- * The CoverMedia value.
+ * Type contract for CoverMedia — the shape consumers rely on.
  */
 export interface CoverMedia {
   src: string
@@ -26,7 +26,7 @@ export interface CoverMedia {
 }
 
 /**
- * The SectionChild value.
+ * Type contract for SectionChild — the shape consumers rely on.
  */
 export type SectionChild = string[] | ProjectMediaItem[]
 
@@ -43,7 +43,7 @@ export interface ProjectTranslations {
 }
 
 /**
- * The CustomCarouselElement value.
+ * Type contract for CustomCarouselElement — the shape consumers rely on.
  */
 export interface CustomCarouselElement extends HTMLElement {
   configure(_opts: { items: unknown[]; folder: string; forceActive: boolean }): void
