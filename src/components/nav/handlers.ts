@@ -13,7 +13,13 @@ import router from '@/routes/router.js'
 import { localePath } from '@/core/i18n.js'
 import type { AppNav } from './AppNav.js'
 
-/** Shared click preamble: kill the default navigation + bubbling. */
+/**
+ * Shared click preamble: kill the default anchor navigation and bubbling —
+ * nav links are `<a href>` for SEO/right-click but click interception
+ * routes through the SPA router, and stopPropagation prevents parent
+ * gesture handlers (menu swipe, card taps) from double-firing.
+ * @param e DOM event to neutralize.
+ */
 function swallow(e?: Event): void {
   e?.preventDefault?.()
   e?.stopPropagation?.()
@@ -22,7 +28,10 @@ function swallow(e?: Event): void {
 /**
  * Records the clicked button's center point in store.modalOrigin — the
  * preferences/lang dialogs read it to zoom their "genie" open animation
- * out from the trigger instead of from screen center.
+ * out from the trigger instead of from screen center. Falls back to
+ * `closest('button,a')` because the click may land on an inner span —
+ * the origin should be the control's center, not the text node's.
+ * @param e Click event on (or inside) the trigger control.
  */
 export function captureOrigin(e?: Event): void {
   const target =
