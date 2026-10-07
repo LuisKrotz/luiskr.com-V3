@@ -4,6 +4,11 @@
  * markup and CarouselArrowWebGL shader direction mapping.
  */
 
+/**
+ * Carousel arrow button directions. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const ARROW_TYPES = Object.freeze({
   PREV: 'prev',
   NEXT: 'next',
