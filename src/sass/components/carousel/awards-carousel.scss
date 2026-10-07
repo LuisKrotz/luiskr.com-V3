@@ -10,9 +10,12 @@
 @import '../../base/fonts';
 @import '../../base/placeholders';
 
+/// Dot diameter — inactive nav dots are small squares.
 $awc-dot-size: to-rem($space-md);
+/// Pill length — the active dot stretches to a rounded pill.
 $awc-dot-pill: to-rem($space-xl);
-$awc-peek: 10vw; // how much adjacent slides bleed in (both sides)
+/// Adjacent-slide bleed: how much of the neighbors peeks in on both sides.
+$awc-peek: 10vw;
 
 // ── Base container ───────────────────────────────────────────────────────────
 .aw-c {
