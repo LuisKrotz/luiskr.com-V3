@@ -18,14 +18,14 @@ export interface AppTranslations {
 }
 
 /**
- * The AppNavEl value.
+ * Type contract for AppNavEl — the shape consumers rely on.
  */
 export type AppNavEl = HTMLElement & {
   translations: AppTranslations | null
   updateScrollState: (_section: string, onBottom: boolean) => void
 }
 /**
- * The CookieBannerEl value.
+ * Type contract for CookieBannerEl — the shape consumers rely on.
  */
 export type CookieBannerEl = HTMLElement & { translations: AppTranslations | null }
 /**
@@ -37,7 +37,7 @@ export type PrefModalEl = HTMLElement & { pref: unknown; open: boolean }
  */
 export type LangDialogEl = HTMLElement & { open: boolean }
 /**
- * The RoutableView value.
+ * Type contract for RoutableView — the shape consumers rely on.
  */
 export type RoutableView = Element & {
   onRouteParamChange?: (_route: RouteDescriptor | null) => void
