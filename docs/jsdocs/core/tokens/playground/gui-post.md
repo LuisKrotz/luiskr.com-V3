@@ -11,28 +11,42 @@ Post-processing start values for the Earth Playground —
 
 ### `SP_LENS_FLARE_DEFAULTS`
 
-The SP_LENS_FLARE_DEFAULTS constant.
+Frozen sp lens flare map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.
 
 ### `SP_ANAMORPHIC_DEFAULTS`
 
-The SP_ANAMORPHIC_DEFAULTS constant.
+Frozen sp anamorphic map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.
 
 ### `SP_BLOOM_DEFAULTS`
 
-The SP_BLOOM_DEFAULTS constant.
+Frozen sp bloom map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.
 
 ### `SP_VIGNETTE_DEFAULTS`
 
-The SP_VIGNETTE_DEFAULTS constant.
+Frozen sp vignette map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.
 
 ### `SP_CHROMATIC_DEFAULTS`
 
-The SP_CHROMATIC_DEFAULTS constant.
+Frozen sp chromatic map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.
 
 ### `SP_FILM_GRAIN_DEFAULTS`
 
-The SP_FILM_GRAIN_DEFAULTS constant.
+Frozen sp film grain map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.
 
 ### `SP_DEBUG_DEFAULTS`
 
-The SP_DEBUG_DEFAULTS constant.
+Frozen sp debug map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.

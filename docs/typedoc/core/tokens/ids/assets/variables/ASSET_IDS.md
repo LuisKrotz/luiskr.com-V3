@@ -13,13 +13,8 @@ const ASSET_IDS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/ids/assets.ts:7](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/ids/assets.ts#L7)
+Defined in: [src/core/tokens/ids/assets.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/ids/assets.ts#L12)
 
-## File
-
-tokens/ids/assets.js
-
-## Description
-
-Dynamically-created element id tokens (critical CSS, WASM
-style sheet, playground canvas) — token group.
+Dynamically-created element id tokens (critical CSS, WASM style sheet, playground canvas) Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

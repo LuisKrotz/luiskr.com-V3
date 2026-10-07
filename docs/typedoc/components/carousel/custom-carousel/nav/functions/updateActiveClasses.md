@@ -8,9 +8,11 @@
 function updateActiveClasses(c): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/nav.ts:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/nav.ts#L127)
+Defined in: [src/components/carousel/custom-carousel/nav.ts:139](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/nav.ts#L139)
 
-Updates active classes.
+Syncs the -active modifier on slides and dots with currentIndex, then
+rewrites the "N of M" counter in the current locale (ofLabel is
+localized — 'of', 'de', 'di', …).
 
 ## Parameters
 
@@ -18,7 +20,7 @@ Updates active classes.
 
 [`CustomCarousel`](../../../CustomCarousel/classes/CustomCarousel.md)
 
-— the component
+The CustomCarousel element.
 
 ## Returns
 

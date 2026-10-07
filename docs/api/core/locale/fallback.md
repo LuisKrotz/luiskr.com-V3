@@ -21,12 +21,14 @@ this snapshot, so no user-visible string lives in JavaScript source.
 
 ### `FALLBACK_APP`
 
-The fallback app constant.
+The APP subtree of the fallback snapshot — app-shell copy (actions,
+carousel labels, loader lines) consumed before Firebase resolves.
 
 ### `FALLBACK_COMPONENTS`
 
-The FALLBACK_COMPONENTS constant.
+The components subtree — per-component copy fallbacks keyed by component
+token (e.g. aboutSection, siteToast).
 
 ### `FALLBACK_PAGES`
 
-The fallback pages constant.
+The pages subtree — per-page fallback nodes (home, about, legal…).

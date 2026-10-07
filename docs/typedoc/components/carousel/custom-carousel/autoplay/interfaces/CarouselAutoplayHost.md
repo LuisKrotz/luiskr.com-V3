@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [components/carousel/custom-carousel/autoplay](../README.md) / CarouselAutoplayHost
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L21)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L23)
 
 Host surface the autoplay engine needs (satisfied by CustomCarousel).
 
@@ -16,7 +16,9 @@ Host surface the autoplay engine needs (satisfied by CustomCarousel).
 autoplayRunning: boolean
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L22)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L25)
+
+RAF cycle active flag.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:22](https://git
 autoplayStart: number
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L23)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L27)
+
+performance.now() the current dwell cycle started at.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:23](https://git
 autoplayElapsed: number
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L24)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L29)
+
+Accumulated ms into the cycle — survives pause→resume.
 
 ---
 
@@ -46,7 +52,9 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:24](https://git
 ringProgress: number
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L25)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L31)
+
+0–1 fraction of the autoplay cycle — drives ring + arrow arc.
 
 ---
 
@@ -56,7 +64,9 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:25](https://git
 rafId: number | null
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L26)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L33)
+
+RAF handle for cancellation.
 
 ---
 
@@ -66,7 +76,9 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:26](https://git
 currentIndex: number
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L27)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L35)
+
+Logical slide index for goTo(+1) on cycle end.
 
 ---
 
@@ -76,7 +88,9 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:27](https://git
 circumference: number
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L28)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L37)
+
+2πr of the SVG ring — dasharray/dashoffset base.
 
 ---
 
@@ -86,7 +100,9 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:28](https://git
 _autoplayPermanentlyStopped: boolean
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L29)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L39)
+
+Latched by user interaction — blocks all autoplay resumes.
 
 ---
 
@@ -96,7 +112,9 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:29](https://git
 _isRegressing: boolean
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L30)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L41)
+
+Ring regress animation in flight.
 
 ---
 
@@ -106,7 +124,9 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:30](https://git
 _prevArrow: CarouselArrowLike | null
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L31)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L43)
+
+Prev/next arrow widgets (null until viewport entry mounts them).
 
 ---
 
@@ -116,7 +136,7 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:31](https://git
 _nextArrow: CarouselArrowLike | null
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L32)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L44)
 
 ## Methods
 
@@ -126,7 +146,9 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:32](https://git
 goTo(idx): void;
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L33)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L46)
+
+Navigate to slide idx (clone-wrap aware).
 
 #### Parameters
 
@@ -146,7 +168,9 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:33](https://git
 $$(selector): Element[];
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L34)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L48)
+
+Shadow-scoped querySelectorAll.
 
 #### Parameters
 

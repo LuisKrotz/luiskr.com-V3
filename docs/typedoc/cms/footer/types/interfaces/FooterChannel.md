@@ -4,13 +4,11 @@
 
 [luiskr.com](../../../../README.md) / [cms/footer/types](../README.md) / FooterChannel
 
-Defined in: [src/cms/footer/types.ts:8](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L8)
+Defined in: [src/cms/footer/types.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L13)
 
-## File
-
-cms/footer/types.ts — model shapes for the footer editor's
-three DB nodes (components/contact, components/legal-footer,
-components/related).
+One contact/social row in the footer editors — `description` is the
+visible label, `page`/`network` categorize it, `link` is the href. The index
+signature absorbs extra CMS fields without widening every schema bump.
 
 ## Indexable
 
@@ -26,7 +24,7 @@ components/related).
 optional description?: string;
 ```
 
-Defined in: [src/cms/footer/types.ts:9](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L9)
+Defined in: [src/cms/footer/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L14)
 
 ---
 
@@ -36,7 +34,7 @@ Defined in: [src/cms/footer/types.ts:9](https://github.com/LuisKrotz/luiskr.com-
 optional page?: string;
 ```
 
-Defined in: [src/cms/footer/types.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L10)
+Defined in: [src/cms/footer/types.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L15)
 
 ---
 
@@ -46,7 +44,7 @@ Defined in: [src/cms/footer/types.ts:10](https://github.com/LuisKrotz/luiskr.com
 optional network?: string;
 ```
 
-Defined in: [src/cms/footer/types.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L11)
+Defined in: [src/cms/footer/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L16)
 
 ---
 
@@ -56,4 +54,4 @@ Defined in: [src/cms/footer/types.ts:11](https://github.com/LuisKrotz/luiskr.com
 optional link?: string;
 ```
 
-Defined in: [src/cms/footer/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L12)
+Defined in: [src/cms/footer/types.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L17)

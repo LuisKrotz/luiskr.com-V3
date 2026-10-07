@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../../README.md) / [utils/canvas/loaders/skeleton/renderer](../README.md) / SkeletonRenderer
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L26)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L27)
 
 Single shared WebGL context for every skeleton layer on the page. Layers
 own a cheap 2D canvas; each frame is drawn on the shared GL canvas (grown
@@ -31,7 +31,9 @@ new SkeletonRenderer(): SkeletonRenderer;
 gl: WebGLRenderingContext | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L27)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L29)
+
+The shared GL context — null before init, after loss, or after dispose.
 
 ---
 
@@ -41,7 +43,9 @@ Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:27](https://github.co
 canvas: HTMLCanvasElement | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L28)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L31)
+
+The offscreen GL canvas frames are drawn on (grown to the largest layer).
 
 ---
 
@@ -51,7 +55,9 @@ Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:28](https://github.co
 program: WebGLProgram | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L29)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L33)
+
+Compiled shimmer program (SKELETON_VS/SKELETON_FS).
 
 ---
 
@@ -61,7 +67,9 @@ Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:29](https://github.co
 quadBuffer: WebGLBuffer | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L30)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L35)
+
+Quad vertex buffer bound for every draw.
 
 ---
 
@@ -71,7 +79,9 @@ Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:30](https://github.co
 u: Record<string, WebGLUniformLocation | null> = {}
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L31)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L37)
+
+Resolved uniform locations keyed by logical name.
 
 ---
 
@@ -81,7 +91,9 @@ Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:31](https://github.co
 refs: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L32)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L39)
+
+Live borrowers — the context is disposed when this reaches zero.
 
 ---
 
@@ -91,7 +103,9 @@ Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:32](https://github.co
 lost: boolean = false
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L33)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L41)
+
+Sticky "context is gone" flag — acquire() stops retrying after loss.
 
 ## Methods
 
@@ -101,9 +115,12 @@ Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:33](https://github.co
 acquire(): SkeletonRenderer | null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L36)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L49)
 
-Borrows (and lazily creates) the shared GL context.
+Borrows (and lazily creates) the shared GL context. Refcount +1 on
+success; a failed init hands the ref back so the count still reaches
+zero and disposal stays reachable. Returns null when GL is
+unavailable/lost — the layer keeps its CSS fallback.
 
 #### Returns
 
@@ -117,9 +134,11 @@ Borrows (and lazily creates) the shared GL context.
 release(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L54)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:70](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L70)
 
-Returns the shared context to the pool, disposing at refcount zero.
+Returns the shared context to the pool, disposing at refcount zero —
+the last layer dropping out frees the GL context entirely (browsers
+cap ~16 live contexts).
 
 #### Returns
 
@@ -133,9 +152,12 @@ Returns the shared context to the pool, disposing at refcount zero.
 _init(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L62)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:82](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L82)
 
-Sizes the canvas over the host and binds the shared renderer.
+Creates the shared canvas + GL context, wires context-loss handling,
+and compiles the shimmer program. Aborts (leaving `gl` null) when the
+context can't be created, is software-rendered, or the shaders fail —
+each failure self-releases the context so nothing leaks.
 
 #### Returns
 
@@ -149,9 +171,11 @@ Sizes the canvas over the host and binds the shared renderer.
 _isSoftwareRenderer(gl): boolean;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:117](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L117)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:142](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L142)
 
-Detects CPU rasterizers (SwiftShader/llvmpipe) — those take the CSS fallback.
+Detects CPU rasterizers (SwiftShader/llvmpipe) via the unmasked
+renderer string — software GL pays per-frame CPU cost, so those take
+the CSS fallback instead.
 
 #### Parameters
 
@@ -159,9 +183,13 @@ Detects CPU rasterizers (SwiftShader/llvmpipe) — those take the CSS fallback.
 
 `WebGLRenderingContext`
 
+The just-acquired context.
+
 #### Returns
 
 `boolean`
+
+true when the renderer matches SKELETON_WARN.SOFTWARE_RENDERERS.
 
 ---
 
@@ -171,9 +199,12 @@ Detects CPU rasterizers (SwiftShader/llvmpipe) — those take the CSS fallback.
 _dispose(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:133](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L133)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:162](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L162)
 
-Frees GL program, textures and buffers.
+Frees the GL program + quad buffer and force-loses the context so the
+browser's context budget is returned immediately (deleteProgram alone
+leaves the context alive). Resets `lost` so a later acquire can retry
+on a fresh canvas.
 
 #### Returns
 
@@ -191,11 +222,15 @@ draw(
 ): boolean;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:158](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L158)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:195](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L195)
 
 Renders one shimmer frame for a skeleton layer on the shared offscreen
 canvas at time t, then blits the result onto the layer's own canvas —
 `resolve` ∈ [0,1] cross-fades the shimmer into the "decoded" look.
+The shared canvas only ever grows (never shrinks), so per-frame draws
+don't thrash GPU allocations; the scissor box limits the draw to the
+layer's w×h corner (GL origin is bottom-left — hence the
+canvas.height−h blit offset).
 
 #### Parameters
 
@@ -203,17 +238,25 @@ canvas at time t, then blits the result onto the layer's own canvas —
 
 [`SkeletonWebGL`](../../../skeleton-webgl/classes/SkeletonWebGL.md)
 
+The skeleton layer requesting the frame.
+
 ##### t
 
 `number`
+
+Animation clock in seconds — feeds u_time.
 
 ##### resolve
 
 `number`
 
+Content-arrival cross-fade 0→1.
+
 #### Returns
 
 `boolean`
+
+false when GL/layer canvas is missing (caller skips the frame).
 
 ---
 
@@ -223,9 +266,12 @@ canvas at time t, then blits the result onto the layer's own canvas —
 _initProgram(gl): boolean;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:220](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/skeleton/renderer.ts#L220)
+Defined in: [src/utils/canvas/loaders/skeleton/renderer.ts:263](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/renderer.ts#L263)
 
-Compiles the shimmer shaders + resolves uniforms.
+Compiles the shimmer shaders and resolves every uniform location up
+front — getUniformLocation during draw would cost a driver round-trip
+per frame. A compile/link failure returns false so _init can release
+the context instead of leaving a broken half-pipeline.
 
 #### Parameters
 
@@ -233,6 +279,10 @@ Compiles the shimmer shaders + resolves uniforms.
 
 `WebGLRenderingContext`
 
+The live shared context.
+
 #### Returns
 
 `boolean`
+
+true when the program is bound and uniforms resolved.

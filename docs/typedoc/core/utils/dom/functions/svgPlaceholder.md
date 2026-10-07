@@ -8,7 +8,7 @@
 function svgPlaceholder(w?, h?): string
 ```
 
-Defined in: [src/core/utils/dom.ts:82](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/utils/dom.ts#L82)
+Defined in: [src/core/utils/dom.ts:98](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/utils/dom.ts#L98)
 
 Generates an ultra-lightweight inline SVG placeholder data URI with exact
 dimensions. An empty `<svg width height viewBox>` weighs ~110 bytes,
@@ -17,7 +17,9 @@ size AND aspect ratio, so `width:auto` layouts reserve the real natural box
 while the actual image streams in (zero CLS, no uniform-width stretching).
 Without the width/height attrs the SVG is intrinsic-ratio-only and the img
 collapses to the ~300×150 default replaced size. Default is FHD
-1920×1080 (16:9), the common media shape.
+1920×1080 (16:9), the common media shape. `encodeURIComponent` (not
+base64) keeps the URI readable and is the spec-supported form for
+`data:image/svg+xml` per RFC 2397 — b64 would inflate size ~33%.
 
 ## Parameters
 
@@ -25,10 +27,16 @@ collapses to the ~300×150 default replaced size. Default is FHD
 
 `number` = `COVER_DIMENSIONS.FHD_WIDTH`
 
+Intrinsic width to declare (px).
+
 ### h?
 
 `number` = `COVER_DIMENSIONS.FHD_HEIGHT`
 
+Intrinsic height to declare (px).
+
 ## Returns
 
 `string`
+
+`data:image/svg+xml;charset=utf-8,…` URI for img.src.

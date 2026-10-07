@@ -11,16 +11,24 @@
 
 ### `SP_SCENE_PARAMS`
 
-The SP_SCENE_PARAMS constant.
+Frozen sp scene parameter map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `SP_POST_PARAMS`
 
-The SP_POST_PARAMS constant.
+Frozen sp post parameter map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `SP_GRADE_PARAMS`
 
-The SP_GRADE_PARAMS constant.
+Frozen sp grade parameter map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `SP_DEBUG_PARAMS`
 
-The SP_DEBUG_PARAMS constant.
+Frozen sp debug parameter map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

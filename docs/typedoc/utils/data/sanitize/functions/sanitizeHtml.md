@@ -8,7 +8,7 @@
 function sanitizeHtml(html): string
 ```
 
-Defined in: [src/utils/data/sanitize.ts:75](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/data/sanitize.ts#L75)
+Defined in: [src/utils/data/sanitize.ts:75](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/data/sanitize.ts#L75)
 
 Sanitize an HTML string, preserving allowed tags and attributes only.
 

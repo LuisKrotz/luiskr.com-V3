@@ -11,15 +11,21 @@ CMS-restricted tokens, tags, classes, and actions.
 
 ### `CMS_TABS`
 
-The CMS_TABS constant.
+Frozen cms map — sole declaration site for these tokens; consumers read members and never
+re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token contract
+immutable at runtime.
 
 ### `CMS_TAGS`
 
-The CMS_TAGS constant.
+Frozen cms element tag-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `CMS_EVENTS`
 
-The CMS_EVENTS constant.
+Frozen cms event-name map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.
 
 ### `CMS_ACTIONS`
 
@@ -35,4 +41,4 @@ Record field names the channel lists bind to (label prop varies per DB node).
 
 ### `CMS_LANG_NODES`
 
-The CMS_LANG_NODES constant.
+Frozen cms lang list — the ordered source for this token set.

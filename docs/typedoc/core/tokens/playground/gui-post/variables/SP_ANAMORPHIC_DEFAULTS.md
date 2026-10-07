@@ -16,6 +16,8 @@ const SP_ANAMORPHIC_DEFAULTS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/playground/gui-post.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/playground/gui-post.ts#L26)
+Defined in: [src/core/tokens/playground/gui-post.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/playground/gui-post.ts#L35)
 
-The SP_ANAMORPHIC_DEFAULTS constant.
+Frozen sp anamorphic map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.

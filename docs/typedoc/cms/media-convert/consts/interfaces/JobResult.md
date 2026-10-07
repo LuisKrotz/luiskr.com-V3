@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [cms/media-convert/consts](../README.md) / JobResult
 
-Defined in: [src/cms/media-convert/consts.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L48)
+Defined in: [src/cms/media-convert/consts.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L43)
 
-The JobResult value.
+Per-file outcome reported by the conversion server.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The JobResult value.
 ok: boolean
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L49)
+Defined in: [src/cms/media-convert/consts.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L45)
+
+Whether this file converted successfully.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/cms/media-convert/consts.ts:49](https://github.com/LuisKrotz/lu
 in: string;
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L50)
+Defined in: [src/cms/media-convert/consts.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L47)
+
+The input path the result corresponds to.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/cms/media-convert/consts.ts:50](https://github.com/LuisKrotz/lu
 optional outs?: string[];
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L51)
+Defined in: [src/cms/media-convert/consts.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L49)
+
+Output artifact paths when ok.
 
 ---
 
@@ -46,4 +52,6 @@ Defined in: [src/cms/media-convert/consts.ts:51](https://github.com/LuisKrotz/lu
 optional error?: string;
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L52)
+Defined in: [src/cms/media-convert/consts.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L51)
+
+Error message when !ok.

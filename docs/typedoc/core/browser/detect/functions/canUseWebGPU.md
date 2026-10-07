@@ -8,10 +8,14 @@
 function canUseWebGPU(): boolean
 ```
 
-Defined in: [src/core/browser/detect.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/browser/detect.ts#L72)
+Defined in: [src/core/browser/detect.ts:87](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/detect.ts#L87)
 
-True when the engine may expose a usable WebGPU adapter.
+True when the engine may expose a usable WebGPU adapter. The check is
+`!== false` (not `=== true`) because undefined means "no data" — absence
+of the quirk flag must not disable WebGPU for unlisted engines.
 
 ## Returns
 
 `boolean`
+
+Whether the WebGPU init path should run.

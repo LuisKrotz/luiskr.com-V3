@@ -1,6 +1,6 @@
 # `core/index.ts`
 
-Unified barrel export for the core layer with "sideEffects": false for clean tree-shaking.
+Unified barrel export for the core layer. package.json marks
 
 | | |
 |---|---|

@@ -8,7 +8,7 @@
 function hasDebugFlag(flag): boolean
 ```
 
-Defined in: [src/core/debug/params.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/debug/params.ts#L30)
+Defined in: [src/core/debug/params.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/debug/params.ts#L39)
 
 True when `flag` is present among the URL's `?debug=` values.
 
@@ -18,6 +18,10 @@ True when `flag` is present among the URL's `?debug=` values.
 
 `string`
 
+Debug flag token from DEBUG_PARAMS.
+
 ## Returns
 
 `boolean`
+
+Whether the flag is active.

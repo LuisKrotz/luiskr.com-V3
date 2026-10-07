@@ -11,12 +11,18 @@ Navigation class tokens — links, burger button and the
 
 ### `NAV_CLASSES`
 
-The NAV_CLASSES constant.
+Frozen nav class-name map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.
 
 ### `NAV_BURGER_CLASSES`
 
-The NAV_BURGER_CLASSES constant.
+Frozen nav burger class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `NAV_MENU_CLASSES`
 
-The NAV_MENU_CLASSES constant.
+Frozen nav menu class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

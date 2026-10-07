@@ -54,17 +54,35 @@ did not provide one.
 
 ### `tokenToHtml`
 
-The tokenToHtml constant.
-- `@param` token — the token
-- `@param` renderWord — the value
-- `@returns` string
+Top-level token → HTML: <br> and space become aria-hidden layout
+nodes (the space gets a span so the flex/grid layout sees a real box),
+words render animated chars, tags recurse. Unknown token types return
+"" — forward-compatible for tokenizer additions.
+- `@param` token The parsed token.
+- `@param` renderWord Word renderer bound to the current delay/offset.
+- `@returns` HTML string for the token.
 
 ### `renderWordHtml`
 
 Renders one word token's char spans. Exported so the char/offset math and
 the empty-chars default are unit-testable — renderContent binds the running
 word index `wi` via the closure below.
+- `@param` chars Char tokens (each carries the global `--i` stagger index).
+- `@param` wordIdx Running word index — feeds the `--wi` per-word cascade.
+- `@param` delay Per-char delay in ms (written to `--char-delay`).
+- `@param` offset Base offset in ms (written to `--offset`).
+- `@param` withChars false → emit plain word text (pre/post-anim state).
+- `@returns` The word's `<span>` HTML.
 
 ### `renderContent`
 
-Renders content.
+Full pipeline: text → tokens → HTML string. The `wi` closure counter
+assigns each rendered word a sequential index so the word-level
+cascade (`--wi`/`--word-delay`) staggers in reading order, including
+words nested inside tags. Empty input returns "" rather than a stub
+span tree.
+- `@param` text Raw text (may contain <br> and inline tags).
+- `@param` delay Per-char stagger delay in ms.
+- `@param` offset Base delay offset in ms.
+- `@param` withChars Whether to emit per-char spans (false = plain text).
+- `@returns` The assembled HTML string.

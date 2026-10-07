@@ -11,8 +11,12 @@ Legal pages + not-found view class tokens — grouped subset of
 
 ### `LEGAL_CLASSES`
 
-The LEGAL_CLASSES constant.
+Frozen legal class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `NOT_FOUND_CLASSES`
 
-The NOT_FOUND_CLASSES constant.
+Frozen not found class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

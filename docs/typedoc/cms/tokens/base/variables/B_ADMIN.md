@@ -8,6 +8,6 @@
 const _B_ADMIN: 'admin' = 'admin'
 ```
 
-Defined in: [src/cms/tokens/base.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/tokens/base.ts#L12)
+Defined in: [src/cms/tokens/base.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/tokens/base.ts#L15)
 
 BEM block fragment "b admin" — composed by the token groups below into full class names.

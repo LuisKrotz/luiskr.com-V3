@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [cms/projects/types](../README.md) / CmsMediaItem
 
-Defined in: [src/cms/projects/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/projects/types.ts#L12)
+Defined in: [src/cms/projects/types.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/projects/types.ts#L10)
 
-The CmsMediaItem value.
+One media row in the CMS project editor.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The CmsMediaItem value.
 src: string
 ```
 
-Defined in: [src/cms/projects/types.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/projects/types.ts#L13)
+Defined in: [src/cms/projects/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/projects/types.ts#L12)
+
+Extensionless CDN stem (resolved by the gcs() helper for previews).
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/cms/projects/types.ts:13](https://github.com/LuisKrotz/luiskr.c
 label: string
 ```
 
-Defined in: [src/cms/projects/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/projects/types.ts#L14)
+Defined in: [src/cms/projects/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/projects/types.ts#L14)
+
+Alt/label text shown in the editor + emitted as media labels.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/cms/projects/types.ts:14](https://github.com/LuisKrotz/luiskr.c
 isVideo: boolean
 ```
 
-Defined in: [src/cms/projects/types.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/projects/types.ts#L15)
+Defined in: [src/cms/projects/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/projects/types.ts#L16)
+
+Whether the media is a video (drives poster-URL resolution).
 
 ---
 
@@ -46,4 +52,6 @@ Defined in: [src/cms/projects/types.ts:15](https://github.com/LuisKrotz/luiskr.c
 size: number[];
 ```
 
-Defined in: [src/cms/projects/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/projects/types.ts#L16)
+Defined in: [src/cms/projects/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/projects/types.ts#L18)
+
+Intrinsic [w,h] for aspect-ratio layouts.

@@ -8,9 +8,11 @@
 function uploadAll(host): Promise<void>
 ```
 
-Defined in: [src/cms/media-convert/job.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/job.ts#L36)
+Defined in: [src/cms/media-convert/job.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/job.ts#L49)
 
-The uploadAll value.
+PUTs every queued file sequentially — the dev server is single-purpose
+and serial uploads keep progress (`host.uploaded`) truthful. Re-renders
+after each file so the progress counter animates live.
 
 ## Parameters
 
@@ -18,8 +20,12 @@ The uploadAll value.
 
 [`CmsMediaConverter`](../../CmsMediaConverter/classes/CmsMediaConverter.md)
 
-— the host component
+The CmsMediaConverter element.
 
 ## Returns
 
 `Promise`\<`void`\>
+
+## Throws
+
+Error naming the failed file when a PUT is rejected.

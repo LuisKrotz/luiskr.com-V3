@@ -8,7 +8,7 @@
 function fetchData(host): void
 ```
 
-Defined in: [src/components/portfolio/related/data.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/portfolio/related/data.ts#L32)
+Defined in: [src/components/portfolio/related/data.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/data.ts#L32)
 
 Fires two SWR reads in parallel: the home page node (for the
 portfoliolist used as the image/description join table) and the

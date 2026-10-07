@@ -8,7 +8,7 @@
 function updateEarthMaterial(s, __namedParameters?): void
 ```
 
-Defined in: [src/playground/earth/runtime/updates.ts:120](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/updates.ts#L120)
+Defined in: [src/playground/earth/runtime/updates.ts:120](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/updates.ts#L120)
 
 Surface-shader uniforms: ocean PBR (specular mask drives the land/ocean
 blend), relief bump scale, and the fake terrain self-shadowing terms

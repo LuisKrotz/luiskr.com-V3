@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [components/carousel/custom-carousel/autoplay](../README.md) / CarouselArrowLike
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L15)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L15)
 
 Slice of CarouselArrowWebGL the autoplay engine drives.
 
@@ -16,7 +16,9 @@ Slice of CarouselArrowWebGL the autoplay engine drives.
 setPlaying(playing): void;
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L16)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L17)
+
+Toggles the arrow's playing affordance (ring visible vs idle).
 
 #### Parameters
 
@@ -36,7 +38,9 @@ Defined in: [src/components/carousel/custom-carousel/autoplay.ts:16](https://git
 setProgress(progress, running): void;
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L17)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L19)
+
+Paints the 0–1 progress arc.
 
 #### Parameters
 

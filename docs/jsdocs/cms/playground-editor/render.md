@@ -11,7 +11,7 @@ JSX sections for &lt;cms-playground-editor&gt;: the playground
 
 ### `SLUG_KEYS`
 
-The SLUG_KEYS constant.
+Frozen slug list — the ordered source for this token set.
 
 ### `renderLabelRows`
 

@@ -11,4 +11,6 @@ Route/CMS name string tokens — token group.
 
 ### `ROUTE_STRINGS`
 
-routes strings.
+Frozen route/CMS name-string map — bare names (no slashes) used as title
+fragments, route names, and CMS keys. Composes `_B_*`/`_K_*` fragments
+from base.ts where the name doubles as a block/key token.

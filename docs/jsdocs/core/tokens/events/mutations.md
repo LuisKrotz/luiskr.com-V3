@@ -11,16 +11,24 @@ Store mutation identifier tokens — grouped subsets of
 
 ### `LANG_MUTATIONS`
 
-The LANG_MUTATIONS constant.
+Frozen lang store-mutation name map — sole declaration site for these tokens; consumers
+read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+makes the token contract immutable at runtime.
 
 ### `PREF_MUTATIONS`
 
-The PREF_MUTATIONS constant.
+Frozen pref store-mutation name map — sole declaration site for these tokens; consumers
+read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+makes the token contract immutable at runtime.
 
 ### `DATA_MUTATIONS`
 
-The DATA_MUTATIONS constant.
+Frozen data store-mutation name map — sole declaration site for these tokens; consumers
+read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+makes the token contract immutable at runtime.
 
 ### `UI_MUTATIONS`
 
-The UI_MUTATIONS constant.
+Frozen ui store-mutation name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

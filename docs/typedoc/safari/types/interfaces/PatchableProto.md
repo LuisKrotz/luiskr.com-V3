@@ -4,9 +4,11 @@
 
 [luiskr.com](../../../README.md) / [safari/types](../README.md) / PatchableProto
 
-Defined in: [src/safari/types.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/safari/types.ts#L44)
+Defined in: [src/safari/types.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/safari/types.ts#L46)
 
-The PatchableProto value.
+The slice of a component prototype the patches may re-bind — every
+member is optional because a patch only touches the methods Safari
+actually breaks (e.g. media-figure's high-res load path).
 
 ## Properties
 
@@ -16,7 +18,7 @@ The PatchableProto value.
 optional _renderInitial?: () => void;
 ```
 
-Defined in: [src/safari/types.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/safari/types.ts#L45)
+Defined in: [src/safari/types.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/safari/types.ts#L47)
 
 #### Returns
 
@@ -30,7 +32,7 @@ Defined in: [src/safari/types.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/
 optional _measureFit?: () => void;
 ```
 
-Defined in: [src/safari/types.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/safari/types.ts#L46)
+Defined in: [src/safari/types.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/safari/types.ts#L48)
 
 #### Returns
 
@@ -44,7 +46,7 @@ Defined in: [src/safari/types.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/
 optional onMounted?: () => void;
 ```
 
-Defined in: [src/safari/types.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/safari/types.ts#L47)
+Defined in: [src/safari/types.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/safari/types.ts#L49)
 
 #### Returns
 
@@ -58,7 +60,7 @@ Defined in: [src/safari/types.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/
 optional onDestroy?: () => void;
 ```
 
-Defined in: [src/safari/types.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/safari/types.ts#L48)
+Defined in: [src/safari/types.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/safari/types.ts#L50)
 
 #### Returns
 
@@ -72,7 +74,7 @@ Defined in: [src/safari/types.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/
 optional loadHighRes?: () => void;
 ```
 
-Defined in: [src/safari/types.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/safari/types.ts#L49)
+Defined in: [src/safari/types.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/safari/types.ts#L51)
 
 #### Returns
 
@@ -86,7 +88,7 @@ Defined in: [src/safari/types.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/
 optional _updateModalDOM?: () => void;
 ```
 
-Defined in: [src/safari/types.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/safari/types.ts#L50)
+Defined in: [src/safari/types.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/safari/types.ts#L52)
 
 #### Returns
 

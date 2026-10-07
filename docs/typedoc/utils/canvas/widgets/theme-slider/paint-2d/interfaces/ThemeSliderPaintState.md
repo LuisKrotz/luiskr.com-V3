@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../../README.md) / [utils/canvas/widgets/theme-slider/paint-2d](../README.md) / ThemeSliderPaintState
 
-Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/theme-slider/paint-2d.ts#L11)
+Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider/paint-2d.ts#L11)
 
 Everything the 2D paint pass needs from the slider instance.
 
@@ -16,7 +16,7 @@ Everything the 2D paint pass needs from the slider instance.
 width: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/theme-slider/paint-2d.ts#L12)
+Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider/paint-2d.ts#L12)
 
 ---
 
@@ -26,7 +26,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:12](https://githu
 height: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/theme-slider/paint-2d.ts#L13)
+Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider/paint-2d.ts#L13)
 
 ---
 
@@ -36,7 +36,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:13](https://githu
 currentP: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/theme-slider/paint-2d.ts#L14)
+Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider/paint-2d.ts#L14)
 
 ---
 
@@ -46,7 +46,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:14](https://githu
 knobX: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/theme-slider/paint-2d.ts#L15)
+Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider/paint-2d.ts#L15)
 
 ---
 
@@ -56,4 +56,4 @@ Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:15](https://githu
 startTime: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/theme-slider/paint-2d.ts#L16)
+Defined in: [src/utils/canvas/widgets/theme-slider/paint-2d.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider/paint-2d.ts#L16)

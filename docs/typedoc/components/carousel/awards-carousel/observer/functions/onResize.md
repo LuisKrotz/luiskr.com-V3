@@ -8,15 +8,18 @@
 function onResize(host): void
 ```
 
-Defined in: [src/components/carousel/awards-carousel/observer.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/awards-carousel/observer.ts#L61)
+Defined in: [src/components/carousel/awards-carousel/observer.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/observer.ts#L68)
 
-Refits on container resize.
+Refits on container resize — instant re-jump to the current index since
+slide geometry changed; smooth scroll would animate to a stale offset.
 
 ## Parameters
 
 ### host
 
 [`AwardsCarousel`](../../../AwardsCarousel/classes/AwardsCarousel.md)
+
+The AwardsCarousel element.
 
 ## Returns
 

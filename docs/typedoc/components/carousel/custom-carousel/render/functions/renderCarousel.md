@@ -8,7 +8,7 @@
 function renderCarousel(host): Element
 ```
 
-Defined in: [src/components/carousel/custom-carousel/render.tsx:159](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/render.tsx#L159)
+Defined in: [src/components/carousel/custom-carousel/render.tsx:180](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/render.tsx#L180)
 
 JSX template. Two shapes:
 inactive (≤1 item, or items fit side-by-side) → a plain flex row,
@@ -25,6 +25,10 @@ by _updateRingDom) behind a WebGL arrow canvas.
 
 [`CustomCarousel`](../../../CustomCarousel/classes/CustomCarousel.md)
 
+The CustomCarousel element.
+
 ## Returns
 
 [`Element`](../../../../../globals/namespaces/JSX/type-aliases/Element.md)
+
+JSX — fallback row or the full track+controls shape.

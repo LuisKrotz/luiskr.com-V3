@@ -11,4 +11,6 @@ Cookie banner selector tokens — token group.
 
 ### `COOKIE_SELECTORS`
 
-The COOKIE_SELECTORS constant.
+Frozen cookie selector map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

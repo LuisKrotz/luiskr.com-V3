@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [core/browser/browsers](../README.md) / BrowserQuirks
 
-Defined in: [src/core/browser/browsers.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/browser/browsers.ts#L15)
+Defined in: [src/core/browser/browsers.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/browsers.ts#L15)
 
 Quirk hints the loader stamps on `window.__LK_BROWSER`.
 
@@ -20,7 +20,7 @@ Quirk hints the loader stamps on `window.__LK_BROWSER`.
 optional webgpu?: boolean;
 ```
 
-Defined in: [src/core/browser/browsers.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/browser/browsers.ts#L17)
+Defined in: [src/core/browser/browsers.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/browsers.ts#L17)
 
 navigator.gpu absent/flag-gated — the app skips the WebGPU init path.
 
@@ -32,6 +32,6 @@ navigator.gpu absent/flag-gated — the app skips the WebGPU init path.
 optional lowGpu?: boolean;
 ```
 
-Defined in: [src/core/browser/browsers.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/browser/browsers.ts#L19)
+Defined in: [src/core/browser/browsers.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/browsers.ts#L19)
 
 Mostly mid-range SoCs — renderers may start at reduced resolution scale.

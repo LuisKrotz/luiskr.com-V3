@@ -8,9 +8,11 @@
 function calcCardHeight(colWidth, aspectRatio, padding?): number
 ```
 
-Defined in: [src/utils/wasm/wasm-layout.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-layout.ts#L50)
+Defined in: [src/utils/wasm/wasm-layout.ts:81](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-layout.ts#L81)
 
-Card height for a grid item: column width divided by aspect ratio, plus padding.
+Card height for a grid item: column width divided by aspect ratio, plus
+padding. A missing/zero ratio falls back to 16:9 so unsized CMS rows
+can't produce NaN or zero-height cards.
 
 ## Parameters
 
@@ -18,14 +20,22 @@ Card height for a grid item: column width divided by aspect ratio, plus padding.
 
 `number`
 
+The column's width in px.
+
 ### aspectRatio
 
 `number`
+
+width/height of the media.
 
 ### padding?
 
 `number` = `0`
 
+Extra vertical padding in px.
+
 ## Returns
 
 `number`
+
+Card height in px.

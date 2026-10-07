@@ -22,6 +22,8 @@ const NAV_MENU_CLASSES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/classes/nav.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/classes/nav.ts#L56)
+Defined in: [src/core/tokens/classes/nav.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/classes/nav.ts#L62)
 
-The NAV_MENU_CLASSES constant.
+Frozen nav menu class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

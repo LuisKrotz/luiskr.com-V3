@@ -8,9 +8,9 @@
 function carouselOnNextClick(c): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/nav.ts:297](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/nav.ts#L297)
+Defined in: [src/components/carousel/custom-carousel/nav.ts:325](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/nav.ts#L325)
 
-The carouselOnNextClick value.
+Next-arrow click — mirrors carouselOnPrevClick in the forward direction.
 
 ## Parameters
 
@@ -18,7 +18,7 @@ The carouselOnNextClick value.
 
 [`CustomCarousel`](../../../CustomCarousel/classes/CustomCarousel.md)
 
-— the component
+The CustomCarousel element.
 
 ## Returns
 

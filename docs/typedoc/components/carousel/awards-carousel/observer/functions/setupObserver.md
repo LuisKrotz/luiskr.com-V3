@@ -8,18 +8,22 @@
 function setupObserver(host): void
 ```
 
-Defined in: [src/components/carousel/awards-carousel/observer.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/awards-carousel/observer.ts#L19)
+Defined in: [src/components/carousel/awards-carousel/observer.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/observer.ts#L22)
 
 Autoplay only runs while ≥50% of the carousel is on screen
 (threshold [0, 0.5] gives a clean two-state signal); below that or
 under reduced-motion it pauses — offscreen animation would burn
-frames the user can't see.
+frames the user can't see. When IntersectionObserver itself is
+absent (very old engines, some test DOMs) the carousel degrades to
+always-visible so content still shows.
 
 ## Parameters
 
 ### host
 
 [`AwardsCarousel`](../../../AwardsCarousel/classes/AwardsCarousel.md)
+
+The AwardsCarousel element.
 
 ## Returns
 

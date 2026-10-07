@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../../README.md) / [playground/earth/runtime/state](../README.md) / EarthCaState
 
-Defined in: [src/playground/earth/runtime/state.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L66)
+Defined in: [src/playground/earth/runtime/state.ts:73](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L73)
 
-earths ca state.
+Chromatic-aberration post-pass settings.
 
 ## Properties
 
@@ -16,7 +16,7 @@ earths ca state.
 enabled: boolean
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L67)
+Defined in: [src/playground/earth/runtime/state.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L74)
 
 ---
 
@@ -26,7 +26,9 @@ Defined in: [src/playground/earth/runtime/state.ts:67](https://github.com/LuisKr
 strength: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L68)
+Defined in: [src/playground/earth/runtime/state.ts:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L76)
+
+RGB channel split magnitude.
 
 ---
 
@@ -36,4 +38,6 @@ Defined in: [src/playground/earth/runtime/state.ts:68](https://github.com/LuisKr
 scale: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L69)
+Defined in: [src/playground/earth/runtime/state.ts:78](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L78)
+
+Effect radial scale.

@@ -8,9 +8,10 @@
 function carouselOnDotClick(c, idx): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/nav.ts:310](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/nav.ts#L310)
+Defined in: [src/components/carousel/custom-carousel/nav.ts:339](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/nav.ts#L339)
 
-The carouselOnDotClick value.
+Dot-nav click — jumps straight to idx and permanently stops autoplay;
+dot clicks are deliberate picks, not ambient browsing.
 
 ## Parameters
 
@@ -18,13 +19,13 @@ The carouselOnDotClick value.
 
 [`CustomCarousel`](../../../CustomCarousel/classes/CustomCarousel.md)
 
-— the component
+The CustomCarousel element.
 
 ### idx
 
 `number`
 
-— the index
+Dot index → real-slide index.
 
 ## Returns
 

@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../../README.md) / [components/dialogs/preferences/types](../README.md) / PrefThemeOption
 
-Defined in: [src/components/dialogs/preferences/types.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/dialogs/preferences/types.ts#L10)
+Defined in: [src/components/dialogs/preferences/types.ts:8](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L8)
 
-The PrefThemeOption value.
+One theme option's translated label (dark / system / light).
 
 ## Properties
 
@@ -16,4 +16,6 @@ The PrefThemeOption value.
 label: string
 ```
 
-Defined in: [src/components/dialogs/preferences/types.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/dialogs/preferences/types.ts#L11)
+Defined in: [src/components/dialogs/preferences/types.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L10)
+
+Translated option label rendered next to the radio.

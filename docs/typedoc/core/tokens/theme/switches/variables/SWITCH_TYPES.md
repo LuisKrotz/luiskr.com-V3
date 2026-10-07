@@ -14,14 +14,8 @@ const SWITCH_TYPES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/theme/switches.ts:8](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/theme/switches.ts#L8)
+Defined in: [src/core/tokens/theme/switches.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/theme/switches.ts#L13)
 
-## File
-
-tokens/theme/switches.js
-
-## Description
-
-Switch slider context types — `data-switch` values
-identifying which preferences toggle a SwitchWebGL canvas drives. Shared
-by PreferencesModal markup and switch-slider logic.
+Switch slider context types. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [utils/wasm/wasm-scroll](../README.md) / WasmScrollOptions
 
-Defined in: [src/utils/wasm/wasm-scroll.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-scroll.ts#L20)
+Defined in: [src/utils/wasm/wasm-scroll.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-scroll.ts#L20)
 
-The WasmScrollOptions value.
+Options bag for [wasmSmoothScroll](../functions/wasmSmoothScroll.md).
 
 ## Properties
 
@@ -16,7 +16,7 @@ The WasmScrollOptions value.
 optional container?: string | Element | Window;
 ```
 
-Defined in: [src/utils/wasm/wasm-scroll.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-scroll.ts#L22)
+Defined in: [src/utils/wasm/wasm-scroll.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-scroll.ts#L22)
 
 Scroll container — selector (pierces shadow DOM), element, or window.
 
@@ -28,7 +28,7 @@ Scroll container — selector (pierces shadow DOM), element, or window.
 optional element?: string | Element;
 ```
 
-Defined in: [src/utils/wasm/wasm-scroll.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-scroll.ts#L24)
+Defined in: [src/utils/wasm/wasm-scroll.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-scroll.ts#L24)
 
 Target element — selector or element.
 
@@ -45,7 +45,7 @@ optional scrollTo?:
 };
 ```
 
-Defined in: [src/utils/wasm/wasm-scroll.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-scroll.ts#L26)
+Defined in: [src/utils/wasm/wasm-scroll.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-scroll.ts#L26)
 
 Numeric offset or {y}/{top} shape.
 
@@ -57,7 +57,7 @@ Numeric offset or {y}/{top} shape.
 optional offset?: number;
 ```
 
-Defined in: [src/utils/wasm/wasm-scroll.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-scroll.ts#L28)
+Defined in: [src/utils/wasm/wasm-scroll.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-scroll.ts#L28)
 
 Extra px offset applied to the target.
 
@@ -69,7 +69,7 @@ Extra px offset applied to the target.
 optional duration?: number;
 ```
 
-Defined in: [src/utils/wasm/wasm-scroll.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-scroll.ts#L30)
+Defined in: [src/utils/wasm/wasm-scroll.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-scroll.ts#L30)
 
 Animation length in ms (default 600).
 
@@ -81,6 +81,6 @@ Animation length in ms (default 600).
 optional updateHistory?: boolean;
 ```
 
-Defined in: [src/utils/wasm/wasm-scroll.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-scroll.ts#L32)
+Defined in: [src/utils/wasm/wasm-scroll.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-scroll.ts#L32)
 
 Replace the URL hash on arrival.

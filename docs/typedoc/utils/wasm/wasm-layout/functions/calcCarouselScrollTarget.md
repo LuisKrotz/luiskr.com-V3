@@ -8,9 +8,10 @@
 function calcCarouselScrollTarget(idx, slideWidth, gap?): number
 ```
 
-Defined in: [src/utils/wasm/wasm-layout.ts:70](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-layout.ts#L70)
+Defined in: [src/utils/wasm/wasm-layout.ts:116](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-layout.ts#L116)
 
-Scroll offset that brings slide `idx` into view, counting per-slide width + gap.
+Scroll offset that brings slide `idx` into view, counting per-slide
+width + gap: idx·(slideWidth+gap).
 
 ## Parameters
 
@@ -18,14 +19,22 @@ Scroll offset that brings slide `idx` into view, counting per-slide width + gap.
 
 `number`
 
+Slide index.
+
 ### slideWidth
 
 `number`
+
+Rendered slide width in px.
 
 ### gap?
 
 `number` = `0`
 
+Inter-slide gap in px.
+
 ## Returns
 
 `number`
+
+scrollLeft target in px.

@@ -11,4 +11,6 @@ Awards footer class tokens — token group.
 
 ### `AWARDS_CLASSES`
 
-The AWARDS_CLASSES constant.
+Frozen awards class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

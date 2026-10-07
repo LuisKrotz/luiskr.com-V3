@@ -11,4 +11,6 @@ Global state modifier class tokens — grouped subset of
 
 ### `STATE_CLASSES`
 
-The STATE_CLASSES constant.
+Frozen state class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

@@ -7,3 +7,4 @@
 ## Variables
 
 - [PREFETCH\_CONFIG](variables/PREFETCH_CONFIG.md)
+- [NPU\_PREDICT](variables/NPU_PREDICT.md)

@@ -11,44 +11,66 @@ Native DOM event-name tokens split by input modality —
 
 ### `MOUSE_EVENTS`
 
-The MOUSE_EVENTS constant.
+Frozen mouse event-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `TOUCH_EVENTS`
 
-The TOUCH_EVENTS constant.
+Frozen touch event-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `POINTER_EVENTS`
 
-The POINTER_EVENTS constant.
+Frozen pointer event-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `KEYBOARD_EVENTS`
 
-The KEYBOARD_EVENTS constant.
+Frozen keyboard event-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `FOCUS_EVENTS`
 
-focuses events.
+Frozen focus event-name map — `focusin`/`focusout` bubble (needed for
+delegation on shadow hosts) while `focus`/`blur` do not; both pairs are
+kept so listeners pick the right variant for the propagation model.
 
 ### `FORM_EVENTS`
 
-The FORM_EVENTS constant.
+Frozen form event-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `DRAG_EVENTS`
 
-drags events.
+Frozen drag event-name map — the HTML5 drag-and-drop subset used by CMS
+upload zones (`drop` fires on the target, `dragover` must be
+preventDefault'ed for drop to be allowed per the DnD spec).
 
 ### `WINDOW_EVENTS`
 
-The WINDOW_EVENTS constant.
+Frozen window event-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `MEDIA_EVENTS`
 
-The MEDIA_EVENTS constant.
+Frozen media event-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `ANIMATION_EVENTS`
 
-The ANIMATION_EVENTS constant.
+Frozen animation event-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `GL_EVENTS`
 
-The GL_EVENTS constant.
+Frozen gl event-name map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.

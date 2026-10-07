@@ -13,6 +13,8 @@ const DRAW_TEXT_SELECTORS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/selectors/draw-text.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/selectors/draw-text.ts#L12)
+Defined in: [src/core/tokens/selectors/draw-text.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/selectors/draw-text.ts#L14)
 
-Draws text selectors.
+Selector strings for the draw-text surface — the component root plus
+the word/char/space spans the stagger animation targets. Composed from
+the class tokens so selectors stay correct if a class name changes.

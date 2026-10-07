@@ -4,9 +4,12 @@
 
 [luiskr.com](../../../../README.md) / [core/store/state](../README.md) / ModalObject
 
-Defined in: [src/core/store/state.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L66)
+Defined in: [src/core/store/state.ts:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L76)
 
-The ModalObject value.
+Expand-modal descriptor written by MediaExpanded and read by the modal
+component: `open` drives mount/visibility, `class` carries the figure's
+orientation class so the lightbox inherits aspect styling, `transform` is
+the carousel translateX offset at open time.
 
 ## Properties
 
@@ -16,7 +19,7 @@ The ModalObject value.
 transform: number
 ```
 
-Defined in: [src/core/store/state.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L67)
+Defined in: [src/core/store/state.ts:77](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L77)
 
 ---
 
@@ -26,7 +29,7 @@ Defined in: [src/core/store/state.ts:67](https://github.com/LuisKrotz/luiskr.com
 class: string;
 ```
 
-Defined in: [src/core/store/state.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L68)
+Defined in: [src/core/store/state.ts:78](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L78)
 
 ---
 
@@ -36,7 +39,7 @@ Defined in: [src/core/store/state.ts:68](https://github.com/LuisKrotz/luiskr.com
 open: boolean
 ```
 
-Defined in: [src/core/store/state.ts:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L69)
+Defined in: [src/core/store/state.ts:79](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L79)
 
 ---
 
@@ -46,4 +49,4 @@ Defined in: [src/core/store/state.ts:69](https://github.com/LuisKrotz/luiskr.com
 media: ModalMedia | null
 ```
 
-Defined in: [src/core/store/state.ts:70](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L70)
+Defined in: [src/core/store/state.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L80)

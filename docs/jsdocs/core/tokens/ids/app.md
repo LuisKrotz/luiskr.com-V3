@@ -11,4 +11,6 @@ App shell element id tokens — token group.
 
 ### `APP_IDS`
 
-The APP_IDS constant.
+Frozen app element-id map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.

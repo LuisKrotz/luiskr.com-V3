@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [utils/wasm/wasm-media-threads](../README.md) / VideoVariant
 
-Defined in: [src/utils/wasm/wasm-media-threads.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-media-threads.ts#L24)
+Defined in: [src/utils/wasm/wasm-media-threads.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-media-threads.ts#L22)
 
-The VideoVariant value.
+One candidate rendition of a video — URL plus optional quality metadata.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The VideoVariant value.
 url: string
 ```
 
-Defined in: [src/utils/wasm/wasm-media-threads.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-media-threads.ts#L25)
+Defined in: [src/utils/wasm/wasm-media-threads.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-media-threads.ts#L24)
+
+CDN URL of this rendition.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/utils/wasm/wasm-media-threads.ts:25](https://github.com/LuisKro
 optional quality?: string;
 ```
 
-Defined in: [src/utils/wasm/wasm-media-threads.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-media-threads.ts#L26)
+Defined in: [src/utils/wasm/wasm-media-threads.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-media-threads.ts#L26)
+
+Quality label ('360p', '720p', …) — informational for the worker.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/utils/wasm/wasm-media-threads.ts:26](https://github.com/LuisKro
 optional width?: number;
 ```
 
-Defined in: [src/utils/wasm/wasm-media-threads.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-media-threads.ts#L27)
+Defined in: [src/utils/wasm/wasm-media-threads.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-media-threads.ts#L28)
+
+Rendition pixel width — drives the GPU-upload resize hint.
 
 ---
 
@@ -46,4 +52,6 @@ Defined in: [src/utils/wasm/wasm-media-threads.ts:27](https://github.com/LuisKro
 optional height?: number;
 ```
 
-Defined in: [src/utils/wasm/wasm-media-threads.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-media-threads.ts#L28)
+Defined in: [src/utils/wasm/wasm-media-threads.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-media-threads.ts#L30)
+
+Rendition pixel height — drives the GPU-upload resize hint.

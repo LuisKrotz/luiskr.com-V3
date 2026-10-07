@@ -418,7 +418,7 @@
 | [`constants.ts`](core/constants.md) | Single source of truth for every shared constant in the |
 | [`devlog.ts`](core/devlog.md) | Zero-console diagnostics sink (project rule: no console.* in |
 | [`i18n.ts`](core/i18n.md) | Locale registry and URL-slug tables. |
-| [`index.ts`](core/index.md) | Unified barrel export for the core layer with "sideEffects": false for clean tree-shaking. |
+| [`index.ts`](core/index.md) | Unified barrel export for the core layer |
 | [`jsx.ts`](core/jsx.md) | Zero-dependency native DOM JSX pragma. |
 | [`predictive-loader.ts`](core/predictive-loader.md) | Intent-based predictive prefetching engine. |
 | [`store.ts`](core/store.md) | Framework-free reactive state container (tiny pub/sub). |
@@ -505,10 +505,10 @@
 | File | What it does |
 |---|---|
 | [`aria.ts`](core/tokens/attrs/aria.md) | ARIA attribute + role-value tokens — token group. |
-| [`common.ts`](core/tokens/attrs/common.md) | Generic DOM attribute tokens — token group. |
-| [`data.ts`](core/tokens/attrs/data.md) | `data-*` attribute tokens — token group. |
-| [`form.ts`](core/tokens/attrs/form.md) | Form control attribute tokens — token group. |
-| [`link.ts`](core/tokens/attrs/link.md) | Anchor/link attribute tokens — token group. |
+| [`common.ts`](core/tokens/attrs/common.md) | Generic DOM attribute + attribute-value tokens — the |
+| [`data.ts`](core/tokens/attrs/data.md) | `data-*` attribute tokens — token group |
+| [`form.ts`](core/tokens/attrs/form.md) | Form control attribute tokens — token group |
+| [`link.ts`](core/tokens/attrs/link.md) | Anchor/link attribute tokens — token group |
 | [`media.ts`](core/tokens/attrs/media.md) | Media element attribute + MIME-type tokens — grouped subset |
 | [`svg.ts`](core/tokens/attrs/svg.md) | SVG geometry attribute values — token group. |
 | [`values.ts`](core/tokens/attrs/values.md) | Generic attribute-value tokens — token group. |

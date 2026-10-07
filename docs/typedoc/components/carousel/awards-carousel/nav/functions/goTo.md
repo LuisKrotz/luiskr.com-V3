@@ -8,14 +8,16 @@
 function goTo(host, idx): void
 ```
 
-Defined in: [src/components/carousel/awards-carousel/nav.ts:84](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/awards-carousel/nav.ts#L84)
+Defined in: [src/components/carousel/awards-carousel/nav.ts:107](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/nav.ts#L107)
 
 Navigate to slide idx. idx may be out-of-range (−1 or len): the call
 scrolls to the matching CLONE slide at that edge and schedules an
 instant teleport to its real twin — the user sees a continuous wrap
 scroll while the clone→real swap is invisible. In-range idx scrolls
-directly; the 400ms isNavigating window suppresses scroll-handler
-teleports until the smooth animation settles.
+directly; the NAVIGATION_SETTLE_DELAY isNavigating window suppresses
+scroll-handler teleports until the smooth animation settles.
+`((idx % len) + len) % len` normalizes idx into [0,len) — the double
+modulo handles negative idx (−1 → len−1) where a single % yields −1.
 
 ## Parameters
 
@@ -23,9 +25,13 @@ teleports until the smooth animation settles.
 
 [`AwardsCarousel`](../../../AwardsCarousel/classes/AwardsCarousel.md)
 
+The AwardsCarousel element.
+
 ### idx
 
 `number`
+
+Target index — may be −1 or len for edge wraps.
 
 ## Returns
 

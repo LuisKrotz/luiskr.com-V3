@@ -8,9 +8,15 @@
 function carouselGoTo(c, idx): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/nav.ts:77](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/nav.ts#L77)
+Defined in: [src/components/carousel/custom-carousel/nav.ts:87](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/nav.ts#L87)
 
-The carouselGoTo value.
+Navigate to slide idx — accepts out-of-range idx (idx<0 or idx≥len) by
+scrolling to the CLONE slide at that edge, then scheduling an instant
+teleport to its real twin (the infinite-loop illusion). Also lazy-loads
+the new neighborhood and triggers `loadHighRes` on the active
+<media-figure> so the target slide upgrades immediately rather than on
+the next intersection tick. The double-modulo normalizes idx into
+[0,len) — a single % yields −1 for negative input.
 
 ## Parameters
 
@@ -18,13 +24,13 @@ The carouselGoTo value.
 
 [`CustomCarousel`](../../../CustomCarousel/classes/CustomCarousel.md)
 
-— the component
+The CustomCarousel element.
 
 ### idx
 
 `number`
 
-— the index
+Target index — may be −1 or len for edge wraps.
 
 ## Returns
 

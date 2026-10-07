@@ -4,11 +4,12 @@
 
 [luiskr.com](../../../../../README.md) / [components/carousel/awards-carousel/types](../README.md) / CarouselSlide
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:6](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/awards-carousel/types.ts#L6)
+Defined in: [src/components/carousel/awards-carousel/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L12)
 
-## File
-
-awards-carousel/types.ts — slide entry shape.
+One slide of the awards carousel — `link` is the outbound award URL,
+`media` the optional cover image (path + intrinsic size for aspect layout),
+`icon`/`description`/`content`/`label` the rendered copy fields. All optional:
+slides tolerate partial CMS rows without render guards.
 
 ## Properties
 
@@ -18,7 +19,7 @@ awards-carousel/types.ts — slide entry shape.
 optional link?: string;
 ```
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:7](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/awards-carousel/types.ts#L7)
+Defined in: [src/components/carousel/awards-carousel/types.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L13)
 
 ---
 
@@ -28,7 +29,7 @@ Defined in: [src/components/carousel/awards-carousel/types.ts:7](https://github.
 optional media?: object;
 ```
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:8](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/awards-carousel/types.ts#L8)
+Defined in: [src/components/carousel/awards-carousel/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L14)
 
 #### path?
 
@@ -56,7 +57,7 @@ optional height?: number;
 optional icon?: string;
 ```
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:9](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/awards-carousel/types.ts#L9)
+Defined in: [src/components/carousel/awards-carousel/types.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L15)
 
 ---
 
@@ -66,7 +67,7 @@ Defined in: [src/components/carousel/awards-carousel/types.ts:9](https://github.
 optional description?: string;
 ```
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/awards-carousel/types.ts#L10)
+Defined in: [src/components/carousel/awards-carousel/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L16)
 
 ---
 
@@ -76,7 +77,7 @@ Defined in: [src/components/carousel/awards-carousel/types.ts:10](https://github
 optional content?: string;
 ```
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/awards-carousel/types.ts#L11)
+Defined in: [src/components/carousel/awards-carousel/types.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L17)
 
 ---
 
@@ -86,4 +87,4 @@ Defined in: [src/components/carousel/awards-carousel/types.ts:11](https://github
 optional label?: string;
 ```
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/awards-carousel/types.ts#L12)
+Defined in: [src/components/carousel/awards-carousel/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L18)

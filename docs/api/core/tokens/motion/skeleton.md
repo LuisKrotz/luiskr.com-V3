@@ -31,7 +31,9 @@ Max delay before the field starts animating after mount (ms)
 
 ### `SKELETON_GLYPH`
 
-The SKELETON_GLYPH constant.
+Frozen skeleton map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.
 
 ### `CELL_MIN`
 
@@ -59,7 +61,9 @@ Pull glyph ink toward the surface to keep the decoding texture restrained.
 
 ### `SKELETON_RESOLVE`
 
-The SKELETON_RESOLVE constant.
+Frozen skeleton map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.
 
 ### `RESOLVE_DURATION`
 
@@ -67,7 +71,9 @@ Resolve-out length once content has arrived (ms)
 
 ### `SKELETON_MOSAIC`
 
-The SKELETON_MOSAIC constant.
+Frozen skeleton map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.
 
 ### `MOSAIC_TILES`
 
@@ -83,7 +89,9 @@ Mosaic tiles eligible for LCP — loaded eagerly with high fetch priority
 
 ### `SKELETON_WARN`
 
-The SKELETON_WARN constant.
+Frozen skeleton map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.
 
 ### `SOFTWARE_RENDERERS`
 

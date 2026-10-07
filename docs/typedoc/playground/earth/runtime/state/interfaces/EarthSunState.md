@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../../README.md) / [playground/earth/runtime/state](../README.md) / EarthSunState
 
-Defined in: [src/playground/earth/runtime/state.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L25)
+Defined in: [src/playground/earth/runtime/state.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L24)
 
-Type contract for earth sun state.
+Sun settings driven by the control panel.
 
 ## Properties
 
@@ -16,7 +16,9 @@ Type contract for earth sun state.
 autoRotate: boolean
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L26)
+Defined in: [src/playground/earth/runtime/state.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L26)
+
+Whether the sun orbits automatically.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/playground/earth/runtime/state.ts:26](https://github.com/LuisKr
 speed: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L27)
+Defined in: [src/playground/earth/runtime/state.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L28)
+
+Orbit angular speed (rad/frame scale).
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/playground/earth/runtime/state.ts:27](https://github.com/LuisKr
 inclination: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L28)
+Defined in: [src/playground/earth/runtime/state.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L30)
+
+Orbit plane inclination (rad).
 
 ---
 
@@ -46,7 +52,9 @@ Defined in: [src/playground/earth/runtime/state.ts:28](https://github.com/LuisKr
 intensity: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L29)
+Defined in: [src/playground/earth/runtime/state.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L32)
+
+Directional-light intensity.
 
 ---
 
@@ -56,7 +64,9 @@ Defined in: [src/playground/earth/runtime/state.ts:29](https://github.com/LuisKr
 color: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L30)
+Defined in: [src/playground/earth/runtime/state.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L34)
+
+Packed RGB light color.
 
 ---
 
@@ -66,4 +76,6 @@ Defined in: [src/playground/earth/runtime/state.ts:30](https://github.com/LuisKr
 angle: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L31)
+Defined in: [src/playground/earth/runtime/state.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L36)
+
+Current orbit angle (rad) — advanced per frame when autoRotate.

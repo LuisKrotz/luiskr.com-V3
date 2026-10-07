@@ -16,6 +16,9 @@ const ADMIN_CLASSES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/classes/admin.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/classes/admin.ts#L11)
+Defined in: [src/core/tokens/classes/admin.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/classes/admin.ts#L14)
 
-admins classes.
+Admin-login view classes. The `ADMIN_*` entries compose the `admin` BEM
+block; `GOOGLE_AUTH_BTN`/`GOOGLE_ICON` are standalone blocks (different
+block prefix) since Google's sign-in widget styling is applied to those
+nodes and must not inherit admin-* selectors.

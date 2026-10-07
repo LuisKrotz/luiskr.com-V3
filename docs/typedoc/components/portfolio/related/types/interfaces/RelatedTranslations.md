@@ -4,9 +4,11 @@
 
 [luiskr.com](../../../../../README.md) / [components/portfolio/related/types](../README.md) / RelatedTranslations
 
-Defined in: [src/components/portfolio/related/types.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/portfolio/related/types.ts#L28)
+Defined in: [src/components/portfolio/related/types.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L36)
 
-The RelatedTranslations value.
+The components/related DB node as consumed by <portfolio-related> —
+`projects` may arrive keyed-object or array from Firebase, `path` is the
+portfolio base route, `socials`/`note`/`title` the footer copy.
 
 ## Properties
 
@@ -16,7 +18,7 @@ The RelatedTranslations value.
 optional title?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/portfolio/related/types.ts#L29)
+Defined in: [src/components/portfolio/related/types.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L37)
 
 ---
 
@@ -28,7 +30,7 @@ optional projects?:
   | RelatedProject[];
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/portfolio/related/types.ts#L30)
+Defined in: [src/components/portfolio/related/types.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L38)
 
 ---
 
@@ -38,7 +40,7 @@ Defined in: [src/components/portfolio/related/types.ts:30](https://github.com/Lu
 optional path?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/portfolio/related/types.ts#L31)
+Defined in: [src/components/portfolio/related/types.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L39)
 
 ---
 
@@ -48,7 +50,7 @@ Defined in: [src/components/portfolio/related/types.ts:31](https://github.com/Lu
 optional socials?: RelatedSocial[];
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/portfolio/related/types.ts#L32)
+Defined in: [src/components/portfolio/related/types.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L40)
 
 ---
 
@@ -58,4 +60,4 @@ Defined in: [src/components/portfolio/related/types.ts:32](https://github.com/Lu
 optional note?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/portfolio/related/types.ts#L33)
+Defined in: [src/components/portfolio/related/types.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L41)

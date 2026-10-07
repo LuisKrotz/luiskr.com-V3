@@ -11,6 +11,8 @@ const SP_DEBUG_PARAMS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/playground/params.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/playground/params.ts#L55)
+Defined in: [src/core/tokens/playground/params.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/playground/params.ts#L68)
 
-The SP_DEBUG_PARAMS constant.
+Frozen sp debug parameter map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

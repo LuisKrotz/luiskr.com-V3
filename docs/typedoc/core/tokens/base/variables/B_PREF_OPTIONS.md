@@ -8,6 +8,7 @@
 const _B_PREF_OPTIONS: 'pref-options'
 ```
 
-Defined in: [src/core/tokens/base.ts:266](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/base.ts#L266)
+Defined in: [src/core/tokens/base.ts:288](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/base.ts#L288)
 
-The _B_PREF_OPTIONS constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).

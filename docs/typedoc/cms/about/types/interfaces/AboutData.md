@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [cms/about/types](../README.md) / AboutData
 
-Defined in: [src/cms/about/types.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L29)
+Defined in: [src/cms/about/types.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L23)
 
-The AboutData value.
+The about-page CMS document shape persisted in Firebase.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The AboutData value.
 title: string
 ```
 
-Defined in: [src/cms/about/types.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L30)
+Defined in: [src/cms/about/types.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L25)
+
+Page heading.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/cms/about/types.ts:30](https://github.com/LuisKrotz/luiskr.com-
 profilePicture: string
 ```
 
-Defined in: [src/cms/about/types.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L31)
+Defined in: [src/cms/about/types.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L27)
+
+Gravatar/profile image URL.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/cms/about/types.ts:31](https://github.com/LuisKrotz/luiskr.com-
 col1: string[];
 ```
 
-Defined in: [src/cms/about/types.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L32)
+Defined in: [src/cms/about/types.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L29)
+
+Left bio column — paragraph strings.
 
 ---
 
@@ -46,7 +52,9 @@ Defined in: [src/cms/about/types.ts:32](https://github.com/LuisKrotz/luiskr.com-
 col2: string[];
 ```
 
-Defined in: [src/cms/about/types.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L33)
+Defined in: [src/cms/about/types.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L31)
+
+Right bio column — paragraph strings.
 
 ---
 
@@ -56,7 +64,9 @@ Defined in: [src/cms/about/types.ts:33](https://github.com/LuisKrotz/luiskr.com-
 mentions: string
 ```
 
-Defined in: [src/cms/about/types.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L34)
+Defined in: [src/cms/about/types.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L33)
+
+Mentions section intro copy.
 
 ---
 
@@ -66,4 +76,6 @@ Defined in: [src/cms/about/types.ts:34](https://github.com/LuisKrotz/luiskr.com-
 mention_items: MentionItem[];
 ```
 
-Defined in: [src/cms/about/types.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L35)
+Defined in: [src/cms/about/types.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L35)
+
+Structured mention rows.

@@ -4,7 +4,7 @@
 
 [luiskr.com](../../README.md) / [App](../README.md) / AppRoot
 
-Defined in: [src/App.tsx:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L54)
+Defined in: [src/App.tsx:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L54)
 
 Application shell element. Extends the shared BaseComponent (shadow DOM,
 scoped listeners, store subscription, _updateDom re-render pipeline).
@@ -21,7 +21,7 @@ scoped listeners, store subscription, _updateDom re-render pipeline).
 new AppRoot(): AppRoot;
 ```
 
-Defined in: [src/App.tsx:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L76)
+Defined in: [src/App.tsx:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L76)
 
 #### Returns
 
@@ -39,7 +39,7 @@ Defined in: [src/App.tsx:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc1
 protected _componentStyles: string;
 ```
 
-Defined in: [src/core/Component.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L53)
+Defined in: [src/core/Component.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L67)
 
 `?inline` SCSS text injected once per shadow root.
 
@@ -55,7 +55,11 @@ Defined in: [src/core/Component.ts:53](https://github.com/LuisKrotz/luiskr.com-V
 protected _eventDisposers: () => void[] = [];
 ```
 
-Defined in: [src/core/Component.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L54)
+Defined in: [src/core/Component.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L74)
+
+Disposers for listeners added via addScopedListener(). Drained in
+disconnectedCallback so elements never leak listeners across mounts —
+critical for elements that move in the DOM (carousel reorder, route swap).
 
 #### Returns
 
@@ -73,7 +77,10 @@ Defined in: [src/core/Component.ts:54](https://github.com/LuisKrotz/luiskr.com-V
 protected _storeUnsubscribers: () => void[] = [];
 ```
 
-Defined in: [src/core/Component.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L55)
+Defined in: [src/core/Component.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L80)
+
+Unsubscribe callbacks from store.subscribe(). Drained on disconnect so a
+detached element stops receiving store pushes and can be GC'd.
 
 #### Returns
 
@@ -91,7 +98,11 @@ Defined in: [src/core/Component.ts:55](https://github.com/LuisKrotz/luiskr.com-V
 _isMounted: boolean = false
 ```
 
-Defined in: [src/core/Component.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L56)
+Defined in: [src/core/Component.ts:87](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L87)
+
+Whether the element is currently connected. Read by the store-subscription
+wrapper to skip onStoreUpdate on detached elements (a store push arriving
+between disconnect and GC must not re-render into a dead shadow root).
 
 #### Inherited from
 
@@ -105,7 +116,9 @@ Defined in: [src/core/Component.ts:56](https://github.com/LuisKrotz/luiskr.com-V
 protected _styleNode: Element | HTMLStyleElement | null = null;
 ```
 
-Defined in: [src/core/Component.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L57)
+Defined in: [src/core/Component.ts:90](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L90)
+
+The `<style>` fallback node, only populated on engines without constructable stylesheets.
 
 #### Inherited from
 
@@ -119,7 +132,11 @@ Defined in: [src/core/Component.ts:57](https://github.com/LuisKrotz/luiskr.com-V
 _contentNode: Element | HTMLElement | null = null;
 ```
 
-Defined in: [src/core/Component.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L58)
+Defined in: [src/core/Component.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L97)
+
+Persistent content wrapper inside the shadow root. _updateDom swaps only
+this node's children — the style mechanism stays untouched (see file
+header for why that split exists).
 
 #### Inherited from
 
@@ -135,7 +152,7 @@ _skeletonLayer:
   | null = null;
 ```
 
-Defined in: [src/core/Component.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L60)
+Defined in: [src/core/Component.ts:100](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L100)
 
 Live WebGL skeleton layer, owned by syncSkeletonLayer()/destroySkeletonLayer().
 
@@ -151,7 +168,9 @@ Live WebGL skeleton layer, owned by syncSkeletonLayer()/destroySkeletonLayer().
 state: ComponentState = {}
 ```
 
-Defined in: [src/core/Component.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L61)
+Defined in: [src/core/Component.ts:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L103)
+
+Reactive state bag — written only through setState() so updates always re-render.
 
 #### Inherited from
 
@@ -186,7 +205,7 @@ translations:
   | null = null;
 ```
 
-Defined in: [src/App.tsx:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L56)
+Defined in: [src/App.tsx:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L56)
 
 ---
 
@@ -196,7 +215,7 @@ Defined in: [src/App.tsx:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc1
 routeLoading: boolean = false
 ```
 
-Defined in: [src/App.tsx:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L58)
+Defined in: [src/App.tsx:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L58)
 
 ---
 
@@ -206,7 +225,7 @@ Defined in: [src/App.tsx:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc1
 activeSection: string = SECTIONS.HOME
 ```
 
-Defined in: [src/App.tsx:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L60)
+Defined in: [src/App.tsx:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L60)
 
 ---
 
@@ -216,7 +235,7 @@ Defined in: [src/App.tsx:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc1
 onBottom: boolean = false
 ```
 
-Defined in: [src/App.tsx:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L62)
+Defined in: [src/App.tsx:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L62)
 
 ---
 
@@ -226,7 +245,7 @@ Defined in: [src/App.tsx:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc1
 currentViewTag: string
 ```
 
-Defined in: [src/App.tsx:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L64)
+Defined in: [src/App.tsx:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L64)
 
 ---
 
@@ -236,7 +255,7 @@ Defined in: [src/App.tsx:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc1
 _aboutTop: number = 600
 ```
 
-Defined in: [src/App.tsx:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L67)
+Defined in: [src/App.tsx:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L67)
 
 ---
 
@@ -246,7 +265,7 @@ Defined in: [src/App.tsx:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc1
 _contactTop: number = 1500
 ```
 
-Defined in: [src/App.tsx:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L68)
+Defined in: [src/App.tsx:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L68)
 
 ---
 
@@ -256,7 +275,7 @@ Defined in: [src/App.tsx:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc1
 _sectionsMeasured: boolean = false
 ```
 
-Defined in: [src/App.tsx:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L69)
+Defined in: [src/App.tsx:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L69)
 
 ---
 
@@ -266,7 +285,7 @@ Defined in: [src/App.tsx:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc1
 _lastMeasureAttempt: number = 0
 ```
 
-Defined in: [src/App.tsx:70](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L70)
+Defined in: [src/App.tsx:70](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L70)
 
 ---
 
@@ -276,7 +295,7 @@ Defined in: [src/App.tsx:70](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc1
 _loadedLang: string | null = null;
 ```
 
-Defined in: [src/App.tsx:71](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L71)
+Defined in: [src/App.tsx:71](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L71)
 
 ---
 
@@ -288,7 +307,7 @@ _introLoader:
   | null = null;
 ```
 
-Defined in: [src/App.tsx:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L72)
+Defined in: [src/App.tsx:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L72)
 
 ---
 
@@ -298,7 +317,7 @@ Defined in: [src/App.tsx:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc1
 _docObserver: ResizeObserver | null = null;
 ```
 
-Defined in: [src/App.tsx:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L74)
+Defined in: [src/App.tsx:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L74)
 
 Watches document height so onBottom/activeSection never go stale.
 
@@ -4342,7 +4361,7 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:35365
 get modal(): ModalObject;
 ```
 
-Defined in: [src/App.tsx:81](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L81)
+Defined in: [src/App.tsx:81](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L81)
 
 Current modal descriptor from the store ({ open, class, transform }).
 
@@ -4360,7 +4379,7 @@ Current modal descriptor from the store ({ open, class, transform }).
 get locale(): string;
 ```
 
-Defined in: [src/App.tsx:86](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L86)
+Defined in: [src/App.tsx:86](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L86)
 
 Active locale code (en, pt, gl, …).
 
@@ -4544,10 +4563,11 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:13931
 optional onInit(): void;
 ```
 
-Defined in: [src/core/Component.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L67)
+Defined in: [src/core/Component.ts:110](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L110)
 
 Lifecycle hooks — declared on the base so `?.()` calls are type-safe and
-subclasses get a documented override point.
+subclasses get a documented override point. Order on first connect:
+onInit → _renderInitial → onMounted → onUpdated.
 
 #### Returns
 
@@ -4565,9 +4585,14 @@ subclasses get a documented override point.
 setState(updater): void;
 ```
 
-Defined in: [src/core/Component.ts:83](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L83)
+Defined in: [src/core/Component.ts:139](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L139)
 
-Set partial state and re-render content (NOT styles).
+Set partial state and re-render content (NOT styles). Accepts either a
+patch object or a React-style updater function — the function form is
+required when the next state derives from the previous state, since
+reads of `this.state` outside the updater can race with queued renders.
+The merge is a shallow spread: keys not present in `next` survive, which
+lets components update one field without re-sending the whole bag.
 
 #### Parameters
 
@@ -4575,6 +4600,8 @@ Set partial state and re-render content (NOT styles).
 
 \| [`ComponentState`](../../core/Component/type-aliases/ComponentState.md)
 \| ((`_state`) => [`ComponentState`](../../core/Component/type-aliases/ComponentState.md))
+
+Partial state patch, or (prevState) => patch.
 
 #### Returns
 
@@ -4592,12 +4619,14 @@ Set partial state and re-render content (NOT styles).
 connectedCallback(): void;
 ```
 
-Defined in: [src/core/Component.ts:99](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L99)
+Defined in: [src/core/Component.ts:157](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L157)
 
 DOM insertion — runs onInit (data setup), the one-time style/content
 build (_renderInitial), then onMounted + onUpdated so a first render is
 indistinguishable from an update, and finally registers this element
 with the WebGL skeleton scanner (no-op when no skeletons are present).
+Per the Custom Elements spec this callback can fire multiple times —
+every branch below is written to be idempotent on re-mount.
 
 #### Returns
 
@@ -4615,11 +4644,13 @@ with the WebGL skeleton scanner (no-op when no skeletons are present).
 disconnectedCallback(): void;
 ```
 
-Defined in: [src/core/Component.ts:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L113)
+Defined in: [src/core/Component.ts:173](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L173)
 
 DOM removal — tears down in reverse order: scoped listeners, store
 subscriptions, the WebGL skeleton layer for this element, then the
-subclass's onDestroy (engine/audio/observer cleanup).
+subclass's onDestroy (engine/audio/observer cleanup). `_isMounted` flips
+first so an in-flight store push during teardown hits the guard in
+subscribe() rather than rendering into a disconnecting root.
 
 #### Returns
 
@@ -4637,9 +4668,10 @@ subclass's onDestroy (engine/audio/observer cleanup).
 $<T>(selector): T | null;
 ```
 
-Defined in: [src/core/Component.ts:124](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L124)
+Defined in: [src/core/Component.ts:189](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L189)
 
-Safe scoped querySelector inside Shadow Root.
+Safe scoped querySelector inside Shadow Root. Returns null instead of
+throwing when the shadow root is absent (detached construction in tests).
 
 #### Type Parameters
 
@@ -4653,9 +4685,13 @@ Safe scoped querySelector inside Shadow Root.
 
 `string`
 
+CSS selector evaluated against this.shadowRoot.
+
 #### Returns
 
 `T` \| `null`
+
+First matching element or null.
 
 #### Inherited from
 
@@ -4669,9 +4705,11 @@ Safe scoped querySelector inside Shadow Root.
 $$<T>(selector): T[];
 ```
 
-Defined in: [src/core/Component.ts:129](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L129)
+Defined in: [src/core/Component.ts:200](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L200)
 
-Safe scoped querySelectorAll inside Shadow Root.
+Safe scoped querySelectorAll inside Shadow Root — materialized into a
+real Array so callers get .map/.filter/forEach (NodeList lacks some
+iteration methods on older engines).
 
 #### Type Parameters
 
@@ -4685,9 +4723,13 @@ Safe scoped querySelectorAll inside Shadow Root.
 
 `string`
 
+CSS selector evaluated against this.shadowRoot.
+
 #### Returns
 
 `T`[]
+
+Array of matching elements (never null).
 
 #### Inherited from
 
@@ -4706,11 +4748,13 @@ addScopedListener(
 ): void;
 ```
 
-Defined in: [src/core/Component.ts:138](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L138)
+Defined in: [src/core/Component.ts:215](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L215)
 
 Scoped event listener with automatic lifecycle cleanup.
-Prevents duplicate listeners: if the same handler reference is registered
-for the same target+event, subsequent calls are no-ops.
+Prevents duplicate listeners: the DOM itself dedupes identical
+(type, listener, capture) tuples per MDN addEventListener semantics, and
+every registration is mirrored into _eventDisposers so disconnect removes
+it even when the listener captured instance state.
 
 #### Parameters
 
@@ -4718,17 +4762,25 @@ for the same target+event, subsequent calls are no-ops.
 
 `EventTarget` \| `null`
 
+EventTarget to listen on (null → no-op).
+
 ##### event
 
 `string`
+
+Event type token.
 
 ##### handler
 
 `EventListenerOrEventListenerObject`
 
+Listener callback or listener object.
+
 ##### options?
 
 `boolean` \| `AddEventListenerOptions`
+
+Passive/capture/once options forwarded verbatim.
 
 #### Returns
 
@@ -4746,15 +4798,20 @@ for the same target+event, subsequent calls are no-ops.
 subscribe(store): void;
 ```
 
-Defined in: [src/core/Component.ts:155](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L155)
+Defined in: [src/core/Component.ts:236](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L236)
 
-Subscribe to store changes with automatic lifecycle cleanup.
+Subscribe to store changes with automatic lifecycle cleanup. The wrapper
+gates on _isMounted: a store push landing while the element is detached
+(mid-move or already removed) is dropped instead of rendering into a
+dead shadow root — the next connectedCallback renders fresh state anyway.
 
 #### Parameters
 
 ##### store
 
 `ScopedStore` \| `null` \| `undefined`
+
+Store-like object exposing subscribe(); null/invalid → no-op.
 
 #### Returns
 
@@ -4772,10 +4829,12 @@ Subscribe to store changes with automatic lifecycle cleanup.
 protected _renderInitial(): void;
 ```
 
-Defined in: [src/core/Component.ts:171](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L171)
+Defined in: [src/core/Component.ts:254](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L254)
 
 Initial render: injects styles ONCE and creates the content node.
-Called exactly once from connectedCallback().
+Called exactly once from connectedCallback() — but on re-mount the shadow
+root retains children from the previous mount, so both style and content
+paths reuse existing nodes instead of duplicating them.
 
 #### Returns
 
@@ -4793,12 +4852,14 @@ Called exactly once from connectedCallback().
 _updateDom(): void;
 ```
 
-Defined in: [src/core/Component.ts:231](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L231)
+Defined in: [src/core/Component.ts:321](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L321)
 
 Update content without touching the style node.
 Only the content wrapper is replaced — the <style> node
 remains untouched, preventing style re-parsing and IntersectionObserver
-destruction that occurred in the previous innerHTML = styleBlock + content approach.
+destruction that occurred in the previous innerHTML = styleBlock + content
+approach (a single string assignment re-parsed all CSS and rebuilt every
+tracked element on every state change).
 
 #### Returns
 
@@ -4816,15 +4877,24 @@ destruction that occurred in the previous innerHTML = styleBlock + content appro
 protected _applyRenderOutput(output): void;
 ```
 
-Defined in: [src/core/Component.ts:249](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L249)
+Defined in: [src/core/Component.ts:348](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L348)
 
 Applies the render output (DOM Node, DocumentFragment, or HTML string) to the content wrapper.
+Three accepted shapes, resolved in priority order:
+
+- Node → `replaceChildren(node)` — the JSX fast path, keeps DOM identity.
+- Array → `replaceChildren(...filtered)` — fragment-style multi-root
+  render; nullish entries are filtered so conditional JSX slots can just
+  return null.
+- string/nullish → `innerHTML` — legacy string templates; '' clears.
 
 #### Parameters
 
 ##### output
 
 `string` \| `Node` \| (`Node` \| `null` \| `undefined`)[] \| `null` \| `undefined`
+
+Render result from render().
 
 #### Returns
 
@@ -4842,7 +4912,7 @@ Applies the render output (DOM Node, DocumentFragment, or HTML string) to the co
 onMounted(): void;
 ```
 
-Defined in: [src/App.tsx:96](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L96)
+Defined in: [src/App.tsx:96](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L96)
 
 Lifecycle: runs once when <app-root> connects to the DOM.
 Applies persisted preferences, boots data loading, wires the router
@@ -4865,7 +4935,7 @@ modal/dialog/HUD chunks so they aren't on the critical path.
 onDestroy(): void;
 ```
 
-Defined in: [src/App.tsx:101](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L101)
+Defined in: [src/App.tsx:101](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L101)
 
 Lifecycle: releases the intro loader + document observer when the element disconnects.
 
@@ -4885,7 +4955,7 @@ Lifecycle: releases the intro loader + document observer when the element discon
 onStoreUpdate(): void;
 ```
 
-Defined in: [src/App.tsx:111](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L111)
+Defined in: [src/App.tsx:111](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L111)
 
 Store-subscription callback: reloads locale data when the language
 changes and re-applies modal open/close state to the shell.
@@ -4906,7 +4976,7 @@ changes and re-applies modal open/close state to the shell.
 _updateModalState(): void;
 ```
 
-Defined in: [src/App.tsx:130](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L130)
+Defined in: [src/App.tsx:130](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L130)
 
 Syncs modal state into the DOM without a full re-render:
 
@@ -4928,7 +4998,7 @@ Syncs modal state into the DOM without a full re-render:
 initInputListeners(): void;
 ```
 
-Defined in: [src/App.tsx:141](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L141)
+Defined in: [src/App.tsx:141](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L141)
 
 Tracks the input method ('pointer' vs 'touch') in the store so styles
 can suppress sticky hover states on touch devices. Prefers the unified
@@ -4948,7 +5018,7 @@ imagery shouldn't be right-click-saved or dragged).
 loadData(): void;
 ```
 
-Defined in: [src/App.tsx:150](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L150)
+Defined in: [src/App.tsx:150](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L150)
 
 Loads the locale's translation nodes (APP, slugs, components) via the
 static-first SWR layer and pushes them into the store + already-mounted
@@ -4966,7 +5036,7 @@ children. Skips nodes already cached for the current locale.
 updateSectionTops(): void;
 ```
 
-Defined in: [src/App.tsx:160](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L160)
+Defined in: [src/App.tsx:160](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L160)
 
 Measures the document offsets of the #about and #contact section markers
 inside the home view's shadow DOM (deepQuerySelector pierces it) and
@@ -4985,7 +5055,7 @@ _sectionsMeasured false so checkScroll retries lazily.
 checkScroll(): void;
 ```
 
-Defined in: [src/App.tsx:170](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L170)
+Defined in: [src/App.tsx:170](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L170)
 
 Scroll handler: computes near-bottom state and the active home section
 (home/about/contact) from measured tops, then pushes both to <app-nav>
@@ -5004,7 +5074,7 @@ No-ops on non-home routes except still feeding the nav its state.
 _updateViewContent(to?, _from?): void;
 ```
 
-Defined in: [src/App.tsx:179](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L179)
+Defined in: [src/App.tsx:179](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L179)
 
 Reconciles #view-outlet with the target route's view tag. If the same
 view type is already mounted (e.g. project→project), delegates to its
@@ -5033,7 +5103,7 @@ onRouteParamChange instead of remounting; otherwise flips the view.
 _flipToView(outlet, _to?): Promise<void>;
 ```
 
-Defined in: [src/App.tsx:190](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L190)
+Defined in: [src/App.tsx:190](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L190)
 
 Swaps the outlet's child for a new route view element. Dynamically
 imports the route chunk first (each route is a separate lazy chunk),
@@ -5063,7 +5133,7 @@ first-mount take the instant-swap path.
 render(): Element;
 ```
 
-Defined in: [src/App.tsx:198](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L198)
+Defined in: [src/App.tsx:198](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L198)
 
 JSX template: persistent chrome + routed outlet. The view tag is a
 dynamic component (CurrentView = this.currentViewTag).
@@ -5084,7 +5154,7 @@ dynamic component (CurrentView = this.currentViewTag).
 onUpdated(): void;
 ```
 
-Defined in: [src/App.tsx:231](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/App.tsx#L231)
+Defined in: [src/App.tsx:231](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/App.tsx#L231)
 
 Lifecycle: after each re-render, re-pushes translations and modal state into children.
 

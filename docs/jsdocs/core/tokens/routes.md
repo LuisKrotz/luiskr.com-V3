@@ -11,4 +11,4 @@ Routing tokens — URL path segments, route names, localized
 
 ### `BASE_TITLE`
 
-The BASE_TITLE constant.
+Scalar token `Luis Krötz` — the sole declaration site for this literal.

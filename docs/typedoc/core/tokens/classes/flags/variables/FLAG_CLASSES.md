@@ -13,6 +13,9 @@ const FLAG_CLASSES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/classes/flags.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/classes/flags.ts#L11)
+Defined in: [src/core/tokens/classes/flags.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/classes/flags.ts#L14)
 
-flags classes.
+Language-flag classes — `flag-img`/`flag-split` for the SVG flag images,
+`flag-canvas`/`flag-canvas--nav` for the WebGL/2D-drawn flag surfaces in
+the locale picker. `_B_FLAG_CANVAS` is its own block so canvas variants
+(nav vs dialog sizing) key off `--nav` modifiers.

@@ -11,6 +11,6 @@ const WEBGL_MODES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/strings/debug.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/strings/debug.ts#L20)
+Defined in: [src/core/tokens/strings/debug.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/strings/debug.ts#L25)
 
 `webGLMode:` values.

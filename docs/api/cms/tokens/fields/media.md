@@ -11,8 +11,12 @@ Media-converter classes + control IDs — dropzone state,
 
 ### `CMS_MEDIA_CLASSES`
 
-The CMS_MEDIA_CLASSES constant.
+Frozen cms media class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `CMS_MEDIA_IDS`
 
-The CMS_MEDIA_IDS constant.
+Frozen cms media element-id map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

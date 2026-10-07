@@ -18,12 +18,8 @@ const FORM_ATTRS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/attrs/form.ts:6](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/attrs/form.ts#L6)
+Defined in: [src/core/tokens/attrs/form.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/attrs/form.ts#L14)
 
-## File
-
-tokens/attrs/form.js
-
-## Description
-
-Form control attribute tokens — token group.
+Form control attribute tokens. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

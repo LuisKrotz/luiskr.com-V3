@@ -8,9 +8,13 @@
 function markAdjacentLoaded(c, centerIdx): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/nav.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/nav.ts#L52)
+Defined in: [src/components/carousel/custom-carousel/nav.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/nav.ts#L56)
 
-marks adjacent loaded.
+Lazy-load window: flags slides within 2 ring positions of `centerIdx`
+as loadable so their media src gets assigned. Distance is measured on
+the ring — `min(|i−center|, len−|i−center|)` — so hovering at index 0
+pre-loads the tail and vice versa. The two explicit edge lines cover
+len<3 where ring distance alone under-marks.
 
 ## Parameters
 
@@ -18,13 +22,13 @@ marks adjacent loaded.
 
 [`CustomCarousel`](../../../CustomCarousel/classes/CustomCarousel.md)
 
-— the component
+The CustomCarousel element.
 
 ### centerIdx
 
 `number`
 
-— the value
+Active slide index.
 
 ## Returns
 

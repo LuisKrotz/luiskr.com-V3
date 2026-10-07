@@ -8,9 +8,10 @@
 type EarthProgressFn = (_label, percent) => void
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L20)
+Defined in: [src/playground/earth/runtime/state.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L21)
 
-earths progress fn.
+Progress callback signature — label + percent so the loader UI can show
+which asset is streaming and how far along the whole boot is.
 
 ## Parameters
 
@@ -18,13 +19,13 @@ earths progress fn.
 
 `string`
 
-— the value
+Asset label for the loader text.
 
 ### percent
 
 `number`
 
-— the value
+0–100 progress through the boot sequence.
 
 ## Returns
 

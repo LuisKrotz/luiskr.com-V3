@@ -8,6 +8,7 @@
 const _B_SP: 'sp' = 'sp'
 ```
 
-Defined in: [src/core/tokens/base.ts:123](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/base.ts#L123)
+Defined in: [src/core/tokens/base.ts:133](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/base.ts#L133)
 
-The _B_SP constant.
+BEM block fragment `sp` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).

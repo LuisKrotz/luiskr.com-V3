@@ -558,6 +558,18 @@ Re-exports [WASM_ACTIONS](tokens/data/wasm/variables/WASM_ACTIONS.md)
 
 ---
 
+### WASM\_POOL
+
+Re-exports [WASM_POOL](tokens/data/wasm/variables/WASM_POOL.md)
+
+---
+
+### WASM\_CSS
+
+Re-exports [WASM_CSS](tokens/data/wasm/variables/WASM_CSS.md)
+
+---
+
 ### CMS\_VIEW\_TAGS
 
 Re-exports [CMS_VIEW_TAGS](tokens/elements/cms/variables/CMS_VIEW_TAGS.md)
@@ -732,6 +744,30 @@ Re-exports [MOSAIC_COLS](tokens/layout/grid/variables/MOSAIC_COLS.md)
 
 ---
 
+### LEGACY\_MOSAIC\_COLS
+
+Re-exports [LEGACY_MOSAIC_COLS](tokens/layout/grid/variables/LEGACY_MOSAIC_COLS.md)
+
+---
+
+### MOSAIC\_GAP\_STEPS
+
+Re-exports [MOSAIC_GAP_STEPS](tokens/layout/grid/variables/MOSAIC_GAP_STEPS.md)
+
+---
+
+### RESPONSIVE\_PADDING\_STEPS
+
+Re-exports [RESPONSIVE_PADDING_STEPS](tokens/layout/grid/variables/RESPONSIVE_PADDING_STEPS.md)
+
+---
+
+### LAYOUT\_MATH
+
+Re-exports [LAYOUT_MATH](tokens/layout/grid/variables/LAYOUT_MATH.md)
+
+---
+
 ### LAYOUT
 
 Re-exports [LAYOUT](tokens/layout/masonry/variables/LAYOUT.md)
@@ -888,6 +924,18 @@ Re-exports [UA_PATTERNS](tokens/motion/gpu/variables/UA_PATTERNS.md)
 
 ---
 
+### QUAD\_STRIP
+
+Re-exports [QUAD_STRIP](tokens/motion/gpu/variables/QUAD_STRIP.md)
+
+---
+
+### WEBGL\_POOL\_OBSERVER
+
+Re-exports [WEBGL_POOL_OBSERVER](tokens/motion/gpu/variables/WEBGL_POOL_OBSERVER.md)
+
+---
+
 ### NOTIFY
 
 Re-exports [NOTIFY](tokens/motion/notify/variables/NOTIFY.md)
@@ -897,6 +945,12 @@ Re-exports [NOTIFY](tokens/motion/notify/variables/NOTIFY.md)
 ### PREFETCH\_CONFIG
 
 Re-exports [PREFETCH_CONFIG](tokens/motion/prefetch/variables/PREFETCH_CONFIG.md)
+
+---
+
+### NPU\_PREDICT
+
+Re-exports [NPU_PREDICT](tokens/motion/prefetch/variables/NPU_PREDICT.md)
 
 ---
 

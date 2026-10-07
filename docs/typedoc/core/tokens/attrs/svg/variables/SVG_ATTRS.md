@@ -13,14 +13,8 @@ const SVG_ATTRS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/attrs/svg.ts:8](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/attrs/svg.ts#L8)
+Defined in: [src/core/tokens/attrs/svg.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/attrs/svg.ts#L13)
 
-## File
-
-tokens/attrs/svg.js
-
-## Description
-
-SVG geometry attribute values — token group.
-The carousel countdown ring's viewBox/radius must stay consistent with
-`CAROUSEL_LAYOUT.CIRCUMFERENCE` (2π × 19) in tokens/motion/carousel.js.
+SVG geometry attribute values. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

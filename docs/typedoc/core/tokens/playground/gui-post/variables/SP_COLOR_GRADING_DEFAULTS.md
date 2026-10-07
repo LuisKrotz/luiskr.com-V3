@@ -13,14 +13,8 @@ const SP_COLOR_GRADING_DEFAULTS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/playground/gui-post.ts:8](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/playground/gui-post.ts#L8)
+Defined in: [src/core/tokens/playground/gui-post.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/playground/gui-post.ts#L13)
 
-## File
-
-tokens/playground/gui-post.js
-
-## Description
-
-Post-processing start values for the Earth Playground —
-color grading, lens flare, anamorphic streaks, bloom, vignette, chromatic
-aberration, film grain, debug. Grouped subsets of DEFAULT_SP_GUI.
+Post-processing start values for the Earth Playground. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

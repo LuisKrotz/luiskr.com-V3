@@ -8,9 +8,14 @@
 function sectionItemHeight(c, section): string
 ```
 
-Defined in: [src/routes/views/project/layout.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/layout.ts#L20)
+Defined in: [src/routes/views/project/layout.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/layout.ts#L26)
 
-The sectionItemHeight value.
+Per-section CSS height: the FIRST media item's intrinsic ratio applied
+to the viewport width — min(100vw·h/w, SKELETON_ITEM_HEIGHT). Emitting
+the height before decode means the section never reflows when media
+arrives. Sections without a sized media array fall back to the fixed
+skeleton height. `toFixed(4)` keeps the calc string compact while
+preserving sub-pixel accuracy.
 
 ## Parameters
 
@@ -18,16 +23,16 @@ The sectionItemHeight value.
 
 [`ViewProject`](../../Project/classes/ViewProject.md)
 
-— the component
+The ViewProject instance (unused — part of the method facade).
 
 ### section
 
 [`SectionChild`](../../types/type-aliases/SectionChild.md)[]
 
-— the value
+One section's children; the media array is detected by shape.
 
 ## Returns
 
 `string`
 
-string
+A CSS `min()` height expression.

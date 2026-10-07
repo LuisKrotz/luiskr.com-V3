@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../../README.md) / [components/home/mosaic/pack](../README.md) / MosaicCardStyle
 
-Defined in: [src/components/home/mosaic/pack.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L49)
+Defined in: [src/components/home/mosaic/pack.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L51)
 
-The MosaicCardStyle value.
+Style objects emitted per placed tile.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The MosaicCardStyle value.
 bottomH: number
 ```
 
-Defined in: [src/components/home/mosaic/pack.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L50)
+Defined in: [src/components/home/mosaic/pack.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L53)
+
+Expanded-bottom height in px — the card grows by this when open.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/components/home/mosaic/pack.ts:50](https://github.com/LuisKrotz
 card: Record<string, string>
 ```
 
-Defined in: [src/components/home/mosaic/pack.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L51)
+Defined in: [src/components/home/mosaic/pack.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L55)
+
+Absolutely-positioned card shell box.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/components/home/mosaic/pack.ts:51](https://github.com/LuisKrotz
 media: Record<string, string>
 ```
 
-Defined in: [src/components/home/mosaic/pack.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L52)
+Defined in: [src/components/home/mosaic/pack.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L57)
+
+Media region inside the card.
 
 ---
 
@@ -46,4 +52,6 @@ Defined in: [src/components/home/mosaic/pack.ts:52](https://github.com/LuisKrotz
 bottom: Record<string, string>
 ```
 
-Defined in: [src/components/home/mosaic/pack.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L53)
+Defined in: [src/components/home/mosaic/pack.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L59)
+
+Bottom/details region inside the card.

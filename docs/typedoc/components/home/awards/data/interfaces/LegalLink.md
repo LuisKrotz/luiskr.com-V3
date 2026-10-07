@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../../README.md) / [components/home/awards/data](../README.md) / LegalLink
 
-Defined in: [src/components/home/awards/data.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/awards/data.ts#L31)
+Defined in: [src/components/home/awards/data.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/awards/data.ts#L29)
 
-The LegalLink value.
+A validated legal link — both fields proven present by the filter.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The LegalLink value.
 link: string
 ```
 
-Defined in: [src/components/home/awards/data.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/awards/data.ts#L32)
+Defined in: [src/components/home/awards/data.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/awards/data.ts#L31)
+
+Destination path (e.g. '/en/legal/privacy').
 
 ---
 
@@ -26,4 +28,6 @@ Defined in: [src/components/home/awards/data.ts:32](https://github.com/LuisKrotz
 page: string
 ```
 
-Defined in: [src/components/home/awards/data.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/awards/data.ts#L33)
+Defined in: [src/components/home/awards/data.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/awards/data.ts#L33)
+
+Page key used for the localized label.

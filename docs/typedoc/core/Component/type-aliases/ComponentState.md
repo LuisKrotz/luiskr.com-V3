@@ -8,7 +8,8 @@
 type ComponentState = Record<string, any>
 ```
 
-Defined in: [src/core/Component.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L36)
+Defined in: [src/core/Component.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L45)
 
-Type contract for component state — a loose reactive state bag subclasses
-narrow via their own declarations.
+Component state bag — keys are declared per-component and narrowed by
+each subclass's own types; `any` is deliberate (unknown would force a
+cast at every read site).

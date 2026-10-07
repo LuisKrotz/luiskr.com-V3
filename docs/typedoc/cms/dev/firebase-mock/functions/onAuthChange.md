@@ -8,9 +8,10 @@
 function onAuthChange(cb): Promise<() => void>
 ```
 
-Defined in: [src/cms/dev/firebase-mock.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/dev/firebase-mock.ts#L97)
+Defined in: [src/cms/dev/firebase-mock.ts:116](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/dev/firebase-mock.ts#L116)
 
-The onAuthChange constant.
+Mock onAuthChange — immediately reports the signed-in mock user and
+returns a no-op unsubscribe.
 
 ## Parameters
 
@@ -18,7 +19,7 @@ The onAuthChange constant.
 
 (`_user`) => `void`
 
-— the callback
+The auth-state callback.
 
 ## Returns
 

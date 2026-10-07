@@ -8,9 +8,10 @@
 function scrollToElement(c, el): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/nav.ts:154](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/nav.ts#L154)
+Defined in: [src/components/carousel/custom-carousel/nav.ts:167](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/nav.ts#L167)
 
-scrolls to element.
+Smooth-centers a slide element in the track — null-safe on both ends
+(clone nodes may be absent in the ≤2-item side-by-side layout).
 
 ## Parameters
 
@@ -18,13 +19,13 @@ scrolls to element.
 
 [`CustomCarousel`](../../../CustomCarousel/classes/CustomCarousel.md)
 
-— the component
+The CustomCarousel element.
 
 ### el
 
 `Element` \| `null`
 
-— the element
+Slide element to center; null is a no-op.
 
 ## Returns
 

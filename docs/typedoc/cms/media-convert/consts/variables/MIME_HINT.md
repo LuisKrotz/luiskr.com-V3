@@ -9,6 +9,6 @@ const MIME_HINT: 'image/*,video/*,.mov,.mkv,.webm,.avi,.m4v,.heic,.avif,.tif,.ti
   'image/*,video/*,.mov,.mkv,.webm,.avi,.m4v,.heic,.avif,.tif,.tiff'
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L31)
+Defined in: [src/cms/media-convert/consts.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L29)
 
-The mime hint constant.
+File-picker accept filter covering every input format ffmpeg accepts.

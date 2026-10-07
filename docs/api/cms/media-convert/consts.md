@@ -9,32 +9,82 @@
 
 ### `API_BASE`
 
-The API_BASE constant.
+Dev-server API mount point for the conversion endpoints — sole
+declaration site for this literal.
 
 ### `PHASE`
 
-phases.
+Job state machine: idle → uploading (per-file PUTs) → converting
+(server pipeline) → done | error. The component render switches on this.
 
 ### `POLL_MS`
 
-The POLL_MS constant.
+Job-status poll cadence — fast enough for live progress, light on the dev server.
 
 ### `MIME_HINT`
 
-The mime hint constant.
+File-picker accept filter covering every input format ffmpeg accepts.
 
 ### `EMPTY`
 
-The empty constant.
+Re-export of the shared empty-string token for this module's API.
 
 ### (module scope)
 
-Queues item.
+One queued upload — the File blob plus its job-relative path.
+
+### `file`
+
+The picked File payload (PUT body).
+
+### `rel`
+
+Path relative to the job root — sent as the x-file-path header.
 
 ### (module scope)
 
-The JobResult value.
+Per-file outcome reported by the conversion server.
+
+### `ok`
+
+Whether this file converted successfully.
+
+### `in`
+
+The input path the result corresponds to.
 
 ### (module scope)
 
-The JobStatus value.
+Output artifact paths when ok.
+
+### (module scope)
+
+Error message when !ok.
+
+### (module scope)
+
+Job-status payload polled from GET /jobs/:id.
+
+### (module scope)
+
+Server phase string ('running'|'uploading'|terminal).
+
+### (module scope)
+
+Server-side error message when failed.
+
+### (module scope)
+
+Currently-processing file path (progress display).
+
+### (module scope)
+
+Files completed so far.
+
+### (module scope)
+
+Total files in the job.
+
+### (module scope)
+
+Per-file results once the job settles.

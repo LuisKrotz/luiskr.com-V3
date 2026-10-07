@@ -11,8 +11,12 @@ Portfolio-list editor classes + control IDs — item cards,
 
 ### `CMS_PORTFOLIO_CLASSES`
 
-The CMS_PORTFOLIO_CLASSES constant.
+Frozen cms portfolio class-name map — sole declaration site for these tokens; consumers
+read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+makes the token contract immutable at runtime.
 
 ### `CMS_PORTFOLIO_IDS`
 
-The CMS_PORTFOLIO_IDS constant.
+Frozen cms portfolio element-id map — sole declaration site for these tokens; consumers
+read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+makes the token contract immutable at runtime.

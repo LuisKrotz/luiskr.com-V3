@@ -11,4 +11,6 @@ Network/URL string tokens — token group.
 
 ### `NET_STRINGS`
 
-The NET_STRINGS constant.
+Frozen net string map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.

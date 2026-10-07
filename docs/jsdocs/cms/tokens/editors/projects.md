@@ -11,8 +11,12 @@ Projects-editor classes + control IDs — section cards,
 
 ### `CMS_PROJECTS_CLASSES`
 
-The CMS_PROJECTS_CLASSES constant.
+Frozen cms projects class-name map — sole declaration site for these tokens; consumers
+read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+makes the token contract immutable at runtime.
 
 ### `CMS_PROJECTS_IDS`
 
-The CMS_PROJECTS_IDS constant.
+Frozen cms projects element-id map — sole declaration site for these tokens; consumers
+read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+makes the token contract immutable at runtime.

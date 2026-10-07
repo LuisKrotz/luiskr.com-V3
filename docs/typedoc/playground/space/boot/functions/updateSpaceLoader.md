@@ -8,9 +8,11 @@
 function updateSpaceLoader(c, msg, pct): void
 ```
 
-Defined in: [src/playground/space/boot.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/boot.ts#L24)
+Defined in: [src/playground/space/boot.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/boot.ts#L28)
 
-Updates space loader.
+Mirrors an engine progress event into the loader overlay — message,
+rounded percent text, and the bar's width style. All three nodes are
+optional-chained so a partial loader render can't throw mid-boot.
 
 ## Parameters
 
@@ -18,19 +20,19 @@ Updates space loader.
 
 [`SpacePlayground`](../../../SpacePlayground/classes/SpacePlayground.md)
 
-— the component
+The SpacePlayground element.
 
 ### msg
 
 `string`
 
-— the value
+Stage message from the engine ('loading textures', …).
 
 ### pct
 
 `number`
 
-— the value
+Progress 0–100.
 
 ## Returns
 

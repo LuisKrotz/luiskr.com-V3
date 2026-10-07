@@ -11,4 +11,6 @@ Toast severity levels — drives the `site-toast--&lt;type&gt;` BEM
 
 ### `NOTIFY_TYPES`
 
-Notifies types.
+Toast severity tokens. ERROR intentionally aliases `WINDOW_EVENTS.ERROR`
+so the 'error' literal stays single-declared — the toast modifier and the
+window event name share one token source (zero-hardcoding).

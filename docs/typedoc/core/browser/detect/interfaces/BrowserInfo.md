@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [core/browser/detect](../README.md) / BrowserInfo
 
-Defined in: [src/core/browser/detect.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/browser/detect.ts#L28)
+Defined in: [src/core/browser/detect.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/detect.ts#L29)
 
 Resolved engine identity — name, marketing major version, quirks.
 
@@ -20,7 +20,7 @@ Resolved engine identity — name, marketing major version, quirks.
 optional webgpu?: boolean;
 ```
 
-Defined in: [src/core/browser/browsers.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/browser/browsers.ts#L17)
+Defined in: [src/core/browser/browsers.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/browsers.ts#L17)
 
 navigator.gpu absent/flag-gated — the app skips the WebGPU init path.
 
@@ -36,7 +36,7 @@ navigator.gpu absent/flag-gated — the app skips the WebGPU init path.
 optional lowGpu?: boolean;
 ```
 
-Defined in: [src/core/browser/browsers.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/browser/browsers.ts#L19)
+Defined in: [src/core/browser/browsers.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/browsers.ts#L19)
 
 Mostly mid-range SoCs — renderers may start at reduced resolution scale.
 
@@ -52,7 +52,7 @@ Mostly mid-range SoCs — renderers may start at reduced resolution scale.
 name: string
 ```
 
-Defined in: [src/core/browser/detect.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/browser/detect.ts#L29)
+Defined in: [src/core/browser/detect.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/detect.ts#L30)
 
 ---
 
@@ -62,4 +62,4 @@ Defined in: [src/core/browser/detect.ts:29](https://github.com/LuisKrotz/luiskr.
 major: number
 ```
 
-Defined in: [src/core/browser/detect.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/browser/detect.ts#L30)
+Defined in: [src/core/browser/detect.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/detect.ts#L31)

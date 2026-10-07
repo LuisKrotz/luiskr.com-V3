@@ -8,7 +8,7 @@
 function getDevLog(): DevLogEntry[]
 ```
 
-Defined in: [src/core/devlog.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/devlog.ts#L58)
+Defined in: [src/core/devlog.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/devlog.ts#L64)
 
 Returns a copy of the buffered entries (oldest → newest).
 

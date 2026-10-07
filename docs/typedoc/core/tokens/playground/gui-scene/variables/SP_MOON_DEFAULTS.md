@@ -13,14 +13,8 @@ const SP_MOON_DEFAULTS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/playground/gui-scene.ts:8](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/playground/gui-scene.ts#L8)
+Defined in: [src/core/tokens/playground/gui-scene.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/playground/gui-scene.ts#L13)
 
-## File
-
-tokens/playground/gui-scene.js
-
-## Description
-
-Scene-subsystem start values for the Earth Playground —
-moon orbit, atmosphere scattering, cloud shadows, ocean BRDF, earth
-surface, sun, camera, environment. Grouped subsets of DEFAULT_SP_GUI.
+Scene-subsystem start values for the Earth Playground. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

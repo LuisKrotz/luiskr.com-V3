@@ -11,11 +11,35 @@ Atmosphere shells for the Earth background — the BackSide
 
 ### (module scope)
 
-The AtmosShellsArgs value.
+Dependencies injected by the scene assembler (keeps this module mockable).
+
+### `THREE`
+
+The three.js namespace — geometry/material/mesh constructors.
+
+### `TSL`
+
+The TSL node-graph namespace (compiled to WGSL/GLSL by the renderer).
+
+### `mats`
+
+The node material constructor for the shell materials.
+
+### `sunDir`
+
+Shared sun-direction uniform the scattering phase functions read.
 
 ### (module scope)
 
-The AtmosShellsResult value.
+The two atmosphere meshes — outer scattering shell + inner fresnel rim.
+
+### `atmosMesh`
+
+BackSide additive scattering shell (ATMOS_RADIUS).
+
+### `innerMesh`
+
+FrontSide fresnel rim hugging the surface (+0.02u).
 
 ### `buildAtmosShells`
 

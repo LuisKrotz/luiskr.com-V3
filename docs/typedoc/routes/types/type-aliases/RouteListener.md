@@ -8,9 +8,9 @@
 type RouteListener = (_to, from) => void
 ```
 
-Defined in: [src/routes/types.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/types.ts#L32)
+Defined in: [src/routes/types.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/types.ts#L37)
 
-routes listener.
+Subscriber signature — fired on every successful navigation.
 
 ## Parameters
 
@@ -18,13 +18,9 @@ routes listener.
 
 [`RouteDescriptor`](../interfaces/RouteDescriptor.md)
 
-— the value
-
 ### from
 
 [`RouteDescriptor`](../interfaces/RouteDescriptor.md) \| `null`
-
-— the value
 
 ## Returns
 

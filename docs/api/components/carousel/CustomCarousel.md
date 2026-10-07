@@ -11,7 +11,12 @@
 
 ### `CustomCarousel`
 
-The CustomCarousel — carousel class.
+<custom-carousel> element — the full-featured infinite carousel: media
+slides (image/video via <media-figure>), clone-ended wrap, WebGL
+prev/next arrows with a progress ring, dot nav, lazy media near the
+active index, IntersectionObserver-gated autoplay, and a side-by-side
+mode that drops all chrome when ≤2 items fit. Behavior delegates to
+`./custom-carousel/*`; this class is the state holder + facade.
 
 ### `_items`
 
@@ -21,6 +26,10 @@ Slide descriptors {src, size:[w,h], label, class, isVideo, canExpand}.
 
 CDN folder prefix prepended to each item's src.
 
+### `_forceActive`
+
+Host-forced active flag — keeps the carousel live even when side-by-side would fit.
+
 ### `_prevArrow`
 
 Live CarouselArrowWebGL widgets (null until viewport entry).
@@ -29,10 +38,26 @@ Live CarouselArrowWebGL widgets (null until viewport entry).
 
 Logical index into items (0..len-1; clone positions never stored).
 
+### `autoplayRunning`
+
+RAF cycle active flag.
+
+### `autoplayStart`
+
+performance.now() the current dwell cycle started at.
+
+### `autoplayElapsed`
+
+Accumulated ms into the cycle — survives pause→resume.
+
 ### `ringProgress`
 
 0–1 fraction of the autoplay cycle — drives both the SVG ring and
  the WebGL arrows' progress arc.
+
+### `rafId`
+
+Autoplay RAF handle — cancelled by _stopAutoplay.
 
 ### `scrollTimeout`
 
@@ -47,6 +72,10 @@ Pending clone→real instant jump (CAROUSEL_TIMING.TELEPORT_DELAY).
 True while a programmatic scroll is animating — suppresses the
  scroll-handler teleport so the goTo-driven clone jump isn't undone.
 
+### `touchStartX`
+
+Swipe origin X for the threshold check in the touchend handler.
+
 ### `slideLoaded`
 
 Per-index lazy flag: media src assigned only for slides near the
@@ -58,11 +87,27 @@ Per-index lazy flag: media src assigned only for slides near the
 
 ### `isFullyVisible`
 
-Viewport flags from the IntersectionObserver — gate autoplay.
+≥50% visible — the autoplay gate.
+
+### `isEnteredViewport`
+
+Any viewport visibility ever observed.
+
+### `observer`
+
+IntersectionObserver driving the visibility flags + lazy media.
 
 ### `_isSideBySide`
 
 True when ≤2 items fit side-by-side at ≥960px — no carousel chrome.
+
+### `_fitObserver`
+
+ResizeObserver on the host for _measureFit re-runs.
+
+### `_lastObservedWidth`
+
+Last width the fit observer saw — dedups sub-pixel RO noise.
 
 ### `_autoplayPermanentlyStopped`
 
@@ -71,6 +116,10 @@ Latched by any user interaction — autoplay never resumes after.
 ### `_isRegressing`
 
 Ring regress animation in flight (drains progress on stop).
+
+### `isMobile`
+
+Viewport under the mobile breakpoint at construct time.
 
 ### `items`
 
@@ -98,6 +147,10 @@ Setter/getter — forces the autoplay/running state on.
 ### `isActive`
 
 Whether the carousel is currently auto-advancing.
+
+### `onUnmounted`
+
+Extra unmount hook the Safari patch calls — releases the fit observer early.
 
 ### `_setupAfterRender`
 
@@ -204,6 +257,22 @@ Observes slides for lazy media loading + autoplay pausing when offscreen.
 Starts/resumes the autoplay RAF cycle. autoplayStart is backdated by
 the accumulated elapsed so a pause→resume continues mid-cycle rather
 than restarting the countdown — the ring picks up where it drained to.
+
+### `_stopAutoplay`
+
+Stops autoplay; `permanently` latches _autoplayPermanentlyStopped so no resume follows a user gesture.
+
+### `_regressRingToZero`
+
+Animates ringProgress back to 0 (drain effect when autoplay stops).
+
+### `_tick`
+
+Autoplay RAF frame — advances the ring clock, flips slides on cycle end.
+
+### `_updateRingDom`
+
+Writes ringProgress into the SVG dashoffset + arrow widget arc.
 
 ### `renderSlide`
 

@@ -8,9 +8,11 @@
 function startConvert(host): Promise<void>
 ```
 
-Defined in: [src/cms/media-convert/job.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/job.ts#L61)
+Defined in: [src/cms/media-convert/job.ts:77](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/job.ts#L77)
 
-Starts convert.
+Kicks off the server-side conversion and starts the poll loop. A 202
+counts as success (job accepted, still queueing); any other failure
+throws.
 
 ## Parameters
 
@@ -18,8 +20,12 @@ Starts convert.
 
 [`CmsMediaConverter`](../../CmsMediaConverter/classes/CmsMediaConverter.md)
 
-— the host component
+The CmsMediaConverter element.
 
 ## Returns
 
 `Promise`\<`void`\>
+
+## Throws
+
+Error when the server refuses to start the conversion.

@@ -11,9 +11,10 @@ function get(r): Promise<{
 }>
 ```
 
-Defined in: [src/cms/dev/firebase-mock.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/dev/firebase-mock.ts#L59)
+Defined in: [src/cms/dev/firebase-mock.ts:77](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/dev/firebase-mock.ts#L77)
 
-Gets.
+Mock of firebase/database `get()` — resolves the ref's path in the
+snapshot and returns the SDK-shaped {exists, val} result.
 
 ## Parameters
 
@@ -21,7 +22,7 @@ Gets.
 
 `MockRef`
 
-— the value
+The ref to read.
 
 ## Returns
 
@@ -29,3 +30,5 @@ Gets.
 `exists`: () => `boolean`;
 `val`: () => `unknown`;
 \}\>
+
+A snapshot-shaped promise.

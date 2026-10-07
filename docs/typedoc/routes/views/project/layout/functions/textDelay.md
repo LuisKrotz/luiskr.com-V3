@@ -8,9 +8,12 @@
 function textDelay(c, items): number
 ```
 
-Defined in: [src/routes/views/project/layout.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/layout.ts#L40)
+Defined in: [src/routes/views/project/layout.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/layout.ts#L49)
 
-The textDelay value.
+Per-char draw delay for a section's text run: counts REAL characters
+(HTML stripped — tags don't consume stagger time), then sizes the
+interval so the whole run lands inside DRAW_TARGET_MS. Non-array input
+gets the fallback delay so malformed CMS data still animates.
 
 ## Parameters
 
@@ -18,16 +21,16 @@ The textDelay value.
 
 [`ViewProject`](../../Project/classes/ViewProject.md)
 
-— the component
+The ViewProject instance (unused — facade signature).
 
 ### items
 
 `unknown`
 
-— the items
+Section text items (expected string[]).
 
 ## Returns
 
 `number`
 
-number
+Per-char delay in ms.

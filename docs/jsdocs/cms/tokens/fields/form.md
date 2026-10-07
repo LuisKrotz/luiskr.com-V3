@@ -11,4 +11,6 @@ Form-field classes — field groups/rows, subsections, labels,
 
 ### `CMS_FORM_CLASSES`
 
-The CMS_FORM_CLASSES constant.
+Frozen cms form class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

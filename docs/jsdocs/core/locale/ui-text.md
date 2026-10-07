@@ -12,6 +12,14 @@ Runtime translation accessors: resolve a dotted key against
 ### `_dig`
 
 Digs a dotted path ('a.b.c') into a possibly-partial object; null-safe.
+The `cur == null → undefined` guard on each reduce step is what makes
+missing intermediate nodes safe — `dig({}, 'a.b.c')` returns undefined
+instead of throwing on the second key read. Translation dictionaries are
+sparse during boot, so every lookup funnels through here.
+
+### (module scope)
+
+Structural view of the live `lang` store slice — the three fetched nodes.
 
 ### `appText`
 

@@ -8,7 +8,7 @@
 function notifyError(opts?): Promise<false | 'native' | 'toast'>
 ```
 
-Defined in: [src/utils/notify.ts:193](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/notify.ts#L193)
+Defined in: [src/utils/notify.ts:193](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/notify.ts#L193)
 
 Generic failure shortcut — the localized "something went wrong" string.
 Used by global handlers where the raw error detail belongs in the devlog

@@ -11,12 +11,18 @@ Ambient effect canvas class tokens — fluid background,
 
 ### `FLUID_BG_CLASSES`
 
-The FLUID_BG_CLASSES constant.
+Frozen fluid bg class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `CURSOR_CLASSES`
 
-The CURSOR_CLASSES constant.
+Frozen cursor class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `DISTORT_CLASSES`
 
-The DISTORT_CLASSES constant.
+Frozen distort class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

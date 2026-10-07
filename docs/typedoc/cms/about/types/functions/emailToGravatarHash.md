@@ -8,11 +8,12 @@
 function emailToGravatarHash(email): Promise<string>
 ```
 
-Defined in: [src/cms/about/types.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L48)
+Defined in: [src/cms/about/types.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L49)
 
 Email → Gravatar hash per Gravatar's spec: trim + lowercase, SHA-256,
 hex string. crypto.subtle keeps the hash on the browser's crypto
-engine — no hashing code or dependency needed.
+engine — no hashing code or dependency needed. Each byte is hex-encoded
+and zero-padded so the digest renders as the canonical 64-char string.
 
 ## Parameters
 
@@ -20,6 +21,10 @@ engine — no hashing code or dependency needed.
 
 `string`
 
+Raw email input (any casing/whitespace).
+
 ## Returns
 
 `Promise`\<`string`\>
+
+The lowercase 64-char hex SHA-256 digest.

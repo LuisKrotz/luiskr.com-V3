@@ -16,13 +16,8 @@ const SKELETON_RENDER: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/motion/skeleton.ts:7](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/motion/skeleton.ts#L7)
+Defined in: [src/core/tokens/motion/skeleton.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/motion/skeleton.ts#L12)
 
-## File
-
-tokens/motion/skeleton.js
-
-## Description
-
-WebGL skeleton-field configuration tokens — grouped subsets
-of SKELETON.
+WebGL skeleton-field configuration tokens. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

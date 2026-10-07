@@ -12,6 +12,6 @@ const CMS_ACTIONS: Readonly<{
 }>
 ```
 
-Defined in: [src/cms/tokens.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/tokens.ts#L60)
+Defined in: [src/cms/tokens.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/tokens.ts#L66)
 
 data-action values for the list-item row controls.

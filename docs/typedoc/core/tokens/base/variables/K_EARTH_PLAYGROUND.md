@@ -8,6 +8,7 @@
 const _K_EARTH_PLAYGROUND: 'earthPlayground' = 'earthPlayground'
 ```
 
-Defined in: [src/core/tokens/base.ts:383](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/base.ts#L383)
+Defined in: [src/core/tokens/base.ts:415](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/base.ts#L415)
 
-The _K_EARTH_PLAYGROUND constant.
+Shared key token `earthPlayground` — single source for a literal repeated across modules
+(zero-hardcoding rule 5).

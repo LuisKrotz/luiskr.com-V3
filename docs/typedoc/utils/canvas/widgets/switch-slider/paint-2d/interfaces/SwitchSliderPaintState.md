@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../../README.md) / [utils/canvas/widgets/switch-slider/paint-2d](../README.md) / SwitchSliderPaintState
 
-Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L10)
+Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L10)
 
 Everything the 2D paint pass needs from the slider instance.
 
@@ -16,7 +16,7 @@ Everything the 2D paint pass needs from the slider instance.
 dpr: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L11)
+Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L11)
 
 ---
 
@@ -26,7 +26,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:11](https://gith
 width: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L12)
+Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L12)
 
 ---
 
@@ -36,7 +36,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:12](https://gith
 height: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L13)
+Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L13)
 
 ---
 
@@ -46,7 +46,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:13](https://gith
 currentP: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L14)
+Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L14)
 
 ---
 
@@ -56,7 +56,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:14](https://gith
 startTime: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L15)
+Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L15)
 
 ---
 
@@ -66,7 +66,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:15](https://gith
 knobX: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L16)
+Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L16)
 
 ---
 
@@ -76,7 +76,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:16](https://gith
 contextType: string
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L17)
+Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L17)
 
 ---
 
@@ -86,7 +86,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:17](https://gith
 canvasWidth: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L18)
+Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L18)
 
 ---
 
@@ -96,4 +96,4 @@ Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:18](https://gith
 canvasHeight: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L19)
+Defined in: [src/utils/canvas/widgets/switch-slider/paint-2d.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider/paint-2d.ts#L19)

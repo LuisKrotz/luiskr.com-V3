@@ -137,7 +137,7 @@ const LANG_OPTIONS: readonly (
 )[]
 ```
 
-Defined in: [src/core/i18n.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/i18n.ts#L44)
+Defined in: [src/core/i18n.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/i18n.ts#L49)
 
 Language picker rows with `short` defaulted to the uppercased locale
 code (PT stays 'PT', EN becomes 'EN').

@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [utils/wasm/wasm-css](../README.md) / WasmSkeletonStyle
 
-Defined in: [src/utils/wasm/wasm-css.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-css.ts#L24)
+Defined in: [src/utils/wasm/wasm-css.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-css.ts#L23)
 
-The WasmSkeletonStyle value.
+Skeleton-placeholder style tuple produced by calcWasmSkeletonStyle.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The WasmSkeletonStyle value.
 width: string
 ```
 
-Defined in: [src/utils/wasm/wasm-css.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-css.ts#L25)
+Defined in: [src/utils/wasm/wasm-css.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-css.ts#L25)
+
+CSS width — `${n}px` for numeric input, passthrough for strings.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/utils/wasm/wasm-css.ts:25](https://github.com/LuisKrotz/luiskr.
 height: string
 ```
 
-Defined in: [src/utils/wasm/wasm-css.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-css.ts#L26)
+Defined in: [src/utils/wasm/wasm-css.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-css.ts#L27)
+
+CSS height — `${n}px` for numeric input, passthrough for strings.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/utils/wasm/wasm-css.ts:26](https://github.com/LuisKrotz/luiskr.
 borderRadius: string
 ```
 
-Defined in: [src/utils/wasm/wasm-css.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-css.ts#L27)
+Defined in: [src/utils/wasm/wasm-css.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-css.ts#L29)
+
+CSS border-radius — a var() token reference.
 
 ---
 
@@ -46,4 +52,6 @@ Defined in: [src/utils/wasm/wasm-css.ts:27](https://github.com/LuisKrotz/luiskr.
 display: string
 ```
 
-Defined in: [src/utils/wasm/wasm-css.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-css.ts#L28)
+Defined in: [src/utils/wasm/wasm-css.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-css.ts#L31)
+
+CSS display — inline-block so the placeholder participates in text flow.

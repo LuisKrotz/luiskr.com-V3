@@ -15,10 +15,13 @@ function computeMosaicLayout(
 } | null
 ```
 
-Defined in: [src/components/home/mosaic/pack.ts:138](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L138)
+Defined in: [src/components/home/mosaic/pack.ts:173](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L173)
 
 Full packing pass: returns per-card style objects + packed height.
-`bottomHFor(i)` supplies the expanded details height (0 when closed).
+`bottomHFor(i)` supplies the expanded details height (0 when closed) —
+the card GROWS the wall rather than overlaying so expanding a tile
+reflows the cards below it. The container height subtracts the trailing
+gap so it hugs the last tile.
 
 ## Parameters
 
@@ -26,13 +29,19 @@ Full packing pass: returns per-card style objects + packed height.
 
 `number`
 
+Viewport width.
+
 ### items
 
 [`MosaicItem`](../interfaces/MosaicItem.md)[]
 
+The tile list.
+
 ### bottomHFor
 
 (`_i`) => `number`
+
+Expanded-bottom height lookup per index.
 
 ## Returns
 
@@ -41,3 +50,5 @@ Full packing pass: returns per-card style objects + packed height.
 `height`: `number`;
 \}
 \| `null`
+
+or null for empty/degenerate grids.

@@ -11,4 +11,6 @@ Intro loader class tokens — token group.
 
 ### `LOADER_CLASSES`
 
-The LOADER_CLASSES constant.
+Frozen loader class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

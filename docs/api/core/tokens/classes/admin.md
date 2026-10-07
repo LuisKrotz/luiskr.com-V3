@@ -11,4 +11,7 @@ Admin login view class tokens — token group.
 
 ### `ADMIN_CLASSES`
 
-admins classes.
+Admin-login view classes. The `ADMIN_*` entries compose the `admin` BEM
+block; `GOOGLE_AUTH_BTN`/`GOOGLE_ICON` are standalone blocks (different
+block prefix) since Google's sign-in widget styling is applied to those
+nodes and must not inherit admin-* selectors.

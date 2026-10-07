@@ -11,7 +11,7 @@ Flush interval for the stats engine: every INTERVAL_MS it
 
 ### `INTERVAL_MS`
 
-The INTERVAL_MS constant.
+Numeric token — the sole declaration site for this value.
 
 ### (module scope)
 

@@ -15,4 +15,6 @@ labels text.
 
 ### `UNIT_TEXT`
 
-The UNIT_TEXT constant.
+Frozen unit UI text map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.

@@ -8,6 +8,7 @@
 const _B_AWARDS_FOOTER: 'awards-footer' = 'awards-footer'
 ```
 
-Defined in: [src/core/tokens/base.ts:194](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/base.ts#L194)
+Defined in: [src/core/tokens/base.ts:210](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/base.ts#L210)
 
-The _B_AWARDS_FOOTER constant.
+BEM block fragment `awards-footer` — declared once here; every domain class token composes
+from this fragment (zero-hardcoding rule 9).

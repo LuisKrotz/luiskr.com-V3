@@ -11,11 +11,83 @@ Surface material node graph for the Earth shell —
 
 ### (module scope)
 
-The SurfaceMaterialArgs value.
+Dependencies injected by the scene assembler (keeps this module mockable).
+
+### `THREE`
+
+The three.js namespace — Color/constructors used for uniforms.
+
+### `TSL`
+
+The TSL node-graph namespace.
+
+### `mats`
+
+The physical node material constructor.
+
+### `colorTex`
+
+Day-side albedo texture (equirectangular).
+
+### `specTex`
+
+Specular mask — bright over oceans.
+
+### `normalTex`
+
+Tangent-space normal map for terrain.
+
+### `cloudsTex`
+
+Cloud coverage — also resampled for the fake shadow offset.
+
+### `nightTex`
+
+Night city-lights emissive texture.
+
+### `sunDir`
+
+Shared sun-direction uniform.
+
+### `moonPos`
+
+Shared moon-position uniform (eclipse cone test).
 
 ### (module scope)
 
-The SurfaceMaterialResult value.
+The built material plus the uniforms/nodes other shells reuse.
+
+### `mat`
+
+The configured physical node material for the Earth mesh.
+
+### `earthMatUniforms`
+
+Slider-bound uniforms (GUI writes straight into .value).
+
+### `shared`
+
+Lighting terms shared with the cloud/atmosphere shells so the day/night/eclipse model stays consistent.
+
+### `twilTint`
+
+Twilight tint multiplier node.
+
+### `eclDim`
+
+Eclipse dimming multiplier node.
+
+### `nightFade`
+
+0→1 night-side factor node.
+
+### `darkBr`
+
+Dark-side ambient brightness uniform.
+
+### `bumpFade`
+
+Bump-strength fade node (kills normal map at twilight).
 
 ### `buildSurfaceMaterial`
 

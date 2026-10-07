@@ -8,16 +8,20 @@
 function updateCarouselRingDom(c): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:167](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/autoplay.ts#L167)
+Defined in: [src/components/carousel/custom-carousel/autoplay.ts:197](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L197)
 
 Pushes progress into the DOM: the SVG ring's stroke-dashoffset (full
 circumference = empty, 0 = full circle) and the WebGL arrows' arc.
+The offset math lives in wasm-layout (SIMD-capable batch helper with a
+JS fallback) since this runs per frame.
 
 ## Parameters
 
 ### c
 
 [`CarouselAutoplayHost`](../interfaces/CarouselAutoplayHost.md)
+
+The carousel host.
 
 ## Returns
 

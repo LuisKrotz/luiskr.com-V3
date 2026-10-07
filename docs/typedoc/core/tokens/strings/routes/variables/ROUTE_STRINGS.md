@@ -21,6 +21,8 @@ const ROUTE_STRINGS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/strings/routes.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/strings/routes.ts#L18)
+Defined in: [src/core/tokens/strings/routes.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/strings/routes.ts#L20)
 
-routes strings.
+Frozen route/CMS name-string map — bare names (no slashes) used as title
+fragments, route names, and CMS keys. Composes `_B_*`/`_K_*` fragments
+from base.ts where the name doubles as a block/key token.

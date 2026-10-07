@@ -11,8 +11,12 @@ External base URLs split by function — grouped subsets of
 
 ### `CDN_URLS`
 
-The CDN_URLS constant.
+Frozen cdn URL map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.
 
 ### `SOCIAL_URLS`
 
-The SOCIAL_URLS constant.
+Frozen social URL map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.

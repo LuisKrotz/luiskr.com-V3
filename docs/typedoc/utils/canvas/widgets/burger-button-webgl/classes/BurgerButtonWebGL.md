@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [utils/canvas/widgets/burger-button-webgl](../README.md) / BurgerButtonWebGL
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L29)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L30)
 
 WebGL animated hamburger icon for the mobile burger button.
 Renders three sleek horizontal lines with rounded pill caps and subtle wave animation.
@@ -18,7 +18,7 @@ Adapts to the current theme: dark icon in light mode, bright icon in dark mode.
 new BurgerButtonWebGL(canvas, onClick?): BurgerButtonWebGL;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L53)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L54)
 
 #### Parameters
 
@@ -42,7 +42,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:53](https://github.
 canvas: HTMLCanvasElement
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L36)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L37)
 
 #### Param
 
@@ -66,7 +66,7 @@ parent button already handles clicks
 gl: WebGLRenderingContext | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L37)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L38)
 
 ---
 
@@ -76,7 +76,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:37](https://github.
 program: WebGLProgram | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L38)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L39)
 
 ---
 
@@ -86,7 +86,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:38](https://github.
 quadBuffer: WebGLBuffer | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L39)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L40)
 
 ---
 
@@ -96,7 +96,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:39](https://github.
 animId: number | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L40)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L41)
 
 ---
 
@@ -106,7 +106,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:40](https://github.
 startTime: number
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L41)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L42)
 
 ---
 
@@ -116,7 +116,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:41](https://github.
 uTime: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L42)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L43)
 
 ---
 
@@ -126,7 +126,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:42](https://github.
 uResolution: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L43)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L44)
 
 ---
 
@@ -136,7 +136,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:43](https://github.
 uDark: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L44)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L45)
 
 ---
 
@@ -146,7 +146,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:44](https://github.
 _onClick: EventListener | null
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L45)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L46)
 
 ---
 
@@ -156,7 +156,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:45](https://github.
 _onKeyDown: ((e) => void) | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L46)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L47)
 
 ---
 
@@ -166,7 +166,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:46](https://github.
 _onContextLost: EventListener | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L47)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L48)
 
 ---
 
@@ -176,7 +176,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:47](https://github.
 _onResize: () => void;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L48)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L49)
 
 #### Returns
 
@@ -190,7 +190,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:48](https://github.
 _purged: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L49)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L50)
 
 ---
 
@@ -200,7 +200,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:49](https://github.
 _hasDeriv: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L50)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L51)
 
 ---
 
@@ -210,7 +210,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:50](https://github.
 useWebGL: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L51)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L52)
 
 ## Methods
 
@@ -220,7 +220,7 @@ Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:51](https://github.
 _initGL(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:99](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L99)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:100](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L100)
 
 Creates the WebGL context + shader program; falls back to the CSS/DOM path on failure.
 
@@ -236,7 +236,7 @@ Creates the WebGL context + shader program; falls back to the CSS/DOM path on fa
 _triggerFallback(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:164](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L164)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:165](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L165)
 
 Switches to the non-WebGL path (CSS class on the host / Canvas2D) — used on context loss or init failure.
 
@@ -252,7 +252,7 @@ Switches to the non-WebGL path (CSS class on the host / Canvas2D) — used on co
 _checkResize(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:191](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L191)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:192](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L192)
 
 Re-syncs the drawing buffer to the canvas's CSS box × devicePixelRatio
 (capped at 2). Only reallocates when the rounded size actually changed,
@@ -272,7 +272,7 @@ cleared buffer blank until the next state change.
 _start(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:221](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L221)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:222](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L222)
 
 Chooses reduced-motion static render vs the rAF loop.
 
@@ -288,7 +288,7 @@ Chooses reduced-motion static render vs the rAF loop.
 _drawFrame(t): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:250](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L250)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:251](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L251)
 
 Renders one frame at time t (seconds) — shared by the RAF loop and the
 static reduced-motion path. u_dark is re-evaluated per frame from the
@@ -315,7 +315,7 @@ seconds since construction
 _loop(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:280](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L280)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:281](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L281)
 
 rAF callback — repaints each frame while running.
 
@@ -331,7 +331,7 @@ rAF callback — repaints each frame while running.
 purge(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:293](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L293)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:294](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L294)
 
 webglPool hook — offscreen: stops the loop and releases the GL
 context entirely; restore() rebuilds it on re-entry so offscreen
@@ -349,7 +349,7 @@ widgets never hold context slots.
 restore(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:310](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L310)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:311](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L311)
 
 Recreates the GL context and resumes the loop after an offscreen purge.
 
@@ -365,7 +365,7 @@ Recreates the GL context and resumes the loop after an offscreen purge.
 destroy(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:330](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/burger-button-webgl.ts#L330)
+Defined in: [src/utils/canvas/widgets/burger-button-webgl.ts:331](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/burger-button-webgl.ts#L331)
 
 Releases the context, buffers, listeners and rAF handle so the canvas can be GC'd.
 

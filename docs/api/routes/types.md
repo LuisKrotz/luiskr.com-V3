@@ -9,14 +9,42 @@
 
 ### (module scope)
 
-routes descriptor.
+Metadata one route contributes to the document — `title`/`translation` feed
+the head, `scrollTo` a post-nav anchor, `projectRoute`/`legalRoute` classify the
+page for schema/analytics treatment.
 
 ### (module scope)
 
-routes listener.
-- `@param` _to — the value
-- `@param` from — the value
+A resolved route — everything the nav pipeline and views need.
+
+### `name`
+
+Route table name ('home', 'project', 'legal', 'not-found', …).
+
+### `view`
+
+Custom-element tag of the view to mount.
+
+### `lang`
+
+Resolved locale id ('en', 'pt', …).
+
+### `path`
+
+The matched URL path (kept for locale detection and analytics).
+
+### `meta`
+
+Head/scroll classification metadata.
+
+### `params`
+
+Extracted params — `slug` on project routes, etc.
 
 ### (module scope)
 
-Type contract for nav hook.
+Subscriber signature — fired on every successful navigation.
+
+### (module scope)
+
+Guard/hook signature — a returned string/{path} short-circuits into a redirect.

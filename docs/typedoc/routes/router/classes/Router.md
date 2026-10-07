@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../README.md) / [routes/router](../README.md) / Router
 
-Defined in: [src/routes/router.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L29)
+Defined in: [src/routes/router.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L30)
 
 History-API router: parses paths into route descriptors, runs before/after
 hooks, updates history + title + canonical + scroll, and notifies
@@ -18,7 +18,7 @@ subscribers (<app-root> swaps the view element on notification).
 new Router(): Router;
 ```
 
-Defined in: [src/routes/router.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L45)
+Defined in: [src/routes/router.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L46)
 
 #### Returns
 
@@ -32,7 +32,7 @@ Defined in: [src/routes/router.ts:45](https://github.com/LuisKrotz/luiskr.com-V3
 routes: RouteDescriptor[] = [];
 ```
 
-Defined in: [src/routes/router.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L31)
+Defined in: [src/routes/router.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L32)
 
 Static route table — unused; resolution is imperative in parsePath.
 
@@ -44,7 +44,7 @@ Static route table — unused; resolution is imperative in parsePath.
 currentRoute: RouteDescriptor | null = null;
 ```
 
-Defined in: [src/routes/router.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L34)
+Defined in: [src/routes/router.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L35)
 
 Last resolved route descriptor {name, view, lang, path, meta, params}.
 
@@ -56,7 +56,7 @@ Last resolved route descriptor {name, view, lang, path, meta, params}.
 listeners: Set<RouteListener>
 ```
 
-Defined in: [src/routes/router.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L37)
+Defined in: [src/routes/router.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L38)
 
 Subscriber callbacks fired by notify() on every successful nav.
 
@@ -68,7 +68,7 @@ Subscriber callbacks fired by notify() on every successful nav.
 beforeHooks: NavHook[] = [];
 ```
 
-Defined in: [src/routes/router.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L40)
+Defined in: [src/routes/router.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L41)
 
 Navigation guards; each may return a redirect path/{path}.
 
@@ -80,7 +80,7 @@ Navigation guards; each may return a redirect path/{path}.
 afterHooks: NavHook[] = [];
 ```
 
-Defined in: [src/routes/router.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L43)
+Defined in: [src/routes/router.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L44)
 
 Post-nav side-effect hooks (run after history+title are updated).
 
@@ -92,7 +92,7 @@ Post-nav side-effect hooks (run after history+title are updated).
 beforeEach(fn): void;
 ```
 
-Defined in: [src/routes/router.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L61)
+Defined in: [src/routes/router.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L66)
 
 Registers a navigation guard; a hook may return a redirect path/object.
 
@@ -114,7 +114,7 @@ Registers a navigation guard; a hook may return a redirect path/object.
 afterEach(fn): void;
 ```
 
-Defined in: [src/routes/router.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L66)
+Defined in: [src/routes/router.ts:71](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L71)
 
 Registers a post-navigation hook (analytics, side effects).
 
@@ -136,7 +136,7 @@ Registers a post-navigation hook (analytics, side effects).
 subscribe(listener): () => void;
 ```
 
-Defined in: [src/routes/router.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L74)
+Defined in: [src/routes/router.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L80)
 
 Subscribes a listener to route changes.
 
@@ -145,6 +145,8 @@ Subscribes a listener to route changes.
 ##### listener
 
 [`RouteListener`](../../types/type-aliases/RouteListener.md)
+
+Callback receiving (to, from) descriptors.
 
 #### Returns
 
@@ -160,9 +162,10 @@ unsubscribe function
 notify(to, from): void;
 ```
 
-Defined in: [src/routes/router.ts:83](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L83)
+Defined in: [src/routes/router.ts:94](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L94)
 
-Fans the route change out to subscribers; one bad listener can't break the rest.
+Fans the route change out to subscribers; each call is wrapped so one
+throwing listener can't break the rest (logged via devError).
 
 #### Parameters
 
@@ -170,9 +173,13 @@ Fans the route change out to subscribers; one bad listener can't break the rest.
 
 [`RouteDescriptor`](../../types/interfaces/RouteDescriptor.md)
 
+Destination descriptor.
+
 ##### from
 
 [`RouteDescriptor`](../../types/interfaces/RouteDescriptor.md) \| `null`
+
+Origin descriptor — null on first navigation.
 
 #### Returns
 
@@ -186,7 +193,7 @@ Fans the route change out to subscribers; one bad listener can't break the rest.
 parsePath(pathname): RouteDescriptor;
 ```
 
-Defined in: [src/routes/router.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L97)
+Defined in: [src/routes/router.ts:110](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L110)
 
 Pure URL → route-descriptor resolution — see parse-path.ts for the
 route table and slug priority order.
@@ -197,9 +204,13 @@ route table and slug priority order.
 
 `string`
 
+Raw URL pathname (+search/hash tolerated).
+
 #### Returns
 
 [`RouteDescriptor`](../../types/interfaces/RouteDescriptor.md)
+
+The matched descriptor (404-shaped when nothing matches).
 
 ---
 
@@ -209,7 +220,7 @@ route table and slug priority order.
 resolve(path): RouteDescriptor;
 ```
 
-Defined in: [src/routes/router.ts:102](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L102)
+Defined in: [src/routes/router.ts:115](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L115)
 
 Public alias of parsePath kept for API compatibility.
 
@@ -231,7 +242,7 @@ Public alias of parsePath kept for API compatibility.
 match(path): RouteDescriptor;
 ```
 
-Defined in: [src/routes/router.ts:107](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L107)
+Defined in: [src/routes/router.ts:120](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L120)
 
 Public alias of parsePath kept for API compatibility.
 
@@ -253,9 +264,10 @@ Public alias of parsePath kept for API compatibility.
 handleNavigation(path, replace?): Promise<void>;
 ```
 
-Defined in: [src/routes/router.ts:112](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L112)
+Defined in: [src/routes/router.ts:130](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L130)
 
-Full navigation pipeline — see navigate.ts.
+Full navigation pipeline — guards → history → meta → notify; see
+navigate.ts for the stage order.
 
 #### Parameters
 
@@ -263,9 +275,13 @@ Full navigation pipeline — see navigate.ts.
 
 `string`
 
+Destination URL path.
+
 ##### replace?
 
 `boolean` = `false`
+
+When true, replace the current history entry instead of pushing.
 
 #### Returns
 
@@ -279,7 +295,7 @@ Full navigation pipeline — see navigate.ts.
 push(path): Promise<void>;
 ```
 
-Defined in: [src/routes/router.ts:117](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L117)
+Defined in: [src/routes/router.ts:135](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L135)
 
 Navigates forward, pushing a history entry.
 
@@ -301,7 +317,7 @@ Navigates forward, pushing a history entry.
 replace(path): Promise<void>;
 ```
 
-Defined in: [src/routes/router.ts:122](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L122)
+Defined in: [src/routes/router.ts:140](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L140)
 
 Navigates without adding a history entry (redirects, boot).
 
@@ -323,7 +339,7 @@ Navigates without adding a history entry (redirects, boot).
 init(): void;
 ```
 
-Defined in: [src/routes/router.ts:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/router.ts#L127)
+Defined in: [src/routes/router.ts:145](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/router.ts#L145)
 
 Bootstraps the router from the current URL (replaces, not pushes).
 

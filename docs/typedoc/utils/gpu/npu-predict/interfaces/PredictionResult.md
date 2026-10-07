@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [utils/gpu/npu-predict](../README.md) / PredictionResult
 
-Defined in: [src/utils/gpu/npu-predict.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L28)
+Defined in: [src/utils/gpu/npu-predict.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L31)
 
-The PredictionResult value.
+Outcome of one likelihood prediction.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The PredictionResult value.
 probability: number
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L29)
+Defined in: [src/utils/gpu/npu-predict.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L33)
+
+Estimated navigation probability 0–1.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/utils/gpu/npu-predict.ts:29](https://github.com/LuisKrotz/luisk
 optional preloaded?: boolean;
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L30)
+Defined in: [src/utils/gpu/npu-predict.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L35)
+
+true when the target was already prefetched.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/utils/gpu/npu-predict.ts:30](https://github.com/LuisKrotz/luisk
 optional npuAccelerated?: boolean;
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L31)
+Defined in: [src/utils/gpu/npu-predict.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L37)
+
+Which tier scored it — WebNN NPU.
 
 ---
 
@@ -46,4 +52,6 @@ Defined in: [src/utils/gpu/npu-predict.ts:31](https://github.com/LuisKrotz/luisk
 optional gpuAccelerated?: boolean;
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L32)
+Defined in: [src/utils/gpu/npu-predict.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L39)
+
+Which tier scored it — shared GPU.

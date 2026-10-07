@@ -11,7 +11,35 @@ Shared GPU capability detection + WebGL context-option hints.
 
 ### (module scope)
 
-The GPUInfo value.
+Classified GPU probe result — frozen so consumers can't mutate the cache.
+
+### `renderer`
+
+Unmasked renderer string ('ANGLE (NVIDIA…)', 'Apple M1', 'SwiftShader', …).
+
+### `dedicated`
+
+Discrete-card class detected (NVIDIA/AMD/Radeon Pro).
+
+### `apple`
+
+Apple Silicon detected — unified memory but GPU-class performance.
+
+### `integrated`
+
+Integrated GPU detected (Intel UHD/Iris, basic ANGLE adapters).
+
+### `software`
+
+Software rasterizer (SwiftShader/llvmpipe) — GPU work falls back to CSS.
+
+### `mobile`
+
+Mobile-class user agent — deprioritizes GPU pinning regardless of chip.
+
+### `capable`
+
+Worth pinning GPU work to — desktop discrete or Apple Silicon.
 
 ### `_probeRenderer`
 

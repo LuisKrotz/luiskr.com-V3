@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [playground/space/controls](../README.md) / SpAction
 
-Defined in: [src/playground/space/controls.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L54)
+Defined in: [src/playground/space/controls.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L62)
 
-The SpAction value.
+A group-level action button (reset view, screenshot, copy settings).
 
 ## Properties
 
@@ -16,7 +16,9 @@ The SpAction value.
 label: string
 ```
 
-Defined in: [src/playground/space/controls.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L55)
+Defined in: [src/playground/space/controls.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L64)
+
+Translation key for the button label.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/playground/space/controls.ts:55](https://github.com/LuisKrotz/l
 action: string
 ```
 
-Defined in: [src/playground/space/controls.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L56)
+Defined in: [src/playground/space/controls.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L66)
+
+SP_ACTIONS token dispatched on click.
 
 ---
 
@@ -36,4 +40,6 @@ Defined in: [src/playground/space/controls.ts:56](https://github.com/LuisKrotz/l
 optional pressed?: boolean;
 ```
 
-Defined in: [src/playground/space/controls.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L57)
+Defined in: [src/playground/space/controls.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L68)
+
+Initial aria-pressed state for toggle-style actions.

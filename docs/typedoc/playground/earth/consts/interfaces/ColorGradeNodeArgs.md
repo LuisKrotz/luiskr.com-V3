@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [playground/earth/consts](../README.md) / ColorGradeNodeArgs
 
-Defined in: [src/playground/earth/consts.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/consts.ts#L39)
+Defined in: [src/playground/earth/consts.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/consts.ts#L35)
 
 Arg shapes for the Fn-defined post nodes — per-node-type annotations
 unlock the typed swizzle/fluent-op surface (vec4 gets .rgb/.a, float
@@ -24,7 +24,7 @@ gets .mul/.add etc.).
 color: Node<'vec4'>
 ```
 
-Defined in: [src/playground/earth/consts.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/consts.ts#L41)
+Defined in: [src/playground/earth/consts.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/consts.ts#L37)
 
 ---
 
@@ -34,7 +34,7 @@ Defined in: [src/playground/earth/consts.ts:41](https://github.com/LuisKrotz/lui
 contrast: Node<'float'>
 ```
 
-Defined in: [src/playground/earth/consts.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/consts.ts#L42)
+Defined in: [src/playground/earth/consts.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/consts.ts#L38)
 
 ---
 
@@ -44,7 +44,7 @@ Defined in: [src/playground/earth/consts.ts:42](https://github.com/LuisKrotz/lui
 saturation: Node<'float'>
 ```
 
-Defined in: [src/playground/earth/consts.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/consts.ts#L43)
+Defined in: [src/playground/earth/consts.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/consts.ts#L39)
 
 ---
 
@@ -54,7 +54,7 @@ Defined in: [src/playground/earth/consts.ts:43](https://github.com/LuisKrotz/lui
 blackLevel: Node<'float'>
 ```
 
-Defined in: [src/playground/earth/consts.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/consts.ts#L44)
+Defined in: [src/playground/earth/consts.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/consts.ts#L40)
 
 ---
 
@@ -64,4 +64,4 @@ Defined in: [src/playground/earth/consts.ts:44](https://github.com/LuisKrotz/lui
 blueGreenBoost: Node<'float'>
 ```
 
-Defined in: [src/playground/earth/consts.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/consts.ts#L45)
+Defined in: [src/playground/earth/consts.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/consts.ts#L41)

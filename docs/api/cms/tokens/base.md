@@ -15,7 +15,8 @@ BEM block fragment "b admin" — composed by the token groups below into full cl
 
 ### `_B_CMS_CARD`
 
-The _B_CMS_CARD constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_CMS_SUBSECTION`
 
@@ -27,7 +28,8 @@ BEM block fragment "b cms field" — composed by the token groups below into ful
 
 ### `_B_CMS_ITEM`
 
-The _B_CMS_ITEM constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_CMS_KV`
 
@@ -39,7 +41,8 @@ BEM block fragment "b cms btn" — composed by the token groups below into full 
 
 ### `_B_CMS_SECTION`
 
-The _B_CMS_SECTION constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_CMS_PARA`
 
@@ -51,7 +54,8 @@ BEM block fragment "b cms media" — composed by the token groups below into ful
 
 ### `_B_CMS_SCORE`
 
-The _B_CMS_SCORE constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_CMS_DEPLOY`
 

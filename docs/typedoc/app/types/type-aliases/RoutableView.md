@@ -8,9 +8,11 @@
 type RoutableView = Element & object
 ```
 
-Defined in: [src/app/types.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/app/types.ts#L42)
+Defined in: [src/app/types.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/app/types.ts#L40)
 
-The RoutableView value.
+A mounted view element that may implement onRouteParamChange — the
+outlet calls it when a same-tag route updates params (project→project
+navigation reuses the element).
 
 ## Type Declaration
 

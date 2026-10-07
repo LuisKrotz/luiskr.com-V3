@@ -36,6 +36,8 @@ const AWC_CLASSES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/classes/awards-carousel.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/classes/awards-carousel.ts#L20)
+Defined in: [src/core/tokens/classes/awards-carousel.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/classes/awards-carousel.ts#L22)
 
-The AWC_CLASSES constant.
+Frozen awc class-name map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.

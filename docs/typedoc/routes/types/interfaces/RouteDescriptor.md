@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../README.md) / [routes/types](../README.md) / RouteDescriptor
 
-Defined in: [src/routes/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/types.ts#L18)
+Defined in: [src/routes/types.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/types.ts#L21)
 
-routes descriptor.
+A resolved route — everything the nav pipeline and views need.
 
 ## Properties
 
@@ -16,7 +16,9 @@ routes descriptor.
 name: string
 ```
 
-Defined in: [src/routes/types.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/types.ts#L19)
+Defined in: [src/routes/types.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/types.ts#L23)
+
+Route table name ('home', 'project', 'legal', 'not-found', …).
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/routes/types.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/
 view: string
 ```
 
-Defined in: [src/routes/types.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/types.ts#L20)
+Defined in: [src/routes/types.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/types.ts#L25)
+
+Custom-element tag of the view to mount.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/routes/types.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/
 lang: string
 ```
 
-Defined in: [src/routes/types.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/types.ts#L21)
+Defined in: [src/routes/types.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/types.ts#L27)
+
+Resolved locale id ('en', 'pt', …).
 
 ---
 
@@ -46,7 +52,9 @@ Defined in: [src/routes/types.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/
 path: string
 ```
 
-Defined in: [src/routes/types.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/types.ts#L22)
+Defined in: [src/routes/types.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/types.ts#L29)
+
+The matched URL path (kept for locale detection and analytics).
 
 ---
 
@@ -56,7 +64,9 @@ Defined in: [src/routes/types.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/
 meta: RouteMeta
 ```
 
-Defined in: [src/routes/types.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/types.ts#L23)
+Defined in: [src/routes/types.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/types.ts#L31)
+
+Head/scroll classification metadata.
 
 ---
 
@@ -66,4 +76,6 @@ Defined in: [src/routes/types.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/
 params: Record<string, string | undefined>
 ```
 
-Defined in: [src/routes/types.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/types.ts#L24)
+Defined in: [src/routes/types.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/types.ts#L33)
+
+Extracted params — `slug` on project routes, etc.

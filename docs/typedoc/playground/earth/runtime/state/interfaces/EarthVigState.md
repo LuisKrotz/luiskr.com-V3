@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../../README.md) / [playground/earth/runtime/state](../README.md) / EarthVigState
 
-Defined in: [src/playground/earth/runtime/state.ts:75](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L75)
+Defined in: [src/playground/earth/runtime/state.ts:82](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L82)
 
-earths vig state.
+Vignette post-pass settings.
 
 ## Properties
 
@@ -16,7 +16,7 @@ earths vig state.
 enabled: boolean
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L76)
+Defined in: [src/playground/earth/runtime/state.ts:83](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L83)
 
 ---
 
@@ -26,7 +26,9 @@ Defined in: [src/playground/earth/runtime/state.ts:76](https://github.com/LuisKr
 darkness: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:77](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L77)
+Defined in: [src/playground/earth/runtime/state.ts:85](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L85)
+
+Edge darkening amount.
 
 ---
 
@@ -36,4 +38,6 @@ Defined in: [src/playground/earth/runtime/state.ts:77](https://github.com/LuisKr
 offset: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:78](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L78)
+Defined in: [src/playground/earth/runtime/state.ts:87](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L87)
+
+Where the falloff starts (0–1 UV distance).

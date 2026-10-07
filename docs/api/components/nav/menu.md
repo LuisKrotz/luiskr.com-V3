@@ -13,11 +13,68 @@ Fullscreen menu overlay behavior for &lt;app-nav&gt;, extracted
 
 Host surface the menu helpers need (satisfied by AppNav).
 
+### `_menuOpen`
+
+Menu overlay open flag.
+
+### `_menuClosing`
+
+Close animation in flight — guards double-close.
+
+### `_menuSettled`
+
+Open animation completed — close X may snap to drawn state.
+
+### `_menuSettleTimer`
+
+Settle-delay timer handle; cleared on destroy/close.
+
+### `_menuBg`
+
+Live menu-background widget over the fullscreen canvas.
+
+### `_menuCloseBtn`
+
+Live close-X widget.
+
+### `_burgerBtn`
+
+Live burger widget.
+
+### `_burgerCanvasEl`
+
+Persistent burger canvas (survives re-renders).
+
+### `_menuCanvasEl`
+
+Persistent menu background canvas.
+
+### `_menuCloseCanvasEl`
+
+Persistent close-X canvas.
+
+### `_onDark`
+
+True while the nav floats over a dark band (contrast variant).
+
+### `$`
+
+Shadow-scoped querySelector.
+
+### `_updateDom`
+
+Triggers a template re-render.
+
 ### `navBurgerCanvas`
 
 The burger icon's canvas element — lazily created once and kept for
 the component's lifetime so its WebGL context is never churned by
-re-renders (canvas recreation would force a fresh GL context).
+re-renders (canvas recreation would force a fresh GL context). Each
+call also re-syncs the on-dark class and aria-label/expanded since
+those change without recreating the element.
+- `@param` host AppNav instance.
+- `@param` label aria-label for the burger (localized "menu").
+- `@returns` The persistent canvas element.
 
 ### `navMenuCanvas`
 

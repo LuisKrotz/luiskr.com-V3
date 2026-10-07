@@ -4,9 +4,11 @@
 
 [luiskr.com](../../../../../README.md) / [routes/views/project/types](../README.md) / ProjectTranslations
 
-Defined in: [src/routes/views/project/types.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/types.ts#L36)
+Defined in: [src/routes/views/project/types.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L46)
 
-Type contract for project translations.
+The project's translation node — `title`, `noindex` SEO flag,
+`folder` CDN prefix, `cover`, and `sections` (array of SectionChild arrays).
+Index signature preserves CMS fields the view doesn't consume.
 
 ## Indexable
 
@@ -22,7 +24,7 @@ Type contract for project translations.
 optional title?: string;
 ```
 
-Defined in: [src/routes/views/project/types.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/types.ts#L37)
+Defined in: [src/routes/views/project/types.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L47)
 
 ---
 
@@ -32,7 +34,7 @@ Defined in: [src/routes/views/project/types.ts:37](https://github.com/LuisKrotz/
 optional noindex?: boolean;
 ```
 
-Defined in: [src/routes/views/project/types.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/types.ts#L38)
+Defined in: [src/routes/views/project/types.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L48)
 
 ---
 
@@ -42,7 +44,7 @@ Defined in: [src/routes/views/project/types.ts:38](https://github.com/LuisKrotz/
 optional folder?: string;
 ```
 
-Defined in: [src/routes/views/project/types.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/types.ts#L39)
+Defined in: [src/routes/views/project/types.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L49)
 
 ---
 
@@ -52,7 +54,7 @@ Defined in: [src/routes/views/project/types.ts:39](https://github.com/LuisKrotz/
 optional cover?: CoverMedia;
 ```
 
-Defined in: [src/routes/views/project/types.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/types.ts#L40)
+Defined in: [src/routes/views/project/types.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L50)
 
 ---
 
@@ -62,4 +64,4 @@ Defined in: [src/routes/views/project/types.ts:40](https://github.com/LuisKrotz/
 optional sections?: SectionChild[][];
 ```
 
-Defined in: [src/routes/views/project/types.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/types.ts#L41)
+Defined in: [src/routes/views/project/types.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L51)

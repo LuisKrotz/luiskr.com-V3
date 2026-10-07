@@ -11,20 +11,30 @@ Dotted paths into translations/&lt;locale&gt;/components — grouped
 
 ### `LANG_COMPONENT_KEYS`
 
-The LANG_COMPONENT_KEYS constant.
+Frozen lang component key map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `MEDIA_COMPONENT_KEYS`
 
-The MEDIA_COMPONENT_KEYS constant.
+Frozen media component key map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `LEGAL_COMPONENT_KEYS`
 
-The LEGAL_COMPONENT_KEYS constant.
+Frozen legal component key map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `SOURCE_COMPONENT_KEYS`
 
-The SOURCE_COMPONENT_KEYS constant.
+Frozen source component key map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `SECTION_COMPONENT_KEYS`
 
-The SECTION_COMPONENT_KEYS constant.
+Frozen section component key map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

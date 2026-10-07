@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../../README.md) / [playground/earth/scene/atmos-shells](../README.md) / AtmosShellsArgs
 
-Defined in: [src/playground/earth/scene/atmos-shells.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/scene/atmos-shells.ts#L18)
+Defined in: [src/playground/earth/scene/atmos-shells.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/atmos-shells.ts#L16)
 
-The AtmosShellsArgs value.
+Dependencies injected by the scene assembler (keeps this module mockable).
 
 ## Properties
 
@@ -16,7 +16,9 @@ The AtmosShellsArgs value.
 THREE: __module
 ```
 
-Defined in: [src/playground/earth/scene/atmos-shells.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/scene/atmos-shells.ts#L19)
+Defined in: [src/playground/earth/scene/atmos-shells.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/atmos-shells.ts#L18)
+
+The three.js namespace — geometry/material/mesh constructors.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/playground/earth/scene/atmos-shells.ts:19](https://github.com/L
 TSL: __module
 ```
 
-Defined in: [src/playground/earth/scene/atmos-shells.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/scene/atmos-shells.ts#L20)
+Defined in: [src/playground/earth/scene/atmos-shells.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/atmos-shells.ts#L20)
+
+The TSL node-graph namespace (compiled to WGSL/GLSL by the renderer).
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/playground/earth/scene/atmos-shells.ts:20](https://github.com/L
 mats: object
 ```
 
-Defined in: [src/playground/earth/scene/atmos-shells.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/scene/atmos-shells.ts#L21)
+Defined in: [src/playground/earth/scene/atmos-shells.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/atmos-shells.ts#L22)
+
+The node material constructor for the shell materials.
 
 #### MeshBasicNodeMaterial
 
@@ -52,4 +58,6 @@ MeshBasicNodeMaterial: typeof MeshBasicNodeMaterial
 sunDir: UniformNode<'vec3', Vector3>
 ```
 
-Defined in: [src/playground/earth/scene/atmos-shells.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/scene/atmos-shells.ts#L22)
+Defined in: [src/playground/earth/scene/atmos-shells.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/atmos-shells.ts#L24)
+
+Shared sun-direction uniform the scattering phase functions read.

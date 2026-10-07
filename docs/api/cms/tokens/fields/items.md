@@ -11,4 +11,6 @@ List-item classes — item controls, paragraph items, media
 
 ### `CMS_ITEM_CLASSES`
 
-The CMS_ITEM_CLASSES constant.
+Frozen cms item class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

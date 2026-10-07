@@ -8,6 +8,7 @@
 const _K_ACTIVE: 'active' = 'active'
 ```
 
-Defined in: [src/core/tokens/base.ts:371](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/base.ts#L371)
+Defined in: [src/core/tokens/base.ts:402](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/base.ts#L402)
 
-The _K_ACTIVE constant.
+Shared key token `active` — single source for a literal repeated across modules
+(zero-hardcoding rule 5).

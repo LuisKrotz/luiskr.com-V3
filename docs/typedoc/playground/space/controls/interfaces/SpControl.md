@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [playground/space/controls](../README.md) / SpControl
 
-Defined in: [src/playground/space/controls.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L40)
+Defined in: [src/playground/space/controls.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L42)
 
-The SpControl value.
+One row in a panel group — a slider or a WebGL checkbox.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The SpControl value.
 label: string
 ```
 
-Defined in: [src/playground/space/controls.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L41)
+Defined in: [src/playground/space/controls.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L44)
+
+Translation key for the row's label (and the CMS defaults-map key).
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/playground/space/controls.ts:41](https://github.com/LuisKrotz/l
 param: string
 ```
 
-Defined in: [src/playground/space/controls.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L42)
+Defined in: [src/playground/space/controls.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L46)
+
+SP_PARAMS token — persisted-settings key + data-param attribute.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/playground/space/controls.ts:42](https://github.com/LuisKrotz/l
 type: string
 ```
 
-Defined in: [src/playground/space/controls.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L43)
+Defined in: [src/playground/space/controls.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L48)
+
+'range' slider | 'checkbox' WebGL twin.
 
 ---
 
@@ -46,7 +52,9 @@ Defined in: [src/playground/space/controls.ts:43](https://github.com/LuisKrotz/l
 optional min?: number;
 ```
 
-Defined in: [src/playground/space/controls.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L44)
+Defined in: [src/playground/space/controls.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L50)
+
+Slider minimum (range only).
 
 ---
 
@@ -56,7 +64,9 @@ Defined in: [src/playground/space/controls.ts:44](https://github.com/LuisKrotz/l
 optional max?: number;
 ```
 
-Defined in: [src/playground/space/controls.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L45)
+Defined in: [src/playground/space/controls.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L52)
+
+Slider maximum (range only).
 
 ---
 
@@ -66,7 +76,9 @@ Defined in: [src/playground/space/controls.ts:45](https://github.com/LuisKrotz/l
 optional step?: number;
 ```
 
-Defined in: [src/playground/space/controls.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L46)
+Defined in: [src/playground/space/controls.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L54)
+
+Slider step granularity (range only).
 
 ---
 
@@ -76,7 +88,9 @@ Defined in: [src/playground/space/controls.ts:46](https://github.com/LuisKrotz/l
 optional def?: number;
 ```
 
-Defined in: [src/playground/space/controls.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L47)
+Defined in: [src/playground/space/controls.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L56)
+
+Shipped numeric default — CMS defaults and saved values override it.
 
 ---
 
@@ -86,4 +100,6 @@ Defined in: [src/playground/space/controls.ts:47](https://github.com/LuisKrotz/l
 optional checked?: boolean;
 ```
 
-Defined in: [src/playground/space/controls.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L48)
+Defined in: [src/playground/space/controls.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L58)
+
+Shipped checkbox state — same precedence as `def`.

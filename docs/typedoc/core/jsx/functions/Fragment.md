@@ -8,11 +8,12 @@
 function Fragment(props?): DocumentFragment
 ```
 
-Defined in: [src/core/jsx.ts:148](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/jsx.ts#L148)
+Defined in: [src/core/jsx.ts:159](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/jsx.ts#L159)
 
 JSX Fragment factory — groups children without a wrapper element.
 Returns a DocumentFragment whose children move into the parent on append
-(the fragment itself is empty afterwards, which is intended).
+(the fragment itself is empty afterwards, which is intended — MDN: the
+fragment's children are moved, not copied, into the insertion point).
 
 ## Parameters
 
@@ -23,6 +24,10 @@ Returns a DocumentFragment whose children move into the parent on append
 \}
 \| `null`
 
+`{ children }` bag emitted by the JSX transform.
+
 ## Returns
 
 `DocumentFragment`
+
+Populated DocumentFragment.

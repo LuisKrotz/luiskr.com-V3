@@ -8,9 +8,9 @@
 function logoutUser(): Promise<void>
 ```
 
-Defined in: [src/cms/dev/firebase-mock.ts:114](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/dev/firebase-mock.ts#L114)
+Defined in: [src/cms/dev/firebase-mock.ts:129](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/dev/firebase-mock.ts#L129)
 
-The logout user helper.
+Mock logoutUser — logs; the next onAuthChange still reports MOCK_USER.
 
 ## Returns
 

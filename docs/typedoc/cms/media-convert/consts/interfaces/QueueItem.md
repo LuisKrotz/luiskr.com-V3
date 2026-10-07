@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [cms/media-convert/consts](../README.md) / QueueItem
 
-Defined in: [src/cms/media-convert/consts.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L40)
+Defined in: [src/cms/media-convert/consts.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L35)
 
-Queues item.
+One queued upload — the File blob plus its job-relative path.
 
 ## Properties
 
@@ -16,7 +16,9 @@ Queues item.
 file: File
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L41)
+Defined in: [src/cms/media-convert/consts.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L37)
+
+The picked File payload (PUT body).
 
 ---
 
@@ -26,4 +28,6 @@ Defined in: [src/cms/media-convert/consts.ts:41](https://github.com/LuisKrotz/lu
 rel: string
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L42)
+Defined in: [src/cms/media-convert/consts.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L39)
+
+Path relative to the job root — sent as the x-file-path header.

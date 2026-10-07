@@ -4,9 +4,10 @@
 
 [luiskr.com](../../../../README.md) / [core/store/state](../README.md) / ActionTextMap
 
-Defined in: [src/core/store/state.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L23)
+Defined in: [src/core/store/state.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L24)
 
-The ActionTextMap value.
+Localized action verbs for pointer hints — 'Click' on fine-pointer
+devices, 'Tap' on touch. Loaded per locale from APP.actions.
 
 ## Properties
 
@@ -16,7 +17,7 @@ The ActionTextMap value.
 click: string
 ```
 
-Defined in: [src/core/store/state.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L24)
+Defined in: [src/core/store/state.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L25)
 
 ---
 
@@ -26,4 +27,4 @@ Defined in: [src/core/store/state.ts:24](https://github.com/LuisKrotz/luiskr.com
 tap: string
 ```
 
-Defined in: [src/core/store/state.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L25)
+Defined in: [src/core/store/state.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L26)

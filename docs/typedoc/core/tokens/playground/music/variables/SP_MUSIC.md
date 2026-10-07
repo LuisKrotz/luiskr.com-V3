@@ -12,14 +12,8 @@ const SP_MUSIC: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/playground/music.ts:9](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/playground/music.ts#L9)
+Defined in: [src/core/tokens/playground/music.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/playground/music.ts#L14)
 
-## File
-
-tokens/playground/music.js
-
-## Description
-
-Ambient soundtrack for the Earth Playground — OGG first
-(smaller), MP3 fallback for browsers without Vorbis; TITLE is what the
-toggle button's tooltip announces.
+Ambient soundtrack for the Earth Playground. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

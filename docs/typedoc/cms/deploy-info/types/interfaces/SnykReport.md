@@ -4,9 +4,11 @@
 
 [luiskr.com](../../../../README.md) / [cms/deploy-info/types](../README.md) / SnykReport
 
-Defined in: [src/cms/deploy-info/types.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/deploy-info/types.ts#L42)
+Defined in: [src/cms/deploy-info/types.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/deploy-info/types.ts#L54)
 
-The SnykReport value.
+Shape of the security-scan report — `scanner` records whether snyk or
+yarn audit produced it, `ok` the gate outcome, `vulnerabilities` the advisory
+rows (acceptedRisk marks entries waived via security-exceptions.json).
 
 ## Properties
 
@@ -16,7 +18,7 @@ The SnykReport value.
 optional scanner?: string;
 ```
 
-Defined in: [src/cms/deploy-info/types.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/deploy-info/types.ts#L43)
+Defined in: [src/cms/deploy-info/types.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/deploy-info/types.ts#L55)
 
 ---
 
@@ -26,7 +28,7 @@ Defined in: [src/cms/deploy-info/types.ts:43](https://github.com/LuisKrotz/luisk
 optional ok?: boolean;
 ```
 
-Defined in: [src/cms/deploy-info/types.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/deploy-info/types.ts#L44)
+Defined in: [src/cms/deploy-info/types.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/deploy-info/types.ts#L56)
 
 ---
 
@@ -36,7 +38,7 @@ Defined in: [src/cms/deploy-info/types.ts:44](https://github.com/LuisKrotz/luisk
 optional totals?: Record<string, number>;
 ```
 
-Defined in: [src/cms/deploy-info/types.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/deploy-info/types.ts#L45)
+Defined in: [src/cms/deploy-info/types.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/deploy-info/types.ts#L57)
 
 ---
 
@@ -46,7 +48,7 @@ Defined in: [src/cms/deploy-info/types.ts:45](https://github.com/LuisKrotz/luisk
 optional vulnerabilities?: object[];
 ```
 
-Defined in: [src/cms/deploy-info/types.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/deploy-info/types.ts#L46)
+Defined in: [src/cms/deploy-info/types.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/deploy-info/types.ts#L58)
 
 #### packageName?
 

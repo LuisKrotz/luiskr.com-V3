@@ -4,9 +4,10 @@
 
 [luiskr.com](../../../../README.md) / [core/store/state](../README.md) / PagePos
 
-Defined in: [src/core/store/state.ts:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L76)
+Defined in: [src/core/store/state.ts:87](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L87)
 
-pages pos.
+Last known pointer position in page coordinates — feeds the magnetic
+cursor follower and the modal-origin calculation.
 
 ## Properties
 
@@ -16,7 +17,7 @@ pages pos.
 left: number
 ```
 
-Defined in: [src/core/store/state.ts:77](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L77)
+Defined in: [src/core/store/state.ts:88](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L88)
 
 ---
 
@@ -26,4 +27,4 @@ Defined in: [src/core/store/state.ts:77](https://github.com/LuisKrotz/luiskr.com
 top: number
 ```
 
-Defined in: [src/core/store/state.ts:78](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L78)
+Defined in: [src/core/store/state.ts:89](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L89)

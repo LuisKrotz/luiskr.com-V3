@@ -8,7 +8,7 @@
 type ElementChildrenAttribute = object
 ```
 
-Defined in: [src/globals.d.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L24)
+Defined in: [src/globals.d.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L24)
 
 ## Properties
 
@@ -18,4 +18,4 @@ Defined in: [src/globals.d.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blo
 children: unknown
 ```
 
-Defined in: [src/globals.d.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L24)
+Defined in: [src/globals.d.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L24)

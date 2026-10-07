@@ -12,6 +12,10 @@ const SCROLL_TIMINGS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/media/dimensions.ts:85](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/media/dimensions.ts#L85)
+Defined in: [src/core/tokens/media/dimensions.ts:112](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/media/dimensions.ts#L112)
 
-scrolls timings.
+Frozen scroll-timing map (ms) — `SCROLL_DURATION_FULL` paces animated
+page scrolls, `SCROLL_DURATION_REDUCED` is the slower ramp under
+prefers-reduced-motion (longer, gentler rather than instant so the jump
+stays perceivable), `SCROLL_INIT_DELAY` defers scroll restoration until
+after first paint settles.

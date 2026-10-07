@@ -17,6 +17,10 @@ const FLAG_DIMENSIONS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/media/dimensions.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/media/dimensions.ts#L42)
+Defined in: [src/core/tokens/media/dimensions.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/media/dimensions.ts#L59)
 
-flags dimensions.
+Frozen flag-icon geometry map — flag images are drawn at small pixel
+sizes where every px counts: NAV (18×13) for the locale picker, DIALOG
+(60×44) for the language dialog, SPLIT widths for the half-flag
+divider, and `FLAG_DEFAULT_ASPECT` 1.5 (3:2, the most common national
+flag ratio) as the fallback when a flag lacks intrinsic dims.

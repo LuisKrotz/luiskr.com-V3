@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [components/carousel/custom-carousel/render](../README.md) / CarouselLang
 
-Defined in: [src/components/carousel/custom-carousel/render.tsx:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/render.tsx#L31)
+Defined in: [src/components/carousel/custom-carousel/render.tsx:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/render.tsx#L39)
 
 Localized carousel control labels (store.lang.carousel).
 
@@ -16,7 +16,9 @@ Localized carousel control labels (store.lang.carousel).
 prev: string
 ```
 
-Defined in: [src/components/carousel/custom-carousel/render.tsx:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/render.tsx#L32)
+Defined in: [src/components/carousel/custom-carousel/render.tsx:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/render.tsx#L41)
+
+aria-label for the prev arrow.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/components/carousel/custom-carousel/render.tsx:32](https://gith
 next: string
 ```
 
-Defined in: [src/components/carousel/custom-carousel/render.tsx:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/render.tsx#L33)
+Defined in: [src/components/carousel/custom-carousel/render.tsx:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/render.tsx#L43)
+
+aria-label for the next arrow.
 
 ---
 
@@ -36,4 +40,6 @@ Defined in: [src/components/carousel/custom-carousel/render.tsx:33](https://gith
 ofLabel: string
 ```
 
-Defined in: [src/components/carousel/custom-carousel/render.tsx:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/render.tsx#L34)
+Defined in: [src/components/carousel/custom-carousel/render.tsx:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/render.tsx#L45)
+
+Localized "of" joiner for the "N of M" counter.

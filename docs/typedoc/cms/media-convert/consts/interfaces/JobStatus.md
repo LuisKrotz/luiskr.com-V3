@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [cms/media-convert/consts](../README.md) / JobStatus
 
-Defined in: [src/cms/media-convert/consts.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L58)
+Defined in: [src/cms/media-convert/consts.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L55)
 
-The JobStatus value.
+Job-status payload polled from GET /jobs/:id.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The JobStatus value.
 optional status?: string;
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L59)
+Defined in: [src/cms/media-convert/consts.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L57)
+
+Server phase string ('running'|'uploading'|terminal).
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/cms/media-convert/consts.ts:59](https://github.com/LuisKrotz/lu
 optional error?: string;
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L60)
+Defined in: [src/cms/media-convert/consts.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L59)
+
+Server-side error message when failed.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/cms/media-convert/consts.ts:60](https://github.com/LuisKrotz/lu
 optional current?: string;
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L61)
+Defined in: [src/cms/media-convert/consts.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L61)
+
+Currently-processing file path (progress display).
 
 ---
 
@@ -46,7 +52,9 @@ Defined in: [src/cms/media-convert/consts.ts:61](https://github.com/LuisKrotz/lu
 optional done?: number;
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L62)
+Defined in: [src/cms/media-convert/consts.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L63)
+
+Files completed so far.
 
 ---
 
@@ -56,7 +64,9 @@ Defined in: [src/cms/media-convert/consts.ts:62](https://github.com/LuisKrotz/lu
 optional total?: number;
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L63)
+Defined in: [src/cms/media-convert/consts.ts:65](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L65)
+
+Total files in the job.
 
 ---
 
@@ -66,4 +76,6 @@ Defined in: [src/cms/media-convert/consts.ts:63](https://github.com/LuisKrotz/lu
 optional results?: JobResult[];
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/consts.ts#L64)
+Defined in: [src/cms/media-convert/consts.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L67)
+
+Per-file results once the job settles.

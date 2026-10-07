@@ -11,6 +11,7 @@ const ATTR_VALUES: Readonly<{
   FALSE: 'false'
   NONE: 'none'
   BLOCK: 'block'
+  FLEX: 'flex'
   AUTO: 'auto'
   SMOOTH: 'smooth'
   INSTANT: 'instant'
@@ -19,12 +20,8 @@ const ATTR_VALUES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/attrs/values.ts:6](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/attrs/values.ts#L6)
+Defined in: [src/core/tokens/attrs/values.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/attrs/values.ts#L11)
 
-## File
-
-tokens/attrs/values.js
-
-## Description
-
-Generic attribute-value tokens — token group.
+Generic attribute-value tokens. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

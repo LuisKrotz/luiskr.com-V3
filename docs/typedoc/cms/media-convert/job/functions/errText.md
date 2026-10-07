@@ -8,9 +8,11 @@
 function errText(res, fallback): Promise<string>
 ```
 
-Defined in: [src/cms/media-convert/job.ts:163](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/job.ts#L163)
+Defined in: [src/cms/media-convert/job.ts:200](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/job.ts#L200)
 
-The errText value.
+Extracts the server's `error` field from a JSON error body; falls back
+to the given message — or a dev-server hint on 404 (the API only exists
+under the dev middleware, so a 404 there means "not running dev").
 
 ## Parameters
 
@@ -18,16 +20,16 @@ The errText value.
 
 `Response`
 
-— the value
+The failed Response.
 
 ### fallback
 
 `string`
 
-— the value
+Message used when the body has no `error`.
 
 ## Returns
 
 `Promise`\<`string`\>
 
-Promise<string>
+The human-readable error.

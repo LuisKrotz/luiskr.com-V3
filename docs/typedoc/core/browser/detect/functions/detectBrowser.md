@@ -8,11 +8,12 @@
 function detectBrowser(ua): BrowserInfo
 ```
 
-Defined in: [src/core/browser/detect.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/browser/detect.ts#L41)
+Defined in: [src/core/browser/detect.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/detect.ts#L45)
 
 Parses a UA string against BROWSERS. Regex `pattern` strings keep their
 escaped form so the same table survives JSON serialization into the
-inlined `__LK` manifest.
+inlined `__LK` manifest. The loop walks the ordered table and returns on
+first match — order is load-bearing (see browsers.ts header).
 
 ## Parameters
 
@@ -20,6 +21,10 @@ inlined `__LK` manifest.
 
 `string`
 
+User-Agent string to classify.
+
 ## Returns
 
 [`BrowserInfo`](../interfaces/BrowserInfo.md)
+
+Engine identity; `other/0` when no pattern matches.

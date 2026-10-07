@@ -8,9 +8,11 @@
 function getOptimizedGravatar(urlStr, size?): string
 ```
 
-Defined in: [src/core/utils/media.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/utils/media.ts#L74)
+Defined in: [src/core/utils/media.ts:90](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/utils/media.ts#L90)
 
-Replaces size parameter on Gravatar URL.
+Replaces the `size=` parameter on a Gravatar URL. Non-Gravatar URLs pass
+through unchanged (the param is meaningless off-domain), and a URL with
+no `size=` is left alone since the regex finds no match.
 
 ## Parameters
 
@@ -18,10 +20,16 @@ Replaces size parameter on Gravatar URL.
 
 `string`
 
+Candidate Gravatar URL.
+
 ### size?
 
 `number` = `300`
 
+Pixel edge to request (default 300 — the rendered avatar box).
+
 ## Returns
 
 `string`
+
+Rewritten URL, original URL, or '' for non-string input.

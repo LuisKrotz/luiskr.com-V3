@@ -8,9 +8,10 @@
 function scrollToSlide(c, idx): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/nav.ts:188](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/nav.ts#L188)
+Defined in: [src/components/carousel/custom-carousel/nav.ts:205](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/nav.ts#L205)
 
-scrolls to slide.
+Smooth-centers real-slide idx — `children[idx + 1]` because a clone of
+the last slide is prepended to the track (index 0 is the clone).
 
 ## Parameters
 
@@ -18,13 +19,13 @@ scrolls to slide.
 
 [`CustomCarousel`](../../../CustomCarousel/classes/CustomCarousel.md)
 
-— the component
+The CustomCarousel element.
 
 ### idx
 
 `number`
 
-— the index
+Real-slide index.
 
 ## Returns
 

@@ -11,8 +11,12 @@ About-editor classes + control IDs — paragraph lists,
 
 ### `CMS_ABOUT_CLASSES`
 
-The CMS_ABOUT_CLASSES constant.
+Frozen cms about class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.
 
 ### `CMS_ABOUT_IDS`
 
-The CMS_ABOUT_IDS constant.
+Frozen cms about element-id map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

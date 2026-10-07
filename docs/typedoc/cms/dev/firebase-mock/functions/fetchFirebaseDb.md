@@ -8,9 +8,9 @@
 function fetchFirebaseDb(path): Promise<unknown>
 ```
 
-Defined in: [src/cms/dev/firebase-mock.ts:119](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/dev/firebase-mock.ts#L119)
+Defined in: [src/cms/dev/firebase-mock.ts:135](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/dev/firebase-mock.ts#L135)
 
-Fetches firebase db.
+Mock fetchFirebaseDb — reads straight from the committed snapshot.
 
 ## Parameters
 
@@ -18,7 +18,7 @@ Fetches firebase db.
 
 `string`
 
-— the path
+Slash-separated DB path.
 
 ## Returns
 

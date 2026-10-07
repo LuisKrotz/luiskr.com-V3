@@ -11,4 +11,6 @@ Earth/Space playground class tokens (`sp-*` block) —
 
 ### `SP_CLASSES`
 
-The SP_CLASSES constant.
+Frozen sp class-name map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.

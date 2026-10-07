@@ -8,9 +8,10 @@
 type Subscriber = (_state) => void
 ```
 
-Defined in: [src/core/store/state.ts:123](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L123)
+Defined in: [src/core/store/state.ts:139](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L139)
 
-subscribers.
+Subscriber callback — invoked by notify() with the state bag after every
+commit that didn't suppress notification.
 
 ## Parameters
 
@@ -18,7 +19,7 @@ subscribers.
 
 [`StoreState`](../interfaces/StoreState.md)
 
-— the value
+The post-mutation state.
 
 ## Returns
 

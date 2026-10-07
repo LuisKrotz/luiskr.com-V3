@@ -8,36 +8,8 @@
 const SIZE_PRESETS: readonly number[]
 ```
 
-Defined in: [src/cms/about/types.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L15)
+Defined in: [src/cms/about/types.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L10)
 
-The SIZE_PRESETS constant.
-
-## Param
-
-**200**
-
-— the value
-
-## Param
-
-**256**
-
-— the value
-
-## Param
-
-**300**
-
-— the value
-
-## Param
-
-**400**
-
-— the value
-
-## Param
-
-**512**
-
-— the value
+Gravatar size presets offered by the generator — covering the site's
+200px render box and its 1x/2x/3x DPR srcset needs plus favicon-size
+variants for other consumers.

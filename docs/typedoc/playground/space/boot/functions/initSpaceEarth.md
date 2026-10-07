@@ -8,9 +8,14 @@
 function initSpaceEarth(c): void
 ```
 
-Defined in: [src/playground/space/boot.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/boot.ts#L38)
+Defined in: [src/playground/space/boot.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/boot.ts#L47)
 
-Initializes space earth.
+Constructs the EarthBackground engine on the persistent canvas and
+wires its lifecycle: progress → loader overlay, ready → apply persisted
+settings + reduced-motion flag + dismiss. The `_isInitializingEarth`
+latch prevents double-init while init() is still awaiting. A failed
+init still marks `_earthReady` and dismisses the loader so the page
+isn't stuck behind a broken overlay.
 
 ## Parameters
 
@@ -18,7 +23,7 @@ Initializes space earth.
 
 [`SpacePlayground`](../../../SpacePlayground/classes/SpacePlayground.md)
 
-— the component
+The SpacePlayground element.
 
 ## Returns
 

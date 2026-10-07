@@ -30,6 +30,10 @@ const INTERNAL_CLASSES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/classes/project.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/classes/project.ts#L19)
+Defined in: [src/core/tokens/classes/project.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/classes/project.ts#L23)
 
-internals classes.
+Internals (project-detail) page classes on the `internal-*` block family:
+`internal` root, `internal-main` item grid, `internal-description` prose
+block, `internal-extra` scroll strip, `internal-footer` related/notes
+area, `internal-expand` trigger. `ZTF_VIDEO` is a standalone modifier
+(zoom-to-fill) applied alongside items, not an internal-* descendant.

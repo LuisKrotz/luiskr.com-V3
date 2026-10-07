@@ -14,9 +14,9 @@ function signInWithGoogle(): Promise<
 >
 ```
 
-Defined in: [src/cms/dev/firebase-mock.ts:110](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/dev/firebase-mock.ts#L110)
+Defined in: [src/cms/dev/firebase-mock.ts:126](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/dev/firebase-mock.ts#L126)
 
-The sign in with google helper.
+Mock signInWithGoogle — resolves the mock user with no popup.
 
 ## Returns
 

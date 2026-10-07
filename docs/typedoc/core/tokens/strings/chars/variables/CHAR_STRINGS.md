@@ -34,17 +34,15 @@ const CHAR_STRINGS: Readonly<{
   ONE_EM: '1em'
   PX: 'px'
   REM: 'rem'
+  VW_100: '100vw'
+  VH_100: '100vh'
+  DVH_100: '100dvh'
   JSON_EXT: '.json'
 }>
 ```
 
-Defined in: [src/core/tokens/strings/chars.ts:7](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/strings/chars.ts#L7)
+Defined in: [src/core/tokens/strings/chars.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/strings/chars.ts#L12)
 
-## File
-
-tokens/strings/chars.js
-
-## Description
-
-Punctuation, unit and single-character string tokens —
-token group.
+Punctuation, unit and single-character string tokens. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

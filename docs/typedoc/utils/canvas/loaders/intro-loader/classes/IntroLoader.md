@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [utils/canvas/loaders/intro-loader](../README.md) / IntroLoader
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L23)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L23)
 
 Command-Line & Spec-Driven Intro Loader
 
@@ -19,7 +19,7 @@ Displays a bold centered percentage load counter and rapid spec terminal sequenc
 new IntroLoader(rootContainer?, onComplete?): IntroLoader;
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L33)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L33)
 
 #### Parameters
 
@@ -43,7 +43,7 @@ Defined in: [src/utils/canvas/loaders/intro-loader.ts:33](https://github.com/Lui
 rootContainer: HTMLElement
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L24)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L24)
 
 ---
 
@@ -53,7 +53,7 @@ Defined in: [src/utils/canvas/loaders/intro-loader.ts:24](https://github.com/Lui
 onComplete: (() => void) | null;
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L25)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L25)
 
 ---
 
@@ -63,7 +63,7 @@ Defined in: [src/utils/canvas/loaders/intro-loader.ts:25](https://github.com/Lui
 container: HTMLElement | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L26)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L26)
 
 ---
 
@@ -73,7 +73,7 @@ Defined in: [src/utils/canvas/loaders/intro-loader.ts:26](https://github.com/Lui
 percentEl: HTMLElement | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L27)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L27)
 
 ---
 
@@ -83,7 +83,7 @@ Defined in: [src/utils/canvas/loaders/intro-loader.ts:27](https://github.com/Lui
 terminalEl: HTMLElement | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L28)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L28)
 
 ---
 
@@ -93,7 +93,7 @@ Defined in: [src/utils/canvas/loaders/intro-loader.ts:28](https://github.com/Lui
 progress: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L29)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L29)
 
 ---
 
@@ -103,7 +103,7 @@ Defined in: [src/utils/canvas/loaders/intro-loader.ts:29](https://github.com/Lui
 animId: number | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L30)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L30)
 
 ---
 
@@ -113,7 +113,7 @@ Defined in: [src/utils/canvas/loaders/intro-loader.ts:30](https://github.com/Lui
 startTime: number
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L31)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L31)
 
 ## Methods
 
@@ -123,7 +123,7 @@ Defined in: [src/utils/canvas/loaders/intro-loader.ts:31](https://github.com/Lui
 init(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L44)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L44)
 
 Builds the overlay DOM + starts the line sequence.
 
@@ -139,7 +139,7 @@ Builds the overlay DOM + starts the line sequence.
 runAnimation(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:86](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L86)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:86](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L86)
 
 Steps through the spec lines with the decode-in effect.
 
@@ -155,7 +155,7 @@ Steps through the spec lines with the decode-in effect.
 finish(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L127)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L127)
 
 Completes the loader: fades the overlay and calls onComplete.
 
@@ -171,7 +171,7 @@ Completes the loader: fades the overlay and calls onComplete.
 destroy(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/intro-loader.ts:144](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/intro-loader.ts#L144)
+Defined in: [src/utils/canvas/loaders/intro-loader.ts:144](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/intro-loader.ts#L144)
 
 Releases the context, buffers, listeners and rAF handle so the canvas can be GC'd.
 

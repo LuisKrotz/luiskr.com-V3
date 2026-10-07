@@ -18,13 +18,8 @@ const QUERY_STRINGS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/strings/queries.ts:7](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/strings/queries.ts#L7)
+Defined in: [src/core/tokens/strings/queries.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/strings/queries.ts#L12)
 
-## File
-
-tokens/strings/queries.js
-
-## Description
-
-Selector/media-query/rootMargin string tokens — grouped
-token group.
+Selector/media-query/rootMargin string tokens. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

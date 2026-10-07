@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../../README.md) / [playground/earth/runtime/state](../README.md) / EarthGradeState
 
-Defined in: [src/playground/earth/runtime/state.ts:92](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L92)
+Defined in: [src/playground/earth/runtime/state.ts:98](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L98)
 
-earths grade state.
+Color-grade post-pass settings.
 
 ## Properties
 
@@ -16,7 +16,9 @@ earths grade state.
 contrast: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:93](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L93)
+Defined in: [src/playground/earth/runtime/state.ts:100](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L100)
+
+Contrast multiplier around mid-gray.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/playground/earth/runtime/state.ts:93](https://github.com/LuisKr
 saturation: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:94](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L94)
+Defined in: [src/playground/earth/runtime/state.ts:102](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L102)
+
+Saturation multiplier (1 = unchanged).
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/playground/earth/runtime/state.ts:94](https://github.com/LuisKr
 blackLevel: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:95](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L95)
+Defined in: [src/playground/earth/runtime/state.ts:104](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L104)
+
+Lift applied to the black point.
 
 ---
 
@@ -46,4 +52,6 @@ Defined in: [src/playground/earth/runtime/state.ts:95](https://github.com/LuisKr
 blueGreenBoost: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:96](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L96)
+Defined in: [src/playground/earth/runtime/state.ts:106](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L106)
+
+Extra blue/green channel gain for the oceanic palette.

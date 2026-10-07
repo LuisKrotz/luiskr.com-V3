@@ -8,9 +8,10 @@
 function calcEaseOutCubic(t): number
 ```
 
-Defined in: [src/utils/wasm/wasm-layout.ts:75](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-layout.ts#L75)
+Defined in: [src/utils/wasm/wasm-layout.ts:126](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-layout.ts#L126)
 
-easeOutCubic easing — fast start, decelerating stop.
+easeOutCubic easing — 1−(1−t)³: fast start, decelerating stop. Used for
+menu/carousel transitions where motion should settle, not bounce.
 
 ## Parameters
 
@@ -18,6 +19,10 @@ easeOutCubic easing — fast start, decelerating stop.
 
 `number`
 
+Progress fraction 0–1.
+
 ## Returns
 
 `number`
+
+Eased progress 0–1.

@@ -8,7 +8,7 @@
 function safariLoadHighRes(el): void
 ```
 
-Defined in: [src/safari/patches/media-figure/image-load.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/safari/patches/media-figure/image-load.ts#L24)
+Defined in: [src/safari/patches/media-figure/image-load.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/safari/patches/media-figure/image-load.ts#L24)
 
 Safari loadHighRes: requests the Q50 (medium) variant instead of the
 uncompressed source — iOS Safari hard-fails canvas/decode on images

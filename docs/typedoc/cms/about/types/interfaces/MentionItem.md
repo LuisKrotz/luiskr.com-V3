@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [cms/about/types](../README.md) / MentionItem
 
-Defined in: [src/cms/about/types.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L20)
+Defined in: [src/cms/about/types.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L13)
 
-Type contract for mention item.
+One linkable mention entry (press/award link shown on the about page).
 
 ## Properties
 
@@ -16,7 +16,9 @@ Type contract for mention item.
 description: string
 ```
 
-Defined in: [src/cms/about/types.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L21)
+Defined in: [src/cms/about/types.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L15)
+
+Visible caption text.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/cms/about/types.ts:21](https://github.com/LuisKrotz/luiskr.com-
 link: string
 ```
 
-Defined in: [src/cms/about/types.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L22)
+Defined in: [src/cms/about/types.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L17)
+
+Destination URL.
 
 ---
 
@@ -36,4 +40,6 @@ Defined in: [src/cms/about/types.ts:22](https://github.com/LuisKrotz/luiskr.com-
 icon: string
 ```
 
-Defined in: [src/cms/about/types.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/about/types.ts#L23)
+Defined in: [src/cms/about/types.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/types.ts#L19)
+
+Icon asset key resolved by the renderer.

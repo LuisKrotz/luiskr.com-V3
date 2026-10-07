@@ -8,9 +8,14 @@
 function startFitObserver(c): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/sizing.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/sizing.ts#L22)
+Defined in: [src/components/carousel/custom-carousel/sizing.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/sizing.ts#L28)
 
-Starts fit observer.
+Wires a ResizeObserver on the host that re-runs _measureFit on width
+changes. Reports under FIT_EPS_PX of the last width are dropped —
+scrollbars appearing/disappearing and sub-pixel reflow would otherwise
+re-fit on every layout pass. The measurement defers one RAF so it runs
+post-layout, and ResizeObserver absence (old engines) degrades to the
+one-shot window-resize path.
 
 ## Parameters
 
@@ -18,7 +23,7 @@ Starts fit observer.
 
 [`CustomCarousel`](../../../CustomCarousel/classes/CustomCarousel.md)
 
-— the component
+The CustomCarousel element.
 
 ## Returns
 

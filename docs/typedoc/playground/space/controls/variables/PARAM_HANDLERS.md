@@ -8,6 +8,11 @@
 const PARAM_HANDLERS: Readonly<Record<string, (_bg, v) => void>>
 ```
 
-Defined in: [src/playground/space/controls.ts:333](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L333)
+Defined in: [src/playground/space/controls.ts:345](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L345)
 
-The PARAM_HANDLERS constant.
+Param → EarthBackground setter dispatch. Each entry adapts a raw UI
+value (slider units / checkbox boolean) into the matching engine update
+call — the UI never touches engine internals directly. EARTH_SPEED
+divides by 10000 because the slider range 0–50 is human-friendly while
+the engine expects radians-per-frame (1 ⇒ 0.0001 rad/frame ≈ slow
+cinematic spin).

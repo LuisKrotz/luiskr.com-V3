@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [playground/space/controls](../README.md) / SpGroup
 
-Defined in: [src/playground/space/controls.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L63)
+Defined in: [src/playground/space/controls.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L72)
 
-The SpGroup value.
+One collapsible panel section.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The SpGroup value.
 label: string
 ```
 
-Defined in: [src/playground/space/controls.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L64)
+Defined in: [src/playground/space/controls.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L74)
+
+Translation key for the group header.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/playground/space/controls.ts:64](https://github.com/LuisKrotz/l
 collapsed: boolean
 ```
 
-Defined in: [src/playground/space/controls.ts:65](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L65)
+Defined in: [src/playground/space/controls.ts:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L76)
+
+Whether the group starts folded.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/playground/space/controls.ts:65](https://github.com/LuisKrotz/l
 controls: SpControl[];
 ```
 
-Defined in: [src/playground/space/controls.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L66)
+Defined in: [src/playground/space/controls.ts:78](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L78)
+
+The group's input rows.
 
 ---
 
@@ -46,4 +52,6 @@ Defined in: [src/playground/space/controls.ts:66](https://github.com/LuisKrotz/l
 optional actions?: SpAction[];
 ```
 
-Defined in: [src/playground/space/controls.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/controls.ts#L67)
+Defined in: [src/playground/space/controls.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L80)
+
+Optional buttons rendered under the controls.

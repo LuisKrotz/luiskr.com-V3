@@ -8,9 +8,11 @@
 function destroyWebGLArrows(c): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/arrows.ts:137](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/custom-carousel/arrows.ts#L137)
+Defined in: [src/components/carousel/custom-carousel/arrows.ts:147](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/arrows.ts#L147)
 
-The destroyWebGLArrows value.
+Destroys both arrow widgets — called on viewport exit (contexts are
+released offscreen to keep the pool small) and on destroy. Nulling the
+refs lets the next mount rebuild fresh.
 
 ## Parameters
 
@@ -18,7 +20,7 @@ The destroyWebGLArrows value.
 
 [`CustomCarousel`](../../../CustomCarousel/classes/CustomCarousel.md)
 
-— the component
+The CustomCarousel element.
 
 ## Returns
 

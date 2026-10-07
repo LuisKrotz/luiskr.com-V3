@@ -8,9 +8,10 @@
 function isLandscapeGroup(c, group): boolean
 ```
 
-Defined in: [src/routes/views/project/layout.ts:82](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/layout.ts#L82)
+Defined in: [src/routes/views/project/layout.ts:94](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/layout.ts#L94)
 
-Returns whether landscape group.
+Whether a media group is all-landscape — those can't pair side-by-side
+in the two-up layout, so they force the carousel into scroll mode.
 
 ## Parameters
 
@@ -18,16 +19,16 @@ Returns whether landscape group.
 
 [`ViewProject`](../../Project/classes/ViewProject.md)
 
-— the component
+The ViewProject instance (unused — facade signature).
 
 ### group
 
 `unknown`
 
-— the group
+A media item array (shape-checked, not trusted).
 
 ## Returns
 
 `boolean`
 
-boolean
+true when every item is landscape and the group is non-empty.

@@ -4,9 +4,10 @@
 
 [luiskr.com](../../../../../README.md) / [components/portfolio/related/types](../README.md) / RelatedSocial
 
-Defined in: [src/components/portfolio/related/types.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/portfolio/related/types.ts#L20)
+Defined in: [src/components/portfolio/related/types.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L26)
 
-The RelatedSocial value.
+A social row in the related footer — `network` names the service
+(icon lookup key), `link` is the profile URL.
 
 ## Properties
 
@@ -16,7 +17,7 @@ The RelatedSocial value.
 optional link?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/portfolio/related/types.ts#L21)
+Defined in: [src/components/portfolio/related/types.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L27)
 
 ---
 
@@ -26,4 +27,4 @@ Defined in: [src/components/portfolio/related/types.ts:21](https://github.com/Lu
 optional network?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/portfolio/related/types.ts#L22)
+Defined in: [src/components/portfolio/related/types.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L28)

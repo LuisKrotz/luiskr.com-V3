@@ -11,7 +11,8 @@ Internal shared composites for the token modules — the
 
 ### `_B_ABOUT`
 
-The _B_ABOUT constant.
+BEM block fragment `about` — declared once here; every domain class token composes from
+this fragment (zero-hardcoding rule 9).
 
 ### `_B_CONTACT`
 
@@ -23,7 +24,8 @@ BEM block fragment "b nav" — composed by the token groups below into full clas
 
 ### `_B_PREF`
 
-The _B_PREF constant.
+BEM block fragment `pref` — declared once here; every domain class token composes from
+this fragment (zero-hardcoding rule 9).
 
 ### `_B_CMS`
 
@@ -35,7 +37,8 @@ BEM block fragment "b admin" — composed by the token groups below into full cl
 
 ### `_B_NOT_FOUND`
 
-The _B_NOT_FOUND constant.
+BEM block fragment `not-found` — declared once here; every domain class token composes
+from this fragment (zero-hardcoding rule 9).
 
 ### `_B_STATS_HUD`
 
@@ -47,7 +50,8 @@ BEM block fragment "b draw text" — composed by the token groups below into ful
 
 ### `_B_HOME_MOSAIC`
 
-The _B_HOME_MOSAIC constant.
+BEM block fragment `home-mosaic` — declared once here; every domain class token composes
+from this fragment (zero-hardcoding rule 9).
 
 ### `_B_MEDIA_FIGURE`
 
@@ -59,7 +63,8 @@ BEM block fragment "b lang dialog" — composed by the token groups below into f
 
 ### `_B_PROGRESS_BAR`
 
-The _B_PROGRESS_BAR constant.
+BEM block fragment `progress-bar` — declared once here; every domain class token composes
+from this fragment (zero-hardcoding rule 9).
 
 ### `_B_SKELETON`
 
@@ -71,7 +76,8 @@ BEM block fragment "b carousel" — composed by the token groups below into full
 
 ### `_B_COOKIES`
 
-The _B_COOKIES constant.
+BEM block fragment `cookies` — declared once here; every domain class token composes from
+this fragment (zero-hardcoding rule 9).
 
 ### `_B_SITE_TOAST`
 
@@ -83,7 +89,8 @@ BEM block fragment "b modal" — composed by the token groups below into full cl
 
 ### `_B_INTERNAL`
 
-The _B_INTERNAL constant.
+BEM block fragment `internal` — declared once here; every domain class token composes from
+this fragment (zero-hardcoding rule 9).
 
 ### `_B_RELATED`
 
@@ -95,7 +102,8 @@ BEM block fragment "b awc" — composed by the token groups below into full clas
 
 ### `_B_FLAG`
 
-The _B_FLAG constant.
+BEM block fragment `flag` — declared once here; every domain class token composes from
+this fragment (zero-hardcoding rule 9).
 
 ### `_B_LOADER`
 
@@ -107,7 +115,8 @@ BEM block fragment "b fluid bg" — composed by the token groups below into full
 
 ### `_B_CURSOR`
 
-The _B_CURSOR constant.
+BEM block fragment `magnetic-cursor` — declared once here; every domain class token
+composes from this fragment (zero-hardcoding rule 9).
 
 ### `_B_DISTORT`
 
@@ -119,7 +128,8 @@ BEM block fragment "b footer source" — composed by the token groups below into
 
 ### `_B_SP`
 
-The _B_SP constant.
+BEM block fragment `sp` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_LANG_GLASS`
 
@@ -127,7 +137,8 @@ BEM block fragment "b lang glass" — composed by the token groups below into fu
 
 ### `_B_SKELETON_ABOUT`
 
-The _B_SKELETON_ABOUT constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_SKELETON_ABOUT_P`
 
@@ -139,7 +150,8 @@ BEM block fragment "b skeleton footer" — composed by the token groups below in
 
 ### `_B_RENDER`
 
-The _B_RENDER constant.
+BEM block fragment `render` — declared once here; every domain class token composes from
+this fragment (zero-hardcoding rule 9).
 
 ### `_B_RENDER_MEDIA`
 
@@ -151,7 +163,8 @@ BEM block fragment "b render placeholder" — composed by the token groups below
 
 ### `_B_CAROUSEL_BTN`
 
-The _B_CAROUSEL_BTN constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_CAROUSEL_SLIDE`
 
@@ -163,7 +176,8 @@ BEM block fragment "b carousel dot" — composed by the token groups below into 
 
 ### `_B_CAROUSEL_BTN_RING`
 
-The _B_CAROUSEL_BTN_RING constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_CAROUSEL_SLIDE_CLONE`
 
@@ -175,7 +189,8 @@ BEM block fragment "b about profile" — composed by the token groups below into
 
 ### `_B_ABOUT_PROFILE_PICTURE`
 
-The _B_ABOUT_PROFILE_PICTURE constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_ABOUT_PROFILE_TEXT`
 
@@ -187,7 +202,8 @@ BEM block fragment "b about item" — composed by the token groups below into fu
 
 ### `_B_AWARDS_FOOTER`
 
-The _B_AWARDS_FOOTER constant.
+BEM block fragment `awards-footer` — declared once here; every domain class token composes
+from this fragment (zero-hardcoding rule 9).
 
 ### `_B_AWARDS_FOOTER_PROGRESS`
 
@@ -199,7 +215,8 @@ BEM block fragment "b awards footer progress fill" — composed by the token gro
 
 ### `_B_AWARDS_FOOTER_LINKS`
 
-The _B_AWARDS_FOOTER_LINKS constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_CONTACT_SOCIAL`
 
@@ -211,7 +228,8 @@ BEM block fragment "b contact other" — composed by the token groups below into
 
 ### `_B_EXPAND_MODAL`
 
-The _B_EXPAND_MODAL constant.
+BEM block fragment `expand-modal` — declared once here; every domain class token composes
+from this fragment (zero-hardcoding rule 9).
 
 ### `_B_EXPAND_MODAL_CONTENT`
 
@@ -223,7 +241,8 @@ BEM block fragment "b expand modal close" — composed by the token groups below
 
 ### `_B_EXPAND_MODAL_CLOSE_BAR`
 
-The _B_EXPAND_MODAL_CLOSE_BAR constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_EXPAND_MODAL_MEDIA`
 
@@ -235,7 +254,8 @@ BEM block fragment "b expand modal media figure" — composed by the token group
 
 ### `_B_EXPAND_MODAL_MEDIA_ITEM`
 
-The _B_EXPAND_MODAL_MEDIA_ITEM constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_INTERNAL_DESCRIPTION`
 
@@ -247,7 +267,8 @@ BEM block fragment "b internal extra" — composed by the token groups below int
 
 ### `_B_INTERNAL_FOOTER`
 
-The _B_INTERNAL_FOOTER constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_INTERNAL_FOOTER_ITEMS`
 
@@ -259,7 +280,8 @@ BEM block fragment "b internal main" — composed by the token groups below into
 
 ### `_B_PREF_OPTIONS`
 
-The _B_PREF_OPTIONS constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_PREF_OPTION`
 
@@ -271,7 +293,8 @@ BEM block fragment "b pref switch" — composed by the token groups below into f
 
 ### `_B_PREF_THEME`
 
-The _B_PREF_THEME constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_PREF_BACKDROP`
 
@@ -283,7 +306,8 @@ BEM block fragment "b pref close" — composed by the token groups below into fu
 
 ### `_B_PREF_SECTION`
 
-The _B_PREF_SECTION constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_PREF_THEME_BTN`
 
@@ -295,7 +319,8 @@ BEM block fragment "b cookies buttons" — composed by the token groups below in
 
 ### `_B_FLAG_CANVAS`
 
-The _B_FLAG_CANVAS constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_NAV_BURGER`
 
@@ -307,7 +332,8 @@ BEM block fragment "b nav menu modal" — composed by the token groups below int
 
 ### `_B_AWC_DOT`
 
-The _B_AWC_DOT constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_AWC_SLIDE`
 
@@ -319,7 +345,8 @@ BEM block fragment "b awc slide clone" — composed by the token groups below in
 
 ### `_B_AWC_BTN`
 
-The _B_AWC_BTN constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_AWC_BTN_RING`
 
@@ -331,7 +358,8 @@ BEM block fragment "b awc award" — composed by the token groups below into ful
 
 ### `_B_SPP`
 
-The _B_SPP constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_SPP_RANGE`
 
@@ -343,7 +371,8 @@ BEM block fragment "b spp check" — composed by the token groups below into ful
 
 ### `_B_SPP_ROW`
 
-The _B_SPP_ROW constant.
+BEM block fragment `…` — declared once here; every domain class token composes from this
+fragment (zero-hardcoding rule 9).
 
 ### `_B_SPP_SWITCH`
 
@@ -351,7 +380,8 @@ BEM block fragment "b spp switch" — composed by the token groups below into fu
 
 ### `_K_RELATED`
 
-The _K_RELATED constant.
+Shared key token `related` — single source for a literal repeated across modules
+(zero-hardcoding rule 5).
 
 ### `_K_HOME`
 
@@ -363,7 +393,8 @@ Token key "k close" — single source for the repeated literal.
 
 ### `_K_ACTIVE`
 
-The _K_ACTIVE constant.
+Shared key token `active` — single source for a literal repeated across modules
+(zero-hardcoding rule 5).
 
 ### `_K_PRIVACY_POLICY`
 
@@ -375,7 +406,8 @@ Token key "k terms of use" — single source for the repeated literal.
 
 ### `_K_EARTH_PLAYGROUND`
 
-The _K_EARTH_PLAYGROUND constant.
+Shared key token `earthPlayground` — single source for a literal repeated across modules
+(zero-hardcoding rule 5).
 
 ### `_K_ABOUT_SECTION`
 
@@ -387,7 +419,8 @@ Token key "k legal footer" — single source for the repeated literal.
 
 ### `_K_PREFERENCES_MODAL`
 
-The _K_PREFERENCES_MODAL constant.
+Shared key token `preferences-modal` — single source for a literal repeated across modules
+(zero-hardcoding rule 5).
 
 ### `_K_MEDIA`
 
@@ -399,7 +432,8 @@ Token key "k source code" — single source for the repeated literal.
 
 ### `_K_VIEW_OUTLET`
 
-The _K_VIEW_OUTLET constant.
+Shared key token `view-outlet` — single source for a literal repeated across modules
+(zero-hardcoding rule 5).
 
 ### `_K_ROUTER_LINK_EXACT_ACTIVE`
 
@@ -411,7 +445,8 @@ Token key "k system" — single source for the repeated literal.
 
 ### `_K_INPUT`
 
-The _K_INPUT constant.
+Shared key token `input` — single source for a literal repeated across modules
+(zero-hardcoding rule 5).
 
 ### `_K_STYLE`
 
@@ -423,7 +458,8 @@ Token key "k dialog" — single source for the repeated literal.
 
 ### `_K_TITLE`
 
-The _K_TITLE constant.
+Shared key token `title` — single source for a literal repeated across modules
+(zero-hardcoding rule 5).
 
 ### `_K_TOUCHSTART`
 
@@ -435,7 +471,8 @@ Token key "k pointerenter" — single source for the repeated literal.
 
 ### `_K_FOCUS`
 
-The _K_FOCUS constant.
+Shared key token `focus` — single source for a literal repeated across modules
+(zero-hardcoding rule 5).
 
 ### `_K_SITE_URL`
 
@@ -443,8 +480,10 @@ Token key "k site url" — single source for the repeated literal.
 
 ### `_DATA`
 
-The _DATA constant.
+Internal scalar token `data-` — composed by the token groups in this module.
 
 ### `SECTIONS`
 
-The sections helper.
+Frozen sections map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.

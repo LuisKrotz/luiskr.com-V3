@@ -11,4 +11,6 @@ Component custom-element tag tokens — grouped subset of
 
 ### `COMPONENT_TAGS`
 
-The COMPONENT_TAGS constant.
+Frozen component element tag-name map — sole declaration site for these tokens; consumers
+read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+makes the token contract immutable at runtime.

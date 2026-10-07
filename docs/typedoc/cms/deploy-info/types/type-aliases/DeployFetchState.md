@@ -8,6 +8,7 @@
 type DeployFetchState = 'loading' | 'missing' | 'ready'
 ```
 
-Defined in: [src/cms/deploy-info/types.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/deploy-info/types.ts#L67)
+Defined in: [src/cms/deploy-info/types.ts:82](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/deploy-info/types.ts#L82)
 
-The DeployFetchState value.
+Tri-state of the Deploy Info fetch: still `loading`, the bundle
+is `missing` (no deploy-info/ in this build), or the index parsed `ready`.

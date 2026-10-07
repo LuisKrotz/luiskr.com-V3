@@ -15,20 +15,22 @@ Shape of the translations/<locale>/APP dictionary node.
 
 ### (module scope)
 
-The AppNavEl value.
+<app-nav> reached through the shell — translations prop + scroll-state setter.
 
 ### (module scope)
 
-The CookieBannerEl value.
+<cookie-banner> reached through the shell — only the translations prop is used.
 
 ### (module scope)
 
-Type contract for pref modal el.
+<preferences-modal> reached through the shell — `pref` node + open flag.
 
 ### (module scope)
 
-Type contract for lang dialog el.
+<lang-dialog> reached through the shell — only the open flag is driven.
 
 ### (module scope)
 
-The RoutableView value.
+A mounted view element that may implement onRouteParamChange — the
+outlet calls it when a same-tag route updates params (project→project
+navigation reuses the element).

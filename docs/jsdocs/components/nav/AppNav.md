@@ -9,13 +9,35 @@
 
 ## Members
 
+### `_PLAYGROUND_SLUGS`
+
+Pre-computed set of every locale's localized earth-playground slug —
+`isPlaygroundPage` needs O(1) membership tests on the last URL segment
+(the route resolver may not have run yet when the getter first fires),
+so all 16 locales' `earthPlayground` values are flattened once at module
+load rather than re-built per check.
+
+### (module scope)
+
+The slice of the APP translation dictionary the nav template reads —
+all fields optional since the dictionary arrives incrementally and the
+template falls back to English snapshot copy per key.
+
 ### `AppNav`
 
-The AppNav — nav class.
+<app-nav> — persistent top bar (logo, burger, locale flag, preferences
+trigger) plus the fullscreen menu overlay. Owns four WebGL widgets
+(burger, menu background, menu close, locale flag) on persistent
+canvases that are never re-created by re-renders — one GL context per
+widget for the element's lifetime.
 
 ### `_translations`
 
 APP dictionary pushed by <app-root>; null until first fetch lands.
+
+### `_translationsLocale`
+
+Locale the pushed `_translations` were fetched for — the getter returns null on mismatch so stale copy never renders mid-switch.
 
 ### `activeSection`
 
@@ -29,6 +51,26 @@ Within 200px of document bottom — flips CTA to "scroll up".
 
 Live FlagWebGL widgets (currently max one — the menu flag).
 
+### `_onDark`
+
+True while the nav floats over a dark section — drives the --on-dark variant for contrast inversion.
+
+### `_menuOpen`
+
+Menu overlay is open.
+
+### `_menuClosing`
+
+Close animation in flight — blocks re-entry/double-close.
+
+### `_menuSettled`
+
+Open animation completed — close X can snap to drawn state on reopen.
+
+### `_menuSettleTimer`
+
+Handle for the settle delay; cleared on destroy so no timer outlives the element.
+
 ### `_menuBg`
 
 MenuBackgroundWebGL instance — owns the fullscreen contour canvas.
@@ -40,6 +82,18 @@ CloseButtonWebGL on the menu's X.
 ### `_burgerBtn`
 
 BurgerButtonWebGL on the persistent burger canvas.
+
+### `_burgerCanvasEl`
+
+Burger button canvas host.
+
+### `_menuCanvasEl`
+
+Fullscreen menu background canvas host.
+
+### `_menuCloseCanvasEl`
+
+Menu close-X canvas host.
 
 ### `_menuFlagCanvasEl`
 
@@ -182,6 +236,10 @@ Opens the language dialog (fires open-lang-dialog after capturing origin).
 
 JSX template: logo button, burger, and the fullscreen menu overlay —
 the markup lives in nav-render.tsx; this delegates with `this`.
+
+### `_burgerCanvas`
+
+Persistent burger canvas (aria-labeled) — created once, survives re-renders so its GL context does.
 
 ### `_menuCanvas`
 

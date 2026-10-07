@@ -11,45 +11,148 @@ Mutable engine state for EarthBackground, extracted from
 
 ### (module scope)
 
-earths progress fn.
-- `@param` _label — the value
-- `@param` percent — the value
+Progress callback signature — label + percent so the loader UI can show
+which asset is streaming and how far along the whole boot is.
+- `@param` _label Asset label for the loader text.
+- `@param` percent 0–100 progress through the boot sequence.
 
 ### (module scope)
 
-Type contract for earth sun state.
+Sun settings driven by the control panel.
+
+### `autoRotate`
+
+Whether the sun orbits automatically.
+
+### `speed`
+
+Orbit angular speed (rad/frame scale).
+
+### `inclination`
+
+Orbit plane inclination (rad).
+
+### `intensity`
+
+Directional-light intensity.
+
+### `color`
+
+Packed RGB light color.
+
+### `angle`
+
+Current orbit angle (rad) — advanced per frame when autoRotate.
 
 ### (module scope)
 
-earths moon state.
+Moon orbit settings driven by the control panel.
+
+### `enabled`
+
+Whether the moon layer is rendered at all.
+
+### `speed`
+
+Orbit angular speed.
+
+### `distance`
+
+Orbit radius in world units.
+
+### `inclination`
+
+Orbit plane inclination (rad).
+
+### `angle`
+
+Current orbit angle (rad).
 
 ### (module scope)
 
-earths spin state.
+Earth self-rotation settings.
+
+### `rotationSpeed`
+
+Y-rotation speed applied per frame.
+
+### `trueInclination`
+
+When true the real 23.44° tilt is applied to the group.
 
 ### (module scope)
 
-earths bloom state.
+Bloom post-pass settings.
+
+### `strength`
+
+Bloom intensity multiplier.
+
+### `radius`
+
+Bloom kernel radius.
+
+### `threshold`
+
+Luminance threshold above which pixels bleed.
 
 ### (module scope)
 
-earths ca state.
+Chromatic-aberration post-pass settings.
+
+### `strength`
+
+RGB channel split magnitude.
+
+### `scale`
+
+Effect radial scale.
 
 ### (module scope)
 
-earths vig state.
+Vignette post-pass settings.
+
+### `darkness`
+
+Edge darkening amount.
+
+### `offset`
+
+Where the falloff starts (0–1 UV distance).
 
 ### (module scope)
 
-earths film state.
+Film-grain post-pass settings.
+
+### `intensity`
+
+Grain opacity/intensity.
 
 ### (module scope)
 
-earths grade state.
+Color-grade post-pass settings.
+
+### `contrast`
+
+Contrast multiplier around mid-gray.
+
+### `saturation`
+
+Saturation multiplier (1 = unchanged).
+
+### `blackLevel`
+
+Lift applied to the black point.
+
+### `blueGreenBoost`
+
+Extra blue/green channel gain for the oceanic palette.
 
 ### (module scope)
 
-earths state.
+The single mutable bag for the whole engine — every async-created GPU
+handle is nullable because bootstrap fills them progressively and a
+mid-boot dispose must see exactly what's live.
 
 ### `animId`
 
@@ -74,4 +177,10 @@ Stable resize-listener identity so destroy() can removeEventListener.
 
 ### `createEarthState`
 
-Creates earth state.
+Builds the initial null-everything state bag — every GPU handle starts
+null so bootstrap can fill them in any order and dispose can skip
+whatever never got created.
+- `@param` canvas The target canvas element.
+- `@param` onReady Callback once the scene is first rendered.
+- `@param` onProgress Boot progress reporter.
+- `@returns` The zeroed state bag.

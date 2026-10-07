@@ -8,9 +8,11 @@
 function generateCarouselItemListSchema(items?, baseUrl?): Record<string, unknown> | null
 ```
 
-Defined in: [src/core/utils/schema.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/utils/schema.ts#L68)
+Defined in: [src/core/utils/schema.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/utils/schema.ts#L72)
 
-Generates an ItemList matching Google Carousel rich results guidelines.
+Generates an ItemList matching Google Carousel rich results guidelines —
+`position` is 1-based per the spec, and `image` is only emitted when the
+item carries a src (an absent property beats an empty one for parsers).
 
 ## Parameters
 
@@ -26,4 +28,4 @@ Generates an ItemList matching Google Carousel rich results guidelines.
 
 `Record`\<`string`, `unknown`\> \| `null`
 
-ItemList entity
+ItemList entity, or null when there is nothing to list.

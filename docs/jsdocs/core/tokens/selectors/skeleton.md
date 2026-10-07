@@ -11,4 +11,6 @@ Skeleton placeholder selector tokens — grouped subset of
 
 ### `SKELETON_SELECTORS`
 
-The SKELETON_SELECTORS constant.
+Frozen skeleton selector map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

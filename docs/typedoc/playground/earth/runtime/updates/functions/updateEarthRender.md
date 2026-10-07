@@ -8,7 +8,7 @@
 function updateEarthRender(s, __namedParameters?): void
 ```
 
-Defined in: [src/playground/earth/runtime/updates.ts:193](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/updates.ts#L193)
+Defined in: [src/playground/earth/runtime/updates.ts:193](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/updates.ts#L193)
 
 Resolution-scale multiplier (clamped ≤2) applied on top of
 devicePixelRatio — the "render resolution" slider in the playground.

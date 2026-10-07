@@ -11,4 +11,6 @@ Admin/login classes — login wrapper/card, Google auth
 
 ### `CMS_ADMIN_CLASSES`
 
-The CMS_ADMIN_CLASSES constant.
+Frozen cms admin class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

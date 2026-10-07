@@ -8,9 +8,9 @@
 type CookieBannerEl = HTMLElement & object
 ```
 
-Defined in: [src/app/types.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/app/types.ts#L30)
+Defined in: [src/app/types.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/app/types.ts#L27)
 
-The CookieBannerEl value.
+<cookie-banner> reached through the shell — only the translations prop is used.
 
 ## Type Declaration
 

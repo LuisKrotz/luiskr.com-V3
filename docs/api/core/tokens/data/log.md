@@ -11,7 +11,9 @@ Dev-log severity levels + the globalThis inspection key.
 
 ### `LOG_LEVELS`
 
-The LOG_LEVELS constant.
+Frozen log map — sole declaration site for these tokens; consumers read members and never
+re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token contract
+immutable at runtime.
 
 ### `DEV_LOG`
 

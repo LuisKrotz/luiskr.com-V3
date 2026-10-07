@@ -4,17 +4,11 @@
 
 [luiskr.com](../../../../../README.md) / [routes/views/project/types](../README.md) / ProjectMediaItem
 
-Defined in: [src/routes/views/project/types.ts:9](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/types.ts#L9)
+Defined in: [src/routes/views/project/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L14)
 
-## File
-
-project/types.ts
-
-## Description
-
-Shared shapes for the <view-project> route: media items,
-section children, the fetched project node and the custom-carousel
-element contract.
+A media row inside a project section — `src` is the extensionless CDN
+stem, `size` the intrinsic [w,h] for aspect layout, `label`/`class`/`isVideo` the
+optional render modifiers. Index signature passes through extra CMS fields.
 
 ## Indexable
 
@@ -30,7 +24,7 @@ element contract.
 src: string
 ```
 
-Defined in: [src/routes/views/project/types.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/types.ts#L10)
+Defined in: [src/routes/views/project/types.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L15)
 
 ---
 
@@ -40,7 +34,7 @@ Defined in: [src/routes/views/project/types.ts:10](https://github.com/LuisKrotz/
 size: number[];
 ```
 
-Defined in: [src/routes/views/project/types.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/types.ts#L11)
+Defined in: [src/routes/views/project/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L16)
 
 ---
 
@@ -50,7 +44,7 @@ Defined in: [src/routes/views/project/types.ts:11](https://github.com/LuisKrotz/
 optional label?: string;
 ```
 
-Defined in: [src/routes/views/project/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/types.ts#L12)
+Defined in: [src/routes/views/project/types.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L17)
 
 ---
 
@@ -60,7 +54,7 @@ Defined in: [src/routes/views/project/types.ts:12](https://github.com/LuisKrotz/
 optional class?: string;
 ```
 
-Defined in: [src/routes/views/project/types.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/types.ts#L13)
+Defined in: [src/routes/views/project/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L18)
 
 ---
 
@@ -70,4 +64,4 @@ Defined in: [src/routes/views/project/types.ts:13](https://github.com/LuisKrotz/
 optional isVideo?: boolean;
 ```
 
-Defined in: [src/routes/views/project/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/types.ts#L14)
+Defined in: [src/routes/views/project/types.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L19)

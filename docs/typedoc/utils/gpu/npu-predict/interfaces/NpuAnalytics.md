@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [utils/gpu/npu-predict](../README.md) / NpuAnalytics
 
-Defined in: [src/utils/gpu/npu-predict.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L38)
+Defined in: [src/utils/gpu/npu-predict.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L43)
 
-The NpuAnalytics value.
+HUD-facing predictor metrics.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The NpuAnalytics value.
 npuAccelerated: boolean
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L39)
+Defined in: [src/utils/gpu/npu-predict.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L45)
+
+Whether the WebNN NPU tier is live.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/utils/gpu/npu-predict.ts:39](https://github.com/LuisKrotz/luisk
 gpuAccelerated: boolean
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L40)
+Defined in: [src/utils/gpu/npu-predict.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L47)
+
+Whether the shared GPU tier is live.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/utils/gpu/npu-predict.ts:40](https://github.com/LuisKrotz/luisk
 wasmAccelerated: boolean
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L41)
+Defined in: [src/utils/gpu/npu-predict.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L49)
+
+Whether the WASM worker tier is live (always true — the last resort).
 
 ---
 
@@ -46,7 +52,9 @@ Defined in: [src/utils/gpu/npu-predict.ts:41](https://github.com/LuisKrotz/luisk
 totalPredictions: number
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L42)
+Defined in: [src/utils/gpu/npu-predict.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L51)
+
+Lifetime prediction count.
 
 ---
 
@@ -56,7 +64,9 @@ Defined in: [src/utils/gpu/npu-predict.ts:42](https://github.com/LuisKrotz/luisk
 successfulPreloads: number
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L43)
+Defined in: [src/utils/gpu/npu-predict.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L53)
+
+Successful prefetch injections.
 
 ---
 
@@ -66,7 +76,9 @@ Defined in: [src/utils/gpu/npu-predict.ts:43](https://github.com/LuisKrotz/luisk
 lastPredictionConfidence: number
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L44)
+Defined in: [src/utils/gpu/npu-predict.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L55)
+
+Most recent probability, rounded to cents.
 
 ---
 
@@ -76,4 +88,6 @@ Defined in: [src/utils/gpu/npu-predict.ts:44](https://github.com/LuisKrotz/luisk
 avgComputeMs: number
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/npu-predict.ts#L45)
+Defined in: [src/utils/gpu/npu-predict.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L57)
+
+Exponential-ish running mean of scoring time in ms.

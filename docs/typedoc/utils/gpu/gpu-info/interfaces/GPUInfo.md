@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../README.md) / [utils/gpu/gpu-info](../README.md) / GPUInfo
 
-Defined in: [src/utils/gpu/gpu-info.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/gpu-info.ts#L24)
+Defined in: [src/utils/gpu/gpu-info.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L22)
 
-The GPUInfo value.
+Classified GPU probe result — frozen so consumers can't mutate the cache.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The GPUInfo value.
 renderer: string
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/gpu-info.ts#L25)
+Defined in: [src/utils/gpu/gpu-info.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L24)
+
+Unmasked renderer string ('ANGLE (NVIDIA…)', 'Apple M1', 'SwiftShader', …).
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/utils/gpu/gpu-info.ts:25](https://github.com/LuisKrotz/luiskr.c
 dedicated: boolean
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/gpu-info.ts#L26)
+Defined in: [src/utils/gpu/gpu-info.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L26)
+
+Discrete-card class detected (NVIDIA/AMD/Radeon Pro).
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/utils/gpu/gpu-info.ts:26](https://github.com/LuisKrotz/luiskr.c
 apple: boolean
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/gpu-info.ts#L27)
+Defined in: [src/utils/gpu/gpu-info.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L28)
+
+Apple Silicon detected — unified memory but GPU-class performance.
 
 ---
 
@@ -46,7 +52,9 @@ Defined in: [src/utils/gpu/gpu-info.ts:27](https://github.com/LuisKrotz/luiskr.c
 integrated: boolean
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/gpu-info.ts#L28)
+Defined in: [src/utils/gpu/gpu-info.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L30)
+
+Integrated GPU detected (Intel UHD/Iris, basic ANGLE adapters).
 
 ---
 
@@ -56,7 +64,9 @@ Defined in: [src/utils/gpu/gpu-info.ts:28](https://github.com/LuisKrotz/luiskr.c
 software: boolean
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/gpu-info.ts#L29)
+Defined in: [src/utils/gpu/gpu-info.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L32)
+
+Software rasterizer (SwiftShader/llvmpipe) — GPU work falls back to CSS.
 
 ---
 
@@ -66,7 +76,9 @@ Defined in: [src/utils/gpu/gpu-info.ts:29](https://github.com/LuisKrotz/luiskr.c
 mobile: boolean
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/gpu-info.ts#L30)
+Defined in: [src/utils/gpu/gpu-info.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L34)
+
+Mobile-class user agent — deprioritizes GPU pinning regardless of chip.
 
 ---
 
@@ -76,4 +88,6 @@ Defined in: [src/utils/gpu/gpu-info.ts:30](https://github.com/LuisKrotz/luiskr.c
 capable: boolean
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/gpu/gpu-info.ts#L31)
+Defined in: [src/utils/gpu/gpu-info.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L36)
+
+Worth pinning GPU work to — desktop discrete or Apple Silicon.

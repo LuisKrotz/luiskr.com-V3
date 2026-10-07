@@ -11,4 +11,6 @@ Contact section class tokens — token group.
 
 ### `CONTACT_CLASSES`
 
-contacts classes.
+Contact-section classes: `contact` block (title), `contact-social`
+block (profile links + separator), `contact-other` block (secondary
+links). All compose `_B_*` fragments from base.ts — never re-declared.

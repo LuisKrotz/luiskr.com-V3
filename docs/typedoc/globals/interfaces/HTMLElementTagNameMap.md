@@ -14,7 +14,7 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:43099
 app-nav: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L47)
+Defined in: [src/globals.d.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L47)
 
 ---
 
@@ -24,7 +24,7 @@ Defined in: [src/globals.d.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blo
 home-mosaic: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L48)
+Defined in: [src/globals.d.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L48)
 
 ---
 
@@ -34,7 +34,7 @@ Defined in: [src/globals.d.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blo
 awards-carousel: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L49)
+Defined in: [src/globals.d.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L49)
 
 ---
 
@@ -44,7 +44,7 @@ Defined in: [src/globals.d.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blo
 custom-carousel: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L50)
+Defined in: [src/globals.d.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L50)
 
 ---
 
@@ -54,7 +54,7 @@ Defined in: [src/globals.d.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blo
 media-figure: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L51)
+Defined in: [src/globals.d.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L51)
 
 ---
 
@@ -64,7 +64,7 @@ Defined in: [src/globals.d.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blo
 media-expanded: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L52)
+Defined in: [src/globals.d.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L52)
 
 ---
 
@@ -74,7 +74,7 @@ Defined in: [src/globals.d.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blo
 draw-text: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L53)
+Defined in: [src/globals.d.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L53)
 
 ---
 
@@ -84,7 +84,7 @@ Defined in: [src/globals.d.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blo
 portfolio-related: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L54)
+Defined in: [src/globals.d.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L54)
 
 ---
 
@@ -94,7 +94,7 @@ Defined in: [src/globals.d.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blo
 about-section: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L55)
+Defined in: [src/globals.d.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L55)
 
 ---
 
@@ -104,7 +104,7 @@ Defined in: [src/globals.d.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blo
 contact-section: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L56)
+Defined in: [src/globals.d.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L56)
 
 ---
 
@@ -114,7 +114,7 @@ Defined in: [src/globals.d.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blo
 awards-mentions: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L57)
+Defined in: [src/globals.d.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L57)
 
 ---
 
@@ -124,7 +124,7 @@ Defined in: [src/globals.d.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blo
 site-toast: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L58)
+Defined in: [src/globals.d.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L58)
 
 ---
 
@@ -134,7 +134,7 @@ Defined in: [src/globals.d.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blo
 preferences-modal: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L59)
+Defined in: [src/globals.d.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L59)
 
 ---
 
@@ -144,7 +144,7 @@ Defined in: [src/globals.d.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blo
 lang-dialog: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L60)
+Defined in: [src/globals.d.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L60)
 
 ---
 
@@ -154,7 +154,7 @@ Defined in: [src/globals.d.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blo
 expand-modal: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L61)
+Defined in: [src/globals.d.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L61)
 
 ---
 
@@ -164,7 +164,7 @@ Defined in: [src/globals.d.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blo
 internal-footer: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L62)
+Defined in: [src/globals.d.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L62)
 
 ---
 
@@ -174,7 +174,7 @@ Defined in: [src/globals.d.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blo
 view-admin-login: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L63)
+Defined in: [src/globals.d.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L63)
 
 ---
 
@@ -184,7 +184,7 @@ Defined in: [src/globals.d.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blo
 view-cms-dashboard: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L64)
+Defined in: [src/globals.d.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L64)
 
 ---
 
@@ -194,7 +194,7 @@ Defined in: [src/globals.d.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blo
 cms-portfolio-list: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:65](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L65)
+Defined in: [src/globals.d.ts:65](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L65)
 
 ---
 
@@ -204,7 +204,7 @@ Defined in: [src/globals.d.ts:65](https://github.com/LuisKrotz/luiskr.com-V3/blo
 cms-projects-list: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L66)
+Defined in: [src/globals.d.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L66)
 
 ---
 
@@ -214,7 +214,7 @@ Defined in: [src/globals.d.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blo
 cms-about-editor: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L67)
+Defined in: [src/globals.d.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L67)
 
 ---
 
@@ -224,7 +224,7 @@ Defined in: [src/globals.d.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blo
 cms-footer-editor: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L68)
+Defined in: [src/globals.d.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L68)
 
 ---
 
@@ -234,7 +234,7 @@ Defined in: [src/globals.d.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blo
 cms-lang-editor: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L69)
+Defined in: [src/globals.d.ts:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L69)
 
 ---
 
@@ -244,7 +244,7 @@ Defined in: [src/globals.d.ts:69](https://github.com/LuisKrotz/luiskr.com-V3/blo
 cms-playground-editor: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:70](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L70)
+Defined in: [src/globals.d.ts:70](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L70)
 
 ---
 
@@ -254,7 +254,7 @@ Defined in: [src/globals.d.ts:70](https://github.com/LuisKrotz/luiskr.com-V3/blo
 cms-media-converter: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:71](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L71)
+Defined in: [src/globals.d.ts:71](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L71)
 
 ---
 
@@ -264,7 +264,7 @@ Defined in: [src/globals.d.ts:71](https://github.com/LuisKrotz/luiskr.com-V3/blo
 cms-deploy-info: HTMLElement;
 ```
 
-Defined in: [src/globals.d.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/globals.d.ts#L72)
+Defined in: [src/globals.d.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/globals.d.ts#L72)
 
 ---
 

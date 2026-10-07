@@ -4,9 +4,10 @@
 
 [luiskr.com](../../../../README.md) / [core/store/state](../README.md) / MentionsState
 
-Defined in: [src/core/store/state.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L46)
+Defined in: [src/core/store/state.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L51)
 
-The MentionsState value.
+Awards-mentions strip state — null fields mean "not loaded yet" so the
+section renders its skeleton until the fetch resolves.
 
 ## Properties
 
@@ -16,7 +17,7 @@ The MentionsState value.
 title: string | null
 ```
 
-Defined in: [src/core/store/state.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L47)
+Defined in: [src/core/store/state.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L52)
 
 ---
 
@@ -26,4 +27,4 @@ Defined in: [src/core/store/state.ts:47](https://github.com/LuisKrotz/luiskr.com
 items: unknown[] | null;
 ```
 
-Defined in: [src/core/store/state.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L48)
+Defined in: [src/core/store/state.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L53)

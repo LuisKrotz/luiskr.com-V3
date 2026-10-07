@@ -48,6 +48,18 @@ Re-exports [UA_PATTERNS](gpu/variables/UA_PATTERNS.md)
 
 ---
 
+### QUAD\_STRIP
+
+Re-exports [QUAD_STRIP](gpu/variables/QUAD_STRIP.md)
+
+---
+
+### WEBGL\_POOL\_OBSERVER
+
+Re-exports [WEBGL_POOL_OBSERVER](gpu/variables/WEBGL_POOL_OBSERVER.md)
+
+---
+
 ### NOTIFY
 
 Re-exports [NOTIFY](notify/variables/NOTIFY.md)
@@ -57,6 +69,12 @@ Re-exports [NOTIFY](notify/variables/NOTIFY.md)
 ### PREFETCH\_CONFIG
 
 Re-exports [PREFETCH_CONFIG](prefetch/variables/PREFETCH_CONFIG.md)
+
+---
+
+### NPU\_PREDICT
+
+Re-exports [NPU_PREDICT](prefetch/variables/NPU_PREDICT.md)
 
 ---
 

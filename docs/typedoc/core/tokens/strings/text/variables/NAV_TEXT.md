@@ -17,13 +17,8 @@ const NAV_TEXT: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/strings/text.ts:7](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/strings/text.ts#L7)
+Defined in: [src/core/tokens/strings/text.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/strings/text.ts#L12)
 
-## File
-
-tokens/strings/text.js
-
-## Description
-
-Non-localized UI text tokens (units, dev-facing labels) —
-grouped subsets of TEXT.
+Non-localized UI text tokens (units, dev-facing labels) Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

@@ -17,14 +17,8 @@ const MEDIA: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/media/suffixes.ts:8](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/media/suffixes.ts#L8)
+Defined in: [src/core/tokens/media/suffixes.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/media/suffixes.ts#L13)
 
-## File
-
-tokens/media/suffixes.js
-
-## Description
-
-Media asset filename-suffix tokens. All suffixes match the
-exact Firebase Storage naming convention used by the Kodak MSSIM blur-up
-pipeline and mozjpeg encoding passes.
+Media asset filename-suffix tokens. All suffixes match the exact Firebase Storage naming convention used by the Kodak MSSIM blur-up pipeline and mozjpeg encoding passes. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

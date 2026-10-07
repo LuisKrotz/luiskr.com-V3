@@ -12,10 +12,15 @@ Boot-time `?debug=…` actions. Values:
 ### `debugParams`
 
 All `debug` values on the current URL (empty outside a windowed context).
+`getAll` (not `get`) because the param is repeatable — `?debug=a&debug=b`
+must surface both flags.
+- `@returns` Every `?debug=` value in order.
 
 ### `hasDebugFlag`
 
 True when `flag` is present among the URL's `?debug=` values.
+- `@param` flag Debug flag token from DEBUG_PARAMS.
+- `@returns` Whether the flag is active.
 
 ### `runDebugActions`
 

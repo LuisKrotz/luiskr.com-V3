@@ -8,9 +8,12 @@
 function applyPersistedSettings(c): void
 ```
 
-Defined in: [src/playground/space/boot.ts:90](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/boot.ts#L90)
+Defined in: [src/playground/space/boot.ts:104](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/boot.ts#L104)
 
-Applies persisted settings.
+Replays the persisted settings object onto the live engine and panel:
+each saved param runs through PARAM_HANDLERS (the same dispatch live
+edits use), then the matching DOM input's value/checked + slider
+track-fill + row label are synced so the panel reflects restored state.
 
 ## Parameters
 
@@ -18,7 +21,7 @@ Applies persisted settings.
 
 [`SpacePlayground`](../../../SpacePlayground/classes/SpacePlayground.md)
 
-— the component
+The SpacePlayground element.
 
 ## Returns
 

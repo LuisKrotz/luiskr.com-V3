@@ -8,15 +8,20 @@
 function renderAwardsCarousel(host): Element
 ```
 
-Defined in: [src/components/carousel/awards-carousel/render.tsx:94](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/awards-carousel/render.tsx#L94)
+Defined in: [src/components/carousel/awards-carousel/render.tsx:120](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/render.tsx#L120)
 
-JSX template for the component's shadow DOM.
+JSX template for the component's shadow DOM — the track is
+`[clone(last)] …real slides… [clone(first)]`; the clone ends are what
+make the infinite wrap seamless (see nav.ts). An empty item list still
+emits the root wrapper so the element keeps its box for layout.
 
 ## Parameters
 
 ### host
 
 [`AwardsCarousel`](../../../AwardsCarousel/classes/AwardsCarousel.md)
+
+The AwardsCarousel element.
 
 ## Returns
 

@@ -8,6 +8,8 @@
 const predictiveLoader: PredictiveLoader
 ```
 
-Defined in: [src/core/predictive-loader.ts:168](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/predictive-loader.ts#L168)
+Defined in: [src/core/predictive-loader.ts:191](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/predictive-loader.ts#L191)
 
-The predictiveLoader constant.
+App-wide singleton — constructed at module eval so observation starts as
+soon as the bootstrap imports it; the constructor's env guards make that
+safe in SSR/test contexts.

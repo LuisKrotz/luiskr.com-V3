@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../../README.md) / [components/dialogs/preferences/types](../README.md) / PrefNode
 
-Defined in: [src/components/dialogs/preferences/types.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/dialogs/preferences/types.ts#L17)
+Defined in: [src/components/dialogs/preferences/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L14)
 
-The PrefNode value.
+`pref.*` translation node consumed by the preferences dialog.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The PrefNode value.
 title: string
 ```
 
-Defined in: [src/components/dialogs/preferences/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/dialogs/preferences/types.ts#L18)
+Defined in: [src/components/dialogs/preferences/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L16)
+
+Dialog heading.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/components/dialogs/preferences/types.ts:18](https://github.com/
 done: string
 ```
 
-Defined in: [src/components/dialogs/preferences/types.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/dialogs/preferences/types.ts#L19)
+Defined in: [src/components/dialogs/preferences/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L18)
+
+Confirmation text after the apply action.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/components/dialogs/preferences/types.ts:19](https://github.com/
 closeLabel: string
 ```
 
-Defined in: [src/components/dialogs/preferences/types.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/dialogs/preferences/types.ts#L20)
+Defined in: [src/components/dialogs/preferences/types.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L20)
+
+aria-label for the close button.
 
 ---
 
@@ -46,7 +52,9 @@ Defined in: [src/components/dialogs/preferences/types.ts:20](https://github.com/
 appearance: object
 ```
 
-Defined in: [src/components/dialogs/preferences/types.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/dialogs/preferences/types.ts#L21)
+Defined in: [src/components/dialogs/preferences/types.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L22)
+
+Appearance section — theme picker copy.
 
 #### title
 
@@ -54,11 +62,15 @@ Defined in: [src/components/dialogs/preferences/types.ts:21](https://github.com/
 title: string
 ```
 
+Section heading.
+
 #### desc
 
 ```ts
 desc: string
 ```
+
+Section description under the heading.
 
 #### dark
 
@@ -66,17 +78,23 @@ desc: string
 dark: PrefThemeOption
 ```
 
+Dark-theme radio option.
+
 #### system
 
 ```ts
 system: PrefThemeOption
 ```
 
+Follow-OS radio option.
+
 #### light
 
 ```ts
 light: PrefThemeOption
 ```
+
+Light-theme radio option.
 
 ---
 
@@ -86,7 +104,9 @@ light: PrefThemeOption
 devTools: object
 ```
 
-Defined in: [src/components/dialogs/preferences/types.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/dialogs/preferences/types.ts#L28)
+Defined in: [src/components/dialogs/preferences/types.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L35)
+
+Developer-tools section — diagnostic toggles copy.
 
 #### title
 
@@ -94,11 +114,15 @@ Defined in: [src/components/dialogs/preferences/types.ts:28](https://github.com/
 title: string
 ```
 
+Section heading.
+
 #### statsForNerds
 
 ```ts
 statsForNerds: string
 ```
+
+Label for the stats-for-nerds toggle.
 
 #### statsForNerdsDesc
 
@@ -106,11 +130,15 @@ statsForNerds: string
 statsForNerdsDesc: string
 ```
 
+Description under the stats toggle.
+
 #### showGrid
 
 ```ts
 showGrid: string
 ```
+
+Label for the layout-grid overlay toggle.
 
 #### showGridDesc
 
@@ -118,14 +146,20 @@ showGrid: string
 showGridDesc: string
 ```
 
+Description under the grid toggle.
+
 #### reducedMotion
 
 ```ts
 reducedMotion: string
 ```
 
+Label for the reduced-motion override toggle.
+
 #### reducedMotionDesc
 
 ```ts
 reducedMotionDesc: string
 ```
+
+Description under the reduced-motion toggle.

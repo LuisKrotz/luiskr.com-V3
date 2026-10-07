@@ -8,9 +8,11 @@
 function textOffset(c, items, idx): number
 ```
 
-Defined in: [src/routes/views/project/layout.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/routes/views/project/layout.ts#L60)
+Defined in: [src/routes/views/project/layout.ts:71](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/layout.ts#L71)
 
-The textOffset value.
+Start offset for the text run at index `idx`: cumulative real chars of
+the preceding items × the per-char delay, plus the per-index step — so
+sequential sections cascade rather than all starting at t=0.
 
 ## Parameters
 
@@ -18,22 +20,22 @@ The textOffset value.
 
 [`ViewProject`](../../Project/classes/ViewProject.md)
 
-— the component
+The ViewProject instance — supplies textDelay via the facade.
 
 ### items
 
 `unknown`
 
-— the items
+Section text items (expected string[]).
 
 ### idx
 
 `number`
 
-— the index
+Index of this item in the section.
 
 ## Returns
 
 `number`
 
-number
+Start offset in ms (0 for non-array input).

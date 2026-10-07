@@ -4,11 +4,11 @@
 
 [luiskr.com](../../../../README.md) / [cms/portfolio/types](../README.md) / PortfolioItem
 
-Defined in: [src/cms/portfolio/types.ts:6](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/portfolio/types.ts#L6)
+Defined in: [src/cms/portfolio/types.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/portfolio/types.ts#L11)
 
-## File
-
-portfolio/types.ts — portfolio row shape.
+A row of the portfolio editor table — `label`/`link`/`image`/`description`
+are the CMS fields, `featured` marks home-page picks, `width`/`height` are the
+mosaic tile span lists. Index signature absorbs CMS columns not modeled here.
 
 ## Indexable
 
@@ -24,7 +24,7 @@ portfolio/types.ts — portfolio row shape.
 optional label?: string;
 ```
 
-Defined in: [src/cms/portfolio/types.ts:7](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/portfolio/types.ts#L7)
+Defined in: [src/cms/portfolio/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/portfolio/types.ts#L12)
 
 ---
 
@@ -34,7 +34,7 @@ Defined in: [src/cms/portfolio/types.ts:7](https://github.com/LuisKrotz/luiskr.c
 optional link?: string;
 ```
 
-Defined in: [src/cms/portfolio/types.ts:8](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/portfolio/types.ts#L8)
+Defined in: [src/cms/portfolio/types.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/portfolio/types.ts#L13)
 
 ---
 
@@ -44,7 +44,7 @@ Defined in: [src/cms/portfolio/types.ts:8](https://github.com/LuisKrotz/luiskr.c
 optional image?: string;
 ```
 
-Defined in: [src/cms/portfolio/types.ts:9](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/portfolio/types.ts#L9)
+Defined in: [src/cms/portfolio/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/portfolio/types.ts#L14)
 
 ---
 
@@ -54,7 +54,7 @@ Defined in: [src/cms/portfolio/types.ts:9](https://github.com/LuisKrotz/luiskr.c
 optional description?: string;
 ```
 
-Defined in: [src/cms/portfolio/types.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/portfolio/types.ts#L10)
+Defined in: [src/cms/portfolio/types.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/portfolio/types.ts#L15)
 
 ---
 
@@ -64,7 +64,7 @@ Defined in: [src/cms/portfolio/types.ts:10](https://github.com/LuisKrotz/luiskr.
 optional featured?: boolean;
 ```
 
-Defined in: [src/cms/portfolio/types.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/portfolio/types.ts#L11)
+Defined in: [src/cms/portfolio/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/portfolio/types.ts#L16)
 
 ---
 
@@ -74,7 +74,7 @@ Defined in: [src/cms/portfolio/types.ts:11](https://github.com/LuisKrotz/luiskr.
 optional width?: string[];
 ```
 
-Defined in: [src/cms/portfolio/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/portfolio/types.ts#L12)
+Defined in: [src/cms/portfolio/types.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/portfolio/types.ts#L17)
 
 ---
 
@@ -84,4 +84,4 @@ Defined in: [src/cms/portfolio/types.ts:12](https://github.com/LuisKrotz/luiskr.
 optional height?: string[];
 ```
 
-Defined in: [src/cms/portfolio/types.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/portfolio/types.ts#L13)
+Defined in: [src/cms/portfolio/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/portfolio/types.ts#L18)

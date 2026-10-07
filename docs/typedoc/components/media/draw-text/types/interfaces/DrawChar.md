@@ -4,11 +4,10 @@
 
 [luiskr.com](../../../../../README.md) / [components/media/draw-text/types](../README.md) / DrawChar
 
-Defined in: [src/components/media/draw-text/types.ts:6](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/media/draw-text/types.ts#L6)
+Defined in: [src/components/media/draw-text/types.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/draw-text/types.ts#L10)
 
-## File
-
-draw-text/types.ts — token shapes for the char-staggered renderer.
+One glyph of a staggered draw — `ci` is the global character index used to
+compute the per-char animation delay, `value` the printable character.
 
 ## Properties
 
@@ -18,7 +17,7 @@ draw-text/types.ts — token shapes for the char-staggered renderer.
 ci: number
 ```
 
-Defined in: [src/components/media/draw-text/types.ts:7](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/media/draw-text/types.ts#L7)
+Defined in: [src/components/media/draw-text/types.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/draw-text/types.ts#L11)
 
 ---
 
@@ -28,4 +27,4 @@ Defined in: [src/components/media/draw-text/types.ts:7](https://github.com/LuisK
 value: string
 ```
 
-Defined in: [src/components/media/draw-text/types.ts:8](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/media/draw-text/types.ts#L8)
+Defined in: [src/components/media/draw-text/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/draw-text/types.ts#L12)

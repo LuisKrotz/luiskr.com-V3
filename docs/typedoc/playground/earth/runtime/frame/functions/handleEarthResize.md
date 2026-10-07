@@ -8,7 +8,7 @@
 function handleEarthResize(s): void
 ```
 
-Defined in: [src/playground/earth/runtime/frame.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/frame.ts#L38)
+Defined in: [src/playground/earth/runtime/frame.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/frame.ts#L38)
 
 Resize step: measures the shadow host first, then the canvas parent,
 then the window — the canvas lives inside SpacePlayground's shadow

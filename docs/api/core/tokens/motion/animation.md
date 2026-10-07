@@ -19,7 +19,9 @@ Page transition easing
 
 ### `ANIMATION_DURATIONS`
 
-The ANIMATION_DURATIONS constant.
+Frozen animation map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.
 
 ### `ROUTE_DURATION`
 
@@ -54,3 +56,15 @@ Menu modal entrance settle time (ms) — longest item delay (0.76s) + item durat
 ### `DIALOG_LEAVE_DURATION`
 
 Dialog genie zoom-out duration (ms) — must match .pref-backdrop--leave transition
+
+### `LOADER_FADE_MS`
+
+Space-playground loader fade-out before the node is removed (ms) — must match the CSS opacity transition
+
+### `SCROLL_DURATION`
+
+Default smooth-scroll animation length (ms) — long enough to read the ease, short enough to not feel laggy
+
+### `SCROLL_MIN_DISTANCE`
+
+Minimum scroll distance (px) below which the animation is skipped — sub-2px moves are invisible and would only churn frames

@@ -9,7 +9,7 @@
 
 ### `DEPLOY_INFO_BASE`
 
-The DEPLOY_INFO_BASE constant.
+Scalar token `/deploy-info` — the sole declaration site for this literal.
 
 ### (module scope)
 

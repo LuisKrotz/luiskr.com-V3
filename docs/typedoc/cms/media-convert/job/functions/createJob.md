@@ -8,9 +8,10 @@
 function createJob(host): Promise<void>
 ```
 
-Defined in: [src/cms/media-convert/job.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/job.ts#L25)
+Defined in: [src/cms/media-convert/job.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/job.ts#L35)
 
-Creates job.
+POSTs an empty job to the dev server and stores the returned id on the
+host — every subsequent request hangs off host.jobId.
 
 ## Parameters
 
@@ -18,8 +19,12 @@ Creates job.
 
 [`CmsMediaConverter`](../../CmsMediaConverter/classes/CmsMediaConverter.md)
 
-— the host component
+The CmsMediaConverter element.
 
 ## Returns
 
 `Promise`\<`void`\>
+
+## Throws
+
+Error with the server's message when the job can't be created.

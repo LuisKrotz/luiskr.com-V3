@@ -8,9 +8,11 @@
 function createMutations(store): MutationMap
 ```
 
-Defined in: [src/core/store/mutations.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/mutations.ts#L19)
+Defined in: [src/core/store/mutations.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/mutations.ts#L25)
 
-Builds the mutation map bound to `store`.
+Builds the mutation map bound to `store`. Domain groups are spread into
+one flat map — key collisions would silently overwrite, so each group
+owns a disjoint prefix of MUTATIONS by convention (theme._, media._, …).
 
 ## Parameters
 
@@ -18,6 +20,10 @@ Builds the mutation map bound to `store`.
 
 [`Store`](../../classes/Store.md)
 
+The Store instance the mutators close over.
+
 ## Returns
 
 [`MutationMap`](../../state/type-aliases/MutationMap.md)
+
+The composed MutationMap.

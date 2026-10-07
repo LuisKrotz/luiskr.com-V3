@@ -13,9 +13,19 @@ const NET_STRINGS: Readonly<{
   HTTP_LOCALHOST: 'http://localhost'
   BLOB_COLON: 'blob:'
   IMAGE_PNG: 'image/png'
+  METHOD_POST: 'POST'
+  METHOD_PUT: 'PUT'
+  METHOD_DELETE: 'DELETE'
+  HEADER_FILE_PATH: 'x-file-path'
+  HEADER_CONTENT_TYPE: 'content-type'
+  MIME_OCTET_STREAM: 'application/octet-stream'
+  JOB_RUNNING: 'running'
+  JOB_UPLOADING: 'uploading'
 }>
 ```
 
-Defined in: [src/core/tokens/strings/net.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/strings/net.ts#L11)
+Defined in: [src/core/tokens/strings/net.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/strings/net.ts#L13)
 
-The NET_STRINGS constant.
+Frozen net string map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.

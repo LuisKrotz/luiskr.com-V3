@@ -27,13 +27,8 @@ const WEBGL_STRINGS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/strings/webgl.ts:7](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/strings/webgl.ts#L7)
+Defined in: [src/core/tokens/strings/webgl.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/strings/webgl.ts#L12)
 
-## File
-
-tokens/strings/webgl.js
-
-## Description
-
-WebGL context/extension/power-preference string tokens —
-token group.
+WebGL context/extension/power-preference string tokens. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

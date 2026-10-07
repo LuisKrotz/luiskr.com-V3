@@ -17,9 +17,23 @@ Autoplay interval in milliseconds before advancing to next slide
 
 Teleport animation duration (ms) — must match CSS transition
 
+### `NAVIGATION_SETTLE_DELAY`
+
+Window (ms) scroll-handler teleports stay suppressed after a programmatic nav — just under TELEPORT_DELAY so a wrap scroll can finish before scroll events re-arm
+
+### `SCROLL_DEBOUNCE_MS`
+
+Scroll-event debounce (ms) before the clone-teleport detector runs — scroll fires per pixel, the check only matters at rest
+
+### `RING_REGRESS_STEP`
+
+ringProgress drained per RAF frame when autoplay stops (0–1 scale) — ~25 frames ≈ 0.4s unwind
+
 ### `CAROUSEL_LAYOUT`
 
-The CAROUSEL_LAYOUT constant.
+Frozen carousel map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.
 
 ### `CIRCUMFERENCE`
 
@@ -45,9 +59,31 @@ Slide height cap as a fraction of the viewport height
 
 Skeleton sections reserve the same capped height so content loads without shifting
 
+### `CENTER_EPS_PX`
+
+px tolerance for "slide center ≈ track center" in the clone-teleport detector — loose enough for sub-pixel scroll stops, tight enough not to fire mid-swipe
+
+### `VISIBILITY_RATIO`
+
+IntersectionObserver ratio that counts as "visible enough" to autoplay (15%)
+
+### `FIT_EPS_PX`
+
+px delta below which ResizeObserver width reports are ignored — sub-pixel RO noise must not trigger a re-fit storm
+
+### `ITEM_GAP_PX`
+
+Approx flex gap (px) added per item in the side-by-side width projection
+
+### `MAX_HEIGHT_FALLBACK`
+
+Max slide height (px) used when window.innerHeight is unavailable (SSR/tests)
+
 ### `CAROUSEL_LOADING`
 
-The CAROUSEL_LOADING constant.
+Frozen carousel map — sole declaration site for these tokens; consumers read members and
+never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+contract immutable at runtime.
 
 ### `EAGER_COUNT`
 

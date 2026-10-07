@@ -8,7 +8,7 @@
 function watchContextLoss(canvas, onLost): EventListener
 ```
 
-Defined in: [src/utils/canvas/gl-lifecycle.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/gl-lifecycle.ts#L30)
+Defined in: [src/utils/canvas/gl-lifecycle.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/gl-lifecycle.ts#L30)
 
 Attaches a `webglcontextlost` listener that runs `onLost` (the widget's
 fallback trigger) without preventDefault — a lost context stays lost

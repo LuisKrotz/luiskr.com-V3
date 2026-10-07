@@ -8,9 +8,10 @@
 type DrawTimer = ReturnType<typeof setTimeout> & object
 ```
 
-Defined in: [src/components/media/draw-text/types.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/media/draw-text/types.ts#L26)
+Defined in: [src/components/media/draw-text/types.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/draw-text/types.ts#L33)
 
-Draws timer.
+A setTimeout handle that may be Node's Timeout — `unref` exists only in
+Node, so the intersection type keeps `.unref?.()` callable in workers/tests.
 
 ## Type Declaration
 

@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [utils/canvas/widgets/switch-slider](../README.md) / SwitchWebGL
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L28)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L28)
 
 Contextual WebGL Switch Slider for Developer Tools
 Renders custom animated graphical draw elements referent to each toggle's context:
@@ -27,7 +27,7 @@ new SwitchWebGL(
 ): SwitchWebGL;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L56)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L56)
 
 #### Parameters
 
@@ -59,7 +59,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:56](https://github.com/Lu
 canvas: HTMLCanvasElement
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L29)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L29)
 
 ---
 
@@ -69,7 +69,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:29](https://github.com/Lu
 contextType: string
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L30)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L30)
 
 ---
 
@@ -79,7 +79,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:30](https://github.com/Lu
 onToggle: ((_active) => void) | null;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L31)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L31)
 
 ---
 
@@ -89,7 +89,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:31](https://github.com/Lu
 isActive: boolean
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L32)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L32)
 
 ---
 
@@ -99,7 +99,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:32](https://github.com/Lu
 width: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L33)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L33)
 
 ---
 
@@ -109,7 +109,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:33](https://github.com/Lu
 height: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L34)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L34)
 
 ---
 
@@ -119,7 +119,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:34](https://github.com/Lu
 targetP: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L35)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L35)
 
 ---
 
@@ -129,7 +129,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:35](https://github.com/Lu
 currentP: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L36)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L36)
 
 ---
 
@@ -139,7 +139,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:36](https://github.com/Lu
 knobX: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L37)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L37)
 
 ---
 
@@ -149,7 +149,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:37](https://github.com/Lu
 useWebGL: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L38)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L38)
 
 ---
 
@@ -159,7 +159,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:38](https://github.com/Lu
 animId: number | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L39)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L39)
 
 ---
 
@@ -169,7 +169,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:39](https://github.com/Lu
 startTime: number
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L40)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L40)
 
 ---
 
@@ -179,7 +179,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:40](https://github.com/Lu
 dpr: number = 2
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L41)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L41)
 
 ---
 
@@ -189,7 +189,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:41](https://github.com/Lu
 gl: WebGLRenderingContext | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L42)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L42)
 
 ---
 
@@ -199,7 +199,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:42](https://github.com/Lu
 ctx: CanvasRenderingContext2D | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L43)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L43)
 
 ---
 
@@ -209,7 +209,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:43](https://github.com/Lu
 program: WebGLProgram | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L44)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L44)
 
 ---
 
@@ -219,7 +219,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:44](https://github.com/Lu
 quadBuffer: WebGLBuffer | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L45)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L45)
 
 ---
 
@@ -229,7 +229,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:45](https://github.com/Lu
 aPos: number = -1
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L46)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L46)
 
 ---
 
@@ -239,7 +239,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:46](https://github.com/Lu
 uContext: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L47)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L47)
 
 ---
 
@@ -249,7 +249,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:47](https://github.com/Lu
 uKnobX: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L48)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L48)
 
 ---
 
@@ -259,7 +259,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:48](https://github.com/Lu
 uProgress: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L49)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L49)
 
 ---
 
@@ -269,7 +269,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:49](https://github.com/Lu
 uResolution: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L50)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L50)
 
 ---
 
@@ -279,7 +279,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:50](https://github.com/Lu
 uTime: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L51)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L51)
 
 ---
 
@@ -289,7 +289,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:51](https://github.com/Lu
 _onContextLost: EventListener | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L52)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L52)
 
 ---
 
@@ -299,7 +299,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:52](https://github.com/Lu
 _purged: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L53)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L53)
 
 ---
 
@@ -309,7 +309,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:53](https://github.com/Lu
 onClick: ((_e) => void) | undefined;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L54)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L54)
 
 ## Methods
 
@@ -319,7 +319,7 @@ Defined in: [src/utils/canvas/widgets/switch-slider.ts:54](https://github.com/Lu
 _pToKnobX(p): number;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:101](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L101)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:101](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L101)
 
 Progress 0–1 → knob pixel X. The knob (radius 11) is inset 14px from
 each end — exactly half the 28px track height — so it sits centered
@@ -345,7 +345,7 @@ CSS px
 _contextCode(): number;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:115](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L115)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:115](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L115)
 
 Context → shader's u_context float id (0=stats, 1=grid/cyan/space,
 2=motion). The fragment shader branches on ranges (<0.5, <1.5, else)
@@ -363,7 +363,7 @@ so several visual aliases can share the grid animation.
 init(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:130](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L130)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:130](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L130)
 
 Boot sequence: GL init → event binding → render start; fully degrades to the fallback path.
 
@@ -379,7 +379,7 @@ Boot sequence: GL init → event binding → render start; fully degrades to the
 _triggerFallback(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:136](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L136)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:136](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L136)
 
 Switches to the non-WebGL path (CSS class on the host / Canvas2D) — used on context loss or init failure.
 
@@ -395,7 +395,7 @@ Switches to the non-WebGL path (CSS class on the host / Canvas2D) — used on co
 initWebGL(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:142](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L142)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:142](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L142)
 
 Creates the WebGL context, compiles the shader program and sets up uniforms/buffers; falls back on any failure.
 
@@ -411,7 +411,7 @@ Creates the WebGL context, compiles the shader program and sets up uniforms/buff
 bindEvents(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:148](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L148)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:148](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L148)
 
 Wires pointer/hover listeners that drive the widget's interactive state.
 
@@ -427,7 +427,7 @@ Wires pointer/hover listeners that drive the widget's interactive state.
 toggle(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:160](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L160)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:160](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L160)
 
 Flips the switch and fires the onToggle callback.
 
@@ -443,7 +443,7 @@ Flips the switch and fires the onToggle callback.
 setActive(active): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:172](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L172)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:172](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L172)
 
 Sets the knob position programmatically (animates the slide).
 
@@ -465,7 +465,7 @@ Sets the knob position programmatically (animates the slide).
 setReducedMotion(isReduced): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:185](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L185)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:185](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L185)
 
 Applies prefers-reduced-motion: swaps the animation loop for one
 static frame render, or restarts the loop when motion is re-allowed.
@@ -488,7 +488,7 @@ static frame render, or restarts the loop when motion is re-allowed.
 _renderStatic(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:197](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L197)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:197](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L197)
 
 Snap state to target and draw a single settled frame — used under
 reduced motion or when the loop is stopped.
@@ -505,7 +505,7 @@ reduced motion or when the loop is stopped.
 animate(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:203](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L203)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:203](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L203)
 
 Starts the requestAnimationFrame render loop (skipped under reduced motion).
 
@@ -521,7 +521,7 @@ Starts the requestAnimationFrame render loop (skipped under reduced motion).
 _renderWebGL(now): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:209](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L209)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:209](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L209)
 
 Per-frame WebGL render: updates time/knob uniforms and draws the quad.
 
@@ -543,7 +543,7 @@ Per-frame WebGL render: updates time/knob uniforms and draws the quad.
 _renderCanvas2D(now): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:215](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L215)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:215](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L215)
 
 Per-frame Canvas2D fallback render — same visual language as the shader.
 
@@ -565,7 +565,7 @@ Per-frame Canvas2D fallback render — same visual language as the shader.
 purge(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:224](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L224)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:224](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L224)
 
 webglPool hook — offscreen: stops the loop (GL or 2D) and force-loses
 the GL context so offscreen widgets hold no context slots; restore()
@@ -583,7 +583,7 @@ rebuilds the GL program or re-acquires the 2D context on re-entry.
 restore(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:245](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L245)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:245](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L245)
 
 Recreates the GL context + program (or the 2D fallback) and resumes the loop after a purge.
 
@@ -599,7 +599,7 @@ Recreates the GL context + program (or the 2D fallback) and resumes the loop aft
 destroy(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/switch-slider.ts:283](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/switch-slider.ts#L283)
+Defined in: [src/utils/canvas/widgets/switch-slider.ts:283](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/switch-slider.ts#L283)
 
 Releases the context, buffers, listeners and rAF handle so the canvas can be GC'd.
 

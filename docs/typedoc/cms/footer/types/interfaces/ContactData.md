@@ -4,9 +4,10 @@
 
 [luiskr.com](../../../../README.md) / [cms/footer/types](../README.md) / ContactData
 
-Defined in: [src/cms/footer/types.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L19)
+Defined in: [src/cms/footer/types.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L25)
 
-contacts data.
+The components/contact DB node — `title` plus two channel columns
+(`line1`/`line2`) rendered side by side in the footer.
 
 ## Properties
 
@@ -16,7 +17,7 @@ contacts data.
 title: string
 ```
 
-Defined in: [src/cms/footer/types.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L20)
+Defined in: [src/cms/footer/types.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L26)
 
 ---
 
@@ -26,7 +27,7 @@ Defined in: [src/cms/footer/types.ts:20](https://github.com/LuisKrotz/luiskr.com
 line1: FooterChannel[];
 ```
 
-Defined in: [src/cms/footer/types.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L21)
+Defined in: [src/cms/footer/types.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L27)
 
 ---
 
@@ -36,4 +37,4 @@ Defined in: [src/cms/footer/types.ts:21](https://github.com/LuisKrotz/luiskr.com
 line2: FooterChannel[];
 ```
 
-Defined in: [src/cms/footer/types.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L22)
+Defined in: [src/cms/footer/types.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L28)

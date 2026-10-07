@@ -8,7 +8,7 @@
 function h(tag, props, ...children): HTMLElement | DocumentFragment | SVGElement
 ```
 
-Defined in: [src/core/jsx.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/jsx.ts#L54)
+Defined in: [src/core/jsx.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/jsx.ts#L62)
 
 JSX factory function — every `render()` in the app funnels through here.
 Creates real DOM nodes directly (no VDOM, no diffing): the element is
@@ -25,7 +25,8 @@ Prop routing, by key shape:
 - boolean props (disabled/hidden/muted/…) → property + bare attribute
 - DOM props (value/checked/innerHTML/…) → property assignment + attribute mirror
 - everything else → `setAttribute(name, String(val))`
-  `null`/`undefined`/`false` props are skipped entirely (conditional attrs).
+  `null`/`undefined`/`false` props are skipped entirely (conditional attrs) —
+  a `false` must never emit `attr="false"`, which is truthy per HTML.
 
 ## Parameters
 
@@ -33,14 +34,22 @@ Prop routing, by key shape:
 
 [`JSXTag`](../type-aliases/JSXTag.md)
 
+Tag name string or functional component.
+
 ### props
 
 `Record`\<`string`, `unknown`\> \| `null`
+
+Props bag; null allowed (JSX emits null for bare elements).
 
 ### children
 
 ...`unknown`[]
 
+Rest children — scalars, nodes, nested arrays.
+
 ## Returns
 
 `HTMLElement` \| `DocumentFragment` \| `SVGElement`
+
+The live element or fragment.

@@ -8,9 +8,11 @@
 type Mutation = (_payload?) => void | boolean
 ```
 
-Defined in: [src/core/store/state.ts:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/store/state.ts#L113)
+Defined in: [src/core/store/state.ts:129](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L129)
 
-The Mutation value.
+One named mutation: receives an optional payload, mutates store.state,
+and returns `false` to suppress notify() for no-op writes (any other
+return value means "state changed, fan out").
 
 ## Parameters
 
@@ -18,7 +20,7 @@ The Mutation value.
 
 `unknown`
 
-— the value
+Caller-supplied mutation input.
 
 ## Returns
 

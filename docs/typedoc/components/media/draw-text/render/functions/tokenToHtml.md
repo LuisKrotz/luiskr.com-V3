@@ -8,9 +8,12 @@
 function tokenToHtml(token, renderWord): string
 ```
 
-Defined in: [src/components/media/draw-text/render.ts:166](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/media/draw-text/render.ts#L166)
+Defined in: [src/components/media/draw-text/render.ts:169](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/draw-text/render.ts#L169)
 
-The tokenToHtml constant.
+Top-level token → HTML: <br> and space become aria-hidden layout
+nodes (the space gets a span so the flex/grid layout sees a real box),
+words render animated chars, tags recurse. Unknown token types return
+"" — forward-compatible for tokenizer additions.
 
 ## Parameters
 
@@ -18,16 +21,16 @@ The tokenToHtml constant.
 
 [`DrawToken`](../../types/interfaces/DrawToken.md)
 
-— the token
+The parsed token.
 
 ### renderWord
 
 `RenderWord`
 
-— the value
+Word renderer bound to the current delay/offset.
 
 ## Returns
 
 `string`
 
-string
+HTML string for the token.

@@ -4,9 +4,10 @@
 
 [luiskr.com](../../../../README.md) / [cms/footer/types](../README.md) / RelatedFooter
 
-Defined in: [src/cms/footer/types.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L28)
+Defined in: [src/cms/footer/types.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L35)
 
-The RelatedFooter value.
+The components/related DB node — `title`/`note` copy plus the
+`socials` channel list the related-projects footer renders.
 
 ## Properties
 
@@ -16,7 +17,7 @@ The RelatedFooter value.
 title: string
 ```
 
-Defined in: [src/cms/footer/types.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L29)
+Defined in: [src/cms/footer/types.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L36)
 
 ---
 
@@ -26,7 +27,7 @@ Defined in: [src/cms/footer/types.ts:29](https://github.com/LuisKrotz/luiskr.com
 note: string
 ```
 
-Defined in: [src/cms/footer/types.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L30)
+Defined in: [src/cms/footer/types.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L37)
 
 ---
 
@@ -36,4 +37,4 @@ Defined in: [src/cms/footer/types.ts:30](https://github.com/LuisKrotz/luiskr.com
 socials: FooterChannel[];
 ```
 
-Defined in: [src/cms/footer/types.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/footer/types.ts#L31)
+Defined in: [src/cms/footer/types.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/types.ts#L38)

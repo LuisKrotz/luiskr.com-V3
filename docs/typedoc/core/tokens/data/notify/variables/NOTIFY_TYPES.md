@@ -12,6 +12,8 @@ const NOTIFY_TYPES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/data/notify.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/data/notify.ts#L14)
+Defined in: [src/core/tokens/data/notify.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/data/notify.ts#L16)
 
-Notifies types.
+Toast severity tokens. ERROR intentionally aliases `WINDOW_EVENTS.ERROR`
+so the 'error' literal stays single-declared — the toast modifier and the
+window event name share one token source (zero-hardcoding).

@@ -8,7 +8,7 @@
 function tickReveal(host, now): void
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background/loop.ts:90](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/loaders/menu-background/loop.ts#L90)
+Defined in: [src/utils/canvas/loaders/menu-background/loop.ts:91](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background/loop.ts#L91)
 
 Advances the reveal ease to the current timestamp. easeOutQuint
 (1-(1-p)^5) opens: a fast bloom that settles gently; easeInOutQuart

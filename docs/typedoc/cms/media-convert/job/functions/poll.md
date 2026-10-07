@@ -8,9 +8,12 @@
 function poll(host): Promise<void>
 ```
 
-Defined in: [src/cms/media-convert/job.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/job.ts#L72)
+Defined in: [src/cms/media-convert/job.ts:93](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/job.ts#L93)
 
-The poll value.
+One poll tick: fetches job status, re-arms the timer while the server
+reports running/uploading, and finishes (or errors) on a terminal
+state. A failed GET is treated as server loss — the phase flips to
+ERROR rather than polling forever.
 
 ## Parameters
 
@@ -18,7 +21,7 @@ The poll value.
 
 [`CmsMediaConverter`](../../CmsMediaConverter/classes/CmsMediaConverter.md)
 
-— the host component
+The CmsMediaConverter element.
 
 ## Returns
 

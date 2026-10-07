@@ -8,9 +8,11 @@
 function calcAspectScaled(width, height, maxW?): number
 ```
 
-Defined in: [src/utils/wasm/wasm-layout.ts:154](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-layout.ts#L154)
+Defined in: [src/utils/wasm/wasm-layout.ts:256](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-layout.ts#L256)
 
-Height rescaled for a width capped at maxW, preserving aspect ratio.
+Height rescaled for a width capped at maxW, preserving aspect ratio:
+height·(maxW/width) — only shrinks; widths under maxW return height
+untouched. Rounded so CSS heights stay integer pixels.
 
 ## Parameters
 
@@ -18,14 +20,22 @@ Height rescaled for a width capped at maxW, preserving aspect ratio.
 
 `number`
 
+Intrinsic width.
+
 ### height
 
 `number`
 
+Intrinsic height.
+
 ### maxW?
 
-`number` = `1920`
+`number` = `COVER_DIMENSIONS.FHD_WIDTH`
+
+Width cap (defaults to FHD so 4K masters don't downscale mid-layout).
 
 ## Returns
 
 `number`
+
+Rescaled height.

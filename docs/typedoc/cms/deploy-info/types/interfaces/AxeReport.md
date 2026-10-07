@@ -4,9 +4,11 @@
 
 [luiskr.com](../../../../README.md) / [cms/deploy-info/types](../README.md) / AxeReport
 
-Defined in: [src/cms/deploy-info/types.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/deploy-info/types.ts#L30)
+Defined in: [src/cms/deploy-info/types.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/deploy-info/types.ts#L40)
 
-The AxeReport value.
+Shape of the axe-scan report — `engine` names the axe-core version and
+`surfaces` lists each mounted DOM surface with its violations (id, impact, help)
+so the CMS tab can render them grouped by page area.
 
 ## Properties
 
@@ -16,7 +18,7 @@ The AxeReport value.
 optional engine?: string;
 ```
 
-Defined in: [src/cms/deploy-info/types.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/deploy-info/types.ts#L31)
+Defined in: [src/cms/deploy-info/types.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/deploy-info/types.ts#L41)
 
 ---
 
@@ -26,7 +28,7 @@ Defined in: [src/cms/deploy-info/types.ts:31](https://github.com/LuisKrotz/luisk
 optional totals?: Record<string, number>;
 ```
 
-Defined in: [src/cms/deploy-info/types.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/deploy-info/types.ts#L32)
+Defined in: [src/cms/deploy-info/types.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/deploy-info/types.ts#L42)
 
 ---
 
@@ -36,7 +38,7 @@ Defined in: [src/cms/deploy-info/types.ts:32](https://github.com/LuisKrotz/luisk
 optional surfaces?: object[];
 ```
 
-Defined in: [src/cms/deploy-info/types.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/deploy-info/types.ts#L33)
+Defined in: [src/cms/deploy-info/types.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/deploy-info/types.ts#L43)
 
 #### surface
 

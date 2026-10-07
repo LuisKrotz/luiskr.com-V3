@@ -11,4 +11,6 @@ Route meta translation keys — values used in
 
 ### `TRANSLATION_KEYS`
 
-The TRANSLATION_KEYS constant.
+Frozen translation key map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

@@ -8,9 +8,9 @@
 type PrefModalEl = HTMLElement & object
 ```
 
-Defined in: [src/app/types.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/app/types.ts#L34)
+Defined in: [src/app/types.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/app/types.ts#L30)
 
-Type contract for pref modal el.
+<preferences-modal> reached through the shell — `pref` node + open flag.
 
 ## Type Declaration
 

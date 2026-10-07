@@ -8,7 +8,7 @@
 function onAuthChange(callback): Promise<Unsubscribe>
 ```
 
-Defined in: [src/firebase.ts:119](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/firebase.ts#L119)
+Defined in: [src/firebase.ts:135](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/firebase.ts#L135)
 
 Subscribes to auth state after lazily loading firebase/auth.
 
@@ -17,6 +17,8 @@ Subscribes to auth state after lazily loading firebase/auth.
 ### callback
 
 (`_user`) => `void`
+
+Invoked with the User (or null on sign-out) on every auth transition.
 
 ## Returns
 

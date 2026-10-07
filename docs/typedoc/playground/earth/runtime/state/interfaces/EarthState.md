@@ -4,9 +4,11 @@
 
 [luiskr.com](../../../../../README.md) / [playground/earth/runtime/state](../README.md) / EarthState
 
-Defined in: [src/playground/earth/runtime/state.ts:102](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L102)
+Defined in: [src/playground/earth/runtime/state.ts:114](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L114)
 
-earths state.
+The single mutable bag for the whole engine — every async-created GPU
+handle is nullable because bootstrap fills them progressively and a
+mid-boot dispose must see exactly what's live.
 
 ## Properties
 
@@ -16,7 +18,7 @@ earths state.
 animId: number | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:104](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L104)
+Defined in: [src/playground/earth/runtime/state.ts:116](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L116)
 
 RAF handle for the render loop; null while paused/reduced-motion.
 
@@ -28,7 +30,7 @@ RAF handle for the render loop; null while paused/reduced-motion.
 disposed: boolean
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:107](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L107)
+Defined in: [src/playground/earth/runtime/state.ts:119](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L119)
 
 Set by destroy(); checked after every await so a mid-load dispose
 aborts scene assembly without touching the GPU again.
@@ -41,7 +43,7 @@ aborts scene assembly without touching the GPU again.
 reduced: boolean
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:109](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L109)
+Defined in: [src/playground/earth/runtime/state.ts:121](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L121)
 
 Mirrors the store's reduced-motion flag; freezes the loop.
 
@@ -53,7 +55,7 @@ Mirrors the store's reduced-motion flag; freezes the loop.
 isDarkTheme: boolean
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:111](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L111)
+Defined in: [src/playground/earth/runtime/state.ts:123](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L123)
 
 UI theme flag — stored for the sun-rotation feature (not yet wired).
 
@@ -65,7 +67,7 @@ UI theme flag — stored for the sun-rotation feature (not yet wired).
 onReady: (() => void) | null | undefined;
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:112](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L112)
+Defined in: [src/playground/earth/runtime/state.ts:124](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L124)
 
 ---
 
@@ -75,7 +77,7 @@ Defined in: [src/playground/earth/runtime/state.ts:112](https://github.com/LuisK
 onProgress: EarthProgressFn | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L113)
+Defined in: [src/playground/earth/runtime/state.ts:125](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L125)
 
 ---
 
@@ -85,7 +87,7 @@ Defined in: [src/playground/earth/runtime/state.ts:113](https://github.com/LuisK
 canvas: HTMLCanvasElement | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:114](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L114)
+Defined in: [src/playground/earth/runtime/state.ts:126](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L126)
 
 ---
 
@@ -95,7 +97,7 @@ Defined in: [src/playground/earth/runtime/state.ts:114](https://github.com/LuisK
 renderer: WebGPURenderer | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:115](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L115)
+Defined in: [src/playground/earth/runtime/state.ts:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L127)
 
 ---
 
@@ -105,7 +107,7 @@ Defined in: [src/playground/earth/runtime/state.ts:115](https://github.com/LuisK
 scene: Scene<Object3DEventMap> | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:116](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L116)
+Defined in: [src/playground/earth/runtime/state.ts:128](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L128)
 
 ---
 
@@ -115,7 +117,7 @@ Defined in: [src/playground/earth/runtime/state.ts:116](https://github.com/LuisK
 camera: PerspectiveCamera | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:117](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L117)
+Defined in: [src/playground/earth/runtime/state.ts:129](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L129)
 
 ---
 
@@ -125,7 +127,7 @@ Defined in: [src/playground/earth/runtime/state.ts:117](https://github.com/LuisK
 controls: OrbitControls | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:118](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L118)
+Defined in: [src/playground/earth/runtime/state.ts:130](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L130)
 
 ---
 
@@ -135,7 +137,7 @@ Defined in: [src/playground/earth/runtime/state.ts:118](https://github.com/LuisK
 pipeline: RenderPipeline | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:119](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L119)
+Defined in: [src/playground/earth/runtime/state.ts:131](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L131)
 
 ---
 
@@ -145,7 +147,7 @@ Defined in: [src/playground/earth/runtime/state.ts:119](https://github.com/LuisK
 earth: Group<Object3DEventMap> | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:120](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L120)
+Defined in: [src/playground/earth/runtime/state.ts:132](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L132)
 
 ---
 
@@ -155,7 +157,7 @@ Defined in: [src/playground/earth/runtime/state.ts:120](https://github.com/LuisK
 moon: LOD<Object3DEventMap> | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:121](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L121)
+Defined in: [src/playground/earth/runtime/state.ts:133](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L133)
 
 ---
 
@@ -167,7 +169,7 @@ sunMesh:
   | null;
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:122](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L122)
+Defined in: [src/playground/earth/runtime/state.ts:134](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L134)
 
 ---
 
@@ -177,7 +179,7 @@ Defined in: [src/playground/earth/runtime/state.ts:122](https://github.com/LuisK
 sunLight: DirectionalLight | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:123](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L123)
+Defined in: [src/playground/earth/runtime/state.ts:135](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L135)
 
 ---
 
@@ -187,7 +189,7 @@ Defined in: [src/playground/earth/runtime/state.ts:123](https://github.com/LuisK
 loader: TextureLoader | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:124](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L124)
+Defined in: [src/playground/earth/runtime/state.ts:136](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L136)
 
 ---
 
@@ -199,7 +201,7 @@ cloudsMesh:
   | null;
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:125](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L125)
+Defined in: [src/playground/earth/runtime/state.ts:137](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L137)
 
 ---
 
@@ -209,7 +211,7 @@ Defined in: [src/playground/earth/runtime/state.ts:125](https://github.com/LuisK
 sunDirU: UniformNode<'vec3', Vector3> | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:126](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L126)
+Defined in: [src/playground/earth/runtime/state.ts:138](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L138)
 
 ---
 
@@ -219,7 +221,7 @@ Defined in: [src/playground/earth/runtime/state.ts:126](https://github.com/LuisK
 moonPosU: UniformNode<'vec3', Vector3> | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L127)
+Defined in: [src/playground/earth/runtime/state.ts:139](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L139)
 
 ---
 
@@ -229,7 +231,7 @@ Defined in: [src/playground/earth/runtime/state.ts:127](https://github.com/LuisK
 cgUniforms: Record<string, UniformNode<'float', number>> | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:128](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L128)
+Defined in: [src/playground/earth/runtime/state.ts:140](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L140)
 
 ---
 
@@ -239,7 +241,7 @@ Defined in: [src/playground/earth/runtime/state.ts:128](https://github.com/LuisK
 caUniforms: Record<string, UniformNode<'float', number>> | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:129](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L129)
+Defined in: [src/playground/earth/runtime/state.ts:141](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L141)
 
 ---
 
@@ -249,7 +251,7 @@ Defined in: [src/playground/earth/runtime/state.ts:129](https://github.com/LuisK
 vigUniforms: Record<string, UniformNode<'float', number>> | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:130](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L130)
+Defined in: [src/playground/earth/runtime/state.ts:142](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L142)
 
 ---
 
@@ -259,7 +261,7 @@ Defined in: [src/playground/earth/runtime/state.ts:130](https://github.com/LuisK
 filmU: UniformNode<'float', number> | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:131](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L131)
+Defined in: [src/playground/earth/runtime/state.ts:143](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L143)
 
 ---
 
@@ -269,7 +271,7 @@ Defined in: [src/playground/earth/runtime/state.ts:131](https://github.com/LuisK
 bloomPass: BloomNode | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:132](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L132)
+Defined in: [src/playground/earth/runtime/state.ts:144](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L144)
 
 ---
 
@@ -279,7 +281,7 @@ Defined in: [src/playground/earth/runtime/state.ts:132](https://github.com/LuisK
 earthMatUniforms: Record<string, UniformNode<'float', number>> | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:133](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L133)
+Defined in: [src/playground/earth/runtime/state.ts:145](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L145)
 
 ---
 
@@ -289,7 +291,7 @@ Defined in: [src/playground/earth/runtime/state.ts:133](https://github.com/LuisK
 sun: EarthSunState | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:134](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L134)
+Defined in: [src/playground/earth/runtime/state.ts:146](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L146)
 
 ---
 
@@ -299,7 +301,7 @@ Defined in: [src/playground/earth/runtime/state.ts:134](https://github.com/LuisK
 moonCfg: EarthMoonState | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:135](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L135)
+Defined in: [src/playground/earth/runtime/state.ts:147](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L147)
 
 ---
 
@@ -309,7 +311,7 @@ Defined in: [src/playground/earth/runtime/state.ts:135](https://github.com/LuisK
 earthSpin: EarthSpinState | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:136](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L136)
+Defined in: [src/playground/earth/runtime/state.ts:148](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L148)
 
 ---
 
@@ -319,7 +321,7 @@ Defined in: [src/playground/earth/runtime/state.ts:136](https://github.com/LuisK
 bloom: EarthBloomState | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:137](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L137)
+Defined in: [src/playground/earth/runtime/state.ts:149](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L149)
 
 ---
 
@@ -329,7 +331,7 @@ Defined in: [src/playground/earth/runtime/state.ts:137](https://github.com/LuisK
 ca: EarthCaState | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:138](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L138)
+Defined in: [src/playground/earth/runtime/state.ts:150](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L150)
 
 ---
 
@@ -339,7 +341,7 @@ Defined in: [src/playground/earth/runtime/state.ts:138](https://github.com/LuisK
 vig: EarthVigState | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:139](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L139)
+Defined in: [src/playground/earth/runtime/state.ts:151](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L151)
 
 ---
 
@@ -349,7 +351,7 @@ Defined in: [src/playground/earth/runtime/state.ts:139](https://github.com/LuisK
 film: EarthFilmState | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:140](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L140)
+Defined in: [src/playground/earth/runtime/state.ts:152](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L152)
 
 ---
 
@@ -359,7 +361,7 @@ Defined in: [src/playground/earth/runtime/state.ts:140](https://github.com/LuisK
 cg: EarthGradeState | null
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:141](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L141)
+Defined in: [src/playground/earth/runtime/state.ts:153](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L153)
 
 ---
 
@@ -369,7 +371,7 @@ Defined in: [src/playground/earth/runtime/state.ts:141](https://github.com/LuisK
 render: object
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:142](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L142)
+Defined in: [src/playground/earth/runtime/state.ts:154](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L154)
 
 #### resolutionScale
 
@@ -385,6 +387,6 @@ resolutionScale: number
 onResize: (() => void) | null;
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:144](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L144)
+Defined in: [src/playground/earth/runtime/state.ts:156](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L156)
 
 Stable resize-listener identity so destroy() can removeEventListener.

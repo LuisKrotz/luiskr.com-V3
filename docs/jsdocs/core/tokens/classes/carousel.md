@@ -11,4 +11,6 @@ Custom carousel class tokens (project/related carousels) —
 
 ### `CAROUSEL_CLASSES`
 
-The CAROUSEL_CLASSES constant.
+Frozen carousel class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

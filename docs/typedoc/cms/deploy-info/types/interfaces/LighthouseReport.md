@@ -4,9 +4,10 @@
 
 [luiskr.com](../../../../README.md) / [cms/deploy-info/types](../README.md) / LighthouseReport
 
-Defined in: [src/cms/deploy-info/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/deploy-info/types.ts#L16)
+Defined in: [src/cms/deploy-info/types.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/deploy-info/types.ts#L22)
 
-The LighthouseReport value.
+Shape of the Lighthouse JSON summary — `urls` pairs each audited
+URL with its category scores (performance, a11y, best-practices, SEO).
 
 ## Properties
 
@@ -16,7 +17,7 @@ The LighthouseReport value.
 optional urls?: object[];
 ```
 
-Defined in: [src/cms/deploy-info/types.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/deploy-info/types.ts#L17)
+Defined in: [src/cms/deploy-info/types.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/deploy-info/types.ts#L23)
 
 #### url
 

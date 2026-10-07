@@ -8,9 +8,10 @@
 function persistSpaceParam(c, param, val): void
 ```
 
-Defined in: [src/playground/space/wiring.ts:294](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/wiring.ts#L294)
+Defined in: [src/playground/space/wiring.ts:316](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/wiring.ts#L316)
 
-persists space param.
+Writes one param into the saved-settings map and persists the whole map
+to localStorage — the single write point for panel state.
 
 ## Parameters
 
@@ -18,19 +19,19 @@ persists space param.
 
 [`SpacePlayground`](../../../SpacePlayground/classes/SpacePlayground.md)
 
-— the component
+The SpacePlayground element.
 
 ### param
 
 `string`
 
-— the value
+Engine param name (key into PARAM_HANDLERS).
 
 ### val
 
 [`SpParamValue`](../../controls/type-aliases/SpParamValue.md)
 
-— the value
+New value (number or boolean).
 
 ## Returns
 

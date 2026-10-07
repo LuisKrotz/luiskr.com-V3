@@ -11,4 +11,6 @@ Dialog title id tokens (aria-labelledby targets) — grouped
 
 ### `DIALOG_IDS`
 
-The DIALOG_IDS constant.
+Frozen dialog element-id map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

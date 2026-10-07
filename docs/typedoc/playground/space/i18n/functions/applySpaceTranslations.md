@@ -8,7 +8,7 @@
 function applySpaceTranslations(c, val): void
 ```
 
-Defined in: [src/playground/space/i18n.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/space/i18n.ts#L58)
+Defined in: [src/playground/space/i18n.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/i18n.ts#L58)
 
 Applies space translations.
 

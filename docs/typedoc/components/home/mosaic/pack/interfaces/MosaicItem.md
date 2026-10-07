@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../../README.md) / [components/home/mosaic/pack](../README.md) / MosaicItem
 
-Defined in: [src/components/home/mosaic/pack.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L37)
+Defined in: [src/components/home/mosaic/pack.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L35)
 
-The MosaicItem value.
+One project tile as consumed by the packer.
 
 ## Properties
 
@@ -16,7 +16,9 @@ The MosaicItem value.
 optional link?: string;
 ```
 
-Defined in: [src/components/home/mosaic/pack.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L38)
+Defined in: [src/components/home/mosaic/pack.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L37)
+
+Route the card links to.
 
 ---
 
@@ -26,7 +28,9 @@ Defined in: [src/components/home/mosaic/pack.ts:38](https://github.com/LuisKrotz
 optional image?: string;
 ```
 
-Defined in: [src/components/home/mosaic/pack.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L39)
+Defined in: [src/components/home/mosaic/pack.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L39)
+
+Cover image stem.
 
 ---
 
@@ -36,7 +40,9 @@ Defined in: [src/components/home/mosaic/pack.ts:39](https://github.com/LuisKrotz
 optional label?: string;
 ```
 
-Defined in: [src/components/home/mosaic/pack.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L40)
+Defined in: [src/components/home/mosaic/pack.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L41)
+
+Accessible label.
 
 ---
 
@@ -46,7 +52,9 @@ Defined in: [src/components/home/mosaic/pack.ts:40](https://github.com/LuisKrotz
 optional title?: string;
 ```
 
-Defined in: [src/components/home/mosaic/pack.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L41)
+Defined in: [src/components/home/mosaic/pack.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L43)
+
+Card heading.
 
 ---
 
@@ -56,7 +64,9 @@ Defined in: [src/components/home/mosaic/pack.ts:41](https://github.com/LuisKrotz
 optional description?: string;
 ```
 
-Defined in: [src/components/home/mosaic/pack.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L42)
+Defined in: [src/components/home/mosaic/pack.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L45)
+
+Expanded-panel text.
 
 ---
 
@@ -66,4 +76,6 @@ Defined in: [src/components/home/mosaic/pack.ts:42](https://github.com/LuisKrotz
 optional featured?: boolean;
 ```
 
-Defined in: [src/components/home/mosaic/pack.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/pack.ts#L43)
+Defined in: [src/components/home/mosaic/pack.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/pack.ts#L47)
+
+Featured tiles span 2 columns (on multi-column layouts).

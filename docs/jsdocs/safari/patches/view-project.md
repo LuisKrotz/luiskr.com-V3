@@ -11,4 +11,7 @@ ViewProject patch: manual modal positioning — iOS doesn't layer
 
 ### `patchViewProject`
 
-The patchViewProject value.
+Installs the view-project Safari patch once the element registers:
+replaces `_updateModalDOM` with the lifted-dialog variant and wraps
+`onDestroy` so a modal lifted into document.body is reaped when the
+view unmounts (otherwise it orphans on top of the next page).

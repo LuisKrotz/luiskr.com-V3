@@ -8,9 +8,13 @@
 function renderAppNav(nav): '' | Element
 ```
 
-Defined in: [src/components/nav/render.tsx:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/nav/render.tsx#L38)
+Defined in: [src/components/nav/render.tsx:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/nav/render.tsx#L43)
 
-Renders app nav.
+Renders the <app-nav> template: logo, burger strip, and the fullscreen
+menu overlay. Returns '' while the media-expand modal is open — an empty
+render wipes the nav DOM so its z-index/focus can never compete with the
+modal chrome. The CTA label chain (contact → scroll-up at page bottom →
+related on project routes) mirrors the menu item order.
 
 ## Parameters
 
@@ -18,9 +22,11 @@ Renders app nav.
 
 [`AppNav`](../../AppNav/classes/AppNav.md)
 
-— the value
+AppNav instance — reads its getters/state, calls delegates.
 
 ## Returns
 
 \| `""`
 \| [`Element`](../../../../globals/namespaces/JSX/type-aliases/Element.md)
+
+JSX tree, or '' while a modal owns the screen.

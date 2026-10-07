@@ -13,6 +13,8 @@ const CURSOR_CLASSES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/classes/effects.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/classes/effects.ts#L20)
+Defined in: [src/core/tokens/classes/effects.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/classes/effects.ts#L24)
 
-The CURSOR_CLASSES constant.
+Frozen cursor class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

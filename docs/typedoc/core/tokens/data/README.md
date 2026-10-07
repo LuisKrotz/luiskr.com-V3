@@ -129,3 +129,15 @@ Re-exports [NOTIFY_UI_KEYS](ui-keys/variables/NOTIFY_UI_KEYS.md)
 ### WASM\_ACTIONS
 
 Re-exports [WASM_ACTIONS](wasm/variables/WASM_ACTIONS.md)
+
+---
+
+### WASM\_POOL
+
+Re-exports [WASM_POOL](wasm/variables/WASM_POOL.md)
+
+---
+
+### WASM\_CSS
+
+Re-exports [WASM_CSS](wasm/variables/WASM_CSS.md)

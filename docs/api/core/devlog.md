@@ -27,11 +27,15 @@ The original call arguments, unserialized.
 
 ### `_entries`
 
-Ring buffer of recent diagnostics (bounded by DEV_LOG.MAX_ENTRIES).
+Ring buffer of recent diagnostics, bounded by DEV_LOG.MAX_ENTRIES. The
+oldest-first `shift()` eviction is O(n) but the cap is small enough that a
+real ring index would add complexity without measurable gain.
 
 ### `push`
 
-Appends an entry, evicting the oldest when the buffer is full.
+Appends an entry, evicting the oldest when the buffer is full. Arguments
+are stored unserialized (live references) so devtools inspection shows
+real objects — deliberate trade: callers must not mutate parts they log.
 - `@param` level — LOG_LEVELS value
 - `@param` parts — original call arguments
 

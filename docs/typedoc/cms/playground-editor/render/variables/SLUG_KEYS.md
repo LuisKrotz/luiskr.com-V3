@@ -8,6 +8,6 @@
 const SLUG_KEYS: readonly string[]
 ```
 
-Defined in: [src/cms/playground-editor/render.tsx:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/playground-editor/render.tsx#L27)
+Defined in: [src/cms/playground-editor/render.tsx:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/playground-editor/render.tsx#L27)
 
-The SLUG_KEYS constant.
+Frozen slug list — the ordered source for this token set.

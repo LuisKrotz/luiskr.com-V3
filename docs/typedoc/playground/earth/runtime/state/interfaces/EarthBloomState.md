@@ -4,9 +4,9 @@
 
 [luiskr.com](../../../../../README.md) / [playground/earth/runtime/state](../README.md) / EarthBloomState
 
-Defined in: [src/playground/earth/runtime/state.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L56)
+Defined in: [src/playground/earth/runtime/state.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L62)
 
-earths bloom state.
+Bloom post-pass settings.
 
 ## Properties
 
@@ -16,7 +16,7 @@ earths bloom state.
 enabled: boolean
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L57)
+Defined in: [src/playground/earth/runtime/state.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L63)
 
 ---
 
@@ -26,7 +26,9 @@ Defined in: [src/playground/earth/runtime/state.ts:57](https://github.com/LuisKr
 strength: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L58)
+Defined in: [src/playground/earth/runtime/state.ts:65](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L65)
+
+Bloom intensity multiplier.
 
 ---
 
@@ -36,7 +38,9 @@ Defined in: [src/playground/earth/runtime/state.ts:58](https://github.com/LuisKr
 radius: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L59)
+Defined in: [src/playground/earth/runtime/state.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L67)
+
+Bloom kernel radius.
 
 ---
 
@@ -46,4 +50,6 @@ Defined in: [src/playground/earth/runtime/state.ts:59](https://github.com/LuisKr
 threshold: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/playground/earth/runtime/state.ts#L60)
+Defined in: [src/playground/earth/runtime/state.ts:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L69)
+
+Luminance threshold above which pixels bleed.

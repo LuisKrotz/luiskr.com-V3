@@ -11,4 +11,6 @@ Card and section-shell classes — card blocks, section
 
 ### `CMS_CARD_CLASSES`
 
-The CMS_CARD_CLASSES constant.
+Frozen cms card class-name map — sole declaration site for these tokens; consumers read
+members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+the token contract immutable at runtime.

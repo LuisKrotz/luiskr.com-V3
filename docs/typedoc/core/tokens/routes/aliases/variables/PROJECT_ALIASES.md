@@ -13,13 +13,8 @@ const PROJECT_ALIASES: Readonly<{
 }>;
 ```
 
-Defined in: [src/core/tokens/routes/aliases.ts:7](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/tokens/routes/aliases.ts#L7)
+Defined in: [src/core/tokens/routes/aliases.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/routes/aliases.ts#L12)
 
-## File
-
-tokens/routes/aliases.js
-
-## Description
-
-Legacy project slug aliases — maps old URL slugs to canonical
-project keys. Used in router and Project view.
+Legacy project slug aliases. Sole declaration site — consumers import members
+from this frozen map rather than re-declaring the literals
+(zero-hardcoding rule).

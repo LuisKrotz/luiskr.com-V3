@@ -9,6 +9,10 @@
 
 ## Members
 
+### (module scope)
+
+View-local type re-exports — canonical definitions + docs live in ./types.js.
+
 ### `ViewProject`
 
 The ViewProject — project class.

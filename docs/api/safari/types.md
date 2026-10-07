@@ -15,8 +15,10 @@ Structural surface the Safari patches rely on (BaseComponent subclasses).
 
 ### (module scope)
 
-The PatchableProto value.
+The slice of a component prototype the patches may re-bind — every
+member is optional because a patch only touches the methods Safari
+actually breaks (e.g. media-figure's high-res load path).
 
 ### (module scope)
 
-The PatchableCtor value.
+A custom-element constructor whose prototype exposes the patchable methods.

@@ -8,12 +8,7 @@
 const app: FirebaseApp
 ```
 
-Defined in: [src/firebase.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/firebase.ts#L59)
+Defined in: [src/firebase.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/firebase.ts#L64)
 
-The app constant.
-
-## Param
-
-**firebaseConfig**
-
-— the value
+The shared Firebase App — initialized eagerly from firebaseConfig; auth
+and database SDKs attach to it lazily.

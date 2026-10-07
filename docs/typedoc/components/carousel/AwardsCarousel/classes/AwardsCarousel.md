@@ -4,9 +4,14 @@
 
 [luiskr.com](../../../../README.md) / [components/carousel/AwardsCarousel](../README.md) / AwardsCarousel
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L34)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L39)
 
-The AwardsCarousel — carousel class.
+<awards-carousel> element — a lightweight looping carousel for award
+and selected-work strips. Clone-ended infinite scroll (first/last
+slides duplicated so the wrap jump looks seamless), dot navigation,
+and a 30s RAF-driven autoplay gated on ≥50% visibility and
+reduced-motion. All behavior delegates to `./awards-carousel/*`; this
+class is the state holder + custom-element facade.
 
 ## Extends
 
@@ -20,7 +25,7 @@ The AwardsCarousel — carousel class.
 new AwardsCarousel(): AwardsCarousel;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L52)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:73](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L73)
 
 #### Returns
 
@@ -38,7 +43,7 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:52](https://github.com/L
 protected _componentStyles: string;
 ```
 
-Defined in: [src/core/Component.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L53)
+Defined in: [src/core/Component.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L67)
 
 `?inline` SCSS text injected once per shadow root.
 
@@ -54,7 +59,11 @@ Defined in: [src/core/Component.ts:53](https://github.com/LuisKrotz/luiskr.com-V
 protected _eventDisposers: () => void[] = [];
 ```
 
-Defined in: [src/core/Component.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L54)
+Defined in: [src/core/Component.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L74)
+
+Disposers for listeners added via addScopedListener(). Drained in
+disconnectedCallback so elements never leak listeners across mounts —
+critical for elements that move in the DOM (carousel reorder, route swap).
 
 #### Returns
 
@@ -72,7 +81,10 @@ Defined in: [src/core/Component.ts:54](https://github.com/LuisKrotz/luiskr.com-V
 protected _storeUnsubscribers: () => void[] = [];
 ```
 
-Defined in: [src/core/Component.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L55)
+Defined in: [src/core/Component.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L80)
+
+Unsubscribe callbacks from store.subscribe(). Drained on disconnect so a
+detached element stops receiving store pushes and can be GC'd.
 
 #### Returns
 
@@ -90,7 +102,11 @@ Defined in: [src/core/Component.ts:55](https://github.com/LuisKrotz/luiskr.com-V
 _isMounted: boolean = false
 ```
 
-Defined in: [src/core/Component.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L56)
+Defined in: [src/core/Component.ts:87](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L87)
+
+Whether the element is currently connected. Read by the store-subscription
+wrapper to skip onStoreUpdate on detached elements (a store push arriving
+between disconnect and GC must not re-render into a dead shadow root).
 
 #### Inherited from
 
@@ -104,7 +120,9 @@ Defined in: [src/core/Component.ts:56](https://github.com/LuisKrotz/luiskr.com-V
 protected _styleNode: Element | HTMLStyleElement | null = null;
 ```
 
-Defined in: [src/core/Component.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L57)
+Defined in: [src/core/Component.ts:90](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L90)
+
+The `<style>` fallback node, only populated on engines without constructable stylesheets.
 
 #### Inherited from
 
@@ -118,7 +136,11 @@ Defined in: [src/core/Component.ts:57](https://github.com/LuisKrotz/luiskr.com-V
 _contentNode: Element | HTMLElement | null = null;
 ```
 
-Defined in: [src/core/Component.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L58)
+Defined in: [src/core/Component.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L97)
+
+Persistent content wrapper inside the shadow root. _updateDom swaps only
+this node's children — the style mechanism stays untouched (see file
+header for why that split exists).
 
 #### Inherited from
 
@@ -134,7 +156,7 @@ _skeletonLayer:
   | null = null;
 ```
 
-Defined in: [src/core/Component.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L60)
+Defined in: [src/core/Component.ts:100](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L100)
 
 Live WebGL skeleton layer, owned by syncSkeletonLayer()/destroySkeletonLayer().
 
@@ -150,7 +172,9 @@ Live WebGL skeleton layer, owned by syncSkeletonLayer()/destroySkeletonLayer().
 state: ComponentState = {}
 ```
 
-Defined in: [src/core/Component.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L61)
+Defined in: [src/core/Component.ts:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L103)
+
+Reactive state bag — written only through setState() so updates always re-render.
 
 #### Inherited from
 
@@ -183,7 +207,9 @@ at the time the input device's primary action is triggered.
 _items: CarouselSlide[] = [];
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L35)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L41)
+
+Slide entries pushed by the host — setter guards identity so repeat pushes don't re-render.
 
 ---
 
@@ -193,7 +219,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:35](https://github.com/L
 variant: string = AWC_VARIANTS.SELECTED
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L36)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L43)
+
+Render mode: 'selected' content cards | 'awards' link list.
 
 ---
 
@@ -203,7 +231,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:36](https://github.com/L
 duration: number = 30000
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L37)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L45)
+
+Autoplay dwell per slide (ms) — 30s keeps it ambient, not distracting.
 
 ---
 
@@ -213,7 +243,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:37](https://github.com/L
 showDots: boolean = false
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L38)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L47)
+
+Dot nav visibility (host sets it for awards).
 
 ---
 
@@ -223,7 +255,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:38](https://github.com/L
 currentIndex: number = 0
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L39)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L49)
+
+Real-slide index (clones excluded).
 
 ---
 
@@ -233,7 +267,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:39](https://github.com/L
 autoplayRunning: boolean = false
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L40)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L51)
+
+RAF cycle active flag.
 
 ---
 
@@ -243,7 +279,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:40](https://github.com/L
 autoplayStart: number | null = null;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L41)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L53)
+
+performance.now() at cycle start.
 
 ---
 
@@ -253,7 +291,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:41](https://github.com/L
 autoplayElapsed: number = 0
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L42)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L55)
+
+Accumulated pause→resume offset so dwell survives interruptions.
 
 ---
 
@@ -263,7 +303,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:42](https://github.com/L
 rafId: number | null = null;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L43)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L57)
+
+Autoplay RAF handle.
 
 ---
 
@@ -273,7 +315,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:43](https://github.com/L
 teleportTimer: number | null = null;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L44)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L59)
+
+Pending clone→real jump timer (teleport after wrap settles).
 
 ---
 
@@ -283,7 +327,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:44](https://github.com/L
 touchStartX: number = 0
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L45)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L61)
+
+Swipe origin X for the 40px threshold check.
 
 ---
 
@@ -293,7 +339,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:45](https://github.com/L
 isNavigating: boolean = false
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L46)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L63)
+
+Programmatic scroll in flight — scroll events during it are ignored.
 
 ---
 
@@ -303,7 +351,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:46](https://github.com/L
 isEnteredViewport: boolean = false
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L47)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:65](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L65)
+
+Any viewport visibility ever observed (starts fade-in on first sight).
 
 ---
 
@@ -313,7 +363,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:47](https://github.com/L
 isFullyVisible: boolean = false
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L48)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L67)
+
+≥50% visible — the autoplay gate.
 
 ---
 
@@ -323,7 +375,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:48](https://github.com/L
 observer: IntersectionObserver | null = null;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L49)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L69)
+
+IntersectionObserver handle driving the visibility flags.
 
 ---
 
@@ -333,7 +387,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:49](https://github.com/L
 setupRafId: number | null = null;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L50)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:71](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L71)
+
+Pending one-shot init frame (setup runs after first paint so layout exists).
 
 ---
 
@@ -4375,7 +4431,7 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:35365
 get items(): CarouselSlide[];
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:73](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L73)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:98](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L98)
 
 ##### Returns
 
@@ -4387,9 +4443,12 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:73](https://github.com/L
 set items(val): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L58)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:83](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L83)
 
-Setter/getter — portfolio slide entries.
+Slide entries pushed by the host. The identity-equality early-return
+(same array instance, or same items in same order) prevents Firebase
+re-pushes that carry identical data from wiping the DOM and
+restarting autoplay + draw animations mid-cycle.
 
 ##### Parameters
 
@@ -4577,10 +4636,11 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:13931
 optional onInit(): void;
 ```
 
-Defined in: [src/core/Component.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L67)
+Defined in: [src/core/Component.ts:110](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L110)
 
 Lifecycle hooks — declared on the base so `?.()` calls are type-safe and
-subclasses get a documented override point.
+subclasses get a documented override point. Order on first connect:
+onInit → _renderInitial → onMounted → onUpdated.
 
 #### Returns
 
@@ -4598,9 +4658,14 @@ subclasses get a documented override point.
 setState(updater): void;
 ```
 
-Defined in: [src/core/Component.ts:83](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L83)
+Defined in: [src/core/Component.ts:139](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L139)
 
-Set partial state and re-render content (NOT styles).
+Set partial state and re-render content (NOT styles). Accepts either a
+patch object or a React-style updater function — the function form is
+required when the next state derives from the previous state, since
+reads of `this.state` outside the updater can race with queued renders.
+The merge is a shallow spread: keys not present in `next` survive, which
+lets components update one field without re-sending the whole bag.
 
 #### Parameters
 
@@ -4608,6 +4673,8 @@ Set partial state and re-render content (NOT styles).
 
 \| [`ComponentState`](../../../../core/Component/type-aliases/ComponentState.md)
 \| ((`_state`) => [`ComponentState`](../../../../core/Component/type-aliases/ComponentState.md))
+
+Partial state patch, or (prevState) => patch.
 
 #### Returns
 
@@ -4625,12 +4692,14 @@ Set partial state and re-render content (NOT styles).
 connectedCallback(): void;
 ```
 
-Defined in: [src/core/Component.ts:99](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L99)
+Defined in: [src/core/Component.ts:157](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L157)
 
 DOM insertion — runs onInit (data setup), the one-time style/content
 build (_renderInitial), then onMounted + onUpdated so a first render is
 indistinguishable from an update, and finally registers this element
 with the WebGL skeleton scanner (no-op when no skeletons are present).
+Per the Custom Elements spec this callback can fire multiple times —
+every branch below is written to be idempotent on re-mount.
 
 #### Returns
 
@@ -4648,11 +4717,13 @@ with the WebGL skeleton scanner (no-op when no skeletons are present).
 disconnectedCallback(): void;
 ```
 
-Defined in: [src/core/Component.ts:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L113)
+Defined in: [src/core/Component.ts:173](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L173)
 
 DOM removal — tears down in reverse order: scoped listeners, store
 subscriptions, the WebGL skeleton layer for this element, then the
-subclass's onDestroy (engine/audio/observer cleanup).
+subclass's onDestroy (engine/audio/observer cleanup). `_isMounted` flips
+first so an in-flight store push during teardown hits the guard in
+subscribe() rather than rendering into a disconnecting root.
 
 #### Returns
 
@@ -4670,9 +4741,10 @@ subclass's onDestroy (engine/audio/observer cleanup).
 $<T>(selector): T | null;
 ```
 
-Defined in: [src/core/Component.ts:124](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L124)
+Defined in: [src/core/Component.ts:189](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L189)
 
-Safe scoped querySelector inside Shadow Root.
+Safe scoped querySelector inside Shadow Root. Returns null instead of
+throwing when the shadow root is absent (detached construction in tests).
 
 #### Type Parameters
 
@@ -4686,9 +4758,13 @@ Safe scoped querySelector inside Shadow Root.
 
 `string`
 
+CSS selector evaluated against this.shadowRoot.
+
 #### Returns
 
 `T` \| `null`
+
+First matching element or null.
 
 #### Inherited from
 
@@ -4702,9 +4778,11 @@ Safe scoped querySelector inside Shadow Root.
 $$<T>(selector): T[];
 ```
 
-Defined in: [src/core/Component.ts:129](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L129)
+Defined in: [src/core/Component.ts:200](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L200)
 
-Safe scoped querySelectorAll inside Shadow Root.
+Safe scoped querySelectorAll inside Shadow Root — materialized into a
+real Array so callers get .map/.filter/forEach (NodeList lacks some
+iteration methods on older engines).
 
 #### Type Parameters
 
@@ -4718,9 +4796,13 @@ Safe scoped querySelectorAll inside Shadow Root.
 
 `string`
 
+CSS selector evaluated against this.shadowRoot.
+
 #### Returns
 
 `T`[]
+
+Array of matching elements (never null).
 
 #### Inherited from
 
@@ -4739,11 +4821,13 @@ addScopedListener(
 ): void;
 ```
 
-Defined in: [src/core/Component.ts:138](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L138)
+Defined in: [src/core/Component.ts:215](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L215)
 
 Scoped event listener with automatic lifecycle cleanup.
-Prevents duplicate listeners: if the same handler reference is registered
-for the same target+event, subsequent calls are no-ops.
+Prevents duplicate listeners: the DOM itself dedupes identical
+(type, listener, capture) tuples per MDN addEventListener semantics, and
+every registration is mirrored into _eventDisposers so disconnect removes
+it even when the listener captured instance state.
 
 #### Parameters
 
@@ -4751,17 +4835,25 @@ for the same target+event, subsequent calls are no-ops.
 
 `EventTarget` \| `null`
 
+EventTarget to listen on (null → no-op).
+
 ##### event
 
 `string`
+
+Event type token.
 
 ##### handler
 
 `EventListenerOrEventListenerObject`
 
+Listener callback or listener object.
+
 ##### options?
 
 `boolean` \| `AddEventListenerOptions`
+
+Passive/capture/once options forwarded verbatim.
 
 #### Returns
 
@@ -4779,15 +4871,20 @@ for the same target+event, subsequent calls are no-ops.
 subscribe(store): void;
 ```
 
-Defined in: [src/core/Component.ts:155](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L155)
+Defined in: [src/core/Component.ts:236](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L236)
 
-Subscribe to store changes with automatic lifecycle cleanup.
+Subscribe to store changes with automatic lifecycle cleanup. The wrapper
+gates on _isMounted: a store push landing while the element is detached
+(mid-move or already removed) is dropped instead of rendering into a
+dead shadow root — the next connectedCallback renders fresh state anyway.
 
 #### Parameters
 
 ##### store
 
 `ScopedStore` \| `null` \| `undefined`
+
+Store-like object exposing subscribe(); null/invalid → no-op.
 
 #### Returns
 
@@ -4805,10 +4902,12 @@ Subscribe to store changes with automatic lifecycle cleanup.
 protected _renderInitial(): void;
 ```
 
-Defined in: [src/core/Component.ts:171](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L171)
+Defined in: [src/core/Component.ts:254](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L254)
 
 Initial render: injects styles ONCE and creates the content node.
-Called exactly once from connectedCallback().
+Called exactly once from connectedCallback() — but on re-mount the shadow
+root retains children from the previous mount, so both style and content
+paths reuse existing nodes instead of duplicating them.
 
 #### Returns
 
@@ -4826,12 +4925,14 @@ Called exactly once from connectedCallback().
 _updateDom(): void;
 ```
 
-Defined in: [src/core/Component.ts:231](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L231)
+Defined in: [src/core/Component.ts:321](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L321)
 
 Update content without touching the style node.
 Only the content wrapper is replaced — the <style> node
 remains untouched, preventing style re-parsing and IntersectionObserver
-destruction that occurred in the previous innerHTML = styleBlock + content approach.
+destruction that occurred in the previous innerHTML = styleBlock + content
+approach (a single string assignment re-parsed all CSS and rebuilt every
+tracked element on every state change).
 
 #### Returns
 
@@ -4849,15 +4950,24 @@ destruction that occurred in the previous innerHTML = styleBlock + content appro
 protected _applyRenderOutput(output): void;
 ```
 
-Defined in: [src/core/Component.ts:249](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/Component.ts#L249)
+Defined in: [src/core/Component.ts:348](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L348)
 
 Applies the render output (DOM Node, DocumentFragment, or HTML string) to the content wrapper.
+Three accepted shapes, resolved in priority order:
+
+- Node → `replaceChildren(node)` — the JSX fast path, keeps DOM identity.
+- Array → `replaceChildren(...filtered)` — fragment-style multi-root
+  render; nullish entries are filtered so conditional JSX slots can just
+  return null.
+- string/nullish → `innerHTML` — legacy string templates; '' clears.
 
 #### Parameters
 
 ##### output
 
 `string` \| `Node` \| (`Node` \| `null` \| `undefined`)[] \| `null` \| `undefined`
+
+Render result from render().
 
 #### Returns
 
@@ -4875,7 +4985,9 @@ Applies the render output (DOM Node, DocumentFragment, or HTML string) to the co
 onMounted(): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:77](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L77)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L103)
+
+Mount: render items, wire events/observer, subscribe to the store for reduced-motion.
 
 #### Returns
 
@@ -4893,7 +5005,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:77](https://github.com/L
 onUpdated(): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:86](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L86)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L113)
+
+Re-render: re-strip clone focusability (clones get re-created).
 
 #### Returns
 
@@ -4911,7 +5025,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:86](https://github.com/L
 onStoreUpdate(): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:90](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L90)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:118](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L118)
+
+Reduced-motion commit → kill autoplay immediately (no residual RAF).
 
 #### Returns
 
@@ -4929,9 +5045,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:90](https://github.com/L
 _setupCarousel(): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:98](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L98)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:126](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L126)
 
-Initializes the carousel: bind → jump → observer → clone a11y.
+Initializes the carousel: bind → jump → observer → clone a11y. The work runs inside one RAF so layout is settled before jump/observer measure positions.
 
 #### Returns
 
@@ -4945,7 +5061,9 @@ Initializes the carousel: bind → jump → observer → clone a11y.
 onDestroy(): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:109](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L109)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:138](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L138)
+
+Teardown: stop RAF + observer + timers — every async handle is released so nothing fires after disconnect.
 
 #### Returns
 
@@ -4963,7 +5081,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:109](https://github.com/
 _bindEvents(): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:123](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L123)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:153](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L153)
+
+Binds scroll/touch/dot listeners (awards-carousel/events.ts).
 
 #### Returns
 
@@ -4977,7 +5097,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:123](https://github.com/
 onDotClick(idx): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:126](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L126)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:157](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L157)
+
+Dot-nav click → goTo.
 
 #### Parameters
 
@@ -4997,7 +5119,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:126](https://github.com/
 goTo(idx): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:129](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L129)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:161](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L161)
+
+Navigate to real-slide index (wraps via clone path).
 
 #### Parameters
 
@@ -5017,7 +5141,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:129](https://github.com/
 _scrollToElement(el): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:132](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L132)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:165](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L165)
+
+Scrolls the track so `el` lands at the carousel start edge.
 
 #### Parameters
 
@@ -5037,7 +5163,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:132](https://github.com/
 _scrollToSlide(idx): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:135](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L135)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:169](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L169)
+
+Scrolls to slide `idx` — real index, resolved through the clone map.
 
 #### Parameters
 
@@ -5057,7 +5185,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:135](https://github.com/
 _scheduleTeleport(targetIdx): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:138](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L138)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:173](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L173)
+
+Schedules the post-wrap teleport from a clone position back to the real slide.
 
 #### Parameters
 
@@ -5077,7 +5207,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:138](https://github.com/
 _jumpToSlide(idx, smooth?): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:141](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L141)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:177](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L177)
+
+Positions the track on slide `idx` (smooth=false for instant jumps).
 
 #### Parameters
 
@@ -5101,7 +5233,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:141](https://github.com/
 _setupObserver(): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:144](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L144)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:181](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L181)
+
+Creates the IntersectionObserver driving isEnteredViewport/isFullyVisible.
 
 #### Returns
 
@@ -5115,7 +5249,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:144](https://github.com/
 _onResize(): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:147](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L147)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:185](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L185)
+
+Resize handler — remeasures slide width and re-jumps without animation.
 
 #### Returns
 
@@ -5129,7 +5265,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:147](https://github.com/
 _disableClonesFocus(): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:150](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L150)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:189](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L189)
+
+Strips focusability from clone slides so Tab order only visits real slides.
 
 #### Returns
 
@@ -5143,7 +5281,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:150](https://github.com/
 _startAutoplay(): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:153](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L153)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:193](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L193)
+
+Starts the autoplay RAF cycle (gated by visibility + reduced-motion).
 
 #### Returns
 
@@ -5157,7 +5297,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:153](https://github.com/
 _stopAutoplay(): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:156](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L156)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:197](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L197)
+
+Stops the autoplay RAF cycle.
 
 #### Returns
 
@@ -5171,7 +5313,9 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:156](https://github.com/
 _tickAutoplay(): void;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:159](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L159)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:201](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L201)
+
+One autoplay frame — advances when dwell elapsed, then self-schedules.
 
 #### Returns
 
@@ -5187,7 +5331,9 @@ renderItem(item):
   | null;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:162](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L162)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:205](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L205)
+
+Renders one slide JSX (variant-aware).
 
 #### Parameters
 
@@ -5209,7 +5355,7 @@ Defined in: [src/components/carousel/AwardsCarousel.tsx:162](https://github.com/
 render(): Element;
 ```
 
-Defined in: [src/components/carousel/AwardsCarousel.tsx:168](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/carousel/AwardsCarousel.tsx#L168)
+Defined in: [src/components/carousel/AwardsCarousel.tsx:211](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/AwardsCarousel.tsx#L211)
 
 JSX template (delegate — ./awards-carousel/render.tsx).
 

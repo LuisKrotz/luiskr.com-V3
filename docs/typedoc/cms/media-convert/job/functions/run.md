@@ -8,9 +8,11 @@
 function run(host): Promise<void>
 ```
 
-Defined in: [src/cms/media-convert/job.ts:176](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/cms/media-convert/job.ts#L176)
+Defined in: [src/cms/media-convert/job.ts:215](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/job.ts#L215)
 
-The run value.
+Full pipeline orchestrator: create → upload → convert, flipping
+host.phase at each stage and re-rendering. Errors land on the ERROR
+phase with the server's message so the UI shows the real failure.
 
 ## Parameters
 
@@ -18,7 +20,7 @@ The run value.
 
 [`CmsMediaConverter`](../../CmsMediaConverter/classes/CmsMediaConverter.md)
 
-— the host component
+The CmsMediaConverter element.
 
 ## Returns
 

@@ -17,8 +17,7 @@ light falloff in the 10–200 range where float precision is excellent.
 
 ### `EARTH_AXIAL_TILT`
 
-earths axial tilt.
-- `@param` 23 — the value
+Earth's real axial tilt — 23.44° converted to radians for the group rotation.
 
 ### `ATMOS_RADIUS`
 
@@ -40,4 +39,5 @@ Arg shapes for the Fn-defined post nodes — per-node-type annotations
 
 ### (module scope)
 
-The VignetteNodeArgs value.
+Args for the vignette post node — `{ color, uv, darkness, offset }`,
+typed so the Fn body gets the fluent vec/float node surface.

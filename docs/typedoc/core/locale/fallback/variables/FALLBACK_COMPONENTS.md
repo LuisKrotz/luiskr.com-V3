@@ -8,6 +8,7 @@
 const FALLBACK_COMPONENTS: Record<string, unknown> = FALLBACK.components
 ```
 
-Defined in: [src/core/locale/fallback.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/core/locale/fallback.ts#L41)
+Defined in: [src/core/locale/fallback.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/locale/fallback.ts#L43)
 
-The FALLBACK_COMPONENTS constant.
+The components subtree — per-component copy fallbacks keyed by component
+token (e.g. aboutSection, siteToast).

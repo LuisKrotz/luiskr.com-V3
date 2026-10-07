@@ -11,4 +11,6 @@ App shell class tokens — progress bar + view outlet. Grouped
 
 ### `APP_CLASSES`
 
-The APP_CLASSES constant.
+Frozen app class-name map — sole declaration site for these tokens; consumers read members
+and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+token contract immutable at runtime.

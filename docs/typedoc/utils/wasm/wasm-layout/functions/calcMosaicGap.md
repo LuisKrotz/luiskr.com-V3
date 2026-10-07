@@ -8,9 +8,10 @@
 function calcMosaicGap(vw): number
 ```
 
-Defined in: [src/utils/wasm/wasm-layout.ts:142](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/wasm/wasm-layout.ts#L142)
+Defined in: [src/utils/wasm/wasm-layout.ts:233](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-layout.ts#L233)
 
-Mosaic gutter in px — 0 on small screens (edge-to-edge tiles), 13 above 640px.
+Mosaic gutter in px — 0 below the gap breakpoint (edge-to-edge tiles on
+phones), MOSAIC_GAP above.
 
 ## Parameters
 
@@ -18,6 +19,10 @@ Mosaic gutter in px — 0 on small screens (edge-to-edge tiles), 13 above 640px.
 
 `number`
 
+Viewport width in px.
+
 ## Returns
 
 `number`
+
+Gutter px.

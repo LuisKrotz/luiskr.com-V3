@@ -11,4 +11,6 @@ DrawText selector tokens — token group.
 
 ### `DRAW_TEXT_SELECTORS`
 
-Draws text selectors.
+Selector strings for the draw-text surface — the component root plus
+the word/char/space spans the stagger animation targets. Composed from
+the class tokens so selectors stay correct if a class name changes.
