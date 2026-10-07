@@ -6,6 +6,11 @@
  * panel, CMS editors, and playground controls.
  */
 
+/**
+ * Form control attribute tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const FORM_ATTRS = Object.freeze({
   /** `type` — the input/button type attribute name itself. */
   TYPE: 'type',
