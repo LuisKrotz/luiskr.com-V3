@@ -31,8 +31,11 @@ export const BROWSERS: BrowserSpec[] = [
   // Samsung Internet — Chromium-based, ships on mid-range Galaxy SoCs.
   // UA: `… Chrome/120.0.0.0 Mobile Safari/537.36 SamsungBrowser/23.0`
   { name: 'samsung', pattern: 'SamsungBrowser\\/(\\d+)', quirks: { webgpu: false, lowGpu: true } },
-  // Edge legacy (Edg/) + Chromium Edge / Android Edge (EdgA/) — before Chrome.
+  // Edge legacy (Edg/) + Chromium Edge / Android Edge (EdgA/) — the
+  // `Edg[eA]?` class covers both spellings; placed before Chrome since Edge
+  // UAs also carry `Chrome/…`.
   { name: 'edge', pattern: 'Edg[eA]?\\/(\\d+)', quirks: {} },
+  // Opera — `OPR/` suffix on Chromium UAs; also before the Chrome catch-all.
   { name: 'opera', pattern: 'OPR\\/(\\d+)', quirks: {} },
   // Firefox: `… Gecko/20100101 Firefox/133.0`. WebGPU is flag-gated
   // (Windows-only since FF141, unavailable on Android/macOS stable).
