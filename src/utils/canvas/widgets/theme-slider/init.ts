@@ -68,6 +68,10 @@ export function init(host: ThemeSliderWebGL): void {
     return
   }
 
+  // Register before probing so an initial fallback remains eligible for the
+  // centralized next-action recovery pass.
+  webglPool.register(host.canvas, host)
+
   const rect = host.canvas.getBoundingClientRect?.()
 
   if (rect && rect.width > 50) {
@@ -91,9 +95,6 @@ export function init(host: ThemeSliderWebGL): void {
   observeResize(host)
 
   host.bindEvents()
-
-  // Offscreen instances free their context entirely; restore() rebuilds.
-  webglPool.register(host.canvas, host)
 
   host.animate()
 }

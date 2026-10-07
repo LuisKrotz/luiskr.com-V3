@@ -6,11 +6,17 @@
  * caps the number of live contexts (browsers allow ~16).
  */
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { APP_EVENTS } from '@/core/tokens/events/app.js'
+import { KEYBOARD_EVENTS, MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import store from '@/core/store.js'
+import { webglAllowed } from './webgl-mode.js'
 
-/** Widget contract the pool drives on visibility flips. */
+/** Widget contract the pool drives on visibility flips and recovery actions. */
 export interface WebGLPoolable {
+  useWebGL?: boolean
   purge?: () => void
   restore?: () => void
+  retryWebGL?: () => boolean | void
 }
 
 interface PoolEntry {
@@ -36,9 +42,13 @@ interface CompressionSupport {
 class WebGLPoolManager {
   private entries = new Map<Element, PoolEntry>()
   private observer: IntersectionObserver | null = null
+  private retryScheduled = false
+  private recoverySignalsReady = false
+  private readonly onRecoveryAction = (): void => this.scheduleFallbackRetry()
 
   constructor() {
     this.initObserver()
+    this.initRecoverySignals()
   }
 
   /** Creates the offscreen-detection IntersectionObserver. */
@@ -78,7 +88,66 @@ class WebGLPoolManager {
     )
   }
 
-  /** Associates a widget instance with its canvas for purge/restore. */
+  /**
+   * Registers global actions that can coincide with a healthier rendering
+   * context: user clicks/keys, browser history changes, and app modal opens.
+   * One listener set serves every widget; retries are deferred until the
+   * triggering action finishes mounting/updating its UI.
+   */
+  initRecoverySignals(): void {
+    if (this.recoverySignalsReady || typeof window === TYPE_STRINGS.UNDEFINED) return
+
+    this.recoverySignalsReady = true
+
+    window.addEventListener(MOUSE_EVENTS.CLICK, this.onRecoveryAction)
+    window.addEventListener(KEYBOARD_EVENTS.KEYDOWN, this.onRecoveryAction)
+    window.addEventListener(WINDOW_EVENTS.POPSTATE, this.onRecoveryAction)
+    window.addEventListener(APP_EVENTS.OPEN_PREFERENCES_MODAL, this.onRecoveryAction)
+    window.addEventListener(APP_EVENTS.OPEN_LANG_DIALOG, this.onRecoveryAction)
+  }
+
+  /** Coalesces all actions in one turn into a single fallback retry pass. */
+  scheduleFallbackRetry(): void {
+    if (this.retryScheduled || !this.hasRetryableFallbacks()) return
+
+    this.retryScheduled = true
+
+    setTimeout(() => {
+      this.retryScheduled = false
+      this.retryFallbacks()
+    }, 0)
+  }
+
+  /** True when a visible registered widget is currently using its fallback. */
+  private hasRetryableFallbacks(): boolean {
+    for (const { instance, isActive } of this.entries.values()) {
+      if (isActive && instance.useWebGL === false) return true
+    }
+
+    return false
+  }
+
+  /**
+   * Retries visible fallback widgets when WebGL is preferred. Reduced motion
+   * and the explicit debug fallback mode are authoritative and suppress all
+   * recovery attempts.
+   */
+  retryFallbacks(): void {
+    if (store.getters.getReducedMotion() || !webglAllowed()) return
+
+    for (const { instance, isActive } of this.entries.values()) {
+      if (!isActive || instance.useWebGL !== false) continue
+
+      if (instance.retryWebGL) {
+        instance.retryWebGL()
+      } else {
+        instance.purge?.()
+        instance.restore?.()
+      }
+    }
+  }
+
+  /** Associates a widget instance with its canvas for purge/restore/retry. */
   register(element: Element, instance: WebGLPoolable): void {
     if (!element || !instance) return
 
@@ -122,6 +191,16 @@ class WebGLPoolManager {
   destroy(): void {
     this.observer?.disconnect()
 
+    if (typeof window !== TYPE_STRINGS.UNDEFINED) {
+      window.removeEventListener(MOUSE_EVENTS.CLICK, this.onRecoveryAction)
+      window.removeEventListener(KEYBOARD_EVENTS.KEYDOWN, this.onRecoveryAction)
+      window.removeEventListener(WINDOW_EVENTS.POPSTATE, this.onRecoveryAction)
+      window.removeEventListener(APP_EVENTS.OPEN_PREFERENCES_MODAL, this.onRecoveryAction)
+      window.removeEventListener(APP_EVENTS.OPEN_LANG_DIALOG, this.onRecoveryAction)
+    }
+
+    this.recoverySignalsReady = false
+    this.retryScheduled = false
     this.entries.clear()
   }
 }

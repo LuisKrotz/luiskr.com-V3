@@ -17,6 +17,7 @@ import router from '@/routes/router.js'
 import type { LangDialogEl, PrefModalEl } from './types.js'
 import type { AppRoot } from '../App.js'
 import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
+import { webglPool } from '@/utils/canvas/webgl-pool.js'
 
 /**
  * Schedules non-urgent work during idle time; falls back to a short
@@ -108,6 +109,10 @@ export function mountAppShell(c: AppRoot): void {
     c.currentViewTag = to.view
     c._updateViewContent(to, from)
     c.loadData()
+
+    // Programmatic/history navigation may not originate from a click. Retry
+    // visible fallback widgets after the new view has mounted.
+    webglPool.scheduleFallbackRetry()
   })
 
   // Initial view

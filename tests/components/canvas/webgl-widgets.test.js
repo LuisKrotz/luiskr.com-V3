@@ -485,11 +485,7 @@ describe('FlagWebGL', () => {
   })
 
   test('loadImages resolves split aspects and static-renders without a loop', () => {
-    store.commit(PREF_MUTATIONS.SET_REDUCED_MOTION, true)
-
     const flag = new FlagWebGL(makeCanvas(), lang(LOCALES.GA, 'l1', 'l2'))
-
-    expect(flag.animId).toBeNull()
 
     flag.isHovered = true
 
@@ -506,6 +502,10 @@ describe('FlagWebGL', () => {
 
     expect(flag.isLoaded).toBe(true)
     expect(flag.aspect2).toBe(2)
+
+    store.commit(PREF_MUTATIONS.SET_REDUCED_MOTION, true)
+    flag.animate()
+    expect(flag.animId).toBeNull()
 
     flag.destroy()
   })

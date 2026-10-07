@@ -11,10 +11,14 @@ import { webglAllowed, webglContext, webglMode } from '@/utils/canvas/webgl-mode
 import { getWebGLContext } from '@/utils/canvas/gl-program.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
 
 const setSearch = (s) => window.history.replaceState(null, '', s)
 
-const restore = () => setSearch('/')
+const restore = () => {
+  setSearch('/')
+  document.documentElement.classList.remove(STATE_CLASSES.REDUCED_MOTION)
+}
 
 describe('debug params — webGLMode', () => {
   afterEach(restore)
@@ -22,6 +26,14 @@ describe('debug params — webGLMode', () => {
   test('no flag → active; webglAllowed true', () => {
     setSearch('/')
     expect(webglMode()).toBe(WEBGL_MODES.ACTIVE)
+    expect(webglAllowed()).toBe(true)
+  })
+
+  test('reduced motion prefers fallback until the preference is disabled', () => {
+    document.documentElement.classList.add(STATE_CLASSES.REDUCED_MOTION)
+    expect(webglAllowed()).toBe(false)
+
+    document.documentElement.classList.remove(STATE_CLASSES.REDUCED_MOTION)
     expect(webglAllowed()).toBe(true)
   })
 

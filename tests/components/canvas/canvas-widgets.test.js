@@ -711,6 +711,29 @@ describe('CloseButtonWebGL', () => {
     btn.destroy()
   })
 
+  test('next user action retries a connected fallback when WebGL becomes available', async () => {
+    const parent = document.createElement(HTML_TAGS.BUTTON)
+    const canvas = makeCanvas()
+
+    parent.appendChild(canvas)
+    document.body.appendChild(parent)
+    attachNoGL(canvas)
+
+    const btn = new CloseButtonWebGL(canvas)
+
+    expect(btn.useWebGL).toBe(false)
+
+    attachMockGL(canvas)
+    window.dispatchEvent(new MouseEvent(MOUSE_EVENTS.CLICK))
+    await flushFrames()
+
+    expect(btn.useWebGL).toBe(true)
+    expect(canvas.classList.contains(STATE_CLASSES.IS_FALLBACK)).toBe(false)
+
+    btn.destroy()
+    parent.remove()
+  })
+
   test('triggerClick runs the bound action', () => {
     const canvas = makeCanvas()
 

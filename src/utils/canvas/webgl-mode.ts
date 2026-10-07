@@ -17,6 +17,7 @@
  */
 
 import { DEBUG_PARAMS, WEBGL_MODES } from '@/core/tokens/strings/debug.js'
+import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
 import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
@@ -49,8 +50,15 @@ export const webglMode = (): WebGLMode => {
   return mode
 }
 
-/** False when `?debug=webGLMode:fallback` forces the CSS/2D path. */
-export const webglAllowed = (): boolean => webglMode() !== WEBGL_MODES.FALLBACK
+/**
+ * Whether WebGL is currently preferred. Explicit debug fallback and the
+ * user's reduced-motion mode both select the CSS/Canvas2D path; disabling
+ * reduced motion makes the next interaction-driven retry eligible again.
+ */
+export const webglAllowed = (): boolean =>
+  webglMode() !== WEBGL_MODES.FALLBACK &&
+  (typeof document === TYPE_STRINGS.UNDEFINED ||
+    !document.documentElement.classList.contains(STATE_CLASSES.REDUCED_MOTION))
 
 /**
  * `canvas.getContext('webgl')` + the 'experimental-webgl' alias in one call.

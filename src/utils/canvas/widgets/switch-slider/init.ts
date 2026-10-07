@@ -51,6 +51,10 @@ export function init(host: SwitchWebGL): void {
     return
   }
 
+  // Register before probing so an initial Canvas2D/CSS fallback can retry
+  // WebGL on the next meaningful user or navigation action.
+  webglPool.register(host.canvas, host)
+
   host.dpr = backingDpr()
 
   host.canvas.width = Math.round(host.width * host.dpr)
@@ -84,9 +88,6 @@ export function init(host: SwitchWebGL): void {
   }
 
   host.bindEvents()
-
-  // Offscreen instances free their context entirely; restore() rebuilds.
-  webglPool.register(host.canvas, host)
 
   host.animate()
 }
