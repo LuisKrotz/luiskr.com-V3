@@ -10,12 +10,18 @@ import { stripHtml } from '@/core/utils/index.js'
 import type { ViewProject } from './Project.js'
 import type { ProjectMediaItem, SectionChild } from './types.js'
 import { CAROUSEL_LAYOUT } from '@/core/tokens/motion/carousel.js'
+import { DRAW_TIMINGS } from '@/core/tokens/media/dimensions.js'
 
 /**
- * The sectionItemHeight value.
- * @param c — the component
- * @param section — the value
- * @returns string
+ * Per-section CSS height: the FIRST media item's intrinsic ratio applied
+ * to the viewport width — min(100vw·h/w, SKELETON_ITEM_HEIGHT). Emitting
+ * the height before decode means the section never reflows when media
+ * arrives. Sections without a sized media array fall back to the fixed
+ * skeleton height. `toFixed(4)` keeps the calc string compact while
+ * preserving sub-pixel accuracy.
+ * @param c The ViewProject instance (unused — part of the method facade).
+ * @param section One section's children; the media array is detected by shape.
+ * @returns A CSS `min()` height expression.
  */
 export function sectionItemHeight(c: ViewProject, section: SectionChild[]): string {
   const media = section.find(
@@ -32,13 +38,16 @@ export function sectionItemHeight(c: ViewProject, section: SectionChild[]): stri
 }
 
 /**
- * The textDelay value.
- * @param c — the component
- * @param items — the items
- * @returns number
+ * Per-char draw delay for a section's text run: counts REAL characters
+ * (HTML stripped — tags don't consume stagger time), then sizes the
+ * interval so the whole run lands inside DRAW_TARGET_MS. Non-array input
+ * gets the fallback delay so malformed CMS data still animates.
+ * @param c The ViewProject instance (unused — facade signature).
+ * @param items Section text items (expected string[]).
+ * @returns Per-char delay in ms.
  */
 export function textDelay(c: ViewProject, items: unknown): number {
-  if (!Array.isArray(items)) return 14
+  if (!Array.isArray(items)) return DRAW_TIMINGS.DRAW_FALLBACK_DELAY
 
   const list = items as string[]
 
@@ -47,15 +56,17 @@ export function textDelay(c: ViewProject, items: unknown): number {
       return sum + stripHtml(str).length
     }, 0) || 1
 
-  return calcDrawTextDelay(totalChars, 1500)
+  return calcDrawTextDelay(totalChars, DRAW_TIMINGS.DRAW_TARGET_MS)
 }
 
 /**
- * The textOffset value.
- * @param c — the component
- * @param items — the items
- * @param idx — the index
- * @returns number
+ * Start offset for the text run at index `idx`: cumulative real chars of
+ * the preceding items × the per-char delay, plus the per-index step — so
+ * sequential sections cascade rather than all starting at t=0.
+ * @param c The ViewProject instance — supplies textDelay via the facade.
+ * @param items Section text items (expected string[]).
+ * @param idx Index of this item in the section.
+ * @returns Start offset in ms (0 for non-array input).
  */
 export function textOffset(c: ViewProject, items: unknown, idx: number): number {
   if (!Array.isArray(items)) return 0
@@ -74,10 +85,11 @@ export function textOffset(c: ViewProject, items: unknown, idx: number): number 
 }
 
 /**
- * Returns whether landscape group.
- * @param c — the component
- * @param group — the group
- * @returns boolean
+ * Whether a media group is all-landscape — those can't pair side-by-side
+ * in the two-up layout, so they force the carousel into scroll mode.
+ * @param c The ViewProject instance (unused — facade signature).
+ * @param group A media item array (shape-checked, not trusted).
+ * @returns true when every item is landscape and the group is non-empty.
  */
 export function isLandscapeGroup(c: ViewProject, group: unknown): boolean {
   return (
