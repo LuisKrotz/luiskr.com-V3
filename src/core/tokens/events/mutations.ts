@@ -4,6 +4,11 @@
  * MUTATIONS by functional area.
  */
 
+/**
+ * Store mutation identifier tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const MODAL_MUTATIONS = Object.freeze({
   SET_MODAL_ORIGIN: 'setModalOrigin',
   TOGGLE_LANG_DIALOG: 'toggleLangDialog',
