@@ -3,6 +3,11 @@
  * @description Responsive breakpoint registry (px).
  */
 
+/**
+ * Responsive breakpoint registry (px). Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const BREAKPOINTS = Object.freeze({
   272: 272,
   320: 320,
