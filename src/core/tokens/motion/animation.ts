@@ -44,4 +44,8 @@ export const ANIMATION_DURATIONS = Object.freeze({
   DIALOG_LEAVE_DURATION: 640,
   /** Space-playground loader fade-out before the node is removed (ms) — must match the CSS opacity transition */
   LOADER_FADE_MS: 800,
+  /** Default smooth-scroll animation length (ms) — long enough to read the ease, short enough to not feel laggy */
+  SCROLL_DURATION: 600,
+  /** Minimum scroll distance (px) below which the animation is skipped — sub-2px moves are invisible and would only churn frames */
+  SCROLL_MIN_DISTANCE: 2,
 })
