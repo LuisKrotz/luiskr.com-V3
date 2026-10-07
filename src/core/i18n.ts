@@ -13,10 +13,15 @@ import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
 import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 import { LANG_SLUGS } from './locale/lang-slugs.js'
 
-// Language picker rows. `cc`/`cc2` are ISO country codes the split-flag
-// renderer paints side-by-side — dialects spanning two cultures get two
-// halves (Hunsrik = German/Brazilian, Talian = Italian/Brazilian, Castellano
-// and Portuñol straddle AR/UY/BR); `short` is the 2-letter chip label.
+/**
+ * Language picker rows (unfrozen source for LANG_OPTIONS).
+ * `cc`/`cc2` are ISO country codes the split-flag renderer paints
+ * side-by-side — dialects spanning two cultures get two halves (Hunsrik =
+ * German/Brazilian, Talian = Italian/Brazilian, Castellano and Portuñol
+ * straddle AR/UY/BR). `es-ga`/`es-ct` are region-qualified codes for
+ * Galicia/Catalonia whose flags the renderer draws as striped variants.
+ * `short` is the 2-letter chip label; omitted means "uppercase the code".
+ */
 const _RAW_LANG_OPTIONS = [
   { code: LOCALES.EN, label: 'English', cc: 'us', flag: '🇺🇸' },
   { code: LOCALES.BR, short: 'PT', label: 'Português (BR)', cc: 'br', flag: '🇧🇷' },
@@ -49,8 +54,8 @@ export const LANG_OPTIONS = Object.freeze(
 )
 
 /**
- * The LangOption value.
- * @param typeof — the value
+ * One language-picker row — element type of LANG_OPTIONS, derived from the
+ * frozen array so the type can never drift from the data.
  */
 export type LangOption = (typeof LANG_OPTIONS)[number]
 
@@ -89,6 +94,9 @@ export { LANG_SLUGS }
  * @returns locale code from LOCALES
  */
 export function detectLangFromPath(pathname: string): string {
+  // filter(Boolean) drops the empty strings split() produces for leading,
+  // trailing, and doubled slashes — `/de/ueber` and `de//ueber` both yield
+  // ['de','ueber'], so segment[0] is always the first real path segment.
   const segments = pathname.split(CHAR_STRINGS.SLASH).filter(Boolean)
 
   if (segments.length > 0 && (VALID_LANGS as readonly string[]).includes(segments[0])) {
@@ -108,12 +116,19 @@ export function detectLangFromPath(pathname: string): string {
  * @returns absolute path
  */
 export function localePath(key: string, lang: string = LOCALES.EN): string {
+  // English is the canonical, un-prefixed locale; every other locale carries
+  // its code as the first path segment.
   const base = lang === LOCALES.EN ? CHAR_STRINGS.EMPTY : `${ROUTE_PATHS.ROOT}${lang}`
 
+  // Empty key → the locale root itself (used for "home" links).
   if (!key) return `${base}${ROUTE_PATHS.ROOT}`
 
+  // CMS-overridden slug tables may lack an entry for a locale mid-boot —
+  // fall back to English slugs rather than emitting undefined segments.
   const slugs = LANG_SLUGS[lang] ?? LANG_SLUGS.en
 
+  // Unknown keys pass through verbatim — dynamic routes like
+  // 'portfolio/<slug>' are segments, not lookup keys.
   const slug = slugs[key as keyof LangSlugMap] ?? key
 
   return `${base}${ROUTE_PATHS.ROOT}${slug}`
