@@ -6,12 +6,14 @@
  * template serves both sides). No state — everything arrives as params.
  */
 
+import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
 import { SVG_ATTRS } from '@/core/tokens/attrs/svg.js'
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
 import { CAROUSEL_CLASSES } from '@/core/tokens/classes/carousel.js'
 import { INTERNAL_CLASSES } from '@/core/tokens/classes/project.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { GENERIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 import { ARROW_GLYPHS, ARROW_TYPES } from '@/core/tokens/theme/arrows.js'
 import { h } from '@/core/jsx.js'
 import store from '@/core/store.js'
@@ -19,18 +21,27 @@ import type { CustomCarousel } from '../CustomCarousel.js'
 
 /** Slide descriptor consumed by the carousel. */
 export interface CarouselItem {
+  /** Extensionless CDN stem — the media-figure resolves the real filename. */
   src: string
+  /** Intrinsic [w,h] for aspect-ratio layout (optional — falls back to GENERIC_DIMENSIONS). */
   size?: number[]
+  /** Accessible/visible caption. */
   label?: string
+  /** Extra layout class (e.g. 'landscape') forwarded to the item wrapper. */
   class?: string
+  /** Video slide flag — routes to the mp4 grammar + video element. */
   isVideo?: boolean
+  /** Whether the slide can open the fullscreen expand modal. */
   canExpand?: boolean
 }
 
 /** Localized carousel control labels (store.lang.carousel). */
 export interface CarouselLang {
+  /** aria-label for the prev arrow. */
   prev: string
+  /** aria-label for the next arrow. */
   next: string
+  /** Localized "of" joiner for the "N of M" counter. */
   ofLabel: string
 }
 
@@ -38,15 +49,19 @@ export interface CarouselLang {
  * One slide's inner content — a <media-figure> with the item's CDN src
  * (folder + src), intrinsic size for aspect-ratio layout, and the
  * expand/video/label flags. Returns null for placeholder entries.
+ * `classes`/`class` are both set — the custom-element attribute and the
+ * rendered class list must match for the Safari CSS path.
+ * @param item Slide descriptor, or null for empty slots.
+ * @param folder CDN folder prefix (e.g. 'projectslug/').
  */
 export const renderCarouselSlide = (item: CarouselItem | null, folder: string) => {
   if (!item) return null
 
   const src = folder + item.src
 
-  const itemW = item.size ? item.size[0] : 800
+  const itemW = item.size ? item.size[0] : GENERIC_DIMENSIONS.DEFAULT_WIDTH
 
-  const itemH = item.size ? item.size[1] : 450
+  const itemH = item.size ? item.size[1] : GENERIC_DIMENSIONS.DEFAULT_HEIGHT
 
   const canExpand = item.canExpand ?? false
 
@@ -78,7 +93,11 @@ export const renderCarouselSlide = (item: CarouselItem | null, folder: string) =
  * One prev/next control button: a WebGL arrow canvas behind an SVG
  * autoplay progress ring (stroke-dashoffset driven by the carousel's
  * _updateRingDom) plus a text glyph fallback. `direction` selects the
- * modifier class, aria-label and glyph (ARROW_TYPES.PREV/NEXT).
+ * modifier class, aria-label and glyph (ARROW_TYPES.PREV/NEXT). The ring
+ * starts at dashoffset=circumference (empty) — autoplay shrinks it.
+ * @param direction ARROW_TYPES.PREV | ARROW_TYPES.NEXT.
+ * @param lang Localized control labels.
+ * @param circumference Ring circle's 2πr — shared with the dashoffset math.
  */
 export const renderArrowButton = (direction: string, lang: CarouselLang, circumference: number) => {
   const isPrev = direction === ARROW_TYPES.PREV
@@ -126,7 +145,7 @@ export const renderArrowButton = (direction: string, lang: CarouselLang, circumf
   )
 }
 
-/** Dot-navigation strip: counter + one button per real slide. */
+/** Dot-navigation strip: localized "N of M" counter + one button per real slide. */
 const renderDots = (host: CustomCarousel, lang: CarouselLang) => (
   <div className={CAROUSEL_CLASSES.CAROUSEL_INDICATORS}>
     <span className={CAROUSEL_CLASSES.CAROUSEL_COUNTER}>
@@ -155,6 +174,8 @@ const renderDots = (host: CustomCarousel, lang: CarouselLang) => (
  *     only the real slides; the teleport logic uses them for the wrap.
  * Each control button carries an SVG progress ring (dashoffset driven
  * by _updateRingDom) behind a WebGL arrow canvas.
+ * @param host The CustomCarousel element.
+ * @returns JSX — fallback row or the full track+controls shape.
  */
 export const renderCarousel = (host: CustomCarousel) => {
   if (!host.isActive) {
@@ -188,7 +209,7 @@ export const renderCarousel = (host: CustomCarousel) => {
           <div
             key={idx}
             className={`${CAROUSEL_CLASSES.CAROUSEL_SLIDE} ${host.currentIndex === idx ? CAROUSEL_CLASSES.CAROUSEL_SLIDE_ACTIVE : ATTR_VALUES.EMPTY}`}
-            role="group"
+            role={ARIA_ATTRS.ROLE_GROUP}
             aria-label={`${idx + 1} of ${host.items.length}`}
           >
             {host.renderSlide(item)}
