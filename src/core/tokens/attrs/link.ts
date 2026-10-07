@@ -6,6 +6,11 @@
  * back to `data-route`).
  */
 
+/**
+ * Anchor/link attribute tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const LINK_ATTRS = Object.freeze({
   /** `href` — link target; read by predictive-loader and link builders. */
   HREF: 'href',
