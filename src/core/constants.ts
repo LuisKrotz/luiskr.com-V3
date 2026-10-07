@@ -31,7 +31,8 @@
  *   WASM_ACTIONS / *_DIMENSIONS / MEDIA_QUERIES / PREFETCH_CONFIG
  *   LOCALES (re-export) / *_MUTATIONS / BASE_HOST_STYLES (re-export)
  */
-/* istanbul ignore file */
+/* istanbul ignore file — pure re-export barrel: there are no statements to
+   cover, and counting re-export lines would falsely penalize the gate. */
 
 // ─── Media asset grammar + persistence ───────────────────────────────────────
 export * from './tokens/media.js'
