@@ -316,6 +316,24 @@ $ring-stroke: to-rem(2.5);
     > * {
       display: inline-block;
     }
+
+    // Two items that fit without carousel controls form one intrinsic-width
+    // group centered in the available row. Without this modifier the generic
+    // nowrap fallback starts at the left edge (visible on Nathalia Bond's two
+    // tall homepage captures).
+    &--side {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: to-rem($space-lg);
+      overflow-x: visible;
+      white-space: normal;
+
+      > * {
+        display: block;
+        flex: 0 1 auto;
+      }
+    }
   }
 }
 
