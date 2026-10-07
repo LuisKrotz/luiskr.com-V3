@@ -1,3 +1,14 @@
+/**
+ * @file components.test.js
+ * @description Cross-component integration suite — mounts the real App
+ * shell plus every top-level component (nav, mosaic, dialogs, carousels,
+ * media, cookie banner) against the real store + router and drives them
+ * through locale switches, theme/preference mutations, modal open/close,
+ * and keyboard events. Catches contract drift between components that
+ * per-component suites can't see (e.g. store keys, shared classes,
+ * mutation names).
+ */
+
 import { jest } from '@jest/globals'
 import store from '@/core/store.js'
 import router from '@/routes/router.js'
