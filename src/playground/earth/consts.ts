@@ -12,11 +12,7 @@ import type { Node } from 'three/webgpu'
  */
 export const EARTH_RADIUS = 10
 
-// Earth's real axial tilt: 23.44° around the z-axis (→ radians).
-/**
- * earths axial tilt.
- * @param 23 — the value
- */
+/** Earth's real axial tilt — 23.44° converted to radians for the group rotation. */
 export const EARTH_AXIAL_TILT = (23.44 * Math.PI) / 180
 
 /**
@@ -46,7 +42,8 @@ export interface ColorGradeNodeArgs {
 }
 
 /**
- * Type contract for VignetteNodeArgs — the shape consumers rely on.
+ * Args for the vignette post node — `{ color, uv, darkness, offset }`,
+ * typed so the Fn body gets the fluent vec/float node surface.
  */
 export interface VignetteNodeArgs {
   [key: string]: unknown
