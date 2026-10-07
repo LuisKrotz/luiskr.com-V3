@@ -32,8 +32,13 @@ import type { AppNav } from './AppNav.js'
 import { DRAW_TIMINGS } from '@/core/tokens/media/dimensions.js'
 
 /**
- * Renders app nav.
- * @param nav — the value
+ * Renders the <app-nav> template: logo, burger strip, and the fullscreen
+ * menu overlay. Returns '' while the media-expand modal is open — an empty
+ * render wipes the nav DOM so its z-index/focus can never compete with the
+ * modal chrome. The CTA label chain (contact → scroll-up at page bottom →
+ * related on project routes) mirrors the menu item order.
+ * @param nav AppNav instance — reads its getters/state, calls delegates.
+ * @returns JSX tree, or '' while a modal owns the screen.
  */
 export const renderAppNav = (nav: AppNav) => {
   const modal = store.getters.getModal()
@@ -52,6 +57,9 @@ export const renderAppNav = (nav: AppNav) => {
 
   let actionLabel = t?.contact || appText(CMS_KEYS.CONTACT)
 
+  // CTA label precedence: near document bottom → "scroll up" (returning
+  // beats dead-ends); on a project page → "related" (jumps to related
+  // projects); otherwise plain "contact".
   if (nav.onBottom) {
     actionLabel = t?.scrollup || appText(NAV_UI_KEYS.SCROLL_UP)
   } else if (isProjectRoute) {
@@ -229,6 +237,8 @@ export const renderAppNav = (nav: AppNav) => {
                 {items.map((item) => {
                   const timing = drawTiming(item.label)
 
+                  // Active highlighting: only about/action rows can light
+                  // up — matched by class since items are plain data.
                   const active =
                     item.cls === NAV_CLASSES.NAV_ABOUT_BTN
                       ? aboutActive
