@@ -19,7 +19,7 @@ import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
 import { COVER_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 
 /**
- * The VideoVariant value.
+ * Type contract for VideoVariant — the shape consumers rely on.
  */
 export interface VideoVariant {
   url: string
@@ -29,7 +29,7 @@ export interface VideoVariant {
 }
 
 /**
- * The VideoProbe value.
+ * Type contract for VideoProbe — the shape consumers rely on.
  */
 export interface VideoProbe {
   codec?: string
@@ -53,7 +53,7 @@ interface WorkerResults {
 }
 
 /**
- * The MediaSegment value.
+ * Type contract for MediaSegment — the shape consumers rely on.
  */
 export interface MediaSegment {
   url: string
