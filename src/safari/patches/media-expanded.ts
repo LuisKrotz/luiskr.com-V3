@@ -14,7 +14,13 @@ import { MOUSE_EVENTS, TOUCH_EVENTS } from '@/core/tokens/events/dom.js'
 import type { PatchableCtor, SafariPatchableEl } from '../types.js'
 
 /**
- * Helper for this module — see implementation for behavior.
+ * Installs the MediaExpanded patch once the element registers: wraps
+ * `onMounted` to (a) bind click + touchend on every close target —
+ * iOS click synthesis on fixed overlays is unreliable, so touchend with
+ * preventDefault drives the close directly — (b) assign the full-res
+ * `src` straight onto the expanded img (no lazy ladder inside the modal),
+ * and (c) force expanded videos muted/playsinline + play() so autoplay
+ * survives Safari's gesture policy.
  */
 export function patchMediaExpanded(): void {
   // ── MediaExpanded (Full-res image & touch close for Safari) ─────────────────
