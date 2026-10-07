@@ -6,7 +6,7 @@
  * stubbed (register-service-worker, firebase auth) while the real boot
  * sequence executes against happy-dom.
  */
-import { describe, test, expect, jest } from '@jest/globals'
+import { describe, test, expect, jest, beforeEach } from '@jest/globals'
 import { CMS_TAGS } from '@/cms/tokens.js'
 import { waitFor } from '../fixtures/test-constants.js'
 import { HTML_TAGS } from '@/core/tokens/elements/html.js'
@@ -51,6 +51,12 @@ jest.unstable_mockModule('@/utils/motion/route-warmer.js', () => ({
   startRouteWarming: () => {},
 }))
 
+// Boot awaits `./safari/loader.js` whenever isSafari is true (happy-dom lacks
+// real CSS.supports, so it is true for most cases here). Re-evaluating that
+// real graph after jest.resetModules() starves past the waitFor budget under
+// parallel coverage workers and gates `window.router`.
+jest.unstable_mockModule('@/safari/loader.js', () => ({}))
+
 // Each warm-up test re-evaluates the full main.js module graph after
 // jest.resetModules() — under the 75%-worker pool that re-import can be
 // CPU-starved far beyond the default 60s, so this suite gets 120s.
@@ -87,6 +93,21 @@ describe('main.js site bootstrap', () => {
 })
 
 describe('main.js branch warm-ups', () => {
+  beforeEach(() => {
+    // Each warm-up re-imports main.js after jest.resetModules(); its static
+    // graph (App.js → every component module, store singleton, WASM CSS shim,
+    // plus the fire-and-forget view chunks) re-evaluates the whole
+    // instrumented tree per test and starves past the waitFor budget under
+    // parallel coverage workers. These tests only assert window.router, the
+    // mount retry, and module-eval side effects — none read the components —
+    // so stub the heavy deps. Registrations persist across resetModules; the
+    // real-graph mount coverage already ran in 'boots the router' above.
+    jest.unstable_mockModule('@/App.js', () => ({}))
+    jest.unstable_mockModule('@/utils/wasm/wasm-css.js', () => ({}))
+    jest.unstable_mockModule('@/routes/views/home/Home.js', () => ({}))
+    jest.unstable_mockModule('@/routes/views/project/Project.js', () => ({}))
+  })
+
   test('portfolio pathname pre-warms the project chunk', async () => {
     jest.resetModules()
 
@@ -315,4 +336,30 @@ describe('cms/main.js bootstrap', () => {
 
     expect(root.querySelector(CMS_TAGS.VIEW_CMS_DASHBOARD)).toBeTruthy()
   }, 15000)
+})
+
+describe('home view module re-registration guards', () => {
+  test('second eval takes the already-defined else arm on all guarded modules', async () => {
+    // Home.js transitively imports the three home section modules; each file
+    // ends with `if (!customElements.get(TAG)) customElements.define(...)`.
+    // The first eval below registers the elements (true arm); the second —
+    // after resetModules so the module factory re-runs while the DOM-global
+    // custom-element registry persists — takes the skip arm (else). The
+    // warm-up mocks above keep the heavy graph stubbed, so unmock the real
+    // subtree here and eval it twice; istanbul merges both instances' counts
+    // into the file-level branch pair.
+    await jest.unstable_unmockModule('@/routes/views/home/Home.js')
+    await jest.unstable_unmockModule('@/utils/wasm/wasm-css.js')
+    await jest.unstable_unmockModule('@/App.js')
+
+    const { VIEW_TAGS } = await import('@/core/tokens/elements/views.js')
+
+    jest.resetModules()
+    await import('@/routes/views/home/Home.js')
+
+    jest.resetModules()
+    await import('@/routes/views/home/Home.js')
+
+    expect(customElements.get(VIEW_TAGS.VIEW_HOME)).toBeTruthy()
+  })
 })
