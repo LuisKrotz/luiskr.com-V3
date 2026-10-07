@@ -20,7 +20,9 @@ export const SKELETON_RENDER = Object.freeze({
 })
 
 /**
- * The SKELETON_GLYPH constant.
+ * Frozen skeleton map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const SKELETON_GLYPH = Object.freeze({
   /** Glyph cell size bounds for text rows (CSS px) */
@@ -42,7 +44,9 @@ export const SKELETON_GLYPH = Object.freeze({
 })
 
 /**
- * The SKELETON_RESOLVE constant.
+ * Frozen skeleton map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const SKELETON_RESOLVE = Object.freeze({
   /** Resolve-out length once content has arrived (ms) */
@@ -50,7 +54,9 @@ export const SKELETON_RESOLVE = Object.freeze({
 })
 
 /**
- * The SKELETON_MOSAIC constant.
+ * Frozen skeleton map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const SKELETON_MOSAIC = Object.freeze({
   /** Mosaic skeleton tiles rendered before data lands (mirrors portfoliolist size) */
@@ -62,7 +68,9 @@ export const SKELETON_MOSAIC = Object.freeze({
 })
 
 /**
- * The SKELETON_WARN constant.
+ * Frozen skeleton map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const SKELETON_WARN = Object.freeze({
   ARIA_HIDDEN: 'aria-hidden',
