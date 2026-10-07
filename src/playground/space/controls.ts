@@ -35,7 +35,7 @@ const _R = FORM_ATTRS.RANGE
 const _C = FORM_ATTRS.CHECKBOX
 
 /**
- * The SpControl value.
+ * Type contract for SpControl — the shape consumers rely on.
  */
 export interface SpControl {
   label: string
@@ -49,7 +49,7 @@ export interface SpControl {
 }
 
 /**
- * The SpAction value.
+ * Type contract for SpAction — the shape consumers rely on.
  */
 export interface SpAction {
   label: string
@@ -58,7 +58,7 @@ export interface SpAction {
 }
 
 /**
- * The SpGroup value.
+ * Type contract for SpGroup — the shape consumers rely on.
  */
 export interface SpGroup {
   label: string
@@ -68,7 +68,7 @@ export interface SpGroup {
 }
 
 /**
- * The SpParamValue value.
+ * Type contract for SpParamValue — the shape consumers rely on.
  */
 export type SpParamValue = number | boolean
 /**
