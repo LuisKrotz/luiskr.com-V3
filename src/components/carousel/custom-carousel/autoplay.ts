@@ -13,28 +13,48 @@ import { CAROUSEL_TIMING } from '@/core/tokens/motion/carousel.js'
 
 /** Slice of CarouselArrowWebGL the autoplay engine drives. */
 export interface CarouselArrowLike {
+  /** Toggles the arrow's playing affordance (ring visible vs idle). */
   setPlaying(playing: boolean): void
+  /** Paints the 0–1 progress arc. */
   setProgress(progress: number, running: boolean): void
 }
 
 /** Host surface the autoplay engine needs (satisfied by CustomCarousel). */
 export interface CarouselAutoplayHost {
+  /** RAF cycle active flag. */
   autoplayRunning: boolean
+  /** performance.now() the current dwell cycle started at. */
   autoplayStart: number
+  /** Accumulated ms into the cycle — survives pause→resume. */
   autoplayElapsed: number
+  /** 0–1 fraction of the autoplay cycle — drives ring + arrow arc. */
   ringProgress: number
+  /** RAF handle for cancellation. */
   rafId: number | null
+  /** Logical slide index for goTo(+1) on cycle end. */
   currentIndex: number
+  /** 2πr of the SVG ring — dasharray/dashoffset base. */
   circumference: number
+  /** Latched by user interaction — blocks all autoplay resumes. */
   _autoplayPermanentlyStopped: boolean
+  /** Ring regress animation in flight. */
   _isRegressing: boolean
+  /** Prev/next arrow widgets (null until viewport entry mounts them). */
   _prevArrow: CarouselArrowLike | null
   _nextArrow: CarouselArrowLike | null
+  /** Navigate to slide idx (clone-wrap aware). */
   goTo(idx: number): void
+  /** Shadow-scoped querySelectorAll. */
   $$(selector: string): Element[]
 }
 
-/** Starts the autoplay RAF loop unless latched off or already running. */
+/**
+ * Starts the autoplay RAF loop unless latched off or already running.
+ * `autoplayStart` is backdated by `autoplayElapsed` so a pause→resume
+ * continues the cycle mid-dwell — the ring picks up where it drained to
+ * instead of restarting the countdown.
+ * @param c The carousel host.
+ */
 export const startCarouselAutoplay = (c: CarouselAutoplayHost): void => {
   if (c._autoplayPermanentlyStopped) return
 
@@ -56,6 +76,8 @@ export const startCarouselAutoplay = (c: CarouselAutoplayHost): void => {
  * _autoplayPermanentlyStopped — every user-initiated navigation
  * (arrow/dot/swipe/hover) passes true so the carousel never auto-plays
  * again on this page; visibility/modal stops pass false and may resume.
+ * @param c The carousel host.
+ * @param permanently Latch user intent — no future resumes.
  */
 export const stopCarouselAutoplay = (c: CarouselAutoplayHost, permanently = false): void => {
   if (permanently) {
@@ -80,9 +102,12 @@ export const stopCarouselAutoplay = (c: CarouselAutoplayHost, permanently = fals
 }
 
 /**
- * Drains ringProgress to 0 at −4%/frame instead of snapping — the ring
- * visibly unwinds when autoplay stops, matching the "paused" affordance.
- * autoplayElapsed stays proportional so a resume continues the cycle.
+ * Drains ringProgress to 0 by RING_REGRESS_STEP per frame instead of
+ * snapping — the ring visibly unwinds when autoplay stops, matching the
+ * "paused" affordance. autoplayElapsed stays proportional so a resume
+ * continues the cycle. Self-terminating: a resumed autoplay flag or
+ * progress reaching 0 ends the RAF chain.
+ * @param c The carousel host.
  */
 export const regressRingToZero = (c: CarouselAutoplayHost): void => {
   if (c.ringProgress <= 0) {
@@ -105,7 +130,7 @@ export const regressRingToZero = (c: CarouselAutoplayHost): void => {
     }
 
     if (c.ringProgress > 0) {
-      c.ringProgress = Math.max(0, c.ringProgress - 0.04)
+      c.ringProgress = Math.max(0, c.ringProgress - CAROUSEL_TIMING.RING_REGRESS_STEP)
 
       c.autoplayElapsed = c.ringProgress * CAROUSEL_TIMING.AUTOPLAY_DURATION
 
@@ -130,6 +155,8 @@ export const regressRingToZero = (c: CarouselAutoplayHost): void => {
  * Autoplay RAF tick: elapsed/duration → ringProgress 0–1 → paint →
  * advance when the cycle completes, then rebase the clock for the next
  * slide. The ring resets before goTo so the new slide starts empty.
+ * @param c The carousel host.
+ * @param timestamp RAF timestamp (ms) — the clock source for this frame.
  */
 export const tickCarouselAutoplay = (c: CarouselAutoplayHost, timestamp: number): void => {
   if (!c.autoplayRunning) return
@@ -163,6 +190,9 @@ export const tickCarouselAutoplay = (c: CarouselAutoplayHost, timestamp: number)
 /**
  * Pushes progress into the DOM: the SVG ring's stroke-dashoffset (full
  * circumference = empty, 0 = full circle) and the WebGL arrows' arc.
+ * The offset math lives in wasm-layout (SIMD-capable batch helper with a
+ * JS fallback) since this runs per frame.
+ * @param c The carousel host.
  */
 export const updateCarouselRingDom = (c: CarouselAutoplayHost): void => {
   const fills = c.$$(CAROUSEL_SELECTORS.CAROUSEL_BTN_RING_FILL)
