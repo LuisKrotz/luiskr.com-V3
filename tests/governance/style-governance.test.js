@@ -1,3 +1,12 @@
+/**
+ * @file style-governance.test.js
+ * @description The AGENTS.md governance gate — scans source and test files
+ * for the zero-hardcoding rules (raw colors/dimensions/radii, !important,
+ * repeated literals, class-name constants), the DRY SCSS selector rules,
+ * recursion-vs-stack-emulation traversal, and JSX-only templating. A
+ * violation here fails the suite before it can reach a commit.
+ */
+
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
