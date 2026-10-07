@@ -21,16 +21,24 @@ import { FLAG_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 
 /** Host surface the flag helpers need (satisfied by AppNav). */
 export interface NavFlagHost {
+  /** Live flag widgets (max one — the menu flag). */
   _navFlags: FlagWebGL[]
+  /** Persistent per-locale flag canvas; rebuilt on locale change. */
   _menuFlagCanvasEl: HTMLCanvasElement | null
+  /** Locale the current flag canvas was built for. */
   _menuFlagLang: string | null
+  /** Active locale code. */
   readonly locale: string
+  /** The active LANG_OPTIONS entry (code + label + flag cc). */
   readonly currentLang: LangOption | null
 }
 
 /**
  * Returns the persistent flag canvas for the current locale, rebuilding
- * it only when the locale changed.
+ * it only when the locale changed — a new canvas means a new GL context,
+ * so the old widget is destroyed first to keep total contexts bounded.
+ * @param host AppNav instance.
+ * @returns The per-locale canvas element.
  */
 export const navFlagCanvas = (host: NavFlagHost): HTMLCanvasElement => {
   if (!host._menuFlagCanvasEl || host._menuFlagLang !== host.locale) {
@@ -99,6 +107,9 @@ export const mountNavFlag = (host: NavFlagHost): void => {
 
   const currentLang = host.currentLang
 
+  // Dedup by canvas identity — mount is called after every re-render, but
+  // a live widget on the same canvas must never be re-created (it would
+  // leak a second GL context onto the same element).
   if (currentLang && !host._navFlags.some((f) => f.canvas === canvas)) {
     host._navFlags.push(new FlagWebGL(canvas, currentLang))
   }
