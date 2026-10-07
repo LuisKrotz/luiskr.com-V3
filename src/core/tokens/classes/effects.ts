@@ -7,7 +7,9 @@
 import { _B_CURSOR, _B_DISTORT, _B_FLUID_BG } from '../base.js'
 
 /**
- * The FLUID_BG_CLASSES constant.
+ * Frozen fluid bg class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const FLUID_BG_CLASSES = Object.freeze({
   FLUID_BG: _B_FLUID_BG,
@@ -15,7 +17,9 @@ export const FLUID_BG_CLASSES = Object.freeze({
 })
 
 /**
- * The CURSOR_CLASSES constant.
+ * Frozen cursor class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CURSOR_CLASSES = Object.freeze({
   MAGNETIC_CURSOR: _B_CURSOR,
@@ -25,7 +29,9 @@ export const CURSOR_CLASSES = Object.freeze({
 })
 
 /**
- * The DISTORT_CLASSES constant.
+ * Frozen distort class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const DISTORT_CLASSES = Object.freeze({
   IMAGE_DISTORT: _B_DISTORT,
