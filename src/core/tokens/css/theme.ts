@@ -4,6 +4,11 @@
  * CSS_PROPS.
  */
 
+/**
+ * Theme/ink CSS custom-property names. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const THEME_CSS_PROPS = Object.freeze({
   TEXT_PRIMARY: '--text-primary',
   BG_PRIMARY: '--bg-primary',
