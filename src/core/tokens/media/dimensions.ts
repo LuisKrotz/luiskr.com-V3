@@ -130,6 +130,16 @@ export const DRAW_TIMINGS = Object.freeze({
   DRAW_WORD_MAX_DELAY: 120,
   DRAW_DEFAULT_DELAY: 100,
   DRAW_OBSERVER_THRESHOLD: 0.05,
+  // calcDrawTextDelay target + clamps: the animation aims to finish within
+  // TARGET_MS; per-char delay is clamped so long text stays brisk (≥1ms)
+  // and short text doesn't stall (≤22ms). INDEX_STEP_MS is the per-word
+  // positional nudge inside calcDrawTextOffset; FALLBACK_DELAY serves
+  // non-array inputs.
+  DRAW_TARGET_MS: 1500,
+  DRAW_DELAY_MIN_MS: 1,
+  DRAW_DELAY_MAX_MS: 22,
+  DRAW_INDEX_STEP_MS: 30,
+  DRAW_FALLBACK_DELAY: 14,
   // Menu labels: per-char draw pace, per-item stagger, base delay before the
   // first item starts — the item underline uses these to land after the last char.
   MENU_LABEL_CHAR_DELAY: 45,
