@@ -17,25 +17,24 @@ export interface RouteMeta {
   legalRoute?: boolean
 }
 
-/**
- * routes descriptor.
- */
+/** A resolved route — everything the nav pipeline and views need. */
 export interface RouteDescriptor {
+  /** Route table name ('home', 'project', 'legal', 'not-found', …). */
   name: string
+  /** Custom-element tag of the view to mount. */
   view: string
+  /** Resolved locale id ('en', 'pt', …). */
   lang: string
+  /** The matched URL path (kept for locale detection and analytics). */
   path: string
+  /** Head/scroll classification metadata. */
   meta: RouteMeta
+  /** Extracted params — `slug` on project routes, etc. */
   params: Record<string, string | undefined>
 }
 
-/**
- * routes listener.
- * @param _to — the value
- * @param from — the value
- */
+/** Subscriber signature — fired on every successful navigation. */
 export type RouteListener = (_to: RouteDescriptor, from: RouteDescriptor | null) => void
-/**
- * Type contract for nav hook.
- */
+
+/** Guard/hook signature — a returned string/{path} short-circuits into a redirect. */
 export type NavHook = (_to: RouteDescriptor, from: RouteDescriptor | null) => unknown
