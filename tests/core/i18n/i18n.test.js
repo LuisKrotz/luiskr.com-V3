@@ -1,3 +1,12 @@
+/**
+ * @file i18n.test.js
+ * @description Covers src/core/i18n.js — the locale table (12 locales),
+ * the localized-slug maps, detectLangFromPath() (first-segment detection
+ * with English as the unprefixed default), and localePath() generation
+ * for every route across every language. Query strings, doubled slashes,
+ * and unknown segments are the edge arms that must not break detection.
+ */
+
 import {
   VALID_LANGS,
   LANG_SLUGS,
