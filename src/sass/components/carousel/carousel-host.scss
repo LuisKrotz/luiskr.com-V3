@@ -134,22 +134,27 @@
     }
   }
 
-  // landscape variant
+  // landscape variant: --mf-w carries the vw cap (consumed as the
+  // placeholder's max-width) so wide media uses most of the viewport;
+  // --mf-max-w mirrors it for any max-width consumer.
   &.landscape media-figure {
     @include layout-1024() {
-      --mf-w: auto;
+      --mf-w: calc(100vw - #{to-rem($space-3xl)});
       --mf-max-w: calc(100vw - #{to-rem($space-3xl)});
     }
 
     @include layout-1280() {
+      --mf-w: calc(100vw - #{to-rem($space-4xl)});
       --mf-max-w: calc(100vw - #{to-rem($space-4xl)});
     }
 
     @include layout-1440() {
+      --mf-w: calc(100vw - #{to-rem($space-7xl)});
       --mf-max-w: calc(100vw - #{to-rem($space-7xl)});
     }
 
     @include layout-1920() {
+      --mf-w: calc(100vw - #{to-rem($space-6xl)});
       --mf-max-w: calc(100vw - #{to-rem($space-6xl)});
     }
   }

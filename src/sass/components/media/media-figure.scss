@@ -200,52 +200,57 @@ figure {
 @supports selector(:host-context(*)) {
   :host-context(.internal-extra-item) .render-placeholder {
     position: relative;
-    width: var(--mf-w, calc(90vw - #{to-rem($space-xl * 2)}));
-    height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
-    height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
-    max-width: var(--mf-max-w, none);
+    // Intrinsic size from the width/height attrs; the mf vars are caps —
+    // never upscale past the source resolution.
+    width: auto;
+    height: auto;
+    max-width: var(--mf-w, calc(90vw - #{to-rem($space-xl * 2)}));
+    max-height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
+    max-height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
   }
 }
 
-// When inside .internal-extra-item context, use the CSS custom properties
-// set by internals.scss to size the placeholder. These cross the shadow boundary.
-// At desktop breakpoints, fall back to the exact Fibonacci tokens instead of 70vh.
+// When inside .internal-extra-item context (carousel slides): the img's
+// width/height attrs carry the natural media size, so `auto` dimensions
+// render it at source resolution and the mf vars act purely as caps —
+// mixed slide widths coexist and no image is ever stretched beyond its
+// natural size. These vars cross the shadow boundary from internals.scss.
 :host(.internal-extra-item) .render-placeholder,
 :host([classes*='internal-extra-item']) .render-placeholder {
   position: relative;
-  width: var(--mf-w, calc(90vw - #{to-rem($space-xl * 2)}));
-  height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
-  height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
-  max-width: var(--mf-max-w, none);
+  width: auto;
+  height: auto;
+  max-width: var(--mf-w, calc(90vw - #{to-rem($space-xl * 2)}));
+  max-height: var(--mf-h, calc(70vh - #{to-rem($space-xl * 2)}));
+  max-height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
 
   @include layout-768() {
-    width: var(--mf-w, calc(90vw - #{to-rem($space-2xl * 2)}));
-    height: var(--mf-h, calc(70vh - #{to-rem($space-2xl * 2)}));
-    height: var(--mf-h, calc(70dvh - #{to-rem($space-2xl * 2)}));
+    max-width: var(--mf-w, calc(90vw - #{to-rem($space-2xl * 2)}));
+    max-height: var(--mf-h, calc(70vh - #{to-rem($space-2xl * 2)}));
+    max-height: var(--mf-h, calc(70dvh - #{to-rem($space-2xl * 2)}));
   }
 
   @include layout-1024() {
-    width: var(--mf-w, #{to-rem($space-6xl)});
-    height: var(--mf-h, #{to-rem($space-7xl)});
+    max-width: var(--mf-w, #{to-rem($space-6xl)});
+    max-height: var(--mf-h, #{to-rem($space-7xl)});
   }
 
   @include layout-1440() {
-    width: var(--mf-w, #{to-rem($space-7xl)});
-    height: var(--mf-h, #{to-rem($space-8xl)});
+    max-width: var(--mf-w, #{to-rem($space-7xl)});
+    max-height: var(--mf-h, #{to-rem($space-8xl)});
   }
 
   @include layout-2560() {
-    width: var(--mf-w, #{to-rem($space-8xl)});
-    height: var(--mf-h, #{to-rem($space-9xl)});
+    max-width: var(--mf-w, #{to-rem($space-8xl)});
+    max-height: var(--mf-h, #{to-rem($space-9xl)});
   }
 }
 
 :host(.internal-extra-item.landscape) .render-placeholder,
 :host([classes*='internal-extra-item'][classes*='landscape']) .render-placeholder {
   @include layout-1024() {
-    width: var(--mf-w, auto);
     max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-3xl)}));
-    height: var(--mf-h, #{to-rem($space-7xl)});
+    max-height: var(--mf-h, #{to-rem($space-7xl)});
   }
 
   @include layout-1280() {
@@ -254,7 +259,7 @@ figure {
 
   @include layout-1440() {
     max-width: var(--mf-max-w, calc(100vw - #{to-rem($space-7xl)}));
-    height: var(--mf-h, #{to-rem($space-8xl)});
+    max-height: var(--mf-h, #{to-rem($space-8xl)});
   }
 
   @include layout-1920() {
@@ -262,7 +267,7 @@ figure {
   }
 
   @include layout-2560() {
-    height: var(--mf-h, #{to-rem($space-9xl)});
+    max-height: var(--mf-h, #{to-rem($space-9xl)});
   }
 }
 

@@ -71,16 +71,19 @@ export const deepQuerySelectorAll = (
 
 /**
  * Generates an ultra-lightweight inline SVG placeholder data URI with exact
- * dimensions. An empty `<svg viewBox="0 0 w h">` weighs ~90 bytes, decodes
- * instantly, and — crucially — gives the `<img>` the right intrinsic aspect
- * ratio so layout is stable while the real image streams in (zero CLS).
- * Default is FHD 1920×1080 (16:9), the common media shape.
+ * dimensions. An empty `<svg width height viewBox>` weighs ~110 bytes,
+ * decodes instantly, and — crucially — gives the `<img>` a definite intrinsic
+ * size AND aspect ratio, so `width:auto` layouts reserve the real natural box
+ * while the actual image streams in (zero CLS, no uniform-width stretching).
+ * Without the width/height attrs the SVG is intrinsic-ratio-only and the img
+ * collapses to the ~300×150 default replaced size. Default is FHD
+ * 1920×1080 (16:9), the common media shape.
  */
 export const svgPlaceholder = (
   w: number = COVER_DIMENSIONS.FHD_WIDTH,
   h: number = COVER_DIMENSIONS.FHD_HEIGHT
 ): string => {
-  const svg = `<svg xmlns="${SVG_STRINGS.SVG_XMLNS}" viewBox="0 0 ${w} ${h}"></svg>`
+  const svg = `<svg xmlns="${SVG_STRINGS.SVG_XMLNS}" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"></svg>`
 
   return `${SVG_STRINGS.SVG_DATA_URI_PREFIX}${encodeURIComponent(svg)}`
 }

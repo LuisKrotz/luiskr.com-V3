@@ -37,10 +37,13 @@ figure {
   }
 }
 
+// Intrinsic natural size from the width/height attrs; the mf vars act as
+// caps only, so Safari carousel slides keep mixed widths and never upscale
+// past the source resolution — the same contract as media-figure.scss.
 .render-placeholder {
-  width: var(--mf-w, auto);
-  height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
-  max-width: var(--mf-max-w, none);
+  width: auto;
+  height: auto;
+  max-width: var(--mf-w, var(--mf-max-w, none));
   max-height: var(--mf-h, calc(70dvh - #{to-rem($space-xl * 2)}));
   object-fit: contain;
 }

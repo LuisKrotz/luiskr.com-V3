@@ -26,11 +26,12 @@
   -webkit-overflow-scrolling: touch;
 }
 
-// Slides take the media-figure height contract; contain isolates each slide
-// so a layout shift in one doesn't reflow the whole track.
+// Slides size to their media's natural (cap-clamped) height so mixed-width
+// items keep their own aspect; contain isolates each slide so a layout shift
+// in one doesn't reflow the whole track.
 .carousel-slide {
-  height: var(--mf-h, auto);
-  min-height: var(--mf-h, auto);
+  height: auto;
+  min-height: 0;
   contain: layout paint;
 }
 

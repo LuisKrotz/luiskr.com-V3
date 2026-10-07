@@ -296,22 +296,25 @@ describe('MediaFigure — Progressive Loading & Media', () => {
       expect(uri).toMatch(/^data:image\/svg\+xml/)
     })
 
-    test('placeholder() includes correct viewBox dimensions', () => {
-      const uri = el.placeholder(1920, 1080)
+    test('placeholder() includes intrinsic size + viewBox dimensions', () => {
+      const uri = decodeURIComponent(el.placeholder(1920, 1080))
+      // Definite intrinsic size (width/height attrs) keeps `width:auto`
+      // layouts at the natural box instead of the ~300×150 default
+      // replaced size — this is what makes mixed carousel widths work.
+      expect(uri).toContain('width="1920"')
+      expect(uri).toContain('height="1080"')
       expect(uri).toContain('viewBox="0 0 1920 1080"')
     })
 
     test('placeholder() generates valid URI-encoded SVG', () => {
       const uri = el.placeholder(400, 300)
-      // encodeURIComponent encodes < and > but NOT = signs
-      // So '<svg' → '%3Csvg' but 'xmlns="..."' stays as-is
       expect(uri).toContain('%3Csvg')
-      expect(uri).toContain('xmlns=') // NOT xmlns%3D
+      expect(decodeURIComponent(uri)).toContain('xmlns=')
     })
 
     test('placeholder() encodes closing SVG tag', () => {
       const uri = el.placeholder(100, 100)
-      expect(uri).toContain('%3C/svg%3E')
+      expect(uri).toContain('%3C%2Fsvg%3E')
     })
   })
 

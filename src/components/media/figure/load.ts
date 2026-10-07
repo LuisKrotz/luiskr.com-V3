@@ -10,9 +10,9 @@ import { MEDIA_CLASSES } from '@/core/tokens/classes/media.js'
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 import { IMAGE_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 import { MEDIA } from '@/core/tokens/media/suffixes.js'
-import { SVG_STRINGS } from '@/core/tokens/strings/svg.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import store from '@/core/store.js'
+import { svgPlaceholder } from '@/core/utils/dom.js'
 import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
 import type { MediaFigure } from '../MediaFigure.js'
 
@@ -50,13 +50,15 @@ export function resolveMediaSources(fig: MediaFigure): void {
 }
 
 /**
- * Inline SVG placeholder — a URL-encoded empty <svg> with the media's
- * real viewBox. Browsers stretch an empty SVG to its intrinsic ratio,
- * so the layout box reserves the exact aspect before any bytes arrive
- * (zero-CLS without shipping a real image).
+ * Inline SVG placeholder — a URL-encoded empty <svg> carrying the media's
+ * real width/height (definite intrinsic size) plus the viewBox aspect.
+ * The width/height attrs matter: a viewBox-only SVG is intrinsic-ratio-only
+ * and the <img> would collapse to the ~300×150 default replaced size under
+ * `width:auto`, so carousel placeholders keep their natural box before any
+ * bytes arrive (zero-CLS without shipping a real image).
  */
 export function mediaPlaceholder(w: number, h: number): string {
-  return `${SVG_STRINGS.SVG_DATA_URI_PREFIX}%3Csvg xmlns="${SVG_STRINGS.SVG_XMLNS}" viewBox="0 0 ${w} ${h}"%3E%3C/svg%3E`
+  return svgPlaceholder(w, h)
 }
 
 /**

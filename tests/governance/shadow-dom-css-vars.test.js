@@ -67,8 +67,8 @@ describe('internals.scss CSS var declarations on media-figure', () => {
   test('2560px --mf-h is $space-9xl', () => {
     expect(ic).toMatch(/layout-2560[\s\S]*?--mf-h:\s*#\{\s*to-rem\(\$space-9xl\)/)
   })
-  test('landscape variant sets --mf-w auto at 1024px', () => {
-    expect(ic).toMatch(/landscape media-figure[\s\S]*?--mf-w:\s*auto/)
+  test('landscape variant sets --mf-w vw cap at 1024px', () => {
+    expect(ic).toMatch(/landscape media-figure[\s\S]*?--mf-w:\s*calc\(100vw/)
   })
   test('landscape variant sets --mf-max-w at 1024px', () => {
     expect(ic).toMatch(/landscape media-figure[\s\S]*?--mf-max-w:\s*calc\(100vw/)
@@ -150,8 +150,13 @@ describe('media-figure.scss reads CSS vars inside Shadow Root', () => {
   test('--mf-h var has 70vh fallback', () => {
     expect(mfc).toMatch(/var\(--mf-h,\s*calc\(70vh/)
   })
-  test('--mf-max-w var has none fallback', () => {
-    expect(mfc).toMatch(/var\(--mf-max-w,\s*none\)/)
+  test('--mf-w is consumed as a max-width cap (never a forced width)', () => {
+    // Intrinsic-size contract: the placeholder keeps its natural box and the
+    // mf vars only clamp it — a fixed `width: var(--mf-w)` would force every
+    // slide to the same width and upscale images past their source size.
+    expect(mfc).toMatch(/max-width:\s*var\(--mf-w,/)
+    // `(?:^|[;{]\s*)width:` — the property must be `width`, not `max-width`.
+    expect(mfc).not.toMatch(/\.render-placeholder\s*\{[^}]*[;{]\s*width:\s*var\(--mf-w/)
   })
   test(':host-context figure has display: flex for centering', () => {
     expect(mfc).toMatch(/:host-context\(\.internal-extra-item\)\s*figure[\s\S]*?display:\s*flex/)
@@ -279,8 +284,8 @@ describe('carousel-host.scss redeclares CSS vars for nested media-figure', () =>
   test('2560px --mf-h is $space-9xl', () => {
     expect(chc).toMatch(/layout-2560[\s\S]*?--mf-h:\s*#\{\s*to-rem\(\$space-9xl\)/)
   })
-  test('landscape variant sets --mf-w auto at 1024px', () => {
-    expect(chc).toMatch(/landscape[\s\S]*?media-figure[\s\S]*?--mf-w:\s*auto/)
+  test('landscape variant sets --mf-w vw cap at 1024px', () => {
+    expect(chc).toMatch(/landscape[\s\S]*?media-figure[\s\S]*?--mf-w:\s*calc\(100vw/)
   })
   test('landscape variant sets --mf-max-w at 1024px', () => {
     expect(chc).toMatch(/landscape[\s\S]*?media-figure[\s\S]*?--mf-max-w:\s*calc\(100vw/)
@@ -388,9 +393,9 @@ describe('cross-file CSS var value consistency', () => {
     expect(mfc).toMatch(/var\(--mf-h,\s*calc\(70vh/)
     expect(ic).toMatch(/--mf-h:\s*calc\(70vh/)
   })
-  test('media-figure.scss --mf-max-w fallback is none, matching internals default', () => {
-    expect(mfc).toMatch(/var\(--mf-max-w,\s*none\)/)
-    expect(ic).toMatch(/--mf-max-w:\s*none/)
+  test('media-figure.scss --mf-max-w carries a vw-cap fallback for landscape', () => {
+    expect(mfc).toMatch(/var\(--mf-max-w,\s*calc\(100vw/)
+    expect(ic).toMatch(/--mf-max-w:\s*calc\(100vw/)
   })
 })
 
@@ -452,8 +457,8 @@ describe('CSS variable values for CSS var breakpoint values', () => {
       /small media-figure[\s\S]*?layout-2560[\s\S]*?--mf-h:\s*#\{\s*to-rem\(\$space-9xl\)/
     )
   })
-  test('landscape.1024px --mf-w is auto (Vue: width: auto)', () => {
-    expect(ic).toMatch(/landscape media-figure[\s\S]*?layout-1024[\s\S]*?--mf-w:\s*auto/)
+  test('landscape.1024px --mf-w is the vw gutter cap', () => {
+    expect(ic).toMatch(/landscape media-figure[\s\S]*?layout-1024[\s\S]*?--mf-w:\s*calc\(100vw/)
   })
   test('landscape.1024px --mf-max-w uses $space-3xl', () => {
     expect(ic).toMatch(

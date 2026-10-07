@@ -425,22 +425,27 @@
         }
       }
 
-      // landscape variant: override width to be auto + max-width constrained
+      // landscape variant: the vw cap travels in --mf-w (consumed as the
+      // placeholder's max-width) so wide media can use most of the viewport;
+      // --mf-max-w mirrors it for the light-DOM figure skeleton contract.
       &.landscape media-figure {
         @include layout-1024() {
-          --mf-w: auto;
+          --mf-w: calc(100vw - #{to-rem($space-3xl)});
           --mf-max-w: calc(100vw - #{to-rem($space-3xl)});
         }
 
         @include layout-1280() {
+          --mf-w: calc(100vw - #{to-rem($space-4xl)});
           --mf-max-w: calc(100vw - #{to-rem($space-4xl)});
         }
 
         @include layout-1440() {
+          --mf-w: calc(100vw - #{to-rem($space-7xl)});
           --mf-max-w: calc(100vw - #{to-rem($space-7xl)});
         }
 
         @include layout-1920() {
+          --mf-w: calc(100vw - #{to-rem($space-6xl)});
           --mf-max-w: calc(100vw - #{to-rem($space-6xl)});
         }
       }
