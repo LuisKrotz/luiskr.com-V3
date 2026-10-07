@@ -1,10 +1,10 @@
-@import '../../base/variables';
-@import '../../base/mixins';
-
 // ── DrawText: per-character writing animation ──────────────────────────────
 // --i          : character index (set from template)
 // --char-delay : ms between each character (set from template, default 100ms)
 // --offset     : ms base delay before any character starts (for sequencing)
+
+@import '../../base/variables';
+@import '../../base/mixins';
 
 // Shadow host — inherits font/color so the animated text matches context.
 :host {
