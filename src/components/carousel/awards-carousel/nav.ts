@@ -6,6 +6,7 @@
 import { AWC_CLASSES } from '@/core/tokens/classes/awards-carousel.js'
 import { APP_EVENTS } from '@/core/tokens/events/app.js'
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
+import { CAROUSEL_TIMING } from '@/core/tokens/motion/carousel.js'
 import type { AwardsCarousel } from '../AwardsCarousel.js'
 
 /**
@@ -13,6 +14,8 @@ import type { AwardsCarousel } from '../AwardsCarousel.js'
  * CustomCarousel): scrollLeft + (el.left − track.left) positions the
  * slide at the track's left edge; −(track.w − el.w)/2 recenters it so
  * the slide's midpoint sits on the track's midpoint.
+ * @param host The AwardsCarousel element.
+ * @param el Slide element to center.
  */
 export function scrollToElement(host: AwardsCarousel, el: Element): void {
   const track = host.$(`.${AWC_CLASSES.AWC_TRACK}`)
@@ -27,7 +30,13 @@ export function scrollToElement(host: AwardsCarousel, el: Element): void {
 /**
  * Instant centering jump (offsetLeft variant — no smooth scroll): used
  * for the invisible clone→real teleport and resize refits. Retries one
- * frame later when layout hasn't produced measurable widths yet.
+ * frame later when layout hasn't produced measurable widths yet (a
+ * display:none parent yields clientWidth 0 — waiting a frame beats
+ * computing a bogus 0-offset jump).
+ * @param host The AwardsCarousel element.
+ * @param idx Real-slide index; `children[idx + 1]` skips the leading
+ *   last-clone prepended to the track.
+ * @param smooth true for a smooth jump, false (default) for instant.
  */
 export function jumpToSlide(host: AwardsCarousel, idx: number, smooth = false): void {
   const track = host.$(`.${AWC_CLASSES.AWC_TRACK}`)
@@ -46,10 +55,13 @@ export function jumpToSlide(host: AwardsCarousel, idx: number, smooth = false): 
 }
 
 /**
- * Clone→real teleport for the infinite loop: waits 420ms (just past
- * the smooth-scroll duration) so the clone finishes animating in, then
- * instant-jumps to its real twin — invisible because the clone and
- * real slide are pixel-identical.
+ * Clone→real teleport for the infinite loop: waits TELEPORT_DELAY (420ms,
+ * just past the smooth-scroll duration) so the clone finishes animating
+ * in, then instant-jumps to its real twin — invisible because the clone
+ * and real slide are pixel-identical. A pending teleport is cancelled so
+ * rapid nav can't queue competing jumps.
+ * @param host The AwardsCarousel element.
+ * @param targetIdx Real-slide index to land on after the clone animates.
  */
 export function scheduleTeleport(host: AwardsCarousel, targetIdx: number): void {
   if (host.teleportTimer) clearTimeout(host.teleportTimer)
@@ -57,10 +69,17 @@ export function scheduleTeleport(host: AwardsCarousel, targetIdx: number): void 
     jumpToSlide(host, targetIdx, false)
     host.isNavigating = false
     host.teleportTimer = null
-  }, 420)
+  }, CAROUSEL_TIMING.TELEPORT_DELAY)
 }
 
-/** Smooth scroll to slide idx (children offset +1 skips the last-clone). */
+/**
+ * Smooth scroll to slide idx (children offset +1 skips the last-clone).
+ * Same centering math as scrollToElement but reads rects fresh — the
+ * track may have scrolled between calls, so offsets come from
+ * getBoundingClientRect, not offsetLeft.
+ * @param host The AwardsCarousel element.
+ * @param idx Real-slide index.
+ */
 export function scrollToSlide(host: AwardsCarousel, idx: number): void {
   const track = host.$(`.${AWC_CLASSES.AWC_TRACK}`)
   const slide = track?.children[idx + 1]
@@ -78,8 +97,12 @@ export function scrollToSlide(host: AwardsCarousel, idx: number): void {
  * scrolls to the matching CLONE slide at that edge and schedules an
  * instant teleport to its real twin — the user sees a continuous wrap
  * scroll while the clone→real swap is invisible. In-range idx scrolls
- * directly; the 400ms isNavigating window suppresses scroll-handler
- * teleports until the smooth animation settles.
+ * directly; the NAVIGATION_SETTLE_DELAY isNavigating window suppresses
+ * scroll-handler teleports until the smooth animation settles.
+ * `((idx % len) + len) % len` normalizes idx into [0,len) — the double
+ * modulo handles negative idx (−1 → len−1) where a single % yields −1.
+ * @param host The AwardsCarousel element.
+ * @param idx Target index — may be −1 or len for edge wraps.
  */
 export function goTo(host: AwardsCarousel, idx: number): void {
   const len = host.items.length
@@ -120,11 +143,16 @@ export function goTo(host: AwardsCarousel, idx: number): void {
     if (host.teleportTimer) clearTimeout(host.teleportTimer)
     host.teleportTimer = setTimeout(() => {
       host.isNavigating = false
-    }, 400)
+    }, CAROUSEL_TIMING.NAVIGATION_SETTLE_DELAY)
   }
 }
 
-/** Jumps to the slide matching the clicked dot. */
+/**
+ * Jumps to the slide matching the clicked dot — a manual choice stops
+ * autoplay (user intent overrides the ambient cycle).
+ * @param host The AwardsCarousel element.
+ * @param idx Dot index → real-slide index.
+ */
 export function onDotClick(host: AwardsCarousel, idx: number): void {
   host._stopAutoplay()
   goTo(host, idx)
