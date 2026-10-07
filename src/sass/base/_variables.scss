@@ -6,117 +6,216 @@
 //  Scale: spacing follows Fibonacci; grid-max-area tracks the max content width.
 // ════════════════════════════════════════════════════════════════════════════
 
+/// Raw palette color — published as a --color-white-raw CSS var by _structure.scss
 $color-white: #fff;
+/// Raw palette color — published as a --color-black-raw CSS var by _structure.scss
 $color-black: #262626;
+/// Raw palette color — published as a --color-grey-raw CSS var by _structure.scss
 $color-grey: #a79e9e;
+/// Raw palette color — published as a --color-grey-2-raw CSS var by _structure.scss
 $color-grey-2: #f0f0f0;
+/// Raw palette color — published as a --color-grey-3-raw CSS var by _structure.scss
 $color-grey-3: #515151;
 
+/// Raw palette color — published as a --color-blue-raw CSS var by _structure.scss
 $color-blue: #006ca6;
 
 // CMS Admin Palette tokens
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-bg-darkest: #0b0c10;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-bg-dark: #1f2833;
-$cms-bg-darker: #0f1319; // mid-dark panel — between bg-card and bg-darkest
+/// Mid-dark panel — between bg-card and bg-darkest
+$cms-bg-darker: #0f1319;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-bg-card: #131822;
-$cms-border: #2a3a4a; // subtle dark-theme border for panels and dividers
+/// Subtle dark-theme border for panels and dividers
+$cms-border: #2a3a4a;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-text-primary: #e0e6ed;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-text-muted: #c5c6c7;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-text-subtle: #8892b0;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-accent: #66fcf1;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-accent-hover: #45a29e;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-accent-contrast: #0f8a84;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-badge-warn: #f39c12;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-badge-amber: #ffca28;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-badge-green: #2ecc71;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-error: #ff6b6b;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-danger: #ff4d4d;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-danger-dark: #cc0000;
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-card-max-width: to-rem(420px);
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-header-min-height: to-rem(70px);
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-dropdown-min-width: to-rem(230px);
+/// CMS admin-chrome token — compile-time only (dark panel theme)
 $cms-container-max-width: to-rem(1400px);
 
 // Viewports
 // @type pixels
 // used for viewports
-$vw-272: 272px; //x340 // Watch OS
-$vw-320: 320px; // iphone SE
-$vw-375: 375px; // iphone
-$vw-414: 414px; // Phablet
-$vw-475: 475px; // Mobile menu breakpoint
-$vw-540: 540px; // Phablet
-$vw-768: 768px; // iPad
-$vw-960: 960px; // Tablet
-$vw-1024: 1024px; // iPad
-$vw-1280: 1280px; // HD
-$vw-1360: 1360px; // HD
-$vw-1440: 1440px; // HD
-$vw-1560: 1560px; // HD
-$vw-1680: 1680px; // HD
-$vw-1920: 1920px; // FHD
-$vw-2560: 2560px; // 2K
-$vw-3840: 3840px; // 4K
-$vw-5120: 5120px; // 5K
-$vw-7680: 7680px; // 8K
-$vw-10240: 10240px; // 10K
+/// Watch OS viewport (272px ≈ the 40mm watch's css-pixel width)
+$vw-272: 272px;
+/// Iphone SE
+$vw-320: 320px;
+/// Iphone
+$vw-375: 375px;
+/// Phablet
+$vw-414: 414px;
+/// Mobile menu breakpoint
+$vw-475: 475px;
+/// Phablet
+$vw-540: 540px;
+/// IPad
+$vw-768: 768px;
+/// Tablet
+$vw-960: 960px;
+/// IPad
+$vw-1024: 1024px;
+/// HD
+$vw-1280: 1280px;
+/// HD
+$vw-1360: 1360px;
+/// HD
+$vw-1440: 1440px;
+/// HD
+$vw-1560: 1560px;
+/// HD
+$vw-1680: 1680px;
+/// FHD
+$vw-1920: 1920px;
+/// 2K
+$vw-2560: 2560px;
+/// 4K
+$vw-3840: 3840px;
+/// 5K
+$vw-5120: 5120px;
+/// 8K
+$vw-7680: 7680px;
+/// 10K
+$vw-10240: 10240px;
 
 // @type number
 // used for conversions
+/// Unitless viewport width for 272px — consumed by grid-max-area arithmetic
 $un-272: 272;
+/// Unitless viewport width for 320px — consumed by grid-max-area arithmetic
 $un-320: 320;
+/// Unitless viewport width for 375px — consumed by grid-max-area arithmetic
 $un-375: 375;
+/// Unitless viewport width for 414px — consumed by grid-max-area arithmetic
 $un-414: 414;
+/// Unitless viewport width for 540px — consumed by grid-max-area arithmetic
 $un-540: 540;
+/// Unitless viewport width for 768px — consumed by grid-max-area arithmetic
 $un-768: 768;
+/// Unitless viewport width for 960px — consumed by grid-max-area arithmetic
 $un-960: 960;
+/// Unitless viewport width for 1024px — consumed by grid-max-area arithmetic
 $un-1024: 1024;
+/// Unitless viewport width for 1280px — consumed by grid-max-area arithmetic
 $un-1280: 1280;
+/// Unitless viewport width for 1360px — consumed by grid-max-area arithmetic
 $un-1360: 1360;
+/// Unitless viewport width for 1440px — consumed by grid-max-area arithmetic
 $un-1440: 1440;
+/// Unitless viewport width for 1560px — consumed by grid-max-area arithmetic
 $un-1560: 1560;
+/// Unitless viewport width for 1680px — consumed by grid-max-area arithmetic
 $un-1680: 1680;
+/// Unitless viewport width for 1920px — consumed by grid-max-area arithmetic
 $un-1920: 1920;
+/// Unitless viewport width for 2560px — consumed by grid-max-area arithmetic
 $un-2560: 2560;
+/// Unitless viewport width for 3840px — consumed by grid-max-area arithmetic
 $un-3840: 3840;
+/// Unitless viewport width for 5120px — consumed by grid-max-area arithmetic
 $un-5120: 5120;
+/// Unitless viewport width for 7680px — consumed by grid-max-area arithmetic
 $un-7680: 7680;
+/// Unitless viewport width for 10240px — consumed by grid-max-area arithmetic
 $un-10240: 10240;
 
+/// Grid gutter (unitless px) at the 272px viewport step
 $gap-272: 13;
+/// Grid gutter (unitless px) at the 320px viewport step
 $gap-320: 21;
+/// Grid gutter (unitless px) at the 375px viewport step
 $gap-375: 21;
+/// Grid gutter (unitless px) at the 414px viewport step
 $gap-414: 21;
+/// Grid gutter (unitless px) at the 540px viewport step
 $gap-540: 34;
+/// Grid gutter (unitless px) at the 768px viewport step
 $gap-768: 55;
+/// Grid gutter (unitless px) at the 960px viewport step
 $gap-960: 55;
+/// Grid gutter (unitless px) at the 1024px viewport step
 $gap-1024: 89;
+/// Grid gutter (unitless px) at the 1280px viewport step
 $gap-1280: 89;
+/// Grid gutter (unitless px) at the 1440px viewport step
 $gap-1440: 89;
+/// Grid gutter (unitless px) at the 1680px viewport step
 $gap-1680: 144;
+/// Grid gutter (unitless px) at the 1920px viewport step
 $gap-1920: 144;
+/// Grid gutter (unitless px) at the 2560px viewport step
 $gap-2560: 233;
+/// Grid gutter (unitless px) at the 3840px viewport step
 $gap-3840: 377;
+/// Grid gutter (unitless px) at the 5120px viewport step
 $gap-5120: 377;
+/// Grid gutter (unitless px) at the 7680px viewport step
 $gap-7680: 610;
+/// Grid gutter (unitless px) at the 10240px viewport step
 $gap-10240: 610;
 
 // Max area of the grid
+/// Max content width at the 272px step (un − 2·gap)
 $grid-max-area-272: $un-272 - $gap-272 * 2;
+/// Max content width at the 320px step (un − 2·gap)
 $grid-max-area-320: $un-320 - $gap-320 * 2;
+/// Max content width at the 375px step (un − 2·gap)
 $grid-max-area-375: $un-375 - $gap-375 * 2;
+/// Max content width at the 414px step (un − 2·gap)
 $grid-max-area-414: $un-414 - $gap-414 * 2;
+/// Max content width at the 540px step (un − 2·gap)
 $grid-max-area-540: $un-540 - $gap-540 * 2;
+/// Max content width at the 768px step (un − 2·gap)
 $grid-max-area-768: $un-768 - $gap-768 * 2;
+/// Max content width at the 960px step (un − 2·gap)
 $grid-max-area-960: $un-960 - $gap-960 * 2;
+/// Max content width at the 1024px step (un − 2·gap)
 $grid-max-area-1024: $un-1024 - $gap-1024 * 2;
+/// Max content width at the 1280px step (un − 2·gap)
 $grid-max-area-1280: $un-1280 - $gap-1280 * 2;
+/// Max content width at the 1440px step (un − 2·gap)
 $grid-max-area-1440: $un-1440 - $gap-1440 * 2;
+/// Max content width at the 1680px step (un − 2·gap)
 $grid-max-area-1680: $un-1680 - $gap-1680 * 2;
+/// Max content width at the 1920px step (un − 2·gap)
 $grid-max-area-1920: $un-1920 - $gap-1920 * 2;
+/// Max content width at the 2560px step (un − 2·gap)
 $grid-max-area-2560: $un-2560 - $gap-2560 * 2;
+/// Max content width at the 3840px step (un − 2·gap)
 $grid-max-area-3840: $un-3840 - $gap-3840 * 2;
+/// Max content width at the 5120px step (un − 2·gap)
 $grid-max-area-5120: $un-5120 - $gap-5120 * 2;
+/// Max content width at the 7680px step (un − 2·gap)
 $grid-max-area-7680: $un-7680 - $gap-7680 * 2;
 
 // Single source of truth for the stepped content grid: step px → gutter px.
@@ -124,6 +223,8 @@ $grid-max-area-7680: $un-7680 - $gap-7680 * 2;
 // this map via the `grid-steps` mixin so the overlay can never drift from
 // the real layout breakpoints — every $un-$step-… token pair listed here
 // produces one media query at `min-width: ($step - 1)px`.
+/// Stepped content-grid map: viewport step px → gutter px. Both %MAXAREA
+/// and the show-grid overlay iterate this via the `grid-steps` mixin.
 $grid-steps: (
   272: $gap-272,
   320: $gap-320,
@@ -144,6 +245,7 @@ $grid-steps: (
 );
 
 // Design-grid column count per step — shown by the show-grid overlay.
+/// Column-count map: viewport step → design-grid columns for that step.
 $grid-cols: (
   272: 4,
   320: 4,
@@ -165,23 +267,41 @@ $grid-cols: (
 
 // @type pixels
 // used for media queries
+/// Media-query breakpoint — vw-320 − 1px; consumed by the layout-320 mixin
 $bk-320: $vw-320 - 1px;
+/// Media-query breakpoint — vw-375 − 1px; consumed by the layout-375 mixin
 $bk-375: $vw-375 - 1px;
+/// Media-query breakpoint — vw-414 − 1px; consumed by the layout-414 mixin
 $bk-414: $vw-414 - 1px;
+/// Media-query breakpoint — vw-475 − 1px; consumed by the layout-475 mixin
 $bk-475: $vw-475 - 1px;
+/// Media-query breakpoint — vw-540 − 1px; consumed by the layout-540 mixin
 $bk-540: $vw-540 - 1px;
+/// Media-query breakpoint — vw-768 − 1px; consumed by the layout-768 mixin
 $bk-768: $vw-768 - 1px;
+/// Media-query breakpoint — vw-960 − 1px; consumed by the layout-960 mixin
 $bk-960: $vw-960 - 1px;
+/// Media-query breakpoint — vw-1024 − 1px; consumed by the layout-1024 mixin
 $bk-1024: $vw-1024 - 1px;
+/// Media-query breakpoint — vw-1280 − 1px; consumed by the layout-1280 mixin
 $bk-1280: $vw-1280 - 1px;
+/// Media-query breakpoint — vw-1360 − 1px; consumed by the layout-1360 mixin
 $bk-1360: $vw-1360 - 1px;
+/// Media-query breakpoint — vw-1560 − 1px; consumed by the layout-1560 mixin
 $bk-1560: $vw-1560 - 1px;
+/// Media-query breakpoint — vw-1440 − 1px; consumed by the layout-1440 mixin
 $bk-1440: $vw-1440 - 1px;
+/// Media-query breakpoint — vw-1680 − 1px; consumed by the layout-1680 mixin
 $bk-1680: $vw-1680 - 1px;
+/// Media-query breakpoint — vw-1920 − 1px; consumed by the layout-1920 mixin
 $bk-1920: $vw-1920 - 1px;
+/// Media-query breakpoint — vw-2560 − 1px; consumed by the layout-2560 mixin
 $bk-2560: $vw-2560 - 1px;
+/// Media-query breakpoint — vw-3840 − 1px; consumed by the layout-3840 mixin
 $bk-3840: $vw-3840 - 1px;
+/// Media-query breakpoint — vw-5120 − 1px; consumed by the layout-5120 mixin
 $bk-5120: $vw-5120 - 1px;
+/// Media-query breakpoint — vw-7680 − 1px; consumed by the layout-7680 mixin
 $bk-7680: $vw-7680 - 1px;
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -190,44 +310,79 @@ $bk-7680: $vw-7680 - 1px;
 // Values are unitless (used with to-rem() helper).
 // ─────────────────────────────────────────────────────────────────────────────
 
-$space-none: 0; // fib(0)  — no space
-$space-hairline: 1; // fib(1)  — hairline / 1px borders
-$space-pixel: 1; // fib(2)  — alias for hairline (same fib value)
-$space-3xs: 1; // alias  — thin borders (same as hairline, semantic clarity)
-$space-2xs: 2; // fib(3)  — 2px, micro gaps
-$space-xs: 3; // fib(4)  — 3px, tiny nudges
-$space-sm: 5; // fib(5)  — 5px, small gaps
-$space-md: 8; // fib(6)  — 8px, base unit
-$space-lg: 13; // fib(7)  — 13px, standard padding
-$space-xl: 21; // fib(8)  — 21px, comfortable spacing
-$space-2xl: 34; // fib(9)  — 34px, section inner padding
-$space-3xl: 55; // fib(10) — 55px, component spacing
-$space-4xl: 89; // fib(11) — 89px, section padding
-$space-5xl: 144; // fib(12) — 144px, hero / large blocks
-$space-6xl: 233; // fib(13) — 233px, content max-widths / large images
-$space-7xl: 377; // fib(14) — 377px, image sizes / layout widths
-$space-8xl: 610; // fib(15) — 610px, large layout columns
-$space-9xl: 987; // fib(16) — 987px, max content widths
-$space-10xl: 1597; // fib(17) — 1597px, ultra-wide layout slots
-$space-11xl: 2584; // fib(18) — very large (rarely used)
-$space-12xl: 4181; // fib(19) — extremely large (rarely used)
-$space-13xl: 10946; // fib(21) — maximum scale (theoretical)
-$space-14xl: 17711; // fib(22)
-$space-15xl: 28657; // fib(23)
-$space-16xl: 46368; // fib(24)
-$space-17xl: 75025; // fib(25)
+/// Fib(0)  — no space
+$space-none: 0;
+/// Fib(1)  — hairline / 1px borders
+$space-hairline: 1;
+/// Fib(2)  — alias for hairline (same fib value)
+$space-pixel: 1;
+/// Alias  — thin borders (same as hairline, semantic clarity)
+$space-3xs: 1;
+/// Fib(3)  — 2px, micro gaps
+$space-2xs: 2;
+/// Fib(4)  — 3px, tiny nudges
+$space-xs: 3;
+/// Fib(5)  — 5px, small gaps
+$space-sm: 5;
+/// Fib(6)  — 8px, base unit
+$space-md: 8;
+/// Fib(7)  — 13px, standard padding
+$space-lg: 13;
+/// Fib(8)  — 21px, comfortable spacing
+$space-xl: 21;
+/// Fib(9)  — 34px, section inner padding
+$space-2xl: 34;
+/// Fib(10) — 55px, component spacing
+$space-3xl: 55;
+/// Fib(11) — 89px, section padding
+$space-4xl: 89;
+/// Fib(12) — 144px, hero / large blocks
+$space-5xl: 144;
+/// Fib(13) — 233px, content max-widths / large images
+$space-6xl: 233;
+/// Fib(14) — 377px, image sizes / layout widths
+$space-7xl: 377;
+/// Fib(15) — 610px, large layout columns
+$space-8xl: 610;
+/// Fib(16) — 987px, max content widths
+$space-9xl: 987;
+/// Fib(17) — 1597px, ultra-wide layout slots
+$space-10xl: 1597;
+/// Fib(18) — very large (rarely used)
+$space-11xl: 2584;
+/// Fib(19) — extremely large (rarely used)
+$space-12xl: 4181;
+/// Fib(21) — maximum scale (theoretical)
+$space-13xl: 10946;
+/// Fib(22)
+$space-14xl: 17711;
+/// Fib(23)
+$space-15xl: 28657;
+/// Fib(24)
+$space-16xl: 46368;
+/// Fib(25)
+$space-17xl: 75025;
 
 // Z-indexes — layering system, every value declared once here
+/// z-index layer — the scale is declared once here, in stacking order
 $z-header: 50;
+/// z-index layer — the scale is declared once here, in stacking order
 $z-loader: 100;
-$z-overlay: 200; // grid overlay, debug overlays
-$z-hud: 500; // stats-for-nerds HUD
-$z-modal: 1000; // modals, drawers
-$z-cookies: 1000; // cookie banner
-$z-nav: 1100; // app-nav
-$z-top: 9999; // top-level elements (dialogs)
+/// Grid overlay, debug overlays
+$z-overlay: 200;
+/// Stats-for-nerds HUD
+$z-hud: 500;
+/// Modals, drawers
+$z-modal: 1000;
+/// Cookie banner
+$z-cookies: 1000;
+/// App-nav
+$z-nav: 1100;
+/// Top-level elements (dialogs)
+$z-top: 9999;
 
 // System monospace font stack — no external download required
+/// Monospace stack — system fonts only, so no webfont download blocks paint.
 $font-mono:
   'ui-monospace', 'SF Mono', 'SFMono-Regular', 'Cascadia Mono', 'Segoe UI Mono', 'Ubuntu Mono',
   'Roboto Mono', monospace;
