@@ -14,6 +14,7 @@ import {
   SVG_TAGS,
   BOOL_PROPS,
   DOM_PROPS,
+  JSX_METADATA_PROPS,
   PROP_ATTR_MAP,
   JSX_PROPS,
 } from '@/core/tokens/jsx.js'
@@ -74,7 +75,8 @@ export function h(
   // or special behavior per the table in the JSDoc above.
   if (props) {
     for (const [key, val] of Object.entries(props)) {
-      if (val === null || val === undefined || val === false) continue
+      if (val === null || val === undefined || val === false || JSX_METADATA_PROPS.has(key))
+        continue
 
       if (key.startsWith(JSX_PROPS.ON_PREFIX) && typeof val === TYPE_STRINGS.FUNCTION) {
         const eventName = key.slice(2).toLowerCase()

@@ -54,6 +54,13 @@ export const PROP_ATTR_MAP = Object.freeze({
 export const DOM_PROPS = Object.freeze(new Set(['value', 'selectedIndex', 'innerHTML']))
 
 /**
+ * Compiler-only JSX metadata. OXC/Babel may inject these in development
+ * transforms; they describe source locations/runtime ownership and must never
+ * leak into rendered HTML as `"[object Object]"` attributes.
+ */
+export const JSX_METADATA_PROPS = Object.freeze(new Set(['__source', '__self']))
+
+/**
  * Special prop names handled by `h()` before the generic setAttribute
  * fallback — event prefix detection, ref callbacks, sanitized HTML
  * injection, and the iOS playsinline quirk.

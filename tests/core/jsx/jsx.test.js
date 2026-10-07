@@ -4,6 +4,7 @@ import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 import { SVG_STRINGS } from '@/core/tokens/strings/svg.js'
 import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
+import { JSX_METADATA_PROPS } from '@/core/tokens/jsx.js'
 
 describe('JSX Runtime & Native DOM Construction', () => {
   test('creates simple HTML element with properties', () => {
@@ -12,6 +13,19 @@ describe('JSX Runtime & Native DOM Construction', () => {
     expect(el.id).toBe('test-div')
     expect(el.className).toBe('my-class')
     expect(el.textContent).toBe(TEST_TEXT.HELLO_WORLD)
+  })
+
+  test('drops compiler-only JSX metadata instead of serializing objects', () => {
+    const metadata = Object.fromEntries(
+      [...JSX_METADATA_PROPS].map((key) => [key, { fileName: TEST_TEXT.SECOND }])
+    )
+    const el = h(HTML_TAGS.DIV, metadata)
+
+    for (const key of JSX_METADATA_PROPS) {
+      expect(el.hasAttribute(key)).toBe(false)
+    }
+
+    expect(el.outerHTML).not.toContain('[object Object]')
   })
 
   test('creates SVG elements in the SVG namespace', () => {
