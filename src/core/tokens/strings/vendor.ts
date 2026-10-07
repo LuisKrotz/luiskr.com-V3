@@ -14,4 +14,8 @@ export const VENDOR_STRINGS = Object.freeze({
   GESTURE_EVENT: 'GestureEvent',
   ANONYMOUS: 'anonymous',
   OTHER: 'other',
+  /** Legacy WebKit prop that opts a scroller into momentum (touch) scrolling. */
+  WEBKIT_OVERFLOW_SCROLLING: '-webkit-overflow-scrolling',
+  /** Momentum-scroll value for -webkit-overflow-scrolling. */
+  OVERFLOW_TOUCH: 'touch',
 })
