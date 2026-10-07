@@ -254,22 +254,27 @@ describe('AppRoot — view outlet', () => {
 
     const outlet = el.shadowRoot.querySelector(`#${APP_IDS.VIEW_OUTLET}`)
 
-    // The lazy view import is real async work; the cross-fade swap itself is
-    // a wall-clock setTimeout. Fake the clock after mount so CPU-starved
-    // parallel workers can't starve the 350ms fade timer past the timeout.
+    // Pre-resolve the lazy view chunk, then fake the clock: the cross-fade
+    // swap is a wall-clock setTimeout that starves under saturated parallel
+    // workers. finally-guarded so a failure can't leak fake timers.
+    await import('@/routes/views/not-found/NotFound.js')
+
     jest.useFakeTimers()
-    el.currentViewTag = VIEW_TAGS.VIEW_NOT_FOUND
-    el._updateViewContent({})
 
-    for (
-      let i = 0;
-      i < 20 && outlet.firstElementChild?.tagName.toLowerCase() !== VIEW_TAGS.VIEW_NOT_FOUND;
-      i++
-    ) {
-      await jest.advanceTimersByTimeAsync(ANIMATION_DURATIONS.PAGE_FADE_HALF)
+    try {
+      el.currentViewTag = VIEW_TAGS.VIEW_NOT_FOUND
+      el._updateViewContent({})
+
+      for (
+        let i = 0;
+        i < 10 && outlet.firstElementChild?.tagName.toLowerCase() !== VIEW_TAGS.VIEW_NOT_FOUND;
+        i++
+      ) {
+        await jest.advanceTimersByTimeAsync(ANIMATION_DURATIONS.PAGE_FADE_HALF)
+      }
+    } finally {
+      jest.useRealTimers()
     }
-
-    jest.useRealTimers()
 
     expect(outlet.firstElementChild.tagName.toLowerCase()).toBe(VIEW_TAGS.VIEW_NOT_FOUND)
 
@@ -471,23 +476,30 @@ describe('AppNav tails', () => {
     const el = mountNav()
     const prevLocale = store.state.lang.locale
 
-    store.state.lang.locale = BAD_LOCALE
-    expect(el.currentLang).toBeNull()
-    expect(el.currentLangLabel).toBe(BAD_LOCALE.toUpperCase())
-    expect(el.renderLocaleFlag()).toBe(BAD_LOCALE.toUpperCase())
+    try {
+      store.state.lang.locale = BAD_LOCALE
+      expect(el.currentLang).toBeNull()
+      expect(el.currentLangLabel).toBe(BAD_LOCALE.toUpperCase())
+      expect(el.renderLocaleFlag()).toBe(BAD_LOCALE.toUpperCase())
 
-    store.state.lang.locale = LOCALES.HRK
-    el._toggleMenu()
+      store.state.lang.locale = LOCALES.HRK
+      el._toggleMenu()
 
-    await flush()
+      await flush()
 
-    expect(el.shadowRoot.querySelector(`.${FLAG_CLASSES.FLAG_SPLIT}`)).not.toBeNull()
+      expect(el.shadowRoot.querySelector(`.${FLAG_CLASSES.FLAG_SPLIT}`)).not.toBeNull()
 
-    el._closeMenu()
+      el._closeMenu()
 
-    await flush(ANIMATION_DURATIONS.MENU_CLOSE_DURATION + 100)
-
-    store.state.lang.locale = prevLocale
+      // The close path settles on a ~1.3s wall-clock timer — fake the clock
+      // so a starved worker can't stall it past the test timeout, and so the
+      // locale restore below always runs even if the advance throws.
+      jest.useFakeTimers()
+      await jest.advanceTimersByTimeAsync(ANIMATION_DURATIONS.MENU_CLOSE_DURATION + 100)
+    } finally {
+      jest.useRealTimers()
+      store.state.lang.locale = prevLocale
+    }
   })
 
   test('_mountNavFlag / _mountBurgerWebGL / _mountMenuWebGL guard arms', () => {
