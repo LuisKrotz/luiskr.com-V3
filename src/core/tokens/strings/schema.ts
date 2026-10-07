@@ -4,6 +4,11 @@
  * STRINGS.
  */
 
+/**
+ * Schema.org / SEO JSON-LD string tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const SCHEMA_STRINGS = Object.freeze({
   SCHEMA_CONTEXT: 'https://schema.org',
   NOINDEX_NOFOLLOW: 'noindex, nofollow',
