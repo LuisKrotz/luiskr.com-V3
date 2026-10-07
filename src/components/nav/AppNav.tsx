@@ -50,13 +50,24 @@ import {
 } from './menu.js'
 import appStyles from '@/sass/components/shell/app.scss?inline'
 
-// Pre-compute all localized playground slugs for fast O(1) lookup
+/**
+ * Pre-computed set of every locale's localized earth-playground slug —
+ * `isPlaygroundPage` needs O(1) membership tests on the last URL segment
+ * (the route resolver may not have run yet when the getter first fires),
+ * so all 16 locales' `earthPlayground` values are flattened once at module
+ * load rather than re-built per check.
+ */
 const _PLAYGROUND_SLUGS = new Set(
   Object.values(LANG_SLUGS)
     .map((s) => s.earthPlayground)
     .filter(Boolean)
 )
 
+/**
+ * The slice of the APP translation dictionary the nav template reads —
+ * all fields optional since the dictionary arrives incrementally and the
+ * template falls back to English snapshot copy per key.
+ */
 interface AppNavTranslations {
   title?: string
   about?: { description?: string }
@@ -70,11 +81,16 @@ interface AppNavTranslations {
 }
 
 /**
- * The AppNav — nav class.
+ * <app-nav> — persistent top bar (logo, burger, locale flag, preferences
+ * trigger) plus the fullscreen menu overlay. Owns four WebGL widgets
+ * (burger, menu background, menu close, locale flag) on persistent
+ * canvases that are never re-created by re-renders — one GL context per
+ * widget for the element's lifetime.
  */
 export class AppNav extends BaseComponent {
   /** APP dictionary pushed by <app-root>; null until first fetch lands. */
   _translations: AppNavTranslations | null = null
+  /** Locale the pushed `_translations` were fetched for — the getter returns null on mismatch so stale copy never renders mid-switch. */
   _translationsLocale: string | null = null
   /** Home anchor the scroll position sits in — drives nav-active styles. */
   activeSection: string = SECTIONS.HOME
@@ -82,15 +98,20 @@ export class AppNav extends BaseComponent {
   onBottom = false
   /** Live FlagWebGL widgets (currently max one — the menu flag). */
   _navFlags: FlagWebGL[] = []
+  /** True while the nav floats over a dark section — drives the --on-dark variant for contrast inversion. */
   _onDark = false
 
   // Menu overlay state machine: open → (settling) → settled → closing →
   // closed. _menuSettled marks the end of the open animation — the close
   // button's X is snapped to fully-drawn on reopen if a previous open
   // already completed.
+  /** Menu overlay is open. */
   _menuOpen = false
+  /** Close animation in flight — blocks re-entry/double-close. */
   _menuClosing = false
+  /** Open animation completed — close X can snap to drawn state on reopen. */
   _menuSettled = false
+  /** Handle for the settle delay; cleared on destroy so no timer outlives the element. */
   _menuSettleTimer: ReturnType<typeof setTimeout> | null = null
 
   /** MenuBackgroundWebGL instance — owns the fullscreen contour canvas. */
@@ -102,8 +123,11 @@ export class AppNav extends BaseComponent {
 
   // Persistent canvas elements — created once, never re-created by
   // re-renders, so each keeps one GL context for its widget's lifetime.
+  /** Burger button canvas host. */
   _burgerCanvasEl: HTMLCanvasElement | null = null
+  /** Fullscreen menu background canvas host. */
   _menuCanvasEl: HTMLCanvasElement | null = null
+  /** Menu close-X canvas host. */
   _menuCloseCanvasEl: HTMLCanvasElement | null = null
   /** Menu flag canvas + the locale it was built for (rebuilt on change). */
   _menuFlagCanvasEl: HTMLCanvasElement | null = null
@@ -451,6 +475,7 @@ export class AppNav extends BaseComponent {
     return renderAppNav(this)
   }
 
+  /** Persistent burger canvas (aria-labeled) — created once, survives re-renders so its GL context does. */
   _burgerCanvas(label: string): HTMLCanvasElement {
     return navBurgerCanvas(this, label)
   }
@@ -501,6 +526,9 @@ export class AppNav extends BaseComponent {
   }
 }
 
+// Registration guard: customElements.define throws on a duplicate tag —
+// the `get` check keeps module re-evaluation (HMR, coverage re-imports)
+// safe since the registry is global, not per-module-instance.
 if (!customElements.get(COMPONENT_TAGS.APP_NAV)) {
   customElements.define(COMPONENT_TAGS.APP_NAV, AppNav)
 }
