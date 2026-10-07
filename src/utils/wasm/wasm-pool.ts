@@ -8,6 +8,7 @@
  */
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { UA_PATTERNS } from '@/core/tokens/motion/gpu.js'
+import { WASM_POOL } from '@/core/tokens/data/wasm.js'
 
 // Multi-Threaded WebAssembly Worker Pool Dispatcher
 //
@@ -19,10 +20,12 @@ import { UA_PATTERNS } from '@/core/tokens/motion/gpu.js'
 //   mobile (iOS / Android)  → max 2 workers
 //   desktop                 → max 4 workers
 
+/** In-flight dispatch entry — the resolve that completes the caller's Promise. */
 interface PendingTask {
   resolve: (_data: unknown) => void
 }
 
+/** Coarse mobile detection — UA regex suffices here; precision isn't worth the parser. */
 const _isMobile =
   typeof navigator !== TYPE_STRINGS.UNDEFINED && UA_PATTERNS.MOBILE_UA.test(navigator.userAgent)
 
@@ -32,18 +35,27 @@ const _isMobile =
  * pools slower than narrow ones).
  */
 class WasmWorkerPool {
+  /** Pool width — clamped cores (mobile ≤2, desktop 2–4). */
   size: number
+  /** Spawned Worker instances — populated lazily by _ensurePool. */
   workers: Worker[]
+  /** Round-robin cursor into `workers`. */
   nextWorkerIdx: number
+  /** Dispatch id → pending resolver. */
   pendingTasks: Map<number, PendingTask>
+  /** Monotonically increasing dispatch id — correlates replies to tasks. */
   taskIdSeq: number
+  /** One-shot latch so _ensurePool spawns at most once. */
   private _poolReady: boolean
 
   constructor() {
     const cores =
-      (typeof navigator !== TYPE_STRINGS.UNDEFINED && navigator.hardwareConcurrency) || 2
+      (typeof navigator !== TYPE_STRINGS.UNDEFINED && navigator.hardwareConcurrency) ||
+      WASM_POOL.FALLBACK_CORES
 
-    this.size = _isMobile ? Math.min(2, cores) : Math.min(4, Math.max(2, cores))
+    this.size = _isMobile
+      ? Math.min(WASM_POOL.MOBILE_MAX, cores)
+      : Math.min(WASM_POOL.DESKTOP_MAX, Math.max(WASM_POOL.DESKTOP_MIN, cores))
 
     this.workers = []
 
@@ -57,7 +69,11 @@ class WasmWorkerPool {
     // Lazy init: do NOT spawn workers here — wait until first dispatch()
   }
 
-  // Spawn workers on first use so module evaluation never blocks the main thread
+  /**
+   * Lazily spawns `size` workers on first dispatch — module eval stays
+   * free of Worker construction (mobile page-load freeze fix). SSR /
+   * no-Worker engines leave the pool empty; dispatch then resolves null.
+   */
   private _ensurePool(): void {
     if (this._poolReady) return
 
@@ -67,7 +83,7 @@ class WasmWorkerPool {
 
     for (let i = 0; i < this.size; i++) {
       try {
-        const worker = new Worker('/workers/wasm-worker.js')
+        const worker = new Worker(WASM_POOL.WORKER_URL)
 
         worker.onmessage = (e) => this.handleMessage(e)
 
@@ -78,7 +94,12 @@ class WasmWorkerPool {
     }
   }
 
-  /** Resolves the pending task matching the worker's reply id. */
+  /**
+   * Worker `message` handler — resolves the pending task matching the
+   * reply's correlation id and drops it from the map. Replies without an
+   * id are ignored (broadcast/telemetry messages).
+   * @param e The worker MessageEvent.
+   */
   handleMessage(e: MessageEvent): void {
     const data = (e.data || {}) as { id?: number }
 
@@ -95,7 +116,14 @@ class WasmWorkerPool {
     }
   }
 
-  // Scan payload shallowly for ArrayBuffer / ImageBitmap transferables
+  /**
+   * Scans a payload shallowly (top-level values + one array level deep)
+   * for ArrayBuffer / ImageBitmap instances — those can cross the worker
+   * boundary by ownership transfer instead of structured-clone copy, so
+   * large media payloads move zero-copy.
+   * @param payload The dispatch payload object.
+   * @returns Transferable instances found.
+   */
   private _extractTransferables(payload: unknown): Transferable[] {
     const list: Transferable[] = []
 
@@ -127,6 +155,10 @@ class WasmWorkerPool {
    * Serializes the payload safely (zero-copy transferables → structuredClone
    * → JSON fallback) and resolves the worker's reply — or null when no
    * worker exists or posting throws.
+   * @param type WASM_ACTIONS message type the worker dispatches on.
+   * @param payload Serializable body — transferables are auto-extracted.
+   * @param transferables Explicit transfer list; auto-scan only runs when empty.
+   * @returns The worker's reply message data, or null on any failure.
    */
   dispatch(type: string, payload: unknown, transferables: Transferable[] = []): Promise<unknown> {
     // Lazy-spawn workers on first call — never during module evaluation
@@ -194,6 +226,7 @@ class WasmWorkerPool {
 }
 
 /**
- * The wasmPool constant.
+ * Shared pool singleton — all WASM dispatch callers funnel through one
+ * instance so workers are spawned once and round-robin state is global.
  */
 export const wasmPool = new WasmWorkerPool()
