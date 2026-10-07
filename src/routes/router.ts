@@ -19,6 +19,7 @@ import type { NavHook, RouteDescriptor, RouteListener, RouteMeta } from './types
 import { devError } from '@/core/devlog.js'
 
 export { normalizeProjectKey }
+/** Route type re-exports — canonical definitions + docs live in ./types.js. */
 export type { NavHook, RouteDescriptor, RouteListener, RouteMeta }
 
 /**
