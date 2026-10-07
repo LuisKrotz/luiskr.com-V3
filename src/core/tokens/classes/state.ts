@@ -7,7 +7,9 @@
 import { _K_ACTIVE } from '../base.js'
 
 /**
- * The STATE_CLASSES constant.
+ * Frozen state class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const STATE_CLASSES = Object.freeze({
   ACTIVE: _K_ACTIVE,
