@@ -14,7 +14,11 @@ import {
 } from '../base.js'
 
 /**
- * internals classes.
+ * Internals (project-detail) page classes on the `internal-*` block family:
+ * `internal` root, `internal-main` item grid, `internal-description` prose
+ * block, `internal-extra` scroll strip, `internal-footer` related/notes
+ * area, `internal-expand` trigger. `ZTF_VIDEO` is a standalone modifier
+ * (zoom-to-fill) applied alongside items, not an internal-* descendant.
  */
 export const INTERNAL_CLASSES = Object.freeze({
   INTERNAL: _B_INTERNAL,
