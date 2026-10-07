@@ -1,3 +1,11 @@
+/**
+ * @file lighthouse-config.test.js
+ * @description Governance gate for the Lighthouse CI config — asserts the
+ * audited route list stays in sync with the router's real paths (sample
+ * projects, legal pages, playground) so a renamed route can't silently
+ * drop out of performance auditing.
+ */
+
 import { describe, test, expect } from '@jest/globals'
 import fs from 'node:fs'
 import path from 'node:path'
