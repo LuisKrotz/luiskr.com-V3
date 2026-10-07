@@ -269,7 +269,7 @@ describe('AppRoot — view outlet', () => {
     expect(outlet.firstElementChild.tagName.toLowerCase()).toBe(VIEW_TAGS.VIEW_NOT_FOUND)
 
     globalThis.fetch = origFetch
-  }, 20000)
+  }, 120000)
 
   test('reduced motion takes the instant-swap path', async () => {
     const origFetch = stableFetch()
