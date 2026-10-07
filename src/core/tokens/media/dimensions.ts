@@ -46,7 +46,11 @@ export const VIDEO_DIMENSIONS = Object.freeze({
 })
 
 /**
- * flags dimensions.
+ * Frozen flag-icon geometry map — flag images are drawn at small pixel
+ * sizes where every px counts: NAV (18×13) for the locale picker, DIALOG
+ * (60×44) for the language dialog, SPLIT widths for the half-flag
+ * divider, and `FLAG_DEFAULT_ASPECT` 1.5 (3:2, the most common national
+ * flag ratio) as the fallback when a flag lacks intrinsic dims.
  */
 export const FLAG_DIMENSIONS = Object.freeze({
   FLAG_NAV_WIDTH: 18,
@@ -95,7 +99,11 @@ export const GRAVATAR_SIZES = Object.freeze({
 })
 
 /**
- * scrolls timings.
+ * Frozen scroll-timing map (ms) — `SCROLL_DURATION_FULL` paces animated
+ * page scrolls, `SCROLL_DURATION_REDUCED` is the slower ramp under
+ * prefers-reduced-motion (longer, gentler rather than instant so the jump
+ * stays perceivable), `SCROLL_INIT_DELAY` defers scroll restoration until
+ * after first paint settles.
  */
 export const SCROLL_TIMINGS = Object.freeze({
   SCROLL_DURATION_FULL: 1000,
@@ -104,7 +112,13 @@ export const SCROLL_TIMINGS = Object.freeze({
 })
 
 /**
- * Draws timings.
+ * Frozen draw-text timing map (ms + observer fraction) — caps and defaults
+ * for the per-character staggered reveal: `EXTRA_MS`/`MAX_MS` bound total
+ * animation length regardless of string size, `WORD_MAX_DELAY`/
+ * `DEFAULT_DELAY` shape the per-word stagger, `OBSERVER_THRESHOLD` (0.05)
+ * is the IntersectionObserver visibility fraction that triggers a draw,
+ * and the `MENU_LABEL_*` triple paces nav-item labels so each item's
+ * underline lands right after its last character.
  */
 export const DRAW_TIMINGS = Object.freeze({
   DRAW_ANIM_EXTRA_MS: 800,
