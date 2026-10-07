@@ -7,7 +7,9 @@
 import { _B_CMS_CARD, _B_CMS_SECTION } from '../base.js'
 
 /**
- * The CMS_CARD_CLASSES constant.
+ * Frozen cms card class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CMS_CARD_CLASSES = Object.freeze({
   CMS_CARD: _B_CMS_CARD,
