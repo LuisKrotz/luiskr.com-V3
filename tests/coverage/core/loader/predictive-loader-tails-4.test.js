@@ -61,11 +61,16 @@ describe('predictive-loader tails', () => {
 
     predictiveLoader.observeLink(a)
 
-    // Mock IO auto-fires isIntersecting:true after ~10ms — schedule then
-    // forwards to prefetchRoute once idle time arrives. Poll for THIS
-    // link's call specifically: links observed by earlier tests stay in the
-    // singleton's observedLinks set, and their stale IO callbacks can land
-    // mid-test and satisfy a `calls.length > 0` wait before the real one.
+    // Drive this link's observer entry directly. Depending on the global
+    // mock's delayed auto-fire makes this test race CPU-saturated parallel
+    // workers, while the behavior under test is the loader callback itself.
+    const cb = predictiveLoader.observer.callback
+
+    cb([{ isIntersecting: true, target: a }], predictiveLoader.observer)
+
+    // Poll for THIS link's scheduled call: links observed by earlier tests
+    // stay in the singleton's observedLinks set and stale callbacks can land
+    // mid-test before the real one.
     const deadline = Date.now() + 5000
 
     while (!spy.mock.calls.some((c) => c[0] === href) && Date.now() < deadline) {
@@ -75,7 +80,6 @@ describe('predictive-loader tails', () => {
     expect(spy).toHaveBeenCalledWith(href)
 
     // non-intersecting entry and an entry whose target has no href/dataset
-    const cb = predictiveLoader.observer.callback
     const bare = document.createElement(HTML_TAGS.SPAN)
 
     cb([{ isIntersecting: false, target: a }], predictiveLoader.observer)
