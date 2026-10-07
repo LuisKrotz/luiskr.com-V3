@@ -9,6 +9,8 @@
 import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
 import { SP_CLASSES } from '@/core/tokens/classes/playground.js'
 import { CAROUSEL_CSS_PROPS } from '@/core/tokens/css/carousel.js'
+import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 import store from '@/core/store.js'
 import { EarthBackground } from '../earth-background.js'
 import { PARAM_HANDLERS, SP_INPUT_TYPES } from './controls.js'
@@ -16,10 +18,12 @@ import type { SpacePlayground } from '../SpacePlayground.js'
 import { devError } from '@/core/devlog.js'
 
 /**
- * Updates space loader.
- * @param c — the component
- * @param msg — the value
- * @param pct — the value
+ * Mirrors an engine progress event into the loader overlay — message,
+ * rounded percent text, and the bar's width style. All three nodes are
+ * optional-chained so a partial loader render can't throw mid-boot.
+ * @param c The SpacePlayground element.
+ * @param msg Stage message from the engine ('loading textures', …).
+ * @param pct Progress 0–100.
  */
 export function updateSpaceLoader(c: SpacePlayground, msg: string, pct: number): void {
   const loaderMsg = c.$(`.${SP_CLASSES.SP_LOADER_MSG}`)
@@ -32,8 +36,13 @@ export function updateSpaceLoader(c: SpacePlayground, msg: string, pct: number):
 }
 
 /**
- * Initializes space earth.
- * @param c — the component
+ * Constructs the EarthBackground engine on the persistent canvas and
+ * wires its lifecycle: progress → loader overlay, ready → apply persisted
+ * settings + reduced-motion flag + dismiss. The `_isInitializingEarth`
+ * latch prevents double-init while init() is still awaiting. A failed
+ * init still marks `_earthReady` and dismisses the loader so the page
+ * isn't stuck behind a broken overlay.
+ * @param c The SpacePlayground element.
  */
 export function initSpaceEarth(c: SpacePlayground): void {
   const canvas = c._getCanvasEl()
@@ -70,22 +79,27 @@ export function initSpaceEarth(c: SpacePlayground): void {
 }
 
 /**
- * The dismissSpaceLoader value.
- * @param c — the component
+ * Fades the loader overlay to transparent, then removes it after the CSS
+ * transition completes — removing earlier would clip the fade, removing
+ * never would leave an invisible overlay intercepting pointer events.
+ * @param c The SpacePlayground element.
  */
 export function dismissSpaceLoader(c: SpacePlayground): void {
   const loader = c.$<HTMLElement>(`.${SP_CLASSES.SP_LOADER}`)
 
   if (loader) {
-    loader.style.opacity = '0'
+    loader.style.opacity = CHAR_STRINGS.ZERO
 
-    setTimeout(() => loader.remove(), 800)
+    setTimeout(() => loader.remove(), ANIMATION_DURATIONS.LOADER_FADE_MS)
   }
 }
 
 /**
- * Applies persisted settings.
- * @param c — the component
+ * Replays the persisted settings object onto the live engine and panel:
+ * each saved param runs through PARAM_HANDLERS (the same dispatch live
+ * edits use), then the matching DOM input's value/checked + slider
+ * track-fill + row label are synced so the panel reflects restored state.
+ * @param c The SpacePlayground element.
  */
 export function applyPersistedSettings(c: SpacePlayground): void {
   const saved = c._savedSettings
