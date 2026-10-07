@@ -16,18 +16,23 @@ import { startFlushInterval } from './stats/flush.js'
 // main thread via PerformanceObserver + requestAnimationFrame. All reads are
 // non-blocking; the engine never stalls rendering.
 
-/**
- * Type contract for StatsSnapshot — the shape consumers rely on.
- */
+/** Point-in-time metrics frame pushed to Stats-for-nerds subscribers. */
 export interface StatsSnapshot {
+  /** Rolling frames-per-second over the last 1s window. */
   fps: number
+  /** Rolling network throughput estimate in bytes/sec. */
   networkBytesPerSec: number
+  /** Currently in-flight fetches. */
   pendingRequests: number
+  /** JS heap size in MB (0 on engines without performance.memory). */
   memoryMB: number
+  /** Main-thread busy fraction 0–100 estimated from longtasks. */
   cpuPercent: number
+  /** Rolling mean fetch round-trip in ms. */
   latencyMs: number
 }
 
+/** Subscriber callback receiving each flushed snapshot. */
 type StatsObserver = (_snap: StatsSnapshot) => void
 
 /**
@@ -35,38 +40,64 @@ type StatsObserver = (_snap: StatsSnapshot) => void
  * when the last subscriber leaves (so the hidden HUD costs nothing).
  */
 export class StatsEngine {
+  /** Last computed FPS value. */
   _fps = 0
+  /** Frames counted in the current rolling window. */
   _frameCount = 0
+  /** Window start stamp for the FPS calc. */
   _lastFrameTime = performance.now()
+  /** Bytes seen this window from resource-timing entries. */
   _networkBytes = 0
+  /** Derived bytes/sec over the window. */
   _networkBytesPerSec = 0
+  /** Byte counter for the current window. */
   _networkBytesWindow = 0
+  /** Window start stamp for the network calc. */
   _networkWindowStart = performance.now()
+  /** In-flight fetch counter (patched window.fetch drives it). */
   _pendingRequests = 0
+  /** Lifetime fetch count. */
   _requestCount = 0
+  /** Last read JS heap in MB. */
   _memoryMB = 0
-  // CPU load — estimated from long-task busy time in the flush window
+  /** CPU load — estimated from long-task busy time in the flush window. */
   _cpuPercent = 0
+  /** Accumulated longtask busy ms for the current flush window. */
   _longTaskBusyMs = 0
+  /** The 'longtask' PerformanceObserver (null where unsupported). */
   _longTaskObserver: PerformanceObserver | null = null
-  // Latency — rolling average of fetch round-trip times (last 10 requests)
+  /** Latency — rolling average of fetch round-trip times (last 10 requests). */
   _latencyMs = 0
+  /** Rolling latency samples feeding _latencyMs. */
   _latencySamples: number[] = []
+  /** rAF handle for the FPS loop. */
   _rafId: number | null = null
+  /** Subscribed metric callbacks. */
   _observers = new Set<StatsObserver>()
+  /** The 'resource' PerformanceObserver (network sampler). */
   _observer: PerformanceObserver | null = null
+  /** The aggregating flush setInterval handle. */
   _flushId: ReturnType<typeof setInterval> | null = null
+  /** Whether samplers are currently live. */
   _running = false
 
   // ── Subscribe/unsubscribe ──────────────────────────────────────────────────
-  /** Registers a metrics callback and cold-starts the observers if needed. */
+  /**
+   * Registers a metrics callback and cold-starts the observers if needed —
+   * lazy start keeps the engine free until the HUD opens.
+   * @param fn Subscriber receiving each StatsSnapshot.
+   */
   subscribe(fn: StatsObserver): void {
     this._observers.add(fn)
 
     if (!this._running) this._start()
   }
 
-  /** Removes a callback; tears down all sampling when the last one leaves. */
+  /**
+   * Removes a callback; tears down all sampling when the last one leaves
+   * so a closed HUD leaves zero observers running.
+   * @param fn The callback to remove.
+   */
   unsubscribe(fn: StatsObserver): void {
     this._observers.delete(fn)
 
@@ -164,6 +195,7 @@ export class StatsEngine {
 }
 
 /**
- * The statsEngine constant.
+ * Shared stats singleton — one engine serves every consumer so observers
+ * (rAF loop, PerformanceObservers, fetch patch) exist at most once.
  */
 export const statsEngine = new StatsEngine()
