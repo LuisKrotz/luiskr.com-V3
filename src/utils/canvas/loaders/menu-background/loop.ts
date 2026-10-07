@@ -8,6 +8,7 @@
 import { MEDIA_QUERIES } from '@/core/tokens/primitives.js'
 import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { QUAD_STRIP } from '@/core/tokens/motion/gpu.js'
 import type { MenuBackgroundWebGL } from '../menu-background-webgl.js'
 
 /** Reveal durations: slow bloom on open, quicker dissolve on close. */
@@ -210,5 +211,5 @@ export function renderFrame(host: MenuBackgroundWebGL, staticTime?: number | nul
 
   gl.uniform1f(host.uAlpha, isDark ? ALPHA_DARK : ALPHA_LIGHT)
 
-  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+  gl.drawArrays(gl.TRIANGLE_STRIP, 0, QUAD_STRIP.VERTEX_COUNT)
 }
