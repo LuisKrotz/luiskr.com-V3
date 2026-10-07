@@ -6,6 +6,11 @@
  * token to an `earthBg.update*()` call).
  */
 
+/**
+ * `data-param` values on playground sliders/checkboxes split by subsystem. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const SP_CAMERA_PARAMS = Object.freeze({
   FOV: 'fov',
   ROTATE_SPEED: 'rotate-speed',
