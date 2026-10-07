@@ -4,6 +4,11 @@
  * @type {Readonly<Record<string, string>>}
  */
 
+/**
+ * Toolbar/panel action names dispatched by the playground UI. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const SP_ACTIONS = Object.freeze({
   RESET: 'reset',
   TOGGLE_ROTATE: 'toggle-rotate',
