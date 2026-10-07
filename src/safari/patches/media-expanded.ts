@@ -14,7 +14,7 @@ import { MOUSE_EVENTS, TOUCH_EVENTS } from '@/core/tokens/events/dom.js'
 import type { PatchableCtor, SafariPatchableEl } from '../types.js'
 
 /**
- * The patchMediaExpanded value.
+ * Helper for this module — see implementation for behavior.
  */
 export function patchMediaExpanded(): void {
   // ── MediaExpanded (Full-res image & touch close for Safari) ─────────────────
