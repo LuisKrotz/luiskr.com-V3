@@ -3,6 +3,11 @@
  * @description Route name + localized title-prefix tokens.
  */
 
+/**
+ * Route name + localized title-prefix tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const ROUTE_NAMES = Object.freeze({
   HOME: 'Home',
   ABOUT: 'About',
