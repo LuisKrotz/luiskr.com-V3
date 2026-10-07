@@ -22,6 +22,12 @@ export const GENERIC_DIMENSIONS = Object.freeze({
   PROFILE_SIZE: 200,
 })
 
+/** Image decode budgets shared by progressive media pipelines. */
+export const IMAGE_DIMENSIONS = Object.freeze({
+  /** 4096² pixels: preserves the former memory ceiling without rejecting tall, narrow screenshots. */
+  MAX_DECODE_PIXELS: 4096 * 4096,
+})
+
 /**
  * The VIDEO_DIMENSIONS constant.
  */

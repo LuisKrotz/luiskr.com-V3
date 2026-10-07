@@ -8,6 +8,7 @@
 
 import { MEDIA_CLASSES } from '@/core/tokens/classes/media.js'
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
+import { IMAGE_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 import { MEDIA } from '@/core/tokens/media/suffixes.js'
 import { SVG_STRINGS } from '@/core/tokens/strings/svg.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
@@ -61,9 +62,10 @@ export function mediaPlaceholder(w: number, h: number): string {
 /**
  * Thumb → high-res swap. A detached Image preloads the Q50 variant;
  * on load the visible element swaps src + gets the loaded class (the
- * CSS crossfade) and the thumb hides. The 4096px guard skips absurd
- * source sizes (decode/memory cap). Errors mark loaded anyway — a
- * broken image must not pin the skeleton shimmer forever.
+ * CSS crossfade) and the thumb hides. The 4096²-pixel budget caps decode
+ * memory without rejecting tall, narrow full-page screenshots solely because
+ * one dimension exceeds 4096px. Errors mark loaded anyway — a broken image
+ * must not pin the skeleton shimmer forever.
  */
 export async function loadHighRes(fig: MediaFigure): Promise<void> {
   if (fig.isVideo || fig.isLoaded) return
@@ -72,7 +74,7 @@ export async function loadHighRes(fig: MediaFigure): Promise<void> {
 
   const width = fig.mediaWidth || 0
 
-  if (height > 4096 || width > 4096) {
+  if (height * width > IMAGE_DIMENSIONS.MAX_DECODE_PIXELS) {
     return
   }
 

@@ -10,14 +10,14 @@ import { jest } from '@jest/globals'
 import '@/components/media/MediaFigure.js'
 import store from '@/core/store.js'
 import { MEDIA } from '@/core/constants.js'
-import { TEST_TEXT, TEST_URLS } from '../../fixtures/test-constants.js'
+import { TEST_PROJECTS, TEST_TEXT, TEST_URLS } from '../../fixtures/test-constants.js'
 import { CDN_URLS } from '@/core/tokens/media/urls.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
 import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { COVER_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
+import { COVER_DIMENSIONS, IMAGE_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
 import { INTERNAL_CLASSES } from '@/core/tokens/classes/project.js'
 import { MEDIA_CLASSES } from '@/core/tokens/classes/media.js'
@@ -786,7 +786,12 @@ describe('MediaFigure tails', () => {
   })
 
   test('loadHighRes covers every guard and finish arm', async () => {
-    const el = mount({ [MEDIA_ATTRS.SRC]: TEST_TEXT.SECOND, [MEDIA_ATTRS.WIDTH]: '5000' })
+    const overBudgetEdge = String(Math.sqrt(IMAGE_DIMENSIONS.MAX_DECODE_PIXELS) + 1)
+    const el = mount({
+      [MEDIA_ATTRS.SRC]: TEST_TEXT.SECOND,
+      [MEDIA_ATTRS.WIDTH]: overBudgetEdge,
+      [MEDIA_ATTRS.HEIGHT]: overBudgetEdge,
+    })
 
     el.isLoaded = false
     await el.loadHighRes()
@@ -842,6 +847,24 @@ describe('MediaFigure tails', () => {
 
     nan.remove()
     vid.remove()
+    el.remove()
+  })
+
+  test('loadHighRes accepts tall narrow screenshots within the pixel budget', async () => {
+    const squareEdge = Math.sqrt(IMAGE_DIMENSIONS.MAX_DECODE_PIXELS)
+    const width = squareEdge / 2
+    const height = IMAGE_DIMENSIONS.MAX_DECODE_PIXELS / width
+    const el = mount({
+      [MEDIA_ATTRS.SRC]: TEST_PROJECTS.NATHALIA_BOND,
+      [MEDIA_ATTRS.WIDTH]: String(width),
+      [MEDIA_ATTRS.HEIGHT]: String(height),
+    })
+
+    el.isLoaded = false
+    await el.loadHighRes()
+
+    expect(el.highResSrc).toContain(TEST_PROJECTS.NATHALIA_BOND)
+
     el.remove()
   })
 
