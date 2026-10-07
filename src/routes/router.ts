@@ -46,7 +46,11 @@ export class Router {
     this._initPopstateListener()
   }
 
-  /** Wires the browser Back/Forward buttons into handleNavigation. */
+  /**
+   * Wires the browser Back/Forward buttons into handleNavigation — popstate
+   * fires only on traversal, so programmatic pushState/replaceState don't
+   * double-trigger navigation. No-op under SSR.
+   */
   private _initPopstateListener(): void {
     if (typeof window === TYPE_STRINGS.UNDEFINED) return
 
@@ -69,6 +73,7 @@ export class Router {
 
   /**
    * Subscribes a listener to route changes.
+   * @param listener Callback receiving (to, from) descriptors.
    * @returns unsubscribe function
    */
   subscribe(listener: RouteListener): () => void {
@@ -79,7 +84,12 @@ export class Router {
     }
   }
 
-  /** Fans the route change out to subscribers; one bad listener can't break the rest. */
+  /**
+   * Fans the route change out to subscribers; each call is wrapped so one
+   * throwing listener can't break the rest (logged via devError).
+   * @param to Destination descriptor.
+   * @param from Origin descriptor — null on first navigation.
+   */
   notify(to: RouteDescriptor, from: RouteDescriptor | null): void {
     for (const listener of this.listeners) {
       try {
@@ -93,6 +103,8 @@ export class Router {
   /**
    * Pure URL → route-descriptor resolution — see parse-path.ts for the
    * route table and slug priority order.
+   * @param pathname Raw URL pathname (+search/hash tolerated).
+   * @returns The matched descriptor (404-shaped when nothing matches).
    */
   parsePath(pathname: string): RouteDescriptor {
     return parsePath(pathname)
@@ -108,7 +120,12 @@ export class Router {
     return this.parsePath(path)
   }
 
-  /** Full navigation pipeline — see navigate.ts. */
+  /**
+   * Full navigation pipeline — guards → history → meta → notify; see
+   * navigate.ts for the stage order.
+   * @param path Destination URL path.
+   * @param replace When true, replace the current history entry instead of pushing.
+   */
   async handleNavigation(path: string, replace = false): Promise<void> {
     return handleNavigation(this, path, replace)
   }
@@ -133,13 +150,16 @@ export class Router {
 }
 
 /**
- * The router constant.
+ * Shared router singleton — the whole app navigates through one instance
+ * so currentRoute, hooks, and subscribers stay coherent.
  */
 export const router = new Router()
 
 // Default navigation guards
+// Derives the locale from the incoming path and commits it — route
+// changes are the single source of truth for `store.lang`, so every
+// localized surface re-renders from here rather than syncing separately.
 router.beforeEach(async (to) => {
-  // Update store locale
   const lang = detectLangFromPath(to.path)
 
   store.commit(LANG_MUTATIONS.SET_LANG, lang)
