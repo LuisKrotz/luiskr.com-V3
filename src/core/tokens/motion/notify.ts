@@ -3,6 +3,11 @@
  * @description Notification/toast runtime tuning tokens.
  */
 
+/**
+ * Notification/toast runtime tuning tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const NOTIFY = Object.freeze({
   /** Default auto-dismiss for a toast item (ms) */
   TOAST_DURATION: 5000,
