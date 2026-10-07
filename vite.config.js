@@ -443,7 +443,7 @@ export default defineConfig(() => {
     publicDir: process.env.LK_NO_PUBLIC ? false : 'public',
     target: t.viteTarget,
     cssTarget: t.cssTarget,
-    sourcemap: false,
+    sourcemap: true,
     cssCodeSplit: true,
     cssMinify: 'lightningcss',
     minify: 'terser',

@@ -121,28 +121,34 @@ const emitCss = async (t) => {
   const compiled = sass.compile(path.join(ROOT, 'src/sass/components/shell/app.scss'), {
     loadPaths: [path.join(ROOT, 'src/sass')],
     silenceDeprecations: ['import', 'global-builtin', 'legacy-js-api'],
+    sourceMap: true,
+    sourceMapIncludeSources: true,
   })
 
   const outDir = path.join(DIST, 'v', t.name, 'assets', 'css')
   fs.mkdirSync(outDir, { recursive: true })
 
-  const { code } = transform({
+  const { code, map } = transform({
     filename: 'app.css',
     code: Buffer.from(compiled.css),
     minify: true,
     targets: cssTargetMap(t.cssTarget),
     errorRecovery: true,
+    sourceMap: true,
+    inputSourceMap: JSON.stringify(compiled.sourceMap),
   })
 
   const hash = crypto.createHash('md5').update(code).digest('hex').slice(0, 8)
   const name = `index-${hash}.css`
+  const finalCode = Buffer.concat([code, Buffer.from(`\n/*# sourceMappingURL=${name}.map */\n`)])
 
-  fs.writeFileSync(path.join(outDir, name), code)
+  fs.writeFileSync(path.join(outDir, name), finalCode)
+  fs.writeFileSync(path.join(outDir, `${name}.map`), map)
   fs.writeFileSync(
     path.join(outDir, `${name}.br`),
-    zlib.brotliCompressSync(code, { params: { [zlibConstants.BROTLI_PARAM_QUALITY]: 11 } })
+    zlib.brotliCompressSync(finalCode, { params: { [zlibConstants.BROTLI_PARAM_QUALITY]: 11 } })
   )
-  fs.writeFileSync(path.join(outDir, `${name}.gz`), zlib.gzipSync(code, { level: 9 }))
+  fs.writeFileSync(path.join(outDir, `${name}.gz`), zlib.gzipSync(finalCode, { level: 9 }))
 
   return name
 }
