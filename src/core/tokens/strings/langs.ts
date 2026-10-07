@@ -3,6 +3,11 @@
  * @description Locale code string tokens — token group.
  */
 
+/**
+ * Locale code string tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const LANG_STRINGS = Object.freeze({
   EN: 'en',
   BR: 'br',
