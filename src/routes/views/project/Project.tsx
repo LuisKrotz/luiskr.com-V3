@@ -30,6 +30,7 @@ import '@/components/carousel/CustomCarousel.js'
 import '@/components/portfolio/Related.js'
 import { SCROLL_TIMINGS } from '@/core/tokens/media/dimensions.js'
 
+/** View-local type re-exports — canonical definitions + docs live in ./types.js. */
 export type { CustomCarouselElement, ProjectMediaItem, SectionChild } from './types.js'
 
 /**
