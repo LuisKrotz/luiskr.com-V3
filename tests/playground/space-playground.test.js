@@ -121,16 +121,46 @@ describe('SpacePlayground', () => {
     expect(header.getAttribute(ARIA_ATTRS.ARIA_EXPANDED)).toBe(ATTR_VALUES.TRUE)
     expect(content.inert).toBe(false)
 
+    const focusWithin = new Event(FOCUS_EVENTS.FOCUSOUT, { bubbles: true })
+
+    Object.defineProperty(focusWithin, 'relatedTarget', { value: content.firstElementChild })
+    header.dispatchEvent(focusWithin)
+    expect(group.classList.contains(SP_CLASSES.SP_GROUP_COLLAPSED)).toBe(false)
+
+    const panelBody = el.shadowRoot.querySelector(`.${SP_CLASSES.SP_PANEL_BODY}`)
     const focusOut = new Event(FOCUS_EVENTS.FOCUSOUT, { bubbles: true })
 
-    Object.defineProperty(focusOut, 'relatedTarget', {
-      value: el.shadowRoot.querySelector(`.${SP_CLASSES.SP_PANEL_BODY}`),
-    })
+    Object.defineProperty(focusOut, 'relatedTarget', { value: panelBody })
     header.dispatchEvent(focusOut)
 
     expect(group.classList.contains(SP_CLASSES.SP_GROUP_COLLAPSED)).toBe(true)
     expect(header.getAttribute(ARIA_ATTRS.ARIA_EXPANDED)).toBe(ATTR_VALUES.FALSE)
     expect(content.inert).toBe(true)
+
+    // Guard arms: focus outside a group, and an already-expanded group that
+    // was not opened by keyboard focus, must not change collapse state.
+    panelBody.dispatchEvent(new Event(FOCUS_EVENTS.FOCUSIN, { bubbles: true }))
+    panelBody.dispatchEvent(new Event(FOCUS_EVENTS.FOCUSOUT, { bubbles: true }))
+
+    const expandedGroup = [...el.shadowRoot.querySelectorAll(`.${SP_CLASSES.SP_GROUP}`)].find(
+      (candidate) => !candidate.classList.contains(SP_CLASSES.SP_GROUP_COLLAPSED)
+    )
+    const expandedHeader = expandedGroup.querySelector(`.${SP_CLASSES.SP_GROUP_HEADER}`)
+
+    expandedHeader.dispatchEvent(new Event(FOCUS_EVENTS.FOCUSIN, { bubbles: true }))
+    expandedHeader.dispatchEvent(new Event(FOCUS_EVENTS.FOCUSOUT, { bubbles: true }))
+    expect(expandedGroup.classList.contains(SP_CLASSES.SP_GROUP_COLLAPSED)).toBe(false)
+
+    // A dynamically incomplete group still toggles safely without content.
+    const incompleteGroup = document.createElement(HTML_TAGS.DIV)
+    const incompleteHeader = document.createElement(HTML_TAGS.BUTTON)
+
+    incompleteGroup.className = SP_CLASSES.SP_GROUP
+    incompleteHeader.className = SP_CLASSES.SP_GROUP_HEADER
+    incompleteGroup.appendChild(incompleteHeader)
+    el.shadowRoot.appendChild(incompleteGroup)
+    incompleteHeader.dispatchEvent(new Event(MOUSE_EVENTS.CLICK, { bubbles: true }))
+    incompleteGroup.remove()
 
     el.onDestroy()
     el.remove()
