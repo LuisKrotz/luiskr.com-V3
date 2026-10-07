@@ -32,6 +32,8 @@
   --radius-xl: #{to-rem($space-xl)};
   --radius-full: 50%;
   --radius-round: 9999px;
+
+  --z-top: #{$z-top};
 }
 
 // ── Document base ─────────────────────────────────────────────────────
@@ -529,15 +531,15 @@ body {
 // ── Notification Toast ────────────────────────────────────────────────
 .cms-toast {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: to-rem($space-2xl);
+  right: to-rem($space-2xl);
   background: $cms-bg-dark;
-  border: 1px solid $cms-accent;
+  border: to-rem($space-hairline) solid $cms-accent;
   color: $color-white;
-  padding: 0.9rem 1.5rem;
+  padding: to-rem($space-lg) to-rem($space-xl);
   border-radius: var(--radius-sm);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  box-shadow: 0 to-rem($space-md) to-rem($space-2xl) rgba($color-black, 0.5);
+  z-index: var(--z-top);
   display: flex;
   align-items: center;
   gap: to-rem($space-md);

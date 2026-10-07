@@ -825,7 +825,7 @@ $_TURB-B: 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 widt
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: var(--z-cookies);
 
   display: flex;
   align-items: center;
@@ -836,8 +836,8 @@ $_TURB-B: 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 widt
   padding-top: to-rem($space-md);
   padding-bottom: to-rem($space-md);
   background: rgba($color-black, 0.94);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(#{to-rem($space-lg)});
+  backdrop-filter: blur(#{to-rem($space-lg)});
   border-top: to-rem($space-hairline) solid rgba($color-white, 0.15);
   color: var(--color-white-raw); // Banner bg is always dark — raw white text token
   font-size: to-rem($space-lg);
@@ -846,7 +846,7 @@ $_TURB-B: 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 widt
 
   // Mobile: no backdrop-filter — extremely expensive on mobile GPUs.
   // Solid background looks identical and costs nothing.
-  @media (max-width: 768px) {
+  @media (max-width: $bk-768) {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     background: rgba($color-black, 0.98);

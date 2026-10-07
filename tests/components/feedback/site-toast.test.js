@@ -6,6 +6,8 @@
  * toast fallback, dedupe window, and global error-handler binding.
  */
 
+import fs from 'fs'
+import { fileURLToPath } from 'url'
 import { describe, test, expect, jest, beforeEach, afterEach, beforeAll } from '@jest/globals'
 import { NOTIFY, NOTIFY_TYPES } from '@/core/constants.js'
 import { appText } from '@/core/locale/ui-text.js'
@@ -565,5 +567,31 @@ describe('notify service', () => {
 
     delete globalThis.window
     expect(initGlobalErrorHandlers()).toBe(false)
+  })
+})
+
+// ─── Placement contract ─────────────────────────────────────────────────────
+// The toast stack is anchored bottom-right on desktop and enters from the
+// lower-right. Mobile intentionally spans edge-to-edge — that block is the
+// only place `left:` may appear.
+describe('SiteToast placement contract', () => {
+  const scssPath = fileURLToPath(
+    new URL('../../../src/sass/components/chrome/site-toast.scss', import.meta.url)
+  )
+  const scss = fs.readFileSync(scssPath, 'utf-8')
+
+  // Everything before the first `@media` is desktop-first source.
+  const desktop = scss.slice(0, scss.indexOf('@media'))
+
+  test('desktop stack anchors to the right edge, never the left', () => {
+    expect(desktop).toMatch(/^\s+right:/m)
+    expect(desktop).not.toMatch(/^\s+left:/m)
+  })
+
+  test('entry motion originates from the lower-right (positive X)', () => {
+    const keyframe = scss.slice(scss.indexOf('@keyframes'))
+
+    expect(keyframe).toMatch(/transform:\s*translate\(to-rem\(\$space-sm\)/)
+    expect(keyframe).not.toMatch(/translate\(-/)
   })
 })
