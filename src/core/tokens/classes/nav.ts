@@ -13,7 +13,9 @@ import {
 } from '../base.js'
 
 /**
- * The NAV_CLASSES constant.
+ * Frozen nav class-name map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const NAV_CLASSES = Object.freeze({
   NAV: _B_NAV,
@@ -39,7 +41,9 @@ export const NAV_CLASSES = Object.freeze({
 })
 
 /**
- * The NAV_BURGER_CLASSES constant.
+ * Frozen nav burger class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const NAV_BURGER_CLASSES = Object.freeze({
   NAV_BURGER_BTN: `${_B_NAV_BURGER}-btn`,
@@ -51,7 +55,9 @@ export const NAV_BURGER_CLASSES = Object.freeze({
 })
 
 /**
- * The NAV_MENU_CLASSES constant.
+ * Frozen nav menu class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const NAV_MENU_CLASSES = Object.freeze({
   NAV_MENU_MODAL: _B_NAV_MENU_MODAL,
