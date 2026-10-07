@@ -1,3 +1,11 @@
+/**
+ * @file e2e-fidelity.test.js
+ * @description End-to-end fidelity suite — drives the mounted app shell
+ * through real user flows (typography rendering, carousel looping, deep
+ * links, nav state) and asserts the DOM a user would actually see,
+ * including a console-health guard that fails on runtime exceptions.
+ */
+
 import { jest } from '@jest/globals'
 import { LOCALES, ROUTE_NAMES, THEME } from '@/core/constants.js'
 import '@/App.js'
