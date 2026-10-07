@@ -7,6 +7,11 @@
  * @type {Readonly<Record<string, string>>}
  */
 
+/**
+ * Public-URL paths for the Earth Playground texture set (served from `public/textures/earth/`). NASA-visible-earth style maps: day albedo, night city lights, ocean specular mask, bump/normal, cloud layer, star field backdrop, moon albedo + lunar displacement (LDEM). Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const EARTH_TEXTURES = Object.freeze({
   ALBEDO: '/textures/earth/2k_earth_daymap.jpg',
   ALBEDO_2K: '/textures/earth/2k_earth_daymap.jpg',
