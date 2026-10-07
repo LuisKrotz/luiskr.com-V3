@@ -13,7 +13,7 @@ import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { GRAVATAR_SIZES } from '@/core/tokens/media/dimensions.js'
 
 /**
- * The MediaUrlItem value.
+ * Type contract for MediaUrlItem — the shape consumers rely on.
  */
 export interface MediaUrlItem {
   src?: string
@@ -21,7 +21,7 @@ export interface MediaUrlItem {
 }
 
 /**
- * The MediaUrls value.
+ * Type contract for MediaUrls — the shape consumers rely on.
  */
 export interface MediaUrls {
   source: string
