@@ -48,7 +48,7 @@ interface MockRef {
  */
 export const ref = (_db: unknown, path = ''): MockRef => ({ __path: path })
 /**
- * The child helper.
+ * Helper for this module — see implementation for behavior.
  */
 export const child = (r: MockRef, path: string): MockRef => ({ __path: `${r.__path}/${path}` })
 
@@ -69,11 +69,11 @@ export const get = async (r: MockRef) => {
  */
 export const set = async (r: MockRef, v: unknown) => devInfo('[CMS-MOCK] set', r.__path, v)
 /**
- * The remove helper.
+ * Helper for this module — see implementation for behavior.
  */
 export const remove = async (r: MockRef) => devInfo('[CMS-MOCK] remove', r.__path)
 /**
- * The update helper.
+ * Helper for this module — see implementation for behavior.
  */
 export const update = async (r: MockRef, v: unknown) => devInfo('[CMS-MOCK] update', r.__path, v)
 /**
