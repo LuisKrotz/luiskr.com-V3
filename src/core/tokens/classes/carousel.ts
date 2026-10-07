@@ -14,7 +14,9 @@ import {
 } from '../base.js'
 
 /**
- * The CAROUSEL_CLASSES constant.
+ * Frozen carousel class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CAROUSEL_CLASSES = Object.freeze({
   CAROUSEL: _B_CAROUSEL,
