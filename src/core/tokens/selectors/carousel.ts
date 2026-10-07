@@ -7,7 +7,9 @@
 import { _B_CAROUSEL, _B_CAROUSEL_BTN, _B_CAROUSEL_SLIDE } from '../base.js'
 
 /**
- * The CAROUSEL_SELECTORS constant.
+ * Frozen carousel selector map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CAROUSEL_SELECTORS = Object.freeze({
   CAROUSEL: `.${_B_CAROUSEL}`,
