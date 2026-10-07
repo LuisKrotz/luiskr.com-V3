@@ -15,7 +15,13 @@ import { uiMutations } from './mutations/ui.js'
 import type { MutationMap } from './state.js'
 import type { Store } from '../store.js'
 
-/** Builds the mutation map bound to `store`. */
+/**
+ * Builds the mutation map bound to `store`. Domain groups are spread into
+ * one flat map — key collisions would silently overwrite, so each group
+ * owns a disjoint prefix of MUTATIONS by convention (theme.*, media.*, …).
+ * @param store The Store instance the mutators close over.
+ * @returns The composed MutationMap.
+ */
 export const createMutations = (store: Store): MutationMap => ({
   ...themeMutations(store),
   ...mediaMutations(store),
