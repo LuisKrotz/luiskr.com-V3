@@ -23,7 +23,9 @@ import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
 
 // ─── English defaults (overwritten by CMS translations when loaded) ──────────
 /**
- * The SP_DEFAULTS constant.
+ * Build-time English copy for the earth-playground panel — CMS
+ * translations merge over this node at runtime so the UI never renders
+ * empty labels before locale data resolves.
  */
 export const SP_DEFAULTS = FALLBACK_PAGES[TRANSLATION_KEYS.EARTH_PLAYGROUND] as Record<
   string,
@@ -31,49 +33,57 @@ export const SP_DEFAULTS = FALLBACK_PAGES[TRANSLATION_KEYS.EARTH_PLAYGROUND] as 
 >
 
 // ─── Collapsible groups with controls ────────────────────────────────────────
+/** Input-type aliases — keep the schema rows terse. */
 const _R = FORM_ATTRS.RANGE
+/** Checkbox input-type alias for the schema rows. */
 const _C = FORM_ATTRS.CHECKBOX
 
-/**
- * Type contract for SpControl — the shape consumers rely on.
- */
+/** One row in a panel group — a slider or a WebGL checkbox. */
 export interface SpControl {
+  /** Translation key for the row's label (and the CMS defaults-map key). */
   label: string
+  /** SP_PARAMS token — persisted-settings key + data-param attribute. */
   param: string
+  /** 'range' slider | 'checkbox' WebGL twin. */
   type: string
+  /** Slider minimum (range only). */
   min?: number
+  /** Slider maximum (range only). */
   max?: number
+  /** Slider step granularity (range only). */
   step?: number
+  /** Shipped numeric default — CMS defaults and saved values override it. */
   def?: number
+  /** Shipped checkbox state — same precedence as `def`. */
   checked?: boolean
 }
 
-/**
- * Type contract for SpAction — the shape consumers rely on.
- */
+/** A group-level action button (reset view, screenshot, copy settings). */
 export interface SpAction {
+  /** Translation key for the button label. */
   label: string
+  /** SP_ACTIONS token dispatched on click. */
   action: string
+  /** Initial aria-pressed state for toggle-style actions. */
   pressed?: boolean
 }
 
-/**
- * Type contract for SpGroup — the shape consumers rely on.
- */
+/** One collapsible panel section. */
 export interface SpGroup {
+  /** Translation key for the group header. */
   label: string
+  /** Whether the group starts folded. */
   collapsed: boolean
+  /** The group's input rows. */
   controls: SpControl[]
+  /** Optional buttons rendered under the controls. */
   actions?: SpAction[]
 }
 
-/**
- * Type contract for SpParamValue — the shape consumers rely on.
- */
+/** A persistable control value — sliders are numeric, checkboxes boolean. */
 export type SpParamValue = number | boolean
-/**
- * Type contract for sp saved settings.
- */
+
+/** Persisted settings blob shape: param → value. */
 export type SpSavedSettings = Record<string, SpParamValue>
 
 /** Input-type discriminator shared with the panel renderer/binder. */
@@ -301,10 +311,11 @@ export const SLIDER_GROUPS: readonly SpGroup[] = Object.freeze([
   },
 ])
 
-// Pristine def/checked snapshot — _applyDbDefaults restores this baseline
-// before merging so CMS defaults never bleed across locale switches.
 /**
- * The SP_DEF_BASELINE constant.
+ * Pristine def/checked snapshot — _applyDbDefaults restores this baseline
+ * before merging so CMS defaults never bleed across locale switches. The
+ * shape mirrors SLIDER_GROUPS (group → controls) so restoration indexes
+ * positionally without re-deriving keys.
  */
 export const SP_DEF_BASELINE = SLIDER_GROUPS.map((g) =>
   g.controls.map((c) => ({ def: c.def, checked: c.checked }))
@@ -323,12 +334,13 @@ export const SP_DB_DEFAULT_SEED: Record<string, number | boolean> = Object.fromE
 )
 
 // ─── Param → earthBg method mapper ───────────────────────────────────────────
-// Each entry adapts a raw UI value (slider units / checkbox boolean) into
-// an EarthBackground update call. EARTH_SPEED divides by 10000 because the
-// slider range 0–50 is human-friendly, while the engine expects radians-
-// per-frame — 1 ⇒ 0.0001 rad/frame ≈ slow cinematic spin.
 /**
- * The PARAM_HANDLERS constant.
+ * Param → EarthBackground setter dispatch. Each entry adapts a raw UI
+ * value (slider units / checkbox boolean) into the matching engine update
+ * call — the UI never touches engine internals directly. EARTH_SPEED
+ * divides by 10000 because the slider range 0–50 is human-friendly while
+ * the engine expects radians-per-frame (1 ⇒ 0.0001 rad/frame ≈ slow
+ * cinematic spin).
  */
 export const PARAM_HANDLERS: Readonly<
   Record<string, (_bg: EarthBackground, v: SpParamValue) => void>
@@ -385,11 +397,18 @@ export const PARAM_HANDLERS: Readonly<
 // Version tag baked into the stored blob: bump it whenever SLIDER_GROUPS'
 // params or semantics change so stale saves (old ranges/removed controls)
 // are discarded instead of applying out-of-range values to the engine.
+/**
+ * Schema version baked into the stored blob — bump whenever SLIDER_GROUPS'
+ * params or semantics change so stale saves (old ranges, removed controls)
+ * are discarded instead of applying out-of-range values to the engine.
+ */
 const SP_VERSION = '3.3'
 
 /**
  * Reads the persisted panel settings, discarding blobs from another
- * SP_VERSION or corrupted JSON — both collapse to "no saved state".
+ * SP_VERSION or corrupted JSON — both collapse to "no saved state" so a
+ * stale/corrupt blob can never apply out-of-range engine values.
+ * @returns The saved param map, or null.
  */
 export const loadSpaceSettings = (): SpSavedSettings | null => {
   try {
@@ -406,8 +425,10 @@ export const loadSpaceSettings = (): SpSavedSettings | null => {
 }
 
 /**
- * Saves space settings.
- * @param settings — the value
+ * Persists the panel settings as a {_v, settings} blob — the version tag
+ * lets loadSpaceSettings reject blobs written by a different schema.
+ * Quota/security failures are swallowed: the panel works fine session-only.
+ * @param settings The full param → value map.
  */
 export const saveSpaceSettings = (settings: SpSavedSettings): void => {
   try {
