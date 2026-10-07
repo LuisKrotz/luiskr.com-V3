@@ -18,4 +18,12 @@ export const NET_STRINGS = Object.freeze({
   HTTP_LOCALHOST: 'http://localhost',
   BLOB_COLON: 'blob:',
   IMAGE_PNG: 'image/png',
+  METHOD_POST: 'POST',
+  METHOD_PUT: 'PUT',
+  METHOD_DELETE: 'DELETE',
+  HEADER_FILE_PATH: 'x-file-path',
+  HEADER_CONTENT_TYPE: 'content-type',
+  MIME_OCTET_STREAM: 'application/octet-stream',
+  JOB_RUNNING: 'running',
+  JOB_UPLOADING: 'uploading',
 })
