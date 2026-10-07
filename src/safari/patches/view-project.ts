@@ -7,17 +7,25 @@
  */
 
 import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
+import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 import { MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+import { THEME_CSS_PROPS } from '@/core/tokens/css/theme.js'
+import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { VENDOR_STRINGS } from '@/core/tokens/strings/vendor.js'
 import store from '@/core/store.js'
 import type { PatchableCtor, SafariPatchableEl } from '../types.js'
 import { GENERIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 
 /**
- * Helper for this module — see implementation for behavior.
+ * Installs the view-project Safari patch once the element registers:
+ * replaces `_updateModalDOM` with the lifted-dialog variant and wraps
+ * `onDestroy` so a modal lifted into document.body is reaped when the
+ * view unmounts (otherwise it orphans on top of the next page).
  */
 export function patchViewProject(): void {
   // ── ViewProject (Modal Open/Close in ShadowRoot for Safari) ─────────────────
@@ -43,7 +51,7 @@ export function patchViewProject(): void {
 
       if (modal?.open) {
         if (below) {
-          below.style.transform = `translateY(-${modal.transform || 0}px)`
+          below.style.transform = `translateY(-${modal.transform || 0}${CHAR_STRINGS.PX})`
         }
 
         if (above) {
@@ -51,37 +59,45 @@ export function patchViewProject(): void {
             document.body.appendChild(above)
           }
 
-          above.style.position = 'fixed'
+          above.style.position = STATE_STRINGS.FIXED
 
-          above.style.inset = '0'
+          above.style.inset = CHAR_STRINGS.ZERO
 
-          above.style.top = '0'
+          above.style.top = CHAR_STRINGS.ZERO
 
-          above.style.left = '0'
+          above.style.left = CHAR_STRINGS.ZERO
 
-          above.style.width = '100vw'
+          above.style.width = CHAR_STRINGS.VW_100
 
-          above.style.height = '100vh'
+          above.style.height = CHAR_STRINGS.VH_100
 
-          above.style.height = '100dvh'
+          // dvh assigned after vh so older WebKit keeps the vh fallback
+          // while modern Safari uses the dynamic-toolbar-aware unit.
+          above.style.height = CHAR_STRINGS.DVH_100
 
+          // Intentionally a literal: must outrank the SCSS z-scale's top
+          // ($z-top = 9999) since the lifted dialog lives in document.body
+          // outside shadow-root stacking confinement.
           above.style.zIndex = '999999'
 
-          above.style.display = 'block'
+          above.style.display = STATE_STRINGS.BLOCK
 
-          above.style.background = 'var(--bg-dark)'
+          above.style.background = `var(${THEME_CSS_PROPS.BG_DARK})`
 
-          above.style.overflowY = 'auto'
+          above.style.overflowY = STATE_STRINGS.AUTO
 
-          above.style.setProperty('-webkit-overflow-scrolling', 'touch')
+          above.style.setProperty(
+            VENDOR_STRINGS.WEBKIT_OVERFLOW_SCROLLING,
+            VENDOR_STRINGS.OVERFLOW_TOUCH
+          )
 
-          above.style.margin = '0'
+          above.style.margin = CHAR_STRINGS.ZERO
 
-          above.style.padding = '0'
+          above.style.padding = CHAR_STRINGS.ZERO
 
           above.style.border = ATTR_VALUES.NONE
 
-          above.setAttribute('open', ATTR_VALUES.EMPTY)
+          above.setAttribute(COMMON_ATTRS.OPEN, ATTR_VALUES.EMPTY)
 
           above.open = true
 
@@ -130,7 +146,7 @@ export function patchViewProject(): void {
             // details polyfill close() may throw on detached nodes
           }
 
-          above.removeAttribute('open')
+          above.removeAttribute(COMMON_ATTRS.OPEN)
 
           above.open = false
 
