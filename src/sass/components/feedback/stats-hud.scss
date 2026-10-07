@@ -1,11 +1,11 @@
+// ─── Stats for Nerds HUD ────────────────────────────────────────────────────
+// Fixed overlay anchored to the bottom-right corner above the nav bar.
+// Non-interactive — pointer-events: none. Hidden by default.
+
 @import '../../base/variables';
 @import '../../base/mixins';
 @import '../../base/placeholders';
 @import '../../base/structure';
-
-// ─── Stats for Nerds HUD ────────────────────────────────────────────────────
-// Fixed overlay anchored to the bottom-right corner above the nav bar.
-// Non-interactive — pointer-events: none. Hidden by default.
 
 $_B_STATS: 'stats-hud';
 
