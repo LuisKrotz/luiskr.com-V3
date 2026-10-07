@@ -6,6 +6,11 @@
  */
 /* istanbul ignore file */
 
+/**
+ * A media row inside a project section — `src` is the extensionless CDN
+ * stem, `size` the intrinsic [w,h] for aspect layout, `label`/`class`/`isVideo` the
+ * optional render modifiers. Index signature passes through extra CMS fields.
+ */
 export interface ProjectMediaItem {
   src: string
   size: number[]
@@ -16,7 +21,9 @@ export interface ProjectMediaItem {
 }
 
 /**
- * Type contract for CoverMedia — the shape consumers rely on.
+ * The project cover — like ProjectMediaItem but always present when the
+ * project has hero media; `size` [w,h] reserves the box so the skeleton shows the
+ * final aspect ratio before bytes arrive.
  */
 export interface CoverMedia {
   src: string
@@ -26,12 +33,15 @@ export interface CoverMedia {
 }
 
 /**
- * Type contract for SectionChild — the shape consumers rely on.
+ * One section row — either a string[] of paragraph text or a media-item
+ * array; the union keeps sections heterogeneous without a wrapper object.
  */
 export type SectionChild = string[] | ProjectMediaItem[]
 
 /**
- * Type contract for project translations.
+ * The project's translation node — `title`, `noindex` SEO flag,
+ * `folder` CDN prefix, `cover`, and `sections` (array of SectionChild arrays).
+ * Index signature preserves CMS fields the view doesn't consume.
  */
 export interface ProjectTranslations {
   title?: string
@@ -43,7 +53,9 @@ export interface ProjectTranslations {
 }
 
 /**
- * Type contract for CustomCarouselElement — the shape consumers rely on.
+ * Structural contract for <custom-carousel> — the view calls
+ * `configure()` after upgrading, so the type exposes just that method (an
+ * HTMLElement subclass registered elsewhere).
  */
 export interface CustomCarouselElement extends HTMLElement {
   configure(_opts: { items: unknown[]; folder: string; forceActive: boolean }): void
