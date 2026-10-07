@@ -31,16 +31,18 @@ interface FallbackSnapshot {
 export const FALLBACK = Object.freeze(snapshot as FallbackSnapshot)
 
 /**
- * The fallback app constant.
+ * The APP subtree of the fallback snapshot — app-shell copy (actions,
+ * carousel labels, loader lines) consumed before Firebase resolves.
  */
 export const FALLBACK_APP = FALLBACK.APP
 
 /**
- * The FALLBACK_COMPONENTS constant.
+ * The components subtree — per-component copy fallbacks keyed by component
+ * token (e.g. aboutSection, siteToast).
  */
 export const FALLBACK_COMPONENTS = FALLBACK.components
 
 /**
- * The fallback pages constant.
+ * The pages subtree — per-page fallback nodes (home, about, legal…).
  */
 export const FALLBACK_PAGES = FALLBACK.pages
