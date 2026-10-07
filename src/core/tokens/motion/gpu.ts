@@ -31,3 +31,22 @@ export const UA_PATTERNS = Object.freeze({
   /** Mobile user agents — WebGL hinting is irrelevant (single GPU path) */
   MOBILE_UA: /iPhone|iPad|iPod|Android|Mobile/i,
 })
+
+/**
+ * Fullscreen-quad clip-space vertices for TRIANGLE_STRIP draw — 4 verts
+ * covering [-1,-1]→[1,1]. Shared by every shader quad so the literal is
+ * declared once (zero-hardcoding rule); VERTEX_COUNT is the drawArrays n.
+ */
+export const QUAD_STRIP = Object.freeze({
+  VERTS: [-1, -1, 1, -1, -1, 1, 1, 1],
+  VERTEX_COUNT: 4,
+})
+
+/**
+ * WebGL-pool visibility observer tuning — a 1% intersection suffices to
+ * count a canvas as visible (any pixel restores it; the rootMargin
+ * pre-warms slightly before it scrolls in).
+ */
+export const WEBGL_POOL_OBSERVER = Object.freeze({
+  THRESHOLD: 0.01,
+})
