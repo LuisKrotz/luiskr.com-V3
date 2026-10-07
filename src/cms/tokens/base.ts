@@ -11,7 +11,8 @@ export const _B_CMS = 'cms'
  */
 export const _B_ADMIN = 'admin'
 /**
- * The _B_CMS_CARD constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_CMS_CARD = `${_B_CMS}-card`
 /**
@@ -23,7 +24,8 @@ export const _B_CMS_SUBSECTION = `${_B_CMS}-subsection`
  */
 export const _B_CMS_FIELD = `${_B_CMS}-field`
 /**
- * The _B_CMS_ITEM constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_CMS_ITEM = `${_B_CMS}-item`
 /**
@@ -35,7 +37,8 @@ export const _B_CMS_KV = `${_B_CMS}-kv`
  */
 export const _B_CMS_BTN = `${_B_CMS}-btn`
 /**
- * The _B_CMS_SECTION constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_CMS_SECTION = `${_B_CMS}-section`
 /**
@@ -47,7 +50,8 @@ export const _B_CMS_PARA = `${_B_CMS}-para`
  */
 export const _B_CMS_MEDIA = `${_B_CMS}-media`
 /**
- * The _B_CMS_SCORE constant.
+ * BEM block fragment `…` — declared once here; every domain class token composes from this
+ * fragment (zero-hardcoding rule 9).
  */
 export const _B_CMS_SCORE = `${_B_CMS}-score`
 /**
