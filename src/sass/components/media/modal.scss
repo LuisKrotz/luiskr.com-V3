@@ -341,7 +341,9 @@ $_B_PREF_CLOSE: 'pref-close';
     &-figure {
       position: relative;
       display: block;
-      width: 100%;
+      // Preserve intrinsic media width: narrow screenshots stay pixel-sharp
+      // instead of being stretched to the modal's full content width.
+      width: fit-content;
       max-width: 100%;
       margin: 0 auto;
       border-radius: to-rem($space-md);
@@ -381,7 +383,7 @@ $_B_PREF_CLOSE: 'pref-close';
       display: block;
       position: relative;
       z-index: 1;
-      width: 100%;
+      width: auto;
       height: auto;
       max-width: 100%;
 
@@ -402,7 +404,12 @@ $_B_PREF_CLOSE: 'pref-close';
     }
   }
 
-  &-image,
+  &-image {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
   &-video {
     width: 100%;
     max-width: 100%;
