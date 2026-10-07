@@ -18,6 +18,7 @@ import { createInitialState } from './store/state.js'
 import type { MutationMap, StoreGetters, StoreState, Subscriber } from './store/state.js'
 import { devError, devWarn } from '@/core/devlog.js'
 
+/** StoreState re-export — canonical definition + docs live in ./store/state.js. */
 export type { StoreState } from './store/state.js'
 
 /**
