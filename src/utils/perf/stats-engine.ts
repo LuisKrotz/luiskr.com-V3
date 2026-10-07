@@ -17,7 +17,7 @@ import { startFlushInterval } from './stats/flush.js'
 // non-blocking; the engine never stalls rendering.
 
 /**
- * The StatsSnapshot value.
+ * Type contract for StatsSnapshot — the shape consumers rely on.
  */
 export interface StatsSnapshot {
   fps: number
