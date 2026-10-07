@@ -5,14 +5,14 @@
 import { FALLBACK_APP } from '@/core/locale/fallback.js'
 
 /**
- * The PrefThemeOption value.
+ * Type contract for PrefThemeOption — the shape consumers rely on.
  */
 export interface PrefThemeOption {
   label: string
 }
 
 /**
- * The PrefNode value.
+ * Type contract for PrefNode — the shape consumers rely on.
  */
 export interface PrefNode {
   title: string
