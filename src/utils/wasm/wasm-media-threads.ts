@@ -16,48 +16,55 @@
 import { WASM_ACTIONS } from '@/core/tokens/data/wasm.js'
 import { wasmPool } from './wasm-pool.js'
 import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
-import { COVER_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
+import { COVER_DIMENSIONS, GENERIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 
-/**
- * Type contract for VideoVariant — the shape consumers rely on.
- */
+/** One candidate rendition of a video — URL plus optional quality metadata. */
 export interface VideoVariant {
+  /** CDN URL of this rendition. */
   url: string
+  /** Quality label ('360p', '720p', …) — informational for the worker. */
   quality?: string
+  /** Rendition pixel width — drives the GPU-upload resize hint. */
   width?: number
+  /** Rendition pixel height — drives the GPU-upload resize hint. */
   height?: number
 }
 
-/**
- * Type contract for VideoProbe — the shape consumers rely on.
- */
+/** Result of the lightweight header probe — filled by the worker. */
 export interface VideoProbe {
+  /** Detected codec string (e.g. 'avc1.42E01E'), when parseable. */
   codec?: string
+  /** Total byte size, when the server reports Content-Length/ranges. */
   size?: number
+  /** Whether the server honored the Range request (206 vs 200). */
   rangeSupported?: boolean
+  /** Worker may attach extra diagnostics — forward-compatible. */
   [key: string]: unknown
 }
 
-/**
- * Prefetches result.
- */
+/** Outcome of a quality-variant prefetch — the winning variant + poster. */
 export interface PrefetchResult {
+  /** Variant the worker judged best (first byte-range to arrive / quality). */
   best?: VideoVariant
+  /** Poster frame decoded to a zero-copy ImageBitmap in the worker. */
   poster?: ImageBitmap
+  /** Extra worker diagnostics — forward-compatible. */
   [key: string]: unknown
 }
 
+/** Worker postMessage envelope — `results` for structured replies, `bitmap` for flat single-bitmap replies. */
 interface WorkerResults {
   results?: unknown
   bitmap?: ImageBitmap
 }
 
-/**
- * Type contract for MediaSegment — the shape consumers rely on.
- */
+/** One byte-range fetch request for parallel segment download. */
 export interface MediaSegment {
+  /** URL of the resource (same file, different ranges). */
   url: string
+  /** Inclusive start offset — defaults to 0 when omitted. */
   byteStart?: number
+  /** Exclusive end offset — null fetches to EOF. */
   byteEnd?: number | null
 }
 
@@ -81,11 +88,15 @@ class WASMMediaThreadManager {
    * it to GPU at the requested display size. Cache hit → GPU re-upload only
    * (the bitmap is already resident). Any worker/decode failure resolves
    * null so callers fall back to <img> decode.
+   * @param url CDN image URL.
+   * @param width GPU-upload resize-hint width.
+   * @param height GPU-upload resize-hint height.
+   * @returns The decoded bitmap, or null on any failure.
    */
   async decodeMediaInSeparateThread(
     url: string,
-    width = 800,
-    height = 450
+    width: number = GENERIC_DIMENSIONS.DEFAULT_WIDTH,
+    height: number = GENERIC_DIMENSIONS.DEFAULT_HEIGHT
   ): Promise<ImageBitmap | null> {
     if (!url) return null
 
@@ -125,6 +136,9 @@ class WASMMediaThreadManager {
    * detect codec, total size, and range-request support — without
    * downloading the full file. Used by the NPU predictor before the user
    * navigates so quality-variant choice is informed, not guessed.
+   * Memoized per URL — repeat probes short-circuit.
+   * @param url Video URL to header-probe.
+   * @returns The probe result, or null on failure.
    */
   async probeVideo(url: string): Promise<VideoProbe | null> {
     if (!url) return null
@@ -154,6 +168,9 @@ class WASMMediaThreadManager {
    * first variant's URL (the canonical "this video" identifier).
    * A successful poster is uploaded to GPU VRAM immediately at FHD
    * fallback dimensions.
+   * @param variants Rendition list; `variants[0].url` is the cache key.
+   * @param posterUrl Optional poster image to decode alongside.
+   * @returns {best, poster} or null on failure.
    */
   async prefetchVideoVariants(
     variants: VideoVariant[],
@@ -201,6 +218,8 @@ class WASMMediaThreadManager {
    * in parallel threads. Returns zero-copy results for MediaSource or
    * WebCodecs consumption; failed segments are filtered out (partial
    * results are still usable — the caller decides if gaps are fatal).
+   * @param segmentList Byte-range requests over the same or related URLs.
+   * @returns Array of segment payloads (failures filtered out).
    */
   async fetchSegmentsParallel(segmentList: MediaSegment[]): Promise<unknown[]> {
     if (!segmentList?.length) return []
@@ -221,7 +240,14 @@ class WASMMediaThreadManager {
   }
 
   // ── Apply best variant to a video element ─────────────────────────────────
-  /** After prefetchVideoVariants resolves: sets the winning URL on the element and uploads the poster to GPU. */
+  /**
+   * After prefetchVideoVariants resolves: sets the winning URL on the
+   * element (skipped when already identical to avoid a reload) and
+   * uploads the poster to GPU at the element's rendered size, falling
+   * back to FHD dimensions when the element isn't laid out yet.
+   * @param videoEl Target video element.
+   * @param prefetchResult Result from prefetchVideoVariants.
+   */
   applyBestVariant(videoEl: HTMLVideoElement, prefetchResult: PrefetchResult | null): void {
     if (!videoEl || !prefetchResult) return
 
@@ -242,6 +268,7 @@ class WASMMediaThreadManager {
 }
 
 /**
- * The wasmMediaThreads constant.
+ * Shared media-threads singleton — the three memoization maps are global
+ * so probes/prefetches/decodes are deduplicated across every surface.
  */
 export const wasmMediaThreads = new WASMMediaThreadManager()
