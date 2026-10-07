@@ -1,13 +1,13 @@
-@import '../../base/variables';
-@import '../../base/mixins';
-@import '../../base/placeholders';
-@import '../../base/structure';
-
 // ─── Site Toast ─────────────────────────────────────────────────────────────
 // Failure/notice pill stack. Desktop: bottom-right column above the fold edge.
 // Mobile: full-width bottom bar so thumb-reach dismiss stays easy. The accent
 // edge bar uses the site accent token — same dark-glass language as the
 // stats HUD and cookie banner.
+
+@import '../../base/variables';
+@import '../../base/mixins';
+@import '../../base/placeholders';
+@import '../../base/structure';
 
 $_B_TOAST: 'site-toast';
 
