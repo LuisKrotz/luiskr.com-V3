@@ -23,7 +23,7 @@ interface WebNNNavigator {
 }
 
 /**
- * The PredictionResult value.
+ * Type contract for PredictionResult — the shape consumers rely on.
  */
 export interface PredictionResult {
   probability: number
@@ -33,7 +33,7 @@ export interface PredictionResult {
 }
 
 /**
- * The NpuAnalytics value.
+ * Type contract for NpuAnalytics — the shape consumers rely on.
  */
 export interface NpuAnalytics {
   npuAccelerated: boolean
