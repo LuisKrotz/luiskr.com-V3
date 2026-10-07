@@ -5,6 +5,11 @@
  * these constants.
  */
 
+/**
+ * Masonry layout constants. These match the Vue source values exactly. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const LAYOUT = Object.freeze({
   /** Aspect ratio multiplier for featured (wide) cards */
   FEAT_MULT: 0.48,
