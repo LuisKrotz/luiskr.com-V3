@@ -6,7 +6,9 @@
 import { _B_NAV, _K_DIALOG, _K_INPUT, _K_STYLE, _K_TITLE } from '../base.js'
 
 /**
- * The HTML_TAGS constant.
+ * Frozen html element tag-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const HTML_TAGS = Object.freeze({
   FIGURE: 'figure',
