@@ -149,6 +149,17 @@ class NPUPredictor {
   }
 
   /**
+   * Reports whether the shared accelerator owns a live WebGL context. The
+   * predictor initializes before most media surfaces, so its original probe
+   * can legitimately run before `gpuAccel` becomes active; checking the
+   * shared context dynamically prevents that startup race from permanently
+   * reporting the desktop GPU as unavailable.
+   */
+  gpuAvailable(): boolean {
+    return this.hasGPU || Boolean(gpuAccel?.gl)
+  }
+
+  /**
    * Scores how likely the user is to navigate to targetUrl (0–1).
    * Already-preloaded targets short-circuit at 1.0. Above 0.60 the route
    * asset is prefetched automatically.
@@ -179,8 +190,12 @@ class NPUPredictor {
     if (this.hasNPU && this.mlContext) {
       // ── 1. Hardware NPU Execution Target ────────────────────────────────────
       probability = Math.min(0.99, 0.4 + hoverNorm * 0.45 + (1.0 - speedNorm) * 0.15)
-    } else if (this.hasGPU) {
+    } else if (this.gpuAvailable()) {
       // ── 2. Hardware GPU Execution Target (when NPU is unavailable) ─────────
+      this.hasGPU = true
+
+      this.analytics.gpuAccelerated = true
+
       probability = Math.min(0.98, 0.38 + hoverNorm * 0.47 + (1.0 - speedNorm) * 0.15)
     } else {
       // ── 3. WASM Multi-Threaded Worker Execution Fallback ───────────────────
@@ -255,11 +270,14 @@ class NPUPredictor {
 
   /** Metrics snapshot for the stats HUD (prediction counts, confidence, tier flags). */
   getNpuAnalytics(): NpuAnalytics & { preloadedCount: number; hasNPU: boolean; hasGPU: boolean } {
+    const hasGPU = this.gpuAvailable()
+
     return {
       ...this.analytics,
+      gpuAccelerated: hasGPU,
       preloadedCount: this.preloadedTargets.size,
       hasNPU: this.hasNPU,
-      hasGPU: this.hasGPU,
+      hasGPU,
     }
   }
 }

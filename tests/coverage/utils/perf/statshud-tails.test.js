@@ -97,6 +97,7 @@ describe('StatsHud tails', () => {
 
     npuSpy.mockReturnValue({ hasNPU: false, hasGPU: true })
     el.onStoreUpdate()
+    expect(el._accelerationDisplay().className).toContain(`${STATS_CLASSES.STATS_HUD_BASE}-fps-good`)
 
     npuSpy.mockReturnValue({ hasNPU: false, hasGPU: false })
     el._stats = { fps: 0, networkBytesPerSec: 0, pendingRequests: 0, memoryMB: 0, cpuPercent: 0, latencyMs: 0 }

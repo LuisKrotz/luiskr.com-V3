@@ -81,6 +81,27 @@ class StatsHud extends BaseComponent {
   }
 
   /**
+   * Resolves the live acceleration label/class. This is intentionally read
+   * at every stats tick: the HUD can mount before the lazy shared WebGL
+   * accelerator creates its context, so caching the initial result would
+   * leave capable desktop GPUs displayed as permanently off.
+   */
+  private _accelerationDisplay(): { label: string; className: string } {
+    const npu = npuPredict.getNpuAnalytics()
+
+    const active = npu.hasNPU || npu.hasGPU
+
+    const label = appText(active ? ENGINE_UI_KEYS.ENGINE_ON : ENGINE_UI_KEYS.ENGINE_OFF)
+
+    return {
+      label: String(label),
+      className: active
+        ? `${STATS_CLASSES.STATS_HUD_VALUE} ${STATS_CLASSES.STATS_HUD_BASE}-fps-good`
+        : `${STATS_CLASSES.STATS_HUD_VALUE} ${STATS_CLASSES.STATS_HUD_BASE}-fps-bad`,
+    }
+  }
+
+  /**
    * Pushes the latest metrics snapshot into the HUD's DOM fields (called
    * by statsEngine at its sampling cadence). Color-class thresholds:
    *   fps     ≥55 good / ≥30 mid / below bad  (60Hz budget ≈ 55 usable)
@@ -95,6 +116,8 @@ class StatsHud extends BaseComponent {
       this._stats
 
     const kb = (networkBytesPerSec / 1024).toFixed(1)
+
+    const acceleration = this._accelerationDisplay()
 
     const statUpdates: Array<{ key: string; text: string; className?: string }> = [
       {
@@ -122,6 +145,7 @@ class StatsHud extends BaseComponent {
       },
       { key: 'pend', text: String(pendingRequests) },
       { key: 'mem', text: memoryMB > 0 ? `${memoryMB} ${UNIT_TEXT.MB}` : CHAR_STRINGS.DASH },
+      { key: 'accel', text: acceleration.label, className: acceleration.className },
     ]
 
     for (const { key, text, className } of statUpdates) {
@@ -165,17 +189,7 @@ class StatsHud extends BaseComponent {
 
     const kb = (networkBytesPerSec / 1024).toFixed(1)
 
-    const npu = npuPredict.getNpuAnalytics()
-
-    const gpuOn = npu.hasNPU || npu.hasGPU
-
-    const accelLabel = gpuOn
-      ? appText(ENGINE_UI_KEYS.ENGINE_ON)
-      : appText(ENGINE_UI_KEYS.ENGINE_OFF)
-
-    const accelClass = gpuOn
-      ? `${STATS_CLASSES.STATS_HUD_VALUE} ${STATS_CLASSES.STATS_HUD_BASE}-fps-good`
-      : `${STATS_CLASSES.STATS_HUD_VALUE} ${STATS_CLASSES.STATS_HUD_BASE}-fps-bad`
+    const acceleration = this._accelerationDisplay()
 
     const statSegments = [
       {
@@ -205,8 +219,8 @@ class StatsHud extends BaseComponent {
       },
       {
         label: appText(STATS_UI_KEYS.STATS_GPU),
-        value: accelLabel,
-        className: accelClass,
+        value: acceleration.label,
+        className: acceleration.className,
         stat: 'accel',
       },
     ]

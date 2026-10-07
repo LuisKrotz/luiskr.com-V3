@@ -74,6 +74,23 @@ describe('npu-predict tails', () => {
     window.dispatchEvent(new MouseEvent(POINTER_EVENTS.POINTERMOVE, { clientX: 10, clientY: 10 }))
   })
 
+  test('analytics observes a GPU context created after the initial hardware probe', () => {
+    const prevGl = gpuAccel.gl
+    const prevHasGPU = npuPredict.hasGPU
+
+    gpuAccel.gl = {}
+    npuPredict.hasGPU = false
+
+    try {
+      expect(npuPredict.gpuAvailable()).toBe(true)
+      expect(npuPredict.getNpuAnalytics().hasGPU).toBe(true)
+      expect(npuPredict.getNpuAnalytics().gpuAccelerated).toBe(true)
+    } finally {
+      gpuAccel.gl = prevGl
+      npuPredict.hasGPU = prevHasGPU
+    }
+  })
+
   test('initHardware is a no-op without window and detects the GPU accel tier', async () => {
     const saved = globalThis.window
 
