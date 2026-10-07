@@ -13,7 +13,7 @@ export * from './routes/translation-keys.js'
 
 // ─── Application constants ────────────────────────────────────────────────────
 /**
- * The BASE_TITLE constant.
+ * Scalar token `Luis Krötz` — the sole declaration site for this literal.
  */
 export const BASE_TITLE = 'Luis Krötz'
 
