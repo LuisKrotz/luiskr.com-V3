@@ -26,7 +26,9 @@ export * from './strings/text.js'
 
 // ─── Media Query Tokens ─────────────────────────────────────────────────────
 /**
- * The MEDIA_QUERIES constant.
+ * Frozen media media-query map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const MEDIA_QUERIES = Object.freeze({
   POINTER_FINE: '(pointer: fine)',
@@ -38,7 +40,9 @@ export const MEDIA_QUERIES = Object.freeze({
 
 // ─── Keyboard Key Tokens ──────────────────────────────────────────────────────
 /**
- * The KEYS constant.
+ * Frozen keys key map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const KEYS = Object.freeze({
   ESCAPE: 'Escape',
