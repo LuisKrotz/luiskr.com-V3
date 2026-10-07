@@ -1,15 +1,23 @@
 /**
  * @file media-convert/job.ts — dev-server job lifecycle + actions.
+ *
+ * Pipeline: run() → createJob (POST /jobs) → uploadAll (PUT per file)
+ * → startConvert (POST /jobs/:id/convert) → poll loop (GET /jobs/:id
+ * every POLL_MS while the server reports running/uploading) → finish.
+ * reset() tears down job + queue so a new batch starts clean.
  */
 
 import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { NET_STRINGS } from '@/core/tokens/strings/net.js'
+import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import type { CmsMediaConverter } from './CmsMediaConverter.js'
 import { API_BASE, PHASE, POLL_MS, type JobStatus } from './consts.js'
 
 /**
- * Stops polling.
- * @param host — the host component
+ * Cancels the pending poll timer — called before every new poll schedule
+ * and on reset so only one timer is ever armed.
+ * @param host The CmsMediaConverter element.
  */
 export function stopPolling(host: CmsMediaConverter) {
   if (host._pollTimer) {
@@ -19,29 +27,34 @@ export function stopPolling(host: CmsMediaConverter) {
 }
 
 /**
- * Creates job.
- * @param host — the host component
+ * POSTs an empty job to the dev server and stores the returned id on the
+ * host — every subsequent request hangs off host.jobId.
+ * @param host The CmsMediaConverter element.
+ * @throws Error with the server's message when the job can't be created.
  */
 export async function createJob(host: CmsMediaConverter) {
-  const res = await fetch(`${API_BASE}/jobs`, { method: 'POST' })
+  const res = await fetch(`${API_BASE}/jobs`, { method: NET_STRINGS.METHOD_POST })
   if (!res.ok) throw new Error(await errText(res, 'could not create job'))
   const { id } = (await res.json()) as { id: string }
   host.jobId = id
 }
 
 /**
- * The uploadAll value.
- * @param host — the host component
+ * PUTs every queued file sequentially — the dev server is single-purpose
+ * and serial uploads keep progress (`host.uploaded`) truthful. Re-renders
+ * after each file so the progress counter animates live.
+ * @param host The CmsMediaConverter element.
+ * @throws Error naming the failed file when a PUT is rejected.
  */
 export async function uploadAll(host: CmsMediaConverter) {
   host.uploaded = 0
 
   for (const item of host.queue) {
     const res = await fetch(`${API_BASE}/jobs/${host.jobId}/files`, {
-      method: 'PUT',
+      method: NET_STRINGS.METHOD_PUT,
       headers: {
-        'x-file-path': encodeURIComponent(item.rel),
-        'content-type': 'application/octet-stream',
+        [NET_STRINGS.HEADER_FILE_PATH]: encodeURIComponent(item.rel),
+        [NET_STRINGS.HEADER_CONTENT_TYPE]: NET_STRINGS.MIME_OCTET_STREAM,
       },
       body: item.file,
     })
@@ -55,19 +68,27 @@ export async function uploadAll(host: CmsMediaConverter) {
 }
 
 /**
- * Starts convert.
- * @param host — the host component
+ * Kicks off the server-side conversion and starts the poll loop. A 202
+ * counts as success (job accepted, still queueing); any other failure
+ * throws.
+ * @param host The CmsMediaConverter element.
+ * @throws Error when the server refuses to start the conversion.
  */
 export async function startConvert(host: CmsMediaConverter) {
-  const res = await fetch(`${API_BASE}/jobs/${host.jobId}/convert`, { method: 'POST' })
+  const res = await fetch(`${API_BASE}/jobs/${host.jobId}/convert`, {
+    method: NET_STRINGS.METHOD_POST,
+  })
   if (!res.ok && res.status !== 202)
     throw new Error(await errText(res, 'conversion failed to start'))
   host._poll()
 }
 
 /**
- * The poll value.
- * @param host — the host component
+ * One poll tick: fetches job status, re-arms the timer while the server
+ * reports running/uploading, and finishes (or errors) on a terminal
+ * state. A failed GET is treated as server loss — the phase flips to
+ * ERROR rather than polling forever.
+ * @param host The CmsMediaConverter element.
  */
 export async function poll(host: CmsMediaConverter) {
   host._stopPolling()
@@ -82,7 +103,10 @@ export async function poll(host: CmsMediaConverter) {
 
   host.status = (await res.json()) as JobStatus
 
-  if (host.status.status === 'running' || host.status.status === 'uploading') {
+  if (
+    host.status.status === NET_STRINGS.JOB_RUNNING ||
+    host.status.status === NET_STRINGS.JOB_UPLOADING
+  ) {
     host._updateDom()
     host._bindEvents()
     host._pollTimer = setTimeout(() => host._poll(), POLL_MS)
@@ -93,8 +117,10 @@ export async function poll(host: CmsMediaConverter) {
 }
 
 /**
- * The finish value.
- * @param host — the host component
+ * Terminal handler — counts per-file results, sets DONE when at least one
+ * converted (ERROR otherwise), notifies via toast AND the OS Notification
+ * API (long jobs may run while the tab is backgrounded), then re-renders.
+ * @param host The CmsMediaConverter element.
  */
 export function finish(host: CmsMediaConverter) {
   const okCount = (host.status?.results || []).filter((r) => r.ok).length
@@ -113,14 +139,16 @@ export function finish(host: CmsMediaConverter) {
 }
 
 /**
- * The systemNotify value.
- * @param title — the value
- * @param body — the value
+ * Fires an OS-level Notification when permission is already granted —
+ * silent no-op otherwise (the in-app toast always runs too, so this is a
+ * progressive enhancement for backgrounded tabs).
+ * @param title Notification title.
+ * @param body Notification body text.
  */
 export function systemNotify(title: string, body: string): void {
   try {
     if (typeof Notification === TYPE_STRINGS.UNDEFINED) return
-    if (Notification.permission === 'granted') {
+    if (Notification.permission === STATE_STRINGS.GRANTED) {
       new Notification(title, { body })
     }
   } catch {
@@ -129,11 +157,16 @@ export function systemNotify(title: string, body: string): void {
 }
 
 /**
- * Helper for this module — see implementation for behavior.
+ * Requests Notification permission up front (during run()) so the
+ * completion notification can fire later — no-op unless the permission
+ * is still 'default' (never re-prompts a denied user).
  */
 export async function askNotifyPermission() {
   try {
-    if (typeof Notification !== TYPE_STRINGS.UNDEFINED && Notification.permission === 'default') {
+    if (
+      typeof Notification !== TYPE_STRINGS.UNDEFINED &&
+      Notification.permission === STATE_STRINGS.DEFAULT
+    ) {
       await Notification.requestPermission()
     }
   } catch {
@@ -142,12 +175,14 @@ export async function askNotifyPermission() {
 }
 
 /**
- * Deletes job.
- * @param host — the host component
+ * DELETEs the job on the dev server (cleanup of uploaded tmp files) then
+ * clears host.jobId — a missing job is tolerated (idempotent teardown).
+ * @param host The CmsMediaConverter element.
  */
 export async function deleteJob(host: CmsMediaConverter) {
   try {
-    if (host.jobId) await fetch(`${API_BASE}/jobs/${host.jobId}`, { method: 'DELETE' })
+    if (host.jobId)
+      await fetch(`${API_BASE}/jobs/${host.jobId}`, { method: NET_STRINGS.METHOD_DELETE })
   } catch {
     /* job may already be gone */
   }
@@ -155,10 +190,12 @@ export async function deleteJob(host: CmsMediaConverter) {
 }
 
 /**
- * The errText value.
- * @param res — the value
- * @param fallback — the value
- * @returns Promise<string>
+ * Extracts the server's `error` field from a JSON error body; falls back
+ * to the given message — or a dev-server hint on 404 (the API only exists
+ * under the dev middleware, so a 404 there means "not running dev").
+ * @param res The failed Response.
+ * @param fallback Message used when the body has no `error`.
+ * @returns The human-readable error.
  */
 export async function errText(res: Response, fallback: string): Promise<string> {
   try {
@@ -170,8 +207,10 @@ export async function errText(res: Response, fallback: string): Promise<string> 
 }
 
 /**
- * The run value.
- * @param host — the host component
+ * Full pipeline orchestrator: create → upload → convert, flipping
+ * host.phase at each stage and re-rendering. Errors land on the ERROR
+ * phase with the server's message so the UI shows the real failure.
+ * @param host The CmsMediaConverter element.
  */
 export async function run(host: CmsMediaConverter) {
   if (!host.queue.length) return
@@ -197,8 +236,9 @@ export async function run(host: CmsMediaConverter) {
 }
 
 /**
- * Resets.
- * @param host — the host component
+ * Returns the component to its initial state — stops polling, deletes
+ * the remote job, clears queue/status/counters, and re-renders IDLE.
+ * @param host The CmsMediaConverter element.
  */
 export function reset(host: CmsMediaConverter) {
   host._stopPolling()
