@@ -19,7 +19,9 @@ export * from './tokens/editors/about.js'
 export * from './tokens/editors/portfolio.js'
 
 /**
- * The CMS_TABS constant.
+ * Frozen cms map — sole declaration site for these tokens; consumers read members and never
+ * re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token contract
+ * immutable at runtime.
  */
 export const CMS_TABS = Object.freeze({
   PORTFOLIO: 'portfolio',
@@ -33,7 +35,9 @@ export const CMS_TABS = Object.freeze({
 })
 
 /**
- * The CMS_TAGS constant.
+ * Frozen cms element tag-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CMS_TAGS = Object.freeze({
   VIEW_ADMIN_LOGIN: 'view-admin-login',
@@ -49,7 +53,9 @@ export const CMS_TAGS = Object.freeze({
 })
 
 /**
- * The CMS_EVENTS constant.
+ * Frozen cms event-name map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const CMS_EVENTS = Object.freeze({
   NOTIFY: 'notify',
@@ -82,7 +88,7 @@ export const CMS_FIELD_KEYS = Object.freeze({
 // Editable translation nodes in the Language Dictionary editor — every
 // user-facing dictionary must be reachable here; nothing stays JS-hardcoded.
 /**
- * The CMS_LANG_NODES constant.
+ * Frozen cms lang list — the ordered source for this token set.
  */
 export const CMS_LANG_NODES = Object.freeze([
   'APP',
