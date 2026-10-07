@@ -1,1 +1,0 @@
-var St=Object.freeze({eN:'a[href^="/"], [data-route]',_N:'link[rel="canonical"]',_d:'meta[name="robots"]',ON:"200px 0px",Zr:"100px 0px",zi:"50px 0px",ba:"(prefers-color-scheme: dark)",di:"container-type",mi:"inline-size"});export{St as t};

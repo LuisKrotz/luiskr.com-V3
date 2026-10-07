@@ -13,6 +13,14 @@ Canonical pixel dimensions + media timing tokens split per
 
 The GENERIC_DIMENSIONS constant.
 
+### `IMAGE_DIMENSIONS`
+
+Image decode budgets shared by progressive media pipelines.
+
+### `MAX_DECODE_PIXELS`
+
+4096² pixels: preserves the former memory ceiling without rejecting tall, narrow screenshots.
+
 ### `VIDEO_DIMENSIONS`
 
 The VIDEO_DIMENSIONS constant.

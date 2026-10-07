@@ -38,6 +38,14 @@ Starts the pointer-velocity tracker afterwards.
 
 Tracks pointer velocity (px/ms) on window — a high-velocity gesture past a link means less intent to click it.
 
+### `gpuAvailable`
+
+Reports whether the shared accelerator owns a live WebGL context. The
+predictor initializes before most media surfaces, so its original probe
+can legitimately run before `gpuAccel` becomes active; checking the
+shared context dynamically prevents that startup race from permanently
+reporting the desktop GPU as unavailable.
+
 ### `predictTargetLikelihood`
 
 Scores how likely the user is to navigate to targetUrl (0–1).

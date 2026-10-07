@@ -17,6 +17,13 @@ group 3 back-referenced for the closing tag), and bare text — so
 inline markup inside CMS copy (e.g. an <em> or <a>) animates as one
 continuous sequence.
 
+### `tokenize`
+
+Walks one segment of text — tag inner content recurses through this same
+walker so nested markup (e.g. `<a><span>x</span></a>`) tokenizes instead
+of leaking raw `<`/`>` chars into the output. `ci` is shared via closure
+so the char stagger stays globally sequential across nesting levels.
+
 ### (module scope)
 
 Builds the animated span tree. Each char span carries `--i`

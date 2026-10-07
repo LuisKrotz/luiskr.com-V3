@@ -1,0 +1,1 @@
+var ki,aq;import{L as Ye}from"./store-DCEXtWC3.js";ki=Object.freeze({ERROR:Ye.ERROR,da:"info",DO:"success"}),aq=Object.freeze({ub:5e3,kb:4,_O:2500,CO:64});export{ki as n,aq as t};

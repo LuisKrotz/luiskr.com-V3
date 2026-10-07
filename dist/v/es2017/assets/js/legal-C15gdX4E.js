@@ -1,0 +1,1 @@
+var To,Do;import{At as oX}from"./store-DCEXtWC3.js";To=Object.freeze({ud:"legal"}),Do=Object.freeze({li:oX,ad:`${oX}-title`,sd:`${oX}-subtitle`,dd:`${oX}-link`});export{Do as n,To as t};

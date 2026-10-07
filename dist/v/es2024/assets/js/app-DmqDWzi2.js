@@ -1,0 +1,1 @@
+import{in as jX}from"./store-C3pXx3wL.js";var xn=Object.freeze({sa:"cookieAction",Id:"slidechange",$c:"autoplaystop",_c:"autoplaystart",Wo:"cancel",kn:jX,Zn:"open-lang-dialog",Jn:"open-preferences-modal",LO:"notify"});export{xn as t};

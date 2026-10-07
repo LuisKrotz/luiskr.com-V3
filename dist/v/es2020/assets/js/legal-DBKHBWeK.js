@@ -1,0 +1,1 @@
+var Uo,Do;import{jt as SX}from"./store-BbaK4FXJ.js";Uo=Object.freeze({bd:"legal"}),Do=Object.freeze({li:SX,sd:`${SX}-title`,ad:`${SX}-subtitle`,dd:`${SX}-link`});export{Do as n,Uo as t};

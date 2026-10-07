@@ -1,0 +1,1 @@
+var oi=Object.freeze({ns:"-mozjpg",Ia:"3-MSSIM-tuned-kodak",rs:"-50",Ga:"-uncompressed",cs:".jpg",za:".mp4",La:".mp4.jpg-thumb.jpg",Ta:".mp4-scaledown-2x"});export{oi as t};

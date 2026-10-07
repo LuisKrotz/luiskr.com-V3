@@ -1,1 +1,0 @@
-var gr=Object.freeze({Gs:"--carousel-item-height",Hh:"--range-pct"});export{gr as t};

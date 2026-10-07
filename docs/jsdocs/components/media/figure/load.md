@@ -26,6 +26,7 @@ so the layout box reserves the exact aspect before any bytes arrive
 
 Thumb → high-res swap. A detached Image preloads the Q50 variant;
 on load the visible element swaps src + gets the loaded class (the
-CSS crossfade) and the thumb hides. The 4096px guard skips absurd
-source sizes (decode/memory cap). Errors mark loaded anyway — a
-broken image must not pin the skeleton shimmer forever.
+CSS crossfade) and the thumb hides. The 4096²-pixel budget caps decode
+memory without rejecting tall, narrow full-page screenshots solely because
+one dimension exceeds 4096px. Errors mark loaded anyway — a broken image
+must not pin the skeleton shimmer forever.

@@ -1,1 +1,0 @@
-var Na=Object.freeze({Gs:"--carousel-item-height",Ff:"--range-pct"});export{Na as t};

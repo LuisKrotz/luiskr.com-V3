@@ -1,0 +1,1 @@
+var ki,aq;import{R as nt}from"./store-BbaK4FXJ.js";ki=Object.freeze({ERROR:nt.ERROR,ca:"info",CO:"success"}),aq=Object.freeze({gb:5e3,ub:4,IO:2500,UO:64});export{ki as n,aq as t};

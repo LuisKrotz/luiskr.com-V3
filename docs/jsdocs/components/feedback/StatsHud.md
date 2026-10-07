@@ -30,6 +30,13 @@ Store change → full re-render (covers the HUD's show/hide toggle).
 
 ### (module scope)
 
+Resolves the live acceleration label/class. This is intentionally read
+at every stats tick: the HUD can mount before the lazy shared WebGL
+accelerator creates its context, so caching the initial result would
+leave capable desktop GPUs displayed as permanently off.
+
+### (module scope)
+
 Pushes the latest metrics snapshot into the HUD's DOM fields (called
 by statsEngine at its sampling cadence). Color-class thresholds:
   fps     ≥55 good / ≥30 mid / below bad  (60Hz budget ≈ 55 usable)

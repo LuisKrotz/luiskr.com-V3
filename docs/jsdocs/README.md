@@ -416,6 +416,7 @@
 |---|---|
 | [`Component.ts`](core/Component.md) | BaseComponent — Custom Element base class with Shadow DOM encapsulation, |
 | [`constants.ts`](core/constants.md) | Single source of truth for every shared constant in the |
+| [`devlog.ts`](core/devlog.md) | Zero-console diagnostics sink (project rule: no console.* in |
 | [`i18n.ts`](core/i18n.md) | Locale registry and URL-slug tables. |
 | [`index.ts`](core/index.md) | Unified barrel export for the core layer with "sideEffects": false for clean tree-shaking. |
 | [`jsx.ts`](core/jsx.md) | Zero-dependency native DOM JSX pragma. |
@@ -569,6 +570,7 @@
 |---|---|
 | [`cms-keys.ts`](core/tokens/data/cms-keys.md) | CMS/Firebase node-key tokens — keys used to read the |
 | [`component-keys.ts`](core/tokens/data/component-keys.md) | Dotted paths into translations/&lt;locale&gt;/components — grouped |
+| [`log.ts`](core/tokens/data/log.md) | Dev-log severity levels + the globalThis inspection key. |
 | [`notify.ts`](core/tokens/data/notify.md) | Toast severity levels — drives the `site-toast--&lt;type&gt;` BEM |
 | [`storage.ts`](core/tokens/data/storage.md) | localStorage/sessionStorage key tokens split by scope — |
 | [`ui-keys.ts`](core/tokens/data/ui-keys.md) | UI copy keys — dotted paths into translations/&lt;locale&gt;/APP, |

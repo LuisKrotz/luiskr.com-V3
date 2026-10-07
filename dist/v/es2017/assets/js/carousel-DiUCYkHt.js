@@ -1,0 +1,1 @@
+var yo=Object.freeze({Ks:"--carousel-item-height",Vh:"--range-pct"});export{yo as t};

@@ -1,0 +1,1 @@
+import{Nt as I0}from"./urls-COJSgetn.js";var xn=Object.freeze({sa:"cookieAction",_m:"slidechange",xh:"autoplaystop",bh:"autoplaystart",Yo:"cancel",kn:I0,Zn:"open-lang-dialog",Jn:"open-preferences-modal",Fs:"notify"});export{xn as t};

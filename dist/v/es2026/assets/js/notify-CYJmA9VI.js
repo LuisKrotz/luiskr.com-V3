@@ -1,0 +1,1 @@
+var _n,gq;import{M as mt}from"./store-CyY5lWfD.js";_n=Object.freeze({ERROR:mt.ERROR,li:"info",sD:"success"}),gq=Object.freeze({tk:5e3,ak:4,ED:2500,eD:64});export{_n as n,gq as t};

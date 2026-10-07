@@ -11,6 +11,10 @@ Shared structural types for the Safari runtime patches —
 
 ### (module scope)
 
+Structural surface the Safari patches rely on (BaseComponent subclasses).
+
+### (module scope)
+
 The PatchableProto value.
 
 ### (module scope)

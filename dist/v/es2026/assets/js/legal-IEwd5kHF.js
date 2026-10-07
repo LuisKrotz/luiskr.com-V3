@@ -1,1 +1,0 @@
-var Fr,go;import{at as XQ}from"./urls-SF9-38iP.js";Fr=Object.freeze({Ws:"legal"}),go=Object.freeze({cn:XQ,Qd:`${XQ}-title`,Wd:`${XQ}-subtitle`,Kd:`${XQ}-link`});export{go as n,Fr as t};

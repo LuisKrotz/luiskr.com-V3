@@ -17,6 +17,15 @@ A single `replace(/<[^>]*>/)` pass can leave a reconstructed tag behind
 re-runs until the string is stable.
 Pure ESM utility function, tree-shakeable.
 
+### `escapeHtml`
+
+Escapes HTML-significant characters for safe insertion into innerHTML or
+double-quoted attributes. `&` must be replaced first so the entities
+emitted by the later replacements are not double-escaped.
+Pure ESM utility function, tree-shakeable.
+- `@param` {string} str — raw text that may contain &, <, >, ", '
+- `@returns` {string} entity-escaped text safe for markup contexts
+
 ### `slugify`
 
 Converts a string into a clean, URL-safe and DOM-id-safe slug.

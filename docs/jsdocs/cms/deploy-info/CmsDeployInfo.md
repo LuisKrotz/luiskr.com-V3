@@ -16,7 +16,7 @@ The CmsDeployInfo — deploy info class.
 ### (module scope)
 
 Fetches the manifest then all five reports in parallel — the index
-is the gate (missing bundle → "run npm run deploy:info" hint), each
+is the gate (missing bundle → "run yarn deploy:info" hint), each
 report degrades independently so a partial bundle still renders.
 
 ### `_scoreClass`

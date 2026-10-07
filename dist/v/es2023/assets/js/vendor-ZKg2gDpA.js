@@ -1,1 +1,0 @@
-var Ot=Object.freeze({li:"Apple Computer, Inc.",ci:"GestureEvent",Me:"anonymous",Ch:"other"});export{Ot as t};

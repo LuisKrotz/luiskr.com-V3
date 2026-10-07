@@ -1,0 +1,1 @@
+var $t=Object.freeze({ma:"Apple Computer, Inc.",ua:"GestureEvent",De:"anonymous",Gh:"other"});export{$t as t};

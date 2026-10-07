@@ -1,0 +1,1 @@
+var cr,bo;import{At as pX}from"./store-CC7I51Nc.js";cr=Object.freeze({bd:"legal"}),bo=Object.freeze({mn:pX,dd:`${pX}-title`,sd:`${pX}-subtitle`,nd:`${pX}-link`});export{bo as n,cr as t};
