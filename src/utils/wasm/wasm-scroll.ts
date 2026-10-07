@@ -15,7 +15,7 @@ import { npuPredict } from '@/utils/gpu/npu-predict.js'
 import { deepQuerySelector } from '@/core/utils/dom.js'
 
 /**
- * The WasmScrollOptions value.
+ * Type contract for WasmScrollOptions — the shape consumers rely on.
  */
 export interface WasmScrollOptions {
   /** Scroll container — selector (pierces shadow DOM), element, or window. */
