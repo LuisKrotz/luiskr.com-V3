@@ -23,25 +23,43 @@ import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
 
 /** Host surface the menu helpers need (satisfied by AppNav). */
 export interface NavMenuHost extends NavFlagHost {
+  /** Menu overlay open flag. */
   _menuOpen: boolean
+  /** Close animation in flight — guards double-close. */
   _menuClosing: boolean
+  /** Open animation completed — close X may snap to drawn state. */
   _menuSettled: boolean
+  /** Settle-delay timer handle; cleared on destroy/close. */
   _menuSettleTimer: ReturnType<typeof setTimeout> | null
+  /** Live menu-background widget over the fullscreen canvas. */
   _menuBg: MenuBackgroundWebGL | null
+  /** Live close-X widget. */
   _menuCloseBtn: CloseButtonWebGL | null
+  /** Live burger widget. */
   _burgerBtn: BurgerButtonWebGL | null
+  /** Persistent burger canvas (survives re-renders). */
   _burgerCanvasEl: HTMLCanvasElement | null
+  /** Persistent menu background canvas. */
   _menuCanvasEl: HTMLCanvasElement | null
+  /** Persistent close-X canvas. */
   _menuCloseCanvasEl: HTMLCanvasElement | null
+  /** True while the nav floats over a dark band (contrast variant). */
   _onDark: boolean
+  /** Shadow-scoped querySelector. */
   $(selector: string): Element | null
+  /** Triggers a template re-render. */
   _updateDom(): void
 }
 
 /**
  * The burger icon's canvas element — lazily created once and kept for
  * the component's lifetime so its WebGL context is never churned by
- * re-renders (canvas recreation would force a fresh GL context).
+ * re-renders (canvas recreation would force a fresh GL context). Each
+ * call also re-syncs the on-dark class and aria-label/expanded since
+ * those change without recreating the element.
+ * @param host AppNav instance.
+ * @param label aria-label for the burger (localized "menu").
+ * @returns The persistent canvas element.
  */
 export const navBurgerCanvas = (host: NavMenuHost, label: string): HTMLCanvasElement => {
   if (!host._burgerCanvasEl) {
