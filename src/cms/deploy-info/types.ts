@@ -11,21 +11,21 @@ export interface DeployIndex {
 }
 
 /**
- * The LighthouseReport value.
+ * Type contract for LighthouseReport — the shape consumers rely on.
  */
 export interface LighthouseReport {
   urls?: Array<{ url: string; scores: Record<string, number> }>
 }
 
 /**
- * The CoverageReport value.
+ * Type contract for CoverageReport — the shape consumers rely on.
  */
 export interface CoverageReport {
   total?: Record<string, { covered?: number; total?: number; pct?: number }>
 }
 
 /**
- * The AxeReport value.
+ * Type contract for AxeReport — the shape consumers rely on.
  */
 export interface AxeReport {
   engine?: string
@@ -37,7 +37,7 @@ export interface AxeReport {
 }
 
 /**
- * The SnykReport value.
+ * Type contract for SnykReport — the shape consumers rely on.
  */
 export interface SnykReport {
   scanner?: string
@@ -53,7 +53,7 @@ export interface SnykReport {
 }
 
 /**
- * The ConsoleScanReport value.
+ * Type contract for ConsoleScanReport — the shape consumers rely on.
  */
 export interface ConsoleScanReport {
   ok?: boolean
@@ -62,6 +62,6 @@ export interface ConsoleScanReport {
 }
 
 /**
- * The DeployFetchState value.
+ * Type contract for DeployFetchState — the shape consumers rely on.
  */
 export type DeployFetchState = 'loading' | 'missing' | 'ready'
