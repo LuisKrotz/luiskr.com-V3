@@ -15,7 +15,13 @@ import type { MutationMap } from '../state.js'
 import type { Store } from '../../store.js'
 import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
 
-/** Pauses one video element, tolerating detached/unloaded nodes. */
+/**
+ * Pauses one video element, tolerating detached/unloaded nodes. `pause()`
+ * can throw on elements whose media was released between query and call
+ * (spec allows DOMException on invalid state) — a stale node must never
+ * abort the sweep that pauses the remaining videos.
+ * @param v The video element, or nullish.
+ */
 const pauseEl = (v: HTMLVideoElement | null | undefined): void => {
   if (!v) return
 
@@ -35,6 +41,8 @@ export const mediaMutations = (store: Store): MutationMap => ({
       localStorage.setItem(PREF_STORAGE_KEYS.STATS_FOR_NERDS, String(store.state.showStatsForNerds))
     }
 
+    // Direct notify() pushes the flag change synchronously — the outer
+    // commit() will push once more (mutations return void, not false).
     store.notify()
   },
   toggleShowGrid: () => {
@@ -57,6 +65,11 @@ export const mediaMutations = (store: Store): MutationMap => ({
       localStorage.setItem(PREF_STORAGE_KEYS.VIDEO_AUTOPLAY, String(store.state.videoAutoplay))
     }
 
+    // OFF transition only: sweep every video surface — light DOM, inside
+    // each <media-figure>/<media-expanded> shadow root (querySelectorAll
+    // can't pierce shadow DOM, so each host's root is queried separately).
+    // Turning autoplay back ON doesn't resume anything; the next figure
+    // mount/intersection restarts playback naturally.
     if (!store.state.videoAutoplay && typeof document !== TYPE_STRINGS.UNDEFINED) {
       document.querySelectorAll<HTMLVideoElement>(HTML_TAGS.VIDEO).forEach((v) => pauseEl(v))
 
