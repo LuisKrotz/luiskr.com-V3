@@ -4,6 +4,11 @@
  * token group.
  */
 
+/**
+ * WebGL context/extension/power-preference string tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const WEBGL_STRINGS = Object.freeze({
   WEBGL: 'webgl',
   EXPERIMENTAL_WEBGL: 'experimental-webgl',
