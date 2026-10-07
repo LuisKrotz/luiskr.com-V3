@@ -7,7 +7,9 @@
 import { _B_MEDIA_FIGURE, _B_RENDER_MEDIA, _B_RENDER_PLACEHOLDER } from '../base.js'
 
 /**
- * The MEDIA_CLASSES constant.
+ * Frozen media class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const MEDIA_CLASSES = Object.freeze({
   RENDER_MEDIA: _B_RENDER_MEDIA,
