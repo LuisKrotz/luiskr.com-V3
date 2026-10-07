@@ -13,33 +13,47 @@ import { DEFAULT_SP_GUI } from '@/core/tokens/playground.js'
 
 type TslNs = typeof import('three/tsl')
 
-/**
- * Type contract for SurfaceMaterialArgs — the shape consumers rely on.
- */
+/** Dependencies injected by the scene assembler (keeps this module mockable). */
 export interface SurfaceMaterialArgs {
+  /** The three.js namespace — Color/constructors used for uniforms. */
   THREE: typeof THREE_NS
+  /** The TSL node-graph namespace. */
   TSL: TslNs
+  /** The physical node material constructor. */
   mats: { MeshPhysicalNodeMaterial: typeof MeshPhysicalNodeMaterial }
+  /** Day-side albedo texture (equirectangular). */
   colorTex: THREE_NS.Texture
+  /** Specular mask — bright over oceans. */
   specTex: THREE_NS.Texture
+  /** Tangent-space normal map for terrain. */
   normalTex: THREE_NS.Texture
+  /** Cloud coverage — also resampled for the fake shadow offset. */
   cloudsTex: THREE_NS.Texture
+  /** Night city-lights emissive texture. */
   nightTex: THREE_NS.Texture
+  /** Shared sun-direction uniform. */
   sunDir: UniformNode<'vec3', THREE_NS.Vector3>
+  /** Shared moon-position uniform (eclipse cone test). */
   moonPos: UniformNode<'vec3', THREE_NS.Vector3>
 }
 
-/**
- * Type contract for SurfaceMaterialResult — the shape consumers rely on.
- */
+/** The built material plus the uniforms/nodes other shells reuse. */
 export interface SurfaceMaterialResult {
+  /** The configured physical node material for the Earth mesh. */
   mat: MeshPhysicalNodeMaterial
+  /** Slider-bound uniforms (GUI writes straight into .value). */
   earthMatUniforms: Record<string, UniformNode<'float', number>>
+  /** Lighting terms shared with the cloud/atmosphere shells so the day/night/eclipse model stays consistent. */
   shared: {
+    /** Twilight tint multiplier node. */
     twilTint: unknown
+    /** Eclipse dimming multiplier node. */
     eclDim: unknown
+    /** 0→1 night-side factor node. */
     nightFade: unknown
+    /** Dark-side ambient brightness uniform. */
     darkBr: UniformNode<'float', number>
+    /** Bump-strength fade node (kills normal map at twilight). */
     bumpFade: unknown
   }
 }
