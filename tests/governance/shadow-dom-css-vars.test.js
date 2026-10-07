@@ -9,7 +9,7 @@ import path from 'path'
 import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 
 const ROOT = path.resolve('src/sass/components')
-const internals = fs.readFileSync(path.join(ROOT, 'project/internals.scss'), 'utf8')
+const internals = fs.readFileSync(path.join(ROOT, 'internals/internals.scss'), 'utf8')
 const mediaFigure = fs.readFileSync(path.join(ROOT, 'media/media-figure.scss'), 'utf8')
 const carouselHost = fs.readFileSync(path.join(ROOT, 'carousel/carousel-host.scss'), 'utf8')
 

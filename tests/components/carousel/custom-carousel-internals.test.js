@@ -11,7 +11,7 @@ import { jest } from '@jest/globals'
 
 import store from '@/core/store.js'
 import '@/components/carousel/CustomCarousel.js'
-import { TEST_URLS, TEST_TEXT } from '../../fixtures/test-constants.js'
+import { TEST_URLS, TEST_TEXT, waitFor } from '../../fixtures/test-constants.js'
 import { attachHybridGL } from '../../fixtures/mock-webgl.js'
 import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 import { CAROUSEL_SELECTORS } from '@/core/tokens/selectors/carousel.js'
@@ -687,7 +687,7 @@ describe('CustomCarousel tails', () => {
     el.autoplayRunning = false
     el.ringProgress = 0.5
     el._regressRingToZero()
-    await new Promise((r) => setTimeout(r, 600))
+    await waitFor(() => el.ringProgress === 0)
 
     expect(el.ringProgress).toBe(0)
 

@@ -86,7 +86,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
     })
 
     test('modal.scss exists', () => {
-      expect(existsSync(resolve(root, 'src/sass/components/media/modal.scss'))).toBe(true)
+      expect(existsSync(resolve(root, 'src/sass/components/internals/modal.scss'))).toBe(true)
     })
 
     test('src/sass has at least 15 SCSS files', () => {

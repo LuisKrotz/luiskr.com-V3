@@ -15,7 +15,7 @@ import { svgPlaceholder } from '@/core/utils/dom.js'
 import { mountMediaExpanded } from './expanded/mount.js'
 import { startExpandedClose } from './expanded/close.js'
 import { renderMediaExpanded } from './expanded/render.js'
-import modalStyles from '@/sass/components/media/modal.scss?inline'
+import modalStyles from '@/sass/components/internals/modal.scss?inline'
 import { GENERIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 
 /**

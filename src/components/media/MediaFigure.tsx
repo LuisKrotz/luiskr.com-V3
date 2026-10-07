@@ -22,8 +22,8 @@ import { BaseComponent } from '@/core/Component.js'
 import { slugify } from '@core/utils'
 import { calcAspectScaled } from '@/utils/wasm/wasm-layout.js'
 import mediaFigureStyles from '@/sass/components/media/media-figure.scss?inline'
-import internalStyles from '@/sass/components/project/internals.scss?inline'
-import modalStyles from '@/sass/components/media/modal.scss?inline'
+import internalStyles from '@/sass/components/internals/internals.scss?inline'
+import modalStyles from '@/sass/components/internals/modal.scss?inline'
 import { COVER_DIMENSIONS, GENERIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 
 /**

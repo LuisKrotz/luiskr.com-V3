@@ -18,7 +18,7 @@ import { buildProjectsList } from './related/match.js'
 import { fetchData, storedTranslations } from './related/data.js'
 import { renderRelated } from './related/render.js'
 import type { HomeItem, RelatedCard, RelatedTranslations } from './related/types.js'
-import internalStyles from '@/sass/components/project/internals.scss?inline'
+import internalStyles from '@/sass/components/internals/internals.scss?inline'
 import '@/components/media/DrawText.js'
 import { CDN_URLS } from '@/core/tokens/media/urls.js'
 

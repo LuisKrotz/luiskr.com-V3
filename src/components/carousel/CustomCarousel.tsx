@@ -48,7 +48,7 @@ import {
 } from './custom-carousel/sizing.js'
 import carouselStyles from '@/sass/components/carousel/carousel.scss?inline'
 import carouselHostStyles from '@/sass/components/carousel/carousel-host.scss?inline'
-import internalStyles from '@/sass/components/project/internals.scss?inline'
+import internalStyles from '@/sass/components/internals/internals.scss?inline'
 import '@/components/media/MediaFigure.js'
 import { CAROUSEL_LAYOUT } from '@/core/tokens/motion/carousel.js'
 

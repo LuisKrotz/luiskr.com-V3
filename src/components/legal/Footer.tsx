@@ -24,7 +24,7 @@ import { h, Fragment } from '@/core/jsx.js'
 import { BaseComponent } from '@/core/Component.js'
 import store from '@/core/store.js'
 import router from '@/routes/router.js'
-import internalStyles from '@/sass/components/project/internals.scss?inline'
+import internalStyles from '@/sass/components/internals/internals.scss?inline'
 
 import { fetchFirebaseDb } from '@/utils/data/db.js'
 import { getFallbackLegalLinks, type LegalLink } from '@/utils/data/legal-links.js'
