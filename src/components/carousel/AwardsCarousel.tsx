@@ -29,32 +29,57 @@ import { renderAwardsCarousel, renderItem } from './awards-carousel/render.js'
 import type { CarouselSlide } from './awards-carousel/types.js'
 
 /**
- * The AwardsCarousel — carousel class.
+ * <awards-carousel> element — a lightweight looping carousel for award
+ * and selected-work strips. Clone-ended infinite scroll (first/last
+ * slides duplicated so the wrap jump looks seamless), dot navigation,
+ * and a 30s RAF-driven autoplay gated on ≥50% visibility and
+ * reduced-motion. All behavior delegates to `./awards-carousel/*`; this
+ * class is the state holder + custom-element facade.
  */
 export class AwardsCarousel extends BaseComponent {
+  /** Slide entries pushed by the host — setter guards identity so repeat pushes don't re-render. */
   _items: CarouselSlide[] = []
-  variant: string = AWC_VARIANTS.SELECTED // render mode: 'selected' content | 'awards' links
-  duration = 30000 // autoplay dwell per slide (ms)
-  showDots = false // dot nav visibility (host sets it for awards)
-  currentIndex = 0 // real-slide index (clones excluded)
-  autoplayRunning = false // RAF cycle active
-  autoplayStart: number | null = null // performance.now() at cycle start
-  autoplayElapsed = 0 // accumulated pause→resume offset
-  rafId: number | null = null // autoplay RAF handle
-  teleportTimer: ReturnType<typeof setTimeout> | null = null // pending clone→real jump timer
-  touchStartX = 0 // swipe origin for the 40px threshold
-  isNavigating = false // programmatic scroll in flight
-  isEnteredViewport = false // any visibility ever observed
-  isFullyVisible = false // ≥50% visible — autoplay gate
-  observer: IntersectionObserver | null = null // IntersectionObserver handle
-  setupRafId: ReturnType<typeof requestAnimationFrame> | null = null // pending one-shot init frame
+  /** Render mode: 'selected' content cards | 'awards' link list. */
+  variant: string = AWC_VARIANTS.SELECTED
+  /** Autoplay dwell per slide (ms) — 30s keeps it ambient, not distracting. */
+  duration = 30000
+  /** Dot nav visibility (host sets it for awards). */
+  showDots = false
+  /** Real-slide index (clones excluded). */
+  currentIndex = 0
+  /** RAF cycle active flag. */
+  autoplayRunning = false
+  /** performance.now() at cycle start. */
+  autoplayStart: number | null = null
+  /** Accumulated pause→resume offset so dwell survives interruptions. */
+  autoplayElapsed = 0
+  /** Autoplay RAF handle. */
+  rafId: number | null = null
+  /** Pending clone→real jump timer (teleport after wrap settles). */
+  teleportTimer: ReturnType<typeof setTimeout> | null = null
+  /** Swipe origin X for the 40px threshold check. */
+  touchStartX = 0
+  /** Programmatic scroll in flight — scroll events during it are ignored. */
+  isNavigating = false
+  /** Any viewport visibility ever observed (starts fade-in on first sight). */
+  isEnteredViewport = false
+  /** ≥50% visible — the autoplay gate. */
+  isFullyVisible = false
+  /** IntersectionObserver handle driving the visibility flags. */
+  observer: IntersectionObserver | null = null
+  /** Pending one-shot init frame (setup runs after first paint so layout exists). */
+  setupRafId: ReturnType<typeof requestAnimationFrame> | null = null
 
   constructor() {
     super(awardsCarouselStyles)
   }
 
-  /** Setter/getter — portfolio slide entries. */
-
+  /**
+   * Slide entries pushed by the host. The identity-equality early-return
+   * (same array instance, or same items in same order) prevents Firebase
+   * re-pushes that carry identical data from wiping the DOM and
+   * restarting autoplay + draw animations mid-cycle.
+   */
   set items(val: CarouselSlide[]) {
     const newItems = Array.isArray(val) ? val : []
     if (
@@ -74,6 +99,7 @@ export class AwardsCarousel extends BaseComponent {
     return this._items
   }
 
+  /** Mount: render items, wire events/observer, subscribe to the store for reduced-motion. */
   override onMounted() {
     if (this.items && this.items.length) {
       this._updateDom()
@@ -83,17 +109,19 @@ export class AwardsCarousel extends BaseComponent {
     this.subscribe(store)
   }
 
+  /** Re-render: re-strip clone focusability (clones get re-created). */
   override onUpdated() {
     this._disableClonesFocus()
   }
 
+  /** Reduced-motion commit → kill autoplay immediately (no residual RAF). */
   override onStoreUpdate() {
     if (store.getters.getReducedMotion()) {
       this._stopAutoplay()
     }
   }
 
-  /** Initializes the carousel: bind → jump → observer → clone a11y. */
+  /** Initializes the carousel: bind → jump → observer → clone a11y. The work runs inside one RAF so layout is settled before jump/observer measure positions. */
 
   _setupCarousel() {
     if (!this.items.length) return
@@ -106,6 +134,7 @@ export class AwardsCarousel extends BaseComponent {
     })
   }
 
+  /** Teardown: stop RAF + observer + timers — every async handle is released so nothing fires after disconnect. */
   override onDestroy() {
     this._stopAutoplay()
     if (this.observer) {
@@ -120,45 +149,59 @@ export class AwardsCarousel extends BaseComponent {
   }
 
   // ─── Delegates — ./awards-carousel/* ─────────────────────────────────────────
+  /** Binds scroll/touch/dot listeners (awards-carousel/events.ts). */
   _bindEvents() {
     bindEvents(this)
   }
+  /** Dot-nav click → goTo. */
   onDotClick(idx: number) {
     onDotClick(this, idx)
   }
+  /** Navigate to real-slide index (wraps via clone path). */
   goTo(idx: number) {
     goTo(this, idx)
   }
+  /** Scrolls the track so `el` lands at the carousel start edge. */
   _scrollToElement(el: Element) {
     scrollToElement(this, el)
   }
+  /** Scrolls to slide `idx` — real index, resolved through the clone map. */
   _scrollToSlide(idx: number) {
     scrollToSlide(this, idx)
   }
+  /** Schedules the post-wrap teleport from a clone position back to the real slide. */
   _scheduleTeleport(targetIdx: number) {
     scheduleTeleport(this, targetIdx)
   }
+  /** Positions the track on slide `idx` (smooth=false for instant jumps). */
   _jumpToSlide(idx: number, smooth = false) {
     jumpToSlide(this, idx, smooth)
   }
+  /** Creates the IntersectionObserver driving isEnteredViewport/isFullyVisible. */
   _setupObserver() {
     setupObserver(this)
   }
+  /** Resize handler — remeasures slide width and re-jumps without animation. */
   _onResize() {
     onResize(this)
   }
+  /** Strips focusability from clone slides so Tab order only visits real slides. */
   _disableClonesFocus() {
     disableClonesFocus(this)
   }
+  /** Starts the autoplay RAF cycle (gated by visibility + reduced-motion). */
   _startAutoplay() {
     startAutoplay(this)
   }
+  /** Stops the autoplay RAF cycle. */
   _stopAutoplay() {
     stopAutoplay(this)
   }
+  /** One autoplay frame — advances when dwell elapsed, then self-schedules. */
   _tickAutoplay() {
     tickAutoplay(this)
   }
+  /** Renders one slide JSX (variant-aware). */
   renderItem(item: CarouselSlide | undefined) {
     return renderItem(this, item)
   }
@@ -170,6 +213,8 @@ export class AwardsCarousel extends BaseComponent {
   }
 }
 
+// Registration guard: define() throws on duplicate tag — `get` check keeps
+// module re-evaluation (HMR, coverage re-imports) safe.
 if (!customElements.get(COMPONENT_TAGS.AWARDS_CAROUSEL)) {
   customElements.define(COMPONENT_TAGS.AWARDS_CAROUSEL, AwardsCarousel)
 }
