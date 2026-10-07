@@ -89,6 +89,16 @@
   }
 }
 
+// Buttons may host DrawText outside this shadow root (the nav logo). Treat an
+// interactive parent exactly like an inline anchor: replay persistent word
+// wrappers first; the parent's own delayed underline follows afterwards.
+:host-context(button:hover) .draw-text__word,
+:host-context(button:focus-visible) .draw-text__word,
+:host-context(button:active) .draw-text__word {
+  animation: link-word-draw 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--wi, 0) * var(--word-delay, 100ms) * 0.3);
+}
+
 // Link hover redraw: a subtler, quicker version of char-draw — a soft
 // opacity dip + small rise, no blur (cheap to replay on every interaction).
 @keyframes link-word-draw {
@@ -247,17 +257,18 @@
 }
 
 // ── Reduced Motion Override ────────────────────────────────────────────────
-html.reduced-motion .draw-text__char,
-html.reduced-motion .draw-text a:hover .draw-text__word,
-html.reduced-motion .draw-text a:focus-visible .draw-text__word,
-html.reduced-motion .draw-text a:active .draw-text__word {
+:host-context(html.reduced-motion) .draw-text__char,
+:host-context(html.reduced-motion) .draw-text a:hover .draw-text__word,
+:host-context(html.reduced-motion) .draw-text a:focus-visible .draw-text__word,
+:host-context(html.reduced-motion) .draw-text a:active .draw-text__word,
+:host-context(html.reduced-motion) .draw-text__word {
   opacity: 1;
   transform: none;
   filter: none;
   animation: none;
 }
 
-html.reduced-motion .draw-text a::after {
+:host-context(html.reduced-motion) .draw-text a::after {
   transition-delay: 0s;
 }
 
@@ -265,7 +276,10 @@ html.reduced-motion .draw-text a::after {
   .draw-text__char,
   .draw-text a:hover .draw-text__word,
   .draw-text a:focus-visible .draw-text__word,
-  .draw-text a:active .draw-text__word {
+  .draw-text a:active .draw-text__word,
+  :host-context(button:hover) .draw-text__word,
+  :host-context(button:focus-visible) .draw-text__word,
+  :host-context(button:active) .draw-text__word {
     opacity: 1;
     transform: none;
     filter: none;

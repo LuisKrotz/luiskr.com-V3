@@ -121,6 +121,43 @@ lang-dialog.is-open {
     }
   }
 
+  // Logo interaction mirrors animated content links: DrawText replays its
+  // word wrappers first, then this parent-owned underline sweeps in. Active
+  // home state keeps the line landed, matching the other active nav links.
+  &-logo-btn {
+    opacity: 1;
+
+    &::after {
+      display: block;
+      content: '';
+      position: absolute;
+      bottom: -#{to-rem($space-2xs)};
+      left: 0;
+      width: 100%;
+      height: to-rem($space-2xs);
+      border-radius: to-rem($space-hairline);
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.35s ease 0.55s;
+    }
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      opacity: 1;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &.router-link-exact-active::after,
+    &.active::after {
+      transform: scaleX(1);
+    }
+  }
+
   // Nav over dark surfaces (contact section / page bottom) — swap ink for light greys
   &--on-dark {
     .#{$_B_NAV}-link {

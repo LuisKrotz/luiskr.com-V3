@@ -19,6 +19,7 @@ import { PREF_CLASSES } from '@/core/tokens/classes/preferences.js'
 import { CMS_KEYS } from '@/core/tokens/data/cms-keys.js'
 import { NAV_UI_KEYS, SECTION_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
 import { ROUTE_NAMES } from '@/core/tokens/routes/names.js'
+import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
 import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 import { MENU_CSS_PROPS } from '@/core/tokens/css/menu.js'
 import { h } from '@/core/jsx.js'
@@ -85,13 +86,15 @@ export const renderAppNav = (nav: AppNav) => {
     }
   }
 
+  const DrawText = COMPONENT_TAGS.DRAW_TEXT
+
   // The label also lives in the element's light DOM: textContent stays
   // populated for tests/no-upgrade paths while the shadow char spans do
   // the drawing. Unslotted light children are never rendered.
   const itemLabel = (label: string, offset: number) => (
-    <draw-text text={label} delay={DRAW_TIMINGS.MENU_LABEL_CHAR_DELAY} offset={offset}>
+    <DrawText text={label} delay={DRAW_TIMINGS.MENU_LABEL_CHAR_DELAY} offset={offset}>
       {label}
-    </draw-text>
+    </DrawText>
   )
 
   const menuLabel = (t?.menu || appText(NAV_UI_KEYS.MENU)) as string
@@ -115,7 +118,9 @@ export const renderAppNav = (nav: AppNav) => {
         type={FORM_ATTRS.TYPE_BUTTON}
         onClick={(e: Event) => nav.handleLogo(e)}
       >
-        {title}
+        <DrawText text={title} delay={DRAW_TIMINGS.MENU_LABEL_CHAR_DELAY} offset={0} visible>
+          {title}
+        </DrawText>
       </button>
 
       {!isNotFound && (

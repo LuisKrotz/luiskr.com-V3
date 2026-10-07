@@ -87,9 +87,13 @@ describe('AppNav', () => {
     navEl._updateDom()
     const nav = navEl.shadowRoot.querySelector(S.NAV)
     const logoBtn = navEl.shadowRoot.querySelector(S.NAV_LOGO_BTN)
+    const logoDrawText = logoBtn.querySelector(COMPONENT_TAGS.DRAW_TEXT)
+
     expect(nav).not.toBeNull()
     expect(nav.getAttribute(ARIA_ATTRS.ROLE)).toBe(ARIA_ATTRS.ROLE_NAVIGATION)
     expect(logoBtn.textContent).toContain('LK PORTFOLIO')
+    expect(logoDrawText).toBeTruthy()
+    expect(logoDrawText.getAttribute(FORM_ATTRS.TEXT)).toBe('LK PORTFOLIO')
   })
 
   test('renders default Luis Krötz logo title when translations are null', () => {
