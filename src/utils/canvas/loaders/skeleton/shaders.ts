@@ -1,4 +1,4 @@
-import { SKELETON_RENDER } from '@/core/tokens/motion/skeleton.js'
+import { SKELETON_GLYPH, SKELETON_RENDER } from '@/core/tokens/motion/skeleton.js'
 /**
  * @file skeleton-shaders.ts
  * @description GLSL sources for the skeleton shimmer layer, extracted
@@ -89,16 +89,22 @@ export const SKELETON_FS = `
           float g0 = glyphZero(q, glyphSize);
           float g1 = glyphOne(q, glyphSize);
           float g = mix(g0, g1, shape);
-          float glyph = 1.0 - smoothstep(0.0, 0.7, g);
+          float glyph = 1.0 - smoothstep(0.0, ${SKELETON_GLYPH.EDGE_SOFTNESS}, g);
 
-          // Sparse field: not every cell carries a glyph, density breathes slowly
-          float density = 0.48 + 0.12 * sin(u_time * 0.35 + float(i));
+          // Text rows stay sparse and low-contrast: enough motion to communicate
+          // loading without resembling blurred copy. Media cells retain the
+          // denser field because their larger surfaces need visible structure.
+          float textDensity = ${SKELETON_GLYPH.TEXT_DENSITY_BASE} + ${SKELETON_GLYPH.TEXT_DENSITY_DRIFT} * sin(u_time * 0.35 + float(i));
+          float mediaDensity = 0.48 + 0.12 * sin(u_time * 0.35 + float(i));
+          float density = row > 0.0 ? textDensity : mediaDensity;
+          float textAlpha = row > 0.0 ? ${SKELETON_GLYPH.TEXT_ALPHA} : 1.0;
           glyph *= step(1.0 - density, hash21(cellId * 1.7 + float(i)));
-          glyph *= rowMask;
+          glyph *= rowMask * textAlpha;
 
-          // Ink tones: the rect's own ink colour softened toward its surface
-          vec3 inkA = mix(u_sink[i].rgb, u_sbase[i].rgb, 0.45);
-          vec3 inkB = mix(u_sink[i].rgb, u_sbase[i].rgb, 0.75);
+          // Ink tones sit close to the rect's surface, keeping the decoding
+          // texture subtle in both themes rather than glowing through text rows.
+          vec3 inkA = mix(u_sink[i].rgb, u_sbase[i].rgb, ${SKELETON_GLYPH.INK_SURFACE_MIX_NEAR});
+          vec3 inkB = mix(u_sink[i].rgb, u_sbase[i].rgb, ${SKELETON_GLYPH.INK_SURFACE_MIX_FAR});
 
           // Colour drifts across the rect and over time between the two ink tones
           float drift = 0.5 + 0.5 * sin(u_time * 0.6 + local.x * 0.012 + h * 2.0);

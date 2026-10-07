@@ -30,6 +30,15 @@ export const SKELETON_GLYPH = Object.freeze({
   CELL_MEDIA: 16,
   /** Placeholders shorter than this are treated as text lines */
   TEXT_MAX_HEIGHT: 80,
+  /** Narrow signed-distance transition keeps text glyph edges crisp instead of blurred. */
+  EDGE_SOFTNESS: 0.32,
+  /** Text rows use a sparse, low-contrast field so they read as placeholders—not faux copy. */
+  TEXT_DENSITY_BASE: 0.28,
+  TEXT_DENSITY_DRIFT: 0.04,
+  TEXT_ALPHA: 0.42,
+  /** Pull glyph ink toward the surface to keep the decoding texture restrained. */
+  INK_SURFACE_MIX_NEAR: 0.68,
+  INK_SURFACE_MIX_FAR: 0.86,
 })
 
 /**
