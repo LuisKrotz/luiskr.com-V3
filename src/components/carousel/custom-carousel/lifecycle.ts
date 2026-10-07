@@ -10,7 +10,11 @@ import store from '@/core/store.js'
 import type { CustomCarousel } from '../CustomCarousel.js'
 import { CAROUSEL_LAYOUT } from '@/core/tokens/motion/carousel.js'
 
-/** Mount: first render pass, resize binding, fit observer, store sub. */
+/**
+ * Mount: first render pass, resize binding, fit observer, store sub.
+ * `_markAdjacentLoaded(0)` pre-flags the first neighborhood before the
+ * observer's first callback so slide media starts loading immediately.
+ */
 export function onMounted(host: CustomCarousel): void {
   if (host.items && host.items.length) {
     host._updateDom()
@@ -40,7 +44,9 @@ export function onUnmounted(host: CustomCarousel): void {
 
 /**
  * Store change → propagate reduced-motion to both arrows and gate
- * autoplay on reduced-motion / open-modal.
+ * autoplay on reduced-motion / open-modal. The resume arm requires BOTH
+ * `isActive` (carousel mode, not side-by-side) and `isFullyVisible` —
+ * a modal closing must not revive a carousel that's offscreen.
  */
 export function onStoreUpdate(host: CustomCarousel): void {
   const isReduced = store.getters.getReducedMotion()
@@ -58,7 +64,7 @@ export function onStoreUpdate(host: CustomCarousel): void {
   }
 }
 
-/** Teardown: autoplay clock, WebGL arrows, observers, timers. */
+/** Teardown: autoplay clock, WebGL arrows, observers, timers — every async handle released so nothing fires after disconnect. */
 export function onDestroy(host: CustomCarousel): void {
   host._stopAutoplay()
 
