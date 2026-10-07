@@ -4,6 +4,11 @@
  * subsystem — grouped subsets of MEDIA_DIMENSIONS.
  */
 
+/**
+ * Canonical pixel dimensions + media timing tokens split per subsystem. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const COVER_DIMENSIONS = Object.freeze({
   COVER_WIDTH: 1600,
   COVER_HEIGHT: 900,
