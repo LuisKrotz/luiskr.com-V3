@@ -12,21 +12,23 @@ import { ATMOS_RADIUS, EARTH_RADIUS, SEG_HIGH } from '../consts.js'
 
 type TslNs = typeof import('three/tsl')
 
-/**
- * Type contract for AtmosShellsArgs — the shape consumers rely on.
- */
+/** Dependencies injected by the scene assembler (keeps this module mockable). */
 export interface AtmosShellsArgs {
+  /** The three.js namespace — geometry/material/mesh constructors. */
   THREE: typeof THREE_NS
+  /** The TSL node-graph namespace (compiled to WGSL/GLSL by the renderer). */
   TSL: TslNs
+  /** The node material constructor for the shell materials. */
   mats: { MeshBasicNodeMaterial: typeof MeshBasicNodeMaterial }
+  /** Shared sun-direction uniform the scattering phase functions read. */
   sunDir: UniformNode<'vec3', THREE_NS.Vector3>
 }
 
-/**
- * Type contract for AtmosShellsResult — the shape consumers rely on.
- */
+/** The two atmosphere meshes — outer scattering shell + inner fresnel rim. */
 export interface AtmosShellsResult {
+  /** BackSide additive scattering shell (ATMOS_RADIUS). */
   atmosMesh: THREE_NS.Mesh
+  /** FrontSide fresnel rim hugging the surface (+0.02u). */
   innerMesh: THREE_NS.Mesh
 }
 
