@@ -26,6 +26,7 @@ import { INPUT_STRINGS } from '@/core/tokens/strings/input.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
 import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
 import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
 import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
@@ -245,6 +246,9 @@ describe('HomeMosaic (view integration)', () => {
 
     const items = mosaicEl.shadowRoot.querySelectorAll(S.HOME_MOSAIC_ITEM)
     expect(items.length).toBe(2)
+    expect(items[0].tagName).toBe(HTML_TAGS.A.toUpperCase())
+    expect(items[0].getAttribute(DOM_STRINGS.HREF)).toBeTruthy()
+    expect(items[0].querySelector(HTML_TAGS.BUTTON)).toBeNull()
     const titles = mosaicEl.shadowRoot.querySelectorAll(S.HOME_MOSAIC_TITLE)
     expect(titles[0].textContent).toContain('Project Alpha')
     expect(titles[1].textContent).toContain('Project Beta')
@@ -386,6 +390,9 @@ describe('HomeMosaic tails', () => {
     item.dispatchEvent(new Event(MOUSE_EVENTS.CLICK, { bubbles: true }))
     expect(pushSpy).toHaveBeenCalledWith('/portfolio/card-a')
 
+    item.dispatchEvent(new MouseEvent(MOUSE_EVENTS.CLICK, { bubbles: true, ctrlKey: true }))
+    expect(pushSpy).toHaveBeenCalledTimes(1)
+
     mosaic.dispatchEvent(new Event(MOUSE_EVENTS.CLICK, { bubbles: true }))
     item.dispatchEvent(new Event(MOUSE_EVENTS.MOUSEOVER, { bubbles: true }))
     expect(mosaicEl.hoveredIdx).toBe(0)
@@ -423,9 +430,11 @@ describe('HomeMosaic tails', () => {
     // Same card re-focus — no duplicate hover.
     item.dispatchEvent(new Event(FOCUS_EVENTS.FOCUSIN, { bubbles: true }))
 
-    // Focus moving to a control inside the same card keeps it expanded.
+    // A retargeted focus transition within the same card keeps it expanded.
     const inner = new Event(FOCUS_EVENTS.FOCUSOUT, { bubbles: true })
-    Object.defineProperty(inner, 'relatedTarget', { value: item.querySelector(HTML_TAGS.BUTTON) })
+    Object.defineProperty(inner, 'relatedTarget', {
+      value: item.querySelector(`.${HOME_MOSAIC_CLASSES.HOME_MOSAIC_BTN}`),
+    })
     item.dispatchEvent(inner)
     expect(mosaicEl.hoveredIdx).toBe(0)
 

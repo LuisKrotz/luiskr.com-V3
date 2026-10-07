@@ -124,8 +124,7 @@
     box-shadow: var(--shadow-card-featured);
   }
 
-  &:hover,
-  &:focus-visible {
+  &:is(:hover, :focus-visible) {
     transform: translateY(-#{to-rem($space-sm)}) scale(1.015);
     box-shadow: var(--shadow-card-hover);
     z-index: 10;
@@ -140,6 +139,10 @@
     .home-mosaic-img {
       transform: scale(1.07);
     }
+  }
+
+  &:focus-visible {
+    @include focus-ring;
   }
 }
 

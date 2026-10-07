@@ -19,7 +19,17 @@ export function bindEvents(host: HomeMosaic): void {
 
     const item = host.processedItems[card.idx]
 
-    if (item) host.onClick(item, card.idx)
+    if (!item) return
+
+    const mouse = e as MouseEvent
+    const modified = mouse.metaKey || mouse.ctrlKey || mouse.shiftKey || mouse.altKey
+
+    // Preserve native anchor behavior for new-tab/window gestures. Plain
+    // activation stays in the SPA/two-tap flow.
+    if (modified) return
+
+    e.preventDefault()
+    host.onClick(item, card.idx)
   })
 
   host.addScopedListener(host.shadowRoot, MOUSE_EVENTS.MOUSEOVER, (e) => {

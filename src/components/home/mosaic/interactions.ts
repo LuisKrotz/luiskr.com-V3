@@ -119,6 +119,20 @@ export function onLeave(host: HomeMosaic): void {
 }
 
 /**
+ * Builds the localized destination URL for one mosaic project card.
+ * @param item project metadata containing the route slug
+ * @returns localized portfolio URL, or an empty string without a slug
+ */
+export function projectHref(item: MosaicItem): string {
+  if (!item.link) return ATTR_VALUES.EMPTY
+
+  const lang = store.getters.getLang()
+  const prefix = lang === LOCALES.EN ? ATTR_VALUES.EMPTY : `${ROUTE_PATHS.ROOT}${lang}`
+
+  return `${prefix}${ROUTE_PATHS.PORTFOLIO}${item.link}`
+}
+
+/**
  * Card activation. Desktop: straight to the project route. Touch:
  * first tap expands the details (records bottomH so the wall reflows),
  * second tap on the SAME card navigates — the two-tap pattern gives
@@ -132,11 +146,7 @@ export function onClick(host: HomeMosaic, item: MosaicItem, i: number): void {
 
   if (!item.link) return
 
-  const lang = store.getters.getLang()
-
-  const prefix = lang === LOCALES.EN ? ATTR_VALUES.EMPTY : `${ROUTE_PATHS.ROOT}${lang}`
-
-  const dest = `${prefix}${ROUTE_PATHS.PORTFOLIO}${item.link}`
+  const dest = projectHref(item)
 
   if (isTouch && host.touchIdx !== i) {
     const prevIdx = host.touchIdx

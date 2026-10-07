@@ -4,7 +4,6 @@
  * skeleton placeholder wall shown while project data loads.
  */
 
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
 import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 import { HOME_MOSAIC_CLASSES } from '@/core/tokens/classes/mosaic.js'
@@ -18,6 +17,7 @@ import { FALLBACK_PAGES } from '@/core/locale/fallback.js'
 import { h } from '@/core/jsx.js'
 import type { MosaicItem } from './pack.js'
 import type { HomeMosaic } from '../HomeMosaic.js'
+import { projectHref } from './interactions.js'
 import { SKELETON_MOSAIC } from '@/core/tokens/motion/skeleton.js'
 import { GENERIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 
@@ -36,10 +36,11 @@ function renderCard(host: HomeMosaic, item: MosaicItem, i: number, exploreText?:
   const expanded = host.hoveredIdx === i || host.touchIdx === i
 
   return (
-    <div
+    <a
       key={item.link || i}
       className={`${HOME_MOSAIC_CLASSES.HOME_MOSAIC_ITEM} ${item.featured ? HOME_MOSAIC_CLASSES.HOME_MOSAIC_ITEM_FEATURED : ATTR_VALUES.EMPTY}`}
       data-index={i}
+      href={projectHref(item)}
       style={host.cards[i]?.card || ATTR_VALUES.EMPTY}
     >
       <div
@@ -85,12 +86,10 @@ function renderCard(host: HomeMosaic, item: MosaicItem, i: number, exploreText?:
               <draw-text text={item.description} delay={CHAR_STRINGS.DELAY_8} />
             </p>
           )}
-          <button className={HOME_MOSAIC_CLASSES.HOME_MOSAIC_BTN} type={FORM_ATTRS.BUTTON}>
-            {exploreText}
-          </button>
+          <span className={HOME_MOSAIC_CLASSES.HOME_MOSAIC_BTN}>{exploreText}</span>
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 
