@@ -7,7 +7,9 @@
 import { _B_SKELETON, _B_SKELETON_ABOUT, _B_SKELETON_ABOUT_P, _B_SKELETON_FOOTER } from '../base.js'
 
 /**
- * The SKELETON_CLASSES constant.
+ * Frozen skeleton class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const SKELETON_CLASSES = Object.freeze({
   SKELETON: _B_SKELETON,
