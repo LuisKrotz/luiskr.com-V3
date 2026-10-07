@@ -10,14 +10,20 @@
 import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
 import { CAROUSEL_CSS_PROPS } from '@/core/tokens/css/carousel.js'
 import { CAROUSEL_SELECTORS } from '@/core/tokens/selectors/carousel.js'
+import { GENERIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import type { CustomCarousel } from '../CustomCarousel.js'
 import { CAROUSEL_LAYOUT } from '@/core/tokens/motion/carousel.js'
 
 /**
- * Starts fit observer.
- * @param c — the component
+ * Wires a ResizeObserver on the host that re-runs _measureFit on width
+ * changes. Reports under FIT_EPS_PX of the last width are dropped —
+ * scrollbars appearing/disappearing and sub-pixel reflow would otherwise
+ * re-fit on every layout pass. The measurement defers one RAF so it runs
+ * post-layout, and ResizeObserver absence (old engines) degrades to the
+ * one-shot window-resize path.
+ * @param c The CustomCarousel element.
  */
 export function startFitObserver(c: CustomCarousel) {
   if (typeof ResizeObserver === TYPE_STRINGS.UNDEFINED) return
@@ -25,7 +31,7 @@ export function startFitObserver(c: CustomCarousel) {
   c._fitObserver = new ResizeObserver((entries) => {
     const width = entries[0]?.contentRect?.width || 0
 
-    if (Math.abs(width - (c._lastObservedWidth || 0)) < 4) return
+    if (Math.abs(width - (c._lastObservedWidth || 0)) < CAROUSEL_LAYOUT.FIT_EPS_PX) return
 
     c._lastObservedWidth = width
 
@@ -38,9 +44,16 @@ export function startFitObserver(c: CustomCarousel) {
 }
 
 /**
- * measures fit.
- * @param c — the component
- * @param observedWidth — the value
+ * Decides whether the items fit side-by-side (no carousel chrome) or need
+ * the scroll track. Side-by-side requires: ≤2 items, no landscape item
+ * (too wide to pair), viewport ≥ SIDE_BY_SIDE_BREAKPOINT, and projected
+ * total width ≤ host width. Projection: each item lays out at
+ * maxH = MAX_HEIGHT_VH of viewport height, so rendered width ≈
+ * (w/h)·maxH plus ITEM_GAP_PX flex gap. Items missing intrinsic sizes
+ * use GENERIC_DIMENSIONS defaults (conservative portrait) so a partial
+ * CMS row can't silently flip to scroll mode.
+ * @param c The CustomCarousel element.
+ * @param observedWidth Fresh RO width when known — avoids a layout read.
  */
 export function measureFit(c: CustomCarousel, observedWidth?: number) {
   if (c._forceActive) return
@@ -77,18 +90,21 @@ export function measureFit(c: CustomCarousel, observedWidth?: number) {
 
   if (hostW <= 0) return
 
-  const maxH = typeof window !== TYPE_STRINGS.UNDEFINED ? Math.round(window.innerHeight * 0.7) : 600
+  const maxH =
+    typeof window !== TYPE_STRINGS.UNDEFINED
+      ? Math.round((window.innerHeight * CAROUSEL_LAYOUT.MAX_HEIGHT_VH) / 100)
+      : CAROUSEL_LAYOUT.MAX_HEIGHT_FALLBACK
 
   let totalW = 0
 
   for (const item of c.items) {
-    const w = item.size?.[0] || 800
+    const w = item.size?.[0] || GENERIC_DIMENSIONS.DEFAULT_WIDTH
 
-    const h = item.size?.[1] || 1200
+    const h = item.size?.[1] || GENERIC_DIMENSIONS.ITEM_FALLBACK_HEIGHT
 
     const ratio = w / h
 
-    totalW += ratio * maxH + 32
+    totalW += ratio * maxH + CAROUSEL_LAYOUT.ITEM_GAP_PX
   }
 
   const fits = totalW > 0 && totalW <= hostW
@@ -107,8 +123,10 @@ export function measureFit(c: CustomCarousel, observedWidth?: number) {
 }
 
 /**
- * The onCarouselResize value.
- * @param c — the component
+ * Window-resize handler — refreshes the mobile flag against the
+ * side-by-side breakpoint (mobile is defined by "can't pair items", not
+ * by the generic 768 media breakpoint) and re-publishes the slide height.
+ * @param c The CustomCarousel element.
  */
 export function onCarouselResize(c: CustomCarousel) {
   c.isMobile =
@@ -120,8 +138,14 @@ export function onCarouselResize(c: CustomCarousel) {
 }
 
 /**
- * Sets height var.
- * @param c — the component
+ * Publishes --carousel-item-height on the enclosing <section>: the first
+ * item's intrinsic ratio applied to the host width ((h/w)·hostW), capped
+ * at MAX_HEIGHT_VH — aspect-correct heights before image decode so slides
+ * never pop. When the item lacks a size the measured slide height is the
+ * fallback; a ≤0 result bails rather than writing a 0px var. The
+ * getPropertyValue read guards the setProperty — same-value writes would
+ * still dirty the style recalc.
+ * @param c The CustomCarousel element.
  */
 export function setHeightVar(c: CustomCarousel) {
   const firstSlide = c.$(CAROUSEL_SELECTORS.CAROUSEL_SLIDES_NOT_CLONE)
@@ -134,7 +158,10 @@ export function setHeightVar(c: CustomCarousel) {
 
   if (firstItem?.size?.[0] && firstItem?.size?.[1]) {
     const hostW =
-      c.clientWidth || (typeof window !== TYPE_STRINGS.UNDEFINED ? window.innerWidth : 800)
+      c.clientWidth ||
+      (typeof window !== TYPE_STRINGS.UNDEFINED
+        ? window.innerWidth
+        : GENERIC_DIMENSIONS.DEFAULT_WIDTH)
 
     slideH = Math.round((firstItem.size[1] / firstItem.size[0]) * hostW)
   } else {
