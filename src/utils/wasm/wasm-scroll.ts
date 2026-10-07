@@ -9,14 +9,14 @@
 // High-Performance WASM, GPU & NPU Smooth Scroll Engine
 // Replaces vue3-smooth-scroll with native WASM physics calculation & WebGL/GPU hardware acceleration
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { WASM_STRINGS } from '@/core/tokens/strings/wasm.js'
+import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
 import { calcEaseOutCubic } from './wasm-layout.js'
 import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
 import { npuPredict } from '@/utils/gpu/npu-predict.js'
 import { deepQuerySelector } from '@/core/utils/dom.js'
 
-/**
- * Type contract for WasmScrollOptions — the shape consumers rely on.
- */
+/** Options bag for {@link wasmSmoothScroll}. */
 export interface WasmScrollOptions {
   /** Scroll container — selector (pierces shadow DOM), element, or window. */
   container?: string | Element | Window
@@ -32,7 +32,19 @@ export interface WasmScrollOptions {
   updateHistory?: boolean
 }
 
-/** Smoothly scrolls to an element/offset. */
+/**
+ * Smoothly scrolls a container (or the window) to a target element or
+ * numeric offset. Target resolution order: `element` (bounding rect
+ * relative to the container's scroll origin) → numeric `scrollTo` →
+ * `{y}/{top}` object → 0. Sub-`SCROLL_MIN_DISTANCE` moves early-out —
+ * an invisible scroll would still run a full RAF loop and promote the
+ * compositor layer for nothing. During the animation the scrolled root
+ * gets a GPU compositor promotion (will-change/transform) so the browser
+ * repaints a layer instead of relayouting, then `releaseElementGPU`
+ * restores it on the last frame. `updateHistory` rewrites `#id` via
+ * replaceState so it never pushes a history entry.
+ * @param options Container/target/duration configuration.
+ */
 export const wasmSmoothScroll = (options: WasmScrollOptions = {}): void => {
   if (typeof window === TYPE_STRINGS.UNDEFINED) return
 
@@ -75,9 +87,9 @@ export const wasmSmoothScroll = (options: WasmScrollOptions = {}): void => {
 
   const distance = targetY - startY
 
-  if (Math.abs(distance) < 2) return
+  if (Math.abs(distance) < ANIMATION_DURATIONS.SCROLL_MIN_DISTANCE) return
 
-  const duration = options.duration || 600
+  const duration = options.duration || ANIMATION_DURATIONS.SCROLL_DURATION
 
   const startTime = performance.now()
 
@@ -87,7 +99,7 @@ export const wasmSmoothScroll = (options: WasmScrollOptions = {}): void => {
   gpuAccel.accelerateElementGPU(rootEl)
 
   // Predict user scroll trajectory with NPU engine
-  npuPredict.predictTargetLikelihood('scroll_target', targetEl, duration)
+  npuPredict.predictTargetLikelihood(WASM_STRINGS.SCROLL_TARGET, targetEl, duration)
 
   function step(now: number): void {
     const elapsed = now - startTime
