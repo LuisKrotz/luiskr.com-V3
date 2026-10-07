@@ -6,6 +6,11 @@
  * exists avoids draining battery on integrated-only laptops.
  */
 
+/**
+ * GPU detection & power-hint tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const GPU_PATTERNS = Object.freeze({
   /** Desktop discrete GPUs (NVIDIA / AMD / Intel Arc) */
   DEDICATED: /nvidia|geforce|quadro|rtx|gtx|radeon|(?<!v)amd|arc a\d/i,
