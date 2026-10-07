@@ -12,7 +12,9 @@ export const CAROUSEL_TIMING = Object.freeze({
 })
 
 /**
- * The CAROUSEL_LAYOUT constant.
+ * Frozen carousel map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const CAROUSEL_LAYOUT = Object.freeze({
   /** SVG countdown ring circumference: 2π × r (r=19) */
@@ -30,7 +32,9 @@ export const CAROUSEL_LAYOUT = Object.freeze({
 })
 
 /**
- * The CAROUSEL_LOADING constant.
+ * Frozen carousel map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const CAROUSEL_LOADING = Object.freeze({
   /** Carousels rendered synchronously with the page (the ones that can be in the first viewport) */
