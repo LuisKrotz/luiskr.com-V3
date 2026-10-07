@@ -8,7 +8,9 @@
 import { _B_CMS, _B_CMS_DROPZONE_BASE, _B_CMS_MEDIA } from '../base.js'
 
 /**
- * The CMS_MEDIA_CLASSES constant.
+ * Frozen cms media class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CMS_MEDIA_CLASSES = Object.freeze({
   CMS_DROPZONE_OVER: `${_B_CMS_DROPZONE_BASE}--over`,
@@ -30,7 +32,9 @@ export const CMS_MEDIA_CLASSES = Object.freeze({
 })
 
 /**
- * The CMS_MEDIA_IDS constant.
+ * Frozen cms media element-id map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CMS_MEDIA_IDS = Object.freeze({
   FILE_INPUT: 'cms-media-file-input',
