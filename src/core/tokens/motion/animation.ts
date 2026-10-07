@@ -42,4 +42,6 @@ export const ANIMATION_DURATIONS = Object.freeze({
   MENU_SETTLE_DURATION: 2200,
   /** Dialog genie zoom-out duration (ms) — must match .pref-backdrop--leave transition */
   DIALOG_LEAVE_DURATION: 640,
+  /** Space-playground loader fade-out before the node is removed (ms) — must match the CSS opacity transition */
+  LOADER_FADE_MS: 800,
 })
