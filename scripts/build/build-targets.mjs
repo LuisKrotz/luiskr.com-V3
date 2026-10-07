@@ -114,7 +114,7 @@ const cssTargetMap = (cssTarget) => {
   return engine ? { [engine]: version } : undefined
 }
 
-const emitCss = async (t) => {
+const emitCss = async (t, prefix = 'index-') => {
   const sass = await import('sass')
   const { transform } = await import('lightningcss')
 
@@ -139,11 +139,20 @@ const emitCss = async (t) => {
   })
 
   const hash = crypto.createHash('md5').update(code).digest('hex').slice(0, 8)
-  const name = `index-${hash}.css`
+  const name = `${prefix}${hash}.css`
   const finalCode = Buffer.concat([code, Buffer.from(`\n/*# sourceMappingURL=${name}.map */\n`)])
 
   fs.writeFileSync(path.join(outDir, name), finalCode)
-  fs.writeFileSync(path.join(outDir, `${name}.map`), map)
+
+  // Sass emits absolute build-machine paths in `sources` — rewrite them
+  // repo-relative so deployed maps don't leak the filesystem layout.
+  const parsedMap = JSON.parse(map.toString())
+
+  parsedMap.sources = parsedMap.sources.map((s) =>
+    s.replace(/^.*?(?=src[/\\]sass)/, '').replace(/\\/g, '/')
+  )
+
+  fs.writeFileSync(path.join(outDir, `${name}.map`), JSON.stringify(parsedMap))
   fs.writeFileSync(
     path.join(outDir, `${name}.br`),
     zlib.brotliCompressSync(finalCode, { params: { [zlibConstants.BROTLI_PARAM_QUALITY]: 11 } })
@@ -180,6 +189,12 @@ for (const t of ES_TARGETS) {
     const emitted = await emitCss(t)
     css = [emitted]
     console.log(`  css emitted for ${t.name}: ${emitted}`)
+  } else {
+    // rolldown-vite doesn't emit sourcemaps for code-split CSS assets yet —
+    // ship the sass→lightningcss mapped global sheet alongside so every
+    // tier carries a .css.map that resolves back to real .scss lines.
+    const dbg = await emitCss(t, 'app-')
+    console.log(`  css sourcemap emitted for ${t.name}: ${dbg}.map`)
   }
 
   tierManifest.push({
