@@ -7,7 +7,7 @@
  *   - .lighthouseci/manifest.json   latest Lighthouse CI run (representative runs only)
  *   - coverage/coverage-summary.json  Jest --coverage summary
  *   - reports/axe-report.json         axe-core WCAG accessibility scan
- *   - reports/snyk-report.json        Snyk / npm-audit dependency scan
+ *   - reports/snyk-report.json        Snyk / yarn-audit dependency scan
  *   - reports/console-scan.json       console.* usage policy scan
  *
  * Outputs:

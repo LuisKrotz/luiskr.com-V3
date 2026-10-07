@@ -46,7 +46,7 @@ const buildList = ES_TARGETS.filter((t) => !only || only.has(t.name))
 for (const [i, t] of buildList.entries()) {
   console.log(`\n═══ build ${i + 1}/${buildList.length}: ${t.name} (${t.format}) ═══`)
 
-  run('npx', ['vite', 'build'], {
+  run('yarn', ['vite', 'build'], {
     LK_TARGET: t.name,
     LK_EMPTY_OUTDIR: i === 0 && !process.env.LK_KEEP_DIST ? '1' : '0',
     LK_NO_PUBLIC: i === 0 && !process.env.LK_KEEP_DIST ? '' : '1',

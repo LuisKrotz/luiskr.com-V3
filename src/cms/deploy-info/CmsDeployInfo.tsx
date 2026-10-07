@@ -3,7 +3,7 @@
  * @description <cms-deploy-info> — the Deploy Info tab: renders the
  * quality bundle from dist/deploy-info/ (written by scripts/build/deploy-info.mjs
  * at build time) — Lighthouse scores per URL, Jest coverage totals,
- * axe-core violations, Snyk/npm-audit vulnerabilities, and the console-*
+ * axe-core violations, Snyk/yarn-audit vulnerabilities, and the console-*
  * governance scan, grouped as one report wall.
  *
  * Facade — report types/fetch/JSX live in ../deploy-info/.
@@ -44,7 +44,7 @@ export class CmsDeployInfo extends BaseComponent {
   lighthouse: LighthouseReport | null = null // lighthouse report JSON
   coverage: CoverageReport | null = null // jest coverage-summary JSON
   axe: AxeReport | null = null // axe-scan report JSON
-  snyk: SnykReport | null = null // snyk/npm-audit report JSON
+  snyk: SnykReport | null = null // snyk/yarn-audit report JSON
   consoleScan: ConsoleScanReport | null = null // console-scan report JSON
 
   constructor() {
@@ -96,7 +96,7 @@ export class CmsDeployInfo extends BaseComponent {
     return renderAxe(this)
   }
 
-  /** Renders the dependency vulnerability scan (Snyk or npm-audit fallback). */
+  /** Renders the dependency vulnerability scan (Snyk or yarn-audit fallback). */
 
   _renderSnyk() {
     return renderSnyk(this)

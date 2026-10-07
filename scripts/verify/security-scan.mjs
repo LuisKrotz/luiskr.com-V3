@@ -4,7 +4,7 @@
  * @description Dependency vulnerability scan. Primary engine: Snyk
  * (`snyk test --json`, requires SNYK_TOKEN or `snyk auth`). Fallback engine:
  * `yarn audit --json` (same GitHub Advisory data, no auth; yarn.lock is the
- * project's lockfile so npm audit cannot run here) so the gate still
+ * project's authoritative lockfile) so the gate still
  * runs — and the CMS report is still produced — on machines without a token.
  *
  * Output: reports/snyk-report.json → bundled into dist/deploy-info/ by

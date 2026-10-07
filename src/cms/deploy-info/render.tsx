@@ -176,7 +176,7 @@ export const renderAxe = (host: CmsDeployInfo) => {
   )
 }
 
-/** Renders the dependency vulnerability scan (Snyk or npm-audit fallback). */
+/** Renders the dependency vulnerability scan (Snyk or yarn-audit fallback). */
 export const renderSnyk = (host: CmsDeployInfo) => {
   if (!host.snyk) {
     return (

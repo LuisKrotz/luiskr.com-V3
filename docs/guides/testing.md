@@ -1,6 +1,6 @@
 # Testing
 
-## Jest (`yarn test` — run via the package script, not bare `npx jest`)
+## Jest (`yarn test` — always run via the package script)
 
 68 suites, ~3400 tests. The tree mirrors `src/` — `tests/components/`
 splits into the same domains (`canvas/`, `carousel/`, `media/`, `nav/`,
@@ -80,7 +80,7 @@ Deploy Info tab. `coverage/` is gitignored.
 `yarn verify` is the single quality gate — it runs, in order:
 
 1. `scripts/verify/console-scan.mjs` — zero-console policy: **every** `console.*` callsite in `src/**/*.ts|tsx|js` is a violation (no allowlist). Diagnostics route through `src/core/devlog.ts` (`devWarn`/`devError`/`devInfo` — capped ring buffer, inspect in devtools via `__lkDevLog()`); report → `reports/console-scan.json`
-2. `npx eslint src tests` — zero errors and warnings
+2. `yarn eslint src tests` — zero errors and warnings
 3. `jest --coverage` — full suite including `tests/governance/axe-scan.test.js` (axe-core WCAG A+AA+AAA rule tags → `reports/axe-report.json`; violations of moderate impact or higher fail — matching Lighthouse's binary a11y gate), `tests/governance/contrast-aaa.test.js` (compiles the token sheet and enforces real WCAG AAA contrast ratios — 7:1 text, 3:1 UI/focus — since happy-dom cannot evaluate paint contrast and axe reports those checks as `incomplete`), and `tests/governance/style-governance.test.js` (zero-hardcoding + zero-console + no stack-emulation checks)
 4. `scripts/verify/coverage-gate.mjs` — per-file **100%** statements/branches/functions/lines enforcement (jest.config.js enforces the same globally), plus an absent-file check: every `src/` file must appear in the coverage report or carry `/* istanbul ignore file */` — a file missing from the report has silently 0% coverage
 5. `scripts/verify/security-scan.mjs` — `snyk test` when `SNYK_TOKEN` is set, else `yarn audit`; high/critical vulnerabilities fail unless listed in `security-exceptions.json` (dev-only, requires justification + review date); report → `reports/snyk-report.json`
