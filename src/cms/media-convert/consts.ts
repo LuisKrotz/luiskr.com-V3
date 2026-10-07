@@ -5,7 +5,7 @@
 import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 
 /**
- * The API_BASE constant.
+ * Scalar token `/api/media-convert` — the sole declaration site for this literal.
  */
 export const API_BASE = '/api/media-convert'
 
@@ -22,7 +22,7 @@ export const PHASE = Object.freeze({
   ERROR: 'error',
 })
 /**
- * The POLL_MS constant.
+ * Numeric token — the sole declaration site for this value.
  */
 export const POLL_MS = 800 // job-status poll cadence — fast enough for live progress, light on the dev server
 /**
@@ -43,7 +43,7 @@ export interface QueueItem {
 }
 
 /**
- * The JobResult value.
+ * Type contract for JobResult — the shape consumers rely on.
  */
 export interface JobResult {
   ok: boolean
@@ -53,7 +53,7 @@ export interface JobResult {
 }
 
 /**
- * The JobStatus value.
+ * Type contract for JobStatus — the shape consumers rely on.
  */
 export interface JobStatus {
   status?: string
