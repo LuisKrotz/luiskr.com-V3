@@ -10,7 +10,7 @@ import type { PatchableCtor, SafariPatchableEl } from '../types.js'
 import safariCarouselStyles from '@/sass/components/safari/safari-carousel.scss?inline'
 
 /**
- * The patchCarousel value.
+ * Helper for this module — see implementation for behavior.
  */
 export function patchCarousel(): void {
   // ── CustomCarousel ─────────────────────────────────────────────────────────
