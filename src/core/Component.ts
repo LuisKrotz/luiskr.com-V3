@@ -37,8 +37,9 @@ import type { SkeletonWebGL } from '@/utils/canvas/loaders/skeleton-webgl.js'
 const _sharedSheets = new Map<string, CSSStyleSheet>()
 
 /**
- * Type contract for component state — a loose reactive state bag subclasses
- * narrow via their own declarations.
+ * Component state bag — keys are declared per-component and narrowed by
+ * each subclass's own types; `any` is deliberate (unknown would force a
+ * cast at every read site).
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- state keys are declared per-component; unknown would force a cast at every read
 export type ComponentState = Record<string, any>
