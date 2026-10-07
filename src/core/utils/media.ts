@@ -13,7 +13,9 @@ import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { GRAVATAR_SIZES } from '@/core/tokens/media/dimensions.js'
 
 /**
- * Type contract for MediaUrlItem — the shape consumers rely on.
+ * A media entry's URL-relevant fields as stored in the DB: `src` is the
+ * extensionless stem the CDN grammar appends suffixes to, and `isVideo`
+ * selects between the image and video suffix sets.
  */
 export interface MediaUrlItem {
   src?: string
@@ -21,7 +23,9 @@ export interface MediaUrlItem {
 }
 
 /**
- * Type contract for MediaUrls — the shape consumers rely on.
+ * Resolved media URL triple — the full-quality `source`, the progressive
+ * `thumb` (mozjpeg small variant or video poster frame), and the `isVideo`
+ * discriminator echoed back so consumers don't re-inspect the item.
  */
 export interface MediaUrls {
   source: string
@@ -32,7 +36,11 @@ export interface MediaUrls {
 /**
  * Checks if a given URL belongs to gravatar.com (exact host or any
  * subdomain like `secure.gravatar.com`). Non-Gravatar URLs must not get
- * `size=` rewrites — that param is Gravatar-specific.
+ * `size=` rewrites — that param is Gravatar-specific. `new URL` throws on
+ * malformed input and relative URLs without a base — the try/catch maps
+ * both to `false` (not-Gravatar) since either case is unrewritable anyway.
+ * @param urlStr Candidate URL (absolute or relative).
+ * @returns Whether the host is gravatar.com or a subdomain.
  */
 export const isGravatarUrl = (urlStr: string): boolean => {
   if (typeof urlStr !== TYPE_STRINGS.STRING) return false
@@ -56,7 +64,10 @@ export const isGravatarUrl = (urlStr: string): boolean => {
  * Builds responsive Gravatar srcset with 1x, 2x, 3x density descriptors —
  * 200/300/400 px variants chosen by GRAVATAR_SIZE_*. Any existing `size=`
  * param is stripped first so the rewrite is idempotent; `sep` picks `?` or
- * `&` depending on whether other query params remain.
+ * `&` depending on whether other query params remain (stripping `size=`
+ * may have consumed the `?`).
+ * @param urlStr Gravatar URL to expand.
+ * @returns srcset string, or '' for non-Gravatar input.
  */
 export const getGravatarSrcset = (urlStr: string): string => {
   if (!isGravatarUrl(urlStr)) return ATTR_VALUES.EMPTY
@@ -69,7 +80,12 @@ export const getGravatarSrcset = (urlStr: string): string => {
 }
 
 /**
- * Replaces size parameter on Gravatar URL.
+ * Replaces the `size=` parameter on a Gravatar URL. Non-Gravatar URLs pass
+ * through unchanged (the param is meaningless off-domain), and a URL with
+ * no `size=` is left alone since the regex finds no match.
+ * @param urlStr Candidate Gravatar URL.
+ * @param size Pixel edge to request (default 300 — the rendered avatar box).
+ * @returns Rewritten URL, original URL, or '' for non-string input.
  */
 export const getOptimizedGravatar = (urlStr: string, size = 300): string => {
   if (!urlStr || typeof urlStr !== TYPE_STRINGS.STRING) return ATTR_VALUES.EMPTY
@@ -102,8 +118,12 @@ export const buildMediaUrls = (
   if (!item || !storage)
     return { source: ATTR_VALUES.EMPTY, thumb: ATTR_VALUES.EMPTY, isVideo: false }
 
+  // `?? false`: a missing flag means image — the DB only marks videos
+  // explicitly, so undefined must not flip an image into the mp4 grammar.
   const isVideo = item.isVideo ?? false
 
+  // Missing folder/src collapse to '' so the result is an empty-suffix URL
+  // the caller's `|| placeholder` handling can reject — never 'undefined'.
   const srcPath = (folder || ATTR_VALUES.EMPTY) + (item.src || ATTR_VALUES.EMPTY)
 
   const source = isVideo
