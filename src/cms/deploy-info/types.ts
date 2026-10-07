@@ -4,6 +4,11 @@
  */
 /* istanbul ignore file */
 
+/**
+ * Manifest index of the deploy-info bundle — `files` maps report names
+ * to their JSON paths inside dist/deploy-info/, `generatedAt`/`commit` stamp
+ * which build produced them.
+ */
 export interface DeployIndex {
   files?: Record<string, string>
   generatedAt?: string
@@ -11,21 +16,26 @@ export interface DeployIndex {
 }
 
 /**
- * Type contract for LighthouseReport — the shape consumers rely on.
+ * Shape of the Lighthouse JSON summary — `urls` pairs each audited
+ * URL with its category scores (performance, a11y, best-practices, SEO).
  */
 export interface LighthouseReport {
   urls?: Array<{ url: string; scores: Record<string, number> }>
 }
 
 /**
- * Type contract for CoverageReport — the shape consumers rely on.
+ * Shape of the Jest coverage summary consumed by the Deploy Info tab —
+ * `total` holds per-metric {covered,total,pct} aggregates (statements, branches,
+ * functions, lines).
  */
 export interface CoverageReport {
   total?: Record<string, { covered?: number; total?: number; pct?: number }>
 }
 
 /**
- * Type contract for AxeReport — the shape consumers rely on.
+ * Shape of the axe-scan report — `engine` names the axe-core version and
+ * `surfaces` lists each mounted DOM surface with its violations (id, impact, help)
+ * so the CMS tab can render them grouped by page area.
  */
 export interface AxeReport {
   engine?: string
@@ -37,7 +47,9 @@ export interface AxeReport {
 }
 
 /**
- * Type contract for SnykReport — the shape consumers rely on.
+ * Shape of the security-scan report — `scanner` records whether snyk or
+ * yarn audit produced it, `ok` the gate outcome, `vulnerabilities` the advisory
+ * rows (acceptedRisk marks entries waived via security-exceptions.json).
  */
 export interface SnykReport {
   scanner?: string
@@ -53,7 +65,9 @@ export interface SnykReport {
 }
 
 /**
- * Type contract for ConsoleScanReport — the shape consumers rely on.
+ * Shape of the console-scan gate output — `ok` is the pass/fail,
+ * `violations` lists each `console.*` callsite found under src/ (file, line,
+ * method) since src is a zero-console zone (AGENTS.md rule 12).
  */
 export interface ConsoleScanReport {
   ok?: boolean
@@ -62,6 +76,7 @@ export interface ConsoleScanReport {
 }
 
 /**
- * Type contract for DeployFetchState — the shape consumers rely on.
+ * Tri-state of the Deploy Info fetch: still `loading`, the bundle
+ * is `missing` (no deploy-info/ in this build), or the index parsed `ready`.
  */
 export type DeployFetchState = 'loading' | 'missing' | 'ready'
