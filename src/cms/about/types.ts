@@ -24,7 +24,7 @@ export interface MentionItem {
 }
 
 /**
- * The AboutData value.
+ * Type contract for AboutData — the shape consumers rely on.
  */
 export interface AboutData {
   title: string
@@ -36,7 +36,7 @@ export interface AboutData {
 }
 
 /**
- * The BioColumn value.
+ * Type contract for BioColumn — the shape consumers rely on.
  */
 export type BioColumn = 'col1' | 'col2'
 
