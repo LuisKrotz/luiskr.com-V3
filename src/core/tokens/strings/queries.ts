@@ -4,6 +4,11 @@
  * token group.
  */
 
+/**
+ * Selector/media-query/rootMargin string tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const QUERY_STRINGS = Object.freeze({
   SELECTOR_LINKS: 'a[href^="/"], [data-route]',
   LINK_CANONICAL: 'link[rel="canonical"]',
