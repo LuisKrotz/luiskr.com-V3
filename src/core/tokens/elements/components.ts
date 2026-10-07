@@ -17,7 +17,9 @@ import {
 } from '../base.js'
 
 /**
- * The COMPONENT_TAGS constant.
+ * Frozen component element tag-name map — sole declaration site for these tokens; consumers
+ * read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+ * makes the token contract immutable at runtime.
  */
 export const COMPONENT_TAGS = Object.freeze({
   MEDIA_EXPANDED: 'media-expanded',
