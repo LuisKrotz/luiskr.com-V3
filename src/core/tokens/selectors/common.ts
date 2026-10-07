@@ -8,7 +8,9 @@ import { _B_ABOUT, _B_CONTACT, _B_PREF_THEME } from '../base.js'
 import { HTML_TAGS } from '../elements/html.js'
 
 /**
- * The COMMON_SELECTORS constant.
+ * Frozen common selector map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const COMMON_SELECTORS = Object.freeze({
   HOST: ':host',
