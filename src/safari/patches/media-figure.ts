@@ -21,7 +21,7 @@ import { bindSafariTapExpand } from './media-figure/tap-expand.js'
 import safariMediaStyles from '@/sass/components/safari/safari-media.scss?inline'
 
 /**
- * The patchMediaFigure value.
+ * Helper for this module — see implementation for behavior.
  */
 export function patchMediaFigure(): void {
   // ── MediaFigure ────────────────────────────────────────────────────────────
