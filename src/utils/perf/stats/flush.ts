@@ -9,7 +9,7 @@
 import type { StatsEngine } from '../stats-engine.js'
 
 /**
- * The INTERVAL_MS constant.
+ * Numeric token — the sole declaration site for this value.
  */
 export const INTERVAL_MS = 500
 
