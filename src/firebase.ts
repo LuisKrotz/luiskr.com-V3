@@ -41,6 +41,11 @@ const getApiKey = () => {
   return ATTR_VALUES.EMPTY
 }
 
+/**
+ * Firebase project configuration. apiKey resolves at runtime; the rest are
+ * public project identifiers (auth domain, RTDB URL, project id, storage
+ * bucket, sender id, app id, analytics measurement id).
+ */
 const firebaseConfig = {
   apiKey: getApiKey(),
   authDomain: 'luiskr-com.firebaseapp.com',
@@ -53,18 +58,21 @@ const firebaseConfig = {
 }
 
 /**
- * The app constant.
- * @param firebaseConfig — the value
+ * The shared Firebase App — initialized eagerly from firebaseConfig; auth
+ * and database SDKs attach to it lazily.
  */
 export const app = initializeApp(firebaseConfig)
 
 // Dynamic Auth loader (loaded only for Admin/CMS)
+/** Memoized Auth instance — populated on first getAuthInstance() call. */
 let _authInstance: Auth | null = null
+/** In-flight auth-chunk promise — concurrent callers share one import. */
 let _authPromise: Promise<Auth> | null = null
 
 /**
  * Lazily imports firebase/auth once and returns the shared Auth instance.
  * Concurrent callers share _authPromise so the chunk is fetched exactly once.
+ * @returns The Auth instance bound to `app`.
  */
 export async function getAuthInstance() {
   if (_authInstance) return _authInstance
@@ -78,12 +86,15 @@ export async function getAuthInstance() {
 }
 
 // Dynamic Database loader for CMS admin writes
+/** Memoized RTDB instance — populated on first getDbInstance() call. */
 let _dbInstance: Database | null = null
+/** In-flight database-chunk promise — concurrent callers share one import. */
 let _dbPromise: Promise<Database> | null = null
 
 /**
  * Lazily imports firebase/database once and returns the shared RTDB
  * instance. Only needed by the CMS write path — public reads use REST.
+ * @returns The Database instance bound to `app`.
  */
 export async function getDbInstance() {
   if (_dbInstance) return _dbInstance
@@ -96,7 +107,11 @@ export async function getDbInstance() {
   return await _dbPromise
 }
 
-/** CMS login — Google OAuth popup (forces the account chooser). */
+/**
+ * CMS login — Google OAuth popup. `prompt: 'select_account'` forces the
+ * account chooser so a CMS editor isn't silently signed into a wrong Google account.
+ * @returns The SDK UserCredential.
+ */
 export async function signInWithGoogle() {
   const auth = await getAuthInstance()
   const { GoogleAuthProvider, signInWithPopup } = await import('firebase/auth')
@@ -105,7 +120,7 @@ export async function signInWithGoogle() {
   return await signInWithPopup(auth, provider)
 }
 
-/** Signs the CMS user out. */
+/** Signs the CMS user out via the lazily-loaded auth SDK. */
 export async function logoutUser() {
   const auth = await getAuthInstance()
   const { signOut } = await import('firebase/auth')
@@ -114,6 +129,7 @@ export async function logoutUser() {
 
 /**
  * Subscribes to auth state after lazily loading firebase/auth.
+ * @param callback Invoked with the User (or null on sign-out) on every auth transition.
  * @returns {Promise<Function>} the SDK's unsubscribe function
  */
 export async function onAuthChange(callback: (_user: User | null) => void): Promise<Unsubscribe> {
@@ -138,6 +154,8 @@ const _fetchCache = new Map<string, Promise<DbSnapshot>>()
  *
  * Cache order: in-flight promise map → sessionStorage (survives route
  * changes within the tab) → network → SDK get() fallback on REST failure.
+ * @param path RTDB path — leading slash stripped for URL safety.
+ * @returns Snapshot-shaped {exists, val} wrapping the JSON payload.
  */
 export async function fetchFirebaseDb(path: string): Promise<DbSnapshot> {
   const cleanPath = (path || '').toString().replace(/^\//, '')
