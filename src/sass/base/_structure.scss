@@ -581,9 +581,16 @@ main {
 }
 
 // The canvas is a direct child of the shadow root: anchor its containing
-// block to the host while a layer is active.
+// block to the host while a layer is active. The placeholders remain in flow
+// so their geometry can still be measured, but become transparent because the
+// WebGL canvas already paints those exact rectangles. Leaving the CSS shimmer
+// visible underneath produces two superimposed skeleton animations everywhere.
 :host(.has-skeleton-layer) {
   position: relative;
+
+  [data-content] [class*='skeleton'] {
+    opacity: 0;
+  }
 }
 
 @keyframes skeleton-content-in {
