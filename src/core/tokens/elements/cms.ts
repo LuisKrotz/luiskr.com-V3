@@ -4,6 +4,11 @@
  * TAGS.
  */
 
+/**
+ * CMS editor custom-element tag tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const CMS_VIEW_TAGS = Object.freeze({
   CMS_PORTFOLIO_LIST: 'cms-portfolio-list',
   CMS_PROJECTS_LIST: 'cms-projects-list',
