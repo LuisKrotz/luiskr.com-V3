@@ -5,6 +5,11 @@
  * `CAROUSEL_LAYOUT.CIRCUMFERENCE` (2π × 19) in tokens/motion/carousel.js.
  */
 
+/**
+ * SVG geometry attribute values. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const SVG_ATTRS = Object.freeze({
   RING_VIEWBOX: '0 0 40 40',
   RING_CX: '20',
