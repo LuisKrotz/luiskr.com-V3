@@ -11,7 +11,13 @@ import store from '@/core/store.js'
 import { FALLBACK_APP, FALLBACK_COMPONENTS } from './fallback.js'
 import { LANG_SLUGS, type LangSlugMap } from '@/core/i18n.js'
 
-/** Digs a dotted path ('a.b.c') into a possibly-partial object; null-safe. */
+/**
+ * Digs a dotted path ('a.b.c') into a possibly-partial object; null-safe.
+ * The `cur == null → undefined` guard on each reduce step is what makes
+ * missing intermediate nodes safe — `dig({}, 'a.b.c')` returns undefined
+ * instead of throwing on the second key read. Translation dictionaries are
+ * sparse during boot, so every lookup funnels through here.
+ */
 const _dig = (obj: unknown, path: string): unknown =>
   path
     .split(CHAR_STRINGS.DOT)
@@ -20,6 +26,7 @@ const _dig = (obj: unknown, path: string): unknown =>
       obj
     )
 
+/** Structural view of the live `lang` store slice — the three fetched nodes. */
 interface LangSlice {
   app?: Record<string, unknown> | null
   components?: unknown
@@ -34,6 +41,8 @@ interface LangSlice {
 export const appText = (path: string): unknown => {
   const live = _dig((store.getters.getlang() as LangSlice | undefined)?.app, path)
 
+  // `??` not `||` — an empty-string translation is a deliberate value, not
+  // a miss; only null/undefined (node absent) should fall back to English.
   return live ?? _dig(FALLBACK_APP, path)
 }
 
