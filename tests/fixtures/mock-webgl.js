@@ -1,14 +1,14 @@
+/**
+ * @file mock-webgl.js
+ * @description Shared WebGL test fixture — a Proxy-based WebGL context
+ * stub that auto-stubs every gl.* call so canvas widgets can run their
+ * full init/render/destroy lifecycle inside happy-dom without a GPU.
+ * OBJECT_FACTORIES returns truthy handles where code paths check them.
+ */
+
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
-
-/**
- * @file mock-webgl.js
- * @description Shared WebGL test fixture.
- * Provides a Proxy-based WebGL context stub that auto-stubs every
- * `gl.*` call so canvas widgets can run their full init/render/destroy
- * lifecycles inside happy-dom without a real GPU.
- */
 
 // Methods that must return truthy handles/objects rather than undefined.
 const OBJECT_FACTORIES = new Set([
