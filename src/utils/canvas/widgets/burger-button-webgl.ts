@@ -14,6 +14,7 @@ import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 import { INPUT_STRINGS } from '@/core/tokens/strings/input.js'
 import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
+import { QUAD_STRIP } from '@/core/tokens/motion/gpu.js'
 import { bindQuad, createQuadProgram, getUniforms } from '../gl-program.js'
 import { releaseQuadGL, watchContextLoss } from '../gl-lifecycle.js'
 import { webglPool } from '../webgl-pool.js'
@@ -126,7 +127,7 @@ export class BurgerButtonWebGL {
     this._hasDeriv = !!gl.getExtension(WEBGL_STRINGS.OES_STANDARD_DERIVATIVES)
 
     const built = createQuadProgram(gl, BURGER_VS, burgerFsSource(this._hasDeriv), 'BurgerButton', {
-      verts: new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
+      verts: new Float32Array(QUAD_STRIP.VERTS),
       premultiplied: false,
     })
 
@@ -272,7 +273,7 @@ export class BurgerButtonWebGL {
 
     gl.uniform1f(this.uDark, isDark)
 
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, QUAD_STRIP.VERTEX_COUNT)
   }
 
   /** rAF callback — repaints each frame while running. */
