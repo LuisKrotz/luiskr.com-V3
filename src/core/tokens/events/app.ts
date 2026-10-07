@@ -7,7 +7,9 @@
 import { _K_CLOSE } from '../base.js'
 
 /**
- * The APP_EVENTS constant.
+ * Frozen app event-name map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const APP_EVENTS = Object.freeze({
   COOKIE_ACTION: 'cookieAction',
