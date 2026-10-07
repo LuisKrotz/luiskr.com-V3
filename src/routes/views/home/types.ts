@@ -12,7 +12,7 @@ export interface PortfolioItem {
 }
 
 /**
- * The HomeTranslations value.
+ * Type contract for HomeTranslations — the shape consumers rely on.
  */
 export interface HomeTranslations {
   portfoliolist?: PortfolioItem[] | Record<string, PortfolioItem>
@@ -20,7 +20,7 @@ export interface HomeTranslations {
 }
 
 /**
- * The AboutNode value.
+ * Type contract for AboutNode — the shape consumers rely on.
  */
 export interface AboutNode {
   mentions?: string
