@@ -7,7 +7,9 @@
 import { _K_SITE_URL } from '../base.js'
 
 /**
- * The CDN_URLS constant.
+ * Frozen cdn URL map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const CDN_URLS = Object.freeze({
   CDN_BASE: 'https://storage.googleapis.com/luiskr.com/public/_v3/',
@@ -16,7 +18,9 @@ export const CDN_URLS = Object.freeze({
 })
 
 /**
- * The SOCIAL_URLS constant.
+ * Frozen social URL map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const SOCIAL_URLS = Object.freeze({
   SITE: _K_SITE_URL,
