@@ -15,12 +15,18 @@ import type { Store } from '../../store.js'
 /** Input + hover mutation group. */
 export const inputMutations = (store: Store): MutationMap => ({
   setInputMethod: (payload) => {
+    // No-change writes return false → commit() skips notify(), so the
+    // frequent pointermove-driven calls don't re-render every subscriber.
     if (store.state.inputMethod === payload) return false
 
     store.state.inputMethod = String(payload)
 
+    // has_touch tracks the method verbatim — 'touch' method implies a
+    // touch-primary device for hover/cursor suppression elsewhere.
     store.state.has_touch = payload === COMMON_ATTRS.TOUCH
 
+    // Re-resolve the hint verb immediately so the label doesn't wait for
+    // the next onStoreUpdate render pass.
     store.state.clickortap =
       payload === COMMON_ATTRS.TOUCH
         ? store.state.actionTextMap.tap
@@ -37,6 +43,8 @@ export const inputMutations = (store: Store): MutationMap => ({
   setClickOrTap: (payload) => {
     const p = payload as { click?: string; tap?: string } | null
 
+    // Partial writes merge field-wise — a payload carrying only `tap` keeps
+    // the current `click` verb rather than blanking it.
     if (p?.click || p?.tap) {
       store.state.actionTextMap = {
         click: p.click || store.state.actionTextMap.click,
@@ -50,6 +58,9 @@ export const inputMutations = (store: Store): MutationMap => ({
     }
   },
   setHover: (payload) => {
+    // Touch devices have no hover affordance (MDN: hover fires as a
+    // synthesized event on tap, not continuously) — the follower and body
+    // class are pointer-only.
     if (!store.state.has_touch) {
       store.state.showhover = true
 
@@ -65,6 +76,10 @@ export const inputMutations = (store: Store): MutationMap => ({
   setOnMouseMove: (payload) => {
     const p = payload as { pageX?: number; pageY?: number } | null
 
+    // `|| 0` (not `?? 0`): a missing/unreadable coordinate must collapse to
+    // the origin corner rather than propagate NaN into the follower offset.
+    // The 60px shift centers the ring's bounding box on the pointer tip —
+    // the ring's drawn radius is ~60px from its box corner.
     store.state.page.left = (p?.pageX || 0) - 60
 
     store.state.page.top = (p?.pageY || 0) - 60
