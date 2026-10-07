@@ -39,7 +39,9 @@ export interface SafariPatchableEl extends HTMLElement {
 }
 
 /**
- * Type contract for PatchableProto — the shape consumers rely on.
+ * The slice of a component prototype the patches may re-bind — every
+ * member is optional because a patch only touches the methods Safari
+ * actually breaks (e.g. media-figure's high-res load path).
  */
 export interface PatchableProto {
   _renderInitial?: () => void
@@ -50,7 +52,5 @@ export interface PatchableProto {
   _updateModalDOM?: () => void
 }
 
-/**
- * Type contract for PatchableCtor — the shape consumers rely on.
- */
+/** A custom-element constructor whose prototype exposes the patchable methods. */
 export type PatchableCtor = CustomElementConstructor & { prototype: PatchableProto }
