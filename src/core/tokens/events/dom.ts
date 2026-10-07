@@ -59,7 +59,9 @@ export const KEYBOARD_EVENTS = Object.freeze({
 })
 
 /**
- * focuses events.
+ * Frozen focus event-name map — `focusin`/`focusout` bubble (needed for
+ * delegation on shadow hosts) while `focus`/`blur` do not; both pairs are
+ * kept so listeners pick the right variant for the propagation model.
  */
 export const FOCUS_EVENTS = Object.freeze({
   FOCUS: _K_FOCUS,
@@ -80,7 +82,9 @@ export const FORM_EVENTS = Object.freeze({
 })
 
 /**
- * drags events.
+ * Frozen drag event-name map — the HTML5 drag-and-drop subset used by CMS
+ * upload zones (`drop` fires on the target, `dragover` must be
+ * preventDefault'ed for drop to be allowed per the DnD spec).
  */
 export const DRAG_EVENTS = Object.freeze({
   DRAGSTART: 'dragstart',
