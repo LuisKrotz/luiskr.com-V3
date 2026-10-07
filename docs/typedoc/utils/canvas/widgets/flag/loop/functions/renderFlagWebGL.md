@@ -1,0 +1,27 @@
+[**luiskr.com**](../../../../../../README.md)
+
+---
+
+[luiskr.com](../../../../../../README.md) / [utils/canvas/widgets/flag/loop](../README.md) / renderFlagWebGL
+
+```ts
+function renderFlagWebGL(flag, now): void
+```
+
+Defined in: [src/utils/canvas/widgets/flag/loop.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/utils/canvas/widgets/flag/loop.ts#L51)
+
+Per-frame WebGL render: updates time/hover uniforms and draws the quad.
+
+## Parameters
+
+### flag
+
+[`FlagWebGL`](../../../flag-webgl/classes/FlagWebGL.md)
+
+### now
+
+`number`
+
+## Returns
+
+`void`

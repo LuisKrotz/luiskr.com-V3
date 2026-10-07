@@ -1,0 +1,15 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "name": "luiskr.com",
+  "entryPoints": ["src"],
+  "entryPointStrategy": "expand",
+  "plugin": ["typedoc-plugin-markdown"],
+  "out": "docs/typedoc",
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "readme": "none",
+  "sort": ["source-order"],
+  "flattenOutputFiles": false,
+  "hidePageTitle": true,
+  "useCodeBlocks": true
+}

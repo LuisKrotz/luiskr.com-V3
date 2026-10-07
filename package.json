@@ -54,7 +54,10 @@
     "docs:jsdocs": "node scripts/docs/gen-docs.mjs --out docs/jsdocs",
     "format:check": "prettier --check \"**/*.{js,mjs,cjs,ts,tsx,scss,css,json,md,yml,yaml,html}\" --ignore-unknown",
     "stylelint": "stylelint \"src/**/*.scss\"",
-    "hooks:install": "zsh scripts/install-hooks.sh"
+    "hooks:install": "zsh scripts/install-hooks.sh",
+    "docs:typedoc": "typedoc",
+    "docs:sassdoc": "sassdoc src/sass --dest docs/sassdoc",
+    "docs": "yarn docs:api && yarn docs:jsdocs && yarn docs:typedoc && yarn docs:sassdoc"
   },
   "dependencies": {
     "@rolldown/binding-linux-x64-gnu": "^1.2.3",
@@ -86,8 +89,11 @@
     "prettier": "^3.9.6",
     "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.102.0",
+    "sassdoc": "^2.7.4",
     "stylelint": "^17.16.0",
     "terser": "^5.51.2",
+    "typedoc": "^0.28.20",
+    "typedoc-plugin-markdown": "^4.13.1",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.1",
     "vite": "^8.2.1",

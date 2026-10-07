@@ -1,0 +1,34 @@
+[**luiskr.com**](../../../../../README.md)
+
+---
+
+[luiskr.com](../../../../../README.md) / [components/home/mosaic/interactions](../README.md) / onClick
+
+```ts
+function onClick(host, item, i): void
+```
+
+Defined in: [src/components/home/mosaic/interactions.ts:141](https://github.com/LuisKrotz/luiskr.com-V3/blob/dc19b98c416f1c06932286d4962b2322d8a9a425/src/components/home/mosaic/interactions.ts#L141)
+
+Card activation. Desktop: straight to the project route. Touch:
+first tap expands the details (records bottomH so the wall reflows),
+second tap on the SAME card navigates — the two-tap pattern gives
+touch users the hover preview desktop users get for free.
+
+## Parameters
+
+### host
+
+[`HomeMosaic`](../../../HomeMosaic/classes/HomeMosaic.md)
+
+### item
+
+[`MosaicItem`](../../pack/interfaces/MosaicItem.md)
+
+### i
+
+`number`
+
+## Returns
+
+`void`
