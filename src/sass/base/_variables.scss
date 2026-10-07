@@ -348,20 +348,8 @@ $space-8xl: 610;
 $space-9xl: 987;
 /// Fib(17) — 1597px, ultra-wide layout slots
 $space-10xl: 1597;
-/// Fib(18) — very large (rarely used)
-$space-11xl: 2584;
-/// Fib(19) — extremely large (rarely used)
-$space-12xl: 4181;
-/// Fib(21) — maximum scale (theoretical)
-$space-13xl: 10946;
-/// Fib(22)
-$space-14xl: 17711;
-/// Fib(23)
-$space-15xl: 28657;
-/// Fib(24)
-$space-16xl: 46368;
-/// Fib(25)
-$space-17xl: 75025;
+// The scale intentionally ends at 10xl — 1597px already exceeds the widest
+// content max-area, so fib(18)+ steps carried no consumers and were removed.
 
 // Z-indexes — layering system, every value declared once here
 /// z-index layer — the scale is declared once here, in stacking order

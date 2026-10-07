@@ -1,6 +1,3 @@
-@import 'variables';
-@import 'mixins';
-
 // ─── Design Grid Overlay ─────────────────────────────────────────────────────
 // Activated by `html.show-grid` class (toggled from Preferences → Show Grid).
 //
@@ -13,6 +10,9 @@
 //  - z-index: var(--z-overlay) — above content, below HUD/modals
 //  - rgba(255,255,255,...) is ALLOWED for overlays per AGENTS.md shadow exception
 //  - rgba($cms-accent-rgb,...) approximated via rgba() — accent column tint
+
+@import 'variables';
+@import 'mixins';
 //  - No hardcoded dimensions — all sizes from $gap-* and $grid-max-area-* tokens
 //
 // Breakpoints/gutters come from the shared $grid-steps map (the same table
