@@ -1,3 +1,12 @@
+/**
+ * @file drawtext.test.js
+ * @description Covers src/components/media/DrawText.js — the shadow-DOM
+ * typography component: attribute parsing (text/link/variant), per-word
+ * span generation, staggered animation timing, reduced-motion bypass, and
+ * ARIA labelling. The word-split math and reduced-motion path are the
+ * regression-prone areas the suite locks down.
+ */
+
 import '@/components/media/DrawText.js'
 import '@/core/store.js'
 import { LOCALES } from '@/core/constants.js'
