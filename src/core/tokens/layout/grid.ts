@@ -26,7 +26,9 @@ export const GRID_GAP = Object.freeze({
 
 // Must match calcColsForWidth() / calcMosaicCols() in wasm-layout.js
 /**
- * The MOSAIC_COLS constant.
+ * Frozen mosaic map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const MOSAIC_COLS = Object.freeze({
   0: 1, // < 540px: 1 column
