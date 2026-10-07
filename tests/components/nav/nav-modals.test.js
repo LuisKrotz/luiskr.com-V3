@@ -92,6 +92,7 @@ describe('AppNav', () => {
     expect(nav).not.toBeNull()
     expect(nav.getAttribute(ARIA_ATTRS.ROLE)).toBe(ARIA_ATTRS.ROLE_NAVIGATION)
     expect(logoBtn.textContent).toContain('LK PORTFOLIO')
+    expect(logoBtn.getAttribute(ARIA_ATTRS.ARIA_LABEL)).toBe('LK PORTFOLIO')
     expect(logoDrawText).toBeTruthy()
     expect(logoDrawText.getAttribute(FORM_ATTRS.TEXT)).toBe('LK PORTFOLIO')
   })

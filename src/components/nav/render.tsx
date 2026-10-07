@@ -116,6 +116,7 @@ export const renderAppNav = (nav: AppNav) => {
       <button
         className={logoClasses}
         type={FORM_ATTRS.TYPE_BUTTON}
+        aria-label={title}
         onClick={(e: Event) => nav.handleLogo(e)}
       >
         <DrawText text={title} delay={DRAW_TIMINGS.MENU_LABEL_CHAR_DELAY} offset={0} visible>
