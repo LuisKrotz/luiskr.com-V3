@@ -1,3 +1,11 @@
+/**
+ * @file jsx.test.js
+ * @description Covers src/core/jsx.js — the VDOM-free h() factory: prop
+ * routing (events, className, style objects + --* custom props, ref,
+ * dangerouslySetInnerHTML), boolean-attribute semantics (false must not
+ * emit attr="false"), SVG namespacing, and Fragment/children flattening.
+ */
+
 import { h, Fragment } from '@/core/jsx.js'
 import { TEST_TEXT } from '../../fixtures/test-constants.js'
 import { HTML_TAGS } from '@/core/tokens/elements/html.js'
