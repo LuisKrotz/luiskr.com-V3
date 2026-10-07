@@ -1,3 +1,12 @@
+/**
+ * @file wasm-performance.test.js
+ * @description Covers the WASM/GPU compute path — responsive column and
+ * padding math, grid geometry, easing/ring/delay calculations, media URL
+ * helpers (mozjpeg thumb variants), the worker pool dispatcher, GPU/NPU
+ * acceleration helpers, and the smooth-scroll physics engine. Asserts the
+ * JS fallbacks match the WASM results bit-for-bit where deterministic.
+ */
+
 import {
   calcColumnWidth,
   calcCardHeight,
