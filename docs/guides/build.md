@@ -87,6 +87,15 @@ lack; modern engines fetch zero bytes of polyfill.
   manifest and `index.html` injection.
 - `LK_KEEP_DIST=1` — don't empty `dist/` (used when building a subset).
 
+### Sourcemaps
+
+`build.sourcemap: true` in `vite.config.js` — every tier emits `.map`
+siblings for JS and CSS. JS maps chain esbuild → terser; CSS maps chain
+the Sass compile → lightningcss via `inputSourceMap` in
+`scripts/build/build-targets.mjs` (`emitCss`), so minified CSS maps back
+to the original `.scss` lines. Maps deploy alongside assets for real
+devtools debugging of the live site.
+
 ## i18n snapshot plugin
 
 `database.json` → per-locale virtual chunks (`virtual:locale-*`) emitted at
