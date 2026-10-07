@@ -5,6 +5,11 @@
  * by PreferencesModal markup and switch-slider logic.
  */
 
+/**
+ * Switch slider context types. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const SWITCH_TYPES = Object.freeze({
   STATS: 'stats',
   GRID: 'grid',
