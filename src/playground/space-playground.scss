@@ -292,16 +292,27 @@ $_B_SPP: '#{$_B_SP}-panel';
     overflow: hidden;
 
     &-header {
+      @extend %RESETBTN;
+
       display: flex;
       align-items: center;
       gap: to-rem($space-sm);
+      width: 100%;
       padding: to-rem($space-sm) to-rem($space-md);
+      border-bottom: to-rem($space-hairline) solid var(--border-color);
+      color: inherit;
+      background: transparent;
       cursor: pointer;
       user-select: none;
-      border-bottom: to-rem($space-hairline) solid var(--border-color);
 
-      &:hover {
+      &:hover,
+      &:focus-visible {
         background: var(--bg-primary);
+      }
+
+      &:focus-visible {
+        @include focus-ring;
+        outline-offset: to-rem(-$space-2xs);
       }
     }
 

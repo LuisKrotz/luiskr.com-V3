@@ -25,7 +25,7 @@ import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
 import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
 import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { FORM_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { FOCUS_EVENTS, FORM_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
 import { SP_CLASSES } from '@/core/tokens/classes/playground.js'
 import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 
@@ -94,6 +94,43 @@ describe('SpacePlayground', () => {
     await waitBoot(el)
 
     expect(el.shadowRoot.innerHTML).toContain('sp-panel')
+
+    el.onDestroy()
+    el.remove()
+  })
+
+  test('collapsed groups expose button semantics and follow keyboard focus', async () => {
+    const el = mount()
+
+    await waitBoot(el)
+
+    const group = el.shadowRoot.querySelector(
+      `.${SP_CLASSES.SP_GROUP}.${SP_CLASSES.SP_GROUP_COLLAPSED}`
+    )
+    const header = group.querySelector(`.${SP_CLASSES.SP_GROUP_HEADER}`)
+    const content = group.querySelector(`.${SP_CLASSES.SP_GROUP_CONTENT}`)
+
+    expect(header.tagName).toBe(HTML_TAGS.BUTTON.toUpperCase())
+    expect(header.getAttribute(ARIA_ATTRS.ARIA_EXPANDED)).toBe(ATTR_VALUES.FALSE)
+    expect(header.getAttribute(ARIA_ATTRS.ARIA_CONTROLS)).toBe(content.id)
+    expect(content.inert).toBe(true)
+
+    header.dispatchEvent(new Event(FOCUS_EVENTS.FOCUSIN, { bubbles: true }))
+
+    expect(group.classList.contains(SP_CLASSES.SP_GROUP_COLLAPSED)).toBe(false)
+    expect(header.getAttribute(ARIA_ATTRS.ARIA_EXPANDED)).toBe(ATTR_VALUES.TRUE)
+    expect(content.inert).toBe(false)
+
+    const focusOut = new Event(FOCUS_EVENTS.FOCUSOUT, { bubbles: true })
+
+    Object.defineProperty(focusOut, 'relatedTarget', {
+      value: el.shadowRoot.querySelector(`.${SP_CLASSES.SP_PANEL_BODY}`),
+    })
+    header.dispatchEvent(focusOut)
+
+    expect(group.classList.contains(SP_CLASSES.SP_GROUP_COLLAPSED)).toBe(true)
+    expect(header.getAttribute(ARIA_ATTRS.ARIA_EXPANDED)).toBe(ATTR_VALUES.FALSE)
+    expect(content.inert).toBe(true)
 
     el.onDestroy()
     el.remove()

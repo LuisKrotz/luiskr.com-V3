@@ -20,6 +20,9 @@ import { SLIDER_GROUPS, SP_DEFAULTS } from './controls.js'
 import { renderSpAction, renderSpControl } from './panel-render.js'
 import type { SpacePlayground } from '../SpacePlayground.js'
 
+/** Builds a stable relationship id for a group header and its content. */
+const groupContentId = (index: number): string => `${SP_CLASSES.SP_GROUP_CONTENT}-${index}`
+
 /**
  * Renders space playground.
  * @param host — the host component
@@ -32,6 +35,8 @@ export function renderSpacePlayground(host: SpacePlayground) {
   }
 
   const expLabel = t.experienceSettings
+  const positionGroupIndex = SLIDER_GROUPS.length
+  const targetGroupIndex = positionGroupIndex + 1
 
   const earthReady = host._earthReady
 
@@ -88,16 +93,27 @@ export function renderSpacePlayground(host: SpacePlayground) {
           </header>
 
           <div className={SP_CLASSES.SP_PANEL_BODY}>
-            {SLIDER_GROUPS.map((group) => (
+            {SLIDER_GROUPS.map((group, index) => (
               <div
                 className={`${SP_CLASSES.SP_GROUP}${group.collapsed ? ` ${SP_CLASSES.SP_GROUP_COLLAPSED}` : ATTR_VALUES.EMPTY}`}
               >
-                <div className={SP_CLASSES.SP_GROUP_HEADER}>
-                  <span className={SP_CLASSES.SP_GROUP_CHEVRON}>▶</span>
+                <button
+                  className={SP_CLASSES.SP_GROUP_HEADER}
+                  type={FORM_ATTRS.BUTTON}
+                  aria-expanded={group.collapsed ? ATTR_VALUES.FALSE : ATTR_VALUES.TRUE}
+                  aria-controls={groupContentId(index)}
+                >
+                  <span className={SP_CLASSES.SP_GROUP_CHEVRON} aria-hidden={ATTR_VALUES.TRUE}>
+                    ▶
+                  </span>
                   <span className={SP_CLASSES.SP_GROUP_LABEL}>{t[group.label] || group.label}</span>
-                </div>
+                </button>
 
-                <div className={SP_CLASSES.SP_GROUP_CONTENT}>
+                <div
+                  className={SP_CLASSES.SP_GROUP_CONTENT}
+                  id={groupContentId(index)}
+                  inert={group.collapsed}
+                >
                   {group.controls.map((ctrl) =>
                     renderSpControl(ctrl, t, host._savedSettings[ctrl.param])
                   )}
@@ -109,11 +125,18 @@ export function renderSpacePlayground(host: SpacePlayground) {
 
             {/* Position / Target readouts */}
             <div className={SP_CLASSES.SP_GROUP}>
-              <div className={SP_CLASSES.SP_GROUP_HEADER}>
-                <span className={SP_CLASSES.SP_GROUP_CHEVRON}>▶</span>
+              <button
+                className={SP_CLASSES.SP_GROUP_HEADER}
+                type={FORM_ATTRS.BUTTON}
+                aria-expanded={ATTR_VALUES.TRUE}
+                aria-controls={groupContentId(positionGroupIndex)}
+              >
+                <span className={SP_CLASSES.SP_GROUP_CHEVRON} aria-hidden={ATTR_VALUES.TRUE}>
+                  ▶
+                </span>
                 <span className={SP_CLASSES.SP_GROUP_LABEL}>{t.position}</span>
-              </div>
-              <div className={SP_CLASSES.SP_GROUP_CONTENT}>
+              </button>
+              <div className={SP_CLASSES.SP_GROUP_CONTENT} id={groupContentId(positionGroupIndex)}>
                 <div className={`${SP_CLASSES.SP_READOUT} ${SP_CLASSES.SP_POS}`}>
                   X: 0 Y: 0 Z: 0
                 </div>
@@ -121,11 +144,18 @@ export function renderSpacePlayground(host: SpacePlayground) {
             </div>
 
             <div className={SP_CLASSES.SP_GROUP}>
-              <div className={SP_CLASSES.SP_GROUP_HEADER}>
-                <span className={SP_CLASSES.SP_GROUP_CHEVRON}>▶</span>
+              <button
+                className={SP_CLASSES.SP_GROUP_HEADER}
+                type={FORM_ATTRS.BUTTON}
+                aria-expanded={ATTR_VALUES.TRUE}
+                aria-controls={groupContentId(targetGroupIndex)}
+              >
+                <span className={SP_CLASSES.SP_GROUP_CHEVRON} aria-hidden={ATTR_VALUES.TRUE}>
+                  ▶
+                </span>
                 <span className={SP_CLASSES.SP_GROUP_LABEL}>{t.target}</span>
-              </div>
-              <div className={SP_CLASSES.SP_GROUP_CONTENT}>
+              </button>
+              <div className={SP_CLASSES.SP_GROUP_CONTENT} id={groupContentId(targetGroupIndex)}>
                 <div className={`${SP_CLASSES.SP_READOUT} ${SP_CLASSES.SP_TGT}`}>
                   X: 0 Y: 0 Z: 0
                 </div>

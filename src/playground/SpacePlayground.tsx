@@ -71,6 +71,7 @@ export class SpacePlayground extends BaseComponent {
   _canvasEl: HTMLCanvasElement | null = null // persistent render canvas (kept across re-renders)
   _isInitializingEarth = false // re-entrancy guard while init() is in flight
   _earthReady = false // first usable frame delivered — loader dismisses
+  _keyboardExpandedGroups = new WeakSet<Element>() // collapsed groups opened only for focus traversal
 
   constructor() {
     super(spStyles)

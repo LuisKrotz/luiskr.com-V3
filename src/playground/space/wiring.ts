@@ -7,11 +7,12 @@
  */
 
 import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
+import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
 import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
 import { SP_CLASSES } from '@/core/tokens/classes/playground.js'
 import { CAROUSEL_CSS_PROPS } from '@/core/tokens/css/carousel.js'
 import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { FORM_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { FOCUS_EVENTS, FORM_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
 import { SP_ACTIONS } from '@/core/tokens/playground/actions.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { CheckboxWebGL } from './checkbox-webgl.js'
@@ -24,6 +25,18 @@ import {
 } from './controls.js'
 import type { SpacePlayground } from '../SpacePlayground.js'
 import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
+
+/** Synchronizes one group's collapsed class, accessibility state, and focusability. */
+function setGroupCollapsed(group: Element, collapsed: boolean): void {
+  group.classList.toggle(SP_CLASSES.SP_GROUP_COLLAPSED, collapsed)
+
+  const header = group.querySelector(`.${SP_CLASSES.SP_GROUP_HEADER}`)
+  const content = group.querySelector(`.${SP_CLASSES.SP_GROUP_CONTENT}`) as HTMLElement | null
+
+  header?.setAttribute(ARIA_ATTRS.ARIA_EXPANDED, collapsed ? ATTR_VALUES.FALSE : ATTR_VALUES.TRUE)
+
+  if (content) content.inert = collapsed
+}
 
 /**
  * Binds space controls.
@@ -58,7 +71,10 @@ export function bindSpaceControls(c: SpacePlayground): void {
     if (header) {
       const group = header.closest(`.${SP_CLASSES.SP_GROUP}`)
 
-      if (group) group.classList.toggle(`${SP_CLASSES.SP_GROUP_COLLAPSED}`)
+      if (group) {
+        c._keyboardExpandedGroups.delete(group)
+        setGroupCollapsed(group, !group.classList.contains(SP_CLASSES.SP_GROUP_COLLAPSED))
+      }
 
       return
     }
@@ -71,6 +87,33 @@ export function bindSpaceControls(c: SpacePlayground): void {
     const action = btn.getAttribute(DATA_ATTRS.DATA_ACTION)
 
     c._handleAction(action, btn)
+  })
+
+  // Keyboard traversal opens a collapsed group when its header receives
+  // focus, keeps it open while focus moves through its controls, and restores
+  // the collapsed state once focus leaves the whole group.
+  c.addScopedListener(c.shadowRoot, FOCUS_EVENTS.FOCUSIN, (e) => {
+    const target = e.target as Element | null
+    const group = target?.closest?.(`.${SP_CLASSES.SP_GROUP}`)
+
+    if (!group || !group.classList.contains(SP_CLASSES.SP_GROUP_COLLAPSED)) return
+
+    c._keyboardExpandedGroups.add(group)
+    setGroupCollapsed(group, false)
+  })
+
+  c.addScopedListener(c.shadowRoot, FOCUS_EVENTS.FOCUSOUT, (e) => {
+    const target = e.target as Element | null
+    const group = target?.closest?.(`.${SP_CLASSES.SP_GROUP}`)
+
+    if (!group || !c._keyboardExpandedGroups.has(group)) return
+
+    const next = (e as FocusEvent).relatedTarget as Node | null
+
+    if (next && group.contains(next)) return
+
+    c._keyboardExpandedGroups.delete(group)
+    setGroupCollapsed(group, true)
   })
 
   // Sliders (input event)

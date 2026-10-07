@@ -11,6 +11,7 @@ import { _K_DIALOG } from '../base.js'
 export const ARIA_ATTRS = Object.freeze({
   ARIA_LABEL: 'aria-label',
   ARIA_EXPANDED: 'aria-expanded',
+  ARIA_CONTROLS: 'aria-controls',
   ARIA_LABELLEDBY: 'aria-labelledby',
   ARIA_MODAL: 'aria-modal',
   ARIA_HIDDEN: 'aria-hidden',
