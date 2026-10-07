@@ -8,7 +8,11 @@
 import { _B_ABOUT, _B_CONTACT } from '../base.js'
 
 /**
- * routes paths.
+ * Frozen public-route map — canonical (English) URL paths. `*_SEGMENT`
+ * variants exist for string-contains matching when the leading slash would
+ * false-positive (e.g. '/portfolio/' vs the bare 'portfolio' segment);
+ * `PORTFOLIO`/`PORTFOLIO_SLASH` duplicate intentionally so call sites
+ * read unambiguously by intent.
  */
 export const ROUTE_PATHS = Object.freeze({
   ROOT: '/',
