@@ -24,23 +24,37 @@ import { SKELETON_RENDER } from '@/core/tokens/motion/skeleton.js'
 
 /** Per-placeholder computed style, cached between measures (cleared on theme flip). */
 export interface SkelStyle {
+  /** Computed line-height — text placeholders tile glyph rows against it. */
   lineHeight: number
+  /** Computed border-radius — forwarded to the shader's corner rounding. */
   radius: number
+  /** Whether this placeholder is a text line (vs a media block). */
   textLike: boolean
+  /** Raw CSS color string for the base fill — parsed lazily. */
   baseStr: string
+  /** Raw CSS color string for the ink/glyph color — parsed lazily. */
   inkStr: string
 }
 
 /** One measured placeholder: geometry (CSS px) + sampled palette for the shader. */
 export interface SkelRect {
+  /** Left edge relative to the layer canvas origin. */
   x: number
+  /** Top edge relative to the layer canvas origin. */
   y: number
+  /** Box width in CSS px. */
   w: number
+  /** Box height in CSS px. */
   h: number
+  /** Corner radius in CSS px — matches the placeholder's own border-radius. */
   radius: number
+  /** Glyph cell size driving the procedural 0/1 grid density. */
   cell: number
+  /** Row index within a text placeholder (0 for media blocks). */
   row: number
+  /** Parsed [r,g,b,a] base fill 0–1 floats for the u_sbase uniform array. */
   base: number[]
+  /** Parsed [r,g,b,a] ink/glyph floats for the u_sink uniform array. */
   ink: number[]
 }
 
@@ -63,31 +77,57 @@ export class SkeletonWebGL {
    * @param {ShadowRoot} root    Where the canvas lives (survives content re-renders)
    * @param {Element} content    The content wrapper that holds the placeholders
    */
+  /** Host custom element — the layer positions itself via :host(.has-skeleton-layer). */
   host: HTMLElement
+  /** Shadow root that owns the canvas — survives content re-renders. */
   root: ShadowRoot
+  /** Content wrapper holding the placeholders being measured. */
   content: Element
+  /** Per-layer 2D canvas the shared renderer blits into. */
   canvas: HTMLCanvasElement | null = null
+  /** The canvas's 2D context — receives the blit each frame. */
   ctx: CanvasRenderingContext2D | null = null
+  /** Borrowed shared-renderer handle — null until acquire succeeds. */
   renderer: SkeletonRenderer | null = null
+  /** rAF handle for the shimmer loop — null while paused/destroyed. */
   animId: number | null = null
+  /** Measured placeholder list — rebuilt by refresh(). */
   rects: SkelRect[] = []
+  /** Flat xyzw rect data uploaded as the u_rects uniform array. */
   rectData = new Float32Array(SKELETON_RENDER.MAX_RECTS * 4)
+  /** Per-rect metadata (radius/cell/row pad) uploaded as u_meta. */
   metaData = new Float32Array(SKELETON_RENDER.MAX_RECTS * 4)
+  /** Per-rect base RGBA uploaded as u_sbase. */
   skelBaseData = new Float32Array(SKELETON_RENDER.MAX_RECTS * 4)
+  /** Per-rect ink RGBA uploaded as u_sink. */
   skelInkData = new Float32Array(SKELETON_RENDER.MAX_RECTS * 4)
+  /** Sampled --skel-bg base palette floats (theme-level default). */
   base: number[] | null = null
+  /** Sampled ink/glyph palette floats (theme-level default). */
   ink: number[] | null = null
+  /** Ink opacity multiplier — fades during the resolve-out. */
   inkAlpha = 1
+  /** Canvas origin in page coords — rect measurements are relative to it. */
   origin = { x: 0, y: 0 }
+  /** devicePixelRatio — canvas backing store scales by it. */
   dpr = 1
+  /** Frame counter — feeds the glyph-morph phase. */
   _frame = 0
+  /** Whether WebGL mode is live on this layer (webglPool reads this). */
   useWebGL = false
+  /** performance.now() stamp when the resolve-out began — drives the fade. */
   resolveStart = 0
+  /** Loop epoch — u_time is (now − startTime)/1000 so shaders see seconds. */
   startTime = performance.now()
+  /** ResizeObserver on the content wrapper — geometry follows layout. */
   _ro: ResizeObserver | null = null
+  /** Deferred init id (requestIdleCallback or setTimeout fallback). */
   _idleId: number | null = null
+  /** Pending refresh rAF — debounces repeated layout churn into one measure. */
   _refreshId: number | null = null
+  /** Purge latch — restore() early-returns unless a purge happened. */
   _paused = false
+  /** Bound resize handler — remeasures placeholder geometry. */
   _onResize = (): void => this.refresh()
   /** Placeholder nodes currently observed for size changes — rebuilt on each measure. */
   _observed: Set<Element> = new Set()
@@ -106,6 +146,7 @@ export class SkeletonWebGL {
     this._init()
   }
 
+  /** Bootstrap — canvas attach, measure, theme sample, renderer acquire (skeleton/init.ts). */
   _init() {
     init(this)
   }
@@ -158,8 +199,11 @@ export class SkeletonWebGL {
     if (!this.animId) this._loop()
   }
 
-  /** Parses rgb()/hex into normalized floats for shader uniforms. */
-
+  /**
+   * Parses rgb()/hex into normalized 0–1 floats for shader uniforms.
+   * @param str Raw CSS color string.
+   * @returns [r,g,b,a] floats, or null on unparsable input.
+   */
   _parseCssColor(str: unknown): number[] | null {
     return parseCssColor(str)
   }
@@ -169,8 +213,10 @@ export class SkeletonWebGL {
     sampleTheme(this)
   }
 
-  /** Debounces a geometry re-measure (fonts/layout shifts). */
-
+  /**
+   * Debounces a geometry re-measure (fonts/layout shifts) — coalesces a
+   * burst of RO/resize callbacks into a single post-layout measure.
+   */
   _scheduleRefresh() {
     if (this._refreshId || !this.useWebGL) return
 
@@ -185,25 +231,26 @@ export class SkeletonWebGL {
    * Re-measures every skeleton placeholder inside the host and resizes the
    * canvas to the union of their boxes. Call after each render.
    */
-  /** Re-measures the skeleton DOM rects into the layer's draw list. */
   refresh() {
     measureSkeleton(this)
   }
 
-  /** Uploads the latest geometry + theme to shader uniforms. */
-
+  /** Uploads the latest geometry + theme to shader uniforms (skeleton/loop.ts). */
   _upload() {
     upload(this)
   }
 
-  /** rAF callback — animates the shimmer until resolved (see skeleton-loop.ts). */
-
+  /** rAF callback — animates the shimmer until resolved (skeleton/loop.ts). */
   _loop() {
     loop(this)
   }
 
-  /** Renders a frame via the shared renderer. */
-
+  /**
+   * Renders one frame via the shared renderer — delegates the actual GL
+   * draw + 2D blit to skeleton/loop.ts.
+   * @param t Animation clock in seconds.
+   * @param resolve Resolve-out progress 0–1.
+   */
   _render(t: number, resolve: number): void {
     render(this, t, resolve)
   }
@@ -217,8 +264,12 @@ export class SkeletonWebGL {
     resolve(this)
   }
 
-  /** Releases the context, buffers, listeners and rAF handle so the canvas can be GC'd. */
-
+  /**
+   * Releases every acquired resource — rAF loop, resize listener,
+   * ResizeObserver, pending idle/refresh callbacks, pool registration,
+   * shared-renderer ref, and the canvas itself — so nothing references
+   * the layer after the host detaches.
+   */
   destroy() {
     if (this.animId) {
       cancelAnimationFrame(this.animId)
@@ -272,6 +323,7 @@ export class SkeletonWebGL {
  * Keeps a component's skeleton layer in sync with its rendered content.
  * Call from onUpdated()/onMounted(): creates the layer while skeleton nodes
  * exist, re-measures after every render, resolves it once they are gone.
+ * @param component The host component whose content is being watched.
  */
 export const syncSkeletonLayer = (component: BaseComponent): void => {
   const content = component._contentNode
@@ -304,8 +356,10 @@ export const syncSkeletonLayer = (component: BaseComponent): void => {
 }
 
 /**
- * The destroySkeletonLayer constant.
- * @param component — the value
+ * Component-unmount teardown — destroys the layer immediately (no
+ * resolve-out: the host is going away, so a fade would never be seen) and
+ * clears the component's reference.
+ * @param component The host component being unmounted.
  */
 export const destroySkeletonLayer = (component: BaseComponent): void => {
   component._skeletonLayer?.destroy()
