@@ -17,18 +17,20 @@
   width: 100%;
 }
 
-// About section — %MAXAREA column with metallic hairline top border + filament-glow accent.
+// About section — %MAXAREA column with filament-glow accent. The metallic
+// hairline top border only runs ≥768 — on stacked mobile layout it reads as
+// a stray divider floating between the bio and the mentions.
 .about {
   @extend %MAXAREA;
 
-  border-top: to-rem($space-hairline) solid transparent;
-  border-image: var(--metallic-hairline) 1;
   background-image: var(--filament-glow);
   padding-top: to-rem($space-3xl);
   // Smooth transition when masonry above changes height (hover expand/collapse)
   transition: padding-top 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 
   @include layout-768() {
+    border-top: to-rem($space-hairline) solid transparent;
+    border-image: var(--metallic-hairline) 1;
     padding-top: to-rem($space-4xl);
   }
 

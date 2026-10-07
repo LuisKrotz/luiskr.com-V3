@@ -439,10 +439,19 @@ $_TURB-B: 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 widt
 // the global theme — links, the contour shader (which samples the
 // canvas's computed --menu-ink*), and the CSS fallback all stay
 // white-on-dark there.
-.#{$_B_NAV}--playground .#{$_B_NAV}-menu-modal {
-  --menu-bg: var(--bg-darkest);
-  --menu-ink: var(--color-white-raw);
-  --menu-ink-2: var(--color-white-raw);
+// The logo link is pinned to pure white too — --on-dark's --grey-2 reads
+// as a dim grey, and on the dark playground scene the logo must read as
+// full-strength white from the very first paint.
+.#{$_B_NAV}--playground {
+  .#{$_B_NAV}-menu-modal {
+    --menu-bg: var(--bg-darkest);
+    --menu-ink: var(--color-white-raw);
+    --menu-ink-2: var(--color-white-raw);
+  }
+
+  .#{$_B_NAV}-logo-btn {
+    color: var(--color-white-raw);
+  }
 }
 
 // Menu overlay top row: title + circular close button.

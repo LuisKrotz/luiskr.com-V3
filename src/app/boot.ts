@@ -83,25 +83,31 @@ export function mountAppShell(c: AppRoot): void {
       pBar.classList.add(APP_CLASSES.PROGRESS_BAR_ACTIVE)
     }
 
-    c.currentViewTag = to.view
-    c._updateViewContent(to, from)
-    c.loadData()
-
+    // Completion is scheduled BEFORE the view swap + data fan-out so a throw
+    // downstream can never strand the bar mid-crawl (notify swallows listener
+    // errors). The timeout re-queries the node because a re-render between
+    // now and then may have replaced the captured element.
     setTimeout(() => {
       c.routeLoading = false
-      if (pBar) {
+      const liveBar = c.$(`.${APP_CLASSES.PROGRESS_BAR}`)
+
+      if (liveBar) {
         // Swap crawl for done: the bar completes to 100% and fades in
         // place instead of retracting to 0. The reset timeout removes
         // --done once the fade finished so the next navigation starts
         // clean (transform reset lands while opacity is still 0).
-        pBar.classList.remove(APP_CLASSES.PROGRESS_BAR_ACTIVE)
-        pBar.classList.add(APP_CLASSES.PROGRESS_BAR_DONE)
+        liveBar.classList.remove(APP_CLASSES.PROGRESS_BAR_ACTIVE)
+        liveBar.classList.add(APP_CLASSES.PROGRESS_BAR_DONE)
 
         setTimeout(() => {
-          pBar.classList.remove(APP_CLASSES.PROGRESS_BAR_DONE)
+          liveBar.classList.remove(APP_CLASSES.PROGRESS_BAR_DONE)
         }, ANIMATION_DURATIONS.PROGRESS_BAR_RESET)
       }
     }, ANIMATION_DURATIONS.ROUTE_DURATION)
+
+    c.currentViewTag = to.view
+    c._updateViewContent(to, from)
+    c.loadData()
   })
 
   // Initial view

@@ -210,7 +210,7 @@ html.dark-mode {
   --white: #0a0b10;
   --black: #ffffff;
   --grey: #b2b4b7;
-  --grey-2: #abacac0e;
+  --grey-2: #abacac;
   --grey-3: #cbd5e1;
 
   --skel-ink: var(--text-primary);
@@ -245,6 +245,10 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  // An unbreakable title word (long compound locales) must never push the
+  // page wider than the viewport — clip it at the body edge so no
+  // horizontal scrollbar appears and full-bleed backgrounds stay aligned.
+  overflow-x: hidden;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-primary);

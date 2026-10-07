@@ -625,6 +625,13 @@
         color: inherit;
         background: none;
         cursor: pointer;
+        // Mobile reads better capitalized (the authored sentence case);
+        // the uppercase treatment resumes at tablet/desktop widths.
+        text-transform: none;
+
+        @include layout-768() {
+          text-transform: uppercase;
+        }
 
         &-text {
           display: -webkit-box;
@@ -642,25 +649,29 @@
           transition: text-decoration-color 0.35s ease;
         }
 
-        // Trailing "···" affordance — hidden until JS measures real
+        // Trailing "···" affordance — a bordered pill so it reads as a
+        // control, not typographic ellipsis; hidden until JS measures real
         // truncation (is-truncated); dots pulse in a staggered wave.
         &-more {
           flex: none;
           display: inline-flex;
-          align-items: baseline;
-          gap: to-rem($space-3xs);
-          padding-bottom: to-rem($space-3xs);
-          opacity: 0;
+          align-items: center;
+          align-self: center;
+          gap: to-rem($space-xs);
+          padding: to-rem($space-2xs) to-rem($space-sm);
+          border: to-rem($space-3xs) solid var(--border-color);
+          border-radius: var(--radius-round);
           transform: translateY(to-rem($space-3xs));
+          opacity: 0;
           transition:
             opacity 0.3s ease,
             transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-            gap 0.3s ease;
+            border-color 0.3s ease;
         }
 
         &-dot {
-          width: to-rem($space-3xs);
-          height: to-rem($space-3xs);
+          width: to-rem($space-xs);
+          height: to-rem($space-xs);
           border-radius: var(--radius-round);
           background: currentColor;
           animation: note-dot-pulse 2.4s ease-in-out infinite;
@@ -675,7 +686,7 @@
         }
 
         &.is-truncated &-more {
-          opacity: 0.75;
+          opacity: 0.85;
           transform: translateY(0);
         }
 
@@ -706,12 +717,11 @@
         &:hover &-more,
         &:focus-visible &-more {
           opacity: 1;
-          gap: to-rem($space-2xs);
+          border-color: var(--border-item-hover);
         }
 
         &:active &-more {
-          gap: to-rem($space-3xs);
-          transform: translateY(to-rem($space-3xs)) scale(0.9);
+          transform: translateY(0) scale(0.92);
         }
       }
     }

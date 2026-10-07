@@ -8,7 +8,12 @@
 import { jest } from '@jest/globals'
 import { mountAppShell } from '@/app/boot.js'
 import router from '@/routes/router.js'
+import { APP_CLASSES } from '@/core/tokens/classes/app.js'
+import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
+import { ROUTE_NAMES } from '@/core/tokens/routes/names.js'
 import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+
+const flush = (ms = 0) => new Promise((resolve) => setTimeout(resolve, ms))
 
 describe('app boot tails', () => {
   test('mountAppShell — resolves the boot view + re-measures on document growth', () => {
@@ -64,6 +69,109 @@ describe('app boot tails', () => {
 
       if (savedRO === undefined) delete globalThis.ResizeObserver
       else globalThis.ResizeObserver = savedRO
+    }
+  })
+
+  test('route subscriber — bar completes even when the view swap throws mid-notify', async () => {
+    // Regression: the completion timer is armed BEFORE the view swap/data
+    // fan-out, so an exception downstream (swallowed by router.notify) can
+    // no longer leave the bar stuck in --active on first load.
+    const pBar = document.createElement('div')
+
+    pBar.className = APP_CLASSES.PROGRESS_BAR
+
+    const c = {
+      initInputListeners: jest.fn(),
+      loadData: jest.fn(),
+      subscribe: jest.fn(),
+      $: jest.fn((sel) => (sel.includes(APP_CLASSES.PROGRESS_BAR) ? pBar : null)),
+      addScopedListener: jest.fn(),
+      _updateViewContent: jest.fn(() => {
+        throw new Error('boom')
+      }),
+      updateSectionTops: jest.fn(),
+      checkScroll: jest.fn(),
+      routeLoading: false,
+      currentViewTag: null,
+    }
+
+    const prevRoute = router.currentRoute
+
+    router.currentRoute = null
+
+    try {
+      mountAppShell(c)
+
+      router.notify(
+        { name: ROUTE_NAMES.TERMS, view: VIEW_TAGS.VIEW_LEGAL, meta: {} },
+        null
+      )
+
+      expect(pBar.classList.contains(APP_CLASSES.PROGRESS_BAR_ACTIVE)).toBe(true)
+      expect(c._updateViewContent).toHaveBeenCalled()
+
+      await flush(ANIMATION_DURATIONS.ROUTE_DURATION + 50)
+
+      expect(c.routeLoading).toBe(false)
+      expect(pBar.classList.contains(APP_CLASSES.PROGRESS_BAR_DONE)).toBe(true)
+
+      await flush(ANIMATION_DURATIONS.PROGRESS_BAR_RESET + 50)
+
+      expect(pBar.classList.contains(APP_CLASSES.PROGRESS_BAR_DONE)).toBe(false)
+    } finally {
+      router.currentRoute = prevRoute
+    }
+  })
+
+  test('route subscriber — done lands on the live bar when the node was re-created mid-flight', async () => {
+    // Regression: if a re-render swaps the progress-bar node between
+    // nav-start and the completion tick, --done must land on the node the
+    // user can actually see, not the detached one.
+    const stale = document.createElement('div')
+    const live = document.createElement('div')
+
+    stale.className = `${APP_CLASSES.PROGRESS_BAR} ${APP_CLASSES.PROGRESS_BAR_ACTIVE}`
+    live.className = `${APP_CLASSES.PROGRESS_BAR} ${APP_CLASSES.PROGRESS_BAR_ACTIVE}`
+
+    let which = stale
+
+    const c = {
+      initInputListeners: jest.fn(),
+      loadData: jest.fn(),
+      subscribe: jest.fn(),
+      $: jest.fn((sel) => (sel.includes(APP_CLASSES.PROGRESS_BAR) ? which : null)),
+      addScopedListener: jest.fn(),
+      _updateViewContent: jest.fn(() => {
+        which = live
+      }),
+      updateSectionTops: jest.fn(),
+      checkScroll: jest.fn(),
+      routeLoading: false,
+      currentViewTag: null,
+    }
+
+    const prevRoute = router.currentRoute
+
+    router.currentRoute = null
+
+    try {
+      mountAppShell(c)
+
+      router.notify(
+        { name: ROUTE_NAMES.HOME, view: VIEW_TAGS.VIEW_HOME, meta: {} },
+        null
+      )
+
+      expect(stale.classList.contains(APP_CLASSES.PROGRESS_BAR_ACTIVE)).toBe(true)
+
+      await flush(ANIMATION_DURATIONS.ROUTE_DURATION + 50)
+
+      // The stale node never sees --done; the live replacement does.
+      expect(stale.classList.contains(APP_CLASSES.PROGRESS_BAR_DONE)).toBe(false)
+      expect(live.classList.contains(APP_CLASSES.PROGRESS_BAR_DONE)).toBe(true)
+      expect(c.routeLoading).toBe(false)
+    } finally {
+      router.currentRoute = prevRoute
     }
   })
 })
