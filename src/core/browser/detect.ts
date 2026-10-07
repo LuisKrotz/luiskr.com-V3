@@ -22,6 +22,7 @@ import { BROWSERS } from './browsers.js'
 import type { BrowserQuirks } from './browsers.js'
 
 export { BROWSERS }
+/** BrowserQuirks re-export — canonical definition + docs live in ./browsers.js. */
 export type { BrowserQuirks }
 
 /** Resolved engine identity — name, marketing major version, quirks. */
