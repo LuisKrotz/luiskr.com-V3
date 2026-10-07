@@ -8,7 +8,7 @@
  * Deploy Info tab).
  *
  * Gating: any violation with impact `critical` or `serious` fails the suite —
- * the same gate blocks pre-commit and pre-build via `npm run verify`.
+ * the same gate blocks pre-commit and pre-build via `yarn verify`.
  */
 
 import { describe, test, expect, beforeEach, afterAll, jest } from '@jest/globals'

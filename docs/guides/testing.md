@@ -1,6 +1,6 @@
 # Testing
 
-## Jest (`npm test` — run via the package script, not bare `npx jest`)
+## Jest (`yarn test` — run via the package script, not bare `npx jest`)
 
 68 suites, ~3400 tests. The tree mirrors `src/` — `tests/components/`
 splits into the same domains (`canvas/`, `carousel/`, `media/`, `nav/`,
@@ -58,7 +58,7 @@ enforced by style-governance Rule 11):
 4. Translation keys into `database.json` for **all 16 locales** — run
    `scripts/i18n-audit.py`.
 5. No new string literals twice — extend the leaf group in `core/tokens/`.
-6. Governance suite still green: `npm test && npm run lint`.
+6. Governance suite still green: `yarn test && yarn lint`.
 
 ## Lighthouse
 
@@ -70,20 +70,20 @@ after reading — repo rule.
 
 ## Coverage
 
-`npm run test:coverage` runs Jest with instrumentation and writes
+`yarn test:coverage` runs Jest with instrumentation and writes
 `coverage/` (html + json-summary). The summary is packaged into
-`dist/deploy-info/` by `npm run deploy:info` and shown in the CMS
+`dist/deploy-info/` by `yarn deploy:info` and shown in the CMS
 Deploy Info tab. `coverage/` is gitignored.
 
 ## Verification pipeline
 
-`npm run verify` is the single quality gate — it runs, in order:
+`yarn verify` is the single quality gate — it runs, in order:
 
 1. `scripts/verify/console-scan.mjs` — zero-console policy: **every** `console.*` callsite in `src/**/*.ts|tsx|js` is a violation (no allowlist). Diagnostics route through `src/core/devlog.ts` (`devWarn`/`devError`/`devInfo` — capped ring buffer, inspect in devtools via `__lkDevLog()`); report → `reports/console-scan.json`
 2. `npx eslint src tests` — zero errors and warnings
 3. `jest --coverage` — full suite including `tests/governance/axe-scan.test.js` (axe-core WCAG A+AA+AAA rule tags → `reports/axe-report.json`; violations of moderate impact or higher fail — matching Lighthouse's binary a11y gate), `tests/governance/contrast-aaa.test.js` (compiles the token sheet and enforces real WCAG AAA contrast ratios — 7:1 text, 3:1 UI/focus — since happy-dom cannot evaluate paint contrast and axe reports those checks as `incomplete`), and `tests/governance/style-governance.test.js` (zero-hardcoding + zero-console + no stack-emulation checks)
 4. `scripts/verify/coverage-gate.mjs` — per-file **100%** statements/branches/functions/lines enforcement (jest.config.js enforces the same globally), plus an absent-file check: every `src/` file must appear in the coverage report or carry `/* istanbul ignore file */` — a file missing from the report has silently 0% coverage
-5. `scripts/verify/security-scan.mjs` — `snyk test` when `SNYK_TOKEN` is set, else `npm audit`; high/critical vulnerabilities fail unless listed in `security-exceptions.json` (dev-only, requires justification + review date); report → `reports/snyk-report.json`
+5. `scripts/verify/security-scan.mjs` — `snyk test` when `SNYK_TOKEN` is set, else `yarn audit`; high/critical vulnerabilities fail unless listed in `security-exceptions.json` (dev-only, requires justification + review date); report → `reports/snyk-report.json`
 
 Gates:
 

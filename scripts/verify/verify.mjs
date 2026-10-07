@@ -10,7 +10,7 @@
  *   4. jest coverage  full suite incl. axe a11y scan + style governance;
  *                     writes reports/axe-report.json + coverage/
  *   5. coverage-gate  per-file ≥95% on statements/branches/functions
- *   6. security-scan  Snyk (SNYK_TOKEN) / npm audit fallback
+ *   6. security-scan  Snyk (SNYK_TOKEN) / yarn audit fallback
  *                     writes reports/snyk-report.json
  *
  * Every step writes machine-readable reports consumed by
@@ -30,11 +30,11 @@ const JEST =
 
 const STEPS = {
   format:
-    'npx prettier --check "**/*.{js,mjs,cjs,ts,tsx,scss,css,json,md,yml,yaml,html}" --ignore-unknown',
+    'yarn prettier --check "**/*.{js,mjs,cjs,ts,tsx,scss,css,json,md,yml,yaml,html}" --ignore-unknown',
   'console-scan': 'node scripts/verify/console-scan.mjs',
-  typecheck: 'npx tsc --noEmit',
-  lint: 'npx eslint src tests --max-warnings=0',
-  stylelint: 'npx stylelint "src/**/*.scss" --max-warnings=0',
+  typecheck: 'yarn tsc --noEmit',
+  lint: 'yarn eslint src tests --max-warnings=0',
+  stylelint: 'yarn stylelint "src/**/*.scss" --max-warnings=0',
   test: JEST,
   'coverage-gate': 'node scripts/verify/coverage-gate.mjs',
   'security-scan': 'node scripts/verify/security-scan.mjs',

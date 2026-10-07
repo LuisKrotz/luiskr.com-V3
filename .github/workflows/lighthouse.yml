@@ -16,17 +16,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
-      # npm run lighthouse already runs the production build (prebuild →
+      # yarn lighthouse already runs the production build (prebuild →
       # verify gate → vite build) before lhci autorun.
       # LHCI_GITHUB_APP_TOKEN comes from the repo Actions secret — installing
       # the Lighthouse CI GitHub App mints it; lhci autorun picks it up
       # automatically and posts commit status checks on the PR/commit.
       - name: Lighthouse CI
-        run: npm run lighthouse
+        run: yarn lighthouse
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

@@ -12,7 +12,7 @@ older-engine compatibility is delivered exclusively by this build matrix
 
 ## Multi-target matrix (`build/es-targets.mjs`)
 
-`npm run build` → `scripts/build/build-targets.mjs`:
+`yarn build` → `scripts/build/build-targets.mjs`:
 
 1. One `vite build` per tier (`LK_TARGET` env selects the tier config).
    Module tiers emit `dist/v/<tier>/assets/{index-*.js,index-*.css}`; the
@@ -129,9 +129,9 @@ dist/workers/wasm-worker.js
 ## Local verification loop
 
 ```
-npm test            # jest, 53 suites
-npm run lint        # eslint, 0 errors expected
-npm run build       # full 12-tier matrix (prebuild runs the verify gate)
+yarn test            # jest, 53 suites
+yarn lint        # eslint, 0 errors expected
+yarn build       # full 12-tier matrix (prebuild runs the verify gate)
 npx vite preview    # serve dist for Lighthouse/headless checks
 ```
 
@@ -140,13 +140,13 @@ they must not be committed.
 
 ## Deploy info bundle
 
-`scripts/build/deploy-info.mjs` (`npm run deploy:info`, also invoked automatically at
-the end of `npm run test:lighthouse`) writes `dist/deploy-info/`:
+`scripts/build/deploy-info.mjs` (`yarn deploy:info`, also invoked automatically at
+the end of `yarn test:lighthouse`) writes `dist/deploy-info/`:
 
 ```
 dist/deploy-info/index.json               { generatedAt, commit, files }
 dist/deploy-info/lighthouse-summary.json  per-URL scores + failing audits (last run only)
-dist/deploy-info/coverage-summary.json    Jest coverage totals (npm run test:coverage)
+dist/deploy-info/coverage-summary.json    Jest coverage totals (yarn test:coverage)
 ```
 
 `.lighthouseci/` is pruned to the last representative run's artifacts —

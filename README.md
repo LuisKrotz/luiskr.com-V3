@@ -10,11 +10,11 @@ i18n, CMS, playground, styling governance, build and testing guides.
 Quick start:
 
 ```bash
-npm install && npm run hooks:install
-npm run dev        # public site
-npm run dev:cms    # CMS with Firebase mock
-npm run verify     # full quality gate
-npm run build      # production build (verifies first)
+yarn install && yarn hooks:install
+yarn dev        # public site
+yarn dev:cms    # CMS with Firebase mock
+yarn verify     # full quality gate
+yarn build      # production build (verifies first)
 ```
 
 License: [MPL-2.0](docs/LICENSE)

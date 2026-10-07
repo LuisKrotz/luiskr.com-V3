@@ -434,13 +434,14 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
     expect(violations).toEqual([])
   })
 
-  test('Rule 12-14: quality-gate infrastructure exists and is wired into npm lifecycle', () => {
+  test('Rule 12-14: quality-gate infrastructure exists and is wired into the yarn lifecycle', () => {
     const requiredScripts = [
       'scripts/verify/console-scan.mjs',
       'scripts/verify/security-scan.mjs',
       'scripts/verify/coverage-gate.mjs',
       'scripts/verify/verify.mjs',
       'scripts/git-hooks/pre-commit',
+      'scripts/git-hooks/pre-push',
     ]
 
     requiredScripts.forEach((file) => {
@@ -449,7 +450,16 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
 
     const pkg = JSON.parse(fs.readFileSync(path.join(rootDir, 'package.json'), 'utf-8'))
 
-    expect(pkg.scripts.prebuild).toBe('npm run verify')
+    expect(pkg.scripts.prebuild).toBe('yarn verify')
+
+    const preCommit = fs.readFileSync(path.join(rootDir, 'scripts/git-hooks/pre-commit'), 'utf-8')
+    const prePush = fs.readFileSync(path.join(rootDir, 'scripts/git-hooks/pre-push'), 'utf-8')
+
+    expect(preCommit).toContain('yarn prettier --write')
+    expect(preCommit).toContain('yarn typecheck')
+    expect(preCommit).not.toContain('yarn test')
+    expect(prePush).toContain('yarn test')
+    expect(prePush).not.toContain('--coverage')
 
     const verifySrc = fs.readFileSync(path.join(rootDir, 'scripts/verify/verify.mjs'), 'utf-8')
 

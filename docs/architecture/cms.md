@@ -93,7 +93,7 @@ correctly but no tokens resolved.
 
 ## Offline dev mock
 
-`npm run dev:cms` (`CMS_MOCK=1 vite`) aliases `firebase.ts` +
+`yarn dev:cms` (`CMS_MOCK=1 vite`) aliases `firebase.ts` +
 `firebase/database` to `src/cms/dev/firebase-mock.ts`, an in-memory fake
 seeded from `database.json` — the full dashboard works with no auth and no
 network. The alias lives only inside the `CMS_MOCK` branch of `vite.config.js`,

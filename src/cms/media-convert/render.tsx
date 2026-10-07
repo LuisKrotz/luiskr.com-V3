@@ -212,7 +212,7 @@ export function renderMediaConverter(host: CmsMediaConverter) {
         <h3 class={CMS_CARD_CLASSES.CMS_CARD_TITLE}>🎬 Media Converter</h3>
         <p class={CMS_CARD_CLASSES.CMS_CARD_SUBTITLE}>
           This tool runs only on the local dev server — start the site with
-          <code> npm run dev </code> or <code>vite preview</code> on localhost to use it.
+          <code> yarn dev </code> or <code>vite preview</code> on localhost to use it.
         </p>
       </section>
     )

@@ -100,7 +100,7 @@ copyConstants, position, target …).
 ## Sync workflow
 
 1. Edit `database.json` (or via CMS for content edits).
-2. `npm run build` — Vite plugin emits per-locale snapshot chunks.
+2. `yarn build` — Vite plugin emits per-locale snapshot chunks.
 3. Push to Firebase: `firebase database:set /translations database-extract.json`
    (verified repo-is-newer before overwriting; live has no keys absent from
    the snapshot).

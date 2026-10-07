@@ -1,9 +1,7 @@
-#!/usr/bin/env bash
-# luiskr.com pre-commit gate —
+#!/usr/bin/env zsh
+# luiskr.com pre-commit gate — deliberately fast:
 #   1. prettier --write on every staged file (autofix, then re-stage)
-#   2. npm run verify: console-scan → typecheck → eslint (src+tests,
-#      zero-warning) → stylelint → jest coverage (incl. axe a11y scan) →
-#      coverage-gate → security-scan. Any failure blocks the commit.
+#   2. TypeScript typecheck only. Tests and coverage belong to later gates.
 #
 # Installed by scripts/install-hooks.sh → .git/hooks/pre-commit
 
@@ -14,11 +12,11 @@ cd "$(git rev-parse --show-toplevel)"
 # ── 1. Format staged files and re-stage them ─────────────────────────────────
 STAGED="$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(js|mjs|cjs|ts|tsx|scss|css|json|md|yml|yaml|html)$' || true)"
 
-if [ -n "$STAGED" ]; then
+if [[ -n "$STAGED" ]]; then
   echo "── pre-commit: prettier --write on staged files ──"
-  echo "$STAGED" | xargs npx prettier --write --ignore-unknown
-  echo "$STAGED" | xargs git add
+  print -r -- "$STAGED" | xargs yarn prettier --write --ignore-unknown
+  print -r -- "$STAGED" | xargs git add
 fi
 
-echo "── pre-commit: running verify (lint, tests+coverage, scans) ──"
-npm run verify
+echo "── pre-commit: TypeScript typecheck ──"
+yarn typecheck

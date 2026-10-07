@@ -2,7 +2,7 @@ import { devInfo } from '@/core/devlog.js'
 /**
  * @file dev/firebase-mock.js (cms)
  * @description Dev-only offline stub for Firebase Auth + RTDB. Enabled by
- * running the dev server with `CMS_MOCK=1 npm run dev` — vite.config.js
+ * running the dev server with `CMS_MOCK=1 yarn dev` — vite.config.js
  * aliases `firebase/database` and `../firebase.js` to this module.
  * Reads the committed `database.json` so every CMS editor can be exercised
  * without credentials; all writes are logged instead of persisted.

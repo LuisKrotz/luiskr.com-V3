@@ -83,13 +83,14 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Enforced by `scripts/verify/console-scan.mjs` → `reports/console-scan.json`; any callsite is a violation that fails the gate.
 
 13. **Security Scans Gate the Build**:
-    - `scripts/verify/security-scan.mjs` runs `snyk test` when `SNYK_TOKEN` is set, falling back to `npm audit` (same advisory data). High/critical vulnerabilities fail the gate; unfixable dev-only risks live in `security-exceptions.json` with justification + review date — never blanket-suppress.
+    - `scripts/verify/security-scan.mjs` runs `snyk test` when `SNYK_TOKEN` is set, falling back to `yarn audit` (same advisory data). High/critical vulnerabilities fail the gate; unfixable dev-only risks live in `security-exceptions.json` with justification + review date — never blanket-suppress.
     - `tests/governance/axe-scan.test.js` runs axe-core (WCAG A/AA/AAA rule tags) on real mounted surfaces — violations of moderate impact or higher fail the suite; `tests/governance/contrast-aaa.test.js` enforces computed WCAG AAA contrast ratios on the compiled token sheet (7:1 text / 3:1 UI) since happy-dom cannot measure paint contrast.
 
-14. **Verification Pipeline (pre-commit + pre-build)**:
-    - `npm run verify` is the single gate: console-scan → eslint (src+tests) → jest coverage (incl. axe scan) → coverage-gate → security-scan.
-    - `prebuild` runs verify automatically — a failing check means NO new `dist` is generated.
-    - `.git/hooks/pre-commit` (installed via `scripts/install-hooks.sh`, versioned at `scripts/git-hooks/pre-commit`) runs the same verify.
+14. **Verification Pipeline (commit → push → build)**:
+    - `pre-commit` stays fast: Prettier writes/re-stages changed files, then `yarn typecheck` blocks TypeScript errors.
+    - `pre-push` runs `yarn test` in parallel without coverage instrumentation.
+    - `yarn verify` is the complete prebuild gate: format check → console-scan → typecheck → eslint/stylelint → Jest with coverage (incl. axe scan) → per-file coverage gate → security scan. A failure prevents new `dist` output.
+    - Lighthouse runs only after a successful build when explicitly requested with `yarn build --verify-lighthouse`; ordinary builds do not run Lighthouse.
     - Test coverage must be **100% on every file** for statements, branches, functions, and lines — `jest.config.js` global threshold + `scripts/verify/coverage-gate.mjs` per-file enforcement.
     - All scan reports land in `reports/` → bundled into `dist/deploy-info/` by `scripts/build/deploy-info.mjs` → shown in the CMS "Deploy Info" tab.
 
@@ -101,7 +102,7 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Enforced by `tests/governance/component-portability.test.js`.
 
 16. **Deployment Prohibition**:
-    - Agents must NEVER run `npm run deploy`, `firebase deploy`, or any deployment command without an explicit, in-conversation user instruction for that specific deploy.
+    - Agents must NEVER run `yarn deploy`, `firebase deploy`, or any deployment command without an explicit, in-conversation user instruction for that specific deploy.
     - Verification, builds, and tests never include a deploy step.
 
 17. **Tests Are JavaScript On Purpose**:
@@ -130,3 +131,9 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Calculations, WebGL draw/calc code, and three.js plumbing get _detailed_ multi-line explanations (the math, the units, why the constants are what they are).
     - Every `.scss` file opens with a header comment block explaining which UI surface/component it styles and whether it is shared.
     - Enforced by `tests/governance/jsdoc-coverage.test.js`.
+
+22. **Yarn + Zsh Are the Toolchain Defaults**:
+    - Yarn is the only package manager — `yarn install`, `yarn add`, `yarn remove`, `yarn <script>`; never `npm`/`npx`/`pnpm` in commands, scripts, hooks, CI, or docs. `yarn.lock` is the sole lockfile — never regenerate `package-lock.json`.
+    - Dependency pinning uses the `resolutions` field (yarn 1.x mechanism) — `overrides` is npm-only and ignored by yarn.
+    - Zsh is the default shell — terminal commands, git hooks, and helper scripts run under zsh (`#!/usr/bin/env zsh`); do not introduce bash-only syntax.
+    - Mirrors `.agents/rules/default-package-manager.md` and `.agents/rules/default-terminal.md`.

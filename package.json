@@ -36,8 +36,8 @@
     "serve": "vite",
     "docs:api": "node scripts/docs/gen-docs.mjs",
     "verify": "node scripts/verify/verify.mjs",
-    "prebuild": "npm run verify",
-    "build": "node scripts/build/build-targets.mjs && node scripts/build/deploy-info.mjs && npm run docs:jsdocs",
+    "prebuild": "yarn verify",
+    "build": "node scripts/build/build-targets.mjs && node scripts/build/deploy-info.mjs && yarn docs:jsdocs",
     "preview": "vite preview",
     "test": "node --experimental-vm-modules --disable-warning=ExperimentalWarning node_modules/jest/bin/jest.js",
     "test:coverage": "node --experimental-vm-modules --disable-warning=ExperimentalWarning node_modules/jest/bin/jest.js --coverage",
@@ -54,7 +54,7 @@
     "docs:jsdocs": "node scripts/docs/gen-docs.mjs --out docs/jsdocs",
     "format:check": "prettier --check \"**/*.{js,mjs,cjs,ts,tsx,scss,css,json,md,yml,yaml,html}\" --ignore-unknown",
     "stylelint": "stylelint \"src/**/*.scss\"",
-    "hooks:install": "bash scripts/install-hooks.sh"
+    "hooks:install": "zsh scripts/install-hooks.sh"
   },
   "dependencies": {
     "@rolldown/binding-linux-x64-gnu": "^1.2.3",
@@ -62,7 +62,7 @@
     "register-service-worker": "^1.7.2",
     "three": "0.184.0"
   },
-  "overrides": {
+  "resolutions": {
     "@grpc/grpc-js": "^1.14.5",
     "tmp": "^0.2.7",
     "basic-ftp": "^6.2.1",

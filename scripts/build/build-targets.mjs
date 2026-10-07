@@ -16,7 +16,7 @@
  *      can execute. Modern browsers and Lighthouse get the default
  *      es2026/esnext bundle with zero polyfills and zero prefixes.
  *
- * Invoked by `npm run build` AFTER the prebuild verify gate passes.
+ * Invoked by `yarn build` AFTER the prebuild verify gate passes.
  */
 import { execFileSync } from 'node:child_process'
 import fs from 'node:fs'

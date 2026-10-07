@@ -10,10 +10,10 @@ if (!fs.existsSync(REPORTS_DIR)) {
 
 try {
   console.log('\n🚀 Step 1: Building production bundle...')
-  execSync('npm run build', { stdio: 'inherit' })
+  execSync('yarn build', { stdio: 'inherit' })
 
   console.log('\n⚡ Step 2: Running Lighthouse CI (lhci autorun)...')
-  execSync('npx lhci autorun', { stdio: 'inherit' })
+  execSync('yarn lhci autorun', { stdio: 'inherit' })
 
   console.log('\n📦 Step 3: Packaging last-deploy info into dist/deploy-info/ ...')
   execSync('node scripts/build/deploy-info.mjs', { stdio: 'inherit' })

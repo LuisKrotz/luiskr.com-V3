@@ -289,8 +289,8 @@ export const renderDeployInfo = (host: CmsDeployInfo) => {
       <section className={CMS_CARD_CLASSES.CMS_CARD}>
         <h2 className={CMS_CARD_CLASSES.CMS_CARD_TITLE}>Deploy Info</h2>
         <p className={CMS_FORM_CLASSES.CMS_HINT}>
-          No deploy-info bundle found at {DEPLOY_INFO_BASE}/ — run npm run test:lighthouse or npm
-          run deploy:info after a build.
+          No deploy-info bundle found at {DEPLOY_INFO_BASE}/ — run yarn test:lighthouse or yarn run
+          deploy:info after a build.
         </p>
       </section>
     )

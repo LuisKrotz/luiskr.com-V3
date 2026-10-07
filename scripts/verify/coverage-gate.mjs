@@ -7,10 +7,10 @@
  * matching the project rule "100% of all in all".
  *
  * Reads coverage/coverage-final.json (the 'json' reporter output produced by
- * `npm run test:coverage`) and exits 1 listing every file below threshold.
+ * `yarn test:coverage`) and exits 1 listing every file below threshold.
  * Also fails when a src/*.ts(x) file is ABSENT from the report — an absent
  * file has silently 0% coverage unless it carries `istanbul ignore file`.
- * Runs inside `npm run verify` after the coverage suite.
+ * Runs inside `yarn verify` after the coverage suite.
  */
 
 import fs from 'node:fs'
@@ -23,7 +23,7 @@ const THRESHOLD = 100
 const IGNORE_RE = /istanbul ignore file/
 
 if (!fs.existsSync(COVERAGE_FILE)) {
-  console.error('coverage-gate: coverage-final.json not found — run npm run test:coverage first')
+  console.error('coverage-gate: coverage-final.json not found — run yarn test:coverage first')
   process.exit(1)
 }
 

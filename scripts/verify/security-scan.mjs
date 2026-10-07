@@ -3,7 +3,8 @@
  * @file security-scan.mjs
  * @description Dependency vulnerability scan. Primary engine: Snyk
  * (`snyk test --json`, requires SNYK_TOKEN or `snyk auth`). Fallback engine:
- * `npm audit --json` (same GitHub Advisory data, no auth) so the gate still
+ * `yarn audit --json` (same GitHub Advisory data, no auth; yarn.lock is the
+ * project's lockfile so npm audit cannot run here) so the gate still
  * runs — and the CMS report is still produced — on machines without a token.
  *
  * Output: reports/snyk-report.json → bundled into dist/deploy-info/ by
@@ -39,7 +40,7 @@ const isExcepted = (vuln, exceptions) =>
 /** Runs the real Snyk CLI; returns parsed JSON or null on any failure. */
 const runSnyk = () => {
   try {
-    const out = execSync('npx snyk test --json', {
+    const out = execSync('yarn snyk test --json', {
       cwd: ROOT,
       stdio: ['ignore', 'pipe', 'pipe'],
       timeout: 300000,
@@ -74,46 +75,66 @@ const normalizeSnyk = (data) => ({
   summary: data.displayTargetFile || '',
 })
 
-const normalizeNpmAudit = (data) => {
+/**
+ * `yarn audit --json` emits NDJSON — one JSON object per line: `auditAdvisory`
+ * records (resolution path + advisory payload) and a closing `auditSummary`.
+ * Parse line-by-line and map each advisory to the report's vuln shape.
+ */
+const normalizeYarnAudit = (ndjson) => {
   const vulnerabilities = []
 
-  for (const [name, v] of Object.entries(data.vulnerabilities || {})) {
-    const advisories = (v.via || []).filter((x) => typeof x === 'object')
-    const chain = (v.effects || []).length ? `${name} → ${v.effects.join(' > ')}` : name
+  for (const line of ndjson.split('\n')) {
+    if (!line.trim()) continue
 
-    if (!advisories.length) {
-      vulnerabilities.push({
-        packageName: name,
-        severity: v.severity,
-        advisoryId: null,
-        title: `${name} affected via ${chain}`,
-        from: chain,
-        fixedIn: v.fixAvailable ? v.fixAvailable.version || 'yes' : null,
-        isUpgradable: Boolean(v.fixAvailable),
-        isPatchable: false,
-        exploit: null,
-        url: null,
-      })
-    } else {
-      for (const a of advisories) {
-        vulnerabilities.push({
-          packageName: name,
-          severity: v.severity,
-          advisoryId: `GHSA-via-${a.source || a.url || ''}`,
-          title: a.title,
-          from: chain,
-          range: a.range,
-          fixedIn: v.fixAvailable ? v.fixAvailable.version || 'yes' : null,
-          isUpgradable: Boolean(v.fixAvailable),
-          isPatchable: false,
-          exploit: null,
-          url: a.url || null,
-        })
-      }
+    let rec
+    try {
+      rec = JSON.parse(line)
+    } catch {
+      continue
     }
+
+    if (rec.type !== 'auditAdvisory') continue
+
+    const a = rec.data?.advisory || {}
+    const res = rec.data?.resolution || {}
+    // yarn reports unfixable advisories as patched_versions '<0.0.0'
+    const fixable = Boolean(
+      a.patched_versions && a.patched_versions !== '<none>' && a.patched_versions !== '<0.0.0'
+    )
+
+    vulnerabilities.push({
+      packageName: a.module_name,
+      severity: a.severity,
+      advisoryId: a.github_advisory_id || (a.url || '').split('/').pop() || null,
+      title: a.title,
+      from: res.path || (a.findings?.[0]?.paths || []).join(' > '),
+      range: a.vulnerable_versions,
+      fixedIn: fixable ? a.patched_versions : null,
+      isUpgradable: fixable,
+      isPatchable: false,
+      exploit: null,
+      url: a.url || null,
+    })
   }
 
-  return { scanner: 'npm-audit (snyk unavailable — set SNYK_TOKEN)', vulnerabilities, summary: '' }
+  // yarn emits one auditAdvisory record per resolution path — the same
+  // advisory can repeat for every dependent chain. Dedupe by advisory +
+  // package, keeping the first (shortest) resolution path as `from`.
+  const seen = new Set()
+
+  return {
+    scanner: 'yarn-audit (snyk unavailable — set SNYK_TOKEN)',
+    vulnerabilities: vulnerabilities.filter((v) => {
+      const key = `${v.advisoryId}|${v.packageName}`
+
+      if (seen.has(key)) return false
+
+      seen.add(key)
+
+      return true
+    }),
+    summary: '',
+  }
 }
 
 const tally = (vulns) => {
@@ -130,27 +151,26 @@ const main = async () => {
     const snyk = runSnyk()
     report = snyk ? normalizeSnyk(snyk) : null
     if (!report) {
-      console.warn('⚠  snyk test failed — falling back to npm audit')
+      console.warn('⚠  snyk test failed — falling back to yarn audit')
     }
   } else {
-    console.log('ℹ  SNYK_TOKEN not set — using npm audit (same advisory data)')
+    console.log('ℹ  SNYK_TOKEN not set — using yarn audit (same advisory data)')
   }
 
   if (!report) {
-    let audit
+    let ndjson
     try {
-      audit = JSON.parse(
-        execFileSync('npm', ['audit', '--json'], {
-          cwd: ROOT,
-          encoding: 'utf-8',
-          stdio: ['ignore', 'pipe', 'pipe'],
-          maxBuffer: 32 * 1024 * 1024,
-        })
-      )
+      // yarn audit exits non-zero when vulns exist — stdout still carries NDJSON
+      ndjson = execFileSync('yarn', ['audit', '--json'], {
+        cwd: ROOT,
+        encoding: 'utf-8',
+        stdio: ['ignore', 'pipe', 'pipe'],
+        maxBuffer: 32 * 1024 * 1024,
+      })
     } catch (err) {
-      audit = JSON.parse(err.stdout?.toString?.() || '{}')
+      ndjson = err.stdout?.toString?.() || ''
     }
-    report = normalizeNpmAudit(audit)
+    report = normalizeYarnAudit(ndjson)
   }
 
   const withStatus = report.vulnerabilities.map((v) => ({

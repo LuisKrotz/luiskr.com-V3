@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # Installs the versioned git hooks from scripts/git-hooks/ into .git/hooks/.
 # Run once after cloning (or after pulling when hooks change).
 

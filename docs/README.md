@@ -19,7 +19,7 @@ Three.js WebGPU/WebGL visuals, Vite (rolldown) build.
 | [styling-governance.md](guides/styling-governance.md) | Sass layers, design tokens, `AGENTS.md` rules enforced by tests          |
 | [build.md](guides/build.md)                           | Vite config, snapshot plugin, compat bundle, terser pitfalls             |
 | [testing.md](guides/testing.md)                       | Jest suites, governance tests, Lighthouse workflow                       |
-| [api/](api/README.md)                                 | Generated per-file docs from JSDoc — `npm run docs:api`                  |
+| [api/](api/README.md)                                 | Generated per-file docs from JSDoc — `yarn docs:api`                     |
 
 ## One-paragraph mental model
 
@@ -155,28 +155,28 @@ Ownership rule of thumb: **site code may not import from `cms/` or
 ## Setup & commands
 
 ```bash
-npm install          # install dependencies
-npm run hooks:install # install pre-commit/pre-push gates (prettier + verify)
-npm run dev          # dev server — public site (index.html)
-npm run dev:cms      # dev server with the CMS Firebase mock (CMS_MOCK=1)
-npm run verify       # full gate: console-scan → typecheck → eslint →
+yarn install          # install dependencies
+yarn hooks:install # install pre-commit/pre-push gates (prettier + verify)
+yarn dev          # dev server — public site (index.html)
+yarn dev:cms      # dev server with the CMS Firebase mock (CMS_MOCK=1)
+yarn verify       # full gate: console-scan → typecheck → eslint →
                      # stylelint → jest coverage (incl. axe) → coverage-gate
                      # → security-scan
-npm run build        # verify → multi-tier build → deploy-info → docs/jsdocs
-npm test             # jest (no coverage)
-npm run test:coverage # jest + coverage (per-file 100% gate via coverage-gate)
-npm run lint         # eslint src tests (zero warnings)
-npm run stylelint    # stylelint on src/**/*.scss
-npm run format       # prettier --write across the repo
-npm run format:check # prettier --check (CI gate)
-npm run typecheck    # tsc --noEmit
-npm run docs:api     # generated JSDoc docs → docs/api
-npm run docs:jsdocs  # generated JSDoc docs → docs/jsdocs (build step)
-npm run lighthouse   # Lighthouse CI assertions (100 everywhere except perf)
-npm run deploy:info  # bundle reports/ → dist/deploy-info
+yarn build        # verify → multi-tier build → deploy-info → docs/jsdocs
+yarn test             # jest (no coverage)
+yarn test:coverage # jest + coverage (per-file 100% gate via coverage-gate)
+yarn lint         # eslint src tests (zero warnings)
+yarn stylelint    # stylelint on src/**/*.scss
+yarn format       # prettier --write across the repo
+yarn format:check # prettier --check (CI gate)
+yarn typecheck    # tsc --noEmit
+yarn docs:api     # generated JSDoc docs → docs/api
+yarn docs:jsdocs  # generated JSDoc docs → docs/jsdocs (build step)
+yarn lighthouse   # Lighthouse CI assertions (100 everywhere except perf)
+yarn deploy:info  # bundle reports/ → dist/deploy-info
 ```
 
-`npm run deploy` exists but must **never** be run by an agent without an
+`yarn deploy` exists but must **never** be run by an agent without an
 explicit user instruction — see `AGENTS.md`.
 
 ## Testing note
