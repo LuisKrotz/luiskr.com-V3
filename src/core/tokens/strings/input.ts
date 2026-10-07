@@ -7,7 +7,9 @@
 import { _K_FOCUS, _K_POINTERENTER, _K_TOUCHSTART } from '../base.js'
 
 /**
- * The INPUT_STRINGS constant.
+ * Frozen input string map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const INPUT_STRINGS = Object.freeze({
   MOUSE: 'mouse',
