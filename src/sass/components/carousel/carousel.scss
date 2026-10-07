@@ -12,12 +12,19 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // Carousel
 // ─────────────────────────────────────────────────────────────────────────────
+/// BEM block fragment — composed via interpolation so the 'carousel'
+/// prefix is declared exactly once (DRY selector rule).
 $_B_CAROUSEL: 'carousel';
 
+/// Arrow-button hit area (square).
 $carousel-btn-size: to-rem($space-3xl);
+/// Dot diameter — inactive nav dots are small squares.
 $carousel-dot-size: to-rem($space-md);
+/// Pill length — the active dot stretches to a rounded pill.
 $carousel-dot-pill: to-rem($space-xl);
+/// Gap between nav dots.
 $carousel-dot-gap: to-rem($space-xs);
+/// Progress-ring stroke width around the arrow buttons.
 $ring-stroke: to-rem(2.5);
 
 // Carousel shell — vertical stack of track + controls.
