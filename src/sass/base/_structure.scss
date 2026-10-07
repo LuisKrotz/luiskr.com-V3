@@ -570,6 +570,13 @@ main {
     left: 0;
     pointer-events: none;
     z-index: 2;
+
+    // While resolving, the incoming content owns the foreground: the layer
+    // sinks below it so stale placeholder geometry never paints over real
+    // data — the dissolve is only visible through still-transparent areas.
+    &--resolving {
+      z-index: -1;
+    }
   }
 
   // Content arriving under a resolving layer fades in while glyphs collapse.
@@ -587,6 +594,9 @@ main {
 // visible underneath produces two superimposed skeleton animations everywhere.
 :host(.has-skeleton-layer) {
   position: relative;
+  // Confine the layer's stacking to this host so the resolving z-index: -1
+  // drops under this component's content only — never behind page siblings.
+  isolation: isolate;
 
   [data-content] [class*='skeleton'] {
     opacity: 0;

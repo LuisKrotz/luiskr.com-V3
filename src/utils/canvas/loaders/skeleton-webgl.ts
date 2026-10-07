@@ -80,6 +80,8 @@ export class SkeletonWebGL {
   _refreshId: number | null = null
   _paused = false
   _onResize = (): void => this.refresh()
+  /** Placeholder nodes currently observed for size changes — rebuilt on each measure. */
+  _observed: Set<Element> = new Set()
 
   constructor(host: HTMLElement, root: ShadowRoot, content: Element) {
     this.host = host
@@ -216,6 +218,8 @@ export class SkeletonWebGL {
     this._ro?.disconnect()
 
     this._ro = null
+
+    this._observed.clear()
 
     if (this._idleId) {
       if (typeof cancelIdleCallback === TYPE_STRINGS.FUNCTION) cancelIdleCallback(this._idleId)

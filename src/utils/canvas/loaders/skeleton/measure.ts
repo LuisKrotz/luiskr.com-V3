@@ -24,7 +24,43 @@ export function measureSkeleton(layer: SkeletonWebGL): void {
 
   if (layer.canvas.parentNode !== layer.root) layer.root.appendChild(layer.canvas)
 
+  // Content re-renders swap every placeholder node: keep the observer bound
+  // to the live set so post-data layout shifts (fonts, decoded media) still
+  // re-measure, and so nodes that start zero-sized get tracked once they grow.
+  if (layer._ro) {
+    const current = new Set(nodes)
+
+    layer._observed.forEach((el) => {
+      if (!current.has(el)) {
+        layer._ro?.unobserve(el)
+
+        layer._observed.delete(el)
+      }
+    })
+
+    nodes.forEach((el) => {
+      if (!layer._observed.has(el)) {
+        layer._ro?.observe(el)
+
+        layer._observed.add(el)
+      }
+    })
+  }
+
   const hostRect = layer.host.getBoundingClientRect()
+
+  // Rects are positioned against the host's padding box (the canvas's
+  // containing block) and clipped to it — a placeholder that overflows its
+  // host must not let the overlay canvas paint into sibling components.
+  const padX = layer.host.clientLeft
+
+  const padY = layer.host.clientTop
+
+  // display:contents hosts report 0 client box — fall back to the border box
+  // so the clip never degenerates to nothing.
+  const boundW = layer.host.clientWidth || Math.ceil(hostRect.width)
+
+  const boundH = layer.host.clientHeight || Math.ceil(hostRect.height)
 
   // Host-level palette first: per-rect sampling below falls back to it
   layer._sampleTheme()
@@ -68,11 +104,19 @@ export function measureSkeleton(layer: SkeletonWebGL): void {
       const ink =
         layer._parseCssColor(cs.getPropertyValue(SKELETON_CSS_PROPS.SKEL_INK)) || layer.ink
 
+      const x = Math.max(r.left - hostRect.left - padX, 0)
+
+      const y = Math.max(r.top - hostRect.top - padY, 0)
+
+      const w = Math.min(r.left - hostRect.left - padX + r.width, boundW) - x
+
+      const h = Math.min(r.top - hostRect.top - padY + r.height, boundH) - y
+
       return {
-        x: r.left - hostRect.left,
-        y: r.top - hostRect.top,
-        w: r.width,
-        h: r.height,
+        x,
+        y,
+        w,
+        h,
         radius: parseFloat(cs.borderTopLeftRadius) || 0,
         cell,
         row,

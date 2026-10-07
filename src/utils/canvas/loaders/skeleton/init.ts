@@ -8,7 +8,6 @@
 import { SKELETON_CLASSES } from '@/core/tokens/classes/skeleton.js'
 import { HTML_TAGS } from '@/core/tokens/elements/html.js'
 import { WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { SKELETON_SELECTORS } from '@/core/tokens/selectors/skeleton.js'
 import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
@@ -47,20 +46,21 @@ export function init(host: SkeletonWebGL): void {
 
   window.addEventListener(WINDOW_EVENTS.RESIZE, host._onResize, { passive: true })
 
-  // Placeholders settle after fonts/SVG placeholders load: follow their size
+  // Host resize re-measures; per-placeholder observation is owned by
+  // measureSkeleton() so re-rendered nodes stay tracked.
   if (typeof ResizeObserver !== TYPE_STRINGS.UNDEFINED) {
     host._ro = new ResizeObserver(() => host._scheduleRefresh())
 
     host._ro.observe(host.host)
-
-    host.content
-      .querySelectorAll(SKELETON_SELECTORS.SKELETON_ANY)
-      .forEach((el) => host._ro?.observe(el))
   }
 
   host.host.classList.add(SKELETON_CLASSES.HAS_SKELETON_LAYER)
 
   host.refresh()
+
+  // Paint one static field now — the placeholders are already transparent,
+  // so waiting for the idle-deferred loop would flash an empty area.
+  host._render(0, 0)
 
   // Off-screen layers stop rendering; they resume when scrolled into view
   webglPool.register(host.canvas, host)
