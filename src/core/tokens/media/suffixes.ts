@@ -5,6 +5,11 @@
  * pipeline and mozjpeg encoding passes.
  */
 
+/**
+ * Media asset filename-suffix tokens. All suffixes match the exact Firebase Storage naming convention used by the Kodak MSSIM blur-up pipeline and mozjpeg encoding passes. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const MEDIA = Object.freeze({
   /** Base mozjpeg prefix used in all derived filenames */
   MOZ: '-mozjpg',
