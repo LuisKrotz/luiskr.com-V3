@@ -89,12 +89,16 @@ lack; modern engines fetch zero bytes of polyfill.
 
 ### Sourcemaps
 
-`build.sourcemap: true` in `vite.config.js` — every tier emits `.map`
-siblings for JS and CSS. JS maps chain esbuild → terser; CSS maps chain
-the Sass compile → lightningcss via `inputSourceMap` in
-`scripts/build/build-targets.mjs` (`emitCss`), so minified CSS maps back
-to the original `.scss` lines. Maps deploy alongside assets for real
-devtools debugging of the live site.
+`build.sourcemap: true` in `vite.config.js` — every tier emits `.js.map`
+siblings (esbuild → terser chain preserved). CSS: rolldown-vite does not
+emit sourcemaps for code-split CSS assets, so `emitCss` in
+`scripts/build/build-targets.mjs` ships a mapped copy of the global sheet
+per tier: `app-<hash>.css` + `.map` (unreferenced by the manifest — a
+debug artifact). The map chains Sass → lightningcss via `inputSourceMap`
+and rewrites `sources` to repo-relative `src/sass/**` paths, so minified
+CSS resolves to real `.scss` lines without leaking the build machine's
+filesystem layout. For iife tiers with no vite CSS, `emitCss` produces
+the served `index-<hash>.css` + map the same way.
 
 ## i18n snapshot plugin
 
