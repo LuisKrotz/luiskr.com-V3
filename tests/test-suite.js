@@ -1,3 +1,11 @@
+/**
+ * @file test-suite.js
+ * @description Legacy happy-dom bootstrap kept for the suites that need a
+ * bare Window (not GlobalWindow) — seeds window/document/HTMLElement/
+ * customElements globals and stubs IntersectionObserver when the shim is
+ * absent. New suites should rely on tests/setup.js instead.
+ */
+
 import { Window } from 'happy-dom'
 import fs from 'node:fs'
 import path from 'node:path'
