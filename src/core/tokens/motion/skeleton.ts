@@ -4,6 +4,11 @@
  * of SKELETON.
  */
 
+/**
+ * WebGL skeleton-field configuration tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const SKELETON_RENDER = Object.freeze({
   /** Max placeholder rects per layer (GLSL uniform array size) */
   MAX_RECTS: 24,
