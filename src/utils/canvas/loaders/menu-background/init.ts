@@ -15,6 +15,7 @@ import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
 import { bindQuad, createQuadProgram, getUniforms } from '../../gl-program.js'
 import { watchContextLoss } from '../../gl-lifecycle.js'
 import { MENU_BG_VS, menuBgFsSource } from './shaders.js'
+import { QUAD_STRIP } from '@/core/tokens/motion/gpu.js'
 import { glContextOptions } from '@/utils/gpu/gpu-info.js'
 import type { MenuBackgroundWebGL } from '../menu-background-webgl.js'
 import { webglContext } from '../../webgl-mode.js'
@@ -57,7 +58,7 @@ export function initGL(host: MenuBackgroundWebGL): void {
     host._hasDeriv = !!gl.getExtension(WEBGL_STRINGS.OES_STANDARD_DERIVATIVES)
 
     const built = createQuadProgram(gl, MENU_BG_VS, menuBgFsSource(host._hasDeriv), 'MenuBg', {
-      verts: new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
+      verts: new Float32Array(QUAD_STRIP.VERTS),
       premultiplied: false,
       warn: () => host._triggerFallback(),
     })
