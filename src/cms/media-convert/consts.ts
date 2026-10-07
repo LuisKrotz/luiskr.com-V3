@@ -5,14 +5,14 @@
 import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
 
 /**
- * Scalar token `/api/media-convert` — the sole declaration site for this literal.
+ * Dev-server API mount point for the conversion endpoints — sole
+ * declaration site for this literal.
  */
 export const API_BASE = '/api/media-convert'
 
-// Job state machine: idle → uploading (per-file PUTs) → converting
-// (server pipeline) → done | error. The render switches on this.
 /**
- * phases.
+ * Job state machine: idle → uploading (per-file PUTs) → converting
+ * (server pipeline) → done | error. The component render switches on this.
  */
 export const PHASE = Object.freeze({
   IDLE: 'idle',
@@ -21,45 +21,48 @@ export const PHASE = Object.freeze({
   DONE: 'done',
   ERROR: 'error',
 })
-/**
- * Numeric token — the sole declaration site for this value.
- */
-export const POLL_MS = 800 // job-status poll cadence — fast enough for live progress, light on the dev server
-/**
- * The mime hint constant.
- */
-export const MIME_HINT = 'image/*,video/*,.mov,.mkv,.webm,.avi,.m4v,.heic,.avif,.tif,.tiff' // file-picker filter covering every format ffmpeg accepts
-/**
- * The empty constant.
- */
+
+/** Job-status poll cadence — fast enough for live progress, light on the dev server. */
+export const POLL_MS = 800
+
+/** File-picker accept filter covering every input format ffmpeg accepts. */
+export const MIME_HINT = 'image/*,video/*,.mov,.mkv,.webm,.avi,.m4v,.heic,.avif,.tif,.tiff'
+
+/** Re-export of the shared empty-string token for this module's API. */
 export const EMPTY = CHAR_STRINGS.EMPTY
 
-/**
- * Queues item.
- */
+/** One queued upload — the File blob plus its job-relative path. */
 export interface QueueItem {
+  /** The picked File payload (PUT body). */
   file: File
+  /** Path relative to the job root — sent as the x-file-path header. */
   rel: string
 }
 
-/**
- * Type contract for JobResult — the shape consumers rely on.
- */
+/** Per-file outcome reported by the conversion server. */
 export interface JobResult {
+  /** Whether this file converted successfully. */
   ok: boolean
+  /** The input path the result corresponds to. */
   in: string
+  /** Output artifact paths when ok. */
   outs?: string[]
+  /** Error message when !ok. */
   error?: string
 }
 
-/**
- * Type contract for JobStatus — the shape consumers rely on.
- */
+/** Job-status payload polled from GET /jobs/:id. */
 export interface JobStatus {
+  /** Server phase string ('running'|'uploading'|terminal). */
   status?: string
+  /** Server-side error message when failed. */
   error?: string
+  /** Currently-processing file path (progress display). */
   current?: string
+  /** Files completed so far. */
   done?: number
+  /** Total files in the job. */
   total?: number
+  /** Per-file results once the job settles. */
   results?: JobResult[]
 }
