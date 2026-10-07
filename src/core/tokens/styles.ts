@@ -15,15 +15,27 @@
  * spellings match CLASSES tokens in constants.js by construction.
  */
 
+/** 'skeleton' block fragment — the root every skeleton class composes from. */
 const _SKEL = 'skeleton'
+/** 'footer' fragment — footers inside skeleton selector composition. */
 const _FOOTER = 'footer'
+/** 'note' fragment — footnote rows inside skeleton footer selectors. */
 const _NOTE = 'note'
+/** 'title' fragment — heading placeholder variants. */
 const _TITLE = 'title'
+/** 'media' fragment — media-slot placeholders. */
 const _MEDIA = 'media'
+/** 'para' fragment — paragraph line placeholders (sized by % width). */
 const _PARA = 'para'
 
+/** '.skeleton' — the dotted class selector all skeleton rules descend from. */
 const _D_SKEL = `.${_SKEL}`
 
+/**
+ * Every skeleton placeholder selector, comma-joined — kept as an array so
+ * the ::before twin list below derives by map+join rather than a
+ * hand-maintained second copy that could drift.
+ */
 const _SKEL_SELECTORS = [
   _D_SKEL,
   `${_D_SKEL}--shimmer`,
@@ -48,6 +60,12 @@ const _SKEL_SELECTORS = [
   `${_D_SKEL}-${_FOOTER}-${_NOTE}-2`,
 ].join(', ')
 
+/**
+ * The ::before twins of _SKEL_SELECTORS — the shimmer is painted on a
+ * pseudo-element so it layers above `color:transparent` reserve text but
+ * below injected content. Derived by transform so both lists can never
+ * diverge.
+ */
 const _SKEL_BEFORE_SELECTORS = _SKEL_SELECTORS
   .split(', ')
   .map((s) => `${s}::before`)
