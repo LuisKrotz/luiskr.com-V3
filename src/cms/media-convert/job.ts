@@ -129,7 +129,7 @@ export function systemNotify(title: string, body: string): void {
 }
 
 /**
- * The askNotifyPermission value.
+ * Helper for this module — see implementation for behavior.
  */
 export async function askNotifyPermission() {
   try {
