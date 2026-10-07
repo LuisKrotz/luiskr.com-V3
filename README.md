@@ -13,8 +13,9 @@ Quick start:
 yarn install && yarn hooks:install
 yarn dev        # public site
 yarn dev:cms    # CMS with Firebase mock
-yarn verify     # full quality gate
-yarn build      # production build (verifies first)
+yarn verify                       # full quality gate, including 100% coverage
+yarn build                        # production build (verifies first)
+yarn build --verify-lighthouse    # build, then run the post-build Lighthouse audit
 ```
 
 License: [MPL-2.0](docs/LICENSE)

@@ -451,6 +451,14 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
     const pkg = JSON.parse(fs.readFileSync(path.join(rootDir, 'package.json'), 'utf-8'))
 
     expect(pkg.scripts.prebuild).toBe('yarn verify')
+    expect(pkg.scripts.build).toContain('scripts/build/build.mjs')
+    expect(pkg.scripts.lighthouse).toContain('--verify-lighthouse')
+
+    const buildSrc = fs.readFileSync(path.join(rootDir, 'scripts/build/build.mjs'), 'utf-8')
+
+    expect(buildSrc.lastIndexOf('build-targets.mjs')).toBeLessThan(
+      buildSrc.lastIndexOf("['lhci', 'autorun']")
+    )
 
     const preCommit = fs.readFileSync(path.join(rootDir, 'scripts/git-hooks/pre-commit'), 'utf-8')
     const prePush = fs.readFileSync(path.join(rootDir, 'scripts/git-hooks/pre-push'), 'utf-8')

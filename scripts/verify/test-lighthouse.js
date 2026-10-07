@@ -1,28 +1,17 @@
-import { execSync } from 'child_process'
-import fs from 'fs'
-import path from 'path'
+/**
+ * @file test-lighthouse.js
+ * @description Backward-compatible Lighthouse entry point. Delegates to the
+ * production build's explicit post-build audit flag so Lighthouse never runs
+ * before the verified artifacts exist.
+ */
 
-const REPORTS_DIR = path.resolve(process.cwd(), 'lighthouse-reports')
-
-if (!fs.existsSync(REPORTS_DIR)) {
-  fs.mkdirSync(REPORTS_DIR, { recursive: true })
-}
+import { execFileSync } from 'node:child_process'
 
 try {
-  console.log('\n🚀 Step 1: Building production bundle...')
-  execSync('yarn build', { stdio: 'inherit' })
-
-  console.log('\n⚡ Step 2: Running Lighthouse CI (lhci autorun)...')
-  execSync('yarn lhci autorun', { stdio: 'inherit' })
-
-  console.log('\n📦 Step 3: Packaging last-deploy info into dist/deploy-info/ ...')
-  execSync('node scripts/build/deploy-info.mjs', { stdio: 'inherit' })
-
-  console.log('\n============================================================')
-  console.log('  LIGHTHOUSE CI AUDIT COMPLETE')
-  console.log('============================================================')
-  console.log(`\n📄 Local audit reports saved to: ${REPORTS_DIR}\n`)
-} catch (err) {
-  console.error('\n❌ Lighthouse CI run encountered warnings or failures:', err.message)
+  execFileSync('yarn', ['build', '--verify-lighthouse'], {
+    cwd: process.cwd(),
+    stdio: 'inherit',
+  })
+} catch {
   process.exit(1)
 }

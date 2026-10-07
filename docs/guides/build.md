@@ -1,4 +1,4 @@
-# Build (vite.config.js + scripts/build/build-targets.mjs)
+# Build (vite.config.js + scripts/build/build.mjs)
 
 Rolldown-powered Vite driven by a **12-tier ES build matrix** — every visitor
 receives the newest syntax tier their engine can execute, plus only the
@@ -12,9 +12,10 @@ older-engine compatibility is delivered exclusively by this build matrix
 
 ## Multi-target matrix (`build/es-targets.mjs`)
 
-`yarn build` → `scripts/build/build-targets.mjs`:
+`yarn build` runs the complete `yarn verify` gate in `prebuild`, then
+`scripts/build/build.mjs` orchestrates the production outputs:
 
-1. One `vite build` per tier (`LK_TARGET` env selects the tier config).
+1. `scripts/build/build-targets.mjs` runs one `vite build` per tier (`LK_TARGET` env selects the tier config).
    Module tiers emit `dist/v/<tier>/assets/{index-*.js,index-*.css}`; the
    `es2016` tier is a self-contained IIFE classic bundle (no code splitting —
    a Rolldown IIFE limitation) for browsers with ES2015-era syntax but no
@@ -131,8 +132,9 @@ dist/workers/wasm-worker.js
 ```
 yarn test            # jest, 53 suites
 yarn lint        # eslint, 0 errors expected
-yarn build       # full 12-tier matrix (prebuild runs the verify gate)
-npx vite preview    # serve dist for Lighthouse/headless checks
+yarn build                        # full matrix; prebuild runs complete verification + coverage
+yarn build --verify-lighthouse    # same build, then Lighthouse against completed artifacts
+yarn vite preview                 # serve dist for manual/headless checks
 ```
 
 Delete `lighthouse-reports/`/`.lighthouseci/` artifacts after reading them —
