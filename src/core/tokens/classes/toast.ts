@@ -7,7 +7,9 @@
 import { _B_SITE_TOAST } from '../base.js'
 
 /**
- * The TOAST_CLASSES constant.
+ * Frozen toast class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const TOAST_CLASSES = Object.freeze({
   SITE_TOAST: _B_SITE_TOAST,
