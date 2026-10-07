@@ -28,14 +28,20 @@ function kickWasmDecode(renderer: FlagRenderer, cc: string): void {
 
   renderer._bitmapPending.add(cc)
 
-  void wasmImageDecoder
+  void storeDecoded(renderer, cc)
+}
+
+/**
+ * Awaits one worker decode and caches the landed bitmap for cc; a null
+ * result or a rejected dispatch (worker unavailable) leaves the <img>
+ * fallback path in charge of the texture.
+ */
+async function storeDecoded(renderer: FlagRenderer, cc: string): Promise<void> {
+  const bitmap = await wasmImageDecoder
     .decodeImageWASM(flagUrl(cc), FLAG_TEXTURE.WIDTH, FLAG_TEXTURE.HEIGHT)
-    .then((bitmap) => {
-      if (bitmap) renderer.bitmaps.set(cc, bitmap)
-    })
-    .catch(() => {
-      // Worker decode unavailable — the <img> path covers it.
-    })
+    .catch(() => null)
+
+  if (bitmap) renderer.bitmaps.set(cc, bitmap)
 }
 
 /**
@@ -71,9 +77,7 @@ function uploadTexture(
   cc: string,
   source: FlagSource
 ): WebGLTexture | null {
-  const gl = renderer.gl
-
-  if (!gl) return null
+  const gl = renderer.gl as WebGLRenderingContext
 
   const tex = gl.createTexture()
 

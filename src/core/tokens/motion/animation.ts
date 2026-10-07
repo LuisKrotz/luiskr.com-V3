@@ -17,6 +17,8 @@ export const EASING = Object.freeze({
 export const ANIMATION_DURATIONS = Object.freeze({
   /** Route transition duration (ms) */
   ROUTE_DURATION: 450,
+  /** Half-duration of the view cross-fade (ms) — fade-out leg, then fade-in */
+  PAGE_FADE_HALF: 350,
   /**
    * Delay before the progress bar's --done class is removed (ms) — must
    * outlast the CSS sweep-to-100% (0.3s) + delayed fade-out (0.3s delay +

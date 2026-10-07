@@ -43,6 +43,17 @@ describe('flag texture wasm decode tails', () => {
     expect(renderer.bitmaps.get('us')).toBeTruthy()
   })
 
+  test('a pending decode is not kicked twice before the img lands', () => {
+    const renderer = new FlagRenderer()
+    const spy = jest.spyOn(wasmImageDecoder, 'decodeImageWASM')
+
+    renderer._bitmapPending.add('gb')
+
+    flagImage(renderer, 'gb')
+
+    expect(spy).not.toHaveBeenCalled()
+  })
+
   test('flagTexture prefers the POT-sized worker bitmap over the img path', () => {
     const renderer = new FlagRenderer()
 
@@ -111,6 +122,7 @@ describe('flag texture wasm decode tails', () => {
 
     renderer.gl = createMockGL()
     renderer.bitmaps.set('us', makeBitmap())
+    renderer.bitmaps.set('de', { width: 1, height: 1 })
     renderer._bitmapPending.add('us')
 
     renderer._dispose()

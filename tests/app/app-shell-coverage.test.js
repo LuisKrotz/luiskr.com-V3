@@ -252,19 +252,24 @@ describe('AppRoot — view outlet', () => {
 
     await flush(60)
 
+    const outlet = el.shadowRoot.querySelector(`#${APP_IDS.VIEW_OUTLET}`)
+
+    // The lazy view import is real async work; the cross-fade swap itself is
+    // a wall-clock setTimeout. Fake the clock after mount so CPU-starved
+    // parallel workers can't starve the 350ms fade timer past the timeout.
+    jest.useFakeTimers()
     el.currentViewTag = VIEW_TAGS.VIEW_NOT_FOUND
     el._updateViewContent({})
 
-    // The lazy view import + cross-fade settle on wall-clock timers — poll
-    // instead of a fixed sleep so parallel-suite CPU contention can't flake
-    // the swap.
-    const outlet = el.shadowRoot.querySelector(`#${APP_IDS.VIEW_OUTLET}`)
+    for (
+      let i = 0;
+      i < 20 && outlet.firstElementChild?.tagName.toLowerCase() !== VIEW_TAGS.VIEW_NOT_FOUND;
+      i++
+    ) {
+      await jest.advanceTimersByTimeAsync(ANIMATION_DURATIONS.PAGE_FADE_HALF)
+    }
 
-    await waitFor(
-      () =>
-        outlet.firstElementChild &&
-        outlet.firstElementChild.tagName.toLowerCase() === VIEW_TAGS.VIEW_NOT_FOUND
-    )
+    jest.useRealTimers()
 
     expect(outlet.firstElementChild.tagName.toLowerCase()).toBe(VIEW_TAGS.VIEW_NOT_FOUND)
 

@@ -8,6 +8,7 @@
  * polyfill bodies.
  */
 
+import { jest } from '@jest/globals'
 import _store from '@/core/store.js'
 
 import '@/components/feedback/CookieBanner.js'
@@ -21,8 +22,6 @@ import { FOCUS_EVENTS, POINTER_EVENTS, TOUCH_EVENTS } from '@/core/tokens/events
 
 
 
-
-const flush = (ms = 60) => new Promise((r) => setTimeout(r, ms))
 
 // ─── store.js ────────────────────────────────────────────────────────────────
 
@@ -42,7 +41,12 @@ describe('predictive-loader tails', () => {
       link.dispatchEvent(new Event(evt, { bubbles: true }))
     }
 
-    await flush(40)
+    // Prefetch scheduling settles through requestIdleCallback / a short
+    // setTimeout — fake the clock so starved parallel workers can't stall
+    // the real timers past the test timeout.
+    jest.useFakeTimers()
+    await jest.advanceTimersByTimeAsync(2000)
+    jest.useRealTimers()
 
     link.remove()
   })

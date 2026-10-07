@@ -174,6 +174,14 @@ describe('skeleton measure tails', () => {
     expect(unobserved).toContain(stale)
     expect(observed).toContain(fresh)
 
+    // Second measure with the same live node keeps the observation and hits
+    // the style-cache warm path instead of re-reading computed styles.
+    observed.length = 0
+
+    layer.refresh()
+
+    expect(observed).not.toContain(fresh)
+
     delete globalThis.ResizeObserver
 
     layer.destroy()

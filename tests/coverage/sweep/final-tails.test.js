@@ -280,7 +280,7 @@ describe('final tails', () => {
     document.createElement = (t) => (t === 'canvas' ? { width: 0, height: 0, getContext: () => mock2d } : origCreate(t))
 
     const gl = createMockGL()
-    const r = { gl, textures: new Map(), images: new Map() }
+    const r = { gl, textures: new Map(), images: new Map(), bitmaps: new Map() }
 
     r.images.set('us', { complete: true, naturalWidth: 10, naturalHeight: 5 })
 

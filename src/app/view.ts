@@ -3,6 +3,7 @@
  * @description View outlet reconciliation for AppRoot — same-tag routes delegate to onRouteParamChange; new views lazy-import their chunk then cross-fade (instant under reduced motion).
  */
 
+import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
 import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
 import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
 import { APP_IDS } from '@/core/tokens/ids/app.js'
@@ -54,7 +55,6 @@ export async function flipAppView(
 
   const reduced = store.getters.getReducedMotion()
   const toTag = c.currentViewTag
-  const FADE_MS = 350 // half-duration: fade-out then fade-in
 
   if (toTag === VIEW_TAGS.VIEW_HOME) {
     await import('@/routes/views/home/Home.js')
@@ -87,5 +87,5 @@ export async function flipAppView(
     void incoming.offsetHeight
 
     incoming.classList.remove(STATE_CLASSES.PAGE_FADE_IN)
-  }, FADE_MS)
+  }, ANIMATION_DURATIONS.PAGE_FADE_HALF)
 }
