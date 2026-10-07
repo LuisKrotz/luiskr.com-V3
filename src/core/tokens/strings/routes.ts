@@ -13,7 +13,9 @@ import {
 } from '../base.js'
 
 /**
- * routes strings.
+ * Frozen route/CMS name-string map — bare names (no slashes) used as title
+ * fragments, route names, and CMS keys. Composes `_B_*`/`_K_*` fragments
+ * from base.ts where the name doubles as a block/key token.
  */
 export const ROUTE_STRINGS = Object.freeze({
   ADMIN: _B_ADMIN,
