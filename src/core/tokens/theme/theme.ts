@@ -6,7 +6,9 @@
 import { _K_SYSTEM } from '../base.js'
 
 /**
- * The THEME constant.
+ * Frozen theme theme map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const THEME = Object.freeze({
   DARK: 'dark',
@@ -15,7 +17,9 @@ export const THEME = Object.freeze({
 })
 
 /**
- * The MOTION constant.
+ * Frozen motion map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const MOTION = Object.freeze({
   FULL: 'full',
