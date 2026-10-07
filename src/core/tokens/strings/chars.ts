@@ -38,5 +38,8 @@ export const CHAR_STRINGS = Object.freeze({
   ONE_EM: '1em',
   PX: 'px',
   REM: 'rem',
+  VW_100: '100vw',
+  VH_100: '100vh',
+  DVH_100: '100dvh',
   JSON_EXT: '.json',
 })
