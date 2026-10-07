@@ -1,3 +1,12 @@
+/**
+ * @file views.test.js
+ * @description Integration coverage for the routed views — ViewProject
+ * (media sections, expand modal, related rail), HomeMosaic (packing +
+ * expand interaction), ViewNotFound, ViewLegal, LegalFooter, and
+ * PortfolioRelated — plus a source-structure section that asserts file
+ * organization stays aligned with the documented layout.
+ */
+
 import { describe, test, expect, beforeEach, afterEach, jest } from '@jest/globals'
 import { ViewProject } from '@/routes/views/project/Project.js'
 import { HomeMosaic } from '@/components/home/HomeMosaic.js'
