@@ -8,7 +8,9 @@
 import { _B_CMS, _B_CMS_CARD, _B_CMS_ITEM, _B_CMS_PARA } from '../base.js'
 
 /**
- * The CMS_ABOUT_CLASSES constant.
+ * Frozen cms about class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CMS_ABOUT_CLASSES = Object.freeze({
   CMS_ABOUT_MANAGER: `${_B_CMS}-about-manager`,
@@ -35,7 +37,9 @@ export const CMS_ABOUT_CLASSES = Object.freeze({
 })
 
 /**
- * The CMS_ABOUT_IDS constant.
+ * Frozen cms about element-id map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CMS_ABOUT_IDS = Object.freeze({
   SAVE: 'btn-save-about',
