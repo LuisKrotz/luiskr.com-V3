@@ -4,6 +4,11 @@
  * token group.
  */
 
+/**
+ * Punctuation, unit and single-character string tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const CHAR_STRINGS = Object.freeze({
   EMPTY: '',
   SLASH: '/',
