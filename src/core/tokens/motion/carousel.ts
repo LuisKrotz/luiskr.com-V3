@@ -4,6 +4,11 @@
  * CAROUSEL.
  */
 
+/**
+ * Carousel timing/geometry tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const CAROUSEL_TIMING = Object.freeze({
   /** Autoplay interval in milliseconds before advancing to next slide */
   AUTOPLAY_DURATION: 5000,
