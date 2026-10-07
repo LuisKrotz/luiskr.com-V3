@@ -12,7 +12,9 @@ export const MODAL_MUTATIONS = Object.freeze({
 })
 
 /**
- * The LANG_MUTATIONS constant.
+ * Frozen lang store-mutation name map — sole declaration site for these tokens; consumers
+ * read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+ * makes the token contract immutable at runtime.
  */
 export const LANG_MUTATIONS = Object.freeze({
   SET_APP_LANG: 'setAppLang',
@@ -24,7 +26,9 @@ export const LANG_MUTATIONS = Object.freeze({
 })
 
 /**
- * The PREF_MUTATIONS constant.
+ * Frozen pref store-mutation name map — sole declaration site for these tokens; consumers
+ * read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+ * makes the token contract immutable at runtime.
  */
 export const PREF_MUTATIONS = Object.freeze({
   TOGGLE_STATS_FOR_NERDS: 'toggleStatsForNerds',
@@ -40,7 +44,9 @@ export const PREF_MUTATIONS = Object.freeze({
 })
 
 /**
- * The DATA_MUTATIONS constant.
+ * Frozen data store-mutation name map — sole declaration site for these tokens; consumers
+ * read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+ * makes the token contract immutable at runtime.
  */
 export const DATA_MUTATIONS = Object.freeze({
   SET_STORAGE: 'setStorage',
@@ -50,7 +56,9 @@ export const DATA_MUTATIONS = Object.freeze({
 })
 
 /**
- * The UI_MUTATIONS constant.
+ * Frozen ui store-mutation name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const UI_MUTATIONS = Object.freeze({
   SET_CLICK_OR_TAP: 'setClickOrTap',
