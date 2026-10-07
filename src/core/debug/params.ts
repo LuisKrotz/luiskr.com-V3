@@ -19,14 +19,23 @@ import { DEBUG_PARAMS } from '@/core/tokens/strings/debug.js'
 import { NOTIFY_TYPES } from '@/core/tokens/data/notify.js'
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 
-/** All `debug` values on the current URL (empty outside a windowed context). */
+/**
+ * All `debug` values on the current URL (empty outside a windowed context).
+ * `getAll` (not `get`) because the param is repeatable — `?debug=a&debug=b`
+ * must surface both flags.
+ * @returns Every `?debug=` value in order.
+ */
 export const debugParams = (): string[] => {
   if (typeof window === TYPE_STRINGS.UNDEFINED) return []
 
   return new URLSearchParams(window.location.search).getAll(DEBUG_PARAMS.KEY)
 }
 
-/** True when `flag` is present among the URL's `?debug=` values. */
+/**
+ * True when `flag` is present among the URL's `?debug=` values.
+ * @param flag Debug flag token from DEBUG_PARAMS.
+ * @returns Whether the flag is active.
+ */
 export const hasDebugFlag = (flag: string): boolean => debugParams().includes(flag)
 
 /**
