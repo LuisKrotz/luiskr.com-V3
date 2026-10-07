@@ -30,3 +30,32 @@ const _WASM_ACTION_LIST = [
 export const WASM_ACTIONS = Object.freeze(
   Object.fromEntries(_WASM_ACTION_LIST.map((key) => [key, key]))
 )
+
+/**
+ * Frozen worker-pool sizing + asset tokens. Sole declaration site for the
+ * worker script path and the pool-size caps — mobile SoCs thermal-throttle
+ * under wide pools so the cap is tighter than desktop; the cores fallback
+ * covers engines without navigator.hardwareConcurrency.
+ */
+export const WASM_POOL = Object.freeze({
+  WORKER_URL: '/workers/wasm-worker.js',
+  ENGINE_URL: '/wasm/engine.wasm',
+  MOBILE_MAX: 2,
+  DESKTOP_MIN: 2,
+  DESKTOP_MAX: 4,
+  FALLBACK_CORES: 2,
+})
+
+/**
+ * Dynamic-CSS injector tokens — the managed <style> node's sole rule is
+ * the GPU compositor-promotion utility class; skeleton defaults cover the
+ * analytics-sizing helper's CSS fallbacks.
+ */
+export const WASM_CSS = Object.freeze({
+  GPU_CLASS: 'wasm-gpu-accelerated',
+  DEFAULT_WIDTH: '100%',
+  DEFAULT_HEIGHT: '1.2em',
+  DISPLAY: 'inline-block',
+  FALLBACK_WIDTH_PX: 200,
+  FALLBACK_HEIGHT_PX: 24,
+})
