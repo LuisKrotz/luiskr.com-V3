@@ -7,7 +7,9 @@
 import { _B_STATS_HUD } from '../base.js'
 
 /**
- * The STATS_CLASSES constant.
+ * Frozen stats class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const STATS_CLASSES = Object.freeze({
   STATS_HUD_BASE: _B_STATS_HUD,
