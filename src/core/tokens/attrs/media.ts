@@ -4,6 +4,11 @@
  * of ATTRS.
  */
 
+/**
+ * Media element attribute + MIME-type tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const MEDIA_ATTRS = Object.freeze({
   SRC: 'src',
   ALT: 'alt',
