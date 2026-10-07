@@ -39,7 +39,7 @@ export interface SafariPatchableEl extends HTMLElement {
 }
 
 /**
- * The PatchableProto value.
+ * Type contract for PatchableProto — the shape consumers rely on.
  */
 export interface PatchableProto {
   _renderInitial?: () => void
@@ -51,6 +51,6 @@ export interface PatchableProto {
 }
 
 /**
- * The PatchableCtor value.
+ * Type contract for PatchableCtor — the shape consumers rely on.
  */
 export type PatchableCtor = CustomElementConstructor & { prototype: PatchableProto }
