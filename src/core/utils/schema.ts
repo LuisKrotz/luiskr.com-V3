@@ -15,6 +15,7 @@ import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { stripHtml } from './string.js'
 import { CDN_URLS, SOCIAL_URLS } from '@/core/tokens/media/urls.js'
 
+/** Award/press item as handed to the ItemList builder — label/title are display names, link/slug feed the target URL. */
 interface CarouselSchemaItem {
   label?: string
   link?: string
@@ -23,6 +24,7 @@ interface CarouselSchemaItem {
   src?: string
 }
 
+/** Project translation slice the Article/VideoObject builders read — cover drives both image variants and the optional VideoObject. */
 interface ProjectSchemaSource {
   title?: string
   folder?: string
@@ -62,8 +64,10 @@ export const generateWebsiteSchema = (): Record<string, unknown>[] => {
 }
 
 /**
- * Generates an ItemList matching Google Carousel rich results guidelines.
- * @returns ItemList entity
+ * Generates an ItemList matching Google Carousel rich results guidelines —
+ * `position` is 1-based per the spec, and `image` is only emitted when the
+ * item carries a src (an absent property beats an empty one for parsers).
+ * @returns ItemList entity, or null when there is nothing to list.
  */
 export const generateCarouselItemListSchema = (
   items: CarouselSchemaItem[] = [],
@@ -75,6 +79,9 @@ export const generateCarouselItemListSchema = (
     '@context': SCHEMA_STRINGS.SCHEMA_CONTEXT,
     '@type': 'ItemList',
     itemListElement: items.map((item, idx) => {
+      // Absolute links (external press) pass through verbatim; internal
+      // slugs get prefixed with the portfolio route so crawlers resolve
+      // to canonical project pages rather than bare fragments.
       const targetUrl = item.link?.startsWith('http')
         ? item.link
         : `${baseUrl}${ROUTE_PATHS.PORTFOLIO}${item.link || item.slug || ''}`
@@ -177,6 +184,12 @@ export const generateProjectArticleSchema = (
 
 /**
  * Dynamically updates the JSON-LD script graph in the document head.
+ * Maintains exactly one `<script type="application/ld+json">` node — an
+ * array payload is wrapped in a `@graph` container so a single script can
+ * carry the whole entity set (the form Google's parsers prefer), and
+ * `textContent` (not innerHTML) writes it since JSON must not go through
+ * the HTML parser.
+ * @param graph Entity or entity array; null/undefined leaves the DOM alone.
  */
 export const updateJsonLd = (
   graph: Record<string, unknown> | Record<string, unknown>[] | null | undefined
