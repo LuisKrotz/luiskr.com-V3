@@ -6,6 +6,17 @@
 
 // MIXINS
 // Decimal Round
+
+/// Rounds a number to N decimal digits using the given rounding mode.
+/// `round`/`floor` wrap in calc() so the result stays a math expression
+/// Sass can still compose; `ceil` returns a plain number (Sass has no
+/// native CSS ceil() at this pinned Sass version).
+/// Non-number inputs warn and pass through unchanged instead of failing
+/// the whole compile — a typo in one call site shouldn't kill the build.
+/// @param {Number} $number - Value to round.
+/// @param {Number} $digits [0] - Decimal places to keep (must be unitless).
+/// @param {String} $mode [round] - `round`, `ceil`, or `floor`.
+/// @return {Number} The rounded value (or the input when invalid).
 @function decimal-round($number, $digits: 0, $mode: round) {
   $n: 1;
   // $number must be a number
@@ -41,14 +52,27 @@
   }
 }
 
+/// Converts a px length to a vw percentage of a reference viewport.
+/// @param {Number} $value - Length in px.
+/// @param {Number} $viewport - Reference viewport width in px.
+/// @return {String} A `vw`-suffixed value rounded to 3 decimals.
 @function to-vw($value, $viewport) {
   @return #{decimal-round((($value / $viewport) * 100), 3)}vw;
 }
 
+/// Converts a px length to a vmin percentage of a reference height.
+/// @param {Number} $value - Length in px.
+/// @param {Number} $height - Reference height in px.
+/// @return {String} A `vmin`-suffixed value rounded to 3 decimals.
 @function to-vmin($value, $height) {
   @return #{decimal-round((($value / $height) * 100), 3)}vmin;
 }
 
+/// Converts a px (or unitless px-meaning) number to rem at the 16px root.
+/// The px unit is stripped first so `to-rem(16px)` and `to-rem(16)` both
+/// yield 1rem — Fibonacci $space-* tokens are declared unitless.
+/// @param {Number} $value - px length or unitless px count.
+/// @return {String} A `rem`-suffixed value rounded to 3 decimals.
 @function to-rem($value) {
   // Strip px unit if present so the result is always unitless before appending rem
   @if unit($value) == 'px' {
@@ -59,10 +83,18 @@
 }
 
 // Calculate percentual value related to the given area
+
+/// Expresses $value as a percentage of $area (e.g. a slot inside a grid cell).
+/// @param {Number} $value - Part length.
+/// @param {Number} $area - Whole length.
+/// @return {Number} Percentage rounded to 3 decimals.
 @function rel-to-area($value, $area) {
   @return #{decimal-round((($value / $area) * 100%), 3)};
 }
 
+/// Neutralizes <br> inside the scope — `content: ' '` collapses the line
+/// break (and the generated content) so copy with <br> can be flattened
+/// on narrow layouts without editing the markup.
 @mixin ignore-br() {
   br {
     content: ' ';
@@ -74,6 +106,11 @@
 }
 
 // Create Pseudo Elements
+
+/// Emits the content/display/position triplet for a pseudo-element.
+/// @param {String} $display [block] - display value.
+/// @param {String} $pos [absolute] - position value.
+/// @param {String} $content [''] - content value.
 @mixin pseudo($display: block, $pos: absolute, $content: '') {
   content: $content;
   display: $display;
@@ -81,11 +118,20 @@
 }
 
 // Typography
+
+/// Sets a unitless-proportional line-height in rem — lh/fs rounded to 2
+/// decimals so the rhythm stays proportional when font-size is tweaked.
+/// @param {Number} $font-size - Font size in the same unit as $line-height.
+/// @param {Number} $line-height - Desired line height.
 @mixin proportional-line($font-size, $line-height) {
   line-height: decimal-round($line-height / $font-size, 2) * 1rem;
 }
 
 // Reset list
+
+/// Removes list chrome (markers + box offsets).
+/// @param {Number} $padding [0] - Padding to keep.
+/// @param {Number} $margin [0] - Margin to keep.
 @mixin reset-list($padding: 0, $margin: 0) {
   margin: $margin;
   padding: $padding;
@@ -93,102 +139,140 @@
 }
 
 // Media Queries
+// Each layout-N mixin wraps @content in `min-width: $bk-N` — the $bk-*
+// tokens are (vw − 1px) so a "layout-540" rule lands just below the 540px
+// device class, matching the design-grid steps.
+
+/// `@media (min-width: $bk-320)` — iPhone-SE-class portrait.
+/// @content Rules to emit inside the query.
 @mixin layout-320 {
   @media (min-width: #{$bk-320}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-375)` — standard iPhone portrait.
+/// @content Rules to emit inside the query.
 @mixin layout-375 {
   @media (min-width: #{$bk-375}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-414)` — phablet portrait.
+/// @content Rules to emit inside the query.
 @mixin layout-414 {
   @media (min-width: #{$bk-414}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-540)` — mobile-menu/phablet breakpoint.
+/// @content Rules to emit inside the query.
 @mixin layout-540 {
   @media (min-width: #{$bk-540}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-768)` — iPad portrait.
+/// @content Rules to emit inside the query.
 @mixin layout-768 {
   @media (min-width: #{$bk-768}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-960)` — tablet landscape.
+/// @content Rules to emit inside the query.
 @mixin layout-960 {
   @media (min-width: #{$bk-960}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-1024)` — iPad landscape / small laptop.
+/// @content Rules to emit inside the query.
 @mixin layout-1024 {
   @media (min-width: #{$bk-1024}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-1280)` — HD laptop.
+/// @content Rules to emit inside the query.
 @mixin layout-1280 {
   @media (min-width: #{$bk-1280}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-1360)` — HD laptop (common 1366 class).
+/// @content Rules to emit inside the query.
 @mixin layout-1360 {
   @media (min-width: #{$bk-1360}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-1440)` — HD+ laptop.
+/// @content Rules to emit inside the query.
 @mixin layout-1440 {
   @media (min-width: #{$bk-1440}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-1560)` — wide HD laptop.
+/// @content Rules to emit inside the query.
 @mixin layout-1560 {
   @media (min-width: #{$bk-1560}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-1680)` — wide desktop.
+/// @content Rules to emit inside the query.
 @mixin layout-1680 {
   @media (min-width: #{$bk-1680}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-1920)` — FHD desktop.
+/// @content Rules to emit inside the query.
 @mixin layout-1920 {
   @media (min-width: #{$bk-1920}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-2560)` — 2K/QHD.
+/// @content Rules to emit inside the query.
 @mixin layout-2560 {
   @media (min-width: #{$bk-2560}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-3840)` — 4K/UHD.
+/// @content Rules to emit inside the query.
 @mixin layout-3840 {
   @media (min-width: #{$bk-3840}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-5120)` — 5K.
+/// @content Rules to emit inside the query.
 @mixin layout-5120 {
   @media (min-width: #{$bk-5120}) {
     @content;
   }
 }
 
+/// `@media (min-width: $bk-7680)` — 8K.
+/// @content Rules to emit inside the query.
 @mixin layout-7680 {
   @media (min-width: #{$bk-7680}) {
     @content;
@@ -200,6 +284,12 @@
 // @content receives ($step, $gap, $cols) so %MAXAREA and the show-grid
 // overlay share the exact same breakpoint→gutter table — add a step to
 // $grid-steps and BOTH update together.
+
+/// Emits one `min-width: (step−1)px` media query per `$grid-steps` entry.
+/// Steps ≤ 272 are skipped — the watch viewport is the base (un-queried)
+/// layout. Keeping a single iteration point guarantees %MAXAREA gutters
+/// and the debug overlay can never drift apart.
+/// @content Receives `($step, $gap, $cols)` per breakpoint.
 @mixin grid-steps {
   @each $step, $gap in $grid-steps {
     @if $step > 272 {
@@ -213,6 +303,10 @@
 // Keyboard focus ring — a crisp hairline + offset, inked by the theme-aware
 // --focus-ring token (deep teal light / signature cyan dark). Emits
 // declarations only — nest under `&:focus-visible` at the call site.
+
+/// Emits the focus-ring declarations (outline + offset) — nest under
+/// `&:focus-visible`. Inked by `--focus-ring` so the affordance matches
+/// the theme accent in both light and dark.
 @mixin focus-ring {
   outline: to-rem($space-2xs) solid var(--focus-ring);
   outline-offset: to-rem($space-2xs);
@@ -222,6 +316,11 @@
 // pull this in so shadow-DOM interactives get the same affordance as light
 // DOM (document-level rules never cross the shadow boundary). tabindex=-1
 // targets are programmatically-focused containers, not controls.
+
+/// Emits `:focus-visible` rules for every tabbable element type in the
+/// current scope — component sheets pull this in because document-level
+/// focus rules never pierce shadow DOM. `[tabindex='-1']` is excluded:
+/// those are programmatically-focused containers, not controls.
 @mixin focus-ring-scope {
   a:focus-visible,
   button:focus-visible,
