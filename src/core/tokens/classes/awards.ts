@@ -11,7 +11,9 @@ import {
 } from '../base.js'
 
 /**
- * The AWARDS_CLASSES constant.
+ * Frozen awards class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const AWARDS_CLASSES = Object.freeze({
   AWARDS_FOOTER: _B_AWARDS_FOOTER,
