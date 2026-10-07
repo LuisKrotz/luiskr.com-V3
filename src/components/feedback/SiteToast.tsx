@@ -6,7 +6,7 @@
  * restrictions such as Android's service-worker-only notifications).
  *
  * Design: dark-glass pill stack matching the stats-HUD / cookie-banner
- * chrome language — bottom-left column on desktop, full-width bottom bar on
+ * chrome language — bottom-right column on desktop, full-width bottom bar on
  * mobile (thumb-reach dismiss), safe-area aware, reduced-motion safe.
  *
  * Accessibility: the container is a live region; error items render
