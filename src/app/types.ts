@@ -17,27 +17,25 @@ export interface AppTranslations {
   [key: string]: unknown
 }
 
-/**
- * Type contract for AppNavEl — the shape consumers rely on.
- */
+/** <app-nav> reached through the shell — translations prop + scroll-state setter. */
 export type AppNavEl = HTMLElement & {
   translations: AppTranslations | null
   updateScrollState: (_section: string, onBottom: boolean) => void
 }
-/**
- * Type contract for CookieBannerEl — the shape consumers rely on.
- */
+
+/** <cookie-banner> reached through the shell — only the translations prop is used. */
 export type CookieBannerEl = HTMLElement & { translations: AppTranslations | null }
-/**
- * Type contract for pref modal el.
- */
+
+/** <preferences-modal> reached through the shell — `pref` node + open flag. */
 export type PrefModalEl = HTMLElement & { pref: unknown; open: boolean }
-/**
- * Type contract for lang dialog el.
- */
+
+/** <lang-dialog> reached through the shell — only the open flag is driven. */
 export type LangDialogEl = HTMLElement & { open: boolean }
+
 /**
- * Type contract for RoutableView — the shape consumers rely on.
+ * A mounted view element that may implement onRouteParamChange — the
+ * outlet calls it when a same-tag route updates params (project→project
+ * navigation reuses the element).
  */
 export type RoutableView = Element & {
   onRouteParamChange?: (_route: RouteDescriptor | null) => void
