@@ -12,7 +12,9 @@ export const EASING = Object.freeze({
 })
 
 /**
- * The ANIMATION_DURATIONS constant.
+ * Frozen animation map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const ANIMATION_DURATIONS = Object.freeze({
   /** Route transition duration (ms) */
