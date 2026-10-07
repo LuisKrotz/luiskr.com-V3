@@ -7,7 +7,9 @@
 import { _B_CMS_BTN } from '../base.js'
 
 /**
- * The CMS_BUTTON_CLASSES constant.
+ * Frozen cms button class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CMS_BUTTON_CLASSES = Object.freeze({
   CMS_BTN: _B_CMS_BTN,
