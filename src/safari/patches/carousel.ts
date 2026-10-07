@@ -10,7 +10,10 @@ import type { PatchableCtor, SafariPatchableEl } from '../types.js'
 import safariCarouselStyles from '@/sass/components/safari/safari-carousel.scss?inline'
 
 /**
- * Helper for this module — see implementation for behavior.
+ * Installs the carousel patch once <custom-carousel> registers: neuters
+ * `_measureFit` (iOS layout thrash — reading fit metrics mid-layout
+ * forces synchronous reflow on every slide) and wraps `_renderInitial`
+ * to inject the safari-carousel stylesheet into the shadow root.
  */
 export function patchCarousel(): void {
   // ── CustomCarousel ─────────────────────────────────────────────────────────
