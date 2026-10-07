@@ -77,6 +77,10 @@ export async function loadHighRes(fig: MediaFigure): Promise<void> {
   const width = fig.mediaWidth || 0
 
   if (height * width > IMAGE_DIMENSIONS.MAX_DECODE_PIXELS) {
+    // Decode budget exceeded — terminal state, the loading shimmer releases.
+    fig.isLoaded = true
+    fig.classList.add(MEDIA_CLASSES.MEDIA_FIGURE_LOADED)
+
     return
   }
 
@@ -90,6 +94,7 @@ export async function loadHighRes(fig: MediaFigure): Promise<void> {
 
   const finish = () => {
     fig.isLoaded = true
+    fig.classList.add(MEDIA_CLASSES.MEDIA_FIGURE_LOADED)
 
     if (highEl) {
       highEl.src = targetUrl
@@ -131,5 +136,6 @@ export async function loadHighRes(fig: MediaFigure): Promise<void> {
 
   img.onerror = () => {
     fig.isLoaded = true
+    fig.classList.add(MEDIA_CLASSES.MEDIA_FIGURE_LOADED)
   }
 }

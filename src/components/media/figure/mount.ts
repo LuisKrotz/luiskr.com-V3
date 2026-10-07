@@ -60,6 +60,9 @@ export function mountMediaFigure(c: MediaFigure): void {
       }
 
       c.addScopedListener(vid, MEDIA_EVENTS.LOADEDDATA, (e) => {
+        // First frame decoded — terminal state, the loading shimmer releases.
+        c.classList.add(MEDIA_CLASSES.MEDIA_FIGURE_LOADED)
+
         gpuAccel.processVideoGPU(
           (e as Event).target as HTMLVideoElement | null,
           c.displayWidth || VIDEO_DIMENSIONS.VIDEO_DEFAULT_WIDTH,
@@ -68,6 +71,9 @@ export function mountMediaFigure(c: MediaFigure): void {
       })
 
       c.addScopedListener(vid, WINDOW_EVENTS.ERROR, (e) => {
+        // Video failed — terminal state, the loading shimmer releases.
+        c.classList.add(MEDIA_CLASSES.MEDIA_FIGURE_LOADED)
+
         const el = (e as Event).target as HTMLElement | null
 
         if (el?.hasAttribute(MEDIA_ATTRS.POSTER)) {

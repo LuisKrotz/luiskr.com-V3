@@ -144,6 +144,43 @@ figure {
   }
 }
 
+// ── Loading shimmer ──────────────────────────────────────────────────────────
+// Until a media layer paints (thumb img, high-res img, or the first video
+// frame — all signalled by media-figure--loaded on the host), the transparent
+// SVG placeholder would leave a blank box on slow networks. Reuse the global
+// skeleton shimmer sweep so the slot reads as "decoding", matching the
+// pre-data skeleton state. The ::before sits under the absolutely-positioned
+// media layers (z-index 1/2) and below the transparent placeholder in paint
+// order, so loaded media simply covers it.
+:host(:not(.media-figure--loaded)) figure::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    var(--skel-bg-2) 45%,
+    var(--skel-bg-2) 55%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.8s linear infinite;
+  will-change: transform;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  figure::before {
+    animation: none;
+  }
+}
+
+// The store-driven reduced-motion flag mirrors the media query inside shadow
+// DOM, where the global html.reduced-motion sweep cannot reach.
+:host-context(html.reduced-motion) figure::before {
+  animation: none;
+}
+
 @supports selector(:host-context(*)) {
   :host-context(.internal-extra-item) figure {
     display: flex;
