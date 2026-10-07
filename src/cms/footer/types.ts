@@ -23,7 +23,7 @@ export interface ContactData {
 }
 
 /**
- * The RelatedFooter value.
+ * Type contract for RelatedFooter — the shape consumers rely on.
  */
 export interface RelatedFooter {
   title: string
