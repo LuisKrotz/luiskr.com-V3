@@ -8,22 +8,30 @@
 import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
 import { APP_EVENTS } from '@/core/tokens/events/app.js'
 import { KEYBOARD_EVENTS, MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import { QUERY_STRINGS } from '@/core/tokens/strings/queries.js'
+import { WEBGL_POOL_OBSERVER } from '@/core/tokens/motion/gpu.js'
 import store from '@/core/store.js'
 import { webglAllowed } from './webgl-mode.js'
 
 /** Widget contract the pool drives on visibility flips and recovery actions. */
 export interface WebGLPoolable {
+  /** Whether the widget currently renders via WebGL (false = CSS/2D fallback). */
   useWebGL?: boolean
+  /** Called when the canvas leaves the viewport — free GL resources + stop the loop. */
   purge?: () => void
+  /** Called when the canvas re-enters the viewport — re-acquire + resume. */
   restore?: () => void
+  /** Optional custom re-probe; when absent the pool runs purge+restore. */
   retryWebGL?: () => boolean | void
 }
 
+/** One registered canvas: its widget + last-seen visibility flag. */
 interface PoolEntry {
   instance: WebGLPoolable
   isActive: boolean
 }
 
+/** Compressed-texture extension handles keyed by format family (null = unsupported). */
 interface CompressionSupport {
   s3tc: unknown
   etc: unknown
@@ -40,10 +48,15 @@ interface CompressionSupport {
  * - Provides compressed texture format detection for VRAM footprint reduction.
  */
 class WebGLPoolManager {
+  /** Registered canvas → widget+visibility state. */
   private entries = new Map<Element, PoolEntry>()
+  /** The shared IntersectionObserver driving purge/restore — null when unsupported. */
   private observer: IntersectionObserver | null = null
+  /** Coalescing latch — one scheduled retry pass per turn. */
   private retryScheduled = false
+  /** One-shot latch so the global recovery listeners bind exactly once. */
   private recoverySignalsReady = false
+  /** Bound recovery handler — any user action schedules a fallback retry. */
   private readonly onRecoveryAction = (): void => this.scheduleFallbackRetry()
 
   constructor() {
@@ -82,8 +95,8 @@ class WebGLPoolManager {
         })
       },
       {
-        rootMargin: '100px 0px 100px 0px',
-        threshold: 0.01,
+        rootMargin: QUERY_STRINGS.ROOT_MARGIN_100,
+        threshold: WEBGL_POOL_OBSERVER.THRESHOLD,
       }
     )
   }
@@ -147,7 +160,13 @@ class WebGLPoolManager {
     }
   }
 
-  /** Associates a widget instance with its canvas for purge/restore/retry. */
+  /**
+   * Associates a widget instance with its canvas for purge/restore/retry.
+   * Registered entries start `isActive: true` — the observer's first
+   * callback corrects it if the canvas mounted offscreen.
+   * @param element The canvas element to watch.
+   * @param instance The widget implementing the poolable contract.
+   */
   register(element: Element, instance: WebGLPoolable): void {
     if (!element || !instance) return
 
@@ -159,7 +178,11 @@ class WebGLPoolManager {
     this.observer?.observe(element)
   }
 
-  /** Removes an element from pool management. */
+  /**
+   * Removes an element from pool management — unobserves it and drops the
+   * entry so a destroyed widget can't be resurrected by a queued callback.
+   * @param element The canvas element to release.
+   */
   unregister(element: Element): void {
     if (!element) return
 
@@ -168,7 +191,13 @@ class WebGLPoolManager {
     this.entries.delete(element)
   }
 
-  /** Queries the context's compressed-texture format support. */
+  /**
+   * Queries the context's compressed-texture format support — probes each
+   * family (incl. vendor-prefixed s3tc variants) so callers can pick the
+   * smallest uploadable format. Nulls inside the result mean unsupported.
+   * @param gl A live GL context; null short-circuits to null.
+   * @returns Per-family extension handles, or null without a context.
+   */
   getSupportedCompression(
     gl: WebGLRenderingContext | WebGL2RenderingContext | null
   ): CompressionSupport | null {
@@ -206,6 +235,7 @@ class WebGLPoolManager {
 }
 
 /**
- * The webglPool constant.
+ * Shared pool singleton — one observer + one entry map governs every WebGL
+ * canvas so purge/restore stays consistent and the context budget is global.
  */
 export const webglPool = new WebGLPoolManager()
