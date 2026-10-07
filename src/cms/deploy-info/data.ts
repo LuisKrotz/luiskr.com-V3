@@ -16,7 +16,7 @@ import type { CmsDeployInfo } from './CmsDeployInfo.js'
 
 // The bundle lives next to index.html after deploy-info.mjs copies it.
 /**
- * The DEPLOY_INFO_BASE constant.
+ * Scalar token `/deploy-info` — the sole declaration site for this literal.
  */
 export const DEPLOY_INFO_BASE = '/deploy-info'
 
