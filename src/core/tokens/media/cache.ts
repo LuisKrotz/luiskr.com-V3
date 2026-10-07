@@ -3,6 +3,11 @@
  * @description IndexedDB media disk-cache + network cache-mode tokens.
  */
 
+/**
+ * IndexedDB media disk-cache + network cache-mode tokens. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const IDB_CONFIG = Object.freeze({
   MEDIA_DB_NAME: 'luiskr_media_disk_cache_v1',
   MEDIA_KEY_PREFIX: 'luiskr_media_',
