@@ -1,3 +1,11 @@
+/**
+ * @file i18nFallbackMock.js
+ * @description Jest module mock for the fallback-locale dictionary — a
+ * trimmed English subset (not-found page, playground, HOME keys, about
+ * title/mentions) read from the real database.json so fallback tests
+ * verify the actual shipped strings, not synthetic fixtures.
+ */
+
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
