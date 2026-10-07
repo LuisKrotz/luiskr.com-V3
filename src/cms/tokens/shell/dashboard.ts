@@ -7,7 +7,9 @@
 import { _B_CMS } from '../base.js'
 
 /**
- * The CMS_DASHBOARD_CLASSES constant.
+ * Frozen cms dashboard class-name map — sole declaration site for these tokens; consumers
+ * read members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze
+ * makes the token contract immutable at runtime.
  */
 export const CMS_DASHBOARD_CLASSES = Object.freeze({
   CMS_BADGE: `${_B_CMS}-badge`,
