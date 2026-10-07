@@ -1,3 +1,12 @@
+/**
+ * @file sections.test.js
+ * @description Covers the home/feedback sections — AboutSection,
+ * ContactSection, AwardsMentions, CookieBanner — against CMS-backed store
+ * state and the FALLBACK_PAGES dictionary. Exercises skeleton → loaded
+ * transitions, fallback-data paths when CMS nodes are missing, cookie
+ * consent persistence, and localized link building (slugs + prefixes).
+ */
+
 import { FALLBACK_PAGES } from '@/core/locale/fallback.js'
 import { describe, test, expect, beforeEach, afterEach } from '@jest/globals'
 import { AboutSection } from '@/components/home/AboutSection.js'
