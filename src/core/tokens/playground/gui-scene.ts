@@ -13,7 +13,9 @@ export const SP_MOON_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_ATMOSPHERE_DEFAULTS constant.
+ * Frozen sp atmosphere map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const SP_ATMOSPHERE_DEFAULTS = Object.freeze({
   MODE: 'Airglow',
@@ -25,7 +27,9 @@ export const SP_ATMOSPHERE_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_CLOUD_SHADOW_DEFAULTS constant.
+ * Frozen sp cloud shadow map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const SP_CLOUD_SHADOW_DEFAULTS = Object.freeze({
   DISTANCE: 1.2,
@@ -34,7 +38,9 @@ export const SP_CLOUD_SHADOW_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_OCEAN_DEFAULTS constant.
+ * Frozen sp ocean map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const SP_OCEAN_DEFAULTS = Object.freeze({
   ROUGHNESS: 0,
@@ -42,7 +48,9 @@ export const SP_OCEAN_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_EARTH_DEFAULTS constant.
+ * Frozen sp earth map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const SP_EARTH_DEFAULTS = Object.freeze({
   ROTATION_SPEED: 0.0001,
@@ -53,7 +61,9 @@ export const SP_EARTH_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_CAMERA_DEFAULTS constant.
+ * Frozen sp camera map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const SP_CAMERA_DEFAULTS = Object.freeze({
   FOV: 45,
@@ -72,7 +82,9 @@ export const SP_CAMERA_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_ENVIRONMENT_DEFAULTS constant.
+ * Frozen sp environment map — sole declaration site for these tokens; consumers read members
+ * and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
+ * token contract immutable at runtime.
  */
 export const SP_ENVIRONMENT_DEFAULTS = Object.freeze({
   SKYBOX_INTENSITY: 0.5,
@@ -84,7 +96,9 @@ export const SP_ENVIRONMENT_DEFAULTS = Object.freeze({
 })
 
 /**
- * The SP_SUN_DEFAULTS constant.
+ * Frozen sp sun map — sole declaration site for these tokens; consumers read members and
+ * never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the token
+ * contract immutable at runtime.
  */
 export const SP_SUN_DEFAULTS = Object.freeze({
   INTENSITY: 2.5,
