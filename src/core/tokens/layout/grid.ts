@@ -4,6 +4,11 @@
  * the mosaic column table shared with the WASM layout worker.
  */
 
+/**
+ * Per-breakpoint grid padding (matches SASS $gap- values) and the mosaic column table shared with the WASM layout worker. Sole declaration site — consumers import members
+ * from this frozen map rather than re-declaring the literals
+ * (zero-hardcoding rule).
+ */
 export const GRID_GAP = Object.freeze({
   272: 13,
   320: 21,
