@@ -6,7 +6,9 @@
 import { _B_CMS_DEPLOY, _B_CMS_SCORE } from '../base.js'
 
 /**
- * The CMS_DEPLOY_CLASSES constant.
+ * Frozen cms deploy class-name map — sole declaration site for these tokens; consumers read
+ * members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
+ * the token contract immutable at runtime.
  */
 export const CMS_DEPLOY_CLASSES = Object.freeze({
   CMS_SCORE: _B_CMS_SCORE,
