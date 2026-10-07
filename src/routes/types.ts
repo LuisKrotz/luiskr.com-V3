@@ -4,6 +4,11 @@
  */
 /* istanbul ignore file */
 
+/**
+ * Metadata one route contributes to the document — `title`/`translation` feed
+ * the head, `scrollTo` a post-nav anchor, `projectRoute`/`legalRoute` classify the
+ * page for schema/analytics treatment.
+ */
 export interface RouteMeta {
   title?: string
   translation?: string
