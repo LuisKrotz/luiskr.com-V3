@@ -16,6 +16,10 @@ export const CAROUSEL_TIMING = Object.freeze({
   TELEPORT_DELAY: 420,
   /** Window (ms) scroll-handler teleports stay suppressed after a programmatic nav — just under TELEPORT_DELAY so a wrap scroll can finish before scroll events re-arm */
   NAVIGATION_SETTLE_DELAY: 400,
+  /** Scroll-event debounce (ms) before the clone-teleport detector runs — scroll fires per pixel, the check only matters at rest */
+  SCROLL_DEBOUNCE_MS: 150,
+  /** ringProgress drained per RAF frame when autoplay stops (0–1 scale) — ~25 frames ≈ 0.4s unwind */
+  RING_REGRESS_STEP: 0.04,
 })
 
 /**
@@ -36,6 +40,16 @@ export const CAROUSEL_LAYOUT = Object.freeze({
   MAX_HEIGHT_VH: 70,
   /** Skeleton sections reserve the same capped height so content loads without shifting */
   SKELETON_ITEM_HEIGHT: '70vh',
+  /** px tolerance for "slide center ≈ track center" in the clone-teleport detector — loose enough for sub-pixel scroll stops, tight enough not to fire mid-swipe */
+  CENTER_EPS_PX: 10,
+  /** IntersectionObserver ratio that counts as "visible enough" to autoplay (15%) */
+  VISIBILITY_RATIO: 0.15,
+  /** px delta below which ResizeObserver width reports are ignored — sub-pixel RO noise must not trigger a re-fit storm */
+  FIT_EPS_PX: 4,
+  /** Approx flex gap (px) added per item in the side-by-side width projection */
+  ITEM_GAP_PX: 32,
+  /** Max slide height (px) used when window.innerHeight is unavailable (SSR/tests) */
+  MAX_HEIGHT_FALLBACK: 600,
 })
 
 /**
