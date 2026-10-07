@@ -6,29 +6,32 @@ import { MEDIA } from '@/core/tokens/media/suffixes.js'
 import { CDN_URLS } from '@/core/tokens/media/urls.js'
 import { COVER_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 
-/**
- * Type contract for CmsMediaItem — the shape consumers rely on.
- */
+/** One media row in the CMS project editor. */
 export interface CmsMediaItem {
+  /** Extensionless CDN stem (resolved by the gcs() helper for previews). */
   src: string
+  /** Alt/label text shown in the editor + emitted as media labels. */
   label: string
+  /** Whether the media is a video (drives poster-URL resolution). */
   isVideo: boolean
+  /** Intrinsic [w,h] for aspect-ratio layouts. */
   size: number[]
 }
 
-/**
- * Type contract for CmsSection — the shape consumers rely on.
- */
+/** One project section — [text paragraphs, media items] tuple. */
 export type CmsSection = [string[], CmsMediaItem[]]
 
-/**
- * Type contract for cms project.
- */
+/** The persisted CMS project document shape. */
 export interface CmsProject {
+  /** Project title (heading + metadata). */
   title: string
+  /** CDN folder prefix all media resolves under. */
   folder: string
+  /** SEO flags — noIndex removes the project from crawlers/schema. */
   seo: { noIndex: boolean }
+  /** Cover media shown in mosaics/cards. */
   cover: CmsMediaItem
+  /** Ordered content sections. */
   sections: CmsSection[]
 }
 
@@ -36,6 +39,9 @@ export interface CmsProject {
  * Builds the CDN URL for a media filename the same way the public site
  * does — videos resolve to their poster frame, images to the mozjpeg
  * thumb variant — so CMS previews show exactly what visitors will see.
+ * @param filename Extensionless CDN stem (folder + name).
+ * @param isVideo When true, resolves the generated poster frame instead.
+ * @returns The full preview URL.
  */
 export function gcs(filename: string, isVideo?: boolean): string {
   const base = `${CDN_URLS.CDN_BASE}${filename}`
