@@ -15,20 +15,30 @@ import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
 import { glContextOptions } from './gpu-info.js'
 import { GPU_ACCEL_FS, GPU_ACCEL_VS } from './gpu-accel-shaders.js'
 import { bindQuad, createQuadProgram } from '@/utils/canvas/gl-program.js'
-import { webglAllowed } from '../canvas/webgl-mode.js'
+import { webglContext } from '../canvas/webgl-mode.js'
 import { UA_PATTERNS } from '@/core/tokens/motion/gpu.js'
 import { GENERIC_DIMENSIONS, VIDEO_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
 
 /** Lazy GPU engine: context/program/texture are created on first use only. */
 class GPUAccelerator {
-  canvas: HTMLCanvasElement | null = null // offscreen <canvas> backing the GL context
-  gl: WebGL2RenderingContext | WebGLRenderingContext | null = null // WebGL2 (WebGL1 fallback) context
-  program: WebGLProgram | null = null // fullscreen-quad passthrough shader program
-  texture: WebGLTexture | null = null // single reusable texture — media uploads target it
-  hasNPU = false // WebNN 'ml' in navigator — NPU inference available
-  private _ready = false // init attempted (success or fail — never retried)
+  /** Offscreen <canvas> backing the GL context — 1×1 until an upload resizes it. */
+  canvas: HTMLCanvasElement | null = null
+  /** WebGL2 (WebGL1 fallback) context — null before first use or on failure. */
+  gl: WebGL2RenderingContext | WebGLRenderingContext | null = null
+  /** Fullscreen-quad passthrough shader program. */
+  program: WebGLProgram | null = null
+  /** Single reusable texture — all media uploads target it. */
+  texture: WebGLTexture | null = null
+  /** WebNN 'ml' in navigator — NPU inference available. */
+  hasNPU = false
+  /** Init attempted (success or fail — never retried per instance). */
+  private _ready = false
 
-  /** Cold-starts the GL context on first use (lazy — avoids module-init shader compile). */
+  /**
+   * Cold-starts the GL context on first use (lazy — avoids module-init
+   * shader compile blocking page load). The latch prevents retry storms:
+   * a failed init stays failed for this instance.
+   */
   private _ensureReady(): void {
     if (this._ready) return
 
@@ -62,20 +72,19 @@ class GPUAccelerator {
       this.canvas.width = 1
       this.canvas.height = 1
 
-      this.gl = webglAllowed()
-        ? (this.canvas.getContext(
-            WEBGL_STRINGS.WEBGL2,
-            glContextOptions({
-              desynchronized: true,
-              alpha: false,
-              failIfMajorPerformanceCaveat: false,
-            })
-          ) as WebGL2RenderingContext | null) ||
-          (this.canvas.getContext(
-            WEBGL_STRINGS.WEBGL,
-            glContextOptions({ alpha: false })
-          ) as WebGLRenderingContext | null)
-        : null
+      // Route through webglContext (rule 18): the debug fallback param stays
+      // authoritative and the WebGL2→WebGL1 downgrade happens in one place.
+      // `desynchronized` lowers present latency; alpha:false keeps the
+      // compositor on the fast opaque path.
+      this.gl = webglContext(
+        this.canvas,
+        glContextOptions({
+          desynchronized: true,
+          alpha: false,
+          failIfMajorPerformanceCaveat: false,
+        }),
+        true
+      )
 
       const gl = this.gl
 
@@ -99,7 +108,13 @@ class GPUAccelerator {
     }
   }
 
-  /** Compiles a GLSL stage on the lazy context; deletes + returns null on failure. */
+  /**
+   * Compiles a GLSL stage on the lazy context; deletes + returns null on
+   * failure so a bad shader never leaks a shader object.
+   * @param type gl.VERTEX_SHADER | gl.FRAGMENT_SHADER.
+   * @param source GLSL source text.
+   * @returns The compiled shader, or null.
+   */
   compileShader(type: number, source: string): WebGLShader | null {
     if (!this.gl) return null
 
@@ -124,6 +139,7 @@ class GPUAccelerator {
    * Promotes an element to its own GPU compositor layer (will-change +
    * translate3d + backface-visibility) for smooth transforms. Root/body get
    * scroll-position instead so scroll stays composited without a giant layer.
+   * @param el Element to promote (no-op on null/styleless).
    */
   accelerateElementGPU(el: HTMLElement | null | undefined): void {
     if (!el || !el.style) return
@@ -144,7 +160,12 @@ class GPUAccelerator {
     el.style.backfaceVisibility = 'hidden'
   }
 
-  /** Reverses accelerateElementGPU — returns the element to normal compositing. */
+  /**
+   * Reverses accelerateElementGPU — returns the element to normal
+   * compositing. Transform/backface are only cleared off root/body (those
+   * never got them, and clearing body transforms could clobber author styles).
+   * @param el Element to release.
+   */
   releaseElementGPU(el: HTMLElement | null | undefined): void {
     if (!el || !el.style) return
 
@@ -198,7 +219,14 @@ class GPUAccelerator {
   }
 
   // Upload HTML5 Video frames directly to WebGL GPU hardware texture
-  /** Uploads the current video frame to the GPU texture; needs readyState ≥ 2 (HAVE_CURRENT_DATA). */
+  /**
+   * Uploads the current video frame to the GPU texture; needs readyState
+   * ≥ 2 (HAVE_CURRENT_DATA) — earlier states have no frame to upload.
+   * @param videoEl Source video element.
+   * @param targetW Upload width hint (defaults to VIDEO_DIMENSIONS default).
+   * @param targetH Upload height hint.
+   * @returns true on upload, null when skipped, false on GL error.
+   */
   processVideoGPU(
     videoEl: HTMLVideoElement | null,
     targetW: number = VIDEO_DIMENSIONS.VIDEO_DEFAULT_WIDTH,
@@ -218,7 +246,13 @@ class GPUAccelerator {
   }
 
   // Upload HTML5 Image element directly to WebGL GPU hardware texture
-  /** Uploads an Image element to the GPU texture. */
+  /**
+   * Uploads an Image element to the GPU texture.
+   * @param imageEl Source image element.
+   * @param targetW Upload width hint.
+   * @param targetH Upload height hint.
+   * @returns true on upload, null when skipped, false on GL error.
+   */
   processImageGPU(
     imageEl: HTMLImageElement | null,
     targetW: number = GENERIC_DIMENSIONS.DEFAULT_WIDTH,
@@ -237,7 +271,13 @@ class GPUAccelerator {
     }
   }
 
-  /** Back-compat alias of processImageGPU. */
+  /**
+   * Back-compat alias of processImageGPU — kept so older call sites keep working.
+   * @param imageEl Source image element.
+   * @param targetW Optional width hint.
+   * @param targetH Optional height hint.
+   * @returns Same contract as processImageGPU.
+   */
   processTextureGPU(
     imageEl: HTMLImageElement | null,
     targetW?: number,
@@ -246,7 +286,14 @@ class GPUAccelerator {
     return this.processImageGPU(imageEl, targetW, targetH)
   }
 
-  /** Uploads a pre-decoded ImageBitmap (from the WASM decoder path) — zero-copy into VRAM. */
+  /**
+   * Uploads a pre-decoded ImageBitmap (from the WASM decoder path) —
+   * zero-copy into VRAM; the driver accepts ImageBitmap directly.
+   * @param bitmap Decoded bitmap.
+   * @param targetW Upload width hint.
+   * @param targetH Upload height hint.
+   * @returns true on upload, null when skipped, false on GL error.
+   */
   processBitmapGPU(
     bitmap: ImageBitmap | null | undefined,
     targetW: number = GENERIC_DIMENSIONS.DEFAULT_WIDTH,
@@ -267,6 +314,7 @@ class GPUAccelerator {
 }
 
 /**
- * The gpuAccel constant.
+ * Shared GPU accelerator singleton — one offscreen context + texture
+ * serves every media upload, so the page never holds duplicate pipelines.
  */
 export const gpuAccel = new GPUAccelerator()
