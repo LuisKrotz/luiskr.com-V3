@@ -151,22 +151,22 @@ const expand = (scopes) => {
   return [...out]
 }
 
+/**
+ * Lists files changed in a diff range (or the index for --staged). The
+ * 64 MiB maxBuffer absorbs mega-diffs — the default 1 MiB silently
+ * truncated a ~21k-file push and produced an empty list. A diff failure
+ * is fatal, not skippable: returning [] would push with zero gates.
+ */
 const changedFiles = (args) => {
-  try {
-    if (args.includes('--staged')) {
-      return execSync('git diff --cached --name-only', { cwd: ROOT, encoding: 'utf8' })
-        .split('\n')
-        .filter(Boolean)
-    }
+  const opts = { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }
 
-    const range = args.find((a) => !a.startsWith('-')) || 'HEAD'
-
-    return execSync(`git diff --name-only ${range}`, { cwd: ROOT, encoding: 'utf8' })
-      .split('\n')
-      .filter(Boolean)
-  } catch {
-    return []
+  if (args.includes('--staged')) {
+    return execSync('git diff --cached --name-only', opts).split('\n').filter(Boolean)
   }
+
+  const range = args.find((a) => !a.startsWith('-')) || 'HEAD'
+
+  return execSync(`git diff --name-only ${range}`, opts).split('\n').filter(Boolean)
 }
 
 const exists = (p) => fs.existsSync(path.join(ROOT, p))
