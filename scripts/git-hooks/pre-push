@@ -35,4 +35,10 @@ if [[ -z "$SCOPES" && -n "$RANGE" ]]; then
 fi
 
 echo "── pre-push: scoped gates for ${SCOPES:-all modules} ──"
-node scripts/verify/scope-gates.mjs run ${SCOPES:---all}
+# ${(s: :)...} word-splits — plain ${SCOPES} would pass the whole list as
+# one argv element and scope-gates would match zero scopes silently.
+if [[ -n "$SCOPES" ]]; then
+  node scripts/verify/scope-gates.mjs run ${(s: :)SCOPES}
+else
+  node scripts/verify/scope-gates.mjs run --all
+fi

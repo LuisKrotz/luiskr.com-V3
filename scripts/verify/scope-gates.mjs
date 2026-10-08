@@ -35,6 +35,7 @@ const SCOPES = {
     dirs: ['src'],
     tsconfig: 'tsconfig.json',
     tests: ['tests/app', 'tests/coverage/app'],
+    ignore: [],
     lighthouse: true,
     a11y: true,
   },
