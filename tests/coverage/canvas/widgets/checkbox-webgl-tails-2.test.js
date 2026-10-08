@@ -10,12 +10,12 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 
-import { CheckboxWebGL } from '@/playground/space/checkbox-webgl.js'
+import { CheckboxWebGL } from '@earth/space/checkbox-webgl.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 
 

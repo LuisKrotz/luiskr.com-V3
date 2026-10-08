@@ -1,10 +1,10 @@
 /**
  * @file browser-detect.test.js — UA table order, quirk propagation and the
- * stamped-manifest fast path for src/core/browser/detect.ts.
+ * stamped-manifest fast path for core/browser/detect.ts.
  */
 
 import { TEST_UA } from '../../fixtures/test-constants.js'
-import { detectBrowser, browserInfo, canUseWebGPU, BROWSERS } from '@/core/browser/detect.js'
+import { detectBrowser, browserInfo, canUseWebGPU, BROWSERS } from '@core/browser/detect.js'
 
 describe('browser detect — UA table', () => {
   test.each([

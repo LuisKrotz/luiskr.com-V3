@@ -8,7 +8,7 @@
 function notify(message, opts?): Promise<false | 'native' | 'toast'>
 ```
 
-Defined in: [src/utils/notify.ts:150](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/notify.ts#L150)
+Defined in: [core/utils/notify.ts:150](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/notify.ts#L150)
 
 Surfaces a message to the user — native notification when allowed, the
 in-page toast otherwise.

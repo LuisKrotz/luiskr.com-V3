@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [playground/earth/runtime/state](../README.md) / EarthSpinState
 
-Defined in: [src/playground/earth/runtime/state.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L54)
+Defined in: [experiments/earth-playground/earth/runtime/state.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/runtime/state.ts#L54)
 
 Earth self-rotation settings.
 
@@ -16,7 +16,7 @@ Earth self-rotation settings.
 rotationSpeed: number
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L56)
+Defined in: [experiments/earth-playground/earth/runtime/state.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/runtime/state.ts#L56)
 
 Y-rotation speed applied per frame.
 
@@ -28,6 +28,6 @@ Y-rotation speed applied per frame.
 trueInclination: boolean
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L58)
+Defined in: [experiments/earth-playground/earth/runtime/state.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/runtime/state.ts#L58)
 
 When true the real 23.44° tilt is applied to the group.

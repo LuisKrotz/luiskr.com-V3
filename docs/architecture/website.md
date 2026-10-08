@@ -1,4 +1,4 @@
-# Website (src/routes + src/components)
+# Website (website/views + website/components)
 
 The public portfolio: `main.ts` → `App.tsx` (`<app-shell>`) → router-mounted
 views → shadow-DOM components.
@@ -73,7 +73,7 @@ class to draw bright strokes over the dark contact/footer sections.
 
 ## Debug URL parameters
 
-Boot-time `?debug=` flags (handled by `src/core/debug/params.ts`):
+Boot-time `?debug=` flags (handled by `core/debug/params.ts`):
 
 - `?debug=sendNotificationTest` — fires the `notify()` pipeline once with a
   real toast, so the notification surface is verifiable end-to-end in a live
@@ -84,6 +84,6 @@ Boot-time `?debug=` flags (handled by `src/core/debug/params.ts`):
   fail → all canvas widgets take the CSS/2D fallback path. Useful for QA of
   the no-WebGL experience without disabling the GPU in the browser.
 
-All WebGL `getContext` calls funnel through `src/utils/canvas/webgl-mode.ts`,
+All WebGL `getContext` calls funnel through `core/utils/canvas/webgl-mode.ts`,
 so the flag is authoritative — code must never call `canvas.getContext('webgl…')`
 directly.

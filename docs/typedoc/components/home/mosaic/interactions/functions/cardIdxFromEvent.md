@@ -11,7 +11,7 @@ function cardIdxFromEvent(e): {
 } | null
 ```
 
-Defined in: [src/components/home/mosaic/interactions.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/mosaic/interactions.ts#L33)
+Defined in: [website/components/home/mosaic/interactions.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/mosaic/interactions.ts#L33)
 
 Resolves the mosaic card element + its data-index from a DOM event.
 

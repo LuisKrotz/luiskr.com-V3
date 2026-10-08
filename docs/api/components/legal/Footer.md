@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/legal/Footer.tsx` |
+| **Source** | `website/components/legal/Footer.tsx` |
 | **UX surface** | Footer shown on legal pages. |
 
 ## Members

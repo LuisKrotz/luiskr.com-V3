@@ -4,7 +4,7 @@ Data helpers for &lt;awards-mentions&gt;: the legal-links list
 
 | | |
 |---|---|
-| **Source** | `src/components/home/awards/data.ts` |
+| **Source** | `website/components/home/awards/data.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

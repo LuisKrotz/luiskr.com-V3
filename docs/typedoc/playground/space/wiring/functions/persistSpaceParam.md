@@ -8,7 +8,7 @@
 function persistSpaceParam(c, param, val): void
 ```
 
-Defined in: [src/playground/space/wiring.ts:316](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/wiring.ts#L316)
+Defined in: [experiments/earth-playground/space/wiring.ts:316](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/wiring.ts#L316)
 
 Writes one param into the saved-settings map and persists the whole map
 to localStorage — the single write point for panel state.

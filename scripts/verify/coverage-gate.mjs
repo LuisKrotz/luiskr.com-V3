@@ -17,7 +17,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const ROOT = process.cwd()
-const SRC_DIR = path.join(ROOT, 'src')
+// Every module area contributes files to the per-file 100% gate.
+const SRC_DIRS = ['src', 'core', 'website', 'cms', 'experiments'].map((d) => path.join(ROOT, d))
 const COVERAGE_FILE = path.join(ROOT, 'coverage', 'coverage-final.json')
 const THRESHOLD = 100
 const IGNORE_RE = /istanbul ignore file/
@@ -71,18 +72,23 @@ if (uncovered.length) {
 // Absent-file check: a src file that never appears in coverage-final.json
 // has 0% coverage by definition. Only files carrying `istanbul ignore file`
 // (barrels, legacy polyfills that never run under tests) may be absent.
+// Generated trees inside area dirs are build output, not authored source.
+const SKIP_DIRS = new Set(['dist', 'node_modules'])
+
 const listSrc = (dir) =>
   fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
     const p = path.join(dir, e.name)
     return e.isDirectory()
-      ? listSrc(p)
+      ? SKIP_DIRS.has(e.name)
+        ? []
+        : listSrc(p)
       : /\.(ts|tsx|js)$/.test(e.name) && !e.name.endsWith('.d.ts')
         ? [p]
         : []
   })
 
 const inReport = new Set(Object.keys(data).map((f) => path.resolve(f)))
-const absent = listSrc(SRC_DIR).filter(
+const absent = SRC_DIRS.flatMap(listSrc).filter(
   (f) => !inReport.has(path.resolve(f)) && !IGNORE_RE.test(fs.readFileSync(f, 'utf-8'))
 )
 

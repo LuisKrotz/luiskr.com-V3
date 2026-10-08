@@ -4,7 +4,7 @@ Carousel arrow button directions — shared by CustomCarousel
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/theme/arrows.ts` |
+| **Source** | `core/tokens/theme/arrows.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

@@ -4,7 +4,7 @@ CMS about-page editor: bio paragraphs per column, the
 
 | | |
 |---|---|
-| **Source** | `src/cms/about/CmsAboutEditor.tsx` |
+| **Source** | `cms/about/CmsAboutEditor.tsx` |
 | **UX surface** | About-section editor card. |
 
 ## Members

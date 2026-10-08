@@ -8,7 +8,7 @@
 function hasDebugFlag(flag): boolean
 ```
 
-Defined in: [src/core/debug/params.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/debug/params.ts#L39)
+Defined in: [core/debug/params.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/debug/params.ts#L39)
 
 True when `flag` is present among the URL's `?debug=` values.
 

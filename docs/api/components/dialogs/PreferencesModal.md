@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/dialogs/PreferencesModal.tsx` |
+| **Source** | `website/components/dialogs/PreferencesModal.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

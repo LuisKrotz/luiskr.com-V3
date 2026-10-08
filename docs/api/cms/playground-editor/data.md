@@ -4,7 +4,7 @@ Firebase read/write for &lt;cms-playground-editor&gt;: loads the
 
 | | |
 |---|---|
-| **Source** | `src/cms/playground-editor/data.ts` |
+| **Source** | `cms/playground-editor/data.ts` |
 | **UX surface** | Earth-playground labels, defaults and route slugs editor. |
 
 ## Members

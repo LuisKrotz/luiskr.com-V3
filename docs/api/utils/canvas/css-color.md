@@ -4,7 +4,7 @@ Shared CSS-color parser for the canvas widgets — converts
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/css-color.ts` |
+| **Source** | `core/utils/canvas/css-color.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

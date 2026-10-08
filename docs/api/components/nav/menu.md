@@ -4,7 +4,7 @@ Fullscreen menu overlay behavior for &lt;app-nav&gt;, extracted
 
 | | |
 |---|---|
-| **Source** | `src/components/nav/menu.tsx` |
+| **Source** | `website/components/nav/menu.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

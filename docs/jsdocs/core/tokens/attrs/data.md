@@ -102,3 +102,11 @@ the token contract immutable at runtime.
 ### `DATA_APP_WRAPPER`
 
 `data-app-wrapper` — marks the top-level app wrapper element.
+
+### `DATA_PATH`
+
+`data-path` — manifest path stamped on docs tree/grid buttons.
+
+### `DATA_WIRED`
+
+Marks a docs-content box whose delegated link handler is attached.

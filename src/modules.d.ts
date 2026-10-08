@@ -106,6 +106,28 @@ declare module 'virtual:i18n-boot-index' {
   export default index
 }
 
+declare module 'virtual:docs-manifest' {
+  const manifest: {
+    generated: string
+    roots: Array<{
+      root: string
+      label: string
+      children: Array<{
+        type: 'dir' | 'file'
+        name: string
+        path: string
+        children?: unknown[]
+        id?: string
+        format?: string
+        size?: number
+        mtime?: string
+        embedded?: boolean
+      }>
+    }>
+  }
+  export default manifest
+}
+
 // NOTE: no `*.js` wildcard shim — a wildcard `declare module` can't express
 // arbitrary named exports, and real `.js` files resolve to themselves
 // anyway. TS7016 on still-JS imports clears as each domain is migrated.

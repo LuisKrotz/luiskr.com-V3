@@ -8,7 +8,7 @@
 function removeItem(host, arr, idx): void
 ```
 
-Defined in: [src/cms/footer/lists.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/lists.ts#L26)
+Defined in: [cms/footer/lists.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/footer/lists.ts#L26)
 
 Removes an item by index and re-renders.
 

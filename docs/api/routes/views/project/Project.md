@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/routes/views/project/Project.tsx` |
+| **Source** | `website/views/project/Project.tsx` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

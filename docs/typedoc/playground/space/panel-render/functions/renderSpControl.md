@@ -8,7 +8,7 @@
 function renderSpControl(ctrl, t, savedVal): Element
 ```
 
-Defined in: [src/playground/space/panel-render.tsx:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/panel-render.tsx#L22)
+Defined in: [experiments/earth-playground/space/panel-render.tsx:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/panel-render.tsx#L22)
 
 One control row. Checkboxes render a WebGL check canvas + SVG check icon;
 ranges render a slider with the range-fill CSS var + a value readout.

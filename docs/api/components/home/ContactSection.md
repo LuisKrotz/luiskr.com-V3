@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/home/ContactSection.tsx` |
+| **Source** | `website/components/home/ContactSection.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

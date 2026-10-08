@@ -10,14 +10,14 @@
 import { describe, test, expect } from '@jest/globals'
 import { readFileSync, existsSync, readdirSync } from 'fs'
 import { resolve } from 'path'
-import { THEME } from '@/core/constants.js'
-import { CSS_STRINGS } from '@/core/tokens/strings/css.js'
-import { DRAW_TEXT_CLASSES } from '@/core/tokens/classes/draw-text.js'
-import { COMMON_SELECTORS } from '@/core/tokens/selectors/common.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { NAV_SELECTORS } from '@/core/tokens/selectors/nav.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { THEME } from '@core/constants.js'
+import { CSS_STRINGS } from '@core/tokens/strings/css.js'
+import { DRAW_TEXT_CLASSES } from '@core/tokens/classes/draw-text.js'
+import { COMMON_SELECTORS } from '@core/tokens/selectors/common.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { NAV_SELECTORS } from '@core/tokens/selectors/nav.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 const root = '/home/luis/projects/luiskr.com-V3'
 const readSass = (rel) => {
@@ -34,11 +34,11 @@ describe('SASS/CSS Structure & Style Isolation', () => {
   // ── File Existence ────────────────────────────────────────────────────────────
   describe('1. SASS File Existence', () => {
     const expectedFiles = [
-      'src/sass/components/shell/app.scss',
-      'src/sass/base/_variables.scss',
-      'src/sass/components/media/draw-text.scss',
-      'src/routes/views/home/home.scss',
-      'src/sass/components/carousel/carousel.scss',
+      'core/sass/components/shell/app.scss',
+      'core/sass/base/_variables.scss',
+      'core/sass/components/media/draw-text.scss',
+      'website/views/home/home.scss',
+      'core/sass/components/carousel/carousel.scss',
     ]
 
     expectedFiles.forEach((file) => {
@@ -47,9 +47,9 @@ describe('SASS/CSS Structure & Style Isolation', () => {
       })
     })
 
-    test('src/sass directory has multiple SCSS files', () => {
+    test('core/sass directory has multiple SCSS files', () => {
       try {
-        const files = readdirSync(resolve(root, 'src/sass/components'), { recursive: true })
+        const files = readdirSync(resolve(root, 'core/sass/components'), { recursive: true })
         const scssFiles = files.filter((f) => f.endsWith('.scss'))
         expect(scssFiles.length).toBeGreaterThanOrEqual(3)
       } catch {
@@ -58,39 +58,39 @@ describe('SASS/CSS Structure & Style Isolation', () => {
     })
 
     test('draw-text.scss exists', () => {
-      expect(existsSync(resolve(root, 'src/sass/components/media/draw-text.scss'))).toBe(true)
+      expect(existsSync(resolve(root, 'core/sass/components/media/draw-text.scss'))).toBe(true)
     })
 
     test('app.scss (main entry) exists', () => {
-      expect(existsSync(resolve(root, 'src/sass/components/shell/app.scss'))).toBe(true)
+      expect(existsSync(resolve(root, 'core/sass/components/shell/app.scss'))).toBe(true)
     })
 
     test('_variables.scss exists', () => {
-      expect(existsSync(resolve(root, 'src/sass/base/_variables.scss'))).toBe(true)
+      expect(existsSync(resolve(root, 'core/sass/base/_variables.scss'))).toBe(true)
     })
 
     test('home.scss exists', () => {
-      expect(existsSync(resolve(root, 'src/routes/views/home/home.scss'))).toBe(true)
+      expect(existsSync(resolve(root, 'website/views/home/home.scss'))).toBe(true)
     })
 
     test('carousel.scss exists', () => {
-      expect(existsSync(resolve(root, 'src/sass/components/carousel/carousel.scss'))).toBe(true)
+      expect(existsSync(resolve(root, 'core/sass/components/carousel/carousel.scss'))).toBe(true)
     })
 
     test('about.scss exists', () => {
-      expect(existsSync(resolve(root, 'src/sass/components/home/about.scss'))).toBe(true)
+      expect(existsSync(resolve(root, 'core/sass/components/home/about.scss'))).toBe(true)
     })
 
     test('contact.scss exists', () => {
-      expect(existsSync(resolve(root, 'src/sass/components/home/contact.scss'))).toBe(true)
+      expect(existsSync(resolve(root, 'core/sass/components/home/contact.scss'))).toBe(true)
     })
 
     test('modal.scss exists', () => {
-      expect(existsSync(resolve(root, 'src/sass/components/internals/modal.scss'))).toBe(true)
+      expect(existsSync(resolve(root, 'core/sass/components/internals/modal.scss'))).toBe(true)
     })
 
-    test('src/sass has at least 15 SCSS files', () => {
-      const files = readdirSync(resolve(root, 'src/sass/components'), { recursive: true })
+    test('core/sass has at least 15 SCSS files', () => {
+      const files = readdirSync(resolve(root, 'core/sass/components'), { recursive: true })
       expect(files.filter((f) => f.endsWith('.scss')).length).toBeGreaterThanOrEqual(15)
     })
   })
@@ -99,33 +99,34 @@ describe('SASS/CSS Structure & Style Isolation', () => {
   describe('2. CSS Variables — Design Tokens', () => {
     test('CSS variables are defined', () => {
       const combined =
-        readSass('src/sass/base/_variables.scss') + readSass('src/sass/components/shell/app.scss')
+        readSass('core/sass/base/_variables.scss') + readSass('core/sass/components/shell/app.scss')
       expect(combined.length).toBeGreaterThan(0)
     })
 
     test('design tokens use CSS custom properties (--var-name) or SASS vars', () => {
       const combined =
-        readSass('src/sass/base/_variables.scss') + readSass('src/sass/components/shell/app.scss')
+        readSass('core/sass/base/_variables.scss') + readSass('core/sass/components/shell/app.scss')
       expect(combined.length).toBeGreaterThan(50)
     })
 
     test('SASS variables are declared with $ prefix', () => {
       const content =
-        readSass('src/sass/base/_variables.scss') || readSass('src/sass/components/shell/app.scss')
+        readSass('core/sass/base/_variables.scss') ||
+        readSass('core/sass/components/shell/app.scss')
       const hasVars = content.includes('$') || content.includes(CSS_STRINGS.CSS_VAR_PREFIX)
       expect(content.length).toBeGreaterThan(0)
       expect(hasVars).toBe(true)
     })
 
     test('_variables.scss is not empty', () => {
-      const content = readSass('src/sass/base/_variables.scss')
+      const content = readSass('core/sass/base/_variables.scss')
       expect(content.length).toBeGreaterThan(0)
     })
   })
 
   // ── DrawText SASS ─────────────────────────────────────────────────────────────
   describe('3. draw-text.scss — Animation Styles', () => {
-    const css = readSass('src/sass/components/media/draw-text.scss')
+    const css = readSass('core/sass/components/media/draw-text.scss')
 
     test('draw-text.scss is not empty', () => {
       expect(css.length).toBeGreaterThan(0)
@@ -163,7 +164,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
 
   // ── base.scss ─────────────────────────────────────────────────────────────────
   describe('4. app.scss — Global Styles', () => {
-    const css = readSass('src/sass/components/shell/app.scss')
+    const css = readSass('core/sass/components/shell/app.scss')
 
     test('app.scss is not empty', () => {
       expect(css.length).toBeGreaterThan(0)
@@ -186,7 +187,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
   })
 
   describe('5. _structure.scss — Layout Styles', () => {
-    const css = readSass('src/sass/base/_structure.scss')
+    const css = readSass('core/sass/base/_structure.scss')
 
     test('_structure.scss is not empty', () => {
       expect(css.length).toBeGreaterThan(0)
@@ -210,7 +211,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
     }
 
     test('components import SASS files with ?inline flag', () => {
-      const componentFiles = getJsFiles('src/components')
+      const componentFiles = getJsFiles('website/components')
       const hasSassImport = componentFiles.some((f) => {
         try {
           return readFileSync(f, 'utf-8').includes('?inline')
@@ -223,8 +224,8 @@ describe('SASS/CSS Structure & Style Isolation', () => {
 
     test('DrawText.js imports .scss?inline', () => {
       const drawTextPath = [
-        resolve(root, 'src/components/media/DrawText.js'),
-        resolve(root, 'src/components/media/DrawText.tsx'),
+        resolve(root, 'website/components/media/DrawText.js'),
+        resolve(root, 'website/components/media/DrawText.tsx'),
       ].find((f) => existsSync(f))
       try {
         const content = readFileSync(drawTextPath, 'utf-8')
@@ -236,8 +237,8 @@ describe('SASS/CSS Structure & Style Isolation', () => {
 
     test('AppNav.js imports .scss?inline', () => {
       const navPath = [
-        resolve(root, 'src/components/nav/AppNav.js'),
-        resolve(root, 'src/components/nav/AppNav.tsx'),
+        resolve(root, 'website/components/nav/AppNav.js'),
+        resolve(root, 'website/components/nav/AppNav.tsx'),
       ].find((f) => existsSync(f))
       try {
         const content = readFileSync(navPath, 'utf-8')
@@ -248,7 +249,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
     })
 
     test('no component has styles hardcoded as JS template literals longer than 200 chars', () => {
-      const componentFiles = getJsFiles('src/components')
+      const componentFiles = getJsFiles('website/components')
       componentFiles.forEach((f) => {
         try {
           const content = readFileSync(f, 'utf-8')
@@ -267,11 +268,11 @@ describe('SASS/CSS Structure & Style Isolation', () => {
   // ── Component SASS Files ──────────────────────────────────────────────────────
   describe('7. Component SASS Files Exist', () => {
     const componentSassFiles = [
-      'src/sass/components/media/draw-text.scss',
-      'src/routes/views/home/home.scss',
-      'src/sass/components/carousel/carousel.scss',
-      'src/sass/components/home/about.scss',
-      'src/sass/components/home/contact.scss',
+      'core/sass/components/media/draw-text.scss',
+      'website/views/home/home.scss',
+      'core/sass/components/carousel/carousel.scss',
+      'core/sass/components/home/about.scss',
+      'core/sass/components/home/contact.scss',
     ]
 
     componentSassFiles.forEach((file) => {
@@ -285,9 +286,9 @@ describe('SASS/CSS Structure & Style Isolation', () => {
   // ── Dark Mode Support ─────────────────────────────────────────────────────────
   describe('8. Dark Mode — Theme Support', () => {
     const allSass = [
-      'src/sass/components/shell/app.scss',
-      'src/sass/base/_variables.scss',
-      'src/routes/views/home/home.scss',
+      'core/sass/components/shell/app.scss',
+      'core/sass/base/_variables.scss',
+      'website/views/home/home.scss',
     ]
       .map((f) => readSass(f))
       .join('\n')
@@ -307,11 +308,11 @@ describe('SASS/CSS Structure & Style Isolation', () => {
 
   // ── Reduced Motion Support ────────────────────────────────────────────────────
   describe('9. Accessibility — Reduced Motion', () => {
-    const drawTextCss = readSass('src/sass/components/media/draw-text.scss')
+    const drawTextCss = readSass('core/sass/components/media/draw-text.scss')
     const allSass = [
-      'src/sass/components/shell/app.scss',
-      'src/routes/views/home/home.scss',
-      'src/sass/components/media/draw-text.scss',
+      'core/sass/components/shell/app.scss',
+      'website/views/home/home.scss',
+      'core/sass/components/media/draw-text.scss',
     ]
       .map((f) => readSass(f))
       .join('\n')
@@ -332,7 +333,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
 
   // ── CSS Custom Properties ─────────────────────────────────────────────────────
   describe('10. CSS Custom Properties — Root Variables', () => {
-    const vars = readSass('src/sass/base/_variables.scss')
+    const vars = readSass('core/sass/base/_variables.scss')
 
     test('_variables.scss has content', () => {
       expect(vars.length).toBeGreaterThan(10)
@@ -354,15 +355,15 @@ describe('SASS/CSS Structure & Style Isolation', () => {
   // ── No Style Duplication ─────────────────────────────────────────────────────
   describe('11. No Style Duplication — DRY CSS', () => {
     test('draw-text.scss does not duplicate nav styles', () => {
-      const drawTextCss = readSass('src/sass/components/media/draw-text.scss')
+      const drawTextCss = readSass('core/sass/components/media/draw-text.scss')
       // DrawText styles should not reference nav-specific selectors
       expect(drawTextCss).not.toContain(NAV_SELECTORS.NAV_LINK)
       expect(drawTextCss).not.toContain('.nav-btn')
     })
 
     test('variables.scss is imported by other SASS files, not duplicated', () => {
-      const main = readSass('src/sass/components/shell/app.scss')
-      const base = readSass('src/sass/base/_structure.scss')
+      const main = readSass('core/sass/components/shell/app.scss')
+      const base = readSass('core/sass/base/_structure.scss')
       // Variables should be centralized (imported) not defined in multiple places
       const mainHasVarDefs = (main.match(/\$[a-z-]+\s*:/g) || []).length
       const baseHasVarDefs = (base.match(/\$[a-z-]+\s*:/g) || []).length
@@ -373,9 +374,9 @@ describe('SASS/CSS Structure & Style Isolation', () => {
 
   // ── Component Style Count ─────────────────────────────────────────────────────
   describe('12. Component Style Coverage', () => {
-    test('src/sass directory has at least 3 .scss files', () => {
+    test('core/sass directory has at least 3 .scss files', () => {
       try {
-        const files = readdirSync(resolve(root, 'src/sass/components'), { recursive: true })
+        const files = readdirSync(resolve(root, 'core/sass/components'), { recursive: true })
         const scssFiles = files.filter((f) => f.endsWith('.scss'))
         expect(scssFiles.length).toBeGreaterThanOrEqual(3)
       } catch {
@@ -384,7 +385,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
     })
 
     test('component sass file sizes are non-trivial (> 100 bytes)', () => {
-      const files = ['src/sass/components/media/draw-text.scss', 'src/sass/base/_structure.scss']
+      const files = ['core/sass/components/media/draw-text.scss', 'core/sass/base/_structure.scss']
       files.forEach((f) => {
         const content = readSass(f)
         if (content.length > 0) {
@@ -394,7 +395,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
     })
 
     test('draw-text.scss handles character span animation', () => {
-      const css = readSass('src/sass/components/media/draw-text.scss')
+      const css = readSass('core/sass/components/media/draw-text.scss')
       const hasCharAnimation =
         css.includes(HTML_TAGS.SPAN) ||
         css.includes('char') ||
@@ -425,7 +426,7 @@ describe('SASS/CSS Structure & Style Isolation', () => {
     }
 
     test('no SCSS file references --color-text-primary (undefined token, use --text-primary)', () => {
-      const violations = walkScss(resolve(root, 'src/sass')).filter((f) =>
+      const violations = walkScss(resolve(root, 'core/sass')).filter((f) =>
         readFileSync(f, 'utf-8').includes('--color-text-primary')
       )
       expect(violations).toEqual([])

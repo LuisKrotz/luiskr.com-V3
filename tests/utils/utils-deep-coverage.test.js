@@ -9,35 +9,35 @@
  */
 
 import { describe, test, expect, jest } from '@jest/globals'
-import { sanitizeHtml } from '@/utils/data/sanitize.js'
-import { fetchFirebaseDb, warmBootstrap } from '@/utils/data/db.js'
+import { sanitizeHtml } from '@core/utils/data/sanitize.js'
+import { fetchFirebaseDb, warmBootstrap } from '@core/utils/data/db.js'
 import bootLoaders from 'virtual:i18n-boot-index'
-import { wasmPool } from '@/utils/wasm/wasm-pool.js'
-import { wasmMediaThreads } from '@/utils/wasm/wasm-media-threads.js'
-import { wasmImageDecoder } from '@/utils/wasm/wasm-image-decoder.js'
-import { localMediaCache } from '@/utils/media/local-media-cache.js'
-import { npuPredict } from '@/utils/gpu/npu-predict.js'
-import { statsEngine } from '@/utils/perf/stats-engine.js'
-import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
-import { wasmCSS, calcWasmSkeletonStyle } from '@/utils/wasm/wasm-css.js'
-import { deepQuerySelector, deepQuerySelectorAll, svgPlaceholder } from '@/core/utils/dom.js'
+import { wasmPool } from '@core/utils/wasm/wasm-pool.js'
+import { wasmMediaThreads } from '@core/utils/wasm/wasm-media-threads.js'
+import { wasmImageDecoder } from '@core/utils/wasm/wasm-image-decoder.js'
+import { localMediaCache } from '@core/utils/media/local-media-cache.js'
+import { npuPredict } from '@core/utils/gpu/npu-predict.js'
+import { statsEngine } from '@core/utils/perf/stats-engine.js'
+import { gpuAccel } from '@core/utils/gpu/gpu-accel.js'
+import { wasmCSS, calcWasmSkeletonStyle } from '@core/utils/wasm/wasm-css.js'
+import { deepQuerySelector, deepQuerySelectorAll, svgPlaceholder } from '@core/utils/dom.js'
 import {
   isGravatarUrl,
   getGravatarSrcset,
   getOptimizedGravatar,
   buildMediaUrls,
-} from '@/core/utils/media.js'
-import { isScrolling, onScrollStop } from '@/utils/motion/scroll-state.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { POINTER_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { CACHE_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+} from '@core/utils/media.js'
+import { isScrolling, onScrollStop } from '@core/utils/motion/scroll-state.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { POINTER_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
+import { CACHE_STORAGE_KEYS } from '@core/tokens/data/storage.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { DOM_STRINGS } from '@core/tokens/strings/dom.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
 
-import { IDB_CONFIG, LOCALES } from '@/core/constants.js'
-import { MEDIA } from '@/core/tokens/media/suffixes.js'
+import { IDB_CONFIG, LOCALES } from '@core/constants.js'
+import { MEDIA } from '@core/tokens/media/suffixes.js'
 
 const flush = (ms = 0) => new Promise((r) => setTimeout(r, ms))
 
@@ -69,7 +69,7 @@ describe('wasm-layout', () => {
     WebAssembly.instantiate = jest.fn(async () => ({ instance: { exports } }))
     window.WebAssembly = WebAssembly
 
-    const mod = await import('@/utils/wasm/wasm-layout.js')
+    const mod = await import('@core/utils/wasm/wasm-layout.js')
 
     await flush(10)
 
@@ -95,7 +95,7 @@ describe('wasm-layout', () => {
       throw new Error('no wasm')
     })
 
-    const mod = await import('@/utils/wasm/wasm-layout.js')
+    const mod = await import('@core/utils/wasm/wasm-layout.js')
 
     await flush(10)
 
@@ -289,7 +289,7 @@ describe('wasmPool', () => {
     try {
       jest.resetModules()
 
-      const mod = await import('@/utils/wasm/wasm-pool.js')
+      const mod = await import('@core/utils/wasm/wasm-pool.js')
 
       expect(mod.wasmPool.size).toBeLessThanOrEqual(2)
     } finally {
@@ -662,7 +662,7 @@ describe('localMediaCache', () => {
       },
     }
 
-    const { localMediaCache: freshCache } = await import('@/utils/media/local-media-cache.js')
+    const { localMediaCache: freshCache } = await import('@core/utils/media/local-media-cache.js')
 
     await freshCache.initPromise
 
@@ -1214,7 +1214,7 @@ describe('fetchFirebaseDb', () => {
 
 describe('predictiveLoader', () => {
   test('prefetches portfolio routes, skips current/external, dedupes', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
 
     const origFetch = globalThis.fetch
 
@@ -1232,7 +1232,7 @@ describe('predictiveLoader', () => {
   })
 
   test('observeLink + scanAndObserve wire intent listeners', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
     const link = document.createElement('a')
 
     link.setAttribute(DOM_STRINGS.HREF, `${ROUTE_PATHS.PORTFOLIO}intent-slug`)
@@ -1354,18 +1354,18 @@ describe('gpuAccel + wasmCSS + core utils', () => {
 
 describe('barrel + entry smoke imports', () => {
   test('re-export barrels import cleanly', async () => {
-    const core = await import('@/core/index.js')
+    const core = await import('@core/index.js')
 
     expect(core.TYPE_STRINGS).toBeTruthy()
 
-    await import('@/core/utils/index.js')
-    await import('@/core/utils/dom.js')
-    await import('@/core/utils/index.js')
-    await import('@/core/constants.js')
+    await import('@core/utils/index.js')
+    await import('@core/utils/dom.js')
+    await import('@core/utils/index.js')
+    await import('@core/constants.js')
   })
 
   test('cms firebase mock implements the full firebase surface', async () => {
-    const mock = await import('@/cms/dev/firebase-mock.js')
+    const mock = await import('@cms/dev/firebase-mock.js')
 
     const origFetch = globalThis.fetch
 

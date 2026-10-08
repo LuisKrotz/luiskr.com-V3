@@ -9,7 +9,7 @@
 
 import { jest } from '@jest/globals'
 
-import { WASM_ACTIONS } from '@/core/constants.js'
+import { WASM_ACTIONS } from '@core/constants.js'
 import { TEST_URLS } from '../../fixtures/test-constants.js'
 
 import {
@@ -25,20 +25,20 @@ import {
   calcMosaicCols,
   calcMosaicGap,
   calcResponsivePadding,
-} from '@/utils/wasm/wasm-layout.js'
-import { wasmPool } from '@/utils/wasm/wasm-pool.js'
-import { wasmCSS, calcWasmSkeletonStyle } from '@/utils/wasm/wasm-css.js'
-import { wasmSmoothScroll } from '@/utils/wasm/wasm-scroll.js'
-import { wasmMediaThreads } from '@/utils/wasm/wasm-media-threads.js'
-import { wasmImageDecoder } from '@/utils/wasm/wasm-image-decoder.js'
-import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
+} from '@core/utils/wasm/wasm-layout.js'
+import { wasmPool } from '@core/utils/wasm/wasm-pool.js'
+import { wasmCSS, calcWasmSkeletonStyle } from '@core/utils/wasm/wasm-css.js'
+import { wasmSmoothScroll } from '@core/utils/wasm/wasm-scroll.js'
+import { wasmMediaThreads } from '@core/utils/wasm/wasm-media-threads.js'
+import { wasmImageDecoder } from '@core/utils/wasm/wasm-image-decoder.js'
+import { gpuAccel } from '@core/utils/gpu/gpu-accel.js'
 import { attachMockGL } from '../../fixtures/mock-webgl.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { ASSET_IDS } from '@/core/tokens/ids/assets.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { CSS_STRINGS } from '@/core/tokens/strings/css.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { ASSET_IDS } from '@core/tokens/ids/assets.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { CSS_STRINGS } from '@core/tokens/strings/css.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
 
 // The shared setup rAF stub calls cb() with no timestamp — wasm-scroll's
 // easing math needs `now`. Re-stub here to pass monotonic timestamps.
@@ -114,7 +114,7 @@ describe('wasm-layout JS fallbacks', () => {
 
     jest.resetModules()
 
-    await import('@/utils/wasm/wasm-layout.js')
+    await import('@core/utils/wasm/wasm-layout.js')
     await new Promise((r) => setTimeout(r, 40))
 
     if (prevWasm === undefined) delete window.WebAssembly
@@ -134,7 +134,7 @@ describe('wasm-layout JS fallbacks', () => {
 
     jest.resetModules()
 
-    await import('@/utils/wasm/wasm-layout.js')
+    await import('@core/utils/wasm/wasm-layout.js')
     await new Promise((r) => setTimeout(r, 40))
 
     if (prevWasm === undefined) delete window.WebAssembly

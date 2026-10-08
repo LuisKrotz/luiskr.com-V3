@@ -8,7 +8,7 @@
 function fetchFirebaseDb(path, onUpdate?): Promise<DbSnapshot>
 ```
 
-Defined in: [src/utils/data/db.ts:175](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/data/db.ts#L175)
+Defined in: [core/utils/data/db.ts:175](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/data/db.ts#L175)
 
 Reads a database node.
 

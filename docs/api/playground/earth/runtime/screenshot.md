@@ -4,7 +4,7 @@ PNG capture for the Earth engine, extracted from
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/runtime/screenshot.ts` |
+| **Source** | `experiments/earth-playground/earth/runtime/screenshot.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

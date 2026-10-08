@@ -11,15 +11,15 @@ import { jest } from '@jest/globals'
 
 import { attachNoGL } from '../../../fixtures/mock-webgl.js'
 
-import '@/cms/about/CmsAboutEditor.js'
-import '@/cms/portfolio/CmsPortfolioList.js'
-import '@/cms/projects/CmsProjectsList.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
+import '@cms/about/CmsAboutEditor.js'
+import '@cms/portfolio/CmsPortfolioList.js'
+import '@cms/projects/CmsProjectsList.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
 
-import { flagRenderer } from '@/utils/canvas/widgets/flag/renderer.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { flagRenderer } from '@core/utils/canvas/widgets/flag/renderer.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 
 globalThis.alert = jest.fn()
@@ -33,8 +33,8 @@ const makeCanvas = () => document.createElement(HTML_TAGS.CANVAS)
 
 describe('flag-webgl image tails', () => {
   test('_getAnimType delegate + image load/error listeners', async () => {
-    const { FlagWebGL } = await import('@/utils/canvas/widgets/flag-webgl.js')
-    const { LOCALES } = await import('@/core/constants.js')
+    const { FlagWebGL } = await import('@core/utils/canvas/widgets/flag-webgl.js')
+    const { LOCALES } = await import('@core/constants.js')
 
     const canvas = makeCanvas()
 

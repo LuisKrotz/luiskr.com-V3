@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/projects/types.ts` |
+| **Source** | `cms/projects/types.ts` |
 | **UX surface** | Per-project sections editor card. |
 
 ## Members

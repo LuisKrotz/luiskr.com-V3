@@ -4,7 +4,7 @@ Pure JSX renderers for the space-playground control panel,
 
 | | |
 |---|---|
-| **Source** | `src/playground/space/panel-render.tsx` |
+| **Source** | `experiments/earth-playground/space/panel-render.tsx` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

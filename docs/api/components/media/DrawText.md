@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/media/DrawText.tsx` |
+| **Source** | `website/components/media/DrawText.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

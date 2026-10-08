@@ -6,34 +6,34 @@
  */
 
 import { jest } from '@jest/globals'
-import '@/components/media/DrawText.js'
+import '@website/components/media/DrawText.js'
 import {
   calcDrawTextDelay,
   calcDrawTextOffset,
   calcCarouselRingOffset,
-} from '@/utils/wasm/wasm-layout.js'
+} from '@core/utils/wasm/wasm-layout.js'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { TEST_TEXT } from '../fixtures/test-constants.js'
-import { ANIMATION_DURATIONS, EASING } from '@/core/tokens/motion/animation.js'
-import { CAROUSEL_TIMING } from '@/core/tokens/motion/carousel.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { DRAW_TEXT_SELECTORS } from '@/core/tokens/selectors/draw-text.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { DRAW_TEXT_CLASSES } from '@/core/tokens/classes/draw-text.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { CSS_STRINGS } from '@/core/tokens/strings/css.js'
+import { ANIMATION_DURATIONS, EASING } from '@core/tokens/motion/animation.js'
+import { CAROUSEL_TIMING } from '@core/tokens/motion/carousel.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { DRAW_TEXT_SELECTORS } from '@core/tokens/selectors/draw-text.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { DRAW_TEXT_CLASSES } from '@core/tokens/classes/draw-text.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { ARIA_ATTRS } from '@core/tokens/attrs/aria.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { CSS_STRINGS } from '@core/tokens/strings/css.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const sassDir = path.join(__dirname, '..', '..', 'src', 'sass', 'components')
+const sassDir = path.join(__dirname, '..', '..', 'core', 'sass', 'components')
 
 function readSass(filename) {
   return fs.readFileSync(path.join(sassDir, filename), 'utf-8')
@@ -901,7 +901,7 @@ describe('DrawText tails', () => {
 
   test('module re-evaluation respects the registered element', async () => {
     jest.resetModules()
-    await import('@/components/media/DrawText.js')
+    await import('@website/components/media/DrawText.js')
 
     expect(customElements.get(COMPONENT_TAGS.DRAW_TEXT)).toBeTruthy()
   })

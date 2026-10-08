@@ -4,7 +4,7 @@ Carousel binding for ViewProject — configures each &lt;custom-carousel&gt; fro
 
 | | |
 |---|---|
-| **Source** | `src/routes/views/project/carousels.ts` |
+| **Source** | `website/views/project/carousels.ts` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

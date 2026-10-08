@@ -9,7 +9,7 @@
 
 import { GlobalWindow } from 'happy-dom'
 import { setLogLevel as firebaseSetLogLevel, getApps, deleteApp } from 'firebase/app'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
 // Tests run with no Firebase credentials — the SDK's offline/permission_denied
 // console.warn chatter is expected, not a failure signal. Silence it so test

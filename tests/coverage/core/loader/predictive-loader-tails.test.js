@@ -9,15 +9,15 @@
  */
 
 import { jest } from '@jest/globals'
-import _store from '@/core/store.js'
+import _store from '@core/store.js'
 
-import '@/components/feedback/CookieBanner.js'
+import '@website/components/feedback/CookieBanner.js'
 
 import { TEST_URLS, TEST_PROJECTS } from '../../../fixtures/test-constants.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { FOCUS_EVENTS, POINTER_EVENTS, TOUCH_EVENTS } from '@/core/tokens/events/dom.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { LINK_ATTRS } from '@core/tokens/attrs/link.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { FOCUS_EVENTS, POINTER_EVENTS, TOUCH_EVENTS } from '@core/tokens/events/dom.js'
 
 
 
@@ -27,7 +27,7 @@ import { FOCUS_EVENTS, POINTER_EVENTS, TOUCH_EVENTS } from '@/core/tokens/events
 
 describe('predictive-loader tails', () => {
   test('observe wires intent events and prefetch guards', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
 
     const link = document.createElement(HTML_TAGS.A)
 
@@ -52,7 +52,7 @@ describe('predictive-loader tails', () => {
   })
 
   test('prefetchRoute skips same-route/external and dedupes', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
 
     await predictiveLoader.prefetchRoute?.(`${ROUTE_PATHS.PORTFOLIO}${TEST_PROJECTS.CICB}`)
     await predictiveLoader.prefetchRoute?.(`${ROUTE_PATHS.PORTFOLIO}${TEST_PROJECTS.CICB}`)
@@ -62,7 +62,7 @@ describe('predictive-loader tails', () => {
   })
 
   test('_init tolerates missing IntersectionObserver + rIC fallback', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
     const IO = globalThis.IntersectionObserver
 
     globalThis.IntersectionObserver = undefined

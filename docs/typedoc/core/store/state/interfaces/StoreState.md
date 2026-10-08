@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [core/store/state](../README.md) / StoreState
 
-Defined in: [src/core/store/state.ts:98](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L98)
+Defined in: [core/store/state.ts:98](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L98)
 
 The whole reactive state bag. Field naming follows the shape the legacy
 CMS data already uses (clickortap, marqueeamount, portfoliolist are
@@ -19,7 +19,7 @@ the translation payload contract).
 clickortap: string
 ```
 
-Defined in: [src/core/store/state.ts:99](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L99)
+Defined in: [core/store/state.ts:99](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L99)
 
 ---
 
@@ -29,7 +29,7 @@ Defined in: [src/core/store/state.ts:99](https://github.com/LuisKrotz/luiskr.com
 inputMethod: string
 ```
 
-Defined in: [src/core/store/state.ts:100](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L100)
+Defined in: [core/store/state.ts:100](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L100)
 
 ---
 
@@ -39,7 +39,7 @@ Defined in: [src/core/store/state.ts:100](https://github.com/LuisKrotz/luiskr.co
 actionTextMap: ActionTextMap
 ```
 
-Defined in: [src/core/store/state.ts:101](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L101)
+Defined in: [core/store/state.ts:101](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L101)
 
 ---
 
@@ -49,7 +49,7 @@ Defined in: [src/core/store/state.ts:101](https://github.com/LuisKrotz/luiskr.co
 has_touch: boolean
 ```
 
-Defined in: [src/core/store/state.ts:102](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L102)
+Defined in: [core/store/state.ts:102](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L102)
 
 ---
 
@@ -59,7 +59,7 @@ Defined in: [src/core/store/state.ts:102](https://github.com/LuisKrotz/luiskr.co
 lang: LangState
 ```
 
-Defined in: [src/core/store/state.ts:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L103)
+Defined in: [core/store/state.ts:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L103)
 
 ---
 
@@ -69,7 +69,7 @@ Defined in: [src/core/store/state.ts:103](https://github.com/LuisKrotz/luiskr.co
 mentions: MentionsState
 ```
 
-Defined in: [src/core/store/state.ts:104](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L104)
+Defined in: [core/store/state.ts:104](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L104)
 
 ---
 
@@ -79,7 +79,7 @@ Defined in: [src/core/store/state.ts:104](https://github.com/LuisKrotz/luiskr.co
 marqueeamount: number
 ```
 
-Defined in: [src/core/store/state.ts:105](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L105)
+Defined in: [core/store/state.ts:105](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L105)
 
 ---
 
@@ -89,7 +89,7 @@ Defined in: [src/core/store/state.ts:105](https://github.com/LuisKrotz/luiskr.co
 modalObject: ModalObject
 ```
 
-Defined in: [src/core/store/state.ts:106](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L106)
+Defined in: [core/store/state.ts:106](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L106)
 
 ---
 
@@ -99,7 +99,7 @@ Defined in: [src/core/store/state.ts:106](https://github.com/LuisKrotz/luiskr.co
 origin: string
 ```
 
-Defined in: [src/core/store/state.ts:107](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L107)
+Defined in: [core/store/state.ts:107](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L107)
 
 ---
 
@@ -109,7 +109,7 @@ Defined in: [src/core/store/state.ts:107](https://github.com/LuisKrotz/luiskr.co
 page: PagePos
 ```
 
-Defined in: [src/core/store/state.ts:108](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L108)
+Defined in: [core/store/state.ts:108](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L108)
 
 ---
 
@@ -119,7 +119,7 @@ Defined in: [src/core/store/state.ts:108](https://github.com/LuisKrotz/luiskr.co
 showhover: boolean
 ```
 
-Defined in: [src/core/store/state.ts:109](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L109)
+Defined in: [core/store/state.ts:109](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L109)
 
 ---
 
@@ -129,7 +129,7 @@ Defined in: [src/core/store/state.ts:109](https://github.com/LuisKrotz/luiskr.co
 storage: string
 ```
 
-Defined in: [src/core/store/state.ts:110](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L110)
+Defined in: [core/store/state.ts:110](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L110)
 
 ---
 
@@ -139,7 +139,7 @@ Defined in: [src/core/store/state.ts:110](https://github.com/LuisKrotz/luiskr.co
 reducedMotion: boolean
 ```
 
-Defined in: [src/core/store/state.ts:111](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L111)
+Defined in: [core/store/state.ts:111](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L111)
 
 ---
 
@@ -149,7 +149,7 @@ Defined in: [src/core/store/state.ts:111](https://github.com/LuisKrotz/luiskr.co
 theme: string
 ```
 
-Defined in: [src/core/store/state.ts:112](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L112)
+Defined in: [core/store/state.ts:112](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L112)
 
 ---
 
@@ -159,7 +159,7 @@ Defined in: [src/core/store/state.ts:112](https://github.com/LuisKrotz/luiskr.co
 showStatsForNerds: boolean
 ```
 
-Defined in: [src/core/store/state.ts:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L113)
+Defined in: [core/store/state.ts:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L113)
 
 ---
 
@@ -169,7 +169,7 @@ Defined in: [src/core/store/state.ts:113](https://github.com/LuisKrotz/luiskr.co
 showGrid: boolean
 ```
 
-Defined in: [src/core/store/state.ts:114](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L114)
+Defined in: [core/store/state.ts:114](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L114)
 
 ---
 
@@ -179,7 +179,7 @@ Defined in: [src/core/store/state.ts:114](https://github.com/LuisKrotz/luiskr.co
 videoAutoplay: boolean
 ```
 
-Defined in: [src/core/store/state.ts:115](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L115)
+Defined in: [core/store/state.ts:115](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L115)
 
 ---
 
@@ -189,7 +189,7 @@ Defined in: [src/core/store/state.ts:115](https://github.com/LuisKrotz/luiskr.co
 effectiveTheme: string
 ```
 
-Defined in: [src/core/store/state.ts:116](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L116)
+Defined in: [core/store/state.ts:116](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L116)
 
 ---
 
@@ -199,7 +199,7 @@ Defined in: [src/core/store/state.ts:116](https://github.com/LuisKrotz/luiskr.co
 preferencesOpen: boolean
 ```
 
-Defined in: [src/core/store/state.ts:117](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L117)
+Defined in: [core/store/state.ts:117](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L117)
 
 ---
 
@@ -209,7 +209,7 @@ Defined in: [src/core/store/state.ts:117](https://github.com/LuisKrotz/luiskr.co
 langDialogOpen: boolean
 ```
 
-Defined in: [src/core/store/state.ts:118](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L118)
+Defined in: [core/store/state.ts:118](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L118)
 
 ---
 
@@ -224,7 +224,7 @@ modalOrigin:
   | null;
 ```
 
-Defined in: [src/core/store/state.ts:119](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L119)
+Defined in: [core/store/state.ts:119](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L119)
 
 ---
 
@@ -234,4 +234,4 @@ Defined in: [src/core/store/state.ts:119](https://github.com/LuisKrotz/luiskr.co
 portfoliolist: unknown[];
 ```
 
-Defined in: [src/core/store/state.ts:120](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store/state.ts#L120)
+Defined in: [core/store/state.ts:120](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store/state.ts#L120)

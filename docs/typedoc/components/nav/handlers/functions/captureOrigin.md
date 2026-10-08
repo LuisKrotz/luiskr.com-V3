@@ -8,7 +8,7 @@
 function captureOrigin(e?): void
 ```
 
-Defined in: [src/components/nav/handlers.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/nav/handlers.ts#L36)
+Defined in: [website/components/nav/handlers.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/nav/handlers.ts#L36)
 
 Records the clicked button's center point in store.modalOrigin — the
 preferences/lang dialogs read it to zoom their "genie" open animation

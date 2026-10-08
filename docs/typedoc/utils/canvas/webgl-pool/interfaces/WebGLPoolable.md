@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [utils/canvas/webgl-pool](../README.md) / WebGLPoolable
 
-Defined in: [src/utils/canvas/webgl-pool.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/webgl-pool.ts#L17)
+Defined in: [core/utils/canvas/webgl-pool.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/webgl-pool.ts#L17)
 
 Widget contract the pool drives on visibility flips and recovery actions.
 
@@ -16,7 +16,7 @@ Widget contract the pool drives on visibility flips and recovery actions.
 optional useWebGL?: boolean;
 ```
 
-Defined in: [src/utils/canvas/webgl-pool.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/webgl-pool.ts#L19)
+Defined in: [core/utils/canvas/webgl-pool.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/webgl-pool.ts#L19)
 
 Whether the widget currently renders via WebGL (false = CSS/2D fallback).
 
@@ -28,7 +28,7 @@ Whether the widget currently renders via WebGL (false = CSS/2D fallback).
 optional purge?: () => void;
 ```
 
-Defined in: [src/utils/canvas/webgl-pool.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/webgl-pool.ts#L21)
+Defined in: [core/utils/canvas/webgl-pool.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/webgl-pool.ts#L21)
 
 Called when the canvas leaves the viewport — free GL resources + stop the loop.
 
@@ -44,7 +44,7 @@ Called when the canvas leaves the viewport — free GL resources + stop the loop
 optional restore?: () => void;
 ```
 
-Defined in: [src/utils/canvas/webgl-pool.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/webgl-pool.ts#L23)
+Defined in: [core/utils/canvas/webgl-pool.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/webgl-pool.ts#L23)
 
 Called when the canvas re-enters the viewport — re-acquire + resume.
 
@@ -60,7 +60,7 @@ Called when the canvas re-enters the viewport — re-acquire + resume.
 optional retryWebGL?: () => boolean | void;
 ```
 
-Defined in: [src/utils/canvas/webgl-pool.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/webgl-pool.ts#L25)
+Defined in: [core/utils/canvas/webgl-pool.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/webgl-pool.ts#L25)
 
 Optional custom re-probe; when absent the pool runs purge+restore.
 

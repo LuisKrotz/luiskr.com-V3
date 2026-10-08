@@ -8,7 +8,7 @@
 function updateCarouselRingDom(c): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:197](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L197)
+Defined in: [website/components/carousel/custom-carousel/autoplay.ts:197](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/autoplay.ts#L197)
 
 Pushes progress into the DOM: the SVG ring's stroke-dashoffset (full
 circumference = empty, 0 = full circle) and the WebGL arrows' arc.

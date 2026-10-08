@@ -1,1 +1,0 @@
-import{an as VX}from"./store-D_nsudgJ.js";var xi=Object.freeze({ln:"cookieAction",gm:"slidechange",$c:"autoplaystop",_c:"autoplaystart",Wa:"cancel",wi:VX,Ji:"open-lang-dialog",Ki:"open-preferences-modal",yO:"notify"});export{xi as t};

@@ -4,7 +4,7 @@ Canonical pixel dimensions + media timing tokens split per
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/media/dimensions.ts` |
+| **Source** | `core/tokens/media/dimensions.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

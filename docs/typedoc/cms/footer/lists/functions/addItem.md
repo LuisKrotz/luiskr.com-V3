@@ -8,7 +8,7 @@
 function addItem(host, arr, item): void
 ```
 
-Defined in: [src/cms/footer/lists.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/lists.ts#L19)
+Defined in: [cms/footer/lists.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/footer/lists.ts#L19)
 
 Appends an item to a channel list and re-renders.
 

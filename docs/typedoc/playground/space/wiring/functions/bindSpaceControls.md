@@ -8,7 +8,7 @@
 function bindSpaceControls(c): void
 ```
 
-Defined in: [src/playground/space/wiring.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/wiring.ts#L56)
+Defined in: [experiments/earth-playground/space/wiring.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/wiring.ts#L56)
 
 Binds the whole panel via four delegated scoped listeners on the shadow
 root: click (panel toggle, reopen, collapsible headers, data-action

@@ -4,7 +4,7 @@ Canvas2D renderer for SwitchSliderWebGL, extracted from
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/switch-slider/paint-2d.ts` |
+| **Source** | `core/utils/canvas/widgets/switch-slider/paint-2d.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

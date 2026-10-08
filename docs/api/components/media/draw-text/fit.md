@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/media/draw-text/fit.ts` |
+| **Source** | `website/components/media/draw-text/fit.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

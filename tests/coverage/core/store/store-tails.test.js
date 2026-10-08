@@ -8,15 +8,15 @@
  * polyfill bodies.
  */
 import { jest } from '@jest/globals'
-import { LOCALES, THEME } from '@/core/constants.js'
-import store from '@/core/store.js'
+import { LOCALES, THEME } from '@core/constants.js'
+import store from '@core/store.js'
 
-import '@/components/feedback/CookieBanner.js'
-import { DATA_MUTATIONS, LANG_MUTATIONS, MODAL_MUTATIONS, PREF_MUTATIONS, UI_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import '@website/components/feedback/CookieBanner.js'
+import { DATA_MUTATIONS, LANG_MUTATIONS, MODAL_MUTATIONS, PREF_MUTATIONS, UI_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { PREF_STORAGE_KEYS } from '@core/tokens/data/storage.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
 
 
 
@@ -72,7 +72,7 @@ describe('store tails', () => {
     window.ontouchstart = () => {}
 
     jest.resetModules()
-    const mod = await import('@/core/store.js')
+    const mod = await import('@core/store.js')
     const s = mod.default
 
     expect(s.state.reducedMotion).toBe(true)

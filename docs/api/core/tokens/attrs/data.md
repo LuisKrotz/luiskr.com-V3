@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/attrs/data.ts` |
+| **Source** | `core/tokens/attrs/data.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

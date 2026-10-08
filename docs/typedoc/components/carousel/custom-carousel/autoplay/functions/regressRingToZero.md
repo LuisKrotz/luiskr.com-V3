@@ -8,7 +8,7 @@
 function regressRingToZero(c): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/autoplay.ts:112](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/autoplay.ts#L112)
+Defined in: [website/components/carousel/custom-carousel/autoplay.ts:112](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/autoplay.ts#L112)
 
 Drains ringProgress to 0 by RING_REGRESS_STEP per frame instead of
 snapping — the ring visibly unwinds when autoplay stops, matching the

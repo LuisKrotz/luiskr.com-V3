@@ -4,7 +4,7 @@ Dialog title id tokens (aria-labelledby targets) — grouped
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/ids/dialogs.ts` |
+| **Source** | `core/tokens/ids/dialogs.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

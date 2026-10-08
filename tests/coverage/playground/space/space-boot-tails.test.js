@@ -9,13 +9,13 @@
  */
 import { jest } from '@jest/globals'
 
-import '@/cms/about/CmsAboutEditor.js'
-import '@/cms/portfolio/CmsPortfolioList.js'
-import '@/cms/projects/CmsProjectsList.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import '@cms/about/CmsAboutEditor.js'
+import '@cms/portfolio/CmsPortfolioList.js'
+import '@cms/projects/CmsProjectsList.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 
 globalThis.alert = jest.fn()
@@ -29,7 +29,7 @@ const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))
 
 describe('space boot tails', () => {
   test('initSpaceEarth real boot runs onReady/catch + early-return arms', async () => {
-    const boot = await import('@/playground/space/boot.js')
+    const boot = await import('@earth/space/boot.js')
     const c = {
       _earthBg: null,
       _earthReady: false,
@@ -72,7 +72,7 @@ describe('space boot tails', () => {
   }, 15000)
 
   test('updateSpaceLoader/dismissSpaceLoader/applyPersistedSettings arms', async () => {
-    const boot = await import('@/playground/space/boot.js')
+    const boot = await import('@earth/space/boot.js')
 
     // missing loader elements — all null arms
     boot.updateSpaceLoader({ $: () => null }, 'm', 42)

@@ -4,7 +4,7 @@ Builds the bundled legal link list (home / privacy / GDPR /
 
 | | |
 |---|---|
-| **Source** | `src/utils/data/legal-links.ts` |
+| **Source** | `core/utils/data/legal-links.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

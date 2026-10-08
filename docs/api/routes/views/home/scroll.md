@@ -4,7 +4,7 @@ Post-navigation scroll handling for &lt;view-home&gt;: same-view
 
 | | |
 |---|---|
-| **Source** | `src/routes/views/home/scroll.ts` |
+| **Source** | `website/views/home/scroll.ts` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

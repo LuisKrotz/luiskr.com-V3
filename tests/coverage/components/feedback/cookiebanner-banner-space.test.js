@@ -9,10 +9,10 @@
  * onDestroy teardown.
  */
 
-import '@/components/feedback/CookieBanner.js'
-import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { COOKIE_CSS_PROPS } from '@/core/tokens/css/cookies.js'
+import '@website/components/feedback/CookieBanner.js'
+import { PREF_STORAGE_KEYS } from '@core/tokens/data/storage.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { COOKIE_CSS_PROPS } from '@core/tokens/css/cookies.js'
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
 
 const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))

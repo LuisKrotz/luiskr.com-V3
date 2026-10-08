@@ -10,25 +10,25 @@
  * sign-in paths, and the cookie/contact section component branches.
  */
 import { jest } from '@jest/globals'
-import '@/utils/data/sanitize.js'
+import '@core/utils/data/sanitize.js'
 
-import { isGravatarUrl, getGravatarSrcset, getOptimizedGravatar, buildMediaUrls } from '@/core/utils/media.js'
+import { isGravatarUrl, getGravatarSrcset, getOptimizedGravatar, buildMediaUrls } from '@core/utils/media.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
 
 import { TEST_TEXT, TEST_PROJECTS } from '../../../fixtures/test-constants.js'
-import { NET_STRINGS } from '@/core/tokens/strings/net.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { CDN_URLS } from '@/core/tokens/media/urls.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { NET_STRINGS } from '@core/tokens/strings/net.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { CDN_URLS } from '@core/tokens/media/urls.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
 
 
 
 
 
-jest.unstable_mockModule('@/firebase.js', () => ({
+jest.unstable_mockModule('@core/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),

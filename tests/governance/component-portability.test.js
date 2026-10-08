@@ -5,8 +5,8 @@
  * That means no inbound dependency on ANOTHER component folder, no imports
  * from routes/cms/app glue, and no deep imports into src internals that
  * aren't shared primitives (core tokens, store, jsx, Component, utils).
- * Shared helpers used by multiple components must live under src/utils or
- * src/core — never inside a component folder.
+ * Shared helpers used by multiple components must live under core/utils or
+ * core — never inside a component folder.
  */
 
 import { describe, test, expect } from '@jest/globals'
@@ -14,7 +14,7 @@ import { readFileSync, readdirSync, statSync, existsSync } from 'fs'
 import { resolve, dirname, join } from 'path'
 
 const ROOT = '/home/luis/projects/luiskr.com-V3'
-const COMPONENTS = resolve(ROOT, 'src/components')
+const COMPONENTS = resolve(ROOT, 'website/components')
 
 /** Recursively collect every .ts/.tsx module under a directory. */
 const walk = (dir, acc = []) => {
@@ -31,7 +31,7 @@ const walk = (dir, acc = []) => {
 
 /**
  * Top-level owner of a component module: the first path segment under
- * src/components (feature folder) or the file itself (top-level file).
+ * website/components (feature folder) or the file itself (top-level file).
  */
 const ownerOf = (abs) => {
   const rel = abs.slice(COMPONENTS.length + 1)
@@ -40,10 +40,25 @@ const ownerOf = (abs) => {
   return parts.length > 1 ? parts[0] : rel
 }
 
+/** Area-alias → directory map, mirroring tsconfig paths + vite aliases. */
+const ALIAS_ROOTS = {
+  '@/': 'src',
+  '@core/': 'core',
+  '@website/': 'website',
+  '@cms/': 'cms',
+  '@earth/': 'experiments/earth-playground',
+  '@docs/': 'experiments/docs',
+}
+
 /** Resolves an import specifier to a repo path, or null for externals. */
 const resolveSpec = (spec, fromFile) => {
   if (spec.startsWith('.')) return resolve(dirname(fromFile), spec)
-  if (spec.startsWith('@/')) return resolve(ROOT, './src', spec.slice(2))
+
+  for (const [alias, dir] of Object.entries(ALIAS_ROOTS)) {
+    if (spec.startsWith(alias)) return resolve(ROOT, dir, spec.slice(alias.length))
+  }
+
+  if (spec === '@core') return resolve(ROOT, 'core/index.ts')
 
   return null
 }
@@ -75,16 +90,17 @@ describe('Component portability (self-contained folders)', () => {
   test('components never import routes, cms, or app glue', () => {
     const violations = []
     const forbidden = [
-      resolve(ROOT, 'src/routes'),
-      resolve(ROOT, 'src/cms'),
+      resolve(ROOT, 'website/views'),
+      resolve(ROOT, 'cms'),
       resolve(ROOT, 'src/app'),
+      resolve(ROOT, 'experiments'),
     ]
 
     // The router singleton + its descriptor types are shared infra (like the
     // store): navigation is the contract components expose, not view logic.
     const allowedRouteImports = [
-      resolve(ROOT, 'src/routes/router.js'),
-      resolve(ROOT, 'src/routes/types.js'),
+      resolve(ROOT, 'core/router/router.js'),
+      resolve(ROOT, 'core/router/types.js'),
     ]
 
     for (const f of files) {
@@ -136,16 +152,16 @@ describe('Component portability (self-contained folders)', () => {
   test('component imports only use shared roots (core/utils/sass/tokens/fixtures)', () => {
     const violations = []
     const sharedRoots = [
-      resolve(ROOT, 'src/core'),
-      resolve(ROOT, 'src/utils'),
-      resolve(ROOT, 'src/sass'),
-      resolve(ROOT, 'src/firebase'),
+      resolve(ROOT, 'core'),
+      resolve(ROOT, 'core/utils'),
+      resolve(ROOT, 'core/sass'),
+      resolve(ROOT, 'core/firebase'),
       resolve(ROOT, 'src/data'),
-      resolve(ROOT, 'src/legacy-polyfills/polyfills.ts'),
+      resolve(ROOT, 'core/legacy-polyfills/polyfills.ts'),
       // Shared navigation infra — components expose router.push as their
       // link contract; the router singleton itself is not view logic.
-      resolve(ROOT, 'src/routes/router.js'),
-      resolve(ROOT, 'src/routes/types.js'),
+      resolve(ROOT, 'core/router/router.js'),
+      resolve(ROOT, 'core/router/types.js'),
     ]
 
     for (const f of files) {

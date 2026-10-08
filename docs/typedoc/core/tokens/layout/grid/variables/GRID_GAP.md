@@ -26,7 +26,7 @@ const GRID_GAP: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/layout/grid.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/layout/grid.ts#L12)
+Defined in: [core/tokens/layout/grid.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/layout/grid.ts#L12)
 
 Per-breakpoint grid padding (matches SASS $gap- values) and the mosaic column table shared with the WASM layout worker. Sole declaration site — consumers import members
 from this frozen map rather than re-declaring the literals

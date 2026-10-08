@@ -8,7 +8,7 @@
 const EARTH_RADIUS: 10 = 10
 ```
 
-Defined in: [src/playground/earth/consts.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/consts.ts#L13)
+Defined in: [experiments/earth-playground/earth/consts.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/consts.ts#L13)
 
 Scene-graph scale constants. The Earth sphere is 10 world units across the
 radius — an arbitrary "comfortable" scale that keeps camera distances and

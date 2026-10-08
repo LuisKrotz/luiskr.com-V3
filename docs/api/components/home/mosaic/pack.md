@@ -4,7 +4,7 @@ Masonry packing engine for &lt;home-mosaic&gt;, extracted from
 
 | | |
 |---|---|
-| **Source** | `src/components/home/mosaic/pack.ts` |
+| **Source** | `website/components/home/mosaic/pack.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

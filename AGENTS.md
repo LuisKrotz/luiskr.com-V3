@@ -21,12 +21,12 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
    - Never use raw pixel (`border-radius: 4px`, `16px`) or raw rem (`border-radius: 0.25rem`) values.
 
 4. **Zero Hardcoded Class Names (100% DRY)**:
-   - All class names used in JSX/DOM must be imported from `CLASSES` in `src/core/constants.js`.
+   - All class names used in JSX/DOM must be imported from `CLASSES` in `core/constants.js`.
    - Base blocks (`_B_*`) must be declared once and composed without repeating string literals.
    - Any class that appears in more than one place must be moved to `CLASSES` and referenced via constant.
 
 5. **Zero Hardcoded Strings in JS/JSX (100% DRY)**:
-   - Every string literal that appears more than once anywhere in the codebase — class name, tag name, event name, route path, URL prefix, CMS key, attribute name, localStorage key, Firebase path prefix, query parameter, or data-attribute — MUST be declared once in `src/core/constants.js` and imported everywhere it is used.
+   - Every string literal that appears more than once anywhere in the codebase — class name, tag name, event name, route path, URL prefix, CMS key, attribute name, localStorage key, Firebase path prefix, query parameter, or data-attribute — MUST be declared once in `core/constants.js` and imported everywhere it is used.
    - Examples of what must live in `constants.js` (not as inline strings):
      - `'router-link-active'` → `CLASSES.ROUTER_LINK_ACTIVE`
      - `'/components/related'` → `PATHS.COMPONENTS_RELATED`
@@ -35,12 +35,12 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
      - `'about-section'`, `'legal-footer'` → `CMS_KEYS.ABOUT_SECTION`, `CMS_KEYS.LEGAL_FOOTER`
      - `'decoding'`, `'loading'`, `'trigger'` → `ATTRS.DECODING`, `ATTRS.LOADING`, `ATTRS.TRIGGER`
      - All event names (e.g. `'cookieAction'`, `'resize'`) → `EVENTS.*`
-   - **Test files (`tests/**/*.js`) follow the same rule**: tests must import all application string values from `src/core/constants.js` (`TAGS`, `CLASSES`, `ATTRS`, `EVENTS`, `MUTATIONS`, `PATHS`, `SELECTORS`, `IDS`, `STORAGE_KEYS`, `LOCALES`, `THEME`, `STRINGS`, `CSS_PROPS`, `URLS`, `MEDIA`, `TEXT`, `ROUTE_NAMES`, `TRANSLATION_KEYS`, `UI_KEYS`, `COMPONENT_KEYS`, `CMS_KEYS`, `KEYS`, `ANIMATION`, …) or CMS tokens from `src/cms/tokens.js` — never assert against, query, or dispatch with inline string literals when a token exists.
+   - **Test files (`tests/**/*.js`) follow the same rule**: tests must import all application string values from `core/constants.js` (`TAGS`, `CLASSES`, `ATTRS`, `EVENTS`, `MUTATIONS`, `PATHS`, `SELECTORS`, `IDS`, `STORAGE_KEYS`, `LOCALES`, `THEME`, `STRINGS`, `CSS_PROPS`, `URLS`, `MEDIA`, `TEXT`, `ROUTE_NAMES`, `TRANSLATION_KEYS`, `UI_KEYS`, `COMPONENT_KEYS`, `CMS_KEYS`, `KEYS`, `ANIMATION`, …) or CMS tokens from `cms/tokens.js` — never assert against, query, or dispatch with inline string literals when a token exists.
    - Test-only vocabulary (fixture element tags, sample project IDs/slugs, sample text, sample award names) must be declared once in `tests/fixtures/test-constants.js` (`TEST_TAGS`, `TEST_TEXT`, `TEST_PROJECTS`, `TEST_AWARDS`) and imported from there — never repeated inline.
    - Strings that are legitimately not tokens — import paths, test `describe()`/`test()` names, Node API arguments (`'fs'`, `'path'`, `'utf-8'`), regex syntax fragments, and unique one-off fixture data — may remain literal.
 
 6. **JSX Only (No HTML String Interpolation)**:
-   - All components returning DOM structure must return native JSX elements using `h` and `Fragment` from `src/core/jsx.js`.
+   - All components returning DOM structure must return native JSX elements using `h` and `Fragment` from `core/jsx.js`.
    - Never use template string interpolation (`` `<div class="${...}">` ``) or `innerHTML` for component templates.
 
 7. **Zero `!important`**:
@@ -78,8 +78,8 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - When a new rule is added here, a corresponding automated check must be added to `style-governance.test.js`.
 
 12. **Zero Console Calls**:
-    - Every `console.*` call is forbidden anywhere in `src/` — no exceptions.
-    - All diagnostics route through `src/core/devlog.ts` (`devWarn` / `devError` / `devInfo`), which buffers entries in a capped ring buffer; inspect in devtools via `__lkDevLog()` or assert in tests via `getDevLog()`.
+    - Every `console.*` call is forbidden anywhere in `src/`, `core/`, `website/`, `cms/`, `experiments/` — no exceptions.
+    - All diagnostics route through `core/devlog.ts` (`devWarn` / `devError` / `devInfo`), which buffers entries in a capped ring buffer; inspect in devtools via `__lkDevLog()` or assert in tests via `getDevLog()`.
     - Enforced by `scripts/verify/console-scan.mjs` → `reports/console-scan.json`; any callsite is a violation that fails the gate.
 
 13. **Security Scans Gate the Build**:
@@ -96,9 +96,9 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
 
 15. **Component Self-Containment (Portability)**:
     - A component folder must be copyable (JS/TS + SCSS) into another project and work with different data.
-    - No component may import from another component's folder; shared helpers live in `src/utils/` or `src/core/`.
-    - Components may only import from shared roots: `src/core`, `src/utils`, `src/sass`, `src/firebase`, `src/data`, plus the `router`/`types` infra singletons.
-    - Never import from `src/routes` (view logic), `src/cms`, or `src/app` inside `src/components`.
+    - No component may import from another component's folder; shared helpers live in `core/utils/` or `core/`.
+    - Components may only import from shared roots: `core`, `core/utils`, `core/sass`, `core/firebase`, plus the `router`/`types` infra singletons.
+    - Never import from `website/views` (view logic), `cms`, or `src/app` inside `website/components`.
     - Enforced by `tests/governance/component-portability.test.js`.
 
 16. **Deployment Prohibition**:
@@ -112,7 +112,7 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
 18. **Debug URL Parameters**:
     - `?debug=sendNotificationTest` mounts a real `<site-toast>` test notification.
     - `?debug=webGLMode:active` forces normal WebGL probing; `?debug=webGLMode:fallback` forces every WebGL acquisition to fail → the CSS/2D fallback path.
-    - All WebGL `getContext` calls must go through `src/utils/canvas/webgl-mode.ts` (`webglContext`) so the fallback param stays authoritative — never call `canvas.getContext('webgl…')` directly.
+    - All WebGL `getContext` calls must go through `core/utils/canvas/webgl-mode.ts` (`webglContext`) so the fallback param stays authoritative — never call `canvas.getContext('webgl…')` directly.
 
 19. **Coverage Tails Organization**:
     - Coverage-tail tests live under `tests/coverage/<domain>/<subdomain>/` mirroring the source tree — `core/{component,env,firebase,jsx,loader,schema,store,ui,utils}`, `components/{carousel,dialogs,feedback,footer,home,media}`, `canvas/{infra,loaders,widgets}`, `cms/{deploy,editors,facade}`, `routes/{pages,router}`, `playground/{earth,space}`, `utils/{data,gpu,media,motion,perf,wasm}`, plus `app/`, `legacy-polyfills/`, `safari/`, and `sweep/` (cross-domain grab-bags only) — one file per describe, named after the module under test.
@@ -120,9 +120,9 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
 
 20. **Recursion Preferred for Self-Similar Traversal & Compute Placement**:
     - When logic walks a self-similar structure (nested children, filesystem trees, token groups, DOM subtrees), write a recursive function — do NOT hand-roll stack/queue emulation (`const stack=[...]; while(stack.length){ pop/push }`).
-    - Recursion must be total: every path reaches a base case; graph-shaped input guards cycles with a visited set. Generators (`yield*`) are the preferred recursive shape for streaming traversal (see `src/cms/media-convert/files.ts` `traverseEntry`).
+    - Recursion must be total: every path reaches a base case; graph-shaped input guards cycles with a visited set. Generators (`yield*`) are the preferred recursive shape for streaming traversal (see `cms/media-convert/files.ts` `traverseEntry`).
     - Bounded dismissal/drain loops (`while (list.length > CAP)`) and async pagination (`readEntries` batches) are legitimately iterative — annotate why when the shape could read as stack emulation.
-    - **Compute placement for performance**: per-frame canvas/WebGL math lives in GPU shaders or local synchronous math — never `await`ed per frame. Batch CPU work (mosaic layout, spring physics, text timing, media hashing, image decode) routes through `src/utils/wasm/wasm-pool.ts` worker dispatch with JS fallbacks. three.js scenes likewise keep per-frame work on the GPU (WebGPU/GLSL/TSL); only non-per-frame batch work is a wasm-pool candidate.
+    - **Compute placement for performance**: per-frame canvas/WebGL math lives in GPU shaders or local synchronous math — never `await`ed per frame. Batch CPU work (mosaic layout, spring physics, text timing, media hashing, image decode) routes through `core/utils/wasm/wasm-pool.ts` worker dispatch with JS fallbacks. three.js scenes likewise keep per-frame work on the GPU (WebGPU/GLSL/TSL); only non-per-frame batch work is a wasm-pool candidate.
     - Checked by `tests/governance/style-governance.test.js` — flags manual stack-emulation traversal patterns.
 
 21. **JSDoc Required on All Declarations**:

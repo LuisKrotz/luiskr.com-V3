@@ -4,7 +4,7 @@ Firebase client bootstrap — split between the site (read-only)
 
 | | |
 |---|---|
-| **Source** | `src/firebase.ts` |
+| **Source** | `core/firebase.ts` |
 | **UX surface** | Boot surfaces: what the user sees first on each bundle. |
 
 ## Members

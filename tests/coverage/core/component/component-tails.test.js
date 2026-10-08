@@ -8,11 +8,11 @@
  * polyfill bodies.
  */
 
-import _store from '@/core/store.js'
+import _store from '@core/store.js'
 
-import '@/components/feedback/CookieBanner.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import '@website/components/feedback/CookieBanner.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 
 

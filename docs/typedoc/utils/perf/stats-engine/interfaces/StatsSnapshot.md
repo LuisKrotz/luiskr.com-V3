@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [utils/perf/stats-engine](../README.md) / StatsSnapshot
 
-Defined in: [src/utils/perf/stats-engine.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L20)
+Defined in: [core/utils/perf/stats-engine.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L20)
 
 Point-in-time metrics frame pushed to Stats-for-nerds subscribers.
 
@@ -16,7 +16,7 @@ Point-in-time metrics frame pushed to Stats-for-nerds subscribers.
 fps: number
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L22)
+Defined in: [core/utils/perf/stats-engine.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L22)
 
 Rolling frames-per-second over the last 1s window.
 
@@ -28,7 +28,7 @@ Rolling frames-per-second over the last 1s window.
 networkBytesPerSec: number
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L24)
+Defined in: [core/utils/perf/stats-engine.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L24)
 
 Rolling network throughput estimate in bytes/sec.
 
@@ -40,7 +40,7 @@ Rolling network throughput estimate in bytes/sec.
 pendingRequests: number
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L26)
+Defined in: [core/utils/perf/stats-engine.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L26)
 
 Currently in-flight fetches.
 
@@ -52,7 +52,7 @@ Currently in-flight fetches.
 memoryMB: number
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L28)
+Defined in: [core/utils/perf/stats-engine.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L28)
 
 JS heap size in MB (0 on engines without performance.memory).
 
@@ -64,7 +64,7 @@ JS heap size in MB (0 on engines without performance.memory).
 cpuPercent: number
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L30)
+Defined in: [core/utils/perf/stats-engine.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L30)
 
 Main-thread busy fraction 0–100 estimated from longtasks.
 
@@ -76,6 +76,6 @@ Main-thread busy fraction 0–100 estimated from longtasks.
 latencyMs: number
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L32)
+Defined in: [core/utils/perf/stats-engine.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L32)
 
 Rolling mean fetch round-trip in ms.

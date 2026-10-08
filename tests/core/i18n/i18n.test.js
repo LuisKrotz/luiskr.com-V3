@@ -1,6 +1,6 @@
 /**
  * @file i18n.test.js
- * @description Covers src/core/i18n.js — the locale table (12 locales),
+ * @description Covers core/i18n.js — the locale table (12 locales),
  * the localized-slug maps, detectLangFromPath() (first-segment detection
  * with English as the unprefixed default), and localePath() generation
  * for every route across every language. Query strings, doubled slashes,
@@ -13,13 +13,13 @@ import {
   LANG_OPTIONS,
   detectLangFromPath,
   localePath,
-} from '@/core/i18n.js'
-import { LOCALES } from '@/core/constants.js'
+} from '@core/i18n.js'
+import { LOCALES } from '@core/constants.js'
 import { TEST_PROJECTS } from '../../fixtures/test-constants.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
-import { ROUTE_STRINGS } from '@/core/tokens/strings/routes.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { SECTION_IDS } from '@core/tokens/ids/sections.js'
+import { ROUTE_STRINGS } from '@core/tokens/strings/routes.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
 
 describe('Core i18n & Localization Architecture (60+ Tests)', () => {
   describe('1. Valid Languages & Metadata Structure', () => {

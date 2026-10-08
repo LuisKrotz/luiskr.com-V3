@@ -12,14 +12,13 @@
 import path from 'path'
 import { fileURLToPath } from 'url'
 import * as sass from 'sass'
-import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
-import { THEME_CSS_PROPS } from '@/core/tokens/css/theme.js'
-import { MENU_CSS_PROPS } from '@/core/tokens/css/menu.js'
+import { THEME_CSS_PROPS } from '@core/tokens/css/theme.js'
+import { MENU_CSS_PROPS } from '@core/tokens/css/menu.js'
 
 const C = { ...THEME_CSS_PROPS, ...MENU_CSS_PROPS }
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const SASS_BASE = path.join(__dirname, '..', '..', DOM_STRINGS.SRC, 'sass', 'base')
+const SASS_BASE = path.join(__dirname, '..', '..', 'core', 'sass', 'base')
 
 // Relative luminance per WCAG 2.x — sRGB channel linearisation + Rec.709 weights.
 const _lin = (v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)

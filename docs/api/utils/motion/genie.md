@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/utils/motion/genie.ts` |
+| **Source** | `core/utils/motion/genie.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

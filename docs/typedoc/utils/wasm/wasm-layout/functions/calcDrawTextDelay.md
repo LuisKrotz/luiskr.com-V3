@@ -8,7 +8,7 @@
 function calcDrawTextDelay(totalChars, targetDurationMs?): number
 ```
 
-Defined in: [src/utils/wasm/wasm-layout.ts:146](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-layout.ts#L146)
+Defined in: [core/utils/wasm/wasm-layout.ts:146](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/wasm/wasm-layout.ts#L146)
 
 Per-character draw interval sized so the whole text finishes within
 targetDurationMs — targetDurationMs/totalChars, clamped between

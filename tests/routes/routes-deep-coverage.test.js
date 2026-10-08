@@ -9,23 +9,23 @@
  */
 
 import { describe, test, expect, jest, beforeEach, afterEach } from '@jest/globals'
-import { ViewLegal } from '@/routes/views/legal/Legal.js'
-import { ViewHome } from '@/routes/views/home/Home.js'
-import { ViewNotFound } from '@/routes/views/not-found/NotFound.js'
-import router from '@/routes/router.js'
-import store from '@/core/store.js'
+import { ViewLegal } from '@website/views/legal/Legal.js'
+import { ViewHome } from '@website/views/home/Home.js'
+import { ViewNotFound } from '@website/views/not-found/NotFound.js'
+import router from '@core/router/router.js'
+import store from '@core/store.js'
 import { mount } from '../fixtures/test-constants.js'
-import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { NOT_FOUND_CLASSES } from '@/core/tokens/classes/legal.js'
-import { MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import { LANG_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { SECTION_IDS } from '@core/tokens/ids/sections.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { NOT_FOUND_CLASSES } from '@core/tokens/classes/legal.js'
+import { MOUSE_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
 
-import { LOCALES, ROUTE_NAMES } from '@/core/constants.js'
-import { TRANSLATION_KEYS } from '@/core/tokens/routes/translation-keys.js'
-import { FALLBACK_PAGES } from '@/core/locale/fallback.js'
-import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
+import { LOCALES, ROUTE_NAMES } from '@core/constants.js'
+import { TRANSLATION_KEYS } from '@core/tokens/routes/translation-keys.js'
+import { FALLBACK_PAGES } from '@core/locale/fallback.js'
+import { DOM_STRINGS } from '@core/tokens/strings/dom.js'
 
 const flush = (ms = 0) => new Promise((r) => setTimeout(r, ms))
 

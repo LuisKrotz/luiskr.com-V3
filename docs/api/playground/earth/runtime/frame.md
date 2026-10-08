@@ -4,7 +4,7 @@ Per-frame + per-resize behavior for the Earth engine,
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/runtime/frame.ts` |
+| **Source** | `experiments/earth-playground/earth/runtime/frame.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

@@ -15,7 +15,7 @@ const RESPONSIVE_PADDING_STEPS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/layout/grid.ts:82](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/layout/grid.ts#L82)
+Defined in: [core/tokens/layout/grid.ts:82](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/layout/grid.ts#L82)
 
 Fibonacci-scaled outer page padding per breakpoint — 13 up to 320,
 then 21/34/55/89 and 144 at ≥1680. Consumed by calcResponsivePadding

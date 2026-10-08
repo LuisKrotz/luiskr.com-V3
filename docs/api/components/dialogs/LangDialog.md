@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/dialogs/LangDialog.tsx` |
+| **Source** | `website/components/dialogs/LangDialog.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

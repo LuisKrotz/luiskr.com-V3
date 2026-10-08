@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/routes/navigate.ts` |
+| **Source** | `core/router/navigate.ts` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

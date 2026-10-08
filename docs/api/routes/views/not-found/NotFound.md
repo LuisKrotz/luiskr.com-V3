@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/routes/views/not-found/NotFound.tsx` |
+| **Source** | `website/views/not-found/NotFound.tsx` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

@@ -8,6 +8,6 @@
 const _B_SKELETON_ABOUT_P: 'skeleton-about-p'
 ```
 
-Defined in: [src/core/tokens/base.ts:149](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/base.ts#L149)
+Defined in: [core/tokens/base.ts:149](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/base.ts#L149)
 
 BEM block fragment "b skeleton about p" — composed by the token groups below into full class names.

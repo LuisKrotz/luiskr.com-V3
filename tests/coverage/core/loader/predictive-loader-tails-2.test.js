@@ -9,22 +9,22 @@
  * flows.
  */
 import { TEST_PROJECTS, TEST_URLS } from '../../../fixtures/test-constants.js'
-import '@/components/home/AwardsMentions.js'
-import '@/components/legal/Footer.js'
-import '@/components/home/HomeMosaic.js'
-import '@/components/feedback/StatsHud.js'
-import '@/components/media/MediaExpanded.js'
-import '@/components/dialogs/PreferencesModal.js'
-import '@/components/carousel/AwardsCarousel.js'
-import '@/components/media/MediaFigure.js'
-import '@/components/dialogs/LangDialog.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
-import '@/cms/lang/CmsLangEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import '@website/components/home/AwardsMentions.js'
+import '@website/components/legal/Footer.js'
+import '@website/components/home/HomeMosaic.js'
+import '@website/components/feedback/StatsHud.js'
+import '@website/components/media/MediaExpanded.js'
+import '@website/components/dialogs/PreferencesModal.js'
+import '@website/components/carousel/AwardsCarousel.js'
+import '@website/components/media/MediaFigure.js'
+import '@website/components/dialogs/LangDialog.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
+import '@cms/lang/CmsLangEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { LINK_ATTRS } from '@core/tokens/attrs/link.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
 
 
 
@@ -34,7 +34,7 @@ import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
 
 describe('predictive-loader tails 2', () => {
   test('scanAndObserve skips already-observed and non-route anchors', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
     const wrap = document.createElement(HTML_TAGS.DIV)
     const good = document.createElement(HTML_TAGS.A)
     const ext = document.createElement(HTML_TAGS.A)

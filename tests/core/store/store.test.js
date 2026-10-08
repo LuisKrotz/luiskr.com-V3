@@ -1,31 +1,31 @@
 /**
  * @file store.test.js
- * @description Covers src/core/store.js — the mutation/getter contract
+ * @description Covers core/store.js — the mutation/getter contract
  * for every state domain: theme + OS sync, reduced motion, all 12
  * locales, input modality, modal transform state, and the lists
  * (mentions/portfolio). Mutations are the single write path; the suite
  * locks each key's default, mutation, and getter triple.
  */
 
-import store from '@/core/store.js'
-import { CMS_KEYS, LOCALES, ROUTE_PREFIXES, THEME } from '@/core/constants.js'
+import store from '@core/store.js'
+import { CMS_KEYS, LOCALES, ROUTE_PREFIXES, THEME } from '@core/constants.js'
 import { TEST_AWARDS } from '../../fixtures/test-constants.js'
-import { CDN_URLS } from '@/core/tokens/media/urls.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { CDN_URLS } from '@core/tokens/media/urls.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 import {
   DATA_MUTATIONS,
   LANG_MUTATIONS,
   MODAL_MUTATIONS,
   PREF_MUTATIONS,
   UI_MUTATIONS,
-} from '@/core/tokens/events/mutations.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { LABEL_TEXT } from '@/core/tokens/strings/text.js'
-import { DB_PATHS, ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { INPUT_STRINGS } from '@/core/tokens/strings/input.js'
-import { MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
+} from '@core/tokens/events/mutations.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { PREF_STORAGE_KEYS } from '@core/tokens/data/storage.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { LABEL_TEXT } from '@core/tokens/strings/text.js'
+import { DB_PATHS, ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { INPUT_STRINGS } from '@core/tokens/strings/input.js'
+import { MODAL_CLASSES } from '@core/tokens/classes/modal.js'
 
 describe('Core Store - Comprehensive State, Mutations & Getters (50+ Tests)', () => {
   beforeEach(() => {

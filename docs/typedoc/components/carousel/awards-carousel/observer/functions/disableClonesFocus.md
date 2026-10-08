@@ -8,7 +8,7 @@
 function disableClonesFocus(host): void
 ```
 
-Defined in: [src/components/carousel/awards-carousel/observer.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/observer.ts#L80)
+Defined in: [website/components/carousel/awards-carousel/observer.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/awards-carousel/observer.ts#L80)
 
 Keyboard/AT exclusion for clone slides: they're visual duplicates
 that exist only for the loop illusion, so every focusable inside

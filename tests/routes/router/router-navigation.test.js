@@ -11,17 +11,17 @@
  *
  */
 
-import router, { normalizeProjectKey } from '@/routes/router.js'
-import { VALID_LANGS, LANG_SLUGS } from '@/core/i18n.js'
-import { LOCALES, PROJECT_ALIASES, ROUTE_PREFIXES, TRANSLATION_KEYS } from '@/core/constants.js'
+import router, { normalizeProjectKey } from '@core/router/router.js'
+import { VALID_LANGS, LANG_SLUGS } from '@core/i18n.js'
+import { LOCALES, PROJECT_ALIASES, ROUTE_PREFIXES, TRANSLATION_KEYS } from '@core/constants.js'
 import { TEST_PROJECTS } from '../../fixtures/test-constants.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { LANG_STRINGS } from '@/core/tokens/strings/langs.js'
-import { ROUTE_STRINGS } from '@/core/tokens/strings/routes.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { SECTION_IDS } from '@core/tokens/ids/sections.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { LANG_STRINGS } from '@core/tokens/strings/langs.js'
+import { ROUTE_STRINGS } from '@core/tokens/strings/routes.js'
 
 describe('Router — Navigation & Route Matching', () => {
   // ── Router Instance ──────────────────────────────────────────────────────────

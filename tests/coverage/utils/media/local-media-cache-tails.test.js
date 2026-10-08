@@ -8,15 +8,15 @@
  * polyfill bodies.
  */
 import { jest } from '@jest/globals'
-import _store from '@/core/store.js'
+import _store from '@core/store.js'
 
-import '@/components/feedback/CookieBanner.js'
-import { localMediaCache } from '@/utils/media/local-media-cache.js'
+import '@website/components/feedback/CookieBanner.js'
+import { localMediaCache } from '@core/utils/media/local-media-cache.js'
 
-import { wasmPool } from '@/utils/wasm/wasm-pool.js'
-import { IDB_CONFIG } from '@/core/constants.js'
+import { wasmPool } from '@core/utils/wasm/wasm-pool.js'
+import { IDB_CONFIG } from '@core/constants.js'
 import { TEST_TEXT, TEST_URLS } from '../../../fixtures/test-constants.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
 
 

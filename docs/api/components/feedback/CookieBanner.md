@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/feedback/CookieBanner.tsx` |
+| **Source** | `website/components/feedback/CookieBanner.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

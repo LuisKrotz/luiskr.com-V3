@@ -4,7 +4,7 @@ DrawText selector tokens — token group.
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/selectors/draw-text.ts` |
+| **Source** | `core/tokens/selectors/draw-text.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

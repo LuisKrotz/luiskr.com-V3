@@ -10,13 +10,13 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 
-import store from '@/core/store.js'
+import store from '@core/store.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
-import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
+import { LANG_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
 
 
 

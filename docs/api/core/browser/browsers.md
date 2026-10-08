@@ -4,7 +4,7 @@ Zero-dependency UA detection table — shared by the runtime
 
 | | |
 |---|---|
-| **Source** | `src/core/browser/browsers.ts` |
+| **Source** | `core/browser/browsers.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

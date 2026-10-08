@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/feedback/StatsHud.tsx` |
+| **Source** | `website/components/feedback/StatsHud.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

@@ -1,6 +1,6 @@
 /**
  * @file firebase.test.js
- * @description Covers src/firebase.js — the split site/CMS bootstrap: lazy
+ * @description Covers core/firebase.js — the split site/CMS bootstrap: lazy
  * auth/database loaders, the backward-compat proxies, and the REST
  * fetchFirebaseDb() path with its in-flight dedup + sessionStorage cache.
  * firebase/auth and firebase/database are module-mocked so no SDK/network
@@ -8,11 +8,11 @@
  */
 
 import { describe, test, expect, jest, beforeEach } from '@jest/globals'
-import { APP_IDS } from '@/core/tokens/ids/app.js'
-import { AUTH_STRINGS } from '@/core/tokens/strings/auth.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { CACHE_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import { APP_IDS } from '@core/tokens/ids/app.js'
+import { AUTH_STRINGS } from '@core/tokens/strings/auth.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { CACHE_STORAGE_KEYS } from '@core/tokens/data/storage.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
 
 const mockAuth = { currentUser: null, marker: 'auth-instance' }
 const mockDb = { marker: 'db-instance' }
@@ -38,7 +38,7 @@ jest.unstable_mockModule('firebase/app', () => ({
   initializeApp: jest.fn((config) => ({ config, marker: APP_IDS.APP })),
 }))
 
-const firebase = await import('@/firebase.js')
+const firebase = await import('@core/firebase.js')
 
 describe('firebase — bootstrap & lazy loaders', () => {
   test('app initializes with project config', () => {
@@ -312,7 +312,7 @@ describe('firebase — fresh module edges', () => {
   test('concurrent getAuthInstance/getDbInstance share the pending promise', async () => {
     jest.resetModules()
 
-    const fresh = await import('@/firebase.js')
+    const fresh = await import('@core/firebase.js')
     const [a1, a2] = await Promise.all([fresh.getAuthInstance(), fresh.getAuthInstance()])
     const [d1, d2] = await Promise.all([fresh.getDbInstance(), fresh.getDbInstance()])
 
@@ -326,7 +326,7 @@ describe('firebase — fresh module edges', () => {
     delete globalThis.atob
     jest.resetModules()
 
-    const fresh = await import('@/firebase.js')
+    const fresh = await import('@core/firebase.js')
 
     expect(fresh.app.config.apiKey).toBe(CHAR_STRINGS.EMPTY)
 
@@ -339,7 +339,7 @@ describe('firebase — fresh module edges', () => {
     globalThis.__VITE_ENV__ = { VITE_FIREBASE_API_KEY: 'env-key-1' }
     jest.resetModules()
 
-    const fresh = await import('@/firebase.js')
+    const fresh = await import('@core/firebase.js')
 
     expect(fresh.app.config.apiKey).toBe('env-key-1')
 

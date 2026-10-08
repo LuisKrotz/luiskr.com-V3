@@ -4,7 +4,7 @@ JSX sections for &lt;cms-playground-editor&gt;: the playground
 
 | | |
 |---|---|
-| **Source** | `src/cms/playground-editor/render.tsx` |
+| **Source** | `cms/playground-editor/render.tsx` |
 | **UX surface** | Earth-playground labels, defaults and route slugs editor. |
 
 ## Members

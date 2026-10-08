@@ -10,21 +10,21 @@
  * sign-in paths, and the cookie/contact section component branches.
  */
 import { jest } from '@jest/globals'
-import store from '@/core/store.js'
+import store from '@core/store.js'
 
-import '@/utils/data/sanitize.js'
-import { componentText } from '@/core/locale/ui-text.js'
+import '@core/utils/data/sanitize.js'
+import { componentText } from '@core/locale/ui-text.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { MEDIA_COMPONENT_KEYS } from '@/core/tokens/data/component-keys.js'
+import { LANG_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { MEDIA_COMPONENT_KEYS } from '@core/tokens/data/component-keys.js'
 
 
 
-jest.unstable_mockModule('@/firebase.js', () => ({
+jest.unstable_mockModule('@core/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),

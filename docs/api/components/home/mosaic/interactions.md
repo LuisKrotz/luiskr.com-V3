@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/home/mosaic/interactions.ts` |
+| **Source** | `website/components/home/mosaic/interactions.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

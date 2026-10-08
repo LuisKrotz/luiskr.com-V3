@@ -4,7 +4,7 @@ JSX template for &lt;view-home&gt; — the hero mosaic, about
 
 | | |
 |---|---|
-| **Source** | `src/routes/views/home/render.tsx` |
+| **Source** | `website/views/home/render.tsx` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

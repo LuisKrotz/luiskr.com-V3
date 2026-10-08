@@ -8,7 +8,7 @@
 function xToContinuousP(host, x, rectWidth?): number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider/math.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider/math.ts#L54)
+Defined in: [core/utils/canvas/widgets/theme-slider/math.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider/math.ts#L54)
 
 Pointer pixel X → continuous (unclamped-drag) normalized position.
 The active band is the middle 76% of the canvas (12%–88%) — the

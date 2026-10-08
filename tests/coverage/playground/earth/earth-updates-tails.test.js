@@ -9,17 +9,17 @@
  */
 import { jest } from '@jest/globals'
 
-import '@/core/constants.js'
+import '@core/constants.js'
 
-import '@/cms/about/CmsAboutEditor.js'
-import '@/cms/portfolio/CmsPortfolioList.js'
-import '@/cms/projects/CmsProjectsList.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
+import '@cms/about/CmsAboutEditor.js'
+import '@cms/portfolio/CmsPortfolioList.js'
+import '@cms/projects/CmsProjectsList.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
 
-import { updateEarthBloom, updateEarthCamera, updateEarthChromatic, updateEarthColorGrading, updateEarthFilm, updateEarthMaterial, updateEarthRender, updateEarthSpin, updateEarthSun, updateEarthVignette, resetEarthView } from '@/playground/earth/runtime/updates.js'
-import { bootstrapEarth } from '@/playground/earth/setup/bootstrap.js'
+import { updateEarthBloom, updateEarthCamera, updateEarthChromatic, updateEarthColorGrading, updateEarthFilm, updateEarthMaterial, updateEarthRender, updateEarthSpin, updateEarthSun, updateEarthVignette, resetEarthView } from '@earth/earth/runtime/updates.js'
+import { bootstrapEarth } from '@earth/earth/setup/bootstrap.js'
 
 globalThis.alert = jest.fn()
 

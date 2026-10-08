@@ -4,7 +4,7 @@ CMS-restricted tokens, tags, classes, and actions.
 
 | | |
 |---|---|
-| **Source** | `src/cms/tokens.ts` |
+| **Source** | `cms/tokens.ts` |
 | **UX surface** | Admin bundle — editors for every database node. |
 
 ## Members

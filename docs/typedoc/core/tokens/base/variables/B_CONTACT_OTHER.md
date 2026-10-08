@@ -8,6 +8,6 @@
 const _B_CONTACT_OTHER: 'contact-other'
 ```
 
-Defined in: [src/core/tokens/base.ts:231](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/base.ts#L231)
+Defined in: [core/tokens/base.ts:231](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/base.ts#L231)
 
 BEM block fragment "b contact other" — composed by the token groups below into full class names.

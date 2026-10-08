@@ -8,7 +8,7 @@
 const PARAM_HANDLERS: Readonly<Record<string, (_bg, v) => void>>
 ```
 
-Defined in: [src/playground/space/controls.ts:345](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L345)
+Defined in: [experiments/earth-playground/space/controls.ts:345](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L345)
 
 Param → EarthBackground setter dispatch. Each entry adapts a raw UI
 value (slider units / checkbox boolean) into the matching engine update

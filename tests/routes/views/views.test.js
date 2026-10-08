@@ -8,43 +8,43 @@
  */
 
 import { describe, test, expect, beforeEach, afterEach, jest } from '@jest/globals'
-import { ViewProject } from '@/routes/views/project/Project.js'
-import { HomeMosaic } from '@/components/home/HomeMosaic.js'
-import { ViewLegal } from '@/routes/views/legal/Legal.js'
-import { ViewNotFound } from '@/routes/views/not-found/NotFound.js'
-import { LegalFooter, getFallbackLegalLinks } from '@/components/legal/Footer.js'
-import { PortfolioRelated } from '@/components/portfolio/Related.js'
-import { FOCUS_EVENTS, LAYOUT, LOCALES, ROUTE_NAMES } from '@/core/constants.js'
+import { ViewProject } from '@website/views/project/Project.js'
+import { HomeMosaic } from '@website/components/home/HomeMosaic.js'
+import { ViewLegal } from '@website/views/legal/Legal.js'
+import { ViewNotFound } from '@website/views/not-found/NotFound.js'
+import { LegalFooter, getFallbackLegalLinks } from '@website/components/legal/Footer.js'
+import { PortfolioRelated } from '@website/components/portfolio/Related.js'
+import { FOCUS_EVENTS, LAYOUT, LOCALES, ROUTE_NAMES } from '@core/constants.js'
 import { SCSS, SRC, mount, TEST_TEXT } from '../../fixtures/test-constants.js'
-import store from '@/core/store.js'
-import router from '@/routes/router.js'
-import { wasmPool } from '@/utils/wasm/wasm-pool.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { HOME_MOSAIC_CLASSES } from '@/core/tokens/classes/mosaic.js'
-import { SKELETON_CLASSES } from '@/core/tokens/classes/skeleton.js'
-import { INTERNAL_CLASSES } from '@/core/tokens/classes/project.js'
-import { LABEL_TEXT } from '@/core/tokens/strings/text.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
-import { COVER_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
-import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
-import { LANG_MUTATIONS, UI_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { INPUT_STRINGS } from '@/core/tokens/strings/input.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { LEGAL_CLASSES, NOT_FOUND_CLASSES } from '@/core/tokens/classes/legal.js'
-import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { ROUTER_CLASSES } from '@/core/tokens/classes/router.js'
+import store from '@core/store.js'
+import router from '@core/router/router.js'
+import { wasmPool } from '@core/utils/wasm/wasm-pool.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { HOME_MOSAIC_CLASSES } from '@core/tokens/classes/mosaic.js'
+import { SKELETON_CLASSES } from '@core/tokens/classes/skeleton.js'
+import { INTERNAL_CLASSES } from '@core/tokens/classes/project.js'
+import { LABEL_TEXT } from '@core/tokens/strings/text.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { MEDIA_ATTRS } from '@core/tokens/attrs/media.js'
+import { COVER_DIMENSIONS } from '@core/tokens/media/dimensions.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { MODAL_CLASSES } from '@core/tokens/classes/modal.js'
+import { ARIA_ATTRS } from '@core/tokens/attrs/aria.js'
+import { LANG_MUTATIONS, UI_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { INPUT_STRINGS } from '@core/tokens/strings/input.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { MOUSE_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { DOM_STRINGS } from '@core/tokens/strings/dom.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { DATA_ATTRS } from '@core/tokens/attrs/data.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { LEGAL_CLASSES, NOT_FOUND_CLASSES } from '@core/tokens/classes/legal.js'
+import { LINK_ATTRS } from '@core/tokens/attrs/link.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { ROUTER_CLASSES } from '@core/tokens/classes/router.js'
 
 // ─── Local selector helpers (derived from TAGS/CLASSES) ───────────────────────
 const S = {
@@ -528,7 +528,7 @@ describe('HomeMosaic tails', () => {
   test('customElements re-evaluation skips re-registration', async () => {
     expect(customElements.get(COMPONENT_TAGS.HOME_MOSAIC)).toBeTruthy()
     jest.resetModules()
-    await import('@/components/home/HomeMosaic.js')
+    await import('@website/components/home/HomeMosaic.js')
   })
 
   test('translations setter re-renders and drives the featured title', () => {
@@ -946,8 +946,15 @@ describe('LegalFooter', () => {
   test('renders fallback links when store has no legal links', () => {
     store.commit(LANG_MUTATIONS.SET_COMPONENT_LANG, {})
     footerEl._updateDom()
-    const links = footerEl.shadowRoot.querySelectorAll('a')
+    const links = footerEl.shadowRoot.querySelectorAll(
+      `.${INTERNAL_CLASSES.INTERNAL_FOOTER_ITEMS_LINK}`
+    )
     expect(links.length).toBe(4)
+    // The docs-portal entry lives on the home footer — legal pages have
+    // no docs row anymore.
+    expect(
+      footerEl.shadowRoot.querySelector(`.${INTERNAL_CLASSES.INTERNAL_FOOTER_DOCS_LINK}`)
+    ).toBeNull()
   })
 
   test('clicking link calls router.push with link href', () => {
@@ -1274,7 +1281,7 @@ describe('PortfolioRelated', () => {
   test('module re-eval sees the tag already registered', async () => {
     jest.resetModules()
 
-    await import('@/components/portfolio/Related.js')
+    await import('@website/components/portfolio/Related.js')
   })
 })
 

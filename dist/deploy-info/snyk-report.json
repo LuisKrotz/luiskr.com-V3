@@ -1,160 +1,19 @@
 {
-  "generatedAt": "2026-10-07T02:14:43.834Z",
+  "generatedAt": "2026-10-08T14:46:06.735Z",
   "scanner": "yarn-audit (snyk unavailable — set SNYK_TOKEN)",
   "ok": true,
   "totals": {
     "critical": 0,
-    "high": 3,
-    "moderate": 1,
+    "high": 0,
+    "moderate": 0,
     "low": 0,
     "info": 0,
-    "total": 4
+    "total": 0
   },
   "failSeverities": [
     "high",
     "critical"
   ],
-  "exceptions": [
-    {
-      "package": "extract-zip",
-      "advisory": "*",
-      "severity": "high",
-      "reason": "No upstream fix exists (extract-zip@2.0.1 is the latest published release). Dev-only dependency inside @lhci/cli → @puppeteer/browsers — it only ever extracts Chrome binaries downloaded from Google's CDN during local Lighthouse runs; never processes untrusted archives in the shipped site.",
-      "added": "2026-02-17",
-      "reviewBy": "2026-08-17"
-    },
-    {
-      "package": "@puppeteer/browsers",
-      "advisory": "*",
-      "reason": "Flagged transitively via extract-zip — same accepted-risk scope.",
-      "added": "2026-02-17",
-      "reviewBy": "2026-08-17"
-    },
-    {
-      "package": "puppeteer-core",
-      "advisory": "*",
-      "reason": "Flagged transitively via extract-zip — same accepted-risk scope.",
-      "added": "2026-02-17",
-      "reviewBy": "2026-08-17"
-    },
-    {
-      "package": "lighthouse",
-      "advisory": "*",
-      "reason": "Flagged transitively via extract-zip — same accepted-risk scope.",
-      "added": "2026-02-17",
-      "reviewBy": "2026-08-17"
-    },
-    {
-      "package": "@lhci/utils",
-      "advisory": "*",
-      "reason": "Flagged transitively via extract-zip — same accepted-risk scope.",
-      "added": "2026-02-17",
-      "reviewBy": "2026-08-17"
-    },
-    {
-      "package": "@lhci/cli",
-      "advisory": "*",
-      "reason": "Flagged transitively via extract-zip — same accepted-risk scope.",
-      "added": "2026-02-17",
-      "reviewBy": "2026-08-17"
-    },
-    {
-      "package": "stylelint",
-      "advisory": "*",
-      "severity": "high",
-      "reason": "Dev-only lint tool — stylelint only ever reads local .scss at CI/dev time and never ships to the site or processes untrusted input. Transitive chain stylelint > globby > fast-glob > micromatch > braces has no published fix (stylelint@17.16.0 is the latest release). Revisit when upstream releases a patched tree.",
-      "added": "2026-10-05",
-      "reviewBy": "2027-04-05"
-    },
-    {
-      "package": "globby",
-      "advisory": "*",
-      "severity": "high",
-      "reason": "Flagged transitively via stylelint — same accepted-risk scope (dev-only linter).",
-      "added": "2026-10-05",
-      "reviewBy": "2027-04-05"
-    },
-    {
-      "package": "fast-glob",
-      "advisory": "*",
-      "severity": "high",
-      "reason": "Flagged transitively via stylelint — same accepted-risk scope (dev-only linter).",
-      "added": "2026-10-05",
-      "reviewBy": "2027-04-05"
-    },
-    {
-      "package": "micromatch",
-      "advisory": "*",
-      "severity": "high",
-      "reason": "Flagged transitively via stylelint — same accepted-risk scope (dev-only linter).",
-      "added": "2026-10-05",
-      "reviewBy": "2027-04-05"
-    },
-    {
-      "package": "braces",
-      "advisory": "*",
-      "severity": "high",
-      "reason": "Flagged transitively via stylelint — same accepted-risk scope (dev-only linter).",
-      "added": "2026-10-05",
-      "reviewBy": "2027-04-05"
-    }
-  ],
-  "vulnerabilities": [
-    {
-      "packageName": "extract-zip",
-      "severity": "high",
-      "advisoryId": "GHSA-jmr9-qjv8-65gv",
-      "title": "extract-zip unvalidated symlink path traversal",
-      "from": "@lhci/cli>lighthouse>puppeteer-core>@puppeteer/browsers>extract-zip",
-      "range": "<=2.0.1",
-      "fixedIn": null,
-      "isUpgradable": false,
-      "isPatchable": false,
-      "exploit": null,
-      "url": "https://github.com/advisories/GHSA-jmr9-qjv8-65gv",
-      "acceptedRisk": true
-    },
-    {
-      "packageName": "extract-zip",
-      "severity": "high",
-      "advisoryId": "GHSA-7pqw-9j4j-h8q3",
-      "title": "extract-zip allows arbitrary file writes through symlink archive entries",
-      "from": "@lhci/cli>lighthouse>puppeteer-core>@puppeteer/browsers>extract-zip",
-      "range": "<=2.0.1",
-      "fixedIn": null,
-      "isUpgradable": false,
-      "isPatchable": false,
-      "exploit": null,
-      "url": "https://github.com/advisories/GHSA-7pqw-9j4j-h8q3",
-      "acceptedRisk": true
-    },
-    {
-      "packageName": "braces",
-      "severity": "high",
-      "advisoryId": "GHSA-vfj7-8cjw-p6xm",
-      "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
-      "from": "stylelint>micromatch>braces",
-      "range": "<=3.0.3",
-      "fixedIn": null,
-      "isUpgradable": false,
-      "isPatchable": false,
-      "exploit": null,
-      "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
-      "acceptedRisk": true
-    },
-    {
-      "packageName": "sprintf-js",
-      "severity": "moderate",
-      "advisoryId": "GHSA-hp3w-g68c-fv3c",
-      "title": "sprintf-js vulnerable to denial of service through unbounded precision specifiers",
-      "from": "@lhci/cli>@lhci/utils>js-yaml>argparse>sprintf-js",
-      "range": "<=1.1.3",
-      "fixedIn": null,
-      "isUpgradable": false,
-      "isPatchable": false,
-      "exploit": null,
-      "url": "https://github.com/advisories/GHSA-hp3w-g68c-fv3c",
-      "acceptedRisk": false
-    }
-  ]
+  "exceptions": [],
+  "vulnerabilities": []
 }

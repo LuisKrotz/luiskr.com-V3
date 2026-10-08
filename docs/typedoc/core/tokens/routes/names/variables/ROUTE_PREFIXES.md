@@ -15,6 +15,6 @@ const ROUTE_PREFIXES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/routes/names.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/routes/names.ts#L28)
+Defined in: [core/tokens/routes/names.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/routes/names.ts#L28)
 
 routes prefixes.

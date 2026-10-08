@@ -6,12 +6,12 @@
  * reports a software renderer (SwiftShader) from the first call.
  */
 import { describe, test, expect, beforeEach, afterEach } from '@jest/globals'
-import { MenuBackgroundWebGL } from '@/utils/canvas/loaders/menu-background-webgl.js'
+import { MenuBackgroundWebGL } from '@core/utils/canvas/loaders/menu-background-webgl.js'
 import { TEST_GPU } from '../../../fixtures/test-constants.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { NAV_MENU_CLASSES } from '@/core/tokens/classes/nav.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { NAV_MENU_CLASSES } from '@core/tokens/classes/nav.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
 
 
 

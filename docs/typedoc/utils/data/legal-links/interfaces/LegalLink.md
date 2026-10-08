@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [utils/data/legal-links](../README.md) / LegalLink
 
-Defined in: [src/utils/data/legal-links.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/data/legal-links.ts#L20)
+Defined in: [core/utils/data/legal-links.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/data/legal-links.ts#L20)
 
 A legal footer entry: localized path + human label.
 
@@ -16,7 +16,7 @@ A legal footer entry: localized path + human label.
 link: string
 ```
 
-Defined in: [src/utils/data/legal-links.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/data/legal-links.ts#L21)
+Defined in: [core/utils/data/legal-links.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/data/legal-links.ts#L21)
 
 ---
 
@@ -26,4 +26,4 @@ Defined in: [src/utils/data/legal-links.ts:21](https://github.com/LuisKrotz/luis
 page: string
 ```
 
-Defined in: [src/utils/data/legal-links.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/data/legal-links.ts#L22)
+Defined in: [core/utils/data/legal-links.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/data/legal-links.ts#L22)

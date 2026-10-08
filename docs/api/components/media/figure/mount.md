@@ -4,7 +4,7 @@ Mount lifecycle for MediaFigure — GPU-layer promotion, store subscription, exp
 
 | | |
 |---|---|
-| **Source** | `src/components/media/figure/mount.ts` |
+| **Source** | `website/components/media/figure/mount.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

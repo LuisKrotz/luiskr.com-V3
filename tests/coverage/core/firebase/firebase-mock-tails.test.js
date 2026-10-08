@@ -10,13 +10,13 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 
-import '@/utils/data/db.js'
+import '@core/utils/data/db.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { DB_PATHS } from '@/core/tokens/routes/paths.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { DB_PATHS } from '@core/tokens/routes/paths.js'
 
 
 
@@ -24,7 +24,7 @@ import { DB_PATHS } from '@/core/tokens/routes/paths.js'
 
 describe('firebase-mock tails', () => {
   test('ref/get resolves nested and missing nodes', async () => {
-    const { ref, get, getDatabase, fetchFirebaseDb } = await import('@/cms/dev/firebase-mock.js')
+    const { ref, get, getDatabase, fetchFirebaseDb } = await import('@cms/dev/firebase-mock.js')
 
     const db = getDatabase()
     const missing = await get(ref(db, 'no/such/node'))

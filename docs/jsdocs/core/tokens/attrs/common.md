@@ -79,6 +79,12 @@ Default language code — English is the canonical un-prefixed locale.
 
 `trigger` — DrawText trigger attribute name (viewport/manual).
 
+### `ORDERED`
+
+`ordered` — DrawText queue flag: marks the element as part of the
+document-order reveal session, so its `offset` is read as a scheduled
+start on the shared clock instead of a delay after its own trigger.
+
 ### `TRIGGER_VIEWPORT`
 
 `viewport` trigger value — DrawText plays when scrolled into view.

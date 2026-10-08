@@ -6,14 +6,14 @@
  * destroy path executes without a GPU.
  */
 import { describe, test, expect, jest } from '@jest/globals'
-import { clearDevLog, getDevLog } from '@/core/devlog.js'
-import { LOG_LEVELS } from '@/core/tokens/data/log.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { clearDevLog, getDevLog } from '@core/devlog.js'
+import { LOG_LEVELS } from '@core/tokens/data/log.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { MOUSE_EVENTS } from '@core/tokens/events/dom.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
 
-const { EarthBackground } = await import('@/playground/earth-background.js')
+const { EarthBackground } = await import('@earth/earth-background.js')
 
 const makeCanvas = () => {
   const canvas = document.createElement(HTML_TAGS.CANVAS)

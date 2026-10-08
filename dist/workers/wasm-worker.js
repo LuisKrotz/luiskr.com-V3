@@ -89,6 +89,25 @@ self.onmessage = async (e) => {
       type: 'SPRING_PHYSICS_RESULT',
       results: { position: newPosition, velocity: newVelocity },
     })
+  } else if (type === 'DOCS_SCENE_LAYOUT') {
+    // Docs architecture scene: batch radial-tree positions off-thread.
+    // Payload: { depths: number[], angles: number[] } — results carry the
+    // flattened xyz triplets in node order (the formula mirrors the
+    // main-thread fallback in arch-scene.ts; DOCS_UNITS is the source).
+    const { depths = [], angles = [] } = payload
+    const xyz = new Float32Array(depths.length * 3)
+
+    for (let i = 0; i < depths.length; i++) {
+      const d = depths[i]
+      const a = angles[i]
+      const r = 6 + d * 9
+
+      xyz[i * 3] = Math.cos(a) * r
+      xyz[i * 3 + 1] = ((d % 3) - 1) * 4 + Math.sin(a * 2) * 1.5
+      xyz[i * 3 + 2] = Math.sin(a) * r
+    }
+
+    self.postMessage({ id, type: 'DOCS_SCENE_LAYOUT_RESULT', results: { xyz } }, [xyz.buffer])
   } else if (type === 'COMPUTE_TEXT_TIMING') {
     const { totalChars = 0, targetDurationMs = 1800, idx = 0, charsBefore = 0 } = payload
     const delay =

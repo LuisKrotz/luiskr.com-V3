@@ -8,7 +8,7 @@
 function svgPlaceholder(w?, h?): string
 ```
 
-Defined in: [src/core/utils/dom.ts:98](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/utils/dom.ts#L98)
+Defined in: [core/utils/dom.ts:98](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/dom.ts#L98)
 
 Generates an ultra-lightweight inline SVG placeholder data URI with exact
 dimensions. An empty `<svg width height viewBox>` weighs ~110 bytes,

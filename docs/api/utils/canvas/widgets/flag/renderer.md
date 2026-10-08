@@ -4,7 +4,7 @@ Shared WebGL renderer for FlagWebGL. One GL context serves
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/flag/renderer.ts` |
+| **Source** | `core/utils/canvas/widgets/flag/renderer.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

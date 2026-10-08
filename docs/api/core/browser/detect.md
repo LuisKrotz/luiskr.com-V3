@@ -4,7 +4,7 @@ Single source of truth for engine identification. The same
 
 | | |
 |---|---|
-| **Source** | `src/core/browser/detect.ts` |
+| **Source** | `core/browser/detect.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

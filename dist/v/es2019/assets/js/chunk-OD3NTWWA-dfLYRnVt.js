@@ -1,0 +1,2 @@
+function sW(e=cAe){const a=Qoe(Xoe(e),FNe),r=Qoe(Joe({shared:a}),HNe,tW);return a.ServiceRegistry.register(r),{shared:a,Packet:r}}var xh,aBe,tW;import{C as Xoe,S as Joe,d as HNe,i as sIe,o as cAe,t as oIe,u as FNe,w as Qoe,x as vu}from"./chunk-NGNAAXSQ-DEiske8p.js";vu(xh=class extends oIe{constructor(){super(["packet"])}},"PacketTokenBuilder"),aBe=xh,tW={parser:{TokenBuilder:vu(()=>new aBe,"TokenBuilder"),ValueConverter:vu(()=>new sIe,"ValueConverter")}},vu(sW,"createPacketServices");export{sW as n,tW as t};
+//# sourceMappingURL=chunk-OD3NTWWA-dfLYRnVt.js.map

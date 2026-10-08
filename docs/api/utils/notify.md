@@ -4,7 +4,7 @@ User-facing notification service. A failure is surfaced as a
 
 | | |
 |---|---|
-| **Source** | `src/utils/notify.ts` |
+| **Source** | `core/utils/notify.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

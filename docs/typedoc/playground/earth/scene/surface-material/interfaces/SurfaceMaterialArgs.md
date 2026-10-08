@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [playground/earth/scene/surface-material](../README.md) / SurfaceMaterialArgs
 
-Defined in: [src/playground/earth/scene/surface-material.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L17)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L17)
 
 Dependencies injected by the scene assembler (keeps this module mockable).
 
@@ -16,7 +16,7 @@ Dependencies injected by the scene assembler (keeps this module mockable).
 THREE: __module
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L19)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L19)
 
 The three.js namespace — Color/constructors used for uniforms.
 
@@ -28,7 +28,7 @@ The three.js namespace — Color/constructors used for uniforms.
 TSL: __module
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L21)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L21)
 
 The TSL node-graph namespace.
 
@@ -40,7 +40,7 @@ The TSL node-graph namespace.
 mats: object
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L23)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L23)
 
 The physical node material constructor.
 
@@ -58,7 +58,7 @@ MeshPhysicalNodeMaterial: typeof MeshPhysicalNodeMaterial
 colorTex: Texture
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L25)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L25)
 
 Day-side albedo texture (equirectangular).
 
@@ -70,7 +70,7 @@ Day-side albedo texture (equirectangular).
 specTex: Texture
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L27)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L27)
 
 Specular mask — bright over oceans.
 
@@ -82,7 +82,7 @@ Specular mask — bright over oceans.
 normalTex: Texture
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L29)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L29)
 
 Tangent-space normal map for terrain.
 
@@ -94,7 +94,7 @@ Tangent-space normal map for terrain.
 cloudsTex: Texture
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L31)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L31)
 
 Cloud coverage — also resampled for the fake shadow offset.
 
@@ -106,7 +106,7 @@ Cloud coverage — also resampled for the fake shadow offset.
 nightTex: Texture
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L33)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L33)
 
 Night city-lights emissive texture.
 
@@ -118,7 +118,7 @@ Night city-lights emissive texture.
 sunDir: UniformNode<'vec3', Vector3>
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L35)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L35)
 
 Shared sun-direction uniform.
 
@@ -130,6 +130,6 @@ Shared sun-direction uniform.
 moonPos: UniformNode<'vec3', Vector3>
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L37)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L37)
 
 Shared moon-position uniform (eclipse cone test).

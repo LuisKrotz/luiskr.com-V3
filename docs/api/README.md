@@ -8,21 +8,21 @@
 ```
  index.html ──► src/main.ts ──► <app-shell> App.tsx
                                    │
-                     src/routes/router.ts ──► view factory
+                     core/router/router.ts ──► view factory
                                    │
    ┌──────────────┬───────────────┼────────────────┬──────────────┐
- Home.tsx     Project.tsx     Legal.tsx     NotFound.tsx  (src/routes/)
+ Home.tsx     Project.tsx     Legal.tsx     NotFound.tsx  (website/views/)
    │              │               │              │
-   └──────► src/components/<domain>/<Comp>.tsx + <domain>/<comp>/ modules
+   └──────► website/components/<domain>/<Comp>.tsx + <domain>/<comp>/ modules
               (nav, home, carousel, media, dialogs, portfolio, feedback)
                                    │
-       src/core (Component · jsx · store · i18n) + src/utils/* domains
+       core (Component · jsx · store · i18n) + core/utils/* domains
 
- cms/index.html ──► src/cms/main.ts ──► CmsDashboard
-                                   └─► src/cms/<feature>/ editors
+ cms/index.html ──► cms/main.ts ──► CmsDashboard
+                                   └─► cms/<feature>/ editors
                                          └─► Firebase translations/*
                                                    │  (same DB the site reads)
- /earth-playground ──► src/playground/SpacePlayground + earth/ engine
+ /earth-playground ──► experiments/earth-playground/SpacePlayground + earth/ engine
 ```
 
 ## Entry points

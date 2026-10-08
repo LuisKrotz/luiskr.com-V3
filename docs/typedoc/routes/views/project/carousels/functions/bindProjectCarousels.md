@@ -8,7 +8,7 @@
 function bindProjectCarousels(view): void
 ```
 
-Defined in: [src/routes/views/project/carousels.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/carousels.ts#L19)
+Defined in: [website/views/project/carousels.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/project/carousels.ts#L19)
 
 Binds project carousels.
 

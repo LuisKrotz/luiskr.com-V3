@@ -1,6 +1,6 @@
 /**
  * @file safari-patch.test.js
- * @description Covers the Safari/iOS workaround layer (src/safari-patch.js):
+ * @description Covers the Safari/iOS workaround layer (core/safari-patch.js):
  * the is-safari marker, neutered GPU/WASM acceleration paths, and the
  * per-component prototype patches applied via customElements.whenDefined
  * (CustomCarousel style injection, MediaFigure lazy/autoplay logic,
@@ -11,35 +11,35 @@
  */
 
 import { describe, test, expect, beforeAll, afterAll, jest } from '@jest/globals'
-import '@/components/carousel/CustomCarousel.js'
-import '@/components/media/MediaFigure.js'
-import '@/components/media/MediaExpanded.js'
-import '@/routes/views/project/Project.js'
-import store from '@/core/store.js'
-import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
-import { wasmPool } from '@/utils/wasm/wasm-pool.js'
-import { localMediaCache } from '@/utils/media/local-media-cache.js'
-import { wasmMediaThreads } from '@/utils/wasm/wasm-media-threads.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { MEDIA_CLASSES } from '@/core/tokens/classes/media.js'
-import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { SECTION_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { MOUSE_EVENTS, TOUCH_EVENTS } from '@/core/tokens/events/dom.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { EXPAND_MODAL_CLASSES, MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
-import { MODAL_MUTATIONS, PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { INTERNAL_CLASSES } from '@/core/tokens/classes/project.js'
+import '@website/components/carousel/CustomCarousel.js'
+import '@website/components/media/MediaFigure.js'
+import '@website/components/media/MediaExpanded.js'
+import '@website/views/project/Project.js'
+import store from '@core/store.js'
+import { gpuAccel } from '@core/utils/gpu/gpu-accel.js'
+import { wasmPool } from '@core/utils/wasm/wasm-pool.js'
+import { localMediaCache } from '@core/utils/media/local-media-cache.js'
+import { wasmMediaThreads } from '@core/utils/wasm/wasm-media-threads.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { MEDIA_CLASSES } from '@core/tokens/classes/media.js'
+import { MEDIA_ATTRS } from '@core/tokens/attrs/media.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { SECTION_UI_KEYS } from '@core/tokens/data/ui-keys.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { MOUSE_EVENTS, TOUCH_EVENTS } from '@core/tokens/events/dom.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { EXPAND_MODAL_CLASSES, MODAL_CLASSES } from '@core/tokens/classes/modal.js'
+import { MODAL_MUTATIONS, PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { INTERNAL_CLASSES } from '@core/tokens/classes/project.js'
 
 // The patch registers whenDefined() callbacks at module-eval — the component
 // imports above ensure the tags already resolve when it installs.
 beforeAll(async () => {
-  await import('@/safari/patch.js')
+  await import('@core/safari/patch.js')
   await new Promise((resolve) => setTimeout(resolve, 20))
 })
 
@@ -470,10 +470,10 @@ describe('safari-patch — retroactive cleanup', () => {
 
     jest.resetModules()
 
-    await import('@/safari/patch.js')
+    await import('@core/safari/patch.js')
     await new Promise((resolve) => setTimeout(resolve, 20))
 
-    activeStore = (await import('@/core/store.js')).default
+    activeStore = (await import('@core/store.js')).default
 
     expect(mf.style.willChange).toBe(ATTR_VALUES.EMPTY)
     expect(mf.style.transform).toBe(ATTR_VALUES.EMPTY)
@@ -1391,7 +1391,7 @@ describe('safari-patch — residual arm coverage', () => {
     jest.resetModules()
 
     try {
-      await import('@/safari/patch.js')
+      await import('@core/safari/patch.js')
     } catch {
       // globals missing — eval may abort
     } finally {
@@ -1408,7 +1408,7 @@ describe('safari-patch — residual arm coverage', () => {
     jest.resetModules()
 
     try {
-      await import('@/safari/patch.js')
+      await import('@core/safari/patch.js')
     } catch {
       // globals missing — eval may abort
     } finally {

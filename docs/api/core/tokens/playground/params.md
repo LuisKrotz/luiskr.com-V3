@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/playground/params.ts` |
+| **Source** | `core/tokens/playground/params.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

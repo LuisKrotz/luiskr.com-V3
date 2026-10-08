@@ -10,13 +10,13 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 
-import { wasmCSS, calcWasmSkeletonStyle } from '@/utils/wasm/wasm-css.js'
+import { wasmCSS, calcWasmSkeletonStyle } from '@core/utils/wasm/wasm-css.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
-import { ASSET_IDS } from '@/core/tokens/ids/assets.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
+import { ASSET_IDS } from '@core/tokens/ids/assets.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
 
 

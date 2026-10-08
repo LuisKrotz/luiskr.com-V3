@@ -7,11 +7,11 @@
  * sequence executes against happy-dom.
  */
 import { describe, test, expect, jest, beforeEach } from '@jest/globals'
-import { CMS_TAGS } from '@/cms/tokens.js'
+import { CMS_TAGS } from '@cms/tokens.js'
 import { waitFor } from '../fixtures/test-constants.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { APP_IDS } from '@/core/tokens/ids/app.js'
-import { CMS_IDS } from '@/core/tokens/ids/cms.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { APP_IDS } from '@core/tokens/ids/app.js'
+import { CMS_IDS } from '@core/tokens/ids/cms.js'
 
 const registerMock = jest.fn()
 
@@ -21,7 +21,7 @@ jest.unstable_mockModule('register-service-worker', () => ({
 
 const authCallbacks = []
 
-jest.unstable_mockModule('@/firebase.js', () => ({
+jest.unstable_mockModule('@core/firebase.js', () => ({
   onAuthChange: jest.fn(async (cb) => {
     authCallbacks.push(cb)
 
@@ -42,12 +42,12 @@ jest.unstable_mockModule('firebase/database', () => ({
 
 const mockRouter = { init: () => {}, subscribe: () => () => {}, currentRoute: null }
 
-jest.unstable_mockModule('@/routes/router.js', () => ({
+jest.unstable_mockModule('@core/router/router.js', () => ({
   default: mockRouter,
   router: mockRouter,
 }))
 
-jest.unstable_mockModule('@/utils/motion/route-warmer.js', () => ({
+jest.unstable_mockModule('@core/utils/motion/route-warmer.js', () => ({
   startRouteWarming: () => {},
 }))
 
@@ -55,7 +55,7 @@ jest.unstable_mockModule('@/utils/motion/route-warmer.js', () => ({
 // real CSS.supports, so it is true for most cases here). Re-evaluating that
 // real graph after jest.resetModules() starves past the waitFor budget under
 // parallel coverage workers and gates `window.router`.
-jest.unstable_mockModule('@/safari/loader.js', () => ({}))
+jest.unstable_mockModule('@core/safari/loader.js', () => ({}))
 
 // Each warm-up test re-evaluates the full main.js module graph after
 // jest.resetModules() — under the 75%-worker pool that re-import can be
@@ -64,7 +64,7 @@ jest.setTimeout(120000)
 
 describe('polyfills', () => {
   test('importing polyfills installs globals without throwing', async () => {
-    await expect(import('@/legacy-polyfills/polyfills.js')).resolves.toBeTruthy()
+    await expect(import('@core/legacy-polyfills/polyfills.js')).resolves.toBeTruthy()
   })
 })
 
@@ -103,9 +103,9 @@ describe('main.js branch warm-ups', () => {
     // so stub the heavy deps. Registrations persist across resetModules; the
     // real-graph mount coverage already ran in 'boots the router' above.
     jest.unstable_mockModule('@/App.js', () => ({}))
-    jest.unstable_mockModule('@/utils/wasm/wasm-css.js', () => ({}))
-    jest.unstable_mockModule('@/routes/views/home/Home.js', () => ({}))
-    jest.unstable_mockModule('@/routes/views/project/Project.js', () => ({}))
+    jest.unstable_mockModule('@core/utils/wasm/wasm-css.js', () => ({}))
+    jest.unstable_mockModule('@website/views/home/Home.js', () => ({}))
+    jest.unstable_mockModule('@website/views/project/Project.js', () => ({}))
   })
 
   test('portfolio pathname pre-warms the project chunk', async () => {
@@ -183,7 +183,7 @@ describe('main.js branch warm-ups', () => {
   test('missing LANG_SLUGS entry falls back to English slugs', async () => {
     jest.resetModules()
 
-    const { LANG_SLUGS } = await import('@/core/i18n.js')
+    const { LANG_SLUGS } = await import('@core/i18n.js')
     const enBackup = LANG_SLUGS.en
 
     delete LANG_SLUGS.en
@@ -308,7 +308,7 @@ describe('cms/main.js bootstrap', () => {
     root.id = CMS_IDS.CMS_ROOT
     document.body.appendChild(root)
 
-    await import('@/cms/main.js')
+    await import('@cms/main.js')
     await waitFor(() => authCallbacks.length)
 
     expect(authCallbacks.length).toBeGreaterThan(0)
@@ -318,7 +318,7 @@ describe('cms/main.js bootstrap', () => {
 
     expect(root.querySelector(CMS_TAGS.VIEW_ADMIN_LOGIN)).toBeTruthy()
 
-    const { CMS_EVENTS } = await import('@/cms/tokens.js')
+    const { CMS_EVENTS } = await import('@cms/tokens.js')
 
     window.dispatchEvent(new window.CustomEvent(CMS_EVENTS.AUTH_CHANGED, { detail: { uid: 'u9' } }))
     window.dispatchEvent(new window.CustomEvent(CMS_EVENTS.AUTH_CHANGED, { detail: { uid: 'u9' } }))
@@ -348,17 +348,17 @@ describe('home view module re-registration guards', () => {
     // warm-up mocks above keep the heavy graph stubbed, so unmock the real
     // subtree here and eval it twice; istanbul merges both instances' counts
     // into the file-level branch pair.
-    await jest.unstable_unmockModule('@/routes/views/home/Home.js')
-    await jest.unstable_unmockModule('@/utils/wasm/wasm-css.js')
+    await jest.unstable_unmockModule('@website/views/home/Home.js')
+    await jest.unstable_unmockModule('@core/utils/wasm/wasm-css.js')
     await jest.unstable_unmockModule('@/App.js')
 
-    const { VIEW_TAGS } = await import('@/core/tokens/elements/views.js')
+    const { VIEW_TAGS } = await import('@core/tokens/elements/views.js')
 
     jest.resetModules()
-    await import('@/routes/views/home/Home.js')
+    await import('@website/views/home/Home.js')
 
     jest.resetModules()
-    await import('@/routes/views/home/Home.js')
+    await import('@website/views/home/Home.js')
 
     expect(customElements.get(VIEW_TAGS.VIEW_HOME)).toBeTruthy()
   })

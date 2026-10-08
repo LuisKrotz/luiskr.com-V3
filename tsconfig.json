@@ -22,8 +22,12 @@
 
     "paths": {
       "@/*": ["./src/*"],
-      "@core/*": ["./src/core/*"],
-      "@core": ["./src/core/index.ts"]
+      "@core": ["./core/index.ts"],
+      "@core/*": ["./core/*"],
+      "@website/*": ["./website/*"],
+      "@cms/*": ["./cms/*"],
+      "@earth/*": ["./experiments/earth-playground/*"],
+      "@docs/*": ["./experiments/docs/*"]
     },
 
     "resolveJsonModule": true,
@@ -34,6 +38,18 @@
     "skipLibCheck": true,
     "checkJs": false
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/globals.d.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/globals.d.ts",
+    "core/**/*.ts",
+    "core/**/*.tsx",
+    "website/**/*.ts",
+    "website/**/*.tsx",
+    "cms/**/*.ts",
+    "cms/**/*.tsx",
+    "experiments/**/*.ts",
+    "experiments/**/*.tsx"
+  ],
   "exclude": ["node_modules", "dist", "coverage"]
 }

@@ -4,7 +4,7 @@ JSON-LD structured-data builders (Schema.org entities for
 
 | | |
 |---|---|
-| **Source** | `src/core/utils/schema.ts` |
+| **Source** | `core/utils/schema.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

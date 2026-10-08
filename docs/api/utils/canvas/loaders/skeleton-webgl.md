@@ -4,7 +4,7 @@ WebGL skeleton/shimmer layer for loading states: a shared
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/loaders/skeleton-webgl.ts` |
+| **Source** | `core/utils/canvas/loaders/skeleton-webgl.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

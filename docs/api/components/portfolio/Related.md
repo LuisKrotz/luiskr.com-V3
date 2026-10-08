@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/portfolio/Related.tsx` |
+| **Source** | `website/components/portfolio/Related.tsx` |
 | **UX surface** | Related-projects strip on case-study pages. |
 
 ## Members

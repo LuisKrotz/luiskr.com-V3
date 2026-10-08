@@ -4,7 +4,7 @@ Data loading for &lt;view-home&gt;: three SWR sources fetched
 
 | | |
 |---|---|
-| **Source** | `src/routes/views/home/data.ts` |
+| **Source** | `website/views/home/data.ts` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

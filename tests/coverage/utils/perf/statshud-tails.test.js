@@ -7,22 +7,22 @@
  * HomeMosaic / PreferencesModal / AwardsCarousel internals, and App shell.
  */
 import { jest } from '@jest/globals'
-import store from '@/core/store.js'
-import _router from '@/routes/router.js'
+import store from '@core/store.js'
+import _router from '@core/router/router.js'
 
-import '@/components/feedback/StatsHud.js'
-import '@/components/home/AwardsMentions.js'
-import '@/components/legal/Footer.js'
+import '@website/components/feedback/StatsHud.js'
+import '@website/components/home/AwardsMentions.js'
+import '@website/components/legal/Footer.js'
 
-import '@/components/home/HomeMosaic.js'
-import '@/components/dialogs/LangDialog.js'
-import '@/components/dialogs/PreferencesModal.js'
-import '@/components/carousel/AwardsCarousel.js'
-import '@/routes/views/home/Home.js'
-import '@/routes/views/legal/Legal.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { STATS_CLASSES } from '@/core/tokens/classes/stats.js'
-import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import '@website/components/home/HomeMosaic.js'
+import '@website/components/dialogs/LangDialog.js'
+import '@website/components/dialogs/PreferencesModal.js'
+import '@website/components/carousel/AwardsCarousel.js'
+import '@website/views/home/Home.js'
+import '@website/views/legal/Legal.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { STATS_CLASSES } from '@core/tokens/classes/stats.js'
+import { PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
 
 
 
@@ -75,7 +75,7 @@ describe('StatsHud tails', () => {
   })
 
   test('render() covers every threshold tier and accel arm', async () => {
-    const { npuPredict } = await import('@/utils/gpu/npu-predict.js')
+    const { npuPredict } = await import('@core/utils/gpu/npu-predict.js')
 
     store.commit(PREF_MUTATIONS.TOGGLE_STATS_FOR_NERDS, true)
 
@@ -132,7 +132,7 @@ describe('StatsHud tails', () => {
   test('module re-eval sees the tag already registered', async () => {
     jest.resetModules()
 
-    await import('@/components/feedback/StatsHud.js')
+    await import('@website/components/feedback/StatsHud.js')
   })
 })
 

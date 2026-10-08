@@ -8,34 +8,34 @@
  * (css-color, gpu-accel, route-warmer, draw-text).
  */
 import { jest } from '@jest/globals'
-import { CMS_LIST_PREFIXES, CMS_TAGS } from '@/cms/tokens.js'
-import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
-import { FORM_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { CMS_LIST_PREFIXES, CMS_TAGS } from '@cms/tokens.js'
+import { DATA_ATTRS } from '@core/tokens/attrs/data.js'
+import { FORM_EVENTS, MOUSE_EVENTS } from '@core/tokens/events/dom.js'
 import { createMock2D, createMockGL } from '../../fixtures/mock-webgl.js'
 
-import '@/cms/about/CmsAboutEditor.js'
-import '@/cms/portfolio/CmsPortfolioList.js'
-import '@/cms/projects/CmsProjectsList.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
+import '@cms/about/CmsAboutEditor.js'
+import '@cms/portfolio/CmsPortfolioList.js'
+import '@cms/projects/CmsProjectsList.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
 
-import '@/playground/earth/setup/bootstrap.js'
+import '@earth/earth/setup/bootstrap.js'
 
-import '@/utils/canvas/css-color.js'
+import '@core/utils/canvas/css-color.js'
 
-import '@/utils/canvas/widgets/flag/renderer.js'
-import '@/utils/canvas/widgets/flag/texture.js'
+import '@core/utils/canvas/widgets/flag/renderer.js'
+import '@core/utils/canvas/widgets/flag/texture.js'
 
-import '@/utils/gpu/gpu-accel.js'
-import '@/components/media/draw-text/render.js'
-import '@/routes/views/project/data.js'
+import '@core/utils/gpu/gpu-accel.js'
+import '@website/components/media/draw-text/render.js'
+import '@website/views/project/data.js'
 
-import _router from '@/routes/router.js'
-import '@/playground/space/panel-render.js'
-import { SP_INPUT_TYPES } from '@/playground/space/controls.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { CMS_PROJECTS_CLASSES } from '@/cms/tokens.js'
+import _router from '@core/router/router.js'
+import '@earth/space/panel-render.js'
+import { SP_INPUT_TYPES } from '@earth/space/controls.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { CMS_PROJECTS_CLASSES } from '@cms/tokens.js'
 
 
 globalThis.alert = jest.fn()
@@ -48,8 +48,8 @@ const makeCanvas = () => document.createElement(HTML_TAGS.CANVAS)
 
 describe('final tails', () => {
   test('cms render delegates — paragraph/mention/item bodies', async () => {
-    await import('@/cms/about/CmsAboutEditor.js')
-    await import('@/cms/portfolio/CmsPortfolioList.js')
+    await import('@cms/about/CmsAboutEditor.js')
+    await import('@cms/portfolio/CmsPortfolioList.js')
 
     const about = document.createElement(CMS_TAGS.CMS_ABOUT_EDITOR)
 
@@ -122,9 +122,9 @@ describe('final tails', () => {
   })
 
   test('AboutSection gravatar getters — empty-profile arms', async () => {
-    await import('@/components/home/AboutSection.js')
+    await import('@website/components/home/AboutSection.js')
 
-    const { COMPONENT_TAGS } = await import('@/core/tokens/elements/components.js')
+    const { COMPONENT_TAGS } = await import('@core/tokens/elements/components.js')
     const el = document.createElement(COMPONENT_TAGS.ABOUT_SECTION)
 
     el.profilePicture = ''
@@ -137,9 +137,9 @@ describe('final tails', () => {
   })
 
   test('AwardsMentions null-items arm', async () => {
-    await import('@/components/home/AwardsMentions.js')
+    await import('@website/components/home/AwardsMentions.js')
 
-    const { COMPONENT_TAGS } = await import('@/core/tokens/elements/components.js')
+    const { COMPONENT_TAGS } = await import('@core/tokens/elements/components.js')
     const el = document.createElement(COMPONENT_TAGS.AWARDS_MENTIONS)
 
     document.body.appendChild(el)
@@ -150,7 +150,7 @@ describe('final tails', () => {
   })
 
   test('draw-text tag-token inner arms', async () => {
-    const { renderContent } = await import('@/components/media/draw-text/render.js')
+    const { renderContent } = await import('@website/components/media/draw-text/render.js')
 
     // space chunk inside a tag → NBSP arm
     expect(renderContent('<em>x y</em>', 5, 0)).toBeTruthy()
@@ -163,8 +163,8 @@ describe('final tails', () => {
   })
 
   test('earth bootstrap — resize-listener fn + post-compile disposed arm', async () => {
-    const { bootstrapEarth: boot } = await import('@/playground/earth/setup/bootstrap.js')
-    const { createEarthState: mkState } = await import('@/playground/earth/runtime/state.js')
+    const { bootstrapEarth: boot } = await import('@earth/earth/setup/bootstrap.js')
+    const { createEarthState: mkState } = await import('@earth/earth/runtime/state.js')
 
     // dispose mid-boot via onProgress → the post-compile s.disposed check hits
     const s = mkState(document.createElement(HTML_TAGS.CANVAS), undefined, () => {
@@ -184,7 +184,7 @@ describe('final tails', () => {
   }, 15000)
 
   test('buildMoonLod null-loader arm + happy path', async () => {
-    const { buildMoonLod } = await import('@/playground/earth/scene/meshes.js')
+    const { buildMoonLod } = await import('@earth/earth/scene/meshes.js')
     const THREE = await import('three')
 
     expect(await buildMoonLod({ THREE, loader: null })).toBeTruthy()
@@ -192,8 +192,8 @@ describe('final tails', () => {
   })
 
   test('space boot — EarthBackground.init rejection → catch arm', async () => {
-    const { initSpaceEarth } = await import('@/playground/space/boot.js')
-    const { EarthBackground } = await import('@/playground/earth-background.js')
+    const { initSpaceEarth } = await import('@earth/space/boot.js')
+    const { EarthBackground } = await import('@earth/earth-background.js')
     const initSpy = jest.spyOn(EarthBackground.prototype, 'init').mockRejectedValue(new Error('boot-fail'))
     const c = {
       _earthBg: null,
@@ -217,15 +217,15 @@ describe('final tails', () => {
   })
 
   test('renderSpControl range — missing min/max ?? arms', async () => {
-    const { renderSpControl } = await import('@/playground/space/panel-render.js')
+    const { renderSpControl } = await import('@earth/space/panel-render.js')
     const ctrl = { label: 'lbl', param: 'p', type: SP_INPUT_TYPES.RANGE, step: 0.1, def: 0.5 }
 
     expect(renderSpControl(ctrl, {}, undefined)).toBeTruthy()
   })
 
   test('resolveProjectSlug match-null + loadData default-wait arms', async () => {
-    const { resolveProjectSlug, loadData } = await import('@/routes/views/project/data.js')
-    const { default: freshRouter } = await import('@/routes/router.js')
+    const { resolveProjectSlug, loadData } = await import('@website/views/project/data.js')
+    const { default: freshRouter } = await import('@core/router/router.js')
     const prev = freshRouter.currentRoute
 
     freshRouter.currentRoute = { params: {} }
@@ -239,15 +239,15 @@ describe('final tails', () => {
   })
 
   test('parseCssColor 3-char hex expansion arm', async () => {
-    const { parseCssColor } = await import('@/utils/canvas/css-color.js')
+    const { parseCssColor } = await import('@core/utils/canvas/css-color.js')
 
     expect(parseCssColor('#f80')).toBeTruthy()
     expect(parseCssColor('#ff8800')).toBeTruthy()
   })
 
   test('flag loadImages — no-renderer / single-code / animId arms', async () => {
-    const { FlagWebGL } = await import('@/utils/canvas/widgets/flag-webgl.js')
-    const { flagRenderer: pool } = await import('@/utils/canvas/widgets/flag/renderer.js')
+    const { FlagWebGL } = await import('@core/utils/canvas/widgets/flag-webgl.js')
+    const { flagRenderer: pool } = await import('@core/utils/canvas/widgets/flag/renderer.js')
 
     // renderer null → early return
     const f1 = new FlagWebGL(makeCanvas(), { code: 'en', cc: 'us', cc2: null })
@@ -273,7 +273,7 @@ describe('final tails', () => {
   })
 
   test('flagTexture — pot-canvas 2d + GL texture-creation path', async () => {
-    const { flagTexture } = await import('@/utils/canvas/widgets/flag/texture.js')
+    const { flagTexture } = await import('@core/utils/canvas/widgets/flag/texture.js')
     const origCreate = document.createElement.bind(document)
     const mock2d = { imageSmoothingEnabled: '', imageSmoothingQuality: '', drawImage() {} }
 
@@ -301,7 +301,7 @@ describe('final tails', () => {
   })
 
   test('switch-slider renderCanvas2D — null-canvas ?? arms', async () => {
-    const { renderCanvas2D } = await import('@/utils/canvas/widgets/switch-slider/render.js')
+    const { renderCanvas2D } = await import('@core/utils/canvas/widgets/switch-slider/render.js')
     const host = {
       gl: null,
       canvas: null,
@@ -321,7 +321,7 @@ describe('final tails', () => {
   })
 
   test('gpu-accel — upload path, warn sink, webgl1 fallback arm', async () => {
-    const { gpuAccel } = await import('@/utils/gpu/gpu-accel.js')
+    const { gpuAccel } = await import('@core/utils/gpu/gpu-accel.js')
 
     // _uploadTextureAndDraw: guard arm then live arm
     gpuAccel._uploadTextureAndDraw({}, 1, 1)

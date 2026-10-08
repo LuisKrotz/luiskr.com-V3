@@ -4,7 +4,7 @@ Carousel timing/geometry tokens — grouped subsets of
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/motion/carousel.ts` |
+| **Source** | `core/tokens/motion/carousel.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

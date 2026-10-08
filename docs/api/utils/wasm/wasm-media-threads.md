@@ -4,7 +4,7 @@ Off-main-thread media pipeline built on the WASM worker pool:
 
 | | |
 |---|---|
-| **Source** | `src/utils/wasm/wasm-media-threads.ts` |
+| **Source** | `core/utils/wasm/wasm-media-threads.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

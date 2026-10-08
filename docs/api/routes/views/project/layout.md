@@ -4,7 +4,7 @@ Layout helpers for ViewProject — per-section height from the first media ratio
 
 | | |
 |---|---|
-| **Source** | `src/routes/views/project/layout.ts` |
+| **Source** | `website/views/project/layout.ts` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

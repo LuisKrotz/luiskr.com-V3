@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../README.md) / [core/i18n](../README.md) / LangSlugMap
 
-Defined in: [src/core/i18n.ts:73](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/i18n.ts#L73)
+Defined in: [core/i18n.ts:73](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/i18n.ts#L73)
 
 Localized route slugs for one locale — every navigable page key maps to
 its translated path segment (`about` → 'sobre'/'ueber', …).
@@ -17,7 +17,7 @@ its translated path segment (`about` → 'sobre'/'ueber', …).
 about: string
 ```
 
-Defined in: [src/core/i18n.ts:75](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/i18n.ts#L75)
+Defined in: [core/i18n.ts:75](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/i18n.ts#L75)
 
 '/<loc>/about' segment.
 
@@ -29,7 +29,7 @@ Defined in: [src/core/i18n.ts:75](https://github.com/LuisKrotz/luiskr.com-V3/blo
 contact: string
 ```
 
-Defined in: [src/core/i18n.ts:77](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/i18n.ts#L77)
+Defined in: [core/i18n.ts:77](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/i18n.ts#L77)
 
 Contact page segment.
 
@@ -41,7 +41,7 @@ Contact page segment.
 privacy: string
 ```
 
-Defined in: [src/core/i18n.ts:79](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/i18n.ts#L79)
+Defined in: [core/i18n.ts:79](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/i18n.ts#L79)
 
 Privacy-policy page segment.
 
@@ -53,7 +53,7 @@ Privacy-policy page segment.
 gdpr: string
 ```
 
-Defined in: [src/core/i18n.ts:81](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/i18n.ts#L81)
+Defined in: [core/i18n.ts:81](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/i18n.ts#L81)
 
 GDPR page segment.
 
@@ -65,7 +65,7 @@ GDPR page segment.
 terms: string
 ```
 
-Defined in: [src/core/i18n.ts:83](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/i18n.ts#L83)
+Defined in: [core/i18n.ts:83](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/i18n.ts#L83)
 
 Terms-of-use page segment.
 
@@ -77,6 +77,6 @@ Terms-of-use page segment.
 earthPlayground: string
 ```
 
-Defined in: [src/core/i18n.ts:85](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/i18n.ts#L85)
+Defined in: [core/i18n.ts:85](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/i18n.ts#L85)
 
 Earth playground segment.

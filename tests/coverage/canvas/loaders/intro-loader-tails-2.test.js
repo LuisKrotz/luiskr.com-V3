@@ -11,11 +11,11 @@
  */
 import { jest } from '@jest/globals'
 
-import { IntroLoader } from '@/utils/canvas/loaders/intro-loader.js'
+import { IntroLoader } from '@core/utils/canvas/loaders/intro-loader.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
 
 
 // ─── core/locale/ui-text.js ──────────────────────────────────────────────────

@@ -8,7 +8,7 @@
 function setupObserver(host): void
 ```
 
-Defined in: [src/components/carousel/awards-carousel/observer.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/observer.ts#L22)
+Defined in: [website/components/carousel/awards-carousel/observer.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/awards-carousel/observer.ts#L22)
 
 Autoplay only runs while ≥50% of the carousel is on screen
 (threshold [0, 0.5] gives a clean two-state signal); below that or

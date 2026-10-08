@@ -6,5 +6,5 @@ Hardcoded values are strictly forbidden anywhere in this project:
 - No hardcoded CSS variable fallbacks (e.g. `var(--bg, #262626)`).
 - No hardcoded inline style numbers (e.g. `height: 180px`, `width: 35%`, `border-radius: 4px`, `0.25rem`). Use tokens (`to-rem($space-*)`, `var(--radius-*)`).
 - No string interpolation for HTML templates. All components must return JSX (`h`, `Fragment`).
-- All class names must come from `CLASSES` in `src/core/constants.js`.
+- All class names must come from `CLASSES` in `core/constants.js`.
 - No `!important` anywhere.

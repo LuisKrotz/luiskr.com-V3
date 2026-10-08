@@ -4,7 +4,7 @@ History-API SPA router for the public site.
 
 | | |
 |---|---|
-| **Source** | `src/routes/router.ts` |
+| **Source** | `core/router/router.ts` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

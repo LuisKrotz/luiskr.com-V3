@@ -5,9 +5,9 @@
  * reload so users never run a stale app shell behind new assets.
  */
 
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 import { register } from 'register-service-worker'
-import { devError, devInfo } from '@/core/devlog.js'
+import { devError, devInfo } from '@core/devlog.js'
 
 /**
  * Registers `<base>service-worker.js` on window load when `env.PROD` is set.

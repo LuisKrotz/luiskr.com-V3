@@ -4,7 +4,7 @@ Single choke point for WebGL availability. Every widget asks
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/webgl-mode.ts` |
+| **Source** | `core/utils/canvas/webgl-mode.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

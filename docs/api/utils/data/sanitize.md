@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/utils/data/sanitize.ts` |
+| **Source** | `core/utils/data/sanitize.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

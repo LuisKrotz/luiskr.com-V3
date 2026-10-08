@@ -3,7 +3,7 @@
  * @file console-scan.mjs
  * @description Scans every .ts/.tsx/.js file under src/ for console usage. Policy:
  *   - EVERY console.* call → VIOLATION. The project is zero-console: all
- *     diagnostics route through src/core/devlog.ts (devWarn / devError /
+ *     diagnostics route through core/devlog.ts (devWarn / devError /
  *     devInfo), which buffers entries for devtools inspection via the
  *     `__lkDevLog()` global handle without touching console.*.
  *
@@ -16,7 +16,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const ROOT = process.cwd()
-const SRC_DIR = path.join(ROOT, 'src')
+// Module areas — the app shell (src/) plus the four exportable modules.
+const SRC_DIRS = ['src', 'core', 'website', 'cms', 'experiments'].map((d) => path.join(ROOT, d))
 const REPORTS_DIR = path.join(ROOT, 'reports')
 const REPORT_FILE = path.join(REPORTS_DIR, 'console-scan.json')
 
@@ -109,7 +110,7 @@ const findings = []
 const violations = []
 const allowedUsage = []
 
-for (const file of listSrcFiles(SRC_DIR)) {
+for (const file of SRC_DIRS.flatMap(listSrcFiles)) {
   const rel = path.relative(ROOT, file)
   const raw = fs.readFileSync(file, 'utf-8')
   const lines = scanLines(raw)

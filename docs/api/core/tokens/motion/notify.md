@@ -4,7 +4,7 @@ Notification/toast runtime tuning tokens.
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/motion/notify.ts` |
+| **Source** | `core/tokens/motion/notify.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

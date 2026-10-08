@@ -4,7 +4,7 @@ Carousel wiring for &lt;awards-mentions&gt;: configures the
 
 | | |
 |---|---|
-| **Source** | `src/components/home/awards/carousel.ts` |
+| **Source** | `website/components/home/awards/carousel.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

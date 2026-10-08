@@ -9,14 +9,14 @@
  */
 import { jest } from '@jest/globals'
 
-import '@/core/constants.js'
+import '@core/constants.js'
 
-import '@/cms/about/CmsAboutEditor.js'
-import '@/cms/portfolio/CmsPortfolioList.js'
-import '@/cms/projects/CmsProjectsList.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
+import '@cms/about/CmsAboutEditor.js'
+import '@cms/portfolio/CmsPortfolioList.js'
+import '@cms/projects/CmsProjectsList.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
 
 globalThis.alert = jest.fn()
 
@@ -26,7 +26,7 @@ const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))
 
 describe('component render tails', () => {
   test('AboutSection setters while mounted hit _updateDom arm', async () => {
-    await import('@/components/home/AboutSection.js')
+    await import('@website/components/home/AboutSection.js')
 
     const el = document.createElement('about-section')
 
@@ -47,7 +47,7 @@ describe('component render tails', () => {
   })
 
   test('AwardsMentions populated-items arm renders awards-carousel', async () => {
-    await import('@/components/home/AwardsMentions.js')
+    await import('@website/components/home/AwardsMentions.js')
 
     const el = document.createElement('awards-mentions')
 

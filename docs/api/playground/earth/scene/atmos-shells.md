@@ -4,7 +4,7 @@ Atmosphere shells for the Earth background — the BackSide
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/scene/atmos-shells.ts` |
+| **Source** | `experiments/earth-playground/earth/scene/atmos-shells.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

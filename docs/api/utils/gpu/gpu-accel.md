@@ -4,7 +4,7 @@ Hardware GPU acceleration singleton: a lazily-created
 
 | | |
 |---|---|
-| **Source** | `src/utils/gpu/gpu-accel.ts` |
+| **Source** | `core/utils/gpu/gpu-accel.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

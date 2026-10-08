@@ -4,14 +4,14 @@
  */
 
 import { jest } from '@jest/globals'
-import { DEBUG_PARAMS, WEBGL_MODES } from '@/core/tokens/strings/debug.js'
+import { DEBUG_PARAMS, WEBGL_MODES } from '@core/tokens/strings/debug.js'
 import { attachMockGL } from '../../fixtures/mock-webgl.js'
-import { debugParams, hasDebugFlag, runDebugActions } from '@/core/debug/params.js'
-import { webglAllowed, webglContext, webglMode } from '@/utils/canvas/webgl-mode.js'
-import { getWebGLContext } from '@/utils/canvas/gl-program.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
+import { debugParams, hasDebugFlag, runDebugActions } from '@core/debug/params.js'
+import { webglAllowed, webglContext, webglMode } from '@core/utils/canvas/webgl-mode.js'
+import { getWebGLContext } from '@core/utils/canvas/gl-program.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
 
 const setSearch = (s) => window.history.replaceState(null, '', s)
 

@@ -10,13 +10,13 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 
-import { isGravatarUrl, getOptimizedGravatar, buildMediaUrls } from '@/core/utils/media.js'
+import { isGravatarUrl, getOptimizedGravatar, buildMediaUrls } from '@core/utils/media.js'
 
 import { TEST_URLS } from '../../../fixtures/test-constants.js'
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
 
 

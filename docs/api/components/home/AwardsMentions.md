@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/home/AwardsMentions.tsx` |
+| **Source** | `website/components/home/AwardsMentions.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

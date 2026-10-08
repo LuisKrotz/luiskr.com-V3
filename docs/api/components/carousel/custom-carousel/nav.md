@@ -4,7 +4,7 @@ Navigation engine for CustomCarousel — goTo/prev/next/dot
 
 | | |
 |---|---|
-| **Source** | `src/components/carousel/custom-carousel/nav.ts` |
+| **Source** | `website/components/carousel/custom-carousel/nav.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

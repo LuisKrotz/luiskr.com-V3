@@ -4,7 +4,7 @@ Surface material node graph for the Earth shell —
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/scene/surface-material.ts` |
+| **Source** | `experiments/earth-playground/earth/scene/surface-material.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

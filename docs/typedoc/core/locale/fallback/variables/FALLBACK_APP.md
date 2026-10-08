@@ -8,7 +8,7 @@
 const FALLBACK_APP: object = FALLBACK.APP
 ```
 
-Defined in: [src/core/locale/fallback.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/locale/fallback.ts#L37)
+Defined in: [core/locale/fallback.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/locale/fallback.ts#L37)
 
 The APP subtree of the fallback snapshot — app-shell copy (actions,
 carousel labels, loader lines) consumed before Firebase resolves.

@@ -6,9 +6,9 @@
  * title/col2 empty-fallback arms resolve.
  */
 
-import { ABOUT_CLASSES } from '@/core/tokens/classes/about.js'
-import '@/components/home/AboutSection.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { ABOUT_CLASSES } from '@core/tokens/classes/about.js'
+import '@website/components/home/AboutSection.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
 
 
 const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))

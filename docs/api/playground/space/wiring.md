@@ -4,7 +4,7 @@ Control wiring for SpacePlayground — panel event binding,
 
 | | |
 |---|---|
-| **Source** | `src/playground/space/wiring.ts` |
+| **Source** | `experiments/earth-playground/space/wiring.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [components/media/DrawText](../README.md) / DrawText
 
-Defined in: [src/components/media/DrawText.tsx:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L30)
+Defined in: [website/components/media/DrawText.tsx:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L30)
 
 Draws text.
 
@@ -20,7 +20,7 @@ Draws text.
 new DrawText(): DrawText;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L51)
+Defined in: [website/components/media/DrawText.tsx:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L51)
 
 #### Returns
 
@@ -61,7 +61,7 @@ HTMLElement.onbeforexrselect
 _isVisible: boolean = false
 ```
 
-Defined in: [src/components/media/DrawText.tsx:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L31)
+Defined in: [website/components/media/DrawText.tsx:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L31)
 
 ---
 
@@ -71,7 +71,7 @@ Defined in: [src/components/media/DrawText.tsx:31](https://github.com/LuisKrotz/
 _hasAnimated: boolean = false
 ```
 
-Defined in: [src/components/media/DrawText.tsx:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L32)
+Defined in: [website/components/media/DrawText.tsx:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L32)
 
 ---
 
@@ -81,7 +81,7 @@ Defined in: [src/components/media/DrawText.tsx:32](https://github.com/LuisKrotz/
 _observer: IntersectionObserver | null = null;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L33)
+Defined in: [website/components/media/DrawText.tsx:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L33)
 
 ---
 
@@ -91,7 +91,7 @@ Defined in: [src/components/media/DrawText.tsx:33](https://github.com/LuisKrotz/
 _animTimer: DrawTimer | null = null;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L34)
+Defined in: [website/components/media/DrawText.tsx:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L34)
 
 ---
 
@@ -101,7 +101,7 @@ Defined in: [src/components/media/DrawText.tsx:34](https://github.com/LuisKrotz/
 _isMounted: boolean = false
 ```
 
-Defined in: [src/components/media/DrawText.tsx:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L35)
+Defined in: [website/components/media/DrawText.tsx:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L35)
 
 ---
 
@@ -111,7 +111,7 @@ Defined in: [src/components/media/DrawText.tsx:35](https://github.com/LuisKrotz/
 _styleEl: HTMLStyleElement | CSSStyleSheet | null = null;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L36)
+Defined in: [website/components/media/DrawText.tsx:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L36)
 
 ---
 
@@ -121,7 +121,7 @@ Defined in: [src/components/media/DrawText.tsx:36](https://github.com/LuisKrotz/
 _contentEl: HTMLSpanElement | null = null;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L37)
+Defined in: [website/components/media/DrawText.tsx:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L37)
 
 ---
 
@@ -131,7 +131,7 @@ Defined in: [src/components/media/DrawText.tsx:37](https://github.com/LuisKrotz/
 _fitObserver: ResizeObserver | null = null;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L38)
+Defined in: [website/components/media/DrawText.tsx:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L38)
 
 ---
 
@@ -4661,7 +4661,7 @@ HTMLElement.assignedSlot
 get static observedAttributes(): ("visible" | "delay" | "offset" | "trigger" | "fit" | "text")[];
 ```
 
-Defined in: [src/components/media/DrawText.tsx:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L40)
+Defined in: [website/components/media/DrawText.tsx:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L40)
 
 ##### Returns
 
@@ -4677,7 +4677,7 @@ Defined in: [src/components/media/DrawText.tsx:40](https://github.com/LuisKrotz/
 get text(): string;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L59)
+Defined in: [website/components/media/DrawText.tsx:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L59)
 
 Setter/getter — the text content to animate.
 
@@ -4691,7 +4691,7 @@ Setter/getter — the text content to animate.
 set text(val): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L63)
+Defined in: [website/components/media/DrawText.tsx:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L63)
 
 ##### Parameters
 
@@ -4713,7 +4713,7 @@ Defined in: [src/components/media/DrawText.tsx:63](https://github.com/LuisKrotz/
 get delay(): number;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L69)
+Defined in: [website/components/media/DrawText.tsx:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L69)
 
 Setter/getter — per-character animation delay in ms.
 
@@ -4727,7 +4727,7 @@ Setter/getter — per-character animation delay in ms.
 set delay(val): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L76)
+Defined in: [website/components/media/DrawText.tsx:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L76)
 
 ##### Parameters
 
@@ -4749,7 +4749,7 @@ Defined in: [src/components/media/DrawText.tsx:76](https://github.com/LuisKrotz/
 get offset(): number;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:82](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L82)
+Defined in: [website/components/media/DrawText.tsx:82](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L82)
 
 Setter/getter — start-time offset before the first character.
 
@@ -4763,7 +4763,7 @@ Setter/getter — start-time offset before the first character.
 set offset(val): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:86](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L86)
+Defined in: [website/components/media/DrawText.tsx:86](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L86)
 
 ##### Parameters
 
@@ -4785,7 +4785,7 @@ Defined in: [src/components/media/DrawText.tsx:86](https://github.com/LuisKrotz/
 get triggerMode(): string;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:92](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L92)
+Defined in: [website/components/media/DrawText.tsx:92](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L92)
 
 Setter/getter — how the animation starts (visible/manual/hover).
 
@@ -4799,7 +4799,7 @@ Setter/getter — how the animation starts (visible/manual/hover).
 set triggerMode(val): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:96](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L96)
+Defined in: [website/components/media/DrawText.tsx:96](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L96)
 
 ##### Parameters
 
@@ -4821,7 +4821,7 @@ Defined in: [src/components/media/DrawText.tsx:96](https://github.com/LuisKrotz/
 get visible(): boolean;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:102](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L102)
+Defined in: [website/components/media/DrawText.tsx:102](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L102)
 
 Setter/getter — visibility flag used by the auto trigger.
 
@@ -4835,7 +4835,7 @@ Setter/getter — visibility flag used by the auto trigger.
 set visible(val): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:109](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L109)
+Defined in: [website/components/media/DrawText.tsx:109](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L109)
 
 ##### Parameters
 
@@ -4857,7 +4857,7 @@ Defined in: [src/components/media/DrawText.tsx:109](https://github.com/LuisKrotz
 get _needsCharSpans(): boolean;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:175](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L175)
+Defined in: [website/components/media/DrawText.tsx:175](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L175)
 
 Per-character spans only exist while the animation runs. Before the
 element enters the viewport and after the animation has finished the
@@ -4879,7 +4879,7 @@ spans permanently.
 get _rootEl(): HTMLSpanElement | null;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:188](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L188)
+Defined in: [website/components/media/DrawText.tsx:188](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L188)
 
 The animated content element inside the shadow root — cached by _applyContent so repeated queries are free.
 
@@ -5071,7 +5071,7 @@ HTMLElement.style
 connectedCallback(): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:114](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L114)
+Defined in: [website/components/media/DrawText.tsx:114](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L114)
 
 #### Returns
 
@@ -5085,7 +5085,7 @@ Defined in: [src/components/media/DrawText.tsx:114](https://github.com/LuisKrotz
 disconnectedCallback(): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:124](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L124)
+Defined in: [website/components/media/DrawText.tsx:124](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L124)
 
 #### Returns
 
@@ -5103,7 +5103,7 @@ attributeChangedCallback(
 ): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:142](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L142)
+Defined in: [website/components/media/DrawText.tsx:142](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L142)
 
 #### Parameters
 
@@ -5131,7 +5131,7 @@ Defined in: [src/components/media/DrawText.tsx:142](https://github.com/LuisKrotz
 _updateDom(): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:181](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L181)
+Defined in: [website/components/media/DrawText.tsx:181](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L181)
 
 Re-renders the shadow DOM for current props.
 
@@ -5147,7 +5147,7 @@ Re-renders the shadow DOM for current props.
 trigger(): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:194](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L194)
+Defined in: [website/components/media/DrawText.tsx:194](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L194)
 
 Starts the animation externally (manual trigger mode).
 
@@ -5163,7 +5163,7 @@ Starts the animation externally (manual trigger mode).
 reset(): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:200](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L200)
+Defined in: [website/components/media/DrawText.tsx:200](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L200)
 
 Returns characters to the hidden start state so the animation can replay.
 
@@ -5179,7 +5179,7 @@ Returns characters to the hidden start state so the animation can replay.
 _setupTrigger(): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:220](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L220)
+Defined in: [website/components/media/DrawText.tsx:220](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L220)
 
 Wires the active trigger mode (delegate — ./draw-text/trigger.ts).
 
@@ -5195,7 +5195,7 @@ Wires the active trigger mode (delegate — ./draw-text/trigger.ts).
 _setupFit(): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:226](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L226)
+Defined in: [website/components/media/DrawText.tsx:226](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L226)
 
 Installs the fit-to-width pipeline (delegate — ./draw-text/fit.ts).
 
@@ -5211,7 +5211,7 @@ Installs the fit-to-width pipeline (delegate — ./draw-text/fit.ts).
 _startAnimation(): void;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:232](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L232)
+Defined in: [website/components/media/DrawText.tsx:232](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L232)
 
 Runs the reveal sequence (delegate — ./draw-text/trigger.ts).
 
@@ -5227,7 +5227,7 @@ Runs the reveal sequence (delegate — ./draw-text/trigger.ts).
 _parseTokens(text): DrawToken[];
 ```
 
-Defined in: [src/components/media/DrawText.tsx:238](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L238)
+Defined in: [website/components/media/DrawText.tsx:238](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L238)
 
 Tokenizes the text into word/space/br/inline-tag chunks (delegate).
 
@@ -5249,7 +5249,7 @@ Tokenizes the text into word/space/br/inline-tag chunks (delegate).
 _renderContent(withChars?): string;
 ```
 
-Defined in: [src/components/media/DrawText.tsx:244](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/DrawText.tsx#L244)
+Defined in: [website/components/media/DrawText.tsx:244](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/DrawText.tsx#L244)
 
 Builds the animated span tree (delegate — ./draw-text/render.ts).
 

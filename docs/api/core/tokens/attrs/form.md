@@ -4,7 +4,7 @@ Form control attribute tokens — token group. Covers the
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/attrs/form.ts` |
+| **Source** | `core/tokens/attrs/form.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

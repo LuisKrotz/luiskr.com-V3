@@ -6,9 +6,9 @@
  * OBJECT_FACTORIES returns truthy handles where code paths check them.
  */
 
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { WEBGL_STRINGS } from '@core/tokens/strings/webgl.js'
 
 // Methods that must return truthy handles/objects rather than undefined.
 const OBJECT_FACTORIES = new Set([

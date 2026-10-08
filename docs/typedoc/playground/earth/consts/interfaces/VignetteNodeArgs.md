@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [playground/earth/consts](../README.md) / VignetteNodeArgs
 
-Defined in: [src/playground/earth/consts.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/consts.ts#L48)
+Defined in: [experiments/earth-playground/earth/consts.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/consts.ts#L48)
 
 Args for the vignette post node — `{ color, uv, darkness, offset }`,
 typed so the Fn body gets the fluent vec/float node surface.
@@ -23,7 +23,7 @@ typed so the Fn body gets the fluent vec/float node surface.
 color: Node<'vec4'>
 ```
 
-Defined in: [src/playground/earth/consts.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/consts.ts#L50)
+Defined in: [experiments/earth-playground/earth/consts.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/consts.ts#L50)
 
 ---
 
@@ -33,7 +33,7 @@ Defined in: [src/playground/earth/consts.ts:50](https://github.com/LuisKrotz/lui
 uv: Node<'vec2'>
 ```
 
-Defined in: [src/playground/earth/consts.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/consts.ts#L51)
+Defined in: [experiments/earth-playground/earth/consts.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/consts.ts#L51)
 
 ---
 
@@ -43,7 +43,7 @@ Defined in: [src/playground/earth/consts.ts:51](https://github.com/LuisKrotz/lui
 darkness: Node<'float'>
 ```
 
-Defined in: [src/playground/earth/consts.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/consts.ts#L52)
+Defined in: [experiments/earth-playground/earth/consts.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/consts.ts#L52)
 
 ---
 
@@ -53,4 +53,4 @@ Defined in: [src/playground/earth/consts.ts:52](https://github.com/LuisKrotz/lui
 offset: Node<'float'>
 ```
 
-Defined in: [src/playground/earth/consts.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/consts.ts#L53)
+Defined in: [experiments/earth-playground/earth/consts.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/consts.ts#L53)

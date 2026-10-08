@@ -8,7 +8,7 @@
 function detectLangFromPath(pathname): string
 ```
 
-Defined in: [src/core/i18n.ts:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/i18n.ts#L103)
+Defined in: [core/i18n.ts:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/i18n.ts#L103)
 
 Extracts the locale segment from a URL path; defaults to English when
 the first segment isn't a valid locale code. `/de/ueber` → 'de',

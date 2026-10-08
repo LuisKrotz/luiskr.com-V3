@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/about/model.ts` |
+| **Source** | `cms/about/model.ts` |
 | **UX surface** | About-section editor card. |
 
 ## Members

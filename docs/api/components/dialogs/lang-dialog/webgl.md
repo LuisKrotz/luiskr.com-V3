@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/dialogs/lang-dialog/webgl.ts` |
+| **Source** | `website/components/dialogs/lang-dialog/webgl.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

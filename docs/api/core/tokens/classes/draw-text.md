@@ -4,7 +4,7 @@ DrawText word/char reveal class tokens — grouped subset of
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/classes/draw-text.ts` |
+| **Source** | `core/tokens/classes/draw-text.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

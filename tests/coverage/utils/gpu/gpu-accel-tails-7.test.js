@@ -9,16 +9,16 @@
  */
 import { jest } from '@jest/globals'
 
-import '@/core/constants.js'
+import '@core/constants.js'
 
-import '@/cms/about/CmsAboutEditor.js'
-import '@/cms/portfolio/CmsPortfolioList.js'
-import '@/cms/projects/CmsProjectsList.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
+import '@cms/about/CmsAboutEditor.js'
+import '@cms/portfolio/CmsPortfolioList.js'
+import '@cms/projects/CmsProjectsList.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
 
-import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
+import { gpuAccel } from '@core/utils/gpu/gpu-accel.js'
 
 globalThis.alert = jest.fn()
 

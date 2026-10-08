@@ -10,11 +10,11 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 
-import { npuPredict } from '@/utils/gpu/npu-predict.js'
+import { npuPredict } from '@core/utils/gpu/npu-predict.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
 
 
 // ─── core/locale/ui-text.js ──────────────────────────────────────────────────

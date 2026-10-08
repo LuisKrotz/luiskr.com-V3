@@ -8,16 +8,16 @@
  * (css-color, gpu-accel, route-warmer, draw-text).
  */
 import { jest } from '@jest/globals'
-import { CMS_TAGS } from '@/cms/tokens.js'
+import { CMS_TAGS } from '@cms/tokens.js'
 
-import '@/core/constants.js'
+import '@core/constants.js'
 
-import '@/cms/about/CmsAboutEditor.js'
-import '@/cms/portfolio/CmsPortfolioList.js'
-import '@/cms/projects/CmsProjectsList.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
+import '@cms/about/CmsAboutEditor.js'
+import '@cms/portfolio/CmsPortfolioList.js'
+import '@cms/projects/CmsProjectsList.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
 
 globalThis.alert = jest.fn()
 
@@ -39,12 +39,12 @@ describe('cms facade define tails', () => {
     })
 
     jest.resetModules()
-    await import('@/cms/about/CmsAboutEditor.js')
-    await import('@/cms/portfolio/CmsPortfolioList.js')
-    await import('@/cms/projects/CmsProjectsList.js')
-    await import('@/cms/playground-editor/CmsPlaygroundEditor.js')
-    await import('@/cms/footer/CmsFooterEditor.js')
-    await import('@/cms/deploy-info/CmsDeployInfo.js')
+    await import('@cms/about/CmsAboutEditor.js')
+    await import('@cms/portfolio/CmsPortfolioList.js')
+    await import('@cms/projects/CmsProjectsList.js')
+    await import('@cms/playground-editor/CmsPlaygroundEditor.js')
+    await import('@cms/footer/CmsFooterEditor.js')
+    await import('@cms/deploy-info/CmsDeployInfo.js')
 
     getSpy.mockRestore()
     defineSpy.mockRestore()

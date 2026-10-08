@@ -8,7 +8,7 @@
 function moveItem(host, arr, idx, dir): void
 ```
 
-Defined in: [src/cms/footer/lists.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/lists.ts#L33)
+Defined in: [cms/footer/lists.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/footer/lists.ts#L33)
 
 Moves an item up/down within its list.
 

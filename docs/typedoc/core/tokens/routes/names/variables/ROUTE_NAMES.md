@@ -20,7 +20,7 @@ const ROUTE_NAMES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/routes/names.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/routes/names.ts#L11)
+Defined in: [core/tokens/routes/names.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/routes/names.ts#L11)
 
 Route name + localized title-prefix tokens. Sole declaration site — consumers import members
 from this frozen map rather than re-declaring the literals

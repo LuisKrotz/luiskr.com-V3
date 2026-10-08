@@ -8,7 +8,7 @@
 function textDelay(c, items): number
 ```
 
-Defined in: [src/routes/views/project/layout.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/layout.ts#L49)
+Defined in: [website/views/project/layout.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/project/layout.ts#L49)
 
 Per-char draw delay for a section's text run: counts REAL characters
 (HTML stripped — tags don't consume stagger time), then sizes the

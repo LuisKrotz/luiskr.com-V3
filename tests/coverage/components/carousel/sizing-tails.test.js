@@ -9,10 +9,10 @@
  */
 
 import { describe, test, expect, jest, afterEach } from '@jest/globals'
-import { measureFit, onCarouselResize } from '@/components/carousel/custom-carousel/sizing.js'
-import { CAROUSEL_LAYOUT } from '@/core/tokens/motion/carousel.js'
-import { GENERIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { measureFit, onCarouselResize } from '@website/components/carousel/custom-carousel/sizing.js'
+import { CAROUSEL_LAYOUT } from '@core/tokens/motion/carousel.js'
+import { GENERIC_DIMENSIONS } from '@core/tokens/media/dimensions.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
 
 const SLIDE = { src: 'a.webp', size: [800, 450], label: 'One' }
 const WIDE = { src: 'b.webp', size: [1600, 900], label: 'Wide', class: STATE_STRINGS.LANDSCAPE }

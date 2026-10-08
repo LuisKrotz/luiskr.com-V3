@@ -8,12 +8,12 @@
  * polyfill bodies.
  */
 import { jest } from '@jest/globals'
-import _store from '@/core/store.js'
-import { wasmSmoothScroll } from '@/utils/wasm/wasm-scroll.js'
+import _store from '@core/store.js'
+import { wasmSmoothScroll } from '@core/utils/wasm/wasm-scroll.js'
 
-import '@/components/feedback/CookieBanner.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import '@website/components/feedback/CookieBanner.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 
 

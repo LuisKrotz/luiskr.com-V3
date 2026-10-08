@@ -4,5 +4,5 @@
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/strings/types.ts` |
+| **Source** | `core/tokens/strings/types.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |

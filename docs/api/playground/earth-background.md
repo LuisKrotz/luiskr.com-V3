@@ -4,7 +4,7 @@ Three.js WebGPU Earth background engine.
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth-background.ts` |
+| **Source** | `experiments/earth-playground/earth-background.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

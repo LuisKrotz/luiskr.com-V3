@@ -8,15 +8,15 @@
  * Home route param changes.
  */
 
-import _router from '@/routes/router.js'
+import _router from '@core/router/router.js'
 
-import { deepQuerySelector, deepQuerySelectorAll } from '@/core/utils/dom.js'
+import { deepQuerySelector, deepQuerySelectorAll } from '@core/utils/dom.js'
 
-import '@/routes/views/legal/Legal.js'
-import '@/routes/views/home/Home.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { SVG_STRINGS } from '@/core/tokens/strings/svg.js'
+import '@website/views/legal/Legal.js'
+import '@website/views/home/Home.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { SVG_STRINGS } from '@core/tokens/strings/svg.js'
 
 
 
@@ -87,7 +87,7 @@ describe('dom-utils tails', () => {
   })
 
   test('svgPlaceholder emits defaults and explicit dimensions', async () => {
-    const { svgPlaceholder } = await import('@/core/utils/dom.js')
+    const { svgPlaceholder } = await import('@core/utils/dom.js')
 
     expect(svgPlaceholder()).toContain(SVG_STRINGS.SVG_DATA_URI_PREFIX)
     expect(svgPlaceholder(10, 20)).toContain(encodeURIComponent('10 20'))

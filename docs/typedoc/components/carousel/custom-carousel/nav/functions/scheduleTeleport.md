@@ -8,7 +8,7 @@
 function scheduleTeleport(c, targetIdx): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/nav.ts:187](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/nav.ts#L187)
+Defined in: [website/components/carousel/custom-carousel/nav.ts:187](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/nav.ts#L187)
 
 Schedules the clone→real teleport: after TELEPORT_DELAY (just past the
 smooth-scroll duration so the clone finishes animating in), instant-jump

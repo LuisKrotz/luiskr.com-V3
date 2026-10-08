@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/media/MediaExpanded.tsx` |
+| **Source** | `website/components/media/MediaExpanded.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

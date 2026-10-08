@@ -13,7 +13,7 @@ const DRAG_EVENTS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/events/dom.ts:89](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/events/dom.ts#L89)
+Defined in: [core/tokens/events/dom.ts:89](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/events/dom.ts#L89)
 
 Frozen drag event-name map — the HTML5 drag-and-drop subset used by CMS
 upload zones (`drop` fires on the target, `dragover` must be

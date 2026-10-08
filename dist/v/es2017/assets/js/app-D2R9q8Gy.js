@@ -1,1 +1,0 @@
-import{in as IX}from"./store-DCEXtWC3.js";var xi=Object.freeze({ln:"cookieAction",fm:"slidechange",$c:"autoplaystop",_c:"autoplaystart",Wa:"cancel",wi:IX,Ji:"open-lang-dialog",Ki:"open-preferences-modal",LO:"notify"});export{xi as t};

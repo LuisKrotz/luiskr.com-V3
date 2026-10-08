@@ -4,7 +4,7 @@ Shadow-piercing DOM queries + the SVG placeholder helper.
 
 | | |
 |---|---|
-| **Source** | `src/core/utils/dom.ts` |
+| **Source** | `core/utils/dom.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

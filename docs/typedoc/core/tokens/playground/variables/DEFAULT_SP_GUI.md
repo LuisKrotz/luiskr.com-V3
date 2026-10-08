@@ -113,7 +113,7 @@ const DEFAULT_SP_GUI: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/playground.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/playground.ts#L46)
+Defined in: [core/tokens/playground.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/playground.ts#L46)
 
 Engine start state for the Earth Playground — the hardcoded baseline the
 scene boots with before any CMS `defaults` node or user localStorage

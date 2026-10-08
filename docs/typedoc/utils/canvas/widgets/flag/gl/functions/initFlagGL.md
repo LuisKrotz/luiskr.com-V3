@@ -8,7 +8,7 @@
 function initFlagGL(renderer): void
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/gl.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/gl.ts#L19)
+Defined in: [core/utils/canvas/widgets/flag/gl.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/gl.ts#L19)
 
 Creates the GL context, flag shaders and textures.
 

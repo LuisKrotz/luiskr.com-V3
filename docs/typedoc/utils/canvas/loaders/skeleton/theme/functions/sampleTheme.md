@@ -8,7 +8,7 @@
 function sampleTheme(host): void
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton/theme.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton/theme.ts#L18)
+Defined in: [core/utils/canvas/loaders/skeleton/theme.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton/theme.ts#L18)
 
 Samples the skeleton palette tokens on the host as fallbacks for rects
 whose own tokens cannot be parsed. Every candidate is a CSS custom

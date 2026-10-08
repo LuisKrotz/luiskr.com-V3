@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/routes/views/legal/Legal.tsx` |
+| **Source** | `website/views/legal/Legal.tsx` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

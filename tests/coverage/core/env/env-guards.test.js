@@ -6,9 +6,9 @@
  * re-pointed rather than mocked — the modules read them lazily per call.
  */
 
-import { debugParams, hasDebugFlag, runDebugActions } from '@/core/debug/params.js'
-import { browserInfo, canUseWebGPU, detectBrowser } from '@/core/browser/detect.js'
-import { VENDOR_STRINGS } from '@/core/tokens/strings/vendor.js'
+import { debugParams, hasDebugFlag, runDebugActions } from '@core/debug/params.js'
+import { browserInfo, canUseWebGPU, detectBrowser } from '@core/browser/detect.js'
+import { VENDOR_STRINGS } from '@core/tokens/strings/vendor.js'
 
 const withGlobals = (fn) => {
   const win = globalThis.window

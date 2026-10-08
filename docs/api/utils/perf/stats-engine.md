@@ -4,7 +4,7 @@ Live performance-metrics collector behind the Stats-for-nerds
 
 | | |
 |---|---|
-| **Source** | `src/utils/perf/stats-engine.ts` |
+| **Source** | `core/utils/perf/stats-engine.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

@@ -8,7 +8,7 @@
 function measureFit(c, observedWidth?): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/sizing.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/sizing.ts#L58)
+Defined in: [website/components/carousel/custom-carousel/sizing.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/sizing.ts#L58)
 
 Decides whether the items fit side-by-side (no carousel chrome) or need
 the scroll track. Side-by-side requires: ≤2 items, no landscape item

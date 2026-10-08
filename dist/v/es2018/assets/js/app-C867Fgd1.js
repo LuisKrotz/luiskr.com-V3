@@ -1,1 +1,0 @@
-import{an as VX}from"./store-AnOBXjs5.js";var xi=Object.freeze({ln:"cookieAction",gm:"slidechange",$c:"autoplaystop",_c:"autoplaystart",Wa:"cancel",wi:VX,Ji:"open-lang-dialog",Ki:"open-preferences-modal",yO:"notify"});export{xi as t};

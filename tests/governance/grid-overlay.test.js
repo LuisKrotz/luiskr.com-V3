@@ -12,10 +12,9 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import * as sass from 'sass'
 import fs from 'fs'
-import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const SASS_BASE = path.join(__dirname, '..', '..', DOM_STRINGS.SRC, 'sass', 'base')
+const SASS_BASE = path.join(__dirname, '..', '..', 'core', 'sass', 'base')
 
 // Extracts `prop: value` declarations grouped by their media query from
 // compiled CSS — each `@media` chunk is searched for the selector's block,

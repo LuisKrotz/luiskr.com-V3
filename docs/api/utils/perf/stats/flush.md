@@ -4,7 +4,7 @@ Flush interval for the stats engine: every INTERVAL_MS it
 
 | | |
 |---|---|
-| **Source** | `src/utils/perf/stats/flush.ts` |
+| **Source** | `core/utils/perf/stats/flush.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

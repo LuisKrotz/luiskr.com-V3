@@ -4,7 +4,7 @@ CMS projects editor: full case-study editing — project
 
 | | |
 |---|---|
-| **Source** | `src/cms/projects/CmsProjectsList.tsx` |
+| **Source** | `cms/projects/CmsProjectsList.tsx` |
 | **UX surface** | Per-project sections editor card. |
 
 ## Members

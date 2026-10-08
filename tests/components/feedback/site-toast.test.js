@@ -9,19 +9,19 @@
 import fs from 'fs'
 import { fileURLToPath } from 'url'
 import { describe, test, expect, jest, beforeEach, afterEach, beforeAll } from '@jest/globals'
-import { NOTIFY, NOTIFY_TYPES } from '@/core/constants.js'
-import { appText } from '@/core/locale/ui-text.js'
+import { NOTIFY, NOTIFY_TYPES } from '@core/constants.js'
+import { appText } from '@core/locale/ui-text.js'
 import { TEST_TEXT } from '../../fixtures/test-constants.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { TOAST_CLASSES } from '@/core/tokens/classes/toast.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
-import { NAV_UI_KEYS, NOTIFY_UI_KEYS, SECTION_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { TOAST_CLASSES } from '@core/tokens/classes/toast.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { ARIA_ATTRS } from '@core/tokens/attrs/aria.js'
+import { NAV_UI_KEYS, NOTIFY_UI_KEYS, SECTION_UI_KEYS } from '@core/tokens/data/ui-keys.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { MOUSE_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
 
@@ -29,7 +29,7 @@ const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
 const loadNotify = async () => {
   jest.resetModules()
 
-  return import('@/utils/notify.js')
+  return import('@core/utils/notify.js')
 }
 
 /** Mounts a toast element, returning it. */
@@ -46,7 +46,7 @@ const items = (el) =>
 
 describe('SiteToast component', () => {
   beforeAll(async () => {
-    await import('@/components/feedback/SiteToast.js')
+    await import('@website/components/feedback/SiteToast.js')
   })
 
   beforeEach(() => {
@@ -515,7 +515,7 @@ describe('notify service', () => {
 
   test('missing translations degrade to empty strings without crashing', async () => {
     jest.resetModules()
-    jest.unstable_mockModule('@/core/locale/ui-text.js', () => ({
+    jest.unstable_mockModule('@core/locale/ui-text.js', () => ({
       appText: () => CHAR_STRINGS.EMPTY,
       componentText: () => CHAR_STRINGS.EMPTY,
       routeSlugs: () => ({}),
@@ -523,7 +523,7 @@ describe('notify service', () => {
 
     try {
       const Mock = stubNotification(STATE_STRINGS.GRANTED)
-      const { notify } = await import('@/utils/notify.js')
+      const { notify } = await import('@core/utils/notify.js')
 
       expect(await notify(TEST_TEXT.BODY)).toBe('native')
       expect(Mock).toHaveBeenCalledWith(
@@ -531,7 +531,7 @@ describe('notify service', () => {
         expect.objectContaining({ body: TEST_TEXT.BODY })
       )
 
-      const { SiteToast } = await import('@/components/feedback/SiteToast.js')
+      const { SiteToast } = await import('@website/components/feedback/SiteToast.js')
       const out = SiteToast.prototype.render.call({
         _items: [
           { id: 1, text: TEST_TEXT.BODY, type: NOTIFY_TYPES.ERROR, title: CHAR_STRINGS.EMPTY },
@@ -541,7 +541,7 @@ describe('notify service', () => {
 
       expect(out).toBeTruthy()
     } finally {
-      jest.unstable_unmockModule('@/core/locale/ui-text.js')
+      jest.unstable_unmockModule('@core/locale/ui-text.js')
       jest.resetModules()
     }
   })
@@ -576,7 +576,7 @@ describe('notify service', () => {
 // only place `left:` may appear.
 describe('SiteToast placement contract', () => {
   const scssPath = fileURLToPath(
-    new URL('../../../src/sass/components/feedback/site-toast.scss', import.meta.url)
+    new URL('../../../core/sass/components/feedback/site-toast.scss', import.meta.url)
   )
   const scss = fs.readFileSync(scssPath, 'utf-8')
 

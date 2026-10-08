@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/nav/AppNav.tsx` |
+| **Source** | `website/components/nav/AppNav.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

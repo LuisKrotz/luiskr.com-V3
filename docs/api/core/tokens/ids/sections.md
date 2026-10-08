@@ -4,7 +4,7 @@ Page-section anchor id tokens — token group.
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/ids/sections.ts` |
+| **Source** | `core/tokens/ids/sections.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

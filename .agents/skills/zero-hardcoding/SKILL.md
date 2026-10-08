@@ -20,9 +20,9 @@ Under NO circumstances introduce hardcoded values into this codebase.
 
 ## Strings, classes, DOM vocabulary
 
-- Every repeated string (class, tag, event, route, attribute, storage key) lives in `src/core/tokens/` (re-exported via `src/core/constants.js`) or `src/cms/tokens.js` for CMS.
+- Every repeated string (class, tag, event, route, attribute, storage key) lives in `core/tokens/` (re-exported via `core/constants.js`) or `cms/tokens.js` for CMS.
 - Tests follow the same rule — import tokens; test-only vocabulary goes in `tests/fixtures/test-constants.js`.
-- No template-string HTML or innerHTML for templates — components return JSX (`h`, `Fragment` from `src/core/jsx.js`).
+- No template-string HTML or innerHTML for templates — components return JSX (`h`, `Fragment` from `core/jsx.js`).
 
 ## Styles
 

@@ -8,14 +8,14 @@
  * Home route param changes.
  */
 import { jest } from '@jest/globals'
-import _router from '@/routes/router.js'
+import _router from '@core/router/router.js'
 
-import '@/routes/views/legal/Legal.js'
-import '@/routes/views/home/Home.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import '@website/views/legal/Legal.js'
+import '@website/views/home/Home.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { ARIA_ATTRS } from '@core/tokens/attrs/aria.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
 
 
 
@@ -54,7 +54,7 @@ describe('legacy-dom tails 2', () => {
     delete globalThis.queueMicrotask
 
     jest.resetModules()
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     if (typeof globalThis.queueMicrotask === TYPE_STRINGS.FUNCTION) {
       const cb = jest.fn()

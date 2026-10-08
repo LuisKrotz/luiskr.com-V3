@@ -4,7 +4,7 @@ StoreState shape + initial-state factory — locale nodes,
 
 | | |
 |---|---|
-| **Source** | `src/core/store/state.ts` |
+| **Source** | `core/store/state.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

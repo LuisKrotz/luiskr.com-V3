@@ -8,7 +8,7 @@
 function syncOpenState(host): void
 ```
 
-Defined in: [src/components/dialogs/preferences/sync.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/sync.ts#L18)
+Defined in: [website/components/dialogs/preferences/sync.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/dialogs/preferences/sync.ts#L18)
 
 Reflects the open flag into DOM/classes (widget teardown on close).
 

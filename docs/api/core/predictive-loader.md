@@ -4,7 +4,7 @@ Intent-based predictive prefetching engine.
 
 | | |
 |---|---|
-| **Source** | `src/core/predictive-loader.ts` |
+| **Source** | `core/predictive-loader.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

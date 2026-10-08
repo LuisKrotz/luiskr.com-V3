@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../../README.md) / [utils/canvas/widgets/carousel-controls/paint-2d](../README.md) / CarouselArrowPaintState
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L12)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L12)
 
 Everything the 2D paint pass needs from the widget instance.
 
@@ -16,7 +16,7 @@ Everything the 2D paint pass needs from the widget instance.
 dpr: number
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L13)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L13)
 
 ---
 
@@ -26,7 +26,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:13](https://
 width: number
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L14)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L14)
 
 ---
 
@@ -36,7 +36,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:14](https://
 height: number
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L15)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L15)
 
 ---
 
@@ -46,7 +46,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:15](https://
 canvasWidth: number
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L16)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L16)
 
 ---
 
@@ -56,7 +56,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:16](https://
 canvasHeight: number
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L17)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L17)
 
 ---
 
@@ -66,7 +66,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:17](https://
 type: string
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L18)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L18)
 
 ---
 
@@ -76,7 +76,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:18](https://
 startTime: number
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L19)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L19)
 
 ---
 
@@ -86,7 +86,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:19](https://
 isHovered: boolean
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L20)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L20)
 
 ---
 
@@ -96,7 +96,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:20](https://
 hoverLevel: number
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L21)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L21)
 
 ---
 
@@ -106,7 +106,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:21](https://
 isPlaying: boolean
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L22)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L22)
 
 ---
 
@@ -116,7 +116,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:22](https://
 progress: number
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L23)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L23)
 
 ---
 
@@ -126,4 +126,4 @@ Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:23](https://
 clickTime: number
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls/paint-2d.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls/paint-2d.ts#L24)
+Defined in: [core/utils/canvas/widgets/carousel-controls/paint-2d.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls/paint-2d.ts#L24)

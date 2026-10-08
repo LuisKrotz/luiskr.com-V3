@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [utils/canvas/widgets/flag-webgl](../README.md) / FlagWebGL
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L40)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L40)
 
 WebGL Flag Animator for Language Selection Buttons
 Each flag has a completely unique animated kinetic effect and wave physics:
@@ -30,7 +30,7 @@ Each flag has a completely unique animated kinetic effect and wave physics:
 new FlagWebGL(canvas, langOption): FlagWebGL;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L60)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L60)
 
 #### Parameters
 
@@ -181,7 +181,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:60](https://github.com/LuisK
 canvas: HTMLCanvasElement
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L41)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L41)
 
 ---
 
@@ -319,7 +319,7 @@ lang:
 };
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L42)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L42)
 
 ---
 
@@ -329,7 +329,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:42](https://github.com/LuisK
 height: number
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L43)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L43)
 
 ---
 
@@ -339,7 +339,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:43](https://github.com/LuisK
 aspect1: number
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L44)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L44)
 
 ---
 
@@ -349,7 +349,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:44](https://github.com/LuisK
 aspect2: number
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L45)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L45)
 
 ---
 
@@ -359,7 +359,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:45](https://github.com/LuisK
 width: number
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L46)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L46)
 
 ---
 
@@ -369,7 +369,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:46](https://github.com/LuisK
 isHovered: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L47)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L47)
 
 ---
 
@@ -379,7 +379,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:47](https://github.com/LuisK
 hoverLevel: number = 0
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L48)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L48)
 
 ---
 
@@ -389,7 +389,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:48](https://github.com/LuisK
 useWebGL: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L49)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L49)
 
 ---
 
@@ -399,7 +399,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:49](https://github.com/LuisK
 _paused: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L50)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L50)
 
 ---
 
@@ -409,7 +409,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:50](https://github.com/LuisK
 animId: number | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L51)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L51)
 
 ---
 
@@ -419,7 +419,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:51](https://github.com/LuisK
 startTime: number
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L52)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L52)
 
 ---
 
@@ -429,7 +429,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:52](https://github.com/LuisK
 ctx: CanvasRenderingContext2D | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L53)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L53)
 
 ---
 
@@ -439,7 +439,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:53](https://github.com/LuisK
 renderer: FlagRenderer | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L54)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L54)
 
 ---
 
@@ -449,7 +449,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:54](https://github.com/LuisK
 isLoaded: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L55)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L55)
 
 ---
 
@@ -459,7 +459,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:55](https://github.com/LuisK
 onMouseEnter: (() => void) | undefined;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L56)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L56)
 
 ---
 
@@ -469,7 +469,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:56](https://github.com/LuisK
 onMouseLeave: (() => void) | undefined;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L57)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L57)
 
 ---
 
@@ -479,7 +479,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:57](https://github.com/LuisK
 boundTarget: HTMLElement | undefined
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L58)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L58)
 
 ## Methods
 
@@ -489,7 +489,7 @@ Defined in: [src/utils/canvas/widgets/flag-webgl.ts:58](https://github.com/LuisK
 _displayAspect(): number;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:106](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L106)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:106](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L106)
 
 Natural aspect ratio the flag should display at (from its source SVG).
 
@@ -505,7 +505,7 @@ Natural aspect ratio the flag should display at (from its source SVG).
 _splitPoint(): number;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:116](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L116)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:116](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L116)
 
 Normalized 0–1 x where a hybrid flag's two halves meet: the first
 flag's share of the combined aspect widths (aspect1/(aspect1+aspect2))
@@ -523,7 +523,7 @@ so each half keeps its natural proportions instead of stretching 50/50.
 _resizeToNaturalAspect(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:122](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L122)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:122](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L122)
 
 Sizes the canvas to the flag's natural aspect ratio.
 
@@ -539,7 +539,7 @@ Sizes the canvas to the flag's natural aspect ratio.
 _getAnimType(): number;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:128](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L128)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:128](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L128)
 
 Picks the shader's animation mode (wave / gentle ripple / static).
 
@@ -555,7 +555,7 @@ Picks the shader's animation mode (wave / gentle ripple / static).
 init(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:134](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L134)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:134](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L134)
 
 Boot sequence: GL init → event binding → render start; fully degrades to the fallback path.
 
@@ -571,7 +571,7 @@ Boot sequence: GL init → event binding → render start; fully degrades to the
 purge(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:171](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L171)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:171](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L171)
 
 webglPool hook — offscreen: stops the loop and releases the shared
 renderer reference so the pooled GL context can be disposed once
@@ -589,7 +589,7 @@ every flag is out of view (or destroyed).
 restore(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:188](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L188)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:188](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L188)
 
 Re-acquires the shared renderer and resumes the wave loop after a purge.
 
@@ -605,7 +605,7 @@ Re-acquires the shared renderer and resumes the wave loop after a purge.
 _triggerFallback(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:210](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L210)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:210](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L210)
 
 Switches to the non-WebGL path (CSS class on the host / Canvas2D) — used on context loss or init failure.
 
@@ -621,7 +621,7 @@ Switches to the non-WebGL path (CSS class on the host / Canvas2D) — used on co
 loadImages(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:216](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L216)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:216](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L216)
 
 Loads the flag's SVG source(s) into the texture cache.
 
@@ -637,7 +637,7 @@ Loads the flag's SVG source(s) into the texture cache.
 bindEvents(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:252](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L252)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:252](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L252)
 
 Wires pointer/hover listeners that drive the widget's interactive state.
 
@@ -653,7 +653,7 @@ Wires pointer/hover listeners that drive the widget's interactive state.
 setHover(hovered): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:272](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L272)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:272](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L272)
 
 Updates hover state — the shader renders the hover accent when true.
 
@@ -675,7 +675,7 @@ Updates hover state — the shader renders the hover accent when true.
 setReducedMotion(isReduced): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:282](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L282)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:282](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L282)
 
 Applies prefers-reduced-motion: swaps the animation loop for one static frame render.
 
@@ -697,7 +697,7 @@ Applies prefers-reduced-motion: swaps the animation loop for one static frame re
 _renderStatic(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:295](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L295)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:295](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L295)
 
 Draws a single settled frame — used under reduced motion or when the loop is stopped.
 
@@ -713,7 +713,7 @@ Draws a single settled frame — used under reduced motion or when the loop is s
 animate(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:301](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L301)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:301](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L301)
 
 Starts the requestAnimationFrame render loop (skipped under reduced motion).
 
@@ -729,7 +729,7 @@ Starts the requestAnimationFrame render loop (skipped under reduced motion).
 _renderWebGL(now): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:307](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L307)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:307](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L307)
 
 Per-frame WebGL render: updates time/hover uniforms and draws the quad.
 
@@ -751,7 +751,7 @@ Per-frame WebGL render: updates time/hover uniforms and draws the quad.
 destroy(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag-webgl.ts:313](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag-webgl.ts#L313)
+Defined in: [core/utils/canvas/widgets/flag-webgl.ts:313](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag-webgl.ts#L313)
 
 Releases the context, buffers, listeners and rAF handle so the canvas can be GC'd.
 

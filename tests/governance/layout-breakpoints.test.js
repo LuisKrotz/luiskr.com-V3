@@ -14,17 +14,17 @@ import {
   calcDrawTextOffset,
   calcAspectScaled,
   calcCarouselRingOffset,
-} from '@/utils/wasm/wasm-layout.js'
+} from '@core/utils/wasm/wasm-layout.js'
 
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { CAROUSEL_LAYOUT, CAROUSEL_TIMING } from '@/core/tokens/motion/carousel.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { COVER_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { CAROUSEL_LAYOUT, CAROUSEL_TIMING } from '@core/tokens/motion/carousel.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { MEDIA_ATTRS } from '@core/tokens/attrs/media.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { COVER_DIMENSIONS } from '@core/tokens/media/dimensions.js'
 
-import { SPACE } from '@/core/tokens/layout/space.js'
-import { LAYOUT } from '@/core/tokens/layout/masonry.js'
+import { SPACE } from '@core/tokens/layout/space.js'
+import { LAYOUT } from '@core/tokens/layout/masonry.js'
 
 // Derive GRID_GAP from SPACE (Fibonacci scale matches design system)
 const GRID_GAP = {
@@ -460,7 +460,7 @@ describe('Layout & Breakpoint Geometry — 200+ Tests', () => {
   // ── MediaFigure displayWidth Capping ───────────────────────────────────────
   describe('10. MediaFigure Video Resolution Capping', () => {
     test('video at exactly 1920px does not get capped', async () => {
-      await import('@/components/media/MediaFigure.js')
+      await import('@website/components/media/MediaFigure.js')
       const el = document.createElement(COMPONENT_TAGS.MEDIA_FIGURE)
       el.setAttribute(MEDIA_ATTRS.IS_VIDEO, STATE_STRINGS.TRUE)
       el.setAttribute(MEDIA_ATTRS.WIDTH, COVER_DIMENSIONS.FHD_WIDTH_STR)

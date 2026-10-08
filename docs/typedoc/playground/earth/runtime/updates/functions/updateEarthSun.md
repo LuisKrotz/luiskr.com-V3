@@ -8,7 +8,7 @@
 function updateEarthSun(s, __namedParameters?): void
 ```
 
-Defined in: [src/playground/earth/runtime/updates.ts:222](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/updates.ts#L222)
+Defined in: [experiments/earth-playground/earth/runtime/updates.ts:222](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/runtime/updates.ts#L222)
 
 Sun-orbit tweaks — autoRotate flips the per-frame advance, speed scales
 the .01 rad/frame increment, and angle repositions the sun on its orbit

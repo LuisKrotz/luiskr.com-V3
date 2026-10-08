@@ -6,14 +6,14 @@
  * storage, and the route warmer's idle scheduling.
  */
 
-import { isScrolling, onScrollStop } from '@/utils/motion/scroll-state.js'
-import { npuPredict } from '@/utils/gpu/npu-predict.js'
-import { localMediaCache } from '@/utils/media/local-media-cache.js'
-import { startRouteWarming, stopRouteWarming } from '@/utils/motion/route-warmer.js'
+import { isScrolling, onScrollStop } from '@core/utils/motion/scroll-state.js'
+import { npuPredict } from '@core/utils/gpu/npu-predict.js'
+import { localMediaCache } from '@core/utils/media/local-media-cache.js'
+import { startRouteWarming, stopRouteWarming } from '@core/utils/motion/route-warmer.js'
 import { TEST_URLS } from '../../fixtures/test-constants.js'
-import { POINTER_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { POINTER_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
 const flush = (ms = 200) => new Promise((resolve) => setTimeout(resolve, ms))
 

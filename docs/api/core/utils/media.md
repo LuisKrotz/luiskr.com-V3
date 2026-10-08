@@ -4,7 +4,7 @@ Media-URL builders — the single place where CDN filename
 
 | | |
 |---|---|
-| **Source** | `src/core/utils/media.ts` |
+| **Source** | `core/utils/media.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

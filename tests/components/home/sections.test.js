@@ -7,40 +7,42 @@
  * consent persistence, and localized link building (slugs + prefixes).
  */
 
-import { FALLBACK_PAGES } from '@/core/locale/fallback.js'
+import { FALLBACK_PAGES } from '@core/locale/fallback.js'
 import { describe, test, expect, beforeEach, afterEach } from '@jest/globals'
-import { AboutSection } from '@/components/home/AboutSection.js'
-import { ContactSection } from '@/components/home/ContactSection.js'
-import { AwardsMentions } from '@/components/home/AwardsMentions.js'
-import { CookieBanner } from '@/components/feedback/CookieBanner.js'
-import { CMS_KEYS, LOCALES, ROUTE_NAMES, ROUTE_PREFIXES } from '@/core/constants.js'
+import { AboutSection } from '@website/components/home/AboutSection.js'
+import { ContactSection } from '@website/components/home/ContactSection.js'
+import { AwardsMentions } from '@website/components/home/AwardsMentions.js'
+import { CookieBanner } from '@website/components/feedback/CookieBanner.js'
+import { CMS_KEYS, LOCALES, ROUTE_NAMES, ROUTE_PREFIXES } from '@core/constants.js'
 import { SCSS, TEST_AWARDS, TEST_TEXT, mount } from '../../fixtures/test-constants.js'
-import store from '@/core/store.js'
-import router from '@/routes/router.js'
-import { COOKIE_CLASSES } from '@/core/tokens/classes/cookies.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { AWC_CLASSES } from '@/core/tokens/classes/awards-carousel.js'
-import { SKELETON_CLASSES } from '@/core/tokens/classes/skeleton.js'
-import { NAV_TEXT } from '@/core/tokens/strings/text.js'
-import { ABOUT_CLASSES } from '@/core/tokens/classes/about.js'
-import { COMMON_SELECTORS } from '@/core/tokens/selectors/common.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
-import { GENERIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
-import { SECTION_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
-import { LANG_MUTATIONS, UI_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { CONTACT_CLASSES } from '@/core/tokens/classes/contact.js'
-import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
-import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
-import { AWARDS_CLASSES } from '@/core/tokens/classes/awards.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
-import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
-import { INPUT_STRINGS } from '@/core/tokens/strings/input.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { APP_EVENTS } from '@/core/tokens/events/app.js'
-import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import store from '@core/store.js'
+import router from '@core/router/router.js'
+import { COOKIE_CLASSES } from '@core/tokens/classes/cookies.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { AWC_CLASSES } from '@core/tokens/classes/awards-carousel.js'
+import { SKELETON_CLASSES } from '@core/tokens/classes/skeleton.js'
+import { NAV_TEXT } from '@core/tokens/strings/text.js'
+import { ABOUT_CLASSES } from '@core/tokens/classes/about.js'
+import { COMMON_SELECTORS } from '@core/tokens/selectors/common.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { MEDIA_ATTRS } from '@core/tokens/attrs/media.js'
+import { GENERIC_DIMENSIONS } from '@core/tokens/media/dimensions.js'
+import { SECTION_UI_KEYS } from '@core/tokens/data/ui-keys.js'
+import { LANG_MUTATIONS, UI_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { CONTACT_CLASSES } from '@core/tokens/classes/contact.js'
+import { LINK_ATTRS } from '@core/tokens/attrs/link.js'
+import { DOM_STRINGS } from '@core/tokens/strings/dom.js'
+import { AWARDS_CLASSES } from '@core/tokens/classes/awards.js'
+import { FOOTER_CLASSES } from '@core/tokens/classes/footer.js'
+import { DOCS_STRINGS } from '@core/tokens/strings/docs.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { ARIA_ATTRS } from '@core/tokens/attrs/aria.js'
+import { MOUSE_EVENTS } from '@core/tokens/events/dom.js'
+import { INPUT_STRINGS } from '@core/tokens/strings/input.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { APP_EVENTS } from '@core/tokens/events/app.js'
+import { PREF_STORAGE_KEYS } from '@core/tokens/data/storage.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
 
 // ─── Local selector helpers (derived from CLASSES) ────────────────────────────
 const S = {
@@ -290,7 +292,12 @@ describe('AwardsMentions', () => {
 
   test('renders skeleton badges when items is null or empty', () => {
     awardsEl.items = null
-    const skels = awardsEl.shadowRoot.querySelectorAll(`.${SKELETON_CLASSES.SKELETON_BADGE}`)
+    let skels = awardsEl.shadowRoot.querySelectorAll(`.${SKELETON_CLASSES.SKELETON_BADGE}`)
+    expect(skels.length).toBe(3)
+
+    // empty array takes the same skeleton arm — `items.length` falsy
+    awardsEl.items = []
+    skels = awardsEl.shadowRoot.querySelectorAll(`.${SKELETON_CLASSES.SKELETON_BADGE}`)
     expect(skels.length).toBe(3)
   })
 
@@ -328,6 +335,36 @@ describe('AwardsMentions', () => {
     const links = awardsEl.shadowRoot.querySelectorAll(`.${AWARDS_CLASSES.AWARDS_FOOTER_ITEM}`)
     const seps = awardsEl.shadowRoot.querySelectorAll(`.${AWARDS_CLASSES.AWARDS_FOOTER_SEP}`)
     expect(seps.length).toBe(Math.max(0, links.length - 1))
+  })
+
+  test('renders the English-only docs entry with the localized description', () => {
+    const link = awardsEl.shadowRoot.querySelector(`.${FOOTER_CLASSES.FOOTER_DOCS_LINK}`)
+
+    expect(link).toBeTruthy()
+    expect(link.textContent).toBe(DOCS_STRINGS.TITLE)
+    expect(link.getAttribute(LINK_ATTRS.HREF)).toBe(ROUTE_PATHS.DOCS)
+
+    const desc = awardsEl.shadowRoot.querySelector(`.${FOOTER_CLASSES.FOOTER_DOCS_DESC}`)
+
+    expect(desc).toBeTruthy()
+    expect(desc.textContent).toBe(DOCS_STRINGS.DESC_FALLBACK)
+  })
+
+  test('docs entry click routes to /docs through the router', () => {
+    let pushedRoute = null
+    const originalPush = router.push
+
+    router.push = (route) => {
+      pushedRoute = route
+    }
+
+    const link = awardsEl.shadowRoot.querySelector(`.${FOOTER_CLASSES.FOOTER_DOCS_LINK}`)
+
+    link.dispatchEvent(new MouseEvent(MOUSE_EVENTS.CLICK, { bubbles: true, cancelable: true }))
+
+    expect(pushedRoute).toBe(ROUTE_PATHS.DOCS)
+
+    router.push = originalPush
   })
 
   test('clicking legal link calls router.push', () => {

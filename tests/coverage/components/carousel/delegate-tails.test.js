@@ -7,28 +7,28 @@
  */
 
 import { describe, test, expect, jest } from '@jest/globals'
-import '@/components/carousel/CustomCarousel.js'
-import '@/components/home/HomeMosaic.js'
-import '@/components/media/DrawText.js'
-import '@/components/dialogs/LangDialog.js'
-import '@/components/feedback/SiteToast.js'
-import '@/components/media/MediaExpanded.js'
-import '@/components/home/AwardsMentions.js'
-import '@/playground/SpacePlayground.js'
-import '@/cms/projects/CmsProjectsList.js'
-import { scrollToElement, updateActiveClasses, jumpToSlide, carouselOnScroll } from '@/components/carousel/custom-carousel/nav.js'
-import { jumpToSlide as hcJumpToSlide } from '@/components/carousel/awards-carousel/nav.js'
-import { setupObserver as hcSetupObserver } from '@/components/carousel/awards-carousel/observer.js'
-import { cardIdxFromEvent } from '@/components/home/mosaic/interactions.js'
-import { computeMosaicLayout, packMosaicSkeleton } from '@/components/home/mosaic/pack.js'
-import { renderWordHtml, tokenToHtml } from '@/components/media/draw-text/render.js'
-import { localMediaCache } from '@/utils/media/local-media-cache.js'
-import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
-import { AWARDS_CLASSES } from '@/core/tokens/classes/awards.js'
-import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
+import '@website/components/carousel/CustomCarousel.js'
+import '@website/components/home/HomeMosaic.js'
+import '@website/components/media/DrawText.js'
+import '@website/components/dialogs/LangDialog.js'
+import '@website/components/feedback/SiteToast.js'
+import '@website/components/media/MediaExpanded.js'
+import '@website/components/home/AwardsMentions.js'
+import '@earth/SpacePlayground.js'
+import '@cms/projects/CmsProjectsList.js'
+import { scrollToElement, updateActiveClasses, jumpToSlide, carouselOnScroll } from '@website/components/carousel/custom-carousel/nav.js'
+import { jumpToSlide as hcJumpToSlide } from '@website/components/carousel/awards-carousel/nav.js'
+import { setupObserver as hcSetupObserver } from '@website/components/carousel/awards-carousel/observer.js'
+import { cardIdxFromEvent } from '@website/components/home/mosaic/interactions.js'
+import { computeMosaicLayout, packMosaicSkeleton } from '@website/components/home/mosaic/pack.js'
+import { renderWordHtml, tokenToHtml } from '@website/components/media/draw-text/render.js'
+import { localMediaCache } from '@core/utils/media/local-media-cache.js'
+import { MOUSE_EVENTS } from '@core/tokens/events/dom.js'
+import { AWARDS_CLASSES } from '@core/tokens/classes/awards.js'
+import { MEDIA_ATTRS } from '@core/tokens/attrs/media.js'
 import { TEST_URLS as FIXTURE_URLS } from '../../../fixtures/test-constants.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 
 
@@ -199,7 +199,7 @@ describe('mosaic + draw-text tails', () => {
 
 describe('misc attr/guard arms', () => {
   test('awards-mentions link without href pushes empty path', async () => {
-    const { default: router } = await import('@/routes/router.js')
+    const { default: router } = await import('@core/router/router.js')
     const push = jest.spyOn(router, 'push').mockImplementation(() => {})
 
     const el = document.createElement('awards-mentions')
@@ -274,7 +274,7 @@ describe('misc attr/guard arms', () => {
   })
 
   test('awards-mentions — click on href-less footer item hits EMPTY fallback', async () => {
-    const { default: router } = await import('@/routes/router.js')
+    const { default: router } = await import('@core/router/router.js')
     const pushSpy = jest.spyOn(router, 'push').mockImplementation(() => Promise.resolve())
 
     const el = document.createElement(COMPONENT_TAGS.AWARDS_MENTIONS)

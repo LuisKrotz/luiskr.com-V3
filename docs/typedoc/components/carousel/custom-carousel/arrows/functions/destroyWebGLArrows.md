@@ -8,7 +8,7 @@
 function destroyWebGLArrows(c): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/arrows.ts:147](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/arrows.ts#L147)
+Defined in: [website/components/carousel/custom-carousel/arrows.ts:147](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/arrows.ts#L147)
 
 Destroys both arrow widgets — called on viewport exit (contexts are
 released offscreen to keep the pool small) and on destroy. Nulling the

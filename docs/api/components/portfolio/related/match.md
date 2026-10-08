@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/portfolio/related/match.ts` |
+| **Source** | `website/components/portfolio/related/match.ts` |
 | **UX surface** | Related-projects strip on case-study pages. |
 
 ## Members

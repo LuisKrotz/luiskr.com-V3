@@ -4,7 +4,7 @@ Layout/animation math with a WebAssembly fast path.
 
 | | |
 |---|---|
-| **Source** | `src/utils/wasm/wasm-layout.ts` |
+| **Source** | `core/utils/wasm/wasm-layout.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

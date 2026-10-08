@@ -4,7 +4,7 @@ Scene mesh builders for the WebGPU Earth background —
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/scene/meshes.ts` |
+| **Source** | `experiments/earth-playground/earth/scene/meshes.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

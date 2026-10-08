@@ -4,7 +4,7 @@ Post-processing chain for the Earth engine: color-grading,
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/setup/post-setup.ts` |
+| **Source** | `experiments/earth-playground/earth/setup/post-setup.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

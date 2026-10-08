@@ -8,7 +8,7 @@
 function releaseQuadGL(canvas, host, onLost?): void
 ```
 
-Defined in: [src/utils/canvas/gl-lifecycle.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/gl-lifecycle.ts#L47)
+Defined in: [core/utils/canvas/gl-lifecycle.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/gl-lifecycle.ts#L47)
 
 Frees the quad program + buffer and force-loses the context. The
 `onLost` listener (from watchContextLoss) is detached first so the

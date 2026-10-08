@@ -30,7 +30,7 @@ function scanDirectory(dir, fileList = []) {
     } else if (entry.isFile() && (entry.name.endsWith('.js') || entry.name.endsWith('.jsx'))) {
       // Exclude constants.js and its domain modules under core/tokens/ — they
       // are the single-source-of-truth dictionary, not duplication candidates.
-      if (!fullPath.includes('src/core/constants.js') && !fullPath.includes('src/core/tokens/')) {
+      if (!fullPath.includes('core/constants.js') && !fullPath.includes('core/tokens/')) {
         fileList.push(fullPath)
       }
     }
@@ -128,7 +128,7 @@ function extractStrings() {
   })
 
   // Ensure output directory exists for chunk manifests
-  const outDir = path.resolve(ROOT, 'src/core/locale')
+  const outDir = path.resolve(ROOT, 'core/locale')
   if (!fs.existsSync(outDir)) {
     fs.mkdirSync(outDir, { recursive: true })
   }

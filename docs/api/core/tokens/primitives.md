@@ -4,7 +4,7 @@ Primitive string tokens — typeof results, punctuation,
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/primitives.ts` |
+| **Source** | `core/tokens/primitives.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

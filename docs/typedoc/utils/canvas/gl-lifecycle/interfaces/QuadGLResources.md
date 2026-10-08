@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [utils/canvas/gl-lifecycle](../README.md) / QuadGLResources
 
-Defined in: [src/utils/canvas/gl-lifecycle.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/gl-lifecycle.ts#L18)
+Defined in: [core/utils/canvas/gl-lifecycle.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/gl-lifecycle.ts#L18)
 
 Minimal surface every quad-based widget/renderer exposes for teardown.
 
@@ -16,7 +16,7 @@ Minimal surface every quad-based widget/renderer exposes for teardown.
 gl: WebGLRenderingContext | WebGL2RenderingContext | null
 ```
 
-Defined in: [src/utils/canvas/gl-lifecycle.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/gl-lifecycle.ts#L19)
+Defined in: [core/utils/canvas/gl-lifecycle.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/gl-lifecycle.ts#L19)
 
 ---
 
@@ -26,7 +26,7 @@ Defined in: [src/utils/canvas/gl-lifecycle.ts:19](https://github.com/LuisKrotz/l
 program: WebGLProgram | null
 ```
 
-Defined in: [src/utils/canvas/gl-lifecycle.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/gl-lifecycle.ts#L20)
+Defined in: [core/utils/canvas/gl-lifecycle.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/gl-lifecycle.ts#L20)
 
 ---
 
@@ -36,4 +36,4 @@ Defined in: [src/utils/canvas/gl-lifecycle.ts:20](https://github.com/LuisKrotz/l
 quadBuffer: WebGLBuffer | null
 ```
 
-Defined in: [src/utils/canvas/gl-lifecycle.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/gl-lifecycle.ts#L21)
+Defined in: [core/utils/canvas/gl-lifecycle.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/gl-lifecycle.ts#L21)

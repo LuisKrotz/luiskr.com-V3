@@ -8,7 +8,7 @@
 function detectBrowser(ua): BrowserInfo
 ```
 
-Defined in: [src/core/browser/detect.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/detect.ts#L45)
+Defined in: [core/browser/detect.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/browser/detect.ts#L45)
 
 Parses a UA string against BROWSERS. Regex `pattern` strings keep their
 escaped form so the same table survives JSON serialization into the

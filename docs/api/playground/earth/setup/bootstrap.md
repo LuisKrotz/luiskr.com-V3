@@ -4,7 +4,7 @@ Async scene assembly for the Earth engine, extracted from
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/setup/bootstrap.ts` |
+| **Source** | `experiments/earth-playground/earth/setup/bootstrap.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

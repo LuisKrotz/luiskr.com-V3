@@ -17,7 +17,7 @@ const PREF_STORAGE_KEYS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/data/storage.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/data/storage.ts#L12)
+Defined in: [core/tokens/data/storage.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/data/storage.ts#L12)
 
 localStorage/sessionStorage key tokens split by scope. Sole declaration site — consumers import members
 from this frozen map rather than re-declaring the literals

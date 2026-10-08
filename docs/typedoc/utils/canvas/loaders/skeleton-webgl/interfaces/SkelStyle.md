@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [utils/canvas/loaders/skeleton-webgl](../README.md) / SkelStyle
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L26)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L26)
 
 Per-placeholder computed style, cached between measures (cleared on theme flip).
 
@@ -16,7 +16,7 @@ Per-placeholder computed style, cached between measures (cleared on theme flip).
 lineHeight: number
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L28)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L28)
 
 Computed line-height — text placeholders tile glyph rows against it.
 
@@ -28,7 +28,7 @@ Computed line-height — text placeholders tile glyph rows against it.
 radius: number
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L30)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L30)
 
 Computed border-radius — forwarded to the shader's corner rounding.
 
@@ -40,7 +40,7 @@ Computed border-radius — forwarded to the shader's corner rounding.
 textLike: boolean
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L32)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L32)
 
 Whether this placeholder is a text line (vs a media block).
 
@@ -52,7 +52,7 @@ Whether this placeholder is a text line (vs a media block).
 baseStr: string
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L34)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L34)
 
 Raw CSS color string for the base fill — parsed lazily.
 
@@ -64,6 +64,6 @@ Raw CSS color string for the base fill — parsed lazily.
 inkStr: string
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L36)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L36)
 
 Raw CSS color string for the ink/glyph color — parsed lazily.

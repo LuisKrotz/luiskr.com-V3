@@ -4,7 +4,7 @@ ARIA attribute + role-value tokens — token group.
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/attrs/aria.ts` |
+| **Source** | `core/tokens/attrs/aria.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

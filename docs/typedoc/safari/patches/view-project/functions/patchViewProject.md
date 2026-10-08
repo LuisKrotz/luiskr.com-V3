@@ -8,7 +8,7 @@
 function patchViewProject(): void
 ```
 
-Defined in: [src/safari/patches/view-project.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/safari/patches/view-project.ts#L30)
+Defined in: [core/safari/patches/view-project.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/safari/patches/view-project.ts#L30)
 
 Installs the view-project Safari patch once the element registers:
 replaces `_updateModalDOM` with the lifted-dialog variant and wraps

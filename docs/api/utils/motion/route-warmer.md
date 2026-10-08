@@ -4,7 +4,7 @@ Post-load route-chunk warming.
 
 | | |
 |---|---|
-| **Source** | `src/utils/motion/route-warmer.ts` |
+| **Source** | `core/utils/motion/route-warmer.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

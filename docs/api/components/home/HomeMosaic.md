@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/home/HomeMosaic.tsx` |
+| **Source** | `website/components/home/HomeMosaic.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

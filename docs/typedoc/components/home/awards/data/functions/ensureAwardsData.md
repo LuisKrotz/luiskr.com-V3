@@ -8,7 +8,7 @@
 function ensureAwardsData(_el): void
 ```
 
-Defined in: [src/components/home/awards/data.ts:73](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/awards/data.ts#L73)
+Defined in: [website/components/home/awards/data.ts:73](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/awards/data.ts#L73)
 
 Loads the components dictionary node for the current locale when missing
 (stale-while-revalidate) — commits SET_COMPONENT_LANG so the footer

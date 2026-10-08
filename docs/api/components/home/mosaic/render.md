@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/home/mosaic/render.tsx` |
+| **Source** | `website/components/home/mosaic/render.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

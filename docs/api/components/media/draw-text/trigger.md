@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/media/draw-text/trigger.ts` |
+| **Source** | `website/components/media/draw-text/trigger.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

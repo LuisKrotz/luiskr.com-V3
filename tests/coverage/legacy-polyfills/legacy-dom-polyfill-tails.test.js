@@ -8,11 +8,11 @@
  * polyfill bodies.
  */
 import { jest } from '@jest/globals'
-import _store from '@/core/store.js'
+import _store from '@core/store.js'
 
-import '@/components/feedback/CookieBanner.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import '@website/components/feedback/CookieBanner.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
 
 
@@ -33,7 +33,7 @@ describe('legacy dom polyfill tails', () => {
     delete globalThis.requestAnimationFrame
 
     jest.resetModules()
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     const el = document.createElement(HTML_TAGS.DIV)
 

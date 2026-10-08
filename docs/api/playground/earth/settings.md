@@ -4,7 +4,7 @@ Settings snapshot builder for the WebGPU Earth engine,
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/settings.ts` |
+| **Source** | `experiments/earth-playground/earth/settings.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

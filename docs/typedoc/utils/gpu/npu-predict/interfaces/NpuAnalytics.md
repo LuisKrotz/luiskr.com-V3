@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [utils/gpu/npu-predict](../README.md) / NpuAnalytics
 
-Defined in: [src/utils/gpu/npu-predict.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L43)
+Defined in: [core/utils/gpu/npu-predict.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/npu-predict.ts#L43)
 
 HUD-facing predictor metrics.
 
@@ -16,7 +16,7 @@ HUD-facing predictor metrics.
 npuAccelerated: boolean
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L45)
+Defined in: [core/utils/gpu/npu-predict.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/npu-predict.ts#L45)
 
 Whether the WebNN NPU tier is live.
 
@@ -28,7 +28,7 @@ Whether the WebNN NPU tier is live.
 gpuAccelerated: boolean
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L47)
+Defined in: [core/utils/gpu/npu-predict.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/npu-predict.ts#L47)
 
 Whether the shared GPU tier is live.
 
@@ -40,7 +40,7 @@ Whether the shared GPU tier is live.
 wasmAccelerated: boolean
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L49)
+Defined in: [core/utils/gpu/npu-predict.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/npu-predict.ts#L49)
 
 Whether the WASM worker tier is live (always true — the last resort).
 
@@ -52,7 +52,7 @@ Whether the WASM worker tier is live (always true — the last resort).
 totalPredictions: number
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L51)
+Defined in: [core/utils/gpu/npu-predict.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/npu-predict.ts#L51)
 
 Lifetime prediction count.
 
@@ -64,7 +64,7 @@ Lifetime prediction count.
 successfulPreloads: number
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L53)
+Defined in: [core/utils/gpu/npu-predict.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/npu-predict.ts#L53)
 
 Successful prefetch injections.
 
@@ -76,7 +76,7 @@ Successful prefetch injections.
 lastPredictionConfidence: number
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L55)
+Defined in: [core/utils/gpu/npu-predict.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/npu-predict.ts#L55)
 
 Most recent probability, rounded to cents.
 
@@ -88,6 +88,6 @@ Most recent probability, rounded to cents.
 avgComputeMs: number
 ```
 
-Defined in: [src/utils/gpu/npu-predict.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/npu-predict.ts#L57)
+Defined in: [core/utils/gpu/npu-predict.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/npu-predict.ts#L57)
 
 Exponential-ish running mean of scoring time in ms.

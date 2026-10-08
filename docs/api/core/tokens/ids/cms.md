@@ -4,7 +4,7 @@ CMS root mount id token — token group.
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/ids/cms.ts` |
+| **Source** | `core/tokens/ids/cms.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

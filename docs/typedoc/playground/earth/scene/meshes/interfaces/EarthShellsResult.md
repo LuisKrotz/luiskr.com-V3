@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [playground/earth/scene/meshes](../README.md) / EarthShellsResult
 
-Defined in: [src/playground/earth/scene/meshes.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/meshes.ts#L38)
+Defined in: [experiments/earth-playground/earth/scene/meshes.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/meshes.ts#L38)
 
 What buildEarthShells hands back for the engine to assign.
 
@@ -16,7 +16,7 @@ What buildEarthShells hands back for the engine to assign.
 group: Group
 ```
 
-Defined in: [src/playground/earth/scene/meshes.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/meshes.ts#L39)
+Defined in: [experiments/earth-playground/earth/scene/meshes.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/meshes.ts#L39)
 
 ---
 
@@ -28,7 +28,7 @@ cloudsMesh:
   | null;
 ```
 
-Defined in: [src/playground/earth/scene/meshes.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/meshes.ts#L40)
+Defined in: [experiments/earth-playground/earth/scene/meshes.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/meshes.ts#L40)
 
 ---
 
@@ -38,4 +38,4 @@ Defined in: [src/playground/earth/scene/meshes.ts:40](https://github.com/LuisKro
 earthMatUniforms: Record<string, UniformNode<'float', number>> | null
 ```
 
-Defined in: [src/playground/earth/scene/meshes.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/meshes.ts#L41)
+Defined in: [experiments/earth-playground/earth/scene/meshes.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/meshes.ts#L41)

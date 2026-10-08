@@ -4,7 +4,7 @@ Tap-vs-scroll disambiguation for the expand gesture on
 
 | | |
 |---|---|
-| **Source** | `src/safari/patches/media-figure/tap-expand.ts` |
+| **Source** | `core/safari/patches/media-figure/tap-expand.ts` |
 | **UX surface** | Boot surfaces: what the user sees first on each bundle. |
 
 ## Members

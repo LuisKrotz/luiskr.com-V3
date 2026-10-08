@@ -8,7 +8,7 @@
 function isGravatarUrl(urlStr): boolean
 ```
 
-Defined in: [src/core/utils/media.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/utils/media.ts#L45)
+Defined in: [core/utils/media.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/media.ts#L45)
 
 Checks if a given URL belongs to gravatar.com (exact host or any
 subdomain like `secure.gravatar.com`). Non-Gravatar URLs must not get

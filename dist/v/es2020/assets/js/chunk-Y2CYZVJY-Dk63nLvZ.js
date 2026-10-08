@@ -1,0 +1,2 @@
+var bce=Object.defineProperty,Pl=(e,a)=>bce(e,"name",{value:a,configurable:!0}),HH=(e,a)=>{for(var r in a)bce(e,r,{get:a[r],enumerable:!0})};export{Pl as n,HH as t};
+//# sourceMappingURL=chunk-Y2CYZVJY-Dk63nLvZ.js.map

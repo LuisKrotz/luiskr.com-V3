@@ -1,1 +1,0 @@
-var Sr,Nn;import{jt as SX}from"./store-D_nsudgJ.js";Sr=Object.freeze({xd:"legal"}),Nn=Object.freeze({li:SX,ad:`${SX}-title`,sd:`${SX}-subtitle`,dd:`${SX}-link`});export{Nn as n,Sr as t};

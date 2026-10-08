@@ -8,7 +8,7 @@
 function fitText(host): void
 ```
 
-Defined in: [src/components/media/draw-text/fit.ts:81](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/draw-text/fit.ts#L81)
+Defined in: [website/components/media/draw-text/fit.ts:81](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/draw-text/fit.ts#L81)
 
 Measures and (only when overflowing) scales the host's font size and
 letter spacing so the widest word fits the parent's content box.

@@ -8,7 +8,7 @@
 function renderDone(host): Element
 ```
 
-Defined in: [src/cms/media-convert/render.tsx:120](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/render.tsx#L120)
+Defined in: [cms/media-convert/render.tsx:120](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/media-convert/render.tsx#L120)
 
 Renders done.
 

@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/media-convert/CmsMediaConverter.tsx` |
+| **Source** | `cms/media-convert/CmsMediaConverter.tsx` |
 | **UX surface** | Batch image→WebP conversion pipeline UI. |
 
 ## Members

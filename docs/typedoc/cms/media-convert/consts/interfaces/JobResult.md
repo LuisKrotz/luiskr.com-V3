@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [cms/media-convert/consts](../README.md) / JobResult
 
-Defined in: [src/cms/media-convert/consts.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L43)
+Defined in: [cms/media-convert/consts.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/media-convert/consts.ts#L43)
 
 Per-file outcome reported by the conversion server.
 
@@ -16,7 +16,7 @@ Per-file outcome reported by the conversion server.
 ok: boolean
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L45)
+Defined in: [cms/media-convert/consts.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/media-convert/consts.ts#L45)
 
 Whether this file converted successfully.
 
@@ -28,7 +28,7 @@ Whether this file converted successfully.
 in: string;
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L47)
+Defined in: [cms/media-convert/consts.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/media-convert/consts.ts#L47)
 
 The input path the result corresponds to.
 
@@ -40,7 +40,7 @@ The input path the result corresponds to.
 optional outs?: string[];
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L49)
+Defined in: [cms/media-convert/consts.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/media-convert/consts.ts#L49)
 
 Output artifact paths when ok.
 
@@ -52,6 +52,6 @@ Output artifact paths when ok.
 optional error?: string;
 ```
 
-Defined in: [src/cms/media-convert/consts.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/consts.ts#L51)
+Defined in: [cms/media-convert/consts.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/media-convert/consts.ts#L51)
 
 Error message when !ok.

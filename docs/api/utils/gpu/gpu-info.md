@@ -4,7 +4,7 @@ Shared GPU capability detection + WebGL context-option hints.
 
 | | |
 |---|---|
-| **Source** | `src/utils/gpu/gpu-info.ts` |
+| **Source** | `core/utils/gpu/gpu-info.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

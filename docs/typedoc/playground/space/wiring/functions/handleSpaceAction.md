@@ -8,7 +8,7 @@
 function handleSpaceAction(c, action, btn): void
 ```
 
-Defined in: [src/playground/space/wiring.ts:192](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/wiring.ts#L192)
+Defined in: [experiments/earth-playground/space/wiring.ts:192](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/wiring.ts#L192)
 
 Dispatches a data-action button: panel-open is engine-free; the rest
 need a live _earthBg — reset (view + saved settings + inputs back to

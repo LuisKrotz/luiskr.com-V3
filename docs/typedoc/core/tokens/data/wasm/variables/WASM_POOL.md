@@ -15,7 +15,7 @@ const WASM_POOL: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/data/wasm.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/data/wasm.ts#L40)
+Defined in: [core/tokens/data/wasm.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/data/wasm.ts#L40)
 
 Frozen worker-pool sizing + asset tokens. Sole declaration site for the
 worker script path and the pool-size caps — mobile SoCs thermal-throttle

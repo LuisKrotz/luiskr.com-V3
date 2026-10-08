@@ -4,7 +4,7 @@ Control schema + persistence for &lt;view-space-playground&gt;,
 
 | | |
 |---|---|
-| **Source** | `src/playground/space/controls.ts` |
+| **Source** | `experiments/earth-playground/space/controls.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

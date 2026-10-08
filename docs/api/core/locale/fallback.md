@@ -4,7 +4,7 @@ Build-time English translation snapshot. The Vite plugin
 
 | | |
 |---|---|
-| **Source** | `src/core/locale/fallback.ts` |
+| **Source** | `core/locale/fallback.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

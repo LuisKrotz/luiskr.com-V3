@@ -8,14 +8,14 @@
  * Home route param changes.
  */
 
-import _router from '@/routes/router.js'
+import _router from '@core/router/router.js'
 
-import { wasmMediaThreads } from '@/utils/wasm/wasm-media-threads.js'
+import { wasmMediaThreads } from '@core/utils/wasm/wasm-media-threads.js'
 
 import { TEST_URLS } from '../../../fixtures/test-constants.js'
-import '@/routes/views/legal/Legal.js'
-import '@/routes/views/home/Home.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import '@website/views/legal/Legal.js'
+import '@website/views/home/Home.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
 
 

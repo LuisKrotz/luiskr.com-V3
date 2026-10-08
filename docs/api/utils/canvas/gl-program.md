@@ -4,7 +4,7 @@ Shared WebGL boilerplate for the canvas widgets — every
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/gl-program.ts` |
+| **Source** | `core/utils/canvas/gl-program.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

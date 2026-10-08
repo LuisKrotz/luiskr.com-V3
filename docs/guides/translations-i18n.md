@@ -2,7 +2,7 @@
 
 ## Locales
 
-`VALID_LANGS` (`src/core/i18n.ts`) — 16 locales:
+`VALID_LANGS` (`core/i18n.ts`) — 16 locales:
 
 `en br es de hrk cas riv gn it ru fr tln gl ca nl ga`
 
@@ -30,7 +30,7 @@ main.ts
   └─► virtual:locale-bootstrap chunks   (per-locale, emitted by Vite plugin)
         renders snapshot instantly — zero network wait
 
-        fetchFirebaseDb(path, { onUpdate })   src/utils/data/db.ts
+        fetchFirebaseDb(path, { onUpdate })   core/utils/data/db.ts
           ├─► stale → snapshot value (same as bootstrap)
           └─► live  → Firebase realtime value
                     • deep-equal (order-insensitive) → no re-render
@@ -44,7 +44,7 @@ subscribe their own `pages/*` or `projects/*` nodes.
 ## Lookup order in components
 
 ```
-appText(UI_KEYS.X)            src/core/locale/ui-text.ts
+appText(UI_KEYS.X)            core/locale/ui-text.ts
   1. store APP dict (live/snapshot, current locale)
   2. FALLBACK.APP (build-time embedded English snapshot)
 component/page text:

@@ -6,31 +6,31 @@
  *
  */
 
-import '@/components/media/DrawText.js'
-import '@/components/carousel/CustomCarousel.js'
-import '@/components/media/MediaFigure.js'
-import '@/components/nav/AppNav.js'
-import '@/components/home/HomeMosaic.js'
-import store from '@/core/store.js'
+import '@website/components/media/DrawText.js'
+import '@website/components/carousel/CustomCarousel.js'
+import '@website/components/media/MediaFigure.js'
+import '@website/components/nav/AppNav.js'
+import '@website/components/home/HomeMosaic.js'
+import store from '@core/store.js'
 import { readFileSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
-import { LOCALES } from '@/core/constants.js'
+import { LOCALES } from '@core/constants.js'
 import { TEST_TEXT } from '../fixtures/test-constants.js'
-import { DATA_MUTATIONS, PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { DRAW_TEXT_SELECTORS } from '@/core/tokens/selectors/draw-text.js'
-import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { CAROUSEL_SELECTORS } from '@/core/tokens/selectors/carousel.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { CAROUSEL_CLASSES } from '@/core/tokens/classes/carousel.js'
-import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { HOME_MOSAIC_CLASSES } from '@/core/tokens/classes/mosaic.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { THEME_CSS_PROPS } from '@/core/tokens/css/theme.js'
+import { DATA_MUTATIONS, PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { DRAW_TEXT_SELECTORS } from '@core/tokens/selectors/draw-text.js'
+import { ARIA_ATTRS } from '@core/tokens/attrs/aria.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { CAROUSEL_SELECTORS } from '@core/tokens/selectors/carousel.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { CAROUSEL_CLASSES } from '@core/tokens/classes/carousel.js'
+import { MEDIA_ATTRS } from '@core/tokens/attrs/media.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { HOME_MOSAIC_CLASSES } from '@core/tokens/classes/mosaic.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { THEME_CSS_PROPS } from '@core/tokens/css/theme.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -458,29 +458,29 @@ describe('Accessibility — WCAG 2.1 AA Compliance', () => {
   // ── Color and Contrast (SCSS validation) ─────────────────────────────────────
   describe('7. Color & CSS Custom Properties for Theming', () => {
     test('--bg-primary is defined in _structure.scss', () => {
-      const css = readFileSync(join(__dirname, '../../src/sass/base/_structure.scss'), 'utf-8')
+      const css = readFileSync(join(__dirname, '../../core/sass/base/_structure.scss'), 'utf-8')
       expect(css).toContain('--bg-primary')
     })
 
     test('--text-primary is defined in _structure.scss', () => {
-      const css = readFileSync(join(__dirname, '../../src/sass/base/_structure.scss'), 'utf-8')
+      const css = readFileSync(join(__dirname, '../../core/sass/base/_structure.scss'), 'utf-8')
       expect(css).toContain(THEME_CSS_PROPS.TEXT_PRIMARY)
     })
 
     test('dark mode defines --bg-primary in html.dark-mode', () => {
-      const css = readFileSync(join(__dirname, '../../src/sass/base/_structure.scss'), 'utf-8')
+      const css = readFileSync(join(__dirname, '../../core/sass/base/_structure.scss'), 'utf-8')
       expect(css).toContain('html.dark-mode')
       const darkSection = css.split('html.dark-mode')[1]
       expect(darkSection).toContain('--bg-primary')
     })
 
     test('--grey custom property is defined for text on dark backgrounds', () => {
-      const css = readFileSync(join(__dirname, '../../src/sass/base/_structure.scss'), 'utf-8')
+      const css = readFileSync(join(__dirname, '../../core/sass/base/_structure.scss'), 'utf-8')
       expect(css).toContain('--grey')
     })
 
     test('--grey-3 is defined (used for carousel dots)', () => {
-      const css = readFileSync(join(__dirname, '../../src/sass/base/_structure.scss'), 'utf-8')
+      const css = readFileSync(join(__dirname, '../../core/sass/base/_structure.scss'), 'utf-8')
       expect(css).toContain('--grey-3')
     })
   })

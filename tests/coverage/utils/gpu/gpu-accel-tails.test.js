@@ -8,13 +8,13 @@
  * Home route param changes.
  */
 
-import _router from '@/routes/router.js'
-import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
+import _router from '@core/router/router.js'
+import { gpuAccel } from '@core/utils/gpu/gpu-accel.js'
 
-import '@/routes/views/legal/Legal.js'
-import '@/routes/views/home/Home.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import '@website/views/legal/Legal.js'
+import '@website/views/home/Home.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 
 

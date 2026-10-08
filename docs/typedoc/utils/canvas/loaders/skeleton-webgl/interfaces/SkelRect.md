@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [utils/canvas/loaders/skeleton-webgl](../README.md) / SkelRect
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L40)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L40)
 
 One measured placeholder: geometry (CSS px) + sampled palette for the shader.
 
@@ -16,7 +16,7 @@ One measured placeholder: geometry (CSS px) + sampled palette for the shader.
 x: number
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L42)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L42)
 
 Left edge relative to the layer canvas origin.
 
@@ -28,7 +28,7 @@ Left edge relative to the layer canvas origin.
 y: number
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L44)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L44)
 
 Top edge relative to the layer canvas origin.
 
@@ -40,7 +40,7 @@ Top edge relative to the layer canvas origin.
 w: number
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L46)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L46)
 
 Box width in CSS px.
 
@@ -52,7 +52,7 @@ Box width in CSS px.
 h: number
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L48)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L48)
 
 Box height in CSS px.
 
@@ -64,7 +64,7 @@ Box height in CSS px.
 radius: number
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L50)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L50)
 
 Corner radius in CSS px — matches the placeholder's own border-radius.
 
@@ -76,7 +76,7 @@ Corner radius in CSS px — matches the placeholder's own border-radius.
 cell: number
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L52)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L52)
 
 Glyph cell size driving the procedural 0/1 grid density.
 
@@ -88,7 +88,7 @@ Glyph cell size driving the procedural 0/1 grid density.
 row: number
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L54)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L54)
 
 Row index within a text placeholder (0 for media blocks).
 
@@ -100,7 +100,7 @@ Row index within a text placeholder (0 for media blocks).
 base: number[];
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L56)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L56)
 
 Parsed [r,g,b,a] base fill 0–1 floats for the u_sbase uniform array.
 
@@ -112,6 +112,6 @@ Parsed [r,g,b,a] base fill 0–1 floats for the u_sbase uniform array.
 ink: number[];
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L58)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L58)
 
 Parsed [r,g,b,a] ink/glyph floats for the u_sink uniform array.

@@ -8,7 +8,7 @@
 function drawFlag(renderer, flag, time): boolean
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/draw.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/draw.ts#L17)
+Defined in: [core/utils/canvas/widgets/flag/draw.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/draw.ts#L17)
 
 Renders one wave-shader frame for a flag (or its split pair for dual
 flags like en-GB/en-US hybrids) onto the shared canvas, then blits

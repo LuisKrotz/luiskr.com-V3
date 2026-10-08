@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/footer/data.ts` |
+| **Source** | `cms/footer/data.ts` |
 | **UX surface** | Footer + legal links editor card. |
 
 ## Members

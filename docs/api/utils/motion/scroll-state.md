@@ -4,7 +4,7 @@ Global "is the window currently scrolling" flag plus an
 
 | | |
 |---|---|
-| **Source** | `src/utils/motion/scroll-state.ts` |
+| **Source** | `core/utils/motion/scroll-state.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

@@ -8,7 +8,7 @@
 function splitPoint(flag): number
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/anim.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/anim.ts#L28)
+Defined in: [core/utils/canvas/widgets/flag/anim.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/anim.ts#L28)
 
 Normalized 0–1 x where a hybrid flag's two halves meet: the first
 flag's share of the combined aspect widths (aspect1/(aspect1+aspect2))

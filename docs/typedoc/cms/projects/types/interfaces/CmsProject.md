@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [cms/projects/types](../README.md) / CmsProject
 
-Defined in: [src/cms/projects/types.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/projects/types.ts#L25)
+Defined in: [cms/projects/types.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/projects/types.ts#L25)
 
 The persisted CMS project document shape.
 
@@ -16,7 +16,7 @@ The persisted CMS project document shape.
 title: string
 ```
 
-Defined in: [src/cms/projects/types.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/projects/types.ts#L27)
+Defined in: [cms/projects/types.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/projects/types.ts#L27)
 
 Project title (heading + metadata).
 
@@ -28,7 +28,7 @@ Project title (heading + metadata).
 folder: string
 ```
 
-Defined in: [src/cms/projects/types.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/projects/types.ts#L29)
+Defined in: [cms/projects/types.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/projects/types.ts#L29)
 
 CDN folder prefix all media resolves under.
 
@@ -40,7 +40,7 @@ CDN folder prefix all media resolves under.
 seo: object
 ```
 
-Defined in: [src/cms/projects/types.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/projects/types.ts#L31)
+Defined in: [cms/projects/types.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/projects/types.ts#L31)
 
 SEO flags — noIndex removes the project from crawlers/schema.
 
@@ -58,7 +58,7 @@ noIndex: boolean
 cover: CmsMediaItem
 ```
 
-Defined in: [src/cms/projects/types.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/projects/types.ts#L33)
+Defined in: [cms/projects/types.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/projects/types.ts#L33)
 
 Cover media shown in mosaics/cards.
 
@@ -70,6 +70,6 @@ Cover media shown in mosaics/cards.
 sections: CmsSection[];
 ```
 
-Defined in: [src/cms/projects/types.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/projects/types.ts#L35)
+Defined in: [cms/projects/types.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/projects/types.ts#L35)
 
 Ordered content sections.

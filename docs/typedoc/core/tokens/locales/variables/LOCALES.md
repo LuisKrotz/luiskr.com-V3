@@ -28,7 +28,7 @@ const LOCALES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/locales.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/locales.ts#L17)
+Defined in: [core/tokens/locales.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/locales.ts#L17)
 
 Locale codes. Most are ISO-639 codes; the site also serves dialects and
 contact languages with custom codes:

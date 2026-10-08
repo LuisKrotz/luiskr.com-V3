@@ -8,9 +8,9 @@
  */
 
 import { describe, test, expect, beforeEach, afterEach, jest } from '@jest/globals'
-import { AppNav } from '@/components/nav/AppNav.js'
-import { PreferencesModal } from '@/components/dialogs/PreferencesModal.js'
-import { LangDialog } from '@/components/dialogs/LangDialog.js'
+import { AppNav } from '@website/components/nav/AppNav.js'
+import { PreferencesModal } from '@website/components/dialogs/PreferencesModal.js'
+import { LangDialog } from '@website/components/dialogs/LangDialog.js'
 import {
   BASE_TITLE,
   KEYS,
@@ -19,41 +19,41 @@ import {
   SECTIONS,
   SWITCH_TYPES,
   THEME,
-} from '@/core/constants.js'
+} from '@core/constants.js'
 import { SCSS, TEST_PROJECTS, TEST_TEXT, mount } from '../../fixtures/test-constants.js'
-import store from '@/core/store.js'
-import router from '@/routes/router.js'
-import { npuPredict } from '@/utils/gpu/npu-predict.js'
-import { appText } from '@/core/locale/ui-text.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { NAV_BURGER_CLASSES, NAV_CLASSES, NAV_MENU_CLASSES } from '@/core/tokens/classes/nav.js'
-import { PREF_CLASSES } from '@/core/tokens/classes/preferences.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { CMS_KEYS } from '@/core/tokens/data/cms-keys.js'
-import { LANG_CLASSES } from '@/core/tokens/classes/lang.js'
-import { LANG_MUTATIONS, MODAL_MUTATIONS, PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
-import { NAV_TEXT } from '@/core/tokens/strings/text.js'
-import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
-import { APP_EVENTS } from '@/core/tokens/events/app.js'
+import store from '@core/store.js'
+import router from '@core/router/router.js'
+import { npuPredict } from '@core/utils/gpu/npu-predict.js'
+import { appText } from '@core/locale/ui-text.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { NAV_BURGER_CLASSES, NAV_CLASSES, NAV_MENU_CLASSES } from '@core/tokens/classes/nav.js'
+import { PREF_CLASSES } from '@core/tokens/classes/preferences.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { CMS_KEYS } from '@core/tokens/data/cms-keys.js'
+import { LANG_CLASSES } from '@core/tokens/classes/lang.js'
+import { LANG_MUTATIONS, MODAL_MUTATIONS, PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { ARIA_ATTRS } from '@core/tokens/attrs/aria.js'
+import { NAV_TEXT } from '@core/tokens/strings/text.js'
+import { SECTION_IDS } from '@core/tokens/ids/sections.js'
+import { APP_EVENTS } from '@core/tokens/events/app.js'
 import {
   FOCUS_EVENTS,
   KEYBOARD_EVENTS,
   MOUSE_EVENTS,
   POINTER_EVENTS,
   WINDOW_EVENTS,
-} from '@/core/tokens/events/dom.js'
-import { NAV_SELECTORS } from '@/core/tokens/selectors/nav.js'
-import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { FLAG_CLASSES } from '@/core/tokens/classes/flags.js'
-import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { ENGINE_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
+} from '@core/tokens/events/dom.js'
+import { NAV_SELECTORS } from '@core/tokens/selectors/nav.js'
+import { ANIMATION_DURATIONS } from '@core/tokens/motion/animation.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { FLAG_CLASSES } from '@core/tokens/classes/flags.js'
+import { DATA_ATTRS } from '@core/tokens/attrs/data.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { ENGINE_UI_KEYS } from '@core/tokens/data/ui-keys.js'
 
 // ─── Local selector helpers (derived from CLASSES) ────────────────────────────
 const S = {
@@ -220,6 +220,28 @@ describe('AppNav', () => {
     )
 
     expect(labels).not.toContain(appText(CMS_KEYS.EARTH_PLAYGROUND))
+
+    router.currentRoute = prevRoute
+    navEl._closeMenu()
+    navEl._updateDom()
+  })
+
+  test('docs route suppresses the language switcher; prefs/about/contact/playground remain', () => {
+    const prevRoute = router.currentRoute
+
+    router.currentRoute = { name: ROUTE_NAMES.DOCS, meta: { docsRoute: true } }
+    navEl._openMenu()
+
+    expect(navEl.shadowRoot.querySelector(S.NAV_LANG_OPEN_BTN)).toBeNull()
+    expect(navEl.shadowRoot.querySelector(S.NAV_PREF_BTN)).not.toBeNull()
+    expect(navEl.shadowRoot.querySelector(S.NAV_ABOUT_BTN)).not.toBeNull()
+
+    const labels = [...navEl.shadowRoot.querySelectorAll(COMPONENT_TAGS.DRAW_TEXT)].map((el) =>
+      el.getAttribute(FORM_ATTRS.TEXT)
+    )
+
+    expect(labels).toContain(appText(CMS_KEYS.CONTACT))
+    expect(labels).toContain(appText(CMS_KEYS.EARTH_PLAYGROUND))
 
     router.currentRoute = prevRoute
     navEl._closeMenu()
@@ -818,7 +840,7 @@ describe('LangDialog tails', () => {
   test('customElements re-evaluation skips re-registration', async () => {
     expect(customElements.get(COMPONENT_TAGS.LANG_DIALOG)).toBeTruthy()
     jest.resetModules()
-    await import('@/components/dialogs/LangDialog.js')
+    await import('@website/components/dialogs/LangDialog.js')
   })
 })
 
@@ -1013,6 +1035,6 @@ describe('PreferencesModal tails', () => {
   test('customElements re-evaluation skips re-registration', async () => {
     expect(customElements.get(COMPONENT_TAGS.PREFERENCES_MODAL)).toBeTruthy()
     jest.resetModules()
-    await import('@/components/dialogs/PreferencesModal.js')
+    await import('@website/components/dialogs/PreferencesModal.js')
   })
 })

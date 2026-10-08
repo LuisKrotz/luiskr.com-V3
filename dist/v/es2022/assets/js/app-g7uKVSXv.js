@@ -1,1 +1,0 @@
-import{in as jX}from"./store-c7Cj9Re7.js";var xn=Object.freeze({si:"cookieAction",gm:"slidechange",$c:"autoplaystop",_c:"autoplaystart",jr:"cancel",kn:jX,Zn:"open-lang-dialog",Jn:"open-preferences-modal",LO:"notify"});export{xn as t};

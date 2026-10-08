@@ -8,7 +8,7 @@
 function setupSun(s, THREE, TSL): void
 ```
 
-Defined in: [src/playground/earth/setup/scene-setup.ts:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/setup/scene-setup.ts#L76)
+Defined in: [experiments/earth-playground/earth/setup/scene-setup.ts:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/setup/scene-setup.ts#L76)
 
 Directional sun at 200u (far enough that its direction is effectively
 parallel across the 20u Earth) + the visible 6u sprite co-located with

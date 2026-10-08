@@ -1,4 +1,4 @@
-# Earth Playground (src/playground)
+# Earth Playground (experiments/earth-playground)
 
 An experimental full-screen WebGPU scene — Earth with atmosphere, clouds, moon,
 starfield and post-processing — with a translated control panel. Routes:

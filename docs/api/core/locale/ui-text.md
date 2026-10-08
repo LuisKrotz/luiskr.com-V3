@@ -4,7 +4,7 @@ Runtime translation accessors: resolve a dotted key against
 
 | | |
 |---|---|
-| **Source** | `src/core/locale/ui-text.ts` |
+| **Source** | `core/locale/ui-text.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

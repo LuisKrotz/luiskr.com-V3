@@ -4,7 +4,7 @@ Pure JSX render helpers for &lt;custom-carousel&gt;, extracted
 
 | | |
 |---|---|
-| **Source** | `src/components/carousel/custom-carousel/render.tsx` |
+| **Source** | `website/components/carousel/custom-carousel/render.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

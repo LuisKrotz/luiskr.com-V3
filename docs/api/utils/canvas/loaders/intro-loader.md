@@ -4,7 +4,7 @@ Boot loader overlay: types the spec-sheet lines
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/loaders/intro-loader.ts` |
+| **Source** | `core/utils/canvas/loaders/intro-loader.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

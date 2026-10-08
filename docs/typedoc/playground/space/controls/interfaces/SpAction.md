@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [playground/space/controls](../README.md) / SpAction
 
-Defined in: [src/playground/space/controls.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L62)
+Defined in: [experiments/earth-playground/space/controls.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L62)
 
 A group-level action button (reset view, screenshot, copy settings).
 
@@ -16,7 +16,7 @@ A group-level action button (reset view, screenshot, copy settings).
 label: string
 ```
 
-Defined in: [src/playground/space/controls.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L64)
+Defined in: [experiments/earth-playground/space/controls.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L64)
 
 Translation key for the button label.
 
@@ -28,7 +28,7 @@ Translation key for the button label.
 action: string
 ```
 
-Defined in: [src/playground/space/controls.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L66)
+Defined in: [experiments/earth-playground/space/controls.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L66)
 
 SP_ACTIONS token dispatched on click.
 
@@ -40,6 +40,6 @@ SP_ACTIONS token dispatched on click.
 optional pressed?: boolean;
 ```
 
-Defined in: [src/playground/space/controls.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L68)
+Defined in: [experiments/earth-playground/space/controls.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L68)
 
 Initial aria-pressed state for toggle-style actions.

@@ -10,17 +10,17 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 import { jest } from '@jest/globals'
-import { LOCALES} from '@/core/constants.js'
-import store from '@/core/store.js'
+import { LOCALES} from '@core/constants.js'
+import store from '@core/store.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { FOCUS_EVENTS, POINTER_EVENTS, TOUCH_EVENTS } from '@/core/tokens/events/dom.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { LINK_ATTRS } from '@core/tokens/attrs/link.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { FOCUS_EVENTS, POINTER_EVENTS, TOUCH_EVENTS } from '@core/tokens/events/dom.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
 
 
 
@@ -40,7 +40,7 @@ describe('predictive-loader tails', () => {
   }
 
   test('observeLink guards: null element and double-observe are no-ops', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
 
     predictiveLoader.observeLink(null)
 
@@ -53,7 +53,7 @@ describe('predictive-loader tails', () => {
   })
 
   test('observer fires prefetch via schedule; non-intersecting entries skipped', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
     const spy = jest.spyOn(predictiveLoader, 'prefetchRoute')
 
     const href = `${ROUTE_PATHS.PORTFOLIO_SLASH}some-slug`
@@ -91,7 +91,7 @@ describe('predictive-loader tails', () => {
   })
 
   test('intent events prefetch from href and dataset.route arms', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
     const spy = jest.spyOn(predictiveLoader, 'prefetchRoute')
 
     const a = makeLink(`${ROUTE_PATHS.ROOT}terms`)
@@ -123,7 +123,7 @@ describe('predictive-loader tails', () => {
   })
 
   test('scanAndObserve guards: null root and missing querySelectorAll', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
 
     predictiveLoader.scanAndObserve()
     predictiveLoader.scanAndObserve(null)
@@ -139,7 +139,7 @@ describe('predictive-loader tails', () => {
   })
 
   test('prefetchRoute guards: empty, duplicate, current-route and external', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
     const self = window.location.pathname
 
     await predictiveLoader.prefetchRoute(null)
@@ -155,7 +155,7 @@ describe('predictive-loader tails', () => {
   })
 
   test('prefetchRoute covers lang fallbacks, portfolio match and catch', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
     const lang = store.getters.getlang()
     const prevDb = lang.database
     const prevLocale = lang.locale
@@ -190,7 +190,7 @@ describe('predictive-loader tails', () => {
     delete window.IntersectionObserver
     jest.resetModules()
 
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
 
     expect(predictiveLoader.observer).toBeNull()
 
@@ -211,7 +211,7 @@ describe('predictive-loader tails', () => {
     delete globalThis.document
     jest.resetModules()
 
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
 
     predictiveLoader.scanAndObserve()
 
@@ -232,7 +232,7 @@ describe('predictive-loader tails', () => {
 
     jest.resetModules()
 
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
     const spy = jest.spyOn(predictiveLoader, 'prefetchRoute')
     const a = document.createElement(HTML_TAGS.A)
     const href = `${ROUTE_PATHS.ROOT}idle-link`
@@ -256,8 +256,8 @@ describe('predictive-loader tails', () => {
   })
 
   test('prefetchRoute covers getlang-null and database-less arms', async () => {
-    const { predictiveLoader } = await import('@/core/predictive-loader.js')
-    const { default: liveStore } = await import('@/core/store.js')
+    const { predictiveLoader } = await import('@core/predictive-loader.js')
+    const { default: liveStore } = await import('@core/store.js')
     const spy = jest.spyOn(liveStore.getters, 'getlang').mockReturnValue(null)
 
     // nullish lang -> `lang?.locale` falls back to LOCALES.EN; `lang.database`

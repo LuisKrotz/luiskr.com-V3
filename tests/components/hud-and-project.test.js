@@ -7,22 +7,22 @@
  */
 
 import { jest } from '@jest/globals'
-import store from '@/core/store.js'
-import router from '@/routes/router.js'
-import '@/components/feedback/StatsHud.js'
-import '@/routes/views/project/Project.js'
+import store from '@core/store.js'
+import router from '@core/router/router.js'
+import '@website/components/feedback/StatsHud.js'
+import '@website/views/project/Project.js'
 import { TEST_PROJECTS, TEST_TEXT, TEST_URLS, waitFor } from '../fixtures/test-constants.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { MODAL_MUTATIONS, PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { QUERY_STRINGS } from '@/core/tokens/strings/queries.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { MODAL_MUTATIONS, PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { QUERY_STRINGS } from '@core/tokens/strings/queries.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { MODAL_CLASSES } from '@core/tokens/classes/modal.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { DATA_ATTRS } from '@core/tokens/attrs/data.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 // ─── StatsHud ────────────────────────────────────────────────────────────────
 
@@ -653,6 +653,6 @@ describe('ViewProject tails', () => {
   test('registration guard respects an existing custom element', async () => {
     jest.resetModules()
 
-    await import('@/routes/views/project/Project.js')
+    await import('@website/views/project/Project.js')
   })
 })

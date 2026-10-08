@@ -8,7 +8,7 @@
 function markAdjacentLoaded(c, centerIdx): void
 ```
 
-Defined in: [src/components/carousel/custom-carousel/nav.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/nav.ts#L56)
+Defined in: [website/components/carousel/custom-carousel/nav.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/nav.ts#L56)
 
 Lazy-load window: flags slides within 2 ring positions of `centerIdx`
 as loadable so their media src gets assigned. Distance is measured on

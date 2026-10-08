@@ -4,7 +4,7 @@ Video playback plumbing for &lt;media-figure&gt;: lazy &lt;source&gt;
 
 | | |
 |---|---|
-| **Source** | `src/components/media/figure/video.ts` |
+| **Source** | `website/components/media/figure/video.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

@@ -1,30 +1,30 @@
 /**
  * @file drawtext.test.js
- * @description Covers src/components/media/DrawText.js — the shadow-DOM
+ * @description Covers website/components/media/DrawText.js — the shadow-DOM
  * typography component: attribute parsing (text/link/variant), per-word
  * span generation, staggered animation timing, reduced-motion bypass, and
  * ARIA labelling. The word-split math and reduced-motion path are the
  * regression-prone areas the suite locks down.
  */
 
-import '@/components/media/DrawText.js'
-import '@/core/store.js'
-import { LOCALES } from '@/core/constants.js'
+import '@website/components/media/DrawText.js'
+import '@core/store.js'
+import { LOCALES } from '@core/constants.js'
 import { TEST_TEXT } from '../../fixtures/test-constants.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { COMMON_SELECTORS } from '@/core/tokens/selectors/common.js'
-import { DRAW_TEXT_SELECTORS } from '@/core/tokens/selectors/draw-text.js'
-import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
-import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
-import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { DRAW_TEXT_CLASSES } from '@/core/tokens/classes/draw-text.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { COMMON_SELECTORS } from '@core/tokens/selectors/common.js'
+import { DRAW_TEXT_SELECTORS } from '@core/tokens/selectors/draw-text.js'
+import { ARIA_ATTRS } from '@core/tokens/attrs/aria.js'
+import { LINK_ATTRS } from '@core/tokens/attrs/link.js'
+import { DOM_STRINGS } from '@core/tokens/strings/dom.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { DRAW_TEXT_CLASSES } from '@core/tokens/classes/draw-text.js'
 
 describe('DrawText Web Component - Typography, Parsing & Animation Engine (50+ Tests)', () => {
   beforeEach(() => {

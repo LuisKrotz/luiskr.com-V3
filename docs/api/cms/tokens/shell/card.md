@@ -4,7 +4,7 @@ Card and section-shell classes — card blocks, section
 
 | | |
 |---|---|
-| **Source** | `src/cms/tokens/shell/card.ts` |
+| **Source** | `cms/tokens/shell/card.ts` |
 | **UX surface** | Admin bundle — editors for every database node. |
 
 ## Members

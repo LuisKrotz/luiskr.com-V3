@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/close-button/render.ts` |
+| **Source** | `core/utils/canvas/widgets/close-button/render.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

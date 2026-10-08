@@ -4,7 +4,7 @@ localStorage/sessionStorage key tokens split by scope —
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/data/storage.ts` |
+| **Source** | `core/tokens/data/storage.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

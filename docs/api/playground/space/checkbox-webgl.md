@@ -4,7 +4,7 @@ Canvas checkbox widget for the playground controls panel.
 
 | | |
 |---|---|
-| **Source** | `src/playground/space/checkbox-webgl.ts` |
+| **Source** | `experiments/earth-playground/space/checkbox-webgl.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

@@ -11,7 +11,7 @@ const SP_FILM_GRAIN_DEFAULTS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/playground/gui-post.ts:84](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/playground/gui-post.ts#L84)
+Defined in: [core/tokens/playground/gui-post.ts:84](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/playground/gui-post.ts#L84)
 
 Frozen sp film grain map — sole declaration site for these tokens; consumers read members
 and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the

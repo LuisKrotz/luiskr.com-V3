@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [components/dialogs/preferences/types](../README.md) / PrefNode
 
-Defined in: [src/components/dialogs/preferences/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L14)
+Defined in: [website/components/dialogs/preferences/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/dialogs/preferences/types.ts#L14)
 
 `pref.*` translation node consumed by the preferences dialog.
 
@@ -16,7 +16,7 @@ Defined in: [src/components/dialogs/preferences/types.ts:14](https://github.com/
 title: string
 ```
 
-Defined in: [src/components/dialogs/preferences/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L16)
+Defined in: [website/components/dialogs/preferences/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/dialogs/preferences/types.ts#L16)
 
 Dialog heading.
 
@@ -28,7 +28,7 @@ Dialog heading.
 done: string
 ```
 
-Defined in: [src/components/dialogs/preferences/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L18)
+Defined in: [website/components/dialogs/preferences/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/dialogs/preferences/types.ts#L18)
 
 Confirmation text after the apply action.
 
@@ -40,7 +40,7 @@ Confirmation text after the apply action.
 closeLabel: string
 ```
 
-Defined in: [src/components/dialogs/preferences/types.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L20)
+Defined in: [website/components/dialogs/preferences/types.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/dialogs/preferences/types.ts#L20)
 
 aria-label for the close button.
 
@@ -52,7 +52,7 @@ aria-label for the close button.
 appearance: object
 ```
 
-Defined in: [src/components/dialogs/preferences/types.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L22)
+Defined in: [website/components/dialogs/preferences/types.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/dialogs/preferences/types.ts#L22)
 
 Appearance section — theme picker copy.
 
@@ -104,7 +104,7 @@ Light-theme radio option.
 devTools: object
 ```
 
-Defined in: [src/components/dialogs/preferences/types.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/dialogs/preferences/types.ts#L35)
+Defined in: [website/components/dialogs/preferences/types.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/dialogs/preferences/types.ts#L35)
 
 Developer-tools section — diagnostic toggles copy.
 

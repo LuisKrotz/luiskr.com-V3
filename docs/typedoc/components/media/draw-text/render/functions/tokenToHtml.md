@@ -8,7 +8,7 @@
 function tokenToHtml(token, renderWord): string
 ```
 
-Defined in: [src/components/media/draw-text/render.ts:169](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/draw-text/render.ts#L169)
+Defined in: [website/components/media/draw-text/render.ts:169](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/draw-text/render.ts#L169)
 
 Top-level token → HTML: <br> and space become aria-hidden layout
 nodes (the space gets a span so the flex/grid layout sees a real box),

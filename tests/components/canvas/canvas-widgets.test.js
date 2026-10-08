@@ -6,28 +6,28 @@
  * mocked GL context, plus the no-GL fallback branches.
  */
 import { describe, test, expect, jest, beforeEach } from '@jest/globals'
-import { ThemeSliderWebGL } from '@/utils/canvas/widgets/theme-slider.js'
-import { SwitchWebGL } from '@/utils/canvas/widgets/switch-slider.js'
-import { CheckboxWebGL } from '@/playground/space/checkbox-webgl.js'
-import { webglPool } from '@/utils/canvas/webgl-pool.js'
-import { CarouselArrowWebGL } from '@/utils/canvas/widgets/carousel-controls.js'
-import { CloseButtonWebGL } from '@/utils/canvas/widgets/close-button.js'
-import { BurgerButtonWebGL } from '@/utils/canvas/widgets/burger-button-webgl.js'
+import { ThemeSliderWebGL } from '@core/utils/canvas/widgets/theme-slider.js'
+import { SwitchWebGL } from '@core/utils/canvas/widgets/switch-slider.js'
+import { CheckboxWebGL } from '@earth/space/checkbox-webgl.js'
+import { webglPool } from '@core/utils/canvas/webgl-pool.js'
+import { CarouselArrowWebGL } from '@core/utils/canvas/widgets/carousel-controls.js'
+import { CloseButtonWebGL } from '@core/utils/canvas/widgets/close-button.js'
+import { BurgerButtonWebGL } from '@core/utils/canvas/widgets/burger-button-webgl.js'
 import {
   attachMockGL,
   attachMock2D,
   attachHybridGL,
   attachNoGL,
 } from '../../fixtures/mock-webgl.js'
-import store from '@/core/store.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { GL_EVENTS, KEYBOARD_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import store from '@core/store.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { GL_EVENTS, KEYBOARD_EVENTS, MOUSE_EVENTS } from '@core/tokens/events/dom.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
-import { ARROW_TYPES, KEYS, SWITCH_TYPES } from '@/core/constants.js'
-import { THEME } from '@/core/tokens/theme/theme.js'
+import { ARROW_TYPES, KEYS, SWITCH_TYPES } from '@core/constants.js'
+import { THEME } from '@core/tokens/theme/theme.js'
 
 const makeCanvas = () => document.createElement(HTML_TAGS.CANVAS)
 

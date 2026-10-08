@@ -1,1 +1,0 @@
-var kn,aq;import{L as Ye}from"./store-CC7I51Nc.js";kn=Object.freeze({ERROR:Ye.ERROR,li:"info",DO:"success"}),aq=Object.freeze({gb:5e3,kb:4,_O:2500,CO:64});export{kn as n,aq as t};

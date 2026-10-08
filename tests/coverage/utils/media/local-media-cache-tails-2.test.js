@@ -10,11 +10,11 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 
-import { localMediaCache } from '@/utils/media/local-media-cache.js'
+import { localMediaCache } from '@core/utils/media/local-media-cache.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
 
 
 // ─── core/locale/ui-text.js ──────────────────────────────────────────────────

@@ -4,7 +4,7 @@ WebGL control button for the awards carousel: a circular
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/carousel-controls.ts` |
+| **Source** | `core/utils/canvas/widgets/carousel-controls.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

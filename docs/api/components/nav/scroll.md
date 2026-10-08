@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/nav/scroll.ts` |
+| **Source** | `website/components/nav/scroll.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

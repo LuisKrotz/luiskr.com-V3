@@ -6,11 +6,11 @@
  * matching the expected structure.
  */
 
-import { PROJECT_ALIASES } from '@/core/constants.js'
+import { PROJECT_ALIASES } from '@core/constants.js'
 import { TEST_PROJECTS } from '../fixtures/test-constants.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { DATA_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { DATA_MUTATIONS } from '@core/tokens/events/mutations.js'
 
 // Portfolio data is loaded from Firebase — use the known project slugs for tests
 const KNOWN_PROJECTS = [
@@ -144,7 +144,7 @@ describe('Portfolio Data — JSON Integrity', () => {
   // ── Router Compatibility ─────────────────────────────────────────────────────
   describe('4. Router Compatibility', () => {
     test('all project slugs resolve to view-project in router', async () => {
-      const router = (await import('@/routes/router.js')).default
+      const router = (await import('@core/router/router.js')).default
       projects.forEach((p) => {
         const result = router.resolve(`/portfolio/${p.slug}`)
         expect(result.view).toBe(VIEW_TAGS.VIEW_PROJECT)
@@ -152,7 +152,7 @@ describe('Portfolio Data — JSON Integrity', () => {
     })
 
     test('all project slugs work with lang prefix', async () => {
-      const router = (await import('@/routes/router.js')).default
+      const router = (await import('@core/router/router.js')).default
       projects.forEach((p) => {
         const result = router.resolve(`/en/portfolio/${p.slug}`)
         expect(result.view).toBe(VIEW_TAGS.VIEW_PROJECT)
@@ -160,7 +160,7 @@ describe('Portfolio Data — JSON Integrity', () => {
     })
 
     test('project params.projectSlug matches input slug for all projects', async () => {
-      const router = (await import('@/routes/router.js')).default
+      const router = (await import('@core/router/router.js')).default
       projects.forEach((p) => {
         const result = router.resolve(`/portfolio/${p.slug}`)
         expect(result.params.projectSlug).toBe(p.slug)
@@ -269,7 +269,7 @@ describe('Portfolio Data — JSON Integrity', () => {
   // ── WASM Layout Integration ───────────────────────────────────────────────────
   describe('11. WASM Layout — Portfolio Grid Calculations', () => {
     test('calcColumnWidth for each project count produces positive result', async () => {
-      const { calcColumnWidth } = await import('@/utils/wasm/wasm-layout.js')
+      const { calcColumnWidth } = await import('@core/utils/wasm/wasm-layout.js')
       const projectCount = projects.length
       for (let cols = 1; cols <= Math.min(4, projectCount); cols++) {
         const result = calcColumnWidth(cols, 1280, 16)
@@ -281,25 +281,25 @@ describe('Portfolio Data — JSON Integrity', () => {
   // ── Store Integration ─────────────────────────────────────────────────────────
   describe('12. Store Integration — Portfolio List', () => {
     test('store can receive portfolio data', async () => {
-      const store = (await import('@/core/store.js')).default
+      const store = (await import('@core/store.js')).default
       expect(() => store.commit(DATA_MUTATIONS.SET_PORTFOLIO_LIST, projects)).not.toThrow()
     })
 
     test('store portfolio list is set after commit', async () => {
-      const store = (await import('@/core/store.js')).default
+      const store = (await import('@core/store.js')).default
       store.commit(DATA_MUTATIONS.SET_PORTFOLIO_LIST, projects)
       const list = store.getters.getPortfolioList()
       expect(list).toEqual(projects)
     })
 
     test('store portfolio list length matches data', async () => {
-      const store = (await import('@/core/store.js')).default
+      const store = (await import('@core/store.js')).default
       store.commit(DATA_MUTATIONS.SET_PORTFOLIO_LIST, projects)
       expect(store.getters.getPortfolioList().length).toBe(projects.length)
     })
 
     test('getPortfolioList() returns the same array as setPortfolioList()', async () => {
-      const store = (await import('@/core/store.js')).default
+      const store = (await import('@core/store.js')).default
       const testData = [{ slug: 'test' }]
       store.commit(DATA_MUTATIONS.SET_PORTFOLIO_LIST, testData)
       expect(store.getters.getPortfolioList()).toEqual(testData)

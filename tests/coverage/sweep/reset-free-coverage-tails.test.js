@@ -7,25 +7,25 @@
  */
 
 import { jest } from '@jest/globals'
-import { CMS_LIST_PREFIXES, CMS_TAGS } from '@/cms/tokens.js'
+import { CMS_LIST_PREFIXES, CMS_TAGS } from '@cms/tokens.js'
 
-import { FORM_EVENTS } from '@/core/tokens/events/dom.js'
-import { CSS_STRINGS } from '@/core/tokens/strings/css.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { FORM_EVENTS } from '@core/tokens/events/dom.js'
+import { CSS_STRINGS } from '@core/tokens/strings/css.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
 import { createMockGL } from '../../fixtures/mock-webgl.js'
 
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/components/home/AwardsMentions.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@website/components/home/AwardsMentions.js'
 
-import { bindListEvents } from '@/cms/footer/lists.js'
-import { flagTexture } from '@/utils/canvas/widgets/flag/texture.js'
-import { FlagRenderer } from '@/utils/canvas/widgets/flag/renderer.js'
-import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
-import { tokenToHtml, renderWordHtml } from '@/components/media/draw-text/render.js'
-import { bootstrapEarth } from '@/playground/earth/setup/bootstrap.js'
-import { createEarthState } from '@/playground/earth/runtime/state.js'
-import router from '@/routes/router.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { bindListEvents } from '@cms/footer/lists.js'
+import { flagTexture } from '@core/utils/canvas/widgets/flag/texture.js'
+import { FlagRenderer } from '@core/utils/canvas/widgets/flag/renderer.js'
+import { gpuAccel } from '@core/utils/gpu/gpu-accel.js'
+import { tokenToHtml, renderWordHtml } from '@website/components/media/draw-text/render.js'
+import { bootstrapEarth } from '@earth/earth/setup/bootstrap.js'
+import { createEarthState } from '@earth/earth/runtime/state.js'
+import router from '@core/router/router.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 
 const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))

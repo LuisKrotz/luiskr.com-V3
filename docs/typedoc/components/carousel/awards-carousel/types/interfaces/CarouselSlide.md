@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [components/carousel/awards-carousel/types](../README.md) / CarouselSlide
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L12)
+Defined in: [website/components/carousel/awards-carousel/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/awards-carousel/types.ts#L12)
 
 One slide of the awards carousel — `link` is the outbound award URL,
 `media` the optional cover image (path + intrinsic size for aspect layout),
@@ -19,7 +19,7 @@ slides tolerate partial CMS rows without render guards.
 optional link?: string;
 ```
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L13)
+Defined in: [website/components/carousel/awards-carousel/types.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/awards-carousel/types.ts#L13)
 
 ---
 
@@ -29,7 +29,7 @@ Defined in: [src/components/carousel/awards-carousel/types.ts:13](https://github
 optional media?: object;
 ```
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L14)
+Defined in: [website/components/carousel/awards-carousel/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/awards-carousel/types.ts#L14)
 
 #### path?
 
@@ -57,7 +57,7 @@ optional height?: number;
 optional icon?: string;
 ```
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L15)
+Defined in: [website/components/carousel/awards-carousel/types.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/awards-carousel/types.ts#L15)
 
 ---
 
@@ -67,7 +67,7 @@ Defined in: [src/components/carousel/awards-carousel/types.ts:15](https://github
 optional description?: string;
 ```
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L16)
+Defined in: [website/components/carousel/awards-carousel/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/awards-carousel/types.ts#L16)
 
 ---
 
@@ -77,7 +77,7 @@ Defined in: [src/components/carousel/awards-carousel/types.ts:16](https://github
 optional content?: string;
 ```
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L17)
+Defined in: [website/components/carousel/awards-carousel/types.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/awards-carousel/types.ts#L17)
 
 ---
 
@@ -87,4 +87,4 @@ Defined in: [src/components/carousel/awards-carousel/types.ts:17](https://github
 optional label?: string;
 ```
 
-Defined in: [src/components/carousel/awards-carousel/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/awards-carousel/types.ts#L18)
+Defined in: [website/components/carousel/awards-carousel/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/awards-carousel/types.ts#L18)

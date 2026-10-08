@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [utils/canvas/gl-program](../README.md) / QuadProgramOptions
 
-Defined in: [src/utils/canvas/gl-program.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/gl-program.ts#L55)
+Defined in: [core/utils/canvas/gl-program.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/gl-program.ts#L55)
 
 Compiles + links a vertex/fragment pair and uploads the shared
 fullscreen-quad buffer ([-1,-1 … 1,1] triangle pair). Returns null on
@@ -18,7 +18,7 @@ any stage failure — the caller treats it as "no WebGL" and falls back.
 optional verts?: Float32Array<ArrayBufferLike>;
 ```
 
-Defined in: [src/utils/canvas/gl-program.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/gl-program.ts#L58)
+Defined in: [core/utils/canvas/gl-program.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/gl-program.ts#L58)
 
 Quad vertex layout — defaults to the 6-vertex TRIANGLES quad;
 TRIANGLE_STRIP callers pass their 4-vertex ordering instead.
@@ -31,7 +31,7 @@ TRIANGLE_STRIP callers pass their 4-vertex ordering instead.
 optional warn?: (_stage, _info) => void;
 ```
 
-Defined in: [src/utils/canvas/gl-program.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/gl-program.ts#L60)
+Defined in: [core/utils/canvas/gl-program.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/gl-program.ts#L60)
 
 Custom warn sink — stage is 'VS' | 'FS' | 'Link' | 'fallback'.
 
@@ -57,7 +57,7 @@ Custom warn sink — stage is 'VS' | 'FS' | 'Link' | 'fallback'.
 optional premultiplied?: boolean;
 ```
 
-Defined in: [src/utils/canvas/gl-program.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/gl-program.ts#L63)
+Defined in: [core/utils/canvas/gl-program.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/gl-program.ts#L63)
 
 Blend factors — default premultiplied (ONE, ONE_MINUS_SRC_ALPHA);
 false gives straight-alpha (SRC_ALPHA, ONE_MINUS_SRC_ALPHA).

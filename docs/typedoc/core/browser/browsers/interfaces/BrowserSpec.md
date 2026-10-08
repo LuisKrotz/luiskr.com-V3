@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [core/browser/browsers](../README.md) / BrowserSpec
 
-Defined in: [src/core/browser/browsers.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/browsers.ts#L23)
+Defined in: [core/browser/browsers.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/browser/browsers.ts#L23)
 
 One row of the detection table — UA regex source plus its quirks.
 
@@ -16,7 +16,7 @@ One row of the detection table — UA regex source plus its quirks.
 name: string
 ```
 
-Defined in: [src/core/browser/browsers.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/browsers.ts#L24)
+Defined in: [core/browser/browsers.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/browser/browsers.ts#L24)
 
 ---
 
@@ -26,7 +26,7 @@ Defined in: [src/core/browser/browsers.ts:24](https://github.com/LuisKrotz/luisk
 pattern: string
 ```
 
-Defined in: [src/core/browser/browsers.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/browsers.ts#L25)
+Defined in: [core/browser/browsers.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/browser/browsers.ts#L25)
 
 ---
 
@@ -36,4 +36,4 @@ Defined in: [src/core/browser/browsers.ts:25](https://github.com/LuisKrotz/luisk
 quirks: BrowserQuirks
 ```
 
-Defined in: [src/core/browser/browsers.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/browsers.ts#L26)
+Defined in: [core/browser/browsers.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/browser/browsers.ts#L26)

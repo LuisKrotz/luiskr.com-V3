@@ -1,30 +1,38 @@
 /**
  * @file jsdoc-coverage.test.js
  * @description Governance for AGENTS.md rule 20 — every exported declaration
- * in src/ must carry a JSDoc block, and every SCSS file must open with a
+ * across the five area roots must carry a JSDoc block, and every SCSS file must open with a
  * header comment explaining the UI surface it styles. Keeps the codebase
  * self-documenting for consumers, agents, and the generated docs/jsdocs site.
  */
 import { readdirSync, readFileSync, statSync } from 'fs'
 import path from 'path'
-import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
 
-const SRC = path.join(process.cwd(), DOM_STRINGS.SRC)
+// Five-area split — JSDoc applies everywhere, not just the app shell.
+const AREA_ROOTS = ['src', 'core', 'website', 'cms', 'experiments'].map((d) =>
+  path.join(process.cwd(), d)
+)
 
 /** Recursively collects source files under `dir` matching `exts`. */
 const collect = (dir, exts, out = []) => {
   for (const e of readdirSync(dir)) {
     const p = path.join(dir, e)
 
-    if (statSync(p).isDirectory()) collect(p, exts, out)
-    else if (exts.some((x) => p.endsWith(x))) out.push(p)
+    if (statSync(p).isDirectory()) {
+      // Generated area bundles are not authored source.
+      if (e === 'dist' || e === 'node_modules') continue
+
+      collect(p, exts, out)
+    } else if (exts.some((x) => p.endsWith(x))) {
+      out.push(p)
+    }
   }
 
   return out
 }
 
-const CODE_FILES = collect(SRC, ['.ts', '.tsx', '.js'])
-const SCSS_FILES = collect(SRC, ['.scss'])
+const CODE_FILES = AREA_ROOTS.flatMap((d) => collect(d, ['.ts', '.tsx', '.js']))
+const SCSS_FILES = AREA_ROOTS.flatMap((d) => collect(d, ['.scss']))
 
 // Exported declarations: `export [async|declare|default] (fn|class|const|…)`
 const EXPORT_RE =

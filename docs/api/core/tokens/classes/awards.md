@@ -4,7 +4,7 @@ Awards footer class tokens — token group.
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/classes/awards.ts` |
+| **Source** | `core/tokens/classes/awards.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

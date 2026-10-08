@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/playground-editor/CmsPlaygroundEditor.tsx` |
+| **Source** | `cms/playground-editor/CmsPlaygroundEditor.tsx` |
 | **UX surface** | Earth-playground labels, defaults and route slugs editor. |
 
 ## Members

@@ -3,16 +3,11 @@
  * @description Global input listeners for AppRoot — keyboard shortcuts, pointer handlers, and preference-triggering events bound during mount.
  */
 
-import {
-  DRAG_EVENTS,
-  MOUSE_EVENTS,
-  POINTER_EVENTS,
-  TOUCH_EVENTS,
-} from '@/core/tokens/events/dom.js'
-import { UI_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { COMMON_SELECTORS } from '@/core/tokens/selectors/common.js'
-import { INPUT_STRINGS } from '@/core/tokens/strings/input.js'
-import store from '@/core/store.js'
+import { DRAG_EVENTS, MOUSE_EVENTS, POINTER_EVENTS, TOUCH_EVENTS } from '@core/tokens/events/dom.js'
+import { UI_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { COMMON_SELECTORS } from '@core/tokens/selectors/common.js'
+import { INPUT_STRINGS } from '@core/tokens/strings/input.js'
+import store from '@core/store.js'
 import type { AppRoot } from '../App.js'
 
 /**

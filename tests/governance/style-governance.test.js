@@ -10,35 +10,49 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import * as CORE_TOKENS from '@/core/constants.js'
+import * as CORE_TOKENS from '@core/constants.js'
 import { TEST_AWARDS, TEST_PROJECTS, TEST_TAGS, TEST_TEXT } from '../fixtures/test-constants.js'
-import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { SKELETON_CLASSES } from '@/core/tokens/classes/skeleton.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { HOME_MOSAIC_CLASSES } from '@/core/tokens/classes/mosaic.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { AWARDS_CLASSES } from '@/core/tokens/classes/awards.js'
-import { ABOUT_CLASSES } from '@/core/tokens/classes/about.js'
-import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
-import { DB_PATHS } from '@/core/tokens/routes/paths.js'
-import { CAROUSEL_CLASSES } from '@/core/tokens/classes/carousel.js'
-import { CAROUSEL_SELECTORS } from '@/core/tokens/selectors/carousel.js'
-import { DRAW_TEXT_CLASSES } from '@/core/tokens/classes/draw-text.js'
-import { COOKIE_CLASSES } from '@/core/tokens/classes/cookies.js'
-import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { LABEL_TEXT } from '@/core/tokens/strings/text.js'
-import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
-import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
+import { DOM_STRINGS } from '@core/tokens/strings/dom.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { SKELETON_CLASSES } from '@core/tokens/classes/skeleton.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { HOME_MOSAIC_CLASSES } from '@core/tokens/classes/mosaic.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { AWARDS_CLASSES } from '@core/tokens/classes/awards.js'
+import { ABOUT_CLASSES } from '@core/tokens/classes/about.js'
+import { SECTION_IDS } from '@core/tokens/ids/sections.js'
+import { DB_PATHS } from '@core/tokens/routes/paths.js'
+import { CAROUSEL_CLASSES } from '@core/tokens/classes/carousel.js'
+import { CAROUSEL_SELECTORS } from '@core/tokens/selectors/carousel.js'
+import { DRAW_TEXT_CLASSES } from '@core/tokens/classes/draw-text.js'
+import { COOKIE_CLASSES } from '@core/tokens/classes/cookies.js'
+import { MEDIA_ATTRS } from '@core/tokens/attrs/media.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { LABEL_TEXT } from '@core/tokens/strings/text.js'
+import { MOUSE_EVENTS } from '@core/tokens/events/dom.js'
+import { PREF_STORAGE_KEYS } from '@core/tokens/data/storage.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.join(__dirname, '..', '..')
-const srcDir = path.join(rootDir, DOM_STRINGS.SRC)
-const sassDir = path.join(srcDir, 'sass')
+
+// Five-area split: application source lives under these roots — every scan
+// below walks all of them so a file can't escape governance by sitting
+// outside src/.
+const AREA_DIRS = [DOM_STRINGS.SRC, DB_PATHS.CORE_SEGMENT, 'website', 'cms', 'experiments']
+const areaRoots = AREA_DIRS.map((d) => path.join(rootDir, d))
+const coreDir = path.join(rootDir, DB_PATHS.CORE_SEGMENT)
+const websiteDir = path.join(rootDir, 'website')
 const componentScssFiles = () =>
-  getAllFiles(sassDir, ['.scss']).filter((f) => !f.includes(`${path.sep}base${path.sep}`))
+  areaRoots
+    .flatMap((dir) => getAllFiles(dir, ['.scss']))
+    .filter((f) => !f.includes(`${path.sep}base${path.sep}`))
+const allSourceFiles = (exts) =>
+  areaRoots.flatMap((dir) => (fs.existsSync(dir) ? getAllFiles(dir, exts) : []))
+
+// Generated/emitted trees are never scanned — dist/ output, vendored
+// dependency replacements and node_modules are not authored source.
+const SKIP_DIRS = new Set(['dist', 'node_modules', 'vendor'])
 
 function getAllFiles(dir, exts = ['.scss', '.css', '.js', '.ts', '.tsx']) {
   const results = []
@@ -46,7 +60,7 @@ function getAllFiles(dir, exts = ['.scss', '.css', '.js', '.ts', '.tsx']) {
   for (const entry of list) {
     const full = path.join(dir, entry.name)
     if (entry.isDirectory()) {
-      results.push(...getAllFiles(full, exts))
+      if (!SKIP_DIRS.has(entry.name)) results.push(...getAllFiles(full, exts))
     } else if (exts.some((ext) => entry.name.endsWith(ext))) {
       results.push(full)
     }
@@ -57,7 +71,7 @@ function getAllFiles(dir, exts = ['.scss', '.css', '.js', '.ts', '.tsx']) {
 describe('Style Governance & Zero-Hardcoding Enforcement', () => {
   // ── 1. Zero !important across all src files ─────────────────────────────────
   test('Rule 1: ZERO !important across any stylesheet or JS style block in src/', () => {
-    const allFiles = getAllFiles(srcDir)
+    const allFiles = allSourceFiles()
     const violations = []
 
     for (const filePath of allFiles) {
@@ -74,7 +88,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
           return
         }
         if (trimmed.includes('!important')) {
-          const rel = path.relative(srcDir, filePath)
+          const rel = path.relative(rootDir, filePath)
           violations.push(`${rel}:${idx + 1} -> ${trimmed}`)
         }
       })
@@ -119,7 +133,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
 
   // ── 3. Zero hardcoded inline pixels (e.g. 180px) in JS files ────────────────
   test('Rule 3: ZERO hardcoded layout dimensions (height: 180px, border-radius: 16px) in JS', () => {
-    const jsFiles = getAllFiles(srcDir, ['.js', '.ts', '.tsx'])
+    const jsFiles = allSourceFiles(['.js', '.ts', '.tsx'])
     const violations = []
 
     const forbiddenPatterns = [
@@ -147,7 +161,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
         }
         for (const pattern of forbiddenPatterns) {
           if (pattern.test(trimmed)) {
-            const rel = path.relative(srcDir, filePath)
+            const rel = path.relative(rootDir, filePath)
             violations.push(`${rel}:${idx + 1} [matches ${pattern}] -> ${trimmed}`)
           }
         }
@@ -158,7 +172,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
   })
 
   // ── 4. Centralized class-token groups are 100% DRY ───────────────────────
-  test('Rule 4: class-token groups are defined and DRY in src/core/tokens', () => {
+  test('Rule 4: class-token groups are defined and DRY in core/tokens', () => {
     expect(SKELETON_CLASSES).toBeDefined()
     expect(typeof SKELETON_CLASSES).toBe(TYPE_STRINGS.OBJECT)
 
@@ -175,9 +189,9 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
     // Ensure the token layer does NOT repeat literal string AWARDS_CLASSES.AWARDS_FOOTER —
     // constants.js is a barrel re-exporting domain modules under core/tokens/,
     // so the check scans the barrel plus every token file it sources from.
-    const tokensDir = path.join(srcDir, DB_PATHS.CORE_SEGMENT, 'tokens')
+    const tokensDir = path.join(coreDir, 'tokens')
     const tokenFiles = getAllFiles(tokensDir, ['.js', '.ts'])
-    const constantsContent = [path.join(srcDir, 'core/constants.ts'), ...tokenFiles]
+    const constantsContent = [path.join(coreDir, 'constants.ts'), ...tokenFiles]
       .map((f) => fs.readFileSync(f, 'utf-8'))
       .join('\n')
     const matches =
@@ -223,13 +237,15 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
 
   // ── 6. Zero forbidden inline string literals in component JS ─────────────────
   test('Rule 6: ZERO forbidden inline string literals in components and patches', () => {
+    // Area-relative paths under the five-root split — website components
+    // moved to website/components, the safari patcher to core/safari/.
     const targetFiles = [
-      'components/carousel/CustomCarousel.js',
-      'components/media/DrawText.js',
-      'components/feedback/CookieBanner.js',
-      'components/feedback/StatsHud.js',
-      'components/media/MediaFigure.js',
-      'safari-patch.js',
+      'website/components/carousel/CustomCarousel.tsx',
+      'website/components/media/DrawText.tsx',
+      'website/components/feedback/CookieBanner.tsx',
+      'website/components/feedback/StatsHud.tsx',
+      'website/components/media/MediaFigure.tsx',
+      'core/safari/patch.ts',
     ]
 
     const forbiddenStrings = [
@@ -245,7 +261,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
     const violations = []
 
     for (const relPath of targetFiles) {
-      const fullPath = path.join(srcDir, relPath)
+      const fullPath = path.join(rootDir, relPath)
       if (!fs.existsSync(fullPath)) continue
 
       const content = fs.readFileSync(fullPath, 'utf-8')
@@ -282,7 +298,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
 
   // ── 7. CookieBanner HTML rendering verification ─────────────────────────────
   test('Rule 7: CookieBanner renders message HTML via dangerouslySetInnerHTML', () => {
-    const bannerPath = path.join(srcDir, 'components/feedback/CookieBanner.tsx')
+    const bannerPath = path.join(websiteDir, 'components/feedback/CookieBanner.tsx')
     const content = fs.readFileSync(bannerPath, 'utf-8')
 
     expect(content).toContain('dangerouslySetInnerHTML')
@@ -316,7 +332,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
 
   // ── 9. Zero raw primitive type strings outside the token layer ─────────────
   test('Rule 9: ZERO raw primitive type strings outside core/tokens', () => {
-    const jsFiles = getAllFiles(srcDir, ['.js', '.ts', '.tsx'])
+    const jsFiles = allSourceFiles(['.js', '.ts', '.tsx'])
       .filter((f) => !f.endsWith('core/constants.js'))
       // core/tokens/ is the dictionary itself — TYPE_STRINGS.UNDEFINED etc. must
       // hold the raw literals. legacy-polyfills/ are standalone pre-module
@@ -344,7 +360,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
 
         for (const token of forbidden) {
           if (trimmed.includes(token)) {
-            const rel = path.relative(srcDir, filePath)
+            const rel = path.relative(rootDir, filePath)
             violations.push(`${rel}:${idx + 1} [contains literal ${token}] -> ${trimmed}`)
           }
         }
@@ -356,7 +372,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
 
   // ── 10. Zero text inside skeleton elements in JSX ──────────────────────────
   test('Rule 10: ZERO text inside skeleton elements in JSX', () => {
-    const jsFiles = getAllFiles(srcDir, ['.js', '.ts', '.tsx'])
+    const jsFiles = allSourceFiles(['.js', '.ts', '.tsx'])
 
     const violations = []
 
@@ -376,7 +392,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
 
         // Match any JSX element with a skeleton class that has inner content before closing tag
         if (/SKELETON/i.test(trimmed) && /<[a-z0-9-]+[^>]*>[^<]+<\/[a-z0-9-]+>/i.test(trimmed)) {
-          const rel = path.relative(srcDir, filePath)
+          const rel = path.relative(rootDir, filePath)
           violations.push(`${rel}:${idx + 1} [skeleton contains inner text] -> ${trimmed}`)
         }
       })
@@ -472,10 +488,12 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
     const preCommit = fs.readFileSync(path.join(rootDir, 'scripts/git-hooks/pre-commit'), 'utf-8')
     const prePush = fs.readFileSync(path.join(rootDir, 'scripts/git-hooks/pre-push'), 'utf-8')
 
+    // Scoped gates: hooks route staged/push diffs through scope-gates.mjs so
+    // only affected areas compile/lint/test — never the whole suite.
     expect(preCommit).toContain('yarn prettier --write')
-    expect(preCommit).toContain('yarn typecheck')
+    expect(preCommit).toContain('scope-gates.mjs areas --staged')
     expect(preCommit).not.toContain('yarn test')
-    expect(prePush).toContain('yarn test')
+    expect(prePush).toContain('scope-gates.mjs')
     expect(prePush).not.toContain('--coverage')
 
     const verifySrc = fs.readFileSync(path.join(rootDir, 'scripts/verify/verify.mjs'), 'utf-8')
@@ -495,7 +513,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
       /(?:while|for)\s*\([^)]*\)[\s\S]{0,400}?\.(?:pop|shift)\(\)[\s\S]{0,400}?\.push\(/
     const offenders = []
 
-    for (const file of getAllFiles(srcDir, ['.ts', '.tsx', '.js'])) {
+    for (const file of allSourceFiles(['.ts', '.tsx', '.js'])) {
       const code = fs.readFileSync(file, 'utf-8')
 
       // Strip comments so commented-out loops don't false-positive.
@@ -520,7 +538,7 @@ describe('Style Governance & Zero-Hardcoding Enforcement', () => {
       /console\.(log|debug|trace|table|group|groupEnd|groupCollapsed|warn|error|info)\s*\(/
     const offenders = []
 
-    for (const file of getAllFiles(srcDir, ['.ts', '.tsx', '.js'])) {
+    for (const file of allSourceFiles(['.ts', '.tsx', '.js'])) {
       const raw = fs.readFileSync(file, 'utf-8')
 
       // Blank comments + string literals so `console.x` in prose isn't flagged.

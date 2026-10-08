@@ -10,12 +10,12 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 
-import { sanitizeHtml } from '@/utils/data/sanitize.js'
+import { sanitizeHtml } from '@core/utils/data/sanitize.js'
 
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
 
 
 // ─── core/locale/ui-text.js ──────────────────────────────────────────────────

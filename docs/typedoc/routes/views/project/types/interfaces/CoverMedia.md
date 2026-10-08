@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [routes/views/project/types](../README.md) / CoverMedia
 
-Defined in: [src/routes/views/project/types.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L28)
+Defined in: [website/views/project/types.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/project/types.ts#L28)
 
 The project cover — like ProjectMediaItem but always present when the
 project has hero media; `size` [w,h] reserves the box so the skeleton shows the
@@ -18,7 +18,7 @@ final aspect ratio before bytes arrive.
 src: string
 ```
 
-Defined in: [src/routes/views/project/types.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L29)
+Defined in: [website/views/project/types.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/project/types.ts#L29)
 
 ---
 
@@ -28,7 +28,7 @@ Defined in: [src/routes/views/project/types.ts:29](https://github.com/LuisKrotz/
 size: number[];
 ```
 
-Defined in: [src/routes/views/project/types.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L30)
+Defined in: [website/views/project/types.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/project/types.ts#L30)
 
 ---
 
@@ -38,7 +38,7 @@ Defined in: [src/routes/views/project/types.ts:30](https://github.com/LuisKrotz/
 optional isVideo?: boolean;
 ```
 
-Defined in: [src/routes/views/project/types.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L31)
+Defined in: [website/views/project/types.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/project/types.ts#L31)
 
 ---
 
@@ -48,4 +48,4 @@ Defined in: [src/routes/views/project/types.ts:31](https://github.com/LuisKrotz/
 optional label?: string;
 ```
 
-Defined in: [src/routes/views/project/types.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L32)
+Defined in: [website/views/project/types.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/project/types.ts#L32)

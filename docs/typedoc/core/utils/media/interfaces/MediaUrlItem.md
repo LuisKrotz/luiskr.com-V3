@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [core/utils/media](../README.md) / MediaUrlItem
 
-Defined in: [src/core/utils/media.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/utils/media.ts#L20)
+Defined in: [core/utils/media.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/media.ts#L20)
 
 A media entry's URL-relevant fields as stored in the DB: `src` is the
 extensionless stem the CDN grammar appends suffixes to, and `isVideo`
@@ -18,7 +18,7 @@ selects between the image and video suffix sets.
 optional src?: string;
 ```
 
-Defined in: [src/core/utils/media.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/utils/media.ts#L21)
+Defined in: [core/utils/media.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/media.ts#L21)
 
 ---
 
@@ -28,4 +28,4 @@ Defined in: [src/core/utils/media.ts:21](https://github.com/LuisKrotz/luiskr.com
 optional isVideo?: boolean;
 ```
 
-Defined in: [src/core/utils/media.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/utils/media.ts#L22)
+Defined in: [core/utils/media.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/media.ts#L22)

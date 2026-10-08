@@ -8,7 +8,7 @@
 function applyPersistedSettings(c): void
 ```
 
-Defined in: [src/playground/space/boot.ts:104](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/boot.ts#L104)
+Defined in: [experiments/earth-playground/space/boot.ts:104](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/boot.ts#L104)
 
 Replays the persisted settings object onto the live engine and panel:
 each saved param runs through PARAM_HANDLERS (the same dispatch live

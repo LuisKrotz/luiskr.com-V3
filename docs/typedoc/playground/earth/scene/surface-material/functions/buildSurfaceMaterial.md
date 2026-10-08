@@ -8,7 +8,7 @@
 function buildSurfaceMaterial(__namedParameters): SurfaceMaterialResult
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L68)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L68)
 
 Builds the Earth's surface material — all TSL so the same node graph
 compiles to WGSL (WebGPU) or GLSL (WebGL fallback):

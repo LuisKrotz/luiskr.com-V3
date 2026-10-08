@@ -65,7 +65,7 @@ Engines failing every tier (e.g. IE11, which lacks ES2015 **syntax** — no
 polyfill can parse `class`/`const` — and Shadow DOM) receive a minimal
 "please update" notice rather than a broken half-boot.
 
-### Polyfill groups (`src/legacy-polyfills/`)
+### Polyfill groups (`core/legacy-polyfills/`)
 
 | Bundle          | Guard (loaded when…)                                               | Contents                         |
 | --------------- | ------------------------------------------------------------------ | -------------------------------- |
@@ -95,7 +95,7 @@ emit sourcemaps for code-split CSS assets, so `emitCss` in
 `scripts/build/build-targets.mjs` ships a mapped copy of the global sheet
 per tier: `app-<hash>.css` + `.map` (unreferenced by the manifest — a
 debug artifact). The map chains Sass → lightningcss via `inputSourceMap`
-and rewrites `sources` to repo-relative `src/sass/**` paths, so minified
+and rewrites `sources` to repo-relative `core/sass/**` paths, so minified
 CSS resolves to real `.scss` lines without leaking the build machine's
 filesystem layout. For iife tiers with no vite CSS, `emitCss` produces
 the served `index-<hash>.css` + map the same way.

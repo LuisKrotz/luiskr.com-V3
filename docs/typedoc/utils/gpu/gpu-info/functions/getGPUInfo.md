@@ -8,7 +8,7 @@
 function getGPUInfo(): GPUInfo
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:86](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L86)
+Defined in: [core/utils/gpu/gpu-info.ts:86](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/gpu-info.ts#L86)
 
 Detects GPU capabilities once and caches the result.
 

@@ -1,7 +1,7 @@
 /**
  * @file polyfill-coverage.test.js
- * @description Forces the guarded installation paths of src/legacy-polyfills/polyfills.js and
- * src/legacy-polyfills/* by deleting the native API each guard checks for,
+ * @description Forces the guarded installation paths of core/legacy-polyfills/polyfills.js and
+ * core/legacy-polyfills/* by deleting the native API each guard checks for,
  * re-importing the module under a fresh registry (jest.resetModules), and
  * asserting the shim both installs and behaves correctly. Heavy third-party
  * polyfill payloads (core-js, webcomponentsjs, whatwg-fetch,
@@ -10,13 +10,13 @@
  */
 
 import { describe, test, expect, jest, afterEach } from '@jest/globals'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { MEDIA_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { SECTION_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { ARIA_ATTRS } from '@core/tokens/attrs/aria.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { MEDIA_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
+import { SECTION_UI_KEYS } from '@core/tokens/data/ui-keys.js'
 
 const cssVarsMock = jest.fn()
 const ResizeObserverShim = class MockRO {
@@ -68,15 +68,15 @@ afterEach(() => {
   jest.resetModules()
 })
 
-// ─── src/legacy-polyfills/polyfills.js ────────────────────────────────────────────────────────
+// ─── core/legacy-polyfills/polyfills.js ────────────────────────────────────────────────────────
 
-describe('src/legacy-polyfills/polyfills.js guarded installs', () => {
+describe('core/legacy-polyfills/polyfills.js guarded installs', () => {
   test('installs structuredClone when missing', async () => {
     saveKey('structuredClone')
     delete globalThis.structuredClone
     jest.resetModules()
 
-    await import('@/legacy-polyfills/polyfills.js')
+    await import('@core/legacy-polyfills/polyfills.js')
 
     expect(typeof globalThis.structuredClone).toBe(TYPE_STRINGS.FUNCTION)
     expect(globalThis.structuredClone({ a: [1, 2] })).toEqual({ a: [1, 2] })
@@ -87,7 +87,7 @@ describe('src/legacy-polyfills/polyfills.js guarded installs', () => {
     delete globalThis.structuredClone
     jest.resetModules()
 
-    await import('@/legacy-polyfills/polyfills.js')
+    await import('@core/legacy-polyfills/polyfills.js')
 
     const cyclic = {}
 
@@ -101,7 +101,7 @@ describe('src/legacy-polyfills/polyfills.js guarded installs', () => {
     delete Array.prototype.at
     jest.resetModules()
 
-    await import('@/legacy-polyfills/polyfills.js')
+    await import('@core/legacy-polyfills/polyfills.js')
 
     expect([1, 2, 3].at(-1)).toBe(3)
     expect([1, 2, 3].at(5)).toBeUndefined()
@@ -113,7 +113,7 @@ describe('src/legacy-polyfills/polyfills.js guarded installs', () => {
     delete String.prototype.at
     jest.resetModules()
 
-    await import('@/legacy-polyfills/polyfills.js')
+    await import('@core/legacy-polyfills/polyfills.js')
 
     expect('abc'.at(-1)).toBe('c')
     expect('abc'.at(5)).toBeUndefined()
@@ -124,7 +124,7 @@ describe('src/legacy-polyfills/polyfills.js guarded installs', () => {
     delete Object.hasOwn
     jest.resetModules()
 
-    await import('@/legacy-polyfills/polyfills.js')
+    await import('@core/legacy-polyfills/polyfills.js')
 
     expect(Object.hasOwn({ x: 1 }, 'x')).toBe(true)
     expect(Object.hasOwn({ x: 1 }, 'y')).toBe(false)
@@ -135,7 +135,7 @@ describe('src/legacy-polyfills/polyfills.js guarded installs', () => {
     delete globalThis.queueMicrotask
     jest.resetModules()
 
-    await import('@/legacy-polyfills/polyfills.js')
+    await import('@core/legacy-polyfills/polyfills.js')
 
     const ran = jest.fn()
 
@@ -150,7 +150,7 @@ describe('src/legacy-polyfills/polyfills.js guarded installs', () => {
     delete HTMLElement.prototype.inert
     jest.resetModules()
 
-    await import('@/legacy-polyfills/polyfills.js')
+    await import('@core/legacy-polyfills/polyfills.js')
 
     const host = document.createElement(HTML_TAGS.DIV)
     const btn = document.createElement(HTML_TAGS.BUTTON)
@@ -185,7 +185,7 @@ describe('src/legacy-polyfills/polyfills.js guarded installs', () => {
     delete globalThis.queueMicrotask
     jest.resetModules()
 
-    await import('@/legacy-polyfills/polyfills.js')
+    await import('@core/legacy-polyfills/polyfills.js')
 
     const timeoutSpy = jest.spyOn(globalThis, 'setTimeout').mockImplementation(() => 0)
 
@@ -203,9 +203,9 @@ describe('src/legacy-polyfills/polyfills.js guarded installs', () => {
   })
 })
 
-// ─── src/legacy-polyfills/* ──────────────────────────────────────────────────
+// ─── core/legacy-polyfills/* ──────────────────────────────────────────────────
 
-describe('src/legacy-polyfills wrappers', () => {
+describe('core/legacy-polyfills wrappers', () => {
   jest.setTimeout(30000)
 
   test('ro.js installs ResizeObserver when absent', async () => {
@@ -213,7 +213,7 @@ describe('src/legacy-polyfills wrappers', () => {
     delete window.ResizeObserver
     jest.resetModules()
 
-    await import('@/legacy-polyfills/ro.js')
+    await import('@core/legacy-polyfills/ro.js')
 
     expect(window.ResizeObserver).toBe(ResizeObserverShim)
   })
@@ -226,7 +226,7 @@ describe('src/legacy-polyfills wrappers', () => {
     window.ResizeObserver = NativeRO
     jest.resetModules()
 
-    await import('@/legacy-polyfills/ro.js')
+    await import('@core/legacy-polyfills/ro.js')
 
     expect(window.ResizeObserver).toBe(NativeRO)
   })
@@ -234,7 +234,7 @@ describe('src/legacy-polyfills wrappers', () => {
   test('cssvars.js invokes the ponyfill with watch enabled', async () => {
     jest.resetModules()
 
-    await import('@/legacy-polyfills/cssvars.js')
+    await import('@core/legacy-polyfills/cssvars.js')
 
     expect(cssVarsMock).toHaveBeenCalledWith(
       expect.objectContaining({ watch: true, onlyLegacy: true })
@@ -244,29 +244,29 @@ describe('src/legacy-polyfills wrappers', () => {
   test('es-core.js evaluates without throwing', async () => {
     jest.resetModules()
 
-    await expect(import('@/legacy-polyfills/es-core.js')).resolves.toBeTruthy()
+    await expect(import('@core/legacy-polyfills/es-core.js')).resolves.toBeTruthy()
   })
 
   test('webcomponents.js evaluates without throwing', async () => {
     jest.resetModules()
 
-    await expect(import('@/legacy-polyfills/webcomponents.js')).resolves.toBeTruthy()
+    await expect(import('@core/legacy-polyfills/webcomponents.js')).resolves.toBeTruthy()
   })
 
   test('fetch.js evaluates without throwing', async () => {
     jest.resetModules()
 
-    await expect(import('@/legacy-polyfills/fetch.js')).resolves.toBeTruthy()
+    await expect(import('@core/legacy-polyfills/fetch.js')).resolves.toBeTruthy()
   })
 
   test('io.js evaluates without throwing', async () => {
     jest.resetModules()
 
-    await expect(import('@/legacy-polyfills/io.js')).resolves.toBeTruthy()
+    await expect(import('@core/legacy-polyfills/io.js')).resolves.toBeTruthy()
   })
 })
 
-describe('src/legacy-polyfills/dom.js shims', () => {
+describe('core/legacy-polyfills/dom.js shims', () => {
   test('installs queueMicrotask + requestIdleCallback when missing', async () => {
     saveKey('queueMicrotask', window)
     saveKey('requestIdleCallback', window)
@@ -275,7 +275,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete window.requestIdleCallback
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     expect(typeof window.queueMicrotask).toBe(TYPE_STRINGS.FUNCTION)
     expect(typeof window.requestIdleCallback).toBe(TYPE_STRINGS.FUNCTION)
@@ -297,7 +297,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     globalThis.requestIdleCallback = native
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     expect(globalThis.requestIdleCallback).toBe(native)
   })
@@ -307,7 +307,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete globalThis.AbortController
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     const ac = new window.AbortController()
 
@@ -323,7 +323,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete window.CustomEvent
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     // happy-dom's createEvent routes through window.CustomEvent internally,
     // so instantiating the polyfill would recurse — assert installation
@@ -351,7 +351,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     Element.prototype.webkitMatchesSelector = nativeMatches
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     const host = document.createElement(HTML_TAGS.DIV)
     const btn = document.createElement(HTML_TAGS.BUTTON)
@@ -372,7 +372,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete HTMLElement.prototype.inert
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     const host = document.createElement(HTML_TAGS.DIV)
     const btn = document.createElement(HTML_TAGS.BUTTON)
@@ -401,7 +401,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete window.queueMicrotask
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     const cb = jest.fn()
 
@@ -435,7 +435,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete window.requestIdleCallback
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     let info = null
 
@@ -458,7 +458,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete window.structuredClone
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     expect(window.structuredClone({ a: [1, 2] })).toEqual({ a: [1, 2] })
 
@@ -474,7 +474,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete globalThis.AbortController
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     const ac = new window.AbortController()
 
@@ -496,7 +496,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete Element.prototype.webkitMatchesSelector
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     const el = document.createElement(HTML_TAGS.DIV)
 
@@ -509,7 +509,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete Element.prototype.closest
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     expect(document.documentElement.closest(HTML_TAGS.SPAN)).toBe(null)
   })
@@ -521,7 +521,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete window.Event
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     expect(typeof window.CustomEvent).toBe(TYPE_STRINGS.FUNCTION)
     expect(window.CustomEvent.prototype).toEqual({})
@@ -532,7 +532,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete window.CustomEvent
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     // happy-dom's createEvent routes through window.CustomEvent — stub it so
     // the polyfill constructor can run without recursing into itself.
@@ -561,7 +561,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete globalThis.window
     jest.resetModules()
 
-    await expect(import('@/legacy-polyfills/cssvars.js')).resolves.toBeDefined()
+    await expect(import('@core/legacy-polyfills/cssvars.js')).resolves.toBeDefined()
   })
 
   test('Element guard skips matches/closest when Element is undefined', async () => {
@@ -569,7 +569,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete globalThis.Element
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
   })
 
   test('inert getter reflects the attribute and preserves prior tabindex', async () => {
@@ -577,7 +577,7 @@ describe('src/legacy-polyfills/dom.js shims', () => {
     delete HTMLElement.prototype.inert
     jest.resetModules()
 
-    await import('@/legacy-polyfills/dom.js')
+    await import('@core/legacy-polyfills/dom.js')
 
     const host = document.createElement(HTML_TAGS.DIV)
     const btn = document.createElement(HTML_TAGS.BUTTON)
@@ -642,7 +642,7 @@ describe('registerServiceWorker', () => {
   })
 })
 
-// ─── src/utils/route-warmer.js ───────────────────────────────────────────────
+// ─── core/utils/route-warmer.js ───────────────────────────────────────────────
 
 describe('route-warmer', () => {
   test('schedules via requestIdleCallback after window load', async () => {
@@ -656,7 +656,8 @@ describe('route-warmer', () => {
       return 1
     }
 
-    const { startRouteWarming, stopRouteWarming } = await import('@/utils/motion/route-warmer.js')
+    const { startRouteWarming, stopRouteWarming } =
+      await import('@core/utils/motion/route-warmer.js')
 
     startRouteWarming()
     stopRouteWarming()
@@ -675,7 +676,8 @@ describe('route-warmer', () => {
   test('is idempotent — a second call does not reschedule', async () => {
     jest.resetModules()
 
-    const { startRouteWarming, stopRouteWarming } = await import('@/utils/motion/route-warmer.js')
+    const { startRouteWarming, stopRouteWarming } =
+      await import('@core/utils/motion/route-warmer.js')
 
     startRouteWarming()
     startRouteWarming()
@@ -686,7 +688,7 @@ describe('route-warmer', () => {
 
   test('swallows a failing route chunk and keeps warming the rest', async () => {
     jest.resetModules()
-    jest.unstable_mockModule('@/routes/views/home/Home.js', () => {
+    jest.unstable_mockModule('@website/views/home/Home.js', () => {
       throw new Error('warm-fail')
     })
     saveKey('requestIdleCallback', window)
@@ -696,7 +698,8 @@ describe('route-warmer', () => {
       return 1
     }
 
-    const { startRouteWarming, stopRouteWarming } = await import('@/utils/motion/route-warmer.js')
+    const { startRouteWarming, stopRouteWarming } =
+      await import('@core/utils/motion/route-warmer.js')
 
     startRouteWarming()
     window.dispatchEvent(new window.Event(WINDOW_EVENTS.LOAD))
@@ -728,7 +731,8 @@ describe('route-warmer', () => {
       configurable: true,
     })
 
-    const { startRouteWarming, stopRouteWarming } = await import('@/utils/motion/route-warmer.js')
+    const { startRouteWarming, stopRouteWarming } =
+      await import('@core/utils/motion/route-warmer.js')
 
     startRouteWarming()
 

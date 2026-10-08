@@ -8,7 +8,7 @@
 function goToAbout(host): void
 ```
 
-Defined in: [src/components/nav/scroll.ts:92](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/nav/scroll.ts#L92)
+Defined in: [website/components/nav/scroll.ts:92](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/nav/scroll.ts#L92)
 
 Navigates to (or scrolls to) the about section — route-aware.
 

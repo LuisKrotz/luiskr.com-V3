@@ -4,7 +4,7 @@ Locale + translation-dictionary mutations: setLang
 
 | | |
 |---|---|
-| **Source** | `src/core/store/mutations/lang.ts` |
+| **Source** | `core/store/mutations/lang.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

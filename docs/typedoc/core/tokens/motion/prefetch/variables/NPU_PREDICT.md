@@ -30,7 +30,7 @@ const NPU_PREDICT: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/motion/prefetch.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/motion/prefetch.ts#L26)
+Defined in: [core/tokens/motion/prefetch.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/motion/prefetch.ts#L26)
 
 NPU/GPU predictor scoring constants — the heuristic weights for
 hover-dwell vs pointer-speed and the auto-prefetch confidence cutoff.

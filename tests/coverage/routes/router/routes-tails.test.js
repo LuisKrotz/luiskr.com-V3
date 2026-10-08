@@ -9,21 +9,21 @@
  */
 import { jest } from '@jest/globals'
 
-import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
+import { DATA_ATTRS } from '@core/tokens/attrs/data.js'
 
-import '@/core/constants.js'
+import '@core/constants.js'
 
-import '@/cms/about/CmsAboutEditor.js'
-import '@/cms/portfolio/CmsPortfolioList.js'
-import '@/cms/projects/CmsProjectsList.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
+import '@cms/about/CmsAboutEditor.js'
+import '@cms/portfolio/CmsPortfolioList.js'
+import '@cms/projects/CmsProjectsList.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
 
-import { updateRobotsMeta, resolveProjectSlug } from '@/routes/views/project/data.js'
-import { bindProjectCarousels } from '@/routes/views/project/carousels.js'
-import { handleNavigation } from '@/routes/navigate.js'
-import router from '@/routes/router.js'
+import { updateRobotsMeta, resolveProjectSlug } from '@website/views/project/data.js'
+import { bindProjectCarousels } from '@website/views/project/carousels.js'
+import { handleNavigation } from '@core/router/navigate.js'
+import router from '@core/router/router.js'
 
 globalThis.alert = jest.fn()
 

@@ -3,16 +3,16 @@
  * @description Locale data loading for AppRoot — fetches the APP translation node per locale, fans it out to translations, and caches the loaded lang.
  */
 
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { LANG_MUTATIONS, UI_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { DB_PATHS } from '@/core/tokens/routes/paths.js'
-import store from '@/core/store.js'
-import { fetchFirebaseDb } from '@/utils/data/db.js'
-import type { DbSnapshot } from '@/utils/data/db.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { LANG_MUTATIONS, UI_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { DB_PATHS } from '@core/tokens/routes/paths.js'
+import store from '@core/store.js'
+import { fetchFirebaseDb } from '@core/utils/data/db.js'
+import type { DbSnapshot } from '@core/utils/data/db.js'
 import type { AppNavEl, AppTranslations, CookieBannerEl, PrefModalEl } from './types.js'
 import type { AppRoot } from '../App.js'
-import { devError } from '@/core/devlog.js'
+import { devError } from '@core/devlog.js'
 
 /**
  * Loads app data.

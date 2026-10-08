@@ -7,12 +7,12 @@
  * and worker failures fall back silently.
  */
 import { describe, test, expect, jest, afterEach } from '@jest/globals'
-import { flagImage, flagTexture } from '@/utils/canvas/widgets/flag/texture.js'
-import { FlagRenderer } from '@/utils/canvas/widgets/flag/renderer.js'
-import { wasmImageDecoder } from '@/utils/wasm/wasm-image-decoder.js'
+import { flagImage, flagTexture } from '@core/utils/canvas/widgets/flag/texture.js'
+import { FlagRenderer } from '@core/utils/canvas/widgets/flag/renderer.js'
+import { wasmImageDecoder } from '@core/utils/wasm/wasm-image-decoder.js'
 import { createMockGL, createMock2D } from '../../../fixtures/mock-webgl.js'
-import { FLAG_TEXTURE } from '@/core/tokens/media/flag-texture.js'
-import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
+import { FLAG_TEXTURE } from '@core/tokens/media/flag-texture.js'
+import { WEBGL_STRINGS } from '@core/tokens/strings/webgl.js'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
 

@@ -8,7 +8,7 @@
 function getUniforms(gl, program, names): Record<string, WebGLUniformLocation | null>
 ```
 
-Defined in: [src/utils/canvas/gl-program.ts:128](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/gl-program.ts#L128)
+Defined in: [core/utils/canvas/gl-program.ts:128](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/gl-program.ts#L128)
 
 Resolves a uniform-location map — keys are the caller's shorthand,
 values are the shader's `u_*` names (identical keys work too).

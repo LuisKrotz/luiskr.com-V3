@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/dialogs/lang-dialog/render.tsx` |
+| **Source** | `website/components/dialogs/lang-dialog/render.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

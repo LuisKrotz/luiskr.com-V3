@@ -8,7 +8,7 @@
 function isFeatured(view, item): boolean
 ```
 
-Defined in: [src/routes/views/home/data.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/home/data.ts#L34)
+Defined in: [website/views/home/data.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/home/data.ts#L34)
 
 Featured detection accepts three sources: explicit boolean/string/1
 on the item itself (CMS stores typed values loosely), or membership

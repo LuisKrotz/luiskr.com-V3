@@ -8,7 +8,7 @@
 function notify(ed, msg): void
 ```
 
-Defined in: [src/cms/playground-editor/data.ts:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/playground-editor/data.ts#L127)
+Defined in: [cms/playground-editor/data.ts:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/playground-editor/data.ts#L127)
 
 Fires a cms-notification toast.
 

@@ -10,7 +10,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { TEST_UA } from '../fixtures/test-constants.js'
-import { BROWSERS } from '@/core/browser/detect.js'
+import { BROWSERS } from '@core/browser/detect.js'
 
 const LOADER = fs.readFileSync(
   path.join(process.cwd(), 'scripts', 'build', 'browser-loader.js'),

@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [routes/views/project/types](../README.md) / CustomCarouselElement
 
-Defined in: [src/routes/views/project/types.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L60)
+Defined in: [website/views/project/types.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/project/types.ts#L60)
 
 Structural contract for <custom-carousel> — the view calls
 `configure()` after upgrading, so the type exposes just that method (an
@@ -4719,7 +4719,7 @@ HTMLElement.style
 configure(_opts): void;
 ```
 
-Defined in: [src/routes/views/project/types.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/project/types.ts#L61)
+Defined in: [website/views/project/types.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/project/types.ts#L61)
 
 #### Parameters
 

@@ -1,1 +1,0 @@
-var Ea=Object.freeze({Ks:"--carousel-item-height",Kf:"--range-pct"});export{Ea as t};

@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [components/carousel/custom-carousel/render](../README.md) / CarouselItem
 
-Defined in: [src/components/carousel/custom-carousel/render.tsx:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/render.tsx#L23)
+Defined in: [website/components/carousel/custom-carousel/render.tsx:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/render.tsx#L23)
 
 Slide descriptor consumed by the carousel.
 
@@ -16,7 +16,7 @@ Slide descriptor consumed by the carousel.
 src: string
 ```
 
-Defined in: [src/components/carousel/custom-carousel/render.tsx:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/render.tsx#L25)
+Defined in: [website/components/carousel/custom-carousel/render.tsx:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/render.tsx#L25)
 
 Extensionless CDN stem — the media-figure resolves the real filename.
 
@@ -28,7 +28,7 @@ Extensionless CDN stem — the media-figure resolves the real filename.
 optional size?: number[];
 ```
 
-Defined in: [src/components/carousel/custom-carousel/render.tsx:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/render.tsx#L27)
+Defined in: [website/components/carousel/custom-carousel/render.tsx:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/render.tsx#L27)
 
 Intrinsic [w,h] for aspect-ratio layout (optional — falls back to GENERIC_DIMENSIONS).
 
@@ -40,7 +40,7 @@ Intrinsic [w,h] for aspect-ratio layout (optional — falls back to GENERIC_DIME
 optional label?: string;
 ```
 
-Defined in: [src/components/carousel/custom-carousel/render.tsx:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/render.tsx#L29)
+Defined in: [website/components/carousel/custom-carousel/render.tsx:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/render.tsx#L29)
 
 Accessible/visible caption.
 
@@ -52,7 +52,7 @@ Accessible/visible caption.
 optional class?: string;
 ```
 
-Defined in: [src/components/carousel/custom-carousel/render.tsx:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/render.tsx#L31)
+Defined in: [website/components/carousel/custom-carousel/render.tsx:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/render.tsx#L31)
 
 Extra layout class (e.g. 'landscape') forwarded to the item wrapper.
 
@@ -64,7 +64,7 @@ Extra layout class (e.g. 'landscape') forwarded to the item wrapper.
 optional isVideo?: boolean;
 ```
 
-Defined in: [src/components/carousel/custom-carousel/render.tsx:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/render.tsx#L33)
+Defined in: [website/components/carousel/custom-carousel/render.tsx:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/render.tsx#L33)
 
 Video slide flag — routes to the mp4 grammar + video element.
 
@@ -76,6 +76,6 @@ Video slide flag — routes to the mp4 grammar + video element.
 optional canExpand?: boolean;
 ```
 
-Defined in: [src/components/carousel/custom-carousel/render.tsx:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/carousel/custom-carousel/render.tsx#L35)
+Defined in: [website/components/carousel/custom-carousel/render.tsx:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/carousel/custom-carousel/render.tsx#L35)
 
 Whether the slide can open the fullscreen expand modal.

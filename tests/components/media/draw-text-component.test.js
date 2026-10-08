@@ -6,20 +6,20 @@
  *
  */
 
-import '@/components/media/DrawText.js'
-import store from '@/core/store.js'
+import '@website/components/media/DrawText.js'
+import store from '@core/store.js'
 import { TEST_TEXT } from '../../fixtures/test-constants.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { COMMON_SELECTORS } from '@/core/tokens/selectors/common.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { DRAW_TEXT_CLASSES } from '@/core/tokens/classes/draw-text.js'
-import { DRAW_TEXT_SELECTORS } from '@/core/tokens/selectors/draw-text.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { COMMON_SELECTORS } from '@core/tokens/selectors/common.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { DRAW_TEXT_CLASSES } from '@core/tokens/classes/draw-text.js'
+import { DRAW_TEXT_SELECTORS } from '@core/tokens/selectors/draw-text.js'
 
 describe('DrawText Component', () => {
   let el

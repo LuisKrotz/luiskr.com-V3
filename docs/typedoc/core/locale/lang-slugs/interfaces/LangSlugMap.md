@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [core/locale/lang-slugs](../README.md) / LangSlugMap
 
-Defined in: [src/core/locale/lang-slugs.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/locale/lang-slugs.ts#L15)
+Defined in: [core/locale/lang-slugs.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/locale/lang-slugs.ts#L15)
 
 One locale's localized route segments (keys match the router's route ids).
 
@@ -16,7 +16,7 @@ One locale's localized route segments (keys match the router's route ids).
 about: string
 ```
 
-Defined in: [src/core/locale/lang-slugs.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/locale/lang-slugs.ts#L16)
+Defined in: [core/locale/lang-slugs.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/locale/lang-slugs.ts#L16)
 
 ---
 
@@ -26,7 +26,7 @@ Defined in: [src/core/locale/lang-slugs.ts:16](https://github.com/LuisKrotz/luis
 contact: string
 ```
 
-Defined in: [src/core/locale/lang-slugs.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/locale/lang-slugs.ts#L17)
+Defined in: [core/locale/lang-slugs.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/locale/lang-slugs.ts#L17)
 
 ---
 
@@ -36,7 +36,7 @@ Defined in: [src/core/locale/lang-slugs.ts:17](https://github.com/LuisKrotz/luis
 privacy: string
 ```
 
-Defined in: [src/core/locale/lang-slugs.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/locale/lang-slugs.ts#L18)
+Defined in: [core/locale/lang-slugs.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/locale/lang-slugs.ts#L18)
 
 ---
 
@@ -46,7 +46,7 @@ Defined in: [src/core/locale/lang-slugs.ts:18](https://github.com/LuisKrotz/luis
 gdpr: string
 ```
 
-Defined in: [src/core/locale/lang-slugs.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/locale/lang-slugs.ts#L19)
+Defined in: [core/locale/lang-slugs.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/locale/lang-slugs.ts#L19)
 
 ---
 
@@ -56,7 +56,7 @@ Defined in: [src/core/locale/lang-slugs.ts:19](https://github.com/LuisKrotz/luis
 terms: string
 ```
 
-Defined in: [src/core/locale/lang-slugs.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/locale/lang-slugs.ts#L20)
+Defined in: [core/locale/lang-slugs.ts:20](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/locale/lang-slugs.ts#L20)
 
 ---
 
@@ -66,4 +66,4 @@ Defined in: [src/core/locale/lang-slugs.ts:20](https://github.com/LuisKrotz/luis
 earthPlayground: string
 ```
 
-Defined in: [src/core/locale/lang-slugs.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/locale/lang-slugs.ts#L21)
+Defined in: [core/locale/lang-slugs.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/locale/lang-slugs.ts#L21)

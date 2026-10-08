@@ -4,7 +4,7 @@ FPS sampler for the stats engine: counts rAF ticks and
 
 | | |
 |---|---|
-| **Source** | `src/utils/perf/stats/fps.ts` |
+| **Source** | `core/utils/perf/stats/fps.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

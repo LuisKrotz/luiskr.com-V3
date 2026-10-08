@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/nav/handlers.ts` |
+| **Source** | `website/components/nav/handlers.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

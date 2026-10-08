@@ -22,7 +22,7 @@ const DRAW_TIMINGS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/media/dimensions.ts:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/media/dimensions.ts#L127)
+Defined in: [core/tokens/media/dimensions.ts:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/media/dimensions.ts#L127)
 
 Frozen draw-text timing map (ms + observer fraction) — caps and defaults
 for the per-character staggered reveal: `EXTRA_MS`/`MAX_MS` bound total

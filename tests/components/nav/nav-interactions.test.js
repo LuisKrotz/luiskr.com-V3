@@ -7,19 +7,19 @@
  * route variant.
  */
 import { jest } from '@jest/globals'
-import { KEYS, ROUTE_NAMES, SECTIONS } from '@/core/constants.js'
-import store from '@/core/store.js'
-import router from '@/routes/router.js'
-import '@/components/nav/AppNav.js'
+import { KEYS, ROUTE_NAMES, SECTIONS } from '@core/constants.js'
+import store from '@core/store.js'
+import router from '@core/router/router.js'
+import '@website/components/nav/AppNav.js'
 import { TEST_TEXT } from '../../fixtures/test-constants.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
-import { KEYBOARD_EVENTS } from '@/core/tokens/events/dom.js'
-import { APP_EVENTS } from '@/core/tokens/events/app.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { MODAL_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { ANIMATION_DURATIONS } from '@core/tokens/motion/animation.js'
+import { KEYBOARD_EVENTS } from '@core/tokens/events/dom.js'
+import { APP_EVENTS } from '@core/tokens/events/app.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { MODAL_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
 
 const flush = (ms = 60) => new Promise((r) => setTimeout(r, ms))
 

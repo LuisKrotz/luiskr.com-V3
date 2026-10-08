@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [utils/gpu/gpu-info](../README.md) / GPUInfo
 
-Defined in: [src/utils/gpu/gpu-info.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L22)
+Defined in: [core/utils/gpu/gpu-info.ts:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/gpu-info.ts#L22)
 
 Classified GPU probe result — frozen so consumers can't mutate the cache.
 
@@ -16,7 +16,7 @@ Classified GPU probe result — frozen so consumers can't mutate the cache.
 renderer: string
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L24)
+Defined in: [core/utils/gpu/gpu-info.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/gpu-info.ts#L24)
 
 Unmasked renderer string ('ANGLE (NVIDIA…)', 'Apple M1', 'SwiftShader', …).
 
@@ -28,7 +28,7 @@ Unmasked renderer string ('ANGLE (NVIDIA…)', 'Apple M1', 'SwiftShader', …).
 dedicated: boolean
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L26)
+Defined in: [core/utils/gpu/gpu-info.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/gpu-info.ts#L26)
 
 Discrete-card class detected (NVIDIA/AMD/Radeon Pro).
 
@@ -40,7 +40,7 @@ Discrete-card class detected (NVIDIA/AMD/Radeon Pro).
 apple: boolean
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L28)
+Defined in: [core/utils/gpu/gpu-info.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/gpu-info.ts#L28)
 
 Apple Silicon detected — unified memory but GPU-class performance.
 
@@ -52,7 +52,7 @@ Apple Silicon detected — unified memory but GPU-class performance.
 integrated: boolean
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L30)
+Defined in: [core/utils/gpu/gpu-info.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/gpu-info.ts#L30)
 
 Integrated GPU detected (Intel UHD/Iris, basic ANGLE adapters).
 
@@ -64,7 +64,7 @@ Integrated GPU detected (Intel UHD/Iris, basic ANGLE adapters).
 software: boolean
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L32)
+Defined in: [core/utils/gpu/gpu-info.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/gpu-info.ts#L32)
 
 Software rasterizer (SwiftShader/llvmpipe) — GPU work falls back to CSS.
 
@@ -76,7 +76,7 @@ Software rasterizer (SwiftShader/llvmpipe) — GPU work falls back to CSS.
 mobile: boolean
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L34)
+Defined in: [core/utils/gpu/gpu-info.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/gpu-info.ts#L34)
 
 Mobile-class user agent — deprioritizes GPU pinning regardless of chip.
 
@@ -88,6 +88,6 @@ Mobile-class user agent — deprioritizes GPU pinning regardless of chip.
 capable: boolean
 ```
 
-Defined in: [src/utils/gpu/gpu-info.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/gpu/gpu-info.ts#L36)
+Defined in: [core/utils/gpu/gpu-info.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/gpu/gpu-info.ts#L36)
 
 Worth pinning GPU work to — desktop discrete or Apple Silicon.

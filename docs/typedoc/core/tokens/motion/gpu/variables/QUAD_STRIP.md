@@ -11,7 +11,7 @@ const QUAD_STRIP: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/motion/gpu.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/motion/gpu.ts#L40)
+Defined in: [core/tokens/motion/gpu.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/motion/gpu.ts#L40)
 
 Fullscreen-quad clip-space vertices for TRIANGLE_STRIP draw — 4 verts
 covering [-1,-1]→[1,1]. Shared by every shader quad so the literal is

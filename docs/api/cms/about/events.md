@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/about/events.ts` |
+| **Source** | `cms/about/events.ts` |
 | **UX surface** | About-section editor card. |
 
 ## Members

@@ -6,17 +6,17 @@
  *
  */
 
-import { LOCALES } from '@/core/constants.js'
-import { VALID_LANGS, LANG_SLUGS, detectLangFromPath } from '@/core/i18n.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { LANG_STRINGS } from '@/core/tokens/strings/langs.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
-import { ROUTE_STRINGS } from '@/core/tokens/strings/routes.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { ABOUT_CLASSES } from '@/core/tokens/classes/about.js'
-import { CONTACT_CLASSES } from '@/core/tokens/classes/contact.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+import { LOCALES } from '@core/constants.js'
+import { VALID_LANGS, LANG_SLUGS, detectLangFromPath } from '@core/i18n.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { LANG_STRINGS } from '@core/tokens/strings/langs.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { SECTION_IDS } from '@core/tokens/ids/sections.js'
+import { ROUTE_STRINGS } from '@core/tokens/strings/routes.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { ABOUT_CLASSES } from '@core/tokens/classes/about.js'
+import { CONTACT_CLASSES } from '@core/tokens/classes/contact.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
 
 describe('i18n — Internationalization System', () => {
   // ── VALID_LANGS ─────────────────────────────────────────────────────────────
@@ -348,14 +348,14 @@ describe('i18n — Internationalization System', () => {
   // ── Integration with Router ──────────────────────────────────────────────────
   describe('7. Integration with Router via i18n Constants', () => {
     test('all VALID_LANGS can be prefixed to "/" without crash', async () => {
-      const { default: router } = await import('@/routes/router.js')
+      const { default: router } = await import('@core/router/router.js')
       VALID_LANGS.forEach((lang) => {
         expect(() => router.resolve(`/${lang}`)).not.toThrow()
       })
     })
 
     test('all LANG_SLUGS about routes resolve to view-home', async () => {
-      const { default: router } = await import('@/routes/router.js')
+      const { default: router } = await import('@core/router/router.js')
       Object.entries(LANG_SLUGS).forEach(([lang, slugs]) => {
         if (!VALID_LANGS.includes(lang)) return
         const result = router.resolve(`/${lang}/${slugs.about}`)
@@ -365,7 +365,7 @@ describe('i18n — Internationalization System', () => {
     })
 
     test('all LANG_SLUGS contact routes resolve to view-home with scrollTo:contact', async () => {
-      const { default: router } = await import('@/routes/router.js')
+      const { default: router } = await import('@core/router/router.js')
       Object.entries(LANG_SLUGS).forEach(([lang, slugs]) => {
         if (!VALID_LANGS.includes(lang)) return
         const result = router.resolve(`/${lang}/${slugs.contact}`)
@@ -375,7 +375,7 @@ describe('i18n — Internationalization System', () => {
     })
 
     test('all LANG_SLUGS privacy routes resolve to view-legal', async () => {
-      const { default: router } = await import('@/routes/router.js')
+      const { default: router } = await import('@core/router/router.js')
       Object.entries(LANG_SLUGS).forEach(([lang, slugs]) => {
         if (!VALID_LANGS.includes(lang)) return
         const result = router.resolve(`/${lang}/${slugs.privacy}`)
@@ -384,7 +384,7 @@ describe('i18n — Internationalization System', () => {
     })
 
     test('all LANG_SLUGS gdpr routes resolve to view-legal', async () => {
-      const { default: router } = await import('@/routes/router.js')
+      const { default: router } = await import('@core/router/router.js')
       Object.entries(LANG_SLUGS).forEach(([lang, slugs]) => {
         if (!VALID_LANGS.includes(lang)) return
         const result = router.resolve(`/${lang}/${slugs.gdpr}`)
@@ -393,7 +393,7 @@ describe('i18n — Internationalization System', () => {
     })
 
     test('all LANG_SLUGS terms routes resolve to view-legal', async () => {
-      const { default: router } = await import('@/routes/router.js')
+      const { default: router } = await import('@core/router/router.js')
       Object.entries(LANG_SLUGS).forEach(([lang, slugs]) => {
         if (!VALID_LANGS.includes(lang)) return
         const result = router.resolve(`/${lang}/${slugs.terms}`)

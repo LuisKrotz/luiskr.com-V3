@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [playground/earth/scene/surface-material](../README.md) / SurfaceMaterialResult
 
-Defined in: [src/playground/earth/scene/surface-material.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L41)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L41)
 
 The built material plus the uniforms/nodes other shells reuse.
 
@@ -16,7 +16,7 @@ The built material plus the uniforms/nodes other shells reuse.
 mat: MeshPhysicalNodeMaterial
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L43)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L43)
 
 The configured physical node material for the Earth mesh.
 
@@ -28,7 +28,7 @@ The configured physical node material for the Earth mesh.
 earthMatUniforms: Record<string, UniformNode<'float', number>>
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L45)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L45)
 
 Slider-bound uniforms (GUI writes straight into .value).
 
@@ -40,7 +40,7 @@ Slider-bound uniforms (GUI writes straight into .value).
 shared: object
 ```
 
-Defined in: [src/playground/earth/scene/surface-material.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/surface-material.ts#L47)
+Defined in: [experiments/earth-playground/earth/scene/surface-material.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/surface-material.ts#L47)
 
 Lighting terms shared with the cloud/atmosphere shells so the day/night/eclipse model stays consistent.
 

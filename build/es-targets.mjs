@@ -176,38 +176,38 @@ export const ES_TARGETS = [
 export const POLYFILLS = [
   {
     name: 'es-core',
-    entry: 'src/legacy-polyfills/es-core.js',
+    entry: 'core/legacy-polyfills/es-core.js',
     // Missing any core primitive → needs the whole ES shim layer.
     guard: `typeof Promise === 'function' && typeof Symbol === 'function' && typeof Map === 'function' && typeof Object.assign === 'function'`,
   },
   {
     name: 'fetch',
-    entry: 'src/legacy-polyfills/fetch.js',
+    entry: 'core/legacy-polyfills/fetch.js',
     guard: `typeof fetch === 'function'`,
   },
   {
     name: 'webcomponents',
-    entry: 'src/legacy-polyfills/webcomponents.js',
+    entry: 'core/legacy-polyfills/webcomponents.js',
     guard: `typeof customElements === 'object' && typeof Element.prototype.attachShadow === 'function'`,
   },
   {
     name: 'io',
-    entry: 'src/legacy-polyfills/io.js',
+    entry: 'core/legacy-polyfills/io.js',
     guard: `typeof IntersectionObserver === 'function'`,
   },
   {
     name: 'ro',
-    entry: 'src/legacy-polyfills/ro.js',
+    entry: 'core/legacy-polyfills/ro.js',
     guard: `typeof ResizeObserver === 'function'`,
   },
   {
     name: 'dom',
-    entry: 'src/legacy-polyfills/dom.js',
+    entry: 'core/legacy-polyfills/dom.js',
     guard: `typeof queueMicrotask === 'function' && typeof requestIdleCallback === 'function' && typeof structuredClone === 'function' && typeof AbortController === 'function' && typeof Element.prototype.closest === 'function'`,
   },
   {
     name: 'cssvars',
-    entry: 'src/legacy-polyfills/cssvars.js',
+    entry: 'core/legacy-polyfills/cssvars.js',
     guard: `typeof CSS !== 'undefined' && typeof CSS.supports === 'function' && CSS.supports('(--a:0)')`,
   },
 ]
@@ -230,7 +230,7 @@ export const POLYFILL_ORDER = ['es-core', 'fetch', 'dom', 'webcomponents', 'io',
  */
 /**
  * Browser identification table — the canonical copy lives in
- * `src/core/browser/detect.ts` (BROWSERS) so the ES5 loader manifest and
+ * `core/browser/detect.ts` (BROWSERS) so the ES5 loader manifest and
  * the typed runtime reader can never drift apart. `pattern` strings are
  * regex sources — they survive JSON serialization into the `__LK`
  * manifest; the loader recompiles them with `new RegExp(pattern)`.
@@ -242,4 +242,4 @@ export const POLYFILL_ORDER = ['es-core', 'fetch', 'dom', 'webcomponents', 'io',
  *              at a reduced resolution scale instead of probing into
  *              thermal throttling
  */
-export { BROWSERS } from '../src/core/browser/browsers.ts'
+export { BROWSERS } from '../core/browser/browsers.ts'

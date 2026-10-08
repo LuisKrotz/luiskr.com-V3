@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [components/portfolio/related/types](../README.md) / HomeItem
 
-Defined in: [src/components/portfolio/related/types.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L48)
+Defined in: [website/components/portfolio/related/types.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L48)
 
 A home portfoliolist row used to hydrate related pointers — `link` is the
 join key, `image`/`label`/`title`/`description` fill the card.
@@ -17,7 +17,7 @@ join key, `image`/`label`/`title`/`description` fill the card.
 optional link?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L49)
+Defined in: [website/components/portfolio/related/types.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L49)
 
 ---
 
@@ -27,7 +27,7 @@ Defined in: [src/components/portfolio/related/types.ts:49](https://github.com/Lu
 optional image?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L50)
+Defined in: [website/components/portfolio/related/types.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L50)
 
 ---
 
@@ -37,7 +37,7 @@ Defined in: [src/components/portfolio/related/types.ts:50](https://github.com/Lu
 optional label?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L51)
+Defined in: [website/components/portfolio/related/types.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L51)
 
 ---
 
@@ -47,7 +47,7 @@ Defined in: [src/components/portfolio/related/types.ts:51](https://github.com/Lu
 optional title?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L52)
+Defined in: [website/components/portfolio/related/types.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L52)
 
 ---
 
@@ -57,4 +57,4 @@ Defined in: [src/components/portfolio/related/types.ts:52](https://github.com/Lu
 optional description?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L53)
+Defined in: [website/components/portfolio/related/types.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L53)

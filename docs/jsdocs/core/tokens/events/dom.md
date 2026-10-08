@@ -74,3 +74,13 @@ the token contract immutable at runtime.
 Frozen gl event-name map — sole declaration site for these tokens; consumers read members
 and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the
 token contract immutable at runtime.
+
+### `ORBIT_EVENTS`
+
+Frozen orbit-control event-name map — three.js OrbitControls lifecycle
+events (user gesture start/end, per-frame change).
+
+### `CLIPBOARD_EVENTS`
+
+Frozen clipboard event-name map — copy/cut/selection events the docs
+portal intercepts for its source-code copy guard.

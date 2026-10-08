@@ -8,24 +8,24 @@
  * predictive-loader observer paths, cms/main mount guards, AdminLogin
  * flows.
  */
-import store from '@/core/store.js'
+import store from '@core/store.js'
 
-import '@/components/home/AwardsMentions.js'
-import '@/components/legal/Footer.js'
-import '@/components/home/HomeMosaic.js'
-import '@/components/feedback/StatsHud.js'
-import '@/components/media/MediaExpanded.js'
-import '@/components/dialogs/PreferencesModal.js'
-import '@/components/carousel/AwardsCarousel.js'
-import '@/components/media/MediaFigure.js'
-import '@/components/dialogs/LangDialog.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
-import '@/cms/lang/CmsLangEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { APP_EVENTS } from '@/core/tokens/events/app.js'
+import '@website/components/home/AwardsMentions.js'
+import '@website/components/legal/Footer.js'
+import '@website/components/home/HomeMosaic.js'
+import '@website/components/feedback/StatsHud.js'
+import '@website/components/media/MediaExpanded.js'
+import '@website/components/dialogs/PreferencesModal.js'
+import '@website/components/carousel/AwardsCarousel.js'
+import '@website/components/media/MediaFigure.js'
+import '@website/components/dialogs/LangDialog.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
+import '@cms/lang/CmsLangEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { LANG_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { APP_EVENTS } from '@core/tokens/events/app.js'
 
 
 

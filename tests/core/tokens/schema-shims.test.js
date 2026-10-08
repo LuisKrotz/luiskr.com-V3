@@ -13,12 +13,12 @@ import {
   generateProjectArticleSchema,
   generateWebsiteSchema,
   updateJsonLd,
-} from '@/core/utils/schema.js'
+} from '@core/utils/schema.js'
 import { TEST_PROJECTS, TEST_TEXT, TEST_URLS } from '../../fixtures/test-constants.js'
-import { NET_STRINGS } from '@/core/tokens/strings/net.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { SCHEMA_STRINGS } from '@/core/tokens/strings/schema.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { NET_STRINGS } from '@core/tokens/strings/net.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { SCHEMA_STRINGS } from '@core/tokens/strings/schema.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
 // ─── schema.js generators ────────────────────────────────────────────────────
 
@@ -128,7 +128,7 @@ describe('polyfills', () => {
 
     // Fresh module registry evaluation so the guards re-run
     await jest.isolateModulesAsync(async () => {
-      await import('@/legacy-polyfills/polyfills.js')
+      await import('@core/legacy-polyfills/polyfills.js')
     })
 
     expect(typeof globalThis.structuredClone).toBe(TYPE_STRINGS.FUNCTION)
@@ -147,7 +147,7 @@ describe('polyfills', () => {
     delete globalThis.structuredClone
 
     await jest.isolateModulesAsync(async () => {
-      await import('@/legacy-polyfills/polyfills.js')
+      await import('@core/legacy-polyfills/polyfills.js')
     })
 
     const circular = {}
@@ -163,7 +163,7 @@ describe('polyfills', () => {
 describe('entry shims', () => {
   test('safari-loader imports its patch chain without throwing', async () => {
     await jest.isolateModulesAsync(async () => {
-      await import('@/safari/loader.js')
+      await import('@core/safari/loader.js')
     })
 
     expect(HTMLElement.prototype.onMounted || true).toBeTruthy()

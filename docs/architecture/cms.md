@@ -1,12 +1,12 @@
-# CMS (src/cms)
+# CMS (cms)
 
 The content manager is a **separate application** sharing only `core/`
 primitives and `firebase.ts` with the public site. It has its own entry
-(`cms/index.html` → `src/cms/main.ts`), routes, editor folders, tokens and
+(`cms/index.html` → `cms/main.ts`), routes, editor folders, tokens and
 stylesheet, and it is excluded from indexing (`noindex`, `robots.txt`).
 
 ```
-src/cms/
+cms/
 ├── main.ts          boots auth listener → AdminLogin or CmsDashboard;
 │                    links the compiled cms.scss into the document
 ├── routes/
@@ -86,7 +86,7 @@ Broken/empty `src` shows a `cms-media-thumb-placeholder`.
 `_structure.scss`, which is the only place that publishes `--radius-*`,
 `--font-*`, `--text-*`, `--bg-*`. `cms.scss` re-declares every consumed token
 on `:root` (document) and `:host` (each shadow root), sizes typography at a
-readable base, and `src/cms/main.ts` links the compiled sheet so the document
+readable base, and `cms/main.ts` links the compiled sheet so the document
 itself is styled even before components mount. This is what fixed the "tiny
 fonts / giant buttons / unstyled layout" class of bugs — the data rendered
 correctly but no tokens resolved.
@@ -94,7 +94,7 @@ correctly but no tokens resolved.
 ## Offline dev mock
 
 `yarn dev:cms` (`CMS_MOCK=1 vite`) aliases `firebase.ts` +
-`firebase/database` to `src/cms/dev/firebase-mock.ts`, an in-memory fake
+`firebase/database` to `cms/dev/firebase-mock.ts`, an in-memory fake
 seeded from `database.json` — the full dashboard works with no auth and no
 network. The alias lives only inside the `CMS_MOCK` branch of `vite.config.js`,
 so production builds are untouched.
@@ -140,7 +140,7 @@ system `Notification` (permission requested when conversion starts).
 All CMS editors render through JSX (`h()`/`CMS_TAGS`) — `CmsLangEditor` and
 `CmsPortfolioList` were migrated off template-string HTML. `cms.scss` consumes
 `--*` tokens / `to-rem($space-*)`; the remaining gap is that
-`style-governance.test.js` scans `src/sass/**` only, so CMS-SCSS violations
+`style-governance.test.js` scans `core/sass/**` only, so CMS-SCSS violations
 are unenforced until the scan is widened.
 
 ## Deploy Info tab

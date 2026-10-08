@@ -4,7 +4,7 @@ Renderer creation for the Earth engine: probes for a
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/setup/renderer-setup.ts` |
+| **Source** | `experiments/earth-playground/earth/setup/renderer-setup.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

@@ -3,14 +3,14 @@
  * @description View outlet reconciliation for AppRoot — same-tag routes delegate to onRouteParamChange; new views lazy-import their chunk then cross-fade (instant under reduced motion).
  */
 
-import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { APP_IDS } from '@/core/tokens/ids/app.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import store from '@/core/store.js'
-import router from '@/routes/router.js'
-import type { RouteDescriptor } from '@/routes/router.js'
+import { ANIMATION_DURATIONS } from '@core/tokens/motion/animation.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { APP_IDS } from '@core/tokens/ids/app.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import store from '@core/store.js'
+import router from '@core/router/router.js'
+import type { RouteDescriptor } from '@core/router/router.js'
 import type { RoutableView } from './types.js'
 import type { AppRoot } from '../App.js'
 
@@ -72,15 +72,17 @@ export async function flipAppView(
   const toTag = c.currentViewTag
 
   if (toTag === VIEW_TAGS.VIEW_HOME) {
-    await import('@/routes/views/home/Home.js')
+    await import('@website/views/home/Home.js')
   } else if (toTag === VIEW_TAGS.VIEW_LEGAL) {
-    await import('@/routes/views/legal/Legal.js')
+    await import('@website/views/legal/Legal.js')
   } else if (toTag === VIEW_TAGS.VIEW_PROJECT) {
-    await import('@/routes/views/project/Project.js')
+    await import('@website/views/project/Project.js')
   } else if (toTag === VIEW_TAGS.VIEW_NOT_FOUND) {
-    await import('@/routes/views/not-found/NotFound.js')
+    await import('@website/views/not-found/NotFound.js')
   } else if (toTag === VIEW_TAGS.VIEW_SPACE_PLAYGROUND) {
-    await import('@/playground/SpacePlayground.js')
+    await import('@earth/SpacePlayground.js')
+  } else if (toTag === VIEW_TAGS.VIEW_DOCS) {
+    await import('@docs/Docs.js')
   }
 
   if (reduced || !outlet.firstElementChild) {

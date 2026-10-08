@@ -4,7 +4,7 @@ Dashboard chrome classes — header, brand, user info, nav
 
 | | |
 |---|---|
-| **Source** | `src/cms/tokens/shell/dashboard.ts` |
+| **Source** | `cms/tokens/shell/dashboard.ts` |
 | **UX surface** | Admin bundle — editors for every database node. |
 
 ## Members

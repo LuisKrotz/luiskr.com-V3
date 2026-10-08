@@ -8,12 +8,12 @@
  * polyfill bodies.
  */
 import { jest } from '@jest/globals'
-import store from '@/core/store.js'
+import store from '@core/store.js'
 
-import { IntroLoader } from '@/utils/canvas/loaders/intro-loader.js'
+import { IntroLoader } from '@core/utils/canvas/loaders/intro-loader.js'
 
-import '@/components/feedback/CookieBanner.js'
-import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import '@website/components/feedback/CookieBanner.js'
+import { PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
 
 
 const flush = (ms = 60) => new Promise((r) => setTimeout(r, ms))

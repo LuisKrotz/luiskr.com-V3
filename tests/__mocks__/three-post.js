@@ -11,9 +11,28 @@ export const chromaticAberration = chain()
 export const film = chain()
 
 export class OrbitControls {
+  /** Test hook — most recent instance (camera-state assertions). */
+  static lastInstance = null
+
   constructor() {
     this.target = { x: 0, y: 0, z: 0, set: () => {}, copy: () => {} }
     this.mouseButtons = {}
+    this._listeners = {}
+
+    OrbitControls.lastInstance = this
+  }
+
+  addEventListener(name, fn) {
+    ;(this._listeners[name] ||= []).push(fn)
+  }
+
+  removeEventListener(name, fn) {
+    this._listeners[name] = (this._listeners[name] || []).filter((f) => f !== fn)
+  }
+
+  /** Test hook — fires a registered control event ('start'|'end'|…). */
+  dispatch(name) {
+    ;(this._listeners[name] || []).forEach((f) => f())
   }
 
   update() {}

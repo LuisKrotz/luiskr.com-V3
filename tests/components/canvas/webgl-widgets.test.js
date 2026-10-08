@@ -6,25 +6,25 @@
  * syncSkeletonLayer/destroySkeletonLayer helpers.
  */
 import { describe, test, expect, beforeEach, afterEach, jest } from '@jest/globals'
-import { FlagWebGL } from '@/utils/canvas/widgets/flag-webgl.js'
+import { FlagWebGL } from '@core/utils/canvas/widgets/flag-webgl.js'
 import {
   SkeletonWebGL,
   syncSkeletonLayer,
   destroySkeletonLayer,
-} from '@/utils/canvas/loaders/skeleton-webgl.js'
+} from '@core/utils/canvas/loaders/skeleton-webgl.js'
 import { createMockGL, createMock2D } from '../../fixtures/mock-webgl.js'
 import { TEST_GPU } from '../../fixtures/test-constants.js'
-import store from '@/core/store.js'
-import { LOCALES } from '@/core/constants.js'
-import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { FLAG_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
-import { GL_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { SKELETON_CLASSES } from '@/core/tokens/classes/skeleton.js'
+import store from '@core/store.js'
+import { LOCALES } from '@core/constants.js'
+import { PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { WEBGL_STRINGS } from '@core/tokens/strings/webgl.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { FLAG_DIMENSIONS } from '@core/tokens/media/dimensions.js'
+import { GL_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { SKELETON_CLASSES } from '@core/tokens/classes/skeleton.js'
 
 let mockGL
 let mock2D

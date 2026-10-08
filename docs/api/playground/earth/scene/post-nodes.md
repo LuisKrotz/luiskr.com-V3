@@ -4,7 +4,7 @@ Custom TSL post nodes for the RenderPipeline output chain,
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/scene/post-nodes.ts` |
+| **Source** | `experiments/earth-playground/earth/scene/post-nodes.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

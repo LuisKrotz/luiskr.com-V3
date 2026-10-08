@@ -4,7 +4,7 @@ Projects-editor classes + control IDs — section cards,
 
 | | |
 |---|---|
-| **Source** | `src/cms/tokens/editors/projects.ts` |
+| **Source** | `cms/tokens/editors/projects.ts` |
 | **UX surface** | Admin bundle — editors for every database node. |
 
 ## Members

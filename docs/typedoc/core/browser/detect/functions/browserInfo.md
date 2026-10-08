@@ -8,7 +8,7 @@
 function browserInfo(): BrowserInfo
 ```
 
-Defined in: [src/core/browser/detect.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/detect.ts#L68)
+Defined in: [core/browser/detect.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/browser/detect.ts#L68)
 
 Runtime reader — returns the loader-stamped `window.__LK_BROWSER` when
 present (public site path), otherwise parses `navigator.userAgent`.

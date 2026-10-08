@@ -6,7 +6,15 @@ export default [
   {
     // Generated build output, vendored/public assets, and scratch work are
     // outside the lint gate (which covers src + tests).
-    ignores: ['dist/**', 'public/**', 'scratch/**', 'coverage/**', 'reports/**', 'node_modules/**'],
+    ignores: [
+      '**/dist/**',
+      'public/**',
+      'scratch/**',
+      'coverage/**',
+      'reports/**',
+      'node_modules/**',
+      'vendor/**',
+    ],
   },
   {
     languageOptions: {
@@ -52,10 +60,10 @@ export default [
   // TypeScript-aware linting for .ts/.tsx sources (non-type-checked rules).
   ...tseslint.configs.recommended.map((cfg) => ({
     ...cfg,
-    files: ['src/**/*.{ts,tsx}', 'tests/**/*.{ts,tsx}'],
+    files: ['{src,core,website,cms,experiments}/**/*.{ts,tsx}', 'tests/**/*.{ts,tsx}'],
   })),
   {
-    files: ['src/**/*.{ts,tsx}', 'tests/**/*.{ts,tsx}'],
+    files: ['{src,core,website,cms,experiments}/**/*.{ts,tsx}', 'tests/**/*.{ts,tsx}'],
     rules: {
       // Base rule misfires on TS type positions — the TS-aware variant below
       // (from typescript-eslint recommended) handles them instead.

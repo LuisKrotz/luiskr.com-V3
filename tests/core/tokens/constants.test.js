@@ -14,14 +14,10 @@ import {
   MOSAIC_COLS,
   PROJECT_ALIASES,
   SPACE,
-} from '@/core/constants.js'
+} from '@core/constants.js'
 import { TEST_PROJECTS, TEST_TEXT } from '../../fixtures/test-constants.js'
-import {
-  CAROUSEL_LAYOUT,
-  CAROUSEL_LOADING,
-  CAROUSEL_TIMING,
-} from '@/core/tokens/motion/carousel.js'
-import { ANIMATION_DURATIONS, EASING } from '@/core/tokens/motion/animation.js'
+import { CAROUSEL_LAYOUT, CAROUSEL_LOADING, CAROUSEL_TIMING } from '@core/tokens/motion/carousel.js'
+import { ANIMATION_DURATIONS, EASING } from '@core/tokens/motion/animation.js'
 
 describe('Core Constants — Token coverage', () => {
   // ── MEDIA constants ──────────────────────────────────────────────────────

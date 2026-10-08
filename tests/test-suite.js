@@ -10,12 +10,12 @@ import { Window } from 'happy-dom'
 import fs from 'node:fs'
 import path from 'node:path'
 import { TEST_PROJECTS } from './fixtures/test-constants.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { APP_IDS } from '@/core/tokens/ids/app.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { MOSAIC_SELECTORS } from '@/core/tokens/selectors/mosaic.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { APP_IDS } from '@core/tokens/ids/app.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { MOSAIC_SELECTORS } from '@core/tokens/selectors/mosaic.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
 
 const window = new Window({ url: 'http://localhost:5173/' })
 const document = window.document

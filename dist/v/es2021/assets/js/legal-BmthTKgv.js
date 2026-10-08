@@ -1,0 +1,2 @@
+var co,no;import{Pt as lee}from"./store-BCQxtpNI.js";co=Object.freeze({fm:"legal"}),no=Object.freeze({Nn:lee,om:`${lee}-title`,nm:`${lee}-subtitle`,tm:`${lee}-link`});export{no as n,co as t};
+//# sourceMappingURL=legal-BmthTKgv.js.map

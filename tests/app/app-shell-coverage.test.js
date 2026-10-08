@@ -9,22 +9,22 @@
 
 import { describe, test, expect, jest, beforeEach, afterEach } from '@jest/globals'
 import { AppRoot } from '@/App.js'
-import store from '@/core/store.js'
-import router from '@/routes/router.js'
+import store from '@core/store.js'
+import router from '@core/router/router.js'
 import { mount, TEST_TEXT, waitFor } from '../fixtures/test-constants.js'
-import { LANG_SLUGS } from '@/core/i18n.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import { LANG_SLUGS } from '@core/i18n.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
 import {
   LANG_MUTATIONS,
   MODAL_MUTATIONS,
   PREF_MUTATIONS,
   UI_MUTATIONS,
-} from '@/core/tokens/events/mutations.js'
-import { MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
-import { APP_IDS } from '@/core/tokens/ids/app.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+} from '@core/tokens/events/mutations.js'
+import { MODAL_CLASSES } from '@core/tokens/classes/modal.js'
+import { APP_IDS } from '@core/tokens/ids/app.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
 import {
   DRAG_EVENTS,
   FORM_EVENTS,
@@ -33,24 +33,24 @@ import {
   POINTER_EVENTS,
   TOUCH_EVENTS,
   WINDOW_EVENTS,
-} from '@/core/tokens/events/dom.js'
-import { INPUT_STRINGS } from '@/core/tokens/strings/input.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { FLAG_CLASSES } from '@/core/tokens/classes/flags.js'
-import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
-import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { NAV_BURGER_CLASSES, NAV_CLASSES, NAV_MENU_CLASSES } from '@/core/tokens/classes/nav.js'
-import { PREF_CLASSES } from '@/core/tokens/classes/preferences.js'
-import { APP_CLASSES } from '@/core/tokens/classes/app.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { APP_EVENTS } from '@/core/tokens/events/app.js'
-import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
+} from '@core/tokens/events/dom.js'
+import { INPUT_STRINGS } from '@core/tokens/strings/input.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { FLAG_CLASSES } from '@core/tokens/classes/flags.js'
+import { ANIMATION_DURATIONS } from '@core/tokens/motion/animation.js'
+import { SECTION_IDS } from '@core/tokens/ids/sections.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { NAV_BURGER_CLASSES, NAV_CLASSES, NAV_MENU_CLASSES } from '@core/tokens/classes/nav.js'
+import { PREF_CLASSES } from '@core/tokens/classes/preferences.js'
+import { APP_CLASSES } from '@core/tokens/classes/app.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { APP_EVENTS } from '@core/tokens/events/app.js'
+import { DATA_ATTRS } from '@core/tokens/attrs/data.js'
 
-import { KEYS, LOCALES, ROUTE_NAMES, SECTIONS } from '@/core/constants.js'
-import { THEME } from '@/core/tokens/theme/theme.js'
+import { KEYS, LOCALES, ROUTE_NAMES, SECTIONS } from '@core/constants.js'
+import { THEME } from '@core/tokens/theme/theme.js'
 
 const flush = (ms = 0) => new Promise((r) => setTimeout(r, ms))
 
@@ -257,7 +257,7 @@ describe('AppRoot — view outlet', () => {
     // Pre-resolve the lazy view chunk, then fake the clock: the cross-fade
     // swap is a wall-clock setTimeout that starves under saturated parallel
     // workers. finally-guarded so a failure can't leak fake timers.
-    await import('@/routes/views/not-found/NotFound.js')
+    await import('@website/views/not-found/NotFound.js')
 
     jest.useFakeTimers()
 
@@ -303,6 +303,33 @@ describe('AppRoot — view outlet', () => {
     )
 
     expect(outlet.firstElementChild.tagName.toLowerCase()).toBe(VIEW_TAGS.VIEW_LEGAL)
+
+    store.commit(PREF_MUTATIONS.SET_REDUCED_MOTION, false)
+    globalThis.fetch = origFetch
+  })
+
+  test('docs view tag lazy-imports and instant-swaps under reduced motion', async () => {
+    const origFetch = stableFetch()
+
+    store.commit(PREF_MUTATIONS.SET_REDUCED_MOTION, true)
+
+    const el = new AppRoot()
+    cleanups.push(mount(el))
+
+    await flush(60)
+
+    el.currentViewTag = VIEW_TAGS.VIEW_DOCS
+    el._updateViewContent({})
+
+    const outlet = el.shadowRoot.querySelector(`#${APP_IDS.VIEW_OUTLET}`)
+
+    await waitFor(
+      () =>
+        outlet.firstElementChild &&
+        outlet.firstElementChild.tagName.toLowerCase() === VIEW_TAGS.VIEW_DOCS
+    )
+
+    expect(outlet.firstElementChild.tagName.toLowerCase()).toBe(VIEW_TAGS.VIEW_DOCS)
 
     store.commit(PREF_MUTATIONS.SET_REDUCED_MOTION, false)
     globalThis.fetch = origFetch
@@ -1039,7 +1066,7 @@ describe('AppNav module tails', () => {
   test('re-eval skips custom-element redefinition', async () => {
     jest.resetModules()
 
-    await expect(import('@/components/nav/AppNav.js')).resolves.toBeDefined()
+    await expect(import('@website/components/nav/AppNav.js')).resolves.toBeDefined()
   })
 })
 

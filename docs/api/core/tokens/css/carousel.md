@@ -4,5 +4,5 @@ Carousel-related CSS custom-property names — grouped subset
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/css/carousel.ts` |
+| **Source** | `core/tokens/css/carousel.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |

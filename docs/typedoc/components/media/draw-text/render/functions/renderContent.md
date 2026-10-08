@@ -8,7 +8,7 @@
 function renderContent(text, delay, offset, withChars?): string
 ```
 
-Defined in: [src/components/media/draw-text/render.ts:228](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/draw-text/render.ts#L228)
+Defined in: [website/components/media/draw-text/render.ts:228](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/draw-text/render.ts#L228)
 
 Full pipeline: text → tokens → HTML string. The `wi` closure counter
 assigns each rendered word a sequential index so the word-level

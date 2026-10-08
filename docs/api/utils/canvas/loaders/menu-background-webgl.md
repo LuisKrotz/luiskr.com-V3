@@ -4,7 +4,7 @@ Fullscreen WebGL background for the nav menu overlay: an
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/loaders/menu-background-webgl.ts` |
+| **Source** | `core/utils/canvas/loaders/menu-background-webgl.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

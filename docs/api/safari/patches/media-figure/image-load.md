@@ -4,7 +4,7 @@ Safari image-loading overrides for MediaFigure: a
 
 | | |
 |---|---|
-| **Source** | `src/safari/patches/media-figure/image-load.ts` |
+| **Source** | `core/safari/patches/media-figure/image-load.ts` |
 | **UX surface** | Boot surfaces: what the user sees first on each bundle. |
 
 ## Members

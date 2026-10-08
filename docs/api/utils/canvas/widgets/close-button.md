@@ -4,7 +4,7 @@ WebGL animated circular close (X) button used by the expand
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/close-button.ts` |
+| **Source** | `core/utils/canvas/widgets/close-button.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

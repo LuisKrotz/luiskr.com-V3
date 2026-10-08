@@ -4,7 +4,7 @@ Media asset filename-suffix tokens. All suffixes match the
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/media/suffixes.ts` |
+| **Source** | `core/tokens/media/suffixes.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

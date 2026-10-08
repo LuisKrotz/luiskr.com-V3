@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/media-convert/files.ts` |
+| **Source** | `cms/media-convert/files.ts` |
 | **UX surface** | Batch image→WebP conversion pipeline UI. |
 
 ## Members

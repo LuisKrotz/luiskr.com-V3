@@ -4,7 +4,7 @@ Live-tweak API for the Earth engine, extracted from
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/runtime/updates.ts` |
+| **Source** | `experiments/earth-playground/earth/runtime/updates.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

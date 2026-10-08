@@ -9,14 +9,14 @@
  * attributeChangedCallback FIT wiring on DrawText.
  */
 
-import '@/components/media/DrawText.js'
-import { fitText, setupFit, teardownFit } from '@/components/media/draw-text/fit.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { DRAW_TEXT_SELECTORS } from '@/core/tokens/selectors/draw-text.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import '@website/components/media/DrawText.js'
+import { fitText, setupFit, teardownFit } from '@website/components/media/draw-text/fit.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { DRAW_TEXT_SELECTORS } from '@core/tokens/selectors/draw-text.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
 
 const ORIG_GCS = globalThis.getComputedStyle

@@ -3,14 +3,14 @@
  * @description Modal-state DOM sync for AppRoot — toggles modal-open on html/body, copies the modifier class onto the wrapper, and applies/restores the iOS fixed-position scroll lock.
  */
 
-import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
-import { APP_IDS } from '@/core/tokens/ids/app.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import store from '@/core/store.js'
+import { DATA_ATTRS } from '@core/tokens/attrs/data.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { MODAL_CLASSES } from '@core/tokens/classes/modal.js'
+import { APP_IDS } from '@core/tokens/ids/app.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import store from '@core/store.js'
 import type { AppRoot } from '../App.js'
 
 /**

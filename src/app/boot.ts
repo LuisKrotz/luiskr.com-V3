@@ -3,21 +3,21 @@
  * @description App shell bootstrap — preference init, data load, lazy dialog/HUD chunk imports, router subscription with progress bar, scroll/resize/theme listeners, and the intro loader.
  */
 
-import { APP_CLASSES } from '@/core/tokens/classes/app.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { APP_EVENTS } from '@/core/tokens/events/app.js'
-import { FORM_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { QUERY_STRINGS } from '@/core/tokens/strings/queries.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { THEME } from '@/core/tokens/theme/theme.js'
-import store from '@/core/store.js'
-import router from '@/routes/router.js'
+import { APP_CLASSES } from '@core/tokens/classes/app.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { APP_EVENTS } from '@core/tokens/events/app.js'
+import { FORM_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
+import { PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { QUERY_STRINGS } from '@core/tokens/strings/queries.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { THEME } from '@core/tokens/theme/theme.js'
+import store from '@core/store.js'
+import router from '@core/router/router.js'
 import type { LangDialogEl, PrefModalEl } from './types.js'
 import type { AppRoot } from '../App.js'
-import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
-import { webglPool } from '@/utils/canvas/webgl-pool.js'
+import { ANIMATION_DURATIONS } from '@core/tokens/motion/animation.js'
+import { webglPool } from '@core/utils/canvas/webgl-pool.js'
 
 /**
  * Schedules non-urgent work during idle time; falls back to a short
@@ -49,13 +49,13 @@ export function mountAppShell(c: AppRoot): void {
   c.subscribe(store)
 
   // Lazy-load heavy global components after first paint
-  import('@/components/dialogs/PreferencesModal.js')
-  import('@/components/dialogs/LangDialog.js')
-  import('@/components/feedback/StatsHud.js')
+  import('@website/components/dialogs/PreferencesModal.js')
+  import('@website/components/dialogs/LangDialog.js')
+  import('@website/components/feedback/StatsHud.js')
 
   // Listen to open-preferences-modal from app-nav
   const openPref = () => {
-    import('@/components/dialogs/PreferencesModal.js').then(() => {
+    import('@website/components/dialogs/PreferencesModal.js').then(() => {
       const pref = c.$<PrefModalEl>(COMPONENT_TAGS.PREFERENCES_MODAL)
       if (pref) pref.open = true
     })
@@ -65,7 +65,7 @@ export function mountAppShell(c: AppRoot): void {
 
   // Listen to open-lang-dialog from app-nav
   const openLang = () => {
-    import('@/components/dialogs/LangDialog.js').then(() => {
+    import('@website/components/dialogs/LangDialog.js').then(() => {
       const dialog = c.$<LangDialogEl>(COMPONENT_TAGS.LANG_DIALOG)
       if (dialog) dialog.open = true
     })
@@ -171,7 +171,7 @@ export function mountAppShell(c: AppRoot): void {
     )
   }
 
-  import('@/utils/canvas/loaders/intro-loader.js').then(({ IntroLoader }) => {
+  import('@core/utils/canvas/loaders/intro-loader.js').then(({ IntroLoader }) => {
     c._introLoader = new IntroLoader(document.body)
   })
 }

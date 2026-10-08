@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/deploy-info/CmsDeployInfo.tsx` |
+| **Source** | `cms/deploy-info/CmsDeployInfo.tsx` |
 | **UX surface** | Deploy reports viewer — lighthouse, coverage, scans. |
 
 ## Members

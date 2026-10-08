@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/projects/events.ts` |
+| **Source** | `cms/projects/events.ts` |
 | **UX surface** | Per-project sections editor card. |
 
 ## Members

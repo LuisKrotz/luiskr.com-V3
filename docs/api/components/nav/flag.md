@@ -4,7 +4,7 @@ Locale flag rendering + FlagWebGL lifecycle for &lt;app-nav&gt;,
 
 | | |
 |---|---|
-| **Source** | `src/components/nav/flag.tsx` |
+| **Source** | `website/components/nav/flag.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

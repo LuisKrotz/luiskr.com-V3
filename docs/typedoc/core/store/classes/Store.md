@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../README.md) / [core/store](../README.md) / Store
 
-Defined in: [src/core/store.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store.ts#L29)
+Defined in: [core/store.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store.ts#L29)
 
 Reactive state container. Deliberately tiny: a Set of subscriber callbacks,
 a state bag, a named-mutation map, and a getter facade. A Set (not Array)
@@ -18,7 +18,7 @@ gives O(1) unsubscribe and dedupes double-subscribe for free.
 new Store(): Store;
 ```
 
-Defined in: [src/core/store.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store.ts#L42)
+Defined in: [core/store.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store.ts#L42)
 
 #### Returns
 
@@ -32,7 +32,7 @@ Defined in: [src/core/store.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/bl
 subscribers: Set<Subscriber>
 ```
 
-Defined in: [src/core/store.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store.ts#L31)
+Defined in: [core/store.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store.ts#L31)
 
 Live subscriber callbacks; invoked in insertion order by notify().
 
@@ -44,7 +44,7 @@ Live subscriber callbacks; invoked in insertion order by notify().
 state: StoreState
 ```
 
-Defined in: [src/core/store.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store.ts#L34)
+Defined in: [core/store.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store.ts#L34)
 
 The single mutable state bag — replaced by mutations, read via getters.
 
@@ -56,7 +56,7 @@ The single mutable state bag — replaced by mutations, read via getters.
 mutations: MutationMap
 ```
 
-Defined in: [src/core/store.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store.ts#L37)
+Defined in: [core/store.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store.ts#L37)
 
 name → mutator map built by createMutations(this) at construction.
 
@@ -68,7 +68,7 @@ name → mutator map built by createMutations(this) at construction.
 getters: StoreGetters
 ```
 
-Defined in: [src/core/store.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store.ts#L40)
+Defined in: [core/store.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store.ts#L40)
 
 Read facade — components read state exclusively through getters.
 
@@ -80,7 +80,7 @@ Read facade — components read state exclusively through getters.
 commit(mutationName, payload?): void;
 ```
 
-Defined in: [src/core/store.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store.ts#L63)
+Defined in: [core/store.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store.ts#L63)
 
 Runs a named mutation then notifies subscribers — unless the mutation
 explicitly returns false (its way of saying "no state change"). Unknown
@@ -113,7 +113,7 @@ Optional value forwarded to the mutator.
 subscribe(listener): () => boolean;
 ```
 
-Defined in: [src/core/store.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store.ts#L80)
+Defined in: [core/store.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store.ts#L80)
 
 Subscribes to state changes.
 
@@ -139,7 +139,7 @@ unsubscribe function
 notify(): void;
 ```
 
-Defined in: [src/core/store.ts:91](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/store.ts#L91)
+Defined in: [core/store.ts:91](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/store.ts#L91)
 
 Calls every subscriber; one throwing subscriber can't break the rest —
 each call is try/catch'd and routed to devlog so a render bug in one

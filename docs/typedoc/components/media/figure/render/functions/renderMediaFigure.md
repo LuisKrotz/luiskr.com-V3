@@ -8,7 +8,7 @@
 function renderMediaFigure(c): Element
 ```
 
-Defined in: [src/components/media/figure/render.tsx:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/figure/render.tsx#L22)
+Defined in: [website/components/media/figure/render.tsx:22](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/figure/render.tsx#L22)
 
 Renders media figure.
 

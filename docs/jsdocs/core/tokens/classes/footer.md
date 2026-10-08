@@ -14,3 +14,7 @@ Footer source-code row class tokens — grouped subset of
 Frozen footer class-name map — sole declaration site for these tokens; consumers read
 members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes
 the token contract immutable at runtime.
+
+### `FOOTER_DOCS`
+
+Docs-portal footer entry — link + localized English-only note.

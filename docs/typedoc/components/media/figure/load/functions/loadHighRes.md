@@ -8,7 +8,7 @@
 function loadHighRes(fig): Promise<void>
 ```
 
-Defined in: [src/components/media/figure/load.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/figure/load.ts#L72)
+Defined in: [website/components/media/figure/load.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/figure/load.ts#L72)
 
 Thumb → high-res swap. A detached Image preloads the Q50 variant;
 on load the visible element swaps src + gets the loaded class (the

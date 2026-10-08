@@ -4,7 +4,7 @@ JSX for MediaFigure — layered placeholder/thumb/high-res crossfade stack (or t
 
 | | |
 |---|---|
-| **Source** | `src/components/media/figure/render.tsx` |
+| **Source** | `website/components/media/figure/render.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

@@ -4,7 +4,7 @@ Small pure string transforms — HTML stripping for
 
 | | |
 |---|---|
-| **Source** | `src/core/utils/string.ts` |
+| **Source** | `core/utils/string.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

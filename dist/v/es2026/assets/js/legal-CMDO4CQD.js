@@ -1,1 +1,0 @@
-var cr,wo;import{at as a0}from"./urls-COJSgetn.js";cr=Object.freeze({Ws:"legal"}),wo=Object.freeze({mn:a0,Zd:`${a0}-title`,tm:`${a0}-subtitle`,Qd:`${a0}-link`});export{wo as n,cr as t};

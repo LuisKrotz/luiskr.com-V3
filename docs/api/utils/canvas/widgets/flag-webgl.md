@@ -4,7 +4,7 @@ WebGL flag renderer for the language dialog: draws each
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/flag-webgl.ts` |
+| **Source** | `core/utils/canvas/widgets/flag-webgl.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

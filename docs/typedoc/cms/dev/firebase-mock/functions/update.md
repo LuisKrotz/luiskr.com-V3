@@ -8,7 +8,7 @@
 function update(r, v): Promise<void>
 ```
 
-Defined in: [src/cms/dev/firebase-mock.ts:95](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/dev/firebase-mock.ts#L95)
+Defined in: [cms/dev/firebase-mock.ts:95](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/dev/firebase-mock.ts#L95)
 
 Mock of firebase/database `update()` — logs the patch, persists nothing.
 

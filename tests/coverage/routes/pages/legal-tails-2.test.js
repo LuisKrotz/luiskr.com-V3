@@ -8,18 +8,18 @@
  * Home route param changes.
  */
 
-import { FALLBACK_APP } from '@/core/locale/fallback.js'
-import store from '@/core/store.js'
-import router from '@/routes/router.js'
+import { FALLBACK_APP } from '@core/locale/fallback.js'
+import store from '@core/store.js'
+import router from '@core/router/router.js'
 
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import '@/routes/views/legal/Legal.js'
-import '@/routes/views/home/Home.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { SECTION_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
+import '@website/views/legal/Legal.js'
+import '@website/views/home/Home.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { LANG_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { SECTION_UI_KEYS } from '@core/tokens/data/ui-keys.js'
 
 
 

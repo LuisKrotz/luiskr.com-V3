@@ -10,17 +10,17 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 
-import store from '@/core/store.js'
+import store from '@core/store.js'
 
-import { appText, componentText, routeSlugs } from '@/core/locale/ui-text.js'
+import { appText, componentText, routeSlugs } from '@core/locale/ui-text.js'
 
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
-import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { SECTION_UI_KEYS } from '@/core/tokens/data/ui-keys.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
+import { LANG_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { SECTION_UI_KEYS } from '@core/tokens/data/ui-keys.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
 
 

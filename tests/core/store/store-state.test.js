@@ -7,18 +7,18 @@
  *
  */
 
-import store from '@/core/store.js'
-import { LOCALES, THEME } from '@/core/constants.js'
+import store from '@core/store.js'
+import { LOCALES, THEME } from '@core/constants.js'
 import {
   DATA_MUTATIONS,
   LANG_MUTATIONS,
   MODAL_MUTATIONS,
   PREF_MUTATIONS,
   UI_MUTATIONS,
-} from '@/core/tokens/events/mutations.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { CDN_URLS } from '@/core/tokens/media/urls.js'
-import { INPUT_STRINGS } from '@/core/tokens/strings/input.js'
+} from '@core/tokens/events/mutations.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { CDN_URLS } from '@core/tokens/media/urls.js'
+import { INPUT_STRINGS } from '@core/tokens/strings/input.js'
 
 describe('Store — State Management', () => {
   afterEach(() => {

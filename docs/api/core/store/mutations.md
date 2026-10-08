@@ -4,7 +4,7 @@ Mutation map factory — every named mutation is a pure
 
 | | |
 |---|---|
-| **Source** | `src/core/store/mutations.ts` |
+| **Source** | `core/store/mutations.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

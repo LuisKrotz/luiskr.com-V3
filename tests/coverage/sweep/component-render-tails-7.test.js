@@ -9,19 +9,19 @@
  */
 import { jest } from '@jest/globals'
 
-import '@/core/constants.js'
+import '@core/constants.js'
 
-import '@/cms/about/CmsAboutEditor.js'
-import '@/cms/portfolio/CmsPortfolioList.js'
-import '@/cms/projects/CmsProjectsList.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
+import '@cms/about/CmsAboutEditor.js'
+import '@cms/portfolio/CmsPortfolioList.js'
+import '@cms/projects/CmsProjectsList.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
 
-import '@/components/media/draw-text/render.js'
-import '@/routes/views/project/data.js'
+import '@website/components/media/draw-text/render.js'
+import '@website/views/project/data.js'
 
-import _router from '@/routes/router.js'
+import _router from '@core/router/router.js'
 
 globalThis.alert = jest.fn()
 
@@ -31,9 +31,9 @@ const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))
 
 describe('component render tails', () => {
   test('AboutSection setters before mount → _isMounted false arms', async () => {
-    await import('@/components/home/AboutSection.js')
+    await import('@website/components/home/AboutSection.js')
 
-    const { COMPONENT_TAGS } = await import('@/core/tokens/elements/components.js')
+    const { COMPONENT_TAGS } = await import('@core/tokens/elements/components.js')
     const el = document.createElement(COMPONENT_TAGS.ABOUT_SECTION)
 
     el.aboutTranslations = { title: 't', col1: [], col2: [] }
@@ -43,9 +43,9 @@ describe('component render tails', () => {
   })
 
   test('AwardsMentions empty-items skeleton arm', async () => {
-    await import('@/components/home/AwardsMentions.js')
+    await import('@website/components/home/AwardsMentions.js')
 
-    const { COMPONENT_TAGS } = await import('@/core/tokens/elements/components.js')
+    const { COMPONENT_TAGS } = await import('@core/tokens/elements/components.js')
     const el = document.createElement(COMPONENT_TAGS.AWARDS_MENTIONS)
 
     document.body.appendChild(el)
@@ -61,7 +61,7 @@ describe('component render tails', () => {
   })
 
   test('draw-text renderContent token-type arms', async () => {
-    const { parseTokens, renderContent } = await import('@/components/media/draw-text/render.js')
+    const { parseTokens, renderContent } = await import('@website/components/media/draw-text/render.js')
     expect(renderContent('', 5, 0)).toBe('')
     expect(renderContent('hello world', 5, 0)).toContain('span')
     expect(renderContent('hello world', 5, 0, false)).not.toContain('--i')
@@ -74,7 +74,7 @@ describe('component render tails', () => {
   })
 
   test('updateRobotsMeta create/reuse/remove/absent arms', async () => {
-    const { updateRobotsMeta } = await import('@/routes/views/project/data.js')
+    const { updateRobotsMeta } = await import('@website/views/project/data.js')
     updateRobotsMeta(true)
 
     const meta = document.querySelector('meta[name="robots"]')
@@ -89,8 +89,8 @@ describe('component render tails', () => {
   })
 
   test('resolveProjectSlug rawSlug + URL-regex arms', async () => {
-    const { resolveProjectSlug } = await import('@/routes/views/project/data.js')
-    const { default: freshRouter } = await import('@/routes/router.js')
+    const { resolveProjectSlug } = await import('@website/views/project/data.js')
+    const { default: freshRouter } = await import('@core/router/router.js')
     const prev = freshRouter.currentRoute
 
     freshRouter.currentRoute = { params: { rawSlug: 'raw-1' } }

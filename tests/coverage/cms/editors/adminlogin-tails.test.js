@@ -10,18 +10,18 @@
  * sign-in paths, and the cookie/contact section component branches.
  */
 import { jest } from '@jest/globals'
-import '@/utils/data/sanitize.js'
+import '@core/utils/data/sanitize.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
 
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import { CMS_TAGS } from '@/cms/tokens.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { CMS_TAGS } from '@cms/tokens.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
 
-jest.unstable_mockModule('@/firebase.js', () => ({
+jest.unstable_mockModule('@core/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),
@@ -34,8 +34,8 @@ const flush = (ms = 60) => new Promise((r) => setTimeout(r, ms))
 
 describe('AdminLogin tails', () => {
   test('google login resolves, rejects and guards re-entry', async () => {
-    const { signInWithGoogle } = await import('@/firebase.js')
-    const { default: _c } = await import('@/cms/routes/AdminLogin.js').catch(() => ({}))
+    const { signInWithGoogle } = await import('@core/firebase.js')
+    const { default: _c } = await import('@cms/routes/AdminLogin.js').catch(() => ({}))
 
     const el = document.createElement(CMS_TAGS.VIEW_ADMIN_LOGIN)
 

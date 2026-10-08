@@ -3,12 +3,12 @@
  * @description Scroll tracking for AppRoot — measures the #about/#contact section tops and keeps activeSection/onBottom in sync with scroll position.
  */
 
-import { SECTIONS } from '@/core/tokens/base.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
-import { ROUTE_PREFIXES } from '@/core/tokens/routes/names.js'
-import { deepQuerySelector } from '@/core/utils/dom.js'
-import router from '@/routes/router.js'
+import { SECTIONS } from '@core/tokens/base.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { SECTION_IDS } from '@core/tokens/ids/sections.js'
+import { ROUTE_PREFIXES } from '@core/tokens/routes/names.js'
+import { deepQuerySelector } from '@core/utils/dom.js'
+import router from '@core/router/router.js'
 import type { AppNavEl } from './types.js'
 import type { AppRoot } from '../App.js'
 

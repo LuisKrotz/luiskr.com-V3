@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/routes/parse-path.ts` |
+| **Source** | `core/router/parse-path.ts` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

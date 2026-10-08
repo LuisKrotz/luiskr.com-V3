@@ -1,6 +1,6 @@
 /**
  * @file carousels.test.js
- * @description Covers src/components/carousel/AwardsCarousel.js +
+ * @description Covers website/components/carousel/AwardsCarousel.js +
  * CustomCarousel.js — the full interaction surface: clone-based infinite
  * looping (first/last clones + the post-transition teleport that must not
  * visibly jump), autoplay progression, swipe physics, dot/arrow nav, and
@@ -9,23 +9,23 @@
  */
 
 import { jest } from '@jest/globals'
-import '@/components/carousel/AwardsCarousel.js'
-import '@/components/carousel/CustomCarousel.js'
-import store from '@/core/store.js'
+import '@website/components/carousel/AwardsCarousel.js'
+import '@website/components/carousel/CustomCarousel.js'
+import store from '@core/store.js'
 import { TEST_AWARDS, TEST_PROJECTS, TEST_TEXT, waitFor } from '../../fixtures/test-constants.js'
-import { AWC_CLASSES } from '@/core/tokens/classes/awards-carousel.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { MOUSE_EVENTS, TOUCH_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { CAROUSEL_CSS_PROPS } from '@/core/tokens/css/carousel.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
+import { AWC_CLASSES } from '@core/tokens/classes/awards-carousel.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { ARIA_ATTRS } from '@core/tokens/attrs/aria.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { MOUSE_EVENTS, TOUCH_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { CAROUSEL_CSS_PROPS } from '@core/tokens/css/carousel.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
 
 // ─── Local selector helpers (derived from CLASSES) ────────────────────────────
 const S = {
@@ -663,7 +663,7 @@ describe('Carousel Web Components Suite - Full Interaction, Clones & Responsive 
     test('module skips custom-element registration when already defined', async () => {
       jest.resetModules()
 
-      await import('@/components/carousel/AwardsCarousel.js')
+      await import('@website/components/carousel/AwardsCarousel.js')
 
       expect(customElements.get(COMPONENT_TAGS.AWARDS_CAROUSEL)).toBeDefined()
     })

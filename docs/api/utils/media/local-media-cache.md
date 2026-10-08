@@ -4,7 +4,7 @@ Three-tier media cache: in-memory Map (object URLs) →
 
 | | |
 |---|---|
-| **Source** | `src/utils/media/local-media-cache.ts` |
+| **Source** | `core/utils/media/local-media-cache.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

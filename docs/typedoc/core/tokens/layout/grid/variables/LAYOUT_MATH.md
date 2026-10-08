@@ -10,7 +10,7 @@ const LAYOUT_MATH: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/layout/grid.ts:95](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/layout/grid.ts#L95)
+Defined in: [core/tokens/layout/grid.ts:95](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/layout/grid.ts#L95)
 
 Frozen layout-math constants — `ASPECT_FALLBACK` is the 16:9 default
 ratio when CMS rows lack intrinsic size so card heights stay sane.

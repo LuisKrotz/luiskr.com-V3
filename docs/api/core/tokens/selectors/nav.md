@@ -4,7 +4,7 @@ Navigation selector tokens — token group.
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/selectors/nav.ts` |
+| **Source** | `core/tokens/selectors/nav.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

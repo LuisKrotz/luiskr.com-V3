@@ -11,6 +11,6 @@ const CACHE_STORAGE_KEYS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/data/storage.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/data/storage.ts#L26)
+Defined in: [core/tokens/data/storage.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/data/storage.ts#L26)
 
 Caches storage keys.

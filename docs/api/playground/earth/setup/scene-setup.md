@@ -4,7 +4,7 @@ Scene assembly for the Earth engine: scene/camera/
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/setup/scene-setup.ts` |
+| **Source** | `experiments/earth-playground/earth/setup/scene-setup.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

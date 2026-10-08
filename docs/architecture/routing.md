@@ -1,25 +1,31 @@
 # Routing
 
-`src/routes/router.ts` — the router facade lives at the `routes/` root
-alongside its modules (`parse-path.ts`, `navigate.ts`, `types.ts`); each page
-view is a self-contained folder under `routes/views/<page>/` holding the
-`.tsx` facade, its `.scss`, and its helper modules (`views/home/`,
-`views/project/`, `views/legal/`, `views/not-found/`). There is no
-`src/router/` wrapper directory; `src/core/index.ts` re-exports it as
-`router` for barrel imports.
+`core/router/router.ts` — the router facade lives inside the `core/`
+module alongside its helpers (`parse-path.ts`, `navigate.ts`,
+`types.ts`); each page view is a self-contained folder under
+`website/views/<page>/` holding the `.tsx` facade, its `.scss`, and its
+helper modules. The docs portal view lives in `experiments/docs/` and the
+playground in `experiments/earth-playground/` — both mounted lazily by
+the app shell, never imported eagerly.
 
 ## Route table
 
 Views are lazily `import()`ed by the router so each route ships its own chunk:
 
-| Path pattern                                    | View                                      | Chunk                  |
-| ----------------------------------------------- | ----------------------------------------- | ---------------------- |
-| `/`                                             | `routes/views/home/Home.tsx`              | `Home-*.js`            |
-| `/portfolio/:slug` (project slugs + aliases)    | `routes/views/project/Project.tsx`        | `Project-*.js`         |
-| `/privacy-policy`, `/gdpr`, `/terms-of-use`     | `routes/views/legal/Legal.tsx`            | `Legal-*.js`           |
-| `/earth-playground` (alias `/space-playground`) | `playground/SpacePlayground.tsx`          | `SpacePlayground-*.js` |
-| anything else                                   | `routes/views/not-found/NotFound.tsx`     | `NotFound-*.js`        |
-| `/cms*`                                         | handled by the CMS bundle, not this table | —                      |
+| Path pattern                                    | View                                               | Chunk                  |
+| ----------------------------------------------- | -------------------------------------------------- | ---------------------- |
+| `/`                                             | `website/views/home/Home.tsx`                      | `Home-*.js`            |
+| `/portfolio/:slug` (project slugs + aliases)    | `website/views/project/Project.tsx`                | `Project-*.js`         |
+| `/privacy-policy`, `/gdpr`, `/terms-of-use`     | `website/views/legal/Legal.tsx`                    | `Legal-*.js`           |
+| `/earth-playground` (alias `/space-playground`) | `experiments/earth-playground/SpacePlayground.tsx` | `SpacePlayground-*.js` |
+| `/docs[/*]` (English-only; `*` = manifest path) | `experiments/docs/Docs.tsx`                        | `Docs-*.js`            |
+| anything else                                   | `website/views/not-found/NotFound.tsx`             | `NotFound-*.js`        |
+| `/cms*`                                         | handled by the CMS bundle, not this table          | —                      |
+
+The `/docs/*` wildcard resolves a node in the build-time docs manifest —
+every publishable file is a crawlable URL listed in `public/sitemap.xml`
+with a per-route JSON-LD graph (see `core/utils/schema.ts` →
+`generateDocsSchema`).
 
 `PROJECT_ALIASES` maps legacy/external slugs to canonical project keys so old
 links keep working.
@@ -44,7 +50,7 @@ Route slugs themselves are localizable. Resolution order:
 ```
 translations/<locale>/slugs   (Firebase + snapshot, CMS-editable)
         ↓ merged over
-LANG_SLUGS defaults           (src/core/locale/lang-slugs.ts)
+LANG_SLUGS defaults           (core/locale/lang-slugs.ts)
         ↓
 store.state.lang.slugs        (set by App.tsx during locale load)
 ```

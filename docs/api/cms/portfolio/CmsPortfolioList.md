@@ -4,7 +4,7 @@ CMS portfolio-list editor: the home page's ordered project
 
 | | |
 |---|---|
-| **Source** | `src/cms/portfolio/CmsPortfolioList.tsx` |
+| **Source** | `cms/portfolio/CmsPortfolioList.tsx` |
 | **UX surface** | Portfolio list + related-projects editor card. |
 
 ## Members

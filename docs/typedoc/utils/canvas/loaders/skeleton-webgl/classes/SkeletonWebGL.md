@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [utils/canvas/loaders/skeleton-webgl](../README.md) / SkeletonWebGL
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L74)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L74)
 
 WebGL skeleton layer: one canvas per component overlays every skeleton
 placeholder with a restrained "data decoding" field. Each cell shows a
@@ -29,7 +29,7 @@ new SkeletonWebGL(
 ): SkeletonWebGL;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:139](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L139)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:139](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L139)
 
 #### Parameters
 
@@ -57,7 +57,7 @@ Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:139](https://github.com/
 host: HTMLElement
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:81](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L81)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:81](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L81)
 
 Host custom element — the layer positions itself via :host(.has-skeleton-layer).
 
@@ -69,7 +69,7 @@ Host custom element — the layer positions itself via :host(.has-skeleton-layer
 root: ShadowRoot
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:83](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L83)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:83](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L83)
 
 Shadow root that owns the canvas — survives content re-renders.
 
@@ -81,7 +81,7 @@ Shadow root that owns the canvas — survives content re-renders.
 content: Element
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:85](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L85)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:85](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L85)
 
 Content wrapper holding the placeholders being measured.
 
@@ -93,7 +93,7 @@ Content wrapper holding the placeholders being measured.
 canvas: HTMLCanvasElement | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:87](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L87)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:87](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L87)
 
 Per-layer 2D canvas the shared renderer blits into.
 
@@ -105,7 +105,7 @@ Per-layer 2D canvas the shared renderer blits into.
 ctx: CanvasRenderingContext2D | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:89](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L89)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:89](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L89)
 
 The canvas's 2D context — receives the blit each frame.
 
@@ -119,7 +119,7 @@ renderer:
   | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:91](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L91)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:91](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L91)
 
 Borrowed shared-renderer handle — null until acquire succeeds.
 
@@ -131,7 +131,7 @@ Borrowed shared-renderer handle — null until acquire succeeds.
 animId: number | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:93](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L93)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:93](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L93)
 
 rAF handle for the shimmer loop — null while paused/destroyed.
 
@@ -143,7 +143,7 @@ rAF handle for the shimmer loop — null while paused/destroyed.
 rects: SkelRect[] = [];
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:95](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L95)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:95](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L95)
 
 Measured placeholder list — rebuilt by refresh().
 
@@ -155,7 +155,7 @@ Measured placeholder list — rebuilt by refresh().
 rectData: Float32Array<ArrayBuffer>
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L97)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L97)
 
 Flat xyzw rect data uploaded as the u_rects uniform array.
 
@@ -167,7 +167,7 @@ Flat xyzw rect data uploaded as the u_rects uniform array.
 metaData: Float32Array<ArrayBuffer>
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:99](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L99)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:99](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L99)
 
 Per-rect metadata (radius/cell/row pad) uploaded as u_meta.
 
@@ -179,7 +179,7 @@ Per-rect metadata (radius/cell/row pad) uploaded as u_meta.
 skelBaseData: Float32Array<ArrayBuffer>
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:101](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L101)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:101](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L101)
 
 Per-rect base RGBA uploaded as u_sbase.
 
@@ -191,7 +191,7 @@ Per-rect base RGBA uploaded as u_sbase.
 skelInkData: Float32Array<ArrayBuffer>
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L103)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L103)
 
 Per-rect ink RGBA uploaded as u_sink.
 
@@ -203,7 +203,7 @@ Per-rect ink RGBA uploaded as u_sink.
 base: number[] | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:105](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L105)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:105](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L105)
 
 Sampled --skel-bg base palette floats (theme-level default).
 
@@ -215,7 +215,7 @@ Sampled --skel-bg base palette floats (theme-level default).
 ink: number[] | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:107](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L107)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:107](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L107)
 
 Sampled ink/glyph palette floats (theme-level default).
 
@@ -227,7 +227,7 @@ Sampled ink/glyph palette floats (theme-level default).
 inkAlpha: number = 1
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:109](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L109)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:109](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L109)
 
 Ink opacity multiplier — fades during the resolve-out.
 
@@ -239,7 +239,7 @@ Ink opacity multiplier — fades during the resolve-out.
 origin: object
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:111](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L111)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:111](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L111)
 
 Canvas origin in page coords — rect measurements are relative to it.
 
@@ -263,7 +263,7 @@ y: number = 0
 dpr: number = 1
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L113)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L113)
 
 devicePixelRatio — canvas backing store scales by it.
 
@@ -275,7 +275,7 @@ devicePixelRatio — canvas backing store scales by it.
 _frame: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:115](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L115)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:115](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L115)
 
 Frame counter — feeds the glyph-morph phase.
 
@@ -287,7 +287,7 @@ Frame counter — feeds the glyph-morph phase.
 useWebGL: boolean = false
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:117](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L117)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:117](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L117)
 
 Whether WebGL mode is live on this layer (webglPool reads this).
 
@@ -299,7 +299,7 @@ Whether WebGL mode is live on this layer (webglPool reads this).
 resolveStart: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:119](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L119)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:119](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L119)
 
 performance.now() stamp when the resolve-out began — drives the fade.
 
@@ -311,7 +311,7 @@ performance.now() stamp when the resolve-out began — drives the fade.
 startTime: number
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:121](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L121)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:121](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L121)
 
 Loop epoch — u_time is (now − startTime)/1000 so shaders see seconds.
 
@@ -323,7 +323,7 @@ Loop epoch — u_time is (now − startTime)/1000 so shaders see seconds.
 _ro: ResizeObserver | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:123](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L123)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:123](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L123)
 
 ResizeObserver on the content wrapper — geometry follows layout.
 
@@ -335,7 +335,7 @@ ResizeObserver on the content wrapper — geometry follows layout.
 _idleId: number | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:125](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L125)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:125](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L125)
 
 Deferred init id (requestIdleCallback or setTimeout fallback).
 
@@ -347,7 +347,7 @@ Deferred init id (requestIdleCallback or setTimeout fallback).
 _refreshId: number | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L127)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L127)
 
 Pending refresh rAF — debounces repeated layout churn into one measure.
 
@@ -359,7 +359,7 @@ Pending refresh rAF — debounces repeated layout churn into one measure.
 _paused: boolean = false
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:129](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L129)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:129](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L129)
 
 Purge latch — restore() early-returns unless a purge happened.
 
@@ -371,7 +371,7 @@ Purge latch — restore() early-returns unless a purge happened.
 _observed: Set<Element>
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:133](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L133)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:133](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L133)
 
 Placeholder nodes currently observed for size changes — rebuilt on each measure.
 
@@ -383,7 +383,7 @@ Placeholder nodes currently observed for size changes — rebuilt on each measur
 _styleCache: WeakMap<Element, SkelStyle>
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:135](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L135)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:135](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L135)
 
 Per-placeholder computed-style cache — cleared by sampleTheme() on a theme flip.
 
@@ -395,7 +395,7 @@ Per-placeholder computed-style cache — cleared by sampleTheme() on a theme fli
 _wasDark: boolean | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:137](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L137)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:137](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L137)
 
 Last sampled dark-mode flag — drives the style-cache invalidation.
 
@@ -407,7 +407,7 @@ Last sampled dark-mode flag — drives the style-cache invalidation.
 _onResize(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:131](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L131)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:131](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L131)
 
 Bound resize handler — remeasures placeholder geometry.
 
@@ -423,7 +423,7 @@ Bound resize handler — remeasures placeholder geometry.
 _init(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:150](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L150)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:150](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L150)
 
 Bootstrap — canvas attach, measure, theme sample, renderer acquire (skeleton/init.ts).
 
@@ -439,7 +439,7 @@ Bootstrap — canvas attach, measure, theme sample, renderer acquire (skeleton/i
 purge(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:161](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L161)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:161](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L161)
 
 webglPool hook — offscreen: stops the loop AND releases this layer's
 shared-renderer reference. Once every layer is offscreen the refcount
@@ -458,7 +458,7 @@ skeletons hold no GPU resources.
 restore(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:182](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L182)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:182](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L182)
 
 Re-acquires the shared renderer and resumes the loop after a purge —
 the GL context is recreated on demand. If re-acquisition fails the
@@ -476,7 +476,7 @@ layer destroys itself; the CSS shimmer stays as the fallback.
 _parseCssColor(str): number[] | null;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:207](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L207)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:207](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L207)
 
 Parses rgb()/hex into normalized 0–1 floats for shader uniforms.
 
@@ -502,7 +502,7 @@ Raw CSS color string.
 _sampleTheme(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:212](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L212)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:212](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L212)
 
 Reads skeleton theme tokens (--skel-bg-*) into shader colors — see skeleton-theme.ts.
 
@@ -518,7 +518,7 @@ Reads skeleton theme tokens (--skel-bg-*) into shader colors — see skeleton-th
 _scheduleRefresh(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:220](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L220)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:220](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L220)
 
 Debounces a geometry re-measure (fonts/layout shifts) — coalesces a
 burst of RO/resize callbacks into a single post-layout measure.
@@ -535,7 +535,7 @@ burst of RO/resize callbacks into a single post-layout measure.
 refresh(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:234](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L234)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:234](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L234)
 
 Re-measures every skeleton placeholder inside the host and resizes the
 canvas to the union of their boxes. Call after each render.
@@ -552,7 +552,7 @@ canvas to the union of their boxes. Call after each render.
 _upload(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:239](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L239)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:239](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L239)
 
 Uploads the latest geometry + theme to shader uniforms (skeleton/loop.ts).
 
@@ -568,7 +568,7 @@ Uploads the latest geometry + theme to shader uniforms (skeleton/loop.ts).
 _loop(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:244](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L244)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:244](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L244)
 
 rAF callback — animates the shimmer until resolved (skeleton/loop.ts).
 
@@ -584,7 +584,7 @@ rAF callback — animates the shimmer until resolved (skeleton/loop.ts).
 _render(t, resolve): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:254](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L254)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:254](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L254)
 
 Renders one frame via the shared renderer — delegates the actual GL
 draw + 2D blit to skeleton/loop.ts.
@@ -615,7 +615,7 @@ Resolve-out progress 0–1.
 resolve(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:263](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L263)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:263](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L263)
 
 Content has arrived: fades the real content in, plays the shimmer
 resolve-out animation, then tears down and releases the shared GL
@@ -633,7 +633,7 @@ context back to the pool.
 destroy(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/skeleton-webgl.ts:273](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/skeleton-webgl.ts#L273)
+Defined in: [core/utils/canvas/loaders/skeleton-webgl.ts:273](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/skeleton-webgl.ts#L273)
 
 Releases every acquired resource — rAF loop, resize listener,
 ResizeObserver, pending idle/refresh callbacks, pool registration,

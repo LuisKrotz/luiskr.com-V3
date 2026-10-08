@@ -4,7 +4,7 @@ Round-robin dispatcher over a lazily-spawned pool of
 
 | | |
 |---|---|
-| **Source** | `src/utils/wasm/wasm-pool.ts` |
+| **Source** | `core/utils/wasm/wasm-pool.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

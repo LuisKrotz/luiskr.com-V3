@@ -1,24 +1,24 @@
 /**
  * @file store-mutations.test.js
  * @description Comprehensive mutation-by-mutation tests for the custom
- * reactive store (src/core/store.js). Tests every mutation, getter,
+ * reactive store (core/store.js). Tests every mutation, getter,
  * reset behavior, state integrity, type contracts, and edge cases.
  *
  * 250+ tests.
  */
 
-import store from '@/core/store.js'
-import { LOCALES, THEME } from '@/core/constants.js'
+import store from '@core/store.js'
+import { LOCALES, THEME } from '@core/constants.js'
 import { TEST_PROJECTS } from '../../fixtures/test-constants.js'
 import {
   DATA_MUTATIONS,
   LANG_MUTATIONS,
   MODAL_MUTATIONS,
   PREF_MUTATIONS,
-} from '@/core/tokens/events/mutations.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { CDN_URLS } from '@/core/tokens/media/urls.js'
+} from '@core/tokens/events/mutations.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { CDN_URLS } from '@core/tokens/media/urls.js'
 
 // Helper to reset store to default state
 const resetStore = () => {

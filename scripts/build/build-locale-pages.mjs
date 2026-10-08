@@ -7,7 +7,7 @@
  * description, canonical, og/twitter cards, hreflang alternates and JSON-LD
  * — instead of the English shell the catch-all Firebase rewrite serves.
  *
- * Route inventory mirrors the runtime router (src/routes/router.js) and
+ * Route inventory mirrors the runtime router (core/router/router.js) and
  * public/sitemap.xml: for every locale in LANG_SLUGS the generator emits
  * home (/<loc>), about, contact, privacy, gdpr, terms, the localized
  * earth-playground slug and the English playground aliases the sitemap
@@ -27,7 +27,7 @@ import zlib from 'node:zlib'
 import { Buffer } from 'node:buffer'
 import { fileURLToPath } from 'node:url'
 
-import { LANG_SLUGS } from '../../src/core/locale/lang-slugs.ts'
+import { LANG_SLUGS } from '../../core/locale/lang-slugs.ts'
 
 const VALID_LANGS = Object.keys(LANG_SLUGS)
 

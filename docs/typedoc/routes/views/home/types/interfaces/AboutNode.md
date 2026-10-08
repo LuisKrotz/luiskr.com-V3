@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [routes/views/home/types](../README.md) / AboutNode
 
-Defined in: [src/routes/views/home/types.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/home/types.ts#L33)
+Defined in: [website/views/home/types.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/home/types.ts#L33)
 
 The pages/about Firebase node — `mentions` is the intro copy and
 `mention_items` the awards/mentions rows consumed by AwardsMentions.
@@ -23,7 +23,7 @@ The pages/about Firebase node — `mentions` is the intro copy and
 optional mentions?: string;
 ```
 
-Defined in: [src/routes/views/home/types.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/home/types.ts#L34)
+Defined in: [website/views/home/types.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/home/types.ts#L34)
 
 ---
 
@@ -33,4 +33,4 @@ Defined in: [src/routes/views/home/types.ts:34](https://github.com/LuisKrotz/lui
 optional mention_items?: unknown[];
 ```
 
-Defined in: [src/routes/views/home/types.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/routes/views/home/types.ts#L35)
+Defined in: [website/views/home/types.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/views/home/types.ts#L35)

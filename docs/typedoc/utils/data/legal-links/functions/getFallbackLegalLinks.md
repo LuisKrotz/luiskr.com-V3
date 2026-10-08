@@ -8,7 +8,7 @@
 function getFallbackLegalLinks(locale?): LegalLink[]
 ```
 
-Defined in: [src/utils/data/legal-links.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/data/legal-links.ts#L30)
+Defined in: [core/utils/data/legal-links.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/data/legal-links.ts#L30)
 
 Gets fallback legal links.
 

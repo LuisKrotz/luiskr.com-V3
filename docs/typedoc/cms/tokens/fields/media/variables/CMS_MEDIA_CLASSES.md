@@ -25,7 +25,7 @@ const CMS_MEDIA_CLASSES: Readonly<{
 }>
 ```
 
-Defined in: [src/cms/tokens/fields/media.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/tokens/fields/media.ts#L15)
+Defined in: [cms/tokens/fields/media.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/tokens/fields/media.ts#L15)
 
 Frozen cms media class-name map — sole declaration site for these tokens; consumers read
 members and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes

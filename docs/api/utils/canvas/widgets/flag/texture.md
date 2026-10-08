@@ -4,7 +4,7 @@ Flag asset caches for FlagRenderer: per-country-code
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/flag/texture.ts` |
+| **Source** | `core/utils/canvas/widgets/flag/texture.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

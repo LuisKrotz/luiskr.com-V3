@@ -7,16 +7,16 @@
  * 200+ tests.
  */
 
-import router from '@/routes/router.js'
-import { LANG_SLUGS, VALID_LANGS } from '@/core/i18n.js'
-import { LOCALES } from '@/core/constants.js'
+import router from '@core/router/router.js'
+import { LANG_SLUGS, VALID_LANGS } from '@core/i18n.js'
+import { LOCALES } from '@core/constants.js'
 import { TEST_PROJECTS } from '../../fixtures/test-constants.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { LANG_STRINGS } from '@/core/tokens/strings/langs.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { SECTION_IDS } from '@core/tokens/ids/sections.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { LANG_STRINGS } from '@core/tokens/strings/langs.js'
 
 const LANGS = VALID_LANGS
 const NON_EN_LANGS = LANGS.filter((l) => l !== LOCALES.EN)

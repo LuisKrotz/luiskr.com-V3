@@ -7,11 +7,11 @@
 
 import { jest } from '@jest/globals'
 import { mountAppShell } from '@/app/boot.js'
-import router from '@/routes/router.js'
-import { APP_CLASSES } from '@/core/tokens/classes/app.js'
-import { ANIMATION_DURATIONS } from '@/core/tokens/motion/animation.js'
-import { ROUTE_NAMES } from '@/core/tokens/routes/names.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
+import router from '@core/router/router.js'
+import { APP_CLASSES } from '@core/tokens/classes/app.js'
+import { ANIMATION_DURATIONS } from '@core/tokens/motion/animation.js'
+import { ROUTE_NAMES } from '@core/tokens/routes/names.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
 
 const flush = (ms = 0) => new Promise((resolve) => setTimeout(resolve, ms))
 

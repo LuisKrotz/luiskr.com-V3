@@ -21,7 +21,7 @@
 import { spawn } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import path from 'node:path'
-import { IMAGE_EXTS, VIDEO_EXTS, isMediaPath } from '../../src/cms/media-convert/exts.ts'
+import { IMAGE_EXTS, VIDEO_EXTS, isMediaPath } from '../../cms/media-convert/exts.ts'
 
 export { IMAGE_EXTS, VIDEO_EXTS }
 

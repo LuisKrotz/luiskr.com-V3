@@ -4,7 +4,7 @@ Image decode pipeline: fetch → worker-side createImageBitmap
 
 | | |
 |---|---|
-| **Source** | `src/utils/wasm/wasm-image-decoder.ts` |
+| **Source** | `core/utils/wasm/wasm-image-decoder.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

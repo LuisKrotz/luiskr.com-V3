@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/dialogs/preferences/types.ts` |
+| **Source** | `website/components/dialogs/preferences/types.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

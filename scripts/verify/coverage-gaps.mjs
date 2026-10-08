@@ -15,7 +15,11 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const cov = JSON.parse(readFileSync(join(root, 'coverage/coverage-final.json'), 'utf8'))
 
 for (const arg of process.argv.slice(2)) {
-  const key = Object.keys(cov).find((k) => k.endsWith(`/src/${arg}`) || k === `${root}/src/${arg}`)
+  const key = Object.keys(cov).find(
+    (k) =>
+      ['src', 'core', 'website', 'cms', 'experiments'].some((d) => k.endsWith(`/${d}/${arg}`)) ||
+      k.endsWith(`/${arg}`)
+  )
 
   if (!key) {
     console.log(`## ${arg}: no coverage entry`)

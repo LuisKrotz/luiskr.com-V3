@@ -4,7 +4,7 @@ WebGL hamburger icon for the nav burger button: three
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/burger-button-webgl.ts` |
+| **Source** | `core/utils/canvas/widgets/burger-button-webgl.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

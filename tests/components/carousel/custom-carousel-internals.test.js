@@ -9,20 +9,20 @@
 
 import { jest } from '@jest/globals'
 
-import store from '@/core/store.js'
-import '@/components/carousel/CustomCarousel.js'
+import store from '@core/store.js'
+import '@website/components/carousel/CustomCarousel.js'
 import { TEST_URLS, TEST_TEXT, waitFor } from '../../fixtures/test-constants.js'
 import { attachHybridGL } from '../../fixtures/mock-webgl.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { CAROUSEL_SELECTORS } from '@/core/tokens/selectors/carousel.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { CAROUSEL_CLASSES } from '@/core/tokens/classes/carousel.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { MOUSE_EVENTS, TOUCH_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { CAROUSEL_TIMING } from '@/core/tokens/motion/carousel.js'
-import { MODAL_MUTATIONS, PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { CAROUSEL_SELECTORS } from '@core/tokens/selectors/carousel.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { CAROUSEL_CLASSES } from '@core/tokens/classes/carousel.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { MOUSE_EVENTS, TOUCH_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
+import { CAROUSEL_TIMING } from '@core/tokens/motion/carousel.js'
+import { MODAL_MUTATIONS, PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
 
 const SLIDES = [
   { src: 'a.webp', size: [800, 450], label: 'One', canExpand: true },
@@ -998,6 +998,6 @@ describe('CustomCarousel tails 2', () => {
   test('customElements re-evaluation skips re-registration', async () => {
     expect(customElements.get(COMPONENT_TAGS.CUSTOM_CAROUSEL)).toBeTruthy()
     jest.resetModules()
-    await import('@/components/carousel/CustomCarousel.js')
+    await import('@website/components/carousel/CustomCarousel.js')
   })
 })

@@ -8,16 +8,16 @@
  * polyfill bodies.
  */
 import { jest } from '@jest/globals'
-import _store from '@/core/store.js'
+import _store from '@core/store.js'
 
-import { webglPool } from '@/utils/canvas/webgl-pool.js'
+import { webglPool } from '@core/utils/canvas/webgl-pool.js'
 
-import '@/components/feedback/CookieBanner.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { APP_EVENTS } from '@/core/tokens/events/app.js'
-import { KEYBOARD_EVENTS, MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import '@website/components/feedback/CookieBanner.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { APP_EVENTS } from '@core/tokens/events/app.js'
+import { KEYBOARD_EVENTS, MOUSE_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
 
 // ─── store.js ────────────────────────────────────────────────────────────────
 

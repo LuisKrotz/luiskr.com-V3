@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/carousel/awards-carousel/observer.ts` |
+| **Source** | `website/components/carousel/awards-carousel/observer.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

@@ -6,27 +6,27 @@
  */
 
 import { jest } from '@jest/globals'
-import { KEYS } from '@/core/constants.js'
-import store from '@/core/store.js'
-import '@/components/media/MediaExpanded.js'
-import '@/components/media/MediaFigure.js'
+import { KEYS } from '@core/constants.js'
+import store from '@core/store.js'
+import '@website/components/media/MediaExpanded.js'
+import '@website/components/media/MediaFigure.js'
 import { TEST_PROJECTS, TEST_TEXT, TEST_URLS } from '../../fixtures/test-constants.js'
 import { attachMockGL } from '../../fixtures/mock-webgl.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { MODAL_MUTATIONS, PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { EXPAND_MODAL_CLASSES, MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { KEYBOARD_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { APP_EVENTS } from '@/core/tokens/events/app.js'
-import { PREF_CLASSES } from '@/core/tokens/classes/preferences.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { MEDIA_ATTRS } from '@core/tokens/attrs/media.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { MODAL_MUTATIONS, PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { EXPAND_MODAL_CLASSES, MODAL_CLASSES } from '@core/tokens/classes/modal.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { KEYBOARD_EVENTS, MOUSE_EVENTS } from '@core/tokens/events/dom.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { APP_EVENTS } from '@core/tokens/events/app.js'
+import { PREF_CLASSES } from '@core/tokens/classes/preferences.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
 const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))
 
@@ -274,7 +274,7 @@ describe('MediaExpanded', () => {
     }
 
     // decoded bitmap + rendered img node -> the `!bitmap` else + imgEl arms
-    const { wasmMediaThreads } = await import('@/utils/wasm/wasm-media-threads.js')
+    const { wasmMediaThreads } = await import('@core/utils/wasm/wasm-media-threads.js')
     const decodeSpy = jest
       .spyOn(wasmMediaThreads, 'decodeMediaInSeparateThread')
       .mockResolvedValue({ fake: 'bitmap' })
@@ -413,7 +413,7 @@ describe('MediaExpanded', () => {
 
   test('module re-evaluation respects the registered element', async () => {
     jest.resetModules()
-    await import('@/components/media/MediaExpanded.js')
+    await import('@website/components/media/MediaExpanded.js')
 
     expect(customElements.get(COMPONENT_TAGS.MEDIA_EXPANDED)).toBeTruthy()
   })

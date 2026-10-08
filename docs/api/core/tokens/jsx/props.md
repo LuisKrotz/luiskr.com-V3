@@ -4,7 +4,7 @@ JSX prop-application dictionaries — boolean-attribute set,
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/jsx/props.ts` |
+| **Source** | `core/tokens/jsx/props.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

@@ -8,7 +8,7 @@
 function addParagraph(host, col): void
 ```
 
-Defined in: [src/cms/about/model.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/model.ts#L36)
+Defined in: [cms/about/model.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/about/model.ts#L36)
 
 Adds paragraph.
 

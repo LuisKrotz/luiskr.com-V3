@@ -7,20 +7,20 @@
  * HomeMosaic / PreferencesModal / AwardsCarousel internals, and App shell.
  */
 
-import _router from '@/routes/router.js'
+import _router from '@core/router/router.js'
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
 
-import '@/components/feedback/StatsHud.js'
-import '@/components/home/AwardsMentions.js'
-import '@/components/legal/Footer.js'
+import '@website/components/feedback/StatsHud.js'
+import '@website/components/home/AwardsMentions.js'
+import '@website/components/legal/Footer.js'
 
-import '@/components/home/HomeMosaic.js'
-import '@/components/dialogs/LangDialog.js'
-import '@/components/dialogs/PreferencesModal.js'
-import '@/components/carousel/AwardsCarousel.js'
-import '@/routes/views/home/Home.js'
-import '@/routes/views/legal/Legal.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
+import '@website/components/home/HomeMosaic.js'
+import '@website/components/dialogs/LangDialog.js'
+import '@website/components/dialogs/PreferencesModal.js'
+import '@website/components/carousel/AwardsCarousel.js'
+import '@website/views/home/Home.js'
+import '@website/views/legal/Legal.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
 
 
 const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))

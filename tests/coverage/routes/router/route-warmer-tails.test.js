@@ -9,14 +9,14 @@
  */
 import { jest } from '@jest/globals'
 
-import '@/core/constants.js'
+import '@core/constants.js'
 
-import '@/cms/about/CmsAboutEditor.js'
-import '@/cms/portfolio/CmsPortfolioList.js'
-import '@/cms/projects/CmsProjectsList.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
+import '@cms/about/CmsAboutEditor.js'
+import '@cms/portfolio/CmsPortfolioList.js'
+import '@cms/projects/CmsProjectsList.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
 
 globalThis.alert = jest.fn()
 
@@ -28,7 +28,7 @@ const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))
 // heavy to import inside a coverage run (each pulls in the whole component
 // graph). Coverage counts the thunk *invocation*, not the resolved module.
 for (const route of ['views/home/Home', 'views/project/Project', 'views/legal/Legal', 'views/not-found/NotFound']) {
-  jest.unstable_mockModule(`@/routes/${route}.js`, () => ({ default: class {} }))
+  jest.unstable_mockModule(`@website/${route}.js`, () => ({ default: class {} }))
 }
 
 describe('route-warmer tails', () => {
@@ -39,7 +39,7 @@ describe('route-warmer tails', () => {
 
     delete window.requestIdleCallback
 
-    const rw = await import('@/utils/motion/route-warmer.js')
+    const rw = await import('@core/utils/motion/route-warmer.js')
 
     rw.stopRouteWarming()
     rw.startRouteWarming()
@@ -50,7 +50,7 @@ describe('route-warmer tails', () => {
 
     window.requestIdleCallback = (cb) => { cb(); return 1 }
 
-    const rw2 = await import('@/utils/motion/route-warmer.js')
+    const rw2 = await import('@core/utils/motion/route-warmer.js')
 
     rw2.startRouteWarming()
     rw2.stopRouteWarming()
@@ -71,7 +71,7 @@ describe('route-warmer tails', () => {
       return 1
     }
 
-    const rw = await import('@/utils/motion/route-warmer.js')
+    const rw = await import('@core/utils/motion/route-warmer.js')
 
     rw.startRouteWarming()
     rw.startRouteWarming() // _started guard arm

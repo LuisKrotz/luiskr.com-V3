@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/feedback/SiteToast.tsx` |
+| **Source** | `website/components/feedback/SiteToast.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

@@ -4,7 +4,7 @@ CMS footer editor: credit/source lines and the social/other
 
 | | |
 |---|---|
-| **Source** | `src/cms/footer/CmsFooterEditor.tsx` |
+| **Source** | `cms/footer/CmsFooterEditor.tsx` |
 | **UX surface** | Footer + legal links editor card. |
 
 ## Members

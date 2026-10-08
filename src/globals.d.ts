@@ -40,7 +40,7 @@ export {}
 
 declare global {
   interface Window {
-    router?: import('@/routes/router.js').Router
+    router?: import('@core/router/router.js').Router
   }
 
   interface HTMLElementTagNameMap {

@@ -16,7 +16,7 @@ const LEGACY_MOSAIC_COLS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/layout/grid.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/layout/grid.ts#L58)
+Defined in: [core/tokens/layout/grid.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/layout/grid.ts#L58)
 
 Legacy stepped column table consumed by calcColsForWidth — predates
 MOSAIC_COLS (which caps at 14 cols and starts the wide jumps earlier).

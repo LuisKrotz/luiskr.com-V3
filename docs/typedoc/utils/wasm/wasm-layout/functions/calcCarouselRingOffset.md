@@ -8,7 +8,7 @@
 function calcCarouselRingOffset(elapsed, duration, circumference): number
 ```
 
-Defined in: [src/utils/wasm/wasm-layout.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-layout.ts#L97)
+Defined in: [core/utils/wasm/wasm-layout.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/wasm/wasm-layout.ts#L97)
 
 Travel distance along the carousel ring for an elapsed fraction of the
 loop duration: (elapsed/duration)·circumference — the stroke-dashoffset

@@ -4,7 +4,7 @@ Network/URL string tokens — token group.
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/strings/net.ts` |
+| **Source** | `core/tokens/strings/net.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

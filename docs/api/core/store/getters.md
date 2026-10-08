@@ -4,7 +4,7 @@ Getter map factory — read-only accessors so the state
 
 | | |
 |---|---|
-| **Source** | `src/core/store/getters.ts` |
+| **Source** | `core/store/getters.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

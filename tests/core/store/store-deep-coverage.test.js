@@ -7,25 +7,25 @@
  */
 
 import { describe, test, expect, beforeEach, jest } from '@jest/globals'
-import store from '@/core/store.js'
+import store from '@core/store.js'
 import {
   DATA_MUTATIONS,
   LANG_MUTATIONS,
   MODAL_MUTATIONS,
   PREF_MUTATIONS,
   UI_MUTATIONS,
-} from '@/core/tokens/events/mutations.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+} from '@core/tokens/events/mutations.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { PREF_STORAGE_KEYS } from '@core/tokens/data/storage.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { MODAL_CLASSES } from '@core/tokens/classes/modal.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
 
-import { LOCALES } from '@/core/constants.js'
-import { THEME } from '@/core/tokens/theme/theme.js'
+import { LOCALES } from '@core/constants.js'
+import { THEME } from '@core/tokens/theme/theme.js'
 
 beforeEach(() => {
   document.documentElement.className = ''
@@ -360,7 +360,7 @@ describe('store — missing-BOM else arms', () => {
       })
       jest.resetModules()
 
-      await import('@/core/store.js')
+      await import('@core/store.js')
     } finally {
       if (saved) Object.defineProperty(globalThis, 'localStorage', saved)
       jest.resetModules()

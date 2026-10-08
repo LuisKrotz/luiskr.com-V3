@@ -13,26 +13,26 @@ export const ROOT_DIR = process.cwd()
 const readScss = (name) => fs.readFileSync(path.join(ROOT_DIR, name), 'utf-8')
 
 export const SCSS = {
-  about: readScss('src/sass/components/home/about.scss'),
-  app: readScss('src/sass/components/shell/app.scss'),
-  awardsCarousel: readScss('src/sass/components/carousel/awards-carousel.scss'),
-  awardsFooter: readScss('src/sass/components/home/awards-footer.scss'),
-  carouselHost: readScss('src/sass/components/carousel/carousel-host.scss'),
-  carousel: readScss('src/sass/components/carousel/carousel.scss'),
-  cms: readScss('src/cms/sass/cms.scss'),
-  contact: readScss('src/sass/components/home/contact.scss'),
-  drawText: readScss('src/sass/components/media/draw-text.scss'),
-  fonts: readScss('src/sass/base/_fonts.scss'),
-  homeMosaic: readScss('src/sass/components/home/home-mosaic.scss'),
-  internals: readScss('src/sass/components/internals/internals.scss'),
-  mediaFigure: readScss('src/sass/components/media/media-figure.scss'),
-  modal: readScss('src/sass/components/internals/modal.scss'),
-  mixins: readScss('src/sass/base/_mixins.scss'),
-  notFound: readScss('src/routes/views/not-found/not-found.scss'),
-  placeholders: readScss('src/sass/base/_placeholders.scss'),
-  preferences: readScss('src/sass/components/dialogs/preferences.scss'),
-  structure: readScss('src/sass/base/_structure.scss'),
-  variables: readScss('src/sass/base/_variables.scss'),
+  about: readScss('core/sass/components/home/about.scss'),
+  app: readScss('core/sass/components/shell/app.scss'),
+  awardsCarousel: readScss('core/sass/components/carousel/awards-carousel.scss'),
+  awardsFooter: readScss('core/sass/components/home/awards-footer.scss'),
+  carouselHost: readScss('core/sass/components/carousel/carousel-host.scss'),
+  carousel: readScss('core/sass/components/carousel/carousel.scss'),
+  cms: readScss('cms/sass/cms.scss'),
+  contact: readScss('core/sass/components/home/contact.scss'),
+  drawText: readScss('core/sass/components/media/draw-text.scss'),
+  fonts: readScss('core/sass/base/_fonts.scss'),
+  homeMosaic: readScss('core/sass/components/home/home-mosaic.scss'),
+  internals: readScss('core/sass/components/internals/internals.scss'),
+  mediaFigure: readScss('core/sass/components/media/media-figure.scss'),
+  modal: readScss('core/sass/components/internals/modal.scss'),
+  mixins: readScss('core/sass/base/_mixins.scss'),
+  notFound: readScss('website/views/not-found/not-found.scss'),
+  placeholders: readScss('core/sass/base/_placeholders.scss'),
+  preferences: readScss('core/sass/components/dialogs/preferences.scss'),
+  structure: readScss('core/sass/base/_structure.scss'),
+  variables: readScss('core/sass/base/_variables.scss'),
 }
 
 // ─── JS source file contents (cached once) ────────────────────────────────────
@@ -53,137 +53,141 @@ const readJsTree = (rel, ...extras) => [rel, ...extras].map(readJs).join('\n')
 export const SRC = {
   App: readJs('src/App.js'),
   AppNav: readJsTree(
-    'src/components/nav/AppNav.js',
-    'src/components/nav/flag.js',
-    'src/components/nav/menu.js',
-    'src/components/nav/render.js',
-    'src/components/nav/scroll.js',
-    'src/components/nav/handlers.js'
+    'website/components/nav/AppNav.js',
+    'website/components/nav/flag.js',
+    'website/components/nav/menu.js',
+    'website/components/nav/render.js',
+    'website/components/nav/scroll.js',
+    'website/components/nav/handlers.js'
   ),
-  AboutSection: readJs('src/components/home/AboutSection.js'),
+  AboutSection: readJs('website/components/home/AboutSection.js'),
   AwardsMentions: readJsTree(
-    'src/components/home/AwardsMentions.js',
-    'src/components/home/awards/data.js',
-    'src/components/home/awards/carousel.js',
-    'src/components/home/awards/render.js'
+    'website/components/home/AwardsMentions.js',
+    'website/components/home/awards/data.js',
+    'website/components/home/awards/carousel.js',
+    'website/components/home/awards/render.js'
   ),
   CustomCarousel: readJsTree(
-    'src/components/carousel/CustomCarousel.js',
-    'src/components/carousel/custom-carousel/render.js',
-    'src/components/carousel/custom-carousel/autoplay.js',
-    'src/components/carousel/custom-carousel/arrows.js',
-    'src/components/carousel/custom-carousel/nav.js',
-    'src/components/carousel/custom-carousel/sizing.js',
-    'src/components/carousel/custom-carousel/lifecycle.js'
+    'website/components/carousel/CustomCarousel.js',
+    'website/components/carousel/custom-carousel/render.js',
+    'website/components/carousel/custom-carousel/autoplay.js',
+    'website/components/carousel/custom-carousel/arrows.js',
+    'website/components/carousel/custom-carousel/nav.js',
+    'website/components/carousel/custom-carousel/sizing.js',
+    'website/components/carousel/custom-carousel/lifecycle.js'
   ),
-  ContactSection: readJs('src/components/home/ContactSection.js'),
+  ContactSection: readJs('website/components/home/ContactSection.js'),
   DrawText: readJsTree(
-    'src/components/media/DrawText.js',
-    'src/components/media/draw-text/dom.js',
-    'src/components/media/draw-text/render.js',
-    'src/components/media/draw-text/sheet.js',
-    'src/components/media/draw-text/trigger.js'
+    'website/components/media/DrawText.js',
+    'website/components/media/draw-text/dom.js',
+    'website/components/media/draw-text/render.js',
+    'website/components/media/draw-text/sheet.js',
+    'website/components/media/draw-text/trigger.js'
   ),
   AwardsCarousel: readJsTree(
-    'src/components/carousel/AwardsCarousel.js',
-    'src/components/carousel/awards-carousel/autoplay.js',
-    'src/components/carousel/awards-carousel/events.js',
-    'src/components/carousel/awards-carousel/nav.js',
-    'src/components/carousel/awards-carousel/observer.js',
-    'src/components/carousel/awards-carousel/render.js'
+    'website/components/carousel/AwardsCarousel.js',
+    'website/components/carousel/awards-carousel/autoplay.js',
+    'website/components/carousel/awards-carousel/events.js',
+    'website/components/carousel/awards-carousel/nav.js',
+    'website/components/carousel/awards-carousel/observer.js',
+    'website/components/carousel/awards-carousel/render.js'
   ),
   HomeMosaic: readJsTree(
-    'src/components/home/HomeMosaic.js',
-    'src/components/home/mosaic/pack.js',
-    'src/components/home/mosaic/layout.js',
-    'src/components/home/mosaic/interactions.js',
-    'src/components/home/mosaic/events.js',
-    'src/components/home/mosaic/render.js'
+    'website/components/home/HomeMosaic.js',
+    'website/components/home/mosaic/pack.js',
+    'website/components/home/mosaic/layout.js',
+    'website/components/home/mosaic/interactions.js',
+    'website/components/home/mosaic/events.js',
+    'website/components/home/mosaic/render.js'
   ),
   LangDialog: readJsTree(
-    'src/components/dialogs/LangDialog.js',
-    'src/components/dialogs/lang-dialog/events.js',
-    'src/components/dialogs/lang-dialog/locale.js',
-    'src/components/dialogs/lang-dialog/render.js',
-    'src/components/dialogs/lang-dialog/sync.js',
-    'src/components/dialogs/lang-dialog/webgl.js'
+    'website/components/dialogs/LangDialog.js',
+    'website/components/dialogs/lang-dialog/events.js',
+    'website/components/dialogs/lang-dialog/locale.js',
+    'website/components/dialogs/lang-dialog/render.js',
+    'website/components/dialogs/lang-dialog/sync.js',
+    'website/components/dialogs/lang-dialog/webgl.js'
   ),
-  MediaExpanded: readJs('src/components/media/MediaExpanded.js'),
+  MediaExpanded: readJs('website/components/media/MediaExpanded.js'),
   MediaFigure: readJsTree(
-    'src/components/media/MediaFigure.js',
-    'src/components/media/figure/mount.js',
-    'src/components/media/figure/modal.js',
-    'src/components/media/figure/render.js',
-    'src/components/media/figure/load.js',
-    'src/components/media/figure/video.js'
+    'website/components/media/MediaFigure.js',
+    'website/components/media/figure/mount.js',
+    'website/components/media/figure/modal.js',
+    'website/components/media/figure/render.js',
+    'website/components/media/figure/load.js',
+    'website/components/media/figure/video.js'
   ),
   PreferencesModal: readJsTree(
-    'src/components/dialogs/PreferencesModal.js',
-    'src/components/dialogs/preferences/render.js',
-    'src/components/dialogs/preferences/sync.js',
-    'src/components/dialogs/preferences/webgl.js'
+    'website/components/dialogs/PreferencesModal.js',
+    'website/components/dialogs/preferences/render.js',
+    'website/components/dialogs/preferences/sync.js',
+    'website/components/dialogs/preferences/webgl.js'
   ),
   CmsAboutEditor: readJsTree(
-    'src/cms/about/CmsAboutEditor.js',
-    'src/cms/about/data.js',
-    'src/cms/about/events.js',
-    'src/cms/about/model.js',
-    'src/cms/about/render.js'
+    'cms/about/CmsAboutEditor.js',
+    'cms/about/data.js',
+    'cms/about/events.js',
+    'cms/about/model.js',
+    'cms/about/render.js'
   ),
   CmsFooterEditor: readJsTree(
-    'src/cms/footer/CmsFooterEditor.js',
-    'src/cms/footer/data.js',
-    'src/cms/footer/lists.js',
-    'src/cms/footer/events.js',
-    'src/cms/footer/render.js'
+    'cms/footer/CmsFooterEditor.js',
+    'cms/footer/data.js',
+    'cms/footer/lists.js',
+    'cms/footer/events.js',
+    'cms/footer/render.js'
   ),
-  CmsLangEditor: readJs('src/cms/lang/CmsLangEditor.js'),
+  CmsLangEditor: readJs('cms/lang/CmsLangEditor.js'),
   CmsPortfolioList: readJsTree(
-    'src/cms/portfolio/CmsPortfolioList.js',
-    'src/cms/portfolio/data.js',
-    'src/cms/portfolio/events.js',
-    'src/cms/portfolio/model.js',
-    'src/cms/portfolio/render.js'
+    'cms/portfolio/CmsPortfolioList.js',
+    'cms/portfolio/data.js',
+    'cms/portfolio/events.js',
+    'cms/portfolio/model.js',
+    'cms/portfolio/render.js'
   ),
   CmsProjectsList: readJsTree(
-    'src/cms/projects/CmsProjectsList.js',
-    'src/cms/projects/data.js',
-    'src/cms/projects/events.js',
-    'src/cms/projects/render.js',
-    'src/cms/projects/section-render.js',
-    'src/cms/projects/sections.js'
+    'cms/projects/CmsProjectsList.js',
+    'cms/projects/data.js',
+    'cms/projects/events.js',
+    'cms/projects/render.js',
+    'cms/projects/section-render.js',
+    'cms/projects/sections.js'
   ),
-  LegalFooter: readJs('src/components/legal/Footer.js'),
+  LegalFooter: readJs('website/components/legal/Footer.js'),
   PortfolioRelated: readJsTree(
-    'src/components/portfolio/Related.js',
-    'src/components/portfolio/related/match.js',
-    'src/components/portfolio/related/data.js',
-    'src/components/portfolio/related/render.js'
+    'website/components/portfolio/Related.js',
+    'website/components/portfolio/related/match.js',
+    'website/components/portfolio/related/data.js',
+    'website/components/portfolio/related/render.js'
   ),
-  AdminLogin: readJs('src/cms/routes/AdminLogin.js'),
-  CmsDashboard: readJs('src/cms/routes/CmsDashboard.js'),
+  AdminLogin: readJs('cms/routes/AdminLogin.js'),
+  CmsDashboard: readJs('cms/routes/CmsDashboard.js'),
   Home: readJsTree(
-    'src/routes/views/home/Home.js',
-    'src/routes/views/home/data.js',
-    'src/routes/views/home/children.js',
-    'src/routes/views/home/scroll.js',
-    'src/routes/views/home/render.js'
+    'website/views/home/Home.js',
+    'website/views/home/data.js',
+    'website/views/home/children.js',
+    'website/views/home/scroll.js',
+    'website/views/home/render.js'
   ),
-  Legal: readJs('src/routes/views/legal/Legal.js'),
-  NotFound: readJs('src/routes/views/not-found/NotFound.js'),
+  Legal: readJs('website/views/legal/Legal.js'),
+  NotFound: readJs('website/views/not-found/NotFound.js'),
   Project: readJsTree(
-    'src/routes/views/project/Project.js',
-    'src/routes/views/project/carousels.js',
-    'src/routes/views/project/layout.js',
-    'src/routes/views/project/modal.js',
-    'src/routes/views/project/modal-dom.js',
-    'src/routes/views/project/data.js',
-    'src/routes/views/project/render.js'
+    'website/views/project/Project.js',
+    'website/views/project/carousels.js',
+    'website/views/project/layout.js',
+    'website/views/project/modal.js',
+    'website/views/project/modal-dom.js',
+    'website/views/project/data.js',
+    'website/views/project/render.js'
   ),
-  constants: readJs('src/core/constants.js'),
-  store: readJs('src/core/store.js'),
-  router: readJsTree('src/routes/router.js', 'src/routes/parse-path.js', 'src/routes/navigate.js'),
-  sanitize: readJs('src/utils/data/sanitize.js'),
+  constants: readJs('core/constants.js'),
+  store: readJs('core/store.js'),
+  router: readJsTree(
+    'core/router/router.js',
+    'core/router/parse-path.js',
+    'core/router/navigate.js'
+  ),
+  sanitize: readJs('core/utils/data/sanitize.js'),
 }
 
 // ─── Test-only vocabulary (fixture tags, sample text, sample project data) ─────

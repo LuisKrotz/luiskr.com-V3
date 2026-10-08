@@ -1,7 +1,7 @@
 /**
  * @file misc-core.test.js
- * @description Coverage for the re-export barrels (src/core/utils/dom.js,
- * src/core/utils/index.js, src/core/index.js), the
+ * @description Coverage for the re-export barrels (core/utils/dom.js,
+ * core/utils/index.js, core/index.js), the
  * core barrel re-exports, and the safari-loader/SW shims evaluated at
  * module scope.
  */
@@ -9,14 +9,14 @@
 import { describe, test, expect } from '@jest/globals'
 
 // Barrel/shim modules — imported for coverage of their re-export statements.
-import * as coreDom from '@/core/utils/dom.js'
-import * as coreUtilsIndex from '@/core/utils/index.js'
-import * as utilsMedia from '@/core/utils/index.js'
-import * as coreIndex from '@/core/index.js'
-import '@/safari/loader.js'
+import * as coreDom from '@core/utils/dom.js'
+import * as coreUtilsIndex from '@core/utils/index.js'
+import * as utilsMedia from '@core/utils/index.js'
+import * as coreIndex from '@core/index.js'
+import '@core/safari/loader.js'
 import '@/registerServiceWorker.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 // ─── barrels ─────────────────────────────────────────────────────────────────
 

@@ -5,16 +5,16 @@
  * CmsPlaygroundEditor (Firebase load/save, key add/remove/move).
  */
 import { describe, test, expect, jest, beforeEach } from '@jest/globals'
-import { CMS_TABS, CMS_TAGS } from '@/cms/tokens.js'
-import { SP_DB_DEFAULT_SEED } from '@/playground/space/controls.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { CMS_ADMIN_CLASSES } from '@/cms/tokens.js'
+import { CMS_TABS, CMS_TAGS } from '@cms/tokens.js'
+import { SP_DB_DEFAULT_SEED } from '@earth/space/controls.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { CMS_ADMIN_CLASSES } from '@cms/tokens.js'
 
 const authCallbacks = []
 const setCalls = []
 const snapVal = { headingKey: 'x', bodyKey: 'y' }
 
-jest.unstable_mockModule('@/firebase.js', () => ({
+jest.unstable_mockModule('@core/firebase.js', () => ({
   onAuthChange: jest.fn(async (cb) => {
     authCallbacks.push(cb)
 
@@ -35,10 +35,10 @@ jest.unstable_mockModule('firebase/database', () => ({
   remove: jest.fn(async () => {}),
 }))
 
-await import('@/cms/routes/AdminLogin.js')
-await import('@/cms/routes/CmsDashboard.js')
-await import('@/cms/lang/CmsLangEditor.js')
-await import('@/cms/playground-editor/CmsPlaygroundEditor.js')
+await import('@cms/routes/AdminLogin.js')
+await import('@cms/routes/CmsDashboard.js')
+await import('@cms/lang/CmsLangEditor.js')
+await import('@cms/playground-editor/CmsPlaygroundEditor.js')
 
 const mount = (tag) => {
   const el = document.createElement(tag)
@@ -79,7 +79,7 @@ describe('ViewAdminLogin', () => {
   })
 
   test('failed login surfaces the error message', async () => {
-    const { signInWithGoogle } = await import('@/firebase.js')
+    const { signInWithGoogle } = await import('@core/firebase.js')
 
     signInWithGoogle.mockRejectedValueOnce(new Error('popup blocked'))
 
@@ -93,7 +93,7 @@ describe('ViewAdminLogin', () => {
   })
 
   test('cancelled popup is swallowed silently', async () => {
-    const { signInWithGoogle } = await import('@/firebase.js')
+    const { signInWithGoogle } = await import('@core/firebase.js')
     const err = new Error('cancelled')
 
     err.code = 'auth/popup-closed-by-user'
@@ -111,7 +111,7 @@ describe('ViewAdminLogin', () => {
   test('concurrent login attempts are deduplicated', async () => {
     const el = mount(CMS_TAGS.VIEW_ADMIN_LOGIN)
 
-    const { signInWithGoogle } = await import('@/firebase.js')
+    const { signInWithGoogle } = await import('@core/firebase.js')
     const before = signInWithGoogle.mock.calls.length
 
     el._loginInProgress = true
@@ -180,7 +180,7 @@ describe('ViewCmsDashboard', () => {
   })
 
   test('handleLogout delegates to firebase', async () => {
-    const { logoutUser } = await import('@/firebase.js')
+    const { logoutUser } = await import('@core/firebase.js')
     const el = mount(CMS_TAGS.VIEW_CMS_DASHBOARD)
 
     await el.handleLogout()

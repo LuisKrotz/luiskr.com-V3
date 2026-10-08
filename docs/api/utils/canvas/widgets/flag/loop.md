@@ -4,7 +4,7 @@ Render loop + fallback transitions for FlagWebGL: the
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/flag/loop.ts` |
+| **Source** | `core/utils/canvas/widgets/flag/loop.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

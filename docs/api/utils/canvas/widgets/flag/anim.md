@@ -4,7 +4,7 @@ Flag geometry + animation-mode mapping for FlagWebGL:
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/flag/anim.ts` |
+| **Source** | `core/utils/canvas/widgets/flag/anim.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

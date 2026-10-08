@@ -8,7 +8,7 @@
 function deleteJob(host): Promise<void>
 ```
 
-Defined in: [src/cms/media-convert/job.ts:182](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/job.ts#L182)
+Defined in: [cms/media-convert/job.ts:182](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/media-convert/job.ts#L182)
 
 DELETEs the job on the dev server (cleanup of uploaded tmp files) then
 clears host.jobId — a missing job is tolerated (idempotent teardown).

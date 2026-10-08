@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [components/nav/flag](../README.md) / NavFlagHost
 
-Defined in: [src/components/nav/flag.tsx:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/nav/flag.tsx#L23)
+Defined in: [website/components/nav/flag.tsx:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/nav/flag.tsx#L23)
 
 Host surface the flag helpers need (satisfied by AppNav).
 
@@ -20,7 +20,7 @@ Host surface the flag helpers need (satisfied by AppNav).
 _navFlags: FlagWebGL[];
 ```
 
-Defined in: [src/components/nav/flag.tsx:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/nav/flag.tsx#L25)
+Defined in: [website/components/nav/flag.tsx:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/nav/flag.tsx#L25)
 
 Live flag widgets (max one — the menu flag).
 
@@ -32,7 +32,7 @@ Live flag widgets (max one — the menu flag).
 _menuFlagCanvasEl: HTMLCanvasElement | null
 ```
 
-Defined in: [src/components/nav/flag.tsx:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/nav/flag.tsx#L27)
+Defined in: [website/components/nav/flag.tsx:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/nav/flag.tsx#L27)
 
 Persistent per-locale flag canvas; rebuilt on locale change.
 
@@ -44,7 +44,7 @@ Persistent per-locale flag canvas; rebuilt on locale change.
 _menuFlagLang: string | null
 ```
 
-Defined in: [src/components/nav/flag.tsx:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/nav/flag.tsx#L29)
+Defined in: [website/components/nav/flag.tsx:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/nav/flag.tsx#L29)
 
 Locale the current flag canvas was built for.
 
@@ -56,7 +56,7 @@ Locale the current flag canvas was built for.
 readonly locale: string;
 ```
 
-Defined in: [src/components/nav/flag.tsx:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/nav/flag.tsx#L31)
+Defined in: [website/components/nav/flag.tsx:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/nav/flag.tsx#L31)
 
 Active locale code.
 
@@ -197,6 +197,6 @@ readonly currentLang:
   | null;
 ```
 
-Defined in: [src/components/nav/flag.tsx:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/nav/flag.tsx#L33)
+Defined in: [website/components/nav/flag.tsx:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/nav/flag.tsx#L33)
 
 The active LANG_OPTIONS entry (code + label + flag cc).

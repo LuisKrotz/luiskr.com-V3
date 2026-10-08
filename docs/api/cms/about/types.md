@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/about/types.ts` |
+| **Source** | `cms/about/types.ts` |
 | **UX surface** | About-section editor card. |
 
 ## Members

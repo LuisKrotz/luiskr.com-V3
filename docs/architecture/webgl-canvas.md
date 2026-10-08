@@ -1,4 +1,4 @@
-# WebGL / canvas utilities (src/utils/canvas)
+# WebGL / canvas utilities (core/utils/canvas)
 
 Shared GPU widgets used by the public site and playground. Every widget follows
 the same contract:
@@ -37,7 +37,7 @@ fallback and the natural-aspect probe.
 | `widgets/carousel-controls.ts` | `widgets/carousel-controls/paint-2d` | CustomCarousel arrows | CSS arrows |
 
 `earth-background.ts` and `space/checkbox-webgl.ts` are **not** here — they
-are playground-owned and live in `src/playground/`.
+are playground-owned and live in `experiments/earth-playground/`.
 
 ## Lifecycle rules
 
@@ -119,7 +119,7 @@ regression (wasm is CPU SIMD; it cannot beat thousands of shader cores, and an
 `await` inside a frame would blow the frame budget).
 
 Batch CPU work that is _not_ per-frame routes through the wasm worker pool
-(`src/utils/wasm/wasm-pool.ts` → `public/workers/wasm-worker.js`, lazily
+(`core/utils/wasm/wasm-pool.ts` → `public/workers/wasm-worker.js`, lazily
 spawned, 2 workers on mobile / 4 on desktop): mosaic batch layout,
 spring-physics integration, draw-text timing, media hashing, GPU-hardware
 image decode (`createImageBitmap` with decode-time resize — including flag
@@ -135,8 +135,9 @@ worth it.
 
 ## Diagnostics — zero-console
 
-No `console.*` calls anywhere in `src/` (AGENTS.md rule 12). WebGL init
+No `console.*` calls anywhere in the source areas (`src|core|website|cms|
+experiments`, AGENTS.md rule 12). WebGL init
 warnings, shader-compile failures, context-loss notices and error paths all
-write to `src/core/devlog.ts` — a capped ring buffer (`DEV_LOG.MAX_ENTRIES`)
+write to `core/devlog.ts` — a capped ring buffer (`DEV_LOG.MAX_ENTRIES`)
 inspectable in devtools via `__lkDevLog()`. Fallback behavior is unchanged;
 only the reporting channel moved.

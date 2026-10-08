@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/loaders/menu-background/init.ts` |
+| **Source** | `core/utils/canvas/loaders/menu-background/init.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

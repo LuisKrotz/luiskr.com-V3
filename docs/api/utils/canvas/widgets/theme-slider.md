@@ -4,7 +4,7 @@ WebGL three-position theme slider (light / system / dark)
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/theme-slider.ts` |
+| **Source** | `core/utils/canvas/widgets/theme-slider.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

@@ -8,7 +8,7 @@
 function bindListEvents(host, prefix, arr, labelField?): void
 ```
 
-Defined in: [src/cms/footer/lists.ts:135](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/footer/lists.ts#L135)
+Defined in: [cms/footer/lists.ts:135](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/footer/lists.ts#L135)
 
 Wires add/remove/move/input handlers for a rendered list.
 

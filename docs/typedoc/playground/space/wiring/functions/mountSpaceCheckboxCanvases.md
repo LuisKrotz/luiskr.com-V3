@@ -8,7 +8,7 @@
 function mountSpaceCheckboxCanvases(c): void
 ```
 
-Defined in: [src/playground/space/wiring.ts:347](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/wiring.ts#L347)
+Defined in: [experiments/earth-playground/space/wiring.ts:347](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/wiring.ts#L347)
 
 Mounts one CheckboxWebGL twin per checkbox canvas: destroys a stale
 twin when the canvas element changed identity across a re-render,

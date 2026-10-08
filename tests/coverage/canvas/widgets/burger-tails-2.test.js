@@ -8,15 +8,15 @@
  * Home route param changes.
  */
 import { jest } from '@jest/globals'
-import { KEYS } from '@/core/tokens/primitives.js'
-import { KEYBOARD_EVENTS } from '@/core/tokens/events/dom.js'
+import { KEYS } from '@core/tokens/primitives.js'
+import { KEYBOARD_EVENTS } from '@core/tokens/events/dom.js'
 
-import _router from '@/routes/router.js'
+import _router from '@core/router/router.js'
 
-import '@/routes/views/legal/Legal.js'
-import '@/routes/views/home/Home.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
+import '@website/views/legal/Legal.js'
+import '@website/views/home/Home.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
 
 
 
@@ -25,7 +25,7 @@ import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
 
 describe('burger tails 2', () => {
   test('_checkResize guards and dpr rounding', async () => {
-    const { BurgerButtonWebGL } = await import('@/utils/canvas/widgets/burger-button-webgl.js')
+    const { BurgerButtonWebGL } = await import('@core/utils/canvas/widgets/burger-button-webgl.js')
     const canvas = document.createElement(HTML_TAGS.CANVAS)
 
     const btn = new BurgerButtonWebGL(canvas, jest.fn())
@@ -40,7 +40,7 @@ describe('burger tails 2', () => {
   })
 
   test('_triggerFallback clears raf and marks the canvas', async () => {
-    const { BurgerButtonWebGL } = await import('@/utils/canvas/widgets/burger-button-webgl.js')
+    const { BurgerButtonWebGL } = await import('@core/utils/canvas/widgets/burger-button-webgl.js')
     const canvas = document.createElement(HTML_TAGS.CANVAS)
 
     const btn = new BurgerButtonWebGL(canvas, jest.fn())
@@ -55,7 +55,7 @@ describe('burger tails 2', () => {
   })
 
   test('Enter/Space keydown activates the burger (keyboard-only access)', async () => {
-    const { BurgerButtonWebGL } = await import('@/utils/canvas/widgets/burger-button-webgl.js')
+    const { BurgerButtonWebGL } = await import('@core/utils/canvas/widgets/burger-button-webgl.js')
     const canvas = document.createElement(HTML_TAGS.CANVAS)
     const onClick = jest.fn()
 

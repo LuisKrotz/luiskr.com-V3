@@ -4,7 +4,7 @@ Dynamic-CSS injector: owns the single &lt;style id="wasm-dynamic-css"&gt;
 
 | | |
 |---|---|
-| **Source** | `src/utils/wasm/wasm-css.ts` |
+| **Source** | `core/utils/wasm/wasm-css.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

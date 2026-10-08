@@ -7,7 +7,7 @@
  *      self-contained IIFE bundle (es2016). The default tier additionally
  *      emits dist/index.html, dist/cms/index.html, public/ assets and the
  *      service worker.
- *   2. esbuild each src/legacy-polyfills/* entry to
+ *   2. esbuild each core/legacy-polyfills/* entry to
  *      dist/assets/polyfills/<name>-<hash>.js — fetched ONLY by engines
  *      whose runtime guards fail.
  *   3. Rewrite dist/index.html: swap the hardcoded module script for the
@@ -118,8 +118,8 @@ const emitCss = async (t, prefix = 'index-') => {
   const sass = await import('sass')
   const { transform } = await import('lightningcss')
 
-  const compiled = sass.compile(path.join(ROOT, 'src/sass/components/shell/app.scss'), {
-    loadPaths: [path.join(ROOT, 'src/sass')],
+  const compiled = sass.compile(path.join(ROOT, 'core/sass/components/shell/app.scss'), {
+    loadPaths: [path.join(ROOT, 'core/sass')],
     silenceDeprecations: ['import', 'global-builtin', 'legacy-js-api'],
     sourceMap: true,
     sourceMapIncludeSources: true,

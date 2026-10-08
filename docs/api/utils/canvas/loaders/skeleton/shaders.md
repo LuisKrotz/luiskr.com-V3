@@ -4,7 +4,7 @@ GLSL sources for the skeleton shimmer layer, extracted
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/loaders/skeleton/shaders.ts` |
+| **Source** | `core/utils/canvas/loaders/skeleton/shaders.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

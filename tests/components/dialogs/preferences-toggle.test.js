@@ -5,8 +5,8 @@
  * subscribers to never be notified. These tests verify the fix stays in place.
  */
 
-import store from '@/core/store.js'
-import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import store from '@core/store.js'
+import { PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
 
 const resetToggles = () => {
   if (store.state.showStatsForNerds) store.commit(PREF_MUTATIONS.TOGGLE_STATS_FOR_NERDS)

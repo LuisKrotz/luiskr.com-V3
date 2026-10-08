@@ -8,7 +8,7 @@
 function renderFlagWebGL(flag, now): void
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/loop.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/loop.ts#L51)
+Defined in: [core/utils/canvas/widgets/flag/loop.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/loop.ts#L51)
 
 Per-frame WebGL render: updates time/hover uniforms and draws the quad.
 

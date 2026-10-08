@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [components/home/AwardsMentions](../README.md) / AwardsMentions
 
-Defined in: [src/components/home/AwardsMentions.tsx:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L39)
+Defined in: [website/components/home/AwardsMentions.tsx:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L39)
 
 The AwardsMentions — mentions class.
 
@@ -20,7 +20,7 @@ The AwardsMentions — mentions class.
 new AwardsMentions(): AwardsMentions;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L48)
+Defined in: [website/components/home/AwardsMentions.tsx:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L48)
 
 #### Returns
 
@@ -38,7 +38,7 @@ Defined in: [src/components/home/AwardsMentions.tsx:48](https://github.com/LuisK
 protected _componentStyles: string;
 ```
 
-Defined in: [src/core/Component.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L67)
+Defined in: [core/Component.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L67)
 
 `?inline` SCSS text injected once per shadow root.
 
@@ -54,7 +54,7 @@ Defined in: [src/core/Component.ts:67](https://github.com/LuisKrotz/luiskr.com-V
 protected _eventDisposers: () => void[] = [];
 ```
 
-Defined in: [src/core/Component.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L74)
+Defined in: [core/Component.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L74)
 
 Disposers for listeners added via addScopedListener(). Drained in
 disconnectedCallback so elements never leak listeners across mounts —
@@ -76,7 +76,7 @@ critical for elements that move in the DOM (carousel reorder, route swap).
 protected _storeUnsubscribers: () => void[] = [];
 ```
 
-Defined in: [src/core/Component.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L80)
+Defined in: [core/Component.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L80)
 
 Unsubscribe callbacks from store.subscribe(). Drained on disconnect so a
 detached element stops receiving store pushes and can be GC'd.
@@ -97,7 +97,7 @@ detached element stops receiving store pushes and can be GC'd.
 _isMounted: boolean = false
 ```
 
-Defined in: [src/core/Component.ts:87](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L87)
+Defined in: [core/Component.ts:87](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L87)
 
 Whether the element is currently connected. Read by the store-subscription
 wrapper to skip onStoreUpdate on detached elements (a store push arriving
@@ -115,7 +115,7 @@ between disconnect and GC must not re-render into a dead shadow root).
 protected _styleNode: Element | HTMLStyleElement | null = null;
 ```
 
-Defined in: [src/core/Component.ts:90](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L90)
+Defined in: [core/Component.ts:90](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L90)
 
 The `<style>` fallback node, only populated on engines without constructable stylesheets.
 
@@ -131,7 +131,7 @@ The `<style>` fallback node, only populated on engines without constructable sty
 _contentNode: Element | HTMLElement | null = null;
 ```
 
-Defined in: [src/core/Component.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L97)
+Defined in: [core/Component.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L97)
 
 Persistent content wrapper inside the shadow root. _updateDom swaps only
 this node's children — the style mechanism stays untouched (see file
@@ -151,7 +151,7 @@ _skeletonLayer:
   | null = null;
 ```
 
-Defined in: [src/core/Component.ts:100](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L100)
+Defined in: [core/Component.ts:100](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L100)
 
 Live WebGL skeleton layer, owned by syncSkeletonLayer()/destroySkeletonLayer().
 
@@ -167,7 +167,7 @@ Live WebGL skeleton layer, owned by syncSkeletonLayer()/destroySkeletonLayer().
 state: ComponentState = {}
 ```
 
-Defined in: [src/core/Component.ts:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L103)
+Defined in: [core/Component.ts:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L103)
 
 Reactive state bag — written only through setState() so updates always re-render.
 
@@ -202,7 +202,7 @@ at the time the input device's primary action is triggered.
 _title: string
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L40)
+Defined in: [website/components/home/AwardsMentions.tsx:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L40)
 
 ---
 
@@ -212,7 +212,7 @@ Defined in: [src/components/home/AwardsMentions.tsx:40](https://github.com/LuisK
 _items: unknown[] | null = null;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L43)
+Defined in: [website/components/home/AwardsMentions.tsx:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L43)
 
 ---
 
@@ -222,7 +222,7 @@ Defined in: [src/components/home/AwardsMentions.tsx:43](https://github.com/LuisK
 _lastLocale: string | null = null;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L44)
+Defined in: [website/components/home/AwardsMentions.tsx:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L44)
 
 ---
 
@@ -232,7 +232,7 @@ Defined in: [src/components/home/AwardsMentions.tsx:44](https://github.com/LuisK
 _duration: number = 10000
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L45)
+Defined in: [website/components/home/AwardsMentions.tsx:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L45)
 
 ---
 
@@ -242,7 +242,7 @@ Defined in: [src/components/home/AwardsMentions.tsx:45](https://github.com/LuisK
 _autoplayEverStarted: boolean = false
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L46)
+Defined in: [website/components/home/AwardsMentions.tsx:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L46)
 
 ---
 
@@ -4266,7 +4266,7 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:35365
 get title(): string;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L67)
+Defined in: [website/components/home/AwardsMentions.tsx:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L67)
 
 The **`HTMLElement.title`** property represents the title of the element: the text usually displayed in a 'tooltip' popup when the mouse is over the node.
 
@@ -4282,7 +4282,7 @@ The **`HTMLElement.title`** property represents the title of the element: the te
 set title(val): void;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L54)
+Defined in: [website/components/home/AwardsMentions.tsx:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L54)
 
 Setter/getter — section heading text.
 
@@ -4314,7 +4314,7 @@ The **`HTMLElement.title`** property represents the title of the element: the te
 get items(): unknown[] | null;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:91](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L91)
+Defined in: [website/components/home/AwardsMentions.tsx:91](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L91)
 
 ##### Returns
 
@@ -4326,7 +4326,7 @@ Defined in: [src/components/home/AwardsMentions.tsx:91](https://github.com/LuisK
 set items(val): void;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:73](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L73)
+Defined in: [website/components/home/AwardsMentions.tsx:73](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L73)
 
 Setter/getter — award/mention entries for the carousel.
 
@@ -4350,7 +4350,7 @@ Setter/getter — award/mention entries for the carousel.
 get legalLinks(): LegalLink[];
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L97)
+Defined in: [website/components/home/AwardsMentions.tsx:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L97)
 
 Legal-page links for the footer row (see awards/data.ts).
 
@@ -4534,7 +4534,7 @@ Defined in: node\_modules/typescript/lib/lib.dom.d.ts:13931
 optional onInit(): void;
 ```
 
-Defined in: [src/core/Component.ts:110](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L110)
+Defined in: [core/Component.ts:110](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L110)
 
 Lifecycle hooks — declared on the base so `?.()` calls are type-safe and
 subclasses get a documented override point. Order on first connect:
@@ -4556,7 +4556,7 @@ onInit → _renderInitial → onMounted → onUpdated.
 optional onDestroy(): void;
 ```
 
-Defined in: [src/core/Component.ts:114](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L114)
+Defined in: [core/Component.ts:114](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L114)
 
 #### Returns
 
@@ -4574,7 +4574,7 @@ Defined in: [src/core/Component.ts:114](https://github.com/LuisKrotz/luiskr.com-
 setState(updater): void;
 ```
 
-Defined in: [src/core/Component.ts:139](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L139)
+Defined in: [core/Component.ts:139](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L139)
 
 Set partial state and re-render content (NOT styles). Accepts either a
 patch object or a React-style updater function — the function form is
@@ -4608,7 +4608,7 @@ Partial state patch, or (prevState) => patch.
 connectedCallback(): void;
 ```
 
-Defined in: [src/core/Component.ts:157](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L157)
+Defined in: [core/Component.ts:157](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L157)
 
 DOM insertion — runs onInit (data setup), the one-time style/content
 build (_renderInitial), then onMounted + onUpdated so a first render is
@@ -4633,7 +4633,7 @@ every branch below is written to be idempotent on re-mount.
 disconnectedCallback(): void;
 ```
 
-Defined in: [src/core/Component.ts:173](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L173)
+Defined in: [core/Component.ts:173](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L173)
 
 DOM removal — tears down in reverse order: scoped listeners, store
 subscriptions, the WebGL skeleton layer for this element, then the
@@ -4657,7 +4657,7 @@ subscribe() rather than rendering into a disconnecting root.
 $<T>(selector): T | null;
 ```
 
-Defined in: [src/core/Component.ts:189](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L189)
+Defined in: [core/Component.ts:189](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L189)
 
 Safe scoped querySelector inside Shadow Root. Returns null instead of
 throwing when the shadow root is absent (detached construction in tests).
@@ -4694,7 +4694,7 @@ First matching element or null.
 $$<T>(selector): T[];
 ```
 
-Defined in: [src/core/Component.ts:200](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L200)
+Defined in: [core/Component.ts:200](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L200)
 
 Safe scoped querySelectorAll inside Shadow Root — materialized into a
 real Array so callers get .map/.filter/forEach (NodeList lacks some
@@ -4737,7 +4737,7 @@ addScopedListener(
 ): void;
 ```
 
-Defined in: [src/core/Component.ts:215](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L215)
+Defined in: [core/Component.ts:215](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L215)
 
 Scoped event listener with automatic lifecycle cleanup.
 Prevents duplicate listeners: the DOM itself dedupes identical
@@ -4787,7 +4787,7 @@ Passive/capture/once options forwarded verbatim.
 subscribe(store): void;
 ```
 
-Defined in: [src/core/Component.ts:236](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L236)
+Defined in: [core/Component.ts:236](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L236)
 
 Subscribe to store changes with automatic lifecycle cleanup. The wrapper
 gates on _isMounted: a store push landing while the element is detached
@@ -4818,7 +4818,7 @@ Store-like object exposing subscribe(); null/invalid → no-op.
 protected _renderInitial(): void;
 ```
 
-Defined in: [src/core/Component.ts:254](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L254)
+Defined in: [core/Component.ts:254](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L254)
 
 Initial render: injects styles ONCE and creates the content node.
 Called exactly once from connectedCallback() — but on re-mount the shadow
@@ -4841,7 +4841,7 @@ paths reuse existing nodes instead of duplicating them.
 _updateDom(): void;
 ```
 
-Defined in: [src/core/Component.ts:321](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L321)
+Defined in: [core/Component.ts:321](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L321)
 
 Update content without touching the style node.
 Only the content wrapper is replaced — the <style> node
@@ -4866,7 +4866,7 @@ tracked element on every state change).
 protected _applyRenderOutput(output): void;
 ```
 
-Defined in: [src/core/Component.ts:348](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/Component.ts#L348)
+Defined in: [core/Component.ts:348](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/Component.ts#L348)
 
 Applies the render output (DOM Node, DocumentFragment, or HTML string) to the content wrapper.
 Three accepted shapes, resolved in priority order:
@@ -4901,7 +4901,7 @@ Render result from render().
 onMounted(): void;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:101](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L101)
+Defined in: [website/components/home/AwardsMentions.tsx:101](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L101)
 
 #### Returns
 
@@ -4919,7 +4919,7 @@ Defined in: [src/components/home/AwardsMentions.tsx:101](https://github.com/Luis
 onStoreUpdate(): void;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L113)
+Defined in: [website/components/home/AwardsMentions.tsx:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L113)
 
 #### Returns
 
@@ -4937,7 +4937,7 @@ Defined in: [src/components/home/AwardsMentions.tsx:113](https://github.com/Luis
 _ensureData(): void;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L127)
+Defined in: [website/components/home/AwardsMentions.tsx:127](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L127)
 
 Loads the mentions + legal-links nodes when missing (SWR).
 
@@ -4953,7 +4953,7 @@ Loads the mentions + legal-links nodes when missing (SWR).
 onUpdated(): void;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:131](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L131)
+Defined in: [website/components/home/AwardsMentions.tsx:131](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L131)
 
 #### Returns
 
@@ -4971,7 +4971,7 @@ Defined in: [src/components/home/AwardsMentions.tsx:131](https://github.com/Luis
 _setupCarousel(): void;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:137](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L137)
+Defined in: [website/components/home/AwardsMentions.tsx:137](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L137)
 
 Builds the auto-advance loop (see awards/carousel.ts).
 
@@ -4987,7 +4987,7 @@ Builds the auto-advance loop (see awards/carousel.ts).
 _showProgress(): void;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:143](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L143)
+Defined in: [website/components/home/AwardsMentions.tsx:143](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L143)
 
 Shows the circular progress indicator for the current slide.
 
@@ -5003,7 +5003,7 @@ Shows the circular progress indicator for the current slide.
 _hideProgress(): void;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:149](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L149)
+Defined in: [website/components/home/AwardsMentions.tsx:149](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L149)
 
 Hides the progress arc (paused/hover).
 
@@ -5019,7 +5019,7 @@ Hides the progress arc (paused/hover).
 _restartProgressAnimation(): void;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:155](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L155)
+Defined in: [website/components/home/AwardsMentions.tsx:155](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L155)
 
 Resets the SVG progress arc so the next slide's timer animates from zero.
 
@@ -5035,7 +5035,7 @@ Resets the SVG progress arc so the next slide's timer animates from zero.
 _bindLinks(): void;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:161](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L161)
+Defined in: [website/components/home/AwardsMentions.tsx:161](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L161)
 
 Wires internal links through the SPA router.
 
@@ -5051,7 +5051,7 @@ Wires internal links through the SPA router.
 render(): Element;
 ```
 
-Defined in: [src/components/home/AwardsMentions.tsx:185](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/home/AwardsMentions.tsx#L185)
+Defined in: [website/components/home/AwardsMentions.tsx:185](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/home/AwardsMentions.tsx#L185)
 
 JSX template for the component's shadow DOM.
 

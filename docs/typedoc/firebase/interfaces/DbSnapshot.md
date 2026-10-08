@@ -4,7 +4,7 @@
 
 [luiskr.com](../../README.md) / [firebase](../README.md) / DbSnapshot
 
-Defined in: [src/firebase.ts:142](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/firebase.ts#L142)
+Defined in: [core/firebase.ts:142](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/firebase.ts#L142)
 
 Snapshot-shaped result matching the SDK's DataSnapshot read API.
 
@@ -16,7 +16,7 @@ Snapshot-shaped result matching the SDK's DataSnapshot read API.
 exists: () => boolean
 ```
 
-Defined in: [src/firebase.ts:143](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/firebase.ts#L143)
+Defined in: [core/firebase.ts:143](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/firebase.ts#L143)
 
 #### Returns
 
@@ -30,7 +30,7 @@ Defined in: [src/firebase.ts:143](https://github.com/LuisKrotz/luiskr.com-V3/blo
 val: () => unknown
 ```
 
-Defined in: [src/firebase.ts:144](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/firebase.ts#L144)
+Defined in: [core/firebase.ts:144](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/firebase.ts#L144)
 
 #### Returns
 

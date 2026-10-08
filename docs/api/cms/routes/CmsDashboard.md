@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/routes/CmsDashboard.tsx` |
+| **Source** | `cms/routes/CmsDashboard.tsx` |
 | **UX surface** | Login screen and the dashboard shell. |
 
 ## Members

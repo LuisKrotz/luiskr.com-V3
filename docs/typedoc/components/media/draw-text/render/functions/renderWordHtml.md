@@ -8,7 +8,7 @@
 function renderWordHtml(chars?, wordIdx, delay, offset, withChars): string
 ```
 
-Defined in: [src/components/media/draw-text/render.ts:193](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/draw-text/render.ts#L193)
+Defined in: [website/components/media/draw-text/render.ts:193](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/draw-text/render.ts#L193)
 
 Renders one word token's char spans. Exported so the char/offset math and
 the empty-chars default are unit-testable — renderContent binds the running

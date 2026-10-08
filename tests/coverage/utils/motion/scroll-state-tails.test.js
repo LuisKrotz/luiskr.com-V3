@@ -10,15 +10,15 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 import { jest } from '@jest/globals'
-import { h } from '@/core/jsx.js'
+import { h } from '@core/jsx.js'
 
-import { isScrolling, onScrollStop } from '@/utils/motion/scroll-state.js'
+import { isScrolling, onScrollStop } from '@core/utils/motion/scroll-state.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { WINDOW_EVENTS } from '@core/tokens/events/dom.js'
 
 
 
@@ -71,7 +71,7 @@ describe('scroll-state tails', () => {
 
     delete globalThis.window
 
-    await import('@/utils/motion/scroll-state.js')
+    await import('@core/utils/motion/scroll-state.js')
 
     globalThis.window = win
   })
@@ -99,14 +99,14 @@ describe('scroll-state tails', () => {
 
       jest.resetModules()
 
-      await import('@/utils/motion/scroll-state.js')
+      await import('@core/utils/motion/scroll-state.js')
 
       stash.forEach(([h, d]) => Object.defineProperty(h, 'onscrollend', d))
     } else {
       window.onscrollend = null
       jest.resetModules()
 
-      await import('@/utils/motion/scroll-state.js')
+      await import('@core/utils/motion/scroll-state.js')
 
       delete window.onscrollend
     }

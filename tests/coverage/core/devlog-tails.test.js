@@ -1,6 +1,6 @@
 /**
  * @file devlog-tails.test.js
- * @description Coverage tails for src/core/devlog.ts — the zero-console
+ * @description Coverage tails for core/devlog.ts — the zero-console
  * diagnostics sink (project rule 12). Asserts level tagging, ring-buffer
  * eviction, copy-on-read, the devtools global handle, and clearDevLog.
  */
@@ -11,8 +11,8 @@ import {
   devInfo,
   getDevLog,
   clearDevLog,
-} from '@/core/devlog.js'
-import { DEV_LOG, LOG_LEVELS } from '@/core/tokens/data/log.js'
+} from '@core/devlog.js'
+import { DEV_LOG, LOG_LEVELS } from '@core/tokens/data/log.js'
 
 describe('devlog', () => {
   test('buffers entries with level + timestamp + parts', () => {

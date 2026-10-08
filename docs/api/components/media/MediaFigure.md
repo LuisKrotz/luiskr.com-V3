@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/media/MediaFigure.tsx` |
+| **Source** | `website/components/media/MediaFigure.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

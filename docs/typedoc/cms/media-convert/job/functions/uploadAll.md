@@ -8,7 +8,7 @@
 function uploadAll(host): Promise<void>
 ```
 
-Defined in: [src/cms/media-convert/job.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/job.ts#L49)
+Defined in: [cms/media-convert/job.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/media-convert/job.ts#L49)
 
 PUTs every queued file sequentially — the dev server is single-purpose
 and serial uploads keep progress (`host.uploaded`) truthful. Re-renders

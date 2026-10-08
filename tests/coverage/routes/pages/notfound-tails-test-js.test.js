@@ -10,21 +10,21 @@
  * sign-in paths, and the cookie/contact section component branches.
  */
 import { jest } from '@jest/globals'
-import store from '@/core/store.js'
+import store from '@core/store.js'
 
-import '@/utils/data/sanitize.js'
+import '@core/utils/data/sanitize.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
 
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { NOT_FOUND_CLASSES } from '@/core/tokens/classes/legal.js'
-import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { DOM_STRINGS } from '@core/tokens/strings/dom.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { NOT_FOUND_CLASSES } from '@core/tokens/classes/legal.js'
+import { MOUSE_EVENTS } from '@core/tokens/events/dom.js'
 
 
 
@@ -32,7 +32,7 @@ import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
 
 
 
-jest.unstable_mockModule('@/firebase.js', () => ({
+jest.unstable_mockModule('@core/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),
@@ -137,7 +137,7 @@ describe('NotFound tails', () => {
   test('module re-eval skips custom-element re-registration', async () => {
     jest.resetModules()
 
-    await expect(import('@/routes/views/not-found/NotFound.js')).resolves.toBeTruthy()
+    await expect(import('@website/views/not-found/NotFound.js')).resolves.toBeTruthy()
   })
 })
 

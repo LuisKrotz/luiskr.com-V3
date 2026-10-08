@@ -4,7 +4,7 @@ Scene-graph scale constants + shared TSL arg types for the
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/consts.ts` |
+| **Source** | `experiments/earth-playground/earth/consts.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

@@ -4,7 +4,7 @@ Autoplay/progress-ring engine for &lt;custom-carousel&gt;,
 
 | | |
 |---|---|
-| **Source** | `src/components/carousel/custom-carousel/autoplay.ts` |
+| **Source** | `website/components/carousel/custom-carousel/autoplay.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

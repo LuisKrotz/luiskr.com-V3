@@ -18,6 +18,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 firebase-debug.log*
+.firebase/logs/
 
 # Editor directories and files
 .idea
@@ -32,3 +33,10 @@ firebase-debug.log*
 reports/
 # Local headless Chrome used for Lighthouse audits (not part of the repo)
 chrome-headless-shell/
+
+# Per-module Vite library builds — verification artifacts, never published.
+core/dist/
+website/dist/
+cms/dist/
+experiments/earth-playground/dist/
+experiments/docs/dist/

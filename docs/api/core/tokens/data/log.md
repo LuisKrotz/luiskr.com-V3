@@ -4,7 +4,7 @@ Dev-log severity levels + the globalThis inspection key.
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/data/log.ts` |
+| **Source** | `core/tokens/data/log.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

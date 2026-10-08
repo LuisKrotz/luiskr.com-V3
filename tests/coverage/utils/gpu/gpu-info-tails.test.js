@@ -10,14 +10,14 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 import { jest } from '@jest/globals'
-import { getGPUInfo, glContextOptions } from '@/utils/gpu/gpu-info.js'
+import { getGPUInfo, glContextOptions } from '@core/utils/gpu/gpu-info.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { WEBGL_STRINGS } from '@core/tokens/strings/webgl.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
 
 
 
@@ -33,7 +33,7 @@ describe('gpu-info tails', () => {
 
     document.createElement = (tag) => (tag === HTML_TAGS.CANVAS && makeCanvas ? makeCanvas() : origCreate(tag))
 
-    const mod = await import('@/utils/gpu/gpu-info.js')
+    const mod = await import('@core/utils/gpu/gpu-info.js')
     const info = mod.getGPUInfo()
 
     document.createElement = origCreate
@@ -99,7 +99,7 @@ describe('gpu-info tails', () => {
     delete globalThis.document
     delete globalThis.navigator
 
-    const mod = await import('@/utils/gpu/gpu-info.js')
+    const mod = await import('@core/utils/gpu/gpu-info.js')
       .then((m) => {
         m.getGPUInfo()
         return m

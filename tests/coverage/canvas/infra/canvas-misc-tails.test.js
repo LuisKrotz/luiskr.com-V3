@@ -12,22 +12,22 @@ import { jest } from '@jest/globals'
 import { attachNoGL, createMockGL } from '../../../fixtures/mock-webgl.js'
 import { TEST_COLORS } from '../../../fixtures/test-constants.js'
 
-import '@/cms/about/CmsAboutEditor.js'
-import '@/cms/portfolio/CmsPortfolioList.js'
-import '@/cms/projects/CmsProjectsList.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
+import '@cms/about/CmsAboutEditor.js'
+import '@cms/portfolio/CmsPortfolioList.js'
+import '@cms/projects/CmsProjectsList.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
 
-import '@/utils/canvas/css-color.js'
+import '@core/utils/canvas/css-color.js'
 
-import '@/utils/canvas/widgets/switch-slider/render.js'
+import '@core/utils/canvas/widgets/switch-slider/render.js'
 
-import '@/utils/canvas/widgets/flag/renderer.js'
-import '@/utils/canvas/widgets/flag/texture.js'
+import '@core/utils/canvas/widgets/flag/renderer.js'
+import '@core/utils/canvas/widgets/flag/texture.js'
 
-import '@/utils/gpu/gpu-accel.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import '@core/utils/gpu/gpu-accel.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 
 globalThis.alert = jest.fn()
@@ -40,8 +40,8 @@ const makeCanvas = () => document.createElement(HTML_TAGS.CANVAS)
 
 describe('canvas misc tails', () => {
   test('flag-webgl init fallback arms + renderer delegate calls', async () => {
-    const { FlagWebGL } = await import('@/utils/canvas/widgets/flag-webgl.js')
-    const { flagRenderer: pool } = await import('@/utils/canvas/widgets/flag/renderer.js')
+    const { FlagWebGL } = await import('@core/utils/canvas/widgets/flag-webgl.js')
+    const { flagRenderer: pool } = await import('@core/utils/canvas/widgets/flag/renderer.js')
     const lang = { code: 'en', cc: 'us', cc2: null }
 
     const canvas = makeCanvas()
@@ -76,7 +76,7 @@ describe('canvas misc tails', () => {
   })
 
   test('flagTexture cache-hit / missing-image / incomplete-image arms', async () => {
-    const { flagTexture } = await import('@/utils/canvas/widgets/flag/texture.js')
+    const { flagTexture } = await import('@core/utils/canvas/widgets/flag/texture.js')
     const gl = createMockGL()
     const r = { gl, textures: new Map(), images: new Map(), bitmaps: new Map() }
 
@@ -101,7 +101,7 @@ describe('canvas misc tails', () => {
   })
 
   test('switch-slider renderWebGL guard arms', async () => {
-    const { renderWebGL: renderSwitchWebGL } = await import('@/utils/canvas/widgets/switch-slider/render.js')
+    const { renderWebGL: renderSwitchWebGL } = await import('@core/utils/canvas/widgets/switch-slider/render.js')
     const gl = createMockGL()
     const host = { gl, canvas: { width: 10, height: 10 }, program: null, quadBuffer: null, aPos: 0 }
 
@@ -132,7 +132,7 @@ describe('canvas misc tails', () => {
   })
 
   test('xToContinuousP default-rectWidth arm', async () => {
-    const { xToContinuousP } = await import('@/utils/canvas/widgets/theme-slider/math.js')
+    const { xToContinuousP } = await import('@core/utils/canvas/widgets/theme-slider/math.js')
     const host = { width: 100 }
 
     // (50−12)/(88−12)·2 = 1.0 in a 100-wide band
@@ -146,7 +146,7 @@ describe('canvas misc tails', () => {
   })
 
   test('parseCssColor non-string / rgb / srgb / invalid arms', async () => {
-    const { parseCssColor } = await import('@/utils/canvas/css-color.js')
+    const { parseCssColor } = await import('@core/utils/canvas/css-color.js')
     expect(parseCssColor(42)).toBeNull()
     expect(parseCssColor(null)).toBeNull()
     expect(parseCssColor('rgb(10, 20, 30)')).toBeTruthy()
@@ -157,7 +157,7 @@ describe('canvas misc tails', () => {
   })
 
   test('gpu-accel initGPU mobile/NPU/fail + accelerateElementGPU arms', async () => {
-    const { gpuAccel } = await import('@/utils/gpu/gpu-accel.js')
+    const { gpuAccel } = await import('@core/utils/gpu/gpu-accel.js')
     // element arms: root → scroll-position, body → scroll-position, normal → layer
     gpuAccel.accelerateElementGPU(document.documentElement)
     gpuAccel.accelerateElementGPU(document.body)
@@ -202,7 +202,7 @@ describe('canvas misc tails', () => {
       return 1
     }
 
-    const rw = await import('@/utils/motion/route-warmer.js')
+    const rw = await import('@core/utils/motion/route-warmer.js')
 
     rw.startRouteWarming()
 
@@ -223,7 +223,7 @@ describe('canvas misc tails', () => {
     jest.resetModules()
     delete window.requestIdleCallback
 
-    const rw2 = await import('@/utils/motion/route-warmer.js')
+    const rw2 = await import('@core/utils/motion/route-warmer.js')
 
     rw2.startRouteWarming()
     await flush(400)

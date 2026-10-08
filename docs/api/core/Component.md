@@ -4,7 +4,7 @@ BaseComponent — Custom Element base class with Shadow DOM encapsulation,
 
 | | |
 |---|---|
-| **Source** | `src/core/Component.ts` |
+| **Source** | `core/Component.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

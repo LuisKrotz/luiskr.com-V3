@@ -10,12 +10,12 @@
  */
 
 import { jest } from '@jest/globals'
-import '@/components/media/DrawText.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
+import '@website/components/media/DrawText.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
 
 const makeEl = (text = TEST_TEXT.HELLO) => {

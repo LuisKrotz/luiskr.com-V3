@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/carousel/CustomCarousel.tsx` |
+| **Source** | `website/components/carousel/CustomCarousel.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

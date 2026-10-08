@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/theme-slider/math.ts` |
+| **Source** | `core/utils/canvas/widgets/theme-slider/math.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

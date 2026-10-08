@@ -4,7 +4,7 @@ Fit/height measurement for CustomCarousel — the
 
 | | |
 |---|---|
-| **Source** | `src/components/carousel/custom-carousel/sizing.ts` |
+| **Source** | `website/components/carousel/custom-carousel/sizing.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

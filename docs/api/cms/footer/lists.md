@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/footer/lists.ts` |
+| **Source** | `cms/footer/lists.ts` |
 | **UX surface** | Footer + legal links editor card. |
 
 ## Members

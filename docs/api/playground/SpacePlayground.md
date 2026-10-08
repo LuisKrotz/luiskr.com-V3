@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/playground/SpacePlayground.tsx` |
+| **Source** | `experiments/earth-playground/SpacePlayground.tsx` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

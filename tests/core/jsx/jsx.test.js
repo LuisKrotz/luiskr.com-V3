@@ -1,18 +1,18 @@
 /**
  * @file jsx.test.js
- * @description Covers src/core/jsx.js — the VDOM-free h() factory: prop
+ * @description Covers core/jsx.js — the VDOM-free h() factory: prop
  * routing (events, className, style objects + --* custom props, ref,
  * dangerouslySetInnerHTML), boolean-attribute semantics (false must not
  * emit attr="false"), SVG namespacing, and Fragment/children flattening.
  */
 
-import { h, Fragment } from '@/core/jsx.js'
+import { h, Fragment } from '@core/jsx.js'
 import { TEST_TEXT } from '../../fixtures/test-constants.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { SVG_STRINGS } from '@/core/tokens/strings/svg.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
-import { JSX_METADATA_PROPS } from '@/core/tokens/jsx.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { SVG_STRINGS } from '@core/tokens/strings/svg.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { MEDIA_ATTRS } from '@core/tokens/attrs/media.js'
+import { JSX_METADATA_PROPS } from '@core/tokens/jsx.js'
 
 describe('JSX Runtime & Native DOM Construction', () => {
   test('creates simple HTML element with properties', () => {

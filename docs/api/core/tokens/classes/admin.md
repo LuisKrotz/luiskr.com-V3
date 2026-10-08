@@ -4,7 +4,7 @@ Admin login view class tokens — token group.
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/classes/admin.ts` |
+| **Source** | `core/tokens/classes/admin.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

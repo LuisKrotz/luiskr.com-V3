@@ -8,7 +8,7 @@
 function updateEarthColorGrading(s, __namedParameters?): void
 ```
 
-Defined in: [src/playground/earth/runtime/updates.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/updates.ts#L46)
+Defined in: [experiments/earth-playground/earth/runtime/updates.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/runtime/updates.ts#L46)
 
 Live-tweak the color-grade node. Every arg mirrors straight into a TSL
 uniform; see makePostNodes for the per-term math.

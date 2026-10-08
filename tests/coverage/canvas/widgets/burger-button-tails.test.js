@@ -8,11 +8,11 @@
  * polyfill bodies.
  */
 import { jest } from '@jest/globals'
-import _store from '@/core/store.js'
+import _store from '@core/store.js'
 
-import '@/components/feedback/CookieBanner.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { GL_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import '@website/components/feedback/CookieBanner.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { GL_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
 
 
 
@@ -21,7 +21,7 @@ import { GL_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
 
 describe('burger-button tails', () => {
   test('fallback + resize + destroy paths', async () => {
-    const { BurgerButtonWebGL } = await import('@/utils/canvas/widgets/burger-button-webgl.js')
+    const { BurgerButtonWebGL } = await import('@core/utils/canvas/widgets/burger-button-webgl.js')
     const canvas = document.createElement(HTML_TAGS.CANVAS)
 
     document.body.appendChild(canvas)
@@ -40,7 +40,7 @@ describe('burger-button tails', () => {
   })
 
   test('context-loss listener triggers the fallback path', async () => {
-    const { BurgerButtonWebGL } = await import('@/utils/canvas/widgets/burger-button-webgl.js')
+    const { BurgerButtonWebGL } = await import('@core/utils/canvas/widgets/burger-button-webgl.js')
     const canvas = document.createElement(HTML_TAGS.CANVAS)
 
     document.body.appendChild(canvas)

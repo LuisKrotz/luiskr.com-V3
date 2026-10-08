@@ -8,7 +8,7 @@
 function bindEvents(host): void
 ```
 
-Defined in: [src/cms/about/events.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/events.ts#L16)
+Defined in: [cms/about/events.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/about/events.ts#L16)
 
 Binds events.
 

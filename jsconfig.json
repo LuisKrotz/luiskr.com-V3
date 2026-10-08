@@ -2,7 +2,12 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],
-      "@core/*": ["./src/core/*"]
+      "@core": ["./core/index.ts"],
+      "@core/*": ["./core/*"],
+      "@website/*": ["./website/*"],
+      "@cms/*": ["./cms/*"],
+      "@earth/*": ["./experiments/earth-playground/*"],
+      "@docs/*": ["./experiments/docs/*"]
     },
     "module": "ESNext",
     "target": "ESNext",

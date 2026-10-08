@@ -3,7 +3,7 @@
 ## Sass layout
 
 ```
-src/sass/
+core/sass/
 ├── base/                 token layer — the ONLY files that may use $vars
 │   ├── _variables.scss   $color-*, $space-* Fibonacci scale, $cms-*
 │   ├── _mixins.scss      to-rem(), media helpers
@@ -23,7 +23,7 @@ src/sass/
 Route-scoped styles live next to their views (`routes/*.scss`,
 `playground/space-playground.scss`, `cms/sass/cms.scss`).
 
-The old flat `src/sass/*.scss` duplicate layer was deleted — it had drifted
+The old flat `core/sass/*.scss` duplicate layer was deleted — it had drifted
 from the live `components/` copies (missing fixes) and was only reachable via
 a stale `Footer.tsx` import (now repointed to `components/internals.scss`).
 
@@ -52,9 +52,9 @@ a stale `Footer.tsx` import (now repointed to `components/internals.scss`).
 11. **Governance is automated** — new rule ⇒ new check in
     `style-governance.test.js`.
 
-The governance suite scans `src/sass/**` recursively (`base/` excluded from
+The governance suite scans `core/sass/**` recursively (`base/` excluded from
 color/keyword rules — it is the definition layer) and every
-`src/**/*.{ts,tsx,js}` for rules 4–6 and 9–10.
+`{src,core,website,cms,experiments}/**/*.{ts,tsx,js}` for rules 4–6 and 9–10.
 
 ## Theme system
 

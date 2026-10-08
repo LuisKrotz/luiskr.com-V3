@@ -5,19 +5,19 @@
  */
 
 import { jest } from '@jest/globals'
-import store from '@/core/store.js'
-import router from '@/routes/router.js'
-import { ROUTE_STRINGS } from '@/core/tokens/strings/routes.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { handleNavigation, syncDocumentHead } from '@/routes/navigate.js'
-import { parsePath } from '@/routes/parse-path.js'
-import { updateRobotsMeta, resolveProjectSlug } from '@/routes/views/project/data.js'
-import { checkAutoOpenModal } from '@/routes/views/project/modal.js'
-import { renderProject } from '@/routes/views/project/render.js'
-import { patchViewProject } from '@/safari/patches/view-project.js'
+import store from '@core/store.js'
+import router from '@core/router/router.js'
+import { ROUTE_STRINGS } from '@core/tokens/strings/routes.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { handleNavigation, syncDocumentHead } from '@core/router/navigate.js'
+import { parsePath } from '@core/router/parse-path.js'
+import { updateRobotsMeta, resolveProjectSlug } from '@website/views/project/data.js'
+import { checkAutoOpenModal } from '@website/views/project/modal.js'
+import { renderProject } from '@website/views/project/render.js'
+import { patchViewProject } from '@core/safari/patches/view-project.js'
 
-import '@/routes/views/not-found/NotFound.js'
-import { LANG_MUTATIONS, MODAL_MUTATIONS } from '@/core/tokens/events/mutations.js'
+import '@website/views/not-found/NotFound.js'
+import { LANG_MUTATIONS, MODAL_MUTATIONS } from '@core/tokens/events/mutations.js'
 
 
 const flush = (ms = 60) => new Promise((r) => setTimeout(r, ms))

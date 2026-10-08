@@ -6,23 +6,23 @@
  * destroy.
  */
 
-import { KEYS, SWITCH_TYPES, THEME } from '@/core/constants.js'
-import { SwitchWebGL } from '@/utils/canvas/widgets/switch-slider.js'
-import { ThemeSliderWebGL } from '@/utils/canvas/widgets/theme-slider.js'
+import { KEYS, SWITCH_TYPES, THEME } from '@core/constants.js'
+import { SwitchWebGL } from '@core/utils/canvas/widgets/switch-slider.js'
+import { ThemeSliderWebGL } from '@core/utils/canvas/widgets/theme-slider.js'
 import {
   attachHybridGL,
   attachNoGL,
   createMock2D,
   createMockGL,
 } from '../../fixtures/mock-webgl.js'
-import store from '@/core/store.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { GL_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
-import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { PREF_CLASSES } from '@/core/tokens/classes/preferences.js'
+import store from '@core/store.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { GL_EVENTS, MOUSE_EVENTS } from '@core/tokens/events/dom.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { WEBGL_STRINGS } from '@core/tokens/strings/webgl.js'
+import { PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { PREF_CLASSES } from '@core/tokens/classes/preferences.js'
 
 const makeCanvas = () => {
   const canvas = document.createElement(HTML_TAGS.CANVAS)

@@ -30,7 +30,7 @@ const INTERNAL_CLASSES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/classes/project.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/classes/project.ts#L23)
+Defined in: [core/tokens/classes/project.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/classes/project.ts#L23)
 
 Internals (project-detail) page classes on the `internal-*` block family:
 `internal` root, `internal-main` item grid, `internal-description` prose

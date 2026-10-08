@@ -18,3 +18,9 @@ database.json
 # Lockfiles are machine-formatted already.
 package-lock.json
 chrome-headless-shell/
+
+# Hardened third-party packages vendored verbatim — never reformat.
+vendor/
+
+# Regenerated Sass API docs (sassdoc-lite.mjs).
+docs/sassdoc/

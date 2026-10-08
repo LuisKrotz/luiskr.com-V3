@@ -8,7 +8,7 @@
 function tickEarth(s): void
 ```
 
-Defined in: [src/playground/earth/runtime/frame.ts:71](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/frame.ts#L71)
+Defined in: [experiments/earth-playground/earth/runtime/frame.ts:71](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/runtime/frame.ts#L71)
 
 Per-frame update, self-rescheduling via RAF.
 sun — angle += 0.01·speed rad/frame, wrapped at 2π, then syncEarthSun

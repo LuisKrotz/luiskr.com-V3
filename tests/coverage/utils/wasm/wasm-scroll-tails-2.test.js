@@ -9,12 +9,12 @@
  */
 import { jest } from '@jest/globals'
 
-import _router from '@/routes/router.js'
+import _router from '@core/router/router.js'
 
-import { wasmSmoothScroll } from '@/utils/wasm/wasm-scroll.js'
+import { wasmSmoothScroll } from '@core/utils/wasm/wasm-scroll.js'
 
-import '@/routes/views/legal/Legal.js'
-import '@/routes/views/home/Home.js'
+import '@website/views/legal/Legal.js'
+import '@website/views/home/Home.js'
 
 const flush = (ms = 80) => new Promise((r) => setTimeout(r, ms))
 

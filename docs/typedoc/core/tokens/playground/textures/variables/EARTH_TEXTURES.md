@@ -18,7 +18,7 @@ const EARTH_TEXTURES: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/playground/textures.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/playground/textures.ts#L15)
+Defined in: [core/tokens/playground/textures.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/playground/textures.ts#L15)
 
 Public-URL paths for the Earth Playground texture set (served from `public/textures/earth/`). NASA-visible-earth style maps: day albedo, night city lights, ocean specular mask, bump/normal, cloud layer, star field backdrop, moon albedo + lunar displacement (LDEM). Sole declaration site — consumers import members
 from this frozen map rather than re-declaring the literals

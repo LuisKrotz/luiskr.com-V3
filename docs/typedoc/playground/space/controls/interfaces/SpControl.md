@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [playground/space/controls](../README.md) / SpControl
 
-Defined in: [src/playground/space/controls.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L42)
+Defined in: [experiments/earth-playground/space/controls.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L42)
 
 One row in a panel group — a slider or a WebGL checkbox.
 
@@ -16,7 +16,7 @@ One row in a panel group — a slider or a WebGL checkbox.
 label: string
 ```
 
-Defined in: [src/playground/space/controls.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L44)
+Defined in: [experiments/earth-playground/space/controls.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L44)
 
 Translation key for the row's label (and the CMS defaults-map key).
 
@@ -28,7 +28,7 @@ Translation key for the row's label (and the CMS defaults-map key).
 param: string
 ```
 
-Defined in: [src/playground/space/controls.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L46)
+Defined in: [experiments/earth-playground/space/controls.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L46)
 
 SP_PARAMS token — persisted-settings key + data-param attribute.
 
@@ -40,7 +40,7 @@ SP_PARAMS token — persisted-settings key + data-param attribute.
 type: string
 ```
 
-Defined in: [src/playground/space/controls.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L48)
+Defined in: [experiments/earth-playground/space/controls.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L48)
 
 'range' slider | 'checkbox' WebGL twin.
 
@@ -52,7 +52,7 @@ Defined in: [src/playground/space/controls.ts:48](https://github.com/LuisKrotz/l
 optional min?: number;
 ```
 
-Defined in: [src/playground/space/controls.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L50)
+Defined in: [experiments/earth-playground/space/controls.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L50)
 
 Slider minimum (range only).
 
@@ -64,7 +64,7 @@ Slider minimum (range only).
 optional max?: number;
 ```
 
-Defined in: [src/playground/space/controls.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L52)
+Defined in: [experiments/earth-playground/space/controls.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L52)
 
 Slider maximum (range only).
 
@@ -76,7 +76,7 @@ Slider maximum (range only).
 optional step?: number;
 ```
 
-Defined in: [src/playground/space/controls.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L54)
+Defined in: [experiments/earth-playground/space/controls.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L54)
 
 Slider step granularity (range only).
 
@@ -88,7 +88,7 @@ Slider step granularity (range only).
 optional def?: number;
 ```
 
-Defined in: [src/playground/space/controls.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L56)
+Defined in: [experiments/earth-playground/space/controls.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L56)
 
 Shipped numeric default — CMS defaults and saved values override it.
 
@@ -100,6 +100,6 @@ Shipped numeric default — CMS defaults and saved values override it.
 optional checked?: boolean;
 ```
 
-Defined in: [src/playground/space/controls.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/controls.ts#L58)
+Defined in: [experiments/earth-playground/space/controls.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/controls.ts#L58)
 
 Shipped checkbox state — same precedence as `def`.

@@ -6,12 +6,12 @@
  *
  */
 
-import { BaseComponent } from '@/core/Component.js'
+import { BaseComponent } from '@core/Component.js'
 import { TEST_TAGS } from '../../fixtures/test-constants.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { COMMON_SELECTORS } from '@/core/tokens/selectors/common.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { COMMON_SELECTORS } from '@core/tokens/selectors/common.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 // Create a minimal test subclass
 class TestComponent extends BaseComponent {

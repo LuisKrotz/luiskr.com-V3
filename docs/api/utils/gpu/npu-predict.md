@@ -4,7 +4,7 @@ Hardware-tiered prefetch predictor: scores navigation
 
 | | |
 |---|---|
-| **Source** | `src/utils/gpu/npu-predict.ts` |
+| **Source** | `core/utils/gpu/npu-predict.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

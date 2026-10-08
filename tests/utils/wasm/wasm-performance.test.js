@@ -18,24 +18,24 @@ import {
   calcColsForWidth,
   calcResponsivePadding,
   calcAspectScaled,
-} from '@/utils/wasm/wasm-layout.js'
+} from '@core/utils/wasm/wasm-layout.js'
 import {
   isGravatarUrl,
   getGravatarSrcset,
   getOptimizedGravatar,
   buildMediaUrls,
-} from '@/core/utils/media.js'
-import { stripHtml } from '@/core/utils/string.js'
-import { svgPlaceholder } from '@/core/utils/dom.js'
-import { wasmPool } from '@/utils/wasm/wasm-pool.js'
-import { wasmSmoothScroll } from '@/utils/wasm/wasm-scroll.js'
-import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
-import { npuPredict } from '@/utils/gpu/npu-predict.js'
+} from '@core/utils/media.js'
+import { stripHtml } from '@core/utils/string.js'
+import { svgPlaceholder } from '@core/utils/dom.js'
+import { wasmPool } from '@core/utils/wasm/wasm-pool.js'
+import { wasmSmoothScroll } from '@core/utils/wasm/wasm-scroll.js'
+import { gpuAccel } from '@core/utils/gpu/gpu-accel.js'
+import { npuPredict } from '@core/utils/gpu/npu-predict.js'
 import { TEST_TEXT } from '../../fixtures/test-constants.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { CDN_URLS } from '@/core/tokens/media/urls.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { CDN_URLS } from '@core/tokens/media/urls.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
 
 describe('WASM, Math Models, Media & Performance Engine (60+ Tests)', () => {
   describe('1. Responsive Fibonacci Column & Padding Calculations', () => {

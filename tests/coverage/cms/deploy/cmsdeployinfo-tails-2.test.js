@@ -9,22 +9,22 @@
  * flows.
  */
 
-import { CMS_TAGS } from '@/cms/tokens.js'
+import { CMS_TAGS } from '@cms/tokens.js'
 
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import '@/components/home/AwardsMentions.js'
-import '@/components/legal/Footer.js'
-import '@/components/home/HomeMosaic.js'
-import '@/components/feedback/StatsHud.js'
-import '@/components/media/MediaExpanded.js'
-import '@/components/dialogs/PreferencesModal.js'
-import '@/components/carousel/AwardsCarousel.js'
-import '@/components/media/MediaFigure.js'
-import '@/components/dialogs/LangDialog.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
-import '@/cms/lang/CmsLangEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
+import '@website/components/home/AwardsMentions.js'
+import '@website/components/legal/Footer.js'
+import '@website/components/home/HomeMosaic.js'
+import '@website/components/feedback/StatsHud.js'
+import '@website/components/media/MediaExpanded.js'
+import '@website/components/dialogs/PreferencesModal.js'
+import '@website/components/carousel/AwardsCarousel.js'
+import '@website/components/media/MediaFigure.js'
+import '@website/components/dialogs/LangDialog.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
+import '@cms/lang/CmsLangEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
 
 const flush = (ms = 100) => new Promise((r) => setTimeout(r, ms))
 

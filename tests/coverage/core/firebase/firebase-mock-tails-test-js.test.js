@@ -10,21 +10,21 @@
  * sign-in paths, and the cookie/contact section component branches.
  */
 import { jest } from '@jest/globals'
-import { LOCALES} from '@/core/constants.js'
+import { LOCALES} from '@core/constants.js'
 
-import '@/utils/data/sanitize.js'
+import '@core/utils/data/sanitize.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
 
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import { DB_PATHS } from '@/core/tokens/routes/paths.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
+import { DB_PATHS } from '@core/tokens/routes/paths.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
 
 
 
-jest.unstable_mockModule('@/firebase.js', () => ({
+jest.unstable_mockModule('@core/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),
@@ -35,7 +35,7 @@ jest.unstable_mockModule('@/firebase.js', () => ({
 
 describe('firebase-mock tails', () => {
   test('exercises the full mock surface', async () => {
-    const mock = await import('@/cms/dev/firebase-mock.js')
+    const mock = await import('@cms/dev/firebase-mock.js')
 
     const db = mock.getDatabase()
 

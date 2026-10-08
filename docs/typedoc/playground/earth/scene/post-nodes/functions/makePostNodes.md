@@ -8,7 +8,7 @@
 function makePostNodes(TSL): object
 ```
 
-Defined in: [src/playground/earth/scene/post-nodes.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/scene/post-nodes.ts#L34)
+Defined in: [experiments/earth-playground/earth/scene/post-nodes.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/scene/post-nodes.ts#L34)
 
 Custom post nodes for the RenderPipeline output chain.
 

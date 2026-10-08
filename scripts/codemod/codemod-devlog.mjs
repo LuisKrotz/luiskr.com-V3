@@ -3,7 +3,7 @@
  * @file codemod-devlog.mjs
  * @description One-shot codemod: replaces every console.warn/error/info/log
  * callsite under src/ with the matching devlog sink (devWarn/devError/
- * devInfo from '@/core/devlog.js') and injects the named import into each
+ * devInfo from '@core/devlog.js') and injects the named import into each
  * touched file. Zero-console policy — see AGENTS.md rule 12.
  */
 
@@ -12,7 +12,7 @@ import path from 'node:path'
 
 const ROOT = process.cwd()
 const SRC = path.join(ROOT, 'src')
-const IMPORT_FROM = '@/core/devlog.js'
+const IMPORT_FROM = '@core/devlog.js'
 const NAME_FOR = { warn: 'devWarn', error: 'devError', info: 'devInfo', log: 'devInfo' }
 
 const listFiles = (dir) =>

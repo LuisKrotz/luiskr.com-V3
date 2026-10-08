@@ -8,15 +8,15 @@
  * polyfill bodies.
  */
 import { jest } from '@jest/globals'
-import { THEME_CSS_PROPS } from '@/core/tokens/css/theme.js'
-import _store from '@/core/store.js'
+import { THEME_CSS_PROPS } from '@core/tokens/css/theme.js'
+import _store from '@core/store.js'
 
-import { CheckboxWebGL } from '@/playground/space/checkbox-webgl.js'
-import '@/components/feedback/CookieBanner.js'
+import { CheckboxWebGL } from '@earth/space/checkbox-webgl.js'
+import '@website/components/feedback/CookieBanner.js'
 
 import { attachMock2D } from '../../../fixtures/mock-webgl.js'
 import { TEST_COLORS, TEST_TEXT } from '../../../fixtures/test-constants.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 
 const flush = (ms = 60) => new Promise((r) => setTimeout(r, ms))

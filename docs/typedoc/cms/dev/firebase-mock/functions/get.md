@@ -11,7 +11,7 @@ function get(r): Promise<{
 }>
 ```
 
-Defined in: [src/cms/dev/firebase-mock.ts:77](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/dev/firebase-mock.ts#L77)
+Defined in: [cms/dev/firebase-mock.ts:77](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/dev/firebase-mock.ts#L77)
 
 Mock of firebase/database `get()` — resolves the ref's path in the
 snapshot and returns the SDK-shaped {exists, val} result.

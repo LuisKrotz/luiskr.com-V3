@@ -9,15 +9,15 @@
  */
 import { jest } from '@jest/globals'
 
-import '@/cms/about/CmsAboutEditor.js'
-import '@/cms/portfolio/CmsPortfolioList.js'
-import '@/cms/projects/CmsProjectsList.js'
-import '@/cms/playground-editor/CmsPlaygroundEditor.js'
-import '@/cms/footer/CmsFooterEditor.js'
-import '@/cms/deploy-info/CmsDeployInfo.js'
+import '@cms/about/CmsAboutEditor.js'
+import '@cms/portfolio/CmsPortfolioList.js'
+import '@cms/projects/CmsProjectsList.js'
+import '@cms/playground-editor/CmsPlaygroundEditor.js'
+import '@cms/footer/CmsFooterEditor.js'
+import '@cms/deploy-info/CmsDeployInfo.js'
 
-import '@/playground/earth/setup/bootstrap.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
+import '@earth/earth/setup/bootstrap.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
 
 
 globalThis.alert = jest.fn()
@@ -26,8 +26,8 @@ globalThis.alert = jest.fn()
 
 describe('earth setup module tails', () => {
   test('bootstrapEarth disposed + missing-callback arms', async () => {
-    const { bootstrapEarth: boot } = await import('@/playground/earth/setup/bootstrap.js')
-    const { createEarthState: mkState } = await import('@/playground/earth/runtime/state.js')
+    const { bootstrapEarth: boot } = await import('@earth/earth/setup/bootstrap.js')
+    const { createEarthState: mkState } = await import('@earth/earth/runtime/state.js')
     const sD = mkState(document.createElement(HTML_TAGS.CANVAS), undefined, undefined)
 
     sD.disposed = true
@@ -47,8 +47,8 @@ describe('earth setup module tails', () => {
 
   test('initEarthRenderer navigator.gpu + WebGL-retry arms', async () => {
     const { WebGPURenderer } = await import('three/webgpu')
-    const { initEarthRenderer: initR } = await import('@/playground/earth/setup/renderer-setup.js')
-    const { createEarthState: mkState } = await import('@/playground/earth/runtime/state.js')
+    const { initEarthRenderer: initR } = await import('@earth/earth/setup/renderer-setup.js')
+    const { createEarthState: mkState } = await import('@earth/earth/runtime/state.js')
 
     Object.defineProperty(navigator, 'gpu', { value: { requestAdapter: async () => ({}) }, configurable: true })
 
@@ -119,8 +119,8 @@ describe('earth setup module tails', () => {
   })
 
   test('setupSun / setupStarfield / setupMoon / setupEarthGroup guard arms', async () => {
-    const { setupSun: setupSunFn, setupStarfield: starfieldFn, setupMoon: moonFn, setupEarthGroup: earthGroupFn } = await import('@/playground/earth/setup/scene-setup.js')
-    const { createEarthState: mkState } = await import('@/playground/earth/runtime/state.js')
+    const { setupSun: setupSunFn, setupStarfield: starfieldFn, setupMoon: moonFn, setupEarthGroup: earthGroupFn } = await import('@earth/earth/setup/scene-setup.js')
+    const { createEarthState: mkState } = await import('@earth/earth/runtime/state.js')
     const THREE = await import('three')
     const TSL = await import('three/tsl')
     const { MeshPhysicalNodeMaterial, MeshBasicNodeMaterial } = await import('three/webgpu')
@@ -181,7 +181,7 @@ describe('earth setup module tails', () => {
   })
 
   test('buildEarthShells early-return + happy path', async () => {
-    const { buildEarthShells: shellsFn } = await import('@/playground/earth/scene/meshes.js')
+    const { buildEarthShells: shellsFn } = await import('@earth/earth/scene/meshes.js')
     const THREE = await import('three')
     const TSL = await import('three/tsl')
     const { MeshPhysicalNodeMaterial, MeshBasicNodeMaterial } = await import('three/webgpu')
@@ -204,8 +204,8 @@ describe('earth setup module tails', () => {
   })
 
   test('seedPostState + buildEarthPostPipeline guard/happy/catch arms', async () => {
-    const { seedPostState: seedFn, buildEarthPostPipeline: pipelineFn } = await import('@/playground/earth/setup/post-setup.js')
-    const { createEarthState: mkState } = await import('@/playground/earth/runtime/state.js')
+    const { seedPostState: seedFn, buildEarthPostPipeline: pipelineFn } = await import('@earth/earth/setup/post-setup.js')
+    const { createEarthState: mkState } = await import('@earth/earth/runtime/state.js')
     const TSL = await import('three/tsl')
     const { RenderPipeline, __setPipelineCtorFails } = await import('three/webgpu')
     const { bloom } = await import('three/examples/jsm/tsl/display/BloomNode.js')

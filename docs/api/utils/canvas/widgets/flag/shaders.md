@@ -4,7 +4,7 @@ GLSL sources for the FlagWebGL flag renderer —
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/flag/shaders.ts` |
+| **Source** | `core/utils/canvas/widgets/flag/shaders.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

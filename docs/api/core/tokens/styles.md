@@ -4,7 +4,7 @@ BASE_HOST_STYLES — a compiled-in stylesheet injected into
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/styles.ts` |
+| **Source** | `core/tokens/styles.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

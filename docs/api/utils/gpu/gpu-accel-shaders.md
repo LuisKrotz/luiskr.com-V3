@@ -4,7 +4,7 @@ GLSL sources for the GPUAccelerator passthrough program —
 
 | | |
 |---|---|
-| **Source** | `src/utils/gpu/gpu-accel-shaders.ts` |
+| **Source** | `core/utils/gpu/gpu-accel-shaders.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

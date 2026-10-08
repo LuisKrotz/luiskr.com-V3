@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/carousel/awards-carousel/autoplay.ts` |
+| **Source** | `website/components/carousel/awards-carousel/autoplay.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

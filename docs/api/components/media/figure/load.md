@@ -4,7 +4,7 @@ Media URL matrix + progressive loading for &lt;media-figure&gt;:
 
 | | |
 |---|---|
-| **Source** | `src/components/media/figure/load.ts` |
+| **Source** | `website/components/media/figure/load.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

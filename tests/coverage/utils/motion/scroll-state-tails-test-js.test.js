@@ -10,19 +10,19 @@
  * sign-in paths, and the cookie/contact section component branches.
  */
 import { jest } from '@jest/globals'
-import '@/utils/data/sanitize.js'
+import '@core/utils/data/sanitize.js'
 
-import { isScrolling, onScrollStop } from '@/utils/motion/scroll-state.js'
+import { isScrolling, onScrollStop } from '@core/utils/motion/scroll-state.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
 
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import { WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
+import { WINDOW_EVENTS } from '@core/tokens/events/dom.js'
 
 
-jest.unstable_mockModule('@/firebase.js', () => ({
+jest.unstable_mockModule('@core/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),

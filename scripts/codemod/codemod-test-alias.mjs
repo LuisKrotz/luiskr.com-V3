@@ -2,7 +2,7 @@
 /**
  * @file codemod-test-alias.mjs
  * @description One-shot codemod: rewrites deep relative specifiers that reach
- * into src/ (`'../../../../src/core/…'`) as the `@/` alias (`'@/core/…'`)
+ * into src/ (`'../../../../core/…'`) as the `@/` alias (`'@core/…'`)
  * across tests/**. Imports that stay inside tests/ (fixtures, mocks, setup)
  * keep their relative form — `@/` maps to src/ only.
  */

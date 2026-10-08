@@ -4,7 +4,7 @@ About-editor classes + control IDs — paragraph lists,
 
 | | |
 |---|---|
-| **Source** | `src/cms/tokens/editors/about.ts` |
+| **Source** | `cms/tokens/editors/about.ts` |
 | **UX surface** | Admin bundle — editors for every database node. |
 
 ## Members

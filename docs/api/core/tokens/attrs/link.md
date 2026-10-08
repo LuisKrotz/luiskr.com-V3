@@ -4,7 +4,7 @@ Anchor/link attribute tokens — token group. The `href`
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/attrs/link.ts` |
+| **Source** | `core/tokens/attrs/link.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

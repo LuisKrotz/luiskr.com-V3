@@ -27,7 +27,7 @@ const STATE_STRINGS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/strings/state.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/strings/state.ts#L14)
+Defined in: [core/tokens/strings/state.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/strings/state.ts#L14)
 
 Frozen state string map — sole declaration site for these tokens; consumers read members
 and never re-declare the strings (zero-hardcoding rules 4–5). Object.freeze makes the

@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../../README.md) / [utils/canvas/widgets/flag/renderer](../README.md) / FlagRenderer
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L23)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:23](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L23)
 
 One WebGL context for every flag on the page. Each FlagWebGL owns only a
 2D canvas; frames are rendered on the shared GL canvas and blitted over.
@@ -32,7 +32,7 @@ new FlagRenderer(): FlagRenderer;
 gl: WebGLRenderingContext | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L24)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:24](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L24)
 
 ---
 
@@ -42,7 +42,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:24](https://github.com/Lu
 canvas: HTMLCanvasElement | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L25)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:25](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L25)
 
 ---
 
@@ -52,7 +52,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:25](https://github.com/Lu
 program: WebGLProgram | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L26)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:26](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L26)
 
 ---
 
@@ -62,7 +62,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:26](https://github.com/Lu
 quadBuffer: WebGLBuffer | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L27)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:27](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L27)
 
 ---
 
@@ -72,7 +72,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:27](https://github.com/Lu
 textures: Map<string, WebGLTexture>
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L28)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:28](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L28)
 
 ---
 
@@ -82,7 +82,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:28](https://github.com/Lu
 images: Map<string, HTMLImageElement>
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L29)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L29)
 
 ---
 
@@ -92,7 +92,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:29](https://github.com/Lu
 bitmaps: Map<string, ImageBitmap>
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L31)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L31)
 
 Worker-decoded flag bitmaps (WASM pool) — preferred texImage2D source.
 
@@ -104,7 +104,7 @@ Worker-decoded flag bitmaps (WASM pool) — preferred texImage2D source.
 _bitmapPending: Set<string>
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L33)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L33)
 
 Country codes with an in-flight worker decode — dedupes kickWasmDecode.
 
@@ -116,7 +116,7 @@ Country codes with an in-flight worker decode — dedupes kickWasmDecode.
 refs: number = 0
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L34)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L34)
 
 ---
 
@@ -126,7 +126,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:34](https://github.com/Lu
 lost: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L35)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L35)
 
 ---
 
@@ -136,7 +136,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:35](https://github.com/Lu
 aPos: number = 0
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L36)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L36)
 
 ---
 
@@ -146,7 +146,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:36](https://github.com/Lu
 uResolution: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L37)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L37)
 
 ---
 
@@ -156,7 +156,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:37](https://github.com/Lu
 uTime: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L38)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L38)
 
 ---
 
@@ -166,7 +166,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:38](https://github.com/Lu
 uHover: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L39)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L39)
 
 ---
 
@@ -176,7 +176,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:39](https://github.com/Lu
 uAnimType: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L40)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L40)
 
 ---
 
@@ -186,7 +186,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:40](https://github.com/Lu
 uIsSplit: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L41)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L41)
 
 ---
 
@@ -196,7 +196,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:41](https://github.com/Lu
 uSplitX: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L42)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L42)
 
 ---
 
@@ -206,7 +206,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:42](https://github.com/Lu
 uTex1: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L43)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L43)
 
 ---
 
@@ -216,7 +216,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:43](https://github.com/Lu
 uTex2: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L44)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L44)
 
 ## Methods
 
@@ -226,7 +226,7 @@ Defined in: [src/utils/canvas/widgets/flag/renderer.ts:44](https://github.com/Lu
 acquire(): FlagRenderer | null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L48)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L48)
 
 Borrows (and lazily creates) the shared GL context.
 
@@ -242,7 +242,7 @@ Borrows (and lazily creates) the shared GL context.
 release(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L66)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L66)
 
 Returns the shared context to the pool, disposing when refcount hits zero.
 
@@ -258,7 +258,7 @@ Returns the shared context to the pool, disposing when refcount hits zero.
 _init(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L74)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L74)
 
 Creates the GL context, flag shaders and textures.
 
@@ -274,7 +274,7 @@ Creates the GL context, flag shaders and textures.
 _dispose(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L80)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L80)
 
 Frees GL program, textures and buffers.
 
@@ -290,7 +290,7 @@ Frees GL program, textures and buffers.
 image(cc): HTMLImageElement;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:91](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L91)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:91](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L91)
 
 Builds (once) and caches the flag's composited <img> for country code
 cc — composite means the base flag plus any overlays (e.g. the EU
@@ -314,7 +314,7 @@ circle for split-locale flags) baked into one source image.
 texture(cc): WebGLTexture | null;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L97)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L97)
 
 Builds/caches the GL texture for the flag image.
 
@@ -336,7 +336,7 @@ Builds/caches the GL texture for the flag image.
 draw(flag, time): boolean;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:106](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L106)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:106](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L106)
 
 Renders one wave-shader frame for a flag (or its split pair for dual
 flags like en-GB/en-US hybrids) onto the shared canvas, then blits
@@ -364,7 +364,7 @@ the result to the flag's own 2D canvas at time t.
 _initProgram(gl): boolean;
 ```
 
-Defined in: [src/utils/canvas/widgets/flag/renderer.ts:112](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/flag/renderer.ts#L112)
+Defined in: [core/utils/canvas/widgets/flag/renderer.ts:112](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/flag/renderer.ts#L112)
 
 Compiles the wave vertex/fragment shaders and resolves uniform locations.
 

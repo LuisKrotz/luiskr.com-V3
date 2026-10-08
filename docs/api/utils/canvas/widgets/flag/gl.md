@@ -4,7 +4,7 @@ GL lifecycle for the shared FlagRenderer: lazy context
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/flag/gl.ts` |
+| **Source** | `core/utils/canvas/widgets/flag/gl.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

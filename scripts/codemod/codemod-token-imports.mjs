@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * @file codemod-token-imports.mjs
- * @description Rewrites `import { X } from '@/core/constants.js'` (and
- * relative/`@/cms/tokens.js` variants) so call sites pull only the granular
+ * @description Rewrites `import { X } from '@core/constants.js'` (and
+ * relative/`@cms/tokens.js` variants) so call sites pull only the granular
  * token modules they actually use.
  *
  * For each imported name:
@@ -51,7 +51,7 @@ const exportedNames = (file) =>
 const aliasFor = (absPath) => {
   const rel = relative(SRC, absPath).split(sep).join(posix.sep)
 
-  return rel.startsWith('cms/') ? `@/cms/${rel.slice(4)}` : `@/${rel}`
+  return rel.startsWith('cms/') ? `@cms/${rel.slice(4)}` : `@/${rel}`
 }
 
 const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -223,7 +223,7 @@ const codemod = async () => {
 
         newText = newText.replace(
           m[0],
-          `import { ${keptNames.join(', ')} } from '${m[2].startsWith('@') || m[2].startsWith('.') ? (m[2].includes('cms') || m[2].includes('tokens.js') ? '@/cms/tokens.js' : '@/core/constants.js') : m[2]}'`
+          `import { ${keptNames.join(', ')} } from '${m[2].startsWith('@') || m[2].startsWith('.') ? (m[2].includes('cms') || m[2].includes('tokens.js') ? '@cms/tokens.js' : '@core/constants.js') : m[2]}'`
         )
       } else {
         newText = newText.replace(m[0], '__REMOVE_IMPORT__')

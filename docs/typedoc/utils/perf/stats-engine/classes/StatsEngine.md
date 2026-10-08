@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../README.md) / [utils/perf/stats-engine](../README.md) / StatsEngine
 
-Defined in: [src/utils/perf/stats-engine.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L42)
+Defined in: [core/utils/perf/stats-engine.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L42)
 
 Metrics engine: starts observers lazily on first subscribe, stops them
 when the last subscriber leaves (so the hidden HUD costs nothing).
@@ -29,7 +29,7 @@ new StatsEngine(): StatsEngine;
 _fps: number = 0
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L44)
+Defined in: [core/utils/perf/stats-engine.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L44)
 
 Last computed FPS value.
 
@@ -41,7 +41,7 @@ Last computed FPS value.
 _frameCount: number = 0
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L46)
+Defined in: [core/utils/perf/stats-engine.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L46)
 
 Frames counted in the current rolling window.
 
@@ -53,7 +53,7 @@ Frames counted in the current rolling window.
 _lastFrameTime: number
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L48)
+Defined in: [core/utils/perf/stats-engine.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L48)
 
 Window start stamp for the FPS calc.
 
@@ -65,7 +65,7 @@ Window start stamp for the FPS calc.
 _networkBytes: number = 0
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L50)
+Defined in: [core/utils/perf/stats-engine.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L50)
 
 Bytes seen this window from resource-timing entries.
 
@@ -77,7 +77,7 @@ Bytes seen this window from resource-timing entries.
 _networkBytesPerSec: number = 0
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L52)
+Defined in: [core/utils/perf/stats-engine.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L52)
 
 Derived bytes/sec over the window.
 
@@ -89,7 +89,7 @@ Derived bytes/sec over the window.
 _networkBytesWindow: number = 0
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L54)
+Defined in: [core/utils/perf/stats-engine.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L54)
 
 Byte counter for the current window.
 
@@ -101,7 +101,7 @@ Byte counter for the current window.
 _networkWindowStart: number
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L56)
+Defined in: [core/utils/perf/stats-engine.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L56)
 
 Window start stamp for the network calc.
 
@@ -113,7 +113,7 @@ Window start stamp for the network calc.
 _pendingRequests: number = 0
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L58)
+Defined in: [core/utils/perf/stats-engine.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L58)
 
 In-flight fetch counter (patched window.fetch drives it).
 
@@ -125,7 +125,7 @@ In-flight fetch counter (patched window.fetch drives it).
 _requestCount: number = 0
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L60)
+Defined in: [core/utils/perf/stats-engine.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L60)
 
 Lifetime fetch count.
 
@@ -137,7 +137,7 @@ Lifetime fetch count.
 _memoryMB: number = 0
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L62)
+Defined in: [core/utils/perf/stats-engine.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L62)
 
 Last read JS heap in MB.
 
@@ -149,7 +149,7 @@ Last read JS heap in MB.
 _cpuPercent: number = 0
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L64)
+Defined in: [core/utils/perf/stats-engine.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L64)
 
 CPU load — estimated from long-task busy time in the flush window.
 
@@ -161,7 +161,7 @@ CPU load — estimated from long-task busy time in the flush window.
 _longTaskBusyMs: number = 0
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L66)
+Defined in: [core/utils/perf/stats-engine.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L66)
 
 Accumulated longtask busy ms for the current flush window.
 
@@ -173,7 +173,7 @@ Accumulated longtask busy ms for the current flush window.
 _longTaskObserver: PerformanceObserver | null = null;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L68)
+Defined in: [core/utils/perf/stats-engine.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L68)
 
 The 'longtask' PerformanceObserver (null where unsupported).
 
@@ -185,7 +185,7 @@ The 'longtask' PerformanceObserver (null where unsupported).
 _latencyMs: number = 0
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:70](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L70)
+Defined in: [core/utils/perf/stats-engine.ts:70](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L70)
 
 Latency — rolling average of fetch round-trip times (last 10 requests).
 
@@ -197,7 +197,7 @@ Latency — rolling average of fetch round-trip times (last 10 requests).
 _latencySamples: number[] = [];
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L72)
+Defined in: [core/utils/perf/stats-engine.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L72)
 
 Rolling latency samples feeding _latencyMs.
 
@@ -209,7 +209,7 @@ Rolling latency samples feeding _latencyMs.
 _rafId: number | null = null;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L74)
+Defined in: [core/utils/perf/stats-engine.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L74)
 
 rAF handle for the FPS loop.
 
@@ -221,7 +221,7 @@ rAF handle for the FPS loop.
 _observers: Set<StatsObserver>
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L76)
+Defined in: [core/utils/perf/stats-engine.ts:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L76)
 
 Subscribed metric callbacks.
 
@@ -233,7 +233,7 @@ Subscribed metric callbacks.
 _observer: PerformanceObserver | null = null;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:78](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L78)
+Defined in: [core/utils/perf/stats-engine.ts:78](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L78)
 
 The 'resource' PerformanceObserver (network sampler).
 
@@ -245,7 +245,7 @@ The 'resource' PerformanceObserver (network sampler).
 _flushId: number | null = null;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L80)
+Defined in: [core/utils/perf/stats-engine.ts:80](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L80)
 
 The aggregating flush setInterval handle.
 
@@ -257,7 +257,7 @@ The aggregating flush setInterval handle.
 _running: boolean = false
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:82](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L82)
+Defined in: [core/utils/perf/stats-engine.ts:82](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L82)
 
 Whether samplers are currently live.
 
@@ -269,7 +269,7 @@ Whether samplers are currently live.
 subscribe(fn): void;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:90](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L90)
+Defined in: [core/utils/perf/stats-engine.ts:90](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L90)
 
 Registers a metrics callback and cold-starts the observers if needed —
 lazy start keeps the engine free until the HUD opens.
@@ -294,7 +294,7 @@ Subscriber receiving each StatsSnapshot.
 unsubscribe(fn): void;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:101](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L101)
+Defined in: [core/utils/perf/stats-engine.ts:101](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L101)
 
 Removes a callback; tears down all sampling when the last one leaves
 so a closed HUD leaves zero observers running.
@@ -319,7 +319,7 @@ The callback to remove.
 getSnapshot(): StatsSnapshot;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:109](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L109)
+Defined in: [core/utils/perf/stats-engine.ts:109](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L109)
 
 Point-in-time metrics object the HUD renders (fps, net, cpu, mem, latency).
 
@@ -335,7 +335,7 @@ Point-in-time metrics object the HUD renders (fps, net, cpu, mem, latency).
 _start(): void;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:122](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L122)
+Defined in: [core/utils/perf/stats-engine.ts:122](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L122)
 
 Boots all four samplers (FPS loop, network, longtask, flush timer).
 
@@ -351,7 +351,7 @@ Boots all four samplers (FPS loop, network, longtask, flush timer).
 _startFpsLoop(): void;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:137](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L137)
+Defined in: [core/utils/perf/stats-engine.ts:137](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L137)
 
 Counts rAF ticks and derives frames/second on a rolling 1s window.
 
@@ -367,7 +367,7 @@ Counts rAF ticks and derives frames/second on a rolling 1s window.
 _startNetworkObserver(): void;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:142](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L142)
+Defined in: [core/utils/perf/stats-engine.ts:142](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L142)
 
 Resource-timing observer + global fetch patch (see stats/network.ts).
 
@@ -383,7 +383,7 @@ Resource-timing observer + global fetch patch (see stats/network.ts).
 _startLongTaskObserver(): void;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:147](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L147)
+Defined in: [core/utils/perf/stats-engine.ts:147](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L147)
 
 Long-task CPU observer (see stats/network.ts).
 
@@ -399,7 +399,7 @@ Long-task CPU observer (see stats/network.ts).
 _startFlushInterval(): void;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:152](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L152)
+Defined in: [core/utils/perf/stats-engine.ts:152](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L152)
 
 Aggregating flush interval (see stats/flush.ts).
 
@@ -415,7 +415,7 @@ Aggregating flush interval (see stats/flush.ts).
 _stop(): void;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:157](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L157)
+Defined in: [core/utils/perf/stats-engine.ts:157](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L157)
 
 Cancels the rAF loop, disconnects observers, clears the flush timer.
 
@@ -431,7 +431,7 @@ Cancels the rAF loop, disconnects observers, clears the flush timer.
 trackRequestStart(): void;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:187](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L187)
+Defined in: [core/utils/perf/stats-engine.ts:187](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L187)
 
 Manual in-flight counter increment for non-fetch request paths.
 
@@ -447,7 +447,7 @@ Manual in-flight counter increment for non-fetch request paths.
 trackRequestEnd(): void;
 ```
 
-Defined in: [src/utils/perf/stats-engine.ts:192](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats-engine.ts#L192)
+Defined in: [core/utils/perf/stats-engine.ts:192](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats-engine.ts#L192)
 
 Manual in-flight counter decrement (floor at 0).
 

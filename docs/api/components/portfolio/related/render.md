@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/portfolio/related/render.tsx` |
+| **Source** | `website/components/portfolio/related/render.tsx` |
 | **UX surface** | Related-projects strip on case-study pages. |
 
 ## Members

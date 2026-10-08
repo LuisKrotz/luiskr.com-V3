@@ -4,7 +4,7 @@ Shared context-loss + release plumbing for the quad-based
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/gl-lifecycle.ts` |
+| **Source** | `core/utils/canvas/gl-lifecycle.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

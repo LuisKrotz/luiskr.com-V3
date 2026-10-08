@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [components/media/draw-text/types](../README.md) / DrawChar
 
-Defined in: [src/components/media/draw-text/types.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/draw-text/types.ts#L10)
+Defined in: [website/components/media/draw-text/types.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/draw-text/types.ts#L10)
 
 One glyph of a staggered draw — `ci` is the global character index used to
 compute the per-char animation delay, `value` the printable character.
@@ -17,7 +17,7 @@ compute the per-char animation delay, `value` the printable character.
 ci: number
 ```
 
-Defined in: [src/components/media/draw-text/types.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/draw-text/types.ts#L11)
+Defined in: [website/components/media/draw-text/types.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/draw-text/types.ts#L11)
 
 ---
 
@@ -27,4 +27,4 @@ Defined in: [src/components/media/draw-text/types.ts:11](https://github.com/Luis
 value: string
 ```
 
-Defined in: [src/components/media/draw-text/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/media/draw-text/types.ts#L12)
+Defined in: [website/components/media/draw-text/types.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/media/draw-text/types.ts#L12)

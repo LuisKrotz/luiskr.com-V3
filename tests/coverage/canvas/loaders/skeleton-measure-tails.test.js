@@ -6,12 +6,12 @@
  * display:contents client-box fallback, and the immediate first-frame paint.
  */
 import { describe, test, expect, beforeEach, afterEach, jest } from '@jest/globals'
-import { SkeletonWebGL } from '@/utils/canvas/loaders/skeleton-webgl.js'
-import { skeletonRenderer } from '@/utils/canvas/loaders/skeleton/renderer.js'
+import { SkeletonWebGL } from '@core/utils/canvas/loaders/skeleton-webgl.js'
+import { skeletonRenderer } from '@core/utils/canvas/loaders/skeleton/renderer.js'
 import { createMockGL, createMock2D } from '../../../fixtures/mock-webgl.js'
-import { SKELETON_CLASSES } from '@/core/tokens/classes/skeleton.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { WEBGL_STRINGS } from '@/core/tokens/strings/webgl.js'
+import { SKELETON_CLASSES } from '@core/tokens/classes/skeleton.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { WEBGL_STRINGS } from '@core/tokens/strings/webgl.js'
 
 let mockGL
 let mock2D

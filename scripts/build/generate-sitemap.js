@@ -1,5 +1,10 @@
 import fs from 'fs'
-import { LANG_SLUGS } from '../../src/core/locale/lang-slugs.ts'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import { LANG_SLUGS } from '../../core/locale/lang-slugs.ts'
+import { scanManifest } from '../../build/docs/scan.mjs'
+
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..')
 
 const VALID_LANGS = Object.keys(LANG_SLUGS)
 
@@ -99,6 +104,27 @@ async function run() {
   }
   for (const alias of Object.keys(aliases)) {
     urlSet.add(`/portfolio/${alias}`)
+  }
+
+  // Docs portal — English-only SPA; every publishable manifest file is a
+  // crawlable '/docs/<root>/<relpath>' route (files only — dirs resolve to
+  // the same portal page, and media payloads render inline in the viewer).
+  urlSet.add('/docs')
+
+  try {
+    const { roots } = scanManifest(REPO_ROOT)
+
+    const walkDocs = (nodes) => {
+      for (const node of nodes) {
+        urlSet.add(`/docs/${node.path}`)
+
+        if (node.type === 'dir') walkDocs(node.children)
+      }
+    }
+
+    for (const root of roots) walkDocs(root.children)
+  } catch (err) {
+    console.error('Failed to scan docs manifest for sitemap — /docs routes skipped', err)
   }
 
   const allUrls = Array.from(urlSet).sort()

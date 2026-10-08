@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/lang/CmsLangEditor.tsx` |
+| **Source** | `cms/lang/CmsLangEditor.tsx` |
 | **UX surface** | Raw JSON dictionary editor card. |
 
 ## Members

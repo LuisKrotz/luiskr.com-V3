@@ -1,7 +1,7 @@
 {
   "$schema": "https://typedoc.org/schema.json",
   "name": "luiskr.com",
-  "entryPoints": ["src"],
+  "entryPoints": ["src", "core", "website", "cms", "experiments"],
   "entryPointStrategy": "expand",
   "plugin": ["typedoc-plugin-markdown"],
   "out": "docs/typedoc",

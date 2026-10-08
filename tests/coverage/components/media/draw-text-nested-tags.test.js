@@ -1,6 +1,6 @@
 /**
  * @file draw-text-nested-tags.test.js — regression coverage for the recursive
- * markup handling in src/components/media/draw-text/render.ts: CMS content
+ * markup handling in website/components/media/draw-text/render.ts: CMS content
  * like `<a href="/"><span>label</span></a>` must tokenize its inner markup
  * (not leak raw `<`/`>` into innerHTML), text chars must be entity-escaped,
  * and generated anchor aria-labels must be escaped too. These tests mount the
@@ -8,11 +8,11 @@
  * — the exact surface where the `>luiskr` leak was visible.
  */
 
-import { parseTokens, renderContent } from '@/components/media/draw-text/render.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { CSS_STRINGS } from '@/core/tokens/strings/css.js'
-import { DOM_STRINGS } from '@/core/tokens/strings/dom.js'
+import { parseTokens, renderContent } from '@website/components/media/draw-text/render.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { CSS_STRINGS } from '@core/tokens/strings/css.js'
+import { DOM_STRINGS } from '@core/tokens/strings/dom.js'
 
 /** Mounts rendered draw-text HTML and returns the host for DOM assertions. */
 const mountHtml = (html) => {

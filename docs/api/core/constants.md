@@ -4,5 +4,5 @@ Single source of truth for every shared constant in the
 
 | | |
 |---|---|
-| **Source** | `src/core/constants.ts` |
+| **Source** | `core/constants.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |

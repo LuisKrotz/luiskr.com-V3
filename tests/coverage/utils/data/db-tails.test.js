@@ -8,11 +8,11 @@
  * polyfill bodies.
  */
 
-import { LOCALES} from '@/core/constants.js'
-import _store from '@/core/store.js'
+import { LOCALES} from '@core/constants.js'
+import _store from '@core/store.js'
 
-import '@/components/feedback/CookieBanner.js'
-import { DB_PATHS, ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
+import '@website/components/feedback/CookieBanner.js'
+import { DB_PATHS, ROUTE_PATHS } from '@core/tokens/routes/paths.js'
 
 
 
@@ -20,7 +20,7 @@ import { DB_PATHS, ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
 
 describe('db tails', () => {
   test('non-translation path goes to REST, translations hit the snapshot', async () => {
-    const { fetchFirebaseDb } = await import('@/utils/data/db.js')
+    const { fetchFirebaseDb } = await import('@core/utils/data/db.js')
 
     const rest = await fetchFirebaseDb(`${ROUTE_PATHS.PORTFOLIO}anything`)
 

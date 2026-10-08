@@ -4,7 +4,7 @@ SWR-style data layer over Firebase RTDB.
 
 | | |
 |---|---|
-| **Source** | `src/utils/data/db.ts` |
+| **Source** | `core/utils/data/db.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

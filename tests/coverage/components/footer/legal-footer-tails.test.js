@@ -7,31 +7,31 @@
  * HomeMosaic / PreferencesModal / AwardsCarousel internals, and App shell.
  */
 import { jest } from '@jest/globals'
-import { CMS_KEYS, ROUTE_NAMES} from '@/core/constants.js'
-import store from '@/core/store.js'
-import router from '@/routes/router.js'
+import { CMS_KEYS, ROUTE_NAMES} from '@core/constants.js'
+import store from '@core/store.js'
+import router from '@core/router/router.js'
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
 
-import '@/components/feedback/StatsHud.js'
-import '@/components/home/AwardsMentions.js'
-import '@/components/legal/Footer.js'
-import { getFallbackLegalLinks } from '@/components/legal/Footer.js'
-import { FALLBACK_COMPONENTS } from '@/core/locale/fallback.js'
-import { LANG_SLUGS } from '@/core/i18n.js'
-import '@/components/home/HomeMosaic.js'
-import '@/components/dialogs/LangDialog.js'
-import '@/components/dialogs/PreferencesModal.js'
-import '@/components/carousel/AwardsCarousel.js'
-import '@/routes/views/home/Home.js'
-import '@/routes/views/legal/Legal.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { ROUTE_STRINGS } from '@/core/tokens/strings/routes.js'
-import { LANG_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
-import { ROUTER_CLASSES } from '@/core/tokens/classes/router.js'
+import '@website/components/feedback/StatsHud.js'
+import '@website/components/home/AwardsMentions.js'
+import '@website/components/legal/Footer.js'
+import { getFallbackLegalLinks } from '@website/components/legal/Footer.js'
+import { FALLBACK_COMPONENTS } from '@core/locale/fallback.js'
+import { LANG_SLUGS } from '@core/i18n.js'
+import '@website/components/home/HomeMosaic.js'
+import '@website/components/dialogs/LangDialog.js'
+import '@website/components/dialogs/PreferencesModal.js'
+import '@website/components/carousel/AwardsCarousel.js'
+import '@website/views/home/Home.js'
+import '@website/views/legal/Legal.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { ROUTE_STRINGS } from '@core/tokens/strings/routes.js'
+import { LANG_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { MOUSE_EVENTS } from '@core/tokens/events/dom.js'
+import { ROUTER_CLASSES } from '@core/tokens/classes/router.js'
 
 
 
@@ -265,7 +265,7 @@ describe('legal Footer tails', () => {
   test('module re-eval sees the tag already registered', async () => {
     jest.resetModules()
 
-    await import('@/components/legal/Footer.js')
+    await import('@website/components/legal/Footer.js')
   })
 })
 

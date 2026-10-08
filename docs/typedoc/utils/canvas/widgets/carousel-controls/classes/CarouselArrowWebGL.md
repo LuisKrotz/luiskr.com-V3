@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [utils/canvas/widgets/carousel-controls](../README.md) / CarouselArrowWebGL
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L29)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L29)
 
 WebGL Carousel Arrow Controls with Circular Loading Progress & Gestural Microinteractions
 
@@ -26,7 +26,7 @@ new CarouselArrowWebGL(
 ): CarouselArrowWebGL;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L53)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L53)
 
 #### Parameters
 
@@ -54,7 +54,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:53](https://github.co
 canvas: HTMLCanvasElement
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L30)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L30)
 
 ---
 
@@ -64,7 +64,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:30](https://github.co
 type: string
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L31)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L31)
 
 ---
 
@@ -74,7 +74,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:31](https://github.co
 onAction: (() => void) | null;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L32)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L32)
 
 ---
 
@@ -84,7 +84,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:32](https://github.co
 width: number = 44
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L33)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L33)
 
 ---
 
@@ -94,7 +94,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:33](https://github.co
 height: number = 44
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L34)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L34)
 
 ---
 
@@ -104,7 +104,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:34](https://github.co
 dpr: number = 2
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L35)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L35)
 
 ---
 
@@ -114,7 +114,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:35](https://github.co
 progress: number = 0
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L36)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L36)
 
 ---
 
@@ -124,7 +124,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:36](https://github.co
 isHovered: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L37)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L37)
 
 ---
 
@@ -134,7 +134,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:37](https://github.co
 hoverLevel: number = 0.0
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L38)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L38)
 
 ---
 
@@ -144,7 +144,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:38](https://github.co
 isPlaying: boolean = true
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L39)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L39)
 
 ---
 
@@ -154,7 +154,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:39](https://github.co
 clickTime: number = -10.0
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L40)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L40)
 
 ---
 
@@ -164,7 +164,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:40](https://github.co
 animId: number | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L41)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L41)
 
 ---
 
@@ -174,7 +174,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:41](https://github.co
 startTime: number
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L42)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L42)
 
 ---
 
@@ -184,7 +184,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:42](https://github.co
 ctx: CanvasRenderingContext2D | null | undefined
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L43)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L43)
 
 ---
 
@@ -194,7 +194,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:43](https://github.co
 gl: WebGLRenderingContext | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L44)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L44)
 
 ---
 
@@ -204,7 +204,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:44](https://github.co
 program: WebGLProgram | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L45)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L45)
 
 ---
 
@@ -214,7 +214,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:45](https://github.co
 quadBuffer: WebGLBuffer | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L46)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L46)
 
 ---
 
@@ -224,7 +224,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:46](https://github.co
 _paused: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L47)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L47)
 
 ---
 
@@ -234,7 +234,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:47](https://github.co
 boundTarget: HTMLElement | undefined
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L48)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L48)
 
 ---
 
@@ -244,7 +244,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:48](https://github.co
 onMouseEnter: EventListener | undefined
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L49)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L49)
 
 ---
 
@@ -254,7 +254,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:49](https://github.co
 onMouseLeave: EventListener | undefined
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L50)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L50)
 
 ---
 
@@ -264,7 +264,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:50](https://github.co
 onClick: EventListener | undefined
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L51)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L51)
 
 ## Methods
 
@@ -274,7 +274,7 @@ Defined in: [src/utils/canvas/widgets/carousel-controls.ts:51](https://github.co
 init(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L69)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L69)
 
 Boot sequence: GL init → event binding → render start; fully degrades to the fallback path.
 
@@ -290,7 +290,7 @@ Boot sequence: GL init → event binding → render start; fully degrades to the
 purge(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:126](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L126)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:126](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L126)
 
 webglPool hook — viewport left: pauses the loop; GL stays warm (the pool owns context lifecycle).
 
@@ -306,7 +306,7 @@ webglPool hook — viewport left: pauses the loop; GL stays warm (the pool owns 
 restore(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:137](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L137)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:137](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L137)
 
 webglPool hook — back in view: resumes the render loop; counterpart of purge().
 
@@ -322,7 +322,7 @@ webglPool hook — back in view: resumes the render loop; counterpart of purge()
 _triggerFallback(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:145](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L145)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:145](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L145)
 
 Switches to the non-WebGL path (CSS class on the host / Canvas2D) — used on context loss or init failure.
 
@@ -338,7 +338,7 @@ Switches to the non-WebGL path (CSS class on the host / Canvas2D) — used on co
 bindEvents(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:157](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L157)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:157](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L157)
 
 Wires pointer/hover listeners that drive the widget's interactive state.
 
@@ -354,7 +354,7 @@ Wires pointer/hover listeners that drive the widget's interactive state.
 setHover(hovered): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:185](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L185)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:185](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L185)
 
 Updates hover state — the shader renders the hover accent when true.
 
@@ -376,7 +376,7 @@ Updates hover state — the shader renders the hover accent when true.
 triggerClick(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:191](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L191)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:191](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L191)
 
 Programmatic activation — runs the bound onAction.
 
@@ -392,7 +392,7 @@ Programmatic activation — runs the bound onAction.
 setPlaying(playing): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:197](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L197)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:197](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L197)
 
 Morphs the icon between play and pause states.
 
@@ -414,7 +414,7 @@ Morphs the icon between play and pause states.
 setProgress(p, isPlaying?): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:203](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L203)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:203](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L203)
 
 Updates the progress ring's fill fraction (and syncs play state).
 
@@ -440,7 +440,7 @@ Updates the progress ring's fill fraction (and syncs play state).
 setReducedMotion(isReduced): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:217](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L217)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:217](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L217)
 
 Applies prefers-reduced-motion: swaps the animation loop for one static frame render.
 
@@ -462,7 +462,7 @@ Applies prefers-reduced-motion: swaps the animation loop for one static frame re
 _renderStatic(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:230](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L230)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:230](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L230)
 
 Draws a single settled frame — used under reduced motion or when the loop is stopped.
 
@@ -478,7 +478,7 @@ Draws a single settled frame — used under reduced motion or when the loop is s
 animate(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:242](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L242)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:242](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L242)
 
 Starts the requestAnimationFrame render loop (skipped under reduced motion).
 
@@ -494,7 +494,7 @@ Starts the requestAnimationFrame render loop (skipped under reduced motion).
 _renderCanvas2D(now): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:275](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L275)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:275](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L275)
 
 Per-frame Canvas2D fallback render — same visual language as the shader.
 
@@ -516,7 +516,7 @@ Per-frame Canvas2D fallback render — same visual language as the shader.
 destroy(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/carousel-controls.ts:298](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/carousel-controls.ts#L298)
+Defined in: [core/utils/canvas/widgets/carousel-controls.ts:298](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/carousel-controls.ts#L298)
 
 Releases the context, buffers, listeners and rAF handle so the canvas can be GC'd.
 

@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/portfolio/related/data.ts` |
+| **Source** | `website/components/portfolio/related/data.ts` |
 | **UX surface** | Related-projects strip on case-study pages. |
 
 ## Members

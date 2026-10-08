@@ -7,13 +7,13 @@
  */
 
 import { describe, test, expect, jest, beforeEach } from '@jest/globals'
-import { LOCALES } from '@/core/constants.js'
-import { CMS_TAGS } from '@/cms/tokens.js'
+import { LOCALES } from '@core/constants.js'
+import { CMS_TAGS } from '@cms/tokens.js'
 import { TEST_TEXT, TEST_PROJECTS } from '../fixtures/test-constants.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { DRAG_EVENTS, FORM_EVENTS, MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { CMS_ITEM_CLASSES } from '@/cms/tokens.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { DRAG_EVENTS, FORM_EVENTS, MOUSE_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { CMS_ITEM_CLASSES } from '@cms/tokens.js'
 
 const setCalls = []
 const snapVal = {
@@ -21,7 +21,7 @@ const snapVal = {
   sections: [{ text: [TEST_TEXT.BODY], media: [] }],
 }
 
-jest.unstable_mockModule('@/firebase.js', () => ({
+jest.unstable_mockModule('@core/firebase.js', () => ({
   onAuthChange: jest.fn(async () => () => {}),
   signInWithGoogle: jest.fn(async () => ({})),
   logoutUser: jest.fn(async () => {}),
@@ -38,10 +38,10 @@ jest.unstable_mockModule('firebase/database', () => ({
   remove: jest.fn(async () => {}),
 }))
 
-await import('@/cms/projects/CmsProjectsList.js')
-await import('@/cms/footer/CmsFooterEditor.js')
-await import('@/cms/portfolio/CmsPortfolioList.js')
-await import('@/cms/media-convert/CmsMediaConverter.js')
+await import('@cms/projects/CmsProjectsList.js')
+await import('@cms/footer/CmsFooterEditor.js')
+await import('@cms/portfolio/CmsPortfolioList.js')
+await import('@cms/media-convert/CmsMediaConverter.js')
 
 const mount = (tag) => {
   const el = document.createElement(tag)
@@ -739,7 +739,7 @@ describe('CmsMediaConverter', () => {
 
     jest.resetModules()
 
-    const mod = await import('@/cms/media-convert/CmsMediaConverter.js')
+    const mod = await import('@cms/media-convert/CmsMediaConverter.js')
     const el = mount(CMS_TAGS.CMS_MEDIA_CONVERTER)
     const output = mod.CmsMediaConverter.prototype.render.call(el)
 

@@ -8,47 +8,22 @@
 ```
  index.html ──► src/main.ts ──► <app-shell> App.tsx
                                    │
-                     src/routes/router.ts ──► view factory
+                     core/router/router.ts ──► view factory
                                    │
    ┌──────────────┬───────────────┼────────────────┬──────────────┐
- Home.tsx     Project.tsx     Legal.tsx     NotFound.tsx  (src/routes/)
+ Home.tsx     Project.tsx     Legal.tsx     NotFound.tsx  (website/views/)
    │              │               │              │
-   └──────► src/components/<domain>/<Comp>.tsx + <domain>/<comp>/ modules
+   └──────► website/components/<domain>/<Comp>.tsx + <domain>/<comp>/ modules
               (nav, home, carousel, media, dialogs, portfolio, feedback)
                                    │
-       src/core (Component · jsx · store · i18n) + src/utils/* domains
+       core (Component · jsx · store · i18n) + core/utils/* domains
 
- cms/index.html ──► src/cms/main.ts ──► CmsDashboard
-                                   └─► src/cms/<feature>/ editors
+ cms/index.html ──► cms/main.ts ──► CmsDashboard
+                                   └─► cms/<feature>/ editors
                                          └─► Firebase translations/*
                                                    │  (same DB the site reads)
- /earth-playground ──► src/playground/SpacePlayground + earth/ engine
+ /earth-playground ──► experiments/earth-playground/SpacePlayground + earth/ engine
 ```
-
-## Entry points
-
-*Boot surfaces: what the user sees first on each bundle.*
-
-| File | What it does |
-|---|---|
-| [`App.tsx`](App.md) | &lt;app-root&gt; — the application's shell custom element. |
-| [`firebase.ts`](firebase.md) | Firebase client bootstrap — split between the site (read-only) |
-| [`main.ts`](main.md) | Public-site entry point (modern ESM bundle). |
-| [`registerServiceWorker.ts`](registerServiceWorker.md) | Registers the Workbox-generated service worker in production |
-
-## Entry points
-
-*Boot surfaces: what the user sees first on each bundle.*
-
-| File | What it does |
-|---|---|
-| [`boot.ts`](app/boot.md) | App shell bootstrap — preference init, data load, lazy dialog/HUD chunk imports, router subscription with prog… |
-| [`data.ts`](app/data.md) | Locale data loading for AppRoot — fetches the APP translation node per locale, fans it out to translations, an… |
-| [`input.ts`](app/input.md) | Global input listeners for AppRoot — keyboard shortcuts, pointer handlers, and preference-triggering events bo… |
-| [`modal.ts`](app/modal.md) | Modal-state DOM sync for AppRoot — toggles modal-open on html/body, copies the modifier class onto the wrapper… |
-| [`scroll.ts`](app/scroll.md) | Scroll tracking for AppRoot — measures the #about/#contact section tops and keeps activeSection/onBottom in sy… |
-| [`types.ts`](app/types.md) | Shared structural types for the App shell — the APP |
-| [`view.ts`](app/view.md) | View outlet reconciliation for AppRoot — same-tag routes delegate to onRouteParamChange; new views lazy-import… |
 
 ## CMS / about editor
 
@@ -82,6 +57,22 @@
 |---|---|
 | [`firebase-mock.ts`](cms/dev/firebase-mock.md) | Dev-only offline stub for Firebase Auth + RTDB |
 
+## CMS
+
+*Admin bundle — editors for every database node.*
+
+| File | What it does |
+|---|---|
+| [`cms.js`](cms/dist/cms.md) | — |
+
+## CMS
+
+*Admin bundle — editors for every database node.*
+
+| File | What it does |
+|---|---|
+| [`wasm-worker.js`](cms/dist/workers/wasm-worker.md) | — |
+
 ## CMS / footer editor
 
 *Footer + legal links editor card.*
@@ -95,6 +86,17 @@
 | [`render.tsx`](cms/footer/render.md) | — |
 | [`types.ts`](cms/footer/types.md) | — |
 
+## CMS
+
+*Admin bundle — editors for every database node.*
+
+| File | What it does |
+|---|---|
+| [`index.ts`](cms/index.md) | Barrel for the `cms` module — the admin bundle's public |
+| [`main.ts`](cms/main.md) | CMS bundle entry — completely separate from the public site |
+| [`tokens.ts`](cms/tokens.md) | CMS-restricted tokens, tags, classes, and actions. |
+| [`vite.config.js`](cms/vite.config.md) | Library build for the `cms` module — admin editors, routes and |
+
 ## CMS / lang editor
 
 *Raw JSON dictionary editor card.*
@@ -102,15 +104,6 @@
 | File | What it does |
 |---|---|
 | [`CmsLangEditor.tsx`](cms/lang/CmsLangEditor.md) | &lt;cms-lang-editor&gt; — raw JSON dictionary editor: any |
-
-## CMS
-
-*Admin bundle — editors for every database node.*
-
-| File | What it does |
-|---|---|
-| [`main.ts`](cms/main.md) | CMS bundle entry — completely separate from the public site |
-| [`tokens.ts`](cms/tokens.md) | CMS-restricted tokens, tags, classes, and actions. |
 
 ## CMS / media convert
 
@@ -213,201 +206,6 @@
 | [`card.ts`](cms/tokens/shell/card.md) | Card and section-shell classes — card blocks, section |
 | [`dashboard.ts`](cms/tokens/shell/dashboard.md) | Dashboard chrome classes — header, brand, user info, nav |
 
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`AwardsCarousel.tsx`](components/carousel/AwardsCarousel.md) | &lt;awards-carousel&gt; — lightweight carousel used by the awards |
-| [`CustomCarousel.tsx`](components/carousel/CustomCarousel.md) | &lt;custom-carousel&gt; — infinite-loop horizontal carousel used by |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`autoplay.ts`](components/carousel/awards-carousel/autoplay.md) | — |
-| [`events.ts`](components/carousel/awards-carousel/events.md) | — |
-| [`nav.ts`](components/carousel/awards-carousel/nav.md) | — |
-| [`observer.ts`](components/carousel/awards-carousel/observer.md) | — |
-| [`render.tsx`](components/carousel/awards-carousel/render.md) | — |
-| [`types.ts`](components/carousel/awards-carousel/types.md) | — |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`arrows.ts`](components/carousel/custom-carousel/arrows.md) | Control wiring for CustomCarousel — prev/next/dot click |
-| [`autoplay.ts`](components/carousel/custom-carousel/autoplay.md) | Autoplay/progress-ring engine for &lt;custom-carousel&gt;, |
-| [`lifecycle.ts`](components/carousel/custom-carousel/lifecycle.md) | — |
-| [`nav.ts`](components/carousel/custom-carousel/nav.md) | Navigation engine for CustomCarousel — goTo/prev/next/dot |
-| [`render.tsx`](components/carousel/custom-carousel/render.md) | Pure JSX render helpers for &lt;custom-carousel&gt;, extracted |
-| [`sizing.ts`](components/carousel/custom-carousel/sizing.md) | Fit/height measurement for CustomCarousel — the |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`LangDialog.tsx`](components/dialogs/LangDialog.md) | &lt;lang-dialog&gt; — locale picker: a grid of language options |
-| [`PreferencesModal.tsx`](components/dialogs/PreferencesModal.md) | &lt;preferences-modal&gt; — settings dialog: theme slider |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`events.ts`](components/dialogs/lang-dialog/events.md) | — |
-| [`locale.ts`](components/dialogs/lang-dialog/locale.md) | — |
-| [`render.tsx`](components/dialogs/lang-dialog/render.md) | — |
-| [`sync.ts`](components/dialogs/lang-dialog/sync.md) | — |
-| [`webgl.ts`](components/dialogs/lang-dialog/webgl.md) | — |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`render.tsx`](components/dialogs/preferences/render.md) | — |
-| [`sync.ts`](components/dialogs/preferences/sync.md) | — |
-| [`types.ts`](components/dialogs/preferences/types.md) | — |
-| [`webgl.ts`](components/dialogs/preferences/webgl.md) | — |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`CookieBanner.tsx`](components/feedback/CookieBanner.md) | &lt;cookie-banner&gt; — consent notice bar: accept/decline |
-| [`SiteToast.tsx`](components/feedback/SiteToast.md) | &lt;site-toast&gt; — the in-page notification surface |
-| [`StatsHud.tsx`](components/feedback/StatsHud.md) | &lt;stats-hud&gt; — the stats-for-nerds overlay: a compact HUD in |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`AboutSection.tsx`](components/home/AboutSection.md) | &lt;about-section&gt; — the home page's bio block: Gravatar profile |
-| [`AwardsMentions.tsx`](components/home/AwardsMentions.md) | &lt;awards-mentions&gt; — the footer band on internals/home: an |
-| [`ContactSection.tsx`](components/home/ContactSection.md) | &lt;contact-section&gt; — the home page's contact footer: heading, |
-| [`HomeMosaic.tsx`](components/home/HomeMosaic.md) | &lt;home-mosaic&gt; — the masonry project grid on the home page: |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`carousel.ts`](components/home/awards/carousel.md) | Carousel wiring for &lt;awards-mentions&gt;: configures the |
-| [`data.ts`](components/home/awards/data.md) | Data helpers for &lt;awards-mentions&gt;: the legal-links list |
-| [`render.tsx`](components/home/awards/render.md) | JSX template for &lt;awards-mentions&gt; — the footer band with |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`events.ts`](components/home/mosaic/events.md) | — |
-| [`interactions.ts`](components/home/mosaic/interactions.md) | — |
-| [`layout.ts`](components/home/mosaic/layout.md) | — |
-| [`pack.ts`](components/home/mosaic/pack.md) | Masonry packing engine for &lt;home-mosaic&gt;, extracted from |
-| [`render.tsx`](components/home/mosaic/render.md) | — |
-
-## Site components / legal
-
-*Footer shown on legal pages.*
-
-| File | What it does |
-|---|---|
-| [`Footer.tsx`](components/legal/Footer.md) | &lt;legal-footer&gt; — footer strip shared by internals and the |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`DrawText.tsx`](components/media/DrawText.md) | &lt;draw-text&gt; — character-staggered text reveal: splits its |
-| [`MediaExpanded.tsx`](components/media/MediaExpanded.md) | &lt;media-expanded&gt; — full-screen media viewer inside the |
-| [`MediaFigure.tsx`](components/media/MediaFigure.md) | &lt;media-figure&gt; — the site's core media card: renders a |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`dom.ts`](components/media/draw-text/dom.md) | — |
-| [`fit.ts`](components/media/draw-text/fit.md) | — |
-| [`render.ts`](components/media/draw-text/render.md) | — |
-| [`sheet.ts`](components/media/draw-text/sheet.md) | — |
-| [`trigger.ts`](components/media/draw-text/trigger.md) | — |
-| [`types.ts`](components/media/draw-text/types.md) | — |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`close.ts`](components/media/expanded/close.md) | Dismissal sequence for &lt;media-expanded&gt;: the class add |
-| [`mount.ts`](components/media/expanded/mount.md) | Mount wiring for &lt;media-expanded&gt;: scroll reset, Escape / |
-| [`render.tsx`](components/media/expanded/render.md) | JSX template for &lt;media-expanded&gt; — four close affordances |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`load.ts`](components/media/figure/load.md) | Media URL matrix + progressive loading for &lt;media-figure&gt;: |
-| [`modal.ts`](components/media/figure/modal.md) | Expand-modal open for MediaFigure — commits the media descriptor to the store and deep-links the caption slug … |
-| [`mount.ts`](components/media/figure/mount.md) | Mount lifecycle for MediaFigure — GPU-layer promotion, store subscription, expand-click binding, hover-to-play… |
-| [`render.tsx`](components/media/figure/render.md) | JSX for MediaFigure — layered placeholder/thumb/high-res crossfade stack (or the muted looping video path) plu… |
-| [`video.ts`](components/media/figure/video.md) | Video playback plumbing for &lt;media-figure&gt;: lazy &lt;source&gt; |
-
-## Site components
-
-*Shadow-DOM widgets — the visible UI of the public site.*
-
-| File | What it does |
-|---|---|
-| [`AppNav.tsx`](components/nav/AppNav.md) | &lt;app-nav&gt; — the persistent top navigation bar: logo, burger |
-| [`flag.tsx`](components/nav/flag.md) | Locale flag rendering + FlagWebGL lifecycle for &lt;app-nav&gt;, |
-| [`handlers.ts`](components/nav/handlers.md) | — |
-| [`menu.tsx`](components/nav/menu.md) | Fullscreen menu overlay behavior for &lt;app-nav&gt;, extracted |
-| [`render.tsx`](components/nav/render.md) | JSX template for &lt;app-nav&gt;, extracted from AppNav.tsx — |
-| [`scroll.ts`](components/nav/scroll.md) | — |
-
-## Site components / portfolio
-
-*Related-projects strip on case-study pages.*
-
-| File | What it does |
-|---|---|
-| [`Related.tsx`](components/portfolio/Related.md) | &lt;portfolio-related&gt; — "related projects" strip at the |
-
-## Site components / portfolio
-
-*Related-projects strip on case-study pages.*
-
-| File | What it does |
-|---|---|
-| [`data.ts`](components/portfolio/related/data.md) | — |
-| [`match.ts`](components/portfolio/related/match.md) | — |
-| [`render.tsx`](components/portfolio/related/render.md) | — |
-| [`types.ts`](components/portfolio/related/types.md) | — |
-
 ## Core engine
 
 *Shared primitives every surface builds on — no direct UI.*
@@ -417,11 +215,13 @@
 | [`Component.ts`](core/Component.md) | BaseComponent — Custom Element base class with Shadow DOM encapsulation, |
 | [`constants.ts`](core/constants.md) | Single source of truth for every shared constant in the |
 | [`devlog.ts`](core/devlog.md) | Zero-console diagnostics sink (project rule: no console.* in |
+| [`firebase.ts`](core/firebase.md) | Firebase client bootstrap — split between the site (read-only) |
 | [`i18n.ts`](core/i18n.md) | Locale registry and URL-slug tables. |
 | [`index.ts`](core/index.md) | Unified barrel export for the core layer |
 | [`jsx.ts`](core/jsx.md) | Zero-dependency native DOM JSX pragma. |
 | [`predictive-loader.ts`](core/predictive-loader.md) | Intent-based predictive prefetching engine. |
 | [`store.ts`](core/store.md) | Framework-free reactive state container (tiny pub/sub). |
+| [`vite.config.js`](core/vite.config.md) | Library build for the `core` module — every shared primitive |
 
 ## Core engine
 
@@ -446,9 +246,82 @@
 
 | File | What it does |
 |---|---|
+| [`core.js`](core/dist/core.md) | — |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`wasm-worker.js`](core/dist/workers/wasm-worker.md) | — |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`cssvars.ts`](core/legacy-polyfills/cssvars.md) | CSS custom-properties ponyfill for IE11 / old EdgeHTML — |
+| [`dom.ts`](core/legacy-polyfills/dom.md) | Small DOM/runtime shims for pre-2019 engines, hand-rolled so |
+| [`es-core.ts`](core/legacy-polyfills/es-core.md) | Full ES shim layer for pre-ES2019 engines: core-js-bundle |
+| [`fetch.ts`](core/legacy-polyfills/fetch.md) | window.fetch polyfill (whatwg-fetch) for pre-fetch engines — |
+| [`io.ts`](core/legacy-polyfills/io.md) | IntersectionObserver polyfill (W3C spec implementation) — |
+| [`polyfills.ts`](core/legacy-polyfills/polyfills.md) | Critical polyfills for iOS Safari 14.x – 15.3 compatibility. |
+| [`ro.ts`](core/legacy-polyfills/ro.md) | ResizeObserver polyfill — the mosaic layout, media figures |
+| [`webcomponents.ts`](core/legacy-polyfills/webcomponents.md) | Web Components suite (custom elements v1, Shadow DOM via |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
 | [`fallback.ts`](core/locale/fallback.md) | Build-time English translation snapshot |
 | [`lang-slugs.ts`](core/locale/lang-slugs.md) | Canonical localized route-slug table — the per-locale path |
 | [`ui-text.ts`](core/locale/ui-text.md) | Runtime translation accessors: resolve a dotted key against |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`navigate.ts`](core/router/navigate.md) | — |
+| [`parse-path.ts`](core/router/parse-path.md) | — |
+| [`router.ts`](core/router/router.md) | History-API SPA router for the public site. |
+| [`types.ts`](core/router/types.md) | — |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`loader.ts`](core/safari/loader.md) | Safari/iOS compatibility bundle entry — imports the |
+| [`patch.ts`](core/safari/patch.md) | Runtime Safari/iOS workaround layer, loaded via |
+| [`types.ts`](core/safari/types.md) | Shared structural types for the Safari runtime patches — |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`carousel.ts`](core/safari/patches/carousel.md) | CustomCarousel patch: injects the safari-carousel stylesheet into the |
+| [`media-expanded.ts`](core/safari/patches/media-expanded.md) | MediaExpanded patch: explicit touchend close on every close target |
+| [`media-figure.ts`](core/safari/patches/media-figure.md) | MediaFigure patch orchestrator: safari-media styles, |
+| [`view-project.ts`](core/safari/patches/view-project.md) | ViewProject patch: manual modal positioning — iOS doesn't layer |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`image-load.ts`](core/safari/patches/media-figure/image-load.md) | Safari image-loading overrides for MediaFigure: a |
+| [`tap-expand.ts`](core/safari/patches/media-figure/tap-expand.md) | Tap-vs-scroll disambiguation for the expand gesture on |
+| [`video.ts`](core/safari/patches/media-figure/video.md) | Safari video block of the MediaFigure onMounted patch: |
 
 ## Core engine
 
@@ -510,6 +383,7 @@
 | [`form.ts`](core/tokens/attrs/form.md) | Form control attribute tokens — token group |
 | [`link.ts`](core/tokens/attrs/link.md) | Anchor/link attribute tokens — token group |
 | [`media.ts`](core/tokens/attrs/media.md) | Media element attribute + MIME-type tokens — grouped subset |
+| [`microdata.ts`](core/tokens/attrs/microdata.md) | HTML microdata attribute tokens (`itemscope`/`itemtype`/ |
 | [`svg.ts`](core/tokens/attrs/svg.md) | SVG geometry attribute values — token group. |
 | [`values.ts`](core/tokens/attrs/values.md) | Generic attribute-value tokens — token group. |
 
@@ -529,6 +403,7 @@
 | [`cms.ts`](core/tokens/classes/cms.md) | CMS shell class tokens — token group. |
 | [`contact.ts`](core/tokens/classes/contact.md) | Contact section class tokens — token group. |
 | [`cookies.ts`](core/tokens/classes/cookies.md) | Cookie banner class tokens — token group. |
+| [`docs.ts`](core/tokens/classes/docs.md) | Docs-portal class tokens — BEM block `docs` + modifiers. |
 | [`draw-text.ts`](core/tokens/classes/draw-text.md) | DrawText word/char reveal class tokens — grouped subset of |
 | [`effects.ts`](core/tokens/classes/effects.md) | Ambient effect canvas class tokens — fluid background, |
 | [`flags.ts`](core/tokens/classes/flags.md) | Language flag class tokens — token group. |
@@ -557,6 +432,7 @@
 | File | What it does |
 |---|---|
 | [`carousel.ts`](core/tokens/css/carousel.md) | Carousel-related CSS custom-property names — grouped subset |
+| [`cookies.ts`](core/tokens/css/cookies.md) | Cookie-banner CSS custom-property names — grouped subset of |
 | [`genie.ts`](core/tokens/css/genie.md) | Genie-transition origin CSS custom-property names — grouped |
 | [`menu.ts`](core/tokens/css/menu.md) | Menu ink CSS custom-property names — grouped subset of |
 | [`skeleton.ts`](core/tokens/css/skeleton.md) | Skeleton-field palette CSS custom-property names — grouped |
@@ -607,6 +483,7 @@
 | [`assets.ts`](core/tokens/ids/assets.md) | Dynamically-created element id tokens (critical CSS, WASM |
 | [`cms.ts`](core/tokens/ids/cms.md) | CMS root mount id token — token group. |
 | [`dialogs.ts`](core/tokens/ids/dialogs.md) | Dialog title id tokens (aria-labelledby targets) — grouped |
+| [`docs.ts`](core/tokens/ids/docs.md) | Docs-portal element id tokens — grouped subset of IDS. |
 | [`sections.ts`](core/tokens/ids/sections.md) | Page-section anchor id tokens — token group. |
 
 ## Core engine
@@ -688,6 +565,7 @@
 | [`carousel.ts`](core/tokens/selectors/carousel.md) | Custom carousel selector tokens — grouped subset of |
 | [`common.ts`](core/tokens/selectors/common.md) | Generic/shared selector tokens — grouped subset of |
 | [`cookies.ts`](core/tokens/selectors/cookies.md) | Cookie banner selector tokens — token group. |
+| [`docs.ts`](core/tokens/selectors/docs.md) | Docs-portal query-selector tokens — grouped subset of |
 | [`draw-text.ts`](core/tokens/selectors/draw-text.md) | DrawText selector tokens — token group. |
 | [`mosaic.ts`](core/tokens/selectors/mosaic.md) | Home mosaic selector tokens — token group. |
 | [`nav.ts`](core/tokens/selectors/nav.md) | Navigation selector tokens — token group. |
@@ -699,9 +577,11 @@
 
 | File | What it does |
 |---|---|
+| [`auth.ts`](core/tokens/strings/auth.md) | Firebase Auth error-code string tokens — token group. |
 | [`chars.ts`](core/tokens/strings/chars.md) | Punctuation, unit and single-character string tokens — |
 | [`css.ts`](core/tokens/strings/css.md) | CSS-token string tokens (var() references, tokenizer kinds) — |
 | [`debug.ts`](core/tokens/strings/debug.md) | URL `debug` parameter vocabulary |
+| [`docs.ts`](core/tokens/strings/docs.md) | Docs-portal string tokens — English-only UI literals, the |
 | [`dom.ts`](core/tokens/strings/dom.md) | DOM property/markup string tokens — grouped subset of |
 | [`input.ts`](core/tokens/strings/input.md) | Input-modality string tokens (pointer types, touch event |
 | [`langs.ts`](core/tokens/strings/langs.md) | Locale code string tokens — token group. |
@@ -737,143 +617,221 @@
 | [`dom.ts`](core/utils/dom.md) | Shadow-piercing DOM queries + the SVG placeholder helper. |
 | [`index.ts`](core/utils/index.md) | Barrel export — one import surface for the shared core |
 | [`media.ts`](core/utils/media.md) | Media-URL builders — the single place where CDN filename |
+| [`notify.ts`](core/utils/notify.md) | User-facing notification service |
 | [`schema.ts`](core/utils/schema.md) | JSON-LD structured-data builders (Schema.org entities for |
 | [`string.ts`](core/utils/string.md) | Small pure string transforms — HTML stripping for |
 
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`css-color.ts`](core/utils/canvas/css-color.md) | Shared CSS-color parser for the canvas widgets — converts |
+| [`gl-lifecycle.ts`](core/utils/canvas/gl-lifecycle.md) | Shared context-loss + release plumbing for the quad-based |
+| [`gl-program.ts`](core/utils/canvas/gl-program.md) | Shared WebGL boilerplate for the canvas widgets — every |
+| [`webgl-mode.ts`](core/utils/canvas/webgl-mode.md) | Single choke point for WebGL availability |
+| [`webgl-pool.ts`](core/utils/canvas/webgl-pool.md) | Lifecycle pool for the shared WebGL contexts: registers |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`intro-loader.ts`](core/utils/canvas/loaders/intro-loader.md) | Boot loader overlay: types the spec-sheet lines |
+| [`menu-background-webgl.ts`](core/utils/canvas/loaders/menu-background-webgl.md) | Fullscreen WebGL background for the nav menu overlay: an |
+| [`skeleton-webgl.ts`](core/utils/canvas/loaders/skeleton-webgl.md) | WebGL skeleton/shimmer layer for loading states: a shared |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`init.ts`](core/utils/canvas/loaders/menu-background/init.md) | — |
+| [`loop.ts`](core/utils/canvas/loaders/menu-background/loop.md) | — |
+| [`shaders.ts`](core/utils/canvas/loaders/menu-background/shaders.md) | GLSL sources for MenuBackgroundWebGL, extracted from |
+| [`theme.ts`](core/utils/canvas/loaders/menu-background/theme.md) | — |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`init.ts`](core/utils/canvas/loaders/skeleton/init.md) | — |
+| [`loop.ts`](core/utils/canvas/loaders/skeleton/loop.md) | — |
+| [`measure.ts`](core/utils/canvas/loaders/skeleton/measure.md) | DOM measurement for SkeletonWebGL, extracted from |
+| [`renderer.ts`](core/utils/canvas/loaders/skeleton/renderer.md) | Shared WebGL shimmer renderer for skeleton layers, |
+| [`shaders.ts`](core/utils/canvas/loaders/skeleton/shaders.md) | GLSL sources for the skeleton shimmer layer, extracted |
+| [`theme.ts`](core/utils/canvas/loaders/skeleton/theme.md) | — |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`burger-button-webgl.ts`](core/utils/canvas/widgets/burger-button-webgl.md) | WebGL hamburger icon for the nav burger button: three |
+| [`carousel-controls.ts`](core/utils/canvas/widgets/carousel-controls.md) | WebGL control button for the awards carousel: a circular |
+| [`close-button.ts`](core/utils/canvas/widgets/close-button.md) | WebGL animated circular close (X) button used by the expand |
+| [`flag-webgl.ts`](core/utils/canvas/widgets/flag-webgl.md) | WebGL flag renderer for the language dialog: draws each |
+| [`switch-slider.ts`](core/utils/canvas/widgets/switch-slider.md) | WebGL toggle switch for preferences/stats contexts: a pill |
+| [`theme-slider.ts`](core/utils/canvas/widgets/theme-slider.md) | WebGL three-position theme slider (light / system / dark) |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`shaders.ts`](core/utils/canvas/widgets/burger-button/shaders.md) | GLSL sources for BurgerButtonWebGL, extracted from |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`paint-2d.ts`](core/utils/canvas/widgets/carousel-controls/paint-2d.md) | Canvas2D renderer for CarouselArrowWebGL, extracted from |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`init.ts`](core/utils/canvas/widgets/close-button/init.md) | — |
+| [`render.ts`](core/utils/canvas/widgets/close-button/render.md) | — |
+| [`shaders.ts`](core/utils/canvas/widgets/close-button/shaders.md) | GLSL sources for CloseButtonWebGL, extracted from |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`anim.ts`](core/utils/canvas/widgets/flag/anim.md) | Flag geometry + animation-mode mapping for FlagWebGL: |
+| [`draw.ts`](core/utils/canvas/widgets/flag/draw.md) | Per-frame draw for the shared FlagRenderer: binds the wave |
+| [`gl.ts`](core/utils/canvas/widgets/flag/gl.md) | GL lifecycle for the shared FlagRenderer: lazy context |
+| [`loop.ts`](core/utils/canvas/widgets/flag/loop.md) | Render loop + fallback transitions for FlagWebGL: the |
+| [`renderer.ts`](core/utils/canvas/widgets/flag/renderer.md) | Shared WebGL renderer for FlagWebGL |
+| [`shaders.ts`](core/utils/canvas/widgets/flag/shaders.md) | GLSL sources for the FlagWebGL flag renderer — |
+| [`texture.ts`](core/utils/canvas/widgets/flag/texture.md) | Flag asset caches for FlagRenderer: per-country-code |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`init.ts`](core/utils/canvas/widgets/switch-slider/init.md) | — |
+| [`paint-2d.ts`](core/utils/canvas/widgets/switch-slider/paint-2d.md) | Canvas2D renderer for SwitchSliderWebGL, extracted from |
+| [`render.ts`](core/utils/canvas/widgets/switch-slider/render.md) | — |
+| [`shaders.ts`](core/utils/canvas/widgets/switch-slider/shaders.md) | GLSL sources for SwitchSliderWebGL's animated toggle scene, |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`events.ts`](core/utils/canvas/widgets/theme-slider/events.md) | Pointer/click/keyboard wiring for ThemeSliderWebGL, |
+| [`init.ts`](core/utils/canvas/widgets/theme-slider/init.md) | — |
+| [`math.ts`](core/utils/canvas/widgets/theme-slider/math.md) | — |
+| [`paint-2d.ts`](core/utils/canvas/widgets/theme-slider/paint-2d.md) | Canvas2D fallback renderer for ThemeSliderWebGL, extracted |
+| [`render.ts`](core/utils/canvas/widgets/theme-slider/render.md) | — |
+| [`shaders.ts`](core/utils/canvas/widgets/theme-slider/shaders.md) | GLSL sources for ThemeSliderWebGL's day/night scene, |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`db.ts`](core/utils/data/db.md) | SWR-style data layer over Firebase RTDB. |
+| [`legal-links.ts`](core/utils/data/legal-links.md) | Builds the bundled legal link list (home / privacy / GDPR / |
+| [`sanitize.ts`](core/utils/data/sanitize.md) | — |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`gpu-accel-shaders.ts`](core/utils/gpu/gpu-accel-shaders.md) | GLSL sources for the GPUAccelerator passthrough program — |
+| [`gpu-accel.ts`](core/utils/gpu/gpu-accel.md) | Hardware GPU acceleration singleton: a lazily-created |
+| [`gpu-info.ts`](core/utils/gpu/gpu-info.md) | Shared GPU capability detection + WebGL context-option hints. |
+| [`npu-predict.ts`](core/utils/gpu/npu-predict.md) | Hardware-tiered prefetch predictor: scores navigation |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`local-media-cache.ts`](core/utils/media/local-media-cache.md) | Three-tier media cache: in-memory Map (object URLs) → |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`genie.ts`](core/utils/motion/genie.md) | "Genie" dialog transition shared by the preferences modal and |
+| [`route-warmer.ts`](core/utils/motion/route-warmer.md) | Post-load route-chunk warming. |
+| [`scroll-state.ts`](core/utils/motion/scroll-state.md) | Global "is the window currently scrolling" flag plus an |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`stats-engine.ts`](core/utils/perf/stats-engine.md) | Live performance-metrics collector behind the Stats-for-nerds |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`flush.ts`](core/utils/perf/stats/flush.md) | Flush interval for the stats engine: every INTERVAL_MS it |
+| [`fps.ts`](core/utils/perf/stats/fps.md) | FPS sampler for the stats engine: counts rAF ticks and |
+| [`network.ts`](core/utils/perf/stats/network.md) | Network sampler for the stats engine: a resource-timing |
+
+## Core engine
+
+*Shared primitives every surface builds on — no direct UI.*
+
+| File | What it does |
+|---|---|
+| [`wasm-css.ts`](core/utils/wasm/wasm-css.md) | Dynamic-CSS injector: owns the single &lt;style id="wasm-dynamic-css"&gt; |
+| [`wasm-image-decoder.ts`](core/utils/wasm/wasm-image-decoder.md) | Image decode pipeline: fetch → worker-side createImageBitmap |
+| [`wasm-layout.ts`](core/utils/wasm/wasm-layout.md) | Layout/animation math with a WebAssembly fast path. |
+| [`wasm-media-threads.ts`](core/utils/wasm/wasm-media-threads.md) | Off-main-thread media pipeline built on the WASM worker pool: |
+| [`wasm-pool.ts`](core/utils/wasm/wasm-pool.md) | Round-robin dispatcher over a lazily-spawned pool of |
+| [`wasm-scroll.ts`](core/utils/wasm/wasm-scroll.md) | rAF-driven smooth scroller: animates window (or a container) |
+
 ## Entry points
 
 *Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`cssvars.ts`](legacy-polyfills/cssvars.md) | CSS custom-properties ponyfill for IE11 / old EdgeHTML — |
-| [`dom.ts`](legacy-polyfills/dom.md) | Small DOM/runtime shims for pre-2019 engines, hand-rolled so |
-| [`es-core.ts`](legacy-polyfills/es-core.md) | Full ES shim layer for pre-ES2019 engines: core-js-bundle |
-| [`fetch.ts`](legacy-polyfills/fetch.md) | window.fetch polyfill (whatwg-fetch) for pre-fetch engines — |
-| [`io.ts`](legacy-polyfills/io.md) | IntersectionObserver polyfill (W3C spec implementation) — |
-| [`polyfills.ts`](legacy-polyfills/polyfills.md) | Critical polyfills for iOS Safari 14.x – 15.3 compatibility. |
-| [`ro.ts`](legacy-polyfills/ro.md) | ResizeObserver polyfill — the mosaic layout, media figures |
-| [`webcomponents.ts`](legacy-polyfills/webcomponents.md) | Web Components suite (custom elements v1, Shadow DOM via |
-
-## Earth Playground
-
-*The /earth-playground WebGPU experience.*
-
-| File | What it does |
-|---|---|
-| [`SpacePlayground.tsx`](playground/SpacePlayground.md) | &lt;view-space-playground&gt; — the space/earth playground route: |
-| [`earth-background.ts`](playground/earth-background.md) | Three.js WebGPU Earth background engine. |
-
-## Earth Playground
-
-*The /earth-playground WebGPU experience.*
-
-| File | What it does |
-|---|---|
-| [`consts.ts`](playground/earth/consts.md) | Scene-graph scale constants + shared TSL arg types for the |
-| [`settings.ts`](playground/earth/settings.md) | Settings snapshot builder for the WebGPU Earth engine, |
-
-## Earth Playground
-
-*The /earth-playground WebGPU experience.*
-
-| File | What it does |
-|---|---|
-| [`frame.ts`](playground/earth/runtime/frame.md) | Per-frame + per-resize behavior for the Earth engine, |
-| [`screenshot.ts`](playground/earth/runtime/screenshot.md) | PNG capture for the Earth engine, extracted from |
-| [`state.ts`](playground/earth/runtime/state.md) | Mutable engine state for EarthBackground, extracted from |
-| [`updates.ts`](playground/earth/runtime/updates.md) | Live-tweak API for the Earth engine, extracted from |
-
-## Earth Playground
-
-*The /earth-playground WebGPU experience.*
-
-| File | What it does |
-|---|---|
-| [`atmos-shells.ts`](playground/earth/scene/atmos-shells.md) | Atmosphere shells for the Earth background — the BackSide |
-| [`meshes.ts`](playground/earth/scene/meshes.md) | Scene mesh builders for the WebGPU Earth background — |
-| [`post-nodes.ts`](playground/earth/scene/post-nodes.md) | Custom TSL post nodes for the RenderPipeline output chain, |
-| [`surface-material.ts`](playground/earth/scene/surface-material.md) | Surface material node graph for the Earth shell — |
-
-## Earth Playground
-
-*The /earth-playground WebGPU experience.*
-
-| File | What it does |
-|---|---|
-| [`bootstrap.ts`](playground/earth/setup/bootstrap.md) | Async scene assembly for the Earth engine, extracted from |
-| [`post-setup.ts`](playground/earth/setup/post-setup.md) | Post-processing chain for the Earth engine: color-grading, |
-| [`renderer-setup.ts`](playground/earth/setup/renderer-setup.md) | Renderer creation for the Earth engine: probes for a |
-| [`scene-setup.ts`](playground/earth/setup/scene-setup.md) | Scene assembly for the Earth engine: scene/camera/ |
-
-## Earth Playground
-
-*The /earth-playground WebGPU experience.*
-
-| File | What it does |
-|---|---|
-| [`boot.ts`](playground/space/boot.md) | Earth engine bootstrap for SpacePlayground — creates the |
-| [`checkbox-webgl.ts`](playground/space/checkbox-webgl.md) | Canvas checkbox widget for the playground controls panel. |
-| [`controls.ts`](playground/space/controls.md) | Control schema + persistence for &lt;view-space-playground&gt;, |
-| [`i18n.ts`](playground/space/i18n.md) | Locale handling for SpacePlayground — fetches the |
-| [`panel-render.tsx`](playground/space/panel-render.md) | Pure JSX renderers for the space-playground control panel, |
-| [`render.tsx`](playground/space/render.md) | JSX for SpacePlayground's render() — boot loader overlay |
-| [`wiring.ts`](playground/space/wiring.md) | Control wiring for SpacePlayground — panel event binding, |
-
-## Routes
-
-*One page of the site per file — the URL the visitor lands on.*
-
-| File | What it does |
-|---|---|
-| [`navigate.ts`](routes/navigate.md) | — |
-| [`parse-path.ts`](routes/parse-path.md) | — |
-| [`router.ts`](routes/router.md) | History-API SPA router for the public site. |
-| [`types.ts`](routes/types.md) | — |
-
-## Routes
-
-*One page of the site per file — the URL the visitor lands on.*
-
-| File | What it does |
-|---|---|
-| [`Home.tsx`](routes/views/home/Home.md) | &lt;view-home&gt; — the home page route: hero carousel, about |
-| [`children.ts`](routes/views/home/children.md) | Pushes loaded translations/items from &lt;view-home&gt; into its |
-| [`data.ts`](routes/views/home/data.md) | Data loading for &lt;view-home&gt;: three SWR sources fetched |
-| [`render.tsx`](routes/views/home/render.md) | JSX template for &lt;view-home&gt; — the hero mosaic, about |
-| [`scroll.ts`](routes/views/home/scroll.md) | Post-navigation scroll handling for &lt;view-home&gt;: same-view |
-| [`types.ts`](routes/views/home/types.md) | Shapes for the &lt;view-home&gt; route: the portfolio list item, |
-
-## Routes
-
-*One page of the site per file — the URL the visitor lands on.*
-
-| File | What it does |
-|---|---|
-| [`Legal.tsx`](routes/views/legal/Legal.md) | &lt;view-legal&gt; — the legal-page route (privacy policy, GDPR, |
-
-## Routes
-
-*One page of the site per file — the URL the visitor lands on.*
-
-| File | What it does |
-|---|---|
-| [`NotFound.tsx`](routes/views/not-found/NotFound.md) | &lt;view-not-found&gt; — the 404 route: the "signal lost" page with |
-
-## Routes
-
-*One page of the site per file — the URL the visitor lands on.*
-
-| File | What it does |
-|---|---|
-| [`Project.tsx`](routes/views/project/Project.md) | &lt;view-project&gt; — the portfolio detail route: hero cover, |
-| [`carousels.ts`](routes/views/project/carousels.md) | Carousel binding for ViewProject — configures each &lt;custom-carousel&gt; from the section data, eagerly for the fi… |
-| [`data.ts`](routes/views/project/data.md) | Data plumbing for &lt;view-project&gt;: slug resolution from the |
-| [`layout.ts`](routes/views/project/layout.md) | Layout helpers for ViewProject — per-section height from the first media ratio, text stagger delays, and the l… |
-| [`modal-dom.tsx`](routes/views/project/modal-dom.md) | Imperative expand-modal sync for &lt;view-project&gt;: mirrors |
-| [`modal.ts`](routes/views/project/modal.md) | Auto-open logic for ViewProject — when the route slug matches a media item label, commits the expand-modal pay… |
-| [`render.tsx`](routes/views/project/render.md) | JSX for ViewProject — title, cover figure, and the section list (text columns + media carousels) with per-sect… |
-| [`types.ts`](routes/views/project/types.md) | Shared shapes for the &lt;view-project&gt; route: media items, |
+| [`Docs.tsx`](experiments/docs/Docs.md) | &lt;view-docs&gt; — the English-only docs portal route. |
+| [`arch-scene.ts`](experiments/docs/arch-scene.md) | Interactive three.js visualization of the docs manifest — |
+| [`copy-guard.ts`](experiments/docs/copy-guard.md) | Copy-protection layer for the docs source viewer. |
+| [`coverage-nav.ts`](experiments/docs/coverage-nav.md) | Istanbul coverage-report interactivity for the docs viewer. |
+| [`folder-svg.tsx`](experiments/docs/folder-svg.md) | Deterministic animated folder glyphs for the docs grid. |
+| [`gl-strip.ts`](experiments/docs/gl-strip.md) | WebGL thread-field backdrop for the docs navigation region. |
+| [`index.ts`](experiments/docs/index.md) | Barrel for the `docs` experiment module — the in-app |
+| [`manifest.ts`](experiments/docs/manifest.md) | Build-time docs manifest access + path resolution. |
+| [`mermaid.ts`](experiments/docs/mermaid.md) | Mermaid diagram rendering for docs payloads — markdown |
+| [`render.tsx`](experiments/docs/render.md) | JSX template for &lt;view-docs&gt; — extracted from Docs.tsx. |
+| [`telemetry.ts`](experiments/docs/telemetry.md) | Copy-attempt telemetry for the docs source viewer. |
+| [`vite.config.js`](experiments/docs/vite.config.md) | Library build for the `docs` experiment — the in-app |
 
 ## Entry points
 
@@ -881,9 +839,7 @@
 
 | File | What it does |
 |---|---|
-| [`loader.ts`](safari/loader.md) | Safari/iOS compatibility bundle entry — imports the |
-| [`patch.ts`](safari/patch.md) | Runtime Safari/iOS workaround layer, loaded via |
-| [`types.ts`](safari/types.md) | Shared structural types for the Safari runtime patches — |
+| [`docs.js`](experiments/docs/dist/docs.md) | — |
 
 ## Entry points
 
@@ -891,10 +847,7 @@
 
 | File | What it does |
 |---|---|
-| [`carousel.ts`](safari/patches/carousel.md) | CustomCarousel patch: injects the safari-carousel stylesheet into the |
-| [`media-expanded.ts`](safari/patches/media-expanded.md) | MediaExpanded patch: explicit touchend close on every close target |
-| [`media-figure.ts`](safari/patches/media-figure.md) | MediaFigure patch orchestrator: safari-media styles, |
-| [`view-project.ts`](safari/patches/view-project.md) | ViewProject patch: manual modal positioning — iOS doesn't layer |
+| [`wasm-worker.js`](experiments/docs/dist/workers/wasm-worker.md) | — |
 
 ## Entry points
 
@@ -902,207 +855,367 @@
 
 | File | What it does |
 |---|---|
-| [`image-load.ts`](safari/patches/media-figure/image-load.md) | Safari image-loading overrides for MediaFigure: a |
-| [`tap-expand.ts`](safari/patches/media-figure/tap-expand.md) | Tap-vs-scroll disambiguation for the expand gesture on |
-| [`video.ts`](safari/patches/media-figure/video.md) | Safari video block of the MediaFigure onMounted patch: |
+| [`SpacePlayground.tsx`](experiments/earth-playground/SpacePlayground.md) | &lt;view-space-playground&gt; — the space/earth playground route: |
+| [`earth-background.ts`](experiments/earth-playground/earth-background.md) | Three.js WebGPU Earth background engine. |
+| [`index.ts`](experiments/earth-playground/index.md) | Barrel for the `earth-playground` experiment module — the |
+| [`vite.config.js`](experiments/earth-playground/vite.config.md) | Library build for the `earth-playground` experiment — the |
 
-## Utils / canvas widgets
+## Entry points
 
-*WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows.*
-
-| File | What it does |
-|---|---|
-| [`css-color.ts`](utils/canvas/css-color.md) | Shared CSS-color parser for the canvas widgets — converts |
-| [`gl-lifecycle.ts`](utils/canvas/gl-lifecycle.md) | Shared context-loss + release plumbing for the quad-based |
-| [`gl-program.ts`](utils/canvas/gl-program.md) | Shared WebGL boilerplate for the canvas widgets — every |
-| [`webgl-mode.ts`](utils/canvas/webgl-mode.md) | Single choke point for WebGL availability |
-| [`webgl-pool.ts`](utils/canvas/webgl-pool.md) | Lifecycle pool for the shared WebGL contexts: registers |
-
-## Utils / canvas widgets
-
-*WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows.*
+*Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`intro-loader.ts`](utils/canvas/loaders/intro-loader.md) | Boot loader overlay: types the spec-sheet lines |
-| [`menu-background-webgl.ts`](utils/canvas/loaders/menu-background-webgl.md) | Fullscreen WebGL background for the nav menu overlay: an |
-| [`skeleton-webgl.ts`](utils/canvas/loaders/skeleton-webgl.md) | WebGL skeleton/shimmer layer for loading states: a shared |
+| [`earth-playground.js`](experiments/earth-playground/dist/earth-playground.md) | — |
 
-## Utils / canvas widgets
+## Entry points
 
-*WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows.*
+*Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`init.ts`](utils/canvas/loaders/menu-background/init.md) | — |
-| [`loop.ts`](utils/canvas/loaders/menu-background/loop.md) | — |
-| [`shaders.ts`](utils/canvas/loaders/menu-background/shaders.md) | GLSL sources for MenuBackgroundWebGL, extracted from |
-| [`theme.ts`](utils/canvas/loaders/menu-background/theme.md) | — |
+| [`wasm-worker.js`](experiments/earth-playground/dist/workers/wasm-worker.md) | — |
 
-## Utils / canvas widgets
+## Entry points
 
-*WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows.*
+*Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`init.ts`](utils/canvas/loaders/skeleton/init.md) | — |
-| [`loop.ts`](utils/canvas/loaders/skeleton/loop.md) | — |
-| [`measure.ts`](utils/canvas/loaders/skeleton/measure.md) | DOM measurement for SkeletonWebGL, extracted from |
-| [`renderer.ts`](utils/canvas/loaders/skeleton/renderer.md) | Shared WebGL shimmer renderer for skeleton layers, |
-| [`shaders.ts`](utils/canvas/loaders/skeleton/shaders.md) | GLSL sources for the skeleton shimmer layer, extracted |
-| [`theme.ts`](utils/canvas/loaders/skeleton/theme.md) | — |
+| [`consts.ts`](experiments/earth-playground/earth/consts.md) | Scene-graph scale constants + shared TSL arg types for the |
+| [`settings.ts`](experiments/earth-playground/earth/settings.md) | Settings snapshot builder for the WebGPU Earth engine, |
 
-## Utils / canvas widgets
+## Entry points
 
-*WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows.*
+*Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`burger-button-webgl.ts`](utils/canvas/widgets/burger-button-webgl.md) | WebGL hamburger icon for the nav burger button: three |
-| [`carousel-controls.ts`](utils/canvas/widgets/carousel-controls.md) | WebGL control button for the awards carousel: a circular |
-| [`close-button.ts`](utils/canvas/widgets/close-button.md) | WebGL animated circular close (X) button used by the expand |
-| [`flag-webgl.ts`](utils/canvas/widgets/flag-webgl.md) | WebGL flag renderer for the language dialog: draws each |
-| [`switch-slider.ts`](utils/canvas/widgets/switch-slider.md) | WebGL toggle switch for preferences/stats contexts: a pill |
-| [`theme-slider.ts`](utils/canvas/widgets/theme-slider.md) | WebGL three-position theme slider (light / system / dark) |
+| [`frame.ts`](experiments/earth-playground/earth/runtime/frame.md) | Per-frame + per-resize behavior for the Earth engine, |
+| [`screenshot.ts`](experiments/earth-playground/earth/runtime/screenshot.md) | PNG capture for the Earth engine, extracted from |
+| [`state.ts`](experiments/earth-playground/earth/runtime/state.md) | Mutable engine state for EarthBackground, extracted from |
+| [`updates.ts`](experiments/earth-playground/earth/runtime/updates.md) | Live-tweak API for the Earth engine, extracted from |
 
-## Utils / canvas widgets
+## Entry points
 
-*WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows.*
+*Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`shaders.ts`](utils/canvas/widgets/burger-button/shaders.md) | GLSL sources for BurgerButtonWebGL, extracted from |
+| [`atmos-shells.ts`](experiments/earth-playground/earth/scene/atmos-shells.md) | Atmosphere shells for the Earth background — the BackSide |
+| [`meshes.ts`](experiments/earth-playground/earth/scene/meshes.md) | Scene mesh builders for the WebGPU Earth background — |
+| [`post-nodes.ts`](experiments/earth-playground/earth/scene/post-nodes.md) | Custom TSL post nodes for the RenderPipeline output chain, |
+| [`surface-material.ts`](experiments/earth-playground/earth/scene/surface-material.md) | Surface material node graph for the Earth shell — |
 
-## Utils / canvas widgets
+## Entry points
 
-*WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows.*
-
-| File | What it does |
-|---|---|
-| [`paint-2d.ts`](utils/canvas/widgets/carousel-controls/paint-2d.md) | Canvas2D renderer for CarouselArrowWebGL, extracted from |
-
-## Utils / canvas widgets
-
-*WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows.*
+*Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`init.ts`](utils/canvas/widgets/close-button/init.md) | — |
-| [`render.ts`](utils/canvas/widgets/close-button/render.md) | — |
-| [`shaders.ts`](utils/canvas/widgets/close-button/shaders.md) | GLSL sources for CloseButtonWebGL, extracted from |
+| [`bootstrap.ts`](experiments/earth-playground/earth/setup/bootstrap.md) | Async scene assembly for the Earth engine, extracted from |
+| [`post-setup.ts`](experiments/earth-playground/earth/setup/post-setup.md) | Post-processing chain for the Earth engine: color-grading, |
+| [`renderer-setup.ts`](experiments/earth-playground/earth/setup/renderer-setup.md) | Renderer creation for the Earth engine: probes for a |
+| [`scene-setup.ts`](experiments/earth-playground/earth/setup/scene-setup.md) | Scene assembly for the Earth engine: scene/camera/ |
 
-## Utils / canvas widgets
+## Entry points
 
-*WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows.*
-
-| File | What it does |
-|---|---|
-| [`anim.ts`](utils/canvas/widgets/flag/anim.md) | Flag geometry + animation-mode mapping for FlagWebGL: |
-| [`draw.ts`](utils/canvas/widgets/flag/draw.md) | Per-frame draw for the shared FlagRenderer: binds the wave |
-| [`gl.ts`](utils/canvas/widgets/flag/gl.md) | GL lifecycle for the shared FlagRenderer: lazy context |
-| [`loop.ts`](utils/canvas/widgets/flag/loop.md) | Render loop + fallback transitions for FlagWebGL: the |
-| [`renderer.ts`](utils/canvas/widgets/flag/renderer.md) | Shared WebGL renderer for FlagWebGL |
-| [`shaders.ts`](utils/canvas/widgets/flag/shaders.md) | GLSL sources for the FlagWebGL flag renderer — |
-| [`texture.ts`](utils/canvas/widgets/flag/texture.md) | Flag asset caches for FlagRenderer: per-country-code |
-
-## Utils / canvas widgets
-
-*WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows.*
+*Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`init.ts`](utils/canvas/widgets/switch-slider/init.md) | — |
-| [`paint-2d.ts`](utils/canvas/widgets/switch-slider/paint-2d.md) | Canvas2D renderer for SwitchSliderWebGL, extracted from |
-| [`render.ts`](utils/canvas/widgets/switch-slider/render.md) | — |
-| [`shaders.ts`](utils/canvas/widgets/switch-slider/shaders.md) | GLSL sources for SwitchSliderWebGL's animated toggle scene, |
+| [`boot.ts`](experiments/earth-playground/space/boot.md) | Earth engine bootstrap for SpacePlayground — creates the |
+| [`checkbox-webgl.ts`](experiments/earth-playground/space/checkbox-webgl.md) | Canvas checkbox widget for the playground controls panel. |
+| [`controls.ts`](experiments/earth-playground/space/controls.md) | Control schema + persistence for &lt;view-space-playground&gt;, |
+| [`i18n.ts`](experiments/earth-playground/space/i18n.md) | Locale handling for SpacePlayground — fetches the |
+| [`panel-render.tsx`](experiments/earth-playground/space/panel-render.md) | Pure JSX renderers for the space-playground control panel, |
+| [`render.tsx`](experiments/earth-playground/space/render.md) | JSX for SpacePlayground's render() — boot loader overlay |
+| [`wiring.ts`](experiments/earth-playground/space/wiring.md) | Control wiring for SpacePlayground — panel event binding, |
 
-## Utils / canvas widgets
+## Entry points
 
-*WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows.*
-
-| File | What it does |
-|---|---|
-| [`events.ts`](utils/canvas/widgets/theme-slider/events.md) | Pointer/click/keyboard wiring for ThemeSliderWebGL, |
-| [`init.ts`](utils/canvas/widgets/theme-slider/init.md) | — |
-| [`math.ts`](utils/canvas/widgets/theme-slider/math.md) | — |
-| [`paint-2d.ts`](utils/canvas/widgets/theme-slider/paint-2d.md) | Canvas2D fallback renderer for ThemeSliderWebGL, extracted |
-| [`render.ts`](utils/canvas/widgets/theme-slider/render.md) | — |
-| [`shaders.ts`](utils/canvas/widgets/theme-slider/shaders.md) | GLSL sources for ThemeSliderWebGL's day/night scene, |
-
-## Utils
-
-*Runtime services behind the scenes (WASM, GL, scroll, media).*
+*Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`db.ts`](utils/data/db.md) | SWR-style data layer over Firebase RTDB. |
-| [`legal-links.ts`](utils/data/legal-links.md) | Builds the bundled legal link list (home / privacy / GDPR / |
-| [`sanitize.ts`](utils/data/sanitize.md) | — |
+| [`App.tsx`](src/App.md) | &lt;app-root&gt; — the application's shell custom element. |
+| [`main.ts`](src/main.md) | Public-site entry point (modern ESM bundle). |
+| [`registerServiceWorker.ts`](src/registerServiceWorker.md) | Registers the Workbox-generated service worker in production |
 
-## Utils
+## Entry points
 
-*Runtime services behind the scenes (WASM, GL, scroll, media).*
-
-| File | What it does |
-|---|---|
-| [`gpu-accel-shaders.ts`](utils/gpu/gpu-accel-shaders.md) | GLSL sources for the GPUAccelerator passthrough program — |
-| [`gpu-accel.ts`](utils/gpu/gpu-accel.md) | Hardware GPU acceleration singleton: a lazily-created |
-| [`gpu-info.ts`](utils/gpu/gpu-info.md) | Shared GPU capability detection + WebGL context-option hints. |
-| [`npu-predict.ts`](utils/gpu/npu-predict.md) | Hardware-tiered prefetch predictor: scores navigation |
-
-## Utils
-
-*Runtime services behind the scenes (WASM, GL, scroll, media).*
+*Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`local-media-cache.ts`](utils/media/local-media-cache.md) | Three-tier media cache: in-memory Map (object URLs) → |
+| [`boot.ts`](src/app/boot.md) | App shell bootstrap — preference init, data load, lazy dialog/HUD chunk imports, router subscription with prog… |
+| [`data.ts`](src/app/data.md) | Locale data loading for AppRoot — fetches the APP translation node per locale, fans it out to translations, an… |
+| [`input.ts`](src/app/input.md) | Global input listeners for AppRoot — keyboard shortcuts, pointer handlers, and preference-triggering events bo… |
+| [`modal.ts`](src/app/modal.md) | Modal-state DOM sync for AppRoot — toggles modal-open on html/body, copies the modifier class onto the wrapper… |
+| [`scroll.ts`](src/app/scroll.md) | Scroll tracking for AppRoot — measures the #about/#contact section tops and keeps activeSection/onBottom in sy… |
+| [`types.ts`](src/app/types.md) | Shared structural types for the App shell — the APP |
+| [`view.ts`](src/app/view.md) | View outlet reconciliation for AppRoot — same-tag routes delegate to onRouteParamChange; new views lazy-import… |
 
-## Utils
+## Entry points
 
-*Runtime services behind the scenes (WASM, GL, scroll, media).*
-
-| File | What it does |
-|---|---|
-| [`genie.ts`](utils/motion/genie.md) | "Genie" dialog transition shared by the preferences modal and |
-| [`route-warmer.ts`](utils/motion/route-warmer.md) | Post-load route-chunk warming. |
-| [`scroll-state.ts`](utils/motion/scroll-state.md) | Global "is the window currently scrolling" flag plus an |
-
-## Utils
-
-*Runtime services behind the scenes (WASM, GL, scroll, media).*
+*Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`notify.ts`](utils/notify.md) | User-facing notification service |
+| [`AwardsCarousel.tsx`](website/components/carousel/AwardsCarousel.md) | &lt;awards-carousel&gt; — lightweight carousel used by the awards |
+| [`CustomCarousel.tsx`](website/components/carousel/CustomCarousel.md) | &lt;custom-carousel&gt; — infinite-loop horizontal carousel used by |
 
-## Utils
+## Entry points
 
-*Runtime services behind the scenes (WASM, GL, scroll, media).*
-
-| File | What it does |
-|---|---|
-| [`stats-engine.ts`](utils/perf/stats-engine.md) | Live performance-metrics collector behind the Stats-for-nerds |
-
-## Utils
-
-*Runtime services behind the scenes (WASM, GL, scroll, media).*
+*Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`flush.ts`](utils/perf/stats/flush.md) | Flush interval for the stats engine: every INTERVAL_MS it |
-| [`fps.ts`](utils/perf/stats/fps.md) | FPS sampler for the stats engine: counts rAF ticks and |
-| [`network.ts`](utils/perf/stats/network.md) | Network sampler for the stats engine: a resource-timing |
+| [`autoplay.ts`](website/components/carousel/awards-carousel/autoplay.md) | — |
+| [`events.ts`](website/components/carousel/awards-carousel/events.md) | — |
+| [`nav.ts`](website/components/carousel/awards-carousel/nav.md) | — |
+| [`observer.ts`](website/components/carousel/awards-carousel/observer.md) | — |
+| [`render.tsx`](website/components/carousel/awards-carousel/render.md) | — |
+| [`types.ts`](website/components/carousel/awards-carousel/types.md) | — |
 
-## Utils
+## Entry points
 
-*Runtime services behind the scenes (WASM, GL, scroll, media).*
+*Boot surfaces: what the user sees first on each bundle.*
 
 | File | What it does |
 |---|---|
-| [`wasm-css.ts`](utils/wasm/wasm-css.md) | Dynamic-CSS injector: owns the single &lt;style id="wasm-dynamic-css"&gt; |
-| [`wasm-image-decoder.ts`](utils/wasm/wasm-image-decoder.md) | Image decode pipeline: fetch → worker-side createImageBitmap |
-| [`wasm-layout.ts`](utils/wasm/wasm-layout.md) | Layout/animation math with a WebAssembly fast path. |
-| [`wasm-media-threads.ts`](utils/wasm/wasm-media-threads.md) | Off-main-thread media pipeline built on the WASM worker pool: |
-| [`wasm-pool.ts`](utils/wasm/wasm-pool.md) | Round-robin dispatcher over a lazily-spawned pool of |
-| [`wasm-scroll.ts`](utils/wasm/wasm-scroll.md) | rAF-driven smooth scroller: animates window (or a container) |
+| [`arrows.ts`](website/components/carousel/custom-carousel/arrows.md) | Control wiring for CustomCarousel — prev/next/dot click |
+| [`autoplay.ts`](website/components/carousel/custom-carousel/autoplay.md) | Autoplay/progress-ring engine for &lt;custom-carousel&gt;, |
+| [`lifecycle.ts`](website/components/carousel/custom-carousel/lifecycle.md) | — |
+| [`nav.ts`](website/components/carousel/custom-carousel/nav.md) | Navigation engine for CustomCarousel — goTo/prev/next/dot |
+| [`render.tsx`](website/components/carousel/custom-carousel/render.md) | Pure JSX render helpers for &lt;custom-carousel&gt;, extracted |
+| [`sizing.ts`](website/components/carousel/custom-carousel/sizing.md) | Fit/height measurement for CustomCarousel — the |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`LangDialog.tsx`](website/components/dialogs/LangDialog.md) | &lt;lang-dialog&gt; — locale picker: a grid of language options |
+| [`PreferencesModal.tsx`](website/components/dialogs/PreferencesModal.md) | &lt;preferences-modal&gt; — settings dialog: theme slider |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`events.ts`](website/components/dialogs/lang-dialog/events.md) | — |
+| [`locale.ts`](website/components/dialogs/lang-dialog/locale.md) | — |
+| [`render.tsx`](website/components/dialogs/lang-dialog/render.md) | — |
+| [`sync.ts`](website/components/dialogs/lang-dialog/sync.md) | — |
+| [`webgl.ts`](website/components/dialogs/lang-dialog/webgl.md) | — |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`render.tsx`](website/components/dialogs/preferences/render.md) | — |
+| [`sync.ts`](website/components/dialogs/preferences/sync.md) | — |
+| [`types.ts`](website/components/dialogs/preferences/types.md) | — |
+| [`webgl.ts`](website/components/dialogs/preferences/webgl.md) | — |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`CookieBanner.tsx`](website/components/feedback/CookieBanner.md) | &lt;cookie-banner&gt; — consent notice bar: accept/decline |
+| [`SiteToast.tsx`](website/components/feedback/SiteToast.md) | &lt;site-toast&gt; — the in-page notification surface |
+| [`StatsHud.tsx`](website/components/feedback/StatsHud.md) | &lt;stats-hud&gt; — the stats-for-nerds overlay: a compact HUD in |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`AboutSection.tsx`](website/components/home/AboutSection.md) | &lt;about-section&gt; — the home page's bio block: Gravatar profile |
+| [`AwardsMentions.tsx`](website/components/home/AwardsMentions.md) | &lt;awards-mentions&gt; — the footer band on internals/home: an |
+| [`ContactSection.tsx`](website/components/home/ContactSection.md) | &lt;contact-section&gt; — the home page's contact footer: heading, |
+| [`HomeMosaic.tsx`](website/components/home/HomeMosaic.md) | &lt;home-mosaic&gt; — the masonry project grid on the home page: |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`carousel.ts`](website/components/home/awards/carousel.md) | Carousel wiring for &lt;awards-mentions&gt;: configures the |
+| [`data.ts`](website/components/home/awards/data.md) | Data helpers for &lt;awards-mentions&gt;: the legal-links list |
+| [`render.tsx`](website/components/home/awards/render.md) | JSX template for &lt;awards-mentions&gt; — the footer band with |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`events.ts`](website/components/home/mosaic/events.md) | — |
+| [`interactions.ts`](website/components/home/mosaic/interactions.md) | — |
+| [`layout.ts`](website/components/home/mosaic/layout.md) | — |
+| [`pack.ts`](website/components/home/mosaic/pack.md) | Masonry packing engine for &lt;home-mosaic&gt;, extracted from |
+| [`render.tsx`](website/components/home/mosaic/render.md) | — |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`Footer.tsx`](website/components/legal/Footer.md) | &lt;legal-footer&gt; — footer strip shared by internals and the |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`DrawText.tsx`](website/components/media/DrawText.md) | &lt;draw-text&gt; — character-staggered text reveal: splits its |
+| [`MediaExpanded.tsx`](website/components/media/MediaExpanded.md) | &lt;media-expanded&gt; — full-screen media viewer inside the |
+| [`MediaFigure.tsx`](website/components/media/MediaFigure.md) | &lt;media-figure&gt; — the site's core media card: renders a |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`dom.ts`](website/components/media/draw-text/dom.md) | — |
+| [`fit.ts`](website/components/media/draw-text/fit.md) | — |
+| [`render.ts`](website/components/media/draw-text/render.md) | — |
+| [`sheet.ts`](website/components/media/draw-text/sheet.md) | — |
+| [`trigger.ts`](website/components/media/draw-text/trigger.md) | — |
+| [`types.ts`](website/components/media/draw-text/types.md) | — |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`close.ts`](website/components/media/expanded/close.md) | Dismissal sequence for &lt;media-expanded&gt;: the class add |
+| [`mount.ts`](website/components/media/expanded/mount.md) | Mount wiring for &lt;media-expanded&gt;: scroll reset, Escape / |
+| [`render.tsx`](website/components/media/expanded/render.md) | JSX template for &lt;media-expanded&gt; — four close affordances |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`load.ts`](website/components/media/figure/load.md) | Media URL matrix + progressive loading for &lt;media-figure&gt;: |
+| [`modal.ts`](website/components/media/figure/modal.md) | Expand-modal open for MediaFigure — commits the media descriptor to the store and deep-links the caption slug … |
+| [`mount.ts`](website/components/media/figure/mount.md) | Mount lifecycle for MediaFigure — GPU-layer promotion, store subscription, expand-click binding, hover-to-play… |
+| [`render.tsx`](website/components/media/figure/render.md) | JSX for MediaFigure — layered placeholder/thumb/high-res crossfade stack (or the muted looping video path) plu… |
+| [`video.ts`](website/components/media/figure/video.md) | Video playback plumbing for &lt;media-figure&gt;: lazy &lt;source&gt; |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`AppNav.tsx`](website/components/nav/AppNav.md) | &lt;app-nav&gt; — the persistent top navigation bar: logo, burger |
+| [`flag.tsx`](website/components/nav/flag.md) | Locale flag rendering + FlagWebGL lifecycle for &lt;app-nav&gt;, |
+| [`handlers.ts`](website/components/nav/handlers.md) | — |
+| [`menu.tsx`](website/components/nav/menu.md) | Fullscreen menu overlay behavior for &lt;app-nav&gt;, extracted |
+| [`render.tsx`](website/components/nav/render.md) | JSX template for &lt;app-nav&gt;, extracted from AppNav.tsx — |
+| [`scroll.ts`](website/components/nav/scroll.md) | — |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`Related.tsx`](website/components/portfolio/Related.md) | &lt;portfolio-related&gt; — "related projects" strip at the |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`data.ts`](website/components/portfolio/related/data.md) | — |
+| [`match.ts`](website/components/portfolio/related/match.md) | — |
+| [`render.tsx`](website/components/portfolio/related/render.md) | — |
+| [`types.ts`](website/components/portfolio/related/types.md) | — |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`website.js`](website/dist/website.md) | — |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`wasm-worker.js`](website/dist/workers/wasm-worker.md) | — |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`index.ts`](website/index.md) | Barrel for the `website` module — the public site's routable |
+| [`vite.config.js`](website/vite.config.md) | Library build for the `website` module — the public site's |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`Home.tsx`](website/views/home/Home.md) | &lt;view-home&gt; — the home page route: hero carousel, about |
+| [`children.ts`](website/views/home/children.md) | Pushes loaded translations/items from &lt;view-home&gt; into its |
+| [`data.ts`](website/views/home/data.md) | Data loading for &lt;view-home&gt;: three SWR sources fetched |
+| [`render.tsx`](website/views/home/render.md) | JSX template for &lt;view-home&gt; — the hero mosaic, about |
+| [`scroll.ts`](website/views/home/scroll.md) | Post-navigation scroll handling for &lt;view-home&gt;: same-view |
+| [`types.ts`](website/views/home/types.md) | Shapes for the &lt;view-home&gt; route: the portfolio list item, |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`Legal.tsx`](website/views/legal/Legal.md) | &lt;view-legal&gt; — the legal-page route (privacy policy, GDPR, |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`NotFound.tsx`](website/views/not-found/NotFound.md) | &lt;view-not-found&gt; — the 404 route: the "signal lost" page with |
+
+## Entry points
+
+*Boot surfaces: what the user sees first on each bundle.*
+
+| File | What it does |
+|---|---|
+| [`Project.tsx`](website/views/project/Project.md) | &lt;view-project&gt; — the portfolio detail route: hero cover, |
+| [`carousels.ts`](website/views/project/carousels.md) | Carousel binding for ViewProject — configures each &lt;custom-carousel&gt; from the section data, eagerly for the fi… |
+| [`data.ts`](website/views/project/data.md) | Data plumbing for &lt;view-project&gt;: slug resolution from the |
+| [`layout.ts`](website/views/project/layout.md) | Layout helpers for ViewProject — per-section height from the first media ratio, text stagger delays, and the l… |
+| [`modal-dom.tsx`](website/views/project/modal-dom.md) | Imperative expand-modal sync for &lt;view-project&gt;: mirrors |
+| [`modal.ts`](website/views/project/modal.md) | Auto-open logic for ViewProject — when the route slug matches a media item label, commits the expand-modal pay… |
+| [`render.tsx`](website/views/project/render.md) | JSX for ViewProject — title, cover figure, and the section list (text columns + media carousels) with per-sect… |
+| [`types.ts`](website/views/project/types.md) | Shared shapes for the &lt;view-project&gt; route: media items, |

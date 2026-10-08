@@ -8,7 +8,7 @@
 function applyPictureToAllLangs(host): Promise<void>
 ```
 
-Defined in: [src/cms/about/data.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/about/data.ts#L68)
+Defined in: [cms/about/data.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/about/data.ts#L68)
 
 Applies picture to all langs.
 

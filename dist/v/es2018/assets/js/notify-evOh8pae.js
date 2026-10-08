@@ -1,1 +1,0 @@
-var ki,aq;import{R as nt}from"./store-AnOBXjs5.js";ki=Object.freeze({ERROR:nt.ERROR,da:"info",CO:"success"}),aq=Object.freeze({ub:5e3,kb:4,IO:2500,UO:64});export{ki as n,aq as t};

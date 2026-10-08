@@ -1,0 +1,2 @@
+var ca,da,Jr;import{r as St,s as Lt}from"./urls-6k9tnWXh.js";ca=t=>{if(!t||typeof t!==Lt.cn)return St.EMPTY;let r,g=t;do{r=g,g=g.replace(/<[^>]*>/g,St.EMPTY)}while(g!==r);return g},da=t=>t&&typeof t===Lt.cn?t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"):St.EMPTY,Jr=t=>t&&typeof t===Lt.cn?t.toLowerCase().replace(/[^\w\s-]/g,St.EMPTY).trim().replace(/[\s_]+/g,"-").replace(/--+/g,"-"):St.EMPTY;export{Jr as n,ca as r,da as t};
+//# sourceMappingURL=string-tcKl4wQb.js.map

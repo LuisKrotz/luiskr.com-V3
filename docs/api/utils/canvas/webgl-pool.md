@@ -4,7 +4,7 @@ Lifecycle pool for the shared WebGL contexts: registers
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/webgl-pool.ts` |
+| **Source** | `core/utils/canvas/webgl-pool.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

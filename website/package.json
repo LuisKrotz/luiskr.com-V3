@@ -1,0 +1,13 @@
+{
+  "name": "@luiskr/website",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "sideEffects": [
+    "**/*.scss",
+    "**/views/**",
+    "**/components/**"
+  ]
+}

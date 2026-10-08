@@ -29,6 +29,14 @@
 
 - [Earth Playground](https://luiskr.com/earth-playground): 3D photorealistic Earth WebGPU simulation engine with atmospheric scattering, dynamic lighting, real-time post-processing and interactive sci-fi controls (available in all languages: `/earth-playground` and `/:lang/earth-playground`).
 
+## Documentation Portal
+
+- [In-depth project docs](https://luiskr.com/docs): English-only browsable portal — architecture docs, quality reports, test coverage and the annotated source tree. Every manifest file is a crawlable `/docs/<root>/<path>` route with JSON-LD (`TechArticle`/`CollectionPage` + `BreadcrumbList`) and in-DOM microdata.
+- [Docs: Documentation root](https://luiskr.com/docs/docs): architecture, build, CMS and data-model guides.
+- [Docs: Quality reports](https://luiskr.com/docs/reports): lint, security and coverage gate outputs.
+- [Docs: Test coverage](https://luiskr.com/docs/coverage): per-file istanbul HTML reports.
+- [Docs: Source code](https://luiskr.com/docs/src): the published application source tree (copy-protected in the viewer).
+
 ## Contact
 
 - Email: [luis.krotz@gmail.com](mailto:luis.krotz@gmail.com)

@@ -8,16 +8,16 @@
  * polyfill bodies.
  */
 
-import _store from '@/core/store.js'
+import _store from '@core/store.js'
 
-import '@/components/feedback/CookieBanner.js'
+import '@website/components/feedback/CookieBanner.js'
 
-import { npuPredict } from '@/utils/gpu/npu-predict.js'
-import { gpuAccel } from '@/utils/gpu/gpu-accel.js'
+import { npuPredict } from '@core/utils/gpu/npu-predict.js'
+import { gpuAccel } from '@core/utils/gpu/gpu-accel.js'
 
 import { TEST_TEXT, TEST_PROJECTS } from '../../../fixtures/test-constants.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { POINTER_EVENTS } from '@/core/tokens/events/dom.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { POINTER_EVENTS } from '@core/tokens/events/dom.js'
 
 
 

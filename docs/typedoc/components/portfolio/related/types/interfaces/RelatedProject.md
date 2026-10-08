@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [components/portfolio/related/types](../README.md) / RelatedProject
 
-Defined in: [src/components/portfolio/related/types.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L13)
+Defined in: [website/components/portfolio/related/types.ts:13](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L13)
 
 A related-projects pointer row — `link`/`page` identify the target,
 `featured` promotes it visually; `title`/`image`/`description` are hydrated from
@@ -18,7 +18,7 @@ the home portfoliolist since the related node stores pointers only.
 optional link?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L14)
+Defined in: [website/components/portfolio/related/types.ts:14](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L14)
 
 ---
 
@@ -28,7 +28,7 @@ Defined in: [src/components/portfolio/related/types.ts:14](https://github.com/Lu
 optional page?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L15)
+Defined in: [website/components/portfolio/related/types.ts:15](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L15)
 
 ---
 
@@ -38,7 +38,7 @@ Defined in: [src/components/portfolio/related/types.ts:15](https://github.com/Lu
 optional title?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L16)
+Defined in: [website/components/portfolio/related/types.ts:16](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L16)
 
 ---
 
@@ -48,7 +48,7 @@ Defined in: [src/components/portfolio/related/types.ts:16](https://github.com/Lu
 optional featured?: boolean;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L17)
+Defined in: [website/components/portfolio/related/types.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L17)
 
 ---
 
@@ -58,7 +58,7 @@ Defined in: [src/components/portfolio/related/types.ts:17](https://github.com/Lu
 optional image?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L18)
+Defined in: [website/components/portfolio/related/types.ts:18](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L18)
 
 ---
 
@@ -68,4 +68,4 @@ Defined in: [src/components/portfolio/related/types.ts:18](https://github.com/Lu
 optional description?: string;
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L19)
+Defined in: [website/components/portfolio/related/types.ts:19](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L19)

@@ -16,7 +16,7 @@ import { join, relative, dirname, basename } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
-const SRC = join(ROOT, 'src')
+const SRC_DIRS = ['src', 'core', 'website', 'cms', 'experiments'].map((d) => join(ROOT, d))
 
 // `--out <dir>` overrides the destination (build emits docs/jsdocs; the
 // default docs/api keeps the curated API mirror).
@@ -141,11 +141,11 @@ const areaMeta = (dir) => {
   return AREA_META[d] || AREA_META['']
 }
 
-const files = walk(SRC).sort()
+const files = SRC_DIRS.flatMap((d) => walk(d)).sort()
 const areas = new Map()
 
 for (const file of files) {
-  const rel = relative(SRC, file)
+  const rel = relative(ROOT, file)
   const dir = dirname(rel) === '.' ? '' : dirname(rel)
   const src = readFileSync(file, 'utf8')
   const blocks = jsdocBlocks(src)
@@ -227,21 +227,21 @@ idx.push('')
 idx.push('```')
 idx.push(' index.html ──► src/main.ts ──► <app-shell> App.tsx')
 idx.push('                                   │')
-idx.push('                     src/routes/router.ts ──► view factory')
+idx.push('                     core/router/router.ts ──► view factory')
 idx.push('                                   │')
 idx.push('   ┌──────────────┬───────────────┼────────────────┬──────────────┐')
-idx.push(' Home.tsx     Project.tsx     Legal.tsx     NotFound.tsx  (src/routes/)')
+idx.push(' Home.tsx     Project.tsx     Legal.tsx     NotFound.tsx  (website/views/)')
 idx.push('   │              │               │              │')
-idx.push('   └──────► src/components/<domain>/<Comp>.tsx + <domain>/<comp>/ modules')
+idx.push('   └──────► website/components/<domain>/<Comp>.tsx + <domain>/<comp>/ modules')
 idx.push('              (nav, home, carousel, media, dialogs, portfolio, feedback)')
 idx.push('                                   │')
-idx.push('       src/core (Component · jsx · store · i18n) + src/utils/* domains')
+idx.push('       core (Component · jsx · store · i18n) + core/utils/* domains')
 idx.push('')
-idx.push(' cms/index.html ──► src/cms/main.ts ──► CmsDashboard')
-idx.push('                                   └─► src/cms/<feature>/ editors')
+idx.push(' cms/index.html ──► cms/main.ts ──► CmsDashboard')
+idx.push('                                   └─► cms/<feature>/ editors')
 idx.push('                                         └─► Firebase translations/*')
 idx.push('                                                   │  (same DB the site reads)')
-idx.push(' /earth-playground ──► src/playground/SpacePlayground + earth/ engine')
+idx.push(' /earth-playground ──► experiments/earth-playground/SpacePlayground + earth/ engine')
 idx.push('```')
 idx.push('')
 

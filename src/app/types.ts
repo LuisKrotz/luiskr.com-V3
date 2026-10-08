@@ -6,7 +6,7 @@
  */
 /* istanbul ignore file */
 
-import type { RouteDescriptor } from '@/routes/router.js'
+import type { RouteDescriptor } from '@core/router/router.js'
 
 /** Shape of the translations/<locale>/APP dictionary node. */
 export interface AppTranslations {

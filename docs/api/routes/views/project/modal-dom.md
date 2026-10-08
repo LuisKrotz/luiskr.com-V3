@@ -4,7 +4,7 @@ Imperative expand-modal sync for &lt;view-project&gt;: mirrors
 
 | | |
 |---|---|
-| **Source** | `src/routes/views/project/modal-dom.tsx` |
+| **Source** | `website/views/project/modal-dom.tsx` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

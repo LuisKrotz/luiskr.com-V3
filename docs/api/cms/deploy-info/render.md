@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/deploy-info/render.tsx` |
+| **Source** | `cms/deploy-info/render.tsx` |
 | **UX surface** | Deploy reports viewer — lighthouse, coverage, scans. |
 
 ## Members

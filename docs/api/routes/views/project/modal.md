@@ -4,7 +4,7 @@ Auto-open logic for ViewProject — when the route slug matches a media item lab
 
 | | |
 |---|---|
-| **Source** | `src/routes/views/project/modal.ts` |
+| **Source** | `website/views/project/modal.ts` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members

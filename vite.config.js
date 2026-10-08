@@ -27,6 +27,9 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { mediaConvertPlugin } from './scripts/media-convert/index.js'
 import { ES_TARGETS } from './build/es-targets.mjs'
+import { scanManifest, resolveFileId, MEDIA_INLINE_LIMIT } from './build/docs/scan.mjs'
+import { renderFile } from './build/docs/render.mjs'
+import { redactSource } from './build/docs/redact.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -234,10 +237,10 @@ export default defineConfig(() => {
   //   virtual:i18n-boot/<locale>/core      → APP, components, pages
   //   virtual:i18n-boot/<locale>/projects  → projects
   // The site renders from these immediately (static-first) and revalidates
-  // against Firebase in the background (see src/utils/db.js).
+  // against Firebase in the background (see core/utils/db.js).
   // On the legacy IIFE tier the loader index is stubbed to {} — dynamic
   // import() chunks can't exist in a classic script, so the data layer
-  // resolves via REST + localStorage instead (src/utils/db.js).
+  // resolves via REST + localStorage instead (core/utils/db.js).
   const i18nBootPlugin = () => {
     const indexId = 'virtual:i18n-boot-index'
 
@@ -287,23 +290,174 @@ export default defineConfig(() => {
 
   // Dev-only offline CMS mode (`CMS_MOCK=1 npm run dev`): swaps real Firebase
   // SDK calls for the committed database.json snapshot (see
-  // src/cms/dev/firebase-mock.js). Never active in production builds.
+  // cms/dev/firebase-mock.js). Never active in production builds.
   const cmsMockPlugin = {
     name: 'cms-firebase-mock',
     enforce: 'pre',
     resolveId(source) {
       if (!process.env.CMS_MOCK) return null
       if (/(^|\/)firebase\.js$/.test(source)) {
-        return fileURLToPath(new URL('./src/cms/dev/firebase-mock.js', import.meta.url))
+        return fileURLToPath(new URL('./cms/dev/firebase-mock.js', import.meta.url))
       }
       return null
     },
+  }
+
+  // Docs portal pipeline — `virtual:docs-manifest` carries the scanned
+  // docs/reports/coverage/src tree; each publishable file is also emitted
+  // as a `docs-content/<root>/<path>.json` payload (rendered HTML + meta)
+  // fetched lazily by the view. Assets are emitted only on the default
+  // tier (all tiers share one dist/docs-content/); the dev server answers
+  // the same URLs through middleware.
+  const docsPortalPlugin = () => {
+    const manifestId = 'virtual:docs-manifest'
+    const assetBase = 'docs-content/'
+
+    const payloadFor = (fileId) => {
+      // URLs carry the id as '<root>/<relpath>'; the manifest's canonical
+      // form is '<root>:<relpath>' — normalize before resolving.
+      const slashIdx = fileId.indexOf('/')
+
+      const normalized = fileId.includes(':')
+        ? fileId
+        : slashIdx > 0
+          ? `${fileId.slice(0, slashIdx)}:${fileId.slice(slashIdx + 1)}`
+          : fileId
+
+      const abs = resolveFileId(__dirname, normalized)
+
+      if (!abs) return null
+
+      const ext = abs.split('.').pop().toLowerCase()
+      const rel = fileId.slice(fileId.indexOf(':') + 1)
+      const stat = fs.statSync(abs)
+
+      if (['png', 'jpg', 'jpeg', 'gif', 'webp', 'mp4', 'webm'].includes(ext)) {
+        if (stat.size > MEDIA_INLINE_LIMIT) {
+          return {
+            name: path.basename(abs),
+            path: rel,
+            format: 'media',
+            media: null,
+            mtime: stat.mtime.toISOString(),
+          }
+        }
+
+        const mime = ext === 'svg' ? 'image/svg+xml' : `image/${ext === 'jpg' ? 'jpeg' : ext}`
+
+        return {
+          name: path.basename(abs),
+          path: rel,
+          format: 'media',
+          media: `data:${mime};base64,${fs.readFileSync(abs).toString('base64')}`,
+          mtime: stat.mtime.toISOString(),
+        }
+      }
+
+      const raw = fs.readFileSync(abs, 'utf8')
+
+      const content =
+        ext === 'json' || 'html md markdown htm'.includes(ext) ? raw : redactSource(raw)
+
+      const fmt =
+        ext === 'md' || ext === 'markdown'
+          ? 'markdown'
+          : ext === 'html' || ext === 'htm'
+            ? 'html'
+            : ext === 'json'
+              ? 'json'
+              : ext === 'txt'
+                ? 'text'
+                : 'code'
+
+      // Local stylesheet links inside reports (istanbul's base.css /
+      // prettify.css) resolve against the file's own directory and get
+      // inlined — anything outside the project tree stays stripped.
+      const linkResolver = (href) => {
+        try {
+          const target = path.resolve(path.dirname(abs), href)
+
+          if (!target.startsWith(__dirname) || !fs.statSync(target).isFile()) return null
+
+          return fs.readFileSync(target, 'utf8')
+        } catch {
+          return null
+        }
+      }
+
+      return {
+        name: path.basename(abs),
+        path: rel,
+        format: fmt,
+        html: renderFile(fmt, content, ext, { linkResolver }),
+        mtime: stat.mtime.toISOString(),
+      }
+    }
+
+    return {
+      name: 'vite-plugin-docs-portal',
+      resolveId(id) {
+        return id === manifestId ? '\0' + manifestId : null
+      },
+      load(id) {
+        if (id !== '\0' + manifestId) return null
+
+        return `export default ${JSON.stringify(scanManifest(__dirname))}`
+      },
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          const url = (req.url || '').split('?')[0]
+
+          if (!url.startsWith('/' + assetBase) || !url.endsWith('.json')) return next()
+
+          const fileId = decodeURIComponent(url.slice(('/' + assetBase).length, -'.json'.length))
+
+          const payload = payloadFor(fileId)
+
+          if (!payload) {
+            res.statusCode = 404
+
+            return res.end('{}')
+          }
+
+          res.setHeader('Content-Type', 'application/json')
+
+          return res.end(JSON.stringify(payload))
+        })
+      },
+      generateBundle() {
+        // Emit on the default tier only — every tier serves the same
+        // dist/docs-content/ payloads.
+        if (!isDefault) return
+
+        const walk = (nodes) => {
+          for (const node of nodes) {
+            if (node.type === 'dir') {
+              walk(node.children)
+            } else {
+              const payload = payloadFor(node.id)
+
+              if (payload) {
+                this.emitFile({
+                  type: 'asset',
+                  fileName: `${assetBase}${node.id.replace(':', '/')}.json`,
+                  source: JSON.stringify(payload),
+                })
+              }
+            }
+          }
+        }
+
+        for (const root of scanManifest(__dirname).roots) walk(root.children)
+      },
+    }
   }
 
   const plugins = [
     cmsMockPlugin,
     i18nFallbackPlugin(),
     i18nBootPlugin(),
+    docsPortalPlugin(),
     mediaConvertPlugin(),
     compression({
       algorithm: 'brotliCompress',
@@ -326,7 +480,8 @@ export default defineConfig(() => {
       enforce: 'pre',
       async transform(code, id) {
         if (
-          id.includes('/src/') &&
+          !id.includes('node_modules') &&
+          /\/(src|core|website|cms|experiments)\//.test(id) &&
           id.endsWith('.js') &&
           (code.includes('</') || code.includes('/>'))
         ) {
@@ -526,6 +681,7 @@ export default defineConfig(() => {
         // via resolve.alias — it must not be pre-bundled.
         ...(process.env.CMS_MOCK ? [] : ['firebase/database']),
         'register-service-worker',
+        'mermaid',
         'three',
         'three/webgpu',
         'three/tsl',
@@ -539,14 +695,18 @@ export default defineConfig(() => {
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
-        '@core': fileURLToPath(new URL('./src/core', import.meta.url)),
+        '@core': fileURLToPath(new URL('./core', import.meta.url)),
+        '@website': fileURLToPath(new URL('./website', import.meta.url)),
+        '@cms': fileURLToPath(new URL('./cms', import.meta.url)),
+        '@earth': fileURLToPath(new URL('./experiments/earth-playground', import.meta.url)),
+        '@docs': fileURLToPath(new URL('./experiments/docs', import.meta.url)),
         // Dev-only offline CMS mode (`CMS_MOCK=1 npm run dev`): the bare
         // `firebase/database` specifier is pre-bundled by optimizeDeps, so it
         // must be intercepted via resolve.alias rather than the plugin hook.
         ...(process.env.CMS_MOCK
           ? {
               'firebase/database': fileURLToPath(
-                new URL('./src/cms/dev/firebase-mock.js', import.meta.url)
+                new URL('./cms/dev/firebase-mock.js', import.meta.url)
               ),
             }
           : {}),

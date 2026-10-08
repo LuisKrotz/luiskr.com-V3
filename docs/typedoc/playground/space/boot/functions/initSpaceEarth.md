@@ -8,7 +8,7 @@
 function initSpaceEarth(c): void
 ```
 
-Defined in: [src/playground/space/boot.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/space/boot.ts#L47)
+Defined in: [experiments/earth-playground/space/boot.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/space/boot.ts#L47)
 
 Constructs the EarthBackground engine on the persistent canvas and
 wires its lifecycle: progress → loader overlay, ready → apply persisted

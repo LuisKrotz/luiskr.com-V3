@@ -4,7 +4,7 @@ Shared WebGL shimmer renderer for skeleton layers,
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/loaders/skeleton/renderer.ts` |
+| **Source** | `core/utils/canvas/loaders/skeleton/renderer.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

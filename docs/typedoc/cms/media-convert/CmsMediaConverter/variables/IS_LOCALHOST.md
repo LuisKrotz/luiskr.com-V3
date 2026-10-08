@@ -8,7 +8,7 @@
 const IS_LOCALHOST: boolean
 ```
 
-Defined in: [src/cms/media-convert/CmsMediaConverter.tsx:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/CmsMediaConverter.tsx#L51)
+Defined in: [cms/media-convert/CmsMediaConverter.tsx:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/media-convert/CmsMediaConverter.tsx#L51)
 
 Returns whether localhost.
 

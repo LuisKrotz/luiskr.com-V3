@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/routes/AdminLogin.tsx` |
+| **Source** | `cms/routes/AdminLogin.tsx` |
 | **UX surface** | Login screen and the dashboard shell. |
 
 ## Members

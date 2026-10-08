@@ -7,22 +7,22 @@
  * confirm/alert/prompt and Notification are stubbed per test.
  */
 import { describe, test, expect, jest, beforeEach } from '@jest/globals'
-import { clearDevLog, getDevLog } from '@/core/devlog.js'
-import { LOG_LEVELS } from '@/core/tokens/data/log.js'
-import { CMS_KEYS, LOCALES, SECTIONS, TRANSLATION_KEYS } from '@/core/constants.js'
-import { CMS_EVENTS, CMS_TAGS, CMS_TABS } from '@/cms/tokens.js'
+import { clearDevLog, getDevLog } from '@core/devlog.js'
+import { LOG_LEVELS } from '@core/tokens/data/log.js'
+import { CMS_KEYS, LOCALES, SECTIONS, TRANSLATION_KEYS } from '@core/constants.js'
+import { CMS_EVENTS, CMS_TAGS, CMS_TABS } from '@cms/tokens.js'
 import { TEST_TEXT, TEST_URLS } from '../fixtures/test-constants.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { DRAG_EVENTS, FORM_EVENTS, MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { DB_PATHS } from '@/core/tokens/routes/paths.js'
-import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { COVER_DIMENSIONS, MOSAIC_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
-import { CMS_ADMIN_CLASSES, CMS_DASHBOARD_CLASSES, CMS_ITEM_CLASSES } from '@/cms/tokens.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { DRAG_EVENTS, FORM_EVENTS, MOUSE_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { DB_PATHS } from '@core/tokens/routes/paths.js'
+import { MEDIA_ATTRS } from '@core/tokens/attrs/media.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { DATA_ATTRS } from '@core/tokens/attrs/data.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { COVER_DIMENSIONS, MOSAIC_DIMENSIONS } from '@core/tokens/media/dimensions.js'
+import { CMS_ADMIN_CLASSES, CMS_DASHBOARD_CLASSES, CMS_ITEM_CLASSES } from '@cms/tokens.js'
 
 const authCallbacks = []
 const setCalls = []
@@ -35,7 +35,7 @@ const defaultVal = { title: TEST_TEXT.HEADING }
 
 const snapOf = (val, exists = true) => ({ exists: () => exists, val: () => val })
 
-jest.unstable_mockModule('@/firebase.js', () => ({
+jest.unstable_mockModule('@core/firebase.js', () => ({
   onAuthChange: jest.fn(async (cb) => {
     authCallbacks.push(cb)
 
@@ -66,16 +66,16 @@ jest.unstable_mockModule('firebase/database', () => ({
   }),
 }))
 
-await import('@/cms/about/CmsAboutEditor.js')
-await import('@/cms/footer/CmsFooterEditor.js')
-await import('@/cms/portfolio/CmsPortfolioList.js')
-await import('@/cms/media-convert/CmsMediaConverter.js')
-await import('@/cms/projects/CmsProjectsList.js')
-await import('@/cms/lang/CmsLangEditor.js')
-await import('@/cms/playground-editor/CmsPlaygroundEditor.js')
-await import('@/cms/deploy-info/CmsDeployInfo.js')
-await import('@/cms/routes/CmsDashboard.js')
-await import('@/cms/routes/AdminLogin.js')
+await import('@cms/about/CmsAboutEditor.js')
+await import('@cms/footer/CmsFooterEditor.js')
+await import('@cms/portfolio/CmsPortfolioList.js')
+await import('@cms/media-convert/CmsMediaConverter.js')
+await import('@cms/projects/CmsProjectsList.js')
+await import('@cms/lang/CmsLangEditor.js')
+await import('@cms/playground-editor/CmsPlaygroundEditor.js')
+await import('@cms/deploy-info/CmsDeployInfo.js')
+await import('@cms/routes/CmsDashboard.js')
+await import('@cms/routes/AdminLogin.js')
 
 const mount = (tag) => {
   const el = document.createElement(tag)
@@ -1681,7 +1681,7 @@ describe('CmsDashboard branches', () => {
   })
 
   test('brand click navigates home and logout click signs out', async () => {
-    const { logoutUser } = await import('@/firebase.js')
+    const { logoutUser } = await import('@core/firebase.js')
     const el = mount(CMS_TAGS.VIEW_CMS_DASHBOARD)
 
     await flush()
@@ -1878,7 +1878,7 @@ describe('CmsDashboard branches', () => {
 
 describe('AdminLogin branches', () => {
   test('error without message falls back to the generic copy', async () => {
-    const { signInWithGoogle } = await import('@/firebase.js')
+    const { signInWithGoogle } = await import('@core/firebase.js')
 
     signInWithGoogle.mockRejectedValueOnce({})
 
@@ -1911,14 +1911,14 @@ describe('AdminLogin branches', () => {
   test('module re-eval skips custom-element re-registration', async () => {
     jest.resetModules()
 
-    await expect(import('@/cms/routes/AdminLogin.js')).resolves.toBeTruthy()
+    await expect(import('@cms/routes/AdminLogin.js')).resolves.toBeTruthy()
 
     // tag already defined -> the registration guard's else arm
-    await expect(import('@/cms/lang/CmsLangEditor.js')).resolves.toBeTruthy()
-    await expect(import('@/cms/deploy-info/CmsDeployInfo.js')).resolves.toBeTruthy()
-    await expect(import('@/cms/about/CmsAboutEditor.js')).resolves.toBeTruthy()
-    await expect(import('@/cms/footer/CmsFooterEditor.js')).resolves.toBeTruthy()
-    await expect(import('@/cms/playground-editor/CmsPlaygroundEditor.js')).resolves.toBeTruthy()
+    await expect(import('@cms/lang/CmsLangEditor.js')).resolves.toBeTruthy()
+    await expect(import('@cms/deploy-info/CmsDeployInfo.js')).resolves.toBeTruthy()
+    await expect(import('@cms/about/CmsAboutEditor.js')).resolves.toBeTruthy()
+    await expect(import('@cms/footer/CmsFooterEditor.js')).resolves.toBeTruthy()
+    await expect(import('@cms/playground-editor/CmsPlaygroundEditor.js')).resolves.toBeTruthy()
   })
 })
 
@@ -2246,7 +2246,7 @@ describe('CmsDashboard registration', () => {
     jest.resetModules()
 
     try {
-      const { ViewCmsDashboard } = await import('@/cms/routes/CmsDashboard.js')
+      const { ViewCmsDashboard } = await import('@cms/routes/CmsDashboard.js')
 
       // The re-evaluated class closes over IS_LOCALHOST=false: rendering via
       // the prototype (a second define is intentionally skipped) covers the

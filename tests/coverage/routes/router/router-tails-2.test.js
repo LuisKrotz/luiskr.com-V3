@@ -8,17 +8,17 @@
  * Home route param changes.
  */
 import { jest } from '@jest/globals'
-import router from '@/routes/router.js'
+import router from '@core/router/router.js'
 
 import { TEST_TEXT } from '../../../fixtures/test-constants.js'
-import '@/routes/views/legal/Legal.js'
-import '@/routes/views/home/Home.js'
-import { QUERY_STRINGS } from '@/core/tokens/strings/queries.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
+import '@website/views/legal/Legal.js'
+import '@website/views/home/Home.js'
+import { QUERY_STRINGS } from '@core/tokens/strings/queries.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { SECTION_IDS } from '@core/tokens/ids/sections.js'
 
 
 
@@ -120,19 +120,19 @@ describe('router tails 2', () => {
 
   test('playground chunk failure surfaces a toast instead of throwing', async () => {
     jest.resetModules()
-    jest.unstable_mockModule('@/playground/SpacePlayground.js', () => {
+    jest.unstable_mockModule('@earth/SpacePlayground.js', () => {
       throw new Error(TEST_TEXT.STALE)
     })
 
     try {
-      const { router: freshRouter } = await import('@/routes/router.js')
+      const { router: freshRouter } = await import('@core/router/router.js')
 
       await expect(freshRouter.push(ROUTE_PATHS.EARTH_PLAYGROUND)).resolves.toBeUndefined()
       await flush()
 
       document.querySelector(COMPONENT_TAGS.SITE_TOAST)?.remove?.()
     } finally {
-      jest.unstable_unmockModule('@/playground/SpacePlayground.js')
+      jest.unstable_unmockModule('@earth/SpacePlayground.js')
       jest.resetModules()
     }
   })

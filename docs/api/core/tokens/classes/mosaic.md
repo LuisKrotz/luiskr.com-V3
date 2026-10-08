@@ -4,7 +4,7 @@ Home mosaic grid class tokens — token group.
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/classes/mosaic.ts` |
+| **Source** | `core/tokens/classes/mosaic.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

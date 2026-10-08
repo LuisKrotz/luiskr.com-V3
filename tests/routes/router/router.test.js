@@ -1,22 +1,22 @@
 /**
  * @file router.test.js
- * @description Covers src/routes/router.js — path parsing across all 12
+ * @description Covers core/router/router.js — path parsing across all 12
  * locales, legacy/aliased project-slug normalization, localized static
  * routes (about/contact/legal), dynamic portfolio routes, the not-found
  * fallback, and navigation guards/hooks. Route table drift and locale
  * slug mismatches are the regressions this suite exists to catch.
  */
 
-import router, { normalizeProjectKey } from '@/routes/router.js'
-import { detectLangFromPath, LANG_SLUGS, VALID_LANGS } from '@/core/i18n.js'
-import '@/core/store.js'
-import { LOCALES, ROUTE_NAMES, ROUTE_PREFIXES, TRANSLATION_KEYS } from '@/core/constants.js'
+import router, { normalizeProjectKey } from '@core/router/router.js'
+import { detectLangFromPath, LANG_SLUGS, VALID_LANGS } from '@core/i18n.js'
+import '@core/store.js'
+import { LOCALES, ROUTE_NAMES, ROUTE_PREFIXES, TRANSLATION_KEYS } from '@core/constants.js'
 import { TEST_PROJECTS } from '../../fixtures/test-constants.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { SECTION_IDS } from '@/core/tokens/ids/sections.js'
-import { QUERY_STRINGS } from '@/core/tokens/strings/queries.js'
-import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { SECTION_IDS } from '@core/tokens/ids/sections.js'
+import { QUERY_STRINGS } from '@core/tokens/strings/queries.js'
+import { LINK_ATTRS } from '@core/tokens/attrs/link.js'
 
 describe('Core Router - Path Parsing, i18n & Navigation Guards (60+ Tests)', () => {
   beforeEach(() => {

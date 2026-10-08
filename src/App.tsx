@@ -21,17 +21,17 @@
  *   - Theme listener: re-applies THEME.SYSTEM when the OS scheme changes.
  */
 
-import { SECTIONS } from '@/core/tokens/base.js'
-import { APP_CLASSES } from '@/core/tokens/classes/app.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { APP_IDS } from '@/core/tokens/ids/app.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { h } from '@/core/jsx.js'
-import { BaseComponent } from '@/core/Component.js'
-import store from '@/core/store.js'
-import router from '@/routes/router.js'
-import type { IntroLoader } from '@/utils/canvas/loaders/intro-loader.js'
+import { SECTIONS } from '@core/tokens/base.js'
+import { APP_CLASSES } from '@core/tokens/classes/app.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { APP_IDS } from '@core/tokens/ids/app.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { h } from '@core/jsx.js'
+import { BaseComponent } from '@core/Component.js'
+import store from '@core/store.js'
+import router from '@core/router/router.js'
+import type { IntroLoader } from '@core/utils/canvas/loaders/intro-loader.js'
 import { mountAppShell } from './app/boot.js'
 import { loadAppData } from './app/data.js'
 import { initAppInputListeners } from './app/input.js'
@@ -39,13 +39,13 @@ import { updateAppModalState } from './app/modal.js'
 import { checkAppScroll, updateAppSectionTops } from './app/scroll.js'
 import type { AppNavEl, AppTranslations, CookieBannerEl, PrefModalEl } from './app/types.js'
 import { flipAppView, updateAppViewContent } from './app/view.js'
-import type { RouteDescriptor } from '@/routes/router.js'
+import type { RouteDescriptor } from '@core/router/router.js'
 
 // Route depth: home = 0, all other views = 1
 
-import appStyles from '@/sass/components/shell/app.scss?inline'
-import '@/components/nav/AppNav.js'
-import '@/components/feedback/CookieBanner.js'
+import appStyles from '@core/sass/components/shell/app.scss?inline'
+import '@website/components/nav/AppNav.js'
+import '@website/components/feedback/CookieBanner.js'
 
 /**
  * Application shell element. Extends the shared BaseComponent (shadow DOM,

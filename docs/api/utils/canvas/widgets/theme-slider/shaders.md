@@ -4,7 +4,7 @@ GLSL sources for ThemeSliderWebGL's day/night scene,
 
 | | |
 |---|---|
-| **Source** | `src/utils/canvas/widgets/theme-slider/shaders.ts` |
+| **Source** | `core/utils/canvas/widgets/theme-slider/shaders.ts` |
 | **UX surface** | WebGL micro-widgets with Canvas2D fallback — nav, sliders, arrows. |
 
 ## Members

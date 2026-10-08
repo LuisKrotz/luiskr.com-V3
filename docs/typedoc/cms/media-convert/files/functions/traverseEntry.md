@@ -14,7 +14,7 @@ function traverseEntry(
 }>
 ```
 
-Defined in: [src/cms/media-convert/files.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/files.ts#L17)
+Defined in: [cms/media-convert/files.ts:17](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/media-convert/files.ts#L17)
 
 Recursive async generator over a dropped FileSystemEntry — a folder
 drop yields one {file, rel} per descendant, preserving the relative

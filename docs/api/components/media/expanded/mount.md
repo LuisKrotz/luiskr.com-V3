@@ -4,7 +4,7 @@ Mount wiring for &lt;media-expanded&gt;: scroll reset, Escape /
 
 | | |
 |---|---|
-| **Source** | `src/components/media/expanded/mount.ts` |
+| **Source** | `website/components/media/expanded/mount.ts` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

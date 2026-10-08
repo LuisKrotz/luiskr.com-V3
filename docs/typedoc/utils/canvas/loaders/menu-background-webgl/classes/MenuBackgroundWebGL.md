@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [utils/canvas/loaders/menu-background-webgl](../README.md) / MenuBackgroundWebGL
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L41)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L41)
 
 WebGL animated background for the mobile burger menu — "Membrane" concept.
 Renders fine organic monochrome contour lines (domain-warped fbm isolines)
@@ -23,7 +23,7 @@ unavailable or the shader fails to compile/link.
 new MenuBackgroundWebGL(canvas): MenuBackgroundWebGL;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:78](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L78)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:78](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L78)
 
 #### Parameters
 
@@ -43,7 +43,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:78](https://githu
 canvas: HTMLCanvasElement
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L47)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L47)
 
 #### Param
 
@@ -61,7 +61,7 @@ with the menu's open/close lifecycle
 gl: WebGLRenderingContext | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L48)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L48)
 
 ---
 
@@ -71,7 +71,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:48](https://githu
 program: WebGLProgram | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L49)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L49)
 
 ---
 
@@ -81,7 +81,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:49](https://githu
 quadBuffer: WebGLBuffer | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L50)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L50)
 
 ---
 
@@ -91,7 +91,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:50](https://githu
 animId: number | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L51)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L51)
 
 ---
 
@@ -101,7 +101,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:51](https://githu
 uTime: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L52)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L52)
 
 ---
 
@@ -111,7 +111,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:52](https://githu
 uResolution: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L53)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L53)
 
 ---
 
@@ -121,7 +121,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:53](https://githu
 uColor: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L54)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L54)
 
 ---
 
@@ -131,7 +131,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:54](https://githu
 uColor2: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L55)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L55)
 
 ---
 
@@ -141,7 +141,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:55](https://githu
 uReveal: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L56)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L56)
 
 ---
 
@@ -151,7 +151,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:56](https://githu
 uAlpha: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L57)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L57)
 
 ---
 
@@ -161,7 +161,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:57](https://githu
 width: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L58)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L58)
 
 ---
 
@@ -171,7 +171,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:58](https://githu
 height: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L59)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L59)
 
 ---
 
@@ -181,7 +181,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:59](https://githu
 isActive: boolean = false
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L60)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L60)
 
 ---
 
@@ -191,7 +191,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:60](https://githu
 _ro: ResizeObserver | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L61)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L61)
 
 ---
 
@@ -201,7 +201,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:61](https://githu
 useWebGL: boolean = false
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L62)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L62)
 
 ---
 
@@ -211,7 +211,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:62](https://githu
 _reveal: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L63)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L63)
 
 ---
 
@@ -221,7 +221,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:63](https://githu
 _revealTarget: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L64)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L64)
 
 ---
 
@@ -231,7 +231,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:64](https://githu
 _revealFrom: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:65](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L65)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:65](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L65)
 
 ---
 
@@ -241,7 +241,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:65](https://githu
 _revealT0: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L66)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L66)
 
 ---
 
@@ -251,7 +251,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:66](https://githu
 _revealDur: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L67)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L67)
 
 ---
 
@@ -261,7 +261,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:67](https://githu
 _lastFrame: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L68)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L68)
 
 ---
 
@@ -271,7 +271,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:68](https://githu
 _elapsed: number = 0
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L69)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:69](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L69)
 
 ---
 
@@ -281,7 +281,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:69](https://githu
 _color: number[];
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:70](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L70)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:70](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L70)
 
 ---
 
@@ -291,7 +291,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:70](https://githu
 _color2: number[];
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:71](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L71)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:71](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L71)
 
 ---
 
@@ -301,7 +301,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:71](https://githu
 _darkAtStart: boolean = false
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L72)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L72)
 
 ---
 
@@ -311,7 +311,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:72](https://githu
 _hasDeriv: boolean = false
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:73](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L73)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:73](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L73)
 
 ---
 
@@ -321,7 +321,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:73](https://githu
 _onContextLost: EventListener | null = null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L74)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:74](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L74)
 
 ---
 
@@ -331,7 +331,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:74](https://githu
 _purged: boolean = false
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:75](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L75)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:75](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L75)
 
 ---
 
@@ -341,7 +341,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:75](https://githu
 _wantsActive: boolean = false
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L76)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:76](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L76)
 
 ## Methods
 
@@ -351,7 +351,7 @@ Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:76](https://githu
 _initGL(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:91](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L91)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:91](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L91)
 
 Creates the WebGL context + shader program; falls back to the CSS/DOM path on failure.
 
@@ -367,7 +367,7 @@ Creates the WebGL context + shader program; falls back to the CSS/DOM path on fa
 _triggerFallback(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L97)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:97](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L97)
 
 Switches to the non-WebGL path (CSS moiré layer) — used on context loss or init failure.
 
@@ -383,7 +383,7 @@ Switches to the non-WebGL path (CSS moiré layer) — used on context loss or in
 _releaseGL(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L103)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:103](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L103)
 
 Frees the quad program/buffer and force-loses the context (listener detached first).
 
@@ -399,7 +399,7 @@ Frees the quad program/buffer and force-loses the context (listener detached fir
 _parseCssColor(str): number[] | null;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L113)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:113](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L113)
 
 Parses a CSS colour string (#rgb, #rrggbb, rgb(), rgba()) into a
 normalized [r,g,b] float triple for the shader uniform.
@@ -422,7 +422,7 @@ normalized [r,g,b] float triple for the shader uniform.
 _sampleTheme(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:119](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L119)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:119](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L119)
 
 Samples --menu-ink / --menu-ink-2 into the shader ink colors.
 
@@ -438,7 +438,7 @@ Samples --menu-ink / --menu-ink-2 into the shader ink colors.
 start(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:125](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L125)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:125](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L125)
 
 Begins the render loop on menu open (see menu-background-loop.ts).
 
@@ -454,7 +454,7 @@ Begins the render loop on menu open (see menu-background-loop.ts).
 release(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:135](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L135)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:135](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L135)
 
 Eases the reveal back to 0 so the field dissolves on menu close.
 
@@ -470,7 +470,7 @@ Eases the reveal back to 0 so the field dissolves on menu close.
 purge(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:147](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L147)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:147](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L147)
 
 webglPool hook — canvas scrolled offscreen (or the browser trimmed
 contexts): tears the GL resources down entirely instead of merely
@@ -489,7 +489,7 @@ recreates them on re-entry.
 restore(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:161](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L161)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:161](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L161)
 
 Recreates the GL context + restarts the loop after an offscreen purge.
 
@@ -505,7 +505,7 @@ Recreates the GL context + restarts the loop after an offscreen purge.
 _animateReveal(target, dur): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:180](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L180)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:180](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L180)
 
 Starts (or restarts mid-flight) a timed reveal ease.
 
@@ -531,7 +531,7 @@ Starts (or restarts mid-flight) a timed reveal ease.
 _tickReveal(now): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:186](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L186)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:186](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L186)
 
 Advances the reveal ease to the current timestamp.
 
@@ -553,7 +553,7 @@ Advances the reveal ease to the current timestamp.
 stop(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:192](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L192)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:192](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L192)
 
 Stops the rAF loop.
 
@@ -569,7 +569,7 @@ Stops the rAF loop.
 _handleResize(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:198](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L198)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:198](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L198)
 
 Syncs buffer size + u_res uniform with the viewport.
 
@@ -585,7 +585,7 @@ Syncs buffer size + u_res uniform with the viewport.
 _loop(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:204](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L204)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:204](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L204)
 
 rAF callback — draws the animated contour field each frame.
 
@@ -601,7 +601,7 @@ rAF callback — draws the animated contour field each frame.
 _renderFrame(staticTime?): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:210](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L210)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:210](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L210)
 
 Renders the noise field; a fixed staticTime renders one settled frame.
 
@@ -623,7 +623,7 @@ Renders the noise field; a fixed staticTime renders one settled frame.
 destroy(): void;
 ```
 
-Defined in: [src/utils/canvas/loaders/menu-background-webgl.ts:216](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/loaders/menu-background-webgl.ts#L216)
+Defined in: [core/utils/canvas/loaders/menu-background-webgl.ts:216](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/loaders/menu-background-webgl.ts#L216)
 
 Releases the context, buffers, listeners and rAF handle so the canvas can be GC'd.
 

@@ -8,7 +8,7 @@
 function calcColumnWidth(cols, width, gap): number
 ```
 
-Defined in: [src/utils/wasm/wasm-layout.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/wasm/wasm-layout.ts#L68)
+Defined in: [core/utils/wasm/wasm-layout.ts:68](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/wasm/wasm-layout.ts#L68)
 
 Column pixel width for a grid: total width minus inter-column gaps,
 divided evenly. Formula: (width − (cols−1)·gap) / cols.

@@ -12,3 +12,7 @@ localStorage/sessionStorage key tokens split by scope —
 ### `CACHE_STORAGE_KEYS`
 
 Caches storage keys.
+
+### `DOCS_SCENE_STATE`
+
+Docs 3D-scene camera pose + rotation-off flag (session-scoped).

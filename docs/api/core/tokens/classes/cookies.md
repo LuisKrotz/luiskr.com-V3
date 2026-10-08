@@ -4,7 +4,7 @@ Cookie banner class tokens — token group.
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/classes/cookies.ts` |
+| **Source** | `core/tokens/classes/cookies.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

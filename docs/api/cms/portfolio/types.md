@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/portfolio/types.ts` |
+| **Source** | `cms/portfolio/types.ts` |
 | **UX surface** | Portfolio list + related-projects editor card. |
 
 ## Members

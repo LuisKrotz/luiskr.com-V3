@@ -4,7 +4,7 @@ Portfolio-list editor classes + control IDs — item cards,
 
 | | |
 |---|---|
-| **Source** | `src/cms/tokens/editors/portfolio.ts` |
+| **Source** | `cms/tokens/editors/portfolio.ts` |
 | **UX surface** | Admin bundle — editors for every database node. |
 
 ## Members

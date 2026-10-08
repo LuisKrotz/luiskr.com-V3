@@ -8,7 +8,7 @@
 function patchMediaFigure(): void
 ```
 
-Defined in: [src/safari/patches/media-figure.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/safari/patches/media-figure.ts#L35)
+Defined in: [core/safari/patches/media-figure.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/safari/patches/media-figure.ts#L35)
 
 Installs the MediaFigure patch once the element registers:
 

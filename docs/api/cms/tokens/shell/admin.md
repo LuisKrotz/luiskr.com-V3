@@ -4,7 +4,7 @@ Admin/login classes — login wrapper/card, Google auth
 
 | | |
 |---|---|
-| **Source** | `src/cms/tokens/shell/admin.ts` |
+| **Source** | `cms/tokens/shell/admin.ts` |
 | **UX surface** | Admin bundle — editors for every database node. |
 
 ## Members

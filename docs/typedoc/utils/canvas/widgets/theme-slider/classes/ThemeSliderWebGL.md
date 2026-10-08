@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [utils/canvas/widgets/theme-slider](../README.md) / ThemeSliderWebGL
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L29)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:29](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L29)
 
 Full Animated Day/Night/System Theme Slider
 Powered by WebGL with robust Canvas 2D fallback.
@@ -25,7 +25,7 @@ new ThemeSliderWebGL(
 ): ThemeSliderWebGL;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:65](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L65)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:65](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L65)
 
 #### Parameters
 
@@ -53,7 +53,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:65](https://github.com/Lui
 canvas: HTMLCanvasElement
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L30)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:30](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L30)
 
 ---
 
@@ -63,7 +63,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:30](https://github.com/Lui
 onThemeChange: ((_theme) => void) | null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L31)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:31](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L31)
 
 ---
 
@@ -73,7 +73,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:31](https://github.com/Lui
 currentTheme: string
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L32)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:32](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L32)
 
 ---
 
@@ -83,7 +83,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:32](https://github.com/Lui
 width: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L33)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:33](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L33)
 
 ---
 
@@ -93,7 +93,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:33](https://github.com/Lui
 height: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L34)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:34](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L34)
 
 ---
 
@@ -103,7 +103,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:34](https://github.com/Lui
 targetP: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L35)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:35](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L35)
 
 ---
 
@@ -113,7 +113,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:35](https://github.com/Lui
 currentP: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L36)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:36](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L36)
 
 ---
 
@@ -123,7 +123,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:36](https://github.com/Lui
 knobX: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L37)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L37)
 
 ---
 
@@ -133,7 +133,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:37](https://github.com/Lui
 isDragging: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L38)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:38](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L38)
 
 ---
 
@@ -143,7 +143,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:38](https://github.com/Lui
 startX: number = 0
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L39)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:39](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L39)
 
 ---
 
@@ -153,7 +153,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:39](https://github.com/Lui
 useWebGL: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L40)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L40)
 
 ---
 
@@ -163,7 +163,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:40](https://github.com/Lui
 animId: number | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L41)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:41](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L41)
 
 ---
 
@@ -173,7 +173,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:41](https://github.com/Lui
 startTime: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L42)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:42](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L42)
 
 ---
 
@@ -183,7 +183,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:42](https://github.com/Lui
 rippleTime: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L43)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:43](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L43)
 
 ---
 
@@ -193,7 +193,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:43](https://github.com/Lui
 ripplePos: number
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L44)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:44](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L44)
 
 ---
 
@@ -203,7 +203,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:44](https://github.com/Lui
 gl: WebGLRenderingContext | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L45)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:45](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L45)
 
 ---
 
@@ -213,7 +213,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:45](https://github.com/Lui
 ctx: CanvasRenderingContext2D | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L46)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:46](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L46)
 
 ---
 
@@ -223,7 +223,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:46](https://github.com/Lui
 program: WebGLProgram | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L47)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:47](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L47)
 
 ---
 
@@ -233,7 +233,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:47](https://github.com/Lui
 quadBuffer: WebGLBuffer | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L48)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:48](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L48)
 
 ---
 
@@ -243,7 +243,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:48](https://github.com/Lui
 uResolution: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L49)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:49](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L49)
 
 ---
 
@@ -253,7 +253,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:49](https://github.com/Lui
 uTime: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L50)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:50](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L50)
 
 ---
 
@@ -263,7 +263,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:50](https://github.com/Lui
 uProgress: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L51)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:51](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L51)
 
 ---
 
@@ -273,7 +273,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:51](https://github.com/Lui
 uKnobX: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L52)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:52](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L52)
 
 ---
 
@@ -283,7 +283,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:52](https://github.com/Lui
 uRippleTime: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L53)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:53](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L53)
 
 ---
 
@@ -293,7 +293,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:53](https://github.com/Lui
 uRipplePos: WebGLUniformLocation | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L54)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:54](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L54)
 
 ---
 
@@ -303,7 +303,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:54](https://github.com/Lui
 aPos: number = -1
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L55)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:55](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L55)
 
 ---
 
@@ -313,7 +313,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:55](https://github.com/Lui
 _resizeObserver: ResizeObserver | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L56)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L56)
 
 ---
 
@@ -323,7 +323,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:56](https://github.com/Lui
 _onContextLost: EventListener | null = null;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L57)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:57](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L57)
 
 ---
 
@@ -333,7 +333,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:57](https://github.com/Lui
 _purged: boolean = false
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L58)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:58](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L58)
 
 ---
 
@@ -343,7 +343,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:58](https://github.com/Lui
 onPointerDown: ((_e) => void) | undefined;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L59)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:59](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L59)
 
 ---
 
@@ -353,7 +353,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:59](https://github.com/Lui
 onPointerMove: ((_e) => void) | undefined;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L60)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:60](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L60)
 
 ---
 
@@ -363,7 +363,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:60](https://github.com/Lui
 onPointerUp: ((_e) => void) | undefined;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L61)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L61)
 
 ---
 
@@ -373,7 +373,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:61](https://github.com/Lui
 onClick: ((_e) => void) | undefined;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L62)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L62)
 
 ---
 
@@ -383,7 +383,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:62](https://github.com/Lui
 onKeyDown: ((_e) => void) | undefined;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L63)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L63)
 
 ## Methods
 
@@ -393,7 +393,7 @@ Defined in: [src/utils/canvas/widgets/theme-slider.ts:63](https://github.com/Lui
 _themeToP(theme): number;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:112](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L112)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:112](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L112)
 
 THEME → normalized track position. Positions are the integer stops
 0/1/2 — fractional values only exist mid-animation.
@@ -416,7 +416,7 @@ THEME → normalized track position. Positions are the integer stops
 _pToTheme(p): string;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:118](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L118)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:118](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L118)
 
 Maps a normalized track position back to the nearest THEME value.
 
@@ -438,7 +438,7 @@ Maps a normalized track position back to the nearest THEME value.
 _pToKnobX(p): number;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:126](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L126)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:126](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L126)
 
 Normalized position → knob pixel X inside the track — see
 theme-slider-math.ts for the inset geometry.
@@ -461,7 +461,7 @@ theme-slider-math.ts for the inset geometry.
 init(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:132](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L132)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:132](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L132)
 
 Boot sequence: GL init → event binding → render start; fully degrades to the fallback path.
 
@@ -477,7 +477,7 @@ Boot sequence: GL init → event binding → render start; fully degrades to the
 _triggerFallback(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:138](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L138)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:138](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L138)
 
 Switches to the non-WebGL path (CSS class on the host / Canvas2D) — used on context loss or init failure.
 
@@ -493,7 +493,7 @@ Switches to the non-WebGL path (CSS class on the host / Canvas2D) — used on co
 initWebGL(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:144](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L144)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:144](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L144)
 
 Creates the WebGL context, compiles the shader program and sets up uniforms/buffers; falls back on any failure.
 
@@ -509,7 +509,7 @@ Creates the WebGL context, compiles the shader program and sets up uniforms/buff
 bindEvents(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:150](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L150)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:150](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L150)
 
 Wires pointer drag + tap-to-snap; supports keyboard arrows for a11y.
 
@@ -525,7 +525,7 @@ Wires pointer drag + tap-to-snap; supports keyboard arrows for a11y.
 _xToContinuousP(x, rectWidth?): number;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:158](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L158)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:158](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L158)
 
 Pointer pixel X → continuous (unclamped-drag) normalized position —
 see theme-slider-math.ts for the 12%–88% active band.
@@ -552,7 +552,7 @@ see theme-slider-math.ts for the 12%–88% active band.
 _xToP(x): number;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:166](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L166)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:166](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L166)
 
 Pointer pixel X → normalized position using the fixed 32px insets
 (same span as _pToKnobX). Retained for non-drag hit paths.
@@ -575,7 +575,7 @@ Pointer pixel X → normalized position using the fixed 32px insets
 setTheme(theme): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:172](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L172)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:172](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L172)
 
 Moves the knob to the given theme's stop (spring-animated).
 
@@ -597,7 +597,7 @@ Moves the knob to the given theme's stop (spring-animated).
 setReducedMotion(isReduced): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:189](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L189)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:189](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L189)
 
 Applies prefers-reduced-motion: swaps the animation loop for one
 static frame render, or restarts the loop when motion is re-allowed.
@@ -620,7 +620,7 @@ static frame render, or restarts the loop when motion is re-allowed.
 _renderStatic(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:201](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L201)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:201](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L201)
 
 Snap state to target and draw a single settled frame — used under
 reduced motion or when the loop is stopped.
@@ -637,7 +637,7 @@ reduced motion or when the loop is stopped.
 animate(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:207](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L207)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:207](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L207)
 
 Starts the requestAnimationFrame render loop (skipped under reduced motion).
 
@@ -653,7 +653,7 @@ Starts the requestAnimationFrame render loop (skipped under reduced motion).
 _renderWebGL(now): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:213](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L213)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:213](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L213)
 
 Per-frame WebGL render: updates time/knob uniforms and draws the quad.
 
@@ -675,7 +675,7 @@ Per-frame WebGL render: updates time/knob uniforms and draws the quad.
 _renderCanvas2D(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:222](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L222)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:222](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L222)
 
 Canvas2D fallback renderer — dormant defensive code; the real
 fallback hides the canvas and activates the CSS/DOM fallback
@@ -693,7 +693,7 @@ fallback hides the canvas and activates the CSS/DOM fallback
 purge(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:231](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L231)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:231](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L231)
 
 webglPool hook — offscreen: stops the loop and force-loses the GL
 context so offscreen widgets hold no context slots; restore()
@@ -711,7 +711,7 @@ rebuilds the program on re-entry.
 restore(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:250](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L250)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:250](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L250)
 
 Recreates the GL context + program and resumes the loop after a purge.
 
@@ -727,7 +727,7 @@ Recreates the GL context + program and resumes the loop after a purge.
 destroy(): void;
 ```
 
-Defined in: [src/utils/canvas/widgets/theme-slider.ts:278](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/canvas/widgets/theme-slider.ts#L278)
+Defined in: [core/utils/canvas/widgets/theme-slider.ts:278](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/canvas/widgets/theme-slider.ts#L278)
 
 Releases the context, buffers, listeners and rAF handle so the canvas can be GC'd.
 

@@ -4,7 +4,7 @@
 
 [luiskr.com](../../../../../README.md) / [components/portfolio/related/types](../README.md) / RelatedCard
 
-Defined in: [src/components/portfolio/related/types.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L61)
+Defined in: [website/components/portfolio/related/types.ts:61](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L61)
 
 The resolved display card — every field concrete (no optionals) because
 hydration already merged the pointer row with its home-list data. `fullPath` is
@@ -18,7 +18,7 @@ the computed route to the project page.
 page: string
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L62)
+Defined in: [website/components/portfolio/related/types.ts:62](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L62)
 
 ---
 
@@ -28,7 +28,7 @@ Defined in: [src/components/portfolio/related/types.ts:62](https://github.com/Lu
 link: string
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L63)
+Defined in: [website/components/portfolio/related/types.ts:63](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L63)
 
 ---
 
@@ -38,7 +38,7 @@ Defined in: [src/components/portfolio/related/types.ts:63](https://github.com/Lu
 fullPath: string
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L64)
+Defined in: [website/components/portfolio/related/types.ts:64](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L64)
 
 ---
 
@@ -48,7 +48,7 @@ Defined in: [src/components/portfolio/related/types.ts:64](https://github.com/Lu
 featured: boolean
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:65](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L65)
+Defined in: [website/components/portfolio/related/types.ts:65](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L65)
 
 ---
 
@@ -58,7 +58,7 @@ Defined in: [src/components/portfolio/related/types.ts:65](https://github.com/Lu
 imageSrc: string
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L66)
+Defined in: [website/components/portfolio/related/types.ts:66](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L66)
 
 ---
 
@@ -68,4 +68,4 @@ Defined in: [src/components/portfolio/related/types.ts:66](https://github.com/Lu
 description: string
 ```
 
-Defined in: [src/components/portfolio/related/types.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/components/portfolio/related/types.ts#L67)
+Defined in: [website/components/portfolio/related/types.ts:67](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/website/components/portfolio/related/types.ts#L67)

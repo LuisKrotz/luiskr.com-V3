@@ -8,7 +8,7 @@
 function renderLabelRows(ed): HTMLElement | DocumentFragment | SVGElement
 ```
 
-Defined in: [src/cms/playground-editor/render.tsx:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/playground-editor/render.tsx#L37)
+Defined in: [cms/playground-editor/render.tsx:37](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/playground-editor/render.tsx#L37)
 
 JSX for the playground label key rows.
 

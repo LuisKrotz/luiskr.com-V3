@@ -11,7 +11,7 @@ const CAROUSEL_CSS_PROPS: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/css/carousel.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/css/carousel.ts#L12)
+Defined in: [core/tokens/css/carousel.ts:12](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/css/carousel.ts#L12)
 
 Carousel-related CSS custom-property names. Sole declaration site — consumers import members
 from this frozen map rather than re-declaring the literals

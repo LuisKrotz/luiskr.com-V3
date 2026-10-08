@@ -11,7 +11,7 @@ const FLAG_TEXTURE: Readonly<{
 }>
 ```
 
-Defined in: [src/core/tokens/media/flag-texture.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/tokens/media/flag-texture.ts#L11)
+Defined in: [core/tokens/media/flag-texture.ts:11](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/tokens/media/flag-texture.ts#L11)
 
 Shared flag renderer texture-atlas size (power of two). Sole declaration site — consumers import members
 from this frozen map rather than re-declaring the literals

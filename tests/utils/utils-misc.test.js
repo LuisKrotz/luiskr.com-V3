@@ -6,15 +6,15 @@
  * aspect-ratio scaler.
  */
 import { describe, test, expect, jest } from '@jest/globals'
-import { statsEngine } from '@/utils/perf/stats-engine.js'
-import { predictiveLoader } from '@/core/predictive-loader.js'
-import { localMediaCache } from '@/utils/media/local-media-cache.js'
-import { calcAspectScaled } from '@/core/utils/aspect.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { LINK_ATTRS } from '@/core/tokens/attrs/link.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { POINTER_EVENTS } from '@/core/tokens/events/dom.js'
-import { NET_STRINGS } from '@/core/tokens/strings/net.js'
+import { statsEngine } from '@core/utils/perf/stats-engine.js'
+import { predictiveLoader } from '@core/predictive-loader.js'
+import { localMediaCache } from '@core/utils/media/local-media-cache.js'
+import { calcAspectScaled } from '@core/utils/aspect.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { LINK_ATTRS } from '@core/tokens/attrs/link.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { POINTER_EVENTS } from '@core/tokens/events/dom.js'
+import { NET_STRINGS } from '@core/tokens/strings/net.js'
 
 const flush = (ms = 60) => new Promise((resolve) => setTimeout(resolve, ms))
 

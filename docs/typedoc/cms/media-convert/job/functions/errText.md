@@ -8,7 +8,7 @@
 function errText(res, fallback): Promise<string>
 ```
 
-Defined in: [src/cms/media-convert/job.ts:200](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/job.ts#L200)
+Defined in: [cms/media-convert/job.ts:200](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/media-convert/job.ts#L200)
 
 Extracts the server's `error` field from a JSON error body; falls back
 to the given message — or a dev-server hint on 404 (the API only exists

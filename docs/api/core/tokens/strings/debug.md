@@ -4,7 +4,7 @@ URL `debug` parameter vocabulary. `?debug=&lt;value&gt;` may appear
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/strings/debug.ts` |
+| **Source** | `core/tokens/strings/debug.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

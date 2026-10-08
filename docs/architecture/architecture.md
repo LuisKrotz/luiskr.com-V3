@@ -6,46 +6,50 @@
 flowchart TB
     subgraph entries["Entry points (separate bundles)"]
         MAIN["index.html → src/main.ts"]
-        CMSMAIN["cms/index.html → src/cms/main.ts"]
+        CMSMAIN["cms/index.html → cms/main.ts"]
     end
 
-    subgraph site["public website"]
+    subgraph shell["src/ — app shell"]
         APP["App.tsx + app/ (app-shell)"]
-        SITER["routes/: Home · Project · Legal · NotFound"]
+    end
+
+    subgraph site["website/ — public website module"]
+        SITER["views/: Home · Project · Legal · NotFound"]
         SITEC["components/<domain>/: AppNav, HomeMosaic, MediaFigure, …"]
     end
 
-    subgraph cms["src/cms — CMS"]
+    subgraph cms["cms/ — CMS module (ESNext only)"]
         CMSR["routes/: AdminLogin · CmsDashboard"]
         CMSC["<feature>/: Cms* editors (facade + data/events/render)"]
         CMST["tokens.ts · sass/cms.scss"]
     end
 
-    subgraph pg["src/playground — Earth Playground"]
-        SP["SpacePlayground.tsx + space/"]
-        EB["earth-background.ts + earth/ (Three.js WebGPU)"]
+    subgraph exp["experiments/ — isolated modules"]
+        SP["earth-playground: SpacePlayground + earth/ (Three.js WebGPU)"]
+        DP["docs: /docs portal (Docs.tsx + manifest + arch-scene)"]
     end
 
-    subgraph shared["shared layer"]
-        ROUTER["src/routes/router.ts"]
-        CORE["src/core: Component · jsx · store · tokens · i18n"]
-        UTILS["src/utils/<domain>: data · canvas · wasm · motion · perf"]
-        SASS["src/sass: base tokens + component styles"]
-        FB["src/firebase.ts"]
+    subgraph shared["core/ — shared engine module"]
+        ROUTER["core/router/router.ts"]
+        CORE["Component · jsx · store · tokens · i18n"]
+        UTILS["utils/<domain>: data · canvas · wasm · motion · perf"]
+        SASS["sass: base tokens + component styles"]
+        FB["firebase.ts"]
     end
 
     MAIN --> APP
     CMSMAIN --> CMSR
     APP --> ROUTER --> SITER
+    ROUTER -. lazy .-> SP
+    ROUTER -. lazy .-> DP
     SITER --> SITEC
-    SP -. lazy import .-> EB
-    ROUTER --> SP
     CMSR --> CMSC
     SITER --> CORE
     SITEC --> CORE
     SITEC --> UTILS
     SP --> CORE
     SP --> UTILS
+    DP --> CORE
     CMSC --> CORE
     CMSC --> FB
     APP --> FB
@@ -54,13 +58,18 @@ flowchart TB
 
 ### Import rules
 
-| Layer         | May import                        | Must NOT import                |
-| ------------- | --------------------------------- | ------------------------------ |
-| `site/`       | `core/`, `utils/`, `sass/`        | `cms/`, `playground/`          |
-| `cms/`        | `core/`, `firebase.ts`, own files | `site/`, `playground/`         |
-| `playground/` | `core/`, `utils/`, `sass/`        | `site/`, `cms/`                |
-| `core/`       | `core/` internals                 | anything above it              |
-| `utils/`      | `core/`                           | `site/`, `cms/`, `playground/` |
+| Layer                 | May import                    | Must NOT import                     |
+| --------------------- | ----------------------------- | ----------------------------------- |
+| `website/`            | `core/`                       | `cms/`, `experiments/`, other views |
+| `cms/`                | `core/` (+firebase), own code | `website/`, `experiments/`          |
+| `experiments/<area>/` | `core/`                       | `website/`, `cms/`, sibling areas   |
+| `core/`               | `core/` internals only        | anything above it                   |
+| `src/` (app shell)    | every area                    | —                                   |
+
+Each area carries its own `vite.config.js` (library build → `<area>/dist/`)
+and `tsconfig.json`; `scripts/verify/scope-gates.mjs` runs typecheck, lint,
+stylelint and the matching Jest slice per area — CMS skips a11y/Lighthouse
+and `earth`/`docs` skip Lighthouse performance.
 
 ### Facade + module convention
 
@@ -107,7 +116,12 @@ Vite builds two artifacts (see [build.md](../guides/build.md)):
 
 The CMS has its own Rollup input (`cms/index.html`) inside the modern build, so
 CMS code never enters the public entry graph and is excluded from indexing via
-`robots` + `noindex` meta.
+`robots` + `noindex` meta. The docs portal (`experiments/docs/`) is the
+opposite: every manifest file is a crawlable `/docs/<root>/<path>` route —
+`generateDocsSchema()` emits a `BreadcrumbList` + `TechArticle`/
+`CollectionPage` JSON-LD graph per route, the JSX carries the matching
+`itemscope`/`itemtype`/`itemprop` microdata, and `generate-sitemap.js`
+enumerates the whole manifest into `public/sitemap.xml`.
 
 ## Data flow (read path)
 

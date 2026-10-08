@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/cms/about/render.tsx` |
+| **Source** | `cms/about/render.tsx` |
 | **UX surface** | About-section editor card. |
 
 ## Members

@@ -7,27 +7,27 @@
  */
 
 import { jest } from '@jest/globals'
-import '@/components/media/MediaFigure.js'
-import store from '@/core/store.js'
-import { MEDIA } from '@/core/constants.js'
+import '@website/components/media/MediaFigure.js'
+import store from '@core/store.js'
+import { MEDIA } from '@core/constants.js'
 import { TEST_PROJECTS, TEST_TEXT, TEST_URLS } from '../../fixtures/test-constants.js'
-import { CDN_URLS } from '@/core/tokens/media/urls.js'
-import { COMPONENT_TAGS } from '@/core/tokens/elements/components.js'
-import { STATE_STRINGS } from '@/core/tokens/strings/state.js'
-import { MEDIA_ATTRS } from '@/core/tokens/attrs/media.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { COVER_DIMENSIONS, IMAGE_DIMENSIONS } from '@/core/tokens/media/dimensions.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { INTERNAL_CLASSES } from '@/core/tokens/classes/project.js'
-import { MEDIA_CLASSES } from '@/core/tokens/classes/media.js'
-import { EXPAND_MODAL_CLASSES, MODAL_CLASSES } from '@/core/tokens/classes/modal.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
-import { MEDIA_EVENTS, MOUSE_EVENTS, WINDOW_EVENTS } from '@/core/tokens/events/dom.js'
-import { CHAR_STRINGS } from '@/core/tokens/strings/chars.js'
-import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { ROUTE_PATHS } from '@/core/tokens/routes/paths.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
+import { CDN_URLS } from '@core/tokens/media/urls.js'
+import { COMPONENT_TAGS } from '@core/tokens/elements/components.js'
+import { STATE_STRINGS } from '@core/tokens/strings/state.js'
+import { MEDIA_ATTRS } from '@core/tokens/attrs/media.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { COVER_DIMENSIONS, IMAGE_DIMENSIONS } from '@core/tokens/media/dimensions.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { INTERNAL_CLASSES } from '@core/tokens/classes/project.js'
+import { MEDIA_CLASSES } from '@core/tokens/classes/media.js'
+import { EXPAND_MODAL_CLASSES, MODAL_CLASSES } from '@core/tokens/classes/modal.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
+import { MEDIA_EVENTS, MOUSE_EVENTS, WINDOW_EVENTS } from '@core/tokens/events/dom.js'
+import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
+import { PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
 
 // Get the actual storage URL the store is configured with
 // (production Firebase Storage URL — not a mock)
@@ -1032,6 +1032,6 @@ describe('MediaFigure tails', () => {
   test('registration guard respects an existing custom element', async () => {
     jest.resetModules()
 
-    await import('@/components/media/MediaFigure.js')
+    await import('@website/components/media/MediaFigure.js')
   })
 })

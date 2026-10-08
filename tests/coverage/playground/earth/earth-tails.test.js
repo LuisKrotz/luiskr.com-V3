@@ -4,14 +4,14 @@
  */
 
 import { jest } from '@jest/globals'
-import { clearDevLog, getDevLog } from '@/core/devlog.js'
-import { LOG_LEVELS } from '@/core/tokens/data/log.js'
-import { DEBUG_PARAMS, WEBGL_MODES } from '@/core/tokens/strings/debug.js'
-import { createEarthState } from '@/playground/earth/runtime/state.js'
-import { syncEarthSun, tickEarth } from '@/playground/earth/runtime/frame.js'
-import { initEarthRenderer } from '@/playground/earth/setup/renderer-setup.js'
-import { warmUpShaders } from '@/playground/earth/setup/bootstrap.js'
-import { updateEarthRender } from '@/playground/earth/runtime/updates.js'
+import { clearDevLog, getDevLog } from '@core/devlog.js'
+import { LOG_LEVELS } from '@core/tokens/data/log.js'
+import { DEBUG_PARAMS, WEBGL_MODES } from '@core/tokens/strings/debug.js'
+import { createEarthState } from '@earth/earth/runtime/state.js'
+import { syncEarthSun, tickEarth } from '@earth/earth/runtime/frame.js'
+import { initEarthRenderer } from '@earth/earth/setup/renderer-setup.js'
+import { warmUpShaders } from '@earth/earth/setup/bootstrap.js'
+import { updateEarthRender } from '@earth/earth/runtime/updates.js'
 
 const setSearch = (s) => window.history.replaceState(null, '', s)
 

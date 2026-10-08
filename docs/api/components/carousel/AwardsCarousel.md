@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Source** | `src/components/carousel/AwardsCarousel.tsx` |
+| **Source** | `website/components/carousel/AwardsCarousel.tsx` |
 | **UX surface** | Shadow-DOM widgets — the visible UI of the public site. |
 
 ## Members

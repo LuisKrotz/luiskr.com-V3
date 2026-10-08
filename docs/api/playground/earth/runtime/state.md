@@ -4,7 +4,7 @@ Mutable engine state for EarthBackground, extracted from
 
 | | |
 |---|---|
-| **Source** | `src/playground/earth/runtime/state.ts` |
+| **Source** | `experiments/earth-playground/earth/runtime/state.ts` |
 | **UX surface** | The /earth-playground WebGPU experience. |
 
 ## Members

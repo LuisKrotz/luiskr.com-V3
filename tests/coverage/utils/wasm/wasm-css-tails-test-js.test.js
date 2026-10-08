@@ -10,18 +10,18 @@
  * sign-in paths, and the cookie/contact section component branches.
  */
 import { jest } from '@jest/globals'
-import '@/utils/data/sanitize.js'
+import '@core/utils/data/sanitize.js'
 
-import { wasmCSS, calcWasmSkeletonStyle } from '@/utils/wasm/wasm-css.js'
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
-import { COMMON_ATTRS } from '@/core/tokens/attrs/common.js'
-import { ASSET_IDS } from '@/core/tokens/ids/assets.js'
+import { wasmCSS, calcWasmSkeletonStyle } from '@core/utils/wasm/wasm-css.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
+import { COMMON_ATTRS } from '@core/tokens/attrs/common.js'
+import { ASSET_IDS } from '@core/tokens/ids/assets.js'
 
 
 
-jest.unstable_mockModule('@/firebase.js', () => ({
+jest.unstable_mockModule('@core/firebase.js', () => ({
   signInWithGoogle: jest.fn(async () => ({ user: { uid: 'u1' } })),
   onAuthChange: jest.fn(async (cb) => { cb(null); return () => {} }),
   logoutUser: jest.fn(async () => {}),
@@ -56,7 +56,7 @@ describe('wasm-css tails', () => {
 
     // Eval with document missing → initStyleSheet exits before styleSheetEl is
     // set → the subsequent pre-init calls hit the !styleSheetEl early returns.
-    const mod = await import('@/utils/wasm/wasm-css.js').then(
+    const mod = await import('@core/utils/wasm/wasm-css.js').then(
       (m) => { globalThis.document = savedDoc; return m },
       (e) => { globalThis.document = savedDoc; throw e },
     )

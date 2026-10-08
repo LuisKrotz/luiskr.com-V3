@@ -10,14 +10,14 @@
  * gpu-info tiers, wasm-pool worker guards, intro-loader internals.
  */
 
-import { fetchFirebaseDb } from '@/utils/data/db.js'
+import { fetchFirebaseDb } from '@core/utils/data/db.js'
 
-import '@/components/feedback/CookieBanner.js'
-import '@/components/home/ContactSection.js'
-import '@/routes/views/not-found/NotFound.js'
-import { CACHE_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { DB_PATHS } from '@/core/tokens/routes/paths.js'
+import '@website/components/feedback/CookieBanner.js'
+import '@website/components/home/ContactSection.js'
+import '@website/views/not-found/NotFound.js'
+import { CACHE_STORAGE_KEYS } from '@core/tokens/data/storage.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { DB_PATHS } from '@core/tokens/routes/paths.js'
 
 
 

@@ -4,7 +4,7 @@ Boot-time `?debug=…` actions. Values:
 
 | | |
 |---|---|
-| **Source** | `src/core/debug/params.ts` |
+| **Source** | `core/debug/params.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

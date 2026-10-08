@@ -8,7 +8,7 @@
 function isMediaPath(name): boolean
 ```
 
-Defined in: [src/cms/media-convert/exts.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/cms/media-convert/exts.ts#L56)
+Defined in: [cms/media-convert/exts.ts:56](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/cms/media-convert/exts.ts#L56)
 
 Reports whether a file name/path carries a supported media extension.
 Extension check is case-insensitive; names with no dot, dotfiles

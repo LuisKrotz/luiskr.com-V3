@@ -8,7 +8,7 @@
 function canUseWebGPU(): boolean
 ```
 
-Defined in: [src/core/browser/detect.ts:87](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/core/browser/detect.ts#L87)
+Defined in: [core/browser/detect.ts:87](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/browser/detect.ts#L87)
 
 True when the engine may expose a usable WebGPU adapter. The check is
 `!== false` (not `=== true`) because undefined means "no data" — absence

@@ -8,7 +8,7 @@
 type EarthProgressFn = (_label, percent) => void
 ```
 
-Defined in: [src/playground/earth/runtime/state.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/playground/earth/runtime/state.ts#L21)
+Defined in: [experiments/earth-playground/earth/runtime/state.ts:21](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/experiments/earth-playground/earth/runtime/state.ts#L21)
 
 Progress callback signature — label + percent so the loader UI can show
 which asset is streaming and how far along the whole boot is.

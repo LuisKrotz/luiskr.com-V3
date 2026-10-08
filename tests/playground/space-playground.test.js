@@ -6,36 +6,36 @@
  * stubbed and canvases get the shared 2D mock.
  */
 import { describe, test, expect, jest, beforeEach, afterEach } from '@jest/globals'
-import store from '@/core/store.js'
-import { LOCALES, SP_ACTIONS } from '@/core/constants.js'
+import store from '@core/store.js'
+import { LOCALES, SP_ACTIONS } from '@core/constants.js'
 import { TEST_TEXT } from '../fixtures/test-constants.js'
-import { VIEW_TAGS } from '@/core/tokens/elements/views.js'
-import { STATE_CLASSES } from '@/core/tokens/classes/state.js'
-import { PREF_MUTATIONS } from '@/core/tokens/events/mutations.js'
-import { HTML_TAGS } from '@/core/tokens/elements/html.js'
-import { DATA_ATTRS } from '@/core/tokens/attrs/data.js'
+import { VIEW_TAGS } from '@core/tokens/elements/views.js'
+import { STATE_CLASSES } from '@core/tokens/classes/state.js'
+import { PREF_MUTATIONS } from '@core/tokens/events/mutations.js'
+import { HTML_TAGS } from '@core/tokens/elements/html.js'
+import { DATA_ATTRS } from '@core/tokens/attrs/data.js'
 import {
   SP_CAMERA_PARAMS,
   SP_DEBUG_PARAMS,
   SP_GRADE_PARAMS,
   SP_POST_PARAMS,
   SP_SCENE_PARAMS,
-} from '@/core/tokens/playground/params.js'
-import { FORM_ATTRS } from '@/core/tokens/attrs/form.js'
-import { PREF_STORAGE_KEYS } from '@/core/tokens/data/storage.js'
-import { ARIA_ATTRS } from '@/core/tokens/attrs/aria.js'
-import { TYPE_STRINGS } from '@/core/tokens/strings/types.js'
-import { FOCUS_EVENTS, FORM_EVENTS, MOUSE_EVENTS } from '@/core/tokens/events/dom.js'
-import { SP_CLASSES } from '@/core/tokens/classes/playground.js'
-import { ATTR_VALUES } from '@/core/tokens/attrs/values.js'
+} from '@core/tokens/playground/params.js'
+import { FORM_ATTRS } from '@core/tokens/attrs/form.js'
+import { PREF_STORAGE_KEYS } from '@core/tokens/data/storage.js'
+import { ARIA_ATTRS } from '@core/tokens/attrs/aria.js'
+import { TYPE_STRINGS } from '@core/tokens/strings/types.js'
+import { FOCUS_EVENTS, FORM_EVENTS, MOUSE_EVENTS } from '@core/tokens/events/dom.js'
+import { SP_CLASSES } from '@core/tokens/classes/playground.js'
+import { ATTR_VALUES } from '@core/tokens/attrs/values.js'
 
 const dbData = { title: 'Space', engine: 'Engine' }
 
-jest.unstable_mockModule('@/utils/data/db.js', () => ({
+jest.unstable_mockModule('@core/utils/data/db.js', () => ({
   fetchFirebaseDb: jest.fn(async () => ({ exists: () => true, val: () => dbData })),
 }))
 
-await import('@/playground/SpacePlayground.js')
+await import('@earth/SpacePlayground.js')
 
 const mount = () => {
   const el = document.createElement(VIEW_TAGS.VIEW_SPACE_PLAYGROUND)
@@ -476,7 +476,7 @@ describe('SpacePlayground', () => {
 
   describe('translation + loader branches', () => {
     test('translation fallback loads EN when the locale node is missing', async () => {
-      const { fetchFirebaseDb } = await import('@/utils/data/db.js')
+      const { fetchFirebaseDb } = await import('@core/utils/data/db.js')
       const prev = fetchFirebaseDb.getMockImplementation?.()
 
       fetchFirebaseDb
@@ -564,7 +564,7 @@ describe('SpacePlayground', () => {
     })
 
     test('_loadTranslations resolves snapshots and falls back to EN', async () => {
-      const { fetchFirebaseDb } = await import('@/utils/data/db.js')
+      const { fetchFirebaseDb } = await import('@core/utils/data/db.js')
 
       const el = mount()
 
@@ -728,7 +728,7 @@ describe('SpacePlayground tails', () => {
   })
 
   test('_loadTranslations covers missing-locale, missing-snapshot and null-val arms', async () => {
-    const { fetchFirebaseDb } = await import('@/utils/data/db.js')
+    const { fetchFirebaseDb } = await import('@core/utils/data/db.js')
     const el = mount()
     await waitBoot(el)
 
@@ -1030,6 +1030,6 @@ describe('SpacePlayground tails', () => {
     expect(customElements.get(VIEW_TAGS.VIEW_SPACE_PLAYGROUND)).toBeTruthy()
     jest.resetModules()
 
-    await import('@/playground/SpacePlayground.js')
+    await import('@earth/SpacePlayground.js')
   })
 })

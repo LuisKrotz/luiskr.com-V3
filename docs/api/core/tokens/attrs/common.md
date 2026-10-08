@@ -4,7 +4,7 @@ Generic DOM attribute + attribute-value tokens — the
 
 | | |
 |---|---|
-| **Source** | `src/core/tokens/attrs/common.ts` |
+| **Source** | `core/tokens/attrs/common.ts` |
 | **UX surface** | Shared primitives every surface builds on — no direct UI. |
 
 ## Members

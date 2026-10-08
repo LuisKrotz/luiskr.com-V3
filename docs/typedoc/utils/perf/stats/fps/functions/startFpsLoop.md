@@ -8,7 +8,7 @@
 function startFpsLoop(engine): void
 ```
 
-Defined in: [src/utils/perf/stats/fps.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/src/utils/perf/stats/fps.ts#L10)
+Defined in: [core/utils/perf/stats/fps.ts:10](https://github.com/LuisKrotz/luiskr.com-V3/blob/214965eca24f91b1469ed21eb399bf941ad49ce0/core/utils/perf/stats/fps.ts#L10)
 
 Counts rAF ticks and derives frames/second on a rolling 1s window.
 

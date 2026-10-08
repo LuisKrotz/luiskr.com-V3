@@ -4,7 +4,7 @@ Network sampler for the stats engine: a resource-timing
 
 | | |
 |---|---|
-| **Source** | `src/utils/perf/stats/network.ts` |
+| **Source** | `core/utils/perf/stats/network.ts` |
 | **UX surface** | Runtime services behind the scenes (WASM, GL, scroll, media). |
 
 ## Members

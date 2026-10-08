@@ -4,7 +4,7 @@ Data plumbing for &lt;view-project&gt;: slug resolution from the
 
 | | |
 |---|---|
-| **Source** | `src/routes/views/project/data.ts` |
+| **Source** | `website/views/project/data.ts` |
 | **UX surface** | One page of the site per file — the URL the visitor lands on. |
 
 ## Members
