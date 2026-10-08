@@ -48,6 +48,27 @@ export const DOCS_STRINGS = Object.freeze({
   /** JSON-LD description for the portal root/folder pages. */
   SCHEMA_DESCRIPTION:
     'Source code, documentation and quality reports for luiskr.com — browsable and indexable.',
+  /** Boot-loader overlay copy — mirrors the space playground's system
+   *  boot sequence with docs-context wording (English-only portal). */
+  LOADER_TITLE: 'Docs system boot',
+  LOADER_MSG_INIT: 'Opening the documentation archive',
+  LOADER_MSG_MANIFEST: 'Indexing modules and reports',
+  LOADER_MSG_SCENE: 'Mounting the architecture graph',
+  LOADER_MSG_FILE: 'Loading the document payload',
+  LOADER_MSG_READY: 'Portal online',
+})
+
+/**
+ * Staged boot-loader progress marks — the manifest is inlined at build
+ * time so real fetch percentages don't exist; discrete stage numbers
+ * keep the bar honest (manifest scanned → scene mounted → file fetched
+ * → portal usable).
+ */
+export const DOCS_LOADER_PCT = Object.freeze({
+  MANIFEST: 25,
+  SCENE: 60,
+  FILE: 80,
+  READY: 100,
 })
 
 /** Unit tokens used by docs layout/scene math. */

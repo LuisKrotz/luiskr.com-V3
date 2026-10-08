@@ -1,0 +1,44 @@
+#!/usr/bin/env zsh
+# luiskr.com pre-push gate — scoped by module. Commits are diffed against the
+# push range (origin/main fallback: HEAD~1); every touched module area gets
+# only its own gates: scoped tsc, eslint, stylelint, and the Jest slice that
+# exercises it. CMS never runs a11y/Lighthouse; experiments never watch
+# Lighthouse performance — the contract lives in shared/scripts/verify/scope-gates.mjs.
+#
+# Installed by shared/scripts/install-hooks.sh → .git/hooks/pre-push
+
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+# Resolve the push range: prefer upstream tracking ref, then origin/main,
+# then a single-parent diff, then the full workspace.
+RANGE=""
+if git rev-parse --abbrev-ref @{upstream} >/dev/null 2>&1; then
+  RANGE="$(git rev-parse --abbrev-ref @{upstream})...HEAD"
+elif git rev-parse --verify origin/main >/dev/null 2>&1; then
+  RANGE="origin/main...HEAD"
+elif git rev-parse --verify HEAD~1 >/dev/null 2>&1; then
+  RANGE="HEAD~1..HEAD"
+fi
+
+if [[ -n "$RANGE" ]]; then
+  SCOPES="$(node shared/scripts/verify/scope-gates.mjs areas "$RANGE")"
+else
+  SCOPES=""
+fi
+
+# Empty diff (push of an unchanged tree) → nothing to gate.
+if [[ -z "$SCOPES" && -n "$RANGE" ]]; then
+  echo "── pre-push: no changed module files — nothing to gate ──"
+  exit 0
+fi
+
+echo "── pre-push: scoped gates for ${SCOPES:-all modules} ──"
+# ${(s: :)...} word-splits — plain ${SCOPES} would pass the whole list as
+# one argv element and scope-gates would match zero scopes silently.
+if [[ -n "$SCOPES" ]]; then
+  node shared/scripts/verify/scope-gates.mjs run ${(s: :)SCOPES}
+else
+  node shared/scripts/verify/scope-gates.mjs run --all
+fi

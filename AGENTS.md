@@ -35,8 +35,8 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
      - `'about-section'`, `'legal-footer'` → `CMS_KEYS.ABOUT_SECTION`, `CMS_KEYS.LEGAL_FOOTER`
      - `'decoding'`, `'loading'`, `'trigger'` → `ATTRS.DECODING`, `ATTRS.LOADING`, `ATTRS.TRIGGER`
      - All event names (e.g. `'cookieAction'`, `'resize'`) → `EVENTS.*`
-   - **Test files (`tests/**/*.js`) follow the same rule**: tests must import all application string values from `core/constants.js` (`TAGS`, `CLASSES`, `ATTRS`, `EVENTS`, `MUTATIONS`, `PATHS`, `SELECTORS`, `IDS`, `STORAGE_KEYS`, `LOCALES`, `THEME`, `STRINGS`, `CSS_PROPS`, `URLS`, `MEDIA`, `TEXT`, `ROUTE_NAMES`, `TRANSLATION_KEYS`, `UI_KEYS`, `COMPONENT_KEYS`, `CMS_KEYS`, `KEYS`, `ANIMATION`, …) or CMS tokens from `cms/tokens.js` — never assert against, query, or dispatch with inline string literals when a token exists.
-   - Test-only vocabulary (fixture element tags, sample project IDs/slugs, sample text, sample award names) must be declared once in `tests/fixtures/test-constants.js` (`TEST_TAGS`, `TEST_TEXT`, `TEST_PROJECTS`, `TEST_AWARDS`) and imported from there — never repeated inline.
+   - **Test files (`<module>/tests/**/*.js`) follow the same rule**: tests must import all application string values from `core/constants.js` (`TAGS`, `CLASSES`, `ATTRS`, `EVENTS`, `MUTATIONS`, `PATHS`, `SELECTORS`, `IDS`, `STORAGE_KEYS`, `LOCALES`, `THEME`, `STRINGS`, `CSS_PROPS`, `URLS`, `MEDIA`, `TEXT`, `ROUTE_NAMES`, `TRANSLATION_KEYS`, `UI_KEYS`, `COMPONENT_KEYS`, `CMS_KEYS`, `KEYS`, `ANIMATION`, …) or CMS tokens from `cms/tokens.js` — never assert against, query, or dispatch with inline string literals when a token exists.
+   - Test-only vocabulary (fixture element tags, sample project IDs/slugs, sample text, sample award names) must be declared once in `shared/tests/fixtures/test-constants.js` (`TEST_TAGS`, `TEST_TEXT`, `TEST_PROJECTS`, `TEST_AWARDS`) and imported from there — never repeated inline.
    - Strings that are legitimately not tokens — import paths, test `describe()`/`test()` names, Node API arguments (`'fs'`, `'path'`, `'utf-8'`), regex syntax fragments, and unique one-off fixture data — may remain literal.
 
 6. **JSX Only (No HTML String Interpolation)**:
@@ -74,39 +74,39 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - This applies to: variable declarations followed by function calls, conditionals followed by assignments, loops followed by returns, and any other logical boundary.
 
 11. **Continuous Automated Governance**:
-    - `tests/style-governance.test.js` must validate and pass all these rules automatically on every test run.
+    - `shared/tests/governance/style-governance.test.js` must validate and pass all these rules automatically on every test run.
     - When a new rule is added here, a corresponding automated check must be added to `style-governance.test.js`.
 
 12. **Zero Console Calls**:
-    - Every `console.*` call is forbidden anywhere in `src/`, `core/`, `website/`, `cms/`, `experiments/` — no exceptions.
+    - Every `console.*` call is forbidden anywhere in `shared/src/`, `core/`, `website/`, `cms/`, `experiments/` — no exceptions.
     - All diagnostics route through `core/devlog.ts` (`devWarn` / `devError` / `devInfo`), which buffers entries in a capped ring buffer; inspect in devtools via `__lkDevLog()` or assert in tests via `getDevLog()`.
-    - Enforced by `scripts/verify/console-scan.mjs` → `reports/console-scan.json`; any callsite is a violation that fails the gate.
+    - Enforced by `shared/scripts/verify/console-scan.mjs` → `reports/console-scan.json`; any callsite is a violation that fails the gate.
 
 13. **Security Scans Gate the Build**:
-    - `scripts/verify/security-scan.mjs` runs `snyk test` when `SNYK_TOKEN` is set, falling back to `yarn audit` (same advisory data). High/critical vulnerabilities fail the gate; unfixable dev-only risks live in `security-exceptions.json` with justification + review date — never blanket-suppress.
-    - `tests/governance/axe-scan.test.js` runs axe-core (WCAG A/AA/AAA rule tags) on real mounted surfaces — violations of moderate impact or higher fail the suite; `tests/governance/contrast-aaa.test.js` enforces computed WCAG AAA contrast ratios on the compiled token sheet (7:1 text / 3:1 UI) since happy-dom cannot measure paint contrast.
+    - `shared/scripts/verify/security-scan.mjs` runs `snyk test` when `SNYK_TOKEN` is set, falling back to `yarn audit` (same advisory data). High/critical vulnerabilities fail the gate; unfixable dev-only risks live in `security-exceptions.json` with justification + review date — never blanket-suppress.
+    - `shared/tests/governance/axe-scan.test.js` runs axe-core (WCAG A/AA/AAA rule tags) on real mounted surfaces — violations of moderate impact or higher fail the suite; `shared/tests/governance/contrast-aaa.test.js` enforces computed WCAG AAA contrast ratios on the compiled token sheet (7:1 text / 3:1 UI) since happy-dom cannot measure paint contrast.
 
 14. **Verification Pipeline (commit → push → build)**:
     - `pre-commit` stays fast: Prettier writes/re-stages changed files, then `yarn typecheck` blocks TypeScript errors.
     - `pre-push` runs `yarn test` in parallel without coverage instrumentation.
     - `yarn verify` is the complete prebuild gate: format check → console-scan → typecheck → eslint/stylelint → Jest with coverage (incl. axe scan) → per-file coverage gate → security scan. A failure prevents new `dist` output.
     - Lighthouse runs only after a successful build when explicitly requested with `yarn build --verify-lighthouse`; ordinary builds do not run Lighthouse.
-    - Test coverage must be **100% on every file** for statements, branches, functions, and lines — `jest.config.js` global threshold + `scripts/verify/coverage-gate.mjs` per-file enforcement.
-    - All scan reports land in `reports/` → bundled into `dist/deploy-info/` by `scripts/build/deploy-info.mjs` → shown in the CMS "Deploy Info" tab.
+    - Test coverage must be **100% on every file** for statements, branches, functions, and lines — per-module `jest.config.mjs` (shared preset) + `shared/scripts/verify/coverage-gate.mjs` per-file enforcement.
+    - All scan reports land in `reports/` → bundled into `dist/deploy-info/` by `shared/scripts/build/deploy-info.mjs` → shown in the CMS "Deploy Info" tab.
 
 15. **Component Self-Containment (Portability)**:
     - A component folder must be copyable (JS/TS + SCSS) into another project and work with different data.
     - No component may import from another component's folder; shared helpers live in `core/utils/` or `core/`.
     - Components may only import from shared roots: `core`, `core/utils`, `core/sass`, `core/firebase`, plus the `router`/`types` infra singletons.
-    - Never import from `website/views` (view logic), `cms`, or `src/app` inside `website/components`.
-    - Enforced by `tests/governance/component-portability.test.js`.
+    - Never import from `website/views` (view logic), `cms`, or `shared/src/app` inside `website/components`.
+    - Enforced by `shared/tests/governance/component-portability.test.js`.
 
 16. **Deployment Prohibition**:
     - Agents must NEVER run `yarn deploy`, `firebase deploy`, or any deployment command without an explicit, in-conversation user instruction for that specific deploy.
     - Verification, builds, and tests never include a deploy step.
 
 17. **Tests Are JavaScript On Purpose**:
-    - All files under `tests/` are written in JavaScript by design — they exercise the runtime surface as a consumer/browser would and stay decoupled from internal type churn.
+    - All files under each module's `tests/` are written in JavaScript by design — they exercise the runtime surface as a consumer/browser would and stay decoupled from internal type churn.
     - Do not migrate tests to TypeScript; do still enforce token imports and the zero-hardcoding rule in tests.
 
 18. **Debug URL Parameters**:
@@ -115,7 +115,7 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - All WebGL `getContext` calls must go through `core/utils/canvas/webgl-mode.ts` (`webglContext`) so the fallback param stays authoritative — never call `canvas.getContext('webgl…')` directly.
 
 19. **Coverage Tails Organization**:
-    - Coverage-tail tests live under `tests/coverage/<domain>/<subdomain>/` mirroring the source tree — `core/{component,env,firebase,jsx,loader,schema,store,ui,utils}`, `components/{carousel,dialogs,feedback,footer,home,media}`, `canvas/{infra,loaders,widgets}`, `cms/{deploy,editors,facade}`, `routes/{pages,router}`, `playground/{earth,space}`, `utils/{data,gpu,media,motion,perf,wasm}`, plus `app/`, `legacy-polyfills/`, `safari/`, and `sweep/` (cross-domain grab-bags only) — one file per describe, named after the module under test.
+    - Coverage-tail tests live under `<module>/tests/coverage/<domain>/<subdomain>/` mirroring that module's source tree — `core/{component,env,firebase,jsx,loader,schema,store,ui,utils}`, `components/{carousel,dialogs,feedback,footer,home,media}`, `canvas/{infra,loaders,widgets}`, `cms/{deploy,editors,facade}`, `routes/{pages,router}`, `playground/{earth,space}`, `utils/{data,gpu,media,motion,perf,wasm}`, plus `app/`, `legacy-polyfills/`, `safari/`, and `sweep/` (cross-domain grab-bags only) — one file per describe, named after the module under test.
     - Never call `jest.resetModules()` mid-file after exercising a module: istanbul counters are per module instance, and re-instantiation discards previously recorded hits in the merged report. Reset-free tails files exist for post-reset coverage.
 
 20. **Recursion Preferred for Self-Similar Traversal & Compute Placement**:
@@ -123,17 +123,23 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Recursion must be total: every path reaches a base case; graph-shaped input guards cycles with a visited set. Generators (`yield*`) are the preferred recursive shape for streaming traversal (see `cms/media-convert/files.ts` `traverseEntry`).
     - Bounded dismissal/drain loops (`while (list.length > CAP)`) and async pagination (`readEntries` batches) are legitimately iterative — annotate why when the shape could read as stack emulation.
     - **Compute placement for performance**: per-frame canvas/WebGL math lives in GPU shaders or local synchronous math — never `await`ed per frame. Batch CPU work (mosaic layout, spring physics, text timing, media hashing, image decode) routes through `core/utils/wasm/wasm-pool.ts` worker dispatch with JS fallbacks. three.js scenes likewise keep per-frame work on the GPU (WebGPU/GLSL/TSL); only non-per-frame batch work is a wasm-pool candidate.
-    - Checked by `tests/governance/style-governance.test.js` — flags manual stack-emulation traversal patterns.
+    - Checked by `shared/tests/governance/style-governance.test.js` — flags manual stack-emulation traversal patterns.
 
 21. **JSDoc Required on All Declarations**:
     - Every exported declaration (function, class, const, type, interface) must carry a JSDoc block (`/** ... */`) stating its purpose, what it does, and its effect — with `@param`/`@returns` tags where the signature has them.
     - Internal top-level helpers and class members follow the same rule — purpose + effect, not a name restatement.
     - Calculations, WebGL draw/calc code, and three.js plumbing get _detailed_ multi-line explanations (the math, the units, why the constants are what they are).
     - Every `.scss` file opens with a header comment block explaining which UI surface/component it styles and whether it is shared.
-    - Enforced by `tests/governance/jsdoc-coverage.test.js`.
+    - Enforced by `shared/tests/governance/jsdoc-coverage.test.js`.
 
 22. **Yarn + Zsh Are the Toolchain Defaults**:
     - Yarn is the only package manager — `yarn install`, `yarn add`, `yarn remove`, `yarn <script>`; never `npm`/`npx`/`pnpm` in commands, scripts, hooks, CI, or docs. `yarn.lock` is the sole lockfile — never regenerate `package-lock.json`.
     - Dependency pinning uses the `resolutions` field (yarn 1.x mechanism) — `overrides` is npm-only and ignored by yarn.
     - Zsh is the default shell — terminal commands, git hooks, and helper scripts run under zsh (`#!/usr/bin/env zsh`); do not introduce bash-only syntax.
     - Mirrors `.agents/rules/default-package-manager.md` and `.agents/rules/default-terminal.md`.
+
+23. **No Automated Codemods or Bulk-Rewrite Scripts**:
+    - Agents must NEVER write or run automated codemods, AST rewriters, or scripted bulk-refactors that modify source/test files en masse (e.g. splitting files, rewriting imports, pruning code by name matching).
+    - Every change to source or tests is made file-by-file with the edit tool, reviewed in context — no exception for "it would take too long"; break the work into batches instead.
+    - One-off data transforms that never touch the repo (e.g. generating a report) are fine; anything that writes into `shared/`, `core/`, `website/`, `cms/`, `experiments/`, or any `tests/` tree is forbidden.
+    - No `codemod/` or `codemods/` directories, files, or script entries may exist in the repository — enforced by `shared/tests/governance/style-governance.test.js`.

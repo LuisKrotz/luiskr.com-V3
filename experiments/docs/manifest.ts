@@ -3,8 +3,9 @@
  * @description Build-time docs manifest access + path resolution.
  *
  * `virtual:docs-manifest` is emitted by the vite docs-portal plugin — a
- * tree of the publishable roots (docs/, reports/, coverage/, src/) with
- * per-file ids that double as `/docs-content/<id>.json` fetch paths.
+ * tree of the publishable roots (shared/docs, reports/, per-module
+ * coverage/, and every source module) with per-file ids that double as
+ * `/docs-content/<id>.json` fetch paths.
  * File payloads are NOT in the manifest; they're fetched on open so the
  * route chunk stays small against ~3.5k documents.
  */
@@ -26,10 +27,16 @@ export interface DocsNode {
   embedded?: boolean
 }
 
-/** A publishable root bucket (docs / reports / coverage / src). */
+/** A publishable root bucket (docs / reports / coverage-* / source modules). */
 export interface DocsRoot {
   root: string
   label: string
+  /**
+   * Behavior class emitted by shared/build/docs/scan.mjs: 'source' roots
+   * are protected (copy-guard, no index auto-open); 'coverage' roots are
+   * per-module test reports; 'docs'/'reports' are browsable content.
+   */
+  kind?: 'source' | 'coverage' | 'docs' | 'reports'
   children: DocsNode[]
 }
 
@@ -56,6 +63,23 @@ export const getDocsManifest = (): DocsManifest => _manifest
 
 /** ISO timestamp of the newest doc file — shown as "last docs update". */
 export const docsGeneratedAt = (): string => _manifest.generated
+
+/**
+ * Whether a manifest root name ('src', 'core', …) is a protected source
+ * bucket — source roots get the copy-guard and never auto-open index.html.
+ * @param rootName First segment of a docs path or file id.
+ * @returns True when the bucket's kind is 'source'.
+ */
+export const isSourceRoot = (rootName: string): boolean =>
+  _manifest.roots.find((r) => r.root === rootName)?.kind === 'source'
+
+/**
+ * Extracts the root namespace from a manifest file id ('<root>:<rel>').
+ * @param id Manifest file id.
+ * @returns The root name, or '' when the id has no namespace.
+ */
+export const fileIdRoot = (id: string): string =>
+  id.includes(CHAR_STRINGS.COLON) ? id.slice(0, id.indexOf(CHAR_STRINGS.COLON)) : CHAR_STRINGS.EMPTY
 
 /**
  * Resolves a docs sub-path ('docs/a/b.md' or bare 'a/b' against roots) to

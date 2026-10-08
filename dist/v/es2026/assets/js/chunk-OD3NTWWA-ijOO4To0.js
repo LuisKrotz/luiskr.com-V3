@@ -1,0 +1,2 @@
+function oW(e=vRe){const a=Zoe(Yoe(e),QSe),s=Zoe(Hoe({shared:a}),aOe,rW);return a.ServiceRegistry.register(s),{shared:a,Packet:s}}var kke,rW;import{C as Yoe,S as Hoe,d as aOe,i as gOe,o as vRe,t as $Oe,u as QSe,w as Zoe,x as Vl}from"./chunk-NGNAAXSQ-QoLfXhFu.js";kke=class extends $Oe{static{Vl(this,"PacketTokenBuilder")}constructor(){super(["packet"])}},rW={parser:{TokenBuilder:Vl(()=>new kke,"TokenBuilder"),ValueConverter:Vl(()=>new gOe,"ValueConverter")}},Vl(oW,"createPacketServices");export{oW as n,rW as t};
+//# sourceMappingURL=chunk-OD3NTWWA-ijOO4To0.js.map

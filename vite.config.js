@@ -23,13 +23,13 @@ import { compression } from 'vite-plugin-compression2'
 import { fileURLToPath, URL } from 'node:url'
 import { constants as zlibConstants } from 'node:zlib'
 import { minify as htmlMinify } from 'html-minifier-terser'
-import fs from 'node:fs'
 import path from 'node:path'
-import { mediaConvertPlugin } from './scripts/media-convert/index.js'
-import { ES_TARGETS } from './build/es-targets.mjs'
-import { scanManifest, resolveFileId, MEDIA_INLINE_LIMIT } from './build/docs/scan.mjs'
-import { renderFile } from './build/docs/render.mjs'
-import { redactSource } from './build/docs/redact.mjs'
+import { mediaConvertPlugin } from './shared/scripts/media-convert/index.js'
+import { ES_TARGETS } from './shared/build/es-targets.mjs'
+import { modulePublicPlugin } from './shared/build/module-public.mjs'
+import { docsPortalPlugin } from './shared/build/docs-portal.mjs'
+import { i18nBootPlugin, i18nFallbackPlugin } from './shared/build/i18n-virtual.mjs'
+import { jsxInJsPlugin, SHARED_ESBUILD } from './shared/build/jsx-in-js.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -189,105 +189,6 @@ export default defineConfig(() => {
     wrap_func_args: false,
   }
 
-  // Build-time snapshot of the English UI copy (APP + components + not-found)
-  // from database.json: the single source of truth for every fallback string
-  // in the bundle. CMS edits flow through Firebase at runtime; this snapshot
-  // only guarantees the UI never renders an empty label.
-  const i18nFallbackPlugin = () => {
-    const virtualId = 'virtual:i18n-fallback'
-
-    const resolvedId = '\0' + virtualId
-
-    return {
-      name: 'vite-plugin-i18n-fallback',
-      resolveId(id) {
-        return id === virtualId ? resolvedId : null
-      },
-      load(id) {
-        if (id !== resolvedId) return null
-
-        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'database.json'), 'utf8'))
-
-        const en = db.translations.en
-
-        const snapshot = {
-          APP: en.APP,
-          components: en.components,
-          pages: {
-            'not-found': en.pages['not-found'],
-            'earth-playground': en.pages['earth-playground'],
-            HOME: {
-              archive: en.pages.HOME.archive,
-              explore: en.pages.HOME.explore,
-              featured: en.pages.HOME.featured,
-              message: en.pages.HOME.message,
-            },
-            about: { title: en.pages.about.title, mentions: en.pages.about.mentions },
-          },
-        }
-
-        // APP/HOME/GDPR are in terser's property-mangle reserved list so
-        // runtime string lookups (TRANSLATION_KEYS.*) resolve correctly
-        return `export default ${JSON.stringify(snapshot)}`
-      },
-    }
-  }
-
-  // Per-locale snapshots of database.json emitted as lazy chunks:
-  //   virtual:i18n-boot/<locale>/core      → APP, components, pages
-  //   virtual:i18n-boot/<locale>/projects  → projects
-  // The site renders from these immediately (static-first) and revalidates
-  // against Firebase in the background (see core/utils/db.js).
-  // On the legacy IIFE tier the loader index is stubbed to {} — dynamic
-  // import() chunks can't exist in a classic script, so the data layer
-  // resolves via REST + localStorage instead (core/utils/db.js).
-  const i18nBootPlugin = () => {
-    const indexId = 'virtual:i18n-boot-index'
-
-    const prefix = 'virtual:i18n-boot/'
-
-    const readDb = () =>
-      JSON.parse(fs.readFileSync(path.resolve(__dirname, 'database.json'), 'utf8')).translations
-
-    return {
-      name: 'vite-plugin-i18n-boot',
-      resolveId(id) {
-        if (id === indexId || id.startsWith(prefix)) return '\0' + id
-
-        return null
-      },
-      load(id) {
-        if (id === '\0' + indexId) {
-          if (isLegacy) return 'export default {}'
-
-          const locales = Object.keys(readDb())
-
-          const entries = locales.map(
-            (l) =>
-              `  ${JSON.stringify(l)}: { core: () => import('${prefix}${l}/core'), projects: () => import('${prefix}${l}/projects') }`
-          )
-
-          return `export default {\n${entries.join(',\n')}\n}`
-        }
-
-        if (!id.startsWith('\0' + prefix)) return null
-
-        const [locale, part] = id.slice(('\0' + prefix).length).split('/')
-
-        const t = readDb()[locale]
-
-        if (!t) return 'export default null'
-
-        const data =
-          part === 'projects'
-            ? { projects: t.projects }
-            : { APP: t.APP, components: t.components, pages: t.pages }
-
-        return `export default ${JSON.stringify(data)}`
-      },
-    }
-  }
-
   // Dev-only offline CMS mode (`CMS_MOCK=1 npm run dev`): swaps real Firebase
   // SDK calls for the committed database.json snapshot (see
   // cms/dev/firebase-mock.js). Never active in production builds.
@@ -303,161 +204,12 @@ export default defineConfig(() => {
     },
   }
 
-  // Docs portal pipeline — `virtual:docs-manifest` carries the scanned
-  // docs/reports/coverage/src tree; each publishable file is also emitted
-  // as a `docs-content/<root>/<path>.json` payload (rendered HTML + meta)
-  // fetched lazily by the view. Assets are emitted only on the default
-  // tier (all tiers share one dist/docs-content/); the dev server answers
-  // the same URLs through middleware.
-  const docsPortalPlugin = () => {
-    const manifestId = 'virtual:docs-manifest'
-    const assetBase = 'docs-content/'
-
-    const payloadFor = (fileId) => {
-      // URLs carry the id as '<root>/<relpath>'; the manifest's canonical
-      // form is '<root>:<relpath>' — normalize before resolving.
-      const slashIdx = fileId.indexOf('/')
-
-      const normalized = fileId.includes(':')
-        ? fileId
-        : slashIdx > 0
-          ? `${fileId.slice(0, slashIdx)}:${fileId.slice(slashIdx + 1)}`
-          : fileId
-
-      const abs = resolveFileId(__dirname, normalized)
-
-      if (!abs) return null
-
-      const ext = abs.split('.').pop().toLowerCase()
-      const rel = fileId.slice(fileId.indexOf(':') + 1)
-      const stat = fs.statSync(abs)
-
-      if (['png', 'jpg', 'jpeg', 'gif', 'webp', 'mp4', 'webm'].includes(ext)) {
-        if (stat.size > MEDIA_INLINE_LIMIT) {
-          return {
-            name: path.basename(abs),
-            path: rel,
-            format: 'media',
-            media: null,
-            mtime: stat.mtime.toISOString(),
-          }
-        }
-
-        const mime = ext === 'svg' ? 'image/svg+xml' : `image/${ext === 'jpg' ? 'jpeg' : ext}`
-
-        return {
-          name: path.basename(abs),
-          path: rel,
-          format: 'media',
-          media: `data:${mime};base64,${fs.readFileSync(abs).toString('base64')}`,
-          mtime: stat.mtime.toISOString(),
-        }
-      }
-
-      const raw = fs.readFileSync(abs, 'utf8')
-
-      const content =
-        ext === 'json' || 'html md markdown htm'.includes(ext) ? raw : redactSource(raw)
-
-      const fmt =
-        ext === 'md' || ext === 'markdown'
-          ? 'markdown'
-          : ext === 'html' || ext === 'htm'
-            ? 'html'
-            : ext === 'json'
-              ? 'json'
-              : ext === 'txt'
-                ? 'text'
-                : 'code'
-
-      // Local stylesheet links inside reports (istanbul's base.css /
-      // prettify.css) resolve against the file's own directory and get
-      // inlined — anything outside the project tree stays stripped.
-      const linkResolver = (href) => {
-        try {
-          const target = path.resolve(path.dirname(abs), href)
-
-          if (!target.startsWith(__dirname) || !fs.statSync(target).isFile()) return null
-
-          return fs.readFileSync(target, 'utf8')
-        } catch {
-          return null
-        }
-      }
-
-      return {
-        name: path.basename(abs),
-        path: rel,
-        format: fmt,
-        html: renderFile(fmt, content, ext, { linkResolver }),
-        mtime: stat.mtime.toISOString(),
-      }
-    }
-
-    return {
-      name: 'vite-plugin-docs-portal',
-      resolveId(id) {
-        return id === manifestId ? '\0' + manifestId : null
-      },
-      load(id) {
-        if (id !== '\0' + manifestId) return null
-
-        return `export default ${JSON.stringify(scanManifest(__dirname))}`
-      },
-      configureServer(server) {
-        server.middlewares.use((req, res, next) => {
-          const url = (req.url || '').split('?')[0]
-
-          if (!url.startsWith('/' + assetBase) || !url.endsWith('.json')) return next()
-
-          const fileId = decodeURIComponent(url.slice(('/' + assetBase).length, -'.json'.length))
-
-          const payload = payloadFor(fileId)
-
-          if (!payload) {
-            res.statusCode = 404
-
-            return res.end('{}')
-          }
-
-          res.setHeader('Content-Type', 'application/json')
-
-          return res.end(JSON.stringify(payload))
-        })
-      },
-      generateBundle() {
-        // Emit on the default tier only — every tier serves the same
-        // dist/docs-content/ payloads.
-        if (!isDefault) return
-
-        const walk = (nodes) => {
-          for (const node of nodes) {
-            if (node.type === 'dir') {
-              walk(node.children)
-            } else {
-              const payload = payloadFor(node.id)
-
-              if (payload) {
-                this.emitFile({
-                  type: 'asset',
-                  fileName: `${assetBase}${node.id.replace(':', '/')}.json`,
-                  source: JSON.stringify(payload),
-                })
-              }
-            }
-          }
-        }
-
-        for (const root of scanManifest(__dirname).roots) walk(root.children)
-      },
-    }
-  }
-
   const plugins = [
     cmsMockPlugin,
-    i18nFallbackPlugin(),
-    i18nBootPlugin(),
-    docsPortalPlugin(),
+    ...(process.env.LK_NO_PUBLIC ? [] : [modulePublicPlugin()]),
+    i18nFallbackPlugin({ root: __dirname }),
+    i18nBootPlugin({ root: __dirname, isLegacy }),
+    docsPortalPlugin({ root: __dirname, emitAssets: isDefault }),
     mediaConvertPlugin(),
     compression({
       algorithm: 'brotliCompress',
@@ -475,27 +227,7 @@ export default defineConfig(() => {
         level: 9,
       },
     }),
-    {
-      name: 'vite-plugin-jsx-in-js',
-      enforce: 'pre',
-      async transform(code, id) {
-        if (
-          !id.includes('node_modules') &&
-          /\/(src|core|website|cms|experiments)\//.test(id) &&
-          id.endsWith('.js') &&
-          (code.includes('</') || code.includes('/>'))
-        ) {
-          const { transformWithOxc } = await import('vite')
-          const res = await transformWithOxc(code, id.replace(/\.js$/, '.jsx'), {
-            jsx: { runtime: 'classic', pragma: 'h', pragmaFrag: 'Fragment' },
-          })
-          return {
-            code: res.code,
-            map: res.map,
-          }
-        }
-      },
-    },
+    jsxInJsPlugin(),
   ]
 
   // PWA + html post-processing only on the default tier — service workers
@@ -507,7 +239,11 @@ export default defineConfig(() => {
         injectRegister: 'script-defer',
         filename: 'service-worker.js',
         manifestFilename: 'site.webmanifest',
-        includeAssets: ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png'],
+        includeAssets: [
+          'assets/icons/favicon.svg',
+          'favicon.ico',
+          'assets/icons/apple-touch-icon.png',
+        ],
         devOptions: {
           enabled: false,
         },
@@ -520,18 +256,18 @@ export default defineConfig(() => {
           background_color: '#FFF',
           icons: [
             {
-              src: 'favicon.svg',
+              src: '/assets/icons/favicon.svg',
               sizes: '512x512',
               type: 'image/svg+xml',
               purpose: 'any maskable',
             },
             {
-              src: 'android-chrome-192x192.png',
+              src: '/assets/icons/android-chrome-192x192.png',
               sizes: '192x192',
               type: 'image/png',
             },
             {
-              src: 'android-chrome-256x256.png',
+              src: '/assets/icons/android-chrome-256x256.png',
               sizes: '256x256',
               type: 'image/png',
             },
@@ -595,7 +331,10 @@ export default defineConfig(() => {
   const build = {
     outDir: 'dist',
     emptyOutDir: process.env.LK_EMPTY_OUTDIR !== '0',
-    publicDir: process.env.LK_NO_PUBLIC ? false : 'public',
+    // website/public stays the native publicDir (served by vite's own
+    // handlers in dev); modulePublicPlugin merges the remaining module
+    // public mounts (core payloads, experiment assets) into dist/dev.
+    publicDir: process.env.LK_NO_PUBLIC ? false : 'website/public',
     target: t.viteTarget,
     cssTarget: t.cssTarget,
     sourcemap: true,
@@ -624,13 +363,13 @@ export default defineConfig(() => {
         ...(isLegacy ? { emptyImportMeta: false } : {}),
       },
       input: isLegacy
-        ? { index: fileURLToPath(new URL('./src/main.js', import.meta.url)) }
+        ? { index: fileURLToPath(new URL('./shared/src/main.js', import.meta.url)) }
         : isDefault
           ? {
               index: fileURLToPath(new URL('./index.html', import.meta.url)),
               cms: fileURLToPath(new URL('./cms/index.html', import.meta.url)),
             }
-          : { index: fileURLToPath(new URL('./src/main.js', import.meta.url)) },
+          : { index: fileURLToPath(new URL('./shared/src/main.js', import.meta.url)) },
       output: {
         // Per-tier assets grouped by kind — js/ holds entry + lazy chunks,
         // css/ holds per-tier prefixed stylesheets, misc/ holds any other
@@ -660,18 +399,7 @@ export default defineConfig(() => {
   return {
     customLogger,
     plugins,
-    esbuild: {
-      // `jsx: 'transform'` is required for the esbuild→oxc config bridge to
-      // map jsxFactory/jsxFragment onto pragma/pragmaFrag — without it the
-      // mapping is skipped and .tsx would fall back to the automatic runtime.
-      jsx: 'transform',
-      jsxFactory: 'h',
-      jsxFragment: 'Fragment',
-      loader: 'jsx',
-      include: /src\/.*\.[jt]sx?$/,
-      legalComments: 'none',
-      treeShaking: true,
-    },
+    esbuild: { ...SHARED_ESBUILD },
     optimizeDeps: {
       noDiscovery: true,
       include: [
@@ -694,7 +422,7 @@ export default defineConfig(() => {
     },
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '@': fileURLToPath(new URL('./shared/src', import.meta.url)),
         '@core': fileURLToPath(new URL('./core', import.meta.url)),
         '@website': fileURLToPath(new URL('./website', import.meta.url)),
         '@cms': fileURLToPath(new URL('./cms', import.meta.url)),

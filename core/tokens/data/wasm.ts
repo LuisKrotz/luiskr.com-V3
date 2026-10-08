@@ -39,8 +39,8 @@ export const WASM_ACTIONS = Object.freeze(
  * covers engines without navigator.hardwareConcurrency.
  */
 export const WASM_POOL = Object.freeze({
-  WORKER_URL: '/workers/wasm-worker.js',
-  ENGINE_URL: '/wasm/engine.wasm',
+  WORKER_URL: '/scripts/workers/wasm-worker.js',
+  ENGINE_URL: '/scripts/wasm/engine.wasm',
   MOBILE_MAX: 2,
   DESKTOP_MIN: 2,
   DESKTOP_MAX: 4,

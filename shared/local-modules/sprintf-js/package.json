@@ -1,0 +1,33 @@
+{
+  "name": "@luiskrotz/sprintf-js",
+  "version": "1.1.4",
+  "description": "Security-hardened drop-in fork of sprintf-js@1.0.3 — bounds field width and precision so %999999999d-style patterns cannot trigger unbounded allocations (GHSA sprintf-js <=1.1.3 DoS).",
+  "main": "index.js",
+  "license": "MIT AND BSD-3-Clause",
+  "author": "Alexandru Mărășteanu <hello@alexei.ro> (http://alexei.ro/)",
+  "contributors": [
+    "Luis Krötz (security hardening)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuisKrotz/sprintf-js.git"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "sprintf",
+    "printf",
+    "formatting",
+    "security"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

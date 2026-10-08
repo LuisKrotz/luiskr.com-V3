@@ -1,0 +1,26 @@
+{
+  "name": "@luiskr/shared",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "exports": {
+    ".": "./src/main.js",
+    "./tests/*": "./tests/*",
+    "./build/*": "./build/*",
+    "./scripts/*": "./scripts/*"
+  },
+  "sideEffects": true,
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --config jest.config.mjs",
+    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --config jest.config.mjs --coverage"
+  },
+  "dependencies": {
+    "@luiskr/core": "1.0.0",
+    "register-service-worker": "^1.7.2"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,2 +1,0 @@
-var COe=Object.defineProperty,Il=(e,a)=>COe(e,"name",{value:a,configurable:!0}),EH=(e,a)=>{for(var r in a)COe(e,r,{get:a[r],enumerable:!0})};export{Il as n,EH as t};
-//# sourceMappingURL=chunk-Y2CYZVJY-BX-CeUCO.js.map

@@ -21,7 +21,7 @@ Under NO circumstances introduce hardcoded values into this codebase.
 ## Strings, classes, DOM vocabulary
 
 - Every repeated string (class, tag, event, route, attribute, storage key) lives in `core/tokens/` (re-exported via `core/constants.js`) or `cms/tokens.js` for CMS.
-- Tests follow the same rule — import tokens; test-only vocabulary goes in `tests/fixtures/test-constants.js`.
+- Tests follow the same rule — import tokens; test-only vocabulary goes in `shared/tests/fixtures/test-constants.js`.
 - No template-string HTML or innerHTML for templates — components return JSX (`h`, `Fragment` from `core/jsx.js`).
 
 ## Styles
@@ -32,4 +32,4 @@ Under NO circumstances introduce hardcoded values into this codebase.
 
 ## Enforcement
 
-`tests/governance/style-governance.test.js` validates these rules — add a check there when adding a rule.
+`shared/tests/governance/style-governance.test.js` validates these rules — add a check there when adding a rule.

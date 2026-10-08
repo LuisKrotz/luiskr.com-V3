@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./shared/src/*"],
+      "@tests/*": ["./shared/tests/*"],
       "@core": ["./core/index.ts"],
       "@core/*": ["./core/*"],
       "@website/*": ["./website/*"],

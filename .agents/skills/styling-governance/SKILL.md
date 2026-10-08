@@ -20,7 +20,7 @@ description: SCSS layering rules — CSS custom properties in components, token 
 
 ## Responsive
 
-Breakpoints must match the shared `$grid-steps` map (414, 960, 1280, 1440, 1920, 3840, 5120, 7680). The debug overlay (`_grid-overlay.scss`) and `%MAXAREA` must never diverge — verified by `tests/governance/grid-overlay.test.js`.
+Breakpoints must match the shared `$grid-steps` map (414, 960, 1280, 1440, 1920, 3840, 5120, 7680). The debug overlay (`_grid-overlay.scss`) and `%MAXAREA` must never diverge — verified by `shared/tests/governance/grid-overlay.test.js`.
 
 ## Lint
 

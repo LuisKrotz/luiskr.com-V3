@@ -34,11 +34,20 @@
         ]
       },
       {
-        "source": "/wasm/**",
+        "source": "/scripts/wasm/**",
         "headers": [
           {
             "key": "Cache-Control",
             "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "/scripts/workers/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=86400"
           }
         ]
       },
@@ -105,6 +114,574 @@
       }
     ],
     "rewrites": [
+      {
+        "source": "/robots.txt",
+        "destination": "/meta/robots.txt"
+      },
+      {
+        "source": "/sitemap.xml",
+        "destination": "/meta/sitemap.xml"
+      },
+      {
+        "source": "/urllist.txt",
+        "destination": "/meta/urllist.txt"
+      },
+      {
+        "source": "/llms.txt",
+        "destination": "/meta/llms.txt"
+      },
+      {
+        "source": "/ai-catalog.json",
+        "destination": "/meta/ai-catalog.json"
+      },
+      {
+        "source": "/.well-known/ai-catalog.json",
+        "destination": "/meta/.well-known/ai-catalog.json"
+      },
+      {
+        "source": "/browserconfig.xml",
+        "destination": "/meta/browserconfig.xml"
+      },
+      {
+        "source": "/br",
+        "destination": "/langs/br/index.html"
+      },
+      {
+        "source": "/br/sobre",
+        "destination": "/langs/br/sobre/index.html"
+      },
+      {
+        "source": "/br/contato",
+        "destination": "/langs/br/contato/index.html"
+      },
+      {
+        "source": "/br/politica-de-privacidade",
+        "destination": "/langs/br/politica-de-privacidade/index.html"
+      },
+      {
+        "source": "/br/lgpd",
+        "destination": "/langs/br/lgpd/index.html"
+      },
+      {
+        "source": "/br/termos-de-uso",
+        "destination": "/langs/br/termos-de-uso/index.html"
+      },
+      {
+        "source": "/br/playground-da-terra",
+        "destination": "/langs/br/playground-da-terra/index.html"
+      },
+      {
+        "source": "/br/earth-playground",
+        "destination": "/langs/br/earth-playground/index.html"
+      },
+      {
+        "source": "/br/space-playground",
+        "destination": "/langs/br/space-playground/index.html"
+      },
+      {
+        "source": "/es",
+        "destination": "/langs/es/index.html"
+      },
+      {
+        "source": "/es/acerca",
+        "destination": "/langs/es/acerca/index.html"
+      },
+      {
+        "source": "/es/contacto",
+        "destination": "/langs/es/contacto/index.html"
+      },
+      {
+        "source": "/es/politica-de-privacidad",
+        "destination": "/langs/es/politica-de-privacidad/index.html"
+      },
+      {
+        "source": "/es/rgpd",
+        "destination": "/langs/es/rgpd/index.html"
+      },
+      {
+        "source": "/es/terminos-de-uso",
+        "destination": "/langs/es/terminos-de-uso/index.html"
+      },
+      {
+        "source": "/es/playground-de-la-tierra",
+        "destination": "/langs/es/playground-de-la-tierra/index.html"
+      },
+      {
+        "source": "/es/earth-playground",
+        "destination": "/langs/es/earth-playground/index.html"
+      },
+      {
+        "source": "/es/space-playground",
+        "destination": "/langs/es/space-playground/index.html"
+      },
+      {
+        "source": "/de",
+        "destination": "/langs/de/index.html"
+      },
+      {
+        "source": "/de/ueber",
+        "destination": "/langs/de/ueber/index.html"
+      },
+      {
+        "source": "/de/kontakt",
+        "destination": "/langs/de/kontakt/index.html"
+      },
+      {
+        "source": "/de/datenschutzrichtlinie",
+        "destination": "/langs/de/datenschutzrichtlinie/index.html"
+      },
+      {
+        "source": "/de/dsgvo",
+        "destination": "/langs/de/dsgvo/index.html"
+      },
+      {
+        "source": "/de/nutzungsbedingungen",
+        "destination": "/langs/de/nutzungsbedingungen/index.html"
+      },
+      {
+        "source": "/de/erde-playground",
+        "destination": "/langs/de/erde-playground/index.html"
+      },
+      {
+        "source": "/de/earth-playground",
+        "destination": "/langs/de/earth-playground/index.html"
+      },
+      {
+        "source": "/de/space-playground",
+        "destination": "/langs/de/space-playground/index.html"
+      },
+      {
+        "source": "/hrk",
+        "destination": "/langs/hrk/index.html"
+      },
+      {
+        "source": "/hrk/iwwer-mich",
+        "destination": "/langs/hrk/iwwer-mich/index.html"
+      },
+      {
+        "source": "/hrk/kontakt",
+        "destination": "/langs/hrk/kontakt/index.html"
+      },
+      {
+        "source": "/hrk/dateschutz-erklerung",
+        "destination": "/langs/hrk/dateschutz-erklerung/index.html"
+      },
+      {
+        "source": "/hrk/datenschutz",
+        "destination": "/langs/hrk/datenschutz/index.html"
+      },
+      {
+        "source": "/hrk/nutzungsbedingunge",
+        "destination": "/langs/hrk/nutzungsbedingunge/index.html"
+      },
+      {
+        "source": "/hrk/erd-playground",
+        "destination": "/langs/hrk/erd-playground/index.html"
+      },
+      {
+        "source": "/hrk/earth-playground",
+        "destination": "/langs/hrk/earth-playground/index.html"
+      },
+      {
+        "source": "/hrk/space-playground",
+        "destination": "/langs/hrk/space-playground/index.html"
+      },
+      {
+        "source": "/cas",
+        "destination": "/langs/cas/index.html"
+      },
+      {
+        "source": "/cas/sobre-mi",
+        "destination": "/langs/cas/sobre-mi/index.html"
+      },
+      {
+        "source": "/cas/contacto",
+        "destination": "/langs/cas/contacto/index.html"
+      },
+      {
+        "source": "/cas/politica-de-privacidad",
+        "destination": "/langs/cas/politica-de-privacidad/index.html"
+      },
+      {
+        "source": "/cas/rgpd",
+        "destination": "/langs/cas/rgpd/index.html"
+      },
+      {
+        "source": "/cas/terminos-de-uso",
+        "destination": "/langs/cas/terminos-de-uso/index.html"
+      },
+      {
+        "source": "/cas/playground-de-la-tierra",
+        "destination": "/langs/cas/playground-de-la-tierra/index.html"
+      },
+      {
+        "source": "/cas/earth-playground",
+        "destination": "/langs/cas/earth-playground/index.html"
+      },
+      {
+        "source": "/cas/space-playground",
+        "destination": "/langs/cas/space-playground/index.html"
+      },
+      {
+        "source": "/riv",
+        "destination": "/langs/riv/index.html"
+      },
+      {
+        "source": "/riv/sobre-yo",
+        "destination": "/langs/riv/sobre-yo/index.html"
+      },
+      {
+        "source": "/riv/contato",
+        "destination": "/langs/riv/contato/index.html"
+      },
+      {
+        "source": "/riv/politica-de-privacidade",
+        "destination": "/langs/riv/politica-de-privacidade/index.html"
+      },
+      {
+        "source": "/riv/lgpd-gdpr",
+        "destination": "/langs/riv/lgpd-gdpr/index.html"
+      },
+      {
+        "source": "/riv/termos-de-uso",
+        "destination": "/langs/riv/termos-de-uso/index.html"
+      },
+      {
+        "source": "/riv/playground-da-terra",
+        "destination": "/langs/riv/playground-da-terra/index.html"
+      },
+      {
+        "source": "/riv/earth-playground",
+        "destination": "/langs/riv/earth-playground/index.html"
+      },
+      {
+        "source": "/riv/space-playground",
+        "destination": "/langs/riv/space-playground/index.html"
+      },
+      {
+        "source": "/gn",
+        "destination": "/langs/gn/index.html"
+      },
+      {
+        "source": "/gn/che-rehegua",
+        "destination": "/langs/gn/che-rehegua/index.html"
+      },
+      {
+        "source": "/gn/kontakt",
+        "destination": "/langs/gn/kontakt/index.html"
+      },
+      {
+        "source": "/gn/marandu-nangarekoha",
+        "destination": "/langs/gn/marandu-nangarekoha/index.html"
+      },
+      {
+        "source": "/gn/lgpd-gdpr",
+        "destination": "/langs/gn/lgpd-gdpr/index.html"
+      },
+      {
+        "source": "/gn/oipuruva-nemoarandu",
+        "destination": "/langs/gn/oipuruva-nemoarandu/index.html"
+      },
+      {
+        "source": "/gn/yvy-nembosarai",
+        "destination": "/langs/gn/yvy-nembosarai/index.html"
+      },
+      {
+        "source": "/gn/earth-playground",
+        "destination": "/langs/gn/earth-playground/index.html"
+      },
+      {
+        "source": "/gn/space-playground",
+        "destination": "/langs/gn/space-playground/index.html"
+      },
+      {
+        "source": "/it",
+        "destination": "/langs/it/index.html"
+      },
+      {
+        "source": "/it/chi-sono",
+        "destination": "/langs/it/chi-sono/index.html"
+      },
+      {
+        "source": "/it/contatti",
+        "destination": "/langs/it/contatti/index.html"
+      },
+      {
+        "source": "/it/informativa-sulla-privacy",
+        "destination": "/langs/it/informativa-sulla-privacy/index.html"
+      },
+      {
+        "source": "/it/gdpr",
+        "destination": "/langs/it/gdpr/index.html"
+      },
+      {
+        "source": "/it/termini-di-utilizzo",
+        "destination": "/langs/it/termini-di-utilizzo/index.html"
+      },
+      {
+        "source": "/it/playground-della-terra",
+        "destination": "/langs/it/playground-della-terra/index.html"
+      },
+      {
+        "source": "/it/earth-playground",
+        "destination": "/langs/it/earth-playground/index.html"
+      },
+      {
+        "source": "/it/space-playground",
+        "destination": "/langs/it/space-playground/index.html"
+      },
+      {
+        "source": "/ru",
+        "destination": "/langs/ru/index.html"
+      },
+      {
+        "source": "/ru/obo-mne",
+        "destination": "/langs/ru/obo-mne/index.html"
+      },
+      {
+        "source": "/ru/kontakty",
+        "destination": "/langs/ru/kontakty/index.html"
+      },
+      {
+        "source": "/ru/politika-konfidentsialnosti",
+        "destination": "/langs/ru/politika-konfidentsialnosti/index.html"
+      },
+      {
+        "source": "/ru/gdpr",
+        "destination": "/langs/ru/gdpr/index.html"
+      },
+      {
+        "source": "/ru/usloviya-ispolzovaniya",
+        "destination": "/langs/ru/usloviya-ispolzovaniya/index.html"
+      },
+      {
+        "source": "/ru/zemnaya-pesochnitsa",
+        "destination": "/langs/ru/zemnaya-pesochnitsa/index.html"
+      },
+      {
+        "source": "/ru/earth-playground",
+        "destination": "/langs/ru/earth-playground/index.html"
+      },
+      {
+        "source": "/ru/space-playground",
+        "destination": "/langs/ru/space-playground/index.html"
+      },
+      {
+        "source": "/fr",
+        "destination": "/langs/fr/index.html"
+      },
+      {
+        "source": "/fr/a-propos",
+        "destination": "/langs/fr/a-propos/index.html"
+      },
+      {
+        "source": "/fr/contact",
+        "destination": "/langs/fr/contact/index.html"
+      },
+      {
+        "source": "/fr/politique-de-confidentialite",
+        "destination": "/langs/fr/politique-de-confidentialite/index.html"
+      },
+      {
+        "source": "/fr/rgpd",
+        "destination": "/langs/fr/rgpd/index.html"
+      },
+      {
+        "source": "/fr/conditions-utilisation",
+        "destination": "/langs/fr/conditions-utilisation/index.html"
+      },
+      {
+        "source": "/fr/playground-de-la-terre",
+        "destination": "/langs/fr/playground-de-la-terre/index.html"
+      },
+      {
+        "source": "/fr/earth-playground",
+        "destination": "/langs/fr/earth-playground/index.html"
+      },
+      {
+        "source": "/fr/space-playground",
+        "destination": "/langs/fr/space-playground/index.html"
+      },
+      {
+        "source": "/tln",
+        "destination": "/langs/tln/index.html"
+      },
+      {
+        "source": "/tln/de-mi",
+        "destination": "/langs/tln/de-mi/index.html"
+      },
+      {
+        "source": "/tln/contato",
+        "destination": "/langs/tln/contato/index.html"
+      },
+      {
+        "source": "/tln/informativa-su-la-privacy",
+        "destination": "/langs/tln/informativa-su-la-privacy/index.html"
+      },
+      {
+        "source": "/tln/gdpr",
+        "destination": "/langs/tln/gdpr/index.html"
+      },
+      {
+        "source": "/tln/condission-de-uso",
+        "destination": "/langs/tln/condission-de-uso/index.html"
+      },
+      {
+        "source": "/tln/playground-della-terra",
+        "destination": "/langs/tln/playground-della-terra/index.html"
+      },
+      {
+        "source": "/tln/earth-playground",
+        "destination": "/langs/tln/earth-playground/index.html"
+      },
+      {
+        "source": "/tln/space-playground",
+        "destination": "/langs/tln/space-playground/index.html"
+      },
+      {
+        "source": "/gl",
+        "destination": "/langs/gl/index.html"
+      },
+      {
+        "source": "/gl/sobre-min",
+        "destination": "/langs/gl/sobre-min/index.html"
+      },
+      {
+        "source": "/gl/contacto",
+        "destination": "/langs/gl/contacto/index.html"
+      },
+      {
+        "source": "/gl/politica-de-privacidade",
+        "destination": "/langs/gl/politica-de-privacidade/index.html"
+      },
+      {
+        "source": "/gl/rgpd",
+        "destination": "/langs/gl/rgpd/index.html"
+      },
+      {
+        "source": "/gl/termos-de-uso",
+        "destination": "/langs/gl/termos-de-uso/index.html"
+      },
+      {
+        "source": "/gl/playground-da-terra",
+        "destination": "/langs/gl/playground-da-terra/index.html"
+      },
+      {
+        "source": "/gl/earth-playground",
+        "destination": "/langs/gl/earth-playground/index.html"
+      },
+      {
+        "source": "/gl/space-playground",
+        "destination": "/langs/gl/space-playground/index.html"
+      },
+      {
+        "source": "/ca",
+        "destination": "/langs/ca/index.html"
+      },
+      {
+        "source": "/ca/quant-a-mi",
+        "destination": "/langs/ca/quant-a-mi/index.html"
+      },
+      {
+        "source": "/ca/contacte",
+        "destination": "/langs/ca/contacte/index.html"
+      },
+      {
+        "source": "/ca/politica-de-privacitat",
+        "destination": "/langs/ca/politica-de-privacitat/index.html"
+      },
+      {
+        "source": "/ca/rgpd",
+        "destination": "/langs/ca/rgpd/index.html"
+      },
+      {
+        "source": "/ca/termes-d-us",
+        "destination": "/langs/ca/termes-d-us/index.html"
+      },
+      {
+        "source": "/ca/playground-de-la-terra",
+        "destination": "/langs/ca/playground-de-la-terra/index.html"
+      },
+      {
+        "source": "/ca/earth-playground",
+        "destination": "/langs/ca/earth-playground/index.html"
+      },
+      {
+        "source": "/ca/space-playground",
+        "destination": "/langs/ca/space-playground/index.html"
+      },
+      {
+        "source": "/nl",
+        "destination": "/langs/nl/index.html"
+      },
+      {
+        "source": "/nl/over-mij",
+        "destination": "/langs/nl/over-mij/index.html"
+      },
+      {
+        "source": "/nl/contact",
+        "destination": "/langs/nl/contact/index.html"
+      },
+      {
+        "source": "/nl/privacybeleid",
+        "destination": "/langs/nl/privacybeleid/index.html"
+      },
+      {
+        "source": "/nl/avg",
+        "destination": "/langs/nl/avg/index.html"
+      },
+      {
+        "source": "/nl/gebruiksvoorwaarden",
+        "destination": "/langs/nl/gebruiksvoorwaarden/index.html"
+      },
+      {
+        "source": "/nl/aarde-playground",
+        "destination": "/langs/nl/aarde-playground/index.html"
+      },
+      {
+        "source": "/nl/earth-playground",
+        "destination": "/langs/nl/earth-playground/index.html"
+      },
+      {
+        "source": "/nl/space-playground",
+        "destination": "/langs/nl/space-playground/index.html"
+      },
+      {
+        "source": "/ga",
+        "destination": "/langs/ga/index.html"
+      },
+      {
+        "source": "/ga/faoi-mhe",
+        "destination": "/langs/ga/faoi-mhe/index.html"
+      },
+      {
+        "source": "/ga/teagmhail",
+        "destination": "/langs/ga/teagmhail/index.html"
+      },
+      {
+        "source": "/ga/beartas-probhaideachta",
+        "destination": "/langs/ga/beartas-probhaideachta/index.html"
+      },
+      {
+        "source": "/ga/gdpr",
+        "destination": "/langs/ga/gdpr/index.html"
+      },
+      {
+        "source": "/ga/tearmai-usaide",
+        "destination": "/langs/ga/tearmai-usaide/index.html"
+      },
+      {
+        "source": "/ga/playground-an-domhain",
+        "destination": "/langs/ga/playground-an-domhain/index.html"
+      },
+      {
+        "source": "/ga/earth-playground",
+        "destination": "/langs/ga/earth-playground/index.html"
+      },
+      {
+        "source": "/ga/space-playground",
+        "destination": "/langs/ga/space-playground/index.html"
+      },
       {
         "source": "/admin",
         "destination": "/cms/index.html"

@@ -1,2 +1,0 @@
-var Un,Wo;import{Pt as lee}from"./store-CpDUN1D_.js";Un=Object.freeze({pm:"legal"}),Wo=Object.freeze({Nn:lee,om:`${lee}-title`,nm:`${lee}-subtitle`,tm:`${lee}-link`});export{Wo as n,Un as t};
-//# sourceMappingURL=legal-t97eQsj8.js.map

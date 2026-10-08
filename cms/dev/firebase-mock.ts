@@ -1,3 +1,4 @@
+/* istanbul ignore file -- dev-only offline stub; never aliased in production builds */
 import { devInfo } from '@core/devlog.js'
 /**
  * @file dev/firebase-mock.js (cms)

@@ -17,4 +17,4 @@ A component folder (`website/components/<domain>/<name>/` or `website/components
 
 ## Enforcement
 
-`tests/governance/component-portability.test.js` scans all imports and fails on violations.
+`shared/tests/governance/component-portability.test.js` scans all imports and fails on violations.

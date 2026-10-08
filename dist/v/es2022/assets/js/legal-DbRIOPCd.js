@@ -1,2 +1,0 @@
-var fr,No;import{Pt as Tee}from"./store-Daes6Nyl.js";fr=Object.freeze({pm:"legal"}),No=Object.freeze({Ni:Tee,nm:`${Tee}-title`,om:`${Tee}-subtitle`,tm:`${Tee}-link`});export{No as n,fr as t};
-//# sourceMappingURL=legal-DbRIOPCd.js.map

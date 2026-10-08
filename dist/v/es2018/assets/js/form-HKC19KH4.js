@@ -1,2 +1,0 @@
-var ln,dn;import{ln as Vee}from"./store-ZULviT_p.js";ln=Object.freeze({cn:"aria-label",ia:"aria-expanded",EB:"aria-controls",aB:"aria-labelledby",eB:"aria-modal",bf:"aria-hidden",AB:"aria-live",nR:"aria-pressed",Go:"aria-checked",nz:"polite",RB:"role",cs:Vee,Mo:"group",So:"switch",ta:"button",Dn:"navigation",lz:"alert",dz:"status",ey:"tree",Vh:"treeitem",Wh:"none",Kf:"tabindex"}),dn=Object.freeze({_E:"type",Mn:"button",Oa:"button",un:"text",oR:"checkbox",tR:"range",TL:"name",OL:"value",ps:"label"});export{ln as n,dn as t};
-//# sourceMappingURL=form-HKC19KH4.js.map

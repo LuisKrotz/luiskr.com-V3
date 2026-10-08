@@ -1,2 +1,0 @@
-var Un,Wo;import{Pt as lee}from"./store-DCmxtJ5t.js";Un=Object.freeze({fm:"legal"}),Wo=Object.freeze({Nn:lee,om:`${lee}-title`,nm:`${lee}-subtitle`,tm:`${lee}-link`});export{Wo as n,Un as t};
-//# sourceMappingURL=legal-BNpLwybV.js.map

@@ -1,0 +1,33 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Luis Krötz Portfolio",
+    "identifier": "https://luiskr.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:luiskr.com:portfolio:info",
+      "displayName": "Luis Krötz Portfolio & Projects",
+      "type": "text/markdown",
+      "url": "https://luiskr.com/es/llms.txt",
+      "description": "Portfolio, case studies, and engineering experience of Software Engineer Luis Krötz.",
+      "representativeQueries": [
+        "What projects has Luis Krötz built?",
+        "View front-end portfolio of Luis Krötz",
+        "How to contact Luis Krötz"
+      ]
+    },
+    {
+      "identifier": "urn:air:luiskr.com:docs:portal",
+      "displayName": "In-depth project docs",
+      "type": "text/html",
+      "url": "https://luiskr.com/docs",
+      "description": "Browsable documentation portal for luiskr.com — architecture guides, quality reports, per-file test coverage and the annotated source tree. Every published file is a crawlable /docs/<root>/<path> route with JSON-LD and microdata.",
+      "representativeQueries": [
+        "luiskr.com architecture documentation",
+        "luiskr.com test coverage reports",
+        "luiskr.com source code browser"
+      ]
+    }
+  ]
+}

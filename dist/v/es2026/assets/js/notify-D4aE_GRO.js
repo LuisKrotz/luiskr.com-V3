@@ -1,2 +1,0 @@
-var Xn,aee;import{b as gt}from"./urls-6k9tnWXh.js";Xn=Object.freeze({ERROR:gt.ERROR,Eo:"info",Ej:"success"}),aee=Object.freeze({iz:5e3,sz:4,Oj:2500,Sj:64});export{Xn as n,aee as t};
-//# sourceMappingURL=notify-D4aE_GRO.js.map

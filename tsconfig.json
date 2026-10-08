@@ -21,7 +21,8 @@
     "jsxFragmentFactory": "Fragment",
 
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./shared/src/*"],
+      "@tests/*": ["./shared/tests/*"],
       "@core": ["./core/index.ts"],
       "@core/*": ["./core/*"],
       "@website/*": ["./website/*"],
@@ -39,9 +40,9 @@
     "checkJs": false
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/globals.d.ts",
+    "shared/src/**/*.ts",
+    "shared/src/**/*.tsx",
+    "shared/src/globals.d.ts",
     "core/**/*.ts",
     "core/**/*.tsx",
     "website/**/*.ts",
@@ -51,5 +52,5 @@
     "experiments/**/*.ts",
     "experiments/**/*.tsx"
   ],
-  "exclude": ["node_modules", "dist", "coverage"]
+  "exclude": ["node_modules", "**/dist", "**/coverage", "**/reports", "**/tests"]
 }

@@ -1,4 +1,10 @@
 {
   "extends": "../tsconfig.json",
-  "include": ["./**/*.ts", "./**/*.tsx", "../src/globals.d.ts", "../src/modules.d.ts"]
+  "include": [
+    "./**/*.ts",
+    "./**/*.tsx",
+    "../shared/src/globals.d.ts",
+    "../shared/src/modules.d.ts"
+  ],
+  "exclude": ["./tests", "./dist", "./reports", "./node_modules"]
 }

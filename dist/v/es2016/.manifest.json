@@ -1,11 +1,11 @@
 {
-  "src/main.ts": {
-    "file": "v/es2016/assets/js/index-uQpfr6U-.js",
+  "shared/src/main.ts": {
+    "file": "v/es2016/assets/js/index-DWcl0PW7.js",
     "name": "index",
-    "src": "src/main.ts",
+    "src": "shared/src/main.ts",
     "isEntry": true,
     "dynamicImports": [
-      "src/main.ts"
+      "shared/src/main.ts"
     ]
   }
 }

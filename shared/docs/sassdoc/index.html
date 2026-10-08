@@ -1,0 +1,1540 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>luiskr.com — Sass API</title>
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content="Sass design-token and mixin API reference generated from /// doc blocks." />
+</head>
+<body>
+  <h1>Sass API — luiskr.com 0.1.0</h1>
+  <p>Generated from <code>///</code> doc blocks across the module tree. Every item is
+  a compile-time token, function, mixin, or placeholder consumed by the component sheets.</p>
+  <nav aria-label="Files"><ul>
+      <li><a href="#file-core-sass-base-_mixins-scss">core/sass/base/_mixins.scss</a> (29)</li>
+      <li><a href="#file-core-sass-base-_placeholders-scss">core/sass/base/_placeholders.scss</a> (3)</li>
+      <li><a href="#file-core-sass-base-_variables-scss">core/sass/base/_variables.scss</a> (147)</li>
+      <li><a href="#file-core-sass-components-carousel-awards-carousel-scss">core/sass/components/carousel/awards-carousel.scss</a> (3)</li>
+      <li><a href="#file-core-sass-components-carousel-carousel-scss">core/sass/components/carousel/carousel.scss</a> (6)</li>
+  </ul></nav>
+  <section id="file-core-sass-base-_mixins-scss">
+    <h2>core/sass/base/_mixins.scss</h2>
+    <article class="sd-item sd-item--function" id="function-decimal-round">
+    <h3><code>decimal-round</code> <span class="sd-kind">function</span></h3>
+    <pre class="sd-sig"><code>@function decimal-round($number, $digits: 0, $mode: round) {</code></pre>
+    <p>Rounds a number to N decimal digits using the given rounding mode. `round`/`floor` wrap in calc() so the result stays a math expression Sass can still compose; `ceil` returns a plain number (Sass has no native CSS ceil() at this pinned Sass version). Non-number inputs warn and pass through unchanged instead of failing the whole compile — a typo in one call site shouldn&#39;t kill the build.</p>
+    <h4>Parameters</h4><ul><li><code>$number</code> <span class="sd-type">Number</span> — Value to round.</li><li><code>$digits</code> <span class="sd-type">Number</span> <span class="sd-def">default: <code>0</code></span> — Decimal places to keep (must be unitless).</li><li><code>$mode</code> <span class="sd-type">String</span> <span class="sd-def">default: <code>round</code></span> — `round`, `ceil`, or `floor`.</li></ul>
+    <h4>Returns</h4><p><span class="sd-type">Number</span> The rounded value (or the input when invalid).</p>
+    
+  </article>
+    <article class="sd-item sd-item--function" id="function-to-vw">
+    <h3><code>to-vw</code> <span class="sd-kind">function</span></h3>
+    <pre class="sd-sig"><code>@function to-vw($value, $viewport) {</code></pre>
+    <p>Converts a px length to a vw percentage of a reference viewport.</p>
+    <h4>Parameters</h4><ul><li><code>$value</code> <span class="sd-type">Number</span> — Length in px.</li><li><code>$viewport</code> <span class="sd-type">Number</span> — Reference viewport width in px.</li></ul>
+    <h4>Returns</h4><p><span class="sd-type">String</span> A `vw`-suffixed value rounded to 3 decimals.</p>
+    
+  </article>
+    <article class="sd-item sd-item--function" id="function-to-vmin">
+    <h3><code>to-vmin</code> <span class="sd-kind">function</span></h3>
+    <pre class="sd-sig"><code>@function to-vmin($value, $height) {</code></pre>
+    <p>Converts a px length to a vmin percentage of a reference height.</p>
+    <h4>Parameters</h4><ul><li><code>$value</code> <span class="sd-type">Number</span> — Length in px.</li><li><code>$height</code> <span class="sd-type">Number</span> — Reference height in px.</li></ul>
+    <h4>Returns</h4><p><span class="sd-type">String</span> A `vmin`-suffixed value rounded to 3 decimals.</p>
+    
+  </article>
+    <article class="sd-item sd-item--function" id="function-to-rem">
+    <h3><code>to-rem</code> <span class="sd-kind">function</span></h3>
+    <pre class="sd-sig"><code>@function to-rem($value) {</code></pre>
+    <p>Converts a px (or unitless px-meaning) number to rem at the 16px root. The px unit is stripped first so `to-rem(16px)` and `to-rem(16)` both yield 1rem — Fibonacci $space-* tokens are declared unitless.</p>
+    <h4>Parameters</h4><ul><li><code>$value</code> <span class="sd-type">Number</span> — px length or unitless px count.</li></ul>
+    <h4>Returns</h4><p><span class="sd-type">String</span> A `rem`-suffixed value rounded to 3 decimals.</p>
+    
+  </article>
+    <article class="sd-item sd-item--function" id="function-rel-to-area">
+    <h3><code>rel-to-area</code> <span class="sd-kind">function</span></h3>
+    <pre class="sd-sig"><code>@function rel-to-area($value, $area) {</code></pre>
+    <p>Expresses $value as a percentage of $area (e.g. a slot inside a grid cell).</p>
+    <h4>Parameters</h4><ul><li><code>$value</code> <span class="sd-type">Number</span> — Part length.</li><li><code>$area</code> <span class="sd-type">Number</span> — Whole length.</li></ul>
+    <h4>Returns</h4><p><span class="sd-type">Number</span> Percentage rounded to 3 decimals.</p>
+    
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-ignore-br">
+    <h3><code>ignore-br</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin ignore-br() {</code></pre>
+    <p>Neutralizes &#60;br&#62; inside the scope — `content: &#39; &#39;` collapses the line break (and the generated content) so copy with &#60;br&#62; can be flattened on narrow layouts without editing the markup.</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-pseudo">
+    <h3><code>pseudo</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin pseudo($display: block, $pos: absolute, $content: &#39;&#39;) {</code></pre>
+    <p>Emits the content/display/position triplet for a pseudo-element.</p>
+    <h4>Parameters</h4><ul><li><code>$display</code> <span class="sd-type">String</span> <span class="sd-def">default: <code>block</code></span> — display value.</li><li><code>$pos</code> <span class="sd-type">String</span> <span class="sd-def">default: <code>absolute</code></span> — position value.</li><li><code>$content</code> <span class="sd-type">String</span> <span class="sd-def">default: <code>&#39;&#39;</code></span> — content value.</li></ul>
+    
+    
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-proportional-line">
+    <h3><code>proportional-line</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin proportional-line($font-size, $line-height) {</code></pre>
+    <p>Sets a unitless-proportional line-height in rem — lh/fs rounded to 2 decimals so the rhythm stays proportional when font-size is tweaked.</p>
+    <h4>Parameters</h4><ul><li><code>$font-size</code> <span class="sd-type">Number</span> — Font size in the same unit as $line-height.</li><li><code>$line-height</code> <span class="sd-type">Number</span> — Desired line height.</li></ul>
+    
+    
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-reset-list">
+    <h3><code>reset-list</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin reset-list($padding: 0, $margin: 0) {</code></pre>
+    <p>Removes list chrome (markers + box offsets).</p>
+    <h4>Parameters</h4><ul><li><code>$padding</code> <span class="sd-type">Number</span> <span class="sd-def">default: <code>0</code></span> — Padding to keep.</li><li><code>$margin</code> <span class="sd-type">Number</span> <span class="sd-def">default: <code>0</code></span> — Margin to keep.</li></ul>
+    
+    
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-320">
+    <h3><code>layout-320</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-320 {</code></pre>
+    <p>`@media (min-width: $bk-320)` — iPhone-SE-class portrait.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-375">
+    <h3><code>layout-375</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-375 {</code></pre>
+    <p>`@media (min-width: $bk-375)` — standard iPhone portrait.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-414">
+    <h3><code>layout-414</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-414 {</code></pre>
+    <p>`@media (min-width: $bk-414)` — phablet portrait.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-540">
+    <h3><code>layout-540</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-540 {</code></pre>
+    <p>`@media (min-width: $bk-540)` — mobile-menu/phablet breakpoint.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-768">
+    <h3><code>layout-768</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-768 {</code></pre>
+    <p>`@media (min-width: $bk-768)` — iPad portrait.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-960">
+    <h3><code>layout-960</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-960 {</code></pre>
+    <p>`@media (min-width: $bk-960)` — tablet landscape.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-1024">
+    <h3><code>layout-1024</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-1024 {</code></pre>
+    <p>`@media (min-width: $bk-1024)` — iPad landscape / small laptop.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-1280">
+    <h3><code>layout-1280</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-1280 {</code></pre>
+    <p>`@media (min-width: $bk-1280)` — HD laptop.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-1360">
+    <h3><code>layout-1360</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-1360 {</code></pre>
+    <p>`@media (min-width: $bk-1360)` — HD laptop (common 1366 class).</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-1440">
+    <h3><code>layout-1440</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-1440 {</code></pre>
+    <p>`@media (min-width: $bk-1440)` — HD+ laptop.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-1560">
+    <h3><code>layout-1560</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-1560 {</code></pre>
+    <p>`@media (min-width: $bk-1560)` — wide HD laptop.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-1680">
+    <h3><code>layout-1680</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-1680 {</code></pre>
+    <p>`@media (min-width: $bk-1680)` — wide desktop.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-1920">
+    <h3><code>layout-1920</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-1920 {</code></pre>
+    <p>`@media (min-width: $bk-1920)` — FHD desktop.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-2560">
+    <h3><code>layout-2560</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-2560 {</code></pre>
+    <p>`@media (min-width: $bk-2560)` — 2K/QHD.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-3840">
+    <h3><code>layout-3840</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-3840 {</code></pre>
+    <p>`@media (min-width: $bk-3840)` — 4K/UHD.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-5120">
+    <h3><code>layout-5120</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-5120 {</code></pre>
+    <p>`@media (min-width: $bk-5120)` — 5K.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-layout-7680">
+    <h3><code>layout-7680</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin layout-7680 {</code></pre>
+    <p>`@media (min-width: $bk-7680)` — 8K.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Rules to emit inside the query.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-grid-steps">
+    <h3><code>grid-steps</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin grid-steps {</code></pre>
+    <p>Emits one `min-width: (step−1)px` media query per `$grid-steps` entry. Steps ≤ 272 are skipped — the watch viewport is the base (un-queried) layout. Keeping a single iteration point guarantees %MAXAREA gutters and the debug overlay can never drift apart.</p>
+    
+    
+    <p class="sd-tag"><code>@content</code> Receives `($step, $gap, $cols)` per breakpoint.</p>
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-focus-ring">
+    <h3><code>focus-ring</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin focus-ring {</code></pre>
+    <p>Emits the focus-ring declarations (outline + offset) — nest under `&#38;:focus-visible`. Inked by `--focus-ring` so the affordance matches the theme accent in both light and dark.</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--mixin" id="mixin-focus-ring-scope">
+    <h3><code>focus-ring-scope</code> <span class="sd-kind">mixin</span></h3>
+    <pre class="sd-sig"><code>@mixin focus-ring-scope {</code></pre>
+    <p>Emits `:focus-visible` rules for every tabbable element type in the current scope — component sheets pull this in because document-level focus rules never pierce shadow DOM. `[tabindex=&#39;-1&#39;]` is excluded: those are programmatically-focused containers, not controls.</p>
+    
+    
+    
+  </article>
+  </section>
+  <section id="file-core-sass-base-_placeholders-scss">
+    <h2>core/sass/base/_placeholders.scss</h2>
+    <article class="sd-item sd-item--placeholder" id="placeholder-RESETBTN">
+    <h3><code>RESETBTN</code> <span class="sd-kind">placeholder</span></h3>
+    <pre class="sd-sig"><code>%RESETBTN {</code></pre>
+    <p>Bare-button reset — removes UA chrome (background, border, outline, padding) plus the iOS tap highlight; extended by every icon-only or custom-styled control.</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--placeholder" id="placeholder-MAXAREA">
+    <h3><code>MAXAREA</code> <span class="sd-kind">placeholder</span></h3>
+    <pre class="sd-sig"><code>%MAXAREA {</code></pre>
+    <p>The site&#39;s main layout constraint — full-width content column whose horizontal padding IS the grid gutter per breakpoint. Iterates $grid-steps via the `grid-steps` mixin so the content gutters and the show-grid debug overlay always read the same table.</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--placeholder" id="placeholder-SKEL_DARK_SURFACE">
+    <h3><code>SKEL_DARK_SURFACE</code> <span class="sd-kind">placeholder</span></h3>
+    <pre class="sd-sig"><code>%SKEL_DARK_SURFACE {</code></pre>
+    <p>Dark-surface skeleton palette — redefines --skel-bg-*/--skel-ink as color-mix() lifts of --bg-dark toward white. The vars are redeclared (not derived from --skel-surface) because color-mix() inside a custom property resolves at the declaration site — descendants would otherwise inherit the :root light-surface values.</p>
+    
+    
+    
+  </article>
+  </section>
+  <section id="file-core-sass-base-_variables-scss">
+    <h2>core/sass/base/_variables.scss</h2>
+    <article class="sd-item sd-item--variable" id="variable-color-white">
+    <h3><code>color-white</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$color-white: #fff;</code></pre>
+    <p>Raw palette color — published as a --color-white-raw CSS var by _structure.scss</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-color-black">
+    <h3><code>color-black</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$color-black: #262626;</code></pre>
+    <p>Raw palette color — published as a --color-black-raw CSS var by _structure.scss</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-color-grey">
+    <h3><code>color-grey</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$color-grey: #a79e9e;</code></pre>
+    <p>Raw palette color — published as a --color-grey-raw CSS var by _structure.scss</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-color-grey-2">
+    <h3><code>color-grey-2</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$color-grey-2: #f0f0f0;</code></pre>
+    <p>Raw palette color — published as a --color-grey-2-raw CSS var by _structure.scss</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-color-grey-3">
+    <h3><code>color-grey-3</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$color-grey-3: #515151;</code></pre>
+    <p>Raw palette color — published as a --color-grey-3-raw CSS var by _structure.scss</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-color-blue">
+    <h3><code>color-blue</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$color-blue: #006ca6;</code></pre>
+    <p>Raw palette color — published as a --color-blue-raw CSS var by _structure.scss</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-bg-darkest">
+    <h3><code>cms-bg-darkest</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-bg-darkest: #0b0c10;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-bg-dark">
+    <h3><code>cms-bg-dark</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-bg-dark: #1f2833;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-bg-darker">
+    <h3><code>cms-bg-darker</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-bg-darker: #0f1319;</code></pre>
+    <p>Mid-dark panel — between bg-card and bg-darkest</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-bg-card">
+    <h3><code>cms-bg-card</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-bg-card: #131822;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-border">
+    <h3><code>cms-border</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-border: #2a3a4a;</code></pre>
+    <p>Subtle dark-theme border for panels and dividers</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-text-primary">
+    <h3><code>cms-text-primary</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-text-primary: #e0e6ed;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-text-muted">
+    <h3><code>cms-text-muted</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-text-muted: #c5c6c7;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-text-subtle">
+    <h3><code>cms-text-subtle</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-text-subtle: #8892b0;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-accent">
+    <h3><code>cms-accent</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-accent: #66fcf1;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-accent-hover">
+    <h3><code>cms-accent-hover</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-accent-hover: #45a29e;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-accent-contrast">
+    <h3><code>cms-accent-contrast</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-accent-contrast: #0f8a84;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-badge-warn">
+    <h3><code>cms-badge-warn</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-badge-warn: #f39c12;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-badge-amber">
+    <h3><code>cms-badge-amber</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-badge-amber: #ffca28;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-badge-green">
+    <h3><code>cms-badge-green</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-badge-green: #2ecc71;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-error">
+    <h3><code>cms-error</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-error: #ff6b6b;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-danger">
+    <h3><code>cms-danger</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-danger: #ff4d4d;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-danger-dark">
+    <h3><code>cms-danger-dark</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-danger-dark: #cc0000;</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-card-max-width">
+    <h3><code>cms-card-max-width</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-card-max-width: to-rem(420px);</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-header-min-height">
+    <h3><code>cms-header-min-height</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-header-min-height: to-rem(70px);</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-dropdown-min-width">
+    <h3><code>cms-dropdown-min-width</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-dropdown-min-width: to-rem(230px);</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-cms-container-max-width">
+    <h3><code>cms-container-max-width</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$cms-container-max-width: to-rem(1400px);</code></pre>
+    <p>CMS admin-chrome token — compile-time only (dark panel theme)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-272">
+    <h3><code>vw-272</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-272: 272px;</code></pre>
+    <p>Watch OS viewport (272px ≈ the 40mm watch&#39;s css-pixel width)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-320">
+    <h3><code>vw-320</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-320: 320px;</code></pre>
+    <p>Iphone SE</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-375">
+    <h3><code>vw-375</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-375: 375px;</code></pre>
+    <p>Iphone</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-414">
+    <h3><code>vw-414</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-414: 414px;</code></pre>
+    <p>Phablet</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-475">
+    <h3><code>vw-475</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-475: 475px;</code></pre>
+    <p>Mobile menu breakpoint</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-540">
+    <h3><code>vw-540</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-540: 540px;</code></pre>
+    <p>Phablet</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-768">
+    <h3><code>vw-768</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-768: 768px;</code></pre>
+    <p>IPad</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-960">
+    <h3><code>vw-960</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-960: 960px;</code></pre>
+    <p>Tablet</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-1024">
+    <h3><code>vw-1024</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-1024: 1024px;</code></pre>
+    <p>IPad</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-1280">
+    <h3><code>vw-1280</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-1280: 1280px;</code></pre>
+    <p>HD</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-1360">
+    <h3><code>vw-1360</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-1360: 1360px;</code></pre>
+    <p>HD</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-1440">
+    <h3><code>vw-1440</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-1440: 1440px;</code></pre>
+    <p>HD</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-1560">
+    <h3><code>vw-1560</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-1560: 1560px;</code></pre>
+    <p>HD</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-1680">
+    <h3><code>vw-1680</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-1680: 1680px;</code></pre>
+    <p>HD</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-1920">
+    <h3><code>vw-1920</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-1920: 1920px;</code></pre>
+    <p>FHD</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-2560">
+    <h3><code>vw-2560</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-2560: 2560px;</code></pre>
+    <p>2K</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-3840">
+    <h3><code>vw-3840</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-3840: 3840px;</code></pre>
+    <p>4K</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-5120">
+    <h3><code>vw-5120</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-5120: 5120px;</code></pre>
+    <p>5K</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-7680">
+    <h3><code>vw-7680</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-7680: 7680px;</code></pre>
+    <p>8K</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-vw-10240">
+    <h3><code>vw-10240</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$vw-10240: 10240px;</code></pre>
+    <p>10K</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-272">
+    <h3><code>un-272</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-272: 272;</code></pre>
+    <p>Unitless viewport width for 272px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-320">
+    <h3><code>un-320</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-320: 320;</code></pre>
+    <p>Unitless viewport width for 320px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-375">
+    <h3><code>un-375</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-375: 375;</code></pre>
+    <p>Unitless viewport width for 375px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-414">
+    <h3><code>un-414</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-414: 414;</code></pre>
+    <p>Unitless viewport width for 414px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-540">
+    <h3><code>un-540</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-540: 540;</code></pre>
+    <p>Unitless viewport width for 540px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-768">
+    <h3><code>un-768</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-768: 768;</code></pre>
+    <p>Unitless viewport width for 768px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-960">
+    <h3><code>un-960</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-960: 960;</code></pre>
+    <p>Unitless viewport width for 960px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-1024">
+    <h3><code>un-1024</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-1024: 1024;</code></pre>
+    <p>Unitless viewport width for 1024px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-1280">
+    <h3><code>un-1280</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-1280: 1280;</code></pre>
+    <p>Unitless viewport width for 1280px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-1360">
+    <h3><code>un-1360</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-1360: 1360;</code></pre>
+    <p>Unitless viewport width for 1360px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-1440">
+    <h3><code>un-1440</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-1440: 1440;</code></pre>
+    <p>Unitless viewport width for 1440px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-1560">
+    <h3><code>un-1560</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-1560: 1560;</code></pre>
+    <p>Unitless viewport width for 1560px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-1680">
+    <h3><code>un-1680</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-1680: 1680;</code></pre>
+    <p>Unitless viewport width for 1680px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-1920">
+    <h3><code>un-1920</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-1920: 1920;</code></pre>
+    <p>Unitless viewport width for 1920px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-2560">
+    <h3><code>un-2560</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-2560: 2560;</code></pre>
+    <p>Unitless viewport width for 2560px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-3840">
+    <h3><code>un-3840</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-3840: 3840;</code></pre>
+    <p>Unitless viewport width for 3840px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-5120">
+    <h3><code>un-5120</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-5120: 5120;</code></pre>
+    <p>Unitless viewport width for 5120px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-7680">
+    <h3><code>un-7680</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-7680: 7680;</code></pre>
+    <p>Unitless viewport width for 7680px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-un-10240">
+    <h3><code>un-10240</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$un-10240: 10240;</code></pre>
+    <p>Unitless viewport width for 10240px — consumed by grid-max-area arithmetic</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-272">
+    <h3><code>gap-272</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-272: 13;</code></pre>
+    <p>Grid gutter (unitless px) at the 272px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-320">
+    <h3><code>gap-320</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-320: 21;</code></pre>
+    <p>Grid gutter (unitless px) at the 320px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-375">
+    <h3><code>gap-375</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-375: 21;</code></pre>
+    <p>Grid gutter (unitless px) at the 375px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-414">
+    <h3><code>gap-414</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-414: 21;</code></pre>
+    <p>Grid gutter (unitless px) at the 414px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-540">
+    <h3><code>gap-540</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-540: 34;</code></pre>
+    <p>Grid gutter (unitless px) at the 540px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-768">
+    <h3><code>gap-768</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-768: 55;</code></pre>
+    <p>Grid gutter (unitless px) at the 768px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-960">
+    <h3><code>gap-960</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-960: 55;</code></pre>
+    <p>Grid gutter (unitless px) at the 960px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-1024">
+    <h3><code>gap-1024</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-1024: 89;</code></pre>
+    <p>Grid gutter (unitless px) at the 1024px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-1280">
+    <h3><code>gap-1280</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-1280: 89;</code></pre>
+    <p>Grid gutter (unitless px) at the 1280px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-1440">
+    <h3><code>gap-1440</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-1440: 89;</code></pre>
+    <p>Grid gutter (unitless px) at the 1440px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-1680">
+    <h3><code>gap-1680</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-1680: 144;</code></pre>
+    <p>Grid gutter (unitless px) at the 1680px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-1920">
+    <h3><code>gap-1920</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-1920: 144;</code></pre>
+    <p>Grid gutter (unitless px) at the 1920px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-2560">
+    <h3><code>gap-2560</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-2560: 233;</code></pre>
+    <p>Grid gutter (unitless px) at the 2560px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-3840">
+    <h3><code>gap-3840</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-3840: 377;</code></pre>
+    <p>Grid gutter (unitless px) at the 3840px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-5120">
+    <h3><code>gap-5120</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-5120: 377;</code></pre>
+    <p>Grid gutter (unitless px) at the 5120px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-7680">
+    <h3><code>gap-7680</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-7680: 610;</code></pre>
+    <p>Grid gutter (unitless px) at the 7680px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-gap-10240">
+    <h3><code>gap-10240</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$gap-10240: 610;</code></pre>
+    <p>Grid gutter (unitless px) at the 10240px viewport step</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-272">
+    <h3><code>grid-max-area-272</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-272: $un-272 - $gap-272 * 2;</code></pre>
+    <p>Max content width at the 272px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-320">
+    <h3><code>grid-max-area-320</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-320: $un-320 - $gap-320 * 2;</code></pre>
+    <p>Max content width at the 320px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-375">
+    <h3><code>grid-max-area-375</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-375: $un-375 - $gap-375 * 2;</code></pre>
+    <p>Max content width at the 375px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-414">
+    <h3><code>grid-max-area-414</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-414: $un-414 - $gap-414 * 2;</code></pre>
+    <p>Max content width at the 414px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-540">
+    <h3><code>grid-max-area-540</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-540: $un-540 - $gap-540 * 2;</code></pre>
+    <p>Max content width at the 540px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-768">
+    <h3><code>grid-max-area-768</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-768: $un-768 - $gap-768 * 2;</code></pre>
+    <p>Max content width at the 768px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-960">
+    <h3><code>grid-max-area-960</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-960: $un-960 - $gap-960 * 2;</code></pre>
+    <p>Max content width at the 960px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-1024">
+    <h3><code>grid-max-area-1024</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-1024: $un-1024 - $gap-1024 * 2;</code></pre>
+    <p>Max content width at the 1024px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-1280">
+    <h3><code>grid-max-area-1280</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-1280: $un-1280 - $gap-1280 * 2;</code></pre>
+    <p>Max content width at the 1280px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-1440">
+    <h3><code>grid-max-area-1440</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-1440: $un-1440 - $gap-1440 * 2;</code></pre>
+    <p>Max content width at the 1440px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-1680">
+    <h3><code>grid-max-area-1680</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-1680: $un-1680 - $gap-1680 * 2;</code></pre>
+    <p>Max content width at the 1680px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-1920">
+    <h3><code>grid-max-area-1920</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-1920: $un-1920 - $gap-1920 * 2;</code></pre>
+    <p>Max content width at the 1920px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-2560">
+    <h3><code>grid-max-area-2560</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-2560: $un-2560 - $gap-2560 * 2;</code></pre>
+    <p>Max content width at the 2560px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-3840">
+    <h3><code>grid-max-area-3840</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-3840: $un-3840 - $gap-3840 * 2;</code></pre>
+    <p>Max content width at the 3840px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-5120">
+    <h3><code>grid-max-area-5120</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-5120: $un-5120 - $gap-5120 * 2;</code></pre>
+    <p>Max content width at the 5120px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-max-area-7680">
+    <h3><code>grid-max-area-7680</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-max-area-7680: $un-7680 - $gap-7680 * 2;</code></pre>
+    <p>Max content width at the 7680px step (un − 2·gap)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-steps">
+    <h3><code>grid-steps</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-steps: (</code></pre>
+    <p>Stepped content-grid map: viewport step px → gutter px. Both %MAXAREA and the show-grid overlay iterate this via the `grid-steps` mixin.</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-grid-cols">
+    <h3><code>grid-cols</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$grid-cols: (</code></pre>
+    <p>Column-count map: viewport step → design-grid columns for that step.</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-320">
+    <h3><code>bk-320</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-320: $vw-320 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-320 − 1px; consumed by the layout-320 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-375">
+    <h3><code>bk-375</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-375: $vw-375 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-375 − 1px; consumed by the layout-375 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-414">
+    <h3><code>bk-414</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-414: $vw-414 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-414 − 1px; consumed by the layout-414 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-475">
+    <h3><code>bk-475</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-475: $vw-475 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-475 − 1px; consumed by the layout-475 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-540">
+    <h3><code>bk-540</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-540: $vw-540 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-540 − 1px; consumed by the layout-540 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-768">
+    <h3><code>bk-768</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-768: $vw-768 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-768 − 1px; consumed by the layout-768 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-960">
+    <h3><code>bk-960</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-960: $vw-960 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-960 − 1px; consumed by the layout-960 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-1024">
+    <h3><code>bk-1024</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-1024: $vw-1024 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-1024 − 1px; consumed by the layout-1024 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-1280">
+    <h3><code>bk-1280</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-1280: $vw-1280 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-1280 − 1px; consumed by the layout-1280 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-1360">
+    <h3><code>bk-1360</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-1360: $vw-1360 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-1360 − 1px; consumed by the layout-1360 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-1560">
+    <h3><code>bk-1560</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-1560: $vw-1560 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-1560 − 1px; consumed by the layout-1560 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-1440">
+    <h3><code>bk-1440</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-1440: $vw-1440 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-1440 − 1px; consumed by the layout-1440 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-1680">
+    <h3><code>bk-1680</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-1680: $vw-1680 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-1680 − 1px; consumed by the layout-1680 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-1920">
+    <h3><code>bk-1920</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-1920: $vw-1920 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-1920 − 1px; consumed by the layout-1920 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-2560">
+    <h3><code>bk-2560</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-2560: $vw-2560 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-2560 − 1px; consumed by the layout-2560 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-3840">
+    <h3><code>bk-3840</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-3840: $vw-3840 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-3840 − 1px; consumed by the layout-3840 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-5120">
+    <h3><code>bk-5120</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-5120: $vw-5120 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-5120 − 1px; consumed by the layout-5120 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-bk-7680">
+    <h3><code>bk-7680</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$bk-7680: $vw-7680 - 1px;</code></pre>
+    <p>Media-query breakpoint — vw-7680 − 1px; consumed by the layout-7680 mixin</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-none">
+    <h3><code>space-none</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-none: 0;</code></pre>
+    <p>Fib(0)  — no space</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-hairline">
+    <h3><code>space-hairline</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-hairline: 1;</code></pre>
+    <p>Fib(1)  — hairline / 1px borders</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-pixel">
+    <h3><code>space-pixel</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-pixel: 1;</code></pre>
+    <p>Fib(2)  — alias for hairline (same fib value)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-3xs">
+    <h3><code>space-3xs</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-3xs: 1;</code></pre>
+    <p>Alias  — thin borders (same as hairline, semantic clarity)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-2xs">
+    <h3><code>space-2xs</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-2xs: 2;</code></pre>
+    <p>Fib(3)  — 2px, micro gaps</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-xs">
+    <h3><code>space-xs</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-xs: 3;</code></pre>
+    <p>Fib(4)  — 3px, tiny nudges</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-sm">
+    <h3><code>space-sm</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-sm: 5;</code></pre>
+    <p>Fib(5)  — 5px, small gaps</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-md">
+    <h3><code>space-md</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-md: 8;</code></pre>
+    <p>Fib(6)  — 8px, base unit</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-lg">
+    <h3><code>space-lg</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-lg: 13;</code></pre>
+    <p>Fib(7)  — 13px, standard padding</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-xl">
+    <h3><code>space-xl</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-xl: 21;</code></pre>
+    <p>Fib(8)  — 21px, comfortable spacing</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-2xl">
+    <h3><code>space-2xl</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-2xl: 34;</code></pre>
+    <p>Fib(9)  — 34px, section inner padding</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-3xl">
+    <h3><code>space-3xl</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-3xl: 55;</code></pre>
+    <p>Fib(10) — 55px, component spacing</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-4xl">
+    <h3><code>space-4xl</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-4xl: 89;</code></pre>
+    <p>Fib(11) — 89px, section padding</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-5xl">
+    <h3><code>space-5xl</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-5xl: 144;</code></pre>
+    <p>Fib(12) — 144px, hero / large blocks</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-6xl">
+    <h3><code>space-6xl</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-6xl: 233;</code></pre>
+    <p>Fib(13) — 233px, content max-widths / large images</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-7xl">
+    <h3><code>space-7xl</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-7xl: 377;</code></pre>
+    <p>Fib(14) — 377px, image sizes / layout widths</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-8xl">
+    <h3><code>space-8xl</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-8xl: 610;</code></pre>
+    <p>Fib(15) — 610px, large layout columns</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-9xl">
+    <h3><code>space-9xl</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-9xl: 987;</code></pre>
+    <p>Fib(16) — 987px, max content widths</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-space-10xl">
+    <h3><code>space-10xl</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$space-10xl: 1597;</code></pre>
+    <p>Fib(17) — 1597px, ultra-wide layout slots</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-z-header">
+    <h3><code>z-header</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$z-header: 50;</code></pre>
+    <p>z-index layer — the scale is declared once here, in stacking order</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-z-loader">
+    <h3><code>z-loader</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$z-loader: 100;</code></pre>
+    <p>z-index layer — the scale is declared once here, in stacking order</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-z-overlay">
+    <h3><code>z-overlay</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$z-overlay: 200;</code></pre>
+    <p>Grid overlay, debug overlays</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-z-hud">
+    <h3><code>z-hud</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$z-hud: 500;</code></pre>
+    <p>Stats-for-nerds HUD</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-z-modal">
+    <h3><code>z-modal</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$z-modal: 1000;</code></pre>
+    <p>Modals, drawers</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-z-cookies">
+    <h3><code>z-cookies</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$z-cookies: 1000;</code></pre>
+    <p>Cookie banner</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-z-nav">
+    <h3><code>z-nav</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$z-nav: 1100;</code></pre>
+    <p>App-nav</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-z-top">
+    <h3><code>z-top</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$z-top: 9999;</code></pre>
+    <p>Top-level elements (dialogs)</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-font-mono">
+    <h3><code>font-mono</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$font-mono:</code></pre>
+    <p>Monospace stack — system fonts only, so no webfont download blocks paint.</p>
+    
+    
+    
+  </article>
+  </section>
+  <section id="file-core-sass-components-carousel-awards-carousel-scss">
+    <h2>core/sass/components/carousel/awards-carousel.scss</h2>
+    <article class="sd-item sd-item--variable" id="variable-awc-dot-size">
+    <h3><code>awc-dot-size</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$awc-dot-size: to-rem($space-md);</code></pre>
+    <p>Dot diameter — inactive nav dots are small squares.</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-awc-dot-pill">
+    <h3><code>awc-dot-pill</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$awc-dot-pill: to-rem($space-xl);</code></pre>
+    <p>Pill length — the active dot stretches to a rounded pill.</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-awc-peek">
+    <h3><code>awc-peek</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$awc-peek: 10vw;</code></pre>
+    <p>Adjacent-slide bleed: how much of the neighbors peeks in on both sides.</p>
+    
+    
+    
+  </article>
+  </section>
+  <section id="file-core-sass-components-carousel-carousel-scss">
+    <h2>core/sass/components/carousel/carousel.scss</h2>
+    <article class="sd-item sd-item--variable" id="variable-_B_CAROUSEL">
+    <h3><code>_B_CAROUSEL</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$_B_CAROUSEL: &#39;carousel&#39;;</code></pre>
+    <p>BEM block fragment — composed via interpolation so the &#39;carousel&#39; prefix is declared exactly once (DRY selector rule).</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-carousel-btn-size">
+    <h3><code>carousel-btn-size</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$carousel-btn-size: to-rem($space-3xl);</code></pre>
+    <p>Arrow-button hit area (square).</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-carousel-dot-size">
+    <h3><code>carousel-dot-size</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$carousel-dot-size: to-rem($space-md);</code></pre>
+    <p>Dot diameter — inactive nav dots are small squares.</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-carousel-dot-pill">
+    <h3><code>carousel-dot-pill</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$carousel-dot-pill: to-rem($space-xl);</code></pre>
+    <p>Pill length — the active dot stretches to a rounded pill.</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-carousel-dot-gap">
+    <h3><code>carousel-dot-gap</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$carousel-dot-gap: to-rem($space-xs);</code></pre>
+    <p>Gap between nav dots.</p>
+    
+    
+    
+  </article>
+    <article class="sd-item sd-item--variable" id="variable-ring-stroke">
+    <h3><code>ring-stroke</code> <span class="sd-kind">variable</span></h3>
+    <pre class="sd-sig"><code>$ring-stroke: to-rem(2.5);</code></pre>
+    <p>Progress-ring stroke width around the arrow buttons.</p>
+    
+    
+    
+  </article>
+  </section>
+</body>
+</html>

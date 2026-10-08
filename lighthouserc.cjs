@@ -1,7 +1,7 @@
 module.exports = {
   ci: {
     collect: {
-      startServerCommand: 'npx vite preview --port 4173',
+      startServerCommand: 'yarn vite preview --port 4173',
       url: [
         'http://localhost:4173/',
         'http://localhost:4173/br',

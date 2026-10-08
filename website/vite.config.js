@@ -4,6 +4,6 @@
  * views (home, legal, not-found, project) and every component they mount.
  * Emits `website/dist/website.js`; @core/@/sibling imports stay external.
  */
-import { moduleConfig } from '../build/vite-lib.mjs'
+import { moduleConfig } from '../shared/build/vite-lib.mjs'
 
 export default moduleConfig({ dir: new URL('.', import.meta.url).pathname, name: 'website' })

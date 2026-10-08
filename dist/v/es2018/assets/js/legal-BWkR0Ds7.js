@@ -1,2 +1,0 @@
-var Yr,Un;import{Pt as lee}from"./store-ZULviT_p.js";Yr=Object.freeze({fm:"legal"}),Un=Object.freeze({Nn:lee,om:`${lee}-title`,nm:`${lee}-subtitle`,tm:`${lee}-link`});export{Un as n,Yr as t};
-//# sourceMappingURL=legal-BWkR0Ds7.js.map

@@ -1,0 +1,2 @@
+var sa,la;import{ln as ete}from"./store-BtbIS985.js";sa=Object.freeze({la:"aria-label",ei:"aria-expanded",EB:"aria-controls",aB:"aria-labelledby",eB:"aria-modal",wh:"aria-hidden",AB:"aria-live",_O:"aria-pressed",Go:"aria-checked",nz:"polite",RB:"role",us:ete,Mo:"group",So:"switch",Za:"button",Pa:"navigation",lz:"alert",dz:"status",My:"tree",Ty:"treeitem",vy:"none",Qh:"tabindex"}),la=Object.freeze({yE:"type",Ia:"button",Oi:"button",da:"text",xO:"checkbox",vO:"range",TL:"name",OL:"value",fs:"label"});export{sa as n,la as t};
+//# sourceMappingURL=form-CaIVl0Tm.js.map

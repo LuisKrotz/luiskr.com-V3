@@ -1,2 +1,0 @@
-var fi,di;import{Pt as Tee}from"./store-BT9tdRoV.js";fi=Object.freeze({pm:"legal"}),di=Object.freeze({Ca:Tee,om:`${Tee}-title`,nm:`${Tee}-subtitle`,im:`${Tee}-link`});export{di as n,fi as t};
-//# sourceMappingURL=legal-CT6B9BVu.js.map

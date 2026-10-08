@@ -147,6 +147,35 @@ export const renderDocs = (view: ViewDocs) => {
           : MICRODATA_VALUES.TYPE_COLLECTION_PAGE,
       }}
     >
+      {/* Docs boot loader — stays up until the portal's first usable
+          state (manifest resolved, scene mount attempted, any in-flight
+          file payload settled); mirrors the space playground's system
+          boot overlay with docs-context stage copy. */}
+      {!view._docsReady && (
+        <div className={DOCS_CLASSES.DOCS_LOADER} aria-hidden="true">
+          <div className={DOCS_CLASSES.DOCS_LOADER_GLOW} />
+          <div className={DOCS_CLASSES.DOCS_LOADER_GRID} />
+          <div className={DOCS_CLASSES.DOCS_LOADER_CONTENT}>
+            <div className={DOCS_CLASSES.DOCS_LOADER_SPINNER_OUTER} />
+            <div className={DOCS_CLASSES.DOCS_LOADER_SPINNER_INNER} />
+            <div className={DOCS_CLASSES.DOCS_LOADER_COUNTER}>
+              <span className={DOCS_CLASSES.DOCS_LOADER_PERCENT}>
+                <span className={DOCS_CLASSES.DOCS_LOADER_VAL}>{view._loaderPct}</span>
+                <span className={DOCS_CLASSES.DOCS_LOADER_SYM}>{CHAR_STRINGS.PERCENT}</span>
+              </span>
+            </div>
+            <div className={DOCS_CLASSES.DOCS_LOADER_TITLE}>{DOCS_STRINGS.LOADER_TITLE}</div>
+            <div className={DOCS_CLASSES.DOCS_LOADER_MSG}>{view._loaderMsg}</div>
+            <div className={DOCS_CLASSES.DOCS_LOADER_BAR}>
+              <div
+                className={DOCS_CLASSES.DOCS_LOADER_BAR_FILL}
+                style={`width:${view._loaderPct}${CHAR_STRINGS.PERCENT}`}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       <canvas id={DOCS_IDS.GL} className={DOCS_CLASSES.DOCS_GL} aria-hidden="true" />
 
       {/* Persistent 3D architecture backdrop — orbit/pinch on the exposed

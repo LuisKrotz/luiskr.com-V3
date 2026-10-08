@@ -14,6 +14,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://gravatar.com" />
 
+    <!-- Icons + manifest (served from /assets/icons via meta rewrites) -->
+    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+
     <link
       rel="preload"
       as="image"
@@ -106,9 +115,9 @@
     <meta property="og:url" content="https://luiskr.com" />
     <meta name="twitter:url" content="https://luiskr.com" />
 
-    <meta itemprop="image" content="https://luiskr.com/share.png" />
-    <meta property="og:image" content="https://luiskr.com/share.png" />
-    <meta name="twitter:image:src" content="https://luiskr.com/share.png" />
+    <meta itemprop="image" content="https://luiskr.com/assets/icons/share.png" />
+    <meta property="og:image" content="https://luiskr.com/assets/icons/share.png" />
+    <meta name="twitter:image:src" content="https://luiskr.com/assets/icons/share.png" />
 
     <meta
       name="description"
@@ -183,8 +192,8 @@
         "legalName": "Jacson Luis Krötz",
         "url": "https://luiskr.com",
         "name": "Luis Krötz",
-        "image": "https://luiskr.com/share.png",
-        "logo": "https://luiskr.com/favicon/android-chrome-512x512.png"
+        "image": "https://luiskr.com/assets/icons/share.png",
+        "logo": "https://luiskr.com/assets/icons/android-chrome-256x256.png"
       }
     </script>
     <script type="application/ld+json">
@@ -200,7 +209,7 @@
           "https://www.instagram.com/j_luiskrotz"
         ],
         "name": "Luis Krötz",
-        "image": "https://luiskr.com/share.png"
+        "image": "https://luiskr.com/assets/icons/share.png"
       }
     </script>
   </head>
@@ -216,7 +225,7 @@
         </p>
       </main>
     </noscript>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/shared/src/main.js"></script>
 
     <script>
       const analytics = 'G-T3PW8BFNS6',

@@ -1,0 +1,17 @@
+[**luiskr.com**](../../../../../README.md)
+
+***
+
+[luiskr.com](../../../../../README.md) / [core/utils/motion/route-warmer](../README.md) / startRouteWarming
+
+```ts
+function startRouteWarming(): void;
+```
+
+Defined in: [core/utils/motion/route-warmer.ts:72](https://github.com/LuisKrotz/luiskr.com-V3/blob/9eeffce09b8f1b5d7b918bf7a393a7229dd71a78/core/utils/motion/route-warmer.ts#L72)
+
+Starts idle warming once `load` has fired (or immediately if it already has).
+
+## Returns
+
+`void`

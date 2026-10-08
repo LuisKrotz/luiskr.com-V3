@@ -1,0 +1,40 @@
+#!/usr/bin/env zsh
+# luiskr.com pre-commit gate — deliberately fast:
+#   1. prettier --write on every staged file (autofix, then re-stage)
+#   2. TypeScript typecheck only. Tests and coverage belong to later gates.
+#
+# Installed by shared/scripts/install-hooks.sh → .git/hooks/pre-commit
+
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+# ── 1. Format staged files and re-stage them ─────────────────────────────────
+STAGED="$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(js|mjs|cjs|ts|tsx|scss|css|json|md|yml|yaml|html)$' || true)"
+
+if [[ -n "$STAGED" ]]; then
+  echo "── pre-commit: prettier --write on staged files ──"
+  # -s caps each invocation's argv bytes — an unbounded xargs batch can
+  # exceed E2BIG on mega-commits (thousands of staged paths), and the
+  # `yarn` wrapper makes it worse by re-spawning with the full env.
+  # Calling the local binary directly is both safer and faster.
+  PRETTIER_BIN="$PWD/node_modules/.bin/prettier"
+  print -r -- "$STAGED" | xargs -s 65536 "$PRETTIER_BIN" --write --ignore-unknown
+  print -r -- "$STAGED" | xargs -s 65536 git add --
+fi
+
+echo "── pre-commit: scoped TypeScript typecheck ──"
+SCOPES="$(node shared/scripts/verify/scope-gates.mjs areas --staged)"
+
+# Scope-less commits (docs-only, assets) skip compilation entirely; a
+# toolchain/config change resolves to every scope.
+if [[ -n "$SCOPES" ]]; then
+  for scope in ${(s: :)SCOPES}; do
+    case "$scope" in
+      app)   yarn tsc --noEmit ;;
+      earth) yarn tsc -p "experiments/earth-playground/tsconfig.json" --noEmit ;;
+      docs)  yarn tsc -p "experiments/docs/tsconfig.json" --noEmit ;;
+      *)     yarn tsc -p "$scope/tsconfig.json" --noEmit ;;
+    esac
+  done
+fi

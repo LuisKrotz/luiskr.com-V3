@@ -1,0 +1,39 @@
+{
+  "name": "@luiskrotz/braces",
+  "description": "Security-hardened drop-in fork of braces@3.0.3 — adds a nesting-depth guard against GHSA stack-exhaustion on deeply nested brace patterns.",
+  "version": "3.0.4",
+  "homepage": "https://github.com/micromatch/braces",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "contributors": [
+    "Luis Krötz (security hardening)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuisKrotz/braces.git"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "lib"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "keywords": [
+    "braces",
+    "brace-expansion",
+    "glob",
+    "micromatch",
+    "security"
+  ],
+  "dependencies": {
+    "fill-range": "^7.1.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,2 +1,0 @@
-var $i,xi;import{St as taa}from"./urls-6k9tnWXh.js";$i=Object.freeze({qo:"legal"}),xi=Object.freeze({Oa:taa,bm:`${taa}-title`,wm:`${taa}-subtitle`,xm:`${taa}-link`});export{xi as n,$i as t};
-//# sourceMappingURL=legal-BhcatIeL.js.map

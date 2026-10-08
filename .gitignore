@@ -1,9 +1,15 @@
 .DS_Store
 node_modules
 
-# Test/audit artifacts
-coverage/
-!tests/coverage/
+# Workspaces: the root yarn.lock is the sole lockfile — per-module installs
+# are hoisted to the root, so stray module lockfiles must never be committed.
+**/yarn.lock
+!/yarn.lock
+
+# Test/audit artifacts — each module publishes reports/coverage locally.
+# (anchored: tests/coverage/ dirs hold real tail tests and must be tracked)
+/coverage/
+**/reports/
 .lighthouseci/
 lighthouse-reports/
 
@@ -30,7 +36,6 @@ firebase-debug.log*
 *.njsproj
 *.sln
 *.sw?
-reports/
 # Local headless Chrome used for Lighthouse audits (not part of the repo)
 chrome-headless-shell/
 

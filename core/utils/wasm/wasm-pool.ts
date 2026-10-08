@@ -1,7 +1,7 @@
 /**
  * @file wasm-pool.ts
  * @description Round-robin dispatcher over a lazily-spawned pool of
- * /workers/wasm-worker.js Web Workers. Payloads are zero-copy when
+ * /scripts/workers/wasm-worker.js Web Workers. Payloads are zero-copy when
  * transferables (ArrayBuffer/ImageBitmap) are detected, structuredClone'd
  * otherwise, with a JSON fallback. Resolves null on every failure path so
  * callers can degrade to main-thread behavior without try/catch.

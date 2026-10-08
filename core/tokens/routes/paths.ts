@@ -61,6 +61,6 @@ export const DB_PATHS = Object.freeze({
  * contract immutable at runtime.
  */
 export const ASSET_PATHS = Object.freeze({
-  FLAGS_PREFIX: '/flags/',
+  FLAGS_PREFIX: '/assets/flags/',
   SVG_EXT: '.svg',
 })

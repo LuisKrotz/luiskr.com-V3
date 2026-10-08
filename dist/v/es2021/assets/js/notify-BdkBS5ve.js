@@ -1,2 +1,0 @@
-var Xi,aee;import{z as Qt}from"./store-BCQxtpNI.js";Xi=Object.freeze({ERROR:Qt.ERROR,Eo:"info",QD:"success"}),aee=Object.freeze({iz:5e3,sz:4,$D:2500,sj:64});export{Xi as n,aee as t};
-//# sourceMappingURL=notify-BdkBS5ve.js.map

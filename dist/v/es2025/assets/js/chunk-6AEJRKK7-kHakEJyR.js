@@ -1,0 +1,2 @@
+import{p as bl}from"./src-CStIWcT5.js";import{n as Pl}from"./chunk-Y2CYZVJY-C3E8b7yy.js";import{x as zh}from"./chunk-O7XYJQB3-B--9nJ-M.js";var cu=Pl(s=>{const{securityLevel:t}=zh();let o=bl("body");if("sandbox"===t){const t=bl(`#i${s}`).node()?.contentDocument??document;o=bl(t.body)}return o.select(`#${s}`)},"selectSvgElement");export{cu as t};
+//# sourceMappingURL=chunk-6AEJRKK7-kHakEJyR.js.map

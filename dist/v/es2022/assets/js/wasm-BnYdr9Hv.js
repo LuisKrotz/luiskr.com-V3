@@ -1,2 +1,0 @@
-var Na=Object.freeze(Object.fromEntries(["DECODE_IMAGE_WASM","DECODE_IMAGE_BATCH_WASM","PROCESS_MEDIA_ANALYTICS","COMPUTE_MEDIA_HASH","COMPUTE_SPRING_PHYSICS","DECODE_MEDIA_URL_WASM","PROBE_VIDEO_WASM","PREFETCH_VIDEO_WASM","DECODE_VIDEO_SEGMENT_WASM","DECODE_SVG_WASM","DOCS_SCENE_LAYOUT"].map(E=>[E,E]))),EEE=Object.freeze({KD:"/workers/wasm-worker.js",YD:"/wasm/engine.wasm",QD:2,ZD:2,$D:4,BP:2});Object.freeze({KP:"wasm-gpu-accelerated",Xr:"100%",Yr:"1.2em",lg:"inline-block",XP:200,YP:24});export{EEE as n,Na as t};
-//# sourceMappingURL=wasm-BnYdr9Hv.js.map

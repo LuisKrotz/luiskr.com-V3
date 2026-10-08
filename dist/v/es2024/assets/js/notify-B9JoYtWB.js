@@ -1,2 +1,0 @@
-var Xn,aee;import{z as Zt}from"./store-BT9tdRoV.js";Xn=Object.freeze({ERROR:Zt.ERROR,Eo:"info",jD:"success"}),aee=Object.freeze({iz:5e3,sz:4,XD:2500,xD:64});export{Xn as n,aee as t};
-//# sourceMappingURL=notify-B9JoYtWB.js.map

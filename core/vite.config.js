@@ -5,6 +5,6 @@
  * patches). Emits `core/dist/core.js` (ES module); sibling-module and npm
  * specifiers stay external so the bundle is exactly this folder.
  */
-import { moduleConfig } from '../build/vite-lib.mjs'
+import { moduleConfig } from '../shared/build/vite-lib.mjs'
 
 export default moduleConfig({ dir: new URL('.', import.meta.url).pathname, name: 'core' })

@@ -22,7 +22,7 @@ import { KEYS } from '@core/tokens/primitives.js'
 import { ROUTE_PATHS } from '@core/tokens/routes/paths.js'
 import { DOCS_SELECTORS } from '@core/tokens/selectors/docs.js'
 import { CHAR_STRINGS } from '@core/tokens/strings/chars.js'
-import { DOCS_STRINGS } from '@core/tokens/strings/docs.js'
+import { DOCS_LOADER_PCT, DOCS_STRINGS } from '@core/tokens/strings/docs.js'
 import { BaseComponent } from '@core/Component.js'
 import store from '@core/store.js'
 import { componentText } from '@core/locale/ui-text.js'
@@ -35,6 +35,8 @@ import {
   getDocsManifest,
   resolveDocsPath,
   fetchDocsFile,
+  isSourceRoot,
+  fileIdRoot,
   type DocsNode,
   type DocsFilePayload,
 } from './manifest.js'
@@ -45,6 +47,7 @@ import { mountArchScene, type ArchSceneHandle } from './arch-scene.js'
 import { attachCopyGuard, type GuardDisposer } from './copy-guard.js'
 import { attachCoverageNav } from './coverage-nav.js'
 import { renderMermaidBlocks } from './mermaid.js'
+import { dismissDocsLoader, updateDocsLoader } from './loader.js'
 import docsStyles from './docs.scss?inline'
 
 /**
@@ -89,6 +92,18 @@ export class ViewDocs extends BaseComponent {
   /** Document-level istanbul key-nav disposer while a report is open. */
   private _covNavDispose: (() => void) | null = null
 
+  /**
+   * Boot-loader lifecycle — the overlay stays up until the portal's first
+   * usable state: manifest resolved, the architecture scene mount
+   * attempted (success or WebGL fallback), and any in-flight file payload
+   * settled. Mirrors the space playground's `_earthReady` contract.
+   */
+  _docsReady = false
+
+  /** Current boot stage copy + percent rendered inside the loader. */
+  _loaderMsg: string = DOCS_STRINGS.LOADER_MSG_INIT
+  _loaderPct = 0
+
   constructor() {
     super(docsStyles)
   }
@@ -113,9 +128,11 @@ export class ViewDocs extends BaseComponent {
     return this._openDirs.has(path)
   }
 
-  /** Whether the open file sits under the protected Source Code root. */
+  /** Whether the open file sits under a protected source-module root. */
   isProtectedView(): boolean {
-    return this.filePayload !== null && (this.node?.id || CHAR_STRINGS.EMPTY).startsWith('src:')
+    return (
+      this.filePayload !== null && isSourceRoot(fileIdRoot(this.node?.id || CHAR_STRINGS.EMPTY))
+    )
   }
 
   /** Localized toast copy for the copy guard — componentText already English-falls-back. */
@@ -337,6 +354,8 @@ export class ViewDocs extends BaseComponent {
   override onMounted(): void {
     this.subscribe(store)
 
+    this._updateLoader(DOCS_STRINGS.LOADER_MSG_MANIFEST, DOCS_LOADER_PCT.MANIFEST)
+
     this._applyPath(router.currentRoute?.params?.docsPath || CHAR_STRINGS.EMPTY)
 
     this._guardDispose = attachCopyGuard(
@@ -370,6 +389,12 @@ export class ViewDocs extends BaseComponent {
       // `webglcontextrestored` is the recovery signal — the browser hands
       // the canvas a fresh context, so a full remount rebuilds the graph.
       sceneCanvas.addEventListener(GL_EVENTS.WEBGL_CONTEXT_RESTORED, this._onSceneRestored)
+
+      // The mount attempt just finished either way (live scene or
+      // scene-off fallback) — advance the loader to the scene stage.
+      if (!this._docsReady) {
+        this._updateLoader(DOCS_STRINGS.LOADER_MSG_SCENE, DOCS_LOADER_PCT.SCENE)
+      }
     }
 
     // Arrow-key expand/collapse re-creates the DOM — put focus back on
@@ -387,6 +412,41 @@ export class ViewDocs extends BaseComponent {
     }
 
     this._renderFilePayload()
+
+    this._syncLoader()
+  }
+
+  /** Mirrors a boot stage into the loader overlay (delegates to loader.ts). */
+  _updateLoader(msg: string, pct: number): void {
+    updateDocsLoader(this, msg, pct)
+  }
+
+  /** Fades + removes the loader overlay (delegates to loader.ts). */
+  _dismissLoader(): void {
+    dismissDocsLoader(this)
+  }
+
+  /**
+   * Advances or dismisses the boot loader based on the just-rendered
+   * state: a file fetch in flight reports the file stage and waits;
+   * anything else means the portal is usable — mark ready, report the
+   * final stage, and fade the overlay out. A failed payload fetch (null)
+   * still counts as settled so the loader can never strand the page.
+   */
+  private _syncLoader(): void {
+    if (this._docsReady) return
+
+    if (this.fileLoading) {
+      this._updateLoader(DOCS_STRINGS.LOADER_MSG_FILE, DOCS_LOADER_PCT.FILE)
+
+      return
+    }
+
+    this._updateLoader(DOCS_STRINGS.LOADER_MSG_READY, DOCS_LOADER_PCT.READY)
+
+    this._docsReady = true
+
+    this._dismissLoader()
   }
 
   /**
@@ -478,9 +538,11 @@ export class ViewDocs extends BaseComponent {
     })
 
     // Folders carrying an index.html auto-open it (e.g. the sassdoc
-    // report) — except under the src root, which stays a browsable
-    // source tree.
-    if (this.node?.type === 'dir' && segments[0] !== DOCS_STRINGS.SRC_ROOT) {
+    // report) — except under source-module roots, which stay browsable
+    // source trees. A dir node only resolves from a non-empty docsPath,
+    // so segments[0] is necessarily set here — the cast documents that
+    // invariant instead of a dead `|| ''` fallback.
+    if (this.node?.type === 'dir' && !isSourceRoot(segments[0] as string)) {
       // scan.mjs only emits dirs with children — the cast documents that
       // manifest invariant (an empty dir would never reach this branch).
       const index = (this.node.children as DocsNode[]).find(

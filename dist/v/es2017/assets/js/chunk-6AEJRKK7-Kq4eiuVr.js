@@ -1,0 +1,2 @@
+import{p as Pu}from"./src-mJ1qA2EX.js";import{n as ju}from"./chunk-Y2CYZVJY-z548qr9D.js";import{x as zh}from"./chunk-O7XYJQB3-vAsUGc75.js";var lg=ju(o=>{const{securityLevel:r}=zh();let s=Pu("body");if("sandbox"===r){var t,e;const r=null!==(t=null===(e=Pu(`#i${o}`).node())||void 0===e?void 0:e.contentDocument)&&void 0!==t?t:document;s=Pu(r.body)}return s.select(`#${o}`)},"selectSvgElement");export{lg as t};
+//# sourceMappingURL=chunk-6AEJRKK7-Kq4eiuVr.js.map

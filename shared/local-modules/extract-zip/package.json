@@ -1,0 +1,31 @@
+{
+  "name": "@luiskrotz/extract-zip",
+  "version": "2.0.2",
+  "description": "Dependency-free, security-hardened drop-in replacement for extract-zip — rejects absolute paths, .. traversal, backslash tricks, and symlink/hardlink entries (GHSA extract-zip <=2.0.1 path traversal + arbitrary file write).",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Luis Krötz",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuisKrotz/extract-zip.git"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "extract-zip",
+    "unzip",
+    "archive",
+    "security",
+    "zip-slip"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

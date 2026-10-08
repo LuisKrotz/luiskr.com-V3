@@ -1,0 +1,23 @@
+[**luiskr.com**](../../../../../../../README.md)
+
+***
+
+[luiskr.com](../../../../../../../README.md) / [core/utils/canvas/widgets/flag/loop](../README.md) / renderStaticFlag
+
+```ts
+function renderStaticFlag(flag): void;
+```
+
+Defined in: [core/utils/canvas/widgets/flag/loop.ts:40](https://github.com/LuisKrotz/luiskr.com-V3/blob/9eeffce09b8f1b5d7b918bf7a393a7229dd71a78/core/utils/canvas/widgets/flag/loop.ts#L40)
+
+Draws a single settled frame — used under reduced motion or when the loop is stopped.
+
+## Parameters
+
+### flag
+
+[`FlagWebGL`](../../../flag-webgl/classes/FlagWebGL.md)
+
+## Returns
+
+`void`

@@ -1,6 +1,8 @@
 {
   "name": "@luiskr/website",
   "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
   "type": "module",
   "exports": {
     ".": "./index.ts"
@@ -9,5 +11,22 @@
     "**/*.scss",
     "**/views/**",
     "**/components/**"
-  ]
+  ],
+  "scripts": {
+    "dev": "vite --port 5173",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --config jest.config.mjs",
+    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --config jest.config.mjs --coverage"
+  },
+  "dependencies": {
+    "@luiskr/core": "1.0.0",
+    "@luiskr/shared": "1.0.0"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "sass": "^1.102.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.2.1"
+  }
 }

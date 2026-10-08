@@ -1,0 +1,2 @@
+var Xi,aee;import{z as Qt}from"./store-DakMo3St.js";Xi=Object.freeze({ERROR:Qt.ERROR,Eo:"info",zD:"success"}),aee=Object.freeze({iz:5e3,sz:4,QD:2500,$D:64});export{Xi as n,aee as t};
+//# sourceMappingURL=notify-CUGabOD_.js.map

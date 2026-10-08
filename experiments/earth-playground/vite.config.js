@@ -5,7 +5,7 @@
  * `experiments/earth-playground/dist/earth-playground.js` with @core/three
  * kept external.
  */
-import { moduleConfig } from '../../build/vite-lib.mjs'
+import { moduleConfig } from '../../shared/build/vite-lib.mjs'
 
 export default moduleConfig({
   dir: new URL('.', import.meta.url).pathname,

@@ -1,6 +1,8 @@
 {
   "name": "@luiskr/core",
   "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
   "type": "module",
   "main": "./index.js",
   "exports": {
@@ -15,5 +17,19 @@
     "./Component": "./Component.js",
     "./predictive-loader": "./predictive-loader.js"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "scripts": {
+    "build": "vite build",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --config jest.config.mjs",
+    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --config jest.config.mjs --coverage"
+  },
+  "dependencies": {
+    "firebase": "^12.17.1"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "sass": "^1.102.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.2.1"
+  }
 }
