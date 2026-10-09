@@ -1,0 +1,2 @@
+var Zn,Qo;import{Pt as lee}from"./store-D9nI3Jjk.js";Zn=Object.freeze({fm:"legal"}),Qo=Object.freeze({In:lee,om:`${lee}-title`,nm:`${lee}-subtitle`,tm:`${lee}-link`});export{Qo as n,Zn as t};
+//# sourceMappingURL=legal-Bqsr-SaU.js.map

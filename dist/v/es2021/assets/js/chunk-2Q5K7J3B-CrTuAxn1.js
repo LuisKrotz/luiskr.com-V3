@@ -1,2 +1,0 @@
-var uh,o$;import{n as Al}from"./chunk-Y2CYZVJY-CFQOmxZ5.js";Al(uh=class{constructor(t){this.init=t,this.records=this.init()}reset(){this.records=this.init()}},"ImperativeState"),o$=uh;export{o$ as t};
-//# sourceMappingURL=chunk-2Q5K7J3B-CrTuAxn1.js.map

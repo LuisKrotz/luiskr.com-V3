@@ -1,2 +1,0 @@
-var Un,Wo;import{Pt as lee}from"./store-BGpoLL7L.js";Un=Object.freeze({fm:"legal"}),Wo=Object.freeze({Nn:lee,om:`${lee}-title`,nm:`${lee}-subtitle`,tm:`${lee}-link`});export{Wo as n,Un as t};
-//# sourceMappingURL=legal-H8FHjHNh.js.map

@@ -1,2 +1,0 @@
-var cn,mn,Lo;import{C as st,v as qt}from"./store-BGpoLL7L.js";cn=t=>{if(!t||typeof t!==st.ri)return qt.EMPTY;let g,r=t;do{g=r,r=r.replace(/<[^>]*>/g,qt.EMPTY)}while(r!==g);return r},mn=t=>t&&typeof t===st.ri?t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"):qt.EMPTY,Lo=t=>t&&typeof t===st.ri?t.toLowerCase().replace(/[^\w\s-]/g,qt.EMPTY).trim().replace(/[\s_]+/g,"-").replace(/--+/g,"-"):qt.EMPTY;export{Lo as n,cn as r,mn as t};
-//# sourceMappingURL=string-nc_tAi49.js.map

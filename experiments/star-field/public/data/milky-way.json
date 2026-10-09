@@ -1,0 +1,16 @@
+{
+  "id": "milky-way",
+  "name": "Milky Way",
+  "kind": "galaxy",
+  "tagline": "Our home galaxy — a barred spiral of hundreds of billions of stars.",
+  "facts": [
+    { "label": "Type", "value": "Barred spiral (SBbc)" },
+    { "label": "Diameter", "value": "≈ 100,000+ light-years" },
+    { "label": "Stars", "value": "100–400 billion" },
+    { "label": "Sun's orbit", "value": "≈ 26,000 ly from center" },
+    { "label": "Galactic year", "value": "≈ 230 million years" },
+    { "label": "Age", "value": "≈ 13.6 billion years" }
+  ],
+  "history": "The pale band across the night sky is our galaxy seen edge-on — the word 'galaxy' comes from the Greek 'gala', milk. Galileo's telescope first resolved it into stars in 1610; Herschel tried to map it in 1785, and only in 1920 did the Shapley–Curtis debate and Hubble's Andromeda measurements prove it was one 'island universe' among many. The Sun orbits its center once every 230 million years — dinosaurs lived one galactic year ago. Gaia has now charted over a billion of its stars, and in roughly 4.5 billion years it will merge with Andromeda into a new galaxy nicknamed Milkomeda.",
+  "source": "NASA; ESA Gaia"
+}

@@ -1,0 +1,2 @@
+var ba,wa,Kr;import{C as pt,v as en}from"./store-CTD68OXe.js";ba=t=>{if(!t||typeof t!==pt.fn)return en.EMPTY;let g,r=t;do{g=r,r=r.replace(/<[^>]*>/g,en.EMPTY)}while(r!==g);return r},wa=t=>t&&typeof t===pt.fn?t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"):en.EMPTY,Kr=t=>t&&typeof t===pt.fn?t.toLowerCase().replace(/[^\w\s-]/g,en.EMPTY).trim().replace(/[\s_]+/g,"-").replace(/--+/g,"-"):en.EMPTY;export{Kr as n,ba as r,wa as t};
+//# sourceMappingURL=string-B0lVWCgk.js.map

@@ -1,1 +1,0 @@
-function Wg(n,r){var t,f,i,u;if(null==n)return{};if(i=function(n,r){var t,f;if(null==n)return{};for(f in t={},n)if({}.hasOwnProperty.call(n,f)){if(r.includes(f))continue;t[f]=n[f]}return t}(n,r),Object.getOwnPropertySymbols)for(u=Object.getOwnPropertySymbols(n),f=0;f<u.length;f++)r.includes(t=u[f])||{}.propertyIsEnumerable.call(n,t)&&(i[t]=n[t]);return i}export{Wg as t};

@@ -1,0 +1,2 @@
+import{p as Eu}from"./src-BpI76ZUz.js";import{n as Du}from"./chunk-Y2CYZVJY-B52AjKJR.js";var xw=Du((r,a)=>{let o;return"sandbox"===a&&(o=Eu("#i"+r)),Eu("sandbox"===a?o.nodes()[0].contentDocument.body:"body").select(`[id="${r}"]`)},"getDiagramElement");export{xw as t};
+//# sourceMappingURL=chunk-XXDRQBXY-CR8hoMPU.js.map

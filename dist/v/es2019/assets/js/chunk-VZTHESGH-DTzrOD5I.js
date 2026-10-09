@@ -1,2 +1,0 @@
-function aG(e=cAe){const r=Qoe(Xoe(e),FNe),a=Qoe(Joe({shared:r}),UNe,mG);return r.ServiceRegistry.register(a),{shared:r,GitGraph:a}}var xh,eGe,mG;import{C as Xoe,S as Joe,c as UNe,i as sIe,o as cAe,t as oIe,u as FNe,w as Qoe,x as Tu}from"./chunk-NGNAAXSQ-CdZy6l7s.js";Tu(xh=class extends oIe{constructor(){super(["gitGraph"])}},"GitGraphTokenBuilder"),eGe=xh,mG={parser:{TokenBuilder:Tu(()=>new eGe,"TokenBuilder"),ValueConverter:Tu(()=>new sIe,"ValueConverter")}},Tu(aG,"createGitGraphServices");export{aG as n,mG as t};
-//# sourceMappingURL=chunk-VZTHESGH-DTzrOD5I.js.map

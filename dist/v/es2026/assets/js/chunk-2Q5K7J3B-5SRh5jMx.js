@@ -1,0 +1,2 @@
+import{n as xu}from"./chunk-Y2CYZVJY-wzejclg-.js";var M$=class{constructor(t){this.init=t,this.records=this.init()}static{xu(this,"ImperativeState")}reset(){this.records=this.init()}};export{M$ as t};
+//# sourceMappingURL=chunk-2Q5K7J3B-5SRh5jMx.js.map

@@ -1,0 +1,2 @@
+import{n as Du}from"./chunk-Y2CYZVJY-B52AjKJR.js";var S_=Du(()=>`\n  /* Font Awesome icon styling - consolidated */\n  .label-icon {\n    display: inline-block;\n    height: 1em;\n    overflow: visible;\n    vertical-align: -0.125em;\n  }\n  \n  .node .label-icon path {\n    fill: currentColor;\n    stroke: revert;\n    stroke-width: revert;\n  }\n`,"getIconStyles");export{S_ as t};
+//# sourceMappingURL=chunk-5VM5RSS4-DtzLyxER.js.map

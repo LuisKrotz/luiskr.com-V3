@@ -1,0 +1,2 @@
+function NW(e=hAe){const a=ale(ile(e),HNe),r=ale(nle({shared:a}),eIe,WW);return a.ServiceRegistry.register(r),{shared:a,Packet:r}}var xh,aBe,WW;import{C as ile,S as nle,d as eIe,i as fIe,o as hAe,t as mIe,u as HNe,w as ale,x as Og}from"./chunk-NGNAAXSQ-BGDAKzOI.js";Og(xh=class extends mIe{constructor(){super(["packet"])}},"PacketTokenBuilder"),aBe=xh,WW={parser:{TokenBuilder:Og(()=>new aBe,"TokenBuilder"),ValueConverter:Og(()=>new fIe,"ValueConverter")}},Og(NW,"createPacketServices");export{NW as n,WW as t};
+//# sourceMappingURL=chunk-OD3NTWWA-BlY-rDsE.js.map

@@ -1,0 +1,2 @@
+var Ake=Object.defineProperty,Du=(e,a)=>Ake(e,"name",{value:a,configurable:!0}),qH=(e,a)=>{for(var r in a)Ake(e,r,{get:a[r],enumerable:!0})};export{Du as n,qH as t};
+//# sourceMappingURL=chunk-Y2CYZVJY-B52AjKJR.js.map

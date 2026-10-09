@@ -1,2 +1,0 @@
-var Qr=Object.freeze({Zs:"-mozjpg",Js:"3-MSSIM-tuned-kodak",nl:"-50",dl:"-uncompressed",Qs:".jpg",qs:".mp4",Hs:".mp4.jpg-thumb.jpg",Ys:".mp4-scaledown-2x"}),ti=Object.freeze({wd:5e3,Yd:420,Xd:400,Kd:150,xd:.04}),ai=Object.freeze({yd:2*Math.PI*19,kd:768,_d:960,Wd:40,Ed:70,Fc:"70vh",vd:10,Zd:.15,$d:4,Vd:32,Ld:320,_B:375,Md:24,Rd:1024,zd:377,Ad:610,Nd:987,IB:42,Sd:68,TB:26,Id:42,Cd:68,Od:110,Bd:158,Ud:55,jd:89,Dd:377,Td:233,SB:600}),ei=Object.freeze({Xc:2,Kc:2,Yc:250});export{Qr as i,ei as n,ti as r,ai as t};
-//# sourceMappingURL=carousel-BuPxrdSm.js.map

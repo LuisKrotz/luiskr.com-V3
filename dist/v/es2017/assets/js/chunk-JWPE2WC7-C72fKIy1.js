@@ -1,0 +1,2 @@
+function lp(o,n){var l,u,i;o.accDescr&&(null===(l=n.setAccDescription)||void 0===l||l.call(n,o.accDescr)),o.accTitle&&(null===(u=n.setAccTitle)||void 0===u||u.call(n,o.accTitle)),o.title&&(null===(i=n.setDiagramTitle)||void 0===i||i.call(n,o.title))}import{n as Og}from"./chunk-Y2CYZVJY-BXogDvNO.js";Og(lp,"populateCommonDb");export{lp as t};
+//# sourceMappingURL=chunk-JWPE2WC7-C72fKIy1.js.map

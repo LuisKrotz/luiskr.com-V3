@@ -1,2 +1,0 @@
-var Hr=Object.freeze(Object.fromEntries(["DECODE_IMAGE_WASM","DECODE_IMAGE_BATCH_WASM","PROCESS_MEDIA_ANALYTICS","COMPUTE_MEDIA_HASH","COMPUTE_SPRING_PHYSICS","DECODE_MEDIA_URL_WASM","PROBE_VIDEO_WASM","PREFETCH_VIDEO_WASM","DECODE_VIDEO_SEGMENT_WASM","DECODE_SVG_WASM","DOCS_SCENE_LAYOUT"].map(E=>[E,E]))),EEE=Object.freeze({CH:"/scripts/workers/wasm-worker.js",eH:"/scripts/wasm/engine.wasm",PH:2,sH:2,aH:4,cH:2});Object.freeze({rH:"wasm-gpu-accelerated",Yr:"100%",Kr:"1.2em",lg:"inline-block",tH:200,UH:24});export{EEE as n,Hr as t};
-//# sourceMappingURL=wasm-PKXssz0z.js.map

@@ -1,0 +1,2 @@
+Object.freeze({UG:"cubic-bezier(0.22, 1, 0.36, 1)",bG:"cubic-bezier(0.16, 1, 0.3, 1)"});var ln=Object.freeze({qa:450,Ro:350,Ua:1100,cG:420,MG:800,ca:1200,da:2200,FG:640,ju:800,gi:600,pi:2});export{ln as t};
+//# sourceMappingURL=animation-DceAg2Q2.js.map

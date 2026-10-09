@@ -1,0 +1,2 @@
+var fo,no;import{Pt as lee}from"./store-OKwCWfLu.js";fo=Object.freeze({fm:"legal"}),no=Object.freeze({In:lee,om:`${lee}-title`,nm:`${lee}-subtitle`,tm:`${lee}-link`});export{no as n,fo as t};
+//# sourceMappingURL=legal-wI_04yoz.js.map

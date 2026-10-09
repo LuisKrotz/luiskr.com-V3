@@ -1,0 +1,2 @@
+var aa,aee;import{b as Rt}from"./urls-BIHt91av.js";aa=Object.freeze({ERROR:Rt.ERROR,So:"info",Aj:"success"}),aee=Object.freeze({iz:5e3,sz:4,Dj:2500,_j:64});export{aa as n,aee as t};
+//# sourceMappingURL=notify-h0bHOgkt.js.map

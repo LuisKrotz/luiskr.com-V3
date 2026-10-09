@@ -1,2 +1,0 @@
-var Xi,aee;import{z as Qt}from"./store-Cyf4mA7A.js";Xi=Object.freeze({ERROR:Qt.ERROR,Eo:"info",fD:"success"}),aee=Object.freeze({iz:5e3,sz:4,mD:2500,uD:64});export{Xi as n,aee as t};
-//# sourceMappingURL=notify-BJje3xTm.js.map

@@ -143,6 +143,310 @@
         "destination": "/meta/browserconfig.xml"
       },
       {
+        "source": "/sitemap-en.xml",
+        "destination": "/meta/sitemap-en.xml"
+      },
+      {
+        "source": "/sitemap-br.xml",
+        "destination": "/meta/sitemap-br.xml"
+      },
+      {
+        "source": "/sitemap-es.xml",
+        "destination": "/meta/sitemap-es.xml"
+      },
+      {
+        "source": "/sitemap-de.xml",
+        "destination": "/meta/sitemap-de.xml"
+      },
+      {
+        "source": "/sitemap-hrk.xml",
+        "destination": "/meta/sitemap-hrk.xml"
+      },
+      {
+        "source": "/sitemap-cas.xml",
+        "destination": "/meta/sitemap-cas.xml"
+      },
+      {
+        "source": "/sitemap-riv.xml",
+        "destination": "/meta/sitemap-riv.xml"
+      },
+      {
+        "source": "/sitemap-gn.xml",
+        "destination": "/meta/sitemap-gn.xml"
+      },
+      {
+        "source": "/sitemap-it.xml",
+        "destination": "/meta/sitemap-it.xml"
+      },
+      {
+        "source": "/sitemap-ru.xml",
+        "destination": "/meta/sitemap-ru.xml"
+      },
+      {
+        "source": "/sitemap-fr.xml",
+        "destination": "/meta/sitemap-fr.xml"
+      },
+      {
+        "source": "/sitemap-tln.xml",
+        "destination": "/meta/sitemap-tln.xml"
+      },
+      {
+        "source": "/sitemap-gl.xml",
+        "destination": "/meta/sitemap-gl.xml"
+      },
+      {
+        "source": "/sitemap-ca.xml",
+        "destination": "/meta/sitemap-ca.xml"
+      },
+      {
+        "source": "/sitemap-nl.xml",
+        "destination": "/meta/sitemap-nl.xml"
+      },
+      {
+        "source": "/sitemap-ga.xml",
+        "destination": "/meta/sitemap-ga.xml"
+      },
+      {
+        "source": "/br/robots.txt",
+        "destination": "/meta/br/robots.txt"
+      },
+      {
+        "source": "/br/urllist.txt",
+        "destination": "/meta/br/urllist.txt"
+      },
+      {
+        "source": "/br/llms.txt",
+        "destination": "/meta/br/llms.txt"
+      },
+      {
+        "source": "/br/ai-catalog.json",
+        "destination": "/meta/br/ai-catalog.json"
+      },
+      {
+        "source": "/es/robots.txt",
+        "destination": "/meta/es/robots.txt"
+      },
+      {
+        "source": "/es/urllist.txt",
+        "destination": "/meta/es/urllist.txt"
+      },
+      {
+        "source": "/es/llms.txt",
+        "destination": "/meta/es/llms.txt"
+      },
+      {
+        "source": "/es/ai-catalog.json",
+        "destination": "/meta/es/ai-catalog.json"
+      },
+      {
+        "source": "/de/robots.txt",
+        "destination": "/meta/de/robots.txt"
+      },
+      {
+        "source": "/de/urllist.txt",
+        "destination": "/meta/de/urllist.txt"
+      },
+      {
+        "source": "/de/llms.txt",
+        "destination": "/meta/de/llms.txt"
+      },
+      {
+        "source": "/de/ai-catalog.json",
+        "destination": "/meta/de/ai-catalog.json"
+      },
+      {
+        "source": "/hrk/robots.txt",
+        "destination": "/meta/hrk/robots.txt"
+      },
+      {
+        "source": "/hrk/urllist.txt",
+        "destination": "/meta/hrk/urllist.txt"
+      },
+      {
+        "source": "/hrk/llms.txt",
+        "destination": "/meta/hrk/llms.txt"
+      },
+      {
+        "source": "/hrk/ai-catalog.json",
+        "destination": "/meta/hrk/ai-catalog.json"
+      },
+      {
+        "source": "/cas/robots.txt",
+        "destination": "/meta/cas/robots.txt"
+      },
+      {
+        "source": "/cas/urllist.txt",
+        "destination": "/meta/cas/urllist.txt"
+      },
+      {
+        "source": "/cas/llms.txt",
+        "destination": "/meta/cas/llms.txt"
+      },
+      {
+        "source": "/cas/ai-catalog.json",
+        "destination": "/meta/cas/ai-catalog.json"
+      },
+      {
+        "source": "/riv/robots.txt",
+        "destination": "/meta/riv/robots.txt"
+      },
+      {
+        "source": "/riv/urllist.txt",
+        "destination": "/meta/riv/urllist.txt"
+      },
+      {
+        "source": "/riv/llms.txt",
+        "destination": "/meta/riv/llms.txt"
+      },
+      {
+        "source": "/riv/ai-catalog.json",
+        "destination": "/meta/riv/ai-catalog.json"
+      },
+      {
+        "source": "/gn/robots.txt",
+        "destination": "/meta/gn/robots.txt"
+      },
+      {
+        "source": "/gn/urllist.txt",
+        "destination": "/meta/gn/urllist.txt"
+      },
+      {
+        "source": "/gn/llms.txt",
+        "destination": "/meta/gn/llms.txt"
+      },
+      {
+        "source": "/gn/ai-catalog.json",
+        "destination": "/meta/gn/ai-catalog.json"
+      },
+      {
+        "source": "/it/robots.txt",
+        "destination": "/meta/it/robots.txt"
+      },
+      {
+        "source": "/it/urllist.txt",
+        "destination": "/meta/it/urllist.txt"
+      },
+      {
+        "source": "/it/llms.txt",
+        "destination": "/meta/it/llms.txt"
+      },
+      {
+        "source": "/it/ai-catalog.json",
+        "destination": "/meta/it/ai-catalog.json"
+      },
+      {
+        "source": "/ru/robots.txt",
+        "destination": "/meta/ru/robots.txt"
+      },
+      {
+        "source": "/ru/urllist.txt",
+        "destination": "/meta/ru/urllist.txt"
+      },
+      {
+        "source": "/ru/llms.txt",
+        "destination": "/meta/ru/llms.txt"
+      },
+      {
+        "source": "/ru/ai-catalog.json",
+        "destination": "/meta/ru/ai-catalog.json"
+      },
+      {
+        "source": "/fr/robots.txt",
+        "destination": "/meta/fr/robots.txt"
+      },
+      {
+        "source": "/fr/urllist.txt",
+        "destination": "/meta/fr/urllist.txt"
+      },
+      {
+        "source": "/fr/llms.txt",
+        "destination": "/meta/fr/llms.txt"
+      },
+      {
+        "source": "/fr/ai-catalog.json",
+        "destination": "/meta/fr/ai-catalog.json"
+      },
+      {
+        "source": "/tln/robots.txt",
+        "destination": "/meta/tln/robots.txt"
+      },
+      {
+        "source": "/tln/urllist.txt",
+        "destination": "/meta/tln/urllist.txt"
+      },
+      {
+        "source": "/tln/llms.txt",
+        "destination": "/meta/tln/llms.txt"
+      },
+      {
+        "source": "/tln/ai-catalog.json",
+        "destination": "/meta/tln/ai-catalog.json"
+      },
+      {
+        "source": "/gl/robots.txt",
+        "destination": "/meta/gl/robots.txt"
+      },
+      {
+        "source": "/gl/urllist.txt",
+        "destination": "/meta/gl/urllist.txt"
+      },
+      {
+        "source": "/gl/llms.txt",
+        "destination": "/meta/gl/llms.txt"
+      },
+      {
+        "source": "/gl/ai-catalog.json",
+        "destination": "/meta/gl/ai-catalog.json"
+      },
+      {
+        "source": "/ca/robots.txt",
+        "destination": "/meta/ca/robots.txt"
+      },
+      {
+        "source": "/ca/urllist.txt",
+        "destination": "/meta/ca/urllist.txt"
+      },
+      {
+        "source": "/ca/llms.txt",
+        "destination": "/meta/ca/llms.txt"
+      },
+      {
+        "source": "/ca/ai-catalog.json",
+        "destination": "/meta/ca/ai-catalog.json"
+      },
+      {
+        "source": "/nl/robots.txt",
+        "destination": "/meta/nl/robots.txt"
+      },
+      {
+        "source": "/nl/urllist.txt",
+        "destination": "/meta/nl/urllist.txt"
+      },
+      {
+        "source": "/nl/llms.txt",
+        "destination": "/meta/nl/llms.txt"
+      },
+      {
+        "source": "/nl/ai-catalog.json",
+        "destination": "/meta/nl/ai-catalog.json"
+      },
+      {
+        "source": "/ga/robots.txt",
+        "destination": "/meta/ga/robots.txt"
+      },
+      {
+        "source": "/ga/urllist.txt",
+        "destination": "/meta/ga/urllist.txt"
+      },
+      {
+        "source": "/ga/llms.txt",
+        "destination": "/meta/ga/llms.txt"
+      },
+      {
+        "source": "/ga/ai-catalog.json",
+        "destination": "/meta/ga/ai-catalog.json"
+      },
+      {
         "source": "/br",
         "destination": "/langs/br/index.html"
       },

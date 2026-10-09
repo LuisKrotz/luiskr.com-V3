@@ -1,2 +1,0 @@
-Object.freeze({zD:"cubic-bezier(0.22, 1, 0.36, 1)",BD:"cubic-bezier(0.16, 1, 0.3, 1)"});var Qn=Object.freeze({Bi:450,wo:350,zi:1100,qD:420,wD:800,ni:1200,ti:2200,yD:640,yO:800,hn:600,un:2});export{Qn as t};
-//# sourceMappingURL=animation-BTU54aM6.js.map

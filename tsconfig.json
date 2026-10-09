@@ -28,7 +28,8 @@
       "@website/*": ["./website/*"],
       "@cms/*": ["./cms/*"],
       "@earth/*": ["./experiments/earth-playground/*"],
-      "@docs/*": ["./experiments/docs/*"]
+      "@docs/*": ["./experiments/docs/*"],
+      "@star/*": ["./experiments/star-field/*"]
     },
 
     "resolveJsonModule": true,

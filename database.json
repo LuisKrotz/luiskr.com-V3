@@ -87,6 +87,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Earth Playground",
+        "starField": "Star Field",
         "menu": "Menu",
         "close": "Close",
         "loader": {
@@ -739,6 +740,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>We all get lost sometimes.",
           "link": "Back to the main page."
+        },
+        "star-field": {
+          "title": "Star Field",
+          "systemBoot": "System Boot",
+          "hint": "Drag to explore · Scroll to zoom · Select a body for its story",
+          "explore": "Star Chart",
+          "solar": "Solar System",
+          "milkyWay": "Milky Way",
+          "nebulae": "Nebulae",
+          "galaxies": "Galaxies",
+          "screenshot": "Take Screenshot",
+          "overview": "Overview",
+          "loading": "Loading…",
+          "source": "Source",
+          "star": "Star",
+          "planet": "Planet",
+          "dwarfPlanet": "Dwarf Planet",
+          "moon": "Moon",
+          "blackHole": "Black Hole",
+          "system": "Star System",
+          "nebula": "Nebula",
+          "galaxy": "Galaxy"
         },
         "earth-playground": {
           "title": "Earth Playground",
@@ -5614,7 +5637,8 @@
         "privacy": "privacy-policy",
         "gdpr": "gdpr",
         "terms": "terms-of-use",
-        "earthPlayground": "earth-playground"
+        "earthPlayground": "earth-playground",
+        "starField": "star-field-experiment"
       }
     },
     "br": {
@@ -5697,6 +5721,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Playground da Terra",
+        "starField": "Campo Estelar",
         "menu": "Menu",
         "close": "Fechar",
         "loader": {
@@ -6349,6 +6374,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Todos nós nos perdemos às vezes.",
           "link": "Voltar para a página inicial."
+        },
+        "star-field": {
+          "title": "Campo Estelar",
+          "systemBoot": "Inicialização do Sistema",
+          "hint": "Arraste para explorar · Role para ampliar · Selecione um corpo para sua história",
+          "explore": "Carta Celeste",
+          "solar": "Sistema Solar",
+          "milkyWay": "Via Láctea",
+          "nebulae": "Nebulosas",
+          "galaxies": "Galáxias",
+          "screenshot": "Capturar Tela",
+          "overview": "Visão Geral",
+          "loading": "Carregando…",
+          "source": "Fonte",
+          "star": "Estrela",
+          "planet": "Planeta",
+          "dwarfPlanet": "Planeta Anão",
+          "moon": "Lua",
+          "blackHole": "Buraco Negro",
+          "system": "Sistema Estelar",
+          "nebula": "Nebulosa",
+          "galaxy": "Galáxia"
         },
         "earth-playground": {
           "title": "Playground da Terra",
@@ -11224,7 +11271,8 @@
         "privacy": "politica-de-privacidade",
         "gdpr": "lgpd",
         "terms": "termos-de-uso",
-        "earthPlayground": "playground-da-terra"
+        "earthPlayground": "playground-da-terra",
+        "starField": "experimento-campo-estelar"
       }
     },
     "es": {
@@ -11307,6 +11355,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Playground de la Tierra",
+        "starField": "Campo Estelar",
         "menu": "Menú",
         "close": "Cerrar",
         "loader": {
@@ -11959,6 +12008,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Todos nos perdemos a veces.",
           "link": "Volver a la página principal."
+        },
+        "star-field": {
+          "title": "Campo Estelar",
+          "systemBoot": "Arranque del Sistema",
+          "hint": "Arrastra para explorar · Rueda para ampliar · Selecciona un cuerpo para su historia",
+          "explore": "Carta Celeste",
+          "solar": "Sistema Solar",
+          "milkyWay": "Vía Láctea",
+          "nebulae": "Nebulosas",
+          "galaxies": "Galaxias",
+          "screenshot": "Capturar Pantalla",
+          "overview": "Vista General",
+          "loading": "Cargando…",
+          "source": "Fuente",
+          "star": "Estrella",
+          "planet": "Planeta",
+          "dwarfPlanet": "Planeta Enano",
+          "moon": "Luna",
+          "blackHole": "Agujero Negro",
+          "system": "Sistema Estelar",
+          "nebula": "Nebulosa",
+          "galaxy": "Galaxia"
         },
         "earth-playground": {
           "title": "Playground de la Tierra",
@@ -16834,7 +16905,8 @@
         "privacy": "politica-de-privacidad",
         "gdpr": "rgpd",
         "terms": "terminos-de-uso",
-        "earthPlayground": "playground-de-la-tierra"
+        "earthPlayground": "playground-de-la-tierra",
+        "starField": "experimento-campo-estelar"
       }
     },
     "de": {
@@ -16917,6 +16989,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Erde-Playground",
+        "starField": "Sternenfeld",
         "menu": "Menü",
         "close": "Schließen",
         "loader": {
@@ -17569,6 +17642,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Wir verirren uns alle manchmal.",
           "link": "Zurück zur Hauptseite."
+        },
+        "star-field": {
+          "title": "Sternenfeld",
+          "systemBoot": "Systemstart",
+          "hint": "Ziehen zum Erkunden · Scrollen zum Zoomen · Körper für seine Geschichte wählen",
+          "explore": "Sternenkarte",
+          "solar": "Sonnensystem",
+          "milkyWay": "Milchstraße",
+          "nebulae": "Nebel",
+          "galaxies": "Galaxien",
+          "screenshot": "Screenshot aufnehmen",
+          "overview": "Übersicht",
+          "loading": "Laden…",
+          "source": "Quelle",
+          "star": "Stern",
+          "planet": "Planet",
+          "dwarfPlanet": "Zwergplanet",
+          "moon": "Mond",
+          "blackHole": "Schwarzes Loch",
+          "system": "Sternsystem",
+          "nebula": "Nebel",
+          "galaxy": "Galaxie"
         },
         "earth-playground": {
           "title": "Erde-Playground",
@@ -22444,7 +22539,8 @@
         "privacy": "datenschutzrichtlinie",
         "gdpr": "dsgvo",
         "terms": "nutzungsbedingungen",
-        "earthPlayground": "erde-playground"
+        "earthPlayground": "erde-playground",
+        "starField": "sternenfeld-experiment"
       }
     },
     "hrk": {
@@ -22527,6 +22623,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Erd-Playground",
+        "starField": "Schdernfeld",
         "menu": "Menü",
         "close": "Schließen",
         "loader": {
@@ -23179,6 +23276,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Mier verirren ins all manchmol.",
           "link": "Back to the main page."
+        },
+        "star-field": {
+          "title": "Schdernfeld",
+          "systemBoot": "Systemstart",
+          "hint": "Zieh zum Erkunde · Scroll zum Zoome · Körper für sei Geschichte wähle",
+          "explore": "Schdernkart",
+          "solar": "Sonnensystem",
+          "milkyWay": "Milchschdraß",
+          "nebulae": "Nebel",
+          "galaxies": "Galaxie",
+          "screenshot": "Screenshot mache",
+          "overview": "Iwwerblick",
+          "loading": "Laade…",
+          "source": "Quell",
+          "star": "Schdern",
+          "planet": "Planet",
+          "dwarfPlanet": "Zwergplanet",
+          "moon": "Moonde",
+          "blackHole": "Schwarzes Loch",
+          "system": "Schdernsystem",
+          "nebula": "Nebel",
+          "galaxy": "Galaxie"
         },
         "earth-playground": {
           "title": "Erd-Playground",
@@ -28054,7 +28173,8 @@
         "privacy": "dateschutz-erklerung",
         "gdpr": "datenschutz",
         "terms": "nutzungsbedingunge",
-        "earthPlayground": "erd-playground"
+        "earthPlayground": "erd-playground",
+        "starField": "sternfeld-experiment"
       }
     },
     "cas": {
@@ -28137,6 +28257,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Playground de la Tierra",
+        "starField": "Campo Estelar",
         "menu": "Menú",
         "close": "Cerrar",
         "loader": {
@@ -28789,6 +28910,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Todos nos perdemos a veces.",
           "link": "Volver a la página principal."
+        },
+        "star-field": {
+          "title": "Campo Estelar",
+          "systemBoot": "Arranque del Sistema",
+          "hint": "Arrastra para explorar · Rueda para ampliar · Selecciona un cuerpo para su historia",
+          "explore": "Carta Celeste",
+          "solar": "Sistema Solar",
+          "milkyWay": "Vía Láctea",
+          "nebulae": "Nebulosas",
+          "galaxies": "Galaxias",
+          "screenshot": "Capturar Pantalla",
+          "overview": "Vista General",
+          "loading": "Cargando…",
+          "source": "Fuente",
+          "star": "Estrella",
+          "planet": "Planeta",
+          "dwarfPlanet": "Planeta Enano",
+          "moon": "Luna",
+          "blackHole": "Agujero Negro",
+          "system": "Sistema Estelar",
+          "nebula": "Nebulosa",
+          "galaxy": "Galaxia"
         },
         "earth-playground": {
           "title": "Playground de la Tierra",
@@ -33664,7 +33807,8 @@
         "privacy": "politica-de-privacidad",
         "gdpr": "rgpd",
         "terms": "terminos-de-uso",
-        "earthPlayground": "playground-de-la-tierra"
+        "earthPlayground": "playground-de-la-tierra",
+        "starField": "experimento-campo-estelar"
       }
     },
     "riv": {
@@ -33747,6 +33891,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Playground da Terra",
+        "starField": "Campo Estelar",
         "menu": "Menu",
         "close": "Fechar",
         "loader": {
@@ -34399,6 +34544,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Todos nós nos perdemos às vezes.",
           "link": "Back to the main page."
+        },
+        "star-field": {
+          "title": "Campo Estelar",
+          "systemBoot": "Inicialização do Sistema",
+          "hint": "Arraste pa explorar · Role pa ampliar · Selecione un cuerpo pa su história",
+          "explore": "Carta Celeste",
+          "solar": "Sistema Solar",
+          "milkyWay": "Via Láctea",
+          "nebulae": "Nebulosas",
+          "galaxies": "Galáxias",
+          "screenshot": "Capturar Tela",
+          "overview": "Visão Geral",
+          "loading": "Carregando…",
+          "source": "Fuente",
+          "star": "Estrela",
+          "planet": "Planeta",
+          "dwarfPlanet": "Planeta Enano",
+          "moon": "Lua",
+          "blackHole": "Buraco Negro",
+          "system": "Sistema Estelar",
+          "nebula": "Nebulosa",
+          "galaxy": "Galáxia"
         },
         "earth-playground": {
           "title": "Playground da Terra",
@@ -39274,7 +39441,8 @@
         "privacy": "politica-de-privacidade",
         "gdpr": "lgpd-gdpr",
         "terms": "termos-de-uso",
-        "earthPlayground": "playground-da-terra"
+        "earthPlayground": "playground-da-terra",
+        "starField": "experimento-campo-estelar"
       }
     },
     "gn": {
@@ -39357,6 +39525,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Yvy Ñembosarái",
+        "starField": "Mbyja Ñembosarái",
         "menu": "Porandurenda",
         "close": "Emboty",
         "loader": {
@@ -40009,6 +40178,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Orendavykue jepéi ore.",
           "link": "Back to the main page."
+        },
+        "star-field": {
+          "title": "Mbyja Ñembosarái",
+          "systemBoot": "Sistema Ñepyrũ",
+          "hint": "Emomýi eikuaa hag̃ua · Emomichĩ térã embotuicha · Eiporavo peteĩ rejeguá",
+          "explore": "Mbyja Mapa",
+          "solar": "Kuarahy Apopy",
+          "milkyWay": "Mbyja Tape",
+          "nebulae": "Atiku'ũ",
+          "galaxies": "Galaxias",
+          "screenshot": "Mba'erechaha Japy",
+          "overview": "Ñe'ẽnguemi",
+          "loading": "Oñemyanyhẽ…",
+          "source": "Teisõ",
+          "star": "Mbyja",
+          "planet": "Mbyjape",
+          "dwarfPlanet": "Mbyjape Michĩ",
+          "moon": "Jasy",
+          "blackHole": "Pytũ Nangareko",
+          "system": "Mbyja Apopy",
+          "nebula": "Atiku'ũ",
+          "galaxy": "Galaxia"
         },
         "earth-playground": {
           "title": "Yvy Ñembosarái",
@@ -44884,7 +45075,8 @@
         "privacy": "marandu-nangarekoha",
         "gdpr": "lgpd-gdpr",
         "terms": "oipuruva-nemoarandu",
-        "earthPlayground": "yvy-nembosarai"
+        "earthPlayground": "yvy-nembosarai",
+        "starField": "mbyja-nembosarai"
       }
     },
     "it": {
@@ -44967,6 +45159,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Playground della Terra",
+        "starField": "Campo Stellare",
         "menu": "Menu",
         "close": "Chiudi",
         "loader": {
@@ -45619,6 +45812,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Tutti ci perdiamo a volte.",
           "link": "Torna alla pagina principale."
+        },
+        "star-field": {
+          "title": "Campo Stellare",
+          "systemBoot": "Avvio del Sistema",
+          "hint": "Trascina per esplorare · Scorri per lo zoom · Seleziona un corpo per la sua storia",
+          "explore": "Carta Stellare",
+          "solar": "Sistema Solare",
+          "milkyWay": "Via Lattea",
+          "nebulae": "Nebulose",
+          "galaxies": "Galassie",
+          "screenshot": "Fai Screenshot",
+          "overview": "Panoramica",
+          "loading": "Caricamento…",
+          "source": "Fonte",
+          "star": "Stella",
+          "planet": "Pianeta",
+          "dwarfPlanet": "Pianeta Nano",
+          "moon": "Luna",
+          "blackHole": "Buco Nero",
+          "system": "Sistema Stellare",
+          "nebula": "Nebulosa",
+          "galaxy": "Galassia"
         },
         "earth-playground": {
           "title": "Playground della Terra",
@@ -50494,7 +50709,8 @@
         "privacy": "informativa-sulla-privacy",
         "gdpr": "gdpr",
         "terms": "termini-di-utilizzo",
-        "earthPlayground": "playground-della-terra"
+        "earthPlayground": "playground-della-terra",
+        "starField": "esperimento-campo-stellare"
       }
     },
     "ru": {
@@ -50577,6 +50793,7 @@
           "gpu": "ГП"
         },
         "earthPlayground": "Земная песочница",
+        "starField": "Звёздное поле",
         "menu": "Меню",
         "close": "Закрыть",
         "loader": {
@@ -51229,6 +51446,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Все мы иногда теряемся.",
           "link": "Back to the main page."
+        },
+        "star-field": {
+          "title": "Звёздное Поле",
+          "systemBoot": "Загрузка Системы",
+          "hint": "Перетаскивайте для обзора · Прокрутка для масштаба · Выберите объект для его истории",
+          "explore": "Звёздная Карта",
+          "solar": "Солнечная Система",
+          "milkyWay": "Млечный Путь",
+          "nebulae": "Туманности",
+          "galaxies": "Галактики",
+          "screenshot": "Сделать Снимок",
+          "overview": "Обзор",
+          "loading": "Загрузка…",
+          "source": "Источник",
+          "star": "Звезда",
+          "planet": "Планета",
+          "dwarfPlanet": "Карликовая Планета",
+          "moon": "Луна",
+          "blackHole": "Чёрная Дыра",
+          "system": "Звёздная Система",
+          "nebula": "Туманность",
+          "galaxy": "Галактика"
         },
         "earth-playground": {
           "title": "Земная песочница",
@@ -56104,7 +56343,8 @@
         "privacy": "politika-konfidentsialnosti",
         "gdpr": "gdpr",
         "terms": "usloviya-ispolzovaniya",
-        "earthPlayground": "zemnaya-pesochnitsa"
+        "earthPlayground": "zemnaya-pesochnitsa",
+        "starField": "zvezdnoe-pole"
       }
     },
     "fr": {
@@ -56187,6 +56427,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Playground de la Terre",
+        "starField": "Champ Stellaire",
         "menu": "Menu",
         "close": "Fermer",
         "loader": {
@@ -56839,6 +57080,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>On se perd tous parfois.",
           "link": "Retour à la page principale."
+        },
+        "star-field": {
+          "title": "Champ Stellaire",
+          "systemBoot": "Démarrage du Système",
+          "hint": "Glissez pour explorer · Molette pour zoomer · Sélectionnez un corps pour son histoire",
+          "explore": "Carte Céleste",
+          "solar": "Système Solaire",
+          "milkyWay": "Voie Lactée",
+          "nebulae": "Nébuleuses",
+          "galaxies": "Galaxies",
+          "screenshot": "Prendre une Capture",
+          "overview": "Vue d'Ensemble",
+          "loading": "Chargement…",
+          "source": "Source",
+          "star": "Étoile",
+          "planet": "Planète",
+          "dwarfPlanet": "Planète Naine",
+          "moon": "Lune",
+          "blackHole": "Trou Noir",
+          "system": "Système Stellaire",
+          "nebula": "Nébuleuse",
+          "galaxy": "Galaxie"
         },
         "earth-playground": {
           "title": "Playground de la Terre",
@@ -61714,7 +61977,8 @@
         "privacy": "politique-de-confidentialite",
         "gdpr": "rgpd",
         "terms": "conditions-utilisation",
-        "earthPlayground": "playground-de-la-terre"
+        "earthPlayground": "playground-de-la-terre",
+        "starField": "experience-champ-etoile"
       }
     },
     "tln": {
@@ -61797,6 +62061,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Terałudo",
+        "starField": "Canpo Stełare",
         "menu": "Menù",
         "close": "Sara",
         "loader": {
@@ -62449,6 +62714,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Tuti se perde de tanto in tanto.",
           "link": "Back to the main page."
+        },
+        "star-field": {
+          "title": "Canpo Stełare",
+          "systemBoot": "Avio Sistema",
+          "hint": "Strasina par esplorar · Scori par el zoom · Sełesiona un corpo par ła so storia",
+          "explore": "Carta Stełare",
+          "solar": "Sistema Sołare",
+          "milkyWay": "Via Lata",
+          "nebulae": "Nebołose",
+          "galaxies": "Gałasie",
+          "screenshot": "Fa Screenshot",
+          "overview": "Panoramica",
+          "loading": "Cargando…",
+          "source": "Fonte",
+          "star": "Steła",
+          "planet": "Pianeta",
+          "dwarfPlanet": "Pianeta Nano",
+          "moon": "Łuna",
+          "blackHole": "Buco Nero",
+          "system": "Sistema Stełare",
+          "nebula": "Nebołosa",
+          "galaxy": "Gałasia"
         },
         "earth-playground": {
           "title": "Terałudo",
@@ -67324,7 +67611,8 @@
         "privacy": "informativa-su-la-privacy",
         "gdpr": "gdpr",
         "terms": "condission-de-uso",
-        "earthPlayground": "playground-della-terra"
+        "earthPlayground": "playground-della-terra",
+        "starField": "esperimento-canpo-stelare"
       }
     },
     "nl": {
@@ -67407,6 +67695,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Aarde-playground",
+        "starField": "Sterrenveld",
         "menu": "Menu",
         "close": "Sluiten",
         "loader": {
@@ -68059,6 +68348,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>We raken allemaal wel eens verdwaald.",
           "link": "Terug naar de hoofdpagina."
+        },
+        "star-field": {
+          "title": "Sterrenveld",
+          "systemBoot": "Systeemstart",
+          "hint": "Sleep om te verkennen · Scroll om in te zoomen · Selecteer een hemellichaam voor zijn verhaal",
+          "explore": "Sterrenkaart",
+          "solar": "Zonnestelsel",
+          "milkyWay": "Melkweg",
+          "nebulae": "Nevels",
+          "galaxies": "Sterrenstelsels",
+          "screenshot": "Schermafbeelding Maken",
+          "overview": "Overzicht",
+          "loading": "Laden…",
+          "source": "Bron",
+          "star": "Ster",
+          "planet": "Planeet",
+          "dwarfPlanet": "Dwergplaneet",
+          "moon": "Maan",
+          "blackHole": "Zwart Gat",
+          "system": "Sterrenstelsel",
+          "nebula": "Nevel",
+          "galaxy": "Sterrenstelsel"
         },
         "earth-playground": {
           "title": "Aarde-playground",
@@ -72934,7 +73245,8 @@
         "privacy": "privacybeleid",
         "gdpr": "avg",
         "terms": "gebruiksvoorwaarden",
-        "earthPlayground": "aarde-playground"
+        "earthPlayground": "aarde-playground",
+        "starField": "sterrenveld-experiment"
       }
     },
     "ca": {
@@ -73017,6 +73329,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Playground de la Terra",
+        "starField": "Camp Estel·lar",
         "menu": "Menú",
         "close": "Tanca",
         "loader": {
@@ -73669,6 +73982,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Tots ens perdem de vegades.",
           "link": "Torna a la pàgina principal."
+        },
+        "star-field": {
+          "title": "Camp Estel·lar",
+          "systemBoot": "Arrencada del Sistema",
+          "hint": "Arrossega per explorar · Rodeta per ampliar · Selecciona un cos per la seva història",
+          "explore": "Carta Celeste",
+          "solar": "Sistema Solar",
+          "milkyWay": "Via Làctea",
+          "nebulae": "Nebuloses",
+          "galaxies": "Galàxies",
+          "screenshot": "Fes Captura",
+          "overview": "Vista General",
+          "loading": "Carregant…",
+          "source": "Font",
+          "star": "Estrella",
+          "planet": "Planeta",
+          "dwarfPlanet": "Planeta Nan",
+          "moon": "Lluna",
+          "blackHole": "Forat Negre",
+          "system": "Sistema Estel·lar",
+          "nebula": "Nebulosa",
+          "galaxy": "Galàxia"
         },
         "earth-playground": {
           "title": "Playground de la Terra",
@@ -78544,7 +78879,8 @@
         "privacy": "politica-de-privacitat",
         "gdpr": "rgpd",
         "terms": "termes-d-us",
-        "earthPlayground": "playground-de-la-terra"
+        "earthPlayground": "playground-de-la-terra",
+        "starField": "experiment-camp-estelar"
       }
     },
     "gl": {
@@ -78627,6 +78963,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Playground da Terra",
+        "starField": "Campo Estelar",
         "menu": "Menú",
         "close": "Pechar",
         "loader": {
@@ -79279,6 +79616,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Todos nos perdemos algunhas veces.",
           "link": "Volver á páxina principal."
+        },
+        "star-field": {
+          "title": "Campo Estelar",
+          "systemBoot": "Arranque do Sistema",
+          "hint": "Arrastra para explorar · Roda para ampliar · Selecciona un corpo para a súa historia",
+          "explore": "Carta Celeste",
+          "solar": "Sistema Solar",
+          "milkyWay": "Vía Láctea",
+          "nebulae": "Nebulosas",
+          "galaxies": "Galaxias",
+          "screenshot": "Capturar Pantalla",
+          "overview": "Vista Xeral",
+          "loading": "Cargando…",
+          "source": "Fonte",
+          "star": "Estrela",
+          "planet": "Planeta",
+          "dwarfPlanet": "Planeta Anano",
+          "moon": "Lúa",
+          "blackHole": "Burato Negro",
+          "system": "Sistema Estelar",
+          "nebula": "Nebulosa",
+          "galaxy": "Galaxia"
         },
         "earth-playground": {
           "title": "Playground da Terra",
@@ -84154,7 +84513,8 @@
         "privacy": "politica-de-privacidade",
         "gdpr": "rgpd",
         "terms": "termos-de-uso",
-        "earthPlayground": "playground-da-terra"
+        "earthPlayground": "playground-da-terra",
+        "starField": "experimento-campo-estelar"
       }
     },
     "ga": {
@@ -84237,6 +84597,7 @@
           "gpu": "GPU"
         },
         "earthPlayground": "Clós Spraoi an Domhain",
+        "starField": "Réimse Réalta",
         "menu": "Roghchlár",
         "close": "Dún",
         "loader": {
@@ -84889,6 +85250,28 @@
         "not-found": {
           "title": "👽, 👾, 👹, 🤡, 👻 || 🤖.<br>Téimid ar strae uile uaireanta.",
           "link": "Back to the main page."
+        },
+        "star-field": {
+          "title": "Réimse Réalta",
+          "systemBoot": "Tosú an Chórais",
+          "hint": "Tarraing chun iniúchadh · Scrollaigh chun súmáil · Roghnaigh réad le haghaidh a scéil",
+          "explore": "Cairt Réaltaí",
+          "solar": "Córas Gréine",
+          "milkyWay": "Bealach na Bó Finne",
+          "nebulae": "Réaltnéaltaí",
+          "galaxies": "Réaltraí",
+          "screenshot": "Screenshot a Thógáil",
+          "overview": "Forbhreathnú",
+          "loading": "Ag Lódáil…",
+          "source": "Foinse",
+          "star": "Réalta",
+          "planet": "Pláinéad",
+          "dwarfPlanet": "Pláinéad Abhac",
+          "moon": "Gealach",
+          "blackHole": "Poll Dubh",
+          "system": "Córas Réaltaí",
+          "nebula": "Réaltnéal",
+          "galaxy": "Réaltra"
         },
         "earth-playground": {
           "title": "Clós Spraoi an Domhain",
@@ -89764,7 +90147,8 @@
         "privacy": "beartas-probhaideachta",
         "gdpr": "gdpr",
         "terms": "tearmai-usaide",
-        "earthPlayground": "playground-an-domhain"
+        "earthPlayground": "playground-an-domhain",
+        "starField": "turgnamh-reimse-realta"
       }
     }
   }

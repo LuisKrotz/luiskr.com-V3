@@ -1,0 +1,2 @@
+var aa,oee;import{z as ln}from"./store-CTD68OXe.js";aa=Object.freeze({ERROR:ln.ERROR,So:"info",Dj:"success"}),oee=Object.freeze({iz:5e3,sz:4,_j:2500,Cj:64});export{aa as n,oee as t};
+//# sourceMappingURL=notify-C58PSce9.js.map

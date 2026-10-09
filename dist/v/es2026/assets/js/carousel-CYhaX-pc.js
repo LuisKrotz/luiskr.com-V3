@@ -1,0 +1,2 @@
+var li=Object.freeze({rl:"-mozjpg",il:"3-MSSIM-tuned-kodak",pl:"-50",ul:"-uncompressed",ol:".jpg",tl:".mp4",el:".mp4.jpg-thumb.jpg",al:".mp4-scaledown-2x"}),ci=Object.freeze({Ed:5e3,tc:420,ec:400,ac:150,_d:.04}),mi=Object.freeze({Ad:2*Math.PI*19,Rd:768,Sd:960,Qd:40,Od:70,Wc:"70vh",Nd:10,rc:.15,zd:4,Yd:32,Dd:320,MB:375,Fd:24,Id:1024,Md:377,Cd:610,Ld:987,PB:42,Td:68,BB:26,Bd:42,Ud:68,jd:110,qd:158,Hd:55,Xd:89,Vd:377,Pd:233,HB:600}),di=Object.freeze({am:2,im:2,rm:250});export{li as i,di as n,ci as r,mi as t};
+//# sourceMappingURL=carousel-CYhaX-pc.js.map

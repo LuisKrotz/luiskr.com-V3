@@ -1,2 +1,0 @@
-var ln,cn;import{ln as Vee}from"./store-DakMo3St.js";ln=Object.freeze({dn:"aria-label",ia:"aria-expanded",EB:"aria-controls",aB:"aria-labelledby",eB:"aria-modal",bf:"aria-hidden",AB:"aria-live",_O:"aria-pressed",fs:"aria-checked",nz:"polite",RB:"role",Bs:Vee,es:"group",rs:"switch",ta:"button",Dn:"navigation",lz:"alert",dz:"status",My:"tree",Ty:"treeitem",vy:"none",Kf:"tabindex"}),cn=Object.freeze({$E:"type",Mn:"button",Oa:"button",hn:"text",xO:"checkbox",wO:"range",TL:"name",OL:"value",Lo:"label"});export{ln as n,cn as t};
-//# sourceMappingURL=form-CacI6cdT.js.map
