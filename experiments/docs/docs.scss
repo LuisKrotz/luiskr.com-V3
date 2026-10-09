@@ -277,10 +277,13 @@ $_B_DOCS: 'docs';
     margin: 0;
     font-weight: 100;
     font-size: to-rem($space-3xl);
+    line-height: 1;
     letter-spacing: 0.04em;
   }
 
   &-updated {
+    margin-left: auto;
+    align-self: flex-end;
     font-size: to-rem($space-lg);
     opacity: 0.6;
     font-variant-numeric: tabular-nums;
