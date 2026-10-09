@@ -23,6 +23,7 @@ import {
 } from '@core/utils/canvas/gl-lifecycle.js'
 import { parseCssColor } from '@core/utils/canvas/css-color.js'
 import { DOCS_CLASSES } from '@core/tokens/classes/docs.js'
+import { DOCS_UNITS } from '@core/tokens/strings/docs.js'
 
 /** Live GL resources for the mounted strip. */
 export interface DocsGlHandle {
@@ -97,7 +98,7 @@ export const mountDocsGlStrip = (
 
     bindQuad(g, res.quadBuffer as WebGLBuffer, aPos)
 
-    g.uniform1f(uniforms.t, (performance.now() - start) / 1000)
+    g.uniform1f(uniforms.t, ((performance.now() - start) / 1000) * DOCS_UNITS.GL_STRIP_TIME_SCALE)
 
     g.uniform2f(uniforms.r, w, hgt)
 

@@ -73,6 +73,8 @@ export const DOCS_LOADER_PCT = Object.freeze({
 
 /** Unit tokens used by docs layout/scene math. */
 export const DOCS_UNITS = Object.freeze({
+  /** gl-strip thread-field drift — 1/16 real-time so lines barely move */
+  GL_STRIP_TIME_SCALE: 0.0625,
   /** deterministic folder-art hash modulus */
   FOLDER_HASH_MOD: 9973,
   /** tap-vs-drag pick slop in px — taps move < this many CSS px */
@@ -96,9 +98,11 @@ export const DOCS_UNITS = Object.freeze({
   SCENE_DEPTH_STEP: 9,
   SCENE_Y_STEP: 4,
   SCENE_Y_WAVE: 1.5,
-  /** slow backdrop motion — autorotate deg/frame-ish + node pulse */
-  SCENE_ROTATE_SPEED: 0.15,
-  SCENE_PULSE_SPEED: 0.35,
+  /** slow backdrop motion — autorotate deg/frame-ish + node pulse.
+   *  Speeds run at 1/16 of the original values so the graph reads as a
+   *  calm ambient layer, not a spinner. */
+  SCENE_ROTATE_SPEED: 0.009375,
+  SCENE_PULSE_SPEED: 0.021875,
   SCENE_PULSE_AMP: 0.05,
   /** node/edge alpha — kept faint so the graph stays a backdrop layer */
   SCENE_DIR_OPACITY: 0.34,

@@ -254,7 +254,16 @@ const LANG_BY_EXT = Object.freeze({
  *     build-time trust boundary.
  */
 const sanitizeHtmlDoc = (doc, linkResolver = null) => {
-  const styles = [...doc.matchAll(/<style\b[^>]*>[\s\S]*?<\/style\s*>/giu)].map((m) => m[0])
+  // Report stylesheets target `body`/`html` — neither matches inside the
+  // viewer's shadow root, so istanbul reports would render dark-on-dark.
+  // Remap root selectors onto the `.docs-html` wrapper so the report's own
+  // surface (font size, text color, white background) survives inlining.
+  const scopeRootSelectors = (style) =>
+    style.replace(/(^|[\s,{>~+])(body|html)(?![\w-])/gim, '$1.docs-html')
+
+  const styles = [...doc.matchAll(/<style\b[^>]*>[\s\S]*?<\/style\s*>/giu)].map((m) =>
+    scopeRootSelectors(m[0])
+  )
 
   // Local <link rel="stylesheet"> refs (istanbul reports: base.css,
   // prettify.css) get inlined — external CSS would 404 under the portal
@@ -275,7 +284,8 @@ const sanitizeHtmlDoc = (doc, linkResolver = null) => {
 
       // `</style` inside inlined CSS would close the element early — a
       // space after `</` neutralizes it without changing the rules.
-      if (css) styles.push(`<style>${css.replace(/<\/style/giu, '< /style')}</style>`)
+      if (css)
+        styles.push(`<style>${scopeRootSelectors(css.replace(/<\/style/giu, '< /style'))}</style>`)
     }
   }
 

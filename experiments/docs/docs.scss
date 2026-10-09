@@ -567,11 +567,9 @@ $_B_DOCS: 'docs';
     overflow: auto;
     max-width: 100%;
 
-    // Generic element styling shared by .docs-md and .docs-html payloads —
-    // sanitized reports inherit the project surface instead of shipping
-    // raw unstyled markup.
-    .docs-md,
-    .docs-html {
+    // Generic element styling for markdown payloads — rendered html
+    // reports (.docs-html) keep their own inlined styles instead.
+    .docs-md {
       max-width: 75ch;
       line-height: 1.6;
       font-size: to-rem($space-lg);
@@ -669,6 +667,19 @@ $_B_DOCS: 'docs';
         max-width: 100%;
         height: auto;
       }
+    }
+
+    // Sanitized html reports (istanbul coverage, generated docs): their
+    // body/html selectors are remapped onto this wrapper at render time,
+    // so it must supply the light paper surface those rules assume —
+    // otherwise the report's dark text lands on the dark portal.
+    .docs-html {
+      max-width: none;
+      padding: to-rem($space-md);
+      background: var(--color-white-raw);
+      border-radius: var(--radius-md);
+      color-scheme: light;
+      overflow: auto;
     }
 
     // Parsed JSON surface — real numbers, key/field rows and tables.

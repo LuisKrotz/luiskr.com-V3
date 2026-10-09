@@ -118,7 +118,9 @@ describe('renderFile', () => {
     )
 
     expect(html).toContain('docs-html')
-    expect(html).toContain('<style>body{margin:0}</style>')
+    // body/html selectors are remapped onto the .docs-html wrapper — they
+    // can't match inside the viewer's shadow root.
+    expect(html).toContain('<style>.docs-html{margin:0}</style>')
     expect(html).toContain('<p>report</p>')
     expect(html).not.toContain('noscript')
     expect(html).not.toContain('<script')
