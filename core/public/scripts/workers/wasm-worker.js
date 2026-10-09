@@ -412,7 +412,7 @@ self.onmessage = async (e) => {
       let intrinsicWidth = 0
       let intrinsicHeight = 0
 
-      const viewBoxMatch = svgText.match(/viewBox=["'][\d.\-]+\s+[\d.\-]+\s+([\d.]+)\s+([\d.]+)["']/)
+      const viewBoxMatch = svgText.match(/viewBox=["'][\d.-]+\s+[\d.-]+\s+([\d.]+)\s+([\d.]+)["']/)
       if (viewBoxMatch) {
         intrinsicWidth = parseFloat(viewBoxMatch[1])
         intrinsicHeight = parseFloat(viewBoxMatch[2])
