@@ -80,6 +80,22 @@ describe('wasm-pool', () => {
     expect(res).toBeNull()
   })
 
+  test('a spawned worker erroring mid-task resolves null and shrinks the pool', async () => {
+    const p = wasmPool.dispatch(WASM_ACTIONS.PROBE_VIDEO_WASM, { url: TEST_URLS.VIDEO })
+
+    // The error event arrives asynchronously in browsers — a script that
+    // 404s into HTML surfaces here, not at construction. The task knows
+    // which worker owns it (the round-robin cursor isn't reset between
+    // tests, so spawned[0] isn't necessarily the holder).
+    const dead = [...wasmPool.pendingTasks.values()][0].worker
+
+    dead.onerror()
+
+    await expect(p).resolves.toBeNull()
+    expect(dead.terminate).toHaveBeenCalled()
+    expect(wasmPool.workers).not.toContain(dead)
+  })
+
   test('round-robins payloads across workers', async () => {
     await wasmPool.dispatch(WASM_ACTIONS.PROBE_VIDEO_WASM, { url: TEST_URLS.A })
     await wasmPool.dispatch(WASM_ACTIONS.PROBE_VIDEO_WASM, { url: TEST_URLS.B })

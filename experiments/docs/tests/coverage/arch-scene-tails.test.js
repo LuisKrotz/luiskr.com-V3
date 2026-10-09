@@ -70,6 +70,11 @@ jest.unstable_mockModule('three', () => {
   class Scene {
     constructor() {
       this.children = []
+
+      // Object3D's Euler — the intro settle writes scene.rotation.y.
+      this.rotation = { x: 0, y: 0, z: 0 }
+
+      Scene.lastInstance = this
     }
 
     add(o) {
@@ -152,7 +157,15 @@ jest.unstable_mockModule('three', () => {
     Mesh,
     PerspectiveCamera,
     SphereGeometry: Disposable,
-    MeshBasicMaterial: Disposable,
+    // Stores constructor opts — the scene mutates material.opacity for
+    // the active-location highlight, so opacity must read back.
+    MeshBasicMaterial: class extends Disposable {
+      constructor(opts = {}) {
+        super()
+
+        Object.assign(this, opts)
+      }
+    },
     MeshStandardMaterial: Disposable,
     BufferGeometry,
     Float32BufferAttribute: class {},
@@ -179,6 +192,7 @@ jest.unstable_mockModule('three', () => {
 })
 
 const { mountArchScene } = await import('@docs/arch-scene.js')
+const { DOCS_UNITS } = await import('@core/tokens/strings/docs.js')
 const { ViewDocs } = await import('@docs/Docs.js')
 const { CACHE_STORAGE_KEYS } = await import('@core/tokens/data/storage.js')
 const { GL_EVENTS } = await import('@core/tokens/events/dom.js')
@@ -457,7 +471,7 @@ describe('docs architecture scene', () => {
   test('wasm-dispatched positions populate the graph when the pool answers', async () => {
     const spy = jest
       .spyOn(wasmPool, 'dispatch')
-      .mockImplementation(async () => ({ xyz: new Float32Array(21).fill(0) }))
+      .mockImplementation(async () => ({ results: { xyz: new Float32Array(21).fill(0) } }))
 
     const canvas = document.createElement(HTML_TAGS.CANVAS)
 
@@ -579,12 +593,25 @@ describe('docs architecture scene', () => {
     expect(handle).not.toBe(null)
 
     handle.destroy()
+
+    // A reply without the `results` envelope takes the same fallback.
+    spy.mockImplementation(async () => ({}))
+
+    const handle2 = mountArchScene(canvas, ROOTS, jest.fn())
+
+    await flush()
+
+    expect(handle2).not.toBe(null)
+
+    handle2.destroy()
     spy.mockRestore()
     canvas.remove()
   })
 
   test('a wrong-length wasm result falls back to the JS layout', async () => {
-    const spy = jest.spyOn(wasmPool, 'dispatch').mockImplementation(async () => ({ xyz: [1, 2] }))
+    const spy = jest
+      .spyOn(wasmPool, 'dispatch')
+      .mockImplementation(async () => ({ results: { xyz: [1, 2] } }))
 
     const canvas = document.createElement(HTML_TAGS.CANVAS)
 
@@ -719,6 +746,136 @@ describe('docs architecture scene', () => {
 
     expect(view._sceneHandle).not.toBe(null)
     expect(view._sceneHandle).not.toBe(first)
+
+    cleanup()
+    router.currentRoute = prev
+  })
+
+  test('setActive highlights the live node and lifts its ancestors', async () => {
+    const { Scene } = await import('three')
+
+    const canvas = document.createElement(HTML_TAGS.CANVAS)
+
+    document.body.appendChild(canvas)
+
+    const handle = mountArchScene(canvas, ROOTS, jest.fn())
+
+    await flush()
+
+    handle.setActive('docs/architecture')
+
+    const meshes = Scene.lastInstance.children.filter(
+      (c) => c.userData && typeof c.userData.path === 'string'
+    )
+    const active = meshes.find((m) => m.userData.path === 'docs/architecture')
+    const ancestor = meshes.find((m) => m.userData.path === 'docs')
+    const offPath = meshes.find((m) => m.userData.path === 'src/App.tsx')
+
+    expect(active.material.opacity).toBe(DOCS_UNITS.SCENE_ACTIVE_OPACITY)
+    expect(active.userData.activeScale).toBe(DOCS_UNITS.SCENE_ACTIVE_SCALE)
+    expect(ancestor.material.opacity).toBe(DOCS_UNITS.SCENE_ANCESTOR_OPACITY)
+    expect(offPath.material.opacity).toBe(DOCS_UNITS.SCENE_FILE_OPACITY)
+
+    // Returning to the portal root restores the faint backdrop alpha and
+    // lights the center node ('' is its path) instead.
+    handle.setActive('')
+
+    const root = meshes.find((m) => m.userData.path === '')
+
+    expect(active.material.opacity).toBe(DOCS_UNITS.SCENE_DIR_OPACITY)
+    expect(root.material.opacity).toBe(DOCS_UNITS.SCENE_ACTIVE_OPACITY)
+
+    handle.destroy()
+    canvas.remove()
+  })
+
+  test('setActive before the graph lands re-applies when meshes build', async () => {
+    const { Scene } = await import('three')
+
+    const spy = jest
+      .spyOn(wasmPool, 'dispatch')
+      .mockImplementation(() => new Promise((r) => setTimeout(() => r(null), 5)))
+
+    const canvas = document.createElement(HTML_TAGS.CANVAS)
+
+    document.body.appendChild(canvas)
+
+    const handle = mountArchScene(canvas, ROOTS, jest.fn())
+
+    // Path arrives while positions are still in flight.
+    handle.setActive('docs/architecture')
+
+    await flush()
+
+    const active = Scene.lastInstance.children.find(
+      (c) => c.userData && c.userData.path === 'docs/architecture'
+    )
+
+    expect(active.material.opacity).toBe(DOCS_UNITS.SCENE_ACTIVE_OPACITY)
+
+    handle.destroy()
+    spy.mockRestore()
+    canvas.remove()
+  })
+
+  test('a fresh mount eases the graph in via the intro turn; a saved pose skips it', async () => {
+    const { Scene } = await import('three')
+
+    const canvas = document.createElement(HTML_TAGS.CANVAS)
+
+    document.body.appendChild(canvas)
+
+    const handle = mountArchScene(canvas, ROOTS, jest.fn())
+
+    await flush()
+
+    // ~50ms into a multi-second ease — the graph is still rotated in.
+    expect(Math.abs(Scene.lastInstance.rotation.y)).toBeGreaterThan(0.1)
+
+    handle.destroy()
+
+    sessionStorage.setItem(
+      CACHE_STORAGE_KEYS.DOCS_SCENE_STATE,
+      JSON.stringify({ p: [1, 2, 3], t: [4, 5, 6], off: false })
+    )
+
+    const handle2 = mountArchScene(canvas, ROOTS, jest.fn())
+
+    await flush()
+
+    expect(Scene.lastInstance.rotation.y).toBe(0)
+
+    handle2.destroy()
+    canvas.remove()
+  })
+
+  test('ViewDocs syncs the active path into the scene on navigation', async () => {
+    const prev = router.currentRoute
+
+    router.currentRoute = {
+      name: 'docs',
+      meta: { docsRoute: true },
+      params: { docsPath: '' },
+    }
+
+    const view = new ViewDocs()
+    const cleanup = mount(view)
+
+    await flush()
+
+    view.onRouteParamChange({ params: { docsPath: 'docs' } })
+
+    await flush()
+
+    // The nav re-render remounts the scene; assert the wiring end-to-end
+    // via the painted highlight on the fresh scene's node.
+    const { Scene } = await import('three')
+
+    const active = Scene.lastInstance.children.find(
+      (c) => c.userData && c.userData.path === 'docs'
+    )
+
+    expect(active.material.opacity).toBe(DOCS_UNITS.SCENE_ACTIVE_OPACITY)
 
     cleanup()
     router.currentRoute = prev

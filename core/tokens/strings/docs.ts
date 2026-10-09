@@ -108,4 +108,15 @@ export const DOCS_UNITS = Object.freeze({
   SCENE_DIR_OPACITY: 0.34,
   SCENE_FILE_OPACITY: 0.18,
   SCENE_LINE_OPACITY: 0.14,
+  /** active-location highlight — the node matching the open docsPath pops
+   *  to near-full alpha with a larger pulse; ancestor dirs along its path
+   *  lift a notch above the base dir alpha so the branch reads. */
+  SCENE_ACTIVE_OPACITY: 0.95,
+  SCENE_ANCESTOR_OPACITY: 0.55,
+  SCENE_ACTIVE_SCALE: 1.8,
+  /** intro settle — a first (unrestored) mount eases the whole graph in
+   *  from SCENE_INTRO_TURN radians over SCENE_INTRO_MS, then hands off to
+   *  the ambient autorotate. Restored poses skip the intro entirely. */
+  SCENE_INTRO_TURN: -Math.PI * 0.75,
+  SCENE_INTRO_MS: 6000,
 })

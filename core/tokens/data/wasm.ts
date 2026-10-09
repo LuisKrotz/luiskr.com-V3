@@ -45,6 +45,12 @@ export const WASM_POOL = Object.freeze({
   DESKTOP_MIN: 2,
   DESKTOP_MAX: 4,
   FALLBACK_CORES: 2,
+  /**
+   * Dispatch reply deadline — a worker that never posts back (broken
+   * script, uncaught handler throw, wedged wasm) drops the whole worker
+   * after this so callers land on their JS fallback instead of hanging.
+   */
+  REPLY_TIMEOUT_MS: 8000,
 })
 
 /**

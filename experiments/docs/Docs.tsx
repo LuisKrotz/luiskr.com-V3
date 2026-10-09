@@ -397,6 +397,10 @@ export class ViewDocs extends BaseComponent {
       }
     }
 
+    // Keep the map's active-location marker in sync — both on fresh
+    // mounts and on same-canvas navigations (the scene persists).
+    this._sceneHandle?.setActive(this.docsPath)
+
     // Arrow-key expand/collapse re-creates the DOM — put focus back on
     // the row that was being driven so ↑/↓ continue from there.
     if (this._focusPath) {

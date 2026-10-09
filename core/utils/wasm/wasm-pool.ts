@@ -23,6 +23,10 @@ import { WASM_POOL } from '@core/tokens/data/wasm.js'
 /** In-flight dispatch entry — the resolve that completes the caller's Promise. */
 interface PendingTask {
   resolve: (_data: unknown) => void
+  /** Worker the task was posted to — an errored worker drops its tasks. */
+  worker: Worker
+  /** Reply deadline — cleared on resolve, drops the worker on expiry. */
+  timeout: ReturnType<typeof setTimeout>
 }
 
 /** Coarse mobile detection — UA regex suffices here; precision isn't worth the parser. */
@@ -87,6 +91,12 @@ class WasmWorkerPool {
 
         worker.onmessage = (e) => this.handleMessage(e)
 
+        // A script that fails to parse (404 → HTML payload, CSP block,
+        // syntax error) reports asynchronously as an `error` event — the
+        // constructor does not throw. Without this the worker stays in the
+        // pool and every task posted to it hangs forever.
+        worker.onerror = () => this._dropWorker(worker)
+
         this.workers.push(worker)
       } catch {
         // Worker not available — dispatch() will resolve(null) gracefully
@@ -111,8 +121,51 @@ class WasmWorkerPool {
       if (task) {
         this.pendingTasks.delete(id)
 
+        clearTimeout(task.timeout)
+
         task.resolve(data)
       }
+    }
+  }
+
+  /**
+   * Drops a dead worker — script parse/CSP failure (`error` event) or a
+   * reply that never arrives (`REPLY_TIMEOUT_MS`). The worker is
+   * terminated, removed from the round-robin and every task it was
+   * holding resolves null so callers hit their JS fallback path rather
+   * than awaiting a reply that can never come.
+   * @param worker The worker to drop.
+   */
+  private _dropWorker(worker: Worker): void {
+    worker.onerror = null
+
+    worker.onmessage = null
+
+    try {
+      worker.terminate()
+    } catch {
+      // terminate() is best-effort — a wedged worker may throw.
+    }
+
+    const idx = this.workers.indexOf(worker)
+
+    if (idx >= 0) this.workers.splice(idx, 1)
+
+    // Splicing below the cursor shifts it out of bounds — wrap it back.
+    if (this.nextWorkerIdx >= this.workers.length) this.nextWorkerIdx = 0
+
+    // An emptied pool re-arms the lazy-spawn latch — a transient failure
+    // (e.g. dev-server restart mid-session) recovers on the next dispatch.
+    if (!this.workers.length) this._poolReady = false
+
+    for (const [id, task] of this.pendingTasks) {
+      if (task.worker !== worker) continue
+
+      this.pendingTasks.delete(id)
+
+      clearTimeout(task.timeout)
+
+      task.resolve(null)
     }
   }
 
@@ -173,10 +226,10 @@ class WasmWorkerPool {
 
       const id = ++this.taskIdSeq
 
-      this.pendingTasks.set(id, { resolve })
-
-      // Round-robin load balance across multi-threaded WASM workers
-      const worker = this.workers[this.nextWorkerIdx]
+      // Round-robin load balance across multi-threaded WASM workers —
+      // the modulo on read guards a cursor left stale by _dropWorker
+      // splicing an earlier index out from under it.
+      const worker = this.workers[this.nextWorkerIdx % this.workers.length]
 
       this.nextWorkerIdx = (this.nextWorkerIdx + 1) % this.workers.length
 
@@ -217,10 +270,23 @@ class WasmWorkerPool {
           worker.postMessage({ id, type, payload: safePayload })
         }
       } catch {
-        this.pendingTasks.delete(id)
-
         resolve(null)
+
+        return
       }
+
+      // Registered only after postMessage succeeds — worker replies are
+      // async by spec, so the task is always in the map before a reply
+      // (or its deadline) can race in, and a throwing post needs no
+      // cleanup path.
+      this.pendingTasks.set(id, {
+        resolve,
+        worker,
+        // A reply that never lands (uncaught worker throw, wedged wasm)
+        // drops the whole worker — subsequent dispatches resolve null
+        // until the next ensurePool cycle respawns a healthy pool.
+        timeout: setTimeout(() => this._dropWorker(worker), WASM_POOL.REPLY_TIMEOUT_MS),
+      })
     })
   }
 }

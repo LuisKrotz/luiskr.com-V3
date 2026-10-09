@@ -35,6 +35,13 @@ import type { DocsNode } from './manifest.js'
 /** Live scene resources — destroy() frees renderer + listeners. */
 export interface ArchSceneHandle {
   destroy(): void
+  /**
+   * Highlights the node matching `path` — the current docs location.
+   * Safe to call before the async graph build lands; the highlight
+   * applies to whatever nodes exist and is re-applied when they arrive.
+   * @param _path Manifest path of the active location ('' = portal root).
+   */
+  setActive(_path: string): void
 }
 
 /** A flattened manifest node with its ring depth and ring angle. */
@@ -118,11 +125,13 @@ const computePositions = async (placed: PlacedNode[]): Promise<Float32Array> => 
   const depths = placed.map((p) => p.depth)
   const angles = placed.map((p) => p.angle)
 
+  // Worker replies carry the shape `{ id, type, results: { xyz } }` —
+  // `results` is the worker-protocol envelope for every op.
   const res = (await wasmPool.dispatch(WASM_ACTIONS.DOCS_SCENE_LAYOUT, { depths, angles })) as {
-    xyz?: ArrayLike<number>
+    results?: { xyz?: ArrayLike<number> }
   } | null
 
-  const xyz = res?.xyz
+  const xyz = res?.results?.xyz
 
   return xyz && xyz.length === depths.length * 3
     ? new Float32Array(xyz)
@@ -259,6 +268,12 @@ export const mountArchScene = (
     controls.autoRotate = !saved.off
   }
 
+  // Intro settle: a fresh (unrestored) mount eases the whole graph in
+  // from SCENE_INTRO_TURN radians — the "object swings into place" read
+  // the portal opened with before ambient autorotate takes over. A
+  // restored pose lands directly on the user's view instead.
+  const introFrom = saved ? 0 : DOCS_UNITS.SCENE_INTRO_TURN
+
   /** Serializes camera pose + interaction flag into sessionStorage. */
   const saveCamState = () => {
     try {
@@ -303,12 +318,19 @@ export const mountArchScene = (
   // The manifest buckets hang off a synthetic center node — the portal
   // root level IS the tree root, so the scene reads as one rooted graph
   // (center = "In-depth project docs", ring 1 = the four buckets, …).
+  // Buckets are { root, label, children } — mapped to dir nodes here so
+  // they carry a real path (pickable + highlightable) and a real label.
   const placed = layoutNodes([
     {
       type: 'dir',
       name: DOCS_STRINGS.TITLE,
       path: CHAR_STRINGS.EMPTY,
-      children: roots as unknown as DocsNode[],
+      children: roots.map((r) => ({
+        type: 'dir' as const,
+        name: r.label,
+        path: r.root,
+        children: r.children,
+      })),
     },
   ])
 
@@ -319,7 +341,38 @@ export const mountArchScene = (
   /** Edge geometry — assigned inside buildGraph, disposed in destroy(). */
   let lineGeo: THREE.BufferGeometry | null = null
 
+  /** Docs path currently highlighted — '' matches the portal-root node. */
+  let activePath: string = CHAR_STRINGS.EMPTY
+
   let disposed = false
+
+  /**
+   * Paints the active-location highlight onto live nodes: the exact path
+   * match pops to SCENE_ACTIVE_OPACITY with a larger pulse scale, and
+   * ancestor dirs on its branch lift to SCENE_ANCESTOR_OPACITY so the
+   * route's lineage reads on the map. Everything else keeps the faint
+   * backdrop alpha stored on userData at build time.
+   */
+  const applyActive = () => {
+    pickables.forEach((m) => {
+      const p = m.userData.path as string
+
+      const isActive = p === activePath
+
+      const isAncestor =
+        !isActive && p !== CHAR_STRINGS.EMPTY && activePath.startsWith(`${p}${CHAR_STRINGS.SLASH}`)
+
+      const mat = m.material as THREE.MeshBasicMaterial
+
+      mat.opacity = isActive
+        ? DOCS_UNITS.SCENE_ACTIVE_OPACITY
+        : isAncestor
+          ? DOCS_UNITS.SCENE_ANCESTOR_OPACITY
+          : (m.userData.baseOpacity as number)
+
+      m.userData.activeScale = isActive ? DOCS_UNITS.SCENE_ACTIVE_SCALE : 1
+    })
+  }
 
   // Context loss mid-flight: stop the loop, tell the host to switch to
   // the non-GL presentation — `webglcontextrestored` on the canvas is the
@@ -365,6 +418,11 @@ export const mountArchScene = (
       mesh.position.copy(pos)
 
       mesh.userData.path = node.path
+
+      mesh.userData.baseOpacity = mat.opacity
+
+      // Neutral pulse multiplier until applyActive() marks it.
+      mesh.userData.activeScale = 1
 
       scene.add(mesh)
 
@@ -414,6 +472,10 @@ export const mountArchScene = (
         })
       )
     )
+
+    // The highlight may have been set while positions were in flight —
+    // re-apply now that the meshes exist.
+    applyActive()
   }
 
   void computePositions(placed).then(buildGraph)
@@ -486,13 +548,25 @@ export const mountArchScene = (
     try {
       controls.update()
 
+      // Intro settle — easeOutCubic from SCENE_INTRO_TURN to 0; after the
+      // window the expression evaluates to exactly 0, so the graph rests
+      // still and controls.autoRotate owns the ambient drift.
+      if (introFrom) {
+        const k = Math.min(1, (performance.now() - t0) / DOCS_UNITS.SCENE_INTRO_MS)
+
+        scene.rotation.y = introFrom * Math.pow(1 - k, 3)
+      }
+
       // Slow node pulse — organic breathing on the instance scale, cheap
       // per-frame uniform-style math (a scale set, not geometry churn).
+      // The active node gets SCENE_ACTIVE_SCALE on top so it reads as
+      // the current location even while breathing.
       const t = (performance.now() - t0) / 1000
 
       pickables.forEach((m, i) => {
         const s =
-          1 + Math.sin(t * DOCS_UNITS.SCENE_PULSE_SPEED + i * 0.7) * DOCS_UNITS.SCENE_PULSE_AMP
+          (1 + Math.sin(t * DOCS_UNITS.SCENE_PULSE_SPEED + i * 0.7) * DOCS_UNITS.SCENE_PULSE_AMP) *
+          (m.userData.activeScale as number)
 
         m.scale.setScalar(s)
       })
@@ -528,6 +602,12 @@ export const mountArchScene = (
   raf = requestAnimationFrame(tick)
 
   return {
+    setActive(path: string) {
+      activePath = path
+
+      applyActive()
+    },
+
     destroy() {
       disposed = true
 

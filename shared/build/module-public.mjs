@@ -87,14 +87,15 @@ export const modulePublicPlugin = (opts = {}) => {
       resolved = config
     },
     configureServer(server) {
-      // Returned function = post-internal middlewares, so vite's own
-      // transform/publicDir handlers keep precedence on their URLs.
-      return () => {
-        for (const { dir, at } of MODULE_PUBLIC_MOUNTS) {
-          const abs = path.join(REPO, dir)
+      // Registered synchronously = PRE-internal middlewares. The mounts
+      // must answer before vite's SPA html-fallback does — a post-internal
+      // registration lets `/scripts/workers/wasm-worker.js` fall through
+      // to index.html (200 text/html), which silently breaks every
+      // `new Worker(...)` call. Misses and traversals still `next()`.
+      for (const { dir, at } of MODULE_PUBLIC_MOUNTS) {
+        const abs = path.join(REPO, dir)
 
-          if (fs.existsSync(abs)) server.middlewares.use(at, serveMount(abs))
-        }
+        if (fs.existsSync(abs)) server.middlewares.use(at, serveMount(abs))
       }
     },
     closeBundle() {
