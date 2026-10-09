@@ -198,9 +198,23 @@ export default defineConfig(() => {
     resolveId(source) {
       if (!process.env.CMS_MOCK) return null
       if (/(^|\/)firebase\.js$/.test(source)) {
-        return fileURLToPath(new URL('./cms/dev/firebase-mock.js', import.meta.url))
+        return fileURLToPath(new URL('./cms/dev/firebase-mock.ts', import.meta.url))
       }
       return null
+    },
+    // The CMS entry is cms/index.html — a bare `/cms` request otherwise
+    // resolves to the module barrel (cms/index.ts), and a bare rewrite
+    // would break the relative `./main.ts` script path, so redirect to
+    // the canonical trailing-slash URL.
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        if (req.url === '/cms') {
+          res.writeHead(301, { Location: '/cms/' })
+          res.end()
+          return
+        }
+        next()
+      })
     },
   }
 
@@ -434,7 +448,7 @@ export default defineConfig(() => {
         ...(process.env.CMS_MOCK
           ? {
               'firebase/database': fileURLToPath(
-                new URL('./cms/dev/firebase-mock.js', import.meta.url)
+                new URL('./cms/dev/firebase-mock.ts', import.meta.url)
               ),
             }
           : {}),
