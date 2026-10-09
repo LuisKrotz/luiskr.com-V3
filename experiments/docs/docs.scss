@@ -47,10 +47,10 @@ $_B_DOCS: 'docs';
 
   // The scene needs pointer events where the content column leaves it
   // exposed — OrbitControls owns rotate/pinch, taps pick nodes. Ink is
-  // the project turquoise accent so the structure reads as the site's
-  // signature color, and stays subtle against the content surfaces.
+  // the project's turquoise accent *contrast* variant: cyan on dark,
+  // deep teal on light — the raw accent is invisible on white.
   &-scene {
-    color: var(--color-accent);
+    color: var(--color-accent-contrast);
     cursor: grab;
 
     &:active {

@@ -7,6 +7,10 @@
  * and /docs-content/*.json payloads resolve exactly like the root build.
  */
 import '@core/store.js'
+// The portal lives inside the site shell — the standalone dev page needs
+// the same :root token sheet (colors/spacing/type) or var() ink resolves
+// to nothing and the GL layers paint wrong.
+import '@core/sass/components/shell/app.scss'
 import './index.js'
 import { VIEW_TAGS } from '@core/tokens/elements/views.js'
 import { WINDOW_EVENTS } from '@core/tokens/events/dom.js'
