@@ -369,10 +369,44 @@ $_B_DOCS: 'docs';
       font-size: to-rem($space-xl);
     }
 
+    li {
+      position: relative;
+    }
+
+    // Nested levels draw the ASCII-tree shape: a vertical rail running the
+    // whole branch (cut to the stub at the last sibling → `└─`) plus a
+    // horizontal stub landing mid-row on each item.
     ul {
       list-style: none;
       padding-left: to-rem($space-md);
       margin: 0;
+
+      li {
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          left: -#{to-rem($space-sm)};
+          background: color-mix(in srgb, currentColor 24%, transparent);
+        }
+
+        &::before {
+          top: 0;
+          bottom: 0;
+          width: to-rem($space-hairline);
+        }
+
+        &::after {
+          top: calc(#{to-rem($space-sm)} + 0.6em);
+          width: to-rem($space-sm);
+          height: to-rem($space-hairline);
+        }
+
+        &:last-child::before {
+          bottom: auto;
+          height: calc(#{to-rem($space-sm)} + 0.6em);
+        }
+      }
     }
   }
 
@@ -391,6 +425,25 @@ $_B_DOCS: 'docs';
     text-overflow: ellipsis;
     opacity: 0.85;
     user-select: text;
+
+    // Disclosure triangle for dirs — border-drawn so no glyph literal is
+    // needed; rotates when the branch is open.
+    &[aria-expanded]::before {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-right: to-rem($space-2xs);
+      border-top: to-rem($space-3xs) solid transparent;
+      border-bottom: to-rem($space-3xs) solid transparent;
+      border-left: to-rem($space-3xs) solid currentColor;
+      vertical-align: middle;
+      transition: transform 0.15s ease;
+    }
+
+    &[aria-expanded='true']::before {
+      transform: rotate(90deg);
+    }
 
     &[aria-current='page'],
     &:focus-visible {
