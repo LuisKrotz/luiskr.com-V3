@@ -1,0 +1,18 @@
+[submodule "core"]
+	path = core
+	url = git@github.com:LuisKrotz/luiskr.com-V3-core.git
+[submodule "cms"]
+	path = cms
+	url = git@github.com:LuisKrotz/luiskr.com-V3-cms.git
+[submodule "experiments/docs"]
+	path = experiments/docs
+	url = git@github.com:LuisKrotz/luiskr.com-V3-docs.git
+[submodule "experiments/earth-playground"]
+	path = experiments/earth-playground
+	url = git@github.com:LuisKrotz/luiskr.com-V3-earth-playground.git
+[submodule "shared"]
+	path = shared
+	url = git@github.com:LuisKrotz/luiskr.com-V3-shared.git
+[submodule "website"]
+	path = website
+	url = git@github.com:LuisKrotz/luiskr.com-V3-website.git
