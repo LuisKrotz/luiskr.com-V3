@@ -1,0 +1,51 @@
+{
+  "id": "proxima-centauri",
+  "name": "Proxima Centauri",
+  "kind": "system",
+  "tagline": "The nearest star to the Sun — a flare star with an Earth-size planet next door.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "4.246 light-years"
+    },
+    {
+      "label": "Type",
+      "value": "Red dwarf (M5.5V)"
+    },
+    {
+      "label": "Mass",
+      "value": "≈ 0.12 solar masses"
+    },
+    {
+      "label": "Planets",
+      "value": "Proxima b (habitable zone), c, d"
+    },
+    {
+      "label": "Proxima b orbit",
+      "value": "11.2 days"
+    },
+    {
+      "label": "Discovered",
+      "value": "1915 — Robert Innes"
+    }
+  ],
+  "history": "Proxima is the closest star to the Sun — the light you see tonight left it 4.24 years ago. It is a small red dwarf, too faint for the naked eye, that erupts in flares powerful enough to challenge any atmosphere. In 2016 astronomers announced Proxima b, a rocky planet at least 1.07 Earth masses orbiting inside the star's habitable zone every 11.2 days — the nearest exoplanet and the closest potentially temperate world to Earth. Whether tidal locking and flares leave it habitable is an open question JWST and next-generation telescopes aim to answer.",
+  "source": "ESO; Nature (Anglada-Escudé et al., 2016)",
+  "media": {
+    "images": [
+      {
+        "src": "media/proxima-centauri/img-1.jpg",
+        "caption": "Hubble's Best Image of Alpha Centauri A and B",
+        "credit": "NASA"
+      }
+    ]
+  },
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "ESO; Nature (Anglada-Escudé et al., 2016)"
+    ]
+  }
+}

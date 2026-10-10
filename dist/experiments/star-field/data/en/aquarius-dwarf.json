@@ -1,0 +1,20 @@
+{
+  "id": "aquarius-dwarf",
+  "name": "Aquarius Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "DDO 210 — one of the Local Group's most metal-poor members, a nearly dark gas cloud with sparse stars.",
+  "facts": [
+    { "label": "Distance", "value": "~3.0 Mly" },
+    { "label": "Type", "value": "Dwarf irregular" },
+    { "label": "Metallicity", "value": "Among the lowest known" },
+    { "label": "Catalog", "value": "DDO 210" }
+  ],
+  "history": "The Aquarius dwarf (DDO 210) is an extremely faint irregular — among the most metal-poor galaxies in the Local Group, a thin scattering of young and old stars suspended in a dark halo it barely lights. Its sparsity makes it a useful lower bound on the galaxy luminosity function, and its isolation means its history is written by internal processes rather than the stripping and shocking that shape satellites.",
+  "source": "DDO Catalogue · ESO",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["DDO Atlas", "ESO"]
+  }
+}

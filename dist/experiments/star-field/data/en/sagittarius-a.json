@@ -1,0 +1,38 @@
+{
+  "id": "sagittarius-a",
+  "name": "Sagittarius A*",
+  "kind": "blackHole",
+  "tagline": "The Milky Way's central supermassive black hole — a 4.3-million-solar-mass engine anchoring the entire galaxy.",
+  "facts": [
+    { "label": "Distance", "value": "~26,673 ly" },
+    { "label": "Mass", "value": "~4.3 million M☉" },
+    { "label": "Type", "value": "Supermassive black hole" },
+    { "label": "Event horizon", "value": "~12 million km (R_s ~ 0.08 AU)" },
+    { "label": "Imaged", "value": "Event Horizon Telescope, May 2022" },
+    { "label": "Evidence", "value": "S-star orbits — S2 swings by at 7,650 km/s" },
+    { "label": "Nobel Prize", "value": "2020 Physics — Genzel & Ghez" },
+    { "label": "Radio size", "value": "~52 µas ring — a doughnut seen from 27,000 ly" }
+  ],
+  "history": "Sagittarius A* sits at the exact dynamical center of the Milky Way, deep in the Sagittarius arm. Radio astronomers pinpointed it in 1974 as a compact, variable source no bigger than a solar system. Decades of astrometry by the Genzel and Ghez teams traced the S-stars whipping around an invisible mass — S2's 16-year orbit and 7,650 km/s pericenter passage made the black hole incontrovertible, earning the 2020 Nobel Prize. In May 2022 the Event Horizon Telescope released its silhouette: a ring of superheated plasma glowing around the shadow, matching general relativity's prediction to a few percent. Though quiescent today, flares in X-ray and infrared betray an accretion flow that flickers daily; its relic jets are suspected to have inflated the Fermi bubbles — two 25,000-light-year gamma-ray lobes rising from the disc.",
+  "sections": [
+    {
+      "title": "The EHT silhouette",
+      "body": "Eight radio telescopes synced by atomic clocks formed an Earth-sized interferometer. The May 2022 image resolved a 52-microarcsecond ring — light bent into a photon orbit around the shadow — confirming the mass in a region barely larger than Mercury's orbit."
+    },
+    {
+      "title": "The S-star swarm",
+      "body": "Dozens of young stars orbit within light-weeks of the horizon. Their Keplerian ellipses pin the mass at 4.3 million Suns; relativistic precession of S2's orbit, measured in 2020, is frame-dragging made visible."
+    },
+    {
+      "title": "A sleeping giant",
+      "body": "Sgr A* accretes a hundred-thousandth of the Eddington rate — a whisper, not a roar. Yet ~300 years ago it flared bright enough for molecular clouds to still echo the blast, and the Fermi bubbles record an outburst millions of years ago."
+    }
+  ],
+  "source": "Event Horizon Telescope · ESO · Nobel Prize 2020",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Event Horizon Telescope Collaboration 2022", "GRAVITY Collaboration S2 orbit", "Nobel Prize in Physics 2020"]
+  }
+}

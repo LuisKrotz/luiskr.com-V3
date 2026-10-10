@@ -1,0 +1,20 @@
+{
+  "id": "andromeda-1",
+  "name": "Andromeda I",
+  "kind": "dwarfGalaxy",
+  "tagline": "A faint Andromeda dwarf spheroidal — one of the diffuse satellites populating M31's outer halo.",
+  "facts": [
+    { "label": "Distance", "value": "~2.55 Mly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Companion of", "value": "M31" },
+    { "label": "Luminosity", "value": "Very low surface brightness" }
+  ],
+  "history": "Andromeda I is one of the faint dwarf spheroidals orbiting the Andromeda galaxy — so diffuse it was identified only through photographic survey work as a subtle excess of faint stars above the sky background. Its stars are mostly old and metal-poor, the typical product of a satellite that lost its gas early to ram pressure inside a giant host's halo. It belongs to the swarm of M31 companions now being counted and mapped by the Pan-Andromeda survey.",
+  "source": "PAndAS · van den Bergh 1972",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["van den Bergh 1972", "PAndAS survey"]
+  }
+}

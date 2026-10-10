@@ -1,0 +1,42 @@
+{
+  "id": "lmc",
+  "name": "Large Magellanic Cloud",
+  "kind": "galaxy",
+  "tagline": "The Milky Way's largest satellite galaxy — a starburst companion 160,000 light-years away.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "~163,000 ly"
+    },
+    {
+      "label": "Stars",
+      "value": "~20 billion"
+    },
+    {
+      "label": "Diameter",
+      "value": "~32,000 ly"
+    },
+    {
+      "label": "Type",
+      "value": "Barred irregular"
+    },
+    {
+      "label": "Fate",
+      "value": "Merges with MW in ~2.4 Gyr"
+    },
+    {
+      "label": "Contents",
+      "value": "Tarantula Nebula, SN 1987A"
+    }
+  ],
+  "history": "The Large Magellanic Cloud is the biggest galaxy still bound to ours — an irregular dwarf visibly warped by Milky Way tides, rich in gas and young blue stars (the Tarantula Nebula is its engine room). It is where the 1987 supernova exploded, where Cepheid variables first revealed the cosmic distance scale, and where a slow gravitational capture is already underway: models say it will merge into the Milky Way within a few billion years.",
+  "source": "NASA/ESA · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "NASA/ESA · Gaia"
+    ]
+  }
+}

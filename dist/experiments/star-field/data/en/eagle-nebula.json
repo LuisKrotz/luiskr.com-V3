@@ -1,0 +1,51 @@
+{
+  "id": "eagle-nebula",
+  "name": "Eagle Nebula",
+  "kind": "nebula",
+  "tagline": "Home of the Pillars of Creation — towers of gas where stars ignite.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "≈ 7,000 light-years"
+    },
+    {
+      "label": "Catalogue",
+      "value": "M16 / NGC 6611"
+    },
+    {
+      "label": "Pillar height",
+      "value": "≈ 4–5 light-years"
+    },
+    {
+      "label": "Famous image",
+      "value": "Hubble, 1995; JWST, 2022"
+    },
+    {
+      "label": "Constellation",
+      "value": "Serpens"
+    },
+    {
+      "label": "Type",
+      "value": "Star-forming H II region"
+    }
+  ],
+  "history": "In 1995 Hubble photographed three finger-like columns of cold gas inside the Eagle Nebula and produced the most famous space image ever made: the Pillars of Creation. Each pillar is a four-light-year tower of hydrogen and dust being eroded by the ultraviolet of a young star cluster, with infant stars hatching at their tips — denser knots sheltering embryonic suns. JWST revisited them in 2022 in infrared, revealing hundreds of newly forming stars hidden inside the columns. Some astronomers calculate a supernova shock may already have destroyed the pillars, with the light of their ruin still centuries from reaching us.",
+  "source": "NASA/ESA Hubble; NASA/ESA/CSA JWST",
+  "media": {
+    "images": [
+      {
+        "src": "media/eagle-nebula/img-1.jpg",
+        "caption": "Pillars of Creation Revealed in 3-D",
+        "credit": "NASA"
+      }
+    ]
+  },
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "NASA/ESA Hubble; NASA/ESA/CSA JWST"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "sun",
+  "name": "Sun",
+  "kind": "star",
+  "tagline": "The G-type main-sequence star holding 99.86% of the Solar System's mass.",
+  "facts": [
+    {
+      "label": "Spectral type",
+      "value": "G2V"
+    },
+    {
+      "label": "Diameter",
+      "value": "1,392,700 km"
+    },
+    {
+      "label": "Mass",
+      "value": "1.989 × 10³⁰ kg"
+    },
+    {
+      "label": "Surface temperature",
+      "value": "≈ 5,505 °C"
+    },
+    {
+      "label": "Core temperature",
+      "value": "≈ 15.7 million °C"
+    },
+    {
+      "label": "Age",
+      "value": "≈ 4.6 billion years"
+    },
+    {
+      "label": "Rotation period",
+      "value": "≈ 25–35 days (varies by latitude)"
+    }
+  ],
+  "history": "The Sun formed about 4.6 billion years ago from the gravitational collapse of a region within a giant molecular cloud. Most of the collapsing mass gathered at the center, igniting hydrogen fusion when the core reached about 10 million kelvin; the flattened remnant disk became the planets. The Sun has burned as a main-sequence star ever since and will remain stable for roughly 5 billion more years before exhausting core hydrogen, swelling into a red giant that engulfs Mercury and Venus, then shedding its outer layers as a planetary nebula and retiring as a white dwarf. Ancient cultures from Egypt to the Andes worshipped it; Galileo's telescopic sunspot sketches in 1612 began its life as an object of science, and today observatories like SOHO, Parker Solar Probe and Solar Orbiter monitor it as the driver of space weather.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "media": {
+    "images": [
+      {
+        "src": "media/sun/img-1.jpg",
+        "caption": "NASA's SDO Sees Giant Filament on the Sun",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/sun/audio-1.wav",
+        "caption": "Sun sonification — SDO/Stanford helioseismology",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  },
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  }
+}

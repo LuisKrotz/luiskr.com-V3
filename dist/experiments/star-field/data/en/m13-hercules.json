@@ -1,0 +1,21 @@
+{
+  "id": "m13-hercules",
+  "name": "Great Hercules Cluster",
+  "kind": "cluster",
+  "tagline": "M13 — the northern sky's finest globular cluster, ~300,000 stars in a ball 145 light-years wide.",
+  "facts": [
+    { "label": "Distance", "value": "~22,200 ly" },
+    { "label": "Stars", "value": "~300,000–500,000" },
+    { "label": "Age", "value": "~11.6 billion years" },
+    { "label": "Diameter", "value": "~145 ly" },
+    { "label": "Message", "value": "Target of the 1974 Arecibo broadcast" }
+  ],
+  "history": "Messier 13 is the showpiece globular of the northern hemisphere — a teeming ball several hundred thousand ancient stars strong, hovering in the halo above Hercules. In 1974 the Arecibo radio telescope fired a three-minute binary-encoded message toward M13: humanity's most deliberate hello, aimed at a destination dense enough that any reply takes 50,000 years. At the eyepiece its star lanes resolve into swarming points around a sugared core.",
+  "source": "NASA/ESA · Messier Catalogue",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["NASA/ESA", "Arecibo message 1974"]
+  }
+}

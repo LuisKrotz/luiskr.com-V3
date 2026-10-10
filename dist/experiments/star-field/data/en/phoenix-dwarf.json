@@ -1,0 +1,20 @@
+{
+  "id": "phoenix-dwarf",
+  "name": "Phoenix Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "A transitional Local Group dwarf — part spheroidal, part irregular, still forming a trickle of stars.",
+  "facts": [
+    { "label": "Distance", "value": "~1.44 Mly" },
+    { "label": "Type", "value": "Transitional dSph/dIrr" },
+    { "label": "Star formation", "value": "Ongoing, at low level" },
+    { "label": "Status", "value": "Between satellite and isolated dwarf" }
+  ],
+  "history": "The Phoenix dwarf occupies the morphological middle ground between a spheroidal and an irregular — still holding enough gas to sustain low-level star formation, unlike the fully quenched spheroidals. It is far enough from the Milky Way to have avoided total gas stripping but close enough that its evolution may have been nudged by the halo environment, making it a boundary case in how dwarfs shut down star formation.",
+  "source": "ESO · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Schuster & West 1976", "ESO"]
+  }
+}

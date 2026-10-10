@@ -1,0 +1,20 @@
+{
+  "id": "carina-dwarf",
+  "name": "Carina Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "A Milky Way satellite 330,000 light-years out whose star-formation history comes in separate bursts across cosmic time.",
+  "facts": [
+    { "label": "Distance", "value": "~330,000 ly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Found", "value": "1977 — UK Schmidt plates" },
+    { "label": "Bursts", "value": "Distinct episodes ~13, ~8 and ~3 Gyr ago" }
+  ],
+  "history": "Carina is famous among dwarf spheroidals for a star-formation history written in separated pulses — an ancient burst, a middle-aged burst and a late one — rather than one epoch of star-making. That staircase of populations let astronomers read its accretion history: likely a slow early orbit around the Milky Way. Its stars are old and metal-poor, and deep surveys trace its light for thousands of light-years across the halo.",
+  "source": "Cannon, Hawarden & Tritton 1977 · ESO",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Cannon, Hawarden & Tritton 1977", "ESO"]
+  }
+}

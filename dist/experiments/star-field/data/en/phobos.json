@@ -1,0 +1,51 @@
+{
+  "id": "phobos",
+  "name": "Phobos",
+  "kind": "moon",
+  "tagline": "The larger of Mars's two moons — a rubble-pile slowly spiraling toward its planet.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "22.5 km"
+    },
+    {
+      "label": "Orbital period",
+      "value": "7.7 hours"
+    },
+    {
+      "label": "Distance from Mars",
+      "value": "9,376 km"
+    },
+    {
+      "label": "Largest crater",
+      "value": "Stickney — 9 km"
+    },
+    {
+      "label": "Gravity",
+      "value": "0.0057 m/s²"
+    },
+    {
+      "label": "Discovered",
+      "value": "1877 — Asaph Hall"
+    }
+  ],
+  "history": "Phobos orbits Mars closer than any other moon in the Solar System orbits its planet — so near that it circles faster than Mars rotates, rising in the west and setting in the east twice each Martian day. Tidal forces are tearing it apart: it loses about 1.8 metres of altitude per century and will either crash into Mars or shred into a ring within 50 million years. Its battered surface, dominated by the 9-km Stickney crater, is covered in grooves whose origin is still debated. NASA's Mars Trek maps it in detail; the upcoming JAXA MMX mission will land there and return samples to Earth.",
+  "source": "NASA/JPL · NASA Mars Trek",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/phobos/img-1.jpg",
+        "caption": "Martian Moon Phobos Observed by NASA's Odyssey",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

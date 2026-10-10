@@ -1,0 +1,20 @@
+{
+  "id": "cetus-dwarf",
+  "name": "Cetus Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "An isolated Local Group spheroidal — beyond both giant halos, it evolved nearly untouched.",
+  "facts": [
+    { "label": "Distance", "value": "~2.46 Mly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Isolation", "value": "Outside the MW and M31 halos" },
+    { "label": "Population", "value": "Old, metal-poor stars" }
+  ],
+  "history": "The Cetus dwarf is one of the Local Group's few spheroidals that is not a satellite of either big spiral — it lies outside the Milky Way and Andromeda halos and has presumably been quiescent for most of its history. That isolation makes it precious: its uniformly old, metal-poor stellar population records how dwarf galaxies evolve when left to themselves, a control case against which the tidally processed satellites are compared.",
+  "source": "ESO · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["ESO", "Gaia Collaboration"]
+  }
+}

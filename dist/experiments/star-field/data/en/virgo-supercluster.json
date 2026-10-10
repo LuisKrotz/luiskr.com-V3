@@ -1,0 +1,20 @@
+{
+  "id": "virgo-supercluster",
+  "name": "Virgo Supercluster",
+  "kind": "structure",
+  "tagline": "The Local Supercluster — a flattened cloud of ~100 galaxy groups centred on the Virgo Cluster ~54 Mly away.",
+  "facts": [
+    { "label": "Diameter", "value": "~110 Mly" },
+    { "label": "Contains", "value": "~100 galaxy groups, Local Group at its edge" },
+    { "label": "Anchor", "value": "Virgo Cluster (~1,300 galaxies)" },
+    { "label": "Structure", "value": "Pancake-shaped — the Supergalactic Plane" }
+  ],
+  "history": "The Virgo Supercluster is the Local Group's address in the universe — a flattened congregation of roughly a hundred galaxy groups stretched across 110 million light-years, centred on the giant Virgo Cluster. The Local Group sits on its fringe, a small district orbiting a metropolis. Its pancake geometry defines the Supergalactic Plane, the surface on which most nearby structure is laid. The whole supercluster is itself only a filament feeding into the still larger Laniakea basin.",
+  "source": "NASA · Virgo Cluster surveys",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["NASA", "de Vaucouleurs 1953"]
+  }
+}

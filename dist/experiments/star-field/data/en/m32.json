@@ -1,0 +1,20 @@
+{
+  "id": "m32",
+  "name": "Messier 32",
+  "kind": "dwarfGalaxy",
+  "tagline": "Andromeda's compact elliptical satellite — a galaxy stripped to its dense core by repeated close passes.",
+  "facts": [
+    { "label": "Distance", "value": "~2.65 Mly" },
+    { "label": "Type", "value": "Compact elliptical (cE)" },
+    { "label": "Diameter", "value": "~6,500 ly" },
+    { "label": "Origin", "value": "Likely a stripped spiral/elliptical remnant" }
+  ],
+  "history": "M32 is the bright compact elliptical projected against Andromeda's southern disc — a galaxy whose outskirts were probably sheared away by repeated plunges through M31. What survives is a dense stellar core: centrally concentrated, high surface brightness, with a supermassive black hole of a few million Suns at its heart. Its ongoing interaction is written across M31's disc in rings and warps traced by infrared surveys.",
+  "source": "NASA/ESA · Spitzer/Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["NASA/ESA", "Spitzer Space Telescope"]
+  }
+}

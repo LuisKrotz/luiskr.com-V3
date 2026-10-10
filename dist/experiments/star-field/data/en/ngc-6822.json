@@ -1,0 +1,20 @@
+{
+  "id": "ngc-6822",
+  "name": "Barnard's Galaxy",
+  "kind": "dwarfGalaxy",
+  "tagline": "A Local Group irregular in Sagittarius — 1.63 Mly out, a dwarf that looks like a small Magellanic Cloud.",
+  "facts": [
+    { "label": "Distance", "value": "~1.63 Mly" },
+    { "label": "Type", "value": "Dwarf irregular" },
+    { "label": "H II regions", "value": "Bright emission knots at its ends" },
+    { "label": "Named", "value": "For E. E. Barnard, 1884" }
+  ],
+  "history": "Barnard's Galaxy is the Local Group's nearest genuinely isolated irregular — a small gas-rich system in Sagittarius that Edward Emerson Barnard found in 1884. It hosts bright H II regions (including Hubble V) where young massive stars ionize the gas, and its structure resembles a shrunken Magellanic Cloud. Its intermediate-metallicity stars make it a benchmark for how dwarf galaxies evolve outside major-galaxy influence.",
+  "source": "NASA/ESA · Barnard 1884",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Barnard 1884", "NASA/ESA Hubble"]
+  }
+}

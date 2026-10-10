@@ -1,0 +1,20 @@
+{
+  "id": "sextans-a",
+  "name": "Sextans A",
+  "kind": "dwarfGalaxy",
+  "tagline": "A bright Local Group irregular — 4.4 Mly out, still vigorously forming stars in its densest knots.",
+  "facts": [
+    { "label": "Distance", "value": "~4.4 Mly" },
+    { "label": "Type", "value": "Dwarf irregular" },
+    { "label": "Star formation", "value": "Active — prominent H II regions" },
+    { "label": "Also called", "value": "DDO 75" }
+  ],
+  "history": "Sextans A is one of the Local Group's brightest and most active irregulars — a roughly triangular cloud of young blue stars and emission nebulae near the group's edge. It is far enough from both giants that its star formation proceeds undisturbed, and its clumpy structure reveals a galaxy assembled piecemeal, each H II region a separate episode of cloud collapse rather than a single coherent disc.",
+  "source": "NASA/ESA · DDO Atlas",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["DDO Atlas", "NASA/ESA Hubble"]
+  }
+}

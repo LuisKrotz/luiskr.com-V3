@@ -1,0 +1,20 @@
+{
+  "id": "uma-1-dwarf",
+  "name": "Ursa Major I Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "An ultra-faint Milky Way satellite found by SDSS — a dark-matter domination showcase at the edge of galaxy formation.",
+  "facts": [
+    { "label": "Distance", "value": "~330,000 ly" },
+    { "label": "Type", "value": "Ultra-faint dwarf spheroidal" },
+    { "label": "Found", "value": "2005 — Sloan Digital Sky Survey" },
+    { "label": "Luminosity", "value": "~100,000× the Sun — fainter than a globular" }
+  ],
+  "history": "Ursa Major I was the first of the ultra-faint dwarfs the Sloan Digital Sky Survey turned up in 2005 — galaxies so dim their entire light is less than a bright globular cluster's, yet stretched over hundreds of light-years. Its stars orbit under a dark-matter halo perhaps a thousand times heavier than its starlight, making it one of the most extreme mass-to-light objects known and a probe of the smallest scales where galaxies can form at all.",
+  "source": "SDSS · Willman et al. 2005",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Willman et al. 2005", "SDSS"]
+  }
+}

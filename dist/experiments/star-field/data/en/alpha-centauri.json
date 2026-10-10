@@ -1,0 +1,47 @@
+{
+  "id": "alpha-centauri",
+  "name": "Alpha Centauri",
+  "kind": "system",
+  "tagline": "The nearest star system — a Sun-like binary circled at a distance by Proxima.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "4.37 light-years"
+    },
+    {
+      "label": "Components",
+      "value": "α Cen A (G2V) + B (K1V) + Proxima"
+    },
+    {
+      "label": "A/B orbit",
+      "value": "79.9 years"
+    },
+    {
+      "label": "Apparent magnitude",
+      "value": "−0.27 (3rd brightest star)"
+    },
+    {
+      "label": "Visibility",
+      "value": "Southern Hemisphere only"
+    }
+  ],
+  "history": "Alpha Centauri is actually three stars: Alpha Centauri A and B — a Sun-like yellow and an orange dwarf locked in a 80-year binary dance — plus the faint red dwarf Proxima orbiting the pair hundreds of times farther out. To southern sky-watchers it is the third-brightest star and the pointer to the Southern Cross; invisible from most northern latitudes. Its proximity makes it the prime target of interstellar mission concepts like Breakthrough Starshot, which proposes laser-pushed nanocraft crossing the gulf in twenty years. H.G. Wells was among the first to send fictional travelers there, in 1897.",
+  "source": "IAU; ESO; Yale Bright Star Catalogue",
+  "media": {
+    "images": [
+      {
+        "src": "media/alpha-centauri/img-1.jpg",
+        "caption": "Hubble's Best Image of Alpha Centauri A and B",
+        "credit": "NASA"
+      }
+    ]
+  },
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "IAU; ESO; Yale Bright Star Catalogue"
+    ]
+  }
+}

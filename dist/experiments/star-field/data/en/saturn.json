@@ -1,0 +1,65 @@
+{
+  "id": "saturn",
+  "name": "Saturn",
+  "kind": "planet",
+  "tagline": "The ringed giant — its halo of ice spans 280,000 km yet is meters thin.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "116,460 km"
+    },
+    {
+      "label": "Orbital period",
+      "value": "29.4 years"
+    },
+    {
+      "label": "Moons",
+      "value": "146+ (recognized)"
+    },
+    {
+      "label": "Ring span",
+      "value": "≈ 280,000 km wide, ~10 m–1 km thick"
+    },
+    {
+      "label": "Density",
+      "value": "0.687 g/cm³ — would float in water"
+    },
+    {
+      "label": "Largest moon",
+      "value": "Titan"
+    }
+  ],
+  "history": "Galileo saw Saturn's rings in 1610 but could not resolve them — he called them 'ears'; Huygens identified the ring system in 1655, and Cassini found the division that bears his name. The rings are countless particles of nearly pure water ice, likely the remains of a shattered moon or captured comet, and may be geologically young. The Cassini orbiter spent thirteen years in the Saturn system (2004–2017), discovering geysers on Enceladus that vent a subsurface ocean into space and dropping the Huygens probe onto Titan — the only landing ever made in the outer Solar System.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "media": {
+    "images": [
+      {
+        "src": "media/saturn/img-1.jpg",
+        "caption": "The Edge of the Night",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/saturn/video-1.mp4",
+        "caption": "Cassini's Infrared Saturn (Short Version)",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/saturn/audio-1.wav",
+        "caption": "Saturn radio emissions — Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  },
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  }
+}

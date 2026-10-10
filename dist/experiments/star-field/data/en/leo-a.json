@@ -1,0 +1,20 @@
+{
+  "id": "leo-a",
+  "name": "Leo A",
+  "kind": "dwarfGalaxy",
+  "tagline": "An isolated irregular on the Local Group's edge — still forming stars after billions of years alone.",
+  "facts": [
+    { "label": "Distance", "value": "~2.6 Mly" },
+    { "label": "Type", "value": "Dwarf irregular" },
+    { "label": "Gas", "value": "Still has H I — ongoing star formation" },
+    { "label": "Isolation", "value": "One of the most isolated LG members" }
+  ],
+  "history": "Leo A is a gas-rich dwarf irregular living near the Local Group's boundary, one of its most isolated members — far enough from the Milky Way and Andromeda that its evolution has been almost entirely internal. It still holds neutral hydrogen and is still making stars, its very low metallicity resembling the primitive gas dwarfs of the early universe. Leo A shows what a galaxy looks like when left alone for a Hubble time.",
+  "source": "NASA/ESA · Hubble",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["NASA/ESA Hubble", "Tolstoy et al. 1998"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ursa-minor-dwarf",
+  "name": "Ursa Minor Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "A Milky Way spheroid 225,000 light-years out — ancient, faint, and nearly all dark matter.",
+  "facts": [
+    { "label": "Distance", "value": "~225,000 ly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Found", "value": "1955 — Wilson on Palomar plates" },
+    { "label": "Population", "value": "Ancient, metal-poor stars" }
+  ],
+  "history": "Ursa Minor surfaced on the first Palomar Sky Survey plates in 1955 — the prototype 'fossil' dwarf, its stars uniformly old and metal-poor, suggesting it formed nearly all of them in the first couple billion years and has been passive ever since. Its extreme mass-to-light ratio made it an early benchmark for dark-matter studies, and its orbit carries it on a slow, distant path around the Milky Way.",
+  "source": "Palomar Sky Survey 1955",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Wilson 1955", "Palomar Sky Survey"]
+  }
+}

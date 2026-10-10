@@ -1,0 +1,20 @@
+{
+  "id": "bootes-dwarf",
+  "name": "Boötes I Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "The 'dim champion' — an ultra-faint Milky Way satellite 197,000 light-years out, discovered in SDSS data in 2006.",
+  "facts": [
+    { "label": "Distance", "value": "~197,000 ly" },
+    { "label": "Type", "value": "Ultra-faint dwarf" },
+    { "label": "Found", "value": "2006 — SDSS" },
+    { "label": "Stars", "value": "Old, very metal-poor" }
+  ],
+  "history": "Boötes I appeared in 2006 as an overdensity of old stars in Sloan survey fields — an ultra-faint dwarf barely distinguishable from a stray globular cluster except for its huge physical extent and its dark-matter-dominated internal velocities. It belongs to the generation of dwarfs so faint that surveys are still finding them; each one tests how few stars a halo can gather and still count as a galaxy.",
+  "source": "SDSS · Belokurov et al. 2006",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Belokurov et al. 2006", "SDSS"]
+  }
+}

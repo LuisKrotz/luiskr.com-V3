@@ -1,0 +1,20 @@
+{
+  "id": "andromeda-3",
+  "name": "Andromeda III",
+  "kind": "dwarfGalaxy",
+  "tagline": "A faint M31 spheroidal member of the swarm — old, metal-poor, dark-matter dominated.",
+  "facts": [
+    { "label": "Distance", "value": "~2.44 Mly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Companion of", "value": "M31" },
+    { "label": "Population", "value": "Old, metal-poor stars" }
+  ],
+  "history": "Andromeda III is one of the faintest of Andromeda's confirmed satellites — a very low surface-brightness spheroidal resolved into individual stars by deep surveys of M31's halo. It adds a data point to the satellite census that constrains how common such faint companions are around Milky-Way-mass galaxies, a key test of whether the observed counts match cosmological predictions.",
+  "source": "PAndAS · M31 satellites survey",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["PAndAS survey", "NASA/ESA"]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "crab-nebula",
+  "name": "Crab Nebula",
+  "kind": "nebula",
+  "tagline": "The wreckage of a star seen exploding in 1054 — still expanding.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "≈ 6,500 light-years"
+    },
+    {
+      "label": "Catalogue",
+      "value": "M1 / NGC 1952"
+    },
+    {
+      "label": "Progenitor",
+      "value": "Supernova of July 1054"
+    },
+    {
+      "label": "Remnant core",
+      "value": "Crab pulsar — 30 spins/second"
+    },
+    {
+      "label": "Expansion",
+      "value": "≈ 1,500 km/s and growing"
+    },
+    {
+      "label": "Recorded by",
+      "value": "Chinese & Japanese court astronomers"
+    }
+  ],
+  "history": "In July 1054, Chinese and Japanese astronomers recorded a 'guest star' bright enough to read by at night and visible in daylight for 23 days. Six centuries later Charles Messier catalogued its remnant — the object that inspired his famous list of comet look-alikes as entry M1. At its heart spins the Crab pulsar, a 30-km neutron star rotating 30 times per second and beaming radiation like a lighthouse across every wavelength. The expanding filaments now span about 11 light-years; comparing photographs across decades shows the debris still racing outward — an explosion in progress.",
+  "source": "NASA/ESA Hubble; Harvard CfA",
+  "media": {
+    "images": [
+      {
+        "src": "media/crab-nebula/img-1.jpg",
+        "caption": "NASA's Hubble Captures the Beating Heart of the Crab Nebula",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/crab-nebula/video-1.mp4",
+        "caption": "Hubble's 29th Anniversary",
+        "credit": "NASA"
+      }
+    ]
+  },
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "NASA/ESA Hubble; Harvard CfA"
+    ]
+  }
+}

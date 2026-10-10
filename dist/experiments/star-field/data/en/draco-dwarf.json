@@ -1,0 +1,20 @@
+{
+  "id": "draco-dwarf",
+  "name": "Draco Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "A very metal-poor Milky Way satellite 260,000 light-years out — one of the most dark-matter-dominated galaxies known.",
+  "facts": [
+    { "label": "Distance", "value": "~260,000 ly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Metallicity", "value": "Among the most metal-poor known" },
+    { "label": "Mass", "value": "Overwhelmingly dark matter" }
+  ],
+  "history": "Draco is a ghost of a galaxy — an extremely faint, very metal-poor swarm of ancient stars spread thinly across the halo. Its measured internal motions are far too fast for its visible mass: Draco's stars orbit inside a dark halo tens of times heavier than its starlight, making it a canonical site for studying how dark matter behaves at the smallest galactic scales.",
+  "source": "Palomar Sky Survey · ESO",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Palomar Sky Survey", "ESO"]
+  }
+}

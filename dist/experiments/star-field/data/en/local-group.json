@@ -1,0 +1,20 @@
+{
+  "id": "local-group",
+  "name": "Local Group",
+  "kind": "structure",
+  "tagline": "The ~80-galaxy cluster the Milky Way calls home — a volume ~10 million light-years wide bound by shared gravity.",
+  "facts": [
+    { "label": "Diameter", "value": "~10 Mly" },
+    { "label": "Members", "value": "~80+ galaxies, most of them dwarfs" },
+    { "label": "Two giants", "value": "Milky Way + Andromeda dominate its mass" },
+    { "label": "Sub-groups", "value": "MW satellites and the M31 swarm" }
+  ],
+  "history": "The Local Group is the galaxy cluster we live in — a small, gravity-bound gathering of some eighty known galaxies centred between its two giants, the Milky Way and Andromeda, which carry nearly all its mass. The rest are dwarfs: the Magellanic Clouds, the M31 satellite swarm, the faint spheroidals and the isolated irregulars scattered between them. The group is not expanding with the universe — its members orbit their shared centre of mass, and its two giants are on a collision course ~4.5 billion years hence.",
+  "source": "NASA/ESA · McConnachie 2012 census",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["McConnachie 2012", "NASA/ESA"]
+  }
+}

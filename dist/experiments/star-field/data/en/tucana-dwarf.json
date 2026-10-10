@@ -1,0 +1,20 @@
+{
+  "id": "tucana-dwarf",
+  "name": "Tucana Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "The Local Group's most isolated spheroidal — 2.9 Mly out, never influenced by a major galaxy.",
+  "facts": [
+    { "label": "Distance", "value": "~2.9 Mly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Isolation", "value": "Farthest spheroidal from any giant" },
+    { "label": "Found", "value": "1990 — photographic survey" }
+  ],
+  "history": "Tucana is the Local Group's most isolated dwarf spheroidal — sitting near the group's edge, it has probably never passed close enough to the Milky Way or Andromeda to be stripped or stirred. Its entirely old stellar population reads as a fossil of the earliest epoch of galaxy formation. As a benchmark for 'pristine' dwarf evolution it anchors the environmental comparisons used to classify the rest of the Local Group.",
+  "source": "Lavery et al. 1990 · ESO",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Lavery et al. 1990", "ESO"]
+  }
+}

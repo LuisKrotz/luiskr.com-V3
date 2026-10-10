@@ -1,0 +1,20 @@
+{
+  "id": "sagittarius-dwarf",
+  "name": "Sagittarius Dwarf Galaxy",
+  "kind": "dwarfGalaxy",
+  "tagline": "The Milky Way's nearest known satellite — a spheroid already being torn into star streams as it falls through the disc.",
+  "facts": [
+    { "label": "Distance", "value": "~81,000 ly" },
+    { "label": "Type", "value": "Dwarf spheroidal (SagDEG)" },
+    { "label": "Found", "value": "1994 — Ibata, Gilmore & Irwin" },
+    { "label": "Fate", "value": "Being disrupted; star streams wrap the galaxy" }
+  ],
+  "history": "The Sagittarius Dwarf Spheroidal Galaxy was only noticed in 1994, hidden on the far side of the galactic centre behind the Milky Way's own stars. It is being shredded: tidal tails of its stars arc hundreds of thousands of light-years around the galaxy, and its globular cluster M54 may mark what remains of its core. Its ongoing disintegration is a live demonstration of how large galaxies grow by consuming smaller ones.",
+  "source": "Sloan Digital Sky Survey · Ibata et al.",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Ibata, Gilmore & Irwin 1994", "SDSS"]
+  }
+}

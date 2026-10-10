@@ -1,0 +1,20 @@
+{
+  "id": "andromeda-2",
+  "name": "Andromeda II",
+  "kind": "dwarfGalaxy",
+  "tagline": "An Andromeda dwarf spheroidal of special note — its stars show signs of a possible older merger of two still smaller dwarfs.",
+  "facts": [
+    { "label": "Distance", "value": "~2.14 Mly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Companion of", "value": "M31" },
+    { "label": "Puzzle", "value": "Double core hints at a prior merger" }
+  ],
+  "history": "Andromeda II drew attention when deep imaging suggested it may have two overlapping stellar cores — evidence that it could itself be the merged remnant of two smaller dwarfs, a demonstration that the accretion hierarchy continues down to the faintest scales. Its stars are old and metal-poor and it shares the halo orbit phase space of the other Andromeda satellites, making it a testbed for the dwarf-galaxy assembly problem.",
+  "source": "PAndAS · M31 satellites survey",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["van den Bergh 1972", "PAndAS survey"]
+  }
+}

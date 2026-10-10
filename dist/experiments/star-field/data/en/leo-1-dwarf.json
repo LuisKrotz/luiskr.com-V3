@@ -1,0 +1,20 @@
+{
+  "id": "leo-1-dwarf",
+  "name": "Leo I Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "A Milky Way satellite 820,000 light-years out — so distant it was the first dwarf found purely on photographic survey plates.",
+  "facts": [
+    { "label": "Distance", "value": "~820,000 ly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Found", "value": "1950 — Palomar plates" },
+    { "label": "Notable", "value": "Hosts a surprising central black hole" }
+  ],
+  "history": "Leo I is one of the Milky Way's most remote classical satellites — so far out that astronomers long debated whether it was even bound to the galaxy. Gaia's proper motions confirmed it is, on a wide, plunging orbit. Its star-formation history is unusually prolonged for a spheroidal, with episodes into the last billion years. Leo I surprised everyone in 2021 when stellar motions suggested a central black hole of ~3 million solar masses — absurdly large for a dwarf its size.",
+  "source": "Palomar Sky Survey · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Harrington & Wilson 1950", "Gaia", "Bustamante-Rosell et al. 2021"]
+  }
+}

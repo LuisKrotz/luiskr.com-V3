@@ -1,0 +1,20 @@
+{
+  "id": "observable-universe",
+  "name": "Observable Universe",
+  "kind": "structure",
+  "tagline": "The causal horizon — everything light has had time to reach us from in 13.8 billion years.",
+  "facts": [
+    { "label": "Radius", "value": "~46.5 Gly" },
+    { "label": "Galaxies", "value": "~2 trillion estimated" },
+    { "label": "Age", "value": "13.8 billion years" },
+    { "label": "Beyond", "value": "Unknown — the unobservable universe continues" }
+  ],
+  "history": "The observable universe is the spherical volume of space from which light has had time to reach us since the Big Bang — not the universe's edge, but the horizon of our information about it. Its 46.5-billion-light-year radius reflects the expansion of space itself while the light was travelling: objects now there emitted their photons when they were much closer. Everything inside this shell — every supercluster, every galaxy, every star — is all we can ever causally know.",
+  "source": "Planck Collaboration · ΛCDM cosmology",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Planck Collaboration 2020", "ΛCDM model"]
+  }
+}

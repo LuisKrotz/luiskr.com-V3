@@ -1,0 +1,20 @@
+{
+  "id": "leo-2-dwarf",
+  "name": "Leo II Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "A distant Milky Way spheroid 690,000 light-years out, also catalogued as Leo B — paired with Leo I on the halo's far side.",
+  "facts": [
+    { "label": "Distance", "value": "~690,000 ly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Found", "value": "1950 — Palomar plates" },
+    { "label": "Orbit", "value": "Wide, loosely bound to the Milky Way" }
+  ],
+  "history": "Leo II was found the same year as Leo I on Palomar survey plates — a faint, diffuse ball of old stars well beyond the Magellanic Clouds. Its stars tell a gentler star-formation history than the close-in dwarfs, with a substantial intermediate-age population, hinting that isolation let it hold gas longer. Proper motions show it orbits the Milky Way on an eccentric path that has carried it far from repeated tidal stripping.",
+  "source": "Palomar Sky Survey · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Harrington & Wilson 1950", "Gaia"]
+  }
+}

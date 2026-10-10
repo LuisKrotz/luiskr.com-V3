@@ -1,0 +1,58 @@
+{
+ "id": "venus",
+ "name": "Venus",
+ "kind": "planet",
+ "tagline": "Earth's twin in size, wrapped in a crushing CO₂ greenhouse — the hottest planet.",
+ "facts": [
+  {
+   "label": "Diameter",
+   "value": "12,104 km"
+  },
+  {
+   "label": "Orbital period",
+   "value": "225 days"
+  },
+  {
+   "label": "Rotation",
+   "value": "243 days, retrograde"
+  },
+  {
+   "label": "Surface temperature",
+   "value": "≈ 465 °C"
+  },
+  {
+   "label": "Surface pressure",
+   "value": "≈ 92 bar"
+  },
+  {
+   "label": "Moons",
+   "value": "0"
+  }
+ ],
+ "history": "Venus spins backwards and so slowly that its day outlasts its year. Beneath unbroken sulfuric-acid clouds, a runaway greenhouse keeps the surface near 465 °C — hot enough to melt lead — under 92 atmospheres of pressure. The Soviet Venera program achieved the first landings on another planet here between 1970 and 1982; no probe survived more than two hours. NASA's Magellan orbiter radar-mapped 98% of the surface between 1990 and 1994, revealing a volcanic world resurfaced as recently as a few hundred million years ago. Venus is often called Earth's evil twin: same size, similar rock, radically different fate — a cautionary tale in planetary climate.",
+ "source": "NASA/JPL Solar System Exploration; ESA",
+ "media": {
+  "images": [
+   {
+    "src": "media/venus/img-1.jpg",
+    "caption": "Venus Transit Viewing at NASA Goddard",
+    "credit": "NASA"
+   }
+  ],
+  "videos": [
+   {
+    "src": "media/venus/video-1.mp4",
+    "caption": "The Electric Wind of Venus",
+    "credit": "NASA Goddard"
+   }
+  ]
+ },
+ "meta": {
+  "acquired": "2026-10-09",
+  "translated": "2026-10-09",
+  "locale": "en",
+  "refs": [
+   "NASA/JPL Solar System Exploration; ESA"
+  ]
+ }
+}

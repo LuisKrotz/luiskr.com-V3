@@ -1,0 +1,20 @@
+{
+  "id": "wlm",
+  "name": "WLM Galaxy",
+  "kind": "dwarfGalaxy",
+  "tagline": "Wolf–Lundmark–Melotte — an isolated irregular with its own globular cluster, 3 Mly from home.",
+  "facts": [
+    { "label": "Distance", "value": "~3.04 Mly" },
+    { "label": "Type", "value": "Dwarf irregular" },
+    { "label": "Gas", "value": "Metal-poor, still star-forming" },
+    { "label": "Globular", "value": "Owns one — rare for a dwarf" }
+  ],
+  "history": "The Wolf–Lundmark–Melotte galaxy is a gas-rich dwarf irregular far enough out that it has evolved essentially on its own. It still makes stars, and its very low metallicity approaches that of the earliest galaxies. WLM is also famous for owning a genuine globular cluster — a dense ball of stars orbiting a galaxy itself barely more massive than one — evidence that even the smallest galaxies build their own dense subsystems.",
+  "source": "NASA/ESA · Wolf 1909",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Wolf 1909", "NASA/ESA Hubble"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "sagdig",
+  "name": "SagDIG",
+  "kind": "dwarfGalaxy",
+  "tagline": "Sagittarius Dwarf Irregular — the Local Group's most metal-poor gas-rich galaxy, 3.45 Mly out.",
+  "facts": [
+    { "label": "Distance", "value": "~3.45 Mly" },
+    { "label": "Type", "value": "Dwarf irregular" },
+    { "label": "Metallicity", "value": "Lowest of the gas-rich LG dwarfs" },
+    { "label": "Isolation", "value": "Outside the giant halos" }
+  ],
+  "history": "SagDIG is the most metal-poor gas-rich galaxy in the Local Group — a small irregular whose stars carry so few heavy elements they approach the composition of the earliest galaxies ever formed. Its isolation means it has never been tidally stripped or ram-pressure-scrubbed, making it a near-laboratory sample of unprocessed evolution. It continues to form stars at a gentle pace in its outer gas clouds.",
+  "source": "ESO · Cesarsky et al. 1977",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Cesarsky et al. 1977", "ESO"]
+  }
+}

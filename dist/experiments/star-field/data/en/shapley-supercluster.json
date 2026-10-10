@@ -1,0 +1,20 @@
+{
+  "id": "shapley-supercluster",
+  "name": "Shapley Supercluster",
+  "kind": "structure",
+  "tagline": "The Shapley Concentration — the heaviest nearby supercluster, ~650 Mly out, containing ~8,000 galaxies.",
+  "facts": [
+    { "label": "Distance", "value": "~650 Mly" },
+    { "label": "Galaxies", "value": "~8,000 in ~25 Abell clusters" },
+    { "label": "Mass", "value": "Largest mass concentration nearby" },
+    { "label": "Role", "value": "Pulls the Local Group alongside the Great Attractor" }
+  ],
+  "history": "The Shapley Supercluster is the largest nearby mass concentration — a titanic knot of about two dozen rich galaxy clusters first mapped by Harlow Shapley in 1930. Its gravity adds measurably to the tug on the Local Group, pulling us beyond what the Great Attractor alone can explain. It stands as a proof that the supercluster scale is itself a unit of cosmic structure, not just a loose label.",
+  "source": "Shapley 1930 · ROSAT surveys",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Shapley 1930", "ROSAT"]
+  }
+}

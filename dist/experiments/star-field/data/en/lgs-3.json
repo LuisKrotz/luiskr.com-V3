@@ -1,0 +1,20 @@
+{
+  "id": "lgs-3",
+  "name": "LGS 3",
+  "kind": "dwarfGalaxy",
+  "tagline": "The Pisces dwarf — a transitional Local Group member mid-way between a spheroidal and an irregular.",
+  "facts": [
+    { "label": "Distance", "value": "~2.6 Mly" },
+    { "label": "Type", "value": "Transitional dSph/dIrr" },
+    { "label": "Orbit", "value": "Loosely bound to M31" },
+    { "label": "Gas", "value": "Trace H I remains" }
+  ],
+  "history": "LGS 3 is the Local Group's transitional dwarf — classified between spheroidal and irregular because it still holds a trace of gas and a few young stars yet looks like a dying spheroidal everywhere else. It orbits loosely near Andromeda and is likely on a long inbound path toward it: an intermediate case documenting exactly how a galaxy loses its gas and quenches under a giant's gravity.",
+  "source": "PAndAS · Thuan & Martin",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Thuan & Martin 1979", "PAndAS survey"]
+  }
+}

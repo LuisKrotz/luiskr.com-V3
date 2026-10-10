@@ -1,0 +1,20 @@
+{
+  "id": "ic-1613",
+  "name": "IC 1613",
+  "kind": "dwarfGalaxy",
+  "tagline": "A Local Group irregular whose Cepheid variable stars helped set the extragalactic distance scale.",
+  "facts": [
+    { "label": "Distance", "value": "~2.36 Mly" },
+    { "label": "Type", "value": "Dwarf irregular" },
+    { "label": "Cepheids", "value": "Pivotal distance-scale calibrators" },
+    { "label": "History", "value": "Used by Baade to resolve stellar content" }
+  ],
+  "history": "IC 1613 is an irregular galaxy on the Local Group's outskirts that holds a place in the history of distance measurement: Walter Baade used its Cepheid variable stars in the mid-20th century to help calibrate the extragalactic ladder. Gas-rich and only moderately clustered, it keeps making stars slowly — a control case for how a dwarf irregular ages without a big galaxy bullying it.",
+  "source": "NASA/ESA · Baade's Cepheids",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Baade 1950s", "NASA/ESA"]
+  }
+}

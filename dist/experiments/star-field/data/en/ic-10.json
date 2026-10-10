@@ -1,0 +1,20 @@
+{
+  "id": "ic-10",
+  "name": "IC 10",
+  "kind": "dwarfGalaxy",
+  "tagline": "The Local Group's starburst dwarf — the only one still erupting with star formation near Andromeda.",
+  "facts": [
+    { "label": "Distance", "value": "~2.3 Mly" },
+    { "label": "Type", "value": "Irregular — active starburst" },
+    { "label": "Star formation", "value": "Highest surface rate in the Local Group" },
+    { "label": "Relation", "value": "Possibly bound to M31" }
+  ],
+  "history": "IC 10 is the Local Group's only starburst galaxy — a small irregular near Andromeda where vigorous star formation is still blasting bubbles and superbubbles through its gas. It hosts Wolf-Rayet stars and X-ray binaries in unusual numbers for its size, evidence of a recent violent burst. Its proximity to M31 suggests it may have been captured and is now being reshaped by the giant.",
+  "source": "NASA/ESA · Chandra",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["NASA Chandra", "Hubble Space Telescope"]
+  }
+}

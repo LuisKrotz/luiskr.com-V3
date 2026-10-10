@@ -1,0 +1,20 @@
+{
+  "id": "coma-supercluster",
+  "name": "Coma Supercluster",
+  "kind": "structure",
+  "tagline": "The nearest rich supercluster — two giant clusters on a common filament, ~321 million light-years out.",
+  "facts": [
+    { "label": "Distance", "value": "~321 Mly" },
+    { "label": "Clusters", "value": "Coma Cluster + Abell 1367" },
+    { "label": "Size", "value": "~100 Mly across" },
+    { "label": "Mass", "value": "Among the heaviest nearby structures" }
+  ],
+  "history": "The Coma Supercluster was the first supercluster ever mapped — it is the structure that convinced Fritz Zwicky in the 1930s that galaxies congregate in still larger congregations, and where he first inferred dark matter from the speeds of galaxies inside the Coma Cluster. It is a rare pair of giant clusters sharing a filament, making it one of the densest walls of galaxies in the nearby universe.",
+  "source": "NASA · Zwicky 1933",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Zwicky 1933", "NASA"]
+  }
+}

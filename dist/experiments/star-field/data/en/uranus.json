@@ -1,0 +1,51 @@
+{
+  "id": "uranus",
+  "name": "Uranus",
+  "kind": "planet",
+  "tagline": "The sideways planet — an ice giant rolling around the Sun on its side.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "50,724 km"
+    },
+    {
+      "label": "Orbital period",
+      "value": "84 years"
+    },
+    {
+      "label": "Axial tilt",
+      "value": "97.77°"
+    },
+    {
+      "label": "Moons",
+      "value": "28"
+    },
+    {
+      "label": "Coldest atmosphere",
+      "value": "−224 °C"
+    },
+    {
+      "label": "Discovered",
+      "value": "1781 — William Herschel"
+    }
+  ],
+  "history": "Uranus was the first planet discovered by telescope — William Herschel spotted it in 1781, doubling the known size of the Solar System overnight. A colossal ancient impact likely knocked its axis to 97.77 degrees, so it orbits the Sun rolling on its side with each pole getting 42 years of sunlight then 42 of darkness. Its methane atmosphere gives it a pale cyan cast and holds the coldest planetary temperature ever measured. Voyager 2 remains the only spacecraft to visit, flying by in 1986; a dedicated Uranus orbiter is a top priority of the US planetary science decadal survey.",
+  "source": "NASA/JPL Solar System Exploration",
+  "media": {
+    "images": [
+      {
+        "src": "media/uranus/img-1.jpg",
+        "caption": "Hubble Observes the Planet Uranus",
+        "credit": "NASA"
+      }
+    ]
+  },
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  }
+}

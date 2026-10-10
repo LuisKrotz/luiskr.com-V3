@@ -1,0 +1,20 @@
+{
+  "id": "fornax-dwarf",
+  "name": "Fornax Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "A Milky Way satellite spheroid 455,000 light-years out — the only classical dwarf still forming stars until recently.",
+  "facts": [
+    { "label": "Distance", "value": "~455,000 ly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Globulars", "value": "6 of its own" },
+    { "label": "Star formation", "value": "Active until ~100 Myr ago" }
+  ],
+  "history": "Fornax is the most luminous of the Milky Way's classical dwarf spheroidals and the only one that kept making stars almost to the present day — a clue that it fell into the halo relatively recently. It owns six globular clusters of its own, including one of the oldest known. Its clumpy star-formation history makes it a laboratory for how dwarf galaxies evolve under a giant host's tides.",
+  "source": "ESO · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["ESO", "Gaia Collaboration"]
+  }
+}

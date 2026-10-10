@@ -1,0 +1,42 @@
+{
+  "id": "smc",
+  "name": "Small Magellanic Cloud",
+  "kind": "galaxy",
+  "tagline": "The Milky Way's second satellite — a metal-poor dwarf galaxy being slowly torn apart.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "~200,000 ly"
+    },
+    {
+      "label": "Stars",
+      "value": "~3 billion"
+    },
+    {
+      "label": "Diameter",
+      "value": "~18,900 ly"
+    },
+    {
+      "label": "Type",
+      "value": "Irregular dwarf"
+    },
+    {
+      "label": "Metallicity",
+      "value": "~1/5 solar"
+    },
+    {
+      "label": "Companion",
+      "value": "Pair to the LMC"
+    }
+  ],
+  "history": "The Small Magellanic Cloud is the Milky Way's other naked-eye satellite — a fragile irregular galaxy stretched by tides between the LMC and our own. Its metal-poor stars resemble the young universe's, making it a nearby laboratory for early cosmic chemistry. Its gas is already bleeding into the Magellanic Stream, a ribbon of material the two clouds are trailing behind them as they orbit.",
+  "source": "NASA/ESA · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "NASA/ESA · Gaia"
+    ]
+  }
+}

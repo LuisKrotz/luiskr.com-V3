@@ -1,0 +1,20 @@
+{
+  "id": "m110",
+  "name": "Messier 110",
+  "kind": "dwarfGalaxy",
+  "tagline": "Andromeda's second bright satellite — a dwarf elliptical holding faint dusty structures and globular clusters of its own.",
+  "facts": [
+    { "label": "Distance", "value": "~2.69 Mly" },
+    { "label": "Type", "value": "Dwarf elliptical (dE)" },
+    { "label": "Diameter", "value": "~17,000 ly" },
+    { "label": "Globulars", "value": "8 of its own" }
+  ],
+  "history": "M110 is Andromeda's other classical companion — a dwarf elliptical larger than M32 but less centrally compressed, with faint traces of dust and a handful of globular clusters orbiting it. Its diffuse stars and peculiar velocity suggest a long gravitational relationship with M31; deep imaging shows tidal debris in its outskirts, evidence that it, too, is being slowly digested by the giant it attends.",
+  "source": "NASA/ESA · Messier Catalogue",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["NASA/ESA", "Messier Catalogue"]
+  }
+}

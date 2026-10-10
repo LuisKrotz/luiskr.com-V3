@@ -1,0 +1,51 @@
+{
+  "id": "deimos",
+  "name": "Deimos",
+  "kind": "moon",
+  "tagline": "Mars's smaller, outer moon — a dust-blanketed remnant orbiting at the edge of synchronous altitude.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "12.4 km"
+    },
+    {
+      "label": "Orbital period",
+      "value": "30.3 hours"
+    },
+    {
+      "label": "Distance from Mars",
+      "value": "23,460 km"
+    },
+    {
+      "label": "Largest crater",
+      "value": "Swift — 2.3 km"
+    },
+    {
+      "label": "Gravity",
+      "value": "0.003 m/s²"
+    },
+    {
+      "label": "Discovered",
+      "value": "1877 — Asaph Hall"
+    }
+  ],
+  "history": "Deimos is the smaller and outer of Mars's two moons — an irregular, dust-smoothed body probably captured from the asteroid belt or born from impact debris. Its thick regolith blanket softens its craters, giving it a lumpy, muted look unlike Phobos's battered face. It orbits just outside synchronous altitude, so from the Martian surface it drifts slowly east to west over almost three days. NASA's Mars Trek provides detailed shape models; no lander has yet touched it, but it remains a candidate staging point for crewed Mars missions.",
+  "source": "NASA/JPL · NASA Mars Trek",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/deimos/img-1.jpg",
+        "caption": "Martian Eclipses: Deimos and Phobos",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

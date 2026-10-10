@@ -1,0 +1,20 @@
+{
+  "id": "sculptor-dwarf",
+  "name": "Sculptor Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "A metal-poor Milky Way spheroid 290,000 light-years out — dark-matter dominated, over 10 billion years old.",
+  "facts": [
+    { "label": "Distance", "value": "~290,000 ly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Metallicity", "value": "[Fe/H] ≈ −1.5 — very metal-poor" },
+    { "label": "Found", "value": "1937 — Harlow Shapley" }
+  ],
+  "history": "Shapley discovered Sculptor in 1937 on photographic plates — the first dwarf spheroidal ever found, a wholly new kind of galaxy made of a diffuse smear of old stars. Its stars are among the most metal-poor anywhere, so it must have formed most of them in the universe's first billion years. Velocity measurements show Sculptor is held together by far more unseen mass than starlight — a classic dark-matter-dominated dwarf.",
+  "source": "ESO · Harlow Shapley 1937",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Shapley 1938", "ESO"]
+  }
+}

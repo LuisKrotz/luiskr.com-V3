@@ -1,0 +1,20 @@
+{
+  "id": "sextans-dwarf",
+  "name": "Sextans Dwarf Spheroidal",
+  "kind": "dwarfGalaxy",
+  "tagline": "A very faint Milky Way satellite 290,000 light-years out — one of the least luminous dwarf spheroidals in the halo.",
+  "facts": [
+    { "label": "Distance", "value": "~290,000 ly" },
+    { "label": "Type", "value": "Dwarf spheroidal" },
+    { "label": "Luminosity", "value": "Among the faintest classical dwarfs" },
+    { "label": "Found", "value": "1990 — UK Schmidt survey" }
+  ],
+  "history": "The Sextans dwarf was found only in 1990 on UK Schmidt plates — a smear so faint it evaded the earlier sky surveys entirely. Its stars are old and metal-poor, and its exceptionally low surface brightness means its stellar content is dwarfed by the dark matter scaffolding holding it together. It is a representative of the faintest tail of galaxy formation, barely brighter than a rich globular cluster.",
+  "source": "Irwin et al. 1990 · UK Schmidt",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Irwin et al. 1990", "UK Schmidt Telescope"]
+  }
+}

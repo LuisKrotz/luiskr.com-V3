@@ -1,0 +1,20 @@
+{
+  "id": "interstellar-neighborhood",
+  "name": "Interstellar Neighborhood",
+  "kind": "structure",
+  "tagline": "The Sun's local bubble and its stellar companions — everything within ~2,000 light-years.",
+  "facts": [
+    { "label": "Radius", "value": "~2,000 ly" },
+    { "label": "Contains", "value": "Nearest ~1,000 catalogued stars, Orion Arm" },
+    { "label": "Also called", "value": "Local Bubble region" },
+    { "label": "Density", "value": "~0.1 stars per cubic light-year" }
+  ],
+  "history": "The interstellar neighborhood is the Sun's immediate surroundings — the Local Bubble of hot, rarified gas carved by ancient supernovae, threaded with cooler clouds like the Local Interstellar Cloud the Sun is currently traversing, and populated by the nearest catalogued stars. It is the scale at which individual stars are still distinct objects rather than a blur — the last fully resolvable layer before the galaxy becomes a disc of numbers.",
+  "source": "Gaia DR3 · NASA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": ["Gaia DR3", "NASA"]
+  }
+}

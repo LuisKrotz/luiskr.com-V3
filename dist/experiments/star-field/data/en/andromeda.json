@@ -1,0 +1,51 @@
+{
+  "id": "andromeda",
+  "name": "Andromeda Galaxy",
+  "kind": "galaxy",
+  "tagline": "The farthest thing you can see unaided — two and a half million years of light away.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "≈ 2.54 million light-years"
+    },
+    {
+      "label": "Catalogue",
+      "value": "M31"
+    },
+    {
+      "label": "Stars",
+      "value": "≈ 1 trillion"
+    },
+    {
+      "label": "Diameter",
+      "value": "≈ 220,000 light-years"
+    },
+    {
+      "label": "Approach",
+      "value": "110 km/s toward us"
+    },
+    {
+      "label": "Collision",
+      "value": "≈ 4.5 billion years"
+    }
+  ],
+  "history": "Persian astronomer Al-Sufi recorded Andromeda as a 'little cloud' around 964 CE — making it one of the earliest documented deep-sky objects and still the most distant thing visible to the naked eye. For centuries it was called a spiral nebula inside our own galaxy, until Edwin Hubble identified Cepheid variable stars in it in 1924 and measured its distance — proof that the universe extends far beyond the Milky Way, a discovery that rewrote cosmology overnight. It holds about a trillion stars, roughly double our galaxy, and blueshifted spectra show it approaching at 110 km/s: the two spirals will begin merging in about 4.5 billion years.",
+  "source": "NASA/ESA Hubble; IAU",
+  "media": {
+    "images": [
+      {
+        "src": "media/andromeda/img-1.jpg",
+        "caption": "Galaxy NGC 55",
+        "credit": "NASA"
+      }
+    ]
+  },
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "NASA/ESA Hubble; IAU"
+    ]
+  }
+}
