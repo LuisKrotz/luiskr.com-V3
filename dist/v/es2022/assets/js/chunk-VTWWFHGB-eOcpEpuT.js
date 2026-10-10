@@ -1,0 +1,2 @@
+function kG(a=$ve){const e=Ule(Ble(a),ZOe),r=Ule(Wle({shared:e}),ike,nG);return e.ServiceRegistry.register(r),{shared:e,Radar:r}}var raa,nG;import{C as Ble,S as Wle,i as dke,o as $ve,p as ike,t as yke,u as ZOe,w as Ule,x as Ry}from"./chunk-NGNAAXSQ-CNwtoun8.js";raa=class extends yke{static{Ry(this,"RadarTokenBuilder")}constructor(){super(["radar-beta"])}},nG={parser:{TokenBuilder:Ry(()=>new raa,"TokenBuilder"),ValueConverter:Ry(()=>new dke,"ValueConverter")}},Ry(kG,"createRadarServices");export{kG as n,nG as t};
+//# sourceMappingURL=chunk-VTWWFHGB-eOcpEpuT.js.map

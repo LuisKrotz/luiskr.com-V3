@@ -1,2 +1,0 @@
-function nG(a=vRe){const e=Zoe(Yoe(a),QSe),r=Zoe(Hoe({shared:e}),oOe,rG);return e.ServiceRegistry.register(r),{shared:e,Radar:r}}var Jaa,rG;import{C as Yoe,S as Hoe,i as gOe,o as vRe,p as oOe,t as $Oe,u as QSe,w as Zoe,x as xu}from"./chunk-NGNAAXSQ-DEYJZDIc.js";Jaa=class extends $Oe{static{xu(this,"RadarTokenBuilder")}constructor(){super(["radar-beta"])}},rG={parser:{TokenBuilder:xu(()=>new Jaa,"TokenBuilder"),ValueConverter:xu(()=>new gOe,"ValueConverter")}},xu(nG,"createRadarServices");export{nG as n,rG as t};
-//# sourceMappingURL=chunk-VTWWFHGB-DI3z7hMK.js.map

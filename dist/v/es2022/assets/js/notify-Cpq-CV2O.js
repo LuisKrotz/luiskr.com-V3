@@ -1,2 +1,0 @@
-var ii,oee;import{z as ln}from"./store-2k8rhstP.js";ii=Object.freeze({ERROR:ln.ERROR,So:"info",Dj:"success"}),oee=Object.freeze({iz:5e3,sz:4,_j:2500,Cj:64});export{ii as n,oee as t};
-//# sourceMappingURL=notify-Cpq-CV2O.js.map

@@ -1,0 +1,2 @@
+var wi,fi;import{Ft as Nee}from"./store-Dm1c1sDD.js";wi=Object.freeze({fm:"legal"}),fi=Object.freeze({Oa:Nee,nm:`${Nee}-title`,om:`${Nee}-subtitle`,tm:`${Nee}-link`});export{fi as n,wi as t};
+//# sourceMappingURL=legal-Bk0fbytT.js.map

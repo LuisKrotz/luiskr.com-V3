@@ -1,0 +1,2 @@
+var dm=Object.freeze({ym:"source-over",Wm:"multiply",Mm:"lighter",qm:"difference",$m:"destination-out",uu:"destination-in",zm:"source-atop",Um:"rgb(255, 0, 0)",Pm:"rgb(0, 255, 255)",Gm:"rgb(235, 235, 235)",Xm:"black",Bm:"white",_m:"transparent",Vm:"saturate(1.7) brightness(1.12)",Ym:"none",wm:"rgb(255, 214, 130)",xm:"rgb(255, 122, 26)",IV:"rgb(198, 44, 10)",km:"rgba(26, 20, 16, 0.85)",NV:"rgba(255, 96, 18, 0.55)"});export{dm as t};
+//# sourceMappingURL=canvas-CKnmEA6B.js.map

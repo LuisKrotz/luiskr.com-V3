@@ -1,0 +1,2 @@
+function fG(e=hAe){const s=ale(ile(e),HNe),r=ale(nle({shared:s}),QNe,kG);return s.ServiceRegistry.register(r),{shared:s,Info:r}}var uh,kIe,kG;import{C as ile,S as nle,i as fIe,l as QNe,o as hAe,t as mIe,u as HNe,w as ale,x as vy}from"./chunk-NGNAAXSQ-DzBceXoc.js";vy(uh=class extends mIe{constructor(){super(["info","showInfo"])}},"InfoTokenBuilder"),kIe=uh,kG={parser:{TokenBuilder:vy(()=>new kIe,"TokenBuilder"),ValueConverter:vy(()=>new fIe,"ValueConverter")}},vy(fG,"createInfoServices");export{fG as n,kG as t};
+//# sourceMappingURL=chunk-3M4EKCLJ-DJQG6MLI.js.map

@@ -1,0 +1,2 @@
+function Yp(o,n){o.accDescr&&n.setAccDescription?.(o.accDescr),o.accTitle&&n.setAccTitle?.(o.accTitle),o.title&&n.setDiagramTitle?.(o.title)}import{n as Zy}from"./chunk-Y2CYZVJY-C1GsQnw0.js";Zy(Yp,"populateCommonDb");export{Yp as t};
+//# sourceMappingURL=chunk-JWPE2WC7-PqxpWRJu.js.map

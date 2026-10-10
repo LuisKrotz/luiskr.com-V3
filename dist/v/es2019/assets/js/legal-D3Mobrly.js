@@ -1,2 +1,0 @@
-var Zn,Qo;import{Pt as lee}from"./store-BcVFuylZ.js";Zn=Object.freeze({fm:"legal"}),Qo=Object.freeze({In:lee,om:`${lee}-title`,nm:`${lee}-subtitle`,tm:`${lee}-link`});export{Qo as n,Zn as t};
-//# sourceMappingURL=legal-D3Mobrly.js.map

@@ -1,0 +1,2 @@
+function AG(e=$ve){const a=Ule(Ble(e),ZOe),s=Ule(Wle({shared:a}),rke,NG);return a.ServiceRegistry.register(s),{shared:a,Packet:s}}var aBe,NG;import{C as Ble,S as Wle,d as rke,i as dke,o as $ve,t as yke,u as ZOe,w as Ule,x as Ry}from"./chunk-NGNAAXSQ-CNwtoun8.js";aBe=class extends yke{static{Ry(this,"PacketTokenBuilder")}constructor(){super(["packet"])}},NG={parser:{TokenBuilder:Ry(()=>new aBe,"TokenBuilder"),ValueConverter:Ry(()=>new dke,"ValueConverter")}},Ry(AG,"createPacketServices");export{AG as n,NG as t};
+//# sourceMappingURL=chunk-OD3NTWWA-D1JorHhK.js.map

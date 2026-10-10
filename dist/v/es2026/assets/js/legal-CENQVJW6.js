@@ -1,0 +1,2 @@
+var xo,Ji;import{wt as taa}from"./urls-CQjblhXu.js";xo=Object.freeze({To:"legal"}),Ji=Object.freeze({Cn:taa,qm:`${taa}-title`,Xm:`${taa}-subtitle`,jm:`${taa}-link`});export{Ji as n,xo as t};
+//# sourceMappingURL=legal-CENQVJW6.js.map

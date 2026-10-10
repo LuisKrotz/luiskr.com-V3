@@ -1,2 +1,0 @@
-var on,aee;import{z as si}from"./store-BcVFuylZ.js";on=Object.freeze({ERROR:si.ERROR,Sa:"info",Aj:"success"}),aee=Object.freeze({mz:5e3,cz:4,Dj:2500,_j:64});export{on as n,aee as t};
-//# sourceMappingURL=notify-BIqUOVOH.js.map

@@ -1,0 +1,2 @@
+var Si=Object.freeze({sl:"-mozjpg",ll:"3-MSSIM-tuned-kodak",xl:"-50",vl:"-uncompressed",dl:".jpg",ol:".mp4",il:".mp4.jpg-thumb.jpg",nl:".mp4-scaledown-2x"}),Oi=Object.freeze({zd:5e3,nc:420,oc:400,sc:150,Rd:.04}),Ci=Object.freeze({Ld:2*Math.PI*19,Od:768,Id:960,rc:40,Md:70,Jc:"70vh",Sd:10,lc:.15,Cd:4,Qd:32,Fd:320,MX:375,Hd:24,jd:1024,Ud:377,Dd:610,Td:987,HX:42,Bd:68,GX:26,Xd:42,Vd:68,Pd:110,Kd:158,Yd:55,Wd:89,qd:377,Gd:233,XX:600}),Li=Object.freeze({nm:2,lm:2,sm:250});export{Si as i,Li as n,Oi as r,Ci as t};
+//# sourceMappingURL=carousel-4_LI5k2l.js.map

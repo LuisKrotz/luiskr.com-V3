@@ -1,0 +1,2 @@
+function xG(e=vRe){const s=Zoe(Yoe(e),QSe),r=Zoe(Hoe({shared:s}),iOe,CG);return s.ServiceRegistry.register(r),{shared:s,Info:r}}var fke,CG;import{C as Yoe,S as Hoe,i as gOe,l as iOe,o as vRe,t as $Oe,u as QSe,w as Zoe,x as Zy}from"./chunk-NGNAAXSQ-CXQSxKZK.js";fke=class extends $Oe{static{Zy(this,"InfoTokenBuilder")}constructor(){super(["info","showInfo"])}},CG={parser:{TokenBuilder:Zy(()=>new fke,"TokenBuilder"),ValueConverter:Zy(()=>new gOe,"ValueConverter")}},Zy(xG,"createInfoServices");export{xG as n,CG as t};
+//# sourceMappingURL=chunk-3M4EKCLJ-BeENQ4bf.js.map

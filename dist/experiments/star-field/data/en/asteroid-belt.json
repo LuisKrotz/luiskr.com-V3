@@ -1,0 +1,43 @@
+{
+  "id": "asteroid-belt",
+  "name": "Asteroid Belt",
+  "kind": "belt",
+  "tagline": "Millions of rocky leftovers between Mars and Jupiter — the planet that never formed.",
+  "facts": [
+    {
+      "label": "Location",
+      "value": "2.06–3.27 AU, between Mars and Jupiter"
+    },
+    {
+      "label": "Estimated members",
+      "value": "1.1–1.9 million larger than 1 km"
+    },
+    {
+      "label": "Total mass",
+      "value": "~3% of the Moon — Ceres alone holds a third"
+    },
+    {
+      "label": "Largest members",
+      "value": "Ceres, Vesta, Pallas, Hygiea"
+    },
+    {
+      "label": "Kirkwood gaps",
+      "value": "Resonance lanes cleared by Jupiter's gravity"
+    },
+    {
+      "label": "Composition",
+      "value": "C-type carbonaceous, S-type silicate, M-type metallic"
+    }
+  ],
+  "history": "The asteroid belt is the surviving debris of the early solar system — material that never coalesced into a planet because Jupiter's gravity stirred the region too violently. Giuseppe Piazzi found its first member, Ceres, in 1801 while searching for the 'missing planet' the Titius–Bode law predicted; within six years Pallas, Juno and Vesta followed, revealing not one world but a vast ring of rubble. Today over a million bodies larger than a kilometre are catalogued, yet the entire belt masses less than 3% of the Moon — mostly empty space, and spacecraft fly through it routinely without a single close encounter. Jupiter's resonances carve the Kirkwood gaps visible as empty lanes, and collisions between members supply most of the meteorites that reach Earth. NASA's Dawn orbiter mapped Vesta and Ceres up close between 2011 and 2018, finding salt deposits and evidence that some asteroids once held subsurface oceans.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-09",
+    "locale": "en",
+    "refs": [
+      "NASA/JPL Solar System Exploration",
+      "IAU Minor Planet Center"
+    ]
+  }
+}

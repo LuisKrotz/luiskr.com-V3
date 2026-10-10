@@ -1,0 +1,2 @@
+var Sce=Object.defineProperty,Yy=(e,a)=>Sce(e,"name",{value:a,configurable:!0}),iI=(e,a)=>{for(var r in a)Sce(e,r,{get:a[r],enumerable:!0})};export{Yy as n,iI as t};
+//# sourceMappingURL=chunk-Y2CYZVJY-DAqppXuj.js.map

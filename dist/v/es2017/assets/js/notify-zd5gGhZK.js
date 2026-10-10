@@ -1,0 +1,2 @@
+var Qi,gee;import{B as lt}from"./store-DjgUEvZt.js";Qi=Object.freeze({ERROR:lt.ERROR,Co:"info",kj:"success"}),gee=Object.freeze({dz:5e3,cz:4,qj:2500,Qj:64});export{Qi as n,gee as t};
+//# sourceMappingURL=notify-zd5gGhZK.js.map

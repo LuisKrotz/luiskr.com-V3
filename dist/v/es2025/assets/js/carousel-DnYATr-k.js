@@ -1,0 +1,2 @@
+var Kr=Object.freeze({As:"-mozjpg",zs:"3-MSSIM-tuned-kodak",Us:"-50",Fs:"-uncompressed",Ss:".jpg",Es:".mp4",_s:".mp4.jpg-thumb.jpg",Ns:".mp4-scaledown-2x"}),Zr=Object.freeze({Kl:5e3,Rd:420,Ad:400,zd:150,Yl:.04}),Qr=Object.freeze({Zl:2*Math.PI*19,Ql:768,td:960,Nd:40,ad:70,yc:"70vh",Jl:10,Sd:.15,ed:4,kd:32,dd:320,GX:375,fd:24,nd:1024,sd:377,od:610,rd:987,XX:42,ld:68,jX:26,pd:42,hd:68,md:110,wd:158,xd:55,gd:89,bd:377,ud:233,VX:600}),Jr=Object.freeze({Rc:2,Sc:2,zc:250});export{Kr as i,Jr as n,Zr as r,Qr as t};
+//# sourceMappingURL=carousel-DnYATr-k.js.map

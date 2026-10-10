@@ -1,0 +1,2 @@
+function oQ(e=EAe){const r=dle(mle(e),nIe),a=dle(fle({shared:r}),$Ie,rQ);return r.ServiceRegistry.register(a),{shared:r,Wardley:a}}var xh,eLe,rQ;import{C as mle,S as fle,b as $Ie,n as TIe,o as EAe,u as nIe,w as dle,x as Ny}from"./chunk-NGNAAXSQ-D1vNkyxe.js";Ny(xh=class extends TIe{runCustomConverter(e,r,a){if("LINK_LABEL"===e.name.toUpperCase())return r.substring(1).trim()}},"WardleyValueConverter"),eLe=xh,rQ={parser:{ValueConverter:Ny(()=>new eLe,"ValueConverter")}},Ny(oQ,"createWardleyServices");export{oQ as n,rQ as t};
+//# sourceMappingURL=chunk-53FOQ5SW-DnUPWX_V.js.map

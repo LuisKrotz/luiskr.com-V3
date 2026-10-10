@@ -1,2 +1,0 @@
-var ba,wa,ni;import{r as Bt,s as Vt}from"./urls-BIHt91av.js";ba=t=>{if(!t||typeof t!==Vt.fn)return Bt.EMPTY;let r,g=t;do{r=g,g=g.replace(/<[^>]*>/g,Bt.EMPTY)}while(g!==r);return g},wa=t=>t&&typeof t===Vt.fn?t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"):Bt.EMPTY,ni=t=>t&&typeof t===Vt.fn?t.toLowerCase().replace(/[^\w\s-]/g,Bt.EMPTY).trim().replace(/[\s_]+/g,"-").replace(/--+/g,"-"):Bt.EMPTY;export{ni as n,ba as r,wa as t};
-//# sourceMappingURL=string-BX1YN40K.js.map

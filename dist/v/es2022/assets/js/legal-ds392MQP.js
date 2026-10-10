@@ -1,2 +1,0 @@
-var br,No;import{Pt as Tee}from"./store-2k8rhstP.js";br=Object.freeze({fm:"legal"}),No=Object.freeze({Ii:Tee,nm:`${Tee}-title`,om:`${Tee}-subtitle`,tm:`${Tee}-link`});export{No as n,br as t};
-//# sourceMappingURL=legal-ds392MQP.js.map

@@ -1,0 +1,2 @@
+function eG(e=$ve){const s=Ule(Ble(e),ZOe),r=Ule(Wle({shared:s}),tke,iG);return s.ServiceRegistry.register(r),{shared:s,Info:r}}var eIe,iG;import{C as Ble,S as Wle,i as dke,l as tke,o as $ve,t as yke,u as ZOe,w as Ule,x as Jy}from"./chunk-NGNAAXSQ-C1guK6HY.js";eIe=class extends yke{static{Jy(this,"InfoTokenBuilder")}constructor(){super(["info","showInfo"])}},iG={parser:{TokenBuilder:Jy(()=>new eIe,"TokenBuilder"),ValueConverter:Jy(()=>new dke,"ValueConverter")}},Jy(eG,"createInfoServices");export{eG as n,iG as t};
+//# sourceMappingURL=chunk-3M4EKCLJ-CNDOiur1.js.map

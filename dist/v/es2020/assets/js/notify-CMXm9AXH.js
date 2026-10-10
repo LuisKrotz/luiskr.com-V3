@@ -1,2 +1,0 @@
-var ai,aee;import{z as ln}from"./store-4PBdzRRi.js";ai=Object.freeze({ERROR:ln.ERROR,So:"info",Dj:"success"}),aee=Object.freeze({iz:5e3,sz:4,_j:2500,Cj:64});export{ai as n,aee as t};
-//# sourceMappingURL=notify-CMXm9AXH.js.map
