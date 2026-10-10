@@ -32,3 +32,7 @@ Test output must be free of warnings/errors. `shared/tests/setup.js` wraps `cons
 ## Debug params under test
 
 `?debug=webGLMode:fallback` (via `window.history.replaceState`) forces every `webglContext` acquisition to fail → fallback path. `?debug=sendNotificationTest` mounts a toast.
+
+## Fail-fast test runs
+
+When iterating on a failing suite, always run Jest with `--bail` (stops at the first failed suite) — never run 100+ suites to discover one failure. Escalate to the full suite only after the focused/bail run is green.

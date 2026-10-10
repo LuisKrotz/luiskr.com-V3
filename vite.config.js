@@ -1,3 +1,4 @@
+/* istanbul ignore file -- build-time vite config; only consumed by the bundler, never exercised by tests */
 /**
  * @file vite.config.js
  * @description Multi-target build matrix driver.
@@ -21,6 +22,7 @@ import { defineConfig, createLogger } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import { compression } from 'vite-plugin-compression2'
 import { fileURLToPath, URL } from 'node:url'
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { constants as zlibConstants } from 'node:zlib'
 import { minify as htmlMinify } from 'html-minifier-terser'
 import path from 'node:path'
@@ -33,7 +35,7 @@ import { jsxInJsPlugin, SHARED_ESBUILD } from './shared/build/jsx-in-js.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-export default defineConfig(() => {
+export default defineConfig(({ command }) => {
   // Active tier — default when invoked directly (`vite build` without the
   // orchestrator still produces a working modern build).
   const t = ES_TARGETS.find((x) => x.name === process.env.LK_TARGET) || ES_TARGETS[0]
@@ -189,30 +191,201 @@ export default defineConfig(() => {
     wrap_func_args: false,
   }
 
-  // Dev-only offline CMS mode (`CMS_MOCK=1 npm run dev`): swaps real Firebase
-  // SDK calls for the committed database.json snapshot (see
-  // cms/dev/firebase-mock.js). Never active in production builds.
+  // The PWA manifest object — emitted as site.webmanifest by VitePWA on build
+  // and served verbatim by the dev middleware below. Hoisted so both paths
+  // stay identical.
+  const siteManifest = {
+    name: 'Luis Krötz',
+    short_name: 'Luis Krötz',
+    start_url: '/',
+    display: 'fullscreen',
+    theme_color: '#262626',
+    background_color: '#FFF',
+    icons: [
+      {
+        src: '/assets/icons/favicon.svg',
+        sizes: '512x512',
+        type: 'image/svg+xml',
+        purpose: 'any maskable',
+      },
+      {
+        src: '/assets/icons/android-chrome-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        src: '/assets/icons/android-chrome-256x256.png',
+        sizes: '256x256',
+        type: 'image/png',
+      },
+    ],
+  }
+
+  // Dev-only manifest serving: VitePWA only emits site.webmanifest at build
+  // (`devOptions.enabled: false` keeps the SW out of dev), so the linked
+  // manifest otherwise falls through to the SPA index.html and the browser
+  // logs "Manifest: Line: 1, column: 1, Syntax error." Answering JSON here
+  // keeps dev parity with the build without a dev service worker.
+  const siteWebmanifestDevPlugin = {
+    name: 'site-webmanifest-dev',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const reqPath = (req.url || '').split('?')[0]
+
+        if (reqPath !== '/site.webmanifest' || req.method === 'POST') return next()
+
+        const body = JSON.stringify(siteManifest)
+
+        res.statusCode = 200
+        res.setHeader('Content-Type', 'application/manifest+json')
+        res.setHeader('Content-Length', Buffer.byteLength(body))
+        res.end(req.method === 'HEAD' ? undefined : body)
+      })
+    },
+  }
+
+  // Dev-only offline CMS mode — explicit opt-in via `CMS_MOCK=1`
+  // (`yarn dev:cms`): swaps real Firebase SDK calls for the committed
+  // database.json snapshot (see cms/dev/firebase-mock.js), and backs
+  // `/__cms-db` so CMS writes persist to a gitignored overlay file
+  // (cms/dev/mock-db.json). Plain `yarn dev` ALWAYS talks to real
+  // production Firebase — real Google OAuth, real data edits. Tombstones
+  // (`null` leaves) mark deletes so the overlay can shadow base keys.
+  // Never active in production builds (the serve gate makes a leaked
+  // env impossible).
+  const cmsMock = command === 'serve' && !!process.env.CMS_MOCK
+  const cmsMockBaseFile = fileURLToPath(new URL('./public/database.json', import.meta.url))
+
+  const cmsMockOverlayFile = fileURLToPath(new URL('./cms/dev/mock-db.json', import.meta.url))
+
+  /** Reads a JSON file defensively — missing/corrupt → empty object. */
+  const cmsMockRead = (file) => {
+    try {
+      return JSON.parse(readFileSync(file, 'utf8'))
+    } catch {
+      return {}
+    }
+  }
+
+  /** Deep-merges overlay over base; overlay `null` leaves delete keys. */
+  const cmsMockMerge = (base, over) => {
+    const bothObjs =
+      base &&
+      typeof base === 'object' &&
+      !Array.isArray(base) &&
+      over &&
+      typeof over === 'object' &&
+      !Array.isArray(over)
+
+    if (!bothObjs) return over === undefined ? base : over
+
+    const out = { ...base }
+
+    for (const [k, v] of Object.entries(over)) {
+      if (v === null) delete out[k]
+      else out[k] = cmsMockMerge(base[k], v)
+    }
+
+    return out
+  }
+
+  /** Applies one RTDB-style op (set/update/remove) to an overlay tree. */
+  const cmsMockApply = (overlay, path, value, op) => {
+    const segs = String(path || '')
+      .split('/')
+      .filter(Boolean)
+
+    if (!segs.length) return overlay
+
+    let node = overlay
+
+    for (const seg of segs.slice(0, -1)) {
+      const next = node[seg]
+
+      node[seg] = next && typeof next === 'object' && !Array.isArray(next) ? next : {}
+      node = node[seg]
+    }
+
+    const last = segs[segs.length - 1]
+
+    if (op === 'remove')
+      node[last] = null // tombstone — shadows the base
+    else if (op === 'update' && value && typeof value === 'object' && !Array.isArray(value)) {
+      const prev = node[last]
+
+      node[last] = { ...(prev && typeof prev === 'object' ? prev : {}), ...value }
+    } else node[last] = value
+
+    return overlay
+  }
+
   const cmsMockPlugin = {
     name: 'cms-firebase-mock',
     enforce: 'pre',
     resolveId(source) {
-      if (!process.env.CMS_MOCK) return null
+      if (!cmsMock) return null
       if (/(^|\/)firebase\.js$/.test(source)) {
         return fileURLToPath(new URL('./cms/dev/firebase-mock.ts', import.meta.url))
       }
       return null
     },
-    // The CMS entry is cms/index.html — a bare `/cms` request otherwise
-    // resolves to the module barrel (cms/index.ts), and a bare rewrite
-    // would break the relative `./main.ts` script path, so redirect to
-    // the canonical trailing-slash URL.
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
+        const reqPath = (req.url || '').split('?')[0]
+
+        if (cmsMock && reqPath === '/__cms-db') {
+          if (req.method === 'GET') {
+            // Merged view on every read — cheap at dev scale, always fresh.
+            const body = JSON.stringify(
+              cmsMockMerge(cmsMockRead(cmsMockBaseFile), cmsMockRead(cmsMockOverlayFile))
+            )
+
+            res.statusCode = 200
+            res.setHeader('Content-Type', 'application/json')
+            res.end(body)
+            return
+          }
+
+          if (req.method === 'POST') {
+            const chunks = []
+
+            req.on('data', (c) => chunks.push(c))
+            req.on('end', () => {
+              try {
+                const {
+                  path: dbPath,
+                  value,
+                  op,
+                } = JSON.parse(Buffer.concat(chunks).toString('utf8'))
+
+                const overlay = cmsMockRead(cmsMockOverlayFile)
+
+                cmsMockApply(overlay, dbPath, value, op)
+
+                mkdirSync(path.dirname(cmsMockOverlayFile), { recursive: true })
+                writeFileSync(cmsMockOverlayFile, JSON.stringify(overlay, null, 2))
+
+                res.statusCode = 204
+                res.end()
+              } catch (err) {
+                res.statusCode = 400
+                res.end(String(err))
+              }
+            })
+            return
+          }
+        }
+
+        // The CMS entry is cms/index.html — a bare `/cms` request
+        // otherwise resolves to the module barrel (cms/index.ts), and a
+        // bare rewrite would break the relative `./main.ts` script path,
+        // so redirect to the canonical trailing-slash URL.
         if (req.url === '/cms') {
           res.writeHead(301, { Location: '/cms/' })
           res.end()
           return
         }
+
         next()
       })
     },
@@ -220,6 +393,7 @@ export default defineConfig(() => {
 
   const plugins = [
     cmsMockPlugin,
+    siteWebmanifestDevPlugin,
     ...(process.env.LK_NO_PUBLIC ? [] : [modulePublicPlugin()]),
     i18nFallbackPlugin({ root: __dirname }),
     i18nBootPlugin({ root: __dirname, isLegacy }),
@@ -261,32 +435,7 @@ export default defineConfig(() => {
         devOptions: {
           enabled: false,
         },
-        manifest: {
-          name: 'Luis Krötz',
-          short_name: 'Luis Krötz',
-          start_url: '/',
-          display: 'fullscreen',
-          theme_color: '#262626',
-          background_color: '#FFF',
-          icons: [
-            {
-              src: '/assets/icons/favicon.svg',
-              sizes: '512x512',
-              type: 'image/svg+xml',
-              purpose: 'any maskable',
-            },
-            {
-              src: '/assets/icons/android-chrome-192x192.png',
-              sizes: '192x192',
-              type: 'image/png',
-            },
-            {
-              src: '/assets/icons/android-chrome-256x256.png',
-              sizes: '256x256',
-              type: 'image/png',
-            },
-          ],
-        },
+        manifest: siteManifest,
         workbox: {
           // Precache only the default tier — the other 11 bundles exist for
           // engines that don't support service workers anyway.

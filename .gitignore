@@ -46,3 +46,6 @@ cms/dist/
 experiments/earth-playground/dist/
 experiments/star-field/dist/
 experiments/docs/dist/
+
+# Dev-only CMS mock write overlay — local edits, never committed.
+cms/dev/mock-db.json

@@ -34,3 +34,12 @@ Versioned in `shared/scripts/git-hooks/` — install via `shared/scripts/install
 ## DEPLOYMENT — never without asking
 
 Never run `npm run deploy`, `firebase deploy`, or any deploy command unless the user explicitly asks for that specific deploy in the conversation. Verification and builds never deploy.
+
+## Process hygiene — no leaked children
+
+Headless Chrome/puppeteer, dev servers (vite), and watch/batch jobs MUST be fully reaped after use — leaked zombies have filled the swap partition and killed the session before. Rules:
+
+- Wrap browser use in try/finally: `await browser.close()` then `browser.process()?.kill('SIGKILL')` as backstop.
+- Launch chrome with `--no-zygote --single-process --disable-dev-shm-usage` to minimize child processes.
+- Give every script a hard `setTimeout(() => process.exit(2), …)` ceiling so a hung page can't pin chrome forever.
+- Kill dev servers you started when done (`pkill -f <pidfile>`/shell kill), and verify with `ps` that no chrome/jest/vite processes survive.

@@ -143,3 +143,12 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Every change to source or tests is made file-by-file with the edit tool, reviewed in context — no exception for "it would take too long"; break the work into batches instead.
     - One-off data transforms that never touch the repo (e.g. generating a report) are fine; anything that writes into `shared/`, `core/`, `website/`, `cms/`, `experiments/`, or any `tests/` tree is forbidden.
     - No `codemod/` or `codemods/` directories, files, or script entries may exist in the repository — enforced by `shared/tests/governance/style-governance.test.js`.
+
+24. **Fail-Fast Test Iteration**:
+    - When iterating on a failing suite, always run Jest with `--bail` so the run stops at the first failed suite — never burn a full 100+ suite run to discover one failure.
+    - Escalate to the complete suite only after the focused/bail run is green.
+
+25. **Process Hygiene — No Leaked Children**:
+    - Headless Chrome/puppeteer, dev servers (vite), Jest workers, and any watch/batch jobs MUST be fully reaped after use — leaked zombie processes have filled the swap partition and killed the session.
+    - Browser automation scripts must wrap usage in `try/finally` (`await browser.close()`, then `browser.process()?.kill('SIGKILL')` as backstop), launch with `--no-zygote --single-process --disable-dev-shm-usage`, and carry a hard self-terminating timeout.
+    - Kill dev servers you started when done, and verify with `ps` that no chrome/jest/vite processes survive.
