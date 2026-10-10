@@ -1,0 +1,50 @@
+# electron-builder config — per-OS installers for the desktop wrapper.
+# Run from repo root: yarn desktop:build (builds dist/ first).
+appId: com.luiskr.site
+productName: luiskr.com
+copyright: Luis Kr
+
+directories:
+  app: .
+  output: ../release
+
+files:
+  - main.mjs
+  - package.json
+  # The wrapper is pure node builtins + electron — the workspace's prod
+  # deps (firebase/three/mermaid…) must not ship inside the asar.
+  - '!node_modules/**'
+
+# The production build ships inside the app's resources — main.mjs serves
+# it over an ephemeral localhost port. Filter keeps only the tiers a fixed
+# modern Chromium can pick: esnext (feature-detected) + es2026 (the
+# modulepreload/default tier). .br/.gz sidecars are deployment artifacts —
+# the internal server does no encoding negotiation.
+extraResources:
+  - from: ../dist
+    to: dist
+    filter:
+      - '**/*'
+      - '!v/**'
+      - 'v/esnext/**'
+      - 'v/es2026/**'
+      - '!**/*.br'
+      - '!**/*.gz'
+
+asar: true
+
+mac:
+  category: public.app-category.productivity
+  target: dmg
+
+win:
+  target: nsis
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+
+linux:
+  category: Utility
+  target: AppImage

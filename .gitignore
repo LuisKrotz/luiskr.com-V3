@@ -49,3 +49,6 @@ experiments/docs/dist/
 
 # Dev-only CMS mock write overlay — local edits, never committed.
 cms/dev/mock-db.json
+
+# electron-builder output — per-OS installers are release artifacts.
+release/

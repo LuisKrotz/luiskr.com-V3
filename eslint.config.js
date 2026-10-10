@@ -46,6 +46,7 @@ export default [
       'shared/build/**/*.{js,mjs,cjs}',
       'shared/tasks/**/*.{js,mjs,cjs}',
       'shared/tests/**/*.{js,mjs,cjs}',
+      'desktop/**/*.{js,mjs,cjs}',
       '**/jest.config.{js,mjs}',
       '**/vite.config.{js,mjs}',
     ],

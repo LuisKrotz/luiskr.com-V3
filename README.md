@@ -21,12 +21,24 @@ Quick start:
 ```bash
 git clone --recurse-submodules git@github.com:LuisKrotz/luiskr.com-V3.git
 # or, in an existing clone: git submodule update --init
-yarn install && yarn hooks:install
-yarn dev        # public site
-yarn dev:cms    # CMS with Firebase mock
+yarn setup      # guided installer: deps + git hooks + toolchain check (cross-platform)
+yarn dev        # public site + CMS against real Firebase
+yarn dev:cms    # CMS with the explicit Firebase mock (no production data)
 yarn verify                       # full quality gate, including 100% coverage
 yarn build                        # production build (verifies first)
 yarn build --verify-lighthouse    # build, then run the post-build Lighthouse audit
+yarn desktop:dev                  # open the built site in an Electron window
+yarn desktop:build                # per-OS installers → release/ (dmg/nsis/AppImage)
 ```
+
+`yarn setup` replaces the old `yarn install && yarn hooks:install` pair —
+it verifies Node ≥ 24 / yarn / git, installs dependencies, copies the
+versioned hooks via `shared/scripts/install-hooks.mjs` (Node — runs on
+Windows too, unlike the old zsh script), then probes the media-convert
+toolchain (ffmpeg/ImageMagick/mozjpeg) and prints the exact install
+command for your platform. `yarn setup --check` is report-only. The same
+probe powers the CMS media converter's guided setup panel on localhost —
+`GET/POST /api/media-convert/tools*` detects the package manager and can
+run the install (or show the sudo command to paste).
 
 License: [MPL-2.0](LICENSE)
