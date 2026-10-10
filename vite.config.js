@@ -386,6 +386,10 @@ export default defineConfig(({ command }) => {
           return
         }
 
+        if (req.url === '/cms/' || (req.url && req.url.startsWith('/cms/?'))) {
+          req.url = '/cms/index.html'
+        }
+
         next()
       })
     },
