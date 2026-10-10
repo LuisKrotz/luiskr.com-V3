@@ -604,6 +604,12 @@ export default defineConfig(({ command }) => {
               'firebase/database': fileURLToPath(
                 new URL('./cms/dev/firebase-mock.ts', import.meta.url)
               ),
+              '@core/firebase.js': fileURLToPath(
+                new URL('./cms/dev/firebase-mock.ts', import.meta.url)
+              ),
+              '@core/firebase': fileURLToPath(
+                new URL('./cms/dev/firebase-mock.ts', import.meta.url)
+              ),
             }
           : {}),
       },
