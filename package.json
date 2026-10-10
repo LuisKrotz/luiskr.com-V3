@@ -83,7 +83,8 @@
     "gates": "node shared/scripts/verify/scope-gates.mjs run --all",
     "gates:scope": "node shared/scripts/verify/scope-gates.mjs run",
     "gates:areas": "node shared/scripts/verify/scope-gates.mjs areas",
-    "setup": "node shared/scripts/setup.mjs"
+    "setup": "node shared/scripts/setup.mjs",
+    "setup:gui": "electron desktop/launcher-main.mjs"
   },
   "dependencies": {
     "@rolldown/binding-linux-x64-gnu": "^1.2.3",

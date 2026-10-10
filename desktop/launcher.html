@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Luis Krötz — Project Launcher</title>
+    <style>
+      :root {
+        --bg: #0b0c10;
+        --panel: #15171d;
+        --text: #e0e6ed;
+        --muted: #8892b0;
+        --accent: #64f0c1;
+        --border: #2a2e38;
+        --radius: 0.75rem;
+        --gap: 1rem;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      header {
+        padding: var(--gap);
+        border-bottom: 1px solid var(--border);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0.35rem 0 0;
+        color: var(--muted);
+        font-size: 0.875rem;
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: var(--gap);
+        padding: var(--gap);
+      }
+
+      button {
+        appearance: none;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        color: var(--text);
+        padding: 0.75rem 1rem;
+        border-radius: var(--radius);
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          transform 0.1s;
+      }
+
+      button:hover {
+        border-color: var(--accent);
+      }
+
+      button:active {
+        transform: translateY(1px);
+      }
+
+      button.primary {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .log {
+        flex: 1;
+        margin: 0 var(--gap) var(--gap);
+        padding: var(--gap);
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.75rem;
+        line-height: 1.5;
+        overflow: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>luiskr.com V3 — Project Launcher</h1>
+      <p>Run setup, dev server, verification, build, or the desktop preview.</p>
+    </header>
+
+    <div class="actions">
+      <button class="primary" onclick="run('setup')">1. Run setup</button>
+      <button onclick="run('dev')">2. Run dev server</button>
+      <button onclick="run('verify')">3. Run verify</button>
+      <button onclick="run('build')">4. Run build</button>
+      <button onclick="run('desktop:dev')">5. Desktop preview</button>
+    </div>
+
+    <pre class="log" id="log">Waiting for a command...</pre>
+
+    <script>
+      const log = document.getElementById('log')
+
+      function append(text) {
+        log.textContent += text
+        log.scrollTop = log.scrollHeight
+      }
+
+      function run(script) {
+        append(`\n> ${script}\n`)
+        window.electronAPI.run(script)
+      }
+
+      window.electronAPI.onOutput((line) => {
+        append(line)
+      })
+    </script>
+  </body>
+</html>
