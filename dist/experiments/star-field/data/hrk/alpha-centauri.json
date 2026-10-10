@@ -1,0 +1,47 @@
+{
+  "id": "alpha-centauri",
+  "name": "Alpha Centauri",
+  "kind": "system",
+  "tagline": "Das nächstgelegene Sternensystem – en sonnenähnlicher Doppelstern, der in einiger Entfernung vun Proxima umkreist wird.",
+  "facts": [
+    {
+      "label": "Entfernung",
+      "value": "4,37 Lichtjahre"
+    },
+    {
+      "label": "Komponenten",
+      "value": "α Cen A (G2V) + B (K1V) + Proxima"
+    },
+    {
+      "label": "A/B-Umlaufbahn",
+      "value": "79,9 Johre"
+    },
+    {
+      "label": "Scheinbare Hellichkait",
+      "value": "−0,27 (dritthellster Schdern)"
+    },
+    {
+      "label": "Sichtbarkeit",
+      "value": "Nur südliche Hemisphäre"
+    }
+  ],
+  "history": "Alpha Centauri besteht eigentlich aus drei Schderne: Alpha Centauri A un B – en sonnenähnlicher gelber un en orangefarbener Zwerg, die in em 80-jährigen Doppelsterntanz gefaange sind – sowie der schwache rote Zwerg Proxima, der das Paar hunderte Male weiter draußen umkreist. Für Himmelsbeobachter im Süden is er der dritthellste Schdern un der Hinweis auf das Kreuz des Südens; aus den meisten nördlichen Breiten unsichtbar. Aufgrund seiner Nähe is es das Hauptziel interstellarer Missionskonzepte wie Breakthrough Starshot, das vorsieht, dass lasergestützte Nanofahrzeuge in zwanzig Johre den Golf überqueren. H.G. Wells gehörte 1897 zu den ersten, die fiktive Reisende dorthin schickten.",
+  "source": "IAU; ESO; Yale Bright Star Catalogue",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "hrk",
+    "refs": [
+      "IAU; ESO; Yale Bright Star Catalogue"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/alpha-centauri/img-1.jpg",
+        "caption": "Hubble's Best Image of Alpha Centauri A and B",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

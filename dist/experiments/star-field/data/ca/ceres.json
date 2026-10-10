@@ -1,0 +1,51 @@
+{
+  "id": "ceres",
+  "name": "Ceres",
+  "kind": "dwarfPlanet",
+  "tagline": "El primer asteroide trobat mai: un planeta nan que conté un terç de la massa del cinturó.",
+  "facts": [
+    {
+      "label": "Diàmetre",
+      "value": "940 km"
+    },
+    {
+      "label": "Període orbital",
+      "value": "4,6 anys"
+    },
+    {
+      "label": "Ubicació",
+      "value": "Cinturó principal d'asteroides (Mart-Júpiter)"
+    },
+    {
+      "label": "Descobriment",
+      "value": "1801 — Giuseppe Piazzi"
+    },
+    {
+      "label": "Primera visita",
+      "value": "Dawn orbiter, 2015–2018"
+    },
+    {
+      "label": "Característica notable",
+      "value": "Dipòsits de sal brillant del cràter Occator"
+    }
+  ],
+  "history": "Giuseppe Piazzi va descobrir Ceres el dia de Cap d'Any de 1801, el primer objecte que es va trobar mai a la bretxa entre Mart i Júpiter, que més tard es va entendre que era el membre més gran del cinturó d'asteroides que conté aproximadament un terç de la seva massa total. La IAU el va actualitzar a l'estatus de planeta nan el 2006 juntament amb la degradació de Plutó. La nau espacial Dawn de la NASA la va orbitar entre el 2015 i el 2018, el primer planeta nan visitat mai, i va trobar que els famosos punts brillants del cràter Occator eren sals de carbonat de sodi deixades per l'aigua salada que es filtrava des d'una capa subterrània congelada, evidència que Ceres va ser un món oceànic.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/ceres/img-1.jpg",
+        "caption": "Samhain Catenae sobre Ceres",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

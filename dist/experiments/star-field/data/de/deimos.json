@@ -2,7 +2,7 @@
   "id": "deimos",
   "name": "Deimos",
   "kind": "moon",
-  "tagline": "Mars' kleinerer, äußerer Mond — ein staubbedeckter Überrest am Rand der synchronen Umlaufbahn.",
+  "tagline": "Der kleinere äußere Mond des Mars – ein staubbedeckter Überrest, der am Rande der synchronen Höhe umkreist.",
   "facts": [
     {
       "label": "Durchmesser",
@@ -13,30 +13,39 @@
       "value": "30,3 Stunden"
     },
     {
-      "label": "Abstand zum Mars",
+      "label": "Entfernung vom Mars",
       "value": "23.460 km"
     },
     {
       "label": "Größter Krater",
-      "value": "Swift — 2,3 km"
+      "value": "Schnell – 2,3 km"
     },
     {
       "label": "Schwerkraft",
-      "value": "0,003 m/s²"
+      "value": "0.003 m/s²"
     },
     {
       "label": "Entdeckung",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 – Asaph Hall"
     }
   ],
-  "history": "Deimos ist der kleinere und äußere der beiden Marsmonde — ein unregelmäßiger, staubgeglätteter Körper, vermutlich aus dem Asteroidengürtel eingefangen oder aus Einschlagsdebris entstanden. Seine dicke Regolithdecke glättet die Krater und verleiht ihm ein stumpfes, weiches Aussehen im Gegensatz zur zernarbten Seite des Phobos. Er kreist knapp oberhalb der synchronen Höhe und treibt von der Marsoberfläche aus fast drei Tage langsam von Ost nach West. Der Mars Trek der NASA liefert detaillierte Modelle; noch ist keine Sonde gelandet, doch er bleibt Kandidat als Etappenpunkt für bemannte Marsmissionen.",
+  "history": "Deimos ist der kleinere und äußere der beiden Monde des Mars – ein unregelmäßiger, staubgeglätteter Körper, der wahrscheinlich aus dem Asteroidengürtel stammt oder aus Einschlagtrümmern entstanden ist. Seine dicke Regolithdecke mildert seine Krater und verleiht ihm im Gegensatz zu Phobos‘ ramponiertem Gesicht ein klumpiges, gedämpftes Aussehen. Es umkreist knapp außerhalb der synchronen Höhe, sodass es von der Marsoberfläche aus fast drei Tage lang langsam von Ost nach West driftet. Mars Trek der NASA liefert detaillierte Formmodelle; Noch hat kein Lander es berührt, aber es bleibt ein möglicher Stützpunkt für bemannte Marsmissionen.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "de",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/deimos/img-1.jpg",
+        "caption": "Marsfinsternisse: Deimos und Phobos",
+        "credit": "NASA"
+      }
     ]
   }
 }

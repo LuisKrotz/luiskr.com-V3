@@ -1,0 +1,35 @@
+{
+  "id": "andromeda-2",
+  "name": "Andromeda II",
+  "kind": "dwarfGalaxy",
+  "tagline": "Una enana esferoidal de Andrómeda de especial interés: sus estrellas muestran signos de una posible fusión más antigua de dos enanas aún más pequeñas.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~2,14 millones al año"
+    },
+    {
+      "label": "Tipo",
+      "value": "esferoidal enano"
+    },
+    {
+      "label": "Compañero de",
+      "value": "M31"
+    },
+    {
+      "label": "rompecabezas",
+      "value": "El doble núcleo insinúa una fusión previa"
+    }
+  ],
+  "history": "Andrómeda II llamó la atención cuando imágenes profundas sugirieron que podría tener dos núcleos estelares superpuestos, evidencia de que podría ser el remanente fusionado de dos enanas más pequeñas, una demostración de que la jerarquía de acreción continúa hasta las escalas más débiles. Sus estrellas son viejas y pobres en metales y comparte el espacio de fase de la órbita de halo de los otros satélites de Andrómeda, lo que lo convierte en un banco de pruebas para el problema del ensamblaje de galaxias enanas.",
+  "source": "PAndAS · M31 satellites survey",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "cas",
+    "refs": [
+      "van den Bergh 1972",
+      "PAndAS survey"
+    ]
+  }
+}

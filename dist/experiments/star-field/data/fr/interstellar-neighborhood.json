@@ -1,0 +1,35 @@
+{
+  "id": "interstellar-neighborhood",
+  "name": "Voisinage interstellaire",
+  "kind": "structure",
+  "tagline": "La bulle locale du Soleil et ses compagnons stellaires – tout cela à environ 2 000 années-lumière.",
+  "facts": [
+    {
+      "label": "Rayon",
+      "value": "~2 000 ly"
+    },
+    {
+      "label": "Contient",
+      "value": "~1 000 étoiles cataloguées les plus proches, Orion Arm"
+    },
+    {
+      "label": "Aussi appelé",
+      "value": "Région de bulle locale"
+    },
+    {
+      "label": "Densité",
+      "value": "~0,1 étoile par année-lumière cube"
+    }
+  ],
+  "history": "Le voisinage interstellaire correspond à l'environnement immédiat du Soleil – la bulle locale de gaz chaud et raréfié sculptée par d'anciennes supernovae, enfilée de nuages plus froids comme le nuage interstellaire local que le Soleil traverse actuellement, et peuplée des étoiles cataloguées les plus proches. C’est l’échelle à laquelle les étoiles individuelles sont encore des objets distincts plutôt qu’un flou – la dernière couche entièrement résoluble avant que la galaxie ne devienne un disque de nombres.",
+  "source": "Gaia DR3 · NASA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "Gaia DR3",
+      "NASA"
+    ]
+  }
+}

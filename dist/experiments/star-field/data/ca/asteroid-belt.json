@@ -1,0 +1,43 @@
+{
+  "id": "asteroid-belt",
+  "name": "Cinturó d'Asteroides",
+  "kind": "belt",
+  "tagline": "Milions de restes rocoses entre Mart i Júpiter, el planeta que mai es va formar.",
+  "facts": [
+    {
+      "label": "Ubicació",
+      "value": "2,06–3,27 UA, entre Mart i Júpiter"
+    },
+    {
+      "label": "Membres estimats",
+      "value": "1,1-1,9 milions més grans que 1 km"
+    },
+    {
+      "label": "Massa total",
+      "value": "~3% de la Lluna: només Ceres en té un terç"
+    },
+    {
+      "label": "Membres més grans",
+      "value": "Ceres, Vesta, Pallas, Hygiea"
+    },
+    {
+      "label": "Buits de Kirkwood",
+      "value": "Carrils de ressonància esborrats per la gravetat de Júpiter"
+    },
+    {
+      "label": "Composició",
+      "value": "Carbonaci tipus C, silicat tipus S, metàl·lic tipus M"
+    }
+  ],
+  "history": "El cinturó d'asteroides és les restes supervivents del primer sistema solar, un material que mai es va unir en un planeta perquè la gravetat de Júpiter va agitar la regió massa violentament. Giuseppe Piazzi va trobar el seu primer membre, Ceres, l'any 1801 mentre buscava el \"planeta desaparegut\" que va predir la llei Titius-Bode; Al cap de sis anys, Pal·les, Juno i Vesta van seguir, revelant no un món sinó un vast anell de runes. Avui hi ha més d'un milió de cossos més grans d'un quilòmetre catalogats, però tot el cinturó té menys del 3% de la Lluna, la majoria d'espais buits, i les naus espacials la travessen de manera rutinària sense cap trobada propera. Les ressonàncies de Júpiter tallen els buits de Kirkwood visibles com a carrils buits, i les col·lisions entre els membres proporcionen la majoria dels meteorits que arriben a la Terra. L'òrbita Dawn de la NASA va cartografiar Vesta i Ceres de prop entre el 2011 i el 2018, trobant dipòsits de sal i proves que alguns asteroides van mantenir oceans subsuperficials.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration",
+      "IAU Minor Planet Center"
+    ]
+  }
+}

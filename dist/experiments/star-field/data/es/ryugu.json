@@ -1,0 +1,42 @@
+{
+  "id": "ryugu",
+  "name": "ryugu",
+  "kind": "dwarfPlanet",
+  "tagline": "Un asteroide carbonoso con peonza, muestreado por Hayabusa2 y regresado a la Tierra.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "~900m"
+    },
+    {
+      "label": "Período orbital",
+      "value": "1,30 años"
+    },
+    {
+      "label": "órbita",
+      "value": "Cerca de la Tierra: 0,96–1,41 AU"
+    },
+    {
+      "label": "Tipo",
+      "value": "Tipo C (rico en carbono)"
+    },
+    {
+      "label": "Muestra devuelta",
+      "value": "5,4 gramos — diciembre de 2020"
+    },
+    {
+      "label": "Misión",
+      "value": "JAXA Hayabusa2 (2014-2024)"
+    }
+  ],
+  "history": "Ryugu es un montón de escombros del material más antiguo del Sistema Solar: polvo rico en carbono que escapó de cuatro mil millones de años de reprocesamiento geológico. Hayabusa2 llegó en 2018, arrojó rovers en su ecuador plagado de rocas, abrió un cráter para alcanzar material prístino del subsuelo y devolvió 5,4 gramos a la Tierra en diciembre de 2020. Los análisis de laboratorio encontraron minerales hidratados y precursores de aminoácidos: evidencia directa de que los asteroides sembraron la Tierra primitiva con ingredientes de vida.",
+  "source": "JAXA · NASA Ryugu Trek · Hayabusa2",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "JAXA · NASA Ryugu Trek · Hayabusa2"
+    ]
+  }
+}

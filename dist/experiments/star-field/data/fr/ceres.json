@@ -1,0 +1,51 @@
+{
+  "id": "ceres",
+  "name": "Cérès",
+  "kind": "dwarfPlanet",
+  "tagline": "Le premier astéroïde jamais découvert est une planète naine contenant un tiers de la masse de la ceinture.",
+  "facts": [
+    {
+      "label": "Diamètre",
+      "value": "940 km"
+    },
+    {
+      "label": "Période orbitale",
+      "value": "4,6 ans"
+    },
+    {
+      "label": "Emplacement",
+      "value": "Ceinture principale d'astéroïdes (Mars – Jupiter)"
+    },
+    {
+      "label": "Découverte",
+      "value": "1801 — Giuseppe Piazzi"
+    },
+    {
+      "label": "Première visite",
+      "value": "Orbiteur Dawn, 2015-2018"
+    },
+    {
+      "label": "Caractéristique notable",
+      "value": "Dépôts de sel brillant du cratère Occator"
+    }
+  ],
+  "history": "Giuseppe Piazzi a découvert Cérès le jour du Nouvel An 1801 – le premier objet jamais découvert dans l'espace entre Mars et Jupiter, considéré plus tard comme le plus grand membre de la ceinture d'astéroïdes contenant environ un tiers de sa masse totale. L'AIU l'a élevée au statut de planète naine en 2006, parallèlement à la rétrogradation de Pluton. La sonde spatiale Dawn de la NASA l'a orbitée de 2015 à 2018 – la première planète naine jamais visitée – et a découvert que les célèbres points lumineux du cratère Occator étaient des sels de carbonate de sodium laissés par l'eau saumâtre s'infiltrant d'une couche souterraine gelée, preuve que Cérès était autrefois un monde océanique.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/ceres/img-1.jpg",
+        "caption": "Samhain Catenae sur Cérès",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

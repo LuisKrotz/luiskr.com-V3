@@ -1,0 +1,58 @@
+{
+  "id": "mars",
+  "name": "Mart",
+  "kind": "planet",
+  "tagline": "El planeta vermell: llar del volcà més alt i el canó més profund conegut.",
+  "facts": [
+    {
+      "label": "Diàmetre",
+      "value": "6.779 km"
+    },
+    {
+      "label": "Període orbital",
+      "value": "687 dies"
+    },
+    {
+      "label": "Durada del dia",
+      "value": "24,6 hores"
+    },
+    {
+      "label": "Llunes",
+      "value": "2 (Fobos, Deimos)"
+    },
+    {
+      "label": "El volcà més alt",
+      "value": "Olympus Mons — 21,9 km"
+    },
+    {
+      "label": "Gravetat",
+      "value": "3,71 m/s²"
+    }
+  ],
+  "history": "Mart va ser una vegada més càlid i humit: els òrbites i els rovers han cartografiat antics deltes de rius, llits de llacs i venes minerals que només podia formar aigua líquida. Avui és un desert fred amb una atmosfera fina de CO₂ i tempestes de pols que envolten el planeta. Viking 1 va aconseguir el primer aterratge reeixit el 1976; des de llavors, una flota d'òrbites més els rovers Sojourner, Spirit, Opportunity, Curiosity i Perseverance han impulsat la seva superfície, i Perseverance està guardant mostres a la memòria cau per a un retorn previst. És el planeta més explorat més enllà de la Terra i la destinació declarada de les primeres missions interplanetàries tripulades.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mars/img-1.jpg",
+        "caption": "Primavera a Mart: la millor vista del Hubble del planeta vermell",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/mars/audio-1.ogg",
+        "caption": "Micròfon de perseverança: primers sons de Mart",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

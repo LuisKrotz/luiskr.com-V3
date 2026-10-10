@@ -1,0 +1,35 @@
+{
+  "id": "sculptor-dwarf",
+  "name": "Bildhauer Zwerg",
+  "kind": "dwarfGalaxy",
+  "tagline": "Ein metallarmer Sphäroid der Milchstraße in 290.000 Lichtjahren Entfernung – dominiert von Dunkler Materie, über 10 Milliarden Jahre alt.",
+  "facts": [
+    {
+      "label": "Entfernung",
+      "value": "~290.000 Lichtjahre"
+    },
+    {
+      "label": "Typ",
+      "value": "Zwergkugelförmig"
+    },
+    {
+      "label": "Metallizität",
+      "value": "[Fe/H] ≈ −1,5 – sehr metallarm"
+    },
+    {
+      "label": "Gefunden",
+      "value": "1937 – Harlow Shapley"
+    }
+  ],
+  "history": "Shapley entdeckte Sculptor 1937 auf Fotoplatten – die erste jemals gefundene Zwergkugelgalaxie, eine völlig neue Art von Galaxie, die aus einer diffusen Verschmierung alter Sterne besteht. Seine Sterne gehören zu den metallärmsten überhaupt, die meisten von ihnen müssen also in der ersten Milliarde Jahre des Universums entstanden sein. Geschwindigkeitsmessungen zeigen, dass Sculptor von weitaus mehr unsichtbarer Masse zusammengehalten wird als Sternenlicht – ein klassischer, von dunkler Materie dominierter Zwerg.",
+  "source": "ESO · Harlow Shapley 1937",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "Shapley 1938",
+      "ESO"
+    ]
+  }
+}

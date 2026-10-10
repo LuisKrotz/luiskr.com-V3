@@ -1,0 +1,35 @@
+{
+  "id": "wlm",
+  "name": "Galaxia WLM",
+  "kind": "dwarfGalaxy",
+  "tagline": "Wolf–Lundmark–Melotte: un irregular aislado con su propio cúmulo globular, a 3 millones de años de su casa.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~3,04 millones al año"
+    },
+    {
+      "label": "Tipo",
+      "value": "enano irregular"
+    },
+    {
+      "label": "gasolina",
+      "value": "Pobre en metales, todavía se están formando estrellas"
+    },
+    {
+      "label": "globulares",
+      "value": "Tiene uno, algo raro para un enano."
+    }
+  ],
+  "history": "La galaxia Wolf-Lundmark-Melotte es una enana irregular rica en gas lo suficientemente alejada como para haber evolucionado esencialmente por sí sola. Todavía produce estrellas y su metalicidad muy baja se acerca a la de las galaxias más primitivas. WLM también es famoso por poseer un cúmulo globular genuino (una densa bola de estrellas que orbita una galaxia apenas más masiva que una), evidencia de que incluso las galaxias más pequeñas construyen sus propios subsistemas densos.",
+  "source": "NASA/ESA · Wolf 1909",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "Wolf 1909",
+      "NASA/ESA Hubble"
+    ]
+  }
+}

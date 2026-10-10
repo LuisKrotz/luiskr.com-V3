@@ -1,0 +1,35 @@
+{
+  "id": "bootes-dwarf",
+  "name": "Boötes I Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "El 'campeón tenue': un satélite ultra débil de la Vía Láctea a 197.000 años luz de distancia, descubierto en datos del SDSS en 2006.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~197.000 años al año"
+    },
+    {
+      "label": "Tipo",
+      "value": "Enano ultra débil"
+    },
+    {
+      "label": "Encontrado",
+      "value": "2006 — SDSS"
+    },
+    {
+      "label": "Estrellas",
+      "value": "Viejo, muy pobre en metales."
+    }
+  ],
+  "history": "Boötes I apareció en 2006 como una sobredensidad de estrellas viejas en los campos de estudio de Sloan: una enana ultra débil apenas distinguible de un cúmulo globular perdido excepto por su enorme extensión física y sus velocidades internas dominadas por la materia oscura. Pertenece a la generación de los enanos tan débiles que los estudios todavía los encuentran; cada uno prueba cuántas estrellas puede reunir un halo y aún así contar como una galaxia.",
+  "source": "SDSS · Belokurov et al. 2006",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "cas",
+    "refs": [
+      "Belokurov et al. 2006",
+      "SDSS"
+    ]
+  }
+}

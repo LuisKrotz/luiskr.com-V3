@@ -1,0 +1,58 @@
+{
+  "id": "crab-nebula",
+  "name": "Nebulosa del Cranc",
+  "kind": "nebula",
+  "tagline": "Les restes d'una estrella vista explotar el 1054, encara en expansió.",
+  "facts": [
+    {
+      "label": "Distància",
+      "value": "≈ 6.500 anys llum"
+    },
+    {
+      "label": "Catàleg",
+      "value": "M1 / NGC 1952"
+    },
+    {
+      "label": "Progenitor",
+      "value": "Supernova de juliol de 1054"
+    },
+    {
+      "label": "Nucli residual",
+      "value": "Púlsar de cranc: 30 girs/segon"
+    },
+    {
+      "label": "Expansió",
+      "value": "≈ 1.500 km/s i creixent"
+    },
+    {
+      "label": "Gravat per",
+      "value": "Astrònoms de la cort xinesos i japonesos"
+    }
+  ],
+  "history": "El juliol de 1054, els astrònoms xinesos i japonesos van registrar una \"estrella convidada\" prou brillant per llegir-la a la nit i visible a la llum del dia durant 23 dies. Sis segles més tard, Charles Messier va catalogar el seu romanent, l'objecte que va inspirar la seva famosa llista de semblants de cometes com a entrada M1. Al seu cor gira el púlsar Cranc, una estrella de neutrons de 30 km que gira 30 vegades per segon i emet radiació com un far a totes les longituds d'ona. Els filaments en expansió abasten ara uns 11 anys llum; La comparació de fotografies al llarg de dècades mostra que els residus encara corren cap a fora: una explosió en curs.",
+  "source": "NASA/ESA Hubble; Harvard CfA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/ESA Hubble; Harvard CfA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/crab-nebula/img-1.jpg",
+        "caption": "El Hubble de la NASA captura el cor de la nebulosa del cranc",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/crab-nebula/video-1.mp4",
+        "caption": "29è aniversari del Hubble",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

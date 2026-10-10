@@ -1,0 +1,58 @@
+{
+  "id": "crab-nebula",
+  "name": "Nebulosa do Cangrexo",
+  "kind": "nebula",
+  "tagline": "Os restos dunha estrela visto explotar en 1054, aínda en expansión.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "≈ 6.500 anos luz"
+    },
+    {
+      "label": "Catálogo",
+      "value": "M1/NGC 1952"
+    },
+    {
+      "label": "Proxenitor",
+      "value": "Supernova de xullo de 1054"
+    },
+    {
+      "label": "Núcleo remanente",
+      "value": "Púlsar de cangrexo: 30 xiros/segundo"
+    },
+    {
+      "label": "Expansión",
+      "value": "≈ 1.500 km/s e en crecemento"
+    },
+    {
+      "label": "Gravado por",
+      "value": "Astrónomos da corte chinesa e xaponesa"
+    }
+  ],
+  "history": "En xullo de 1054, astrónomos chineses e xaponeses rexistraron unha \"estrela convidada\" o suficientemente brillante como para ler pola noite e visible á luz do día durante 23 días. Seis séculos despois Charles Messier catalogou o seu remanente, o obxecto que inspirou a súa famosa lista de semellanzas de cometas como a entrada M1. No seu corazón xira o púlsar Crab, unha estrela de neutróns de 30 quilómetros que xira 30 veces por segundo e emite radiación como un faro en todas as lonxitudes de onda. Os filamentos en expansión abarcan agora uns 11 anos luz; A comparación de fotografías ao longo de décadas mostra que os restos aínda corren cara a fóra: unha explosión en curso.",
+  "source": "NASA/ESA Hubble; Harvard CfA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "gl",
+    "refs": [
+      "NASA/ESA Hubble; Harvard CfA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/crab-nebula/img-1.jpg",
+        "caption": "O Hubble da NASA capta o corazón que bate da nebulosa do cangrexo",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/crab-nebula/video-1.mp4",
+        "caption": "29 aniversario do Hubble",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

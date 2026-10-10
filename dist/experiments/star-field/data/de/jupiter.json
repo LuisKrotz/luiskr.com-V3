@@ -1,0 +1,65 @@
+{
+  "id": "jupiter",
+  "name": "Jupiter",
+  "kind": "planet",
+  "tagline": "Der Riese – massereicher als jeder andere Planet zusammen.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "139.820 km"
+    },
+    {
+      "label": "Umlaufzeit",
+      "value": "11,9 Jahre"
+    },
+    {
+      "label": "Tageslänge",
+      "value": "9,9 Stunden"
+    },
+    {
+      "label": "Monde",
+      "value": "95 (anerkannt)"
+    },
+    {
+      "label": "Großer roter Fleck",
+      "value": "Sturm seit 1831 beobachtet"
+    },
+    {
+      "label": "Masse",
+      "value": "318 × Erde"
+    }
+  ],
+  "history": "Jupiter bildete sich als erster unter den Planeten und seine Schwerkraft prägte alles danach – er trieb Asteroiden voran, wirbelte den frühen Sonnennebel auf und schleuderte Kometen in das innere System hinein und aus ihm heraus. Galileo Galileis Entdeckung von vier ihn umkreisenden Monden im Jahr 1610 bewies, dass nicht alles die Erde umkreist; Diese galiläischen Satelliten – Io, Europa, Ganymed, Callisto – bleiben die Hauptziele der Ozeanwelt, wobei die JUICE-Sonde der ESA auf dem Weg nach Ganymed ist. Der Große Rote Fleck ist ein Hochdruckgebiet, das breiter als die Erde ist und seit Jahrhunderten wütet. Der Juno-Orbiter der NASA kartiert seit 2016 sein tiefes Wetter und sein Inneres.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/jupiter/img-1.jpg",
+        "caption": "Juno über Jupiters Südpol (Illustration)",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/jupiter/video-1.mp4",
+        "caption": "Jupiters großer roter Fleck schrumpft und wächst",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/jupiter/audio-1.ogg",
+        "caption": "Jupiter-Bugstoßüberquerung – Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

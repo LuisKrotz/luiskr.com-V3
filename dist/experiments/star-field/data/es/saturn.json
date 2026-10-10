@@ -1,0 +1,65 @@
+{
+  "id": "saturn",
+  "name": "Saturno",
+  "kind": "planet",
+  "tagline": "El gigante anillado: su halo de hielo se extiende por 280.000 kilómetros y tiene metros de espesor.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "116.460 kilómetros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "29,4 años"
+    },
+    {
+      "label": "Lunas",
+      "value": "146+ (reconocido)"
+    },
+    {
+      "label": "tramo de anillo",
+      "value": "≈ 280.000 km de ancho, ~10 m–1 km de espesor"
+    },
+    {
+      "label": "densidad",
+      "value": "0.687 g/cm³ — flotaría en el agua"
+    },
+    {
+      "label": "luna mas grande",
+      "value": "Titán"
+    }
+  ],
+  "history": "Galileo vio los anillos de Saturno en 1610 pero no pudo resolverlos: los llamó \"orejas\"; Huygens identificó el sistema de anillos en 1655 y Cassini encontró la división que lleva su nombre. Los anillos son innumerables partículas de hielo de agua casi pura, probablemente restos de una luna destrozada o de un cometa capturado, y pueden ser geológicamente jóvenes. El orbitador Cassini pasó trece años en el sistema de Saturno (2004-2017), descubriendo géiseres en Encelado que expulsan un océano subterráneo al espacio y lanzando la sonda Huygens a Titán, el único aterrizaje jamás realizado en el Sistema Solar exterior.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/saturn/img-1.jpg",
+        "caption": "El borde de la noche",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/saturn/video-1.mp4",
+        "caption": "Saturno infrarrojo de Cassini (versión corta)",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/saturn/audio-1.wav",
+        "caption": "Emisiones de radio de Saturno - Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

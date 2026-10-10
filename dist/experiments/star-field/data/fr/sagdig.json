@@ -1,0 +1,35 @@
+{
+  "id": "sagdig",
+  "name": "SagDIG",
+  "kind": "dwarfGalaxy",
+  "tagline": "Sagittaire Dwarf Irregular — la galaxie la plus pauvre en métaux et riche en gaz du groupe local, à 3,45 Mly.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "~3,45 Mly"
+    },
+    {
+      "label": "Type",
+      "value": "Nain irrégulier"
+    },
+    {
+      "label": "Métallicité",
+      "value": "Le plus bas des nains LG riches en gaz"
+    },
+    {
+      "label": "Isolement",
+      "value": "En dehors des halos géants"
+    }
+  ],
+  "history": "SagDIG est la galaxie la plus pauvre en métaux et en gaz du groupe local – une petite galaxie irrégulière dont les étoiles transportent si peu d'éléments lourds qu'elles se rapprochent de la composition des premières galaxies jamais formées. Son isolement signifie qu’il n’a jamais été décapé ni nettoyé par pression dynamique, ce qui en fait un échantillon d’évolution non traité proche d’un laboratoire. Il continue de former des étoiles à un rythme lent dans ses nuages ​​de gaz extérieurs.",
+  "source": "ESO · Cesarsky et al. 1977",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "Cesarsky et al. 1977",
+      "ESO"
+    ]
+  }
+}

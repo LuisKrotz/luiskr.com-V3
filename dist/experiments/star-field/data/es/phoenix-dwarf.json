@@ -1,0 +1,35 @@
+{
+  "id": "phoenix-dwarf",
+  "name": "Enano Fénix",
+  "kind": "dwarfGalaxy",
+  "tagline": "Una enana de transición del grupo local, en parte esferoidal, en parte irregular, que todavía forma un hilo de estrellas.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~1,44 millones al año"
+    },
+    {
+      "label": "Tipo",
+      "value": "dSph/dIrr de transición"
+    },
+    {
+      "label": "formación de estrellas",
+      "value": "En curso, a bajo nivel"
+    },
+    {
+      "label": "Estado",
+      "value": "Entre satélite y enana aislada"
+    }
+  ],
+  "history": "La enana Fénix ocupa el término medio morfológico entre una esferoidal y una irregular: todavía contiene suficiente gas para sostener la formación de estrellas de bajo nivel, a diferencia de las esferoidales completamente apagadas. Está lo suficientemente lejos de la Vía Láctea como para haber evitado la extracción total de gas, pero lo suficientemente cerca como para que su evolución pueda haber sido impulsada por el entorno del halo, lo que lo convierte en un caso límite de cómo las enanas cierran la formación estelar.",
+  "source": "ESO · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "Schuster & West 1976",
+      "ESO"
+    ]
+  }
+}

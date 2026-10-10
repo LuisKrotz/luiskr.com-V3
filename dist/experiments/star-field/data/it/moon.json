@@ -1,0 +1,51 @@
+{
+  "id": "moon",
+  "name": "Luna",
+  "kind": "moon",
+  "tagline": "L'unico satellite naturale della Terra: il primo mondo visitato dagli esseri umani.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "3.474 km"
+    },
+    {
+      "label": "Distanza dalla Terra",
+      "value": "384.400 km"
+    },
+    {
+      "label": "Periodo orbitale",
+      "value": "27,3 giorni"
+    },
+    {
+      "label": "Rotazione",
+      "value": "Bloccato in modo mareale"
+    },
+    {
+      "label": "Gravità",
+      "value": "1,62 m/s²"
+    },
+    {
+      "label": "Primo atterraggio con equipaggio",
+      "value": "20 luglio 1969"
+    }
+  ],
+  "history": "Molto probabilmente la Luna si è formata circa 4,5 miliardi di anni fa quando un corpo delle dimensioni di Marte, chiamato Theia, colpì la giovane Terra e i detriti espulsi si unirono in orbita. Bloccato in modo mareale, mostra sempre la stessa faccia. Dodici astronauti dell'Apollo camminarono sulla sua superficie tra il 1969 e il 1972, riportando 382 kg di roccia che ancorano la cronologia lunare. Ogni anno la Luna si allontana di circa 3,8 cm dalla Terra. Ora è l’obiettivo del programma Artemis della NASA, che mira a riportare gli esseri umani – inclusa la prima donna – entro questo decennio e a stabilire una presenza sostenibile vicino ai crateri ghiacciati del polo sud.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/moon/img-1.jpg",
+        "caption": "Luna piena",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

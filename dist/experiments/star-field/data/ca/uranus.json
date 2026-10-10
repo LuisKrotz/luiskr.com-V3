@@ -1,0 +1,51 @@
+{
+  "id": "uranus",
+  "name": "Urà",
+  "kind": "planet",
+  "tagline": "El planeta de costat: un gegant de gel que roda al voltant del Sol al seu costat.",
+  "facts": [
+    {
+      "label": "Diàmetre",
+      "value": "50.724 km"
+    },
+    {
+      "label": "Període orbital",
+      "value": "84 anys"
+    },
+    {
+      "label": "Inclinació axial",
+      "value": "97,77°"
+    },
+    {
+      "label": "Llunes",
+      "value": "28"
+    },
+    {
+      "label": "Ambient més fred",
+      "value": "−224 °C"
+    },
+    {
+      "label": "Descobriment",
+      "value": "1781 - William Herschel"
+    }
+  ],
+  "history": "Urà va ser el primer planeta descobert amb un telescopi: William Herschel el va detectar el 1781, duplicant la mida coneguda del Sistema Solar durant la nit. Un impacte antic colossal probablement va fer caure el seu eix a 97,77 graus, de manera que orbita al voltant del Sol girant de costat amb cada pol rebent 42 anys de llum solar i 42 de foscor. La seva atmosfera de metà li dóna una fosa de cian pàl·lid i manté la temperatura planetària més freda mai mesurada. La Voyager 2 segueix sent l'única nau espacial que es va visitar, passant el 1986; un orbitador dedicat a Urà és una de les principals prioritats de l'enquesta decenal de ciències planetàries dels EUA.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/uranus/img-1.jpg",
+        "caption": "El Hubble observa el planeta Urà",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

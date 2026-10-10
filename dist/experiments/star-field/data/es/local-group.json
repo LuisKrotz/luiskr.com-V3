@@ -1,0 +1,35 @@
+{
+  "id": "local-group",
+  "name": "Grupo Local",
+  "kind": "structure",
+  "tagline": "El cúmulo de ~80 galaxias que la Vía Láctea considera su hogar, un volumen de ~10 millones de años luz de ancho unido por la gravedad compartida.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "~10 millones al año"
+    },
+    {
+      "label": "Miembros",
+      "value": "~80+ galaxias, la mayoría de ellas enanas"
+    },
+    {
+      "label": "dos gigantes",
+      "value": "La Vía Láctea + Andrómeda dominan su masa"
+    },
+    {
+      "label": "Subgrupos",
+      "value": "Los satélites MW y el enjambre M31"
+    }
+  ],
+  "history": "El Grupo Local es el cúmulo de galaxias en el que vivimos: una pequeña reunión gravitacional de unas ochenta galaxias conocidas centradas entre sus dos gigantes, la Vía Láctea y Andrómeda, que transportan casi toda su masa. El resto son enanos: las Nubes de Magallanes, el enjambre de satélites M31, las débiles esferoidales y los irregulares aislados esparcidos entre ellos. El grupo no se está expandiendo con el universo: sus miembros orbitan alrededor de su centro de masa compartido y sus dos gigantes están en curso de colisión dentro de unos 4.500 millones de años.",
+  "source": "NASA/ESA · McConnachie 2012 census",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "McConnachie 2012",
+      "NASA/ESA"
+    ]
+  }
+}

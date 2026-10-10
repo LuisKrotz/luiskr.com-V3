@@ -1,0 +1,65 @@
+{
+  "id": "jupiter",
+  "name": "Xúpiter",
+  "kind": "planet",
+  "tagline": "O xigante - máis masivo que calquera outro planeta xuntos.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "139.820 km"
+    },
+    {
+      "label": "Período orbital",
+      "value": "11,9 anos"
+    },
+    {
+      "label": "Duración do día",
+      "value": "9,9 horas"
+    },
+    {
+      "label": "Lúas",
+      "value": "95 (recoñecido)"
+    },
+    {
+      "label": "Gran Mancha Vermella",
+      "value": "Tempestade observada desde 1831"
+    },
+    {
+      "label": "Masa",
+      "value": "318 × Terra"
+    }
+  ],
+  "history": "Xúpiter formouse primeiro entre os planetas e a súa gravidade moldeou todo despois: pastoreando asteroides, movendo a primeira nebulosa solar e arroxando cometas dentro e fóra do sistema interno. O descubrimento de Galileo Galilei en 1610 de catro lúas que o rodeaban demostrou que non todo orbita á Terra; eses satélites galileanos -Io, Europa, Ganímedes, Calisto- seguen sendo obxectivos principais do mundo oceánico, coa sonda JUICE da ESA en ruta a Ganímedes. A Gran Mancha Vermella é un anticiclón máis amplo que a Terra que leva séculos. O orbitador Juno da NASA mapeou o seu clima profundo e o seu interior desde 2016.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "gl",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/jupiter/img-1.jpg",
+        "caption": "Juno sobre o polo sur de Xúpiter (ilustración)",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/jupiter/video-1.mp4",
+        "caption": "A gran mancha vermella de Xúpiter encolle e crece",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/jupiter/audio-1.ogg",
+        "caption": "Cruce de arco de Xúpiter - Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

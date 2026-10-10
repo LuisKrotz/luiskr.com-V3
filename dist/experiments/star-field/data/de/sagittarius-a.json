@@ -1,0 +1,66 @@
+{
+  "id": "sagittarius-a",
+  "name": "Schütze A*",
+  "kind": "blackHole",
+  "tagline": "Das zentrale supermassive Schwarze Loch der Milchstraße – ein Motor mit 4,3 Millionen Sonnenmassen, der die gesamte Galaxie verankert.",
+  "facts": [
+    {
+      "label": "Entfernung",
+      "value": "~26.673 Lj"
+    },
+    {
+      "label": "Masse",
+      "value": "~4,3 Millionen M☉"
+    },
+    {
+      "label": "Typ",
+      "value": "Supermassereiches Schwarzes Loch"
+    },
+    {
+      "label": "Ereignishorizont",
+      "value": "~12 Millionen km (R_s ~ 0,08 AE)"
+    },
+    {
+      "label": "Abgebildet",
+      "value": "Event Horizon Telescope, Mai 2022"
+    },
+    {
+      "label": "Beweise",
+      "value": "S-Stern-Umlaufbahnen – S2 schwingt mit 7.650 km/s vorbei"
+    },
+    {
+      "label": "Nobelpreis",
+      "value": "2020 Physics — Genzel & Ghez"
+    },
+    {
+      "label": "Radiogröße",
+      "value": "~52 µas ring — a doughnut seen from 27.000 ly"
+    }
+  ],
+  "history": "Schütze A* sitzt genau im dynamischen Zentrum der Milchstraße, tief im Schütze-Arm. Radioastronomen identifizierten sie 1974 als kompakte, variable Quelle, nicht größer als ein Sonnensystem. Jahrzehntelange Astrometrie der Teams von Genzel und Ghez hat die S-Sterne verfolgt, die um eine unsichtbare Masse herumschwirren – die 16-jährige Umlaufbahn von S2 und die Perizentrumspassage mit 7.650 km/s machten das Schwarze Loch unbestreitbar und brachten ihm 2020 den Nobelpreis ein. Im Mai 2022 veröffentlichte das Event Horizon Telescope seine Silhouette: einen Ring aus überhitztem Plasma, der um den Schatten herum leuchtet und der Vorhersage der Allgemeinen Relativitätstheorie um einige Prozent entspricht. Auch wenn sie heute ruhig sind, verraten Ausbrüche im Röntgen- und Infrarotbereich einen Akkretionsfluss, der täglich aufflackert; Es wird vermutet, dass seine Reliktstrahlen die Fermi-Blasen aufgeblasen haben – zwei 25.000 Lichtjahre große Gammastrahlenkeulen, die aus der Scheibe aufsteigen.",
+  "source": "Event Horizon Telescope · ESO · Nobel Prize 2020",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "Event Horizon Telescope Collaboration 2022",
+      "GRAVITY Collaboration S2 orbit",
+      "Nobel Prize in Physics 2020"
+    ]
+  },
+  "sections": [
+    {
+      "title": "Die EHT-Silhouette",
+      "body": "Acht durch Atomuhren synchronisierte Radioteleskope bildeten ein erdgroßes Interferometer. Das Bild vom Mai 2022 löste einen 52-Mikrobogensekunden-Ring auf – Licht, das in eine Photonenbahn um den Schatten gebogen wurde – und bestätigte die Masse in einer Region, die kaum größer als die Umlaufbahn von Merkur ist."
+    },
+    {
+      "title": "Der S-Stern-Schwarm",
+      "body": "Dutzende junger Sterne kreisen innerhalb von Lichtwochen um den Horizont. Ihre Kepler-Ellipsen legen die Masse auf 4,3 Millionen Sonnen fest; Die im Jahr 2020 gemessene relativistische Präzession der Umlaufbahn von S2 wird durch Frame-Draging sichtbar gemacht."
+    },
+    {
+      "title": "Ein schlafender Riese",
+      "body": "Sgr A* erreicht ein Hunderttausendstel der Eddington-Rate – ein Flüstern, kein Brüllen. Doch vor etwa 300 Jahren flammte es so hell auf, dass Molekülwolken die Explosion noch widerspiegelten, und die Fermi-Blasen verzeichnen einen Ausbruch vor Millionen von Jahren."
+    }
+  ]
+}

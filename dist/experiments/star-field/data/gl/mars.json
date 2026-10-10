@@ -1,0 +1,58 @@
+{
+  "id": "mars",
+  "name": "Marte",
+  "kind": "planet",
+  "tagline": "O planeta vermello: fogar do volcán máis alto e do canón máis profundo coñecido.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "6.779 km"
+    },
+    {
+      "label": "Período orbital",
+      "value": "687 días"
+    },
+    {
+      "label": "Duración do día",
+      "value": "24,6 horas"
+    },
+    {
+      "label": "Lúas",
+      "value": "2 (Fobos, Deimos)"
+    },
+    {
+      "label": "Volcán máis alto",
+      "value": "Olympus Mons — 21,9 km"
+    },
+    {
+      "label": "Gravidade",
+      "value": "3,71 m/s²"
+    }
+  ],
+  "history": "Marte foi unha vez máis cálido e húmido: os orbitadores e os rovers cartografiaron antigos deltas fluviais, leitos de lagos e veas minerais que só podían formar auga líquida. Hoxe é un deserto frío cunha atmosfera delgada de CO₂ e tormentas de po que rodean o planeta. Viking 1 logrou o primeiro aterraxe exitoso en 1976; desde entón, unha flota de orbitadores máis os rovers Sojourner, Spirit, Opportunity, Curiosity e Perseverance dirixiron a súa superficie, e Perseverance está almacenando en caché mostras para un regreso planificado. É o planeta máis explorado máis aló da Terra e o destino declarado das primeiras misións interplanetarias tripuladas.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "gl",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mars/img-1.jpg",
+        "caption": "Primavera en Marte: a mellor vista do Hubble do planeta vermello",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/mars/audio-1.ogg",
+        "caption": "Micrófono de perseveranza: os primeiros sons de Marte",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

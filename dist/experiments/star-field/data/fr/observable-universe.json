@@ -1,0 +1,35 @@
+{
+  "id": "observable-universe",
+  "name": "Univers observable",
+  "kind": "structure",
+  "tagline": "L’horizon causal – tout ce à partir duquel la lumière a eu le temps de nous parvenir en 13,8 milliards d’années.",
+  "facts": [
+    {
+      "label": "Rayon",
+      "value": "~46,5 Gly"
+    },
+    {
+      "label": "Galaxies",
+      "value": "Environ 2 000 milliards estimés"
+    },
+    {
+      "label": "Âge",
+      "value": "13,8 milliards d'années"
+    },
+    {
+      "label": "Au-delà",
+      "value": "Inconnu – l'univers inobservable continue"
+    }
+  ],
+  "history": "L'univers observable est le volume sphérique de l'espace à partir duquel la lumière a eu le temps de nous parvenir depuis le Big Bang – non pas la limite de l'univers, mais l'horizon de nos informations à son sujet. Son rayon de 46,5 milliards d'années-lumière reflète l'expansion de l'espace lui-même au cours du voyage de la lumière : les objets y émettaient désormais leurs photons alors qu'ils étaient beaucoup plus proches. Tout ce qui se trouve à l’intérieur de cette coquille – chaque superamas, chaque galaxie, chaque étoile – est tout ce que nous pourrons jamais connaître de manière causale.",
+  "source": "Planck Collaboration · ΛCDM cosmology",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "Planck Collaboration 2020",
+      "ΛCDM model"
+    ]
+  }
+}

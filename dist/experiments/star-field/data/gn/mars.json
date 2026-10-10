@@ -1,0 +1,58 @@
+{
+  "id": "mars",
+  "name": "Marte",
+  "kind": "planet",
+  "tagline": "Pe planeta pytã — oikoha pe volcán ijyvatevéva ha pe cañón ipypukuvéva ojekuaáva.",
+  "facts": [
+    {
+      "label": "Tuichakue",
+      "value": "6.779 km"
+    },
+    {
+      "label": "Período orbital",
+      "value": "687 ára pukukue"
+    },
+    {
+      "label": "Ára pukukue",
+      "value": "24,6 aravo’i"
+    },
+    {
+      "label": "Jasykuéra",
+      "value": "2 (Fobos, Deimos) Ñe’ẽpoty ha ñe’ẽpoty ."
+    },
+    {
+      "label": "Volcán ijyvatevéva",
+      "value": "Olimpo Mons — 21,9 km"
+    },
+    {
+      "label": "Gravedad",
+      "value": "3,71 m/s2"
+    }
+  ],
+  "history": "Yma Marte haku ha hykuve: umi orbitador ha rover ojapo mapa umi delta ysyry yma guaréva, lago rembe'y ha venas minerales y líquido añoite ikatúva omoheñói. Ko'ãga ha'e peteĩ desierto ro'ysã orekóva atmósfera CO2 ipire hũ ha tormenta de polvo ojeréva planeta rehe. Viking 1 ohupyty peteĩha aterrizaje osẽ porãva ary 1976-pe; upe guive peteî flota de orbitros más umi rover Sojourner, Spirit, Opportunity, Curiosity ha Perseverance omboguata isuperficie, ha Perseverance oime caché de muestras peteî retorno planeado. Ha'e pe planeta ojehesa'ỹijovéva Yvy rapykuéri ha destino ojedeclaráva umi primeras misiones interplanetarias tripuladas.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "gn",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mars/img-1.jpg",
+        "caption": "Primavera Marte-pe: Hubble Ojehecha porãvéva Planeta Rojo-gui",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/mars/audio-1.ogg",
+        "caption": "Micrófono perseverancia rehegua — ipu peteĩha Marte-gui",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

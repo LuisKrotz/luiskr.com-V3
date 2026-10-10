@@ -1,0 +1,58 @@
+{
+  "id": "mars",
+  "name": "Mars",
+  "kind": "planet",
+  "tagline": "La planète rouge abrite le volcan le plus haut et le canyon le plus profond connu.",
+  "facts": [
+    {
+      "label": "Diamètre",
+      "value": "6 779 km"
+    },
+    {
+      "label": "Période orbitale",
+      "value": "687 jours"
+    },
+    {
+      "label": "Durée du jour",
+      "value": "24,6 heures"
+    },
+    {
+      "label": "Lunes",
+      "value": "2 (Phobos, Déimos)"
+    },
+    {
+      "label": "Le volcan le plus haut",
+      "value": "Olympe de Mons — 21,9 km"
+    },
+    {
+      "label": "Gravité",
+      "value": "3,71 m/s²"
+    }
+  ],
+  "history": "Mars était autrefois plus chaude et plus humide : des orbiteurs et des rovers ont cartographié d'anciens deltas de rivières, des lits de lacs et des veines minérales que seule l'eau liquide pouvait former. Aujourd’hui, c’est un désert froid avec une faible atmosphère de CO₂ et des tempêtes de poussière encerclant la planète. Viking 1 a réalisé le premier atterrissage réussi en 1976 ; depuis lors, une flotte d'orbiteurs ainsi que les rovers Sojourner, Spirit, Opportunity, Curiosity et Perseverance ont parcouru sa surface, et Perseverance met en cache des échantillons pour un retour prévu. C'est la planète la plus explorée au-delà de la Terre et la destination déclarée des premières missions interplanétaires en équipage.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mars/img-1.jpg",
+        "caption": "Le printemps sur Mars : la meilleure vue de Hubble sur la planète rouge",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/mars/audio-1.ogg",
+        "caption": "Microphone Perseverance – premiers sons provenant de Mars",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

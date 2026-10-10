@@ -1,0 +1,51 @@
+{
+  "id": "mercury",
+  "name": "Merkur",
+  "kind": "planet",
+  "tagline": "Der kleinste Planet und der Sonne am nächsten – eine von Kratern übersäte Welt voller Extreme.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "4.879 km"
+    },
+    {
+      "label": "Umlaufzeit",
+      "value": "88 Tage"
+    },
+    {
+      "label": "Tageslänge",
+      "value": "59 Erdentage"
+    },
+    {
+      "label": "Temperatur",
+      "value": "−173 bis 427 °C"
+    },
+    {
+      "label": "Schwerkraft",
+      "value": "3,7 m/s²"
+    },
+    {
+      "label": "Monde",
+      "value": "0"
+    }
+  ],
+  "history": "Merkur ist der kleinste Planet im Sonnensystem und vollendet alle 88 Tage eine Umlaufbahn – der schnellste aller Planeten, weshalb die Römer ihn nach ihrem schnellen Botengott benannten. Es ist in einer Spin-Bahn-Resonanz von 3:2 gefangen und dreht sich bei jeweils zwei Umlaufbahnen genau dreimal. Seine mit Kratern übersäte Oberfläche zeichnet Milliarden von Jahren von Einschlägen auf, und der NASA-Orbiter MESSENGER (2011–2015) fand Wassereis, das sich trotz Mittagstemperaturen von 427 °C in dauerhaft beschatteten Polarkratern versteckte. Nur drei Raumsonden waren zu Besuch: Mariner 10 flog 1974–75 vorbei, MESSENGER umkreiste die Raumsonde vor einem Jahrzehnt und die gemeinsame ESA/JAXA-Mission BepiColombo ist auf dem Weg, 2026 in die Umlaufbahn zu gelangen.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mercury/img-1.jpg",
+        "caption": "Glücklicher kleiner Krater auf Merkur",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

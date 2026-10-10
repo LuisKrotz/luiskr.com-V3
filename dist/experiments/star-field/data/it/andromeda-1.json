@@ -1,0 +1,35 @@
+{
+  "id": "andromeda-1",
+  "name": "Andromeda I",
+  "kind": "dwarfGalaxy",
+  "tagline": "Una debole stella nana sferoidale di Andromeda, uno dei satelliti diffusi che popolano l'alone esterno di M31.",
+  "facts": [
+    {
+      "label": "Distanza",
+      "value": "~2,55 milioni"
+    },
+    {
+      "label": "Tipo",
+      "value": "Sferoidale nano"
+    },
+    {
+      "label": "Compagno di",
+      "value": "M31"
+    },
+    {
+      "label": "Luminosità",
+      "value": "Luminosità superficiale molto bassa"
+    }
+  ],
+  "history": "Andromeda I è una delle deboli stelle nane sferoidali in orbita attorno alla galassia di Andromeda, così diffusa che è stata identificata solo attraverso un lavoro di rilevamento fotografico come un sottile eccesso di deboli stelle sopra lo sfondo del cielo. Le sue stelle sono per lo più vecchie e povere di metalli, il tipico prodotto di un satellite che ha perso presto il suo gas a causa della pressione all'interno dell'alone di un ospite gigante. Appartiene allo sciame di compagni M31 ora contati e mappati dall'indagine Pan-Andromeda.",
+  "source": "PAndAS · van den Bergh 1972",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "van den Bergh 1972",
+      "PAndAS survey"
+    ]
+  }
+}

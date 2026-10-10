@@ -1,0 +1,62 @@
+{
+  "id": "sun",
+  "name": "Zon",
+  "kind": "star",
+  "tagline": "De hoofdreeksster van het G-type heeft 99,86% van de massa van het zonnestelsel.",
+  "facts": [
+    {
+      "label": "Spectraaltype",
+      "value": "G2V"
+    },
+    {
+      "label": "Diameter",
+      "value": "1.392.700 km"
+    },
+    {
+      "label": "Massa",
+      "value": "1.989 × 10³⁰kg"
+    },
+    {
+      "label": "Oppervlaktetemperatuur",
+      "value": "≈ 5.505 °C"
+    },
+    {
+      "label": "Kerntemperatuur",
+      "value": "≈ 15,7 miljoen °C"
+    },
+    {
+      "label": "Leeftijd",
+      "value": "≈ 4,6 miljard jaar"
+    },
+    {
+      "label": "Rotatieperiode",
+      "value": "≈ 25-35 dagen (varieert per breedtegraad)"
+    }
+  ],
+  "history": "De zon ontstond ongeveer 4,6 miljard jaar geleden uit de zwaartekrachtinstorting van een gebied binnen een gigantische moleculaire wolk. Het grootste deel van de instortende massa verzamelde zich in het centrum, waardoor waterstoffusie ontstond toen de kern ongeveer 10 miljoen Kelvin bereikte; de afgeplatte overblijfselschijf werden de planeten. De zon brandt sindsdien als een hoofdreeksster en zal nog ongeveer 5 miljard jaar stabiel blijven voordat hij waterstof in de kern uitput, opzwelt tot een rode reus die Mercurius en Venus overspoelt, vervolgens zijn buitenste lagen afwerpt als een planetaire nevel en zich terugtrekt als een witte dwerg. Oude culturen van Egypte tot de Andes aanbaden het; Galileo's telescopische zonnevlekkenschetsen begonnen in 1612 zijn leven als een wetenschappelijk object, en tegenwoordig houden observatoria als SOHO, Parker Solar Probe en Solar Orbiter de zonnevlek in de gaten als aanjager van ruimteweer.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "nl",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/sun/img-1.jpg",
+        "caption": "NASA's SDO ziet gigantisch filament op de zon",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/sun/audio-1.wav",
+        "caption": "Sonificatie van de zon - SDO/Stanford helioseismologie",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

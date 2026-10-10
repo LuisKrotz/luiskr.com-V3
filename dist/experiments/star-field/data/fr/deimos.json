@@ -2,41 +2,50 @@
   "id": "deimos",
   "name": "Déimos",
   "kind": "moon",
-  "tagline": "La plus petite et externe des lunes de Mars — un vestige couvert de poussière en bordure de l'altitude synchrone.",
+  "tagline": "La plus petite lune extérieure de Mars – un reste couvert de poussière en orbite au bord de l’altitude synchrone.",
   "facts": [
     {
       "label": "Diamètre",
-      "value": "12,4 km"
+      "value": "12,4km"
     },
     {
       "label": "Période orbitale",
       "value": "30,3 heures"
     },
     {
-      "label": "Distance à Mars",
+      "label": "Distance de Mars",
       "value": "23 460 km"
     },
     {
       "label": "Plus grand cratère",
-      "value": "Swift — 2,3 km"
+      "value": "Rapide — 2,3 km"
     },
     {
       "label": "Gravité",
-      "value": "0,003 m/s²"
+      "value": "0 003 m/s²"
     },
     {
       "label": "Découverte",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 — Salle Asaph"
     }
   ],
-  "history": "Déimos est la plus petite et externe des deux lunes de Mars — un corps irrégulier lissé par la poussière, probablement capturé de la ceinture d'astéroïdes ou né de débris d'impact. Son épaisse couche de régolithe estompe les cratères et lui donne un aspect mou et terne, à l'opposé du visage battu de Phobos. Elle orbite juste au-dessus de l'altitude synchrone, dérivant lentement d'est en ouest sur près de trois jours vue de la surface. Le Mars Trek de la NASA fournit des modèles détaillés ; aucune sonde n'a encore atterri, mais elle reste candidate comme étape vers Mars.",
+  "history": "Deimos est la plus petite et la plus extérieure des deux lunes de Mars – un corps irrégulier, lissé par la poussière, probablement capturé par la ceinture d'astéroïdes ou né de débris d'impact. Son épaisse couverture de régolithe adoucit ses cratères, lui donnant un aspect grumeleux et sourd, contrairement au visage meurtri de Phobos. Il orbite juste en dehors de l’altitude synchrone, donc depuis la surface martienne, il dérive lentement d’est en ouest pendant près de trois jours. Mars Trek de la NASA fournit des modèles de forme détaillés ; aucun atterrisseur ne l'a encore touché, mais il reste un point d'étape candidat pour les missions avec équipage sur Mars.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "fr",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/deimos/img-1.jpg",
+        "caption": "Éclipses martiennes : Deimos et Phobos",
+        "credit": "NASA"
+      }
     ]
   }
 }

@@ -1,0 +1,62 @@
+{
+  "id": "sun",
+  "name": "Sol",
+  "kind": "star",
+  "tagline": "L'estrella de seqüència principal de tipus G que conté el 99,86% de la massa del Sistema Solar.",
+  "facts": [
+    {
+      "label": "Tipus espectral",
+      "value": "G2V"
+    },
+    {
+      "label": "Diàmetre",
+      "value": "1.392.700 km"
+    },
+    {
+      "label": "Massa",
+      "value": "1.989 × 10³⁰ kg"
+    },
+    {
+      "label": "Temperatura superficial",
+      "value": "≈ 5.505 °C"
+    },
+    {
+      "label": "Temperatura central",
+      "value": "≈ 15,7 milions de °C"
+    },
+    {
+      "label": "Edat",
+      "value": "≈ 4.600 milions d'anys"
+    },
+    {
+      "label": "Període de rotació",
+      "value": "≈ 25–35 dies (varia segons la latitud)"
+    }
+  ],
+  "history": "El Sol es va formar fa uns 4.600 milions d'anys a partir del col·lapse gravitatori d'una regió dins d'un núvol molecular gegant. La major part de la massa col·lapsant es va reunir al centre, i va encendre la fusió d'hidrogen quan el nucli va arribar als 10 milions de kelvin; el disc romanent aplanat es va convertir en els planetes. El Sol ha cremat com a estrella de la seqüència principal des d'aleshores i es mantindrà estable durant aproximadament 5.000 milions d'anys més abans d'esgotar l'hidrogen del nucli, inflant-se en una gegant vermella que engoleix Mercuri i Venus, després destruir les seves capes exteriors com una nebulosa planetària i retirar-se com una nana blanca. Les cultures antigues des d'Egipte fins als Andes l'adoraven; Els esbossos telescòpics de taques solars de Galileu el 1612 van començar la seva vida com a objecte de la ciència, i avui observatoris com SOHO, Parker Solar Probe i Solar Orbiter el controlen com a motor del clima espacial.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/sun/img-1.jpg",
+        "caption": "L'SDO de la NASA veu un filament gegant al Sol",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/sun/audio-1.wav",
+        "caption": "Sonificació solar - Heliosismologia SDO/Stanford",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

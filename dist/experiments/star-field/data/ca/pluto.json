@@ -1,0 +1,58 @@
+{
+  "id": "pluto",
+  "name": "Plutó",
+  "kind": "dwarfPlanet",
+  "tagline": "L'estimat nan: el rei del cinturó de Kuiper i un món de glaceres de nitrogen.",
+  "facts": [
+    {
+      "label": "Diàmetre",
+      "value": "2.377 km"
+    },
+    {
+      "label": "Període orbital",
+      "value": "248 anys"
+    },
+    {
+      "label": "Llunes",
+      "value": "5 (Caront més gran)"
+    },
+    {
+      "label": "Descobriment",
+      "value": "1930 - Clyde Tombaugh"
+    },
+    {
+      "label": "Primera visita",
+      "value": "New Horizons, juliol de 2015"
+    },
+    {
+      "label": "Reclassificat",
+      "value": "Planeta nan, IAU 2006"
+    }
+  ],
+  "history": "Clyde Tombaugh va trobar Plutó el 1930 després d'una recerca sistemàtica del \"Planeta X\", i durant 76 anys va comptar com el novè planeta. La definició de 2006 de la IAU el va reclassificar com a planeta nan, el primer membre reconegut del cinturó de Kuiper, l'anell de cossos gelats més enllà de Neptú. La nau espacial New Horizons de la NASA va volar a 12.500 km el juliol de 2015 i va revelar un món sorprenentment actiu: una plana de gel de nitrogen en forma de cor (Sputnik Planitia) que convecta com una làmpada de lava, muntanyes de gel d'aigua de fins a 3,5 km d'alçada i una fina atmosfera de boira blava. La seva lluna més gran Caront té la meitat de la mida de Plutó, un veritable sistema doble.",
+  "source": "NASA/JPL Solar System Exploration; Johns Hopkins APL",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration; Johns Hopkins APL"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/pluto/img-1.jpg",
+        "caption": "New Horizons veu Plutó",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/pluto/video-1.mp4",
+        "caption": "Entrevista de New Horizons amb Dennis Reuter",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

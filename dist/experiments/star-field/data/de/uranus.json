@@ -1,0 +1,51 @@
+{
+  "id": "uranus",
+  "name": "Uranus",
+  "kind": "planet",
+  "tagline": "Der Seitwärtsplanet – ein Eisriese, der auf der Seite um die Sonne rollt.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "50.724 km"
+    },
+    {
+      "label": "Umlaufzeit",
+      "value": "84 Jahre"
+    },
+    {
+      "label": "Axiale Neigung",
+      "value": "97,77°"
+    },
+    {
+      "label": "Monde",
+      "value": "28"
+    },
+    {
+      "label": "Kälteste Atmosphäre",
+      "value": "−224 °C"
+    },
+    {
+      "label": "Entdeckung",
+      "value": "1781 – William Herschel"
+    }
+  ],
+  "history": "Uranus war der erste Planet, der per Teleskop entdeckt wurde – William Herschel entdeckte ihn 1781 und verdoppelte damit über Nacht die bekannte Größe des Sonnensystems. Ein kolossaler uralter Einschlag hat seine Achse wahrscheinlich auf 97,77 Grad verschoben, so dass er die Sonne umkreist und auf der Seite rollt, wobei jeder Pol 42 Jahre Sonnenlicht und dann 42 Jahre Dunkelheit abbekommt. Seine Methanatmosphäre verleiht ihm einen blassblauen Schimmer und weist die kälteste jemals gemessene Planetentemperatur auf. Voyager 2 bleibt das einzige Raumschiff, das 1986 vorbeiflog. Ein spezieller Uranus-Orbiter ist eine der obersten Prioritäten der dekadischen US-Planetenforschungsstudie.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/uranus/img-1.jpg",
+        "caption": "Hubble beobachtet den Planeten Uranus",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

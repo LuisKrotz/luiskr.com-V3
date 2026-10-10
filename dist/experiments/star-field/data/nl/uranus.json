@@ -1,0 +1,51 @@
+{
+  "id": "uranus",
+  "name": "Uranus",
+  "kind": "planet",
+  "tagline": "De zijwaartse planeet: een ijsreus die op zijn kant om de zon rolt.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "50.724 kilometer"
+    },
+    {
+      "label": "Omlooptijd",
+      "value": "84 jaar"
+    },
+    {
+      "label": "Axiale kanteling",
+      "value": "97,77°"
+    },
+    {
+      "label": "Manen",
+      "value": "28"
+    },
+    {
+      "label": "Koudste atmosfeer",
+      "value": "−224 °C"
+    },
+    {
+      "label": "Ontdekking",
+      "value": "1781 - William Herschel"
+    }
+  ],
+  "history": "Uranus was de eerste planeet die met een telescoop werd ontdekt; William Herschel ontdekte hem in 1781, waardoor de bekende omvang van het zonnestelsel in één nacht verdubbelde. Waarschijnlijk heeft een kolossale inslag uit de oudheid zijn as naar een hoek van 97,77 graden gebracht, zodat hij op zijn kant om de zon draait, waarbij elke pool 42 jaar zonlicht en vervolgens 42 jaar duisternis krijgt. De methaanatmosfeer geeft het een bleke cyaanzweem en houdt de koudste planetaire temperatuur vast die ooit is gemeten. Voyager 2 blijft het enige ruimtevaartuig dat in 1986 werd bezocht; een speciale Uranus-orbiter is een topprioriteit van het Amerikaanse planetaire wetenschapsdecadale onderzoek.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "nl",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/uranus/img-1.jpg",
+        "caption": "Hubble observeert de planeet Uranus",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

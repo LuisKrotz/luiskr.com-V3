@@ -1,0 +1,35 @@
+{
+  "id": "sextans-dwarf",
+  "name": "Sextantes Enanos Esferoidales",
+  "kind": "dwarfGalaxy",
+  "tagline": "Un satélite muy tenue de la Vía Láctea a 290.000 años luz de distancia, uno de los esferoidales enanos menos luminosos del halo.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~290.000 años al año"
+    },
+    {
+      "label": "Tipo",
+      "value": "esferoidal enano"
+    },
+    {
+      "label": "Luminosidad",
+      "value": "Entre las enanas clásicas más débiles."
+    },
+    {
+      "label": "Encontrado",
+      "value": "1990: encuesta Schmidt del Reino Unido"
+    }
+  ],
+  "history": "La enana de Sextans no se encontró hasta 1990 en placas Schmidt del Reino Unido: una mancha tan débil que evadió por completo los estudios anteriores del cielo. Sus estrellas son viejas y pobres en metales, y su brillo superficial excepcionalmente bajo significa que su contenido estelar queda eclipsado por la estructura de materia oscura que las mantiene unidas. Es un representante de la cola más débil de formación de galaxias, apenas más brillante que un rico cúmulo globular.",
+  "source": "Irwin et al. 1990 · UK Schmidt",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "Irwin et al. 1990",
+      "UK Schmidt Telescope"
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "andromeda",
+  "name": "Galaxie d'Andromède",
+  "kind": "galaxy",
+  "tagline": "La chose la plus éloignée que l’on puisse voir sans aide – à deux millions et demi d’années de lumière.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "≈ 2,54 millions d'années-lumière"
+    },
+    {
+      "label": "Catalogue",
+      "value": "M31"
+    },
+    {
+      "label": "Étoiles",
+      "value": "≈ 1 billion"
+    },
+    {
+      "label": "Diamètre",
+      "value": "≈ 220 000 années-lumière"
+    },
+    {
+      "label": "Approche",
+      "value": "110 km/s vers nous"
+    },
+    {
+      "label": "Collision",
+      "value": "≈ 4,5 milliards d'années"
+    }
+  ],
+  "history": "L'astronome persan Al-Sufi a enregistré Andromède comme un « petit nuage » vers 964 de notre ère, ce qui en fait l'un des premiers objets du ciel profond documentés et toujours l'objet le plus éloigné visible à l'œil nu. Pendant des siècles, on l'a appelée une nébuleuse spirale à l'intérieur de notre propre galaxie, jusqu'à ce qu'Edwin Hubble y identifie des étoiles variables céphéides en 1924 et mesure sa distance – preuve que l'univers s'étend bien au-delà de la Voie Lactée, une découverte qui a réécrit la cosmologie du jour au lendemain. Elle contient environ un billion d'étoiles, soit environ le double de notre galaxie, et ses spectres décalés vers le bleu la montrent s'approchant à 110 km/s : les deux spirales commenceront à fusionner dans environ 4,5 milliards d'années.",
+  "source": "NASA/ESA Hubble; IAU",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/ESA Hubble; IAU"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/andromeda/img-1.jpg",
+        "caption": "Galaxie NGC 55",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

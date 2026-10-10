@@ -1,0 +1,42 @@
+{
+  "id": "polaris",
+  "name": "Estrella Polar",
+  "kind": "star",
+  "tagline": "La Estrella Polar: una baliza cefeida casi directamente sobre el eje de la Tierra.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~447 años"
+    },
+    {
+      "label": "Tipo",
+      "value": "F7 Ib supergigante"
+    },
+    {
+      "label": "Sistema",
+      "value": "Triple: Polaris Aa/Ab/B"
+    },
+    {
+      "label": "Pulsación",
+      "value": "Cefeida, 3,97 días"
+    },
+    {
+      "label": "Brillo",
+      "value": "Magnitud ~2,0 variable"
+    },
+    {
+      "label": "Rol",
+      "value": "polo norte celeste"
+    }
+  ],
+  "history": "Polaris se encuentra a un grado del polo norte celeste, el pivote del cielo alrededor del cual todas las demás estrellas parecen girar. Es una variable cefeida, una supergigante que pulsa durante cuatro días y un sistema triple cuyo apretado par interno el Hubble no resolvió hasta 2006. No siempre fue la estrella polar (Thuban ocupó el puesto para el antiguo Egipto) y le entregará el título a Errai dentro de ~4.000 años a medida que el eje de la Tierra precese.",
+  "source": "NASA · ESA Hipparcos/Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA · ESA Hipparcos/Gaia"
+    ]
+  }
+}

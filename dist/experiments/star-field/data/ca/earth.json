@@ -1,0 +1,65 @@
+{
+  "id": "earth",
+  "name": "Terra",
+  "kind": "planet",
+  "tagline": "L'únic món conegut que alberga vida: un planeta oceànic a la zona habitable.",
+  "facts": [
+    {
+      "label": "Diàmetre",
+      "value": "12.742 km"
+    },
+    {
+      "label": "Període orbital",
+      "value": "365,25 dies"
+    },
+    {
+      "label": "Durada del dia",
+      "value": "23,9 hores"
+    },
+    {
+      "label": "Aigua superficial",
+      "value": "≈ 71% de cobertura oceànica"
+    },
+    {
+      "label": "Llunes",
+      "value": "1"
+    },
+    {
+      "label": "Edat",
+      "value": "≈ 4.540 milions d'anys"
+    }
+  ],
+  "history": "La Terra es va unir a partir de la nebulosa solar fa uns 4.540 milions d'anys i es va refredar en un món diferenciat d'escorça, mantell i nucli de ferro. La vida va aparèixer als seus oceans durant els primers mil milions d'anys i més tard la fotosíntesi va oxigenar l'atmosfera, permetent ecosistemes terrestres complexos. La tectònica de plaques, única entre els planetes rocosos coneguts, recicla contínuament la superfície i regula el clima al llarg del temps geològic. La humanitat ha observat la Terra des de l'espai des de 1946; El 'Blue Marble' (1972) de l'Apol·lo 17 segueix sent una de les fotografies més reproduïdes mai fetes. Més de 6.000 exoplanetes confirmats ofereixen ara un context per a com d'insòlit pot ser un món estable, d'aigua líquida i amb vida.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/earth/img-1.jpg",
+        "caption": "Imatge d'alta definició més sorprenent de la Terra - Blue Marble 2012",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/earth/video-1.mp4",
+        "caption": "Earthrise després que Orion executés un sobrevol amb motor de sortida",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/earth/audio-1.mp3",
+        "caption": "Ones de ràdio cor a la magnetosfera terrestre - NASA",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

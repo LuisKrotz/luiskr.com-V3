@@ -1,0 +1,65 @@
+{
+  "id": "saturn",
+  "name": "Saturno",
+  "kind": "planet",
+  "tagline": "O gigante anelado – seu halo de gelo se estende por 280.000 km, mas tem metros de espessura.",
+  "facts": [
+    {
+      "label": "Diâmetro",
+      "value": "116.460 quilômetros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "29,4 anos"
+    },
+    {
+      "label": "Luas",
+      "value": "146+ (reconhecido)"
+    },
+    {
+      "label": "Extensão do anel",
+      "value": "≈ 280.000 km de largura, ~10 m–1 km de espessura"
+    },
+    {
+      "label": "Densidade",
+      "value": "0.687 g/cm³ — flutuaria na água"
+    },
+    {
+      "label": "Maior lua",
+      "value": "Titã"
+    }
+  ],
+  "history": "Galileu viu os anéis de Saturno em 1610, mas não conseguiu resolvê-los — chamou-os de “orelhas”; Huygens identificou o sistema de anéis em 1655, e Cassini encontrou a divisão que leva seu nome. Os anéis são inúmeras partículas de água gelada quase pura, provavelmente os restos de uma lua destruída ou de um cometa capturado, e podem ser geologicamente jovens. A sonda Cassini passou treze anos no sistema de Saturno (2004-2017), descobrindo gêiseres em Encélado que liberam um oceano subterrâneo no espaço e lançando a sonda Huygens em Titã – o único pouso já feito no Sistema Solar exterior.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "br",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/saturn/img-1.jpg",
+        "caption": "O limite da noite",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/saturn/video-1.mp4",
+        "caption": "Saturno infravermelho da Cassini (versão curta)",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/saturn/audio-1.wav",
+        "caption": "Emissões de rádio de Saturno - Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

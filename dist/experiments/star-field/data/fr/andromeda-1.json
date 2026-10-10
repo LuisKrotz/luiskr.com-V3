@@ -1,0 +1,35 @@
+{
+  "id": "andromeda-1",
+  "name": "Andromède Ier",
+  "kind": "dwarfGalaxy",
+  "tagline": "Un faible sphéroïdal nain d'Andromède – l'un des satellites diffus peuplant le halo externe de M31.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "~2,55 Mly"
+    },
+    {
+      "label": "Type",
+      "value": "Sphéroïdal nain"
+    },
+    {
+      "label": "Compagnon de",
+      "value": "M31"
+    },
+    {
+      "label": "Luminosité",
+      "value": "Très faible luminosité de la surface"
+    }
+  ],
+  "history": "Andromède I est l'un des sphéroïdaux nains pâles en orbite autour de la galaxie d'Andromède - si diffus qu'il n'a été identifié que par des travaux d'enquête photographique comme un subtil excès d'étoiles faibles au-dessus du fond du ciel. Ses étoiles sont pour la plupart vieilles et pauvres en métaux, produit typique d'un satellite qui a perdu son gaz très tôt en raison de la pression exercée à l'intérieur du halo d'un hôte géant. Il appartient à l'essaim de compagnons de M31 actuellement dénombrés et cartographiés par l'enquête Pan-Andromède.",
+  "source": "PAndAS · van den Bergh 1972",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "van den Bergh 1972",
+      "PAndAS survey"
+    ]
+  }
+}

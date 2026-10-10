@@ -2,7 +2,7 @@
   "id": "phobos",
   "name": "Phobos",
   "kind": "moon",
-  "tagline": "Der gressere vun die zwee Marsmonde — en Trümmerhaufe, wo langsam uff sei Planet zuspiralt.",
+  "tagline": "Der gressere vun die zwee Moonde des Mars – en Trümmerhaufen, der sich langsam spiralförmig auf seinen Planeten zubewegt.",
   "facts": [
     {
       "label": "Durchmesser",
@@ -10,15 +10,15 @@
     },
     {
       "label": "Umlaufziet",
-      "value": "7,7 Stunde"
+      "value": "7,7 Stund"
     },
     {
-      "label": "Abstand zum Mars",
+      "label": "Entfernung vum Mars",
       "value": "9.376 km"
     },
     {
       "label": "Greeschter Krater",
-      "value": "Stickney — 9 km"
+      "value": "Stickney – 9 km"
     },
     {
       "label": "Schwerkraft",
@@ -26,17 +26,26 @@
     },
     {
       "label": "Entdeckung",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 – Asaph Hall"
     }
   ],
-  "history": "Phobos laaft naeher am Mars wie jeder andere Mond im Sunnensystem an sei Planet — so naeh, dass er schneller laaft wie der Mars rotiert un zweimol am Marstag im Weste uffgeht un im Oste unn. Gezeitekraeft zerreisse ihn: er verliert so um die 1,8 Meter Heech pro Jahrhunnert un werd in 50 Millione Johr entweder uff der Mars stuerze oder zu nem Ring zerfetzt. Sei zernarbte Oberfleech mit dem 9-km-Krater Stickney is voller Rille mit umstrittener Herkunft. Der NASA Mars Trek kartiert ihn detailliert; die JAXA-Mission MMX werd druff lande un Probe zur Erd bringe.",
+  "history": "Phobos umkreist den Mars näher als jeder andere Mond im Sonnensystem seinen Planeten – so nah, dass er schneller umkreist als der Mars rotiert, zweimal an jedem Marstag im Westen aufgeht un im Osten untergeht. Gezeitenkräfte zerreißen es: Pro Jahrhundert verliert es etwa 1,8 Meter an Heech un wird innerhalb vun 50 Millionen Johre entweder auf den Mars stürzen oder in en Ring zerfallen. Seine zerklüftete Oberfläche, die vum 9 km großen Stickney-Krater dominiert wird, is mit Rillen übersät, iwwer deren Ursprung noch immer diskutiert wird. Mars Trek der NASA kartiert es im Detail; Die bevorstehende JAXA-MMX-Mission wird dort landen un Proben zur Erde zurückbringen.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "hrk",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/phobos/img-1.jpg",
+        "caption": "Martian Moon Phobos Observed by NASA's Odyssey",
+        "credit": "NASA"
+      }
     ]
   }
 }

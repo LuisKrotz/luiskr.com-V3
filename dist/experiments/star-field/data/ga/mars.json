@@ -1,0 +1,58 @@
+{
+  "id": "mars",
+  "name": "Mars",
+  "kind": "planet",
+  "tagline": "An pláinéad dearg - baile an bolcáin is airde agus an canyon is doimhne ar eolas.",
+  "facts": [
+    {
+      "label": "Trastomhas",
+      "value": "6,779 km"
+    },
+    {
+      "label": "Tréimhse fithise",
+      "value": "687 lá"
+    },
+    {
+      "label": "Fad an lae",
+      "value": "24.6 uair an chloig"
+    },
+    {
+      "label": "Gealacha",
+      "value": "2 (Phobos, Deimos)"
+    },
+    {
+      "label": "Bolcán is airde",
+      "value": "Olympus Mons - 21.9 km"
+    },
+    {
+      "label": "Domhantarraingt",
+      "value": "3.71 m/s²"
+    }
+  ],
+  "history": "Bhí Mars níos teo agus níos fliche tráth: tá orbitéirí agus rovers tar éis deilt abhann ársa, leapacha locha agus veins mianraí a mhapáil nach bhféadfadh ach uisce leachtach a fhoirmiú. Is fásach fuar é inniu agus atmaisféar tanaí CO₂ ann agus stoirmeacha deannaigh timpeall an phláinéid. Bhain Lochlannach 1 an chéad tuirlingt rathúil amach i 1976; Ó shin i leith tá cabhlach de orbiters chomh maith leis na ródairí Sojourner, Spiorad, Deiseanna, Fiosracht agus Buanseasmhacht tiomáinte a dhromchla, agus Buanseasmhacht ag taisceadh samplaí le haghaidh tuairisceán pleanáilte. Is é an pláinéad is mó a ndéantar iniúchadh air lasmuigh den Domhan agus an ceann scríbe dearbhaithe do na chéad mhisin criúnaithe idirphláinéid.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ga",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mars/img-1.jpg",
+        "caption": "An tEarrach ar Mhars: An Radharc is Fearr ar Hubble ar an bPláinéad Dearg",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/mars/audio-1.ogg",
+        "caption": "Micreafón buanseasmhacht - an chéad fhuaim ó Mars",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

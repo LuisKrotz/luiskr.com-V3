@@ -1,0 +1,35 @@
+{
+  "id": "sculptor-dwarf",
+  "name": "Nain sculpteur",
+  "kind": "dwarfGalaxy",
+  "tagline": "Un sphéroïde de la Voie lactée pauvre en métaux, situé à 290 000 années-lumière – dominé par la matière noire, vieux de plus de 10 milliards d’années.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "~290 000 ly"
+    },
+    {
+      "label": "Type",
+      "value": "Sphéroïdal nain"
+    },
+    {
+      "label": "Métallicité",
+      "value": "[Fe/H] ≈ −1,5 — très pauvre en métaux"
+    },
+    {
+      "label": "Trouvé",
+      "value": "1937 — Harlow Shapley"
+    }
+  ],
+  "history": "Shapley a découvert Sculptor en 1937 sur des plaques photographiques – le premier sphéroïdal nain jamais découvert, un tout nouveau type de galaxie constituée d'une tache diffuse de vieilles étoiles. Ses étoiles sont parmi les plus pauvres en métaux au monde, la plupart d'entre elles ont donc dû se former au cours du premier milliard d'années de l'univers. Les mesures de vitesse montrent que Sculptor est maintenu ensemble par une masse bien plus invisible que la lumière des étoiles – un nain classique dominé par la matière noire.",
+  "source": "ESO · Harlow Shapley 1937",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "Shapley 1938",
+      "ESO"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "crab-nebula",
+  "name": "Nebulosa del Granchio",
+  "kind": "nebula",
+  "tagline": "I rottami di una stella vista esplodere nel 1054 – ancora in espansione.",
+  "facts": [
+    {
+      "label": "Distanza",
+      "value": "≈ 6.500 anni luce"
+    },
+    {
+      "label": "Catalogo",
+      "value": "M1/NGC 1952"
+    },
+    {
+      "label": "Progenitore",
+      "value": "Supernova del luglio 1054"
+    },
+    {
+      "label": "Nucleo residuo",
+      "value": "Pulsar del granchio: 30 giri al secondo"
+    },
+    {
+      "label": "Espansione",
+      "value": "≈ 1.500 km/s in crescita"
+    },
+    {
+      "label": "Registrato da",
+      "value": "Astronomi di corte cinesi e giapponesi"
+    }
+  ],
+  "history": "Nel luglio del 1054, gli astronomi cinesi e giapponesi registrarono una \"stella ospite\" abbastanza luminosa da poter essere letta di notte e visibile alla luce del giorno per 23 giorni. Sei secoli dopo Charles Messier ne catalogò i resti, l'oggetto che ispirò la sua famosa lista di sosia di comete come voce M1. Nel suo cuore gira la pulsar del Granchio, una stella di neutroni di 30 km che ruota 30 volte al secondo e irradia radiazioni come un faro su ogni lunghezza d'onda. I filamenti in espansione si estendono ora per circa 11 anni luce; il confronto delle fotografie nel corso di decenni mostra che i detriti continuano a correre verso l’esterno: un’esplosione in corso.",
+  "source": "NASA/ESA Hubble; Harvard CfA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "NASA/ESA Hubble; Harvard CfA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/crab-nebula/img-1.jpg",
+        "caption": "Hubble della NASA cattura il cuore pulsante della Nebulosa del Granchio",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/crab-nebula/video-1.mp4",
+        "caption": "29esimo anniversario di Hubble",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

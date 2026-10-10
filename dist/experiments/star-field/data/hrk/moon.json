@@ -1,0 +1,51 @@
+{
+  "id": "moon",
+  "name": "Mond",
+  "kind": "moon",
+  "tagline": "Der einzige natürliche Satellit der Erde – die erste Welt, die vun Menschen besucht wurde.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "3.474 km"
+    },
+    {
+      "label": "Entfernung vun der Erde",
+      "value": "384.400 km"
+    },
+    {
+      "label": "Umlaufziet",
+      "value": "27,3 Daag"
+    },
+    {
+      "label": "Rotation",
+      "value": "Gezeitengesperrt"
+    },
+    {
+      "label": "Schwerkraft",
+      "value": "1,62 m/s²"
+    },
+    {
+      "label": "Erste Landung mit Besatzung",
+      "value": "20. Juli 1969"
+    }
+  ],
+  "history": "Der Mond entstand höchstwahrscheinlich vor etwa 4,5 Milliarden Johre, als en marsgroßer Keerper namens Theia die junge Erde traf un die ausgeschleuderten Trümmer im Orbit zusammenflossen. Gezeitengebunden zeigt es immer das gleiche Gesicht. Zwölf Apollo-Astronauten betraten zwischen 1969 un 1972 die Oberfläche un brachten 382 kg Gestein zurück, das die Chronologie des Mondes verankert. Der Mond entfernt sich jedes Jahr etwa 3,8 cm weiter vun der Erde. Es is jetzt das Ziel des Artemis-Programms der NASA, das darauf abzielt, in diesem Jahrzehnt Menschen – einschließlich der ersten Frau – zurückzubringen un en nachhaltige Präsenz in der Nähe der eishaltigen Krater des Südpols aufzubauen.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "hrk",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/moon/img-1.jpg",
+        "caption": "Full Moon",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

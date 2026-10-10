@@ -1,0 +1,35 @@
+{
+  "id": "phoenix-dwarf",
+  "name": "Nain Phénix",
+  "kind": "dwarfGalaxy",
+  "tagline": "Un nain de groupe local de transition – en partie sphéroïdal, en partie irrégulier, formant toujours un filet d’étoiles.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "~1,44 Mly"
+    },
+    {
+      "label": "Type",
+      "value": "Transition dSph/dIrr"
+    },
+    {
+      "label": "Formation d'étoiles",
+      "value": "En cours, à faible niveau"
+    },
+    {
+      "label": "Statut",
+      "value": "Entre satellite et naine isolée"
+    }
+  ],
+  "history": "Le nain Phoenix occupe le juste milieu morphologique entre un sphéroïdal et un irrégulier – contenant toujours suffisamment de gaz pour soutenir la formation d’étoiles de bas niveau, contrairement aux sphéroïdaux entièrement éteints. Il est suffisamment éloigné de la Voie lactée pour éviter un dégazage total, mais suffisamment proche pour que son évolution ait pu être poussée par l'environnement du halo, ce qui en fait un cas limite dans la manière dont les naines arrêtent la formation d'étoiles.",
+  "source": "ESO · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "Schuster & West 1976",
+      "ESO"
+    ]
+  }
+}

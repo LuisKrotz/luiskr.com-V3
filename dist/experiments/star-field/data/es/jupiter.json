@@ -1,0 +1,65 @@
+{
+  "id": "jupiter",
+  "name": "Júpiter",
+  "kind": "planet",
+  "tagline": "El gigante es más masivo que todos los demás planetas juntos.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "139.820 kilómetros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "11,9 años"
+    },
+    {
+      "label": "Duración del día",
+      "value": "9,9 horas"
+    },
+    {
+      "label": "Lunas",
+      "value": "95 (reconocido)"
+    },
+    {
+      "label": "Gran Mancha Roja",
+      "value": "Tormenta observada desde 1831"
+    },
+    {
+      "label": "Masa",
+      "value": "318 × Tierra"
+    }
+  ],
+  "history": "Júpiter se formó primero entre los planetas y su gravedad dio forma a todo después: guió a los asteroides, agitó la nebulosa solar primitiva y arrojó cometas dentro y fuera del sistema interno. El descubrimiento de Galileo Galilei en 1610 de cuatro lunas que la orbitan demostró que no todo gira alrededor de la Tierra; Esos satélites galileanos (Io, Europa, Ganímedes, Calisto) siguen siendo objetivos principales en el mundo oceánico, y la sonda JUICE de la ESA está en camino a Ganímedes. La Gran Mancha Roja es un anticiclón más ancho que la Tierra que ha arrasado durante siglos. El orbitador Juno de la NASA ha cartografiado su clima profundo y su interior desde 2016.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/jupiter/img-1.jpg",
+        "caption": "Juno sobre el polo sur de Júpiter (Ilustración)",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/jupiter/video-1.mp4",
+        "caption": "La gran mancha roja de Júpiter se encoge y crece",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/jupiter/audio-1.ogg",
+        "caption": "Cruce de arco de choque en Júpiter — Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

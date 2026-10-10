@@ -1,0 +1,65 @@
+{
+  "id": "jupiter",
+  "name": "Giove",
+  "kind": "planet",
+  "tagline": "Il gigante: più massiccio di tutti gli altri pianeti messi insieme.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "139.820 km"
+    },
+    {
+      "label": "Periodo orbitale",
+      "value": "11,9 anni"
+    },
+    {
+      "label": "Durata del giorno",
+      "value": "9,9 ore"
+    },
+    {
+      "label": "Lune",
+      "value": "95 (riconosciuto)"
+    },
+    {
+      "label": "Grande Macchia Rossa",
+      "value": "Tempesta osservata dal 1831"
+    },
+    {
+      "label": "Massa",
+      "value": "318 × Terra"
+    }
+  ],
+  "history": "Giove si formò per primo tra i pianeti e la sua gravità diede forma a tutto dopo: guidando gli asteroidi, agitando la prima nebulosa solare e scagliando comete dentro e fuori il sistema interno. La scoperta di Galileo Galilei nel 1610 di quattro lune che la circondano dimostrò che non tutto orbita attorno alla Terra; quei satelliti galileiani – Io, Europa, Ganimede, Callisto – rimangono i principali obiettivi oceanici, con la sonda JUICE dell’ESA in rotta verso Ganimede. La Grande Macchia Rossa è un anticiclone più largo della Terra che imperversa da secoli. L'orbiter Juno della NASA ha mappato il suo clima profondo e l'interno dal 2016.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/jupiter/img-1.jpg",
+        "caption": "Giunone sul Polo Sud di Giove (Illustrazione)",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/jupiter/video-1.mp4",
+        "caption": "La Grande Macchia Rossa di Giove si restringe e cresce",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/jupiter/audio-1.ogg",
+        "caption": "Traversata bow-shock di Giove – Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

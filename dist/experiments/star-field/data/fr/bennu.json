@@ -1,0 +1,42 @@
+{
+  "id": "bennu",
+  "name": "Bennu",
+  "kind": "dwarfPlanet",
+  "tagline": "L'astéroïde le plus soigneusement suivi près de la Terre – échantillonné par OSIRIS-REx en 2020.",
+  "facts": [
+    {
+      "label": "Diamètre",
+      "value": "~490 m"
+    },
+    {
+      "label": "Période orbitale",
+      "value": "1,20 ans"
+    },
+    {
+      "label": "Orbite",
+      "value": "Proche de la Terre – 0,90 à 1,36 UA"
+    },
+    {
+      "label": "Type",
+      "value": "Type B (carboné)"
+    },
+    {
+      "label": "Échantillon retourné",
+      "value": "121,6 g — septembre 2023"
+    },
+    {
+      "label": "Mission",
+      "value": "NASA OSIRIS-REx"
+    }
+  ],
+  "history": "Bennu est un tas de décombres vaguement liés, maintenus ensemble davantage par les forces de Van der Waals que par la gravité – le toucher-décollage 2020 d'OSIRIS-REx a failli s'enfoncer dans sa surface et a soulevé une gerbe de cailloux. L’échantillon renvoyé de 121,6 grammes est riche en carbone, en argiles hydratées et en molécules organiques. L'orbite de Bennu fait également partie des risques de collision les plus connus : une chance sur 2 700 d'impact avec la Terre en 2182 – suffisamment proche pour être observée, suffisamment loin pour dormir la nuit.",
+  "source": "NASA · NASA Bennu Trek · OSIRIS-REx",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA · NASA Bennu Trek · OSIRIS-REx"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "venus",
+  "name": "Vênus",
+  "kind": "planet",
+  "tagline": "O gêmeo da Terra em tamanho, envolto em uma esmagadora estufa de CO₂ – o planeta mais quente.",
+  "facts": [
+    {
+      "label": "Diâmetro",
+      "value": "12.104 quilômetros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "225 dias"
+    },
+    {
+      "label": "Rotação",
+      "value": "243 dias, retrógrado"
+    },
+    {
+      "label": "Temperatura da superfície",
+      "value": "≈ 465°C"
+    },
+    {
+      "label": "Pressão superficial",
+      "value": "≈ 92 barras"
+    },
+    {
+      "label": "Luas",
+      "value": "0"
+    }
+  ],
+  "history": "Vênus gira para trás e tão devagar que seu dia dura mais que o ano. Sob nuvens ininterruptas de ácido sulfúrico, uma estufa descontrolada mantém a superfície perto de 465°C – quente o suficiente para derreter chumbo – sob 92 atmosferas de pressão. O programa soviético Venera realizou os primeiros pousos em outro planeta aqui entre 1970 e 1982; nenhuma sonda sobreviveu mais de duas horas. O orbitador Magalhães da NASA mapeou por radar 98% da superfície entre 1990 e 1994, revelando um mundo vulcânico que ressurgiu recentemente, há algumas centenas de milhões de anos. Vênus é frequentemente chamado de gêmeo do mal da Terra: mesmo tamanho, rocha semelhante, destino radicalmente diferente – uma história de advertência no clima planetário.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "riv",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/venus/img-1.jpg",
+        "caption": "Venus Transit Viewing at NASA Goddard",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/venus/video-1.mp4",
+        "caption": "The Electric Wind of Venus",
+        "credit": "NASA Goddard"
+      }
+    ]
+  }
+}

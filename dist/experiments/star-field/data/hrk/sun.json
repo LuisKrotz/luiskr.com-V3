@@ -1,0 +1,62 @@
+{
+  "id": "sun",
+  "name": "Sonn",
+  "kind": "star",
+  "tagline": "Der Hauptreihenstern vum Typ G besitzt 99,86 % der Masse des Sonnensystems.",
+  "facts": [
+    {
+      "label": "Spektraltyp",
+      "value": "G2V"
+    },
+    {
+      "label": "Durchmesser",
+      "value": "1.392.700 km"
+    },
+    {
+      "label": "Masse",
+      "value": "1.989 × 10³⁰ kg"
+    },
+    {
+      "label": "Oberflächentemperatur",
+      "value": "≈ 5.505 °C"
+    },
+    {
+      "label": "Kerntemperatur",
+      "value": "≈ 15,7 Millionen °C"
+    },
+    {
+      "label": "Alter",
+      "value": "≈ 4,6 Milliarden Johre"
+    },
+    {
+      "label": "Rotationszeitraum",
+      "value": "≈ 25–35 Daag (variiert je nach Breitengrad)"
+    }
+  ],
+  "history": "Die Sonne entstand vor etwa 4,6 Milliarden Johre durch den gravitativen Kollaps en Region innerhalb en riesigen Molekülwolke. Der gresste Teil der kollabierenden Masse sammelte sich im Zentrum un zündete die Wasserstofffusion, als der Kern etwa 10 Millionen Kelvin erreichte; Der abgeflachte Rest der Scheibe wurde zu den Planeten. Seitdem brennt die Sonne als Hauptreihenstern un wird noch etwa fünf Milliarden Johre lang stabil bleiben, bevor sie den Kernwasserstoff erschöpft, zu em Roten Riesen anschwillt, der Merkur un Venus umhüllt, dann ihre äußeren Schichten als planetarischer Nebel abwirft un als Weißer Zwerg in den Ruhestand geht. Alte Kulturen vun Ägypten bis zu den Anden verehrten es; Galileos teleskopische Sonnenfleckenskizzen aus em Jahr 1612 begannen als wissenschaftliches Objekt un werden heute vun Observatorien wie SOHO, Parker Solar Probe un Solar Orbiter als Treiber des Weltraumwetters beobachtet.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "hrk",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/sun/img-1.jpg",
+        "caption": "NASA's SDO Sees Giant Filament on the Sun",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/sun/audio-1.wav",
+        "caption": "Sun sonification — SDO/Stanford helioseismology",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

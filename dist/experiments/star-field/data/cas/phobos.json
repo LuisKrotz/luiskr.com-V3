@@ -2,19 +2,19 @@
   "id": "phobos",
   "name": "Fobos",
   "kind": "moon",
-  "tagline": "La mayor de las dos lunas de Marte: un montón de escombros cayendo en espiral hacia su planeta.",
+  "tagline": "La mayor de las dos lunas de Marte: una pila de escombros que gira despacio en espiral hacia su planeta.",
   "facts": [
     {
       "label": "Diámetro",
-      "value": "22,5 km"
+      "value": "22,5 kilómetros"
     },
     {
       "label": "Período orbital",
       "value": "7,7 horas"
     },
     {
-      "label": "Distancia a Marte",
-      "value": "9.376 km"
+      "label": "Distancia desde Marte",
+      "value": "9.376 kilómetros"
     },
     {
       "label": "Cráter mayor",
@@ -26,17 +26,26 @@
     },
     {
       "label": "Descubrimiento",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 - Salón Asaf"
     }
   ],
-  "history": "Fobos orbita Marte más cerca que cualquier otra luna del Sistema Solar respecto a su planeta — tan cerca que lo recorre más rápido que la rotación marciana, saliendo por el oeste y poniéndose por el este dos veces por día marciano. Las mareas la están destrozando: pierde unos 1,8 metros de altura por siglo y va a chocar con Marte o convertirse en un anillo en 50 millones de años. Su superficie castigada, dominada por el cráter Stickney de 9 km, está cubierta de surcos de origen debatido. El Mars Trek de la NASA la mapea en detalle; la misión MMX de JAXA va a aterrizar ahí y traer muestras.",
+  "history": "Fobos orbita a Marte más cerca que cualquier otra luna del Sistema Solar orbita su planeta, tan cerca que gira más rápido de lo que gira Marte, saliendo por el oeste y poniéndose por el este dos veces cada día marciano. Las fuerzas de marea lo están desgarrando: pierde alrededor de 1,8 metros de altitud por siglo y dentro de 50 millones de años se estrellará contra Marte o se fragmentará formando un anillo. Su maltrecha superficie, dominada por el cráter Stickney de 9 kilómetros de longitud, está cubierta de surcos cuyo origen aún se debate. El Mars Trek de la NASA lo mapea en detalle; la próxima misión JAXA MMX aterrizará allí y devolverá muestras a la Tierra.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "cas",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/phobos/img-1.jpg",
+        "caption": "Martian Moon Phobos Observed by NASA's Odyssey",
+        "credit": "NASA"
+      }
     ]
   }
 }

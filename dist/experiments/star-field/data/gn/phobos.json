@@ -2,7 +2,7 @@
   "id": "phobos",
   "name": "Phobos",
   "kind": "moon",
-  "tagline": "Jasy tuichave Marte rehegua — takua porã hesegue ohupytývo yvy ape ári.",
+  "tagline": "Pe tuichavéva mokõi jasy Marte-pegua — peteĩ escombro-montaje mbeguekatúpe ojere iplaneta gotyo.",
   "facts": [
     {
       "label": "Tuichakue",
@@ -10,10 +10,10 @@
     },
     {
       "label": "Período orbital",
-      "value": "7,7 aravo"
+      "value": "7,7 aravo’i"
     },
     {
-      "label": "Marte-gui ohupyty",
+      "label": "Mombyry Marte-gui",
       "value": "9.376 km"
     },
     {
@@ -22,21 +22,30 @@
     },
     {
       "label": "Gravedad",
-      "value": "0,0057 m/s²"
+      "value": "0,0057 m/s2 rehegua"
     },
     {
       "label": "Ejuhúva",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 : Asaf Salón (ary omano: 1877)."
     }
   ],
-  "history": "Phobos ojeróra Marte asyve opaite jasy Sistema Solar-pe — hína ikatuite ojapo peteĩ ñembojeróra yvake mba'eve Mars oñembojeróra ha'e, osẽ kuarahyresẽgui ha oiko kuarahyreike gotyo mokõi jave ára pegua. Umi fuerzas de marea ojapochy hína: okañy 1,8 métro altura sapy'apy ára ha 50 sua ary pukukue ogueraháta Marte térã oiko peteĩ anillo. Ijy'aipa ojejuhu, Stickney cráter 9 km rehegua omoĩva, oguereko sulcos oje'ekuaa'ỹva moõ guive. NASA Mars Trek omyanyhẽ katuete; JAXA MMX misión ogueĩta upépe ha ogueraháta kuatiápe Yvy ape.",
+  "history": "Fóbos ojere Marte rehe hi'aguĩve ambue jasy Sistema Solar-pegua ojeréva iplaneta rehe — hi'aguĩeterei ha ojere pya'eve Marte ojerévagui, ojupi kuarahyreike gotyo ha oguejy kuarahyresẽ gotyo mokõi jey káda ára Marte-pe. Fuerzas de marea odesgarra ohóvo: operde 1,8 metros rupi altitud por siglo ha ho'áta Marte-pe térã ojedesgarráta peteî anillo-pe 50 millones de años-pe. Isuperficie maltratada, dominada cráter Stickney 9 km, ojejaho'i surco-pe oñedebati gueteri origen. NASA Mars Trek omoĩ peteĩ mapa detalle reheve; pe misión JAXA MMX oútava oguejy upépe ha ombojevýta muestra Yvýpe.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "gn",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/phobos/img-1.jpg",
+        "caption": "Jasy Marciano Phobos Ojehechakuaa NASA Odisea rupive",
+        "credit": "NASA"
+      }
     ]
   }
 }

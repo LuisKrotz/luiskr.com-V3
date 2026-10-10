@@ -1,0 +1,65 @@
+{
+  "id": "earth",
+  "name": "Terra",
+  "kind": "planet",
+  "tagline": "O único mundo coñecido que alberga vida: un planeta oceánico na zona habitable.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "12.742 km"
+    },
+    {
+      "label": "Período orbital",
+      "value": "365,25 días"
+    },
+    {
+      "label": "Duración do día",
+      "value": "23,9 horas"
+    },
+    {
+      "label": "Auga superficial",
+      "value": "≈ 71 % de cobertura oceánica"
+    },
+    {
+      "label": "Lúas",
+      "value": "1"
+    },
+    {
+      "label": "Idade",
+      "value": "≈ 4.540 millóns de anos"
+    }
+  ],
+  "history": "A Terra uniuse a partir da nebulosa solar hai uns 4.540 millóns de anos e arrefriouse nun mundo diferenciado de codia, manto e núcleo de ferro. A vida apareceu nos seus océanos nos primeiros mil millóns de anos e a fotosíntese posteriormente osixenou a atmosfera, o que permitiu complexos ecosistemas terrestres. A tectónica de placas, única entre os planetas rochosos coñecidos, recicla continuamente a superficie e regula o clima ao longo do tempo xeolóxico. A humanidade observa a Terra desde o espazo desde 1946; A 'Blue Marble' (1972) do Apolo 17 segue sendo unha das fotografías máis reproducidas xamais. Máis de 6.000 exoplanetas confirmados proporcionan agora contexto para o inusual que pode ser un mundo estable, de auga líquida e de vida.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "gl",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/earth/img-1.jpg",
+        "caption": "Imaxe de alta definición máis sorprendente da Terra - Blue Marble 2012",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/earth/video-1.mp4",
+        "caption": "Earthrise despois de que Orion executase un sobrevuelo motorizado",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/earth/audio-1.mp3",
+        "caption": "Ondas de radio coros na magnetosfera terrestre — NASA",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

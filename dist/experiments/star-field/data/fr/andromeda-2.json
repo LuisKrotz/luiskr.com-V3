@@ -1,0 +1,35 @@
+{
+  "id": "andromeda-2",
+  "name": "Andromède II",
+  "kind": "dwarfGalaxy",
+  "tagline": "Une naine sphéroïdale d'Andromède digne d'intérêt - ses étoiles montrent des signes d'une possible fusion plus ancienne de deux naines encore plus petites.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "~2,14 Mly"
+    },
+    {
+      "label": "Type",
+      "value": "Sphéroïdal nain"
+    },
+    {
+      "label": "Compagnon de",
+      "value": "M31"
+    },
+    {
+      "label": "Casse-tête",
+      "value": "Le double noyau fait allusion à une fusion antérieure"
+    }
+  ],
+  "history": "Andromède II a attiré l'attention lorsque l'imagerie profonde a suggéré qu'elle pourrait avoir deux noyaux stellaires superposés – preuve qu'elle pourrait elle-même être le reste fusionné de deux naines plus petites, une démonstration que la hiérarchie d'accrétion se poursuit jusqu'aux échelles les plus faibles. Ses étoiles sont vieilles et pauvres en métaux et il partage l'espace de phase de l'orbite du halo des autres satellites d'Andromède, ce qui en fait un banc d'essai pour le problème de l'assemblage des galaxies naines.",
+  "source": "PAndAS · M31 satellites survey",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "van den Bergh 1972",
+      "PAndAS survey"
+    ]
+  }
+}

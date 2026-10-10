@@ -1,0 +1,58 @@
+{
+  "id": "mars",
+  "name": "Mars",
+  "kind": "planet",
+  "tagline": "De rode planeet – de thuisbasis van de hoogste vulkaan en de diepste kloof die we kennen.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "6.779 kilometer"
+    },
+    {
+      "label": "Omlooptijd",
+      "value": "687 dagen"
+    },
+    {
+      "label": "Daglengte",
+      "value": "24,6 uur"
+    },
+    {
+      "label": "Manen",
+      "value": "2 (Phobos, Deimos)"
+    },
+    {
+      "label": "Hoogste vulkaan",
+      "value": "Olympus Bergen – 21,9 km"
+    },
+    {
+      "label": "Zwaartekracht",
+      "value": "3,71 m/s²"
+    }
+  ],
+  "history": "Mars was ooit warmer en natter: orbiters en rovers hebben oude rivierdelta's, meerbeddingen en minerale aderen in kaart gebracht die alleen vloeibaar water kon vormen. Tegenwoordig is het een koude woestijn met een dunne CO₂-atmosfeer en stofstormen die de planeet omringen. Viking 1 bereikte de eerste succesvolle landing in 1976; Sindsdien heeft een vloot orbiters plus de Sojourner-, Spirit-, Opportunity-, Curiosity- en Perseverance-rovers het oppervlak bereden, en Perseverance bewaart monsters voor een geplande terugkeer. Het is de meest onderzochte planeet buiten de aarde en de aangegeven bestemming voor de eerste bemande interplanetaire missies.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "nl",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mars/img-1.jpg",
+        "caption": "Lente op Mars: Hubble beste zicht op de Rode Planeet",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/mars/audio-1.ogg",
+        "caption": "Volhardingsmicrofoon - eerste geluiden van Mars",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

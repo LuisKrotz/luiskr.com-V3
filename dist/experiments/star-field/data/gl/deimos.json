@@ -2,7 +2,7 @@
   "id": "deimos",
   "name": "Deimos",
   "kind": "moon",
-  "tagline": "A lúa menor e máis externa de Marte — un vestixio cuberto de po no bordo da altitude síncrona.",
+  "tagline": "A lúa exterior máis pequena de Marte: un remanente cuberto de po que orbita ao bordo da altitude sincrónica.",
   "facts": [
     {
       "label": "Diámetro",
@@ -13,30 +13,39 @@
       "value": "30,3 horas"
     },
     {
-      "label": "Distancia a Marte",
+      "label": "Distancia de Marte",
       "value": "23.460 km"
     },
     {
       "label": "Cratere maior",
-      "value": "Swift — 2,3 km"
+      "value": "Swift - 2,3 km"
     },
     {
       "label": "Gravidade",
-      "value": "0,003 m/s²"
+      "value": "0.003 m/s²"
     },
     {
       "label": "Descubrimento",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 - Asaph Hall"
     }
   ],
-  "history": "Deimos é a menor e máis externa das dúas lúas de Marte — un corpo irregular enrasado polo po, probablemente capturado do cinto de asteroides ou nacido de restos de impacto. A súa espesa capa de rexolito suaviza os cráteres e dálle un aspecto obtuso e apagado, ao contrario da cara castigada de Fobos. Orbita xusto por riba da altitude síncrona, así que dende a superficie marciana deriva lentamente de leste a oeste durante case tres días. O Mars Trek da NASA ofrece modelos detallados; ningunha sonda aterrou aínda, mais segue sendo candidata a escala para misións tripuladas.",
+  "history": "Deimos é a máis pequena e externa das dúas lúas de Marte: un corpo irregular e alisado polo po probablemente capturado do cinto de asteroides ou nacido dos restos do impacto. A súa grosa manta de regolito suaviza os seus cráteres, dándolle un aspecto grumoso e apagado a diferenza do rostro maltrecho de Fobos. Orbita xusto fóra da altitude síncrona, polo que desde a superficie marciana deriva lentamente de leste a oeste durante case tres días. Mars Trek da NASA ofrece modelos de forma detallados; ningún módulo de aterraxe aínda o tocou, pero segue sendo un punto de espera candidato para as misións tripuladas en Marte.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "gl",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/deimos/img-1.jpg",
+        "caption": "Eclipses marcianas: Deimos e Fobos",
+        "credit": "NASA"
+      }
     ]
   }
 }

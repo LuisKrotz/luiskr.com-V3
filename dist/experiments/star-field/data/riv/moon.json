@@ -1,0 +1,51 @@
+{
+  "id": "moon",
+  "name": "Lua",
+  "kind": "moon",
+  "tagline": "O único satélite natural da Terra — o primeiro mundo visitado por seres humanos.",
+  "facts": [
+    {
+      "label": "Diâmetro",
+      "value": "3.474 quilômetros"
+    },
+    {
+      "label": "Distância da Terra",
+      "value": "384.400 km"
+    },
+    {
+      "label": "Período orbital",
+      "value": "27,3 dias"
+    },
+    {
+      "label": "Rotação",
+      "value": "Bloqueado de forma maré"
+    },
+    {
+      "label": "Gravidade",
+      "value": "1,62m/s²"
+    },
+    {
+      "label": "Primeiro pouso tripulado",
+      "value": "20 de julho de 1969"
+    }
+  ],
+  "history": "A Lua provavelmente se formou há cerca de 4,5 bilhões de anos, quando um corpo do tamanho de Marte – chamado Theia – atingiu a jovem Terra, e os detritos ejetados coalesceram em órbita. Bloqueado de forma maré, mostra sempre o mesmo rosto. Doze astronautas da Apollo percorreram sua superfície entre 1969 e 1972, retornando 382 kg de rocha que ancora a cronologia lunar. A Lua se afasta cerca de 3,8 cm da Terra a cada ano. É agora o alvo do programa Artemis da NASA, que visa devolver os seres humanos – incluindo a primeira mulher – nesta década e estabelecer uma presença sustentável perto das crateras geladas do pólo sul.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "riv",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/moon/img-1.jpg",
+        "caption": "Full Moon",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

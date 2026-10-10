@@ -1,0 +1,51 @@
+{
+  "id": "mercury",
+  "name": "Mercure",
+  "kind": "planet",
+  "tagline": "La plus petite planète et la plus proche du Soleil – un monde de cratères extrêmes.",
+  "facts": [
+    {
+      "label": "Diamètre",
+      "value": "4 879 km"
+    },
+    {
+      "label": "Période orbitale",
+      "value": "88 jours"
+    },
+    {
+      "label": "Durée du jour",
+      "value": "59 jours terrestres"
+    },
+    {
+      "label": "Température",
+      "value": "−173 à 427 °C"
+    },
+    {
+      "label": "Gravité",
+      "value": "3,7 m/s²"
+    },
+    {
+      "label": "Lunes",
+      "value": "0"
+    }
+  ],
+  "history": "Mercure est la plus petite planète du système solaire et effectue une orbite tous les 88 jours – la plus rapide de toutes les planètes, c'est pourquoi les Romains lui ont donné le nom de leur dieu messager rapide. Verrouillé dans une résonance spin-orbite de 3:2, il tourne exactement trois fois toutes les deux orbites. Sa surface cratérisée enregistre des milliards d'années d'impacts, et l'orbiteur MESSENGER de la NASA (2011-2015) a découvert de la glace d'eau cachée dans des cratères polaires ombragés en permanence, malgré des températures de 427 °C à midi. Seuls trois vaisseaux spatiaux l'ont visité : Mariner 10 a survolé l'orbite en 1974-1975, MESSENGER a été mis en orbite il y a dix ans et la mission conjointe ESA/JAXA BepiColombo est en route pour entrer en orbite en 2026.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mercury/img-1.jpg",
+        "caption": "Joyeux petit cratère sur Mercure",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

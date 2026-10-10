@@ -1,0 +1,42 @@
+{
+  "id": "bennu",
+  "name": "Bennu",
+  "kind": "dwarfPlanet",
+  "tagline": "El asteroide cercano a la Tierra más cuidadosamente rastreado: muestreado por OSIRIS-REx en 2020.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "~490 metros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "1,20 años"
+    },
+    {
+      "label": "órbita",
+      "value": "Cerca de la Tierra: 0,90–1,36 AU"
+    },
+    {
+      "label": "Tipo",
+      "value": "Tipo B (carbonáceo)"
+    },
+    {
+      "label": "Muestra devuelta",
+      "value": "121,6 gramos — septiembre de 2023"
+    },
+    {
+      "label": "Misión",
+      "value": "NASA OSIRIS-REx"
+    }
+  ],
+  "history": "Bennu es una pila de escombros flojamente unida que se mantiene unida más por las fuerzas de Van der Waals que por la gravedad: el touch-and-go 2020 de OSIRIS-REx casi se hunde en su superficie y levanta una lluvia de guijarros. La muestra devuelta de 121,6 gramos es rica en carbono, arcillas hidratadas y moléculas orgánicas. La órbita de Bennu también se encuentra entre los riesgos de colisión más conocidos: una probabilidad de 1 entre 2.700 de impacto con la Tierra en 2182: lo suficientemente cerca para observar, lo suficientemente lejos como para dormir por la noche.",
+  "source": "NASA · NASA Bennu Trek · OSIRIS-REx",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA · NASA Bennu Trek · OSIRIS-REx"
+    ]
+  }
+}

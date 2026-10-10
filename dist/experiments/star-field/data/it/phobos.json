@@ -2,7 +2,7 @@
   "id": "phobos",
   "name": "Fobos",
   "kind": "moon",
-  "tagline": "La maggiore delle due lune di Marte — un aggregato di detriti che spiraleggia lentamente verso il pianeta.",
+  "tagline": "La più grande delle due lune di Marte: un cumulo di macerie che si muove lentamente a spirale verso il suo pianeta.",
   "facts": [
     {
       "label": "Diametro",
@@ -26,17 +26,26 @@
     },
     {
       "label": "Scoperta",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 – Sala Asaf"
     }
   ],
-  "history": "Fobos orbita Marte più vicino di quanto qualsiasi altra luna del Sistema solare orbiti il suo pianeta — tanto vicino da compiere il giro più velocemente della rotazione marziana, sorgendo a ovest e tramontando a est due volte al giorno. Le maree lo stanno disgregando: perde circa 1,8 metri di quota per secolo e si schianterà su Marte o si frantumerà in un anello entro 50 milioni di anni. La sua superficie segnata, dominata dal cratere Stickney di 9 km, è coperta di solchi di origine dibattuta. Il Mars Trek della NASA lo mappa in dettaglio; la missione MMX della JAXA vi atterrerà e riporterà campioni.",
+  "history": "Phobos orbita attorno a Marte più vicino di qualsiasi altra luna del Sistema Solare orbita attorno al suo pianeta, così vicino che gira intorno a Marte più velocemente di quanto ruoti, sorgendo a ovest e tramontando a est due volte ogni giorno marziano. Le forze delle maree lo stanno dilaniando: perde circa 1,8 metri di altitudine ogni secolo e entro 50 milioni di anni si schianterà su Marte o si frantumi in un anello. La sua superficie martoriata, dominata dal cratere Stickney di 9 km, è ricoperta di solchi la cui origine è ancora dibattuta. Mars Trek della NASA lo mappa in dettaglio; la prossima missione JAXA MMX atterrerà lì e riporterà i campioni sulla Terra.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "it",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/phobos/img-1.jpg",
+        "caption": "Phobos della luna marziana osservato dalla sonda Odyssey della NASA",
+        "credit": "NASA"
+      }
     ]
   }
 }

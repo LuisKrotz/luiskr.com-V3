@@ -1,0 +1,35 @@
+{
+  "id": "lgs-3",
+  "name": "LGS3",
+  "kind": "dwarfGalaxy",
+  "tagline": "Il nano Pesci: un membro transitorio del Gruppo Locale a metà strada tra lo sferoidale e l'irregolare.",
+  "facts": [
+    {
+      "label": "Distanza",
+      "value": "~2,6 milioni"
+    },
+    {
+      "label": "Tipo",
+      "value": "dSph/dIrr transitorio"
+    },
+    {
+      "label": "Orbita",
+      "value": "Liberamente legato a M31"
+    },
+    {
+      "label": "Gas",
+      "value": "Rimane la traccia H I"
+    }
+  ],
+  "history": "LGS 3 è la nana di transizione del Gruppo Locale, classificata tra sferoidale e irregolare perché contiene ancora una traccia di gas e alcune stelle giovani, ma ovunque sembra una sferoidale morente. Orbita liberamente vicino ad Andromeda e probabilmente sta seguendo un lungo percorso verso di essa: un caso intermedio che documenta esattamente come una galassia perde il suo gas e si spegne sotto la gravità di un gigante.",
+  "source": "PAndAS · Thuan & Martin",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "Thuan & Martin 1979",
+      "PAndAS survey"
+    ]
+  }
+}

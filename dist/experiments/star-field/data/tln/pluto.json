@@ -1,0 +1,58 @@
+{
+  "id": "pluto",
+  "name": "Pluton",
+  "kind": "dwarfPlanet",
+  "tagline": "L'amato nano, il re de la cintura di Kuiper e un mondo di ghiacciai di azoto.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "2.377 km"
+    },
+    {
+      "label": "Periodo orbital",
+      "value": "248 ani"
+    },
+    {
+      "label": "Łune",
+      "value": "5 (Caronte il pi grande)"
+    },
+    {
+      "label": "Scoverta",
+      "value": "1930 – Clyde Tombaugh"
+    },
+    {
+      "label": "Prima visita",
+      "value": "Nuovi Orizzonti, luglio 2015"
+    },
+    {
+      "label": "Riclassificato",
+      "value": "Pianeta nano, IAU 2006"
+    }
+  ],
+  "history": "Clyde Tombaugh trovò Plutone nel 1930 dopo una ricerca sistematica del \"Pianeta X\" e par 76 ani fu considerato il nono pianeta. La definizione de la IAU del 2006 lo ha riclassificato come pianeta nano, il primo membro riconosciuto de la Cintura di Kuiper, l'anello di corpi ghiacciati oltre Nettuno. La navicella spaziale New Horizons de la NASA ha volato par 12.500 km nel luglio 2015 e ha rivelato un mondo sorprendentemente attivo: una pianura di ghiaccio d'azoto a forma di cuore (Sputnik Planitia) che fa convezione come una lampada di lava, montagne di ghiaccio d'acqua alte fino a 3,5 km e una sottile atmosfera di foschia blu. La sua łuna pi grande, Caronte, el ze grande la metà di Plutone: un vero sistema doppio.",
+  "source": "NASA/JPL Solar System Exploration; Johns Hopkins APL",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "tln",
+    "refs": [
+      "NASA/JPL Solar System Exploration; Johns Hopkins APL"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/pluto/img-1.jpg",
+        "caption": "New Horizons Sees Pluto",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/pluto/video-1.mp4",
+        "caption": "New Horizons Interview with Dennis Reuter",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "saturn",
+  "name": "Satarn",
+  "kind": "planet",
+  "tagline": "An fathach fáinneach - réisíonn a halo oighir 280,000 km ach fós féin tá sé méadar tanaí.",
+  "facts": [
+    {
+      "label": "Trastomhas",
+      "value": "116,460 km"
+    },
+    {
+      "label": "Tréimhse fithise",
+      "value": "29.4 bliain"
+    },
+    {
+      "label": "Gealacha",
+      "value": "146+ (aitheanta)"
+    },
+    {
+      "label": "Réise fáinne",
+      "value": "≈ 280,000 km ar leithead, ~10 m–1 km ar tiús"
+    },
+    {
+      "label": "Dlús",
+      "value": "0.687 g/cm³ - shnámhfadh sé in uisce"
+    },
+    {
+      "label": "An ghealach is mó",
+      "value": "Tíotán"
+    }
+  ],
+  "history": "Chonaic Galileo fáinní Satarn sa bhliain 1610 ach níor fhéad sé iad a réiteach — thug sé ‘cluasa’ orthu; D’aithin Huygens an córas fáinne i 1655, agus fuair Cassini an rannán ar a bhfuil a ainm. Cáithníní gan áireamh iad na fáinní d’oighear uisce nach bhfuil íonghlan, is dócha gur iarsmaí gealaí briste nó cóiméad gafa iad, agus d’fhéadfadh go bhfuil siad óg go geolaíoch. Chaith an fithiseán Cassini trí bliana déag sa chóras Satarn (2004–2017), ag teacht ar gheiséirí ar Enceladus a scaoileann aigéan faoin dromchla isteach sa spás agus a scaoileann an taiscéalaí Huygens ar Tíotán – an t-aon tuirlingt a rinneadh riamh sa Ghrianchóras amuigh.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ga",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/saturn/img-1.jpg",
+        "caption": "Imeall na hOíche",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/saturn/video-1.mp4",
+        "caption": "Satarn Infridhearg Cassini (Leagan Gearr)",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/saturn/audio-1.wav",
+        "caption": "Astaíochtaí raidió Satarn — Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

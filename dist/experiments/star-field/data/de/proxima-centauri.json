@@ -1,0 +1,51 @@
+{
+  "id": "proxima-centauri",
+  "name": "Proxima Centauri",
+  "kind": "system",
+  "tagline": "Der der Sonne am nächsten gelegene Stern – ein Leuchtstern mit einem erdgroßen Planeten nebenan.",
+  "facts": [
+    {
+      "label": "Entfernung",
+      "value": "4.246 Lichtjahre"
+    },
+    {
+      "label": "Typ",
+      "value": "Roter Zwerg (M5,5V)"
+    },
+    {
+      "label": "Masse",
+      "value": "≈ 0,12 Sonnenmassen"
+    },
+    {
+      "label": "Planeten",
+      "value": "Proxima b (bewohnbare Zone), c, d"
+    },
+    {
+      "label": "Proxima b-Umlaufbahn",
+      "value": "11,2 Tage"
+    },
+    {
+      "label": "Entdeckung",
+      "value": "1915 – Robert Innes"
+    }
+  ],
+  "history": "Proxima ist der sonnennächste Stern – das Licht, das Sie heute Nacht sehen, hat ihn vor 4,24 Jahren verlassen. Es handelt sich um einen kleinen Roten Zwerg, der für das bloße Auge zu schwach ist und in Flammen ausbricht, die stark genug sind, um jede Atmosphäre herauszufordern. Im Jahr 2016 kündigten Astronomen Proxima b an, einen Gesteinsplaneten mit mindestens 1,07 Erdmassen, der alle 11,2 Tage innerhalb der bewohnbaren Zone des Sterns umkreist – der nächstgelegene Exoplanet und die der Erde am nächsten gelegene potenziell gemäßigte Welt. Ob Gezeitenblockaden und Fackeln es bewohnbar machen, ist eine offene Frage, die JWST und Teleskope der nächsten Generation beantworten wollen.",
+  "source": "ESO; Nature (Anglada-Escudé et al., 2016)",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "ESO; Nature (Anglada-Escudé et al., 2016)"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/proxima-centauri/img-1.jpg",
+        "caption": "Hubbles bestes Bild von Alpha Centauri A und B",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

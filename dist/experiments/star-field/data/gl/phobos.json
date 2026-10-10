@@ -2,7 +2,7 @@
   "id": "phobos",
   "name": "Fobos",
   "kind": "moon",
-  "tagline": "A maior das dúas lúas de Marte — un montón de escombos en espiral descendente cara ao planeta.",
+  "tagline": "A máis grande das dúas lúas de Marte: unha pila de cascallos que avanza lentamente en espiral cara ao seu planeta.",
   "facts": [
     {
       "label": "Diámetro",
@@ -13,12 +13,12 @@
       "value": "7,7 horas"
     },
     {
-      "label": "Distancia a Marte",
+      "label": "Distancia de Marte",
       "value": "9.376 km"
     },
     {
       "label": "Cratere maior",
-      "value": "Stickney — 9 km"
+      "value": "Stickney - 9 km"
     },
     {
       "label": "Gravidade",
@@ -26,17 +26,26 @@
     },
     {
       "label": "Descubrimento",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 - Asaph Hall"
     }
   ],
-  "history": "Fobos orbita Marte máis preto que calquera outra lúa do Sistema Solar respecto do seu planeta — tan preto que dá a volta máis rápido ca a rotación marciana, nascendo polo oeste e poñéndose polo leste dúas veces cada día marciano. As mareas están a despedazala: perde uns 1,8 metros de altitude por século e chocará con Marte ou converterase nun anel en 50 millóns de anos. A súa superficie castigada, dominada polo cráter Stickney de 9 km, está cuberta de regos de orixe debatida. O Mars Trek da NASA mapea en detalle; a misión MMX da JAXA vai aterrar e traer mostras.",
+  "history": "Fobos orbita Marte máis preto que calquera outra lúa do Sistema Solar que orbita o seu planeta, tan preto que circula máis rápido que Marte, subindo polo oeste e poñéndose polo leste dúas veces cada día marciano. As forzas das mareas estano destrozando: perde uns 1,8 metros de altitude por século e chocará contra Marte ou destrozará un anel dentro de 50 millóns de anos. A súa superficie maltratada, dominada polo cráter Stickney de 9 km, está cuberta de sucos cuxa orixe aínda se debate. Mars Trek da NASA mapea con detalle; a próxima misión JAXA MMX aterrará alí e devolverá mostras á Terra.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "gl",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/phobos/img-1.jpg",
+        "caption": "Lúa marciana Fobos observada pola Odisea da NASA",
+        "credit": "NASA"
+      }
     ]
   }
 }

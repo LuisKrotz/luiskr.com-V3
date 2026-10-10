@@ -1,0 +1,58 @@
+{
+  "id": "venus",
+  "name": "Venus",
+  "kind": "planet",
+  "tagline": "El gemelo del tamaño de la Tierra, envuelto en un aplastante invernadero de CO₂: el planeta más caliente.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "12.104 kilometros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "225 días"
+    },
+    {
+      "label": "Rotación",
+      "value": "243 días, retrógrado"
+    },
+    {
+      "label": "Temperatura de la superficie",
+      "value": "≈ 465°C"
+    },
+    {
+      "label": "Presión superficial",
+      "value": "≈ 92 barras"
+    },
+    {
+      "label": "Lunas",
+      "value": "0"
+    }
+  ],
+  "history": "Venus gira hacia atrás y tan lentamente que su día dura más que su año. Debajo de nubes ininterrumpidas de ácido sulfúrico, un invernadero fuera de control mantiene la superficie cerca de 465 °C (lo suficientemente caliente como para derretir el plomo) bajo 92 atmósferas de presión. El programa soviético Venera logró aquí los primeros aterrizajes en otro planeta entre 1970 y 1982; ninguna sonda sobrevivió más de dos horas. El radar del orbitador Magallanes de la NASA cartografió el 98% de la superficie entre 1990 y 1994, revelando un mundo volcánico resurgido hace tan solo unos cientos de millones de años. A Venus se le suele llamar el gemelo malvado de la Tierra: mismo tamaño, roca similar, destino radicalmente diferente: una advertencia sobre el clima planetario.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/venus/img-1.jpg",
+        "caption": "Visualización del tránsito de Venus en el Goddard de la NASA",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/venus/video-1.mp4",
+        "caption": "El viento eléctrico de Venus",
+        "credit": "NASA Goddard"
+      }
+    ]
+  }
+}

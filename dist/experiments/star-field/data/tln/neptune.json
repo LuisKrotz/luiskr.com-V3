@@ -1,0 +1,51 @@
+{
+  "id": "neptune",
+  "name": "Netun",
+  "kind": "planet",
+  "tagline": "Il mondo pi ventoso: un gigante di ghiaccio scoperto dalla matematica prima dei telescopi.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "49.244 km"
+    },
+    {
+      "label": "Periodo orbital",
+      "value": "164,8 ani"
+    },
+    {
+      "label": "Venti pi veloci",
+      "value": "≈ 2.100 chilometri orari"
+    },
+    {
+      "label": "Łune",
+      "value": "16"
+    },
+    {
+      "label": "Scoverta",
+      "value": "1846 - previsto da Adams e Le Verrier"
+    },
+    {
+      "label": "Distanza media",
+      "value": "4,5 miliardi di km (30 UA)"
+    }
+  ],
+  "history": "Nettuno el ze l'unico pianeta trovato tramite calcolo: gli astronomi Adams e Le Verrier dedussero indipendentemente la sua posizione dalle oscillazioni nell'orbita di Urano, e Johann Galle lo trovò entro un grado dalla previsione nel 1846: un trionfo de la fisica newtoniana. Il sorvolo de la Voyager 2 del 1989 el ze ancora l'unica visita de l'umanità; ha rivelato venti supersonici fino a 2.100 km/h – i pi veloci del Sistema Solare – e grandi tempeste oscure che vanno e vengono. La sua łuna pi grande, Tritone, orbita all'indietro, prova che el ze un oggetto catturato dalla cintura di Kuiper, e emette geyser di azoto da una superficie ghiacciata a -235 °C.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "tln",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/neptune/img-1.jpg",
+        "caption": "PIA01492",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

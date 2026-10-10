@@ -1,0 +1,35 @@
+{
+  "id": "andromeda-1",
+  "name": "Andromeda I",
+  "kind": "dwarfGalaxy",
+  "tagline": "Ein schwacher Andromeda-Zwergsphäroid – einer der diffusen Satelliten, die den äußeren Halo von M31 bevölkern.",
+  "facts": [
+    {
+      "label": "Entfernung",
+      "value": "~2,55 Mly"
+    },
+    {
+      "label": "Typ",
+      "value": "Zwergkugelförmig"
+    },
+    {
+      "label": "Begleiter von",
+      "value": "M31"
+    },
+    {
+      "label": "Leuchtkraft",
+      "value": "Sehr geringe Oberflächenhelligkeit"
+    }
+  ],
+  "history": "Andromeda I ist einer der schwachen kugelförmigen Zwergsterne, die die Andromeda-Galaxie umkreisen – so diffus, dass er nur durch fotografische Untersuchungen als subtiler Überschuss an schwachen Sternen über dem Himmelshintergrund identifiziert werden konnte. Seine Sterne sind größtenteils alt und metallarm, das typische Produkt eines Satelliten, der früh sein Gas verlor, um den Druck im Halo eines riesigen Wirts zu stauen. Es gehört zu dem Schwarm von M31-Begleitern, der derzeit im Rahmen der Pan-Andromeda-Untersuchung gezählt und kartiert wird.",
+  "source": "PAndAS · van den Bergh 1972",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "van den Bergh 1972",
+      "PAndAS survey"
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "proxima-centauri",
+  "name": "Prossima Centauri",
+  "kind": "system",
+  "tagline": "La stella più vicina al Sole: una stella a bagliore con un pianeta delle dimensioni della Terra accanto.",
+  "facts": [
+    {
+      "label": "Distanza",
+      "value": "4.246 anni luce"
+    },
+    {
+      "label": "Tipo",
+      "value": "Nana rossa (M5,5V)"
+    },
+    {
+      "label": "Massa",
+      "value": "≈ 0,12 masse solari"
+    },
+    {
+      "label": "Pianeti",
+      "value": "Proxima b (zona abitabile), c, d"
+    },
+    {
+      "label": "Orbita prossima b",
+      "value": "11,2 giorni"
+    },
+    {
+      "label": "Scoperta",
+      "value": "1915 – Robert Innes"
+    }
+  ],
+  "history": "Proxima è la stella più vicina al Sole: la luce che vedi stasera l'ha lasciata 4,24 anni fa. Si tratta di una piccola nana rossa, troppo debole per l'occhio nudo, che erutta in bagliori abbastanza potenti da sfidare qualsiasi atmosfera. Nel 2016 gli astronomi hanno annunciato Proxima b, un pianeta roccioso di almeno 1,07 masse terrestri in orbita all'interno della zona abitabile della stella ogni 11,2 giorni: l'esopianeta più vicino e il mondo potenzialmente temperato più vicino alla Terra. Se il bloccaggio delle maree e i brillamenti lo rendano abitabile è una domanda aperta a cui JWST e i telescopi di prossima generazione mirano a rispondere.",
+  "source": "ESO; Nature (Anglada-Escudé et al., 2016)",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "ESO; Nature (Anglada-Escudé et al., 2016)"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/proxima-centauri/img-1.jpg",
+        "caption": "La migliore immagine di Hubble di Alpha Centauri A e B",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

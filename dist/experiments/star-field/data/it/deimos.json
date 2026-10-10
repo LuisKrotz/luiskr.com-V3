@@ -2,7 +2,7 @@
   "id": "deimos",
   "name": "Deimos",
   "kind": "moon",
-  "tagline": "La luna minore e più esterna di Marte — un residuo coperto di polvere al margine dell'orbita sincrona.",
+  "tagline": "La luna più piccola ed esterna di Marte: un residuo ricoperto di polvere che orbita al limite dell'altitudine sincrona.",
   "facts": [
     {
       "label": "Diametro",
@@ -18,25 +18,34 @@
     },
     {
       "label": "Cratere maggiore",
-      "value": "Swift — 2,3 km"
+      "value": "Veloce: 2,3 km"
     },
     {
       "label": "Gravità",
-      "value": "0,003 m/s²"
+      "value": "0.003 m/s²"
     },
     {
       "label": "Scoperta",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 – Sala Asaf"
     }
   ],
-  "history": "Deimos è la minore e più esterna delle due lune di Marte — un corpo irregolare levigato dalla polvere, probabilmente catturato dalla fascia degli asteroidi o nato da detriti d'impatto. Il suo spesso manto di regolite ammorbidisce i crateri dandogli un aspetto ottuso e smorto, a differenza della faccia segnata di Fobos. Orbita appena oltre l'altitudine sincrona, perciò dalla superficie marziana deriva lentamente da est a ovest in quasi tre giorni. Il Mars Trek della NASA fornisce modelli dettagliati; nessuna sonda è ancora atterrata, ma resta candidata come tappa per missioni con equipaggio.",
+  "history": "Deimos è la più piccola ed esterna delle due lune di Marte: un corpo irregolare e levigato dalla polvere, probabilmente catturato dalla cintura degli asteroidi o nato dai detriti dell'impatto. La sua spessa coltre di regolite ammorbidisce i suoi crateri, conferendogli un aspetto bitorzoluto e ovattato, a differenza del volto martoriato di Phobos. Orbita appena fuori dall'altitudine sincrona, quindi dalla superficie marziana si sposta lentamente da est a ovest per quasi tre giorni. Mars Trek della NASA fornisce modelli di forma dettagliati; nessun lander lo ha ancora toccato, ma rimane un candidato punto di sosta per missioni su Marte con equipaggio.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "it",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/deimos/img-1.jpg",
+        "caption": "Eclissi marziane: Deimos e Phobos",
+        "credit": "NASA"
+      }
     ]
   }
 }

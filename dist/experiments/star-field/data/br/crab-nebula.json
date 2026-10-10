@@ -1,0 +1,58 @@
+{
+  "id": "crab-nebula",
+  "name": "Nebulosa do Caranguejo",
+  "kind": "nebula",
+  "tagline": "Os destroços de uma estrela vista explodindo em 1054 – ainda em expansão.",
+  "facts": [
+    {
+      "label": "Distância",
+      "value": "≈ 6.500 anos-luz"
+    },
+    {
+      "label": "Catálogo",
+      "value": "M1/NGC 1952"
+    },
+    {
+      "label": "Progenitor",
+      "value": "Supernova de julho de 1054"
+    },
+    {
+      "label": "Núcleo remanescente",
+      "value": "Pulsar de caranguejo – 30 giros/segundo"
+    },
+    {
+      "label": "Expansão",
+      "value": "≈ 1.500 km/s e crescendo"
+    },
+    {
+      "label": "Gravado por",
+      "value": "Astrônomos da corte chinesa e japonesa"
+    }
+  ],
+  "history": "Em julho de 1054, astrônomos chineses e japoneses registraram uma “estrela convidada” brilhante o suficiente para ser lida à noite e visível à luz do dia durante 23 dias. Seis séculos mais tarde, Charles Messier catalogou o seu remanescente – o objeto que inspirou a sua famosa lista de sósias de cometas como entrada M1. No seu coração gira o pulsar do Caranguejo, uma estrela de nêutrons de 30 km que gira 30 vezes por segundo e emite radiação como um farol em todos os comprimentos de onda. Os filamentos em expansão abrangem agora cerca de 11 anos-luz; comparar fotografias ao longo de décadas mostra que os destroços ainda correm para fora – uma explosão em andamento.",
+  "source": "NASA/ESA Hubble; Harvard CfA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "br",
+    "refs": [
+      "NASA/ESA Hubble; Harvard CfA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/crab-nebula/img-1.jpg",
+        "caption": "Hubble da NASA captura o coração pulsante da nebulosa do Caranguejo",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/crab-nebula/video-1.mp4",
+        "caption": "29º aniversário do Hubble",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

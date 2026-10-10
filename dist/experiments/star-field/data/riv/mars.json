@@ -1,0 +1,58 @@
+{
+  "id": "mars",
+  "name": "Marte",
+  "kind": "planet",
+  "tagline": "O planeta vermelho – lar do vulcão mais alto e do desfiladeiro mais profundo conhecido.",
+  "facts": [
+    {
+      "label": "Diâmetro",
+      "value": "6.779 quilômetros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "687 dias"
+    },
+    {
+      "label": "Duração do dia",
+      "value": "24,6 horas"
+    },
+    {
+      "label": "Luas",
+      "value": "2 (Fobos, Deimos)"
+    },
+    {
+      "label": "Vulcão mais alto",
+      "value": "Monte Olimpo — 21,9 km"
+    },
+    {
+      "label": "Gravidade",
+      "value": "3,71 m/s²"
+    }
+  ],
+  "history": "Marte já foi mais quente e úmido: orbitadores e rovers mapearam antigos deltas de rios, leitos de lagos e veios minerais que somente água líquida poderia formar. Hoje é um deserto frio com uma fina atmosfera de CO₂ e tempestades de poeira que circundam o planeta. O Viking 1 conseguiu o primeiro pouso bem-sucedido em 1976; desde então, uma frota de orbitadores mais os rovers Sojourner, Spirit, Opportunity, Curiosity e Perseverance percorreram sua superfície, e o Perseverance está armazenando amostras em cache para um retorno planejado. É o planeta mais explorado além da Terra e o destino declarado das primeiras missões interplanetárias tripuladas.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "riv",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mars/img-1.jpg",
+        "caption": "Springtime on Mars: Hubble Best View of the Red Planet",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/mars/audio-1.ogg",
+        "caption": "Perseverance microphone — first sounds from Mars",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

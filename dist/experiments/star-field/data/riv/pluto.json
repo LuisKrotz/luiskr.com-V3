@@ -1,0 +1,58 @@
+{
+  "id": "pluto",
+  "name": "Plutão",
+  "kind": "dwarfPlanet",
+  "tagline": "O querido anão – rei do Cinturão de Kuiper e de um mundo de geleiras de nitrogênio.",
+  "facts": [
+    {
+      "label": "Diâmetro",
+      "value": "2.377 quilômetros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "248 anos"
+    },
+    {
+      "label": "Luas",
+      "value": "5 (Caronte maior)"
+    },
+    {
+      "label": "Descobrimento",
+      "value": "1930 – Clyde Tombaugh"
+    },
+    {
+      "label": "Primeira visita",
+      "value": "Novos Horizontes, julho de 2015"
+    },
+    {
+      "label": "Reclassificado",
+      "value": "Planeta anão, IAU 2006"
+    }
+  ],
+  "history": "Clyde Tombaugh encontrou Plutão em 1930, após uma busca sistemática pelo “Planeta X”, e durante 76 anos foi considerado o nono planeta. A definição de 2006 da IAU reclassificou-o como planeta anão — o primeiro membro reconhecido da Cintura de Kuiper, o anel de corpos gelados para lá de Neptuno. A sonda New Horizons da NASA voou até 12.500 km em julho de 2015 e revelou um mundo surpreendentemente ativo: uma planície de gelo de azoto em forma de coração (Sputnik Planitia) que faz convecção como uma lâmpada de lava, montanhas de água gelada com até 3,5 km de altura e uma fina atmosfera de neblina azul. A sua maior lua, Caronte, tem metade do tamanho de Plutão – um verdadeiro sistema duplo.",
+  "source": "NASA/JPL Solar System Exploration; Johns Hopkins APL",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "riv",
+    "refs": [
+      "NASA/JPL Solar System Exploration; Johns Hopkins APL"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/pluto/img-1.jpg",
+        "caption": "New Horizons Sees Pluto",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/pluto/video-1.mp4",
+        "caption": "New Horizons Interview with Dennis Reuter",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "moon",
+  "name": "Maan",
+  "kind": "moon",
+  "tagline": "De enige natuurlijke satelliet op aarde: de eerste wereld die door mensen werd bezocht.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "3.474 km"
+    },
+    {
+      "label": "Afstand tot de aarde",
+      "value": "384.400 kilometer"
+    },
+    {
+      "label": "Omlooptijd",
+      "value": "27,3 dagen"
+    },
+    {
+      "label": "Rotatie",
+      "value": "Getijde op slot"
+    },
+    {
+      "label": "Zwaartekracht",
+      "value": "1,62 m/s²"
+    },
+    {
+      "label": "Eerste bemande landing",
+      "value": "20 juli 1969"
+    }
+  ],
+  "history": "De maan ontstond hoogstwaarschijnlijk zo'n 4,5 miljard jaar geleden toen een hemellichaam ter grootte van Mars, genaamd Theia, de jonge aarde trof en het uitgeworpen puin samensmolt in een baan om de aarde. Netjes vergrendeld, toont het altijd hetzelfde gezicht. Twaalf Apollo-astronauten liepen tussen 1969 en 1972 over het oppervlak en brachten 382 kg gesteente terug dat de maanchronologie verankert. De maan drijft elk jaar ongeveer 3,8 cm verder van de aarde af. Het is nu het doelwit van NASA's Artemis-programma, dat tot doel heeft dit decennium mensen – inclusief de eerste vrouw – terug te brengen en een duurzame aanwezigheid te vestigen in de buurt van de ijsdragende kraters van de zuidpool.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "nl",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/moon/img-1.jpg",
+        "caption": "Volle maan",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

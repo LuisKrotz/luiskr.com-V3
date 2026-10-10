@@ -2,7 +2,7 @@
   "id": "deimos",
   "name": "Deimos",
   "kind": "moon",
-  "tagline": "Mars' kleenere, eussere Mond — en staubbedeckter Rescht am Rand vun der synchroner Umlaufbahn.",
+  "tagline": "Der kleenere eussere Mond des Mars – en staubbedeckter Rescht, der am Rande der synchronen Heech umkreist.",
   "facts": [
     {
       "label": "Durchmesser",
@@ -10,33 +10,42 @@
     },
     {
       "label": "Umlaufziet",
-      "value": "30,3 Stunde"
+      "value": "30,3 Stund"
     },
     {
-      "label": "Abstand zum Mars",
+      "label": "Entfernung vum Mars",
       "value": "23.460 km"
     },
     {
       "label": "Greeschter Krater",
-      "value": "Swift — 2,3 km"
+      "value": "Schnell – 2,3 km"
     },
     {
       "label": "Schwerkraft",
-      "value": "0,003 m/s²"
+      "value": "0.003 m/s²"
     },
     {
       "label": "Entdeckung",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 – Asaph Hall"
     }
   ],
-  "history": "Deimos is der kleenere un eussere vun die zwee Marsmonde — en unregelmaessiger, staubgeglaetteter Keerper, vermutlich aus em Asteroidenguertel gefaange oder aus Einschlagsdebris entstande. Sei dicke Regolithdeck glaettet die Krater un gebt ihm en stumpfes, weiches Aussehe im Gegensatz zu Phobos sei zernarbte Seite. Er kreist grad ebenich der synchroner Heech un drievt vun der Marsoberfleech aus fast drei Daag langsam vun Ost noh West. Der NASA Mars Trek liefert detaillierte Modelle; noch is keen Sonde gelandet, awwer er bleibt Kandidat als Etappepunkt fer bemannte Marsmissione.",
+  "history": "Deimos is der kleenere un eussere vun die zwee Moonde des Mars – en unregelmäßiger, staubgeglätteter Keerper, der wahrscheinlich aus em Asteroidengürtel stammt oder aus Einschlagtrümmern entstanden is. Seine dicke Regolithdecke mildert seine Krater un verleiht ihm im Gegensatz zu Phobos‘ ramponiertem Gesicht en klumpiges, gedämpftes Aussehen. Es umkreist knapp außerhalb der synchronen Heech, sodass es vun der Marsoberfläche aus fast drei Daag lang langsam vun Ost nach West driftet. Mars Trek der NASA liefert detaillierte Formmodelle; Noch hat kein Lander es berührt, awwer es bleibt en möglicher Stützpunkt fer bemannte Marsmissionen.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "hrk",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/deimos/img-1.jpg",
+        "caption": "Martian Eclipses: Deimos and Phobos",
+        "credit": "NASA"
+      }
     ]
   }
 }

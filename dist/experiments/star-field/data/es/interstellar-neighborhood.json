@@ -1,0 +1,35 @@
+{
+  "id": "interstellar-neighborhood",
+  "name": "Vecindario Interestelar",
+  "kind": "structure",
+  "tagline": "La burbuja local del Sol y sus compañeras estelares: todo dentro de unos 2.000 años luz.",
+  "facts": [
+    {
+      "label": "Radio",
+      "value": "~2000 años al año"
+    },
+    {
+      "label": "Contiene",
+      "value": "~1.000 estrellas catalogadas más cercanas, Orion Arm"
+    },
+    {
+      "label": "También llamado",
+      "value": "Región de la burbuja local"
+    },
+    {
+      "label": "densidad",
+      "value": "~0,1 estrellas por año luz cúbico"
+    }
+  ],
+  "history": "El vecindario interestelar es el entorno inmediato del Sol: la burbuja local de gas enrarecido y caliente tallada por antiguas supernovas, entrelazada con nubes más frías como la nube interestelar local que el Sol atraviesa actualmente y poblada por las estrellas catalogadas más cercanas. Es la escala en la que las estrellas individuales siguen siendo objetos distintos en lugar de una mancha borrosa: la última capa completamente resoluble antes de que la galaxia se convierta en un disco de números.",
+  "source": "Gaia DR3 · NASA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "Gaia DR3",
+      "NASA"
+    ]
+  }
+}

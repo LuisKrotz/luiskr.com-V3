@@ -1,0 +1,51 @@
+{
+  "id": "trappist-1",
+  "name": "TRAPIST-1",
+  "kind": "system",
+  "tagline": "Set mons de la mida de la Terra al voltant d'una estrella amb prou feines més gran que Júpiter.",
+  "facts": [
+    {
+      "label": "Distància",
+      "value": "40,7 anys llum"
+    },
+    {
+      "label": "Tipus",
+      "value": "Nana vermella ultrafresca (M8V)"
+    },
+    {
+      "label": "Planetes",
+      "value": "7 confirmat, tot aproximadament de la mida de la Terra"
+    },
+    {
+      "label": "Zona habitable",
+      "value": "Els planetes e, f, g"
+    },
+    {
+      "label": "Anunciat",
+      "value": "2016–2017"
+    },
+    {
+      "label": "Descobert per",
+      "value": "Telescopis TRAPPIST + Spitzer"
+    }
+  ],
+  "history": "TRAPPIST-1 és una nana ultrafresca només una mica més gran que Júpiter, però set planetes rocosos el transiten: el lot més gran de mons de la mida de la Terra que es troba al voltant d'una sola estrella. Totes les set òrbites més a prop que Mercuri orbita al voltant del Sol, tan compactes que des d'una superfície els veïns apareixeran al cel de la mida de la Lluna. Els planetes e, f i g es troben a la zona temperada on l'aigua líquida podria persistir, tot i que el bloqueig de la marea pot deixar cadascun amb un costat permanent de dia i de nit. JWST ara investiga les seves atmosferes per les primeres limitacions d'habitabilitat al voltant de les nanes vermelles, les estrelles més comunes de la galàxia.",
+  "source": "NASA Exoplanet Archive; Nature (Gillon et al., 2017)",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA Exoplanet Archive; Nature (Gillon et al., 2017)"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/trappist-1/img-1.jpg",
+        "caption": "Sistema TRAPPIST-1 - Concepte d'artista",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

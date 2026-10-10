@@ -1,0 +1,51 @@
+{
+  "id": "orion-nebula",
+  "name": "Nebulosa d'Orió",
+  "kind": "nebula",
+  "tagline": "El viver estel·lar més proper: nous sols neixen a la vista.",
+  "facts": [
+    {
+      "label": "Distància",
+      "value": "≈ 1.344 anys llum"
+    },
+    {
+      "label": "Catàleg",
+      "value": "M42 / NGC 1976"
+    },
+    {
+      "label": "Mida",
+      "value": "≈ 24 anys llum de diàmetre"
+    },
+    {
+      "label": "Visibilitat",
+      "value": "Ull nu: l'espasa d'Orió"
+    },
+    {
+      "label": "Nucli",
+      "value": "Cúmul de trapezis"
+    },
+    {
+      "label": "Proplyds",
+      "value": "Discs protoplanetaris capturats pel Hubble"
+    }
+  ],
+  "history": "La difusa \"estrella\" mitjana de l'espasa d'Orió es resol a la regió més propera de formació estel·lar massiva a la Terra: un núvol de 24 anys llum de diàmetre on milers de sols s'estan encenent. Quatre joves gegants, el Trapezi, l'inunden amb llum ultraviolada que esculpeix els brillants pilars i vels. Les imatges del Hubble van revelar més de 150 discos protoplanetaris ('proplyds') siluetats al seu interior: sistemes solars en acte de muntatge, prova directa que la formació de planetes és rutinària. Els humans ho noten almenys des de 1610; va ser el primer objecte del cel profund fotografiat per Henry Draper el 1880.",
+  "source": "NASA/ESA Hubble; ESO",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/ESA Hubble; ESO"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/orion-nebula/img-1.jpg",
+        "caption": "Una flama al cinturó d'Orió",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

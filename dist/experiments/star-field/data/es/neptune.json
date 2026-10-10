@@ -1,0 +1,51 @@
+{
+  "id": "neptune",
+  "name": "Neptuno",
+  "kind": "planet",
+  "tagline": "El mundo más ventoso: un gigante de hielo descubierto por las matemáticas antes que los telescopios.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "49.244 kilometros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "164,8 años"
+    },
+    {
+      "label": "Vientos más rápidos",
+      "value": "≈ 2.100 kilómetros por hora"
+    },
+    {
+      "label": "Lunas",
+      "value": "16"
+    },
+    {
+      "label": "Descubrimiento",
+      "value": "1846 - predicho por Adams y Le Verrier"
+    },
+    {
+      "label": "distancia media",
+      "value": "4,5 mil millones de kilómetros (30 UA)"
+    }
+  ],
+  "history": "Neptuno es el único planeta encontrado mediante cálculo: los astrónomos Adams y Le Verrier dedujeron independientemente su posición a partir de las oscilaciones en la órbita de Urano, y Johann Galle lo encontró dentro de un grado de la predicción en 1846: un triunfo de la física newtoniana. El sobrevuelo de la Voyager 2 en 1989 sigue siendo la única visita de la humanidad; Reveló vientos supersónicos de hasta 2.100 km/h (los más rápidos del Sistema Solar) y grandes tormentas oscuras que van y vienen. Su luna más grande, Tritón, orbita hacia atrás, lo que demuestra que es un objeto capturado del Cinturón de Kuiper, y expulsa géiseres de nitrógeno desde una superficie congelada a -235 °C.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/neptune/img-1.jpg",
+        "caption": "PIA01492",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

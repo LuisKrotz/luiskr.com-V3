@@ -1,0 +1,62 @@
+{
+  "id": "sun",
+  "name": "Sonne",
+  "kind": "star",
+  "tagline": "Der Hauptreihenstern vom Typ G besitzt 99,86 % der Masse des Sonnensystems.",
+  "facts": [
+    {
+      "label": "Spektraltyp",
+      "value": "G2V"
+    },
+    {
+      "label": "Durchmesser",
+      "value": "1.392.700 km"
+    },
+    {
+      "label": "Masse",
+      "value": "1.989 × 10³⁰ kg"
+    },
+    {
+      "label": "Oberflächentemperatur",
+      "value": "≈ 5.505 °C"
+    },
+    {
+      "label": "Kerntemperatur",
+      "value": "≈ 15,7 Millionen °C"
+    },
+    {
+      "label": "Alter",
+      "value": "≈ 4,6 Milliarden Jahre"
+    },
+    {
+      "label": "Rotationszeitraum",
+      "value": "≈ 25–35 Tage (variiert je nach Breitengrad)"
+    }
+  ],
+  "history": "Die Sonne entstand vor etwa 4,6 Milliarden Jahren durch den gravitativen Kollaps einer Region innerhalb einer riesigen Molekülwolke. Der größte Teil der kollabierenden Masse sammelte sich im Zentrum und zündete die Wasserstofffusion, als der Kern etwa 10 Millionen Kelvin erreichte; Der abgeflachte Rest der Scheibe wurde zu den Planeten. Seitdem brennt die Sonne als Hauptreihenstern und wird noch etwa fünf Milliarden Jahre lang stabil bleiben, bevor sie den Kernwasserstoff erschöpft, zu einem Roten Riesen anschwillt, der Merkur und Venus umhüllt, dann ihre äußeren Schichten als planetarischer Nebel abwirft und als Weißer Zwerg in den Ruhestand geht. Alte Kulturen von Ägypten bis zu den Anden verehrten es; Galileos teleskopische Sonnenfleckenskizzen aus dem Jahr 1612 begannen als wissenschaftliches Objekt und werden heute von Observatorien wie SOHO, Parker Solar Probe und Solar Orbiter als Treiber des Weltraumwetters beobachtet.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/sun/img-1.jpg",
+        "caption": "SDO der NASA sieht riesiges Filament auf der Sonne",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/sun/audio-1.wav",
+        "caption": "Sonnensonifikation – SDO/Stanford-Helioseismologie",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

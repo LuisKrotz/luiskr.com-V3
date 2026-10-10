@@ -2,7 +2,7 @@
   "id": "phobos",
   "name": "Fobos",
   "kind": "moon",
-  "tagline": "La major de les dues llunes de Mart — un cúmul de runa en espiral descendent cap al planeta.",
+  "tagline": "La més gran de les dues llunes de Mart: un munt de runes que s'enfila lentament cap al seu planeta.",
   "facts": [
     {
       "label": "Diàmetre",
@@ -13,7 +13,7 @@
       "value": "7,7 hores"
     },
     {
-      "label": "Distància a Mart",
+      "label": "Distància des de Mart",
       "value": "9.376 km"
     },
     {
@@ -26,17 +26,26 @@
     },
     {
       "label": "Descobriment",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 - Asaph Hall"
     }
   ],
-  "history": "Fobos orbita Mart més a prop que qualsevol altra lluna del Sistema Solar respecte al seu planeta — tant a prop que fa la volta més ràpid que la rotació marciana, sortint per l'oest i ponent-se per l'est dues vegades cada dia marcià. Les mareaes l'estan esbocinant: perd uns 1,8 metres d'alçada per segle i xocarà amb Mart o es convertirà en un anell d'aquí a 50 milions d'anys. La seva superfície castigada, dominada pel cràter Stickney de 9 km, és coberta de solcs d'origen debatut. El Mars Trek de la NASA el cartografia en detall; la missió MMX de la JAXA hi aterrarà i portarà mostres.",
+  "history": "Fobos orbita Mart més a prop que qualsevol altra lluna del Sistema Solar orbita al voltant del seu planeta, tan a prop que gira més ràpid que Mart, pujant a l'oest i posant-se a l'est dues vegades cada dia marcià. Les forces de les marees l'estan destrossant: perd uns 1,8 metres d'altitud per segle i s'estavellarà contra Mart o s'esfondrarà en un anell d'aquí a 50 milions d'anys. La seva superfície malmesa, dominada pel cràter Stickney de 9 km, està coberta de solcs l'origen dels quals encara es debat. El Mars Trek de la NASA el mapa amb detall; la propera missió JAXA MMX aterrarà allà i tornarà mostres a la Terra.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "ca",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/phobos/img-1.jpg",
+        "caption": "Fobos de la lluna marciana observada per l'Odissea de la NASA",
+        "credit": "NASA"
+      }
     ]
   }
 }

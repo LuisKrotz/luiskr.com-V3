@@ -2,11 +2,11 @@
   "id": "deimos",
   "name": "Deimos",
   "kind": "moon",
-  "tagline": "A menor e mais externa das luas de Marte — um remanescente coberto de poeira orbitando na borda da altitude síncrona.",
+  "tagline": "A lua externa menor de Marte - um remanescente coberto de poeira orbitando no limite da altitude síncrona.",
   "facts": [
     {
       "label": "Diâmetro",
-      "value": "12,4 km"
+      "value": "12,4 quilômetros"
     },
     {
       "label": "Período orbital",
@@ -14,29 +14,38 @@
     },
     {
       "label": "Distância de Marte",
-      "value": "23.460 km"
+      "value": "23.460 quilômetros"
     },
     {
       "label": "Maior cratera",
-      "value": "Swift — 2,3 km"
+      "value": "Rápido – 2,3 km"
     },
     {
       "label": "Gravidade",
-      "value": "0,003 m/s²"
+      "value": "0.003 m/s²"
     },
     {
       "label": "Descoberta",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 – Salão Asaph"
     }
   ],
-  "history": "Deimos é a menor e mais externa das duas luas de Marte — um corpo irregular e suavizado por poeira, provavelmente capturado do cinturão de asteroides ou nascido de detritos de impacto. Sua espessa manta de regolito suaviza as crateras, dando-lhe um aspecto amorfo e fosco, diferente da face marcada de Fobos. Orbita logo acima da altitude síncrona, então da superfície marciana deriva lentamente de leste a oeste ao longo de quase três dias. O Mars Trek da NASA fornece modelos detalhados; nenhuma sonda pousou ainda, mas continua candidata a ponto de apoio para missões tripuladas.",
+  "history": "Deimos é a menor e mais externa das duas luas de Marte – um corpo irregular e suavizado pela poeira, provavelmente capturado no cinturão de asteróides ou nascido de detritos de impacto. Sua espessa manta de regolito suaviza suas crateras, dando-lhe uma aparência irregular e silenciosa, diferentemente do rosto machucado de Fobos. Ele orbita fora da altitude síncrona, portanto, da superfície marciana, ele flutua lentamente de leste a oeste durante quase três dias. O Mars Trek da NASA fornece modelos de formas detalhados; nenhum módulo de pouso ainda o tocou, mas continua sendo um candidato a ponto de partida para missões tripuladas a Marte.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "br",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/deimos/img-1.jpg",
+        "caption": "Eclipses marcianos: Deimos e Fobos",
+        "credit": "NASA"
+      }
     ]
   }
 }

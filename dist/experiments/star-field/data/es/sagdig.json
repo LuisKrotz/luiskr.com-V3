@@ -1,0 +1,35 @@
+{
+  "id": "sagdig",
+  "name": "SagDIG",
+  "kind": "dwarfGalaxy",
+  "tagline": "Sagitario Enano Irregular: la galaxia rica en gas más pobre en metales del Grupo Local, a 3,45 Mly.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~3,45 millones al año"
+    },
+    {
+      "label": "Tipo",
+      "value": "enano irregular"
+    },
+    {
+      "label": "Metalicidad",
+      "value": "El más bajo de los enanos LG ricos en gas"
+    },
+    {
+      "label": "Aislamiento",
+      "value": "Fuera de los halos gigantes"
+    }
+  ],
+  "history": "SagDIG es la galaxia rica en gas y pobre en metales del Grupo Local: una pequeña irregular cuyas estrellas contienen tan pocos elementos pesados que se aproximan a la composición de las galaxias más antiguas jamás formadas. Su aislamiento significa que nunca ha sido despojado por las mareas ni por la presión del ariete, lo que lo convierte en una muestra casi de laboratorio de evolución sin procesar. Continúa formando estrellas a un ritmo suave en sus nubes de gas exteriores.",
+  "source": "ESO · Cesarsky et al. 1977",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "Cesarsky et al. 1977",
+      "ESO"
+    ]
+  }
+}

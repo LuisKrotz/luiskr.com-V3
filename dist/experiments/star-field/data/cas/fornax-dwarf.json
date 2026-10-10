@@ -1,0 +1,35 @@
+{
+  "id": "fornax-dwarf",
+  "name": "Fornax Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "Un satélite esferoide de la Vía Láctea a 455.000 años luz de distancia, la única enana clásica que todavía forma estrellas hasta hace poco.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~455.000 años al año"
+    },
+    {
+      "label": "Tipo",
+      "value": "esferoidal enano"
+    },
+    {
+      "label": "Globulares",
+      "value": "6 propios"
+    },
+    {
+      "label": "formación de estrellas",
+      "value": "Activo hasta hace ~100 millones de años."
+    }
+  ],
+  "history": "Fornax es el más luminoso de los esferoidales enanos clásicos de la Vía Láctea y el único que siguió formando estrellas casi hasta el día de hoy, una pista de que cayó en el halo hace relativamente poco tiempo. Posee seis cúmulos globulares propios, incluido uno de los más antiguos conocidos. Su complicada historia de formación estelar la convierte en un laboratorio de cómo evolucionan las galaxias enanas bajo las mareas de un anfitrión gigante.",
+  "source": "ESO · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "cas",
+    "refs": [
+      "ESO",
+      "Gaia Collaboration"
+    ]
+  }
+}

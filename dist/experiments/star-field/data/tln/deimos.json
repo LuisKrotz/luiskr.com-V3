@@ -2,7 +2,7 @@
   "id": "deimos",
   "name": "Deimos",
   "kind": "moon",
-  "tagline": "La luna pi picola e pi esterna de Marte — un residuo coverto de polvere al bordo de l'orbita sincrona.",
+  "tagline": "La łuna pi piccola ed esterna di Marte: un residuo ricoperto di polvere che orbita al limite de l'altitudine sincrona.",
   "facts": [
     {
       "label": "Diametro",
@@ -13,30 +13,39 @@
       "value": "30,3 ore"
     },
     {
-      "label": "Distansa da Marte",
+      "label": "Distanza da Marte",
       "value": "23.460 km"
     },
     {
       "label": "Cratere pi grando",
-      "value": "Swift — 2,3 km"
+      "value": "Veloce: 2,3 km"
     },
     {
       "label": "Gravità",
-      "value": "0,003 m/s²"
+      "value": "0.003 m/s²"
     },
     {
       "label": "Scoverta",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 – Sala Asaf"
     }
   ],
-  "history": "Deimos el ze la pi picola e pi esterna dele do lune de Marte — un corpo irregolar levigà da la polvere, forsi catturà da la fascia dei asteroidi o nasùo da detriti d'impato. El so strato spesso de regolite addolcis i crateri dandoghe un aspeto otuso e smorto, a diferensa de la facia segnà de Fobos. El orbita apena oltre l'altitùdene sincrona, cusì da la superficie marsiana el deriva lento da est a ovest par squasi tre dì. El Mars Trek de la NASA ghe dà modeli detagià; nissuna sonda la ze ancora aterrà, ma la resta candidata come tappa par mission co ekipajo.",
+  "history": "Deimos la ze la pi piccola ed esterna dele do łune di Marte: un corpo irregolare e levigato dalla polvere, probabilmente catturato dalla cintura dei asteroidi o nasùo dai detriti de l'impatto. La sua spessa coltre di regolite ammorbidisce i suoi crateri, conferendogli un aspetto bitorzoluto e ovattato, a differenza del volto martoriato di Phobos. Orbita apena fuori dall'altitudine sincrona, quindi dalla superficie marziana si sposta lento da est a ovest par squasi tre dì. Mars Trek de la NASA ghe dà modelli di forma dettagliati; nissun lander lo ha ancora toccato, ma rimane un candidato punto di sosta par missioni su Marte co equipaggio.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "tln",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/deimos/img-1.jpg",
+        "caption": "Martian Eclipses: Deimos and Phobos",
+        "credit": "NASA"
+      }
     ]
   }
 }

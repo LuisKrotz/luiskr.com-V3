@@ -2,23 +2,23 @@
   "id": "phobos",
   "name": "Phobos",
   "kind": "moon",
-  "tagline": "De grootste van Mars' twee manen — een puinhoop die langzaam naar zijn planeet toespiraalt.",
+  "tagline": "De grootste van de twee manen van Mars is een puinhoop die langzaam spiraalvormig naar zijn planeet beweegt.",
   "facts": [
     {
       "label": "Diameter",
-      "value": "22,5 km"
+      "value": "22,5 kilometer"
     },
     {
       "label": "Omlooptijd",
       "value": "7,7 uur"
     },
     {
-      "label": "Afstand tot Mars",
-      "value": "9.376 km"
+      "label": "Afstand vanaf Mars",
+      "value": "9.376 kilometer"
     },
     {
       "label": "Grootste krater",
-      "value": "Stickney — 9 km"
+      "value": "Stickney - 9 km"
     },
     {
       "label": "Zwaartekracht",
@@ -29,14 +29,23 @@
       "value": "1877 — Asaph Hall"
     }
   ],
-  "history": "Phobos cirkelt dichter om Mars dan elke andere maan in het zonnestelsel om zijn planeet — zo dicht dat hij sneller omloopt dan Mars roteert, waardoor hij in het westen opkomt en in het oosten ondergaat, twee keer per Marsdag. Getijdenkrachten scheuren hem uiteen: hij verliest zo'n 1,8 meter hoogte per eeuw en zal binnen 50 miljoen jaar op Mars storten of tot een ring versnipperen. Zijn gehavende oppervlak, gedomineerd door de 9 km grote Stickney-krater, is bedekt met groeven van betwiste oorsprong. NASA's Mars Trek brengt hem in kaart; de JAXA MMX-missie gaat erop landen en monsters terugbrengen.",
+  "history": "Phobos draait dichter om Mars dan welke andere maan in het zonnestelsel dan ook om zijn planeet – zo dichtbij dat hij sneller ronddraait dan Mars roteert, waarbij hij elke dag op Mars twee keer in het westen opkomt en in het oosten ondergaat. De getijdenkrachten verscheuren het gebied: het verliest ongeveer 1,8 meter hoogte per eeuw en zal binnen 50 miljoen jaar tegen Mars botsen of tot een ring versnipperen. Het gehavende oppervlak, gedomineerd door de 9 km lange Stickney-krater, is bedekt met groeven waarvan de oorsprong nog steeds ter discussie staat. NASA's Mars Trek brengt het in detail in kaart; de komende JAXA MMX-missie zal daar landen en monsters naar de aarde terugbrengen.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "nl",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/phobos/img-1.jpg",
+        "caption": "Marsmaan Phobos waargenomen door NASA's Odyssee",
+        "credit": "NASA"
+      }
     ]
   }
 }

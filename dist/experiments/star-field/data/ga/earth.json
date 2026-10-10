@@ -1,0 +1,65 @@
+{
+  "id": "earth",
+  "name": "An Domhan",
+  "kind": "planet",
+  "tagline": "An t-aon domhan ar a dtugtar beatha cuain - pláinéad aigéin sa chrios ináitrithe.",
+  "facts": [
+    {
+      "label": "Trastomhas",
+      "value": "12,742 km"
+    },
+    {
+      "label": "Tréimhse fithise",
+      "value": "365.25 lá"
+    },
+    {
+      "label": "Fad an lae",
+      "value": "23.9 uair an chloig"
+    },
+    {
+      "label": "Uisce dromchla",
+      "value": "≈ Clúdach aigéin 71%."
+    },
+    {
+      "label": "Gealacha",
+      "value": "1"
+    },
+    {
+      "label": "Aois",
+      "value": "≈ 4.54 billiún bliain"
+    }
+  ],
+  "history": "Chomhtháthaigh an domhan ón réaltnéal gréine thart ar 4.54 billiún bliain ó shin agus fuaraigh sé isteach i ndomhan idirdhealaithe screamh, maintlín agus croí iarainn. Bhí an saol le feiceáil ina aigéin laistigh den chéad billiún bliain agus rinne fótaisintéis ocsaiginiú ar an atmaisféar níos déanaí, rud a chuir ar chumas éiceachórais chasta talún. Déanann teicteonaic plátaí — atá uathúil i measc pláinéid charraigeacha aitheanta — an dromchla a athchúrsáil go leanúnach agus rialaíonn an aeráid thar am geolaíochta. Tá an Domhan faoi deara ag an gcine daonna ón spás ó 1946; Tá ‘Blue Marble’ (1972) de chuid Apollo 17 ar cheann de na grianghraif is mó a atáirgeadh riamh. Tugann breis is 6,000 eisphláinéid dheimhnithe comhthéacs anois do chomh neamhghnách agus a d’fhéadfadh domhan beathaithe cobhsaí, leacht-uisce a bheith.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ga",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/earth/img-1.jpg",
+        "caption": "Íomhá Ardghléine is Ionganta den Domhan - Blue Marble 2012",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/earth/video-1.mp4",
+        "caption": "Earthrise tar éis Orion Rith Amach Powered Flyby",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/earth/audio-1.mp3",
+        "caption": "Tonnta raidió curfá i maighnéadsféar an Domhain - NASA",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

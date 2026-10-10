@@ -1,0 +1,35 @@
+{
+  "id": "fornax-dwarf",
+  "name": "Nan Fornax",
+  "kind": "dwarfGalaxy",
+  "tagline": "Un esferoide satèl·lit de la Via Làctia a 455.000 anys llum, l'única nana clàssica que encara formava estrelles fins fa poc.",
+  "facts": [
+    {
+      "label": "Distància",
+      "value": "~455.000 ly"
+    },
+    {
+      "label": "Tipus",
+      "value": "Nan esferoïdal"
+    },
+    {
+      "label": "Globulars",
+      "value": "6 propis"
+    },
+    {
+      "label": "Formació d'estrelles",
+      "value": "Actiu fins fa uns 100 milions"
+    }
+  ],
+  "history": "Fornax és el més lluminós dels clàssics esferoïdals nans de la Via Làctia i l'únic que ha continuat fent estrelles gairebé fins a l'actualitat, una pista que ha caigut a l'aureola relativament recentment. Posseeix sis cúmuls globulars propis, inclòs un dels més antics coneguts. La seva història de formació estel·lar grumosa la converteix en un laboratori de com evolucionen les galàxies nanes sota les marees d'un hoste gegant.",
+  "source": "ESO · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "ESO",
+      "Gaia Collaboration"
+    ]
+  }
+}

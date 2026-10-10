@@ -1,8 +1,8 @@
 {
   "id": "deimos",
-  "name": "Deimos",
+  "name": "Deimos rehegua",
   "kind": "moon",
-  "tagline": "Jasy michĩve ha okẽve Marte rehegua — takua porã ojejuhu ohupytývo synchronous altura-pe.",
+  "tagline": "Márte jasy michĩvéva, okápe — peteĩ remanente yvyku'ígui oñembojeguáva ojeréva altitud síncrona rembe'ýpe.",
   "facts": [
     {
       "label": "Tuichakue",
@@ -10,33 +10,42 @@
     },
     {
       "label": "Período orbital",
-      "value": "30,3 aravo"
+      "value": "30,3 aravo’i"
     },
     {
-      "label": "Marte-gui ohupyty",
+      "label": "Mombyry Marte-gui",
       "value": "23.460 km"
     },
     {
       "label": "Cráter tuichave",
-      "value": "Swift — 2,3 km"
+      "value": "Pya'e — 2,3 km"
     },
     {
       "label": "Gravedad",
-      "value": "0,003 m/s²"
+      "value": "0.003 m/s2 rehegua"
     },
     {
       "label": "Ejuhúva",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 : Asaf Salón (ary omano: 1877)."
     }
   ],
-  "history": "Deimos ha'e jasy michĩve ha okẽve Marte rehegua — peteĩ rete irregular takua porã omoĩva, ikatu ojejuhu asteroid belt-gui térã ojejuhu impacto takua porã. Iregolith ho'a puku omoĩ porãmi umi cráter, omoĩ hína aspecto morotĩ ha manteve ha'e — Phobos ijy'aipa'ỹva. Ojeróra sapy'asáve synchronous altura ári, ha'eína Marte ijýre osẽ oiko leste kuarahyresẽ gotyo mbohapy ára pukukue. NASA Mars Trek ome'ẽ modelo katuete; oimeĩ sonda ogueru'ỹva, hákatu ha'e ojeiporavóta peteĩ etapa Marte misión oguerupápe.",
+  "history": "Deimos ha'e pe michĩvéva ha okápe Marte mokõi jasy apytégui — peteĩ tete irregular, yvyku'ígui oñembopiro'ýva oiméne ojejapyhýva cinturón asteroide-gui térã heñóiva umi escombro impacto-gui. Imanta regolito hũva omohu’ũ umi cráter, ome’ẽvo chupe peteĩ jehecha grumoso ha ikirirĩva ndaha’éiva Phobos rova ​​ojejapiva’ekuéicha. Ojere altitud síncrona okaháre, upévare Marte superficie guive ojere mbeguekatu este guive oeste peve haimete mbohapy ára pukukue. NASA Mars Trek ome'ë modelo de forma detallado; ni peteî aterrizador ndopokói gueteri hese, pero opyta punto de escenificación candidato misiones tripuladas Marte-pe guarã.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "gn",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/deimos/img-1.jpg",
+        "caption": "Umi Eclipse Marte-pegua: Deimos ha Phobos",
+        "credit": "NASA"
+      }
     ]
   }
 }

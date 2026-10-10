@@ -1,0 +1,65 @@
+{
+  "id": "jupiter",
+  "name": "Jupiter",
+  "kind": "planet",
+  "tagline": "Le géant – plus massif que toutes les autres planètes réunies.",
+  "facts": [
+    {
+      "label": "Diamètre",
+      "value": "139 820 km"
+    },
+    {
+      "label": "Période orbitale",
+      "value": "11,9 ans"
+    },
+    {
+      "label": "Durée du jour",
+      "value": "9,9 heures"
+    },
+    {
+      "label": "Lunes",
+      "value": "95 (reconnu)"
+    },
+    {
+      "label": "Grande tache rouge",
+      "value": "Tempête observée depuis 1831"
+    },
+    {
+      "label": "Masse",
+      "value": "318 × Terre"
+    }
+  ],
+  "history": "Jupiter s'est formé en premier parmi les planètes et sa gravité a tout façonné par la suite - guidant les astéroïdes, remuant la première nébuleuse solaire et projetant des comètes dans et hors du système interne. La découverte par Galileo Galilei en 1610 de quatre lunes en orbite autour d'elle a prouvé que tout n'orbite pas autour de la Terre ; ces satellites galiléens – Io, Europa, Ganymède, Callisto – restent des cibles privilégiées pour le monde océanique, avec la sonde JUICE de l'ESA en route vers Ganymède. La Grande Tache Rouge est un anticyclone plus large que la Terre qui fait rage depuis des siècles. L'orbiteur Juno de la NASA a cartographié ses profondeurs et son intérieur depuis 2016.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/jupiter/img-1.jpg",
+        "caption": "Junon au-dessus du pôle Sud de Jupiter (Illustration)",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/jupiter/video-1.mp4",
+        "caption": "La grande tache rouge de Jupiter rétrécit et s'agrandit",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/jupiter/audio-1.ogg",
+        "caption": "Traversée de choc d'étrave de Jupiter — Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

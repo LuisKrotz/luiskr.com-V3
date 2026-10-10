@@ -1,0 +1,58 @@
+{
+  "id": "venus",
+  "name": "Venus",
+  "kind": "planet",
+  "tagline": "De tamaño xemelgo da Terra, envolto nun invernadoiro de CO₂ esmagador, o planeta máis quente.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "12.104 km"
+    },
+    {
+      "label": "Período orbital",
+      "value": "225 días"
+    },
+    {
+      "label": "Rotación",
+      "value": "243 días, retrógrado"
+    },
+    {
+      "label": "Temperatura superficial",
+      "value": "≈ 465 °C"
+    },
+    {
+      "label": "Presión superficial",
+      "value": "≈ 92 bar"
+    },
+    {
+      "label": "Lúas",
+      "value": "0"
+    }
+  ],
+  "history": "Venus xira cara atrás e tan lentamente que o seu día dura máis que o ano. Debaixo de nubes de ácido sulfúrico ininterrumpidas, un invernadoiro desbocado mantén a superficie preto de 465 °C, o suficientemente quente como para derreter o chumbo, baixo 92 atmosferas de presión. O programa soviético Venera logrou aquí os primeiros desembarques noutro planeta entre 1970 e 1982; ningunha sonda sobreviviu máis de dúas horas. O radar orbital Magallanes da NASA mapeou o 98% da superficie entre 1990 e 1994, revelando que un mundo volcánico rexurdiu hai poucos centos de millóns de anos. Venus chámase a miúdo o xemelgo malvado da Terra: o mesmo tamaño, rocha semellante, destino radicalmente diferente: unha historia de advertencia no clima planetario.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "gl",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/venus/img-1.jpg",
+        "caption": "Venus Transit Viewing na NASA Goddard",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/venus/video-1.mp4",
+        "caption": "O vento eléctrico de Venus",
+        "credit": "NASA Goddard"
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "mars",
+  "name": "Mars",
+  "kind": "planet",
+  "tagline": "Der Rote Planet – Heimat des höchsten bekannten Vulkans un der tiefsten Schlucht.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "6.779 km"
+    },
+    {
+      "label": "Umlaufziet",
+      "value": "687 Daag"
+    },
+    {
+      "label": "Dagesläng",
+      "value": "24,6 Stund"
+    },
+    {
+      "label": "Moonde",
+      "value": "2 (Phobos, Deimos)"
+    },
+    {
+      "label": "Höchster Vulkan",
+      "value": "Olympus Mons – 21,9 km"
+    },
+    {
+      "label": "Schwerkraft",
+      "value": "3,71 m/s²"
+    }
+  ],
+  "history": "Der Mars war einst wärmer un feuchter: Orbiter un Rover haben alte Flussdeltas, Seeböden un Mineraladern kartiert, die nur flüssiges Wasser bilden konnte. Heute is es en kalte Wüste mit en dünnen CO₂-Atmosphäre un den Planeten umgebenden Staubstürmen. Viking 1 gelang 1976 die erste erfolgreiche Landung; Seitdem haben en Flotte vun Orbitern sowie die Rover Sojourner, Spirit, Opportunity, Curiosity un Perseverance seine Oberfläche befahren, un Perseverance speichert Proben fer en geplante Rückkehr. Es is der am meisten erforschte Planet jenseits der Erde un das erklärte Ziel der ersten bemannten interplanetaren Missionen.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "hrk",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mars/img-1.jpg",
+        "caption": "Springtime on Mars: Hubble Best View of the Red Planet",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/mars/audio-1.ogg",
+        "caption": "Perseverance microphone — first sounds from Mars",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

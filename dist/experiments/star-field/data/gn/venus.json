@@ -1,0 +1,58 @@
+{
+  "id": "venus",
+  "name": "Vénus",
+  "kind": "planet",
+  "tagline": "Yvy gemelo tuichaháicha, ojejokua peteĩ invernadero CO2 aplastante-pe — pe planeta hakuvéva.",
+  "facts": [
+    {
+      "label": "Tuichakue",
+      "value": "12.104 km"
+    },
+    {
+      "label": "Período orbital",
+      "value": "225 ára pukukue"
+    },
+    {
+      "label": "Rotación rehegua",
+      "value": "243 ára, retrógrado"
+    },
+    {
+      "label": "Temperatura superficial rehegua",
+      "value": "≈ 465 °C"
+    },
+    {
+      "label": "Presión superficial rehegua",
+      "value": "≈ 92 bar rehegua"
+    },
+    {
+      "label": "Jasykuéra",
+      "value": "0 rehegua"
+    }
+  ],
+  "history": "Venus ojere tapykue gotyo ha mbeguekatueterei ha ára ipukuve pe áñogui. Umi arai ácido sulfúrico noñembyai'ỹva guýpe, peteĩ invernadero okañýva omantene pe superficie haimete 465 °C — haku porãva omboyku hag̃ua plomo — 92 atmósfera de presión guýpe. Pe programa Venera soviético ohupyty peteĩha aterrizaje ambue planeta-pe ko’ápe ary 1970 ha 1982 mbytépe; ndaipóri sonda oikovéva mokõi aravo'i rasami. Orbitador Magallanes NASA-gua ojapo radar-pe 98% superficie ary 1990 ha 1994 jave, ojekuaa peteî mundo volcánico osê jey nda'areiete ojapo mbovy cien millones de años. Venus oñembohéra jepi gemelo aña Yvy rehegua: peteĩchagua tuichakue, ita ojoguáva, destino radicalmente iñambuéva — peteĩ cuento advertencia clima planetario-pe.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "gn",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/venus/img-1.jpg",
+        "caption": "Venus Tránsito Ojehecha NASA Goddard-pe",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/venus/video-1.mp4",
+        "caption": "Pe Yvytu Eléctrico Venus rehegua",
+        "credit": "NASA Goddard"
+      }
+    ]
+  }
+}

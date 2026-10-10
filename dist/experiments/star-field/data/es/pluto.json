@@ -1,0 +1,58 @@
+{
+  "id": "pluto",
+  "name": "Plutón",
+  "kind": "dwarfPlanet",
+  "tagline": "El querido enano: rey del cinturón de Kuiper y de un mundo de glaciares de nitrógeno.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "2.377 kilómetros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "248 años"
+    },
+    {
+      "label": "Lunas",
+      "value": "5 (Caronte más grande)"
+    },
+    {
+      "label": "Descubrimiento",
+      "value": "1930 - Clyde Tombaugh"
+    },
+    {
+      "label": "Primera visita",
+      "value": "Nuevos horizontes, julio de 2015"
+    },
+    {
+      "label": "Reclasificado",
+      "value": "Planeta enano, IAU 2006"
+    }
+  ],
+  "history": "Clyde Tombaugh encontró Plutón en 1930 después de una búsqueda sistemática del \"Planeta X\", y durante 76 años fue el noveno planeta. La definición de 2006 de la IAU lo reclasificó como planeta enano: el primer miembro reconocido del Cinturón de Kuiper, el anillo de cuerpos helados más allá de Neptuno. La nave espacial New Horizons de la NASA voló a 12.500 km en julio de 2015 y reveló un mundo sorprendentemente activo: una llanura de hielo de nitrógeno en forma de corazón (Sputnik Planitia) que convecta como una lámpara de lava, montañas de hielo de agua de hasta 3,5 km de altura y una fina atmósfera de neblina azul. Su luna más grande, Caronte, tiene la mitad del tamaño de Plutón: un verdadero sistema doble.",
+  "source": "NASA/JPL Solar System Exploration; Johns Hopkins APL",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA/JPL Solar System Exploration; Johns Hopkins APL"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/pluto/img-1.jpg",
+        "caption": "New Horizons ve Plutón",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/pluto/video-1.mp4",
+        "caption": "Entrevista de Nuevos Horizontes con Dennis Reuters",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

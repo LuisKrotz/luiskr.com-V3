@@ -1,0 +1,62 @@
+{
+  "id": "sun",
+  "name": "Soleil",
+  "kind": "star",
+  "tagline": "L'étoile de la séquence principale de type G détenant 99,86 % de la masse du système solaire.",
+  "facts": [
+    {
+      "label": "Type spectral",
+      "value": "G2V"
+    },
+    {
+      "label": "Diamètre",
+      "value": "1 392 700 km"
+    },
+    {
+      "label": "Masse",
+      "value": "1 989 × 10³⁰ kg"
+    },
+    {
+      "label": "Température superficielle",
+      "value": "≈ 5 505 °C"
+    },
+    {
+      "label": "Température à cœur",
+      "value": "≈ 15,7 millions de °C"
+    },
+    {
+      "label": "Âge",
+      "value": "≈ 4,6 milliards d'années"
+    },
+    {
+      "label": "Période de rotation",
+      "value": "≈ 25 à 35 jours (varie selon la latitude)"
+    }
+  ],
+  "history": "Le Soleil s'est formé il y a environ 4,6 milliards d'années à la suite de l'effondrement gravitationnel d'une région située au sein d'un nuage moléculaire géant. La majeure partie de la masse qui s'effondre s'est rassemblée au centre, déclenchant la fusion de l'hydrogène lorsque le noyau a atteint environ 10 millions de kelvins ; le disque restant aplati est devenu les planètes. Depuis lors, le Soleil brûle en tant qu'étoile de la séquence principale et restera stable pendant environ 5 milliards d'années supplémentaires avant d'épuiser l'hydrogène de son noyau, de se transformer en une géante rouge qui engloutit Mercure et Vénus, puis de se débarrasser de ses couches externes sous forme de nébuleuse planétaire et de se retirer sous forme de naine blanche. Les cultures anciennes de l’Égypte aux Andes l’adoraient ; Les croquis télescopiques de taches solaires réalisés par Galilée en 1612 ont commencé leur vie en tant qu'objet scientifique, et aujourd'hui des observatoires comme SOHO, Parker Solar Probe et Solar Orbiter les surveillent en tant que moteur de la météo spatiale.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/sun/img-1.jpg",
+        "caption": "Le SDO de la NASA voit un filament géant sur le Soleil",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/sun/audio-1.wav",
+        "caption": "Sonification solaire — Héliosismologie SDO/Stanford",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

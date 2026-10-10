@@ -1,0 +1,66 @@
+{
+  "id": "sagittarius-a",
+  "name": "Saxitario A*",
+  "kind": "blackHole",
+  "tagline": "O buraco negro supermasivo central da Vía Láctea: un motor de 4,3 millóns de masa solar que ancoraa toda a galaxia.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~26.673 l"
+    },
+    {
+      "label": "Masa",
+      "value": "~4,3 millóns de M☉"
+    },
+    {
+      "label": "Tipo",
+      "value": "Buraco negro supermasivo"
+    },
+    {
+      "label": "Horizonte de eventos",
+      "value": "~12 millóns de km (R_s ~ 0,08 AU)"
+    },
+    {
+      "label": "Imaxe",
+      "value": "Event Horizon Telescope, maio de 2022"
+    },
+    {
+      "label": "Evidencia",
+      "value": "Órbitas da estrela S — S2 vai a 7.650 km/s"
+    },
+    {
+      "label": "Premio Nobel",
+      "value": "2020 Física - Genzel & Ghez"
+    },
+    {
+      "label": "Tamaño de radio",
+      "value": "~52 µas de anel: unha rosquilla vista desde 27.000 l"
+    }
+  ],
+  "history": "Saxitario A* sitúase no centro dinámico exacto da Vía Láctea, no fondo do brazo de Saxitario. Os radioastrónomos sinalaronno en 1974 como unha fonte compacta e variable non máis grande que un sistema solar. Décadas de astrometría dos equipos Genzel e Ghez rastrexaron as estrelas S axitando ao redor dunha masa invisible: a órbita de 16 anos de S2 e o paso pericentro de 7.650 km/s fixeron que o buraco negro fose incontrovertible, merecendo o Premio Nobel de 2020. En maio de 2022, o Telescopio Horizonte de Eventos lanzou a súa silueta: un anel de plasma superquecido que brilla arredor da sombra, facendo coincidir a predición da relatividade xeral nun pouco por cento. Aínda que hoxe están inactivos, as erupcións de raios X e infravermellos revelan un fluxo de acreción que parpadea a diario; sospéitase que os seus chorros reliquia inflaron as burbullas de Fermi: dous lóbulos de raios gamma de 25.000 anos luz que se elevan do disco.",
+  "source": "Event Horizon Telescope · ESO · Nobel Prize 2020",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "gl",
+    "refs": [
+      "Event Horizon Telescope Collaboration 2022",
+      "GRAVITY Collaboration S2 orbit",
+      "Nobel Prize in Physics 2020"
+    ]
+  },
+  "sections": [
+    {
+      "title": "A silueta EHT",
+      "body": "Oito radiotelescopios sincronizados por reloxos atómicos formaron un interferómetro do tamaño da Terra. A imaxe de maio de 2022 resolveu un anel de 52 microsegundos de arco - a luz curvada nunha órbita de fotóns arredor da sombra - confirmando a masa nunha rexión apenas máis grande que a órbita de Mercurio."
+    },
+    {
+      "title": "O enxame de estrelas S",
+      "body": "Decenas de estrelas novas orbitan dentro de semanas luz do horizonte. As súas elipses keplerianas fixan a masa en 4,3 millóns de Soles; A precesión relativista da órbita de S2, medida en 2020, faise visible o arrastre de cadros."
+    },
+    {
+      "title": "Un xigante durmido",
+      "body": "Sgr A* acumula unha centésima parte da taxa de Eddington: un susurro, non un ruxido. Con todo, hai uns 300 anos, brillou o suficientemente como para que as nubes moleculares aínda fagan eco da explosión, e as burbullas de Fermi rexistran un estalido hai millóns de anos."
+    }
+  ]
+}

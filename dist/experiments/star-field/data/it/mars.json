@@ -1,0 +1,58 @@
+{
+  "id": "mars",
+  "name": "Marte",
+  "kind": "planet",
+  "tagline": "Il pianeta rosso: sede del vulcano più alto e del canyon più profondo conosciuto.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "6.779 km"
+    },
+    {
+      "label": "Periodo orbitale",
+      "value": "687 giorni"
+    },
+    {
+      "label": "Durata del giorno",
+      "value": "24,6 ore"
+    },
+    {
+      "label": "Lune",
+      "value": "2 (Phobos, Deimos)"
+    },
+    {
+      "label": "Vulcano più alto",
+      "value": "Monte Olimpo — 21,9 km"
+    },
+    {
+      "label": "Gravità",
+      "value": "3,71 m/s²"
+    }
+  ],
+  "history": "Marte un tempo era più caldo e umido: orbiter e rover hanno mappato antichi delta di fiumi, letti di laghi e vene minerali che solo l’acqua liquida poteva formare. Oggi è un deserto freddo con una sottile atmosfera di CO₂ e tempeste di polvere che circondano il pianeta. Il Viking 1 ottenne il primo atterraggio riuscito nel 1976; da allora una flotta di orbiter più i rover Sojourner, Spirit, Opportunity, Curiosity e Perseverance hanno esplorato la sua superficie, e Perseverance sta memorizzando nella cache campioni per un ritorno pianificato. È il pianeta più esplorato oltre la Terra e la destinazione dichiarata per le prime missioni interplanetarie con equipaggio.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mars/img-1.jpg",
+        "caption": "Primavera su Marte: la migliore vista del Pianeta Rosso da Hubble",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/mars/audio-1.ogg",
+        "caption": "Microfono Perseverance: primi suoni da Marte",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

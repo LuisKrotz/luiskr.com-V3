@@ -1,0 +1,35 @@
+{
+  "id": "observable-universe",
+  "name": "Universo Observable",
+  "kind": "structure",
+  "tagline": "El horizonte causal: todo aquello desde lo que la luz ha tenido tiempo de llegar hasta nosotros en 13.800 millones de años.",
+  "facts": [
+    {
+      "label": "Radio",
+      "value": "~46,5 Gli"
+    },
+    {
+      "label": "galaxias",
+      "value": "~2 billones estimados"
+    },
+    {
+      "label": "Edad",
+      "value": "13,8 mil millones de años"
+    },
+    {
+      "label": "Más allá",
+      "value": "Desconocido: el universo inobservable continúa"
+    }
+  ],
+  "history": "El universo observable es el volumen esférico del espacio desde el cual la luz ha tenido tiempo de llegar hasta nosotros desde el Big Bang; no el borde del universo, sino el horizonte de nuestra información sobre él. Su radio de 46,5 mil millones de años luz refleja la expansión del espacio mismo mientras la luz viajaba: los objetos ahora emitían sus fotones cuando estaban mucho más cerca. Todo lo que hay dentro de esta capa (cada supercúmulo, cada galaxia, cada estrella) es todo lo que podemos conocer causalmente.",
+  "source": "Planck Collaboration · ΛCDM cosmology",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "cas",
+    "refs": [
+      "Planck Collaboration 2020",
+      "ΛCDM model"
+    ]
+  }
+}

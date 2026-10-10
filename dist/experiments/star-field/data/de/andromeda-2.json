@@ -1,0 +1,35 @@
+{
+  "id": "andromeda-2",
+  "name": "Andromeda II",
+  "kind": "dwarfGalaxy",
+  "tagline": "Ein Andromeda-Zwergsphäroid von besonderer Bedeutung – seine Sterne weisen Anzeichen einer möglichen älteren Verschmelzung zweier noch kleinerer Zwerge auf.",
+  "facts": [
+    {
+      "label": "Entfernung",
+      "value": "~2,14 Mly"
+    },
+    {
+      "label": "Typ",
+      "value": "Zwergkugelförmig"
+    },
+    {
+      "label": "Begleiter von",
+      "value": "M31"
+    },
+    {
+      "label": "Rätsel",
+      "value": "Double Core deutet auf eine frühere Fusion hin"
+    }
+  ],
+  "history": "Andromeda II erregte Aufmerksamkeit, als Tiefenaufnahmen darauf hindeuteten, dass es zwei überlappende Sternkerne haben könnte – ein Beweis dafür, dass es sich selbst um den verschmolzenen Überrest zweier kleinerer Zwergsterne handeln könnte, ein Beweis dafür, dass die Akkretionshierarchie bis in die schwächsten Größenordnungen andauert. Seine Sterne sind alt und metallarm und er teilt sich den Phasenraum der Halo-Umlaufbahn mit den anderen Andromeda-Satelliten, was ihn zu einem Testfeld für das Problem der Zwerggalaxie-Zusammensetzung macht.",
+  "source": "PAndAS · M31 satellites survey",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "van den Bergh 1972",
+      "PAndAS survey"
+    ]
+  }
+}

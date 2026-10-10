@@ -1,0 +1,51 @@
+{
+  "id": "neptune",
+  "name": "Neptun",
+  "kind": "planet",
+  "tagline": "Die windigste Welt – en Eisriese, den die Mathematik vor Teleskopen gefunden hat.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "49.244 km"
+    },
+    {
+      "label": "Umlaufziet",
+      "value": "164,8 Johre"
+    },
+    {
+      "label": "Schnellste Winde",
+      "value": "≈ 2.100 km/h"
+    },
+    {
+      "label": "Moonde",
+      "value": "16"
+    },
+    {
+      "label": "Entdeckung",
+      "value": "1846 – vorhergesagt vun Adams & Le Verrier"
+    },
+    {
+      "label": "Mittlere Entfernung",
+      "value": "4,5 Milliarden km (30 AE)"
+    }
+  ],
+  "history": "Neptun is der einzige Planet, der durch Berechnung gefunden wurde: Die Astronomen Adams un Le Verrier leiteten unabhängig voneinander seine Position aus Schwankungen in der Umlaufbahn des Uranus ab, un Johann Galle fand ihn 1846 innerhalb eines Grads der Vorhersage – en Triumph der Newtonschen Physik. Der Vorbeiflug der Voyager 2 im Jahr 1989 is noch immer der einzige Besuch der Menschheit; Es zeigte Überschallwindgeschwindigkeiten vun bis zu 2.100 km/h – die schnellsten im Sonnensystem – un große dunkle Stürme, die kommen un gehen. Sein größter Mond Triton kreist rückwärts, was beweist, dass es sich um en eingefangenes Kuipergürtel-Objekt handelt, un er stößt Stickstoffgeysire aus en gefrorenen Oberfläche bei −235 °C aus.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "hrk",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/neptune/img-1.jpg",
+        "caption": "PIA01492",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

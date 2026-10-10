@@ -1,0 +1,51 @@
+{
+  "id": "helix-nebula",
+  "name": "Nebulosa de la Hélice",
+  "kind": "nebula",
+  "tagline": "El Ojo de Dios: el sudario de muerte de una estrella similar al Sol y una vista previa de nuestra propia estrella.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "≈ 655 años luz"
+    },
+    {
+      "label": "Catálogo",
+      "value": "NGC 7293"
+    },
+    {
+      "label": "Tipo",
+      "value": "Nebulosa planetaria"
+    },
+    {
+      "label": "Edad",
+      "value": "≈ 10.600 años desde la eyección"
+    },
+    {
+      "label": "Apodo",
+      "value": "ojo de dios"
+    },
+    {
+      "label": "Más cercano",
+      "value": "Nebulosa planetaria más cercana a la Tierra"
+    }
+  ],
+  "history": "Las nebulosas planetarias no tienen nada que ver con los planetas; el nombre sobrevive de William Herschel, quien pensaba que sus formas redondas se parecían a Urano. La Hélice es el ejemplo más cercano: una estrella parecida al Sol que agotó su combustible, se hinchó hasta convertirse en una gigante roja y se desprendió de sus capas exteriores hace unos diez mil años, dejando una enana blanca cuya luz ultravioleta hace que el gas desprendido emita fluorescencia en anillos concéntricos. Los \"nudos cometarios\" radiales fluyen hacia afuera como renacuajos. Es un ensayo para el futuro de nuestra propia estrella: dentro de unos cinco mil millones de años el Sol pasará por la misma suave desvinculación.",
+  "source": "NASA/ESA Hubble; ESO",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "cas",
+    "refs": [
+      "NASA/ESA Hubble; ESO"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/helix-nebula/img-1.jpg",
+        "caption": "NGC 7293, the Helix Nebula",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

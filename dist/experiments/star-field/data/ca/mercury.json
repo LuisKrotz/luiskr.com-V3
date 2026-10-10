@@ -1,0 +1,51 @@
+{
+  "id": "mercury",
+  "name": "Mercuri",
+  "kind": "planet",
+  "tagline": "El planeta més petit i el més proper al Sol: un món amb cràters d'extrems.",
+  "facts": [
+    {
+      "label": "Diàmetre",
+      "value": "4.879 km"
+    },
+    {
+      "label": "Període orbital",
+      "value": "88 dies"
+    },
+    {
+      "label": "Durada del dia",
+      "value": "59 dies terrestres"
+    },
+    {
+      "label": "Temperatura",
+      "value": "−173 a 427 °C"
+    },
+    {
+      "label": "Gravetat",
+      "value": "3,7 m/s²"
+    },
+    {
+      "label": "Llunes",
+      "value": "0"
+    }
+  ],
+  "history": "Mercuri és el planeta més petit del Sistema Solar i completa una òrbita cada 88 dies, el més ràpid de qualsevol planeta, per això els romans el van batejar pel seu ràpid déu missatger. Tancat en una ressonància d'òrbita de gir 3:2, gira exactament tres vegades per cada dues òrbites. La seva superfície de cràters registra milers de milions d'anys d'impactes i l'òrbita MESSENGER de la NASA (2011-2015) va trobar gel d'aigua amagat en cràters polars a l'ombra permanent malgrat les temperatures del migdia de 427 °C. Només tres naus espacials han visitat: el Mariner 10 va passar el 1974-75, el MESSENGER va orbitar fa una dècada i la missió conjunta ESA/JAXA BepiColombo està en camí per entrar en òrbita el 2026.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mercury/img-1.jpg",
+        "caption": "Feliç petit cràter a Mercuri",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

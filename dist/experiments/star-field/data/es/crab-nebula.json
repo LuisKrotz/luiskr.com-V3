@@ -1,0 +1,58 @@
+{
+  "id": "crab-nebula",
+  "name": "Nebulosa del Cangrejo",
+  "kind": "nebula",
+  "tagline": "Los restos de una estrella vista explotando en 1054 y todavía en expansión.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "≈ 6.500 años luz"
+    },
+    {
+      "label": "Catálogo",
+      "value": "M1/NGC 1952"
+    },
+    {
+      "label": "Progenitor",
+      "value": "Supernova de julio de 1054"
+    },
+    {
+      "label": "Núcleo remanente",
+      "value": "Púlsar de cangrejo: 30 giros/segundo"
+    },
+    {
+      "label": "Expansión",
+      "value": "≈ 1.500 km/s y creciendo"
+    },
+    {
+      "label": "Grabado por",
+      "value": "Astrónomos de la corte china y japonesa"
+    }
+  ],
+  "history": "En julio de 1054, astrónomos chinos y japoneses registraron una \"estrella invitada\" lo suficientemente brillante como para leerla de noche y visible durante el día durante 23 días. Seis siglos después, Charles Messier catalogó su remanente, el objeto que inspiró su famosa lista de cometas parecidos, como entrada M1. En su corazón gira el púlsar del Cangrejo, una estrella de neutrones de 30 kilómetros que gira 30 veces por segundo y emite radiación como un faro en todas las longitudes de onda. Los filamentos en expansión abarcan ahora unos 11 años luz; La comparación de fotografías a lo largo de décadas muestra que los escombros aún salen corriendo: una explosión en progreso.",
+  "source": "NASA/ESA Hubble; Harvard CfA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA/ESA Hubble; Harvard CfA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/crab-nebula/img-1.jpg",
+        "caption": "El Hubble de la NASA captura el corazón palpitante de la Nebulosa del Cangrejo",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/crab-nebula/video-1.mp4",
+        "caption": "29º aniversario del Hubble",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

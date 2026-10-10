@@ -1,0 +1,51 @@
+{
+  "id": "eagle-nebula",
+  "name": "Nebulosa del Águila",
+  "kind": "nebula",
+  "tagline": "Hogar de los Pilares de la Creación: torres de gas donde las estrellas se encienden.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "≈ 7.000 años luz"
+    },
+    {
+      "label": "Catálogo",
+      "value": "M16/NGC 6611"
+    },
+    {
+      "label": "altura del pilar",
+      "value": "≈ 4-5 años luz"
+    },
+    {
+      "label": "imagen famosa",
+      "value": "Hubble, 1995; JWST, 2022"
+    },
+    {
+      "label": "Constelación",
+      "value": "serpientes"
+    },
+    {
+      "label": "Tipo",
+      "value": "Región H II de formación de estrellas"
+    }
+  ],
+  "history": "En 1995, Hubble fotografió tres columnas de gas frío con forma de dedos dentro de la Nebulosa del Águila y produjo la imagen espacial más famosa jamás realizada: los Pilares de la Creación. Cada pilar es una torre de cuatro años luz de hidrógeno y polvo erosionada por la luz ultravioleta de un cúmulo de estrellas jóvenes, con estrellas jóvenes eclosionando en sus puntas: nudos más densos que albergan soles embrionarios. JWST las revisó en 2022 en infrarrojo, revelando cientos de estrellas recién formadas escondidas dentro de las columnas. Algunos astrónomos calculan que es posible que el impacto de una supernova ya haya destruido los pilares, y que la luz de su ruina aún esté a siglos de llegar hasta nosotros.",
+  "source": "NASA/ESA Hubble; NASA/ESA/CSA JWST",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA/ESA Hubble; NASA/ESA/CSA JWST"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/eagle-nebula/img-1.jpg",
+        "caption": "Pilares de la creación revelados en 3-D",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

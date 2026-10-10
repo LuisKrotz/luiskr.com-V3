@@ -1,0 +1,43 @@
+{
+  "id": "asteroid-belt",
+  "name": "Ceinture d'astéroïdes",
+  "kind": "belt",
+  "tagline": "Des millions de restes rocheux entre Mars et Jupiter – la planète qui ne s’est jamais formée.",
+  "facts": [
+    {
+      "label": "Emplacement",
+      "value": "2,06-3,27 UA, entre Mars et Jupiter"
+    },
+    {
+      "label": "Membres estimés",
+      "value": "1,1 à 1,9 millions de plus de 1 km"
+    },
+    {
+      "label": "Masse totale",
+      "value": "~ 3% de la Lune — Cérès en détient à elle seule un tiers"
+    },
+    {
+      "label": "Membres les plus grands",
+      "value": "Cérès, Vesta, Pallas, Hygiea"
+    },
+    {
+      "label": "Lacunes de Kirkwood",
+      "value": "Voies de résonance dégagées par la gravité de Jupiter"
+    },
+    {
+      "label": "Composition",
+      "value": "Carboné de type C, silicate de type S, métallique de type M"
+    }
+  ],
+  "history": "La ceinture d'astéroïdes est constituée des débris survivants du système solaire primitif – des matériaux qui n'ont jamais fusionné pour former une planète parce que la gravité de Jupiter a agité la région trop violemment. Giuseppe Piazzi a trouvé son premier membre, Cérès, en 1801 alors qu'il recherchait la « planète manquante » prédite par la loi Titius-Bode ; En six ans, Pallas, Junon et Vesta suivirent, révélant non pas un monde mais un vaste anneau de décombres. Aujourd’hui, plus d’un million de corps de plus d’un kilomètre sont répertoriés, mais la ceinture entière pèse moins de 3 % de la Lune – principalement de l’espace vide, et les vaisseaux spatiaux la traversent régulièrement sans une seule rencontre rapprochée. Les résonances de Jupiter creusent les brèches de Kirkwood visibles sous forme de voies vides, et les collisions entre les membres fournissent la plupart des météorites qui atteignent la Terre. L'orbiteur Dawn de la NASA a cartographié de près Vesta et Cérès entre 2011 et 2018, trouvant des gisements de sel et des preuves que certains astéroïdes abritaient autrefois des océans souterrains.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/JPL Solar System Exploration",
+      "IAU Minor Planet Center"
+    ]
+  }
+}

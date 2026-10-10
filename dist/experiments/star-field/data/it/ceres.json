@@ -1,0 +1,51 @@
+{
+  "id": "ceres",
+  "name": "Cerere",
+  "kind": "dwarfPlanet",
+  "tagline": "Il primo asteroide mai trovato: un pianeta nano che contiene un terzo della massa della cintura.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "940 km"
+    },
+    {
+      "label": "Periodo orbitale",
+      "value": "4,6 anni"
+    },
+    {
+      "label": "Posizione",
+      "value": "Cintura principale degli asteroidi (Marte-Giove)"
+    },
+    {
+      "label": "Scoperta",
+      "value": "1801 —Giuseppe Piazzi"
+    },
+    {
+      "label": "Prima visita",
+      "value": "Orbiter dell'alba, 2015–2018"
+    },
+    {
+      "label": "Caratteristica notevole",
+      "value": "Depositi salini luminosi del cratere Occator"
+    }
+  ],
+  "history": "Giuseppe Piazzi scoprì Cerere il giorno di Capodanno del 1801, il primo oggetto mai trovato nello spazio tra Marte e Giove, in seguito ritenuto essere il membro più grande della fascia degli asteroidi contenente circa un terzo della sua massa totale. La IAU lo ha aggiornato allo status di pianeta nano nel 2006 insieme alla retrocessione di Plutone. La sonda spaziale Dawn della NASA ha orbitato attorno ad esso dal 2015 al 2018 - il primo pianeta nano mai visitato - e ha scoperto che i famosi punti luminosi del cratere Occator erano sali di carbonato di sodio lasciati dall'acqua salata che filtrava da uno strato sotterraneo ghiacciato, prova che Cerere un tempo era un mondo oceanico.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/ceres/img-1.jpg",
+        "caption": "Samhain Catenae su Cerere",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

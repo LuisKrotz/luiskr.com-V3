@@ -1,0 +1,51 @@
+{
+  "id": "triangulum",
+  "name": "Galaxia del Triángulo",
+  "kind": "galaxy",
+  "tagline": "La tranquila tercera espiral: el tímido miembro del Grupo Local, rico en guarderías de estrellas.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "≈ 2,73 millones de años luz"
+    },
+    {
+      "label": "Catálogo",
+      "value": "M33"
+    },
+    {
+      "label": "Estrellas",
+      "value": "≈ 40 mil millones"
+    },
+    {
+      "label": "Diámetro",
+      "value": "≈ 60.000 años luz"
+    },
+    {
+      "label": "Rango de grupo",
+      "value": "Tercera galaxia más grande del grupo local"
+    },
+    {
+      "label": "Región notable",
+      "value": "NGC 604: nebulosa gigante de formación de estrellas"
+    }
+  ],
+  "history": "Triangulum es la tercera galaxia más grande de nuestro grupo local después de Andrómeda y la Vía Láctea, y puede ser un satélite gravitacional de la propia Andrómeda. Bajo un cielo oscuro, se encuentra cerca del borde de la visibilidad a simple vista: el objeto más remoto que algunos observadores jamás vean. Es más pequeño y más ordenado que sus vecinos gigantes, con una tasa de formación estelar inusualmente alta: su región H II, NGC 604, es uno de los viveros estelares más grandes conocidos, con más de 1.500 años luz de diámetro e ionizado por cientos de estrellas jóvenes masivas. Al carecer de un abultamiento central dominante, también es un laboratorio natural para probar modelos de materia oscura.",
+  "source": "NASA/ESA Hubble; NOIRLab",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA/ESA Hubble; NOIRLab"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/triangulum/img-1.jpg",
+        "caption": "M33: Un vecino cercano revela su verdadero tamaño y esplendor compuesto de 3 colores",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

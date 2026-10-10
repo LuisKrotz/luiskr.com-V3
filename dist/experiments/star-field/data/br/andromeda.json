@@ -1,0 +1,51 @@
+{
+  "id": "andromeda",
+  "name": "Galáxia de Andrômeda",
+  "kind": "galaxy",
+  "tagline": "A coisa mais distante que você pode ver sem ajuda – dois milhões e meio de anos-luz de distância.",
+  "facts": [
+    {
+      "label": "Distância",
+      "value": "≈ 2,54 milhões de anos-luz"
+    },
+    {
+      "label": "Catálogo",
+      "value": "M31"
+    },
+    {
+      "label": "Estrelas",
+      "value": "≈ 1 trilhão"
+    },
+    {
+      "label": "Diâmetro",
+      "value": "≈ 220.000 anos-luz"
+    },
+    {
+      "label": "Abordagem",
+      "value": "110 km/s em nossa direção"
+    },
+    {
+      "label": "Colisão",
+      "value": "≈ 4,5 bilhões de anos"
+    }
+  ],
+  "history": "O astrônomo persa Al-Sufi registrou Andrômeda como uma “pequena nuvem” por volta de 964 dC – tornando-a um dos primeiros objetos documentados do céu profundo e ainda a coisa mais distante visível a olho nu. Durante séculos foi chamada de nebulosa espiral dentro da nossa própria galáxia, até que Edwin Hubble identificou estrelas variáveis ​​Cefeidas nela em 1924 e mediu a sua distância – prova de que o universo se estende muito além da Via Láctea, uma descoberta que reescreveu a cosmologia da noite para o dia. Contém cerca de um bilião de estrelas, aproximadamente o dobro da nossa galáxia, e os espectros com desvio para o azul mostram que se aproxima a 110 km/s: as duas espirais começarão a fundir-se dentro de cerca de 4,5 mil milhões de anos.",
+  "source": "NASA/ESA Hubble; IAU",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "br",
+    "refs": [
+      "NASA/ESA Hubble; IAU"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/andromeda/img-1.jpg",
+        "caption": "Galáxia NGC 55",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

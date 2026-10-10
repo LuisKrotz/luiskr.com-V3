@@ -2,7 +2,7 @@
   "id": "deimos",
   "name": "Deimos",
   "kind": "moon",
-  "tagline": "Ghealach níos lú agus níos faide amuigh Mars — iarsma de shuiteán deannaigh ar imeall na hairde sioncrónaí.",
+  "tagline": "Gealach sheachtrach níos lú Mars - iarsma le brat deannaigh ag fithisiú ar imeall airde sioncrónach.",
   "facts": [
     {
       "label": "Trastomhas",
@@ -10,7 +10,7 @@
     },
     {
       "label": "Tréimhse fithise",
-      "value": "30.3 uair"
+      "value": "30.3 uair an chloig"
     },
     {
       "label": "Fad ó Mars",
@@ -18,7 +18,7 @@
     },
     {
       "label": "An cráitéar is mó",
-      "value": "Swift — 2.3 km"
+      "value": "Swift - 2.3 km"
     },
     {
       "label": "Domhantarraingt",
@@ -26,17 +26,26 @@
     },
     {
       "label": "Fionnachtain",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 - Halla Asaph"
     }
   ],
-  "history": "Is é Deimos an ghealach níos lú agus níos faide amuigh den dá ghealach ag Mars — corp neamhrialta smúdaithe le deannach, gabháilte is dócha ó chrios na n-astaróideacha nó rugadh ó smionagar tuisleoige. Maolaíonn a chlúdach réadlach tiubh a chraitéir, rud a thugann cuma chaite air, difriúil le haghaidh stróicthe Phobos. Timpeallaíonn sé díreach os cionn na hairde sioncrónaí, agus ó dhromchla Mars drífeann sé go mall ó soir go siar ar feadh beagnach trí lá. Soláthraíonn Mars Trek NASA samhlacha mionsonraithe; níor thuirling aon toirean fós, ach tá sé fós ina iarrthóir mar stad do mhiseain chriú.",
+  "history": "Is é Deimos an ceann is lú agus an taobh amuigh den dá ghealach de chuid Mhars - corp neamhrialta, réidh le deannach a gabhadh ón crios astaróideach is dócha nó a rugadh ó bhruscar imbhuailte. Bogann a brat tiubh regolith a chráitéir, rud a thugann cuma cnapánach, balbh air murab ionann agus aghaidh buailte Phobos. Orbits sé díreach taobh amuigh d'airde sioncronach, mar sin ó dhromchla an Martian drifts sé go mall soir go siar thar beagnach trí lá. Soláthraíonn NASA's Mars Trek múnlaí cruth mionsonraithe; níor bhain aon lander leis go fóill, ach tá sé fós ina phointe stáitse iarrthóra do mhisin criúnaithe Mars.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "ga",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/deimos/img-1.jpg",
+        "caption": "Martian Eclipses: Deimos agus Phobos",
+        "credit": "NASA"
+      }
     ]
   }
 }

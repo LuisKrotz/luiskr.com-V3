@@ -1,0 +1,58 @@
+{
+  "id": "venus",
+  "name": "Venere",
+  "kind": "planet",
+  "tagline": "Il pianeta gemello della Terra in termini di dimensioni, avvolto in una schiacciante serra a CO₂: il pianeta più caldo.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "12.104 km"
+    },
+    {
+      "label": "Periodo orbitale",
+      "value": "225 giorni"
+    },
+    {
+      "label": "Rotazione",
+      "value": "243 giorni, retrogradi"
+    },
+    {
+      "label": "Temperatura superficiale",
+      "value": "≈ 465 °C"
+    },
+    {
+      "label": "Pressione superficiale",
+      "value": "≈ 92 bar"
+    },
+    {
+      "label": "Lune",
+      "value": "0"
+    }
+  ],
+  "history": "Venere gira all'indietro e così lentamente che il suo giorno dura più dell'anno. Sotto le nubi ininterrotte di acido solforico, una serra incontrollata mantiene la superficie vicino a 465°C – abbastanza calda da sciogliere il piombo – sotto 92 atmosfere di pressione. Il programma sovietico Venera realizzò qui i primi atterraggi su un altro pianeta tra il 1970 e il 1982; nessuna sonda è sopravvissuta più di due ore. L'orbiter Magellan della NASA ha mappato radar il 98% della superficie tra il 1990 e il 1994, rivelando un mondo vulcanico riemerso solo poche centinaia di milioni di anni fa. Venere è spesso chiamata il gemello malvagio della Terra: stessa dimensione, roccia simile, destino radicalmente diverso – un ammonimento sul clima planetario.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/venus/img-1.jpg",
+        "caption": "Osservazione del transito di Venere alla NASA Goddard",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/venus/video-1.mp4",
+        "caption": "Il vento elettrico di Venere",
+        "credit": "NASA Goddard"
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "ceres",
+  "name": "Ceres",
+  "kind": "dwarfPlanet",
+  "tagline": "Der erste jemals gefundene Asteroid – en Zwergplanet mit em Drittel der Masse des Gürtels.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "940 km"
+    },
+    {
+      "label": "Umlaufziet",
+      "value": "4,6 Johre"
+    },
+    {
+      "label": "Standort",
+      "value": "Hauptasteroidengürtel (Mars–Jupiter)"
+    },
+    {
+      "label": "Entdeckung",
+      "value": "1801 – Giuseppe Piazzi"
+    },
+    {
+      "label": "Erster Besuch",
+      "value": "Dawn Orbiter, 2015–2018"
+    },
+    {
+      "label": "Bemerkenswerte Funktion",
+      "value": "Helle Salzablagerungen im Occator-Krater"
+    }
+  ],
+  "history": "Giuseppe Piazzi entdeckte Ceres am Neujahrstag 1801 – das erste Objekt, das jemals in der Lücke zwischen Mars un Jupiter gefunden wurde un später als größtes Mitglied des Asteroidengürtels galt, das etwa en Drittel seiner Gesamtmasse enthielt. Die IAU stufte ihn 2006 zusammen mit Plutos Herabstufung auf den Status eines Zwergplaneten hoch. Die NASA-Raumsonde Dawn umkreiste ihn vun 2015 bis 2018 – den ersten Zwergplaneten, der jemals besucht wurde – un stellte fest, dass es sich bei den berühmten hellen Flecken des Occator-Kraters um Natriumkarbonatsalze handelte, die vun Salzwasser zurückgeblieben waren, das aus en gefrorenen Untergrundschicht aufstieg, en Beweis dafür, dass Ceres einst en Ozeanwelt war.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "hrk",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/ceres/img-1.jpg",
+        "caption": "Samhain Catenae on Ceres",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "venus",
+  "name": "Venus",
+  "kind": "planet",
+  "tagline": "So groß wie der Zwilling der Erde, eingehüllt in en erdrückendes CO₂-Treibhaus – der heißeste Planet.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "12.104 km"
+    },
+    {
+      "label": "Umlaufziet",
+      "value": "225 Daag"
+    },
+    {
+      "label": "Rotation",
+      "value": "243 Daag, rückläufig"
+    },
+    {
+      "label": "Oberflächentemperatur",
+      "value": "≈ 465 °C"
+    },
+    {
+      "label": "Oberflächendruck",
+      "value": "≈ 92 bar"
+    },
+    {
+      "label": "Moonde",
+      "value": "0"
+    }
+  ],
+  "history": "Die Venus dreht sich rückwärts un so langsam, dass ihr Tag ihr Jahr überdauert. Unter ununterbrochenen Schwefelsäurewolken hält en außer Kontrolle geratenes Gewächshaus die Oberfläche unter em Druck vun 92 Atmosphären bei etwa 465 °C – heiß genug, um Blei zu schmelzen. Dem sowjetischen Venera-Programm gelang hier zwischen 1970 un 1982 die erste Landung auf em anderen Planeten; Keine Sonde überlebte länger als zwei Stund. Der Magellan-Orbiter der NASA kartierte zwischen 1990 un 1994 98 % der Oberfläche mit em Radar un enthüllte dabei en vulkanische Welt, die erst vor einigen hundert Millionen Johre wieder aufgetaucht war. Venus wird oft als der böse Zwilling der Erde bezeichnet: gleiche Größe, ähnliches Gestein, völlig anderes Schicksal – en warnende Geschichte im Planetenklima.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "hrk",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/venus/img-1.jpg",
+        "caption": "Venus Transit Viewing at NASA Goddard",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/venus/video-1.mp4",
+        "caption": "The Electric Wind of Venus",
+        "credit": "NASA Goddard"
+      }
+    ]
+  }
+}

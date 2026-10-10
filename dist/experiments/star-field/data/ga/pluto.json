@@ -1,0 +1,58 @@
+{
+  "id": "pluto",
+  "name": "Plútón",
+  "kind": "dwarfPlanet",
+  "tagline": "An dwarf beloved - rí an Chreasa Kuiper agus domhan oighearshruth nítrigine.",
+  "facts": [
+    {
+      "label": "Trastomhas",
+      "value": "2,377 km"
+    },
+    {
+      "label": "Tréimhse fithise",
+      "value": "248 bliain"
+    },
+    {
+      "label": "Gealacha",
+      "value": "5 (Charon is mó)"
+    },
+    {
+      "label": "Fionnachtain",
+      "value": "1930 - Clyde Tombaugh"
+    },
+    {
+      "label": "An chéad chuairt",
+      "value": "New Horizons, Iúil 2015"
+    },
+    {
+      "label": "Athrangaithe",
+      "value": "Pláinéad dwarf, IAU 2006"
+    }
+  ],
+  "history": "D’aimsigh Clyde Tombaugh Plútón i 1930 tar éis cuardach córasach ar ‘Planet X’, agus ar feadh 76 bliain bhí sé ar an naoú pláinéad. Rinne sainmhíniú IAU 2006 é a athrangú mar phláinéad corrach — an chéad bhall aitheanta de Chrios Kuiper, fáinne na gcorp oighreata taobh amuigh de Neiptiún. D'eitil spásárthach New Horizons NASA laistigh de 12,500 km i mí Iúil 2015 agus nocht sé domhan iontach gníomhach: machaire oighir nítrigine-chruthach croí (Sputnik Planitia) a dhrónnaíonn cosúil le lampa lava, sléibhte uisce-oighir suas le 3.5 km ar airde, agus atmaisféar Clear gorm tanaí. Tá a ghealach is mó Charon leath mhéid Plútón - córas dúbailte fíor.",
+  "source": "NASA/JPL Solar System Exploration; Johns Hopkins APL",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ga",
+    "refs": [
+      "NASA/JPL Solar System Exploration; Johns Hopkins APL"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/pluto/img-1.jpg",
+        "caption": "Feiceann New Horizons Plútón",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/pluto/video-1.mp4",
+        "caption": "Agallamh New Horizons le Dennis Reuter",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

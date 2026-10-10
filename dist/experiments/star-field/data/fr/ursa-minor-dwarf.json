@@ -1,0 +1,35 @@
+{
+  "id": "ursa-minor-dwarf",
+  "name": "La Petite Ourse naine",
+  "kind": "dwarfGalaxy",
+  "tagline": "Un sphéroïde de la Voie lactée à 225 000 années-lumière – une matière ancienne, faible et presque entièrement noire.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "~225 000 ly"
+    },
+    {
+      "label": "Type",
+      "value": "Sphéroïdal nain"
+    },
+    {
+      "label": "Trouvé",
+      "value": "1955 — Wilson sur les assiettes Palomar"
+    },
+    {
+      "label": "Population",
+      "value": "Étoiles anciennes et pauvres en métaux"
+    }
+  ],
+  "history": "Ursa Minor a fait surface sur les premières plaques du Palomar Sky Survey en 1955 – le prototype de naine « fossile », ses étoiles uniformément vieilles et pauvres en métaux, ce qui suggère qu'elle les a formées presque toutes au cours des deux premiers milliards d'années et qu'elle est restée passive depuis. Son rapport masse/lumière extrême en a fait une des premières références pour les études sur la matière noire, et son orbite la transporte sur une trajectoire lente et lointaine autour de la Voie lactée.",
+  "source": "Palomar Sky Survey 1955",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "Wilson 1955",
+      "Palomar Sky Survey"
+    ]
+  }
+}

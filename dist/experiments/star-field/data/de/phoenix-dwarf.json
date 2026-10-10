@@ -1,0 +1,35 @@
+{
+  "id": "phoenix-dwarf",
+  "name": "Phönix-Zwerg",
+  "kind": "dwarfGalaxy",
+  "tagline": "Ein Übergangszwerg der Lokalen Gruppe – teils kugelförmig, teils unregelmäßig, der immer noch ein Rinnsal aus Sternen bildet.",
+  "facts": [
+    {
+      "label": "Entfernung",
+      "value": "~1,44 Mly"
+    },
+    {
+      "label": "Typ",
+      "value": "Übergangs-dSph/dIrr"
+    },
+    {
+      "label": "Sternentstehung",
+      "value": "Laufend, auf niedrigem Niveau"
+    },
+    {
+      "label": "Status",
+      "value": "Zwischen Satellit und isoliertem Zwerg"
+    }
+  ],
+  "history": "Der Phönix-Zwerg nimmt morphologisch den Mittelweg zwischen einem Sphäroiden und einem Unregelmäßigen ein – er enthält im Gegensatz zu den vollständig erloschenen Sphäroiden immer noch genügend Gas, um die Sternentstehung auf niedrigem Niveau aufrechtzuerhalten. Er ist weit genug von der Milchstraße entfernt, um eine vollständige Gasentfernung zu vermeiden, aber nahe genug, dass seine Entwicklung möglicherweise durch die Halo-Umgebung vorangetrieben wurde, was ihn zu einem Grenzfall dafür macht, wie Zwerge die Sternentstehung stoppen.",
+  "source": "ESO · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "Schuster & West 1976",
+      "ESO"
+    ]
+  }
+}

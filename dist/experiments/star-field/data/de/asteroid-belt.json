@@ -1,0 +1,43 @@
+{
+  "id": "asteroid-belt",
+  "name": "Asteroidengürtel",
+  "kind": "belt",
+  "tagline": "Millionen von Gesteinsresten zwischen Mars und Jupiter – dem Planeten, der nie entstanden ist.",
+  "facts": [
+    {
+      "label": "Standort",
+      "value": "2,06–3,27 AE, zwischen Mars und Jupiter"
+    },
+    {
+      "label": "Geschätzte Mitglieder",
+      "value": "1,1–1,9 Millionen größer als 1 km"
+    },
+    {
+      "label": "Gesamtmasse",
+      "value": "~3 % des Mondes – Ceres allein hält ein Drittel"
+    },
+    {
+      "label": "Größte Mitglieder",
+      "value": "Ceres, Vesta, Pallas, Hygiea"
+    },
+    {
+      "label": "Kirkwood-Lücken",
+      "value": "Resonanzbahnen, die durch die Schwerkraft des Jupiter freigelegt wurden"
+    },
+    {
+      "label": "Zusammensetzung",
+      "value": "Kohlenstoffhaltig vom C-Typ, Silikat vom S-Typ, Metall vom M-Typ"
+    }
+  ],
+  "history": "Der Asteroidengürtel besteht aus den Überresten des frühen Sonnensystems – Material, das nie zu einem Planeten verschmolz, weil die Schwerkraft des Jupiter die Region zu stark bewegte. Giuseppe Piazzi fand sein erstes Mitglied, Ceres, im Jahr 1801, als er nach dem „fehlenden Planeten“ suchte, den das Titius-Bode-Gesetz vorhersagte; Innerhalb von sechs Jahren folgten Pallas, Juno und Vesta und enthüllten nicht nur eine Welt, sondern einen riesigen Ring aus Trümmern. Heute sind über eine Million Körper mit einer Größe von mehr als einem Kilometer katalogisiert, doch der gesamte Gürtel hat weniger als 3 % der Masse des Mondes – größtenteils leerer Raum, und Raumschiffe fliegen routinemäßig ohne eine einzige Nahbegegnung durch ihn hindurch. Jupiters Resonanzen schnitzen die Kirkwood-Lücken, die als leere Bahnen sichtbar sind, und Kollisionen zwischen Mitgliedern liefern die meisten Meteoriten, die die Erde erreichen. Der NASA-Orbiter Dawn kartierte Vesta und Ceres zwischen 2011 und 2018 aus nächster Nähe und fand dabei Salzablagerungen und Hinweise darauf, dass einige Asteroiden einst unterirdische Ozeane beherbergten.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "NASA/JPL Solar System Exploration",
+      "IAU Minor Planet Center"
+    ]
+  }
+}

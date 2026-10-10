@@ -1,0 +1,35 @@
+{
+  "id": "carina-dwarf",
+  "name": "Carina Enana",
+  "kind": "dwarfGalaxy",
+  "tagline": "Un satélite de la Vía Láctea a 330.000 años luz de distancia cuya historia de formación estelar se produce en ráfagas separadas a lo largo del tiempo cósmico.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~330.000 años al año"
+    },
+    {
+      "label": "Tipo",
+      "value": "esferoidal enano"
+    },
+    {
+      "label": "Encontrado",
+      "value": "1977 - Placas Schmidt del Reino Unido"
+    },
+    {
+      "label": "Explosiones",
+      "value": "Episodios distintos hace ~13, ~8 y ~3 Gyr"
+    }
+  ],
+  "history": "Carina es famosa entre los esferoidales enanos por una historia de formación estelar escrita en pulsos separados (un estallido antiguo, un estallido de mediana edad y uno tardío) en lugar de una época de formación de estrellas. Esa escalera de poblaciones permitió a los astrónomos leer su historia de acreción: probablemente una lenta órbita temprana alrededor de la Vía Láctea. Sus estrellas son viejas y pobres en metales, y estudios profundos rastrean su luz a lo largo de miles de años luz a través del halo.",
+  "source": "Cannon, Hawarden & Tritton 1977 · ESO",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "Cannon, Hawarden & Tritton 1977",
+      "ESO"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "crab-nebula",
+  "name": "Krebsnebel",
+  "kind": "nebula",
+  "tagline": "Das Wrack eines Sterns, der im Jahr 1054 explodierte un sich immer noch ausdehnt.",
+  "facts": [
+    {
+      "label": "Entfernung",
+      "value": "≈ 6.500 Lichtjahre"
+    },
+    {
+      "label": "Katalog",
+      "value": "M1 / NGC 1952"
+    },
+    {
+      "label": "Vorfahr",
+      "value": "Supernova vum Juli 1054"
+    },
+    {
+      "label": "Restkern",
+      "value": "Krabbenpulsar – 30 Drehungen/Sekunde"
+    },
+    {
+      "label": "Erweiterung",
+      "value": "≈ 1.500 km/s, Tendenz steigend"
+    },
+    {
+      "label": "Aufgenommen vun",
+      "value": "Chinesische un japanische Hofastronomen"
+    }
+  ],
+  "history": "Im Juli 1054 registrierten chinesische un japanische Astronomen en „Gaststern“, der hell genug war, um ihn nachts ablesen zu können, un der 23 Daag lang bei Tageslicht sichtbar war. Sechs Jahrhunderte später katalogisierte Charles Messier seinen Rescht – das Objekt, das seine berühmte Liste vun Kometen-Doppelgängern als Eintrag M1 inspirierte. In seinem Herzen dreht sich der Krebspulsar, en 30 km großer Neutronenstern, der sich 30 Mal pro Sekunde dreht un Strahlung wie en Leuchtturm iwwer alle Wellenlängen strahlt. Die expandierenden Filamente erstrecken sich jetzt iwwer etwa 11 Lichtjahre; Der Vergleich vun Fotos aus Jahrzehnten zeigt, dass die Trümmer immer noch nach außen rasen – en Explosion im Gange.",
+  "source": "NASA/ESA Hubble; Harvard CfA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "hrk",
+    "refs": [
+      "NASA/ESA Hubble; Harvard CfA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/crab-nebula/img-1.jpg",
+        "caption": "NASA's Hubble Captures the Beating Heart of the Crab Nebula",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/crab-nebula/video-1.mp4",
+        "caption": "Hubble's 29th Anniversary",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

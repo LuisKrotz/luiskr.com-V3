@@ -1,0 +1,35 @@
+{
+  "id": "andromeda-1",
+  "name": "Andromeda I",
+  "kind": "dwarfGalaxy",
+  "tagline": "Un tenue esferoidal enano de Andrómeda, uno de los satélites difusos que pueblan el halo exterior de M31.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~2,55 millones al año"
+    },
+    {
+      "label": "Tipo",
+      "value": "esferoidal enano"
+    },
+    {
+      "label": "Compañero de",
+      "value": "M31"
+    },
+    {
+      "label": "Luminosidad",
+      "value": "Brillo superficial muy bajo"
+    }
+  ],
+  "history": "Andrómeda I es una de las tenues estrellas esferoidales enanas que orbitan alrededor de la galaxia de Andrómeda, tan difusa que sólo se identificó mediante trabajos fotográficos como un exceso sutil de estrellas débiles sobre el fondo del cielo. Sus estrellas son en su mayoría viejas y pobres en metales, el producto típico de un satélite que perdió su gas temprano debido a la presión dentro del halo de un anfitrión gigante. Pertenece al enjambre de compañeros de M31 que actualmente el estudio Pan-Andrómeda está contando y cartografiando.",
+  "source": "PAndAS · van den Bergh 1972",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "cas",
+    "refs": [
+      "van den Bergh 1972",
+      "PAndAS survey"
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "earth",
+  "name": "Tierra",
+  "kind": "planet",
+  "tagline": "El único mundo conocido que alberga vida: un planeta oceánico en la zona habitable.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "12.742 kilometros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "365,25 días"
+    },
+    {
+      "label": "Duración del día",
+      "value": "23,9 horas"
+    },
+    {
+      "label": "Agua en superficie",
+      "value": "≈ 71% de cobertura oceánica"
+    },
+    {
+      "label": "Lunas",
+      "value": "1"
+    },
+    {
+      "label": "Edad",
+      "value": "≈ 4,54 mil millones de años"
+    }
+  ],
+  "history": "La Tierra se fusionó a partir de la nebulosa solar hace unos 4.540 millones de años y se enfrió hasta formar un mundo diferenciado de corteza, manto y núcleo de hierro. La vida apareció en sus océanos durante los primeros mil millones de años y más tarde la fotosíntesis oxigenó la atmósfera, permitiendo ecosistemas terrestres complejos. La tectónica de placas, única entre los planetas rocosos conocidos, recicla continuamente la superficie y regula el clima a lo largo del tiempo geológico. La humanidad observa la Tierra desde el espacio desde 1946; La 'Canica azul' del Apolo 17 (1972) sigue siendo una de las fotografías más reproducidas jamás tomadas. Más de 6.000 exoplanetas confirmados proporcionan ahora un contexto de lo inusual que puede ser un mundo estable, de agua líquida y con vida.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "cas",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/earth/img-1.jpg",
+        "caption": "Most Amazing High Definition Image of Earth - Blue Marble 2012",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/earth/video-1.mp4",
+        "caption": "Earthrise after Orion Executes Outbound Powered Flyby",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/earth/audio-1.mp3",
+        "caption": "Chorus radio waves in Earth's magnetosphere — NASA",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

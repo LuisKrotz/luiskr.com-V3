@@ -1,0 +1,58 @@
+{
+  "id": "venus",
+  "name": "Venus",
+  "kind": "planet",
+  "tagline": "So groß wie der Zwilling der Erde, eingehüllt in ein erdrückendes CO₂-Treibhaus – der heißeste Planet.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "12.104 km"
+    },
+    {
+      "label": "Umlaufzeit",
+      "value": "225 Tage"
+    },
+    {
+      "label": "Rotation",
+      "value": "243 Tage, rückläufig"
+    },
+    {
+      "label": "Oberflächentemperatur",
+      "value": "≈ 465 °C"
+    },
+    {
+      "label": "Oberflächendruck",
+      "value": "≈ 92 bar"
+    },
+    {
+      "label": "Monde",
+      "value": "0"
+    }
+  ],
+  "history": "Die Venus dreht sich rückwärts und so langsam, dass ihr Tag ihr Jahr überdauert. Unter ununterbrochenen Schwefelsäurewolken hält ein außer Kontrolle geratenes Gewächshaus die Oberfläche unter einem Druck von 92 Atmosphären bei etwa 465 °C – heiß genug, um Blei zu schmelzen. Dem sowjetischen Venera-Programm gelang hier zwischen 1970 und 1982 die erste Landung auf einem anderen Planeten; Keine Sonde überlebte länger als zwei Stunden. Der Magellan-Orbiter der NASA kartierte zwischen 1990 und 1994 98 % der Oberfläche mit einem Radar und enthüllte dabei eine vulkanische Welt, die erst vor einigen hundert Millionen Jahren wieder aufgetaucht war. Venus wird oft als der böse Zwilling der Erde bezeichnet: gleiche Größe, ähnliches Gestein, völlig anderes Schicksal – eine warnende Geschichte im Planetenklima.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/venus/img-1.jpg",
+        "caption": "Venustransit-Beobachtung bei NASA Goddard",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/venus/video-1.mp4",
+        "caption": "Der elektrische Wind der Venus",
+        "credit": "NASA Goddard"
+      }
+    ]
+  }
+}

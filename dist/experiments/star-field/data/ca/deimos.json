@@ -2,7 +2,7 @@
   "id": "deimos",
   "name": "Deimos",
   "kind": "moon",
-  "tagline": "La lluna menor i més externa de Mart — un vestigi cobert de pols a la vora de l'altitud síncrona.",
+  "tagline": "La lluna exterior més petita de Mart: un romanent cobert de pols que orbita a la vora de l'altitud sincrònica.",
   "facts": [
     {
       "label": "Diàmetre",
@@ -13,7 +13,7 @@
       "value": "30,3 hores"
     },
     {
-      "label": "Distància a Mart",
+      "label": "Distància des de Mart",
       "value": "23.460 km"
     },
     {
@@ -22,21 +22,30 @@
     },
     {
       "label": "Gravetat",
-      "value": "0,003 m/s²"
+      "value": "0.003 m/s²"
     },
     {
       "label": "Descobriment",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 - Asaph Hall"
     }
   ],
-  "history": "Deimos és la menor i més externa de les dues llunes de Mart — un cos irregular enrasat per la pols, probablement capturat del cinturó d'asteroides o nascut de restes d'impacte. La seva gruixuda capa de regolita suavitza els cràters i li dona un aspecte obtús i esmorteït, a diferència de la cara castigada de Fobos. Orbita just per sobre de l'altitud síncrona, així que des de la superfície marciana deriva lentament d'est a oest durant gairebé tres dies. El Mars Trek de la NASA ofereix models detallats; cap sonda hi ha aterrat encara, però segueix sent candidata a escala per a missions tripulades.",
+  "history": "Deimos és la més petita i externa de les dues llunes de Mart: un cos irregular i suau de pols probablement capturat del cinturó d'asteroides o nascut de les restes de l'impacte. La seva gruixuda manta de regolit suavitza els seus cràters, donant-li un aspecte gruixut i silenciós a diferència de la cara malmesa de Fobos. Orbita just fora de l'altitud síncrona, de manera que des de la superfície marciana deriva lentament d'est a oest durant gairebé tres dies. Mars Trek de la NASA proporciona models de forma detallats; cap aterratge encara l'ha tocat, però segueix sent un punt d'escena candidat per a missions tripulades a Mart.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "ca",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/deimos/img-1.jpg",
+        "caption": "Eclipsis marcians: Deimos i Fobos",
+        "credit": "NASA"
+      }
     ]
   }
 }

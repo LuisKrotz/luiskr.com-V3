@@ -1,0 +1,51 @@
+{
+  "id": "uranus",
+  "name": "Urano",
+  "kind": "planet",
+  "tagline": "Il pianeta laterale: un gigante di ghiaccio che rotola su un fianco attorno al Sole.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "50.724 km"
+    },
+    {
+      "label": "Periodo orbitale",
+      "value": "84 anni"
+    },
+    {
+      "label": "Inclinazione assiale",
+      "value": "97,77°"
+    },
+    {
+      "label": "Lune",
+      "value": "28"
+    },
+    {
+      "label": "Atmosfera più fredda",
+      "value": "−224 °C"
+    },
+    {
+      "label": "Scoperta",
+      "value": "1781 – William Herschel"
+    }
+  ],
+  "history": "Urano fu il primo pianeta scoperto dal telescopio: William Herschel lo individuò nel 1781, raddoppiando da un giorno all'altro le dimensioni conosciute del Sistema Solare. Un colossale impatto antico probabilmente ha fatto cadere il suo asse a 97,77 gradi, quindi orbita attorno al Sole rotolando su un lato e ciascun polo riceve 42 anni di luce solare e 42 di oscurità. La sua atmosfera di metano gli conferisce una sfumatura ciano pallido e mantiene la temperatura planetaria più fredda mai misurata. La Voyager 2 rimane l'unico veicolo spaziale da visitare, volando nel 1986; un orbiter dedicato a Urano è una priorità assoluta dell’indagine decennale sulla scienza planetaria degli Stati Uniti.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/uranus/img-1.jpg",
+        "caption": "Hubble osserva il pianeta Urano",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

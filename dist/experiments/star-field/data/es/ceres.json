@@ -1,0 +1,51 @@
+{
+  "id": "ceres",
+  "name": "Ceres",
+  "kind": "dwarfPlanet",
+  "tagline": "El primer asteroide jamás descubierto: un planeta enano que tiene un tercio de la masa del cinturón.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "940 kilometros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "4,6 años"
+    },
+    {
+      "label": "Ubicación",
+      "value": "Cinturón principal de asteroides (Marte-Júpiter)"
+    },
+    {
+      "label": "Descubrimiento",
+      "value": "1801 - Giuseppe Piazzi"
+    },
+    {
+      "label": "Primera visita",
+      "value": "Orbitador del amanecer, 2015-2018"
+    },
+    {
+      "label": "Característica notable",
+      "value": "Depósitos de sal brillantes del cráter Occator"
+    }
+  ],
+  "history": "Giuseppe Piazzi descubrió Ceres el día de Año Nuevo de 1801, el primer objeto jamás encontrado en la brecha entre Marte y Júpiter, que luego se supo que era el miembro más grande del cinturón de asteroides y que contenía aproximadamente un tercio de su masa total. La IAU lo elevó a la categoría de planeta enano en 2006 junto con la degradación de Plutón. La nave espacial Dawn de la NASA lo orbitó de 2015 a 2018, el primer planeta enano jamás visitado, y descubrió que los famosos puntos brillantes del cráter Occator eran sales de carbonato de sodio dejadas por agua salada que se filtra desde una capa subsuperficial congelada, evidencia de que Ceres alguna vez fue un mundo oceánico.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/ceres/img-1.jpg",
+        "caption": "Samhain Catenae en Ceres",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

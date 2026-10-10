@@ -1,0 +1,35 @@
+{
+  "id": "leo-2-dwarf",
+  "name": "Leo II. Zwerg",
+  "kind": "dwarfGalaxy",
+  "tagline": "Ein entfernter Sphäroid der Milchstraße in einer Entfernung von 690.000 Lichtjahren, auch als Leo B katalogisiert – gepaart mit Leo I auf der anderen Seite des Halos.",
+  "facts": [
+    {
+      "label": "Entfernung",
+      "value": "~690.000 Lichtjahre"
+    },
+    {
+      "label": "Typ",
+      "value": "Zwergkugelförmig"
+    },
+    {
+      "label": "Gefunden",
+      "value": "1950 – Palomar-Platten"
+    },
+    {
+      "label": "Umlaufbahn",
+      "value": "Breit, lose mit der Milchstraße verbunden"
+    }
+  ],
+  "history": "Leo II wurde im selben Jahr wie Leo I auf Palomar-Vermessungsplatten gefunden – eine schwache, diffuse Kugel aus alten Sternen weit jenseits der Magellanschen Wolken. Seine Sterne erzählen eine sanftere Sternentstehungsgeschichte als die nahegelegenen Zwergsterne, mit einer beträchtlichen Population mittleren Alters, was darauf hindeutet, dass sie durch ihre Isolierung Gas länger speichern können. Eigenbewegungen zeigen, dass es die Milchstraße auf einer exzentrischen Bahn umkreist, die es weit davon entfernt hat, wiederholt durch die Gezeiten abzustreifen.",
+  "source": "Palomar Sky Survey · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "Harrington & Wilson 1950",
+      "Gaia"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "alpha-centauri",
+  "name": "Alfa Centauri",
+  "kind": "system",
+  "tagline": "O sistema estelar máis próximo: un binario semellante ao Sol rodeado a unha distancia por Próxima.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "4,37 anos luz"
+    },
+    {
+      "label": "Compoñentes",
+      "value": "α Cen A (G2V) + B (K1V) + Proxima"
+    },
+    {
+      "label": "Órbita A/B",
+      "value": "79,9 anos"
+    },
+    {
+      "label": "Magnitude aparente",
+      "value": "−0,27 (3ª estrela máis brillante)"
+    },
+    {
+      "label": "Visibilidade",
+      "value": "Só hemisferio sur"
+    }
+  ],
+  "history": "Alpha Centauri é en realidade tres estrelas: Alpha Centauri A e B, unha anana amarela parecida ao Sol e unha anana laranxa encerrada nunha danza binaria de 80 anos, ademais da débil anana vermella Próxima que orbita a parella centos de veces máis lonxe. Para os observadores do ceo do sur é a terceira estrela máis brillante e o indicador da Cruz do Sur; invisible desde a maioría das latitudes setentrionais. A súa proximidade convérteo no obxectivo principal de conceptos de misión interestelar como Breakthrough Starshot, que propón que nanocraft empuxado con láser atravese o golfo en vinte anos. H.G. Wells foi dos primeiros en enviar viaxeiros ficticios alí, en 1897.",
+  "source": "IAU; ESO; Yale Bright Star Catalogue",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "gl",
+    "refs": [
+      "IAU; ESO; Yale Bright Star Catalogue"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/alpha-centauri/img-1.jpg",
+        "caption": "A mellor imaxe do Hubble de Alpha Centauri A e B",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

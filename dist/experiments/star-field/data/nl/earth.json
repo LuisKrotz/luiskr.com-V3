@@ -1,0 +1,65 @@
+{
+  "id": "earth",
+  "name": "Aarde",
+  "kind": "planet",
+  "tagline": "De enige wereld waarvan bekend is dat deze leven herbergt: een oceaanplaneet in de bewoonbare zone.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "12.742 kilometer"
+    },
+    {
+      "label": "Omlooptijd",
+      "value": "365,25 dagen"
+    },
+    {
+      "label": "Daglengte",
+      "value": "23,9 uur"
+    },
+    {
+      "label": "Oppervlaktewater",
+      "value": "≈ 71% oceaandekking"
+    },
+    {
+      "label": "Manen",
+      "value": "1"
+    },
+    {
+      "label": "Leeftijd",
+      "value": "≈ 4,54 miljard jaar"
+    }
+  ],
+  "history": "De aarde vloeide ongeveer 4,54 miljard jaar geleden samen uit de zonnenevel en koelde af tot een gedifferentieerde wereld van korst, mantel en ijzeren kern. Binnen de eerste miljard jaar verscheen er leven in de oceanen en fotosynthese zorgde later voor zuurstof in de atmosfeer, waardoor complexe landecosystemen mogelijk werden. Platentektoniek – uniek onder de bekende rotsachtige planeten – recycleert voortdurend het oppervlak en reguleert het klimaat gedurende de geologische tijd. De mensheid observeert de aarde sinds 1946 vanuit de ruimte; Apollo 17's 'Blue Marble' (1972) blijft een van de meest gereproduceerde foto's ooit gemaakt. Meer dan 6.000 bevestigde exoplaneten bieden nu context voor hoe ongebruikelijk een stabiele, levendragende wereld met vloeibaar water kan zijn.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "nl",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/earth/img-1.jpg",
+        "caption": "Meest verbazingwekkende High Definition-afbeelding van de aarde - Blue Marble 2012",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/earth/video-1.mp4",
+        "caption": "Earthrise nadat Orion een uitgaande aangedreven flyby uitvoert",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/earth/audio-1.mp3",
+        "caption": "Koorradiogolven in de magnetosfeer van de aarde - NASA",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

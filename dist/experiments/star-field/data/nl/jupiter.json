@@ -1,0 +1,65 @@
+{
+  "id": "jupiter",
+  "name": "Jupiter",
+  "kind": "planet",
+  "tagline": "De reus – massiever dan alle andere planeten bij elkaar.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "139.820 kilometer"
+    },
+    {
+      "label": "Omlooptijd",
+      "value": "11,9 jaar"
+    },
+    {
+      "label": "Daglengte",
+      "value": "9,9 uur"
+    },
+    {
+      "label": "Manen",
+      "value": "95 (erkend)"
+    },
+    {
+      "label": "Grote Rode Vlek",
+      "value": "Storm waargenomen sinds 1831"
+    },
+    {
+      "label": "Massa",
+      "value": "318 × Aarde"
+    }
+  ],
+  "history": "Jupiter vormde zich als eerste tussen de planeten en zijn zwaartekracht vormde daarna alles: asteroïden begeleidend, de vroege zonnenevel in beweging brengend en kometen in en uit het binnenste systeem slingerend. Galileo Galilei's ontdekking in 1610 van vier manen die eromheen cirkelden, bewees dat niet alles om de aarde draait; die Galilese satellieten – Io, Europa, Ganymede, Callisto – blijven belangrijke doelen in de oceaanwereld, terwijl ESA's JUICE-sonde op weg is naar Ganymede. De Grote Rode Vlek is een anticycloon die breder is dan de aarde en al eeuwenlang woedt. NASA's Juno-orbiter brengt sinds 2016 het diepe weer en het binnenland in kaart.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "nl",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/jupiter/img-1.jpg",
+        "caption": "Juno boven de zuidpool van Jupiter (illustratie)",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/jupiter/video-1.mp4",
+        "caption": "De Grote Rode Vlek van Jupiter krimpt en groeit",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/jupiter/audio-1.ogg",
+        "caption": "Jupiter boogschokovergang - Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "alpha-centauri",
+  "name": "Alpha Centaure",
+  "kind": "system",
+  "tagline": "Le système stellaire le plus proche – un binaire semblable au Soleil encerclé à distance par Proxima.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "4,37 années-lumière"
+    },
+    {
+      "label": "Composants",
+      "value": "α Cen A (G2V) + B (K1V) + Proxima"
+    },
+    {
+      "label": "Orbite A/B",
+      "value": "79,9 ans"
+    },
+    {
+      "label": "Magnitude apparente",
+      "value": "−0,27 (3ème étoile la plus brillante)"
+    },
+    {
+      "label": "Visibilité",
+      "value": "Hémisphère Sud uniquement"
+    }
+  ],
+  "history": "Alpha Centauri est en fait composé de trois étoiles : Alpha Centauri A et B – une naine jaune et orange semblable au Soleil enfermées dans une danse binaire de 80 ans – plus la faible naine rouge Proxima en orbite autour de la paire des centaines de fois plus loin. Pour les observateurs du ciel du sud, c'est la troisième étoile la plus brillante et l'indicateur de la Croix du Sud ; invisible depuis la plupart des latitudes septentrionales. Sa proximité en fait la cible privilégiée des concepts de missions interstellaires comme Breakthrough Starshot, qui propose à des nanocrafts poussés par laser de traverser le golfe en vingt ans. H.G. Wells fut parmi les premiers à y envoyer des voyageurs fictifs, en 1897.",
+  "source": "IAU; ESO; Yale Bright Star Catalogue",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "IAU; ESO; Yale Bright Star Catalogue"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/alpha-centauri/img-1.jpg",
+        "caption": "La meilleure image de Hubble d'Alpha Centauri A et B",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "sculptor-dwarf",
+  "name": "Escultor Nan",
+  "kind": "dwarfGalaxy",
+  "tagline": "Un esferoide de la Via Làctia pobre en metalls a 290.000 anys llum, dominada per la matèria fosca, amb més de 10.000 milions d'anys.",
+  "facts": [
+    {
+      "label": "Distància",
+      "value": "~290.000 ly"
+    },
+    {
+      "label": "Tipus",
+      "value": "Nan esferoïdal"
+    },
+    {
+      "label": "Metal·licitat",
+      "value": "[Fe/H] ≈ −1,5 — molt pobre en metalls"
+    },
+    {
+      "label": "Trobat",
+      "value": "1937 - Harlow Shapley"
+    }
+  ],
+  "history": "Shapley va descobrir Sculptor l'any 1937 en plaques fotogràfiques: la primera esferoïdal nana que s'ha trobat, un tipus de galàxia completament nou fet d'una taca difusa d'estrelles antigues. Les seves estrelles es troben entre les més pobres en metalls del món, per la qual cosa devia haver format la majoria d'elles durant els primers mil milions d'anys de l'univers. Les mesures de velocitat mostren que Sculptor es manté unit per una massa molt més invisible que la llum de les estrelles, una nana clàssica dominada per la matèria fosca.",
+  "source": "ESO · Harlow Shapley 1937",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "Shapley 1938",
+      "ESO"
+    ]
+  }
+}

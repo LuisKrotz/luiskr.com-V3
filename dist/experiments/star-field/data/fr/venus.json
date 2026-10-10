@@ -1,0 +1,58 @@
+{
+  "id": "venus",
+  "name": "Vénus",
+  "kind": "planet",
+  "tagline": "La taille jumelle de la Terre, enveloppée dans une serre écrasante de CO₂ – la planète la plus chaude.",
+  "facts": [
+    {
+      "label": "Diamètre",
+      "value": "12 104 km"
+    },
+    {
+      "label": "Période orbitale",
+      "value": "225 jours"
+    },
+    {
+      "label": "Rotation",
+      "value": "243 jours, rétrograde"
+    },
+    {
+      "label": "Température superficielle",
+      "value": "≈ 465 °C"
+    },
+    {
+      "label": "Pression superficielle",
+      "value": "≈ 92 bars"
+    },
+    {
+      "label": "Lunes",
+      "value": "0"
+    }
+  ],
+  "history": "Vénus tourne à reculons et si lentement que son jour dure plus longtemps que son année. Sous des nuages ​​​​d'acide sulfurique ininterrompus, une serre incontrôlable maintient la surface à près de 465 °C – suffisamment chaude pour faire fondre le plomb – sous une pression de 92 atmosphères. Le programme soviétique Venera a réalisé ici les premiers atterrissages sur une autre planète entre 1970 et 1982 ; aucune sonde n'a survécu plus de deux heures. Le radar de l'orbiteur Magellan de la NASA a cartographié 98 % de la surface entre 1990 et 1994, révélant un monde volcanique qui a refait surface il y a quelques centaines de millions d'années. Vénus est souvent appelée la jumelle maléfique de la Terre : même taille, roche similaire, destin radicalement différent – ​​une mise en garde dans le climat planétaire.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/venus/img-1.jpg",
+        "caption": "Observation du transit de Vénus à la NASA Goddard",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/venus/video-1.mp4",
+        "caption": "Le vent électrique de Vénus",
+        "credit": "NASA Goddard"
+      }
+    ]
+  }
+}

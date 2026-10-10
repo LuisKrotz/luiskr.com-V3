@@ -1,0 +1,51 @@
+{
+  "id": "andromeda",
+  "name": "Galassia di Andromeda",
+  "kind": "galaxy",
+  "tagline": "La cosa più lontana che puoi vedere senza aiuto: due milioni e mezzo di anni luce di distanza.",
+  "facts": [
+    {
+      "label": "Distanza",
+      "value": "≈ 2,54 milioni di anni luce"
+    },
+    {
+      "label": "Catalogo",
+      "value": "M31"
+    },
+    {
+      "label": "Stelle",
+      "value": "≈ 1 trilione"
+    },
+    {
+      "label": "Diametro",
+      "value": "≈ 220.000 anni luce"
+    },
+    {
+      "label": "Avvicinamento",
+      "value": "110 km/s verso di noi"
+    },
+    {
+      "label": "Collisione",
+      "value": "≈ 4,5 miliardi di anni"
+    }
+  ],
+  "history": "L'astronomo persiano Al-Sufi registrò Andromeda come una \"piccola nuvola\" intorno al 964 d.C., rendendolo uno dei primi oggetti del cielo profondo documentati e ancora l'oggetto più distante visibile a occhio nudo. Per secoli è stata chiamata una nebulosa a spirale all'interno della nostra galassia, finché Edwin Hubble identificò in essa le stelle variabili Cefeidi nel 1924 e ne misurò la distanza: la prova che l'universo si estende ben oltre la Via Lattea, una scoperta che riscrisse la cosmologia da un giorno all'altro. Contiene circa un trilione di stelle, circa il doppio della nostra galassia, e gli spettri spostati verso il blu mostrano che si avvicina a 110 km/s: le due spirali inizieranno a fondersi tra circa 4,5 miliardi di anni.",
+  "source": "NASA/ESA Hubble; IAU",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "NASA/ESA Hubble; IAU"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/andromeda/img-1.jpg",
+        "caption": "Galassia NGC 55",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

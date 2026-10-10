@@ -1,0 +1,51 @@
+{
+  "id": "moon",
+  "name": "Lluna",
+  "kind": "moon",
+  "tagline": "L'únic satèl·lit natural de la Terra: el primer món visitat per éssers humans.",
+  "facts": [
+    {
+      "label": "Diàmetre",
+      "value": "3.474 km"
+    },
+    {
+      "label": "Distància de la Terra",
+      "value": "384.400 km"
+    },
+    {
+      "label": "Període orbital",
+      "value": "27,3 dies"
+    },
+    {
+      "label": "Rotació",
+      "value": "Tancat per marea"
+    },
+    {
+      "label": "Gravetat",
+      "value": "1,62 m/s²"
+    },
+    {
+      "label": "Primer aterratge de la tripulació",
+      "value": "20 de juliol de 1969"
+    }
+  ],
+  "history": "La Lluna probablement es va formar fa uns 4.500 milions d'anys quan un cos de la mida de Mart, anomenat Theia, va colpejar la Terra jove i els residus expulsats es van unir en òrbita. Tancat per la marea, sempre mostra la mateixa cara. Dotze astronautes de l'Apol·lo van caminar per la seva superfície entre 1969 i 1972, retornant 382 kg de roca que ancla la cronologia lunar. La Lluna s'allunya uns 3,8 cm més de la Terra cada any. Ara és l'objectiu del programa Artemis de la NASA, que pretén retornar els humans, inclosa la primera dona, aquesta dècada i establir una presència sostenible a prop dels cràters de gel del pol sud.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/moon/img-1.jpg",
+        "caption": "Lluna plena",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

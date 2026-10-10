@@ -1,0 +1,58 @@
+{
+  "id": "mars",
+  "name": "Marte",
+  "kind": "planet",
+  "tagline": "El planeta rojo: hogar del volcán más alto y del cañón más profundo conocido.",
+  "facts": [
+    {
+      "label": "Diámetro",
+      "value": "6.779 kilómetros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "687 días"
+    },
+    {
+      "label": "Duración del día",
+      "value": "24,6 horas"
+    },
+    {
+      "label": "Lunas",
+      "value": "2 (Fobos, Deimos)"
+    },
+    {
+      "label": "volcán más alto",
+      "value": "Monte Olimpo — 21,9 km"
+    },
+    {
+      "label": "Gravedad",
+      "value": "3,71 m/s²"
+    }
+  ],
+  "history": "Marte alguna vez fue más cálido y húmedo: los orbitadores y rovers han cartografiado antiguos deltas de ríos, lechos de lagos y vetas minerales que solo podían formarse agua líquida. Hoy es un desierto frío con una fina atmósfera de CO₂ y tormentas de polvo que rodean el planeta. Viking 1 logró el primer aterrizaje exitoso en 1976; Desde entonces, una flota de orbitadores más los rovers Sojourner, Spirit, Opportunity, Curiosity y Perseverance han recorrido su superficie, y Perseverance está almacenando muestras en caché para un regreso planificado. Es el planeta más explorado más allá de la Tierra y el destino declarado para las primeras misiones interplanetarias tripuladas.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "cas",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mars/img-1.jpg",
+        "caption": "Springtime on Mars: Hubble Best View of the Red Planet",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/mars/audio-1.ogg",
+        "caption": "Perseverance microphone — first sounds from Mars",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

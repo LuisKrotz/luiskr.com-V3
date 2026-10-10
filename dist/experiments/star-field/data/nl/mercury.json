@@ -1,0 +1,51 @@
+{
+  "id": "mercury",
+  "name": "Mercurius",
+  "kind": "planet",
+  "tagline": "De kleinste planeet en het dichtst bij de zon – een wereld vol kraters vol extremen.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "4.879 kilometer"
+    },
+    {
+      "label": "Omlooptijd",
+      "value": "88 dagen"
+    },
+    {
+      "label": "Daglengte",
+      "value": "59 aardse dagen"
+    },
+    {
+      "label": "Temperatuur",
+      "value": "−173 tot 427 °C"
+    },
+    {
+      "label": "Zwaartekracht",
+      "value": "3,7 m/s²"
+    },
+    {
+      "label": "Manen",
+      "value": "0"
+    }
+  ],
+  "history": "Mercurius is de kleinste planeet in het zonnestelsel en voltooit elke 88 dagen een baan – de snelste van alle planeten. Daarom noemden de Romeinen hem naar hun snelle boodschappergod. Opgesloten in een spin-baanresonantie van 3:2, roteert hij precies drie keer voor elke twee banen. Het krateroppervlak registreert miljarden jaren van inslagen, en NASA's MESSENGER-orbiter (2011–2015) ontdekte dat waterijs zich verstopte in permanent in de schaduw liggende poolkraters, ondanks middagtemperaturen van 427 °C. Slechts drie ruimtevaartuigen zijn er geweest: Mariner 10 vloog voorbij in 1974-75, MESSENGER draaide tien jaar geleden in een baan om de aarde, en de gezamenlijke ESA/JAXA BepiColombo-missie is op weg om in 2026 in een baan om de aarde te komen.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "nl",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mercury/img-1.jpg",
+        "caption": "Gelukkige kleine krater op Mercurius",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

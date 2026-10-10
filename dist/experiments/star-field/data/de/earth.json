@@ -1,0 +1,65 @@
+{
+  "id": "earth",
+  "name": "Erde",
+  "kind": "planet",
+  "tagline": "Die einzige bekannte Welt, die Leben beherbergt – ein Ozeanplanet in der bewohnbaren Zone.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "12.742 km"
+    },
+    {
+      "label": "Umlaufzeit",
+      "value": "365,25 Tage"
+    },
+    {
+      "label": "Tageslänge",
+      "value": "23,9 Stunden"
+    },
+    {
+      "label": "Oberflächenwasser",
+      "value": "≈ 71 % Meeresabdeckung"
+    },
+    {
+      "label": "Monde",
+      "value": "1"
+    },
+    {
+      "label": "Alter",
+      "value": "≈ 4,54 Milliarden Jahre"
+    }
+  ],
+  "history": "Die Erde verschmolz vor etwa 4,54 Milliarden Jahren aus dem Sonnennebel und kühlte sich zu einer differenzierten Welt aus Kruste, Mantel und Eisenkern ab. Innerhalb der ersten Milliarde Jahre entstand in seinen Ozeanen Leben, und später versorgte die Photosynthese die Atmosphäre mit Sauerstoff, was komplexe Landökosysteme ermöglichte. Plattentektonik – einzigartig unter bekannten Gesteinsplaneten – recycelt kontinuierlich die Oberfläche und reguliert das Klima im Laufe der geologischen Zeit. Seit 1946 beobachtet die Menschheit die Erde vom Weltraum aus; „Blue Marble“ (1972) von Apollo 17 ist nach wie vor eines der am häufigsten reproduzierten Fotos, die jemals aufgenommen wurden. Über 6.000 bestätigte Exoplaneten liefern nun einen Kontext dafür, wie ungewöhnlich eine stabile Welt mit flüssigem Wasser und Leben in sich sein kann.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/earth/img-1.jpg",
+        "caption": "Das erstaunlichste hochauflösende Bild der Erde – Blue Marble 2012",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/earth/video-1.mp4",
+        "caption": "Erdaufgang, nachdem Orion einen ausgehenden angetriebenen Vorbeiflug durchführt",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/earth/audio-1.mp3",
+        "caption": "Chorradiowellen in der Erdmagnetosphäre – NASA",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

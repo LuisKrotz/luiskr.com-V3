@@ -1,0 +1,51 @@
+{
+  "id": "mercury",
+  "name": "Mercúrio",
+  "kind": "planet",
+  "tagline": "O menor planeta e o mais próximo do Sol — um mundo cheio de crateras de extremos.",
+  "facts": [
+    {
+      "label": "Diâmetro",
+      "value": "4.879 quilômetros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "88 dias"
+    },
+    {
+      "label": "Duração do dia",
+      "value": "59 dias terrestres"
+    },
+    {
+      "label": "Temperatura",
+      "value": "−173 a 427°C"
+    },
+    {
+      "label": "Gravidade",
+      "value": "3,7 m/s²"
+    },
+    {
+      "label": "Luas",
+      "value": "0"
+    }
+  ],
+  "history": "Mercúrio é o menor planeta do Sistema Solar e completa uma órbita a cada 88 dias – o mais rápido de qualquer planeta, razão pela qual os romanos o batizaram em homenagem ao seu veloz deus mensageiro. Preso em uma ressonância spin-órbita de 3:2, ele gira exatamente três vezes para cada duas órbitas. A sua superfície com crateras regista milhares de milhões de anos de impactos, e a sonda MESSENGER da NASA (2011–2015) encontrou gelo de água escondido em crateras polares permanentemente sombreadas, apesar das temperaturas do meio-dia de 427 °C. Apenas três naves espaciais visitaram: a Mariner 10 voou em 1974-75, a MESSENGER orbitou há uma década e a missão conjunta ESA/JAXA BepiColombo está a caminho para entrar em órbita em 2026.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "br",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mercury/img-1.jpg",
+        "caption": "Feliz pequena cratera em Mercúrio",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

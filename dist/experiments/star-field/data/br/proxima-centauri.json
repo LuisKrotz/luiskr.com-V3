@@ -1,0 +1,51 @@
+{
+  "id": "proxima-centauri",
+  "name": "Próxima Centauri",
+  "kind": "system",
+  "tagline": "A estrela mais próxima do Sol – uma estrela flamejante com um planeta do tamanho da Terra ao lado.",
+  "facts": [
+    {
+      "label": "Distância",
+      "value": "4.246 anos-luz"
+    },
+    {
+      "label": "Tipo",
+      "value": "Anã vermelha (M5,5V)"
+    },
+    {
+      "label": "Massa",
+      "value": "≈ 0,12 massas solares"
+    },
+    {
+      "label": "Planetas",
+      "value": "Proxima b (zona habitável), c, d"
+    },
+    {
+      "label": "Órbita próxima b",
+      "value": "11,2 dias"
+    },
+    {
+      "label": "Descoberta",
+      "value": "1915 – Robert Innes"
+    }
+  ],
+  "history": "Proxima é a estrela mais próxima do Sol – a luz que você vê esta noite deixou-a há 4,24 anos. É uma pequena anã vermelha, fraca demais para ser vista a olho nu, que irrompe em explosões poderosas o suficiente para desafiar qualquer atmosfera. Em 2016, os astrónomos anunciaram Proxima b, um planeta rochoso com pelo menos 1,07 massa terrestre que orbita dentro da zona habitável da estrela a cada 11,2 dias - o exoplaneta mais próximo e o mundo potencialmente temperado mais próximo da Terra. Se o bloqueio das marés e as explosões o deixam habitável é uma questão em aberto que o JWST e os telescópios da próxima geração pretendem responder.",
+  "source": "ESO; Nature (Anglada-Escudé et al., 2016)",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "br",
+    "refs": [
+      "ESO; Nature (Anglada-Escudé et al., 2016)"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/proxima-centauri/img-1.jpg",
+        "caption": "Melhor imagem do Hubble de Alpha Centauri A e B",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

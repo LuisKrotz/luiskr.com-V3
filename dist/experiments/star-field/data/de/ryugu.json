@@ -1,0 +1,42 @@
+{
+  "id": "ryugu",
+  "name": "Ryugu",
+  "kind": "dwarfPlanet",
+  "tagline": "Ein kohlenstoffhaltiger Asteroid mit Kreisel – von Hayabusa2 beprobt und zur Erde zurückgebracht.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "~900 m"
+    },
+    {
+      "label": "Umlaufzeit",
+      "value": "1,30 Jahre"
+    },
+    {
+      "label": "Umlaufbahn",
+      "value": "Erdnah – 0,96–1,41 AE"
+    },
+    {
+      "label": "Typ",
+      "value": "C-Typ (kohlenstoffreich)"
+    },
+    {
+      "label": "Probe zurückgegeben",
+      "value": "5,4 g – Dezember 2020"
+    },
+    {
+      "label": "Mission",
+      "value": "JAXA Hayabusa2 (2014–2024)"
+    }
+  ],
+  "history": "Ryugu ist ein Trümmerhaufen des ältesten Materials des Sonnensystems – kohlenstoffreicher Staub, der vier Milliarden Jahre der geologischen Wiederaufbereitung entgangen ist. Hayabusa2 kam 2018 an, ließ Rover auf seinem mit Felsblöcken übersäten Äquator ab, sprengte einen Krater, um an unberührtes Untergrundmaterial zu gelangen, und brachte im Dezember 2020 5,4 Gramm zur Erde zurück. Laboranalysen fanden hydratisierte Mineralien und Aminosäurevorläufer – direkte Beweise dafür, dass Asteroiden die frühe Erde mit den Inhaltsstoffen des Lebens versorgten.",
+  "source": "JAXA · NASA Ryugu Trek · Hayabusa2",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "JAXA · NASA Ryugu Trek · Hayabusa2"
+    ]
+  }
+}

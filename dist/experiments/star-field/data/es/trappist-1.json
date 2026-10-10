@@ -1,0 +1,51 @@
+{
+  "id": "trappist-1",
+  "name": "TRAPPISTA-1",
+  "kind": "system",
+  "tagline": "Siete mundos del tamaño de la Tierra alrededor de una estrella apenas más grande que Júpiter.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "40,7 años luz"
+    },
+    {
+      "label": "Tipo",
+      "value": "Enana roja ultrafría (M8V)"
+    },
+    {
+      "label": "Planetas",
+      "value": "7 confirmados, todos aproximadamente del tamaño de la Tierra"
+    },
+    {
+      "label": "Zona habitable",
+      "value": "Planetas e, f, g"
+    },
+    {
+      "label": "anunciado",
+      "value": "2016-2017"
+    },
+    {
+      "label": "Descubierto por",
+      "value": "TRAPPIST + Telescopios Spitzer"
+    }
+  ],
+  "history": "TRAPPIST-1 es una enana ultrafría sólo un poco más grande que Júpiter, pero siete planetas rocosos la transitan: el lote más grande de mundos del tamaño de la Tierra encontrado alrededor de una sola estrella. Los siete orbitan más cerca de lo que Mercurio orbita alrededor del Sol, tan apretados que desde una superficie los vecinos parecerían del tamaño de una Luna en el cielo. Los planetas e, f y g se encuentran en la zona templada donde el agua líquida podría persistir, aunque el bloqueo de las mareas puede dejar a cada uno con un lado permanente de día y de noche. JWST ahora está sondeando sus atmósferas para detectar las primeras limitaciones de habitabilidad alrededor de las enanas rojas, las estrellas más comunes de la galaxia.",
+  "source": "NASA Exoplanet Archive; Nature (Gillon et al., 2017)",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA Exoplanet Archive; Nature (Gillon et al., 2017)"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/trappist-1/img-1.jpg",
+        "caption": "Sistema TRAPPIST-1 - Concepto artístico",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

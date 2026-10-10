@@ -1,0 +1,65 @@
+{
+  "id": "jupiter",
+  "name": "Júpiter",
+  "kind": "planet",
+  "tagline": "El gegant, més massiu que tots els altres planetes junts.",
+  "facts": [
+    {
+      "label": "Diàmetre",
+      "value": "139.820 km"
+    },
+    {
+      "label": "Període orbital",
+      "value": "11,9 anys"
+    },
+    {
+      "label": "Durada del dia",
+      "value": "9,9 hores"
+    },
+    {
+      "label": "Llunes",
+      "value": "95 (reconegut)"
+    },
+    {
+      "label": "Gran Taca Vermella",
+      "value": "Tempesta observada des de 1831"
+    },
+    {
+      "label": "Massa",
+      "value": "318 × Terra"
+    }
+  ],
+  "history": "Júpiter es va formar primer entre els planetes i la seva gravetat va donar forma a tot després: pasturant asteroides, agitant la primera nebulosa solar i llançant cometes dins i fora del sistema interior. El descobriment de 1610 de Galileo Galilei de quatre llunes que la circumden va demostrar que no tot orbita la Terra; aquests satèl·lits galileans (Io, Europa, Ganimedes, Cal·listo) segueixen sent objectius principals del món oceànic, amb la sonda JUICE de l'ESA en ruta cap a Ganimedes. La Gran Taca Vermella és un anticicló més ample que la Terra que ha arrasat durant segles. L'orbitador Juno de la NASA ha cartografiat el seu clima profund i l'interior des del 2016.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/jupiter/img-1.jpg",
+        "caption": "Juno sobre el pol sud de Júpiter (il·lustració)",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/jupiter/video-1.mp4",
+        "caption": "La gran taca vermella de Júpiter es redueix i creix",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/jupiter/audio-1.ogg",
+        "caption": "Encreuament de xoc d'arc de Júpiter - Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

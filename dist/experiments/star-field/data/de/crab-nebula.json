@@ -1,0 +1,58 @@
+{
+  "id": "crab-nebula",
+  "name": "Krebsnebel",
+  "kind": "nebula",
+  "tagline": "Das Wrack eines Sterns, der im Jahr 1054 explodierte und sich immer noch ausdehnt.",
+  "facts": [
+    {
+      "label": "Entfernung",
+      "value": "≈ 6.500 Lichtjahre"
+    },
+    {
+      "label": "Katalog",
+      "value": "M1 / NGC 1952"
+    },
+    {
+      "label": "Vorfahr",
+      "value": "Supernova vom Juli 1054"
+    },
+    {
+      "label": "Restkern",
+      "value": "Krabbenpulsar – 30 Drehungen/Sekunde"
+    },
+    {
+      "label": "Erweiterung",
+      "value": "≈ 1.500 km/s, Tendenz steigend"
+    },
+    {
+      "label": "Aufgenommen von",
+      "value": "Chinesische und japanische Hofastronomen"
+    }
+  ],
+  "history": "Im Juli 1054 registrierten chinesische und japanische Astronomen einen „Gaststern“, der hell genug war, um ihn nachts ablesen zu können, und der 23 Tage lang bei Tageslicht sichtbar war. Sechs Jahrhunderte später katalogisierte Charles Messier seinen Überrest – das Objekt, das seine berühmte Liste von Kometen-Doppelgängern als Eintrag M1 inspirierte. In seinem Herzen dreht sich der Krebspulsar, ein 30 km großer Neutronenstern, der sich 30 Mal pro Sekunde dreht und Strahlung wie ein Leuchtturm über alle Wellenlängen strahlt. Die expandierenden Filamente erstrecken sich jetzt über etwa 11 Lichtjahre; Der Vergleich von Fotos aus Jahrzehnten zeigt, dass die Trümmer immer noch nach außen rasen – eine Explosion im Gange.",
+  "source": "NASA/ESA Hubble; Harvard CfA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "NASA/ESA Hubble; Harvard CfA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/crab-nebula/img-1.jpg",
+        "caption": "Hubble der NASA fängt das schlagende Herz des Krebsnebels ein",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/crab-nebula/video-1.mp4",
+        "caption": "Hubbles 29. Jahrestag",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

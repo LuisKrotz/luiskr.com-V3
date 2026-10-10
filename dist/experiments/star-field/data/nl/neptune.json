@@ -1,0 +1,51 @@
+{
+  "id": "neptune",
+  "name": "Neptunus",
+  "kind": "planet",
+  "tagline": "De meest winderige wereld: een ijsreus die door de wiskunde vóór telescopen is ontdekt.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "49.244 kilometer"
+    },
+    {
+      "label": "Omlooptijd",
+      "value": "164,8 jaar"
+    },
+    {
+      "label": "Snelste wind",
+      "value": "≈ 2.100 km/u"
+    },
+    {
+      "label": "Manen",
+      "value": "16"
+    },
+    {
+      "label": "Ontdekking",
+      "value": "1846 - voorspeld door Adams & Le Verrier"
+    },
+    {
+      "label": "Gemiddelde afstand",
+      "value": "4,5 miljard km (30 AU)"
+    }
+  ],
+  "history": "Neptunus is de enige planeet die door berekening is gevonden: astronomen Adams en Le Verrier hebben zijn positie onafhankelijk afgeleid uit de schommelingen in de baan van Uranus, en Johann Galle vond hem binnen één graad van de voorspelling in 1846 – een triomf van de Newtoniaanse natuurkunde. De vlucht van Voyager 2 uit 1989 is nog steeds het enige bezoek van de mensheid; het onthulde supersonische windsnelheden tot 2.100 km/u – de snelste in het zonnestelsel – en grote donkere stormen die komen en gaan. De grootste maan Triton draait achteruit, wat bewijst dat het een gevangen object uit de Kuipergordel is, en hij blaast stikstofgeisers uit een bevroren oppervlak bij -235 ° C.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "nl",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/neptune/img-1.jpg",
+        "caption": "PIA01492",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

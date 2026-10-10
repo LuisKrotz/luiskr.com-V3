@@ -1,0 +1,4360 @@
+{
+  "id": "milky-way",
+  "name": "Vía Láctea",
+  "kind": "galaxy",
+  "tagline": "Nuestra galaxia natal: una espiral barrada de cientos de miles de millones de estrellas.",
+  "facts": [
+    {
+      "label": "Tipo",
+      "value": "Espiral barrada (SBbc)"
+    },
+    {
+      "label": "Diámetro",
+      "value": "≈ 100.000+ años luz"
+    },
+    {
+      "label": "Estrellas",
+      "value": "100 a 400 mil millones"
+    },
+    {
+      "label": "órbita del sol",
+      "value": "≈ 26.000 ly desde el centro"
+    },
+    {
+      "label": "año galáctico",
+      "value": "≈ 230 millones de años"
+    },
+    {
+      "label": "Edad",
+      "value": "≈ 13,6 mil millones de años"
+    }
+  ],
+  "history": "La banda pálida que cruza el cielo nocturno es nuestra galaxia vista de canto; la palabra \"galaxia\" proviene del griego \"gala\", leche. El telescopio de Galileo lo resolvió por primera vez en estrellas en 1610; Herschel intentó cartografiarlo en 1785, y sólo en 1920 el debate Shapley-Curtis y las mediciones de Andrómeda del Hubble demostraron que era un \"universo insular\" entre muchos. El Sol orbita su centro una vez cada 230 millones de años; los dinosaurios vivieron hace un año galáctico. Gaia ya ha cartografiado más de mil millones de sus estrellas y en aproximadamente 4.500 millones de años se fusionará con Andrómeda en una nueva galaxia apodada Milkomeda.",
+  "source": "NASA; ESA Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA; ESA Gaia"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/milky-way/img-1.jpg",
+        "caption": "Las estrellas se reúnen en el centro de la Vía Láctea",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/milky-way/video-1.mp4",
+        "caption": "Espectrógrafo de orígenes cósmicos: estructura a gran escala del universo",
+        "credit": "NASA"
+      }
+    ]
+  },
+  "namedStars": [
+    {
+      "name": "Sol",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "mag": -26.7,
+      "spect": "G2V",
+      "con": "",
+      "dist_ly": 0.0
+    },
+    {
+      "name": "Alpheratz",
+      "x": 84.72,
+      "y": 3.1,
+      "z": 47.17,
+      "mag": 2.07,
+      "spect": "B9p",
+      "con": "And",
+      "dist_ly": 97.01
+    },
+    {
+      "name": "Caph",
+      "x": 28.05,
+      "y": 1.12,
+      "z": 47.0,
+      "mag": 2.28,
+      "spect": "F2III-IV",
+      "con": "Cas",
+      "dist_ly": 54.74
+    },
+    {
+      "name": "Algenib",
+      "x": 377.25,
+      "y": 21.81,
+      "z": 102.55,
+      "mag": 2.83,
+      "spect": "B2IV",
+      "con": "Peg",
+      "dist_ly": 391.54
+    },
+    {
+      "name": "Groombridge 34",
+      "x": 8.39,
+      "y": 0.67,
+      "z": 8.13,
+      "mag": 8.09,
+      "spect": "M1V",
+      "con": "And",
+      "dist_ly": 11.7
+    },
+    {
+      "name": "Citadelle",
+      "x": 502.03,
+      "y": 42.34,
+      "z": 126.13,
+      "mag": 8.36,
+      "spect": "K0",
+      "con": "Psc",
+      "dist_ly": 519.36
+    },
+    {
+      "name": "Ankaa",
+      "x": 62.24,
+      "y": 7.17,
+      "z": -57.02,
+      "mag": 2.4,
+      "spect": "K0III...",
+      "con": "Phe",
+      "dist_ly": 84.72
+    },
+    {
+      "name": "Fulu",
+      "x": 344.89,
+      "y": 56.12,
+      "z": 479.13,
+      "mag": 3.69,
+      "spect": "B2IV",
+      "con": "Cas",
+      "dist_ly": 593.01
+    },
+    {
+      "name": "Schedar",
+      "x": 123.89,
+      "y": 22.13,
+      "z": 190.41,
+      "mag": 2.24,
+      "spect": "K0II-IIIvar",
+      "con": "Cas",
+      "dist_ly": 228.24
+    },
+    {
+      "name": "Diphda",
+      "x": 89.97,
+      "y": 17.32,
+      "z": -29.74,
+      "mag": 2.04,
+      "spect": "K0III",
+      "con": "Cet",
+      "dist_ly": 96.32
+    },
+    {
+      "name": "Cocibolca",
+      "x": 92.71,
+      "y": 18.21,
+      "z": -47.14,
+      "mag": 7.78,
+      "spect": "G5V",
+      "con": "Scl",
+      "dist_ly": 105.59
+    },
+    {
+      "name": "96 G. Psc",
+      "x": 23.67,
+      "y": 5.07,
+      "z": 2.24,
+      "mag": 5.74,
+      "spect": "K2V",
+      "con": "Psc",
+      "dist_ly": 24.31
+    },
+    {
+      "name": "Achird",
+      "x": 10.11,
+      "y": 2.2,
+      "z": 16.43,
+      "mag": 3.46,
+      "spect": "G0V SB",
+      "con": "Cas",
+      "dist_ly": 19.42
+    },
+    {
+      "name": "Castula",
+      "x": 99.27,
+      "y": 25.06,
+      "z": 171.63,
+      "mag": 4.62,
+      "spect": "G8III-IV",
+      "con": "Cas",
+      "dist_ly": 199.85
+    },
+    {
+      "name": "Cih",
+      "x": 260.39,
+      "y": 65.78,
+      "z": 478.92,
+      "mag": 2.15,
+      "spect": "B0IV:evar",
+      "con": "Cas",
+      "dist_ly": 549.08
+    },
+    {
+      "name": "Nenque",
+      "x": 100.02,
+      "y": 29.0,
+      "z": -85.81,
+      "mag": 7.72,
+      "spect": "G3IV",
+      "con": "Phe",
+      "dist_ly": 134.94
+    },
+    {
+      "name": "Wurren",
+      "x": 162.74,
+      "y": 50.05,
+      "z": -245.4,
+      "mag": 3.94,
+      "spect": "B6V + B0V",
+      "con": "Phe",
+      "dist_ly": 298.68
+    },
+    {
+      "name": "Mirach",
+      "x": 153.12,
+      "y": 48.08,
+      "z": 114.99,
+      "mag": 2.07,
+      "spect": "M0IIIvar",
+      "con": "And",
+      "dist_ly": 197.43
+    },
+    {
+      "name": "Emiw",
+      "x": 44.28,
+      "y": 14.13,
+      "z": -105.33,
+      "mag": 8.06,
+      "spect": "K0IV/V",
+      "con": "Tuc",
+      "dist_ly": 115.13
+    },
+    {
+      "name": "Revati",
+      "x": 163.5,
+      "y": 54.49,
+      "z": 22.92,
+      "mag": 5.21,
+      "spect": "A7IV",
+      "con": "Psc",
+      "dist_ly": 173.86
+    },
+    {
+      "name": "Revati B",
+      "x": 288.26,
+      "y": 96.11,
+      "z": 40.43,
+      "mag": 6.44,
+      "spect": "F7V",
+      "con": "Psc",
+      "dist_ly": 306.54
+    },
+    {
+      "name": "Adhil",
+      "x": 140.63,
+      "y": 52.82,
+      "z": 153.02,
+      "mag": 4.87,
+      "spect": "K0III-IV",
+      "con": "And",
+      "dist_ly": 214.44
+    },
+    {
+      "name": "Bélénos",
+      "x": 118.93,
+      "y": 46.37,
+      "z": 69.5,
+      "mag": 7.12,
+      "spect": "F8",
+      "con": "Psc",
+      "dist_ly": 145.35
+    },
+    {
+      "name": "Ruchbah",
+      "x": 45.93,
+      "y": 18.05,
+      "z": 86.29,
+      "mag": 2.66,
+      "spect": "A5Vv SB",
+      "con": "Cas",
+      "dist_ly": 99.41
+    },
+    {
+      "name": "Alpherg",
+      "x": 310.61,
+      "y": 131.02,
+      "z": 92.51,
+      "mag": 3.62,
+      "spect": "G8III",
+      "con": "Psc",
+      "dist_ly": 349.58
+    },
+    {
+      "name": "Titawin",
+      "x": 30.1,
+      "y": 13.53,
+      "z": 29.1,
+      "mag": 4.1,
+      "spect": "F8V",
+      "con": "And",
+      "dist_ly": 44.0
+    },
+    {
+      "name": "Achernar",
+      "x": 68.71,
+      "y": 31.21,
+      "z": -117.26,
+      "mag": 0.45,
+      "spect": "B3Vp",
+      "con": "Eri",
+      "dist_ly": 139.44
+    },
+    {
+      "name": "Nembus",
+      "x": 106.55,
+      "y": 48.55,
+      "z": 132.95,
+      "mag": 3.59,
+      "spect": "K3III",
+      "con": "And",
+      "dist_ly": 177.16
+    },
+    {
+      "name": "p Eridani",
+      "x": 12.87,
+      "y": 5.99,
+      "z": -21.2,
+      "mag": 5.76,
+      "spect": "K0V",
+      "con": "Eri",
+      "dist_ly": 25.51
+    },
+    {
+      "name": "Torcular",
+      "x": 247.26,
+      "y": 122.46,
+      "z": 44.48,
+      "mag": 4.26,
+      "spect": "K0III",
+      "con": "Psc",
+      "dist_ly": 279.48
+    },
+    {
+      "name": "Baten Kaitos",
+      "x": 204.37,
+      "y": 108.05,
+      "z": -42.16,
+      "mag": 3.74,
+      "spect": "K2III",
+      "con": "Cet",
+      "dist_ly": 234.98
+    },
+    {
+      "name": "Mothallah",
+      "x": 48.51,
+      "y": 26.09,
+      "z": 31.26,
+      "mag": 3.42,
+      "spect": "F6IV",
+      "con": "Tri",
+      "dist_ly": 63.33
+    },
+    {
+      "name": "Mesarthim",
+      "x": 136.23,
+      "y": 73.61,
+      "z": 54.21,
+      "mag": 3.88,
+      "spect": "A1p Si",
+      "con": "Ari",
+      "dist_ly": 164.06
+    },
+    {
+      "name": "Segin",
+      "x": 160.37,
+      "y": 87.43,
+      "z": 369.09,
+      "mag": 3.35,
+      "spect": "B2pvar",
+      "con": "Cas",
+      "dist_ly": 411.81
+    },
+    {
+      "name": "Sheratan",
+      "x": 48.12,
+      "y": 26.3,
+      "z": 20.84,
+      "mag": 2.64,
+      "spect": "A5V...",
+      "con": "Ari",
+      "dist_ly": 58.66
+    },
+    {
+      "name": "Alrescha",
+      "x": 129.58,
+      "y": 76.36,
+      "z": 7.26,
+      "mag": 3.82,
+      "spect": "A2",
+      "con": "Psc",
+      "dist_ly": 150.58
+    },
+    {
+      "name": "Almach",
+      "x": 249.08,
+      "y": 149.51,
+      "z": 264.62,
+      "mag": 2.1,
+      "spect": "B8V",
+      "con": "And",
+      "dist_ly": 392.96
+    },
+    {
+      "name": "Hamal",
+      "x": 51.31,
+      "y": 31.81,
+      "z": 26.2,
+      "mag": 2.01,
+      "spect": "K2III",
+      "con": "Ari",
+      "dist_ly": 65.81
+    },
+    {
+      "name": "Mira",
+      "x": 245.04,
+      "y": 170.54,
+      "z": -15.53,
+      "mag": 6.47,
+      "spect": "M5e-M9e",
+      "con": "Cet",
+      "dist_ly": 298.95
+    },
+    {
+      "name": "Polaris",
+      "x": 4.38,
+      "y": 3.42,
+      "z": 432.53,
+      "mag": 1.97,
+      "spect": "F7:Ib-IIv SB",
+      "con": "UMi",
+      "dist_ly": 432.57
+    },
+    {
+      "name": "268 G. Cet",
+      "x": 18.06,
+      "y": 14.64,
+      "z": 2.81,
+      "mag": 5.79,
+      "spect": "K3V",
+      "con": "Cet",
+      "dist_ly": 23.42
+    },
+    {
+      "name": "Buna",
+      "x": 108.5,
+      "y": 88.68,
+      "z": 126.45,
+      "mag": 7.28,
+      "spect": "G0",
+      "con": "And",
+      "dist_ly": 188.75
+    },
+    {
+      "name": "Kaffaljidhma",
+      "x": 60.14,
+      "y": 51.96,
+      "z": 4.49,
+      "mag": 3.47,
+      "spect": "A3V",
+      "con": "Cet",
+      "dist_ly": 79.61
+    },
+    {
+      "name": "Lilii Borea",
+      "x": 111.29,
+      "y": 100.12,
+      "z": 83.83,
+      "mag": 4.52,
+      "spect": "K1III",
+      "con": "Ari",
+      "dist_ly": 171.57
+    },
+    {
+      "name": "Nushagak",
+      "x": 56.54,
+      "y": 51.69,
+      "z": 232.38,
+      "mag": 8.17,
+      "spect": "G5",
+      "con": "Cas",
+      "dist_ly": 244.68
+    },
+    {
+      "name": "Bharani",
+      "x": 108.57,
+      "y": 99.47,
+      "z": 75.87,
+      "mag": 3.61,
+      "spect": "B8Vn",
+      "con": "Ari",
+      "dist_ly": 165.65
+    },
+    {
+      "name": "Miram",
+      "x": 362.41,
+      "y": 334.12,
+      "z": 727.93,
+      "mag": 3.77,
+      "spect": "K3Ib comp SB",
+      "con": "Per",
+      "dist_ly": 879.13
+    },
+    {
+      "name": "Angetenar",
+      "x": 128.11,
+      "y": 118.47,
+      "z": -66.99,
+      "mag": 4.76,
+      "spect": "K0III",
+      "con": "Eri",
+      "dist_ly": 186.91
+    },
+    {
+      "name": "Azha",
+      "x": 96.85,
+      "y": 93.88,
+      "z": -21.12,
+      "mag": 3.89,
+      "spect": "K1III-IV",
+      "con": "Eri",
+      "dist_ly": 136.52
+    },
+    {
+      "name": "Acamar",
+      "x": 87.6,
+      "y": 86.28,
+      "z": -104.29,
+      "mag": 2.88,
+      "spect": "A4III+...",
+      "con": "Eri",
+      "dist_ly": 161.22
+    },
+    {
+      "name": "Ayeyarwady",
+      "x": 291.51,
+      "y": 291.96,
+      "z": -156.74,
+      "mag": 7.81,
+      "spect": "G8/K0IV",
+      "con": "Eri",
+      "dist_ly": 441.35
+    },
+    {
+      "name": "Menkar",
+      "x": 173.98,
+      "y": 177.48,
+      "z": 17.77,
+      "mag": 2.54,
+      "spect": "M2III",
+      "con": "Cet",
+      "dist_ly": 249.16
+    },
+    {
+      "name": "Algol",
+      "x": 46.28,
+      "y": 49.7,
+      "z": 58.94,
+      "mag": 2.09,
+      "spect": "B8V",
+      "con": "Per",
+      "dist_ly": 89.92
+    },
+    {
+      "name": "Misam",
+      "x": 54.12,
+      "y": 58.8,
+      "z": 79.52,
+      "mag": 3.79,
+      "spect": "K0III",
+      "con": "Per",
+      "dist_ly": 112.74
+    },
+    {
+      "name": "Botein",
+      "x": 107.08,
+      "y": 118.54,
+      "z": 57.28,
+      "mag": 4.35,
+      "spect": "K2IIIvar",
+      "con": "Ari",
+      "dist_ly": 169.7
+    },
+    {
+      "name": "Dalim",
+      "x": 27.17,
+      "y": 30.19,
+      "z": -22.5,
+      "mag": 3.8,
+      "spect": "F8V",
+      "con": "For",
+      "dist_ly": 46.43
+    },
+    {
+      "name": "Zibal",
+      "x": 71.21,
+      "y": 81.79,
+      "z": -16.83,
+      "mag": 4.8,
+      "spect": "A5m",
+      "con": "Eri",
+      "dist_ly": 109.74
+    },
+    {
+      "name": "82 G. Eri",
+      "x": 9.26,
+      "y": 11.03,
+      "z": -13.46,
+      "mag": 4.26,
+      "spect": "G8V",
+      "con": "Eri",
+      "dist_ly": 19.71
+    },
+    {
+      "name": "Mirfak",
+      "x": 205.1,
+      "y": 254.01,
+      "z": 387.18,
+      "mag": 1.79,
+      "spect": "F5Ib",
+      "con": "Per",
+      "dist_ly": 506.45
+    },
+    {
+      "name": "Ran",
+      "x": 6.19,
+      "y": 8.29,
+      "z": -1.72,
+      "mag": 3.72,
+      "spect": "K2V",
+      "con": "Eri",
+      "dist_ly": 10.49
+    },
+    {
+      "name": "Tupi",
+      "x": 38.29,
+      "y": 54.54,
+      "z": -88.17,
+      "mag": 7.12,
+      "spect": "F8/G0V",
+      "con": "Ret",
+      "dist_ly": 110.52
+    },
+    {
+      "name": "Rana",
+      "x": 16.33,
+      "y": 24.04,
+      "z": -5.0,
+      "mag": 3.52,
+      "spect": "K0IV",
+      "con": "Eri",
+      "dist_ly": 29.49
+    },
+    {
+      "name": "Atik",
+      "x": 528.74,
+      "y": 786.25,
+      "z": 598.71,
+      "mag": 3.84,
+      "spect": "B1III",
+      "con": "Per",
+      "dist_ly": 1120.81
+    },
+    {
+      "name": "Celaeno",
+      "x": 191.18,
+      "y": 285.6,
+      "z": 155.1,
+      "mag": 5.45,
+      "spect": "B7IV",
+      "con": "Tau",
+      "dist_ly": 377.06
+    },
+    {
+      "name": "Electra",
+      "x": 205.37,
+      "y": 306.99,
+      "z": 165.32,
+      "mag": 3.72,
+      "spect": "B6III",
+      "con": "Tau",
+      "dist_ly": 404.66
+    },
+    {
+      "name": "Taygeta",
+      "x": 206.66,
+      "y": 309.89,
+      "z": 169.49,
+      "mag": 4.3,
+      "spect": "B6V",
+      "con": "Tau",
+      "dist_ly": 409.23
+    },
+    {
+      "name": "Maia",
+      "x": 192.91,
+      "y": 290.98,
+      "z": 158.13,
+      "mag": 3.87,
+      "spect": "B8III",
+      "con": "Tau",
+      "dist_ly": 383.26
+    },
+    {
+      "name": "Asterope",
+      "x": 186.82,
+      "y": 282.0,
+      "z": 154.55,
+      "mag": 5.76,
+      "spect": "B8V",
+      "con": "Tau",
+      "dist_ly": 371.9
+    },
+    {
+      "name": "Merope",
+      "x": 191.34,
+      "y": 289.97,
+      "z": 154.3,
+      "mag": 4.14,
+      "spect": "B6IV",
+      "con": "Tau",
+      "dist_ly": 380.14
+    },
+    {
+      "name": "Alcyone",
+      "x": 201.12,
+      "y": 308.18,
+      "z": 164.66,
+      "mag": 2.85,
+      "spect": "B7III",
+      "con": "Tau",
+      "dist_ly": 403.16
+    },
+    {
+      "name": "Atlas",
+      "x": 188.68,
+      "y": 293.79,
+      "z": 155.85,
+      "mag": 3.62,
+      "spect": "B8III",
+      "con": "Tau",
+      "dist_ly": 382.36
+    },
+    {
+      "name": "Pleione",
+      "x": 188.3,
+      "y": 293.28,
+      "z": 156.17,
+      "mag": 5.05,
+      "spect": "B7p",
+      "con": "Tau",
+      "dist_ly": 381.92
+    },
+    {
+      "name": "Zaurak",
+      "x": 100.33,
+      "y": 170.37,
+      "z": -47.5,
+      "mag": 2.97,
+      "spect": "M1IIIb Ca-1",
+      "con": "Eri",
+      "dist_ly": 203.34
+    },
+    {
+      "name": "Menkib",
+      "x": 508.84,
+      "y": 872.21,
+      "z": 728.04,
+      "mag": 3.98,
+      "spect": "O7.5Iab:",
+      "con": "Per",
+      "dist_ly": 1244.87
+    },
+    {
+      "name": "Beid",
+      "x": 54.92,
+      "y": 107.63,
+      "z": -14.49,
+      "mag": 4.04,
+      "spect": "F2II-III",
+      "con": "Eri",
+      "dist_ly": 121.7
+    },
+    {
+      "name": "Keid",
+      "x": 7.11,
+      "y": 14.46,
+      "z": -2.16,
+      "mag": 4.43,
+      "spect": "K1V",
+      "con": "Eri",
+      "dist_ly": 16.26
+    },
+    {
+      "name": "Prima Hyadum",
+      "x": 65.87,
+      "y": 140.94,
+      "z": 43.52,
+      "mag": 3.65,
+      "spect": "G8III",
+      "con": "Tau",
+      "dist_ly": 161.54
+    },
+    {
+      "name": "Secunda Hyadum",
+      "x": 60.98,
+      "y": 135.26,
+      "z": 46.9,
+      "mag": 3.77,
+      "spect": "G8III",
+      "con": "Tau",
+      "dist_ly": 155.61
+    },
+    {
+      "name": "Beemim",
+      "x": 99.84,
+      "y": 224.33,
+      "z": -165.73,
+      "mag": 3.97,
+      "spect": "K4III",
+      "con": "Eri",
+      "dist_ly": 296.24
+    },
+    {
+      "name": "Ain",
+      "x": 53.78,
+      "y": 127.65,
+      "z": 48.18,
+      "mag": 3.53,
+      "spect": "K0III",
+      "con": "Tau",
+      "dist_ly": 146.65
+    },
+    {
+      "name": "Chamukuy",
+      "x": 56.13,
+      "y": 133.31,
+      "z": 41.12,
+      "mag": 3.4,
+      "spect": "A7III",
+      "con": "Tau",
+      "dist_ly": 150.37
+    },
+    {
+      "name": "Hoggar",
+      "x": 277.89,
+      "y": 682.85,
+      "z": 59.0,
+      "mag": 8.38,
+      "spect": "K0",
+      "con": "Tau",
+      "dist_ly": 739.58
+    },
+    {
+      "name": "Theemin",
+      "x": 66.33,
+      "y": 171.8,
+      "z": -108.75,
+      "mag": 3.81,
+      "spect": "G8III",
+      "con": "Eri",
+      "dist_ly": 213.87
+    },
+    {
+      "name": "Aldebaran",
+      "x": 22.92,
+      "y": 59.65,
+      "z": 18.94,
+      "mag": 0.87,
+      "spect": "K5III",
+      "con": "Tau",
+      "dist_ly": 66.64
+    },
+    {
+      "name": "Sceptrum",
+      "x": 37.2,
+      "y": 99.74,
+      "z": -27.14,
+      "mag": 3.86,
+      "spect": "K1III",
+      "con": "Eri",
+      "dist_ly": 109.85
+    },
+    {
+      "name": "Tabit",
+      "x": 7.87,
+      "y": 24.91,
+      "z": 3.19,
+      "mag": 3.19,
+      "spect": "F6V",
+      "con": "Ori",
+      "dist_ly": 26.32
+    },
+    {
+      "name": "Mouhoun",
+      "x": 105.04,
+      "y": 334.67,
+      "z": -158.88,
+      "mag": 7.91,
+      "spect": "K0III",
+      "con": "Eri",
+      "dist_ly": 385.07
+    },
+    {
+      "name": "Hassaleh",
+      "x": 112.13,
+      "y": 397.53,
+      "z": 269.94,
+      "mag": 2.69,
+      "spect": "K3IIvar",
+      "con": "Aur",
+      "dist_ly": 493.43
+    },
+    {
+      "name": "Almaaz",
+      "x": 385.29,
+      "y": 1488.96,
+      "z": 1476.09,
+      "mag": 3.03,
+      "spect": "F0Ia",
+      "con": "Aur",
+      "dist_ly": 2131.74
+    },
+    {
+      "name": "Saclateni",
+      "x": 147.14,
+      "y": 573.89,
+      "z": 516.39,
+      "mag": 3.69,
+      "spect": "K4II comp",
+      "con": "Aur",
+      "dist_ly": 785.92
+    },
+    {
+      "name": "Haedus",
+      "x": 42.33,
+      "y": 178.08,
+      "z": 160.44,
+      "mag": 3.18,
+      "spect": "B3V",
+      "con": "Aur",
+      "dist_ly": 243.4
+    },
+    {
+      "name": "Cursa",
+      "x": 20.08,
+      "y": 86.71,
+      "z": -7.92,
+      "mag": 2.78,
+      "spect": "A3IIIvar",
+      "con": "Eri",
+      "dist_ly": 89.36
+    },
+    {
+      "name": "Mago",
+      "x": 29.85,
+      "y": 133.59,
+      "z": 368.85,
+      "mag": 6.43,
+      "spect": "K1III",
+      "con": "Cam",
+      "dist_ly": 393.43
+    },
+    {
+      "name": "Kapteyn's Star",
+      "x": 1.89,
+      "y": 8.82,
+      "z": -9.03,
+      "mag": 8.86,
+      "spect": "M0V",
+      "con": "Pic",
+      "dist_ly": 12.76
+    },
+    {
+      "name": "Rigel",
+      "x": 168.3,
+      "y": 837.27,
+      "z": -123.09,
+      "mag": 0.18,
+      "spect": "B8Ia",
+      "con": "Ori",
+      "dist_ly": 862.85
+    },
+    {
+      "name": "Capella",
+      "x": 5.59,
+      "y": 29.21,
+      "z": 30.79,
+      "mag": 0.08,
+      "spect": "M1: comp",
+      "con": "Aur",
+      "dist_ly": 42.8
+    },
+    {
+      "name": "Bellatrix",
+      "x": 38.03,
+      "y": 248.0,
+      "z": 27.92,
+      "mag": 1.64,
+      "spect": "B2III",
+      "con": "Ori",
+      "dist_ly": 252.44
+    },
+    {
+      "name": "Elnath",
+      "x": 17.23,
+      "y": 116.28,
+      "z": 64.11,
+      "mag": 1.65,
+      "spect": "B7III",
+      "con": "Tau",
+      "dist_ly": 133.89
+    },
+    {
+      "name": "Nihal",
+      "x": 20.71,
+      "y": 148.5,
+      "z": -56.84,
+      "mag": 2.81,
+      "spect": "G5II",
+      "con": "Lep",
+      "dist_ly": 160.35
+    },
+    {
+      "name": "Mintaka",
+      "x": 84.37,
+      "y": 687.31,
+      "z": -3.61,
+      "mag": 2.25,
+      "spect": "O9.5II",
+      "con": "Ori",
+      "dist_ly": 692.48
+    },
+    {
+      "name": "Arneb",
+      "x": 250.74,
+      "y": 2097.34,
+      "z": -679.08,
+      "mag": 2.58,
+      "spect": "F0Ib",
+      "con": "Lep",
+      "dist_ly": 2218.75
+    },
+    {
+      "name": "Meissa",
+      "x": 117.11,
+      "y": 1075.35,
+      "z": 189.45,
+      "mag": 3.39,
+      "spect": "O...",
+      "con": "Ori",
+      "dist_ly": 1098.17
+    },
+    {
+      "name": "Hatysa",
+      "x": 247.92,
+      "y": 2304.0,
+      "z": -239.87,
+      "mag": 2.75,
+      "spect": "O9III",
+      "con": "Ori",
+      "dist_ly": 2329.69
+    },
+    {
+      "name": "Alnilam",
+      "x": 204.74,
+      "y": 1965.63,
+      "z": -41.46,
+      "mag": 1.69,
+      "spect": "B0Ia",
+      "con": "Ori",
+      "dist_ly": 1976.7
+    },
+    {
+      "name": "Bubup",
+      "x": 3.51,
+      "y": 34.9,
+      "z": -119.94,
+      "mag": 6.69,
+      "spect": "WN...",
+      "con": "Men",
+      "dist_ly": 124.96
+    },
+    {
+      "name": "Tianguan",
+      "x": 40.42,
+      "y": 413.04,
+      "z": 160.49,
+      "mag": 2.97,
+      "spect": "B4IIIp",
+      "con": "Tau",
+      "dist_ly": 444.96
+    },
+    {
+      "name": "Phact",
+      "x": 19.2,
+      "y": 215.62,
+      "z": -146.42,
+      "mag": 2.65,
+      "spect": "B7IV",
+      "con": "Col",
+      "dist_ly": 261.34
+    },
+    {
+      "name": "Alnitak",
+      "x": 61.7,
+      "y": 733.23,
+      "z": -24.96,
+      "mag": 1.74,
+      "spect": "O9.5Ib SB",
+      "con": "Ori",
+      "dist_ly": 736.24
+    },
+    {
+      "name": "Saiph",
+      "x": 34.06,
+      "y": 637.03,
+      "z": -108.7,
+      "mag": 2.07,
+      "spect": "B0.5Iavar",
+      "con": "Ori",
+      "dist_ly": 647.13
+    },
+    {
+      "name": "Wazn",
+      "x": 2.79,
+      "y": 70.69,
+      "z": -50.96,
+      "mag": 3.12,
+      "spect": "K1.5III",
+      "con": "Col",
+      "dist_ly": 87.18
+    },
+    {
+      "name": "Betelgeuse",
+      "x": 10.4,
+      "y": 493.68,
+      "z": 64.19,
+      "mag": 0.45,
+      "spect": "M2Ib",
+      "con": "Ori",
+      "dist_ly": 497.95
+    },
+    {
+      "name": "Menkalinan",
+      "x": 0.12,
+      "y": 57.41,
+      "z": 57.3,
+      "mag": 1.9,
+      "spect": "A2V",
+      "con": "Aur",
+      "dist_ly": 81.11
+    },
+    {
+      "name": "Mahasim",
+      "x": 0.16,
+      "y": 131.85,
+      "z": 100.13,
+      "mag": 2.65,
+      "spect": "A0p Si",
+      "con": "Aur",
+      "dist_ly": 165.56
+    },
+    {
+      "name": "Elkurud",
+      "x": -18.86,
+      "y": 574.05,
+      "z": -436.8,
+      "mag": 5.0,
+      "spect": "B8:IV",
+      "con": "Col",
+      "dist_ly": 721.58
+    },
+    {
+      "name": "Amadioha",
+      "x": -9.44,
+      "y": 158.93,
+      "z": -91.54,
+      "mag": 8.98,
+      "spect": "G8/K0IV/V",
+      "con": "CMa",
+      "dist_ly": 183.65
+    },
+    {
+      "name": "Propus",
+      "x": -23.05,
+      "y": 354.58,
+      "z": 147.23,
+      "mag": 3.31,
+      "spect": "M3III",
+      "con": "Gem",
+      "dist_ly": 384.62
+    },
+    {
+      "name": "Red Rectangle",
+      "x": -122.89,
+      "y": 1406.76,
+      "z": -265.23,
+      "mag": 8.85,
+      "spect": "B8",
+      "con": "Mon",
+      "dist_ly": 1436.81
+    },
+    {
+      "name": "Furud",
+      "x": -27.76,
+      "y": 312.41,
+      "z": -181.55,
+      "mag": 3.02,
+      "spect": "B2.5V",
+      "con": "CMa",
+      "dist_ly": 362.4
+    },
+    {
+      "name": "Mirzam",
+      "x": -46.35,
+      "y": 466.39,
+      "z": -151.89,
+      "mag": 1.98,
+      "spect": "B1II/III",
+      "con": "CMa",
+      "dist_ly": 492.68
+    },
+    {
+      "name": "Tejat",
+      "x": -21.4,
+      "y": 212.92,
+      "z": 88.7,
+      "mag": 2.87,
+      "spect": "M3IIIvar",
+      "con": "Gem",
+      "dist_ly": 231.64
+    },
+    {
+      "name": "Canopus",
+      "x": -19.55,
+      "y": 186.34,
+      "z": -245.91,
+      "mag": -0.62,
+      "spect": "F0Ib",
+      "con": "Car",
+      "dist_ly": 309.15
+    },
+    {
+      "name": "Lucilinburhuc",
+      "x": -15.51,
+      "y": 122.98,
+      "z": 100.24,
+      "mag": 7.89,
+      "spect": "G5",
+      "con": "Aur",
+      "dist_ly": 159.41
+    },
+    {
+      "name": "Lusitânia",
+      "x": -13.99,
+      "y": 109.12,
+      "z": 21.25,
+      "mag": 8.1,
+      "spect": "K5",
+      "con": "Mon",
+      "dist_ly": 112.04
+    },
+    {
+      "name": "Alhena",
+      "x": -17.18,
+      "y": 103.44,
+      "z": 30.86,
+      "mag": 1.93,
+      "spect": "A0IV",
+      "con": "Gem",
+      "dist_ly": 109.3
+    },
+    {
+      "name": "Nosaxa",
+      "x": -32.04,
+      "y": 181.6,
+      "z": -208.74,
+      "mag": 8.05,
+      "spect": "G5IV/V",
+      "con": "Pup",
+      "dist_ly": 278.53
+    },
+    {
+      "name": "Mebsuta",
+      "x": -145.74,
+      "y": 750.97,
+      "z": 358.85,
+      "mag": 3.06,
+      "spect": "A3mA6-A9",
+      "con": "Gem",
+      "dist_ly": 844.96
+    },
+    {
+      "name": "Sirius",
+      "x": -1.61,
+      "y": 8.08,
+      "z": -2.47,
+      "mag": -1.44,
+      "spect": "A0m...",
+      "con": "CMa",
+      "dist_ly": 8.6
+    },
+    {
+      "name": "Alzirr",
+      "x": -11.23,
+      "y": 56.11,
+      "z": 13.1,
+      "mag": 3.35,
+      "spect": "F5IV",
+      "con": "Gem",
+      "dist_ly": 58.7
+    },
+    {
+      "name": "Nervia",
+      "x": -24.31,
+      "y": 106.34,
+      "z": 94.39,
+      "mag": 8.1,
+      "spect": "G0",
+      "con": "Aur",
+      "dist_ly": 144.25
+    },
+    {
+      "name": "Adhara",
+      "x": -89.69,
+      "y": 342.93,
+      "z": -196.25,
+      "mag": 1.5,
+      "spect": "B2II",
+      "con": "CMa",
+      "dist_ly": 405.16
+    },
+    {
+      "name": "Citalá",
+      "x": -24.46,
+      "y": 90.81,
+      "z": -8.84,
+      "mag": 6.29,
+      "spect": "G0III-IV",
+      "con": "Mon",
+      "dist_ly": 94.46
+    },
+    {
+      "name": "Nganurganity",
+      "x": -263.45,
+      "y": 954.53,
+      "z": -525.06,
+      "mag": 3.49,
+      "spect": "K4III",
+      "con": "CMa",
+      "dist_ly": 1120.81
+    },
+    {
+      "name": "Muliphein",
+      "x": -116.88,
+      "y": 409.23,
+      "z": -119.1,
+      "mag": 4.11,
+      "spect": "B8II",
+      "con": "CMa",
+      "dist_ly": 441.95
+    },
+    {
+      "name": "Mekbuda",
+      "x": -355.73,
+      "y": 1238.36,
+      "z": 483.53,
+      "mag": 4.01,
+      "spect": "G3Ibv SB",
+      "con": "Gem",
+      "dist_ly": 1376.19
+    },
+    {
+      "name": "Wezen",
+      "x": -423.13,
+      "y": 1375.6,
+      "z": -714.22,
+      "mag": 1.83,
+      "spect": "F8Ia",
+      "con": "CMa",
+      "dist_ly": 1606.68
+    },
+    {
+      "name": "Wasat",
+      "x": -19.21,
+      "y": 52.68,
+      "z": 22.63,
+      "mag": 3.5,
+      "spect": "F0IV...",
+      "con": "Gem",
+      "dist_ly": 60.47
+    },
+    {
+      "name": "Aludra",
+      "x": -622.18,
+      "y": 1618.83,
+      "z": -973.36,
+      "mag": 2.45,
+      "spect": "B5Ia",
+      "con": "CMa",
+      "dist_ly": 1988.76
+    },
+    {
+      "name": "Gomeisa",
+      "x": -59.39,
+      "y": 148.58,
+      "z": 23.31,
+      "mag": 2.89,
+      "spect": "B8Vvar",
+      "con": "CMi",
+      "dist_ly": 161.7
+    },
+    {
+      "name": "Castor",
+      "x": -17.33,
+      "y": 39.56,
+      "z": 26.87,
+      "mag": 1.58,
+      "spect": "A2Vm",
+      "con": "Gem",
+      "dist_ly": 50.87
+    },
+    {
+      "name": "Jishui",
+      "x": -57.42,
+      "y": 124.31,
+      "z": 94.41,
+      "mag": 4.89,
+      "spect": "F3III",
+      "con": "Gem",
+      "dist_ly": 166.32
+    },
+    {
+      "name": "Procyon",
+      "x": -4.79,
+      "y": 10.36,
+      "z": 1.04,
+      "mag": 0.4,
+      "spect": "F5IV-V",
+      "con": "CMi",
+      "dist_ly": 11.46
+    },
+    {
+      "name": "Pollux",
+      "x": -13.23,
+      "y": 26.73,
+      "z": 15.87,
+      "mag": 1.16,
+      "spect": "K0IIIvar",
+      "con": "Gem",
+      "dist_ly": 33.78
+    },
+    {
+      "name": "Tapecue",
+      "x": -28.72,
+      "y": 56.47,
+      "z": -88.04,
+      "mag": 8.1,
+      "spect": "G6IV/V",
+      "con": "Car",
+      "dist_ly": 108.47
+    },
+    {
+      "name": "Azmidi",
+      "x": -499.41,
+      "y": 966.6,
+      "z": -504.1,
+      "mag": 3.34,
+      "spect": "G6Ia",
+      "con": "Pup",
+      "dist_ly": 1199.1
+    },
+    {
+      "name": "Naos",
+      "x": -426.2,
+      "y": 712.25,
+      "z": -696.55,
+      "mag": 2.21,
+      "spect": "O5IAf",
+      "con": "Pup",
+      "dist_ly": 1083.57
+    },
+    {
+      "name": "Tureis",
+      "x": -30.59,
+      "y": 49.17,
+      "z": -26.15,
+      "mag": 2.83,
+      "spect": "F2mF5IIp",
+      "con": "Pup",
+      "dist_ly": 63.54
+    },
+    {
+      "name": "Tegmine",
+      "x": -42.52,
+      "y": 65.34,
+      "z": 24.8,
+      "mag": 4.67,
+      "spect": "G0V",
+      "con": "Cnc",
+      "dist_ly": 81.8
+    },
+    {
+      "name": "Tarf",
+      "x": -168.04,
+      "y": 247.93,
+      "z": 48.43,
+      "mag": 3.53,
+      "spect": "K4III",
+      "con": "Cnc",
+      "dist_ly": 303.4
+    },
+    {
+      "name": "Násti",
+      "x": -48.24,
+      "y": 69.94,
+      "z": 156.23,
+      "mag": 8.2,
+      "spect": "G0",
+      "con": "UMa",
+      "dist_ly": 177.84
+    },
+    {
+      "name": "Piautos",
+      "x": -240.45,
+      "y": 341.7,
+      "z": 186.22,
+      "mag": 5.92,
+      "spect": "B9.5V",
+      "con": "Cnc",
+      "dist_ly": 457.44
+    },
+    {
+      "name": "Avior",
+      "x": -178.85,
+      "y": 249.56,
+      "z": -521.43,
+      "mag": 1.86,
+      "spect": "K3III+B2V",
+      "con": "Car",
+      "dist_ly": 605.11
+    },
+    {
+      "name": "Alsciaukat",
+      "x": -162.72,
+      "y": 226.37,
+      "z": 261.69,
+      "mag": 4.25,
+      "spect": "K5III",
+      "con": "Lyn",
+      "dist_ly": 382.36
+    },
+    {
+      "name": "Muscida",
+      "x": -53.41,
+      "y": 69.44,
+      "z": 156.22,
+      "mag": 3.35,
+      "spect": "G4II-III",
+      "con": "UMa",
+      "dist_ly": 179.11
+    },
+    {
+      "name": "Minchir",
+      "x": -237.64,
+      "y": 286.35,
+      "z": 21.73,
+      "mag": 4.45,
+      "spect": "K2III",
+      "con": "Hya",
+      "dist_ly": 372.75
+    },
+    {
+      "name": "Gakyid",
+      "x": -164.93,
+      "y": 197.84,
+      "z": 59.28,
+      "mag": 8.23,
+      "spect": "G5",
+      "con": "Cnc",
+      "dist_ly": 264.31
+    },
+    {
+      "name": "Meleph",
+      "x": -356.17,
+      "y": 422.78,
+      "z": 196.25,
+      "mag": 6.29,
+      "spect": "Am",
+      "con": "Cnc",
+      "dist_ly": 586.61
+    },
+    {
+      "name": "Asellus Borealis",
+      "x": -110.23,
+      "y": 127.61,
+      "z": 66.32,
+      "mag": 4.66,
+      "spect": "A1IV",
+      "con": "Cnc",
+      "dist_ly": 181.2
+    },
+    {
+      "name": "Asellus Australis",
+      "x": -81.68,
+      "y": 93.39,
+      "z": 40.68,
+      "mag": 3.94,
+      "spect": "K0III",
+      "con": "Cnc",
+      "dist_ly": 130.57
+    },
+    {
+      "name": "Alsephina",
+      "x": -30.64,
+      "y": 35.03,
+      "z": -65.75,
+      "mag": 1.93,
+      "spect": "A1V",
+      "con": "Vel",
+      "dist_ly": 80.55
+    },
+    {
+      "name": "Ashlesha",
+      "x": -85.45,
+      "y": 95.93,
+      "z": 14.45,
+      "mag": 3.38,
+      "spect": "G0III-IV",
+      "con": "Hya",
+      "dist_ly": 129.27
+    },
+    {
+      "name": "Copernicus",
+      "x": -24.23,
+      "y": 25.85,
+      "z": 19.1,
+      "mag": 5.96,
+      "spect": "G8V",
+      "con": "Cnc",
+      "dist_ly": 40.25
+    },
+    {
+      "name": "Stribor",
+      "x": -142.45,
+      "y": 150.31,
+      "z": 134.78,
+      "mag": 8.03,
+      "spect": "G0",
+      "con": "Lyn",
+      "dist_ly": 247.09
+    },
+    {
+      "name": "Acubens",
+      "x": -129.45,
+      "y": 131.17,
+      "z": 38.69,
+      "mag": 4.26,
+      "spect": "A5m",
+      "con": "Cnc",
+      "dist_ly": 188.31
+    },
+    {
+      "name": "Talitha",
+      "x": -22.3,
+      "y": 22.45,
+      "z": 35.19,
+      "mag": 3.12,
+      "spect": "A7IV",
+      "con": "UMa",
+      "dist_ly": 47.32
+    },
+    {
+      "name": "Alkaphrah",
+      "x": -175.04,
+      "y": 169.59,
+      "z": 262.79,
+      "mag": 3.57,
+      "spect": "A1Vn",
+      "con": "UMa",
+      "dist_ly": 358.41
+    },
+    {
+      "name": "Suhail",
+      "x": -289.18,
+      "y": 269.67,
+      "z": -374.35,
+      "mag": 2.23,
+      "spect": "K4Ib-II",
+      "con": "Vel",
+      "dist_ly": 544.5
+    },
+    {
+      "name": "Nahn",
+      "x": -254.36,
+      "y": 234.39,
+      "z": 140.07,
+      "mag": 5.16,
+      "spect": "K0III",
+      "con": "Cnc",
+      "dist_ly": 373.18
+    },
+    {
+      "name": "Miaplacidus",
+      "x": -29.29,
+      "y": 26.1,
+      "z": -106.15,
+      "mag": 1.67,
+      "spect": "A2IV",
+      "con": "Car",
+      "dist_ly": 113.17
+    },
+    {
+      "name": "Aspidiske",
+      "x": -296.44,
+      "y": 255.22,
+      "z": -658.16,
+      "mag": 2.21,
+      "spect": "A8Ib",
+      "con": "Car",
+      "dist_ly": 765.62
+    },
+    {
+      "name": "Markeb",
+      "x": -253.29,
+      "y": 208.58,
+      "z": -468.78,
+      "mag": 2.47,
+      "spect": "B2IV",
+      "con": "Vel",
+      "dist_ly": 572.2
+    },
+    {
+      "name": "Alphard",
+      "x": -140.26,
+      "y": 109.99,
+      "z": -27.14,
+      "mag": 1.99,
+      "spect": "K3III",
+      "con": "Hya",
+      "dist_ly": 180.3
+    },
+    {
+      "name": "Intercrus",
+      "x": -154.7,
+      "y": 120.14,
+      "z": 200.03,
+      "mag": 5.4,
+      "spect": "K0III-IV",
+      "con": "UMa",
+      "dist_ly": 279.96
+    },
+    {
+      "name": "Alterf",
+      "x": -241.79,
+      "y": 182.66,
+      "z": 128.43,
+      "mag": 4.32,
+      "spect": "K5IIIvar",
+      "con": "Leo",
+      "dist_ly": 329.12
+    },
+    {
+      "name": "Illyrian",
+      "x": -271.71,
+      "y": 197.86,
+      "z": 233.44,
+      "mag": 7.62,
+      "spect": "G0",
+      "con": "LMi",
+      "dist_ly": 409.23
+    },
+    {
+      "name": "Kalausi",
+      "x": -79.39,
+      "y": 57.05,
+      "z": -92.04,
+      "mag": 8.23,
+      "spect": "K0V",
+      "con": "Vel",
+      "dist_ly": 134.28
+    },
+    {
+      "name": "Ukdah",
+      "x": -215.5,
+      "y": 151.09,
+      "z": -5.25,
+      "mag": 3.9,
+      "spect": "K3IIIvar",
+      "con": "Hya",
+      "dist_ly": 263.24
+    },
+    {
+      "name": "Subra",
+      "x": -105.52,
+      "y": 73.1,
+      "z": 22.39,
+      "mag": 3.52,
+      "spect": "A5V+...",
+      "con": "Leo",
+      "dist_ly": 130.31
+    },
+    {
+      "name": "Ras Elased Australis",
+      "x": -188.19,
+      "y": 124.74,
+      "z": 99.46,
+      "mag": 2.97,
+      "spect": "G0II",
+      "con": "Leo",
+      "dist_ly": 246.71
+    },
+    {
+      "name": "Natasha",
+      "x": -57.5,
+      "y": 36.61,
+      "z": -80.63,
+      "mag": 8.54,
+      "spect": "K1V",
+      "con": "Vel",
+      "dist_ly": 105.59
+    },
+    {
+      "name": "Zhang",
+      "x": -216.0,
+      "y": 135.66,
+      "z": -67.61,
+      "mag": 4.11,
+      "spect": "G6/G8III",
+      "con": "Hya",
+      "dist_ly": 263.88
+    },
+    {
+      "name": "Rasalas",
+      "x": -94.79,
+      "y": 58.79,
+      "z": 54.42,
+      "mag": 3.88,
+      "spect": "K0III",
+      "con": "Leo",
+      "dist_ly": 124.11
+    },
+    {
+      "name": "Felis",
+      "x": -496.31,
+      "y": 301.55,
+      "z": -200.07,
+      "mag": 4.94,
+      "spect": "K5III",
+      "con": "Hya",
+      "dist_ly": 614.23
+    },
+    {
+      "name": "Bibhā",
+      "x": -265.99,
+      "y": 159.67,
+      "z": -20.65,
+      "mag": 8.73,
+      "spect": "F8",
+      "con": "Sex",
+      "dist_ly": 310.92
+    },
+    {
+      "name": "Regulus",
+      "x": -68.55,
+      "y": 36.31,
+      "z": 16.44,
+      "mag": 1.36,
+      "spect": "B7V",
+      "con": "Leo",
+      "dist_ly": 79.3
+    },
+    {
+      "name": "Adhafera",
+      "x": -226.38,
+      "y": 109.57,
+      "z": 108.93,
+      "mag": 3.43,
+      "spect": "F0III",
+      "con": "Leo",
+      "dist_ly": 274.08
+    },
+    {
+      "name": "Tania Borealis",
+      "x": -90.72,
+      "y": 43.71,
+      "z": 93.63,
+      "mag": 3.45,
+      "spect": "A2IV",
+      "con": "UMa",
+      "dist_ly": 137.5
+    },
+    {
+      "name": "Algieba",
+      "x": -110.9,
+      "y": 51.73,
+      "z": 44.16,
+      "mag": 2.01,
+      "spect": "K0III",
+      "con": "Leo",
+      "dist_ly": 130.1
+    },
+    {
+      "name": "Tania Australis",
+      "x": -157.08,
+      "y": 71.31,
+      "z": 152.62,
+      "mag": 3.06,
+      "spect": "M0III SB",
+      "con": "UMa",
+      "dist_ly": 230.34
+    },
+    {
+      "name": "Macondo",
+      "x": -71.61,
+      "y": 24.53,
+      "z": -50.25,
+      "mag": 8.3,
+      "spect": "K3V",
+      "con": "Ant",
+      "dist_ly": 90.85
+    },
+    {
+      "name": "Praecipua",
+      "x": -75.15,
+      "y": 22.51,
+      "z": 53.34,
+      "mag": 3.79,
+      "spect": "K0III-IV",
+      "con": "LMi",
+      "dist_ly": 94.87
+    },
+    {
+      "name": "Aiolos",
+      "x": -103.26,
+      "y": 29.1,
+      "z": -274.69,
+      "mag": 7.36,
+      "spect": "A8III",
+      "con": "Car",
+      "dist_ly": 294.9
+    },
+    {
+      "name": "Chalawan",
+      "x": -33.7,
+      "y": 9.11,
+      "z": 29.75,
+      "mag": 5.03,
+      "spect": "G0V",
+      "con": "UMa",
+      "dist_ly": 45.87
+    },
+    {
+      "name": "Alkes",
+      "x": -145.94,
+      "y": 39.26,
+      "z": -49.98,
+      "mag": 4.08,
+      "spect": "K1III",
+      "con": "Crt",
+      "dist_ly": 159.18
+    },
+    {
+      "name": "Merak",
+      "x": -42.74,
+      "y": 11.08,
+      "z": 66.41,
+      "mag": 2.34,
+      "spect": "A1V",
+      "con": "UMa",
+      "dist_ly": 79.74
+    },
+    {
+      "name": "Lalande 21185",
+      "x": -6.52,
+      "y": 1.64,
+      "z": 4.88,
+      "mag": 7.49,
+      "spect": "M2V",
+      "con": "UMa",
+      "dist_ly": 8.31
+    },
+    {
+      "name": "Dubhe",
+      "x": -56.42,
+      "y": 14.14,
+      "z": 108.26,
+      "mag": 1.81,
+      "spect": "F7V comp",
+      "con": "UMa",
+      "dist_ly": 122.89
+    },
+    {
+      "name": "Dingolay",
+      "x": -499.87,
+      "y": 122.92,
+      "z": -22.59,
+      "mag": 8.21,
+      "spect": "K0",
+      "con": "Leo",
+      "dist_ly": 515.25
+    },
+    {
+      "name": "Zosma",
+      "x": -53.63,
+      "y": 10.88,
+      "z": 20.49,
+      "mag": 2.56,
+      "spect": "A4V",
+      "con": "Leo",
+      "dist_ly": 58.43
+    },
+    {
+      "name": "Chertan",
+      "x": -155.95,
+      "y": 31.56,
+      "z": 43.91,
+      "mag": 3.33,
+      "spect": "A2V",
+      "con": "Leo",
+      "dist_ly": 165.06
+    },
+    {
+      "name": "Hunahpú",
+      "x": -393.26,
+      "y": 73.25,
+      "z": -177.89,
+      "mag": 8.05,
+      "spect": "K0III/IV",
+      "con": "Crt",
+      "dist_ly": 437.79
+    },
+    {
+      "name": "Alula Borealis",
+      "x": -328.97,
+      "y": 60.26,
+      "z": 217.98,
+      "mag": 3.49,
+      "spect": "K3III SB",
+      "con": "UMa",
+      "dist_ly": 399.21
+    },
+    {
+      "name": "Giausar",
+      "x": -116.68,
+      "y": 14.63,
+      "z": 311.71,
+      "mag": 3.82,
+      "spect": "M0IIIvar",
+      "con": "Dra",
+      "dist_ly": 333.15
+    },
+    {
+      "name": "Formosa",
+      "x": -371.41,
+      "y": 40.57,
+      "z": 139.25,
+      "mag": 6.45,
+      "spect": "G9III",
+      "con": "Leo",
+      "dist_ly": 398.72
+    },
+    {
+      "name": "Sagarmatha",
+      "x": -160.33,
+      "y": 16.95,
+      "z": -13.41,
+      "mag": 8.42,
+      "spect": "K0",
+      "con": "Leo",
+      "dist_ly": 161.78
+    },
+    {
+      "name": "Uklun",
+      "x": -67.11,
+      "y": 4.45,
+      "z": -110.64,
+      "mag": 7.47,
+      "spect": "G6V",
+      "con": "Cen",
+      "dist_ly": 129.48
+    },
+    {
+      "name": "Flegetonte",
+      "x": -96.36,
+      "y": 6.02,
+      "z": 4.76,
+      "mag": 8.07,
+      "spect": "K0",
+      "con": "Vir",
+      "dist_ly": 96.67
+    },
+    {
+      "name": "Taiyangshou",
+      "x": -123.18,
+      "y": 7.51,
+      "z": 136.0,
+      "mag": 3.69,
+      "spect": "K0III",
+      "con": "UMa",
+      "dist_ly": 183.65
+    },
+    {
+      "name": "Denebola",
+      "x": -34.68,
+      "y": 1.66,
+      "z": 9.03,
+      "mag": 2.14,
+      "spect": "A3Vvar",
+      "con": "Leo",
+      "dist_ly": 35.88
+    },
+    {
+      "name": "Zavijava",
+      "x": -35.6,
+      "y": 1.45,
+      "z": 1.1,
+      "mag": 3.59,
+      "spect": "F8V",
+      "con": "Vir",
+      "dist_ly": 35.65
+    },
+    {
+      "name": "Aniara",
+      "x": -220.26,
+      "y": 8.29,
+      "z": 347.86,
+      "mag": 7.86,
+      "spect": "K0III",
+      "con": "UMa",
+      "dist_ly": 411.81
+    },
+    {
+      "name": "Groombridge 1830",
+      "x": -23.44,
+      "y": 0.72,
+      "z": 18.14,
+      "mag": 6.42,
+      "spect": "G8Vp",
+      "con": "UMa",
+      "dist_ly": 29.65
+    },
+    {
+      "name": "Phecda",
+      "x": -49.23,
+      "y": 1.33,
+      "z": 67.03,
+      "mag": 2.41,
+      "spect": "A0V SB",
+      "con": "UMa",
+      "dist_ly": 83.18
+    },
+    {
+      "name": "Tonatiuh",
+      "x": -71.72,
+      "y": -1.64,
+      "z": 308.42,
+      "mag": 5.78,
+      "spect": "G9III",
+      "con": "Cam",
+      "dist_ly": 316.66
+    },
+    {
+      "name": "Alchiba",
+      "x": -44.22,
+      "y": -1.62,
+      "z": -20.38,
+      "mag": 4.02,
+      "spect": "F0IV/V",
+      "con": "Crv",
+      "dist_ly": 48.72
+    },
+    {
+      "name": "Imai",
+      "x": -178.66,
+      "y": -11.82,
+      "z": -295.06,
+      "mag": 2.79,
+      "spect": "B2IV",
+      "con": "Cru",
+      "dist_ly": 345.14
+    },
+    {
+      "name": "Megrez",
+      "x": -43.71,
+      "y": -2.95,
+      "z": 67.55,
+      "mag": 3.32,
+      "spect": "A3Vvar",
+      "con": "UMa",
+      "dist_ly": 80.51
+    },
+    {
+      "name": "Gienah",
+      "x": -146.14,
+      "y": -10.09,
+      "z": -46.3,
+      "mag": 2.58,
+      "spect": "B8III",
+      "con": "Crv",
+      "dist_ly": 153.63
+    },
+    {
+      "name": "Zaniah",
+      "x": -264.37,
+      "y": -23.02,
+      "z": -3.09,
+      "mag": 3.89,
+      "spect": "A2IV",
+      "con": "Vir",
+      "dist_ly": 265.38
+    },
+    {
+      "name": "Ginan",
+      "x": -113.04,
+      "y": -10.57,
+      "z": -199.85,
+      "mag": 3.59,
+      "spect": "K3/K4III",
+      "con": "Cru",
+      "dist_ly": 229.85
+    },
+    {
+      "name": "Tupã",
+      "x": -54.06,
+      "y": -6.1,
+      "z": -111.65,
+      "mag": 6.99,
+      "spect": "F8/G0V",
+      "con": "Cru",
+      "dist_ly": 124.2
+    },
+    {
+      "name": "Acrux",
+      "x": -144.7,
+      "y": -16.87,
+      "z": -287.13,
+      "mag": 0.77,
+      "spect": "B0.5IV",
+      "con": "Cru",
+      "dist_ly": 321.97
+    },
+    {
+      "name": "Algorab",
+      "x": -82.57,
+      "y": -10.82,
+      "z": -24.69,
+      "mag": 2.94,
+      "spect": "B9.5V",
+      "con": "Crv",
+      "dist_ly": 86.86
+    },
+    {
+      "name": "Gacrux",
+      "x": -47.64,
+      "y": -6.52,
+      "z": -74.37,
+      "mag": 1.59,
+      "spect": "M4III",
+      "con": "Cru",
+      "dist_ly": 88.56
+    },
+    {
+      "name": "Funi",
+      "x": -57.04,
+      "y": -8.05,
+      "z": 207.58,
+      "mag": 8.75,
+      "spect": "G0",
+      "con": "Dra",
+      "dist_ly": 215.43
+    },
+    {
+      "name": "Chara",
+      "x": -20.44,
+      "y": -3.03,
+      "z": 18.19,
+      "mag": 4.24,
+      "spect": "G0V",
+      "con": "CVn",
+      "dist_ly": 27.53
+    },
+    {
+      "name": "Kraz",
+      "x": -132.19,
+      "y": -19.98,
+      "z": -57.85,
+      "mag": 2.65,
+      "spect": "G5II",
+      "con": "Crv",
+      "dist_ly": 145.67
+    },
+    {
+      "name": "Porrima",
+      "x": -37.47,
+      "y": -6.89,
+      "z": -0.96,
+      "mag": 2.74,
+      "spect": "F0V+...",
+      "con": "Vir",
+      "dist_ly": 38.11
+    },
+    {
+      "name": "La Superba",
+      "x": -719.31,
+      "y": -143.51,
+      "z": 744.85,
+      "mag": 5.42,
+      "spect": "C7Iab",
+      "con": "CVn",
+      "dist_ly": 1045.37
+    },
+    {
+      "name": "Tianyi",
+      "x": -285.86,
+      "y": -60.2,
+      "z": 681.27,
+      "mag": 5.43,
+      "spect": "K5III",
+      "con": "Dra",
+      "dist_ly": 741.26
+    },
+    {
+      "name": "Mimosa",
+      "x": -137.54,
+      "y": -29.06,
+      "z": -240.45,
+      "mag": 1.25,
+      "spect": "B0.5III",
+      "con": "Cru",
+      "dist_ly": 278.53
+    },
+    {
+      "name": "Alioth",
+      "x": -44.93,
+      "y": -10.79,
+      "z": 68.4,
+      "mag": 1.76,
+      "spect": "A0p",
+      "con": "UMa",
+      "dist_ly": 82.55
+    },
+    {
+      "name": "Taiyi",
+      "x": -38.55,
+      "y": -9.52,
+      "z": 86.89,
+      "mag": 5.23,
+      "spect": "A5n",
+      "con": "Dra",
+      "dist_ly": 95.54
+    },
+    {
+      "name": "Minelauva",
+      "x": -192.24,
+      "y": -47.58,
+      "z": 11.76,
+      "mag": 3.39,
+      "spect": "M3III",
+      "con": "Vir",
+      "dist_ly": 198.39
+    },
+    {
+      "name": "Cor Caroli B",
+      "x": -91.62,
+      "y": -22.85,
+      "z": 74.62,
+      "mag": 5.61,
+      "spect": "F0V",
+      "con": "CVn",
+      "dist_ly": 120.35
+    },
+    {
+      "name": "Cor Caroli",
+      "x": -87.39,
+      "y": -21.8,
+      "z": 71.18,
+      "mag": 2.89,
+      "spect": "A0spe...",
+      "con": "CVn",
+      "dist_ly": 114.8
+    },
+    {
+      "name": "Vindemiatrix",
+      "x": -103.66,
+      "y": -28.83,
+      "z": 20.84,
+      "mag": 2.85,
+      "spect": "G8IIIvar",
+      "con": "Vir",
+      "dist_ly": 109.6
+    },
+    {
+      "name": "Diadem",
+      "x": -52.87,
+      "y": -16.67,
+      "z": 17.51,
+      "mag": 4.32,
+      "spect": "F5V",
+      "con": "Com",
+      "dist_ly": 58.14
+    },
+    {
+      "name": "Mizar",
+      "x": -46.04,
+      "y": -17.66,
+      "z": 70.23,
+      "mag": 2.23,
+      "spect": "A2V",
+      "con": "UMa",
+      "dist_ly": 85.81
+    },
+    {
+      "name": "Matza",
+      "x": -185.45,
+      "y": -71.75,
+      "z": -250.02,
+      "mag": 7.01,
+      "spect": "A2V",
+      "con": "Cen",
+      "dist_ly": 319.45
+    },
+    {
+      "name": "Spica",
+      "x": -228.28,
+      "y": -88.99,
+      "z": -48.34,
+      "mag": 0.98,
+      "spect": "B1V",
+      "con": "Vir",
+      "dist_ly": 249.74
+    },
+    {
+      "name": "Alcor",
+      "x": -43.68,
+      "y": -17.04,
+      "z": 66.93,
+      "mag": 3.99,
+      "spect": "A5V SB",
+      "con": "UMa",
+      "dist_ly": 81.72
+    },
+    {
+      "name": "Dofida",
+      "x": -77.28,
+      "y": -32.97,
+      "z": -90.96,
+      "mag": 7.17,
+      "spect": "G2V",
+      "con": "Cen",
+      "dist_ly": 123.83
+    },
+    {
+      "name": "Liesma",
+      "x": -156.72,
+      "y": -68.18,
+      "z": 232.91,
+      "mag": 8.05,
+      "spect": "K0",
+      "con": "UMa",
+      "dist_ly": 288.89
+    },
+    {
+      "name": "Heze",
+      "x": -67.84,
+      "y": -29.74,
+      "z": -0.77,
+      "mag": 3.38,
+      "spect": "A3V",
+      "con": "Vir",
+      "dist_ly": 74.08
+    },
+    {
+      "name": "Alkaid",
+      "x": -60.44,
+      "y": -30.64,
+      "z": 78.81,
+      "mag": 1.85,
+      "spect": "B3V SB",
+      "con": "UMa",
+      "dist_ly": 103.94
+    },
+    {
+      "name": "Muphrid",
+      "x": -30.94,
+      "y": -16.92,
+      "z": 11.73,
+      "mag": 2.68,
+      "spect": "G0IV",
+      "con": "Boo",
+      "dist_ly": 37.17
+    },
+    {
+      "name": "Hadar",
+      "x": -166.19,
+      "y": -99.68,
+      "z": -340.76,
+      "mag": 0.61,
+      "spect": "B1III",
+      "con": "Cen",
+      "dist_ly": 392.01
+    },
+    {
+      "name": "Thuban",
+      "x": -112.25,
+      "y": -67.71,
+      "z": 273.31,
+      "mag": 3.67,
+      "spect": "A0III SB",
+      "con": "Dra",
+      "dist_ly": 303.12
+    },
+    {
+      "name": "Menkent",
+      "x": -40.31,
+      "y": -24.87,
+      "z": -34.88,
+      "mag": 2.06,
+      "spect": "K0IIIb",
+      "con": "Cen",
+      "dist_ly": 58.82
+    },
+    {
+      "name": "Kang",
+      "x": -209.74,
+      "y": -137.37,
+      "z": -45.45,
+      "mag": 4.18,
+      "spect": "K3III",
+      "con": "Vir",
+      "dist_ly": 254.81
+    },
+    {
+      "name": "Arcturus",
+      "x": -28.78,
+      "y": -19.35,
+      "z": 12.06,
+      "mag": -0.05,
+      "spect": "K2IIIp",
+      "con": "Boo",
+      "dist_ly": 36.72
+    },
+    {
+      "name": "Syrma",
+      "x": -59.8,
+      "y": -40.34,
+      "z": -7.58,
+      "mag": 4.07,
+      "spect": "F7V",
+      "con": "Vir",
+      "dist_ly": 72.53
+    },
+    {
+      "name": "Xuange",
+      "x": -56.87,
+      "y": -38.5,
+      "z": 71.33,
+      "mag": 4.18,
+      "spect": "A0sh",
+      "con": "Boo",
+      "dist_ly": 99.02
+    },
+    {
+      "name": "Khambalia",
+      "x": -149.02,
+      "y": -103.48,
+      "z": -43.13,
+      "mag": 4.52,
+      "spect": "A1V",
+      "con": "Vir",
+      "dist_ly": 186.48
+    },
+    {
+      "name": "Elgafar",
+      "x": -94.31,
+      "y": -71.2,
+      "z": -4.6,
+      "mag": 4.81,
+      "spect": "G2III",
+      "con": "Vir",
+      "dist_ly": 118.26
+    },
+    {
+      "name": "Seginus",
+      "x": -53.65,
+      "y": -41.95,
+      "z": 53.8,
+      "mag": 3.04,
+      "spect": "A7IIIvar",
+      "con": "Boo",
+      "dist_ly": 86.79
+    },
+    {
+      "name": "Toliman",
+      "x": -1.62,
+      "y": -1.35,
+      "z": -3.77,
+      "mag": 1.35,
+      "spect": "K1V",
+      "con": "Cen",
+      "dist_ly": 4.32
+    },
+    {
+      "name": "Rigil Kentaurus",
+      "x": -1.62,
+      "y": -1.35,
+      "z": -3.77,
+      "mag": -0.01,
+      "spect": "G2V",
+      "con": "Cen",
+      "dist_ly": 4.32
+    },
+    {
+      "name": "Izar",
+      "x": -135.62,
+      "y": -118.93,
+      "z": 92.2,
+      "mag": 2.35,
+      "spect": "A0",
+      "con": "Boo",
+      "dist_ly": 202.58
+    },
+    {
+      "name": "Mönch",
+      "x": -76.99,
+      "y": -69.04,
+      "z": -0.51,
+      "mag": 8.04,
+      "spect": "K0III",
+      "con": "Vir",
+      "dist_ly": 103.41
+    },
+    {
+      "name": "Merga",
+      "x": -81.9,
+      "y": -74.59,
+      "z": 115.18,
+      "mag": 5.76,
+      "spect": "F7IVw",
+      "con": "Boo",
+      "dist_ly": 159.8
+    },
+    {
+      "name": "Kochab",
+      "x": -26.28,
+      "y": -24.23,
+      "z": 125.96,
+      "mag": 2.07,
+      "spect": "K4IIIvar",
+      "con": "UMi",
+      "dist_ly": 130.93
+    },
+    {
+      "name": "Zubenelgenubi",
+      "x": -53.52,
+      "y": -49.42,
+      "z": -20.95,
+      "mag": 2.75,
+      "spect": "A3IV",
+      "con": "Lib",
+      "dist_ly": 75.8
+    },
+    {
+      "name": "Arcalís",
+      "x": -247.83,
+      "y": -233.92,
+      "z": 112.28,
+      "mag": 7.8,
+      "spect": "K0",
+      "con": "Boo",
+      "dist_ly": 358.81
+    },
+    {
+      "name": "Baekdu",
+      "x": -97.45,
+      "y": -94.77,
+      "z": 503.83,
+      "mag": 6.83,
+      "spect": "K0",
+      "con": "UMi",
+      "dist_ly": 521.85
+    },
+    {
+      "name": "Nekkar",
+      "x": -120.27,
+      "y": -122.33,
+      "z": 145.96,
+      "mag": 3.49,
+      "spect": "G8III",
+      "con": "Boo",
+      "dist_ly": 225.25
+    },
+    {
+      "name": "Brachium",
+      "x": -181.08,
+      "y": -187.63,
+      "z": -123.16,
+      "mag": 3.25,
+      "spect": "M3/M4III",
+      "con": "Lib",
+      "dist_ly": 288.38
+    },
+    {
+      "name": "Zubeneschamali",
+      "x": -119.21,
+      "y": -138.36,
+      "z": -30.18,
+      "mag": 2.61,
+      "spect": "B8V",
+      "con": "Lib",
+      "dist_ly": 185.11
+    },
+    {
+      "name": "Nikawiy",
+      "x": -154.4,
+      "y": -182.55,
+      "z": 213.27,
+      "mag": 7.88,
+      "spect": "G5",
+      "con": "Boo",
+      "dist_ly": 320.39
+    },
+    {
+      "name": "Pherkad",
+      "x": -97.19,
+      "y": -116.57,
+      "z": 462.54,
+      "mag": 3.0,
+      "spect": "A3II-III",
+      "con": "UMi",
+      "dist_ly": 486.8
+    },
+    {
+      "name": "Alkalurops",
+      "x": -56.43,
+      "y": -69.99,
+      "z": 68.68,
+      "mag": 4.31,
+      "spect": "F0V",
+      "con": "Boo",
+      "dist_ly": 113.13
+    },
+    {
+      "name": "Alkalurops B",
+      "x": -58.68,
+      "y": -72.8,
+      "z": 71.35,
+      "mag": 6.51,
+      "spect": "G1V",
+      "con": "Boo",
+      "dist_ly": 117.62
+    },
+    {
+      "name": "Edasich",
+      "x": -32.67,
+      "y": -40.68,
+      "z": 86.71,
+      "mag": 3.29,
+      "spect": "K2III",
+      "con": "Dra",
+      "dist_ly": 101.2
+    },
+    {
+      "name": "Nusakan",
+      "x": -60.2,
+      "y": -76.94,
+      "z": 54.39,
+      "mag": 3.66,
+      "spect": "F0p",
+      "con": "CrB",
+      "dist_ly": 111.81
+    },
+    {
+      "name": "Alphecca",
+      "x": -39.71,
+      "y": -54.01,
+      "z": 33.74,
+      "mag": 2.22,
+      "spect": "A0V",
+      "con": "CrB",
+      "dist_ly": 75.05
+    },
+    {
+      "name": "Zubenelhakrabi",
+      "x": -92.99,
+      "y": -127.43,
+      "z": -41.65,
+      "mag": 3.91,
+      "spect": "K0III",
+      "con": "Lib",
+      "dist_ly": 163.16
+    },
+    {
+      "name": "Karaka",
+      "x": -12.82,
+      "y": -17.59,
+      "z": -126.09,
+      "mag": 8.71,
+      "spect": "K0/K1V",
+      "con": "Aps",
+      "dist_ly": 127.95
+    },
+    {
+      "name": "Unukalhai",
+      "x": -41.03,
+      "y": -60.98,
+      "z": 8.28,
+      "mag": 2.63,
+      "spect": "K2III",
+      "con": "Ser",
+      "dist_ly": 73.96
+    },
+    {
+      "name": "Gudja",
+      "x": -196.68,
+      "y": -305.01,
+      "z": 118.92,
+      "mag": 4.09,
+      "spect": "M1III",
+      "con": "Ser",
+      "dist_ly": 381.92
+    },
+    {
+      "name": "Iklil",
+      "x": -210.81,
+      "y": -353.94,
+      "z": -230.37,
+      "mag": 3.87,
+      "spect": "B2IV/V",
+      "con": "Sco",
+      "dist_ly": 472.01
+    },
+    {
+      "name": "Fang",
+      "x": -265.17,
+      "y": -454.02,
+      "z": -257.74,
+      "mag": 2.89,
+      "spect": "B1V + B2V",
+      "con": "Sco",
+      "dist_ly": 585.56
+    },
+    {
+      "name": "Dschubba",
+      "x": -226.13,
+      "y": -392.99,
+      "z": -188.94,
+      "mag": 2.29,
+      "spect": "B0.2IV",
+      "con": "Sco",
+      "dist_ly": 491.2
+    },
+    {
+      "name": "Acrab",
+      "x": -182.26,
+      "y": -333.73,
+      "z": -136.94,
+      "mag": 2.56,
+      "spect": "B0.5V",
+      "con": "Sco",
+      "dist_ly": 404.16
+    },
+    {
+      "name": "Acrab B",
+      "x": -179.59,
+      "y": -328.85,
+      "z": -134.91,
+      "mag": 4.9,
+      "spect": "B2V",
+      "con": "Sco",
+      "dist_ly": 398.24
+    },
+    {
+      "name": "Marsic",
+      "x": -164.94,
+      "y": -310.46,
+      "z": 107.8,
+      "mag": 5.0,
+      "spect": "G8III",
+      "con": "Her",
+      "dist_ly": 367.71
+    },
+    {
+      "name": "Marsic B",
+      "x": -943.8,
+      "y": -1776.57,
+      "z": 617.13,
+      "mag": 6.25,
+      "spect": "K1III",
+      "con": "Her",
+      "dist_ly": 2104.23
+    },
+    {
+      "name": "Kamuy",
+      "x": -168.45,
+      "y": -323.81,
+      "z": 183.92,
+      "mag": 6.57,
+      "spect": "K0III",
+      "con": "CrB",
+      "dist_ly": 408.72
+    },
+    {
+      "name": "Jabbah",
+      "x": -202.93,
+      "y": -398.26,
+      "z": -157.94,
+      "mag": 4.0,
+      "spect": "B2IV",
+      "con": "Sco",
+      "dist_ly": 474.06
+    },
+    {
+      "name": "Yed Prior",
+      "x": -75.96,
+      "y": -152.94,
+      "z": -11.03,
+      "mag": 2.73,
+      "spect": "M1III",
+      "con": "Oph",
+      "dist_ly": 171.12
+    },
+    {
+      "name": "Yed Posterior",
+      "x": -45.54,
+      "y": -95.82,
+      "z": -8.71,
+      "mag": 3.23,
+      "spect": "G8III",
+      "con": "Oph",
+      "dist_ly": 106.45
+    },
+    {
+      "name": "Hunor",
+      "x": -118.26,
+      "y": -255.38,
+      "z": 245.06,
+      "mag": 8.72,
+      "spect": "F8",
+      "con": "Her",
+      "dist_ly": 373.18
+    },
+    {
+      "name": "Alniyat",
+      "x": -262.67,
+      "y": -571.02,
+      "z": -301.05,
+      "mag": 2.9,
+      "spect": "B1III",
+      "con": "Sco",
+      "dist_ly": 696.91
+    },
+    {
+      "name": "Athebyne",
+      "x": -17.86,
+      "y": -40.12,
+      "z": 80.93,
+      "mag": 2.73,
+      "spect": "G8III",
+      "con": "Dra",
+      "dist_ly": 92.08
+    },
+    {
+      "name": "Cujam",
+      "x": -97.33,
+      "y": -222.28,
+      "z": 60.65,
+      "mag": 4.57,
+      "spect": "B9p Cr",
+      "con": "Her",
+      "dist_ly": 250.12
+    },
+    {
+      "name": "Timir",
+      "x": -72.83,
+      "y": -172.56,
+      "z": -44.62,
+      "mag": 6.89,
+      "spect": "K0III/IV",
+      "con": "Oph",
+      "dist_ly": 192.54
+    },
+    {
+      "name": "Antares",
+      "x": -190.94,
+      "y": -457.62,
+      "z": -246.49,
+      "mag": 1.06,
+      "spect": "M1Ib + B2.5V",
+      "con": "Sco",
+      "dist_ly": 553.75
+    },
+    {
+      "name": "Kornephoros",
+      "x": -49.43,
+      "y": -119.66,
+      "z": 50.97,
+      "mag": 2.78,
+      "spect": "G8III",
+      "con": "Her",
+      "dist_ly": 139.14
+    },
+    {
+      "name": "Ogma",
+      "x": -77.35,
+      "y": -187.87,
+      "z": 160.73,
+      "mag": 8.15,
+      "spect": "G0",
+      "con": "Her",
+      "dist_ly": 259.06
+    },
+    {
+      "name": "Marfik",
+      "x": -65.57,
+      "y": -160.11,
+      "z": 5.99,
+      "mag": 3.82,
+      "spect": "A2V",
+      "con": "Oph",
+      "dist_ly": 173.12
+    },
+    {
+      "name": "Rosalíadecastro",
+      "x": -75.05,
+      "y": -187.75,
+      "z": 7.36,
+      "mag": 7.89,
+      "spect": "G0",
+      "con": "Oph",
+      "dist_ly": 202.33
+    },
+    {
+      "name": "Paikauhale",
+      "x": -149.9,
+      "y": -389.91,
+      "z": -224.14,
+      "mag": 2.82,
+      "spect": "B0V",
+      "con": "Sco",
+      "dist_ly": 474.06
+    },
+    {
+      "name": "Atria",
+      "x": -42.82,
+      "y": -133.09,
+      "z": -364.73,
+      "mag": 1.91,
+      "spect": "K2IIb-IIIa",
+      "con": "TrA",
+      "dist_ly": 390.61
+    },
+    {
+      "name": "Larawag",
+      "x": -15.79,
+      "y": -50.21,
+      "z": -35.9,
+      "mag": 2.29,
+      "spect": "K2IIIb",
+      "con": "Sco",
+      "dist_ly": 63.71
+    },
+    {
+      "name": "Xamidimura",
+      "x": -115.57,
+      "y": -377.24,
+      "z": -308.78,
+      "mag": 3.0,
+      "spect": "B1.5IV + B",
+      "con": "Sco",
+      "dist_ly": 501.01
+    },
+    {
+      "name": "Pipirima",
+      "x": -108.67,
+      "y": -357.32,
+      "z": -291.98,
+      "mag": 3.56,
+      "spect": "B2IV",
+      "con": "Sco",
+      "dist_ly": 474.06
+    },
+    {
+      "name": "Mahsati",
+      "x": -168.8,
+      "y": -567.37,
+      "z": 125.54,
+      "mag": 8.38,
+      "spect": "K0",
+      "con": "Oph",
+      "dist_ly": 605.11
+    },
+    {
+      "name": "Rapeto",
+      "x": -28.18,
+      "y": -114.12,
+      "z": -110.81,
+      "mag": 7.39,
+      "spect": "G2IV-V",
+      "con": "Sco",
+      "dist_ly": 161.54
+    },
+    {
+      "name": "Aldhibah",
+      "x": -29.94,
+      "y": -131.73,
+      "z": 299.39,
+      "mag": 3.17,
+      "spect": "B6III",
+      "con": "Dra",
+      "dist_ly": 328.46
+    },
+    {
+      "name": "Sabik",
+      "x": -18.27,
+      "y": -83.07,
+      "z": -23.95,
+      "mag": 2.43,
+      "spect": "A2.5Va",
+      "con": "Oph",
+      "dist_ly": 88.37
+    },
+    {
+      "name": "Rasalgethi",
+      "x": -68.48,
+      "y": -341.52,
+      "z": 89.37,
+      "mag": 2.78,
+      "spect": "M5IIvar",
+      "con": "Her",
+      "dist_ly": 359.6
+    },
+    {
+      "name": "Sarin",
+      "x": -13.29,
+      "y": -66.87,
+      "z": 31.56,
+      "mag": 3.12,
+      "spect": "A3IVv SB",
+      "con": "Her",
+      "dist_ly": 75.13
+    },
+    {
+      "name": "Guniibuu",
+      "x": -3.35,
+      "y": -16.98,
+      "z": -8.67,
+      "mag": 4.33,
+      "spect": "K2:III:",
+      "con": "Oph",
+      "dist_ly": 19.35
+    },
+    {
+      "name": "Inquill",
+      "x": -20.62,
+      "y": -116.5,
+      "z": -133.95,
+      "mag": 6.67,
+      "spect": "G1Vw...",
+      "con": "Ara",
+      "dist_ly": 178.72
+    },
+    {
+      "name": "Rastaban",
+      "x": -29.91,
+      "y": -230.52,
+      "z": 300.78,
+      "mag": 2.79,
+      "spect": "G2II",
+      "con": "Dra",
+      "dist_ly": 380.14
+    },
+    {
+      "name": "Maasym",
+      "x": -42.23,
+      "y": -328.98,
+      "z": 162.56,
+      "mag": 4.41,
+      "spect": "K3IIIvar",
+      "con": "Her",
+      "dist_ly": 369.37
+    },
+    {
+      "name": "Lesath",
+      "x": -58.32,
+      "y": -454.69,
+      "z": -349.17,
+      "mag": 2.7,
+      "spect": "B2IV",
+      "con": "Sco",
+      "dist_ly": 576.25
+    },
+    {
+      "name": "Yildun",
+      "x": -1.24,
+      "y": -10.17,
+      "z": 171.81,
+      "mag": 4.35,
+      "spect": "A1Vn",
+      "con": "UMi",
+      "dist_ly": 172.11
+    },
+    {
+      "name": "Shaula",
+      "x": -52.34,
+      "y": -452.54,
+      "z": -344.58,
+      "mag": 1.62,
+      "spect": "B1.5IV+...",
+      "con": "Sco",
+      "dist_ly": 571.2
+    },
+    {
+      "name": "Rasalhague",
+      "x": -5.18,
+      "y": -47.14,
+      "z": 10.57,
+      "mag": 2.08,
+      "spect": "A5III",
+      "con": "Oph",
+      "dist_ly": 48.59
+    },
+    {
+      "name": "Sargas",
+      "x": -21.7,
+      "y": -218.58,
+      "z": -204.81,
+      "mag": 1.86,
+      "spect": "F1II",
+      "con": "Sco",
+      "dist_ly": 300.33
+    },
+    {
+      "name": "Dziban",
+      "x": -1.8,
+      "y": -22.76,
+      "z": 70.9,
+      "mag": 4.57,
+      "spect": "F5IV-V",
+      "con": "Dra",
+      "dist_ly": 74.48
+    },
+    {
+      "name": "Dziban B",
+      "x": -1.81,
+      "y": -22.98,
+      "z": 71.6,
+      "mag": 5.81,
+      "spect": "G0V",
+      "con": "Dra",
+      "dist_ly": 75.22
+    },
+    {
+      "name": "Cebalrai",
+      "x": -5.88,
+      "y": -81.37,
+      "z": 6.52,
+      "mag": 2.76,
+      "spect": "K2III",
+      "con": "Oph",
+      "dist_ly": 81.85
+    },
+    {
+      "name": "Alruba",
+      "x": -21.97,
+      "y": -313.97,
+      "z": 430.07,
+      "mag": 5.75,
+      "spect": "A2V",
+      "con": "Dra",
+      "dist_ly": 532.93
+    },
+    {
+      "name": "Cervantes",
+      "x": -2.16,
+      "y": -31.19,
+      "z": -39.78,
+      "mag": 5.12,
+      "spect": "G5V",
+      "con": "Ara",
+      "dist_ly": 50.59
+    },
+    {
+      "name": "Fuyue",
+      "x": -4.44,
+      "y": -100.34,
+      "z": -75.8,
+      "mag": 3.19,
+      "spect": "K0/K1III",
+      "con": "Sco",
+      "dist_ly": 125.83
+    },
+    {
+      "name": "Grumium",
+      "x": -1.74,
+      "y": -61.48,
+      "z": 94.25,
+      "mag": 3.73,
+      "spect": "K2III",
+      "con": "Dra",
+      "dist_ly": 112.55
+    },
+    {
+      "name": "Eltanin",
+      "x": -1.42,
+      "y": -96.06,
+      "z": 120.72,
+      "mag": 2.24,
+      "spect": "K5III",
+      "con": "Dra",
+      "dist_ly": 154.28
+    },
+    {
+      "name": "Alnasl",
+      "x": 2.12,
+      "y": -83.5,
+      "z": -49.05,
+      "mag": 2.98,
+      "spect": "K0III",
+      "con": "Sgr",
+      "dist_ly": 96.87
+    },
+    {
+      "name": "Kaus Media",
+      "x": 27.59,
+      "y": -300.38,
+      "z": -172.95,
+      "mag": 2.72,
+      "spect": "K3III",
+      "con": "Sgr",
+      "dist_ly": 347.71
+    },
+    {
+      "name": "Alasia",
+      "x": 12.97,
+      "y": -135.76,
+      "z": -28.8,
+      "mag": 7.95,
+      "spect": "G5",
+      "con": "Ser",
+      "dist_ly": 139.38
+    },
+    {
+      "name": "Kaus Australis",
+      "x": 12.45,
+      "y": -117.6,
+      "z": -80.93,
+      "mag": 1.79,
+      "spect": "B9.5III",
+      "con": "Sgr",
+      "dist_ly": 143.3
+    },
+    {
+      "name": "Fafnir",
+      "x": 14.74,
+      "y": -129.4,
+      "z": 286.62,
+      "mag": 4.82,
+      "spect": "K2III",
+      "con": "Dra",
+      "dist_ly": 314.82
+    },
+    {
+      "name": "Kaus Borealis",
+      "x": 8.6,
+      "y": -70.08,
+      "z": -33.56,
+      "mag": 2.82,
+      "spect": "K1IIIb",
+      "con": "Sgr",
+      "dist_ly": 78.18
+    },
+    {
+      "name": "Vega",
+      "x": 3.13,
+      "y": -19.27,
+      "z": 15.69,
+      "mag": 0.03,
+      "spect": "A0Vvar",
+      "con": "Lyr",
+      "dist_ly": 25.04
+    },
+    {
+      "name": "Struve 2398 A",
+      "x": 1.09,
+      "y": -5.78,
+      "z": 10.04,
+      "mag": 8.94,
+      "spect": "K5",
+      "con": "Dra",
+      "dist_ly": 11.64
+    },
+    {
+      "name": "Xihe",
+      "x": 69.1,
+      "y": -358.8,
+      "z": 270.94,
+      "mag": 6.04,
+      "spect": "G8",
+      "con": "Lyr",
+      "dist_ly": 454.89
+    },
+    {
+      "name": "Sheliak",
+      "x": 174.2,
+      "y": -784.45,
+      "z": 529.1,
+      "mag": 3.52,
+      "spect": "A8:V comp SB",
+      "con": "Lyr",
+      "dist_ly": 962.11
+    },
+    {
+      "name": "Ainalrami",
+      "x": 242.88,
+      "y": -1008.38,
+      "z": -434.83,
+      "mag": 4.86,
+      "spect": "K1II",
+      "con": "Sgr",
+      "dist_ly": 1124.68
+    },
+    {
+      "name": "Nunki",
+      "x": 48.76,
+      "y": -198.28,
+      "z": -100.9,
+      "mag": 2.05,
+      "spect": "B2.5V",
+      "con": "Sgr",
+      "dist_ly": 227.76
+    },
+    {
+      "name": "Kaveh",
+      "x": 99.42,
+      "y": -401.14,
+      "z": 30.82,
+      "mag": 8.02,
+      "spect": "G8V",
+      "con": "Ser",
+      "dist_ly": 414.43
+    },
+    {
+      "name": "Alya",
+      "x": 37.46,
+      "y": -149.61,
+      "z": 11.34,
+      "mag": 4.62,
+      "spect": "A5V",
+      "con": "Ser",
+      "dist_ly": 154.65
+    },
+    {
+      "name": "Alya B",
+      "x": 41.05,
+      "y": -163.91,
+      "z": 12.42,
+      "mag": 4.98,
+      "spect": "A5Vn",
+      "con": "Ser",
+      "dist_ly": 169.43
+    },
+    {
+      "name": "Sulafat",
+      "x": 132.74,
+      "y": -504.69,
+      "z": 334.89,
+      "mag": 3.25,
+      "spect": "B9III",
+      "con": "Lyr",
+      "dist_ly": 620.07
+    },
+    {
+      "name": "Ascella",
+      "x": 20.63,
+      "y": -73.64,
+      "z": -43.94,
+      "mag": 2.6,
+      "spect": "A3IV",
+      "con": "Sgr",
+      "dist_ly": 88.2
+    },
+    {
+      "name": "Okab",
+      "x": 22.7,
+      "y": -77.35,
+      "z": 19.9,
+      "mag": 2.99,
+      "spect": "A0Vn",
+      "con": "Aql",
+      "dist_ly": 83.03
+    },
+    {
+      "name": "Meridiana",
+      "x": 29.52,
+      "y": -94.39,
+      "z": -77.01,
+      "mag": 4.11,
+      "spect": "A0/A1V",
+      "con": "CrA",
+      "dist_ly": 125.35
+    },
+    {
+      "name": "Albaldah",
+      "x": 142.58,
+      "y": -453.83,
+      "z": -182.83,
+      "mag": 2.88,
+      "spect": "F2II/III",
+      "con": "Sgr",
+      "dist_ly": 509.62
+    },
+    {
+      "name": "Altais",
+      "x": 11.53,
+      "y": -35.19,
+      "z": 90.11,
+      "mag": 3.07,
+      "spect": "G9III",
+      "con": "Dra",
+      "dist_ly": 97.42
+    },
+    {
+      "name": "Aladfar",
+      "x": 340.46,
+      "y": -1021.11,
+      "z": 876.18,
+      "mag": 4.43,
+      "spect": "B2.5IV",
+      "con": "Lyr",
+      "dist_ly": 1387.9
+    },
+    {
+      "name": "Gumala",
+      "x": 26.53,
+      "y": -77.55,
+      "z": -36.8,
+      "mag": 6.25,
+      "spect": "F8V",
+      "con": "Sgr",
+      "dist_ly": 89.85
+    },
+    {
+      "name": "Belel",
+      "x": 114.51,
+      "y": -310.1,
+      "z": -144.56,
+      "mag": 7.55,
+      "spect": "K0III",
+      "con": "Sgr",
+      "dist_ly": 360.79
+    },
+    {
+      "name": "Arkab Prior",
+      "x": 78.97,
+      "y": -209.45,
+      "z": -219.65,
+      "mag": 3.96,
+      "spect": "B9V",
+      "con": "Sgr",
+      "dist_ly": 313.61
+    },
+    {
+      "name": "Sika",
+      "x": 56.25,
+      "y": -148.71,
+      "z": -102.93,
+      "mag": 7.84,
+      "spect": "G1V",
+      "con": "Sgr",
+      "dist_ly": 189.41
+    },
+    {
+      "name": "Arkab Posterior",
+      "x": 33.81,
+      "y": -88.99,
+      "z": -94.54,
+      "mag": 4.27,
+      "spect": "F2III",
+      "con": "Sgr",
+      "dist_ly": 134.17
+    },
+    {
+      "name": "Rukbat",
+      "x": 49.39,
+      "y": -128.86,
+      "z": -118.35,
+      "mag": 3.96,
+      "spect": "B8V",
+      "con": "Sgr",
+      "dist_ly": 181.8
+    },
+    {
+      "name": "Anser",
+      "x": 101.98,
+      "y": -250.2,
+      "z": 124.07,
+      "mag": 4.44,
+      "spect": "M0 comp",
+      "con": "Vul",
+      "dist_ly": 297.32
+    },
+    {
+      "name": "Albireo",
+      "x": 147.91,
+      "y": -353.94,
+      "z": 203.62,
+      "mag": 3.05,
+      "spect": "K3II+...",
+      "con": "Cyg",
+      "dist_ly": 434.3
+    },
+    {
+      "name": "Albireo B",
+      "x": 136.17,
+      "y": -325.71,
+      "z": 187.43,
+      "mag": 5.12,
+      "spect": "B8V",
+      "con": "Cyg",
+      "dist_ly": 399.7
+    },
+    {
+      "name": "Uruk",
+      "x": 144.9,
+      "y": -341.07,
+      "z": 109.59,
+      "mag": 8.97,
+      "spect": "F8V",
+      "con": "Sge",
+      "dist_ly": 386.44
+    },
+    {
+      "name": "Alsafi",
+      "x": 2.56,
+      "y": -6.0,
+      "z": 17.6,
+      "mag": 4.67,
+      "spect": "K0V",
+      "con": "Dra",
+      "dist_ly": 18.77
+    },
+    {
+      "name": "Sham",
+      "x": 171.06,
+      "y": -366.43,
+      "z": 131.5,
+      "mag": 4.39,
+      "spect": "G0II",
+      "con": "Sge",
+      "dist_ly": 425.24
+    },
+    {
+      "name": "Fawaris",
+      "x": 51.47,
+      "y": -104.39,
+      "z": 116.92,
+      "mag": 2.86,
+      "spect": "B9.5III",
+      "con": "Cyg",
+      "dist_ly": 164.98
+    },
+    {
+      "name": "Tarazed",
+      "x": 173.57,
+      "y": -347.13,
+      "z": 72.73,
+      "mag": 2.72,
+      "spect": "K3II",
+      "con": "Aql",
+      "dist_ly": 394.86
+    },
+    {
+      "name": "Altair",
+      "x": 7.68,
+      "y": -14.64,
+      "z": 2.58,
+      "mag": 0.76,
+      "spect": "A7IV-V",
+      "con": "Aql",
+      "dist_ly": 16.73
+    },
+    {
+      "name": "Libertas",
+      "x": 86.8,
+      "y": -159.45,
+      "z": 27.01,
+      "mag": 4.71,
+      "spect": "K0III",
+      "con": "Aql",
+      "dist_ly": 183.54
+    },
+    {
+      "name": "Alshain",
+      "x": 21.41,
+      "y": -38.9,
+      "z": 4.99,
+      "mag": 3.71,
+      "spect": "G8IVvar",
+      "con": "Aql",
+      "dist_ly": 44.68
+    },
+    {
+      "name": "Terebellum",
+      "x": 36.79,
+      "y": -66.48,
+      "z": -37.55,
+      "mag": 4.7,
+      "spect": "G3/G5III",
+      "con": "Sgr",
+      "dist_ly": 84.76
+    },
+    {
+      "name": "Cygnus X-1",
+      "x": 783.35,
+      "y": -1379.48,
+      "z": 1119.13,
+      "mag": 8.84,
+      "spect": "B0Ib",
+      "con": "Cyg",
+      "dist_ly": 1941.4
+    },
+    {
+      "name": "Chechia",
+      "x": 119.37,
+      "y": -176.81,
+      "z": 17.09,
+      "mag": 6.44,
+      "spect": "G5",
+      "con": "Aql",
+      "dist_ly": 214.01
+    },
+    {
+      "name": "Algedi",
+      "x": 58.53,
+      "y": -85.12,
+      "z": -22.99,
+      "mag": 3.58,
+      "spect": "G6/G8III",
+      "con": "Cap",
+      "dist_ly": 105.83
+    },
+    {
+      "name": "Alshat",
+      "x": 142.24,
+      "y": -201.9,
+      "z": -55.93,
+      "mag": 4.77,
+      "spect": "B9IV",
+      "con": "Cap",
+      "dist_ly": 253.23
+    },
+    {
+      "name": "Dabih",
+      "x": 182.39,
+      "y": -258.04,
+      "z": -83.38,
+      "mag": 3.05,
+      "spect": "A5:n",
+      "con": "Cap",
+      "dist_ly": 326.81
+    },
+    {
+      "name": "Sadr",
+      "x": 813.17,
+      "y": -1137.62,
+      "z": 1184.08,
+      "mag": 2.23,
+      "spect": "F8Ib",
+      "con": "Cyg",
+      "dist_ly": 1832.34
+    },
+    {
+      "name": "Peacock",
+      "x": 58.22,
+      "y": -78.93,
+      "z": -149.51,
+      "mag": 1.94,
+      "spect": "B2IV",
+      "con": "Pav",
+      "dist_ly": 178.81
+    },
+    {
+      "name": "Aldulfin",
+      "x": 200.85,
+      "y": -254.29,
+      "z": 64.77,
+      "mag": 4.03,
+      "spect": "B6III",
+      "con": "Del",
+      "dist_ly": 330.45
+    },
+    {
+      "name": "Rotanev",
+      "x": 61.95,
+      "y": -75.45,
+      "z": 25.42,
+      "mag": 3.64,
+      "spect": "F5IV",
+      "con": "Del",
+      "dist_ly": 100.88
+    },
+    {
+      "name": "Sualocin",
+      "x": 156.6,
+      "y": -187.23,
+      "z": 69.59,
+      "mag": 3.77,
+      "spect": "B9V",
+      "con": "Del",
+      "dist_ly": 253.82
+    },
+    {
+      "name": "Deneb",
+      "x": 643.34,
+      "y": -757.05,
+      "z": 1003.26,
+      "mag": 1.25,
+      "spect": "A2Ia",
+      "con": "Cyg",
+      "dist_ly": 1411.93
+    },
+    {
+      "name": "Aljanah",
+      "x": 40.0,
+      "y": -45.12,
+      "z": 40.62,
+      "mag": 2.48,
+      "spect": "K0III",
+      "con": "Cyg",
+      "dist_ly": 72.71
+    },
+    {
+      "name": "Albali",
+      "x": 136.89,
+      "y": -152.46,
+      "z": -34.27,
+      "mag": 3.78,
+      "spect": "A1V",
+      "con": "Aqr",
+      "dist_ly": 207.74
+    },
+    {
+      "name": "Musica",
+      "x": 169.4,
+      "y": -171.73,
+      "z": 46.19,
+      "mag": 5.51,
+      "spect": "G6III:",
+      "con": "Del",
+      "dist_ly": 245.6
+    },
+    {
+      "name": "Polaris Australis",
+      "x": 3.75,
+      "y": -3.48,
+      "z": -280.88,
+      "mag": 5.45,
+      "spect": "F0III",
+      "con": "Oct",
+      "dist_ly": 280.93
+    },
+    {
+      "name": "Kitalpha",
+      "x": 142.92,
+      "y": -124.43,
+      "z": 17.4,
+      "mag": 3.92,
+      "spect": "G0III+...",
+      "con": "Equ",
+      "dist_ly": 190.29
+    },
+    {
+      "name": "Lacaille 8760",
+      "x": 7.6,
+      "y": -6.53,
+      "z": -8.08,
+      "mag": 6.69,
+      "spect": "M1/M2V",
+      "con": "Mic",
+      "dist_ly": 12.87
+    },
+    {
+      "name": "Alderamin",
+      "x": 17.21,
+      "y": -14.62,
+      "z": 43.54,
+      "mag": 2.45,
+      "spect": "A7IV-V",
+      "con": "Cep",
+      "dist_ly": 49.05
+    },
+    {
+      "name": "Alfirk",
+      "x": 180.1,
+      "y": -139.88,
+      "z": 646.14,
+      "mag": 3.23,
+      "spect": "B2IIIv SB",
+      "con": "Cep",
+      "dist_ly": 685.2
+    },
+    {
+      "name": "Sadalsuud",
+      "x": 426.48,
+      "y": -322.66,
+      "z": -52.16,
+      "mag": 2.9,
+      "spect": "G0Ib",
+      "con": "Aqr",
+      "dist_ly": 537.32
+    },
+    {
+      "name": "Bunda",
+      "x": 143.94,
+      "y": -102.91,
+      "z": -24.41,
+      "mag": 4.68,
+      "spect": "A7V",
+      "con": "Aqr",
+      "dist_ly": 178.62
+    },
+    {
+      "name": "Sāmaya",
+      "x": 243.45,
+      "y": -173.43,
+      "z": -184.88,
+      "mag": 8.56,
+      "spect": "F7V",
+      "con": "PsA",
+      "dist_ly": 351.46
+    },
+    {
+      "name": "Nashira",
+      "x": 123.27,
+      "y": -86.24,
+      "z": -45.03,
+      "mag": 3.69,
+      "spect": "A7III:mp...",
+      "con": "Cap",
+      "dist_ly": 157.03
+    },
+    {
+      "name": "Azelfafage",
+      "x": 891.6,
+      "y": -612.24,
+      "z": 1344.7,
+      "mag": 4.69,
+      "spect": "B3IV",
+      "con": "Cyg",
+      "dist_ly": 1725.69
+    },
+    {
+      "name": "Bosona",
+      "x": 518.75,
+      "y": -351.83,
+      "z": -81.5,
+      "mag": 8.34,
+      "spect": "K0",
+      "con": "Aqr",
+      "dist_ly": 632.09
+    },
+    {
+      "name": "Enif",
+      "x": 563.5,
+      "y": -379.42,
+      "z": 118.26,
+      "mag": 2.38,
+      "spect": "K2Ibvar",
+      "con": "Peg",
+      "dist_ly": 689.55
+    },
+    {
+      "name": "Deneb Algedi",
+      "x": 31.1,
+      "y": -20.38,
+      "z": -10.75,
+      "mag": 2.85,
+      "spect": "A5mF2 (IV)",
+      "con": "Cap",
+      "dist_ly": 38.7
+    },
+    {
+      "name": "Aldhanab",
+      "x": 143.03,
+      "y": -87.71,
+      "z": -128.12,
+      "mag": 3.0,
+      "spect": "B8III",
+      "con": "Gru",
+      "dist_ly": 211.1
+    },
+    {
+      "name": "Itonda",
+      "x": 101.69,
+      "y": -60.3,
+      "z": -91.58,
+      "mag": 7.47,
+      "spect": "G2V:",
+      "con": "Gru",
+      "dist_ly": 149.54
+    },
+    {
+      "name": "Kurhah",
+      "x": 36.16,
+      "y": -20.08,
+      "z": 87.21,
+      "mag": 4.26,
+      "spect": "Am",
+      "con": "Cep",
+      "dist_ly": 96.52
+    },
+    {
+      "name": "Sadalmelik",
+      "x": 459.84,
+      "y": -250.23,
+      "z": -2.92,
+      "mag": 2.95,
+      "spect": "G2Ib",
+      "con": "Aqr",
+      "dist_ly": 523.52
+    },
+    {
+      "name": "Alnair",
+      "x": 60.9,
+      "y": -32.3,
+      "z": -73.83,
+      "mag": 1.73,
+      "spect": "B7IV",
+      "con": "Gru",
+      "dist_ly": 101.01
+    },
+    {
+      "name": "Biham",
+      "x": 81.42,
+      "y": -42.29,
+      "z": 9.96,
+      "mag": 3.52,
+      "spect": "A2V",
+      "con": "Peg",
+      "dist_ly": 92.29
+    },
+    {
+      "name": "Ancha",
+      "x": 167.22,
+      "y": -80.81,
+      "z": -25.39,
+      "mag": 4.17,
+      "spect": "G8III-IV",
+      "con": "Aqr",
+      "dist_ly": 187.45
+    },
+    {
+      "name": "Sadachbia",
+      "x": 148.84,
+      "y": -68.1,
+      "z": -3.96,
+      "mag": 3.86,
+      "spect": "A0V",
+      "con": "Aqr",
+      "dist_ly": 163.73
+    },
+    {
+      "name": "Lionrock",
+      "x": 375.09,
+      "y": -161.05,
+      "z": -126.86,
+      "mag": 7.6,
+      "spect": "G8IV",
+      "con": "Aqr",
+      "dist_ly": 427.47
+    },
+    {
+      "name": "Situla",
+      "x": 199.7,
+      "y": -74.91,
+      "z": -15.77,
+      "mag": 5.04,
+      "spect": "K2III",
+      "con": "Aqr",
+      "dist_ly": 213.87
+    },
+    {
+      "name": "Homam",
+      "x": 189.05,
+      "y": -67.44,
+      "z": 38.4,
+      "mag": 3.41,
+      "spect": "B8.5V",
+      "con": "Peg",
+      "dist_ly": 204.36
+    },
+    {
+      "name": "Tiaki",
+      "x": 114.13,
+      "y": -40.04,
+      "z": -129.18,
+      "mag": 2.07,
+      "spect": "M5III",
+      "con": "Gru",
+      "dist_ly": 176.97
+    },
+    {
+      "name": "Matar",
+      "x": 174.82,
+      "y": -61.05,
+      "z": 107.86,
+      "mag": 2.93,
+      "spect": "G2II-III..",
+      "con": "Peg",
+      "dist_ly": 214.29
+    },
+    {
+      "name": "Sadalbari",
+      "x": 92.01,
+      "y": -29.01,
+      "z": 44.17,
+      "mag": 3.51,
+      "spect": "M2III",
+      "con": "Peg",
+      "dist_ly": 106.1
+    },
+    {
+      "name": "Skat",
+      "x": 148.27,
+      "y": -43.46,
+      "z": -43.78,
+      "mag": 3.27,
+      "spect": "A3V",
+      "con": "Aqr",
+      "dist_ly": 160.59
+    },
+    {
+      "name": "Helvetios",
+      "x": 45.84,
+      "y": -12.83,
+      "z": 18.05,
+      "mag": 5.45,
+      "spect": "G5V",
+      "con": "Peg",
+      "dist_ly": 50.91
+    },
+    {
+      "name": "Fomalhaut",
+      "x": 21.04,
+      "y": -5.87,
+      "z": -12.42,
+      "mag": 1.17,
+      "spect": "A3V",
+      "con": "PsA",
+      "dist_ly": 25.13
+    },
+    {
+      "name": "Scheat",
+      "x": 167.75,
+      "y": -42.0,
+      "z": 92.27,
+      "mag": 2.44,
+      "spect": "M2II-IIIvar",
+      "con": "Peg",
+      "dist_ly": 196.01
+    },
+    {
+      "name": "Fumalsamakah",
+      "x": 395.15,
+      "y": -98.75,
+      "z": 27.2,
+      "mag": 4.48,
+      "spect": "B6Ve",
+      "con": "Psc",
+      "dist_ly": 408.21
+    },
+    {
+      "name": "Markab",
+      "x": 124.96,
+      "y": -30.71,
+      "z": 34.97,
+      "mag": 2.49,
+      "spect": "B9.5III",
+      "con": "Peg",
+      "dist_ly": 133.34
+    },
+    {
+      "name": "Lacaille 9352",
+      "x": 8.42,
+      "y": -2.03,
+      "z": -6.26,
+      "mag": 7.35,
+      "spect": "M2/M3V",
+      "con": "PsA",
+      "dist_ly": 10.68
+    },
+    {
+      "name": "Ebla",
+      "x": 90.78,
+      "y": -20.47,
+      "z": -3.67,
+      "mag": 8.59,
+      "spect": "K3V",
+      "con": "Psc",
+      "dist_ly": 93.13
+    },
+    {
+      "name": "Salm",
+      "x": 145.84,
+      "y": -25.3,
+      "z": 65.1,
+      "mag": 4.58,
+      "spect": "A5V",
+      "con": "Peg",
+      "dist_ly": 161.7
+    },
+    {
+      "name": "Alkarab",
+      "x": 154.6,
+      "y": -23.53,
+      "z": 67.69,
+      "mag": 4.42,
+      "spect": "F8IV",
+      "con": "Peg",
+      "dist_ly": 170.41
+    },
+    {
+      "name": "Veritate",
+      "x": 198.45,
+      "y": -24.99,
+      "z": 163.34,
+      "mag": 5.22,
+      "spect": "K0III",
+      "con": "And",
+      "dist_ly": 258.24
+    },
+    {
+      "name": "Poerava",
+      "x": 94.24,
+      "y": -11.85,
+      "z": -153.25,
+      "mag": 7.82,
+      "spect": "F7V",
+      "con": "Tuc",
+      "dist_ly": 180.3
+    },
+    {
+      "name": "Errai",
+      "x": 9.81,
+      "y": -0.89,
+      "z": 44.93,
+      "mag": 3.21,
+      "spect": "K1IV",
+      "con": "Cep",
+      "dist_ly": 46.0
+    },
+    {
+      "name": "Axólotl",
+      "x": 296.74,
+      "y": -0.13,
+      "z": -122.48,
+      "mag": 8.23,
+      "spect": "G2V",
+      "con": "Cet",
+      "dist_ly": 321.02
+    },
+    {
+      "name": "p Eridani",
+      "x": 13.41,
+      "y": 6.24,
+      "z": -22.08,
+      "mag": 5.8,
+      "spect": "K2 V",
+      "con": "Eri",
+      "dist_ly": 26.57
+    },
+    {
+      "name": "Castor B",
+      "x": -17.56,
+      "y": 40.09,
+      "z": 27.23,
+      "mag": 2.85,
+      "spect": "A m",
+      "con": "Gem",
+      "dist_ly": 51.55
+    },
+    {
+      "name": "Alula Australis",
+      "x": -28.48,
+      "y": 5.25,
+      "z": 17.76,
+      "mag": 4.33,
+      "spect": "G0 Ve",
+      "con": "UMa",
+      "dist_ly": 33.97
+    },
+    {
+      "name": "Alula Australis B",
+      "x": -28.48,
+      "y": 5.25,
+      "z": 17.77,
+      "mag": 4.8,
+      "spect": "G0 Ve",
+      "con": "UMa",
+      "dist_ly": 33.97
+    },
+    {
+      "name": "Graffias",
+      "x": -37.61,
+      "y": -68.1,
+      "z": -15.65,
+      "mag": 4.84,
+      "spect": "F6 IV-V",
+      "con": "Sco",
+      "dist_ly": 79.36
+    },
+    {
+      "name": "Alrakis",
+      "x": -10.42,
+      "y": -42.83,
+      "z": 61.73,
+      "mag": 5.63,
+      "spect": "F7 V",
+      "con": "Dra",
+      "dist_ly": 75.85
+    },
+    {
+      "name": "Guniibuu B",
+      "x": -3.38,
+      "y": -17.12,
+      "z": -8.74,
+      "mag": 5.07,
+      "spect": "K1 Ve",
+      "con": "Oph",
+      "dist_ly": 19.52
+    }
+  ]
+}

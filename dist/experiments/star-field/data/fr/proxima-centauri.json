@@ -1,0 +1,51 @@
+{
+  "id": "proxima-centauri",
+  "name": "Proxima du Centaure",
+  "kind": "system",
+  "tagline": "L’étoile la plus proche du Soleil – une étoile flamboyante avec une planète de la taille de la Terre à côté.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "4 246 années-lumière"
+    },
+    {
+      "label": "Type",
+      "value": "Naine rouge (M5,5V)"
+    },
+    {
+      "label": "Masse",
+      "value": "≈ 0,12 masse solaire"
+    },
+    {
+      "label": "Planètes",
+      "value": "Proxima b (zone habitable), c, d"
+    },
+    {
+      "label": "Orbite Proximale B",
+      "value": "11,2 jours"
+    },
+    {
+      "label": "Découverte",
+      "value": "1915 — Robert Innes"
+    }
+  ],
+  "history": "Proxima est l'étoile la plus proche du Soleil — la lumière que vous voyez ce soir l'a quittée il y a 4,24 ans. Il s’agit d’une petite naine rouge, trop faible pour l’œil nu, qui éclate en éruptions suffisamment puissantes pour défier n’importe quelle atmosphère. En 2016, les astronomes ont annoncé Proxima b, une planète rocheuse d'au moins 1,07 masse terrestre en orbite à l'intérieur de la zone habitable de l'étoile tous les 11,2 jours – l'exoplanète la plus proche et le monde potentiellement tempéré le plus proche de la Terre. La question de savoir si le verrouillage des marées et les éruptions cutanées le rendent habitable est une question ouverte à laquelle JWST et les télescopes de nouvelle génération visent à répondre.",
+  "source": "ESO; Nature (Anglada-Escudé et al., 2016)",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "ESO; Nature (Anglada-Escudé et al., 2016)"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/proxima-centauri/img-1.jpg",
+        "caption": "La meilleure image de Hubble d'Alpha Centauri A et B",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

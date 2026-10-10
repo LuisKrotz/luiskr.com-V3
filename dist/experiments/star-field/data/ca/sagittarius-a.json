@@ -1,0 +1,66 @@
+{
+  "id": "sagittarius-a",
+  "name": "Sagitari A*",
+  "kind": "blackHole",
+  "tagline": "El forat negre supermassiu central de la Via Làctia: un motor de 4,3 milions de massa solar que ancoraja tota la galàxia.",
+  "facts": [
+    {
+      "label": "Distància",
+      "value": "~26.673 ly"
+    },
+    {
+      "label": "Massa",
+      "value": "~4,3 milions de M☉"
+    },
+    {
+      "label": "Tipus",
+      "value": "Forat negre supermassiu"
+    },
+    {
+      "label": "Horitzó d'esdeveniments",
+      "value": "~12 milions de km (R_s ~ 0,08 AU)"
+    },
+    {
+      "label": "Imatge",
+      "value": "Event Horizon Telescope, maig de 2022"
+    },
+    {
+      "label": "Evidència",
+      "value": "Òrbites de les estrelles S: S2 oscil·la a 7.650 km/s"
+    },
+    {
+      "label": "Premi Nobel",
+      "value": "2020 Física — Genzel & Ghez"
+    },
+    {
+      "label": "Mida de la ràdio",
+      "value": "~52 µas d'anell: un bunyol vist des de 27.000 ly"
+    }
+  ],
+  "history": "Sagitari A* es troba al centre dinàmic exacte de la Via Làctia, a les profunditats del braç de Sagitari. Els radioastrònoms el van identificar el 1974 com una font compacta i variable no més gran que un sistema solar. Dècades d'astrometria dels equips Genzel i Ghez van traçar les estrelles S que s'agiten al voltant d'una massa invisible: l'òrbita de 16 anys de S2 i el pas pericentre de 7.650 km/s van fer que el forat negre fos incontrovertible, guanyant el Premi Nobel 2020. El maig de 2022, el Telescopi Horizon d'Events va publicar la seva silueta: un anell de plasma sobreescalfat que brillava al voltant de l'ombra, fent coincidir la predicció de la relativitat general amb un poc per cent. Tot i que avui en dia estan quietes, les bengales de raigs X i infrarojos delata un flux d'acreció que parpelleja diàriament; Se sospita que els seus dolls de relíquia han inflat les bombolles de Fermi: dos lòbuls de raigs gamma de 25.000 anys llum que surten del disc.",
+  "source": "Event Horizon Telescope · ESO · Nobel Prize 2020",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "Event Horizon Telescope Collaboration 2022",
+      "GRAVITY Collaboration S2 orbit",
+      "Nobel Prize in Physics 2020"
+    ]
+  },
+  "sections": [
+    {
+      "title": "La silueta de l'EHT",
+      "body": "Vuit radiotelescopis sincronitzats per rellotges atòmics van formar un interferòmetre de la mida de la Terra. La imatge de maig de 2022 va resoldre un anell de 52 microsegons d'arc (la llum es va doblegar en una òrbita de fotons al voltant de l'ombra) confirmant la massa en una regió amb prou feines més gran que l'òrbita de Mercuri."
+    },
+    {
+      "title": "L'eixam d'estrelles S",
+      "body": "Desenes d'estrelles joves orbiten a setmanes llum de l'horitzó. Les seves el·lipses keplerianes fixen la massa en 4,3 milions de Sols; La precessió relativista de l'òrbita de S2, mesurada el 2020, es fa visible l'arrossegament de fotogrames."
+    },
+    {
+      "title": "Un gegant adormit",
+      "body": "Sgr A * acumula una centmilèsima part de la taxa d'Eddington: un xiuxiueig, no un rugit. No obstant això, fa uns 300 anys va esclatar prou brillant perquè els núvols moleculars encara fessin ressò de l'explosió, i les bombolles de Fermi registren un esclat fa milions d'anys."
+    }
+  ]
+}

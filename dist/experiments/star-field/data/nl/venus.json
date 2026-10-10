@@ -1,0 +1,58 @@
+{
+  "id": "venus",
+  "name": "Venus",
+  "kind": "planet",
+  "tagline": "De tweelingbroer van de aarde, gehuld in een verpletterende CO₂-kas: de heetste planeet.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "12.104 kilometer"
+    },
+    {
+      "label": "Omlooptijd",
+      "value": "225 dagen"
+    },
+    {
+      "label": "Rotatie",
+      "value": "243 dagen, retrograde"
+    },
+    {
+      "label": "Oppervlaktetemperatuur",
+      "value": "≈ 465 °C"
+    },
+    {
+      "label": "Oppervlakte druk",
+      "value": "≈ 92 bar"
+    },
+    {
+      "label": "Manen",
+      "value": "0"
+    }
+  ],
+  "history": "Venus draait achteruit en zo langzaam dat de dag langer duurt dan het jaar. Onder ononderbroken zwavelzuurwolken houdt een op hol geslagen kas het oppervlak op een temperatuur van bijna 465 °C – heet genoeg om lood te laten smelten – onder een druk van 92 atmosfeer. Het Sovjet-Venera-programma bereikte hier tussen 1970 en 1982 de eerste landingen op een andere planeet; geen enkele sonde overleefde meer dan twee uur. NASA's Magellan-orbiterradar bracht tussen 1990 en 1994 98% van het oppervlak in kaart, en onthulde een vulkanische wereld die pas een paar honderd miljoen jaar geleden weer boven water kwam. Venus wordt vaak de boze tweelingbroer van de aarde genoemd: dezelfde grootte, vergelijkbare rotsen, een radicaal ander lot – een waarschuwend verhaal in het planetaire klimaat.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "nl",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/venus/img-1.jpg",
+        "caption": "Venus Transit bekijken bij NASA Goddard",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/venus/video-1.mp4",
+        "caption": "De elektrische wind van Venus",
+        "credit": "NASA Goddard"
+      }
+    ]
+  }
+}

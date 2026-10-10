@@ -1,0 +1,65 @@
+{
+  "id": "earth",
+  "name": "Terre",
+  "kind": "planet",
+  "tagline": "Le seul monde connu pour abriter la vie – une planète océanique dans la zone habitable.",
+  "facts": [
+    {
+      "label": "Diamètre",
+      "value": "12 742 km"
+    },
+    {
+      "label": "Période orbitale",
+      "value": "365,25 jours"
+    },
+    {
+      "label": "Durée du jour",
+      "value": "23,9 heures"
+    },
+    {
+      "label": "Eau de surface",
+      "value": "≈ 71 % de couverture océanique"
+    },
+    {
+      "label": "Lunes",
+      "value": "1"
+    },
+    {
+      "label": "Âge",
+      "value": "≈ 4,54 milliards d'années"
+    }
+  ],
+  "history": "La Terre s'est formée à partir de la nébuleuse solaire il y a environ 4,54 milliards d'années et s'est refroidie pour former un monde différencié composé de croûte, de manteau et de noyau de fer. La vie est apparue dans ses océans au cours du premier milliard d’années et la photosynthèse a ensuite oxygéné l’atmosphère, permettant ainsi la création d’écosystèmes terrestres complexes. La tectonique des plaques – unique parmi les planètes rocheuses connues – recycle continuellement la surface et régule le climat au fil des temps géologiques. L’humanité observe la Terre depuis l’espace depuis 1946 ; « Blue Marble » d'Apollo 17 (1972) reste l'une des photographies les plus reproduites jamais prises. Plus de 6 000 exoplanètes confirmées fournissent désormais un contexte permettant de comprendre à quel point un monde stable, constitué d’eau liquide et porteur de vie peut être inhabituel.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/earth/img-1.jpg",
+        "caption": "L'image haute définition la plus étonnante de la Terre - Blue Marble 2012",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/earth/video-1.mp4",
+        "caption": "Earthrise après qu'Orion ait exécuté un survol motorisé sortant",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/earth/audio-1.mp3",
+        "caption": "Chorus d'ondes radio dans la magnétosphère terrestre — NASA",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

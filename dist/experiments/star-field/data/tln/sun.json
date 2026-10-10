@@ -1,0 +1,62 @@
+{
+  "id": "sun",
+  "name": "Sołe",
+  "kind": "star",
+  "tagline": "La steła de la sequenza principale di tipo G che detiene il 99,86% de la massa del Sistema Solare.",
+  "facts": [
+    {
+      "label": "Tipo spetrałe",
+      "value": "G2V"
+    },
+    {
+      "label": "Diametro",
+      "value": "1.392.700 chilometri"
+    },
+    {
+      "label": "Masa",
+      "value": "1.989 × 10³⁰kg"
+    },
+    {
+      "label": "Temperatura superficiale",
+      "value": "≈ 5.505 °C"
+    },
+    {
+      "label": "Temperatura interna",
+      "value": "≈ 15,7 milioni di °C"
+    },
+    {
+      "label": "Età",
+      "value": "≈ 4,6 miliardi di ani"
+    },
+    {
+      "label": "Periodo di rotazione",
+      "value": "≈ 25–35 dì (varia in base alla latitudine)"
+    }
+  ],
+  "history": "Il Sole si el ze formato circa 4,6 miliardi di ani fa dal collasso gravitazionale di una regione all'interno di una gigantesca nube molecolare. La maggior parte de la massa in collasso si raccolse al centro, innescando la fusione de l'idrogeno quando il nucleo raggiunse circa 10 milioni di Kelvin; il disco residuo appiattito divenne i pianeti. Da allora il Sole ha bruciato come steła de la sequenza principale e rimarrà stabile par circa altri 5 miliardi di ani prima di esaurire l’idrogeno del nucleo, gonfiandosi in una gigante rossa che inghiotte Mercurio e Venere, par poi perdere i suoi strati esterni come una nebulosa planetaria e ritirarsi come una nana bianca. Le culture antiche dall'Egitto alle Ande lo adoravano; Gli schizzi telescopici dele macchie solari di Galileo nel 1612 iniziarono la sua vita come oggetto scientifico, e oggi osservatori come SOHO, Parker Solar Probe e Solar Orbiter lo monitorano come motore de la meteorologia spaziale.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "tln",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/sun/img-1.jpg",
+        "caption": "NASA's SDO Sees Giant Filament on the Sun",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/sun/audio-1.wav",
+        "caption": "Sun sonification — SDO/Stanford helioseismology",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

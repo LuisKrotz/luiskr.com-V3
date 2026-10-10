@@ -1,0 +1,35 @@
+{
+  "id": "lgs-3",
+  "name": "LGS3",
+  "kind": "dwarfGalaxy",
+  "tagline": "Le nain Poissons – un membre transitoire du groupe local à mi-chemin entre un sphéroïdal et un irrégulier.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "~2,6 Mly"
+    },
+    {
+      "label": "Type",
+      "value": "Transition dSph/dIrr"
+    },
+    {
+      "label": "Orbite",
+      "value": "Vaguement lié à M31"
+    },
+    {
+      "label": "Gaz",
+      "value": "Trace H je reste"
+    }
+  ],
+  "history": "LGS 3 est la naine de transition du groupe local – classée entre sphéroïdale et irrégulière car elle contient encore une trace de gaz et quelques jeunes étoiles, mais ressemble partout ailleurs à une sphéroïdale mourante. Il orbite vaguement près d'Andromède et est probablement sur un long chemin vers lui : un cas intermédiaire documentant exactement comment une galaxie perd son gaz et s'éteint sous la gravité d'un géant.",
+  "source": "PAndAS · Thuan & Martin",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "Thuan & Martin 1979",
+      "PAndAS survey"
+    ]
+  }
+}

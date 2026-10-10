@@ -1,0 +1,35 @@
+{
+  "id": "ursa-minor-dwarf",
+  "name": "Anão da Ursa Menor",
+  "kind": "dwarfGalaxy",
+  "tagline": "Um esferóide da Via Láctea a 225.000 anos-luz de distância – antigo, fraco e quase todo matéria escura.",
+  "facts": [
+    {
+      "label": "Distância",
+      "value": "~225.000 anos"
+    },
+    {
+      "label": "Tipo",
+      "value": "Anão esferoidal"
+    },
+    {
+      "label": "Encontrado",
+      "value": "1955 – Wilson nas placas Palomar"
+    },
+    {
+      "label": "População",
+      "value": "Estrelas antigas e pobres em metais"
+    }
+  ],
+  "history": "A Ursa Menor surgiu nas primeiras placas do Palomar Sky Survey em 1955 – o protótipo de uma anã “fóssil”, com estrelas uniformemente velhas e pobres em metais, sugerindo que ela formou quase todas elas nos primeiros bilhões de anos e tem estado passiva desde então. A sua extrema relação massa/luz tornou-o numa referência inicial para estudos da matéria escura, e a sua órbita transporta-o num caminho lento e distante em torno da Via Láctea.",
+  "source": "Palomar Sky Survey 1955",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "br",
+    "refs": [
+      "Wilson 1955",
+      "Palomar Sky Survey"
+    ]
+  }
+}

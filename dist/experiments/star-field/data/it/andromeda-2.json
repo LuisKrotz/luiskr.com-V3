@@ -1,0 +1,35 @@
+{
+  "id": "andromeda-2",
+  "name": "Andromeda II",
+  "kind": "dwarfGalaxy",
+  "tagline": "Una nana sferoidale di Andromeda di particolare rilievo: le sue stelle mostrano segni di una possibile fusione più antica di due nane ancora più piccole.",
+  "facts": [
+    {
+      "label": "Distanza",
+      "value": "~2,14 milioni"
+    },
+    {
+      "label": "Tipo",
+      "value": "Sferoidale nano"
+    },
+    {
+      "label": "Compagno di",
+      "value": "M31"
+    },
+    {
+      "label": "Enigma",
+      "value": "Il double core accenna ad una precedente fusione"
+    }
+  ],
+  "history": "Andromeda II ha attirato l'attenzione quando l'imaging profondo ha suggerito che potrebbe avere due nuclei stellari sovrapposti: prova che potrebbe essere essa stessa il resto fuso di due nane più piccole, una dimostrazione che la gerarchia di accrescimento continua fino alle scale più deboli. Le sue stelle sono vecchie e povere di metalli e condivide lo spazio delle fasi dell'orbita dell'alone degli altri satelliti di Andromeda, rendendolo un banco di prova per il problema dell'assemblaggio delle galassie nane.",
+  "source": "PAndAS · M31 satellites survey",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "van den Bergh 1972",
+      "PAndAS survey"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "leo-1-dwarf",
+  "name": "Leo I Dwarf",
+  "kind": "dwarfGalaxy",
+  "tagline": "Un satélite de la Vía Láctea a 820.000 años luz de distancia, tan distante que fue el primer satélite enano encontrado únicamente en placas de estudio fotográfico.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~820.000 años al año"
+    },
+    {
+      "label": "Tipo",
+      "value": "esferoidal enano"
+    },
+    {
+      "label": "Encontrado",
+      "value": "1950 — Placas Palomar"
+    },
+    {
+      "label": "notable",
+      "value": "Alberga un sorprendente agujero negro central"
+    }
+  ],
+  "history": "Leo I es uno de los satélites clásicos más remotos de la Vía Láctea, tan lejano que los astrónomos debatieron durante mucho tiempo si estaba vinculado a la galaxia. Los movimientos propios de Gaia confirmaron que se encuentra en una órbita amplia y descendente. Su historia de formación estelar es inusualmente prolongada para un esferoidal, con episodios que se han producido en los últimos mil millones de años. Leo I sorprendió a todos en 2021 cuando los movimientos estelares sugirieron un agujero negro central de ~3 millones de masas solares, absurdamente grande para una enana de su tamaño.",
+  "source": "Palomar Sky Survey · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "cas",
+    "refs": [
+      "Harrington & Wilson 1950",
+      "Gaia",
+      "Bustamante-Rosell et al. 2021"
+    ]
+  }
+}

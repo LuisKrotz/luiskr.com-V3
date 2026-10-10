@@ -1,0 +1,51 @@
+{
+  "id": "neptune",
+  "name": "Neptú",
+  "kind": "planet",
+  "tagline": "El món més ventós: un gegant de gel trobat per les matemàtiques abans dels telescopis.",
+  "facts": [
+    {
+      "label": "Diàmetre",
+      "value": "49.244 km"
+    },
+    {
+      "label": "Període orbital",
+      "value": "164,8 anys"
+    },
+    {
+      "label": "Vents més ràpids",
+      "value": "≈ 2.100 km/h"
+    },
+    {
+      "label": "Llunes",
+      "value": "16"
+    },
+    {
+      "label": "Descobriment",
+      "value": "1846 — predit per Adams i Le Verrier"
+    },
+    {
+      "label": "Distància mitjana",
+      "value": "4.500 milions de km (30 UA)"
+    }
+  ],
+  "history": "Neptú és l'únic planeta trobat per càlcul: els astrònoms Adams i Le Verrier van deduir de manera independent la seva posició a partir de les oscil·lacions de l'òrbita d'Urà, i Johann Galle la va trobar a un grau de la predicció el 1846, un triomf de la física newtoniana. El sobrevol de la Voyager 2 de 1989 encara és l'única visita de la humanitat; va revelar vents supersònics de fins a 2.100 km/h —el més ràpid del Sistema Solar— i grans tempestes fosques que vénen i van. La seva lluna més gran, Tritó, orbita cap enrere, evidència que és un objecte capturat del cinturó de Kuiper i expulsa guèisers de nitrogen des d'una superfície congelada a -235 °C.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/neptune/img-1.jpg",
+        "caption": "PIA01492",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

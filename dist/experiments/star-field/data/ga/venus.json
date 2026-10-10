@@ -1,0 +1,58 @@
+{
+  "id": "venus",
+  "name": "Véineas",
+  "kind": "planet",
+  "tagline": "Cúpla méid an Domhain, fillte i cheaptha teasa CO₂ brúite — an pláinéad is teo.",
+  "facts": [
+    {
+      "label": "Trastomhas",
+      "value": "12,104 km"
+    },
+    {
+      "label": "Tréimhse fithise",
+      "value": "225 lá"
+    },
+    {
+      "label": "Rothlú",
+      "value": "243 lá, dul siar"
+    },
+    {
+      "label": "Teocht an dromchla",
+      "value": "≈ 465 °C"
+    },
+    {
+      "label": "Brú dromchla",
+      "value": "≈ 92 barra"
+    },
+    {
+      "label": "Gealacha",
+      "value": "0"
+    }
+  ],
+  "history": "Casann Véineas ar gcúl agus chomh mall sin go maireann a lá thar a bhliain. Faoi bhun scamaill aigéad sulfarach gan bhriseadh, coinníonn teach gloine atá ag rith ar shiúl an dromchla gar do 465 °C - te go leor chun luaidhe a leá - faoi 92 atmaisféar brú. Bhain clár Venera Shóivéadaigh amach na chéad tuirlingthe ar phláinéid eile anseo idir 1970 agus 1982; níor mhair aon taiscéalaí níos mó ná dhá uair an chloig. Mapáil radair fithiseánach Magellan de chuid NASA 98% den dromchla idir 1990 agus 1994, rud a léirigh domhan bolcánach a ndearnadh athdhromchlú air chomh gairid le cúpla céad milliún bliain ó shin. Is minic a dtugtar Cúpla olc an Domhain ar Véineas: an méid céanna, carraig chomhchosúil, cinniúint an-difriúil - scéal rabhadh in aeráid phláinéadach.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ga",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/venus/img-1.jpg",
+        "caption": "Amharc ar Véineas Transit ag NASA Goddard",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/venus/video-1.mp4",
+        "caption": "Gaoth Leictreach Véineas",
+        "credit": "NASA Goddard"
+      }
+    ]
+  }
+}

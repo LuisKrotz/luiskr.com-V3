@@ -1,0 +1,51 @@
+{
+  "id": "proxima-centauri",
+  "name": "Pròxima Centauri",
+  "kind": "system",
+  "tagline": "L'estrella més propera al Sol: una estrella de bengala amb un planeta de la mida de la Terra al costat.",
+  "facts": [
+    {
+      "label": "Distància",
+      "value": "4.246 anys llum"
+    },
+    {
+      "label": "Tipus",
+      "value": "Nana vermella (M5,5V)"
+    },
+    {
+      "label": "Massa",
+      "value": "≈ 0,12 masses solars"
+    },
+    {
+      "label": "Planetes",
+      "value": "Proxima b (zona habitable), c, d"
+    },
+    {
+      "label": "Òrbita proxima b",
+      "value": "11,2 dies"
+    },
+    {
+      "label": "Descobriment",
+      "value": "1915 - Robert Innes"
+    }
+  ],
+  "history": "Pròxima és l'estrella més propera al Sol: la llum que veus aquesta nit la va deixar fa 4,24 anys. És una petita nana vermella, massa tènue a simple vista, que esclata en bengales prou potents com per desafiar qualsevol atmosfera. El 2016, els astrònoms van anunciar Proxima b, un planeta rocós d'almenys 1,07 masses terrestres que orbitava dins de la zona habitable de l'estrella cada 11,2 dies: l'exoplaneta més proper i el món potencialment temperat més proper a la Terra. Si el bloqueig de la marea i les bengales el deixen habitable és una pregunta oberta que JWST i els telescopis de nova generació pretenen respondre.",
+  "source": "ESO; Nature (Anglada-Escudé et al., 2016)",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "ESO; Nature (Anglada-Escudé et al., 2016)"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/proxima-centauri/img-1.jpg",
+        "caption": "La millor imatge del Hubble d'Alpha Centauri A i B",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

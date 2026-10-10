@@ -1,0 +1,51 @@
+{
+  "id": "orion-nebula",
+  "name": "Nebulosa de Orión",
+  "kind": "nebula",
+  "tagline": "La guardería estelar más cercana: nuevos soles naciendo a plena vista.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "≈ 1.344 años luz"
+    },
+    {
+      "label": "Catálogo",
+      "value": "M42/NGC 1976"
+    },
+    {
+      "label": "Tamaño",
+      "value": "≈ 24 años luz de ancho"
+    },
+    {
+      "label": "Visibilidad",
+      "value": "A simple vista: la espada de Orión"
+    },
+    {
+      "label": "Núcleo",
+      "value": "Racimo de trapecio"
+    },
+    {
+      "label": "Proplyds",
+      "value": "Discos protoplanetarios fotografiados por el Hubble"
+    }
+  ],
+  "history": "La difusa 'estrella' central de la espada de Orión se resuelve en la región de formación estelar masiva más cercana a la Tierra: una nube de 24 años luz de diámetro donde miles de soles se están encendiendo. Cuatro jóvenes gigantes, el Trapecio, lo inundan con luz ultravioleta que esculpe los pilares y velos brillantes. Las imágenes del Hubble revelaron más de 150 discos protoplanetarios ('proplyds') recortados en su interior: sistemas solares en el acto de ensamblarse, prueba directa de que la formación de planetas es una rutina. Los humanos lo han notado desde al menos 1610; Fue el primer objeto de cielo profundo fotografiado por Henry Draper en 1880.",
+  "source": "NASA/ESA Hubble; ESO",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "cas",
+    "refs": [
+      "NASA/ESA Hubble; ESO"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/orion-nebula/img-1.jpg",
+        "caption": "A Flame in Orion Belt",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

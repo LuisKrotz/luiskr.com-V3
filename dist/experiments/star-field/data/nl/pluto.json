@@ -1,0 +1,58 @@
+{
+  "id": "pluto",
+  "name": "Pluto",
+  "kind": "dwarfPlanet",
+  "tagline": "De geliefde dwerg – koning van de Kuipergordel en een wereld van stikstofgletsjers.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "2.377 km"
+    },
+    {
+      "label": "Omlooptijd",
+      "value": "248 jaar"
+    },
+    {
+      "label": "Manen",
+      "value": "5 (Charon grootste)"
+    },
+    {
+      "label": "Ontdekking",
+      "value": "1930 – Clyde Tombaugh"
+    },
+    {
+      "label": "Eerste bezoek",
+      "value": "Nieuwe horizonten, juli 2015"
+    },
+    {
+      "label": "Opnieuw geclassificeerd",
+      "value": "Dwergplaneet, IAU 2006"
+    }
+  ],
+  "history": "Clyde Tombaugh vond Pluto in 1930 na een systematische zoektocht naar 'Planeet X', en 76 jaar lang gold het als de negende planeet. In de definitie van de IAU uit 2006 werd de planeet opnieuw geclassificeerd als een dwergplaneet: het eerste erkende lid van de Kuipergordel, de ring van ijskoude lichamen voorbij Neptunus. NASA's New Horizons-ruimtevaartuig vloog in juli 2015 binnen een straal van 12.500 km en onthulde een verrassend actieve wereld: een hartvormige stikstofijsvlakte (Spoetnik Planitia) die convecteert als een lavalamp, waterijsbergen tot 3,5 km hoog en een dunne blauwe nevelatmosfeer. De grootste maan Charon is half zo groot als Pluto – een echt dubbelsysteem.",
+  "source": "NASA/JPL Solar System Exploration; Johns Hopkins APL",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "nl",
+    "refs": [
+      "NASA/JPL Solar System Exploration; Johns Hopkins APL"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/pluto/img-1.jpg",
+        "caption": "New Horizons ziet Pluto",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/pluto/video-1.mp4",
+        "caption": "New Horizons-interview met Dennis Reuter",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "alpha-centauri",
+  "name": "Alfa Centauri",
+  "kind": "system",
+  "tagline": "El sistema estel·lar més proper: un binari semblant al Sol encerclat a distància per Pròxima.",
+  "facts": [
+    {
+      "label": "Distància",
+      "value": "4,37 anys llum"
+    },
+    {
+      "label": "Components",
+      "value": "α Cen A (G2V) + B (K1V) + Pròxima"
+    },
+    {
+      "label": "Òrbita A/B",
+      "value": "79,9 anys"
+    },
+    {
+      "label": "Magnitud aparent",
+      "value": "−0,27 (3a estrella més brillant)"
+    },
+    {
+      "label": "Visibilitat",
+      "value": "Només hemisferi sud"
+    }
+  ],
+  "history": "Alpha Centauri són en realitat tres estrelles: Alpha Centauri A i B, una nana groc semblant al Sol i una nana taronja tancada en una dansa binària de 80 anys, més la tènue nana vermella Pròxima que orbita la parella centenars de vegades més lluny. Per als observadors del cel del sud, és la tercera estrella més brillant i l'indicador de la Creu del Sud; invisible des de la majoria de latituds del nord. La seva proximitat el converteix en l'objectiu principal de conceptes de missió interestel·lar com Breakthrough Starshot, que proposa nanocrafts impulsades per làser que creuen el golf en vint anys. H.G. Wells va ser un dels primers a enviar-hi viatgers de ficció el 1897.",
+  "source": "IAU; ESO; Yale Bright Star Catalogue",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "IAU; ESO; Yale Bright Star Catalogue"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/alpha-centauri/img-1.jpg",
+        "caption": "La millor imatge del Hubble d'Alpha Centauri A i B",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

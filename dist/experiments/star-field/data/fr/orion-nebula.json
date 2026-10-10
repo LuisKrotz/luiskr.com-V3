@@ -1,0 +1,51 @@
+{
+  "id": "orion-nebula",
+  "name": "Nébuleuse d'Orion",
+  "kind": "nebula",
+  "tagline": "La pépinière stellaire la plus proche – de nouveaux soleils naissent à la vue de tous.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "≈ 1 344 années-lumière"
+    },
+    {
+      "label": "Catalogue",
+      "value": "M42 / NGC 1976"
+    },
+    {
+      "label": "Taille",
+      "value": "≈ 24 années-lumière de diamètre"
+    },
+    {
+      "label": "Visibilité",
+      "value": "Œil nu – L’épée d’Orion"
+    },
+    {
+      "label": "Noyau",
+      "value": "Amas de trapèze"
+    },
+    {
+      "label": "Proplydes",
+      "value": "Disques protoplanétaires imagés par Hubble"
+    }
+  ],
+  "history": "L'« étoile » floue du milieu de l'épée d'Orion se résout dans la région de formation d'étoiles massives la plus proche de la Terre : un nuage de 24 années-lumière de diamètre où des milliers de soleils s'enflamment. Quatre jeunes géants, le Trapèze, l'inondent de lumière ultraviolette qui sculpte les piliers et les voiles lumineux. Les images de Hubble ont révélé plus de 150 disques protoplanétaires – « proplydes » – qui se profilent à l'intérieur : des systèmes solaires en train de s'assembler, preuve directe que la formation des planètes est une routine. Les humains l’ont remarqué depuis au moins 1610 ; c'était le premier objet du ciel profond photographié par Henry Draper en 1880.",
+  "source": "NASA/ESA Hubble; ESO",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/ESA Hubble; ESO"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/orion-nebula/img-1.jpg",
+        "caption": "Une flamme dans la ceinture d'Orion",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "phoenix-dwarf",
+  "name": "Nano Fenice",
+  "kind": "dwarfGalaxy",
+  "tagline": "Una nana di transizione del Gruppo Locale: in parte sferoidale, in parte irregolare, che forma ancora un rivolo di stelle.",
+  "facts": [
+    {
+      "label": "Distanza",
+      "value": "~1,44 milioni"
+    },
+    {
+      "label": "Tipo",
+      "value": "dSph/dIrr transitorio"
+    },
+    {
+      "label": "Formazione stellare",
+      "value": "In corso, a basso livello"
+    },
+    {
+      "label": "Stato",
+      "value": "Tra satellite e nano isolato"
+    }
+  ],
+  "history": "La nana Phoenix occupa la via di mezzo morfologica tra una stella sferoidale e una irregolare, poiché contiene ancora abbastanza gas per sostenere la formazione stellare di basso livello, a differenza delle stelle sferoidali completamente estinte. È abbastanza lontano dalla Via Lattea da aver evitato lo stripping totale del gas, ma abbastanza vicino da far sì che la sua evoluzione possa essere stata spinta dall’ambiente dell’alone, rendendolo un caso limite nel modo in cui le nane interrompono la formazione stellare.",
+  "source": "ESO · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "Schuster & West 1976",
+      "ESO"
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "jupiter",
+  "name": "Júpiter",
+  "kind": "planet",
+  "tagline": "O gigante – mais massivo do que todos os outros planetas juntos.",
+  "facts": [
+    {
+      "label": "Diâmetro",
+      "value": "139.820 quilômetros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "11,9 anos"
+    },
+    {
+      "label": "Duração do dia",
+      "value": "9,9 horas"
+    },
+    {
+      "label": "Luas",
+      "value": "95 (reconhecido)"
+    },
+    {
+      "label": "Grande Mancha Vermelha",
+      "value": "Tempestade observada desde 1831"
+    },
+    {
+      "label": "Massa",
+      "value": "318 × Terra"
+    }
+  ],
+  "history": "Júpiter formou-se primeiro entre os planetas e a sua gravidade moldou tudo o que se seguiu - conduzindo asteróides, agitando a nebulosa solar inicial e lançando cometas para dentro e para fora do sistema interno. A descoberta de Galileu Galilei, em 1610, de quatro luas circulando-a provou que nem tudo orbita a Terra; esses satélites galileus - Io, Europa, Ganimedes, Calisto - continuam a ser os principais alvos do mundo oceânico, com a sonda JUICE da ESA a caminho de Ganimedes. A Grande Mancha Vermelha é um anticiclone mais largo que a Terra que existe há séculos. O orbitador Juno da NASA mapeou seu clima profundo e seu interior desde 2016.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "br",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/jupiter/img-1.jpg",
+        "caption": "Juno sobre o Pólo Sul de Júpiter (Ilustração)",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/jupiter/video-1.mp4",
+        "caption": "A Grande Mancha Vermelha de Júpiter encolhe e cresce",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/jupiter/audio-1.ogg",
+        "caption": "Travessia de choque de proa de Júpiter – Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "asteroid-belt",
+  "name": "Cinturão de Asteroides",
+  "kind": "belt",
+  "tagline": "Milhões de restos rochosos entre Marte e Júpiter — o planeta que nunca se formou.",
+  "facts": [
+    {
+      "label": "Localização",
+      "value": "2,06–3,27 UA, entre Marte e Júpiter"
+    },
+    {
+      "label": "Membros estimados",
+      "value": "1,1–1,9 milhões maiores que 1 km"
+    },
+    {
+      "label": "Massa total",
+      "value": "~3% da Lua – Ceres sozinha detém um terço"
+    },
+    {
+      "label": "Maiores membros",
+      "value": "Ceres, Vesta, Palas, Hígia"
+    },
+    {
+      "label": "Lacunas de Kirkwood",
+      "value": "Pistas de ressonância liberadas pela gravidade de Júpiter"
+    },
+    {
+      "label": "Composição",
+      "value": "Carbonoso tipo C, silicato tipo S, metálico tipo M"
+    }
+  ],
+  "history": "O cinturão de asteróides são os restos sobreviventes do início do sistema solar - material que nunca se fundiu em um planeta porque a gravidade de Júpiter agitou a região com muita violência. Giuseppe Piazzi encontrou seu primeiro membro, Ceres, em 1801, enquanto procurava o 'planeta desaparecido' previsto pela lei Titius-Bode; em seis anos, Pallas, Juno e Vesta o seguiram, revelando não um mundo, mas um vasto anel de escombros. Hoje, estão catalogados mais de um milhão de corpos com mais de um quilómetro, mas todo o cinturão tem menos de 3% da Lua – na sua maioria espaço vazio, e as naves espaciais voam através dele rotineiramente sem um único encontro próximo. As ressonâncias de Júpiter esculpem as lacunas de Kirkwood visíveis como pistas vazias, e as colisões entre os membros fornecem a maioria dos meteoritos que atingem a Terra. A sonda Dawn da NASA mapeou Vesta e Ceres de perto entre 2011 e 2018, encontrando depósitos de sal e evidências de que alguns asteróides já mantiveram oceanos subterrâneos.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "br",
+    "refs": [
+      "NASA/JPL Solar System Exploration",
+      "IAU Minor Planet Center"
+    ]
+  }
+}

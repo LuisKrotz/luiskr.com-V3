@@ -1,0 +1,58 @@
+{
+  "id": "venus",
+  "name": "Venus",
+  "kind": "planet",
+  "tagline": "De mida bessó de la Terra, embolicat en un hivernacle de CO₂ aixafador: el planeta més calent.",
+  "facts": [
+    {
+      "label": "Diàmetre",
+      "value": "12.104 km"
+    },
+    {
+      "label": "Període orbital",
+      "value": "225 dies"
+    },
+    {
+      "label": "Rotació",
+      "value": "243 dies, retrògrads"
+    },
+    {
+      "label": "Temperatura superficial",
+      "value": "≈ 465 °C"
+    },
+    {
+      "label": "Pressió superficial",
+      "value": "≈ 92 bar"
+    },
+    {
+      "label": "Llunes",
+      "value": "0"
+    }
+  ],
+  "history": "Venus gira cap enrere i tan lentament que el seu dia perdura més que l'any. Sota núvols d'àcid sulfúric ininterromputs, un hivernacle desbocat manté la superfície a prop de 465 °C, prou calenta per fondre el plom, sota 92 atmosferes de pressió. El programa soviètic Venera va aconseguir els primers desembarcaments en un altre planeta aquí entre 1970 i 1982; cap sonda va sobreviure més de dues hores. El radar de l'òrbita Magallanes de la NASA va cartografiar el 98% de la superfície entre 1990 i 1994, revelant que un món volcànic va ressorgir fa pocs centenars de milions d'anys. Venus sovint s'anomena el bessó malvat de la Terra: la mateixa mida, una roca similar, un destí radicalment diferent: una història d'advertència en el clima planetari.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/venus/img-1.jpg",
+        "caption": "Visualització del trànsit de Venus a la NASA Goddard",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/venus/video-1.mp4",
+        "caption": "El vent elèctric de Venus",
+        "credit": "NASA Goddard"
+      }
+    ]
+  }
+}

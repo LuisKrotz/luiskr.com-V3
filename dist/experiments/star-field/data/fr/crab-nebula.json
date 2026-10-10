@@ -1,0 +1,58 @@
+{
+  "id": "crab-nebula",
+  "name": "Nébuleuse du Crabe",
+  "kind": "nebula",
+  "tagline": "L'épave d'une étoile vue en train d'exploser en 1054 – toujours en expansion.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "≈ 6 500 années-lumière"
+    },
+    {
+      "label": "Catalogue",
+      "value": "M1 / NGC 1952"
+    },
+    {
+      "label": "Ancêtre",
+      "value": "Supernova de juillet 1054"
+    },
+    {
+      "label": "Noyau restant",
+      "value": "Pulsar de crabe – 30 tours/seconde"
+    },
+    {
+      "label": "Extension",
+      "value": "≈ 1 500 km/s et en croissance"
+    },
+    {
+      "label": "Enregistré par",
+      "value": "Astronomes de la cour chinoise et japonaise"
+    }
+  ],
+  "history": "En juillet 1054, des astronomes chinois et japonais ont enregistré une « étoile invitée » suffisamment brillante pour être lue la nuit et visible à la lumière du jour pendant 23 jours. Six siècles plus tard, Charles Messier a catalogué ses vestiges, l'objet qui a inspiré sa célèbre liste de sosies de comètes, sous le nom d'entrée M1. En son cœur tourne le pulsar Crab, une étoile à neutrons de 30 km de long tournant 30 fois par seconde et émettant un rayonnement comme un phare sur toutes les longueurs d'onde. Les filaments en expansion s'étendent désormais sur environ 11 années-lumière ; la comparaison de photographies au fil des décennies montre que les débris continuent de s’échapper – une explosion en cours.",
+  "source": "NASA/ESA Hubble; Harvard CfA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/ESA Hubble; Harvard CfA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/crab-nebula/img-1.jpg",
+        "caption": "Hubble de la NASA capture le cœur battant de la nébuleuse du Crabe",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/crab-nebula/video-1.mp4",
+        "caption": "29e anniversaire de Hubble",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

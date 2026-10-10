@@ -1,0 +1,35 @@
+{
+  "id": "phoenix-dwarf",
+  "name": "Nan Fènix",
+  "kind": "dwarfGalaxy",
+  "tagline": "Una nana del Grup Local de transició: una part esferoïdal, una part irregular, encara formant un degoteig d'estrelles.",
+  "facts": [
+    {
+      "label": "Distància",
+      "value": "~1,44 Mly"
+    },
+    {
+      "label": "Tipus",
+      "value": "dSph/dIrr de transició"
+    },
+    {
+      "label": "Formació d'estrelles",
+      "value": "En curs, a nivell baix"
+    },
+    {
+      "label": "Estat",
+      "value": "Entre satèl·lit i nana aïllada"
+    }
+  ],
+  "history": "La nana Fènix ocupa el punt mitjà morfològicament entre un esferoïdal i un irregular, encara que té prou gas per mantenir la formació d'estrelles de baix nivell, a diferència dels esferoïdals completament apagats. Està prou lluny de la Via Làctia per haver evitat l'eliminació total del gas, però prou a prop perquè la seva evolució pugui haver estat impulsada per l'entorn de l'halo, cosa que el converteix en un cas límit de com les nanes tanquen la formació estel·lar.",
+  "source": "ESO · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "Schuster & West 1976",
+      "ESO"
+    ]
+  }
+}

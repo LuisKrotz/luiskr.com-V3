@@ -1,0 +1,65 @@
+{
+  "id": "saturn",
+  "name": "Saturn",
+  "kind": "planet",
+  "tagline": "El gegant anellat: el seu halo de gel abasta 280.000 km però té metres de prim.",
+  "facts": [
+    {
+      "label": "Diàmetre",
+      "value": "116.460 km"
+    },
+    {
+      "label": "Període orbital",
+      "value": "29,4 anys"
+    },
+    {
+      "label": "Llunes",
+      "value": "146+ (reconegut)"
+    },
+    {
+      "label": "Envergadura de l'anell",
+      "value": "≈ 280.000 km d'amplada, ~10 m–1 km de gruix"
+    },
+    {
+      "label": "Densitat",
+      "value": "0.687 g/cm³ — suraria a l'aigua"
+    },
+    {
+      "label": "La lluna més gran",
+      "value": "Tità"
+    }
+  ],
+  "history": "Galileu va veure els anells de Saturn el 1610, però no els va poder resoldre: els va anomenar \"orelles\"; Huygens va identificar el sistema d'anells el 1655, i Cassini va trobar la divisió que porta el seu nom. Els anells són innombrables partícules de gel d'aigua gairebé pura, probablement restes d'una lluna trencada o d'un cometa capturat, i poden ser geològicament joves. L'òrbita Cassini va passar tretze anys al sistema de Saturn (2004–2017), descobrint guèisers a Encèlad que expulsen un oceà subsuperficial a l'espai i deixant caure la sonda Huygens sobre Tità, l'únic aterratge que s'ha fet mai al Sistema Solar exterior.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/saturn/img-1.jpg",
+        "caption": "La vora de la nit",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/saturn/video-1.mp4",
+        "caption": "Saturn infrarojo de Cassini (versió curta)",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/saturn/audio-1.wav",
+        "caption": "Emissions de ràdio de Saturn — Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

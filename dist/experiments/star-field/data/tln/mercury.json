@@ -1,0 +1,51 @@
+{
+  "id": "mercury",
+  "name": "Merkùrio",
+  "kind": "planet",
+  "tagline": "Il pianeta pi piccolo e il pi vicino al Sole: un mondo pieno di crateri estremi.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "4.879 km"
+    },
+    {
+      "label": "Periodo orbital",
+      "value": "88 dì"
+    },
+    {
+      "label": "Durada del dì",
+      "value": "59 dì terrestri"
+    },
+    {
+      "label": "Temperatura",
+      "value": "Da −173 a 427 °C"
+    },
+    {
+      "label": "Gravità",
+      "value": "3,7 m/s²"
+    },
+    {
+      "label": "Łune",
+      "value": "0"
+    }
+  ],
+  "history": "Mercurio el ze el pianeta pi piccolo del Sistema Solare e completa un'orbita ogni 88 dì: il pi veloce di qualsiasi pianeta, motivo par cui i romani lo chiamarono in onore del loro veloce dio messaggero. Bloccato in una risonanza spin-orbita 3:2, ruota esattamente tre volte ogni do orbite. La sua superficie craterizzata registra miliardi di ani di impatti e l'orbiter MESSENGER de la NASA (2011–2015) ha trovato ghiaccio d'acqua nascosto in crateri polari permanentemente in ombra nonostante la temperatura mezzogiorno di 427 °C. Sono stati visitati solo tre veicoli spaziali: il Mariner 10 el ze volato nel 1974-75, il MESSENGER ha orbitato un decennio fa e la missione congiunta ESA/JAXA BepiColombo el ze in rotta par entrare in orbita nel 2026.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "tln",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mercury/img-1.jpg",
+        "caption": "Happy Little Crater on Mercury",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

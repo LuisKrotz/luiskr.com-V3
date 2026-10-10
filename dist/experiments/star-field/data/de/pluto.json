@@ -1,0 +1,58 @@
+{
+  "id": "pluto",
+  "name": "Pluto",
+  "kind": "dwarfPlanet",
+  "tagline": "Der geliebte Zwerg – König des Kuipergürtels und einer Welt voller Stickstoffgletscher.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "2.377 km"
+    },
+    {
+      "label": "Umlaufzeit",
+      "value": "248 Jahre"
+    },
+    {
+      "label": "Monde",
+      "value": "5 (Charon am größten)"
+    },
+    {
+      "label": "Entdeckung",
+      "value": "1930 – Clyde Tombaugh"
+    },
+    {
+      "label": "Erster Besuch",
+      "value": "Neue Horizonte, Juli 2015"
+    },
+    {
+      "label": "Umklassifiziert",
+      "value": "Zwergplanet, IAU 2006"
+    }
+  ],
+  "history": "Clyde Tombaugh fand Pluto 1930 nach einer systematischen Suche nach „Planet X“ und er galt 76 Jahre lang als neunter Planet. Die Definition der IAU aus dem Jahr 2006 stufte ihn als Zwergplaneten neu ein – das erste anerkannte Mitglied des Kuipergürtels, dem Ring eisiger Körper jenseits von Neptun. Die NASA-Raumsonde New Horizons flog im Juli 2015 bis auf 12.500 km und enthüllte eine überraschend aktive Welt: eine herzförmige Stickstoffeisebene (Sputnik Planitia), die sich wie eine Lavalampe konvekt, bis zu 3,5 km hohe Wassereisberge und eine dünne blaue Dunstatmosphäre. Sein größter Mond Charon ist halb so groß wie Pluto – ein echtes Doppelsystem.",
+  "source": "NASA/JPL Solar System Exploration; Johns Hopkins APL",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "NASA/JPL Solar System Exploration; Johns Hopkins APL"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/pluto/img-1.jpg",
+        "caption": "New Horizons sieht Pluto",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/pluto/video-1.mp4",
+        "caption": "New Horizons-Interview mit Dennis Reuter",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

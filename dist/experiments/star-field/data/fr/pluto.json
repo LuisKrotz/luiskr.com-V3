@@ -1,0 +1,58 @@
+{
+  "id": "pluto",
+  "name": "Pluton",
+  "kind": "dwarfPlanet",
+  "tagline": "Le nain bien-aimé – roi de la ceinture de Kuiper et d’un monde de glaciers d’azote.",
+  "facts": [
+    {
+      "label": "Diamètre",
+      "value": "2 377 km"
+    },
+    {
+      "label": "Période orbitale",
+      "value": "248 ans"
+    },
+    {
+      "label": "Lunes",
+      "value": "5 (Charon le plus grand)"
+    },
+    {
+      "label": "Découverte",
+      "value": "1930 — Clyde Tombaugh"
+    },
+    {
+      "label": "Première visite",
+      "value": "Nouveaux Horizons, juillet 2015"
+    },
+    {
+      "label": "Reclassé",
+      "value": "Planète naine, IAU 2006"
+    }
+  ],
+  "history": "Clyde Tombaugh a découvert Pluton en 1930 après une recherche systématique de la « Planète X », et pendant 76 ans elle a été considérée comme la neuvième planète. La définition de l'AIU de 2006 l'a reclassée comme planète naine – le premier membre reconnu de la ceinture de Kuiper, l'anneau de corps glacés au-delà de Neptune. Le vaisseau spatial New Horizons de la NASA a survolé un rayon de 12 500 km en juillet 2015 et a révélé un monde étonnamment actif : une plaine de glace à l'azote en forme de cœur (Sputnik Planitia) qui se convecte comme une lampe à lave, des montagnes de glace d'eau atteignant 3,5 km de haut et une fine atmosphère de brume bleue. Sa plus grande lune, Charon, fait la moitié de la taille de Pluton – un véritable système double.",
+  "source": "NASA/JPL Solar System Exploration; Johns Hopkins APL",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/JPL Solar System Exploration; Johns Hopkins APL"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/pluto/img-1.jpg",
+        "caption": "New Horizons voit Pluton",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/pluto/video-1.mp4",
+        "caption": "Entretien sur Nouveaux Horizons avec Dennis Reuters",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

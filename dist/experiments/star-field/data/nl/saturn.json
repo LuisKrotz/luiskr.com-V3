@@ -1,0 +1,65 @@
+{
+  "id": "saturn",
+  "name": "Saturnus",
+  "kind": "planet",
+  "tagline": "De geringde reus: zijn halo van ijs beslaat 280.000 km en is toch meters dun.",
+  "facts": [
+    {
+      "label": "Diameter",
+      "value": "116.460 kilometer"
+    },
+    {
+      "label": "Omlooptijd",
+      "value": "29,4 jaar"
+    },
+    {
+      "label": "Manen",
+      "value": "146+ (erkend)"
+    },
+    {
+      "label": "Ringspanwijdte",
+      "value": "≈ 280.000 km breed, ~ 10 m – 1 km dik"
+    },
+    {
+      "label": "Dichtheid",
+      "value": "0.687 g/cm³ — zou in water drijven"
+    },
+    {
+      "label": "Grootste maan",
+      "value": "Titaan"
+    }
+  ],
+  "history": "Galileo zag de ringen van Saturnus in 1610, maar kon ze niet oplossen: hij noemde ze 'oren'; Huygens identificeerde het ringsysteem in 1655 en Cassini vond de divisie die zijn naam draagt. De ringen bestaan ​​uit talloze deeltjes van vrijwel zuiver waterijs, waarschijnlijk de overblijfselen van een verbrijzelde maan of een ingevangen komeet, en kunnen geologisch jong zijn. De Cassini-orbiter bracht dertien jaar door in het Saturnusstelsel (2004–2017), ontdekte geisers op Enceladus die een ondergrondse oceaan de ruimte in blazen en liet de Huygens-sonde op Titan vallen – de enige landing ooit in de buitenste delen van het zonnestelsel.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "nl",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/saturn/img-1.jpg",
+        "caption": "De rand van de nacht",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/saturn/video-1.mp4",
+        "caption": "Cassini's infrarood Saturnus (korte versie)",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/saturn/audio-1.wav",
+        "caption": "Radio-emissies van Saturnus - Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

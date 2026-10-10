@@ -1,0 +1,65 @@
+{
+  "id": "earth",
+  "name": "Terra",
+  "kind": "planet",
+  "tagline": "O único mundo conhecido por abrigar vida – um planeta oceânico na zona habitável.",
+  "facts": [
+    {
+      "label": "Diâmetro",
+      "value": "12.742 quilômetros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "365,25 dias"
+    },
+    {
+      "label": "Duração do dia",
+      "value": "23,9 horas"
+    },
+    {
+      "label": "Água na superfície",
+      "value": "≈ 71% de cobertura oceânica"
+    },
+    {
+      "label": "Luas",
+      "value": "1"
+    },
+    {
+      "label": "Idade",
+      "value": "≈ 4,54 bilhões de anos"
+    }
+  ],
+  "history": "A Terra coalesceu a partir da nebulosa solar há cerca de 4,54 mil milhões de anos e arrefeceu num mundo diferenciado de crosta, manto e núcleo de ferro. A vida apareceu nos seus oceanos nos primeiros mil milhões de anos e a fotossíntese mais tarde oxigenou a atmosfera, permitindo ecossistemas terrestres complexos. As placas tectônicas – únicas entre os planetas rochosos conhecidos – reciclam continuamente a superfície e regulam o clima ao longo do tempo geológico. A humanidade observa a Terra do espaço desde 1946; 'Blue Marble' da Apollo 17 (1972) continua sendo uma das fotografias mais reproduzidas já tiradas. Mais de 6.000 exoplanetas confirmados fornecem agora um contexto sobre o quão incomum pode ser um mundo estável, com água líquida e portador de vida.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "riv",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/earth/img-1.jpg",
+        "caption": "Most Amazing High Definition Image of Earth - Blue Marble 2012",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/earth/video-1.mp4",
+        "caption": "Earthrise after Orion Executes Outbound Powered Flyby",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/earth/audio-1.mp3",
+        "caption": "Chorus radio waves in Earth's magnetosphere — NASA",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

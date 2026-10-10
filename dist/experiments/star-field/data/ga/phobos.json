@@ -2,7 +2,7 @@
   "id": "phobos",
   "name": "Phobos",
   "kind": "moon",
-  "tagline": "An ghealach is mó den dá ghealach ag Mars — carn smionagar ag bíomaireacht in iomaire a phláinéid.",
+  "tagline": "An dá ghealach is mó de Mhars - carn spallaí ag dul go mall i dtreo a phláinéid.",
   "facts": [
     {
       "label": "Trastomhas",
@@ -10,7 +10,7 @@
     },
     {
       "label": "Tréimhse fithise",
-      "value": "7.7 uair"
+      "value": "7.7 uair an chloig"
     },
     {
       "label": "Fad ó Mars",
@@ -18,7 +18,7 @@
     },
     {
       "label": "An cráitéar is mó",
-      "value": "Stickney — 9 km"
+      "value": "Stickney - 9 km"
     },
     {
       "label": "Domhantarraingt",
@@ -26,17 +26,26 @@
     },
     {
       "label": "Fionnachtain",
-      "value": "1877 — Asaph Hall"
+      "value": "1877 - Halla Asaph"
     }
   ],
-  "history": "Timpeallaíonn Phobos Mars níos gaire ná mar a thimpeallaíonn aon ghealach eile sa Ghrianchóras a phláinéad — chomh gaire sin go n-imíonn sé níos tapúla ná rothlú Mars, ag éirí san iarthar agus ag dul faoi san oirthear faoi dhó gach lá Martach. Tá forsaí taoide á stracadh as a chéile: cailleann sé thart ar 1.8 méadar airde in aghaidh na haoise agus buailfidh sé le Mars nó scaoilfidh sé ina fháinne laistigh de 50 milliún bliain. Tá a dhromchla brúite, faoi smacht ag cráitéar Stickney 9 km, clúdaithe le droimlíne faoi dhíospóireacht. Mapálann Mars Trek NASA é go mion; tuirlingeoidh misean MMX JAXA ann agus tabharfaidh sé samplaí chun na hÁise.",
+  "history": "Fithisíonn Phobos Mars níos gaire ná aon ghealach eile sa Ghrianchóras fithisíonn sé a phláinéid - chomh gar go ciorcail sé níos tapúla ná mar a rothlaíonn Mars, ag ardú san iarthar agus ag leagan san oirthear faoi dhó gach lá Martian. Tá fórsaí taoide á réabadh as a chéile: cailleann sé thart ar 1.8 méadar airde in aghaidh na céad agus tiocfaidh sé isteach ar Mhars nó gearrfaidh sé isteach i bhfáinne laistigh de 50 milliún bliain. Tá a dhromchla buailte, ar a bhfuil an crater Stickney 9-km den chuid is mó, clúdaithe le héinsí a bhfuil a mbunús fós á phlé. Mapálann Mars Trek de chuid NASA go mion é; tiocfaidh misean JAXA MMX atá le teacht i dtír ansin agus cuirfidh sé samplaí ar ais chuig an Domhan.",
   "source": "NASA/JPL · NASA Mars Trek",
   "meta": {
     "acquired": "2026-10-09",
-    "translated": "2026-10-09",
+    "translated": "2026-10-10",
     "locale": "ga",
     "refs": [
       "NASA/JPL · NASA Mars Trek"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/phobos/img-1.jpg",
+        "caption": "Martian Moon Phobos Breathnaithe ag Odyssey NASA",
+        "credit": "NASA"
+      }
     ]
   }
 }

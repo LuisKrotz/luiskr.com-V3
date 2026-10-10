@@ -1,0 +1,65 @@
+{
+  "id": "earth",
+  "name": "Erd",
+  "kind": "planet",
+  "tagline": "Die einzige bekannte Welt, die Leben beherbergt – en Ozeanplanet in der bewohnbaren Zone.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "12.742 km"
+    },
+    {
+      "label": "Umlaufziet",
+      "value": "365,25 Daag"
+    },
+    {
+      "label": "Dagesläng",
+      "value": "23,9 Stund"
+    },
+    {
+      "label": "Iwwerfläschewasser",
+      "value": "≈ 71 % Meeresabdeckung"
+    },
+    {
+      "label": "Moonde",
+      "value": "1"
+    },
+    {
+      "label": "Alter",
+      "value": "≈ 4,54 Milliarden Johre"
+    }
+  ],
+  "history": "Die Erde verschmolz vor etwa 4,54 Milliarden Johre aus em Sonnennebel un kühlte sich zu en differenzierten Welt aus Kruste, Mantel un Eisenkern ab. Innerhalb der ersten Milliarde Johre entstand in seinen Ozeanen Leben, un später versorgte die Photosynthese die Atmosphäre mit Sauerstoff, was komplexe Landökosysteme ermöglichte. Plattentektonik – einzigartig unter bekannten Gesteinsplaneten – recycelt kontinuierlich die Oberfläche un reguliert das Klima im Laufe der geologischen Zeit. Seit 1946 beobachtet die Menschheit die Erde vum Weltraum aus; „Blue Marble“ (1972) vun Apollo 17 is nach wie vor eines der am häufigsten reproduzierten Fotos, die jemals aufgenommen wurden. Iwwer 6.000 bestätigte Exoplaneten liefern nun en Kontext dafür, wie ungewöhnlich en stabile Welt mit flüssigem Wasser un Leben in sich sein kann.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "hrk",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/earth/img-1.jpg",
+        "caption": "Most Amazing High Definition Image of Earth - Blue Marble 2012",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/earth/video-1.mp4",
+        "caption": "Earthrise after Orion Executes Outbound Powered Flyby",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/earth/audio-1.mp3",
+        "caption": "Chorus radio waves in Earth's magnetosphere — NASA",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "uranus",
+  "name": "Uranus",
+  "kind": "planet",
+  "tagline": "La planète latérale – une géante de glace roulant autour du Soleil sur le côté.",
+  "facts": [
+    {
+      "label": "Diamètre",
+      "value": "50 724 km"
+    },
+    {
+      "label": "Période orbitale",
+      "value": "84 ans"
+    },
+    {
+      "label": "Inclinaison axiale",
+      "value": "97,77°"
+    },
+    {
+      "label": "Lunes",
+      "value": "28"
+    },
+    {
+      "label": "Atmosphère la plus froide",
+      "value": "−224 °C"
+    },
+    {
+      "label": "Découverte",
+      "value": "1781 — William Herschel"
+    }
+  ],
+  "history": "Uranus a été la première planète découverte par télescope. William Herschel l'a repérée en 1781, doublant ainsi du jour au lendemain la taille connue du système solaire. Un impact ancien colossal a probablement fait tomber son axe à 97,77 degrés, de sorte qu'il tourne autour du Soleil en roulant sur le côté, chaque pôle recevant 42 ans de lumière solaire puis 42 ans d'obscurité. Son atmosphère de méthane lui donne une teinte cyan pâle et maintient la température planétaire la plus froide jamais mesurée. Voyager 2 reste le seul vaisseau spatial à visiter, survolé en 1986 ; un orbiteur dédié à Uranus est une priorité absolue de l’enquête décennale américaine sur les sciences planétaires.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/uranus/img-1.jpg",
+        "caption": "Hubble observe la planète Uranus",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

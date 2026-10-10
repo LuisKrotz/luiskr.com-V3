@@ -1,0 +1,51 @@
+{
+  "id": "neptune",
+  "name": "Netuno",
+  "kind": "planet",
+  "tagline": "O mundo mais ventoso — um gigante de gelo descoberto pela matemática antes dos telescópios.",
+  "facts": [
+    {
+      "label": "Diâmetro",
+      "value": "49.244 quilômetros"
+    },
+    {
+      "label": "Período orbital",
+      "value": "164,8 anos"
+    },
+    {
+      "label": "Ventos mais rápidos",
+      "value": "≈ 2.100 km/h"
+    },
+    {
+      "label": "Luas",
+      "value": "16"
+    },
+    {
+      "label": "Descobrimento",
+      "value": "1846 - previsto por Adams & Le Verrier"
+    },
+    {
+      "label": "Distância média",
+      "value": "4,5 bilhões de km (30 UA)"
+    }
+  ],
+  "history": "Netuno é o único planeta encontrado por cálculo: os astrônomos Adams e Le Verrier deduziram independentemente sua posição a partir de oscilações na órbita de Urano, e Johann Galle encontrou-o dentro de um grau da previsão em 1846 - um triunfo da física newtoniana. O sobrevoo da Voyager 2 em 1989 ainda é a única visita da humanidade; revelou ventos supersônicos de até 2.100 km/h — os mais rápidos do Sistema Solar — e grandes tempestades escuras que vêm e vão. Sua maior lua, Tritão, orbita para trás, evidência de que é um objeto capturado do Cinturão de Kuiper, e libera gêiseres de nitrogênio de uma superfície congelada a -235 °C.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "riv",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/neptune/img-1.jpg",
+        "caption": "PIA01492",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

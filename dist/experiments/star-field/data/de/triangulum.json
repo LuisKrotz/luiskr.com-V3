@@ -1,0 +1,51 @@
+{
+  "id": "triangulum",
+  "name": "Dreiecksgalaxie",
+  "kind": "galaxy",
+  "tagline": "Die ruhige dritte Spirale – das schüchterne Mitglied der Lokalen Gruppe, reich an Sternenkindergärten.",
+  "facts": [
+    {
+      "label": "Entfernung",
+      "value": "≈ 2,73 Millionen Lichtjahre"
+    },
+    {
+      "label": "Katalog",
+      "value": "M33"
+    },
+    {
+      "label": "Sterne",
+      "value": "≈ 40 Milliarden"
+    },
+    {
+      "label": "Durchmesser",
+      "value": "≈ 60.000 Lichtjahre"
+    },
+    {
+      "label": "Gruppenrang",
+      "value": "Drittgrößte Galaxie der Lokalen Gruppe"
+    },
+    {
+      "label": "Bemerkenswerte Region",
+      "value": "NGC 604 – riesiger Sternentstehungsnebel"
+    }
+  ],
+  "history": "Triangulum ist nach Andromeda und der Milchstraße die drittgrößte Galaxie in unserer Lokalen Gruppe und könnte ein Gravitationssatellit von Andromeda selbst sein. Unter dunklem Himmel befindet es sich am Rande der Sichtbarkeit mit bloßem Auge – das am weitesten entfernte Objekt, das manche Beobachter jemals sehen. Er ist kleiner und geordneter als seine riesigen Nachbarn und weist eine ungewöhnlich hohe Sternentstehungsrate auf: Seine H-II-Region NGC 604 ist mit über 1.500 Lichtjahren Durchmesser und ionisiert von Hunderten massereichen jungen Sternen eine der größten bekannten Sternentstehungszentren. Da es keine dominante zentrale Ausbuchtung gibt, ist es auch ein natürliches Labor zum Testen von Modellen der Dunklen Materie.",
+  "source": "NASA/ESA Hubble; NOIRLab",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": [
+      "NASA/ESA Hubble; NOIRLab"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/triangulum/img-1.jpg",
+        "caption": "M33: Ein enger Nachbar enthüllt seine wahre Größe und Pracht in einer 3-Farben-Komposition",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

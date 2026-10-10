@@ -1,0 +1,51 @@
+{
+  "id": "mercury",
+  "name": "Merkur",
+  "kind": "planet",
+  "tagline": "Der kleenste Planet un der Sonne am nächsten – en vun Kratern übersäte Welt voller Extreme.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "4.879 km"
+    },
+    {
+      "label": "Umlaufziet",
+      "value": "88 Daag"
+    },
+    {
+      "label": "Dagesläng",
+      "value": "59 Erdentage"
+    },
+    {
+      "label": "Temperatur",
+      "value": "−173 bis 427 °C"
+    },
+    {
+      "label": "Schwerkraft",
+      "value": "3,7 m/s²"
+    },
+    {
+      "label": "Moonde",
+      "value": "0"
+    }
+  ],
+  "history": "Merkur is der kleenste Planet im Sonnensystem un vollendet alle 88 Daag en Umlaufbahn – der schnellste aller Planeten, weshalb die Römer ihn nach ihrem schnellen Botengott benannten. Es is in en Spin-Bahn-Resonanz vun 3:2 gefaange un dreht sich bei jeweils zwei Umlaufbahnen genau dreimal. Seine mit Kratern übersäte Oberfläche zeichnet Milliarden vun Johre vun Einschlägen auf, un der NASA-Orbiter MESSENGER (2011–2015) fand Wassereis, das sich trotz Mittagstemperaturen vun 427 °C in dauerhaft beschatteten Polarkratern versteckte. Nur drei Raumsonden waren zu Besuch: Mariner 10 flog 1974–75 vorbei, MESSENGER umkreiste die Raumsonde vor em Jahrzehnt un die gemeinsame ESA/JAXA-Mission BepiColombo is auf dem Weg, 2026 in die Umlaufbahn zu gelangen.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "hrk",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mercury/img-1.jpg",
+        "caption": "Happy Little Crater on Mercury",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

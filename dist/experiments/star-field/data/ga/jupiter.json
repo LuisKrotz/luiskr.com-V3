@@ -1,0 +1,65 @@
+{
+  "id": "jupiter",
+  "name": "Iúpatair",
+  "kind": "planet",
+  "tagline": "An fathach - níos mó ollmhór ná gach pláinéad eile le chéile.",
+  "facts": [
+    {
+      "label": "Trastomhas",
+      "value": "139,820 km"
+    },
+    {
+      "label": "Tréimhse fithise",
+      "value": "11.9 bliain"
+    },
+    {
+      "label": "Fad an lae",
+      "value": "9.9 uair an chloig"
+    },
+    {
+      "label": "Gealacha",
+      "value": "95 (aitheanta)"
+    },
+    {
+      "label": "Spota Dearg Mór",
+      "value": "Stoirm a breathnaíodh ó 1831 i leith"
+    },
+    {
+      "label": "Mais",
+      "value": "318 × Domhan"
+    }
+  ],
+  "history": "Bunaíodh Iúpatar ar dtús i measc na bpláinéid agus mhúnlaigh a dhomhantarraingt gach rud ina dhiaidh sin - ag asteroids aoire, ag corraigh réaltnéal na gréine agus ag sileadh cóiméid isteach agus amach as an gcóras inmheánach. Ba léir ón bhfionnachtain 1610 a rinne Galileo Galilei ar cheithre ghealach a raibh ciorcal timpeall air nach raibh gach rud i bhfithis an Domhain; Tá na satailítí Galileanacha sin — Io, Europa, Ganymede, Callisto — fós ina bpríomhspriocanna domhanda aigéin, agus taiscéalaí JUICE ESA ar an mbealach go Ganymede. Is frithchioclón é an Spota Mór Dearg atá níos leithne ná an Domhan atá ragaithe leis na céadta bliain. Tá an aimsir dhomhain agus an taobh istigh de léarscáiliú ag Juno orbiter NASA ó 2016 i leith.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "ga",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/jupiter/img-1.jpg",
+        "caption": "Juno Over the South Pole Iúpatar (Léaráid)",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/jupiter/video-1.mp4",
+        "caption": "Laghdaíonn agus Fásann Spota Mór Dearg Iúpatar",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/jupiter/audio-1.ogg",
+        "caption": "Crosaire turrainge bogha Iúpatar — Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

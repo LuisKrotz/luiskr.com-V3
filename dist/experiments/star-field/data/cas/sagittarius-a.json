@@ -1,0 +1,66 @@
+{
+  "id": "sagittarius-a",
+  "name": "Sagittarius A*",
+  "kind": "blackHole",
+  "tagline": "El agujero negro supermasivo central de la Vía Láctea, un motor de 4,3 millones de masa solar que ancla toda la galaxia.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~26.673 años"
+    },
+    {
+      "label": "Masa",
+      "value": "~4,3 millones de millones☉"
+    },
+    {
+      "label": "Tipo",
+      "value": "Agujero negro supermasivo"
+    },
+    {
+      "label": "Horizonte de eventos",
+      "value": "~12 millones de kilómetros (R_s ~ 0,08 AU)"
+    },
+    {
+      "label": "Imagen",
+      "value": "Telescopio Horizonte de Sucesos, mayo de 2022"
+    },
+    {
+      "label": "evidencia",
+      "value": "Órbitas de la estrella S: S2 oscila a 7.650 km/s"
+    },
+    {
+      "label": "premio nobel",
+      "value": "Física 2020 — Genzel & Ghez"
+    },
+    {
+      "label": "Tamaño de la radio",
+      "value": "~52 µas ring: un donut visto desde hace 27.000 años"
+    }
+  ],
+  "history": "Sagitario A* se encuentra en el centro dinámico exacto de la Vía Láctea, en lo profundo del brazo de Sagitario. Los radioastrónomos lo identificaron en 1974 como una fuente compacta y variable no mayor que un sistema solar. Décadas de astrometría realizada por los equipos de Genzel y Ghez rastrearon las estrellas S girando alrededor de una masa invisible: la órbita de 16 años de S2 y su paso por el pericentro a 7.650 km/s hicieron que el agujero negro fuera incontrovertible, lo que le valió el Premio Nobel de 2020. En mayo de 2022, el Telescopio Horizonte de Sucesos publicó su silueta: un anillo de plasma sobrecalentado que brilla alrededor de la sombra, igualando la predicción de la relatividad general en un pequeño porcentaje. Aunque hoy están inactivas, las llamaradas en rayos X e infrarrojos delatan un flujo de acreción que parpadea a diario; Se sospecha que sus chorros reliquia inflaron las burbujas de Fermi, dos lóbulos de rayos gamma de 25.000 años luz que se elevan desde el disco.",
+  "source": "Event Horizon Telescope · ESO · Nobel Prize 2020",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "cas",
+    "refs": [
+      "Event Horizon Telescope Collaboration 2022",
+      "GRAVITY Collaboration S2 orbit",
+      "Nobel Prize in Physics 2020"
+    ]
+  },
+  "sections": [
+    {
+      "title": "La silueta EHT",
+      "body": "Ocho radiotelescopios sincronizados por relojes atómicos formaron un interferómetro del tamaño de la Tierra. La imagen de mayo de 2022 resolvió un anillo de 52 microarcosegundos (luz curvada en una órbita de fotones alrededor de la sombra) confirmando la masa en una región apenas más grande que la órbita de Mercurio."
+    },
+    {
+      "title": "El enjambre de estrellas S",
+      "body": "Docenas de estrellas jóvenes orbitan a semanas luz del horizonte. Sus elipses keplerianas fijan la masa en 4,3 millones de soles; La precesión relativista de la órbita de S2, medida en 2020, se hace visible mediante el arrastre de fotogramas."
+    },
+    {
+      "title": "Un gigante dormido",
+      "body": "Sgr A* acumula una cienmilésima parte de la tasa de Eddington: un susurro, no un rugido. Sin embargo, hace unos 300 años estalló con suficiente brillo como para que las nubes moleculares aún hicieran eco de la explosión, y las burbujas de Fermi registran un estallido hace millones de años."
+    }
+  ]
+}

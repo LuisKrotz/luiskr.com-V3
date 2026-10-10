@@ -1,0 +1,65 @@
+{
+  "id": "saturn",
+  "name": "Saturn",
+  "kind": "planet",
+  "tagline": "Der beringte Riese – sein Eishalo erstreckt sich iwwer 280.000 km un is dennoch meterdünn.",
+  "facts": [
+    {
+      "label": "Durchmesser",
+      "value": "116.460 km"
+    },
+    {
+      "label": "Umlaufziet",
+      "value": "29,4 Johre"
+    },
+    {
+      "label": "Moonde",
+      "value": "146+ (anerkannt)"
+    },
+    {
+      "label": "Ringspanne",
+      "value": "≈ 280.000 km breit, ~10 m–1 km dick"
+    },
+    {
+      "label": "Dichte",
+      "value": "0.687 g/cm³ – würde im Wasser schwimmen"
+    },
+    {
+      "label": "Greeschter Mond",
+      "value": "Titan"
+    }
+  ],
+  "history": "Galileo sah 1610 die Saturnringe, konnte sie awwer nicht auflösen – er nannte sie „Ohren“; Huygens identifizierte 1655 das Ringsystem un Cassini fand die Teilung, die seinen Namen trägt. Die Ringe bestehen aus unzähligen Partikeln aus nahezu reinem Wassereis, wahrscheinlich die Überreste eines zerschmetterten Mondes oder eines eingefangenen Kometen, un könnten geologisch jung sein. Der Cassini-Orbiter verbrachte dreizehn Johre im Saturnsystem (2004–2017), entdeckte Geysire auf Enceladus, die en unterirdischen Ozean in den Weltraum entlüften, un ließ die Huygens-Sonde auf Titan landen – die einzige Landung, die jemals im äußeren Sonnensystem durchgeführt wurde.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "hrk",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/saturn/img-1.jpg",
+        "caption": "The Edge of the Night",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/saturn/video-1.mp4",
+        "caption": "Cassini's Infrared Saturn (Short Version)",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/saturn/audio-1.wav",
+        "caption": "Saturn radio emissions — Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

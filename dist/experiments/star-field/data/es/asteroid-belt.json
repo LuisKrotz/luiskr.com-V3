@@ -1,0 +1,43 @@
+{
+  "id": "asteroid-belt",
+  "name": "Cinturón de Asteroides",
+  "kind": "belt",
+  "tagline": "Millones de restos rocosos entre Marte y Júpiter, el planeta que nunca se formó.",
+  "facts": [
+    {
+      "label": "Ubicación",
+      "value": "2,06–3,27 AU, entre Marte y Júpiter"
+    },
+    {
+      "label": "Miembros estimados",
+      "value": "1,1-1,9 millones de más de 1 km"
+    },
+    {
+      "label": "masa total",
+      "value": "~3% de la Luna: solo Ceres ocupa un tercio"
+    },
+    {
+      "label": "Miembros más grandes",
+      "value": "Ceres, Vesta, Palas, Higía"
+    },
+    {
+      "label": "Brechas de Kirkwood",
+      "value": "Carriles de resonancia despejados por la gravedad de Júpiter"
+    },
+    {
+      "label": "Composición",
+      "value": "Carbonoso tipo C, silicato tipo S, metálico tipo M"
+    }
+  ],
+  "history": "El cinturón de asteroides son los restos supervivientes del sistema solar primitivo: material que nunca se fusionó para formar un planeta porque la gravedad de Júpiter agitó la región con demasiada violencia. Giuseppe Piazzi encontró a su primer miembro, Ceres, en 1801 mientras buscaba el \"planeta perdido\" que predijo la ley de Titius-Bode; al cabo de seis años, le siguieron Palas, Juno y Vesta, revelando no un mundo sino un vasto anillo de escombros. Hoy en día se catalogan más de un millón de cuerpos de más de un kilómetro de longitud, pero todo el cinturón tiene una masa inferior al 3% de la Luna: en su mayor parte espacio vacío, y las naves espaciales vuelan a través de él de forma rutinaria sin un solo encuentro cercano. Las resonancias de Júpiter tallan los huecos de Kirkwood, visibles como carriles vacíos, y las colisiones entre miembros suministran la mayoría de los meteoritos que llegan a la Tierra. El orbitador Dawn de la NASA cartografió de cerca Vesta y Ceres entre 2011 y 2018, encontrando depósitos de sal y evidencia de que algunos asteroides alguna vez albergaron océanos bajo la superficie.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "NASA/JPL Solar System Exploration",
+      "IAU Minor Planet Center"
+    ]
+  }
+}

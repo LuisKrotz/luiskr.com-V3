@@ -1,0 +1,35 @@
+{
+  "id": "lgs-3",
+  "name": "LGS 3",
+  "kind": "dwarfGalaxy",
+  "tagline": "El enano de Piscis: un miembro del grupo local de transición a medio camino entre lo esferoidal y lo irregular.",
+  "facts": [
+    {
+      "label": "Distancia",
+      "value": "~2,6 millones al año"
+    },
+    {
+      "label": "Tipo",
+      "value": "dSph/dIrr de transición"
+    },
+    {
+      "label": "órbita",
+      "value": "Vinculado libremente a M31"
+    },
+    {
+      "label": "gasolina",
+      "value": "El rastro H I permanece"
+    }
+  ],
+  "history": "LGS 3 es la enana de transición del Grupo Local, clasificada entre esferoidal e irregular porque todavía contiene un rastro de gas y algunas estrellas jóvenes, pero parece un esferoidal moribundo en cualquier otro lugar. Orbita libremente cerca de Andrómeda y probablemente esté en un largo camino hacia ella: un caso intermedio que documenta exactamente cómo una galaxia pierde su gas y se apaga bajo la gravedad de un gigante.",
+  "source": "PAndAS · Thuan & Martin",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "es",
+    "refs": [
+      "Thuan & Martin 1979",
+      "PAndAS survey"
+    ]
+  }
+}

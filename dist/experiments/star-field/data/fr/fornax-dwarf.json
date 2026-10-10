@@ -1,0 +1,35 @@
+{
+  "id": "fornax-dwarf",
+  "name": "Nain Fornax",
+  "kind": "dwarfGalaxy",
+  "tagline": "Un sphéroïde satellite de la Voie lactée situé à 455 000 années-lumière – la seule naine classique encore à former des étoiles jusqu'à récemment.",
+  "facts": [
+    {
+      "label": "Distance",
+      "value": "~455 000 ly"
+    },
+    {
+      "label": "Type",
+      "value": "Sphéroïdal nain"
+    },
+    {
+      "label": "Globulaires",
+      "value": "6 à lui tout seul"
+    },
+    {
+      "label": "Formation d'étoiles",
+      "value": "Actif jusqu'à il y a environ 100 Myr"
+    }
+  ],
+  "history": "Fornax est le plus lumineux des sphéroïdaux nains classiques de la Voie lactée et le seul à avoir continué à former des étoiles presque jusqu'à nos jours – un indice qu'il est tombé dans le halo relativement récemment. Il possède six amas globulaires, dont l'un des plus anciens connus. Son histoire de formation d'étoiles en fait un laboratoire pour étudier la façon dont les galaxies naines évoluent sous les marées d'un hôte géant.",
+  "source": "ESO · Gaia",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": [
+      "ESO",
+      "Gaia Collaboration"
+    ]
+  }
+}

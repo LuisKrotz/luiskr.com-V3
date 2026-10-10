@@ -1,0 +1,58 @@
+{
+  "id": "mars",
+  "name": "Marte",
+  "kind": "planet",
+  "tagline": "Il pianeta rosso: sede del vulcano pi alto e del canyon pi profondo conosciuto.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "6.779 km"
+    },
+    {
+      "label": "Periodo orbital",
+      "value": "687 dì"
+    },
+    {
+      "label": "Durada del dì",
+      "value": "24,6 ore"
+    },
+    {
+      "label": "Łune",
+      "value": "2 (Phobos, Deimos)"
+    },
+    {
+      "label": "Vulcano pi alto",
+      "value": "Monte Olimpo — 21,9 km"
+    },
+    {
+      "label": "Gravità",
+      "value": "3,71 m/s²"
+    }
+  ],
+  "history": "Marte un tempo era pi caldo e umido: orbiter e rover hanno mappato antichi delta di fiumi, letti di laghi e vene minerali che solo l’acqua liquida poteva formare. Oggi el ze un deserto freddo co una sottile atmosfera di CO₂ e tempeste di polvere che circondano il pianeta. Il Viking 1 ottenne il primo atterraggio riuscito nel 1976; da allora una flotta di orbiter pi i rover Sojourner, Spirit, Opportunity, Curiosity e Perseverance hanno esplorato la sua superficie, e Perseverance sta memorizzando nella cache campioni par un ritorno pianificato. È il pianeta pi esplorato oltre la Terra e la destinazione dichiarata par le prime missioni interplanetarie co equipaggio.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "tln",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mars/img-1.jpg",
+        "caption": "Springtime on Mars: Hubble Best View of the Red Planet",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/mars/audio-1.ogg",
+        "caption": "Perseverance microphone — first sounds from Mars",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

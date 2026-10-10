@@ -1,0 +1,51 @@
+{
+  "id": "mercury",
+  "name": "Mercurio",
+  "kind": "planet",
+  "tagline": "Il pianeta più piccolo e il più vicino al Sole: un mondo pieno di crateri estremi.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "4.879 km"
+    },
+    {
+      "label": "Periodo orbitale",
+      "value": "88 giorni"
+    },
+    {
+      "label": "Durata del giorno",
+      "value": "59 giorni terrestri"
+    },
+    {
+      "label": "Temperatura",
+      "value": "Da −173 a 427 °C"
+    },
+    {
+      "label": "Gravità",
+      "value": "3,7 m/s²"
+    },
+    {
+      "label": "Lune",
+      "value": "0"
+    }
+  ],
+  "history": "Mercurio è il pianeta più piccolo del Sistema Solare e completa un'orbita ogni 88 giorni: il più veloce di qualsiasi pianeta, motivo per cui i romani lo chiamarono in onore del loro veloce dio messaggero. Bloccato in una risonanza spin-orbita 3:2, ruota esattamente tre volte ogni due orbite. La sua superficie craterizzata registra miliardi di anni di impatti e l'orbiter MESSENGER della NASA (2011–2015) ha trovato ghiaccio d'acqua nascosto in crateri polari permanentemente in ombra nonostante la temperatura mezzogiorno di 427 °C. Sono stati visitati solo tre veicoli spaziali: il Mariner 10 è volato nel 1974-75, il MESSENGER ha orbitato un decennio fa e la missione congiunta ESA/JAXA BepiColombo è in rotta per entrare in orbita nel 2026.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/mercury/img-1.jpg",
+        "caption": "Felice piccolo cratere su Mercurio",
+        "credit": "NASA"
+      }
+    ]
+  }
+}

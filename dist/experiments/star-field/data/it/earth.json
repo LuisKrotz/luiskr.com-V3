@@ -1,0 +1,65 @@
+{
+  "id": "earth",
+  "name": "Terra",
+  "kind": "planet",
+  "tagline": "L'unico mondo conosciuto che ospita la vita: un pianeta oceanico nella zona abitabile.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "12.742 km"
+    },
+    {
+      "label": "Periodo orbitale",
+      "value": "365,25 giorni"
+    },
+    {
+      "label": "Durata del giorno",
+      "value": "23,9 ore"
+    },
+    {
+      "label": "Acqua superficiale",
+      "value": "≈ 71% di copertura oceanica"
+    },
+    {
+      "label": "Lune",
+      "value": "1"
+    },
+    {
+      "label": "Età",
+      "value": "≈ 4,54 miliardi di anni"
+    }
+  ],
+  "history": "La Terra si è coalizzata dalla nebulosa solare circa 4,54 miliardi di anni fa e si è raffreddata in un mondo differenziato di crosta, mantello e nucleo di ferro. La vita è apparsa nei suoi oceani nel primo miliardo di anni e la fotosintesi ha successivamente ossigenato l’atmosfera, dando vita a complessi ecosistemi terrestri. La tettonica a placche – unica tra i pianeti rocciosi conosciuti – ricicla continuamente la superficie e regola il clima nel corso del tempo geologico. L’umanità osserva la Terra dallo spazio dal 1946; \"Blue Marble\" dell'Apollo 17 (1972) rimane una delle fotografie più riprodotte mai scattate. Oltre 6.000 esopianeti confermati ora forniscono il contesto per quanto insolito possa essere un mondo stabile, contenente acqua liquida e sede di vita.",
+  "source": "NASA/JPL Solar System Exploration",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "NASA/JPL Solar System Exploration"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/earth/img-1.jpg",
+        "caption": "L'immagine ad alta definizione più sorprendente della Terra - Marmo blu 2012",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/earth/video-1.mp4",
+        "caption": "Earthrise dopo che Orion esegue un flyby motorizzato in uscita",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/earth/audio-1.mp3",
+        "caption": "Onde radio chorus nella magnetosfera terrestre – NASA",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}

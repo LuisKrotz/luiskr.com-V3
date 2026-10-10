@@ -1,0 +1,65 @@
+{
+  "id": "saturn",
+  "name": "Saturno",
+  "kind": "planet",
+  "tagline": "Il gigante dagli anelli: il suo alone di ghiaccio si estende per 280.000 km ma è spesso pochi metri.",
+  "facts": [
+    {
+      "label": "Diametro",
+      "value": "116.460 km"
+    },
+    {
+      "label": "Periodo orbitale",
+      "value": "29,4 anni"
+    },
+    {
+      "label": "Lune",
+      "value": "146+ (riconosciuto)"
+    },
+    {
+      "label": "Portata dell'anello",
+      "value": "≈ 280.000 km di larghezza, ~ 10 m–1 km di spessore"
+    },
+    {
+      "label": "Densità",
+      "value": "0.687 g/cm³ — galleggerebbe nell'acqua"
+    },
+    {
+      "label": "Luna più grande",
+      "value": "Titano"
+    }
+  ],
+  "history": "Galileo vide gli anelli di Saturno nel 1610 ma non riuscì a risolverli: li chiamò \"orecchie\"; Huygens identificò il sistema di anelli nel 1655 e Cassini trovò la divisione che porta il suo nome. Gli anelli sono innumerevoli particelle di ghiaccio d’acqua quasi puro, probabilmente i resti di una luna distrutta o di una cometa catturata, e potrebbero essere geologicamente giovani. L’orbiter Cassini ha trascorso tredici anni nel sistema di Saturno (2004-2017), scoprendo geyser su Encelado che scaricano un oceano sotterraneo nello spazio e lanciando la sonda Huygens su Titano, l’unico atterraggio mai effettuato nel sistema solare esterno.",
+  "source": "NASA/JPL Solar System Exploration; ESA",
+  "meta": {
+    "acquired": "2026-10-09",
+    "translated": "2026-10-10",
+    "locale": "it",
+    "refs": [
+      "NASA/JPL Solar System Exploration; ESA"
+    ]
+  },
+  "media": {
+    "images": [
+      {
+        "src": "media/saturn/img-1.jpg",
+        "caption": "Il limite della notte",
+        "credit": "NASA"
+      }
+    ],
+    "videos": [
+      {
+        "src": "media/saturn/video-1.mp4",
+        "caption": "Saturno infrarosso di Cassini (versione breve)",
+        "credit": "NASA"
+      }
+    ],
+    "audio": [
+      {
+        "src": "media/saturn/audio-1.wav",
+        "caption": "Emissioni radio di Saturno - Cassini RPWS",
+        "credit": "NASA/JPL — via Wikimedia Commons"
+      }
+    ]
+  }
+}
