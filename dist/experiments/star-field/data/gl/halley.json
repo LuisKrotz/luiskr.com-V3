@@ -1,0 +1,40 @@
+{
+  "id": "halley",
+  "name": "Cometa Halley",
+  "kind": "dwarfPlanet",
+  "tagline": "O cometa máis famoso da historia — o primeiro co regreso predicho, de volta cada ~75 anos.",
+  "facts": [
+    {
+      "label": "Período orbital",
+      "value": "75,3 anos"
+    },
+    {
+      "label": "Órbita",
+      "value": "0,59–35,1 UA — retrógrada, inclinada 162,3°"
+    },
+    {
+      "label": "Excentricidade",
+      "value": "0,967"
+    },
+    {
+      "label": "Núcleo",
+      "value": "~15 × 8 km — albedo 0,04, máis escuro que o carbón"
+    },
+    {
+      "label": "Último perihelio",
+      "value": "febreiro de 1986"
+    },
+    {
+      "label": "Próximo perihelio",
+      "value": "xullo de 2061"
+    }
+  ],
+  "history": "O cometa Halley está documentado desde polo menos o 240 a. C. — aparece no Tapiz de Bayeux sobre a invasión de Inglaterra de 1066. En 1705, Edmond Halley aplicou a gravidade newtoniana aos avistamentos anteriores e predixo o regreso de 1758, a primeira proba de que os cometas son corpos do Sistema Solar e non agoiros. A aparición de 1986 enviou unha armada: a sonda Giotto da ESA pasou a 596 km do núcleo e atopou unha forma de cacahuete de xeo case negro exalando as famosas colas xemelgas. O seu próximo regreso é en xullo de 2061.",
+  "source": "NASA/JPL · ESA Giotto · JPL Horizons",
+  "meta": {
+    "acquired": "2026-10-10",
+    "translated": "2026-10-10",
+    "locale": "gl",
+    "refs": ["NASA/JPL · ESA Giotto · JPL Horizons"]
+  }
+}

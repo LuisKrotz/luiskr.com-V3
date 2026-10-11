@@ -1,0 +1,40 @@
+{
+  "id": "halley",
+  "name": "Halleyscher Komet",
+  "kind": "dwarfPlanet",
+  "tagline": "Der berühmteste Komet der Geschichte — der erste, dessen Rückkehr vorhergesagt wurde, alle ~75 Jahre wieder da.",
+  "facts": [
+    {
+      "label": "Umlaufzeit",
+      "value": "75,3 Jahre"
+    },
+    {
+      "label": "Bahn",
+      "value": "0,59–35,1 AE — rückläufig, geneigt um 162,3°"
+    },
+    {
+      "label": "Exzentrizität",
+      "value": "0,967"
+    },
+    {
+      "label": "Kern",
+      "value": "~15 × 8 km — Albedo 0,04, dunkler als Kohle"
+    },
+    {
+      "label": "Letztes Perihel",
+      "value": "Februar 1986"
+    },
+    {
+      "label": "Nächstes Perihel",
+      "value": "Juli 2061"
+    }
+  ],
+  "history": "Der Halleysche Komet ist seit mindestens 240 v. Chr. bezeugt — er erscheint auf dem Teppich von Bayeux über der Invasion Englands von 1066. 1705 wandte Edmond Halley die newtonsche Gravitation auf frühere Sichtungen an und sagte die Rückkehr von 1758 voraus — der erste Beweis, dass Kometen Körper des Sonnensystems sind und keine Omen. Die Erscheinung von 1986 schickte eine Flotte: ESAs Giotto flog bis auf 596 km an den Kern heran und fand eine erdnussförmige, fast pechschwarze Eismasse, die die berühmten Doppelschweife ausstieß. Die nächste Rückkehr ist im Juli 2061.",
+  "source": "NASA/JPL · ESA Giotto · JPL Horizons",
+  "meta": {
+    "acquired": "2026-10-10",
+    "translated": "2026-10-10",
+    "locale": "de",
+    "refs": ["NASA/JPL · ESA Giotto · JPL Horizons"]
+  }
+}

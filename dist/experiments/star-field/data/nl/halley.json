@@ -1,0 +1,40 @@
+{
+  "id": "halley",
+  "name": "Komeet van Halley",
+  "kind": "dwarfPlanet",
+  "tagline": "De beroemdste komeet uit de geschiedenis — de eerste waarvan de terugkeer werd voorspeld, elke ~75 jaar weer terug.",
+  "facts": [
+    {
+      "label": "Omlooptijd",
+      "value": "75,3 jaar"
+    },
+    {
+      "label": "Baan",
+      "value": "0,59–35,1 AE — retrograad, helling 162,3°"
+    },
+    {
+      "label": "Excentriciteit",
+      "value": "0,967"
+    },
+    {
+      "label": "Kern",
+      "value": "~15 × 8 km — albedo 0,04, donkerder dan kolen"
+    },
+    {
+      "label": "Laatste perihelium",
+      "value": "februari 1986"
+    },
+    {
+      "label": "Volgende perihelium",
+      "value": "juli 2061"
+    }
+  ],
+  "history": "De komeet van Halley is gedocumenteerd sinds ten minste 240 v.Chr. — ze staat op het Tapijt van Bayeux boven de invasie van Engeland in 1066. In 1705 paste Edmond Halley de newtoniaanse zwaartekracht toe op eerdere waarnemingen en voorspelde de terugkeer van 1758, het eerste bewijs dat kometen lichamen van het zonnestelsel zijn en geen voortekens. De verschijning van 1986 stuurde een armada — ESA's Giotto vloog tot 596 km van de kern en vond een pindavorm van bijna zuiver zwart ijs dat de beroemde dubbele staarten uitblies. De volgende terugkeer is juli 2061.",
+  "source": "NASA/JPL · ESA Giotto · JPL Horizons",
+  "meta": {
+    "acquired": "2026-10-10",
+    "translated": "2026-10-10",
+    "locale": "nl",
+    "refs": ["NASA/JPL · ESA Giotto · JPL Horizons"]
+  }
+}

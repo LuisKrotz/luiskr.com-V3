@@ -27,6 +27,46 @@
     {
       "label": "Age",
       "value": "≈ 4.54 billion years"
+    },
+    {
+      "label": "Mass",
+      "value": "5.97 × 10²⁴ kg"
+    },
+    {
+      "label": "Mean radius",
+      "value": "6,371 km"
+    },
+    {
+      "label": "Surface gravity",
+      "value": "9.8 m/s²"
+    },
+    {
+      "label": "Axial tilt",
+      "value": "23.44°"
+    },
+    {
+      "label": "Highest elevation",
+      "value": "Mount Everest — 8,849 m"
+    },
+    {
+      "label": "Lowest elevation",
+      "value": "Mariana Trench — −10,935 m"
+    },
+    {
+      "label": "Atmosphere",
+      "value": "78% N₂ · 21% O₂"
+    },
+    {
+      "label": "Mean temperature",
+      "value": "≈ 15 °C"
+    },
+    {
+      "label": "Escape velocity",
+      "value": "11.2 km/s"
+    },
+    {
+      "label": "Magnetic field",
+      "value": "25–65 µT at the surface"
     }
   ],
   "history": "Earth coalesced from the solar nebula about 4.54 billion years ago and cooled into a differentiated world of crust, mantle and iron core. Life appeared in its oceans within the first billion years and photosynthesis later oxygenated the atmosphere, enabling complex land ecosystems. Plate tectonics — unique among known rocky planets — continuously recycles the surface and regulates climate over geological time. Humanity has observed Earth from space since 1946; Apollo 17's 'Blue Marble' (1972) remains one of the most reproduced photographs ever taken. Over 6,000 confirmed exoplanets now provide context for just how unusual a stable, liquid-water, life-bearing world may be.",
@@ -58,8 +98,6 @@
     "acquired": "2026-10-09",
     "translated": "2026-10-09",
     "locale": "en",
-    "refs": [
-      "NASA/JPL Solar System Exploration"
-    ]
+    "refs": ["NASA/JPL Solar System Exploration"]
   }
 }

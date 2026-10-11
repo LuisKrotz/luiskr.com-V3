@@ -1,0 +1,40 @@
+{
+  "id": "halley",
+  "name": "Halley's Comet",
+  "kind": "dwarfPlanet",
+  "tagline": "The most famous comet in history — the first whose return was predicted, back every ~75 years.",
+  "facts": [
+    {
+      "label": "Orbital period",
+      "value": "75.3 years"
+    },
+    {
+      "label": "Orbit",
+      "value": "0.59–35.1 AU — retrograde, inclined 162.3°"
+    },
+    {
+      "label": "Eccentricity",
+      "value": "0.967"
+    },
+    {
+      "label": "Nucleus",
+      "value": "~15 × 8 km — albedo 0.04, darker than coal"
+    },
+    {
+      "label": "Last periapsis",
+      "value": "February 1986"
+    },
+    {
+      "label": "Next periapsis",
+      "value": "July 2061"
+    }
+  ],
+  "history": "Halley's Comet has been recorded since at least 240 BC — it appears in the Bayeux Tapestry over the 1066 invasion of England. In 1705 Edmond Halley applied Newtonian gravity to past sightings and predicted the 1758 return, the first proof that comets are Solar-System bodies, not omens. The 1986 apparition sent an armada — ESA's Giotto flew within 596 km of the nucleus and found a peanut of almost pure black ice venting the famous twin tails. Its next return is July 2061.",
+  "source": "NASA/JPL · ESA Giotto · JPL Horizons",
+  "meta": {
+    "acquired": "2026-10-10",
+    "translated": "2026-10-10",
+    "locale": "en",
+    "refs": ["NASA/JPL · ESA Giotto · JPL Horizons"]
+  }
+}

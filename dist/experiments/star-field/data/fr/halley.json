@@ -1,0 +1,40 @@
+{
+  "id": "halley",
+  "name": "Comète de Halley",
+  "kind": "dwarfPlanet",
+  "tagline": "La comète la plus célèbre de l'histoire — la première dont le retour fut prédit, de retour tous les ~75 ans.",
+  "facts": [
+    {
+      "label": "Période orbitale",
+      "value": "75,3 ans"
+    },
+    {
+      "label": "Orbite",
+      "value": "0,59–35,1 UA — rétrograde, inclinée de 162,3°"
+    },
+    {
+      "label": "Excentricité",
+      "value": "0,967"
+    },
+    {
+      "label": "Noyau",
+      "value": "~15 × 8 km — albédo 0,04, plus noir que le charbon"
+    },
+    {
+      "label": "Dernier périhélie",
+      "value": "février 1986"
+    },
+    {
+      "label": "Prochain périhélie",
+      "value": "juillet 2061"
+    }
+  ],
+  "history": "La comète de Halley est attestée depuis au moins 240 av. J.-C. — elle figure sur la Tapisserie de Bayeux au-dessus de l'invasion de l'Angleterre en 1066. En 1705, Edmond Halley appliqua la gravitation newtonienne aux observations passées et prédit le retour de 1758, première preuve que les comètes sont des corps du Système solaire et non des présages. L'apparition de 1986 dépêcha une armada : la sonde Giotto de l'ESA passa à 596 km du noyau et découvrit une cacahuète de glace presque noire exhalant les fameuses queues jumelles. Son prochain retour est prévu pour juillet 2061.",
+  "source": "NASA/JPL · ESA Giotto · JPL Horizons",
+  "meta": {
+    "acquired": "2026-10-10",
+    "translated": "2026-10-10",
+    "locale": "fr",
+    "refs": ["NASA/JPL · ESA Giotto · JPL Horizons"]
+  }
+}

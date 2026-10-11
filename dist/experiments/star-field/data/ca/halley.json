@@ -1,0 +1,40 @@
+{
+  "id": "halley",
+  "name": "Cometa Halley",
+  "kind": "dwarfPlanet",
+  "tagline": "El cometa més famós de la història — el primer del qual es va predir el retorn, de volta cada ~75 anys.",
+  "facts": [
+    {
+      "label": "Període orbital",
+      "value": "75,3 anys"
+    },
+    {
+      "label": "Òrbita",
+      "value": "0,59–35,1 UA — retrògrada, inclinada 162,3°"
+    },
+    {
+      "label": "Excentricitat",
+      "value": "0,967"
+    },
+    {
+      "label": "Nucli",
+      "value": "~15 × 8 km — albedo 0,04, més fosc que el carbó"
+    },
+    {
+      "label": "Últim periheli",
+      "value": "febrer de 1986"
+    },
+    {
+      "label": "Proper periheli",
+      "value": "juliol de 2061"
+    }
+  ],
+  "history": "El cometa Halley està documentat des de com a mínim el 240 aC — apareix al Tapís de Bayeux sobre la invasió d'Anglaterra de 1066. El 1705, Edmond Halley va aplicar la gravetat newtoniana als avistaments anteriors i va predir el retorn de 1758, la primera prova que els cometes són cossos del Sistema Solar i no auguris. L'aparició de 1986 va enviar una armada: la sonda Giotto de l'ESA va passar a 596 km del nucli i hi va trobar una forma de cacauet de gel gairebé negre que exhalava les famoses cues bessones. El seu proper retorn és el juliol de 2061.",
+  "source": "NASA/JPL · ESA Giotto · JPL Horizons",
+  "meta": {
+    "acquired": "2026-10-10",
+    "translated": "2026-10-10",
+    "locale": "ca",
+    "refs": ["NASA/JPL · ESA Giotto · JPL Horizons"]
+  }
+}
