@@ -40,6 +40,7 @@
   "scripts": {
     "dev": "vite",
     "dev:cms": "CMS_MOCK=1 vite",
+    "dev:cms-auth": "CMS_AUTH_HTTPS=1 vite",
     "dev:website": "yarn workspace @luiskr/website dev",
     "dev:cms-only": "yarn workspace @luiskr/cms dev",
     "dev:earth": "yarn workspace @luiskr/earth-playground dev",

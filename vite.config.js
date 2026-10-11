@@ -22,7 +22,8 @@ import { defineConfig, createLogger } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import { compression } from 'vite-plugin-compression2'
 import { fileURLToPath, URL } from 'node:url'
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
+import { execSync } from 'node:child_process'
 import { constants as zlibConstants } from 'node:zlib'
 import { minify as htmlMinify } from 'html-minifier-terser'
 import path from 'node:path'
@@ -253,6 +254,29 @@ export default defineConfig(({ command }) => {
   // (`null` leaves) mark deletes so the overlay can shadow base keys.
   // Never active in production builds (the serve gate makes a leaked
   // env impossible).
+  // Real-OAuth CMS dev over https — `yarn dev:cms-auth` (CMS_AUTH_HTTPS=1).
+  // The Firebase auth helper relays the OAuth event through the
+  // `/__/auth/iframe` document's web storage — first-party only when the
+  // iframe shares the app origin. The SDK hardcodes https for authDomain
+  // URLs, so the dev server must speak https and proxy `/__/auth/*` (plus
+  // the `/__/firebase/*` config helpers) to the project's firebaseapp.com
+  // helper. Paired with the dynamic authDomain in core/firebase.ts, this
+  // makes real Google sign-in survive third-party storage partitioning.
+  const cmsAuthHttps = command === 'serve' && !!process.env.CMS_AUTH_HTTPS
+  const cmsAuthHttpsDir = fileURLToPath(new URL('./cms/dev/https', import.meta.url))
+  const cmsAuthHttpsKey = path.join(cmsAuthHttpsDir, 'localhost-key.pem')
+  const cmsAuthHttpsCert = path.join(cmsAuthHttpsDir, 'localhost.pem')
+
+  if (cmsAuthHttps && !existsSync(cmsAuthHttpsCert)) {
+    mkdirSync(cmsAuthHttpsDir, { recursive: true })
+    execSync(
+      'openssl req -x509 -newkey rsa:2048 -nodes ' +
+        `-keyout "${cmsAuthHttpsKey}" -out "${cmsAuthHttpsCert}" -days 3650 ` +
+        '-subj /CN=localhost -addext subjectAltName=DNS:localhost,IP:127.0.0.1',
+      { stdio: 'ignore' }
+    )
+  }
+
   const cmsMock = command === 'serve' && !!process.env.CMS_MOCK
   const cmsMockBaseFile = fileURLToPath(new URL('./public/database.json', import.meta.url))
 
@@ -566,6 +590,26 @@ export default defineConfig(({ command }) => {
   return {
     customLogger,
     plugins,
+    server: cmsAuthHttps
+      ? {
+          https: {
+            key: readFileSync(cmsAuthHttpsKey),
+            cert: readFileSync(cmsAuthHttpsCert),
+          },
+          proxy: {
+            '/__/auth': {
+              target: 'https://luiskr-com.firebaseapp.com',
+              changeOrigin: true,
+              secure: true,
+            },
+            '/__/firebase': {
+              target: 'https://luiskr-com.firebaseapp.com',
+              changeOrigin: true,
+              secure: true,
+            },
+          },
+        }
+      : undefined,
     esbuild: { ...SHARED_ESBUILD },
     optimizeDeps: {
       noDiscovery: true,
