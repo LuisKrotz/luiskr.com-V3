@@ -87,9 +87,10 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - `shared/tests/governance/axe-scan.test.js` runs axe-core (WCAG A/AA/AAA rule tags) on real mounted surfaces — violations of moderate impact or higher fail the suite; `shared/tests/governance/contrast-aaa.test.js` enforces computed WCAG AAA contrast ratios on the compiled token sheet (7:1 text / 3:1 UI) since happy-dom cannot measure paint contrast.
 
 14. **Verification Pipeline (commit → push → build)**:
-    - `pre-commit` stays fast: Prettier writes/re-stages changed files, then `yarn typecheck` blocks TypeScript errors.
-    - `pre-push` runs `yarn test` in parallel without coverage instrumentation.
-    - `yarn verify` is the complete prebuild gate: format check → console-scan → typecheck → eslint/stylelint → Jest with coverage (incl. axe scan) → per-file coverage gate → security scan. A failure prevents new `dist` output.
+    - Every module is its own repository with its own hooks — `yarn hooks:install` propagates the versioned hooks into each submodule. Commit/push **inside a module** runs only that module's gates (`tsc`, eslint, stylelint, jest + governance) and stamps `<module>/reports/gate-result.json`.
+    - `pre-commit` stays fast: Prettier writes/re-stages changed files, then a scoped `tsc` — a module's own tsconfig inside a submodule, or `scope-gates.mjs areas --staged` at the root.
+    - Root `pre-push` diffs the push range; bare gitlink bumps map to `link:<path>` entries that **validate the module's stored result** (sha must match the recorded gitlink) instead of re-running suites. Missing/stale stamps fall back to the full gate set — never skipped silently.
+    - `yarn verify` is the complete prebuild gate: format check → console-scan → typecheck → eslint/stylelint → `links` stored-result validation (module suites run with coverage only when a stamp or coverage summary is absent) → per-file coverage gate → security scan. A failure prevents new `dist` output.
     - Lighthouse runs only after a successful build when explicitly requested with `yarn build --verify-lighthouse`; ordinary builds do not run Lighthouse.
     - Test coverage must be **100% on every file** for statements, branches, functions, and lines — per-module `jest.config.mjs` (shared preset) + `shared/scripts/verify/coverage-gate.mjs` per-file enforcement.
     - All scan reports land in `reports/` → bundled into `dist/deploy-info/` by `shared/scripts/build/deploy-info.mjs` → shown in the CMS "Deploy Info" tab.
