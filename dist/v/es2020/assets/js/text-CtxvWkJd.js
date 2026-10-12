@@ -1,0 +1,2 @@
+Object.freeze({Ln:"Selected work",Pn:"Contact",In:"Related",zn:"About",Oq:"About Me",Tq:"Get in Touch",oq:"Some mentions"});var Np=Object.freeze({LOADING:"Loading",Sq:"Logout",XM:"Instructions"}),ir=Object.freeze({uc:"\u2022",cr:"KB/s",hr:"ms",br:"MB",pr:"\u2014"});export{ir as n,Np as t};
+//# sourceMappingURL=text-CtxvWkJd.js.map

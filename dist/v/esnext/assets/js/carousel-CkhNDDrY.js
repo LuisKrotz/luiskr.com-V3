@@ -1,0 +1,2 @@
+var Pi=Object.freeze({Pd:"--carousel-item-height",jd:"--carousel-media-height",rd:"--carousel-landscape-media-height",od:"--carousel-landscape-media-width",KG:"--range-pct"});export{Pi as t};
+//# sourceMappingURL=carousel-CkhNDDrY.js.map

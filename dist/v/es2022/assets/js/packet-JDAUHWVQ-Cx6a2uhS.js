@@ -1,0 +1,1 @@
+import"./chunk-NGNAAXSQ-BoM825op.js";import{n as DG,t as OG}from"./chunk-OD3NTWWA-B1ODqfZQ.js";export{DG as createPacketServices};

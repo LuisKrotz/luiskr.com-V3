@@ -1,0 +1,2 @@
+import{p as T_}from"./src-0KTzdiNC.js";import{n as P_}from"./chunk-Y2CYZVJY-NgePCAil.js";import{x as Ch}from"./chunk-O7XYJQB3-B1JkfA2F.js";var mw=P_(o=>{const{securityLevel:r}=Ch();let s=T_("body");if("sandbox"===r){var t,e;const r=null!==(t=null===(e=T_(`#i${o}`).node())||void 0===e?void 0:e.contentDocument)&&void 0!==t?t:document;s=T_(r.body)}return s.select(`#${o}`)},"selectSvgElement");export{mw as t};
+//# sourceMappingURL=chunk-6AEJRKK7-B3sxWP2k.js.map

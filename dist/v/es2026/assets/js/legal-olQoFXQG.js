@@ -1,0 +1,2 @@
+var zo,Wi;import{wt as eaa}from"./urls-Blcfuovr.js";zo=Object.freeze({sr:"legal"}),Wi=Object.freeze({Cn:eaa,if:`${eaa}-title`,nf:`${eaa}-subtitle`,ef:`${eaa}-link`});export{Wi as n,zo as t};
+//# sourceMappingURL=legal-olQoFXQG.js.map

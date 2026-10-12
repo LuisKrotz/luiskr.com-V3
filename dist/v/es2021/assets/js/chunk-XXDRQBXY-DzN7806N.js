@@ -1,0 +1,2 @@
+import{p as T_}from"./src-DreNatsp.js";import{n as P_}from"./chunk-Y2CYZVJY-CnSeFpXz.js";var zk=P_((r,a)=>{let o;return"sandbox"===a&&(o=T_("#i"+r)),T_("sandbox"===a?o.nodes()[0].contentDocument.body:"body").select(`[id="${r}"]`)},"getDiagramElement");export{zk as t};
+//# sourceMappingURL=chunk-XXDRQBXY-DzN7806N.js.map

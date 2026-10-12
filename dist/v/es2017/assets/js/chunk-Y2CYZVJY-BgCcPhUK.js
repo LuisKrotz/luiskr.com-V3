@@ -1,2 +1,0 @@
-var Mce=Object.defineProperty,Ny=(e,a)=>Mce(e,"name",{value:a,configurable:!0}),tI=(e,a)=>{for(var r in a)Mce(e,r,{get:a[r],enumerable:!0})};export{Ny as n,tI as t};
-//# sourceMappingURL=chunk-Y2CYZVJY-BgCcPhUK.js.map

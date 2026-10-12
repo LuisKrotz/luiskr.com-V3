@@ -1,2 +1,0 @@
-var ro,Ki;import{Ft as Nee}from"./store-CMgzNH6m.js";ro=Object.freeze({fm:"legal"}),Ki=Object.freeze({On:Nee,om:`${Nee}-title`,nm:`${Nee}-subtitle`,im:`${Nee}-link`});export{Ki as n,ro as t};
-//# sourceMappingURL=legal-DcFRSr45.js.map

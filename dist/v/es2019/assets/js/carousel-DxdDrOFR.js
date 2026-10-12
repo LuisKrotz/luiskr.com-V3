@@ -1,0 +1,2 @@
+var Br=Object.freeze({Bd:"--carousel-item-height",jd:"--carousel-media-height",rd:"--carousel-landscape-media-height",od:"--carousel-landscape-media-width",XG:"--range-pct"});export{Br as t};
+//# sourceMappingURL=carousel-DxdDrOFR.js.map

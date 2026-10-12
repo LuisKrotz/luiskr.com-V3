@@ -1,0 +1,2 @@
+var Gpe=Object.defineProperty,wp=(e,a)=>Gpe(e,"name",{value:a,configurable:!0}),xI=(e,a)=>{for(var r in a)Gpe(e,r,{get:a[r],enumerable:!0})};export{wp as n,xI as t};
+//# sourceMappingURL=chunk-Y2CYZVJY-D8uldziC.js.map
