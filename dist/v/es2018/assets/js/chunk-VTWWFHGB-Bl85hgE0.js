@@ -1,2 +1,0 @@
-function GG(a=xwe){const e=hue(yue(a),a_e),r=hue(due({shared:e}),m_e,WG);return e.ServiceRegistry.register(r),{shared:e,Radar:r}}var xh,raa,WG;import{C as yue,S as due,i as A_e,o as xwe,p as m_e,t as w_e,u as a_e,w as hue,x as wp}from"./chunk-NGNAAXSQ-BhzB5vqj.js";wp(xh=class extends w_e{constructor(){super(["radar-beta"])}},"RadarTokenBuilder"),raa=xh,WG={parser:{TokenBuilder:wp(()=>new raa,"TokenBuilder"),ValueConverter:wp(()=>new A_e,"ValueConverter")}},wp(GG,"createRadarServices");export{GG as n,WG as t};
-//# sourceMappingURL=chunk-VTWWFHGB-Bl85hgE0.js.map

@@ -1,2 +1,0 @@
-var hr,No;import{Ft as Ate}from"./store-d7wLz54j.js";hr=Object.freeze({zm:"legal"}),No=Object.freeze({Na:Ate,gm:`${Ate}-title`,xm:`${Ate}-subtitle`,um:`${Ate}-link`});export{No as n,hr as t};
-//# sourceMappingURL=legal-CpJwhYFp.js.map

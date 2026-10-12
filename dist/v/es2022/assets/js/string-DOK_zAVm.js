@@ -1,0 +1,2 @@
+var ua,ha,Bi;import{w as Qt,y as en}from"./store-ChCAxchs.js";ua=t=>{if(!t||typeof t!==Qt.mn)return en.EMPTY;let g,r=t;do{g=r,r=r.replace(/<[^>]*>/g,en.EMPTY)}while(r!==g);return r},ha=t=>t&&typeof t===Qt.mn?t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"):en.EMPTY,Bi=t=>t&&typeof t===Qt.mn?t.toLowerCase().replace(/[^\w\s-]/g,en.EMPTY).trim().replace(/[\s_]+/g,"-").replace(/--+/g,"-"):en.EMPTY;export{Bi as n,ua as r,ha as t};
+//# sourceMappingURL=string-DOK_zAVm.js.map

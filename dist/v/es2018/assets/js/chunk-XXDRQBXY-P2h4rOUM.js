@@ -1,0 +1,2 @@
+import{p as wp}from"./src-BzZkqwZ8.js";import{n as Ep}from"./chunk-Y2CYZVJY-DZ64WWTL.js";var Jb=Ep((r,a)=>{let o;return"sandbox"===a&&(o=wp("#i"+r)),wp("sandbox"===a?o.nodes()[0].contentDocument.body:"body").select(`[id="${r}"]`)},"getDiagramElement");export{Jb as t};
+//# sourceMappingURL=chunk-XXDRQBXY-P2h4rOUM.js.map

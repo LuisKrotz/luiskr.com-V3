@@ -1,0 +1,2 @@
+var Zr,no;import{Ft as Ate}from"./store-BiPyoKoy.js";Zr=Object.freeze({zm:"legal"}),no=Object.freeze({$n:Ate,gm:`${Ate}-title`,xm:`${Ate}-subtitle`,pm:`${Ate}-link`});export{no as n,Zr as t};
+//# sourceMappingURL=legal-DWuEdtm5.js.map

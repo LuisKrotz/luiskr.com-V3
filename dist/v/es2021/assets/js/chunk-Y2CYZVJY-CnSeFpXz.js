@@ -1,2 +1,0 @@
-var jpe=Object.defineProperty,P_=(e,a)=>jpe(e,"name",{value:a,configurable:!0}),xI=(e,a)=>{for(var r in a)jpe(e,r,{get:a[r],enumerable:!0})};export{P_ as n,xI as t};
-//# sourceMappingURL=chunk-Y2CYZVJY-CnSeFpXz.js.map

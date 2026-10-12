@@ -1,0 +1,2 @@
+function lP(o,n){o.accDescr&&n.setAccDescription?.(o.accDescr),o.accTitle&&n.setAccTitle?.(o.accTitle),o.title&&n.setDiagramTitle?.(o.title)}import{n as T_}from"./chunk-Y2CYZVJY-PGOxzUSr.js";T_(lP,"populateCommonDb");export{lP as t};
+//# sourceMappingURL=chunk-JWPE2WC7-BVeASfMd.js.map

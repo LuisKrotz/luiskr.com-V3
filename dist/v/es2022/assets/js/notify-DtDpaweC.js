@@ -1,0 +1,2 @@
+var Qn,Zee;import{B as lt}from"./store-ChCAxchs.js";Qn=Object.freeze({ERROR:lt.ERROR,Nr:"info",Eq:"success"}),Zee=Object.freeze({fz:5e3,bz:4,Aq:2500,Dq:64});export{Qn as n,Zee as t};
+//# sourceMappingURL=notify-DtDpaweC.js.map

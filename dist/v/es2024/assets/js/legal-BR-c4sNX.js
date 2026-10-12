@@ -1,0 +1,2 @@
+var no,Xi;import{Ft as Rte}from"./store-BJtjV6uv.js";no=Object.freeze({zm:"legal"}),Xi=Object.freeze({Nn:Rte,gm:`${Rte}-title`,xm:`${Rte}-subtitle`,um:`${Rte}-link`});export{Xi as n,no as t};
+//# sourceMappingURL=legal-BR-c4sNX.js.map

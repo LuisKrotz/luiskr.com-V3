@@ -1,2 +1,0 @@
-import{p as T_}from"./src-0KTzdiNC.js";import{n as P_}from"./chunk-Y2CYZVJY-NgePCAil.js";var ek=P_((r,a)=>{let o;return"sandbox"===a&&(o=T_("#i"+r)),T_("sandbox"===a?o.nodes()[0].contentDocument.body:"body").select(`[id="${r}"]`)},"getDiagramElement");export{ek as t};
-//# sourceMappingURL=chunk-XXDRQBXY-3LVqd9wv.js.map

@@ -1,0 +1,2 @@
+function DG(e=Mwe){const a=Cue(Eue(e),y_e),r=Cue(wue({shared:a}),R_e,OG);return a.ServiceRegistry.register(r),{shared:a,Packet:r}}var mh,aBe,OG;import{C as Eue,S as wue,d as R_e,i as __e,o as Mwe,t as P_e,u as y_e,w as Cue,x as P_}from"./chunk-NGNAAXSQ-BpsYUJbm.js";P_(mh=class extends P_e{constructor(){super(["packet"])}},"PacketTokenBuilder"),aBe=mh,OG={parser:{TokenBuilder:P_(()=>new aBe,"TokenBuilder"),ValueConverter:P_(()=>new __e,"ValueConverter")}},P_(DG,"createPacketServices");export{DG as n,OG as t};
+//# sourceMappingURL=chunk-OD3NTWWA-Cey-aYTG.js.map

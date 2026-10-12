@@ -1,0 +1,2 @@
+var zpe=Object.defineProperty,Ep=(e,a)=>zpe(e,"name",{value:a,configurable:!0}),xI=(e,a)=>{for(var r in a)zpe(e,r,{get:a[r],enumerable:!0})};export{Ep as n,xI as t};
+//# sourceMappingURL=chunk-Y2CYZVJY-DZ64WWTL.js.map

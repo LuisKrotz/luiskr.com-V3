@@ -1,0 +1,2 @@
+var Ja,Zee;import{B as lt}from"./store-BJtjV6uv.js";Ja=Object.freeze({ERROR:lt.ERROR,Nr:"info",Eq:"success"}),Zee=Object.freeze({fz:5e3,bz:4,Aq:2500,Dq:64});export{Ja as n,Zee as t};
+//# sourceMappingURL=notify-DBG_pyd8.js.map

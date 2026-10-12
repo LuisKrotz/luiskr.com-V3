@@ -1,0 +1,2 @@
+function GG(a=Mwe){const e=Cue(Eue(a),y_e),r=Cue(wue({shared:e}),A_e,WG);return e.ServiceRegistry.register(r),{shared:e,Radar:r}}var mh,raa,WG;import{C as Eue,S as wue,i as __e,o as Mwe,p as A_e,t as P_e,u as y_e,w as Cue,x as P_}from"./chunk-NGNAAXSQ-BpsYUJbm.js";P_(mh=class extends P_e{constructor(){super(["radar-beta"])}},"RadarTokenBuilder"),raa=mh,WG={parser:{TokenBuilder:P_(()=>new raa,"TokenBuilder"),ValueConverter:P_(()=>new __e,"ValueConverter")}},P_(GG,"createRadarServices");export{GG as n,WG as t};
+//# sourceMappingURL=chunk-VTWWFHGB-DPKjCobt.js.map
