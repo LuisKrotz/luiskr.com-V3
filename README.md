@@ -10,13 +10,29 @@ A detailed per-platform setup guide (Debian, RHEL, macOS/Apple Silicon,
 Windows/ARM64) is in [`shared/docs/guides/setup.md`](shared/docs/guides/setup.md).
 
 The repo is organized as git submodules, each in its own repository with
-its own history: `shared/` (app shell + tooling), `core/`, `website/`, `cms/`,
-`experiments/docs`, and `experiments/earth-playground`. The superproject
-orchestrates them as yarn workspaces — every module also builds, tests, and
-runs standalone from its own folder. `shared/local-modules/` holds
-security-hardened dependency replacements, and
-`node shared/scripts/scaffold/new-experiment.mjs <name>` scaffolds a new
-experiment that self-registers for tests and coverage.
+its own history. The superproject orchestrates them as yarn workspaces —
+every module also builds, tests, and runs standalone from its own folder.
+`shared/local-modules/` holds security-hardened dependency replacements,
+and `node shared/scripts/scaffold/new-experiment.mjs <name>` scaffolds a
+new experiment that self-registers for tests and coverage.
+
+## The modules
+
+| Module                         | What it is                                                                                                                                    | Read                                                                               |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `shared/`                      | **The operation** — app shell (`<app-root>`), workspace orchestrator, build matrix (es2016→esnext), verify/test/docs pipelines, vendored deps | [`shared/README.md`](shared/README.md)                                             |
+| `core/`                        | **The platform** — JSX runtime, component base, store, router, tokens, i18n, WebGL widgets, WASM pool                                         | [`core/README.md`](core/README.md)                                                 |
+| `website/`                     | **The public site** — home/project/legal/404 views + every component (nav, dialogs, mosaic, media, carousels, effects)                        | [`website/README.md`](website/README.md)                                           |
+| `cms/`                         | **The admin** — Firebase-backed editors for every content node, localhost media converter, deploy-info viewer                                 | [`cms/README.md`](cms/README.md)                                                   |
+| `experiments/docs`             | **The docs portal** — `<view-docs>`: browsable docs/reports/coverage/source through a lazy manifest                                           | [`experiments/docs/README.md`](experiments/docs/README.md)                         |
+| `experiments/earth-playground` | **Earth Playground** — WebGPU Earth with atmosphere, moon, post chain, live control panel                                                     | [`experiments/earth-playground/README.md`](experiments/earth-playground/README.md) |
+| `experiments/star-field`       | **Star Field** — the voyage from the Solar System to the observable universe: 134 bodies + 139k-record catalog                                | [`experiments/star-field/README.md`](experiments/star-field/README.md)             |
+| `desktop/`                     | Electron shell — opens the built site in a desktop window; per-OS installers                                                                  | [`desktop/README.md`](desktop/README.md)                                           |
+
+Curated architecture, routing, i18n, CMS, styling, build and testing guides
+live in [`shared/docs/`](shared/docs/README.md); generated per-file API
+documentation is produced by `shared/scripts/docs/gen-docs.mjs` into
+`shared/docs/api/` and browsed through the docs portal.
 
 Quick start:
 
