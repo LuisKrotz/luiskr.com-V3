@@ -1,0 +1,2 @@
+var Ji,ore;import{B as lt}from"./store-Bqq-WLq1.js";Ji=Object.freeze({ERROR:lt.ERROR,Oo:"info",Aq:"success"}),ore=Object.freeze({vz:5e3,xz:4,Dq:2500,_q:64});export{Ji as n,ore as t};
+//# sourceMappingURL=notify-BT4j12OT.js.map

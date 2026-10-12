@@ -1,2 +1,0 @@
-var mh,MV;import{n as P_}from"./chunk-Y2CYZVJY-Cj5xm-rc.js";P_(mh=class{constructor(t){this.init=t,this.records=this.init()}reset(){this.records=this.init()}},"ImperativeState"),MV=mh;export{MV as t};
-//# sourceMappingURL=chunk-2Q5K7J3B-KwXlbYOA.js.map

@@ -1,0 +1,2 @@
+var bNe=Object.defineProperty,T_=(e,a)=>bNe(e,"name",{value:a,configurable:!0}),xI=(e,a)=>{for(var r in a)bNe(e,r,{get:a[r],enumerable:!0})};export{T_ as n,xI as t};
+//# sourceMappingURL=chunk-Y2CYZVJY-CgqlC9NC.js.map

@@ -1,2 +1,0 @@
-var no,Xi;import{Ft as Rte}from"./store-DOLjXTBp.js";no=Object.freeze({zm:"legal"}),Xi=Object.freeze({Cn:Rte,gm:`${Rte}-title`,xm:`${Rte}-subtitle`,um:`${Rte}-link`});export{Xi as n,no as t};
-//# sourceMappingURL=legal-CnumYbgu.js.map

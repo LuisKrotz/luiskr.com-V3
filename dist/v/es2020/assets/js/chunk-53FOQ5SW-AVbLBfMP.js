@@ -1,2 +1,0 @@
-function oQ(e=xwe){const r=hue(yue(e),a_e),a=hue(due({shared:r}),v_e,rQ);return r.ServiceRegistry.register(a),{shared:r,Wardley:a}}var uh,eLe,rQ;import{C as yue,S as due,b as v_e,n as b_e,o as xwe,u as a_e,w as hue,x as P_}from"./chunk-NGNAAXSQ-BMH3OsMU.js";P_(uh=class extends b_e{runCustomConverter(e,r,a){if("LINK_LABEL"===e.name.toUpperCase())return r.substring(1).trim()}},"WardleyValueConverter"),eLe=uh,rQ={parser:{ValueConverter:P_(()=>new eLe,"ValueConverter")}},P_(oQ,"createWardleyServices");export{oQ as n,rQ as t};
-//# sourceMappingURL=chunk-53FOQ5SW-AVbLBfMP.js.map

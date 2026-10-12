@@ -1,0 +1,2 @@
+var pn,fn,Tr;import{w as Jt,y as ei}from"./store-DarPSUk1.js";pn=t=>{if(!t||typeof t!==Jt.li)return ei.EMPTY;let g,r=t;do{g=r,r=r.replace(/<[^>]*>/g,ei.EMPTY)}while(r!==g);return r},fn=t=>t&&typeof t===Jt.li?t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"):ei.EMPTY,Tr=t=>t&&typeof t===Jt.li?t.toLowerCase().replace(/[^\w\s-]/g,ei.EMPTY).trim().replace(/[\s_]+/g,"-").replace(/--+/g,"-"):ei.EMPTY;export{Tr as n,pn as r,fn as t};
+//# sourceMappingURL=string-0a8yd6HH.js.map

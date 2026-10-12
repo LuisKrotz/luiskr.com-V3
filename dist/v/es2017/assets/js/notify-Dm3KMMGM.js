@@ -1,2 +1,0 @@
-var Ji,ore;import{B as lt}from"./store-DwxjrSs5.js";Ji=Object.freeze({ERROR:lt.ERROR,Oo:"info",zX:"success"}),ore=Object.freeze({jz:5e3,Iz:4,JX:2500,QX:64});export{Ji as n,ore as t};
-//# sourceMappingURL=notify-Dm3KMMGM.js.map

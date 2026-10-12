@@ -1,0 +1,2 @@
+var Zi=Object.freeze({Pd:"--carousel-item-height",jd:"--carousel-media-height",rd:"--carousel-landscape-media-height",od:"--carousel-landscape-media-width",oz:"--range-pct"});export{Zi as t};
+//# sourceMappingURL=carousel-B2eyS6LV.js.map

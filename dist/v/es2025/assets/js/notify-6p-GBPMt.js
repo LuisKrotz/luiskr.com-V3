@@ -1,2 +1,0 @@
-var Ja,Zee;import{B as lt}from"./store-CNIA1N3O.js";Ja=Object.freeze({ERROR:lt.ERROR,No:"info",Eq:"success"}),Zee=Object.freeze({fz:5e3,bz:4,Aq:2500,Dq:64});export{Ja as n,Zee as t};
-//# sourceMappingURL=notify-6p-GBPMt.js.map

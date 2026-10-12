@@ -1,2 +1,0 @@
-var Yi=Object.freeze({Pd:"--carousel-item-height",jd:"--carousel-media-height",rd:"--carousel-landscape-media-height",od:"--carousel-landscape-media-width",KG:"--range-pct"});export{Yi as t};
-//# sourceMappingURL=carousel-DHE3Eaml.js.map

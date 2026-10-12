@@ -1,0 +1,2 @@
+var Ja,ore;import{S as bt}from"./urls-B9DfX0-R.js";Ja=Object.freeze({ERROR:bt.ERROR,No:"info",XJ:"success"}),ore=Object.freeze({Qz:5e3,Vz:4,VJ:2500,qJ:64});export{Ja as n,ore as t};
+//# sourceMappingURL=notify-BustxpNW.js.map

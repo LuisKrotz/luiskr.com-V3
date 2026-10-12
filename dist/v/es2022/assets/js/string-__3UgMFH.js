@@ -1,0 +1,2 @@
+var ua,ha,Vi;import{w as Qt,y as en}from"./store-BVSs7kL4.js";ua=t=>{if(!t||typeof t!==Qt.mn)return en.EMPTY;let g,r=t;do{g=r,r=r.replace(/<[^>]*>/g,en.EMPTY)}while(r!==g);return r},ha=t=>t&&typeof t===Qt.mn?t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"):en.EMPTY,Vi=t=>t&&typeof t===Qt.mn?t.toLowerCase().replace(/[^\w\s-]/g,en.EMPTY).trim().replace(/[\s_]+/g,"-").replace(/--+/g,"-"):en.EMPTY;export{Vi as n,ua as r,ha as t};
+//# sourceMappingURL=string-__3UgMFH.js.map

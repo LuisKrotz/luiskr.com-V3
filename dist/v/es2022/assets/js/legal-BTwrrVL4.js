@@ -1,2 +1,0 @@
-var hr,No;import{Ft as Rte}from"./store-ChCAxchs.js";hr=Object.freeze({zm:"legal"}),No=Object.freeze({Na:Rte,gm:`${Rte}-title`,xm:`${Rte}-subtitle`,um:`${Rte}-link`});export{No as n,hr as t};
-//# sourceMappingURL=legal-BTwrrVL4.js.map

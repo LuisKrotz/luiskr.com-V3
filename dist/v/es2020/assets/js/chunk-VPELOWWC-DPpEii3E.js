@@ -1,0 +1,2 @@
+function pG(e=Nwe){const n=vue(Tue(e),u_e),r=vue($ue({shared:n}),p_e,jG);return n.ServiceRegistry.register(r),{shared:n,Cynefin:r}}var uh,eBe,jG;import{C as Tue,S as $ue,a as p_e,i as x_e,o as Nwe,t as S_e,u as u_e,w as vue,x as P_}from"./chunk-NGNAAXSQ-CPzFoVdZ.js";P_(uh=class extends S_e{constructor(){super(["cynefin-beta"])}},"CynefinTokenBuilder"),eBe=uh,jG={parser:{TokenBuilder:P_(()=>new eBe,"TokenBuilder"),ValueConverter:P_(()=>new x_e,"ValueConverter")}},P_(pG,"createCynefinServices");export{pG as n,jG as t};
+//# sourceMappingURL=chunk-VPELOWWC-DPpEii3E.js.map

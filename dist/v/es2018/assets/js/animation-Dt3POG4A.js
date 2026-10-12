@@ -1,2 +1,0 @@
-Object.freeze({Az:"cubic-bezier(0.22, 1, 0.36, 1)",Ez:"cubic-bezier(0.16, 1, 0.3, 1)"});var nn=Object.freeze({Ha:450,Eo:350,Ga:1100,_z:420,Oz:800,sa:1200,ra:2200,Rz:640,zM:800,ui:600,hi:2});export{nn as t};
-//# sourceMappingURL=animation-Dt3POG4A.js.map
