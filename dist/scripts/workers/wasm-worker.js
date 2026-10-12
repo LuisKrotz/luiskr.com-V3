@@ -535,6 +535,7 @@ self.onmessage = async (e) => {
       const barTilt = (g - Math.floor(g)) * Math.PI * 2
       const barCos = Math.cos(barTilt)
       const barSin = Math.sin(barTilt)
+      const warpPhase = barTilt + Math.PI / 2
 
       for (let i = i0; i < i1; i++) {
         const rand = randOf(i)
@@ -584,9 +585,14 @@ self.onmessage = async (e) => {
             : base + (spur ? Math.PI / arms : 0) + scatter * jj
 
           const y = (rand() + rand() - 1) * radius * p.THIN * thick * (inBulge ? 3.2 : 1)
+          const rn = Math.min(1, r / radius)
+          const yy = inBulge
+            ? y
+            : y * (1 + rn * p.DISC_FLARE) +
+              p.DISC_WARP * radius * rn * rn * Math.sin(angle - warpPhase)
 
           pos[o] = Math.cos(angle) * r
-          pos[o + 1] = y
+          pos[o + 1] = yy
           pos[o + 2] = Math.sin(angle) * r
 
           if (inBulge) {
