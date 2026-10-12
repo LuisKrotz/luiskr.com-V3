@@ -99,6 +99,15 @@ export default defineConfig(({ command }) => {
 
   const terserMangle = {
     toplevel: true,
+    // Vars nameCache must NOT be shared across chunks. When a cache exists,
+    // terser treats every undeclared global reference as mangleable and
+    // resolves it through the shared cache — so a dependency that declares a
+    // module-scope `var requestAnimationFrame` (cytoscape) poisons bare global
+    // calls in unrelated chunks (genie.ts) into dangling identifiers and a
+    // runtime ReferenceError. Property mangling keeps sharing nameCache.props
+    // (required for cross-chunk token objects); vars mangling needs no
+    // cross-chunk sharing because module chunks have isolated scopes.
+    cache: null,
     // Protect browser DOM globals from being mangled — they are not bundled
     // variables but runtime-provided constructors/interfaces.
     reserved: [

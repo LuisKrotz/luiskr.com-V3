@@ -1,2 +1,0 @@
-var xfe=Object.defineProperty,k_=(e,a)=>xfe(e,"name",{value:a,configurable:!0}),vI=(e,a)=>{for(var r in a)xfe(e,r,{get:a[r],enumerable:!0})};export{k_ as n,vI as t};
-//# sourceMappingURL=chunk-Y2CYZVJY-bwaBtpI0.js.map

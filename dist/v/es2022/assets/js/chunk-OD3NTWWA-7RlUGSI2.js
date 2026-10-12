@@ -1,2 +1,0 @@
-function WG(e=tAe){const a=Oce(Sce(e),_Ne),s=Oce(xce({shared:a}),GNe,DG);return a.ServiceRegistry.register(s),{shared:a,Packet:s}}var aBe,DG;import{C as Sce,S as xce,d as GNe,i as JNe,o as tAe,t as XNe,u as _Ne,w as Oce,x as Wp}from"./chunk-NGNAAXSQ-C8xwUXWs.js";aBe=class extends XNe{static{Wp(this,"PacketTokenBuilder")}constructor(){super(["packet"])}},DG={parser:{TokenBuilder:Wp(()=>new aBe,"TokenBuilder"),ValueConverter:Wp(()=>new JNe,"ValueConverter")}},Wp(WG,"createPacketServices");export{WG as n,DG as t};
-//# sourceMappingURL=chunk-OD3NTWWA-7RlUGSI2.js.map

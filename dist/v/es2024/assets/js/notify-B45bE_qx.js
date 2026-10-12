@@ -1,2 +1,0 @@
-var Za,ore;import{B as lt}from"./store-RvRTEQg3.js";Za=Object.freeze({ERROR:lt.ERROR,Nr:"info",XJ:"success"}),ore=Object.freeze({Vj:5e3,Yj:4,VJ:2500,kJ:64});export{Za as n,ore as t};
-//# sourceMappingURL=notify-B45bE_qx.js.map

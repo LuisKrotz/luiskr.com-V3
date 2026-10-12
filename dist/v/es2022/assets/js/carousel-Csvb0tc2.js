@@ -1,2 +1,0 @@
-var lr=Object.freeze({Xd:"--carousel-item-height",Gd:"--carousel-media-height",hd:"--carousel-landscape-media-height",pd:"--carousel-landscape-media-width",BU:"--range-pct"});export{lr as t};
-//# sourceMappingURL=carousel-Csvb0tc2.js.map

@@ -1,2 +1,0 @@
-function qi(o=Jt.le){const r=za[o]||za.en,s=o===Jt.le?Vt.EMPTY:`${na.se}${o}`,t=xi(eea.j0)||[];return[Vt.EMPTY,r.privacy||Wa.df,r.gdpr||Wa.GDPR,r.terms||Wa.kX].map((o,r)=>({link:`${s}${na.se}${o}`,page:t[r]?.page||Vt.EMPTY}))}import{u as Vt}from"./urls-C__vPSUl.js";import{o as Jt,v as na}from"./store-DACFdEWk.js";import{n as xi,o as eea,y as za}from"./ui-text-B6nlLEZi.js";import{u as Wa}from"./router-C9sDjE5J.js";export{qi as t};
-//# sourceMappingURL=legal-links-BqY1Vyss.js.map

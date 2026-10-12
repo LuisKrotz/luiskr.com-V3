@@ -1,2 +1,0 @@
-var Sfe=Object.defineProperty,Wp=(e,a)=>Sfe(e,"name",{value:a,configurable:!0}),xI=(e,a)=>{for(var r in a)Sfe(e,r,{get:a[r],enumerable:!0})};export{Wp as n,xI as t};
-//# sourceMappingURL=chunk-Y2CYZVJY-TlIfSQ4T.js.map

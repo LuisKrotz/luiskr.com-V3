@@ -1,2 +1,0 @@
-var en,dre;import{B as lt}from"./store-Bfer4ApS.js";en=Object.freeze({ERROR:lt.ERROR,Oo:"info",XJ:"success"}),dre=Object.freeze({Xj:5e3,Dj:4,VJ:2500,kJ:64});export{en as n,dre as t};
-//# sourceMappingURL=notify-Co8E5OTJ.js.map

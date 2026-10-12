@@ -1,0 +1,2 @@
+import{ft as T,mt as C,pt as O}from"./store-DtKVNySi.js";var t=Object.freeze({Pn:T,Tp:`${T}-title`,Np:C,Ip:`${C}-link`,K2:O,Cm:`${O}-link`,Mm:`${C}-separator`});export{t};
+//# sourceMappingURL=contact-EZcarkA1.js.map

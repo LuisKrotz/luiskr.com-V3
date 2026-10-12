@@ -1,2 +1,0 @@
-var jo,wo;import{Tt as eaa}from"./urls-C__vPSUl.js";jo=Object.freeze({nr:"legal"}),wo=Object.freeze({Cn:eaa,if:`${eaa}-title`,nf:`${eaa}-subtitle`,ef:`${eaa}-link`});export{wo as n,jo as t};
-//# sourceMappingURL=legal-DooadZGC.js.map

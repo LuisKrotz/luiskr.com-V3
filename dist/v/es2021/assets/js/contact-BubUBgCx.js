@@ -1,2 +1,0 @@
-import{ft as Xte,mt as soe,pt as ioe}from"./store-C9XXVsG2.js";var lo=Object.freeze({Pn:Xte,Nh:`${Xte}-title`,Ih:soe,Ch:`${soe}-link`,K2:ioe,Cm:`${ioe}-link`,Mm:`${soe}-separator`});export{lo as t};
-//# sourceMappingURL=contact-BubUBgCx.js.map

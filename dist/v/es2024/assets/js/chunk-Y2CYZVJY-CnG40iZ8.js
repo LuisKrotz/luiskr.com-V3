@@ -1,2 +1,0 @@
-var sIe=Object.defineProperty,Wp=(e,a)=>sIe(e,"name",{value:a,configurable:!0}),xI=(e,a)=>{for(var r in a)sIe(e,r,{get:a[r],enumerable:!0})};export{Wp as n,xI as t};
-//# sourceMappingURL=chunk-Y2CYZVJY-CnG40iZ8.js.map

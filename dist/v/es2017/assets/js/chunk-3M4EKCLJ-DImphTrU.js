@@ -1,2 +1,0 @@
-function JG(e=EEe){const s=dce(mce(e),nPe),r=dce(fce({shared:s}),lPe,KG);return s.ServiceRegistry.register(r),{shared:s,Info:r}}var bh,sBe,KG;import{C as mce,S as fce,i as RPe,l as lPe,o as EEe,t as bPe,u as nPe,w as dce,x as nw}from"./chunk-NGNAAXSQ-CiODdCSu.js";nw(bh=class extends bPe{constructor(){super(["info","showInfo"])}},"InfoTokenBuilder"),sBe=bh,KG={parser:{TokenBuilder:nw(()=>new sBe,"TokenBuilder"),ValueConverter:nw(()=>new RPe,"ValueConverter")}},nw(JG,"createInfoServices");export{JG as n,KG as t};
-//# sourceMappingURL=chunk-3M4EKCLJ-DImphTrU.js.map

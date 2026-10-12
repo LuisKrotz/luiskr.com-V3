@@ -1,2 +1,0 @@
-var en,ore;import{B as lt}from"./store-DdO-60ti.js";en=Object.freeze({ERROR:lt.ERROR,Oo:"info",XJ:"success"}),ore=Object.freeze({Xj:5e3,Dj:4,VJ:2500,kJ:64});export{en as n,ore as t};
-//# sourceMappingURL=notify-DY3D91Cp.js.map

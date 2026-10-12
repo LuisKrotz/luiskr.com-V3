@@ -1,2 +1,0 @@
-function VG(e=Ebe){const r=ece(Que(e),nNe),a=ece(Xue({shared:r}),oNe,XG);return r.ServiceRegistry.register(a),{shared:r,GitGraph:a}}var eGe,XG;import{C as Que,S as Xue,c as oNe,i as vNe,o as Ebe,t as bNe,u as nNe,w as ece,x as dw}from"./chunk-NGNAAXSQ-Zivvuv-L.js";eGe=class extends bNe{static{dw(this,"GitGraphTokenBuilder")}constructor(){super(["gitGraph"])}},XG={parser:{TokenBuilder:dw(()=>new eGe,"TokenBuilder"),ValueConverter:dw(()=>new vNe,"ValueConverter")}},dw(VG,"createGitGraphServices");export{VG as n,XG as t};
-//# sourceMappingURL=chunk-VZTHESGH-CPB9QFE-.js.map

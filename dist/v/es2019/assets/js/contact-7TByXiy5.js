@@ -1,2 +1,0 @@
-import{ft as Zte,mt as ioe,pt as roe}from"./store-B0WRtaTL.js";var lo=Object.freeze({Pn:Zte,Nh:`${Zte}-title`,Ih:ioe,Ch:`${ioe}-link`,K2:roe,Cm:`${roe}-link`,Mm:`${ioe}-separator`});export{lo as t};
-//# sourceMappingURL=contact-7TByXiy5.js.map

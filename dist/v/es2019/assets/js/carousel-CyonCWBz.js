@@ -1,2 +1,0 @@
-var Gr=Object.freeze({Xd:"--carousel-item-height",Gd:"--carousel-media-height",hd:"--carousel-landscape-media-height",ud:"--carousel-landscape-media-width",AU:"--range-pct"});export{Gr as t};
-//# sourceMappingURL=carousel-CyonCWBz.js.map

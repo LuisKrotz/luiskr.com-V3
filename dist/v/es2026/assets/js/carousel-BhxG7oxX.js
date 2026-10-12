@@ -1,2 +1,0 @@
-var Gi=Object.freeze({qc:"--carousel-item-height",Hc:"--carousel-media-height",dc:"--carousel-landscape-media-height",cc:"--carousel-landscape-media-width",AU:"--range-pct"});export{Gi as t};
-//# sourceMappingURL=carousel-BhxG7oxX.js.map

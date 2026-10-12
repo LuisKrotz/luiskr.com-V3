@@ -1,0 +1,2 @@
+function e(e=o){const a=k(r(e),i),c=k(t({shared:a}),n,s);return a.ServiceRegistry.register(c),{shared:a,Packet:c}}var a,s;import{C as r,S as t,d as n,i as c,o,t as u,u as i,w as k,x as d}from"./chunk-NGNAAXSQ-CV1Wr4qH.js";a=class extends u{static{d(this,"PacketTokenBuilder")}constructor(){super(["packet"])}},s={parser:{TokenBuilder:d(()=>new a,"TokenBuilder"),ValueConverter:d(()=>new c,"ValueConverter")}},d(e,"createPacketServices");export{e as n,s as t};
+//# sourceMappingURL=chunk-OD3NTWWA-D2C-7inV.js.map

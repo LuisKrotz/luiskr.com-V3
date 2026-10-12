@@ -1,2 +1,0 @@
-import{ft as Yte,mt as eoe,pt as toe}from"./store-F_JMgRRp.js";var lo=Object.freeze({Sn:Yte,Nh:`${Yte}-title`,Ih:eoe,Sh:`${eoe}-link`,K2:toe,Xm:`${toe}-link`,Mm:`${eoe}-separator`});export{lo as t};
-//# sourceMappingURL=contact-jYfEbp9D.js.map

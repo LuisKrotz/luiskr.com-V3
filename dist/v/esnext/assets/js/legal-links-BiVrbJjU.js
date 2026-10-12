@@ -1,2 +1,0 @@
-function Wi(s=Dt.le){const o=Ia[s]||Ia.en,r=s===Dt.le?Nt.EMPTY:`${yt.se}${s}`,t=gi(taa.JX)||[];return[Nt.EMPTY,o.privacy||Ha.Sm,o.gdpr||Ha.GDPR,o.terms||Ha.SH].map((s,o)=>({link:`${r}${yt.se}${s}`,page:t[o]?.page||Nt.EMPTY}))}import{O as yt,T as Nt,c as Dt}from"./store-BWwcmxaS.js";import{n as gi,o as taa,y as Ia}from"./ui-text-0yVwW9MQ.js";import{u as Ha}from"./router-CJr5VQRm.js";export{Wi as t};
-//# sourceMappingURL=legal-links-BiVrbJjU.js.map

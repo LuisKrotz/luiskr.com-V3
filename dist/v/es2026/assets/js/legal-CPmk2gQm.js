@@ -1,0 +1,2 @@
+var t,O;import{Tt as N}from"./urls-BJ_FqARY.js";t=Object.freeze({nr:"legal"}),O=Object.freeze({Cn:N,if:`${N}-title`,nf:`${N}-subtitle`,ef:`${N}-link`});export{O as n,t};
+//# sourceMappingURL=legal-CPmk2gQm.js.map
