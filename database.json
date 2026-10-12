@@ -196,7 +196,8 @@
         },
         "media": {
           "close": "Close",
-          "toOpen": "to open"
+          "toOpen": "to open",
+          "audioNote": "This video features audio in English — no translated audio is available."
         },
         "related": {
           "note": "All media on this domain was captured as screenshots from public URLs and/or local development environments using demo data without production value. All intellectual property rights belong to the respective owners of each project. This portfolio solely demonstrates my personal technical contributions as a developer; the involvement of other team members may not be fully detailed due to project scope and historical records.",
@@ -776,6 +777,7 @@
           "milkyWay": "Milky Way",
           "nebulae": "Nebulae",
           "galaxies": "Galaxies",
+          "satellite": "Satellite",
           "screenshot": "Take Screenshot",
           "overview": "Overview",
           "loading": "Loading…",
@@ -7142,7 +7144,8 @@
         },
         "media": {
           "close": "Fechar",
-          "toOpen": "para abrir"
+          "toOpen": "para abrir",
+          "audioNote": "Este vídeo apresenta áudio em inglês — não possui tradução original disponível."
         },
         "related": {
           "note": "Todas as mídias deste domínio foram capturadas como screenshots de URLs públicas e/ou ambientes locais de desenvolvimento usando dados de demonstração sem valor de produção. Todos os direitos de propriedade intelectual pertencem aos respectivos donos de cada projeto. Este portfólio demonstra apenas as minhas contribuições técnicas pessoais como desenvolvedor; o envolvimento de outros membros da equipe pode não estar totalmente detalhado devido ao escopo do projeto e aos registros históricos.",
@@ -7714,6 +7717,7 @@
         },
         "star-field": {
           "title": "Campo Estelar",
+          "instructions": "Instruções",
           "systemBoot": "Inicialização do Sistema",
           "hint": "Arraste para explorar · Role para ampliar · Selecione um corpo para sua história",
           "explore": "Carta Celeste",
@@ -7721,6 +7725,7 @@
           "milkyWay": "Via Láctea",
           "nebulae": "Nebulosas",
           "galaxies": "Galáxias",
+          "satellite": "Satélite",
           "screenshot": "Capturar Tela",
           "overview": "Visão Geral",
           "loading": "Carregando…",
@@ -14087,7 +14092,8 @@
         },
         "media": {
           "close": "Cerrar",
-          "toOpen": "para abrir"
+          "toOpen": "para abrir",
+          "audioNote": "Este vídeo presenta audio en inglés — no dispone de traducción original."
         },
         "related": {
           "note": "Todos los medios de este dominio se capturaron como capturas de pantalla de URLs públicas y/o entornos locales de desarrollo usando datos de demostración sin valor de producción. Todos los derechos de propiedad intelectual pertenecen a los respectivos dueños de cada proyecto. Este portafolio demuestra únicamente mis contribuciones técnicas personales como desarrollador; la participación de otros miembros del equipo puede no estar totalmente detallada debido al alcance del proyecto y a los registros históricos.",
@@ -14659,6 +14665,7 @@
         },
         "star-field": {
           "title": "Campo Estelar",
+          "instructions": "Instrucciones",
           "systemBoot": "Arranque del Sistema",
           "hint": "Arrastra para explorar · Rueda para ampliar · Selecciona un cuerpo para su historia",
           "explore": "Carta Celeste",
@@ -14666,6 +14673,7 @@
           "milkyWay": "Vía Láctea",
           "nebulae": "Nebulosas",
           "galaxies": "Galaxias",
+          "satellite": "Satélite",
           "screenshot": "Capturar Pantalla",
           "overview": "Vista General",
           "loading": "Cargando…",
@@ -21032,7 +21040,8 @@
         },
         "media": {
           "close": "Schließen",
-          "toOpen": "zum Öffnen"
+          "toOpen": "zum Öffnen",
+          "audioNote": "Dieses Video enthält eine englische Audiospur — keine Originalübersetzung verfügbar."
         },
         "related": {
           "note": "Alle Medien auf dieser Domain wurden als Screenshots von öffentlichen URLs und/oder lokalen Entwicklungsumgebungen mit Demodaten ohne Produktionswert aufgenommen. Alle geistigen Eigentumsrechte gehören den jeweiligen Eigentümern der einzelnen Projekte. Dieses Portfolio demonstriert ausschließlich meine persönlichen technischen Beiträge als Entwickler; die Beteiligung anderer Teammitglieder kann aufgrund des Projektumfangs und historischer Aufzeichnungen nicht vollständig dargestellt werden.",
@@ -21604,6 +21613,7 @@
         },
         "star-field": {
           "title": "Sternenfeld",
+          "instructions": "Anleitung",
           "systemBoot": "Systemstart",
           "hint": "Ziehen zum Erkunden · Scrollen zum Zoomen · Körper für seine Geschichte wählen",
           "explore": "Sternenkarte",
@@ -21611,6 +21621,7 @@
           "milkyWay": "Milchstraße",
           "nebulae": "Nebel",
           "galaxies": "Galaxien",
+          "satellite": "Satellit",
           "screenshot": "Screenshot aufnehmen",
           "overview": "Übersicht",
           "loading": "Laden…",
@@ -27977,7 +27988,8 @@
         },
         "media": {
           "close": "Schließen",
-          "toOpen": "zum Öffnen"
+          "toOpen": "zum Öffnen",
+          "audioNote": "Des Video hot englischen Ton — kän Iwersetzung is verfüubar."
         },
         "related": {
           "note": "Alle Medie uff dieser Domain wurde als Screenshots fun öffentlichen URLs un/ore lokalen Entwicklungsumgebungen mit Demodaten ohne Produktionswert aufgenommen. Alle geistigen Eigentumsrechte gehören den jeweiligen Eigentümern der einzelne Projekte. Dieses Portfolio demonstriert ausschließlich mea persönlichen technischen Beiträge als Entwickler; die Beteiligung annrer Teammitglieder kann aufgrund des Projektumfangs un historischer Aufzeichnungen net vollständig dargestellt were.",
@@ -28549,6 +28561,7 @@
         },
         "star-field": {
           "title": "Schdernfeld",
+          "instructions": "Aanleitung",
           "systemBoot": "Systemstart",
           "hint": "Zieh zum Erkunde · Scroll zum Zoome · Körper für sei Geschichte wähle",
           "explore": "Schdernkart",
@@ -28556,6 +28569,7 @@
           "milkyWay": "Milchschdraß",
           "nebulae": "Nebel",
           "galaxies": "Galaxie",
+          "satellite": "Satellit",
           "screenshot": "Screenshot mache",
           "overview": "Iwwerblick",
           "loading": "Laade…",
@@ -34922,7 +34936,8 @@
         },
         "media": {
           "close": "Cerrar",
-          "toOpen": "para abrir"
+          "toOpen": "para abrir",
+          "audioNote": "Este video presenta audio en inglés — no dispone de traducción original."
         },
         "related": {
           "note": "Todos los medios de este dominio se capturaron como capturas de pantalla de URLs públicas y/o entornos locales de desarrollo usando datos de demostración sin valor de producción. Todos los derechos de propiedad intelectual pertenecen a los respectivos dueños de cada proyecto. Este portafolio demuestra únicamente mis contribuciones técnicas personales como desarrollador; la participación de otros miembros del equipo puede no estar totalmente detallada debido al alcance del proyecto y a los registros históricos.",
@@ -35494,6 +35509,7 @@
         },
         "star-field": {
           "title": "Campo Estelar",
+          "instructions": "Instrucciones",
           "systemBoot": "Arranque del Sistema",
           "hint": "Arrastra para explorar · Rueda para ampliar · Selecciona un cuerpo para su historia",
           "explore": "Carta Celeste",
@@ -35501,6 +35517,7 @@
           "milkyWay": "Vía Láctea",
           "nebulae": "Nebulosas",
           "galaxies": "Galaxias",
+          "satellite": "Satélite",
           "screenshot": "Capturar Pantalla",
           "overview": "Vista General",
           "loading": "Cargando…",
@@ -41867,7 +41884,8 @@
         },
         "media": {
           "close": "Fechar",
-          "toOpen": "para abrir"
+          "toOpen": "para abrir",
+          "audioNote": "Este video presenta audio em inglês — no tiene tradução original disponible."
         },
         "related": {
           "note": "Todas as mídias deste domínio foram capturadas como screenshots de URLs públicas e/ou ambientes locais de desarrollo usando datos de demonstração sem valor de produção. Todos os derechos de propiedad intelectual pertencem aos respectivos donos de cada proyecto. Este portfólio demonstra apenas as minhas contribuições técnicas pessoais como desenvolvedor; o envolvimento de otros miembros da equipo puede no estar totalmente detallado devido ao escopo do proyecto e aos registros históricos.",
@@ -42439,6 +42457,7 @@
         },
         "star-field": {
           "title": "Campo Estelar",
+          "instructions": "Instruções",
           "systemBoot": "Inicialização do Sistema",
           "hint": "Arraste pa explorar · Role pa ampliar · Selecione un cuerpo pa su história",
           "explore": "Carta Celeste",
@@ -42446,6 +42465,7 @@
           "milkyWay": "Via Láctea",
           "nebulae": "Nebulosas",
           "galaxies": "Galáxias",
+          "satellite": "Satélite",
           "screenshot": "Capturar Tela",
           "overview": "Visão Geral",
           "loading": "Carregando…",
@@ -48812,7 +48832,8 @@
         },
         "media": {
           "close": "Emboty",
-          "toOpen": "jeike hag̃ua"
+          "toOpen": "jeike hag̃ua",
+          "audioNote": "Ko video oguereko inglés ñe'ẽ ayvu — ndaipóri ñe'ẽasapy'a eipurukuaáva."
         },
         "related": {
           "note": "Opa media ko dominio-pe oñejegua capturas de pantalla-ramo URLs opavavepe g̃uarã ha/térã entornos de desarrollo local-gui oiporúvo datos de demostración valor de producción'ỹ. Opa derexos de propiedad intelectual ha'e umíva respetivo dueño opa proyecto rehegua. Ko portafolio ojehechauka añoite che jepokuaa teknika añete che desarrollador-ramo; ambue miembro del equipo pe jepokuaa ikatu ndojehesa'ỹi tuichápe proyecto alcance ha registro histórico rupi.",
@@ -49384,6 +49405,7 @@
         },
         "star-field": {
           "title": "Mbyja Ñembosarái",
+          "instructions": "Mbo'epy",
           "systemBoot": "Sistema Ñepyrũ",
           "hint": "Emomýi eikuaa hag̃ua · Emomichĩ térã embotuicha · Eiporavo peteĩ rejeguá",
           "explore": "Mbyja Mapa",
@@ -49391,6 +49413,7 @@
           "milkyWay": "Mbyja Tape",
           "nebulae": "Atiku'ũ",
           "galaxies": "Galaxias",
+          "satellite": "Satélite",
           "screenshot": "Mba'erechaha Japy",
           "overview": "Ñe'ẽnguemi",
           "loading": "Oñemyanyhẽ…",
@@ -55757,7 +55780,8 @@
         },
         "media": {
           "close": "Chiudi",
-          "toOpen": "per aprire"
+          "toOpen": "per aprire",
+          "audioNote": "Questo video presenta audio in inglese — nessuna traduzione originale disponibile."
         },
         "related": {
           "note": "Tutti i media su questo dominio sono stati catturati come screenshot da URL pubblici e/o ambienti di sviluppo locali usando dati dimostrativi senza valore di produzione. Tutti i diritti di proprietà intellettuale appartengono ai rispettivi proprietari di ciascun progetto. Questo portfolio dimostra unicamente i miei contributi tecnici personali come sviluppatore; il coinvolgimento di altri membri del team potrebbe non essere dettagliato completamente a causa dell’ambito del progetto e dei record storici.",
@@ -56329,6 +56353,7 @@
         },
         "star-field": {
           "title": "Campo Stellare",
+          "instructions": "Istruzioni",
           "systemBoot": "Avvio del Sistema",
           "hint": "Trascina per esplorare · Scorri per lo zoom · Seleziona un corpo per la sua storia",
           "explore": "Carta Stellare",
@@ -56336,6 +56361,7 @@
           "milkyWay": "Via Lattea",
           "nebulae": "Nebulose",
           "galaxies": "Galassie",
+          "satellite": "Satellite",
           "screenshot": "Fai Screenshot",
           "overview": "Panoramica",
           "loading": "Caricamento…",
@@ -62702,7 +62728,8 @@
         },
         "media": {
           "close": "Закрыть",
-          "toOpen": "открыть"
+          "toOpen": "открыть",
+          "audioNote": "Это видео содержит аудиодорожку на английском языке — оригинальный перевод недоступен."
         },
         "related": {
           "note": "Все медиаматериалы на этом домене получены как скриншоты общедоступных страниц и/или локальных сред разработки с демонстрационными данными, не имеющими продуктивной ценности. Все права на интеллектуальную собственность принадлежат соответствующим владельцам каждого проекта. Это портфолио лишь демонстрирует мой личный технический вклад как разработчика; участие других членов команды может быть описано не полностью из-за рамок проекта и исторических записей.",
@@ -63274,6 +63301,7 @@
         },
         "star-field": {
           "title": "Звёздное Поле",
+          "instructions": "Инструкции",
           "systemBoot": "Загрузка Системы",
           "hint": "Перетаскивайте для обзора · Прокрутка для масштаба · Выберите объект для его истории",
           "explore": "Звёздная Карта",
@@ -63281,6 +63309,7 @@
           "milkyWay": "Млечный Путь",
           "nebulae": "Туманности",
           "galaxies": "Галактики",
+          "satellite": "Спутник",
           "screenshot": "Сделать Снимок",
           "overview": "Обзор",
           "loading": "Загрузка…",
@@ -69647,7 +69676,8 @@
         },
         "media": {
           "close": "Fermer",
-          "toOpen": "pour ouvrir"
+          "toOpen": "pour ouvrir",
+          "audioNote": "Cette vidéo présente un audio en anglais — aucune traduction originale n'est disponible."
         },
         "related": {
           "note": "Tous les médias de ce domaine ont été capturés sous forme de captures d’écran à partir d’URL publiques et/ou d’environnements de développement locaux utilisant des données de démonstration sans valeur de production. Tous les droits de propriété intellectuelle appartiennent aux propriétaires respectifs de chaque projet. Ce portfolio démontre uniquement mes contributions techniques personnelles en tant que développeur ; l’implication des autres membres de l’équipe peut ne pas être entièrement détaillée en raison de la portée des projets et des archives historiques.",
@@ -70219,6 +70249,7 @@
         },
         "star-field": {
           "title": "Champ Stellaire",
+          "instructions": "Instructions",
           "systemBoot": "Démarrage du Système",
           "hint": "Glissez pour explorer · Molette pour zoomer · Sélectionnez un corps pour son histoire",
           "explore": "Carte Céleste",
@@ -70226,6 +70257,7 @@
           "milkyWay": "Voie Lactée",
           "nebulae": "Nébuleuses",
           "galaxies": "Galaxies",
+          "satellite": "Satellite",
           "screenshot": "Prendre une Capture",
           "overview": "Vue d'Ensemble",
           "loading": "Chargement…",
@@ -76592,7 +76624,8 @@
         },
         "media": {
           "close": "Sara",
-          "toOpen": "par vèrzar"
+          "toOpen": "par vèrzar",
+          "audioNote": "Sto video el prexenta audio in inglexe — no ghe xe tradussion orixenal disponibil."
         },
         "related": {
           "note": "Tuti i media de sto dominio i xe stai tirai fòra come screenshot da URL pùblichi e/o ambienti de sviłupo łocai co dati de prova sensa vałor de produsion. Tuti i deriti de proprietà intełetuałe i xe dei propietari de ogni progeto. Sto portafoglio el mostra soło el me contributo tècnego personałe come sviłupador; la partesipasion de altri menbri de l'èquipe podarìa no èsar detajada del tuto par via de ła portada del progeto e dei record stòrichi.",
@@ -77164,6 +77197,7 @@
         },
         "star-field": {
           "title": "Canpo Stełare",
+          "instructions": "Istrussioni",
           "systemBoot": "Avio Sistema",
           "hint": "Strasina par esplorar · Scori par el zoom · Sełesiona un corpo par ła so storia",
           "explore": "Carta Stełare",
@@ -77171,6 +77205,7 @@
           "milkyWay": "Via Lata",
           "nebulae": "Nebołose",
           "galaxies": "Gałasie",
+          "satellite": "Satelit",
           "screenshot": "Fa Screenshot",
           "overview": "Panoramica",
           "loading": "Cargando…",
@@ -83537,7 +83572,8 @@
         },
         "media": {
           "close": "Sluiten",
-          "toOpen": "om te openen"
+          "toOpen": "om te openen",
+          "audioNote": "Deze video bevat Engelstalige audio — er is geen originele vertaling beschikbaar."
         },
         "related": {
           "note": "Alle media op dit domein zijn vastgelegd als screenshots van openbare URL’s en/of lokale ontwikkelomgevingen met demogegevens zonder productiewaarde. Alle intellectuele eigendomsrechten behoren toe aan de respectievelijke eigenaren van elk project. Dit portfolio toont uitsluitend mijn persoonlijke technische bijdragen als ontwikkelaar; de betrokkenheid van andere teamleden kan niet volledig worden weergegeven vanwege de projectomvang en historische gegevens.",
@@ -84109,6 +84145,7 @@
         },
         "star-field": {
           "title": "Sterrenveld",
+          "instructions": "Instructies",
           "systemBoot": "Systeemstart",
           "hint": "Sleep om te verkennen · Scroll om in te zoomen · Selecteer een hemellichaam voor zijn verhaal",
           "explore": "Sterrenkaart",
@@ -84116,6 +84153,7 @@
           "milkyWay": "Melkweg",
           "nebulae": "Nevels",
           "galaxies": "Sterrenstelsels",
+          "satellite": "Satelliet",
           "screenshot": "Schermafbeelding Maken",
           "overview": "Overzicht",
           "loading": "Laden…",
@@ -90482,7 +90520,8 @@
         },
         "media": {
           "close": "Tanca",
-          "toOpen": "per obrir"
+          "toOpen": "per obrir",
+          "audioNote": "Aquest vídeo presenta àudio en anglès — no hi ha traducció original disponible."
         },
         "related": {
           "note": "Tots els mitjans d’aquest domini es van capturar com a captures de pantalla d’URL públiques i/o entorns de desenvolupament locals usant dades de demostració sense valor de producció. Tots els drets de propietat intel·lectual pertanyen als respectius propietaris de cada projecte. Aquest portafoli demostra únicament les meves contribucions tècniques personals com a desenvolupador; la participació d’altres membres de l’equip pot no estar totalment detallada a causa de l’abast del projecte i els registres històrics.",
@@ -91054,6 +91093,7 @@
         },
         "star-field": {
           "title": "Camp Estel·lar",
+          "instructions": "Instruccions",
           "systemBoot": "Arrencada del Sistema",
           "hint": "Arrossega per explorar · Rodeta per ampliar · Selecciona un cos per la seva història",
           "explore": "Carta Celeste",
@@ -91061,6 +91101,7 @@
           "milkyWay": "Via Làctea",
           "nebulae": "Nebuloses",
           "galaxies": "Galàxies",
+          "satellite": "Satèl·lit",
           "screenshot": "Fes Captura",
           "overview": "Vista General",
           "loading": "Carregant…",
@@ -97427,7 +97468,8 @@
         },
         "media": {
           "close": "Pechar",
-          "toOpen": "para abrir"
+          "toOpen": "para abrir",
+          "audioNote": "Este vídeo presenta audio en inglés — non hai tradución orixinal dispoñible."
         },
         "related": {
           "note": "Todos os medios deste dominio foron capturados como capturas de pantalla de URL públicas e/ou contornos de desenvolvemento locais usando datos de demostración sen valor de produción. Todos os dereitos de propiedade intelectual pertencen aos respectivos propietarios de cada proxecto. Este portafolio demostra unicamente as miñas contribucións técnicas persoais como desenvolvedor; a participación doutros membros do equipo pode non estar totalmente detallada debido ao alcance do proxecto e aos rexistros históricos.",
@@ -97999,6 +98041,7 @@
         },
         "star-field": {
           "title": "Campo Estelar",
+          "instructions": "Instrucións",
           "systemBoot": "Arranque do Sistema",
           "hint": "Arrastra para explorar · Roda para ampliar · Selecciona un corpo para a súa historia",
           "explore": "Carta Celeste",
@@ -98006,6 +98049,7 @@
           "milkyWay": "Vía Láctea",
           "nebulae": "Nebulosas",
           "galaxies": "Galaxias",
+          "satellite": "Satélite",
           "screenshot": "Capturar Pantalla",
           "overview": "Vista Xeral",
           "loading": "Cargando…",
@@ -104372,7 +104416,8 @@
         },
         "media": {
           "close": "Dún",
-          "toOpen": "le hoscailt"
+          "toOpen": "le hoscailt",
+          "audioNote": "Tá fuaim Bhéarla san fhíseán seo — níl aistriúchán bunaidh ar fáil."
         },
         "related": {
           "note": "Ghabháiltear na meáin go léir ar an bhfearann seo mar ghabhálacha scáileáin ó URLanna poiblí agus/nó ó thimpeallachtaí forbartha áitiúla ag baint úsáide as sonraí taispeána gan luach táirgthe. Baineann gach ceart maoine intleachtúla le húinéirí faoi seach gach tionscnaimh. Ní dhéanann an punann seo ach mo chion teicniúil pearsanta mar fhorbróir a léiriú; d'fhéadfadh rannpháirtíocht baill eile den fhoireann a bheith mionsonraithe go hiomlán de bharr raon feidhme an tionscnaimh agus taifid stairiúla.",
@@ -104944,6 +104989,7 @@
         },
         "star-field": {
           "title": "Réimse Réalta",
+          "instructions": "Treoracha",
           "systemBoot": "Tosú an Chórais",
           "hint": "Tarraing chun iniúchadh · Scrollaigh chun súmáil · Roghnaigh réad le haghaidh a scéil",
           "explore": "Cairt Réaltaí",
@@ -104951,6 +104997,7 @@
           "milkyWay": "Bealach na Bó Finne",
           "nebulae": "Réaltnéaltaí",
           "galaxies": "Réaltraí",
+          "satellite": "Satailít",
           "screenshot": "Screenshot a Thógáil",
           "overview": "Forbhreathnú",
           "loading": "Ag Lódáil…",
