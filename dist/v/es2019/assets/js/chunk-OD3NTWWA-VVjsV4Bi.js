@@ -1,2 +1,0 @@
-function DG(e=Iwe){const a=Rue(Tue(e),c_e),r=Rue(vue({shared:a}),h_e,OG);return a.ServiceRegistry.register(r),{shared:a,Packet:r}}var xh,aBe,OG;import{C as Tue,S as vue,d as h_e,i as S_e,o as Iwe,t as O_e,u as c_e,w as Rue,x as vp}from"./chunk-NGNAAXSQ-D9e49Ugg.js";vp(xh=class extends O_e{constructor(){super(["packet"])}},"PacketTokenBuilder"),aBe=xh,OG={parser:{TokenBuilder:vp(()=>new aBe,"TokenBuilder"),ValueConverter:vp(()=>new S_e,"ValueConverter")}},vp(DG,"createPacketServices");export{DG as n,OG as t};
-//# sourceMappingURL=chunk-OD3NTWWA-VVjsV4Bi.js.map

@@ -1,2 +1,0 @@
-var Wpe=Object.defineProperty,vp=(e,a)=>Wpe(e,"name",{value:a,configurable:!0}),xI=(e,a)=>{for(var r in a)Wpe(e,r,{get:a[r],enumerable:!0})};export{vp as n,xI as t};
-//# sourceMappingURL=chunk-Y2CYZVJY-Dab2KSVl.js.map

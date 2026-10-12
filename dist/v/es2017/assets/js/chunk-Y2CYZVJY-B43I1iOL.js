@@ -1,0 +1,2 @@
+var Mfe=Object.defineProperty,nw=(e,a)=>Mfe(e,"name",{value:a,configurable:!0}),wI=(e,a)=>{for(var r in a)Mfe(e,r,{get:a[r],enumerable:!0})};export{nw as n,wI as t};
+//# sourceMappingURL=chunk-Y2CYZVJY-B43I1iOL.js.map

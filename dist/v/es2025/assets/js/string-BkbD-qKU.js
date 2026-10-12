@@ -1,0 +1,2 @@
+var hn,pn,Di;import{w as Jt,y as ea}from"./store-F_JMgRRp.js";hn=t=>{if(!t||typeof t!==Jt.la)return ea.EMPTY;let g,r=t;do{g=r,r=r.replace(/<[^>]*>/g,ea.EMPTY)}while(r!==g);return r},pn=t=>t&&typeof t===Jt.la?t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"):ea.EMPTY,Di=t=>t&&typeof t===Jt.la?t.toLowerCase().replace(/[^\w\s-]/g,ea.EMPTY).trim().replace(/[\s_]+/g,"-").replace(/--+/g,"-"):ea.EMPTY;export{Di as n,hn as r,pn as t};
+//# sourceMappingURL=string-BkbD-qKU.js.map

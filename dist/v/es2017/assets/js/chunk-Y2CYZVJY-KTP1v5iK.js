@@ -1,2 +1,0 @@
-var Qpe=Object.defineProperty,P_=(e,a)=>Qpe(e,"name",{value:a,configurable:!0}),xI=(e,a)=>{for(var r in a)Qpe(e,r,{get:a[r],enumerable:!0})};export{P_ as n,xI as t};
-//# sourceMappingURL=chunk-Y2CYZVJY-KTP1v5iK.js.map

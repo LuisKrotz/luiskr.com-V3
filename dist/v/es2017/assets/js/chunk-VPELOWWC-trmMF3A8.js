@@ -1,0 +1,2 @@
+function jG(e=EEe){const n=dce(mce(e),nPe),r=dce(fce({shared:n}),aPe,AG);return n.ServiceRegistry.register(r),{shared:n,Cynefin:r}}var bh,nBe,AG;import{C as mce,S as fce,a as aPe,i as RPe,o as EEe,t as bPe,u as nPe,w as dce,x as nw}from"./chunk-NGNAAXSQ-CiODdCSu.js";nw(bh=class extends bPe{constructor(){super(["cynefin-beta"])}},"CynefinTokenBuilder"),nBe=bh,AG={parser:{TokenBuilder:nw(()=>new nBe,"TokenBuilder"),ValueConverter:nw(()=>new RPe,"ValueConverter")}},nw(jG,"createCynefinServices");export{jG as n,AG as t};
+//# sourceMappingURL=chunk-VPELOWWC-trmMF3A8.js.map

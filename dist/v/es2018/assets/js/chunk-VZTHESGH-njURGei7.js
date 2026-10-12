@@ -1,0 +1,2 @@
+function HG(e=hEe){const r=ace(ice(e),H_e),a=ace(nce({shared:r}),X_e,EG);return r.ServiceRegistry.register(a),{shared:r,GitGraph:a}}var gh,eGe,EG;import{C as ice,S as nce,c as X_e,i as fPe,o as hEe,t as mPe,u as H_e,w as ace,x as Wp}from"./chunk-NGNAAXSQ-DMWI4lVK.js";Wp(gh=class extends mPe{constructor(){super(["gitGraph"])}},"GitGraphTokenBuilder"),eGe=gh,EG={parser:{TokenBuilder:Wp(()=>new eGe,"TokenBuilder"),ValueConverter:Wp(()=>new fPe,"ValueConverter")}},Wp(HG,"createGitGraphServices");export{HG as n,EG as t};
+//# sourceMappingURL=chunk-VZTHESGH-njURGei7.js.map

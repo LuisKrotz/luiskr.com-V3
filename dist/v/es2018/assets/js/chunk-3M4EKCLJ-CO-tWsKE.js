@@ -1,2 +1,0 @@
-function gG(e=Iwe){const s=Rue(Tue(e),c_e),r=Rue(vue({shared:s}),y_e,CG);return s.ServiceRegistry.register(r),{shared:s,Info:r}}var xh,sBe,CG;import{C as Tue,S as vue,i as S_e,l as y_e,o as Iwe,t as O_e,u as c_e,w as Rue,x as vp}from"./chunk-NGNAAXSQ-BGl0Y_iB.js";vp(xh=class extends O_e{constructor(){super(["info","showInfo"])}},"InfoTokenBuilder"),sBe=xh,CG={parser:{TokenBuilder:vp(()=>new sBe,"TokenBuilder"),ValueConverter:vp(()=>new S_e,"ValueConverter")}},vp(gG,"createInfoServices");export{gG as n,CG as t};
-//# sourceMappingURL=chunk-3M4EKCLJ-CO-tWsKE.js.map

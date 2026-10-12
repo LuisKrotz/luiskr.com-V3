@@ -1,0 +1,2 @@
+var pn,vn,Mi;import{a as Et,l as Lt}from"./urls-C__vPSUl.js";pn=t=>{if(!t||typeof t!==Lt.la)return Et.EMPTY;let g,r=t;do{g=r,r=r.replace(/<[^>]*>/g,Et.EMPTY)}while(r!==g);return r},vn=t=>t&&typeof t===Lt.la?t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"):Et.EMPTY,Mi=t=>t&&typeof t===Lt.la?t.toLowerCase().replace(/[^\w\s-]/g,Et.EMPTY).trim().replace(/[\s_]+/g,"-").replace(/--+/g,"-"):Et.EMPTY;export{Mi as n,pn as r,vn as t};
+//# sourceMappingURL=string-BFspfJUt.js.map

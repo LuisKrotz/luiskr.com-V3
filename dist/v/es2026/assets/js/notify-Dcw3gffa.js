@@ -1,0 +1,2 @@
+var en,nre;import{S as _t}from"./urls-C__vPSUl.js";en=Object.freeze({ERROR:_t.ERROR,No:"info",S4:"success"}),nre=Object.freeze({Zj:5e3,eX:4,r4:2500,c4:64});export{en as n,nre as t};
+//# sourceMappingURL=notify-Dcw3gffa.js.map

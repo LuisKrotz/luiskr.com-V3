@@ -1,0 +1,2 @@
+import{J as Naa,Y as laa,q as taa}from"./urls-C__vPSUl.js";var $o=Object.freeze({Sn:taa,$p:`${taa}-title`,Mp:laa,Op:`${laa}-link`,_5:Naa,sf:`${Naa}-link`,lf:`${laa}-separator`});export{$o as t};
+//# sourceMappingURL=contact-F9nRsku2.js.map

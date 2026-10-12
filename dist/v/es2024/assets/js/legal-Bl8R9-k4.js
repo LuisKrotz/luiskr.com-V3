@@ -1,2 +1,0 @@
-var so,to;import{Ft as Rte}from"./store-CMXxf6uw.js";so=Object.freeze({Nm:"legal"}),to=Object.freeze({Nn:Rte,wm:`${Rte}-title`,vm:`${Rte}-subtitle`,xm:`${Rte}-link`});export{to as n,so as t};
-//# sourceMappingURL=legal-Bl8R9-k4.js.map

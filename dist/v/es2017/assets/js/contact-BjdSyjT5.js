@@ -1,0 +1,2 @@
+import{ft as eoe,mt as Ooe,pt as coe}from"./store-Bfer4ApS.js";var lo=Object.freeze({Pn:eoe,Tp:`${eoe}-title`,Np:Ooe,Ip:`${Ooe}-link`,K2:coe,Cm:`${coe}-link`,Mm:`${Ooe}-separator`});export{lo as t};
+//# sourceMappingURL=contact-BjdSyjT5.js.map

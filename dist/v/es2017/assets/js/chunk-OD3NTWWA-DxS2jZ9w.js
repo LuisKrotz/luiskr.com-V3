@@ -1,2 +1,0 @@
-function DG(e=Kwe){const a=kue(Oue(e),v_e),r=kue(Sue({shared:a}),E_e,OG);return a.ServiceRegistry.register(r),{shared:a,Packet:r}}var $h,aBe,OG;import{C as Oue,S as Sue,d as E_e,i as M_e,o as Kwe,t as j_e,u as v_e,w as kue,x as P_}from"./chunk-NGNAAXSQ-Con9FTNN.js";P_($h=class extends j_e{constructor(){super(["packet"])}},"PacketTokenBuilder"),aBe=$h,OG={parser:{TokenBuilder:P_(()=>new aBe,"TokenBuilder"),ValueConverter:P_(()=>new M_e,"ValueConverter")}},P_(DG,"createPacketServices");export{DG as n,OG as t};
-//# sourceMappingURL=chunk-OD3NTWWA-DxS2jZ9w.js.map

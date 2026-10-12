@@ -1,2 +1,0 @@
-var so,no;import{Ft as Rte}from"./store-DarPSUk1.js";so=Object.freeze({Xm:"legal"}),no=Object.freeze({$n:Rte,bm:`${Rte}-title`,wm:`${Rte}-subtitle`,xm:`${Rte}-link`});export{no as n,so as t};
-//# sourceMappingURL=legal-Dd75AZMR.js.map

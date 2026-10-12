@@ -1,0 +1,2 @@
+var kNe=Object.defineProperty,dw=(e,a)=>kNe(e,"name",{value:a,configurable:!0}),vI=(e,a)=>{for(var r in a)kNe(e,r,{get:a[r],enumerable:!0})};export{dw as n,vI as t};
+//# sourceMappingURL=chunk-Y2CYZVJY-jRp80TDE.js.map

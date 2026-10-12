@@ -1,0 +1,2 @@
+Object.freeze({N1:"cubic-bezier(0.22, 1, 0.36, 1)",U1:"cubic-bezier(0.16, 1, 0.3, 1)"});var Ja=Object.freeze({Hi:450,Eo:350,Gi:1100,b1:420,c1:800,oi:1200,ii:2200,P1:640,l0:450,Oy:800,fa:600,ma:2});export{Ja as t};
+//# sourceMappingURL=animation-6hEF87o-.js.map

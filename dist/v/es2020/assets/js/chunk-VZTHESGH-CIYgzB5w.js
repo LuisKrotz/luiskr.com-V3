@@ -1,2 +1,0 @@
-function HG(e=Nwe){const r=vue(Tue(e),u_e),a=vue($ue({shared:r}),m_e,SG);return r.ServiceRegistry.register(a),{shared:r,GitGraph:a}}var uh,eGe,SG;import{C as Tue,S as $ue,c as m_e,i as x_e,o as Nwe,t as S_e,u as u_e,w as vue,x as P_}from"./chunk-NGNAAXSQ-CPzFoVdZ.js";P_(uh=class extends S_e{constructor(){super(["gitGraph"])}},"GitGraphTokenBuilder"),eGe=uh,SG={parser:{TokenBuilder:P_(()=>new eGe,"TokenBuilder"),ValueConverter:P_(()=>new x_e,"ValueConverter")}},P_(HG,"createGitGraphServices");export{HG as n,SG as t};
-//# sourceMappingURL=chunk-VZTHESGH-CIYgzB5w.js.map

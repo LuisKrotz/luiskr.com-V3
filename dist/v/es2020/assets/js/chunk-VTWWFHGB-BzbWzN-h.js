@@ -1,2 +1,0 @@
-function GG(a=Nwe){const e=vue(Tue(a),u_e),r=vue($ue({shared:e}),g_e,WG);return e.ServiceRegistry.register(r),{shared:e,Radar:r}}var uh,saa,WG;import{C as Tue,S as $ue,i as x_e,o as Nwe,p as g_e,t as S_e,u as u_e,w as vue,x as P_}from"./chunk-NGNAAXSQ-CPzFoVdZ.js";P_(uh=class extends S_e{constructor(){super(["radar-beta"])}},"RadarTokenBuilder"),saa=uh,WG={parser:{TokenBuilder:P_(()=>new saa,"TokenBuilder"),ValueConverter:P_(()=>new x_e,"ValueConverter")}},P_(GG,"createRadarServices");export{GG as n,WG as t};
-//# sourceMappingURL=chunk-VTWWFHGB-BzbWzN-h.js.map

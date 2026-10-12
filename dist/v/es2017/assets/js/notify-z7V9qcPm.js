@@ -1,2 +1,0 @@
-var Ji,ore;import{B as lt}from"./store-DarPSUk1.js";Ji=Object.freeze({ERROR:lt.ERROR,Oo:"info",JX:"success"}),ore=Object.freeze({Cz:5e3,qz:4,QX:2500,Aq:64});export{Ji as n,ore as t};
-//# sourceMappingURL=notify-z7V9qcPm.js.map
