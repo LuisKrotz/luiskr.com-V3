@@ -1,0 +1,2 @@
+var E,a;import{pn as e}from"./store-CCaATUPs.js";E=Object.freeze({ua:"aria-label",ri:"aria-expanded",RQ:"aria-controls",TQ:"aria-labelledby",lQ:"aria-modal",sf:"aria-hidden",NQ:"aria-live",_U:"aria-pressed",ro:"aria-checked",Zy:"polite",NZ:"role",To:e,no:"group",eo:"switch",ii:"button",Fa:"navigation",gj:"alert",Jy:"status",Nz:"tree",Mz:"treeitem",Dz:"none",hp:"tabindex"}),a=Object.freeze({BI:"type",Ma:"button",Ii:"button",pa:"text",Qy:"search",xU:"checkbox",vU:"range",NK:"name",IK:"value",Cs:"label"});export{E as n,a as t};
+//# sourceMappingURL=form-Wn6OM6v9.js.map

@@ -1,2 +1,0 @@
-var s,E;import{B as e}from"./store-COqePKWG.js";s=Object.freeze({ERROR:e.ERROR,Nr:"info",XJ:"success"}),E=Object.freeze({Vj:5e3,Yj:4,qJ:2500,JJ:64});export{s as n,E as t};
-//# sourceMappingURL=notify-PfrDUshT.js.map

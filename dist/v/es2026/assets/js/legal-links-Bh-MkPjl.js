@@ -1,2 +1,0 @@
-function o(o=s.le){const e=i[o]||i.en,n=o===s.le?r.EMPTY:`${t.se}${o}`,p=a(m.j0)||[];return[r.EMPTY,e.privacy||u.df,e.gdpr||u.GDPR,e.terms||u.kX].map((o,s)=>({link:`${n}${t.se}${o}`,page:p[s]?.page||r.EMPTY}))}import{u as r}from"./urls-kiBmNTZk.js";import{o as s,v as t}from"./store-CFvllQNu.js";import{n as a,o as m,y as i}from"./ui-text-DeOtJQmp.js";import{u}from"./router-B5tMlizL.js";export{o as t};
-//# sourceMappingURL=legal-links-Bh-MkPjl.js.map

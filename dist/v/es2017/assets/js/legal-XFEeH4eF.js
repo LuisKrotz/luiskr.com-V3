@@ -1,2 +1,0 @@
-var t,O;import{It as N}from"./store-CCIn3s-Q.js";t=Object.freeze({Rm:"legal"}),O=Object.freeze({$n:N,qm:`${N}-title`,Nm:`${N}-subtitle`,jm:`${N}-link`});export{O as n,t};
-//# sourceMappingURL=legal-XFEeH4eF.js.map

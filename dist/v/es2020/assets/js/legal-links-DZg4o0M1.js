@@ -1,2 +1,0 @@
-function s(s=t.le){const n=i[s]||i.en,p=s===t.le?r.EMPTY:`${o.se}${s}`,u=a(e.YX)||[];return[r.EMPTY,n.privacy||m.Sm,n.gdpr||m.GDPR,n.terms||m.SH].map((s,t)=>({link:`${p}${o.se}${s}`,page:u[t]?.page||r.EMPTY}))}import{O as o,T as r,c as t}from"./store-BbEJQE2m.js";import{n as a,o as e,y as i}from"./ui-text-DgNqAa88.js";import{u as m}from"./router-DBC6vWCx.js";export{s as t};
-//# sourceMappingURL=legal-links-DZg4o0M1.js.map

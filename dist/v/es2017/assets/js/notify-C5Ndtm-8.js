@@ -1,2 +1,0 @@
-var s,E;import{B as e}from"./store-CCIn3s-Q.js";s=Object.freeze({ERROR:e.ERROR,Oo:"info",sJ:"success"}),E=Object.freeze({kj:5e3,uj:4,eJ:2500,tJ:64});export{s as n,E as t};
-//# sourceMappingURL=notify-C5Ndtm-8.js.map

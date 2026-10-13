@@ -17,6 +17,11 @@ public/
 # Firebase seed dump — machine-managed, formatting churn is noise.
 database.json
 
+# firebase.json — build-locale-pages.mjs regenerates hosting.rewrites
+# every build via JSON.stringify; format churn on a generated block is
+# noise, same class as database.json.
+firebase.json
+
 # Lockfiles are machine-formatted already.
 package-lock.json
 chrome-headless-shell/

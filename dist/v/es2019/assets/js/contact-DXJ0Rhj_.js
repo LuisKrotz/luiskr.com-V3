@@ -1,2 +1,0 @@
-import{ft as T,mt as C,pt as O}from"./store-D3Iuo8sJ.js";var t=Object.freeze({Pn:T,Nh:`${T}-title`,Ih:C,Ch:`${C}-link`,K2:O,Cm:`${O}-link`,Mm:`${C}-separator`});export{t};
-//# sourceMappingURL=contact-DXJ0Rhj_.js.map

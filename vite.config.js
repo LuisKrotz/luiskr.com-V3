@@ -18,7 +18,7 @@
  *     module/import() needed, i18n bootstrap chunks inlined-stubbed so the
  *     data layer falls back to REST+localStorage.
  */
-import { defineConfig, createLogger } from 'vite'
+import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import { compression } from 'vite-plugin-compression2'
 import { fileURLToPath, URL } from 'node:url'
@@ -33,6 +33,7 @@ import { modulePublicPlugin } from './shared/build/module-public.mjs'
 import { docsPortalPlugin } from './shared/build/docs-portal.mjs'
 import { i18nBootPlugin, i18nFallbackPlugin } from './shared/build/i18n-virtual.mjs'
 import { jsxInJsPlugin, SHARED_ESBUILD } from './shared/build/jsx-in-js.mjs'
+import { hostContextSafeLogger } from './shared/build/vite-lib.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -45,19 +46,7 @@ export default defineConfig(({ command }) => {
 
   const nameCache = {}
 
-  // lightningcss's selector parser doesn't know :host-context() yet — the
-  // emitted CSS is byte-identical correct (verified: rules pass through
-  // untouched), so the "not recognized" notice is pure log noise. Filter
-  // exactly that pattern; every other warning keeps surfacing.
-  const customLogger = createLogger()
-  const warn = customLogger.warn
-
-  customLogger.warn = (msg, opts) => {
-    if (typeof msg === 'string' && msg.includes('host-context') && msg.includes('pseudo-class'))
-      return
-
-    warn(msg, opts)
-  }
+  const customLogger = hostContextSafeLogger()
 
   const terserCompress = {
     passes: 100,

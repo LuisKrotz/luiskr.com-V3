@@ -1,2 +1,0 @@
-import{ft as T,mt as C,pt as O}from"./store-COqePKWG.js";var t=Object.freeze({Sa:T,Nh:`${T}-title`,Ih:C,Sh:`${C}-link`,Z2:O,Xm:`${O}-link`,Mm:`${C}-separator`});export{t};
-//# sourceMappingURL=contact-CxPE75Pv.js.map

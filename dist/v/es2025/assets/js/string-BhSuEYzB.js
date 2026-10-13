@@ -1,2 +1,0 @@
-var t,g,r;import{w as e,y as o}from"./store-CsFH3ag_.js";t=t=>{if(!t||typeof t!==e.la)return o.EMPTY;let g,r=t;do{g=r,r=r.replace(/<[^>]*>/g,o.EMPTY)}while(r!==g);return r},g=t=>t&&typeof t===e.la?t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;"):o.EMPTY,r=t=>t&&typeof t===e.la?t.toLowerCase().replace(/[^\w\s-]/g,o.EMPTY).trim().replace(/[\s_]+/g,"-").replace(/--+/g,"-"):o.EMPTY;export{r as n,t as r,g as t};
-//# sourceMappingURL=string-BhSuEYzB.js.map

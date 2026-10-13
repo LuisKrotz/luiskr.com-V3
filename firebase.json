@@ -4,7 +4,12 @@
   },
   "hosting": {
     "public": "dist",
-    "ignore": ["firebase.json", "**/.*", "!**/.well-known/**", "**/node_modules/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "!**/.well-known/**",
+      "**/node_modules/**"
+    ],
     "headers": [
       {
         "source": "/cms/**",
