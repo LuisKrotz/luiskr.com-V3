@@ -368,7 +368,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini Melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -383,7 +383,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian Leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -443,7 +443,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia Bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -503,7 +503,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -825,7 +825,8 @@
           "dwarfGalaxy": "Dwarf Galaxy",
           "structure": "Cosmic Structure",
           "belt": "Small-Body Belt",
-          "disclaimer": "This experiment does not simulate real space distances or the real appearance and shapes of objects. The layout is designed for navigation and to present information in an interactive form — it does not reflect real data."
+          "disclaimer": "This experiment does not simulate real space distances or the real appearance and shapes of objects. The layout is designed for navigation and to present information in an interactive form — it does not reflect real data.",
+          "description": "Interactive WebGL star field — fly through the Solar System, nearby stars, nebulae and galaxies."
         },
         "earth-playground": {
           "title": "Earth Playground",
@@ -891,7 +892,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Interactive WebGL Earth playground — adjust terrain, atmosphere, lighting and post-processing live."
         },
         "license": {
           "title": "Mozilla Public License 2.0",
@@ -7435,7 +7437,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini Melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -7450,7 +7452,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian Leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -7510,7 +7512,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia Bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -7570,7 +7572,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -7892,7 +7894,8 @@
           "dwarfGalaxy": "Galáxia Anã",
           "structure": "Estrutura Cósmica",
           "belt": "Cinturão",
-          "disclaimer": "Este experimento não simula distâncias espaciais reais, nem a aparência e as formas reais dos objetos. O layout foi criado para navegação e para apresentar informações de forma interativa — não reflete dados reais."
+          "disclaimer": "Este experimento não simula distâncias espaciais reais, nem a aparência e as formas reais dos objetos. O layout foi criado para navegação e para apresentar informações de forma interativa — não reflete dados reais.",
+          "description": "Campo de estrelas WebGL interativo — voe pelo Sistema Solar, estrelas próximas, nebulosas e galáxias."
         },
         "earth-playground": {
           "title": "Playground da Terra",
@@ -7958,7 +7961,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Playground WebGL interativo da Terra — ajuste terreno, atmosfera, iluminação e pós-processamento ao vivo."
         },
         "license": {
           "title": "Licença Pública Mozilla 2.0",
@@ -14502,7 +14506,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -14517,7 +14521,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -14577,7 +14581,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -14637,7 +14641,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -14959,7 +14963,8 @@
           "dwarfGalaxy": "Galaxia Enana",
           "structure": "Estructura Cósmica",
           "belt": "Cinturón",
-          "disclaimer": "Este experimento no simula distancias espaciales reales ni la apariencia ni las formas reales de los objetos. El diseño está pensado para navegar y presentar la información de forma interactiva — no refleja datos reales."
+          "disclaimer": "Este experimento no simula distancias espaciales reales ni la apariencia ni las formas reales de los objetos. El diseño está pensado para navegar y presentar la información de forma interactiva — no refleja datos reales.",
+          "description": "Campo de estrellas WebGL interactivo — vuela por el Sistema Solar, estrellas cercanas, nebulosas y galaxias."
         },
         "earth-playground": {
           "title": "Playground de la Tierra",
@@ -15025,7 +15030,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Playground WebGL interactivo de la Tierra — ajusta terreno, atmósfera, iluminación y posprocesado en vivo."
         },
         "license": {
           "title": "Licencia Pública Mozilla 2.0",
@@ -21569,7 +21575,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -21584,7 +21590,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -21644,7 +21650,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -21704,7 +21710,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -22026,7 +22032,8 @@
           "dwarfGalaxy": "Zwerggalaxie",
           "structure": "Kosmische Struktur",
           "belt": "Kleinkörpergürtel",
-          "disclaimer": "Dieses Experiment simuliert weder reale Entfernungen im All noch das tatsächliche Erscheinungsbild und die Formen der Objekte. Das Layout dient der Navigation und der interaktiven Präsentation von Informationen — es spiegelt keine realen Daten wider."
+          "disclaimer": "Dieses Experiment simuliert weder reale Entfernungen im All noch das tatsächliche Erscheinungsbild und die Formen der Objekte. Das Layout dient der Navigation und der interaktiven Präsentation von Informationen — es spiegelt keine realen Daten wider.",
+          "description": "Interaktives WebGL-Sternenfeld — fliege durch das Sonnensystem, nahe Sterne, Nebel und Galaxien."
         },
         "earth-playground": {
           "title": "Erde-Playground",
@@ -22092,7 +22099,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Interaktiver WebGL-Erde-Playground — passe Gelände, Atmosphäre, Beleuchtung und Nachbearbeitung live an."
         },
         "license": {
           "title": "Mozilla Public License 2.0",
@@ -28636,7 +28644,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -28651,7 +28659,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -28711,7 +28719,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -28771,7 +28779,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -29093,7 +29101,8 @@
           "dwarfGalaxy": "Zwerggalaxie",
           "structure": "Kosmische Struktur",
           "belt": "Kleinkörpergürtel",
-          "disclaimer": "Des Experiment simuliert kän echte Weltrum-Ofständ un kän echtes Ausseh oder Form vun de Objekte. Des Layout is gmacht fer zu Navigieren un Informationen interaktiv ze zeige — es zeigt kän echte Date."
+          "disclaimer": "Des Experiment simuliert kän echte Weltrum-Ofständ un kän echtes Ausseh oder Form vun de Objekte. Des Layout is gmacht fer zu Navigieren un Informationen interaktiv ze zeige — es zeigt kän echte Date.",
+          "description": "Interaktives WebGL-Sternfeld — flieg durchs Sonnensystem, nahe Sterne, Nebel un Galaxie."
         },
         "earth-playground": {
           "title": "Erd-Playground",
@@ -29159,7 +29168,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Interaktiver WebGL-Erd-Playground — Gelände, Atmosphär, Belichtung un Nachbearbeitung live apasse."
         },
         "license": {
           "title": "Mozilla Public License 2.0",
@@ -35703,7 +35713,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -35718,7 +35728,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -35778,7 +35788,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -35838,7 +35848,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -36160,7 +36170,8 @@
           "dwarfGalaxy": "Galaxia Enana",
           "structure": "Estructura Cósmica",
           "belt": "Cinturón",
-          "disclaimer": "Este experimento no simula distancias espaciales reales, ni la apariencia ni las formas reales de los objetos. La disposición está diseñada para la navegación y para presentar la información de forma interactiva — no refleja datos reales."
+          "disclaimer": "Este experimento no simula distancias espaciales reales, ni la apariencia ni las formas reales de los objetos. La disposición está diseñada para la navegación y para presentar la información de forma interactiva — no refleja datos reales.",
+          "description": "Campo de estrellas WebGL interactivo — volá por el Sistema Solar, estrellas cercanas, nebulosas y galaxias."
         },
         "earth-playground": {
           "title": "Playground de la Tierra",
@@ -36226,7 +36237,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Playground WebGL interactivo de la Tierra — ajustá terreno, atmósfera, iluminación y posprocesado en vivo."
         },
         "license": {
           "title": "Licencia Pública Mozilla 2.0",
@@ -42770,7 +42782,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini Melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -42785,7 +42797,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian Leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -42845,7 +42857,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia Bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -42905,7 +42917,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -43227,7 +43239,8 @@
           "dwarfGalaxy": "Galáxia Anã",
           "structure": "Estrutura Cósmica",
           "belt": "Cinto",
-          "disclaimer": "Este experimento no simula distâncias espaciales reales ni la aparencia ni las formas reales de los objetos. El desenho está pensado pa navegar y presentar la informação de forma interativa — no refleja datos reales."
+          "disclaimer": "Este experimento no simula distâncias espaciales reales ni la aparencia ni las formas reales de los objetos. El desenho está pensado pa navegar y presentar la informação de forma interativa — no refleja datos reales.",
+          "description": "Campo de estrellas WebGL interactivo — volá por el Sistema Solar, estrellas cercanas, nebulosas y galaxias."
         },
         "earth-playground": {
           "title": "Playground da Terra",
@@ -43293,7 +43306,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Playground WebGL interactivo de la Tierra — ajustá terreno, atmósfera, iluminación y posprocesamiento en vivo."
         },
         "license": {
           "title": "Licença Pública Mozilla 2.0",
@@ -49837,7 +49851,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -49852,7 +49866,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -49912,7 +49926,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -49972,7 +49986,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -50294,7 +50308,8 @@
           "dwarfGalaxy": "Galaxia Michĩ",
           "structure": "Toguá Tuicha",
           "belt": "Kue",
-          "disclaimer": "Ko tembiʼepy ndohechaukái añetegua pytuʼũ yvagape, mbaʼéichapa térã hysãi añetegua. Ko apoha ojejapo ñeikundaha ha ohechauka hag̃ua marandu jokoháicha — ndeʼẽi mbaʼekuaarã añetegua."
+          "disclaimer": "Ko tembiʼepy ndohechaukái añetegua pytuʼũ yvagape, mbaʼéichapa térã hysãi añetegua. Ko apoha ojejapo ñeikundaha ha ohechauka hag̃ua marandu jokoháicha — ndeʼẽi mbaʼekuaarã añetegua.",
+          "description": "WebGL mbyjaku'i retã — eho Sistema Solar, mbyja ag̃uĩva, nebulosa ha galaxia rupive."
         },
         "earth-playground": {
           "title": "Yvy Ñembosarái",
@@ -50360,7 +50375,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "WebGL interactivo Yvy rehegua — terreno, atmósfera, mbarendy ha postprocesado emoĩporã vivo."
         },
         "license": {
           "title": "Licencia Pública Mozilla 2.0",
@@ -56904,7 +56920,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -56919,7 +56935,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -56979,7 +56995,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -57039,7 +57055,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -57361,7 +57377,8 @@
           "dwarfGalaxy": "Galassia Nana",
           "structure": "Struttura Cosmica",
           "belt": "Fascia",
-          "disclaimer": "Questo esperimento non simula le distanze reali dello spazio, né l’aspetto o le forme reali degli oggetti. Il layout è pensato per la navigazione e per presentare le informazioni in modo interattivo — non riflette dati reali."
+          "disclaimer": "Questo esperimento non simula le distanze reali dello spazio, né l’aspetto o le forme reali degli oggetti. Il layout è pensato per la navigazione e per presentare le informazioni in modo interattivo — non riflette dati reali.",
+          "description": "Campo stellare WebGL interattivo — vola attraverso il Sistema Solare, stelle vicine, nebulose e galassie."
         },
         "earth-playground": {
           "title": "Playground della Terra",
@@ -57427,7 +57444,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Playground WebGL interattivo della Terra — regola terreno, atmosfera, illuminazione e post-elaborazione dal vivo."
         },
         "license": {
           "title": "Licenza Pubblica Mozilla 2.0",
@@ -63971,7 +63989,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini Melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -63986,7 +64004,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian Leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -64046,7 +64064,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia Bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -64106,7 +64124,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -64428,7 +64446,8 @@
           "dwarfGalaxy": "Карликовая галактика",
           "structure": "Космическая структура",
           "belt": "Пояс",
-          "disclaimer": "Этот эксперимент не имитирует реальные космические расстояния, внешний вид и формы объектов. Компоновка предназначена для навигации и интерактивного представления информации — она не отражает реальные данные."
+          "disclaimer": "Этот эксперимент не имитирует реальные космические расстояния, внешний вид и формы объектов. Компоновка предназначена для навигации и интерактивного представления информации — она не отражает реальные данные.",
+          "description": "Интерактивное звёздное поле WebGL — летайте по Солнечной системе, ближайшим звёздам, туманностям и галактикам."
         },
         "earth-playground": {
           "title": "Земная песочница",
@@ -64494,7 +64513,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Интерактивная WebGL-Земля — настраивайте рельеф, атмосферу, освещение и постобработку в реальном времени."
         },
         "license": {
           "title": "Mozilla Public License 2.0",
@@ -71038,7 +71058,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -71053,7 +71073,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -71113,7 +71133,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -71173,7 +71193,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -71495,7 +71515,8 @@
           "dwarfGalaxy": "Galaxie Naine",
           "structure": "Structure Cosmique",
           "belt": "Ceinture",
-          "disclaimer": "Cette expérience ne simule ni les distances spatiales réelles, ni l’apparence et les formes réelles des objets. La mise en page est conçue pour la navigation et la présentation interactive des informations — elle ne reflète pas de données réelles."
+          "disclaimer": "Cette expérience ne simule ni les distances spatiales réelles, ni l’apparence et les formes réelles des objets. La mise en page est conçue pour la navigation et la présentation interactive des informations — elle ne reflète pas de données réelles.",
+          "description": "Champ d'étoiles WebGL interactif — naviguez dans le Système solaire, les étoiles proches, nébuleuses et galaxies."
         },
         "earth-playground": {
           "title": "Playground de la Terre",
@@ -71561,7 +71582,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Playground WebGL interactif de la Terre — ajustez terrain, atmosphère, éclairage et post-traitement en direct."
         },
         "license": {
           "title": "Licence Publique Mozilla 2.0",
@@ -78105,7 +78127,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -78120,7 +78142,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -78180,7 +78202,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -78240,7 +78262,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -78562,7 +78584,8 @@
           "dwarfGalaxy": "Gałasia Pitică",
           "structure": "Structură Cosmică",
           "belt": "Cintura",
-          "disclaimer": "Sto esperimento no simula łe distanse spasiałi veɣe, né ła parénsa o łe forme veɣe dei ogeti. Ła disposision ła ze pensada par navegar e par prexentar łe informasion in modo interativo — no ła riflète dati veɣi."
+          "disclaimer": "Sto esperimento no simula łe distanse spasiałi veɣe, né ła parénsa o łe forme veɣe dei ogeti. Ła disposision ła ze pensada par navegar e par prexentar łe informasion in modo interativo — no ła riflète dati veɣi.",
+          "description": "Canpo stełare WebGL interativo — voła par el Sistema Sołare, łe stełe visine, nebułose e gałasie."
         },
         "earth-playground": {
           "title": "Terałudo",
@@ -78628,7 +78651,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Playground WebGL interativo de ła Tera — regoła teren, atmosfera, łuze e post-ełaborasion dal vivo."
         },
         "license": {
           "title": "Licensa Pùblica Mozilla 2.0",
@@ -85172,7 +85196,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -85187,7 +85211,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -85247,7 +85271,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -85307,7 +85331,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -85629,7 +85653,8 @@
           "dwarfGalaxy": "Dwergstelsel",
           "structure": "Kosmische Structuur",
           "belt": "Gordel",
-          "disclaimer": "Dit experiment simuleert geen echte ruimteafstanden en geen werkelijk uiterlijk of vorm van objecten. De indeling is bedoeld om te navigeren en informatie interactief te presenteren — het weerspiegelt geen echte gegevens."
+          "disclaimer": "Dit experiment simuleert geen echte ruimteafstanden en geen werkelijk uiterlijk of vorm van objecten. De indeling is bedoeld om te navigeren en informatie interactief te presenteren — het weerspiegelt geen echte gegevens.",
+          "description": "Interactief WebGL-sterrenveld — vlieg door het zonnestelsel, nabije sterren, nevels en sterrenstelsels."
         },
         "earth-playground": {
           "title": "Aarde-playground",
@@ -85695,7 +85720,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Interactieve WebGL-aarde-playground — pas terrein, atmosfeer, verlichting en nabewerking live aan."
         },
         "license": {
           "title": "Mozilla Public License 2.0",
@@ -92239,7 +92265,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -92254,7 +92280,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -92314,7 +92340,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -92374,7 +92400,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -92696,7 +92722,8 @@
           "dwarfGalaxy": "Galàxia Nana",
           "structure": "Estructura Còsmica",
           "belt": "Cinturó",
-          "disclaimer": "Aquest experiment no simula distàncies espacials reals ni l’aparença ni les formes reals dels objectes. La disposició està pensada per navegar i presentar la informació de forma interactiva — no reflecteix dades reals."
+          "disclaimer": "Aquest experiment no simula distàncies espacials reals ni l’aparença ni les formes reals dels objectes. La disposició està pensada per navegar i presentar la informació de forma interactiva — no reflecteix dades reals.",
+          "description": "Camp d'estrelles WebGL interactiu — vola pel Sistema Solar, estrelles properes, nebuloses i galàxies."
         },
         "earth-playground": {
           "title": "Playground de la Terra",
@@ -92762,7 +92789,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Playground WebGL interactiu de la Terra — ajusta terreny, atmosfera, il·luminació i postprocessat en directe."
         },
         "license": {
           "title": "Llicència Pública Mozilla 2.0",
@@ -99306,7 +99334,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -99321,7 +99349,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -99381,7 +99409,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -99441,7 +99469,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -99763,7 +99791,8 @@
           "dwarfGalaxy": "Galaxia Anana",
           "structure": "Estrutura Cósmica",
           "belt": "Cinto",
-          "disclaimer": "Este experimento non simula distancias espaciais reais nin a aparencia nin as formas reais dos obxectos. O deseño está pensado para navegar e presentar a información de forma interactiva — non reflicte datos reais."
+          "disclaimer": "Este experimento non simula distancias espaciais reais nin a aparencia nin as formas reais dos obxectos. O deseño está pensado para navegar e presentar a información de forma interactiva — non reflicte datos reais.",
+          "description": "Campo de estrelas WebGL interactivo — voa polo Sistema Solar, estrelas próximas, nebulosas e galaxias."
         },
         "earth-playground": {
           "title": "Playground da Terra",
@@ -99829,7 +99858,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Playground WebGL interactivo da Terra — axusta terreo, atmosfera, iluminación e postprocesado en directo."
         },
         "license": {
           "title": "Licenza Pública Mozilla 2.0",
@@ -106373,7 +106403,7 @@
               ],
               "image": "minimelissa-cropped",
               "label": "Mini Melissa",
-              "link": "minimelissa",
+              "link": "mini-melissa",
               "width": [
                 "1905",
                 "768"
@@ -106388,7 +106418,7 @@
               ],
               "image": "brazilian-leather",
               "label": "Brazilian Leather",
-              "link": "brazilian-leather",
+              "link": "cicb",
               "width": [
                 "1920",
                 "768"
@@ -106448,7 +106478,7 @@
               ],
               "image": "clinica-nathalia-bond-v3",
               "label": "Nathalia Bond",
-              "link": "clinica-de-desenvolvimento-nathalia-bond",
+              "link": "nathalia-bond",
               "width": [
                 "1920",
                 "960"
@@ -106508,7 +106538,7 @@
               ],
               "image": "sageweb",
               "label": "Sageweb",
-              "link": "genesysinf-sageweb",
+              "link": "sage",
               "width": [
                 "1350",
                 "768"
@@ -106830,7 +106860,8 @@
           "dwarfGalaxy": "Réaltra Abhac",
           "structure": "Struchtúr Cosmach",
           "belt": "Crios",
-          "disclaimer": "Ní dhéanann an turgnamh seo fíor-fhadhanna spáis ná fíor-chuma ná fíor-chruth na réad a insamhladh. Dearadh an leagan amach le haghaidh loingseoireachta agus chun eolas a chur i láthair go hidirghníomhach — ní léiríonn sé fíorshonraí."
+          "disclaimer": "Ní dhéanann an turgnamh seo fíor-fhadhanna spáis ná fíor-chuma ná fíor-chruth na réad a insamhladh. Dearadh an leagan amach le haghaidh loingseoireachta agus chun eolas a chur i láthair go hidirghníomhach — ní léiríonn sé fíorshonraí.",
+          "description": "Réaltpháirc WebGL idirghníomhach — eitil tríd an gCóras Gréine, réaltaí dlúithe, nealtaí agus réaltraí."
         },
         "earth-playground": {
           "title": "Clós Spraoi an Domhain",
@@ -106896,7 +106927,8 @@
             "saturation": 1.5,
             "blackLevel": 0.015,
             "resScale": 1
-          }
+          },
+          "description": "Clós súgartha WebGL idirghníomhach den Domhan — coigeartaigh tír-raon, atmaisféar, soilsiú agus iarphróiseáil beo."
         },
         "license": {
           "title": "Ceadúnas Poiblí Mozilla 2.0",
