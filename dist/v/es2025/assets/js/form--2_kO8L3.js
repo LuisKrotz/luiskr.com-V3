@@ -1,2 +1,0 @@
-var E,a;import{pn as e}from"./store-CrjFWKoB.js";E=Object.freeze({un:"aria-label",oi:"aria-expanded",L0:"aria-controls",O0:"aria-labelledby",T0:"aria-modal",sf:"aria-hidden",I0:"aria-live",AU:"aria-pressed",Xo:"aria-checked",hR:"polite",Wx:"role",ws:e,Mo:"group",Fo:"switch",ii:"button",Fn:"navigation",EH:"alert",mR:"status",FZ:"tree",_Z:"treeitem",MZ:"none",hp:"tabindex"}),a=Object.freeze({_q:"type",Mn:"button",Ii:"button",pn:"text",gR:"search",yU:"checkbox",kU:"range",XK:"name",jK:"value",Is:"label"});export{E as n,a as t};
-//# sourceMappingURL=form--2_kO8L3.js.map

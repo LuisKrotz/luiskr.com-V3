@@ -1,2 +1,0 @@
-function a(a=u){const e=l(n(a),i),r=l(t({shared:e}),d,s);return e.ServiceRegistry.register(r),{shared:e,Radar:r}}var e,r,s;import{C as n,S as t,i as o,o as u,p as d,t as c,u as i,w as l,x as p}from"./chunk-NGNAAXSQ-5Eyv2z9K.js";p(e=class extends c{constructor(){super(["radar-beta"])}},"RadarTokenBuilder"),r=e,s={parser:{TokenBuilder:p(()=>new r,"TokenBuilder"),ValueConverter:p(()=>new o,"ValueConverter")}},p(a,"createRadarServices");export{a as n,s as t};
-//# sourceMappingURL=chunk-VTWWFHGB-Dv92pPMx.js.map

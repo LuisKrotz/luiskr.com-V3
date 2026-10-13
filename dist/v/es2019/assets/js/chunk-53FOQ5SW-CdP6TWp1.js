@@ -1,0 +1,2 @@
+function e(e=l){const r=d(n(e),c),a=d(t({shared:r}),o,s);return r.ServiceRegistry.register(a),{shared:r,Wardley:a}}var r,a,s;import{C as n,S as t,b as o,n as u,o as l,u as c,w as d,x as v}from"./chunk-NGNAAXSQ-LpE5GQtb.js";v(r=class extends u{runCustomConverter(e,r,a){if("LINK_LABEL"===e.name.toUpperCase())return r.substring(1).trim()}},"WardleyValueConverter"),a=r,s={parser:{ValueConverter:v(()=>new a,"ValueConverter")}},v(e,"createWardleyServices");export{e as n,s as t};
+//# sourceMappingURL=chunk-53FOQ5SW-CdP6TWp1.js.map

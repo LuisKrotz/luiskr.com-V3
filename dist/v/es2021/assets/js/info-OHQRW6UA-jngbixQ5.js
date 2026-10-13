@@ -1,0 +1,1 @@
+import"./chunk-NGNAAXSQ-Rgm1WQ2T.js";import{n as o,t as r}from"./chunk-3M4EKCLJ-0ZUL9_6x.js";export{o as createInfoServices};
