@@ -1,0 +1,2 @@
+function s(s=a.de){const m=n[s]||n.en,p=s===a.de?t.EMPTY:`${o.ce}${s}`,$=r(i.FQ)||[];return[t.EMPTY,m.privacy||e.Dm,m.gdpr||e.GDPR,m.terms||e.WH,m.license||e.r$].map((s,a)=>({link:`${p}${o.ce}${s}`,page:$[a]?.page||t.EMPTY}))}import{E as t,c as a,k as o}from"./store-WRLx7B7b.js";import{n as r,o as i,y as n}from"./ui-text-jLZnhjEg.js";import{N as e}from"./navigate-B_4ivHq1.js";export{s as t};
+//# sourceMappingURL=legal-links-BaSy4Gy7.js.map

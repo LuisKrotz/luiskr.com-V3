@@ -1,2 +1,0 @@
-import{J as T,Y as C,q as O}from"./urls-ClaW3fdN.js";var A=Object.freeze({Pn:O,_p:`${O}-title`,Mp:C,$p:`${C}-link`,T6:T,af:`${T}-link`,sf:`${C}-separator`});export{A as t};
-//# sourceMappingURL=contact-DdPbTtb6.js.map

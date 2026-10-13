@@ -1,2 +1,0 @@
-var t,O;import{Tt as N}from"./urls-ClaW3fdN.js";t=Object.freeze({So:"legal"}),O=Object.freeze({$n:N,if:`${N}-title`,nf:`${N}-subtitle`,ef:`${N}-link`});export{O as n,t};
-//# sourceMappingURL=legal-B7B4ntFR.js.map
