@@ -1,2 +1,0 @@
-Object.freeze({GJ:"cubic-bezier(0.22, 1, 0.36, 1)",zJ:"cubic-bezier(0.16, 1, 0.3, 1)"});var A=Object.freeze({Hi:450,Eo:350,Gi:1100,vJ:420,xJ:800,oi:1200,ii:2200,HJ:640,XX:450,Ok:800,fa:600,ma:2});export{A as t};
-//# sourceMappingURL=animation-DbKnejIt.js.map

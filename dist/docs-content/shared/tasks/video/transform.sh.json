@@ -1,0 +1,1 @@
+{"name":"transform.sh","path":"tasks/video/transform.sh","format":"code","html":"<pre class=\"docs-code\"><code class=\"lang-shell\">#!/bin/bash\nFOLDER=./\nfind &quot;$FOLDER&quot; -name &#39;*.mov&#39; -exec sh -c &#39;ffmpeg -i &quot;$0&quot; -c:v h264 -preset:v ultrafast &quot;${0%%}.mp4&quot;&#39; {} \\;\nexit;\n</code></pre>","mtime":"2026-10-09T03:03:43.977Z"}

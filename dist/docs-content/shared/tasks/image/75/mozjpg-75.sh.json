@@ -1,0 +1,1 @@
+{"name":"mozjpg-75.sh","path":"tasks/image/75/mozjpg-75.sh","format":"code","html":"<pre class=\"docs-code\"><code class=\"lang-shell\">#!/bin/bash\nFOLDER=./\nfind &quot;$FOLDER&quot; -name &#39;*.png&#39; -exec sh -c &#39;convert &quot;$0&quot; pnm:- | cjpeg -quality 75 &gt; &quot;${0%%}-mozjpg-75.jpg&quot;&#39; {} \\;\nexit;\n</code></pre>","mtime":"2026-10-09T03:03:43.977Z"}

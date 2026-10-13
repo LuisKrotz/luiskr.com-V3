@@ -8,7 +8,7 @@
 - Role: Software Engineer / Front-End Developer
 - Employer: Dell (Dell Design System)
 - Location: Brazil (RS)
-- Languages: English, Portuguese (BR), Spanish, German, Hunsrik, Guaraní, Italian, French, Russian, Talian
+- Site languages (16): English, Português (BR), Español, Deutsch, Hunsrik, Castellano (AR), Portuñol (UY), Guaraní, Italiano, Русский, Français, Talian, Galego, Català, Nederlands, Gaeilge
 
 ## Portfolio
 
@@ -27,15 +27,16 @@
 
 ## Interactive Experiences
 
-- [Earth Playground](https://luiskr.com/earth-playground): 3D photorealistic Earth WebGPU simulation engine with atmospheric scattering, dynamic lighting, real-time post-processing and interactive sci-fi controls (available in all languages: `/earth-playground` and `/:lang/earth-playground`).
+- [Earth Playground](https://luiskr.com/earth-playground): 3D photorealistic Earth WebGPU simulation engine with atmospheric scattering, dynamic lighting, real-time post-processing and interactive sci-fi controls (available in all languages: `/earth-playground` and localized slugs like `/br/playground-da-terra`).
+- [Star Field](https://luiskr.com/star-field-experiment): three.js cosmic-navigation experiment — a simulated galaxy of 100k+ catalogued stars plus 134 authored bodies (solar system, exoplanet systems, deep-sky objects) with localized dossiers. Deep-link any body via `/star-field-experiment/<body-id>` (e.g. `/star-field-experiment/mars`); localized slugs like `/br/experimento-campo-estelar` also resolve.
 
 ## Documentation Portal
 
-- [In-depth project docs](https://luiskr.com/docs): English-only browsable portal — architecture docs, quality reports, test coverage and the annotated source tree. Every manifest file is a crawlable `/docs/<root>/<path>` route with JSON-LD (`TechArticle`/`CollectionPage` + `BreadcrumbList`) and in-DOM microdata.
-- [Docs: Documentation root](https://luiskr.com/docs/docs): architecture, build, CMS and data-model guides.
+- [In-depth project docs](https://luiskr.com/docs): English-only browsable portal — architecture docs, quality reports, test coverage and the annotated source trees of every module. Every manifest file is a crawlable `/docs/<root>/<path>` route with JSON-LD (`TechArticle`/`CollectionPage` + `BreadcrumbList`) and in-DOM microdata.
+- [Docs: Documentation root](https://luiskr.com/docs/docs): architecture, build, CMS and data-model guides, plus the repository story (`/docs/docs/modules.md`).
 - [Docs: Quality reports](https://luiskr.com/docs/reports): lint, security and coverage gate outputs.
-- [Docs: Test coverage](https://luiskr.com/docs/coverage): per-file istanbul HTML reports.
-- [Docs: Source code](https://luiskr.com/docs/src): the published application source tree (copy-protected in the viewer).
+- [Docs: Test coverage](https://luiskr.com/docs/coverage): per-file istanbul HTML reports (plus `coverage-<module>` roots per package).
+- [Docs: Source code](https://luiskr.com/docs/src): the published application source tree (copy-protected in the viewer). Additional source roots publish each module: `shared`, `core`, `website`, `cms`, `earth`, `starfield`, `docs-exp`, `desktop` and `local-modules` (vendored deps).
 
 ## Contact
 

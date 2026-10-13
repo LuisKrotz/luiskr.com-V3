@@ -1,0 +1,2 @@
+Object.freeze({b1:"cubic-bezier(0.22, 1, 0.36, 1)",c1:"cubic-bezier(0.16, 1, 0.3, 1)"});var A=Object.freeze({Hi:450,Eo:350,Gi:1100,P1:420,j1:800,oi:1200,ii:2200,u1:640,l0:450,Oy:800,fa:600,ma:2});export{A as t};
+//# sourceMappingURL=animation-C8_Ai98P.js.map

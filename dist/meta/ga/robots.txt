@@ -1,5 +1,6 @@
 User-agent: *
-Disallow: /cms/
+Disallow: /cms
 Disallow: /admin
+Disallow: /langs/
 
 Sitemap: https://luiskr.com/sitemap-ga.xml

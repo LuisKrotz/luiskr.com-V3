@@ -1,0 +1,2 @@
+function e(e=o){const s=d(a(e),c),i=d(r({shared:s}),t,n);return s.ServiceRegistry.register(i),{shared:s,Cynefin:i}}var s,n;import{C as a,S as r,a as t,i,o,t as u,u as c,w as d,x as f}from"./chunk-NGNAAXSQ-bmF-UpUA.js";s=class extends u{static{f(this,"CynefinTokenBuilder")}constructor(){super(["cynefin-beta"])}},n={parser:{TokenBuilder:f(()=>new s,"TokenBuilder"),ValueConverter:f(()=>new i,"ValueConverter")}},f(e,"createCynefinServices");export{e as n,n as t};
+//# sourceMappingURL=chunk-VPELOWWC-BouifiW8.js.map
