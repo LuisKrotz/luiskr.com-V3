@@ -1,0 +1,2 @@
+var t,O;import{Tt as N}from"./urls-CEVqIri3.js";t=Object.freeze({mr:"legal"}),O=Object.freeze({Nn:N,if:`${N}-title`,nf:`${N}-subtitle`,ef:`${N}-link`});export{O as n,t};
+//# sourceMappingURL=legal-sh22zBep.js.map

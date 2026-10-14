@@ -1,0 +1,2 @@
+import{Dn as e}from"./store-D1Pu0uri.js";var t=Object.freeze({NONE:"none",Pa:"block",En:"auto",u:"smooth",h:"instant",jn:"true",An:"false",DK:"granted",SK:"denied",OPEN:"open",Za:"fixed",Hf:"absolute",Xf:"relative",HIDDEN:"hidden",m:"high",gD:"default",Zr:"landscape",bK:"portrait",Xr:"mobile",SYSTEM:e});export{t};
+//# sourceMappingURL=state-BnxW_VWN.js.map

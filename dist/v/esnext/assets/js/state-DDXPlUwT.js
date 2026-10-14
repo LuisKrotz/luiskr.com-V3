@@ -1,0 +1,2 @@
+import{Dn as e}from"./store-DuUGnLs_.js";var t=Object.freeze({NONE:"none",Pi:"block",yn:"auto",h:"smooth",u:"instant",Vn:"true",kn:"false",DK:"granted",SK:"denied",OPEN:"open",Ji:"fixed",Hf:"absolute",Bf:"relative",HIDDEN:"hidden",m:"high",xD:"default",Gr:"landscape",bK:"portrait",Vr:"mobile",SYSTEM:e});export{t};
+//# sourceMappingURL=state-DDXPlUwT.js.map

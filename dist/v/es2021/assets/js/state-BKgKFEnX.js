@@ -1,0 +1,2 @@
+import{Dn as e}from"./store-BReaRTK6.js";var t=Object.freeze({NONE:"none",Pa:"block",En:"auto",u:"smooth",h:"instant",jn:"true",An:"false",DK:"granted",SK:"denied",OPEN:"open",Za:"fixed",Hf:"absolute",Xf:"relative",HIDDEN:"hidden",m:"high",xD:"default",zs:"landscape",bK:"portrait",Zr:"mobile",SYSTEM:e});export{t};
+//# sourceMappingURL=state-BKgKFEnX.js.map

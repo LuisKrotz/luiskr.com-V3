@@ -1,0 +1,2 @@
+var s,E;import{S}from"./urls-CEVqIri3.js";s=Object.freeze({ERROR:S.ERROR,Vo:"info",S4:"success"}),E=Object.freeze({iX:5e3,nX:4,A4:2500,D4:64});export{s as n,E as t};
+//# sourceMappingURL=notify-CX-B2v2C.js.map

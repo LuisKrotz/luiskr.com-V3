@@ -1,0 +1,2 @@
+var _=Object.freeze({yc:5e3,tm:420,Qc:400,am:150,wc:.04}),E=Object.freeze({$c:2*Math.PI*19,_c:768,Oc:960,Jc:40,Sc:70,Zm:"70vh",kc:10,rm:.15,Rc:4,Xc:32,jc:320,_6:375,Pc:24,Tc:1024,Ic:377,Cc:610,Lc:987,E6:42,Mc:68,I6:26,Bc:42,Dc:68,Uc:110,Gc:158,Hc:55,qc:89,Vc:377,Fc:233,A6:600,Nc:16/9,Ac:21/9,Ec:32/9,zc:"16:9",vc:"21:9",gc:"32:9"}),I=Object.freeze({nh:2,dh:2,sh:250});export{I as n,_ as r,E as t};
+//# sourceMappingURL=carousel-CSYVUzgk.js.map
