@@ -1,2 +1,0 @@
-import{J as T,Y as C,q as O}from"./urls-BrFZK2Sj.js";var A=Object.freeze({Pn:O,_p:`${O}-title`,Mp:C,$p:`${C}-link`,T7:T,af:`${T}-link`,sf:`${C}-separator`});export{A as t};
-//# sourceMappingURL=contact-D0T3OZbg.js.map

@@ -1,0 +1,2 @@
+function e(e=o){const r=h(s(e),c),i=h(t({shared:r}),n,a);return r.ServiceRegistry.register(i),{shared:r,GitGraph:i}}var r,a;import{C as s,S as t,c as n,i,o,t as u,u as c,w as h,x as p}from"./chunk-NGNAAXSQ-vBGudja0.js";r=class extends u{static{p(this,"GitGraphTokenBuilder")}constructor(){super(["gitGraph"])}},a={parser:{TokenBuilder:p(()=>new r,"TokenBuilder"),ValueConverter:p(()=>new i,"ValueConverter")}},p(e,"createGitGraphServices");export{e as n,a as t};
+//# sourceMappingURL=chunk-VZTHESGH-D_42-VrS.js.map

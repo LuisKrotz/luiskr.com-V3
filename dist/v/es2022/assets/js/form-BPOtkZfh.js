@@ -1,2 +1,0 @@
-var E,a;import{pn as e}from"./store-COlCmpLf.js";E=Object.freeze({ua:"aria-label",ri:"aria-expanded",q0:"aria-controls",z0:"aria-labelledby",Q0:"aria-modal",sf:"aria-hidden",Z0:"aria-live",AU:"aria-pressed",ro:"aria-checked",FR:"polite",Wx:"role",To:e,no:"group",eo:"switch",ii:"button",Fa:"navigation",YH:"alert",DR:"status",FZ:"tree",_Z:"treeitem",MZ:"none",hp:"tabindex"}),a=Object.freeze({_q:"type",Ma:"button",Ii:"button",pa:"text",$R:"search",yU:"checkbox",kU:"range",hX:"name",_X:"value",Cs:"label"});export{E as n,a as t};
-//# sourceMappingURL=form-BPOtkZfh.js.map
