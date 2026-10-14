@@ -1,0 +1,2 @@
+var e=Object.freeze({ji:"view-home",bo:"view-project",vo:"view-legal",wo:"view-not-found",vd:"view-admin-login",yd:"view-cms-dashboard",_o:"view-space-playground",xo:"view-star-field",yo:"view-docs"});export{e as t};
+//# sourceMappingURL=views-Cslx6ZTk.js.map

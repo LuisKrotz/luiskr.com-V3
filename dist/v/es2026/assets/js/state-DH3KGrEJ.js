@@ -1,2 +1,0 @@
-import{yn as e}from"./urls-CEVqIri3.js";var E=Object.freeze({NONE:"none",Pi:"block",yn:"auto",h:"smooth",u:"instant",jn:"true",kn:"false",t0:"granted",a0:"denied",OPEN:"open",Qi:"fixed",Uh:"absolute",Ph:"relative",HIDDEN:"hidden",m:"high",kD:"default",Fl:"landscape",o0:"portrait",jl:"mobile",SYSTEM:e});export{E as t};
-//# sourceMappingURL=state-DH3KGrEJ.js.map

@@ -1,0 +1,2 @@
+var p=Object.freeze({Qs:"-mozjpg",er:"3-MSSIM-tuned-kodak",rh:"-50",sp:"-uncompressed",sr:".jpg",Zm:".mp4",Xs:".mp4.jpg-thumb.jpg",Qm:".mp4-scaledown-2x"});export{p as t};
+//# sourceMappingURL=suffixes-D_jjSZ7i.js.map

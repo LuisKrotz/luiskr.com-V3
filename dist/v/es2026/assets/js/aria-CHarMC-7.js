@@ -1,0 +1,2 @@
+import{pn as E}from"./store-BcPnTp8r.js";var a=Object.freeze({un:"aria-label",ri:"aria-expanded",A6:"aria-controls",R6:"aria-labelledby",L6:"aria-modal",Ng:"aria-hidden",O6:"aria-live",PY:"aria-pressed",Qh:"aria-checked",dC:"polite",ND:"role",bu:E,Kh:"group",Xh:"switch",oi:"button",Mn:"navigation",QY:"alert",cC:"status",FZ:"tree",_Z:"treeitem",MZ:"none",Nx:"tabindex"});export{a as t};
+//# sourceMappingURL=aria-CHarMC-7.js.map

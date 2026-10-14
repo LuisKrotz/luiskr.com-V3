@@ -1,0 +1,2 @@
+import{Dn as e}from"./store-BcPnTp8r.js";var t=Object.freeze({NONE:"none",Ii:"block",En:"auto",h:"smooth",u:"instant",Bn:"true",An:"false",bl:"granted",E4:"denied",OPEN:"open",Qi:"fixed",ew:"absolute",tw:"relative",HIDDEN:"hidden",m:"high",Em:"default",Km:"landscape",a4:"portrait",Xm:"mobile",SYSTEM:e});export{t};
+//# sourceMappingURL=state-BhQ3296N.js.map
