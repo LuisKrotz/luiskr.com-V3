@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-14T06:42:39.256Z",
+  "generatedAt": "2026-10-14T14:16:48.299Z",
   "engine": "axe-core@4.13.0",
   "totals": {
-    "violations": 1,
+    "violations": 0,
     "criticalOrSerious": 0,
     "incomplete": 14,
     "passes": 163
@@ -10,39 +10,7 @@
   "surfaces": [
     {
       "surface": "home-composed",
-      "violations": [
-        {
-          "id": "empty-heading",
-          "impact": "minor",
-          "description": "Ensure headings have discernible text",
-          "help": "Headings should not be empty",
-          "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/empty-heading?application=axeAPI",
-          "tags": [
-            "cat.name-role-value",
-            "best-practice"
-          ],
-          "nodes": [
-            {
-              "target": [
-                [
-                  "contact-section",
-                  ".contact-title"
-                ]
-              ],
-              "failureSummary": "Fix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
-            },
-            {
-              "target": [
-                [
-                  "awards-mentions",
-                  ".awards-footer-title"
-                ]
-              ],
-              "failureSummary": "Fix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
-            }
-          ]
-        }
-      ],
+      "violations": [],
       "incomplete": [
         {
           "id": "color-contrast-enhanced",

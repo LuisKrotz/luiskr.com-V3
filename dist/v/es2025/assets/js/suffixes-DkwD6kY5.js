@@ -1,0 +1,2 @@
+var e=Object.freeze({Vi:"view-home",bo:"view-project",vo:"view-legal",wo:"view-not-found",VQ:"view-admin-login",wQ:"view-cms-dashboard",_o:"view-space-playground",xo:"view-star-field",yo:"view-docs"}),E=Object.freeze({Xo:"-mozjpg",el:"3-MSSIM-tuned-kodak",Zo:"-50",ll:"-uncompressed",ts:".jpg",Zr:".mp4",Jr:".mp4.jpg-thumb.jpg",Qr:".mp4-scaledown-2x"});export{e as n,E as t};
+//# sourceMappingURL=suffixes-DkwD6kY5.js.map

@@ -1,0 +1,2 @@
+var t,O;import{Lt as N}from"./store-2uVzYfoo.js";t=Object.freeze({Um:"legal"}),O=Object.freeze({In:N,Lm:`${N}-title`,Pm:`${N}-subtitle`,qm:`${N}-link`});export{O as n,t};
+//# sourceMappingURL=legal-DTXatli2.js.map

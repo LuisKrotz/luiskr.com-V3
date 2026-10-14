@@ -1,2 +1,0 @@
-import{Dn as e}from"./store-CAg85H5Q.js";var t=Object.freeze({NONE:"none",Ii:"block",En:"auto",h:"smooth",u:"instant",jn:"true",An:"false",DK:"granted",SK:"denied",OPEN:"open",Qi:"fixed",Bf:"absolute",qf:"relative",HIDDEN:"hidden",m:"high",xD:"default",Wr:"landscape",pK:"portrait",Vr:"mobile",SYSTEM:e});export{t};
-//# sourceMappingURL=state-CdPDo4Vf.js.map

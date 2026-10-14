@@ -1,2 +1,0 @@
-import{Dn as e}from"./store-C2hy3RBc.js";var t=Object.freeze({NONE:"none",Ii:"block",Ea:"auto",h:"smooth",u:"instant",ja:"true",Aa:"false",DK:"granted",SK:"denied",OPEN:"open",Qi:"fixed",Bf:"absolute",qf:"relative",HIDDEN:"hidden",m:"high",xD:"default",Wr:"landscape",pK:"portrait",Vr:"mobile",SYSTEM:e});export{t};
-//# sourceMappingURL=state-ChjtHqS0.js.map

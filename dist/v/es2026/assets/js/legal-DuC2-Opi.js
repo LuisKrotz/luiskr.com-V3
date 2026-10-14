@@ -1,2 +1,0 @@
-var t,O;import{Lt as N}from"./store-BcPnTp8r.js";t=Object.freeze({Od:"legal"}),O=Object.freeze({Pn:N,ig:`${N}-title`,og:`${N}-subtitle`,eg:`${N}-link`});export{O as n,t};
-//# sourceMappingURL=legal-DuC2-Opi.js.map
