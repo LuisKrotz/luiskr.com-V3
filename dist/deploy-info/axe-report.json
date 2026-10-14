@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-14T06:08:40.308Z",
+  "generatedAt": "2026-10-14T06:42:39.256Z",
   "engine": "axe-core@4.13.0",
   "totals": {
     "violations": 1,
     "criticalOrSerious": 0,
-    "incomplete": 13,
-    "passes": 156
+    "incomplete": 14,
+    "passes": 163
   },
   "surfaces": [
     {
@@ -159,6 +159,19 @@
         }
       ],
       "passes": 18
+    },
+    {
+      "surface": "static-shell",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "bypass",
+          "impact": "serious",
+          "description": "Ensure each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
+          "nodes": 1
+        }
+      ],
+      "passes": 7
     }
   ]
 }
