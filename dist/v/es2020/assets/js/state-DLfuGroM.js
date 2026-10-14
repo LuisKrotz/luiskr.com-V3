@@ -1,0 +1,2 @@
+import{Dn as e}from"./store-Ds64PeJa.js";var t=Object.freeze({NONE:"none",Ia:"block",Tn:"auto",u:"smooth",h:"instant",Hn:"true",Rn:"false",DK:"granted",SK:"denied",OPEN:"open",Ja:"fixed",Xf:"absolute",Bf:"relative",HIDDEN:"hidden",m:"high",xD:"default",Us:"landscape",pK:"portrait",zs:"mobile",SYSTEM:e});export{t};
+//# sourceMappingURL=state-DLfuGroM.js.map

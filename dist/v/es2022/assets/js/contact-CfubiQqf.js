@@ -1,2 +1,0 @@
-import{ht as T,mt as C,pt as O}from"./store-Brv5DMR4.js";var t=Object.freeze({$a:O,Nh:`${O}-title`,Ih:T,Sh:`${T}-link`,T3:C,Mm:`${C}-link`,Dm:`${T}-separator`});export{t};
-//# sourceMappingURL=contact-CfubiQqf.js.map
