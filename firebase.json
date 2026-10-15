@@ -148,7 +148,7 @@
         ]
       },
       {
-        "source": "@(.well-known/**|*ai-catalog.json)",
+        "source": "@(**/.well-known/**|**/ai-catalog.json)",
         "headers": [
           {
             "key": "Content-Type",
@@ -182,7 +182,24 @@
         ]
       },
       {
-        "source": "**/.well-known/api-catalog",
+        "source": "/.well-known/@(oauth-authorization-server|oauth-protected-resource|http-message-signatures-directory)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "**/.well-known/api-catalog",
         "headers": [
           {
             "key": "Content-Type",
