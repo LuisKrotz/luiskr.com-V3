@@ -28,10 +28,7 @@ module.exports = {
         'categories:performance': ['warn', { minScore: 0.95 }],
         'categories:accessibility': ['error', { minScore: 1 }],
         'categories:best-practices': ['error', { minScore: 1 }],
-        // Content-Signal is a valid IETF-draft robots.txt directive that
-        // Lighthouse's robots-txt audit still reports as unknown — the ~0.08
-        // drop is deliberate, every other SEO audit must still pass.
-        'categories:seo': ['error', { minScore: 0.9 }],
+        'categories:seo': ['error', { minScore: 1 }],
       },
     },
     upload: {
