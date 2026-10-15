@@ -256,11 +256,11 @@
       },
       {
         "source": "/.well-known/oauth-authorization-server",
-        "destination": "/meta/.well-known/oauth-authorization-server"
+        "destination": "/meta/.well-known/oauth-authorization-server.json"
       },
       {
         "source": "/.well-known/oauth-protected-resource",
-        "destination": "/meta/.well-known/oauth-protected-resource"
+        "destination": "/meta/.well-known/oauth-protected-resource.json"
       },
       {
         "source": "/.well-known/agent-card.json",
@@ -276,7 +276,7 @@
       },
       {
         "source": "/.well-known/http-message-signatures-directory",
-        "destination": "/meta/.well-known/http-message-signatures-directory"
+        "destination": "/meta/.well-known/http-message-signatures-directory.json"
       },
       {
         "source": "/browserconfig.xml",
