@@ -1,0 +1,8 @@
+{
+  "resource": "https://luiskr.com",
+  "authorization_servers": ["https://accounts.google.com"],
+  "scopes_supported": ["openid", "profile", "email"],
+  "bearer_methods_supported": ["header"],
+  "resource_documentation": "https://luiskr.com/docs",
+  "resource_name": "luiskr.com"
+}

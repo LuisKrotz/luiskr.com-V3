@@ -1,0 +1,2 @@
+import{Dn as e}from"./store-PQquQ_iF.js";var t=Object.freeze({NONE:"none",Ii:"block",Ea:"auto",h:"smooth",u:"instant",ja:"true",Aa:"false",DK:"granted",NK:"denied",OPEN:"open",Qi:"fixed",Bf:"absolute",qf:"relative",HIDDEN:"hidden",m:"high",SD:"default",Wr:"landscape",SK:"portrait",Vr:"mobile",SYSTEM:e});export{t};
+//# sourceMappingURL=state-Bn8180Dt.js.map

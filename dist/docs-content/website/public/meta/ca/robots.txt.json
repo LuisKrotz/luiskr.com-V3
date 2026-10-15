@@ -1,1 +1,1 @@
-{"name":"robots.txt","path":"public/meta/ca/robots.txt","format":"text","html":"<pre class=\"docs-code\">User-agent: *\nDisallow: /cms\nDisallow: /admin\nDisallow: /langs/\n\nSitemap: https://luiskr.com/sitemap-ca.xml\n</pre>","mtime":"2026-10-13T03:20:57.976Z"}
+{"name":"robots.txt","path":"public/meta/ca/robots.txt","format":"text","html":"<pre class=\"docs-code\">User-agent: *\nContent-Signal: ai-train=no, search=yes, ai-input=no\nDisallow: /cms\nDisallow: /admin\nDisallow: /langs/\n\nSitemap: https://luiskr.com/sitemap-ca.xml\n</pre>","mtime":"2026-10-15T10:16:24.358Z"}

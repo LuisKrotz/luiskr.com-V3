@@ -1,0 +1,25 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://luiskr.com",
+      "service-desc": [
+        {
+          "href": "https://luiskr.com/openapi.json",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://luiskr.com/docs",
+          "type": "text/html"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://luiskr.com/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}

@@ -38,6 +38,18 @@
 - [Docs: Test coverage](https://luiskr.com/docs/coverage): per-file istanbul HTML reports (plus `coverage-<module>` roots per package).
 - [Docs: Source code](https://luiskr.com/docs/src): the published application source tree (copy-protected in the viewer). Additional source roots publish each module: `shared`, `core`, `website`, `cms`, `earth`, `starfield`, `docs-exp`, `desktop` and `local-modules` (vendored deps).
 
+## Machine-Readable Endpoints
+
+- [API catalog](https://luiskr.com/.well-known/api-catalog): RFC 9727 linkset — service-desc/service-doc/status relations.
+- [OpenAPI description](https://luiskr.com/openapi.json): spec for the read-only endpoints (docs-content JSON, catalogs, sitemaps).
+- [auth.md](https://luiskr.com/auth.md): authentication guidance — public endpoints require no credentials.
+- [OAuth authorization-server metadata](https://luiskr.com/.well-known/oauth-authorization-server) and [protected-resource metadata](https://luiskr.com/.well-known/oauth-protected-resource): RFC 8414/9728 — the site's protected surface (CMS) authenticates via Google sign-in on Firebase Auth.
+- [A2A agent card](https://luiskr.com/.well-known/agent-card.json): agent-to-agent discovery card.
+- [Agent skills index](https://luiskr.com/.well-known/agent-skills/index.json): sha256-pinned SKILL.md files under `/meta/skills/`.
+- [MCP server card](https://luiskr.com/.well-known/mcp/server-card.json): SEP-1649 card describing the read-only resource surface.
+- [Message-signatures directory](https://luiskr.com/.well-known/http-message-signatures-directory): Web Bot Auth JWKS for request-signature verification.
+- Usage preferences: `Content-Signal` in `/robots.txt` (`ai-train=no, search=yes, ai-input=no`); `Link` response headers advertise these resources on every page.
+
 ## Contact
 
 - Email: [luis.krotz@gmail.com](mailto:luis.krotz@gmail.com)

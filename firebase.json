@@ -39,6 +39,10 @@
             "value": "camera=(), microphone=(), geolocation=()"
           },
           {
+            "key": "Content-Signal",
+            "value": "ai-train=no, search=yes, ai-input=no"
+          },
+          {
             "key": "Content-Security-Policy",
             "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://www.googletagmanager.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://storage.googleapis.com https://flagcdn.com https://gravatar.com https://www.gravatar.com https://secure.gravatar.com https://www.google-analytics.com; connect-src 'self' https://luiskr-com.firebaseio.com wss://luiskr-com.firebaseio.com https://*.googleapis.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://flagcdn.com https://gravatar.com https://www.gravatar.com; media-src 'self' blob: https://storage.googleapis.com; worker-src 'self' blob:; frame-src https://accounts.google.com https://*.firebaseapp.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; manifest-src 'self'; object-src 'none'"
           }
@@ -159,6 +163,58 @@
             "value": "public, max-age=3600"
           }
         ]
+      },
+      {
+        "source": "**/auth.md",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/markdown; charset=utf-8"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "**/.well-known/api-catalog",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/linkset+json"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "/",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </openapi.json>; rel=\"service-desc\"; type=\"application/vnd.oai.openapi+json\", </docs>; rel=\"service-doc\"; type=\"text/html\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </ai-catalog.json>; rel=\"describedby\"; type=\"application/json\""
+          }
+        ]
+      },
+      {
+        "source": "/**/*.html",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </openapi.json>; rel=\"service-desc\"; type=\"application/vnd.oai.openapi+json\", </docs>; rel=\"service-doc\"; type=\"text/html\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </ai-catalog.json>; rel=\"describedby\"; type=\"application/json\""
+          }
+        ]
       }
     ],
     "rewrites": [
@@ -185,6 +241,42 @@
       {
         "source": "/.well-known/ai-catalog.json",
         "destination": "/meta/.well-known/ai-catalog.json"
+      },
+      {
+        "source": "/.well-known/api-catalog",
+        "destination": "/meta/.well-known/api-catalog"
+      },
+      {
+        "source": "/openapi.json",
+        "destination": "/meta/openapi.json"
+      },
+      {
+        "source": "/auth.md",
+        "destination": "/meta/auth.md"
+      },
+      {
+        "source": "/.well-known/oauth-authorization-server",
+        "destination": "/meta/.well-known/oauth-authorization-server"
+      },
+      {
+        "source": "/.well-known/oauth-protected-resource",
+        "destination": "/meta/.well-known/oauth-protected-resource"
+      },
+      {
+        "source": "/.well-known/agent-card.json",
+        "destination": "/meta/.well-known/agent-card.json"
+      },
+      {
+        "source": "/.well-known/agent-skills/index.json",
+        "destination": "/meta/.well-known/agent-skills/index.json"
+      },
+      {
+        "source": "/.well-known/mcp/server-card.json",
+        "destination": "/meta/.well-known/mcp/server-card.json"
+      },
+      {
+        "source": "/.well-known/http-message-signatures-directory",
+        "destination": "/meta/.well-known/http-message-signatures-directory"
       },
       {
         "source": "/browserconfig.xml",
