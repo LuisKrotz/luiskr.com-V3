@@ -1,0 +1,2 @@
+function s(s=a.we){const m=e[s]||e.en,p=s===a.we?t.EMPTY:`${o.be}${s}`,$=i(n.$Y)||[];return[t.EMPTY,m.privacy||r.Km,m.gdpr||r.GDPR,m.terms||r.AH,m.license||r.r$].map((s,a)=>({link:`${p}${o.be}${s}`,page:$[a]?.page||t.EMPTY}))}import{E as t,c as a,k as o}from"./store-9KVKLbzs.js";import{P as r}from"./navigate-D14vYGBA.js";import{n as i,o as n,y as e}from"./ui-text-BF1Kfusf.js";export{s as t};
+//# sourceMappingURL=legal-links-BhhPUQcv.js.map
