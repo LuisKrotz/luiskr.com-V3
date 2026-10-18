@@ -92,8 +92,6 @@
     "@rolldown/binding-linux-x64-gnu": "^1.2.3",
     "firebase": "^13.0.0",
     "marked": "18.0.14",
-    "mermaid": "12.0.0",
-    "register-service-worker": "^1.7.2",
     "three": "0.184.0"
   },
   "resolutions": {
@@ -121,6 +119,8 @@
     "globals": "^17.9.0",
     "happy-dom": "^20.14.5",
     "html-minifier-terser": "^7.2.0",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
     "intersection-observer": "^0.12.2",
     "jest": "^30.5.2",
     "postcss-scss": "^4.0.9",

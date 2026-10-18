@@ -19,3 +19,6 @@
 [submodule "experiments/star-field"]
 	path = experiments/star-field
 	url = git@github.com:LuisKrotz/luiskr.com-V3-star-field.git
+[submodule "rust"]
+	path = rust
+	url = git@github.com:LuisKrotz/luiskr.com-V3-rust.git

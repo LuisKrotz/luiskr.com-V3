@@ -9,7 +9,7 @@ export default [
     // publishable packages — upstream-derived code follows its own style.
     ignores: [
       '**/dist/**',
-      'public/**',
+      '**/public/**',
       'scratch/**',
       'coverage/**',
       '**/reports/**',

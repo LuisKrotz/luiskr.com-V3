@@ -185,23 +185,23 @@
       },
       {
         "source": "/.well-known/@(oauth-authorization-server|oauth-protected-resource|http-message-signatures-directory)",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/json; charset=utf-8"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600"
-        }
-      ]
-    },
-    {
-      "source": "**/.well-known/api-catalog",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json; charset=utf-8"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "**/.well-known/api-catalog",
         "headers": [
           {
             "key": "Content-Type",
@@ -2124,6 +2124,1683 @@
       {
         "source": "**",
         "destination": "/index.html"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/portfolio/brazilian-leather",
+        "destination": "/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/brazilian-leather/**",
+        "destination": "/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/br/portfolio/brazilian-leather",
+        "destination": "/br/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/br/portfolio/brazilian-leather/**",
+        "destination": "/br/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/es/portfolio/brazilian-leather",
+        "destination": "/es/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/es/portfolio/brazilian-leather/**",
+        "destination": "/es/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/de/portfolio/brazilian-leather",
+        "destination": "/de/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/de/portfolio/brazilian-leather/**",
+        "destination": "/de/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/hrk/portfolio/brazilian-leather",
+        "destination": "/hrk/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/hrk/portfolio/brazilian-leather/**",
+        "destination": "/hrk/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/cas/portfolio/brazilian-leather",
+        "destination": "/cas/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/cas/portfolio/brazilian-leather/**",
+        "destination": "/cas/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/riv/portfolio/brazilian-leather",
+        "destination": "/riv/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/riv/portfolio/brazilian-leather/**",
+        "destination": "/riv/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gn/portfolio/brazilian-leather",
+        "destination": "/gn/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/gn/portfolio/brazilian-leather/**",
+        "destination": "/gn/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/it/portfolio/brazilian-leather",
+        "destination": "/it/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/it/portfolio/brazilian-leather/**",
+        "destination": "/it/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ru/portfolio/brazilian-leather",
+        "destination": "/ru/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/ru/portfolio/brazilian-leather/**",
+        "destination": "/ru/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/fr/portfolio/brazilian-leather",
+        "destination": "/fr/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/fr/portfolio/brazilian-leather/**",
+        "destination": "/fr/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/tln/portfolio/brazilian-leather",
+        "destination": "/tln/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/tln/portfolio/brazilian-leather/**",
+        "destination": "/tln/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gl/portfolio/brazilian-leather",
+        "destination": "/gl/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/gl/portfolio/brazilian-leather/**",
+        "destination": "/gl/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ca/portfolio/brazilian-leather",
+        "destination": "/ca/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/ca/portfolio/brazilian-leather/**",
+        "destination": "/ca/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/nl/portfolio/brazilian-leather",
+        "destination": "/nl/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/nl/portfolio/brazilian-leather/**",
+        "destination": "/nl/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ga/portfolio/brazilian-leather",
+        "destination": "/ga/portfolio/cicb",
+        "type": 301
+      },
+      {
+        "source": "/ga/portfolio/brazilian-leather/**",
+        "destination": "/ga/portfolio/cicb/:splat",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/br/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/br/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/br/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/br/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/es/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/es/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/es/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/es/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/de/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/de/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/de/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/de/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/hrk/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/hrk/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/hrk/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/hrk/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/cas/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/cas/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/cas/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/cas/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/riv/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/riv/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/riv/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/riv/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gn/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/gn/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/gn/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/gn/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/it/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/it/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/it/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/it/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ru/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/ru/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/ru/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/ru/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/fr/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/fr/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/fr/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/fr/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/tln/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/tln/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/tln/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/tln/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gl/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/gl/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/gl/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/gl/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ca/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/ca/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/ca/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/ca/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/nl/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/nl/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/nl/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/nl/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ga/portfolio/clinica-de-desenvolvimento-nathalia-bond",
+        "destination": "/ga/portfolio/nathalia-bond",
+        "type": 301
+      },
+      {
+        "source": "/ga/portfolio/clinica-de-desenvolvimento-nathalia-bond/**",
+        "destination": "/ga/portfolio/nathalia-bond/:splat",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/genesysinf-sageweb",
+        "destination": "/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/genesysinf-sageweb/**",
+        "destination": "/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/br/portfolio/genesysinf-sageweb",
+        "destination": "/br/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/br/portfolio/genesysinf-sageweb/**",
+        "destination": "/br/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/es/portfolio/genesysinf-sageweb",
+        "destination": "/es/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/es/portfolio/genesysinf-sageweb/**",
+        "destination": "/es/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/de/portfolio/genesysinf-sageweb",
+        "destination": "/de/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/de/portfolio/genesysinf-sageweb/**",
+        "destination": "/de/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/hrk/portfolio/genesysinf-sageweb",
+        "destination": "/hrk/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/hrk/portfolio/genesysinf-sageweb/**",
+        "destination": "/hrk/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/cas/portfolio/genesysinf-sageweb",
+        "destination": "/cas/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/cas/portfolio/genesysinf-sageweb/**",
+        "destination": "/cas/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/riv/portfolio/genesysinf-sageweb",
+        "destination": "/riv/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/riv/portfolio/genesysinf-sageweb/**",
+        "destination": "/riv/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gn/portfolio/genesysinf-sageweb",
+        "destination": "/gn/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/gn/portfolio/genesysinf-sageweb/**",
+        "destination": "/gn/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/it/portfolio/genesysinf-sageweb",
+        "destination": "/it/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/it/portfolio/genesysinf-sageweb/**",
+        "destination": "/it/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ru/portfolio/genesysinf-sageweb",
+        "destination": "/ru/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/ru/portfolio/genesysinf-sageweb/**",
+        "destination": "/ru/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/fr/portfolio/genesysinf-sageweb",
+        "destination": "/fr/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/fr/portfolio/genesysinf-sageweb/**",
+        "destination": "/fr/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/tln/portfolio/genesysinf-sageweb",
+        "destination": "/tln/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/tln/portfolio/genesysinf-sageweb/**",
+        "destination": "/tln/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gl/portfolio/genesysinf-sageweb",
+        "destination": "/gl/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/gl/portfolio/genesysinf-sageweb/**",
+        "destination": "/gl/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ca/portfolio/genesysinf-sageweb",
+        "destination": "/ca/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/ca/portfolio/genesysinf-sageweb/**",
+        "destination": "/ca/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/nl/portfolio/genesysinf-sageweb",
+        "destination": "/nl/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/nl/portfolio/genesysinf-sageweb/**",
+        "destination": "/nl/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ga/portfolio/genesysinf-sageweb",
+        "destination": "/ga/portfolio/sage",
+        "type": 301
+      },
+      {
+        "source": "/ga/portfolio/genesysinf-sageweb/**",
+        "destination": "/ga/portfolio/sage/:splat",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/minimelissa",
+        "destination": "/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/portfolio/minimelissa/**",
+        "destination": "/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/br/portfolio/minimelissa",
+        "destination": "/br/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/br/portfolio/minimelissa/**",
+        "destination": "/br/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/es/portfolio/minimelissa",
+        "destination": "/es/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/es/portfolio/minimelissa/**",
+        "destination": "/es/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/de/portfolio/minimelissa",
+        "destination": "/de/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/de/portfolio/minimelissa/**",
+        "destination": "/de/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/hrk/portfolio/minimelissa",
+        "destination": "/hrk/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/hrk/portfolio/minimelissa/**",
+        "destination": "/hrk/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/cas/portfolio/minimelissa",
+        "destination": "/cas/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/cas/portfolio/minimelissa/**",
+        "destination": "/cas/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/riv/portfolio/minimelissa",
+        "destination": "/riv/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/riv/portfolio/minimelissa/**",
+        "destination": "/riv/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gn/portfolio/minimelissa",
+        "destination": "/gn/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/gn/portfolio/minimelissa/**",
+        "destination": "/gn/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/it/portfolio/minimelissa",
+        "destination": "/it/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/it/portfolio/minimelissa/**",
+        "destination": "/it/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ru/portfolio/minimelissa",
+        "destination": "/ru/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/ru/portfolio/minimelissa/**",
+        "destination": "/ru/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/fr/portfolio/minimelissa",
+        "destination": "/fr/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/fr/portfolio/minimelissa/**",
+        "destination": "/fr/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/tln/portfolio/minimelissa",
+        "destination": "/tln/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/tln/portfolio/minimelissa/**",
+        "destination": "/tln/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gl/portfolio/minimelissa",
+        "destination": "/gl/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/gl/portfolio/minimelissa/**",
+        "destination": "/gl/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ca/portfolio/minimelissa",
+        "destination": "/ca/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/ca/portfolio/minimelissa/**",
+        "destination": "/ca/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/nl/portfolio/minimelissa",
+        "destination": "/nl/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/nl/portfolio/minimelissa/**",
+        "destination": "/nl/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ga/portfolio/minimelissa",
+        "destination": "/ga/portfolio/mini-melissa",
+        "type": 301
+      },
+      {
+        "source": "/ga/portfolio/minimelissa/**",
+        "destination": "/ga/portfolio/mini-melissa/:splat",
+        "type": 301
+      },
+      {
+        "source": "/privacy",
+        "destination": "/privacy-policy",
+        "type": 301
+      },
+      {
+        "source": "/terms",
+        "destination": "/terms-of-use",
+        "type": 301
+      },
+      {
+        "source": "/space-playground",
+        "destination": "/earth-playground",
+        "type": 301
+      },
+      {
+        "source": "/br/privacy",
+        "destination": "/br/politica-de-privacidade",
+        "type": 301
+      },
+      {
+        "source": "/br/privacy-policy",
+        "destination": "/br/politica-de-privacidade",
+        "type": 301
+      },
+      {
+        "source": "/br/gdpr",
+        "destination": "/br/lgpd",
+        "type": 301
+      },
+      {
+        "source": "/br/terms",
+        "destination": "/br/termos-de-uso",
+        "type": 301
+      },
+      {
+        "source": "/br/terms-of-use",
+        "destination": "/br/termos-de-uso",
+        "type": 301
+      },
+      {
+        "source": "/br/license",
+        "destination": "/br/licenca",
+        "type": 301
+      },
+      {
+        "source": "/br/about",
+        "destination": "/br/sobre",
+        "type": 301
+      },
+      {
+        "source": "/br/contact",
+        "destination": "/br/contato",
+        "type": 301
+      },
+      {
+        "source": "/br/earth-playground",
+        "destination": "/br/playground-da-terra",
+        "type": 301
+      },
+      {
+        "source": "/br/space-playground",
+        "destination": "/br/playground-da-terra",
+        "type": 301
+      },
+      {
+        "source": "/br/star-field-experiment",
+        "destination": "/br/experimento-campo-estelar",
+        "type": 301
+      },
+      {
+        "source": "/br/star-field-experiment/**",
+        "destination": "/br/experimento-campo-estelar/:splat",
+        "type": 301
+      },
+      {
+        "source": "/br/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/br/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/es/privacy",
+        "destination": "/es/politica-de-privacidad",
+        "type": 301
+      },
+      {
+        "source": "/es/privacy-policy",
+        "destination": "/es/politica-de-privacidad",
+        "type": 301
+      },
+      {
+        "source": "/es/gdpr",
+        "destination": "/es/rgpd",
+        "type": 301
+      },
+      {
+        "source": "/es/terms",
+        "destination": "/es/terminos-de-uso",
+        "type": 301
+      },
+      {
+        "source": "/es/terms-of-use",
+        "destination": "/es/terminos-de-uso",
+        "type": 301
+      },
+      {
+        "source": "/es/license",
+        "destination": "/es/licencia",
+        "type": 301
+      },
+      {
+        "source": "/es/about",
+        "destination": "/es/acerca",
+        "type": 301
+      },
+      {
+        "source": "/es/contact",
+        "destination": "/es/contacto",
+        "type": 301
+      },
+      {
+        "source": "/es/earth-playground",
+        "destination": "/es/playground-de-la-tierra",
+        "type": 301
+      },
+      {
+        "source": "/es/space-playground",
+        "destination": "/es/playground-de-la-tierra",
+        "type": 301
+      },
+      {
+        "source": "/es/star-field-experiment",
+        "destination": "/es/experimento-campo-estelar",
+        "type": 301
+      },
+      {
+        "source": "/es/star-field-experiment/**",
+        "destination": "/es/experimento-campo-estelar/:splat",
+        "type": 301
+      },
+      {
+        "source": "/es/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/es/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/de/privacy",
+        "destination": "/de/datenschutzrichtlinie",
+        "type": 301
+      },
+      {
+        "source": "/de/privacy-policy",
+        "destination": "/de/datenschutzrichtlinie",
+        "type": 301
+      },
+      {
+        "source": "/de/gdpr",
+        "destination": "/de/dsgvo",
+        "type": 301
+      },
+      {
+        "source": "/de/terms",
+        "destination": "/de/nutzungsbedingungen",
+        "type": 301
+      },
+      {
+        "source": "/de/terms-of-use",
+        "destination": "/de/nutzungsbedingungen",
+        "type": 301
+      },
+      {
+        "source": "/de/license",
+        "destination": "/de/lizenz",
+        "type": 301
+      },
+      {
+        "source": "/de/about",
+        "destination": "/de/ueber",
+        "type": 301
+      },
+      {
+        "source": "/de/contact",
+        "destination": "/de/kontakt",
+        "type": 301
+      },
+      {
+        "source": "/de/earth-playground",
+        "destination": "/de/erde-playground",
+        "type": 301
+      },
+      {
+        "source": "/de/space-playground",
+        "destination": "/de/erde-playground",
+        "type": 301
+      },
+      {
+        "source": "/de/star-field-experiment",
+        "destination": "/de/sternenfeld-experiment",
+        "type": 301
+      },
+      {
+        "source": "/de/star-field-experiment/**",
+        "destination": "/de/sternenfeld-experiment/:splat",
+        "type": 301
+      },
+      {
+        "source": "/de/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/de/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/hrk/privacy",
+        "destination": "/hrk/dateschutz-erklerung",
+        "type": 301
+      },
+      {
+        "source": "/hrk/privacy-policy",
+        "destination": "/hrk/dateschutz-erklerung",
+        "type": 301
+      },
+      {
+        "source": "/hrk/gdpr",
+        "destination": "/hrk/datenschutz",
+        "type": 301
+      },
+      {
+        "source": "/hrk/terms",
+        "destination": "/hrk/nutzungsbedingunge",
+        "type": 301
+      },
+      {
+        "source": "/hrk/terms-of-use",
+        "destination": "/hrk/nutzungsbedingunge",
+        "type": 301
+      },
+      {
+        "source": "/hrk/license",
+        "destination": "/hrk/lizenz",
+        "type": 301
+      },
+      {
+        "source": "/hrk/about",
+        "destination": "/hrk/iwwer-mich",
+        "type": 301
+      },
+      {
+        "source": "/hrk/contact",
+        "destination": "/hrk/kontakt",
+        "type": 301
+      },
+      {
+        "source": "/hrk/earth-playground",
+        "destination": "/hrk/erd-playground",
+        "type": 301
+      },
+      {
+        "source": "/hrk/space-playground",
+        "destination": "/hrk/erd-playground",
+        "type": 301
+      },
+      {
+        "source": "/hrk/star-field-experiment",
+        "destination": "/hrk/sternfeld-experiment",
+        "type": 301
+      },
+      {
+        "source": "/hrk/star-field-experiment/**",
+        "destination": "/hrk/sternfeld-experiment/:splat",
+        "type": 301
+      },
+      {
+        "source": "/hrk/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/hrk/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/cas/privacy",
+        "destination": "/cas/politica-de-privacidad",
+        "type": 301
+      },
+      {
+        "source": "/cas/privacy-policy",
+        "destination": "/cas/politica-de-privacidad",
+        "type": 301
+      },
+      {
+        "source": "/cas/gdpr",
+        "destination": "/cas/rgpd",
+        "type": 301
+      },
+      {
+        "source": "/cas/terms",
+        "destination": "/cas/terminos-de-uso",
+        "type": 301
+      },
+      {
+        "source": "/cas/terms-of-use",
+        "destination": "/cas/terminos-de-uso",
+        "type": 301
+      },
+      {
+        "source": "/cas/license",
+        "destination": "/cas/licencia",
+        "type": 301
+      },
+      {
+        "source": "/cas/about",
+        "destination": "/cas/sobre-mi",
+        "type": 301
+      },
+      {
+        "source": "/cas/contact",
+        "destination": "/cas/contacto",
+        "type": 301
+      },
+      {
+        "source": "/cas/earth-playground",
+        "destination": "/cas/playground-de-la-tierra",
+        "type": 301
+      },
+      {
+        "source": "/cas/space-playground",
+        "destination": "/cas/playground-de-la-tierra",
+        "type": 301
+      },
+      {
+        "source": "/cas/star-field-experiment",
+        "destination": "/cas/experimento-campo-estelar",
+        "type": 301
+      },
+      {
+        "source": "/cas/star-field-experiment/**",
+        "destination": "/cas/experimento-campo-estelar/:splat",
+        "type": 301
+      },
+      {
+        "source": "/cas/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/cas/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/riv/privacy",
+        "destination": "/riv/politica-de-privacidade",
+        "type": 301
+      },
+      {
+        "source": "/riv/privacy-policy",
+        "destination": "/riv/politica-de-privacidade",
+        "type": 301
+      },
+      {
+        "source": "/riv/gdpr",
+        "destination": "/riv/lgpd-gdpr",
+        "type": 301
+      },
+      {
+        "source": "/riv/terms",
+        "destination": "/riv/termos-de-uso",
+        "type": 301
+      },
+      {
+        "source": "/riv/terms-of-use",
+        "destination": "/riv/termos-de-uso",
+        "type": 301
+      },
+      {
+        "source": "/riv/license",
+        "destination": "/riv/licenca",
+        "type": 301
+      },
+      {
+        "source": "/riv/about",
+        "destination": "/riv/sobre-yo",
+        "type": 301
+      },
+      {
+        "source": "/riv/contact",
+        "destination": "/riv/contato",
+        "type": 301
+      },
+      {
+        "source": "/riv/earth-playground",
+        "destination": "/riv/playground-da-terra",
+        "type": 301
+      },
+      {
+        "source": "/riv/space-playground",
+        "destination": "/riv/playground-da-terra",
+        "type": 301
+      },
+      {
+        "source": "/riv/star-field-experiment",
+        "destination": "/riv/experimento-campo-estelar",
+        "type": 301
+      },
+      {
+        "source": "/riv/star-field-experiment/**",
+        "destination": "/riv/experimento-campo-estelar/:splat",
+        "type": 301
+      },
+      {
+        "source": "/riv/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/riv/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gn/privacy",
+        "destination": "/gn/marandu-nangarekoha",
+        "type": 301
+      },
+      {
+        "source": "/gn/privacy-policy",
+        "destination": "/gn/marandu-nangarekoha",
+        "type": 301
+      },
+      {
+        "source": "/gn/gdpr",
+        "destination": "/gn/lgpd-gdpr",
+        "type": 301
+      },
+      {
+        "source": "/gn/terms",
+        "destination": "/gn/oipuruva-nemoarandu",
+        "type": 301
+      },
+      {
+        "source": "/gn/terms-of-use",
+        "destination": "/gn/oipuruva-nemoarandu",
+        "type": 301
+      },
+      {
+        "source": "/gn/license",
+        "destination": "/gn/licencia",
+        "type": 301
+      },
+      {
+        "source": "/gn/about",
+        "destination": "/gn/che-rehegua",
+        "type": 301
+      },
+      {
+        "source": "/gn/contact",
+        "destination": "/gn/kontakt",
+        "type": 301
+      },
+      {
+        "source": "/gn/earth-playground",
+        "destination": "/gn/yvy-nembosarai",
+        "type": 301
+      },
+      {
+        "source": "/gn/space-playground",
+        "destination": "/gn/yvy-nembosarai",
+        "type": 301
+      },
+      {
+        "source": "/gn/star-field-experiment",
+        "destination": "/gn/mbyja-nembosarai",
+        "type": 301
+      },
+      {
+        "source": "/gn/star-field-experiment/**",
+        "destination": "/gn/mbyja-nembosarai/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gn/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/gn/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/it/privacy",
+        "destination": "/it/informativa-sulla-privacy",
+        "type": 301
+      },
+      {
+        "source": "/it/privacy-policy",
+        "destination": "/it/informativa-sulla-privacy",
+        "type": 301
+      },
+      {
+        "source": "/it/terms",
+        "destination": "/it/termini-di-utilizzo",
+        "type": 301
+      },
+      {
+        "source": "/it/terms-of-use",
+        "destination": "/it/termini-di-utilizzo",
+        "type": 301
+      },
+      {
+        "source": "/it/license",
+        "destination": "/it/licenza",
+        "type": 301
+      },
+      {
+        "source": "/it/about",
+        "destination": "/it/chi-sono",
+        "type": 301
+      },
+      {
+        "source": "/it/contact",
+        "destination": "/it/contatti",
+        "type": 301
+      },
+      {
+        "source": "/it/earth-playground",
+        "destination": "/it/playground-della-terra",
+        "type": 301
+      },
+      {
+        "source": "/it/space-playground",
+        "destination": "/it/playground-della-terra",
+        "type": 301
+      },
+      {
+        "source": "/it/star-field-experiment",
+        "destination": "/it/esperimento-campo-stellare",
+        "type": 301
+      },
+      {
+        "source": "/it/star-field-experiment/**",
+        "destination": "/it/esperimento-campo-stellare/:splat",
+        "type": 301
+      },
+      {
+        "source": "/it/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/it/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ru/privacy",
+        "destination": "/ru/politika-konfidentsialnosti",
+        "type": 301
+      },
+      {
+        "source": "/ru/privacy-policy",
+        "destination": "/ru/politika-konfidentsialnosti",
+        "type": 301
+      },
+      {
+        "source": "/ru/terms",
+        "destination": "/ru/usloviya-ispolzovaniya",
+        "type": 301
+      },
+      {
+        "source": "/ru/terms-of-use",
+        "destination": "/ru/usloviya-ispolzovaniya",
+        "type": 301
+      },
+      {
+        "source": "/ru/license",
+        "destination": "/ru/litsenziya",
+        "type": 301
+      },
+      {
+        "source": "/ru/about",
+        "destination": "/ru/obo-mne",
+        "type": 301
+      },
+      {
+        "source": "/ru/contact",
+        "destination": "/ru/kontakty",
+        "type": 301
+      },
+      {
+        "source": "/ru/earth-playground",
+        "destination": "/ru/zemnaya-pesochnitsa",
+        "type": 301
+      },
+      {
+        "source": "/ru/space-playground",
+        "destination": "/ru/zemnaya-pesochnitsa",
+        "type": 301
+      },
+      {
+        "source": "/ru/star-field-experiment",
+        "destination": "/ru/zvezdnoe-pole",
+        "type": 301
+      },
+      {
+        "source": "/ru/star-field-experiment/**",
+        "destination": "/ru/zvezdnoe-pole/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ru/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/ru/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/fr/privacy",
+        "destination": "/fr/politique-de-confidentialite",
+        "type": 301
+      },
+      {
+        "source": "/fr/privacy-policy",
+        "destination": "/fr/politique-de-confidentialite",
+        "type": 301
+      },
+      {
+        "source": "/fr/gdpr",
+        "destination": "/fr/rgpd",
+        "type": 301
+      },
+      {
+        "source": "/fr/terms",
+        "destination": "/fr/conditions-utilisation",
+        "type": 301
+      },
+      {
+        "source": "/fr/terms-of-use",
+        "destination": "/fr/conditions-utilisation",
+        "type": 301
+      },
+      {
+        "source": "/fr/license",
+        "destination": "/fr/licence",
+        "type": 301
+      },
+      {
+        "source": "/fr/about",
+        "destination": "/fr/a-propos",
+        "type": 301
+      },
+      {
+        "source": "/fr/earth-playground",
+        "destination": "/fr/playground-de-la-terre",
+        "type": 301
+      },
+      {
+        "source": "/fr/space-playground",
+        "destination": "/fr/playground-de-la-terre",
+        "type": 301
+      },
+      {
+        "source": "/fr/star-field-experiment",
+        "destination": "/fr/experience-champ-etoile",
+        "type": 301
+      },
+      {
+        "source": "/fr/star-field-experiment/**",
+        "destination": "/fr/experience-champ-etoile/:splat",
+        "type": 301
+      },
+      {
+        "source": "/fr/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/fr/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/tln/privacy",
+        "destination": "/tln/informativa-su-la-privacy",
+        "type": 301
+      },
+      {
+        "source": "/tln/privacy-policy",
+        "destination": "/tln/informativa-su-la-privacy",
+        "type": 301
+      },
+      {
+        "source": "/tln/terms",
+        "destination": "/tln/condission-de-uso",
+        "type": 301
+      },
+      {
+        "source": "/tln/terms-of-use",
+        "destination": "/tln/condission-de-uso",
+        "type": 301
+      },
+      {
+        "source": "/tln/license",
+        "destination": "/tln/lisensa",
+        "type": 301
+      },
+      {
+        "source": "/tln/about",
+        "destination": "/tln/de-mi",
+        "type": 301
+      },
+      {
+        "source": "/tln/contact",
+        "destination": "/tln/contato",
+        "type": 301
+      },
+      {
+        "source": "/tln/earth-playground",
+        "destination": "/tln/playground-della-terra",
+        "type": 301
+      },
+      {
+        "source": "/tln/space-playground",
+        "destination": "/tln/playground-della-terra",
+        "type": 301
+      },
+      {
+        "source": "/tln/star-field-experiment",
+        "destination": "/tln/esperimento-canpo-stelare",
+        "type": 301
+      },
+      {
+        "source": "/tln/star-field-experiment/**",
+        "destination": "/tln/esperimento-canpo-stelare/:splat",
+        "type": 301
+      },
+      {
+        "source": "/tln/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/tln/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gl/privacy",
+        "destination": "/gl/politica-de-privacidade",
+        "type": 301
+      },
+      {
+        "source": "/gl/privacy-policy",
+        "destination": "/gl/politica-de-privacidade",
+        "type": 301
+      },
+      {
+        "source": "/gl/gdpr",
+        "destination": "/gl/rgpd",
+        "type": 301
+      },
+      {
+        "source": "/gl/terms",
+        "destination": "/gl/termos-de-uso",
+        "type": 301
+      },
+      {
+        "source": "/gl/terms-of-use",
+        "destination": "/gl/termos-de-uso",
+        "type": 301
+      },
+      {
+        "source": "/gl/license",
+        "destination": "/gl/licenza",
+        "type": 301
+      },
+      {
+        "source": "/gl/about",
+        "destination": "/gl/sobre-min",
+        "type": 301
+      },
+      {
+        "source": "/gl/contact",
+        "destination": "/gl/contacto",
+        "type": 301
+      },
+      {
+        "source": "/gl/earth-playground",
+        "destination": "/gl/playground-da-terra",
+        "type": 301
+      },
+      {
+        "source": "/gl/space-playground",
+        "destination": "/gl/playground-da-terra",
+        "type": 301
+      },
+      {
+        "source": "/gl/star-field-experiment",
+        "destination": "/gl/experimento-campo-estelar",
+        "type": 301
+      },
+      {
+        "source": "/gl/star-field-experiment/**",
+        "destination": "/gl/experimento-campo-estelar/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gl/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/gl/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ca/privacy",
+        "destination": "/ca/politica-de-privacitat",
+        "type": 301
+      },
+      {
+        "source": "/ca/privacy-policy",
+        "destination": "/ca/politica-de-privacitat",
+        "type": 301
+      },
+      {
+        "source": "/ca/gdpr",
+        "destination": "/ca/rgpd",
+        "type": 301
+      },
+      {
+        "source": "/ca/terms",
+        "destination": "/ca/termes-d-us",
+        "type": 301
+      },
+      {
+        "source": "/ca/terms-of-use",
+        "destination": "/ca/termes-d-us",
+        "type": 301
+      },
+      {
+        "source": "/ca/license",
+        "destination": "/ca/llicencia",
+        "type": 301
+      },
+      {
+        "source": "/ca/about",
+        "destination": "/ca/quant-a-mi",
+        "type": 301
+      },
+      {
+        "source": "/ca/contact",
+        "destination": "/ca/contacte",
+        "type": 301
+      },
+      {
+        "source": "/ca/earth-playground",
+        "destination": "/ca/playground-de-la-terra",
+        "type": 301
+      },
+      {
+        "source": "/ca/space-playground",
+        "destination": "/ca/playground-de-la-terra",
+        "type": 301
+      },
+      {
+        "source": "/ca/star-field-experiment",
+        "destination": "/ca/experiment-camp-estelar",
+        "type": 301
+      },
+      {
+        "source": "/ca/star-field-experiment/**",
+        "destination": "/ca/experiment-camp-estelar/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ca/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/ca/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/nl/privacy",
+        "destination": "/nl/privacybeleid",
+        "type": 301
+      },
+      {
+        "source": "/nl/privacy-policy",
+        "destination": "/nl/privacybeleid",
+        "type": 301
+      },
+      {
+        "source": "/nl/gdpr",
+        "destination": "/nl/avg",
+        "type": 301
+      },
+      {
+        "source": "/nl/terms",
+        "destination": "/nl/gebruiksvoorwaarden",
+        "type": 301
+      },
+      {
+        "source": "/nl/terms-of-use",
+        "destination": "/nl/gebruiksvoorwaarden",
+        "type": 301
+      },
+      {
+        "source": "/nl/license",
+        "destination": "/nl/licentie",
+        "type": 301
+      },
+      {
+        "source": "/nl/about",
+        "destination": "/nl/over-mij",
+        "type": 301
+      },
+      {
+        "source": "/nl/earth-playground",
+        "destination": "/nl/aarde-playground",
+        "type": 301
+      },
+      {
+        "source": "/nl/space-playground",
+        "destination": "/nl/aarde-playground",
+        "type": 301
+      },
+      {
+        "source": "/nl/star-field-experiment",
+        "destination": "/nl/sterrenveld-experiment",
+        "type": 301
+      },
+      {
+        "source": "/nl/star-field-experiment/**",
+        "destination": "/nl/sterrenveld-experiment/:splat",
+        "type": 301
+      },
+      {
+        "source": "/nl/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/nl/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ga/privacy",
+        "destination": "/ga/beartas-probhaideachta",
+        "type": 301
+      },
+      {
+        "source": "/ga/privacy-policy",
+        "destination": "/ga/beartas-probhaideachta",
+        "type": 301
+      },
+      {
+        "source": "/ga/terms",
+        "destination": "/ga/tearmai-usaide",
+        "type": 301
+      },
+      {
+        "source": "/ga/terms-of-use",
+        "destination": "/ga/tearmai-usaide",
+        "type": 301
+      },
+      {
+        "source": "/ga/license",
+        "destination": "/ga/ceadunas",
+        "type": 301
+      },
+      {
+        "source": "/ga/about",
+        "destination": "/ga/faoi-mhe",
+        "type": 301
+      },
+      {
+        "source": "/ga/contact",
+        "destination": "/ga/teagmhail",
+        "type": 301
+      },
+      {
+        "source": "/ga/earth-playground",
+        "destination": "/ga/playground-an-domhain",
+        "type": 301
+      },
+      {
+        "source": "/ga/space-playground",
+        "destination": "/ga/playground-an-domhain",
+        "type": 301
+      },
+      {
+        "source": "/ga/star-field-experiment",
+        "destination": "/ga/turgnamh-reimse-realta",
+        "type": 301
+      },
+      {
+        "source": "/ga/star-field-experiment/**",
+        "destination": "/ga/turgnamh-reimse-realta/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ga/docs",
+        "destination": "/docs",
+        "type": 301
+      },
+      {
+        "source": "/ga/docs/**",
+        "destination": "/docs/:splat",
+        "type": 301
       }
     ]
   }

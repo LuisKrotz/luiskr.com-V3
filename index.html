@@ -30,21 +30,39 @@
       fetchpriority="high"
     />
 
-    <!-- Raleway variable font preloads (Latin & Latin-Ext subsets needed for initial render) -->
-    <link
-      rel="preload"
-      href="https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyC0ITw.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCMIT5lu.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+    <!-- Locale-conditional font loading: RU renders in Fira Sans
+         (cyrillic), everything else in Raleway — preloads + the Fira
+         stylesheet are injected here so neither family ever fetches on
+         the wrong locale. The state class flips --font-primary. -->
+    <script>
+      ;(function () {
+        var isRu = /^\/ru(\/|$)/.test(location.pathname)
+        var head = document.head
+        var preload = function (href) {
+          var l = document.createElement('link')
+          l.rel = 'preload'
+          l.href = href
+          l.as = 'font'
+          l.type = 'font/woff2'
+          l.crossOrigin = 'anonymous'
+          head.appendChild(l)
+        }
+
+        if (isRu) {
+          document.documentElement.classList.add('cyrillic-font')
+          var css = document.createElement('link')
+          css.rel = 'stylesheet'
+          css.href =
+            'https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700&display=swap'
+          head.appendChild(css)
+          preload('https://fonts.gstatic.com/s/firasans/v18/va9B4kDNxMZdWfMOD5VnWKneQhf6TF0.woff2')
+          preload('https://fonts.gstatic.com/s/firasans/v18/va9B4kDNxMZdWfMOD5VnWKneRhf6.woff2')
+        } else {
+          preload('https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyC0ITw.woff2')
+          preload('https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCMIT5lu.woff2')
+        }
+      })()
+    </script>
 
     <style>
       @font-face {

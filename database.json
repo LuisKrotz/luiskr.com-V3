@@ -7185,7 +7185,7 @@
           "gpu": "Hardware GPU ativo",
           "wasm": "Worker WASM ativo",
           "on": "ON",
-          "off": "OFF",
+          "off": "DESLIGADO",
           "controls": "Estatísticas e controles de desempenho"
         },
         "media": {
@@ -7364,7 +7364,7 @@
           "close": "Fechar seletor de idioma"
         },
         "source-code": {
-          "label": "PROJECT SOURCE CODE:",
+          "label": "CÓDIGO-FONTE DO PROJETO:",
           "link": "Git",
           "credit": "Desenvolvimento, UI e design criativo, produção de conteúdo, redação, tradução, engenharia, engenharia de UX, revisão, conceituação, produção, devOps e manutenção desta plataforma, tudo feito por Luis Krötz.",
           "rights": "Copyright © {year} Luis Krötz"
@@ -7374,7 +7374,7 @@
           "close": "Fechar preferências"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
+          "title": "Documentação detalhada dos projetos",
           "description": "Disponível apenas em inglês",
           "copyToast": "Esta página não permite copiar, acesse o github para baixar o código-fonte ou contate o administrador da página."
         }
@@ -14178,7 +14178,7 @@
             "title": "Apariencia",
             "desc": "Elige la apariencia del sitio",
             "system": {
-              "label": "System",
+              "label": "Sistema",
               "sub": "Seguir el sistema"
             },
             "dark": {
@@ -14198,7 +14198,7 @@
               "sub": "Movimiento completo"
             },
             "reduced": {
-              "label": "Reduced",
+              "label": "Reducido",
               "sub": "Menos movimiento"
             }
           },
@@ -14256,7 +14256,7 @@
           "gpu": "Hardware GPU activo",
           "wasm": "Worker WASM activo",
           "on": "ON",
-          "off": "OFF",
+          "off": "APAGADO",
           "controls": "Estadísticas y controles de rendimiento"
         },
         "media": {
@@ -14320,7 +14320,7 @@
           "links": [
             {
               "link": "/es",
-              "page": "Home"
+              "page": "Inicio"
             },
             {
               "link": "/es/politica-de-privacidad",
@@ -14445,7 +14445,7 @@
           "close": "Cerrar preferencias"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
+          "title": "Documentación detallada de los proyectos",
           "description": "Disponible solo en inglés",
           "copyToast": "Esta página no permite copiar, consulta github para descargar el código fuente o contacta al administrador de la página."
         }
@@ -21269,7 +21269,7 @@
               "sub": "Volle Bewegung"
             },
             "reduced": {
-              "label": "Reduced",
+              "label": "Reduziert",
               "sub": "Weniger Bewegung"
             }
           },
@@ -21327,7 +21327,7 @@
           "gpu": "GPU-Hardware aktiv",
           "wasm": "WASM-Worker aktiv",
           "on": "ON",
-          "off": "OFF",
+          "off": "AUS",
           "controls": "Leistungsstatistiken und Steuerung"
         },
         "media": {
@@ -21391,7 +21391,7 @@
           "links": [
             {
               "link": "/de",
-              "page": "Home"
+              "page": "Startseite"
             },
             {
               "link": "/de/datenschutzrichtlinie",
@@ -21516,7 +21516,7 @@
           "close": "Einstellungen schließen"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
+          "title": "Ausführliche Projektdokumentation",
           "description": "Nur auf Englisch verfügbar",
           "copyToast": "Diese Seite erlaubt kein Kopieren — bitte nutze GitHub, um den Quellcode herunterzuladen, oder kontaktiere den Administrator."
         }
@@ -22015,7 +22015,7 @@
           "search": "Katalog durchsuchen…",
           "exoplanet": "Exoplanet",
           "dso": "Deep-Sky-Objekt",
-          "catalog": "Deep Catalog",
+          "catalog": "Deep-Sky-Katalog",
           "records": "Einträge",
           "loadMore": "Mehr laden",
           "searching": "Katalog wird durchsucht…",
@@ -28309,7 +28309,7 @@
           "refuse": "Nein, danke."
         },
         "related": "Ähnliches",
-        "featured": "Selected work",
+        "featured": "Ausgewählte Arbeiten",
         "title": "Luis Krötz",
         "preferences": "Einstellungen",
         "language": "Sprooch",
@@ -28340,7 +28340,7 @@
               "sub": "Volle Bewegung"
             },
             "reduced": {
-              "label": "Reduced",
+              "label": "Reduziert",
               "sub": "Weniger Bewegung"
             }
           },
@@ -28398,7 +28398,7 @@
           "gpu": "GPU-Hardware aktiv",
           "wasm": "WASM-Worker aktiv",
           "on": "ON",
-          "off": "OFF",
+          "off": "AUS",
           "controls": "Leischtungsstatistike un Steuerung"
         },
         "media": {
@@ -28462,11 +28462,11 @@
           "links": [
             {
               "link": "/",
-              "page": "Home"
+              "page": "Startseite"
             },
             {
               "link": "/privacy-policy",
-              "page": "Privacy Policy"
+              "page": "Datenschutzrichtlinie"
             },
             {
               "link": "/gdpr",
@@ -28474,7 +28474,7 @@
             },
             {
               "link": "/terms-of-use",
-              "page": "Terms of Use"
+              "page": "Nutzungsbedingungen"
             },
             {
               "link": "/hrk/lizenz",
@@ -28587,16 +28587,16 @@
           "close": "Einstellungen schließen"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
-          "description": "Available only in English",
-          "copyToast": "This page doesn't allow copy, please refer to github to download the sourcecode or contact the page admin."
+          "title": "Ausführliche Projektdokumentation",
+          "description": "Nur auf Englisch verfügbar",
+          "copyToast": "Auf dieser Seite ist Kopieren nicht erlaubt — lade den Quelltext auf GitHub herunter."
         }
       },
       "pages": {
         "HOME": {
           "archive": "Mehr entdecken",
           "explore": "Schau dir",
-          "featured": "Selected work",
+          "featured": "Ausgewählte Arbeiten",
           "message": "Ausgewählte Arbeiten",
           "portfoliolist": [
             {
@@ -29086,7 +29086,7 @@
           "search": "Katalog dursuche…",
           "exoplanet": "Exoplanet",
           "dso": "Deep-Sky-Owjekt",
-          "catalog": "Deep Catalog",
+          "catalog": "Deep-Sky-Katalog",
           "records": "Einträch",
           "loadMore": "Mehr lade",
           "searching": "Catalog werd dursuchd…",
@@ -35391,7 +35391,7 @@
             "title": "Apariencia",
             "desc": "Elige la apariencia del sitio",
             "system": {
-              "label": "System",
+              "label": "Sistema",
               "sub": "Seguir el sistema"
             },
             "dark": {
@@ -35411,7 +35411,7 @@
               "sub": "Movimiento completo"
             },
             "reduced": {
-              "label": "Reduced",
+              "label": "Reducido",
               "sub": "Menos movimiento"
             }
           },
@@ -35469,7 +35469,7 @@
           "gpu": "Hardware GPU activo",
           "wasm": "Worker WASM activo",
           "on": "ON",
-          "off": "OFF",
+          "off": "APAGADO",
           "controls": "Estadísticas y controles de rendimiento"
         },
         "media": {
@@ -35533,7 +35533,7 @@
           "links": [
             {
               "link": "/cas",
-              "page": "Home"
+              "page": "Inicio"
             },
             {
               "link": "/cas/politica-de-privacidad",
@@ -35658,7 +35658,7 @@
           "close": "Cerrar preferencias"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
+          "title": "Documentación detallada de los proyectos",
           "description": "Disponible solo en inglés",
           "copyToast": "Esta página no permite copiar, consulta github para descargar el código fuente o contacta al administrador de la página."
         }
@@ -42451,7 +42451,7 @@
           "refuse": "No, obrigado."
         },
         "related": "Relacionados",
-        "featured": "Selected work",
+        "featured": "Trabalhos selecionados",
         "title": "Luis Krötz",
         "preferences": "Preferências",
         "language": "Idioma",
@@ -42540,7 +42540,7 @@
           "gpu": "Hardware GPU ativo",
           "wasm": "Worker WASM ativo",
           "on": "ON",
-          "off": "OFF",
+          "off": "DESLIGADO",
           "controls": "Estadísticas e controles de desempenho"
         },
         "media": {
@@ -42604,11 +42604,11 @@
           "links": [
             {
               "link": "/",
-              "page": "Home"
+              "page": "Início"
             },
             {
               "link": "/privacy-policy",
-              "page": "Privacy Policy"
+              "page": "Política de Privacidade"
             },
             {
               "link": "/gdpr",
@@ -42616,7 +42616,7 @@
             },
             {
               "link": "/terms-of-use",
-              "page": "Terms of Use"
+              "page": "Termos de Uso"
             },
             {
               "link": "/riv/licenca",
@@ -42719,7 +42719,7 @@
           "close": "Fechar seletor de idioma"
         },
         "source-code": {
-          "label": "PROJECT SOURCE CODE:",
+          "label": "CÓDIGO-FONTE DO PROJETO:",
           "link": "Git",
           "credit": "Desenvolvimento, UI e design criativo, produção de conteúdo, redação, tradução, engenharia, engenharia de UX, revisão, conceituação, produção, devOps e manutenção desta plataforma, tudo feito por Luis Krötz.",
           "rights": "Copyright © {year} Luis Krötz"
@@ -42729,16 +42729,16 @@
           "close": "Fechar preferencias"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
-          "description": "Available only in English",
-          "copyToast": "This page doesn't allow copy, please refer to github to download the sourcecode or contact the page admin."
+          "title": "Documentação detalhada dos projetos",
+          "description": "Disponível apenas em inglês",
+          "copyToast": "Esta página não permite copiar — baixe o código-fonte no GitHub."
         }
       },
       "pages": {
         "HOME": {
           "archive": "Explorar más",
           "explore": "Confira",
-          "featured": "Selected work",
+          "featured": "Trabalhos selecionados",
           "message": "Trabalhos selecionados",
           "portfoliolist": [
             {
@@ -43226,7 +43226,7 @@
           "acquired": "Dados obtidos",
           "translated": "Traduzido",
           "search": "Buscar no catálogo…",
-          "exoplanet": "Exoplanet",
+          "exoplanet": "Exoplaneta",
           "dso": "Deep-Sky-Objek",
           "catalog": "Deep Katalog",
           "records": "Endräch",
@@ -49522,7 +49522,7 @@
           "refuse": "Ahána, aguyje."
         },
         "related": "Joajupegua",
-        "featured": "Selected work",
+        "featured": "Mba'apopy poravopyre",
         "title": "Luis Krötz",
         "preferences": "Jeguerohoryvéva",
         "language": "Ñe'ẽ",
@@ -49611,7 +49611,7 @@
           "gpu": "Hardware GPU oku'égua",
           "wasm": "WASM worker oku'égua",
           "on": "ON",
-          "off": "OFF",
+          "off": "JOKO",
           "controls": "Estadística ha desempeño controles"
         },
         "media": {
@@ -49675,11 +49675,11 @@
           "links": [
             {
               "link": "/",
-              "page": "Home"
+              "page": "Ñepyrũha"
             },
             {
               "link": "/privacy-policy",
-              "page": "Privacy Policy"
+              "page": "Ñemigua Política"
             },
             {
               "link": "/gdpr",
@@ -49687,7 +49687,7 @@
             },
             {
               "link": "/terms-of-use",
-              "page": "Terms of Use"
+              "page": "Jeporu Py'apy"
             },
             {
               "link": "/gn/licencia",
@@ -49800,16 +49800,16 @@
           "close": "Emboty umi jeguerohoryvéva"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
-          "description": "Available only in English",
-          "copyToast": "This page doesn't allow copy, please refer to github to download the sourcecode or contact the page admin."
+          "title": "Kuatiaite tembiapo rehegua",
+          "description": "Inglés añoite",
+          "copyToast": "Ko kuatiarogue nomoneĩri jokuái — emboguejy GitHub guive."
         }
       },
       "pages": {
         "HOME": {
           "archive": "Ehechave",
           "explore": "Ema'ẽ",
-          "featured": "Selected work",
+          "featured": "Mba'apopy poravopyre",
           "message": "Mba'e poravopyre",
           "portfoliolist": [
             {
@@ -50245,7 +50245,7 @@
                 "<strong>Ne Ñemigua.</strong> Elee Política de Ñemigua.",
                 "<strong>Información Derexo Autor/Marca Comercial rehegua.</strong> Derexo autor ©. Opa derexo reservado. Opa marca comercial, logotipo ha marca servicio ojehechaukáva Sitio-pe ha'e ore propiedad térã propiedad ambue tercero rehegua. Nde'katúi ejeporu ko Marca ore consentimiento escrito mboyve'ỹ térã consentimiento upeichagua tercero ikatúva dueño Marca rehegua."
               ],
-              "title": "General"
+              "title": "Opaite"
             },
             {
               "content": [
@@ -56604,7 +56604,7 @@
             "title": "Aspetto",
             "desc": "Scegli l’aspetto del sito",
             "system": {
-              "label": "System",
+              "label": "Sistema",
               "sub": "Segui il sistema"
             },
             "dark": {
@@ -56624,7 +56624,7 @@
               "sub": "Movimento completo"
             },
             "reduced": {
-              "label": "Reduced",
+              "label": "Ridotto",
               "sub": "Movimento ridotto"
             }
           },
@@ -56682,7 +56682,7 @@
           "gpu": "Hardware GPU attivo",
           "wasm": "Worker WASM attivo",
           "on": "ON",
-          "off": "OFF",
+          "off": "SPENTO",
           "controls": "Statistiche e controlli delle prestazioni"
         },
         "media": {
@@ -56746,7 +56746,7 @@
           "links": [
             {
               "link": "/it",
-              "page": "Home"
+              "page": "Pagina iniziale"
             },
             {
               "link": "/it/informativa-sulla-privacy",
@@ -56871,7 +56871,7 @@
           "close": "Chiudi preferenze"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
+          "title": "Documentazione approfondita dei progetti",
           "description": "Disponibile solo in inglese",
           "copyToast": "Questa pagina non consente la copia: fai riferimento a github per scaricare il codice sorgente o contatta l'amministratore della pagina."
         }
@@ -63664,8 +63664,8 @@
           "refuse": "Нет, спасибо."
         },
         "related": "Похожее",
-        "featured": "Selected work",
-        "title": "Luis Krötz",
+        "featured": "Избранные работы",
+        "title": "Луис Крётц",
         "preferences": "Настройки",
         "language": "Язык",
         "pref": {
@@ -63731,14 +63731,14 @@
         "close": "Закрыть",
         "loader": {
           "lines": [
-            "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
-            "[GPU_CORE] ALLOCATING SHADER PIPELINES",
-            "[WASM_ENG] THREAD POOL READY: 4 WORKERS",
-            "[VRAM_MGR] POOL & PURGE PROTOCOL ENGAGED",
-            "[RUNTIME] SYSTEM VERIFIED: LAUNCHING INTERFACE"
+            "[SYS_BOOT] ИНИЦИАЛИЗАЦИЯ АРХИТЕКТУРЫ v3.8",
+            "[GPU_CORE] ВЫДЕЛЕНИЕ ШЕЙДЕРНЫХ КОНВЕЙЕРОВ",
+            "[WASM_ENG] ПУЛ ПОТОКОВ ГОТОВ: 4 ВОРКЕРА",
+            "[VRAM_MGR] ПРОТОКОЛ ПУЛА И ОЧИСТКИ АКТИВИРОВАН",
+            "[RUNTIME] СИСТЕМА ПРОВЕРЕНА: ЗАПУСК ИНТЕРФЕЙСА"
           ],
           "initWebGpu": "Инициализация WebGPU",
-          "title": "Luis Krötz",
+          "title": "Луис Крётц",
           "stages": [
             "Получение текстов интерфейса",
             "Загрузка шрифтов и медиа",
@@ -63753,7 +63753,7 @@
           "gpu": "Аппаратное обеспечение GPU активно",
           "wasm": "Воркер WASM активен",
           "on": "ON",
-          "off": "OFF",
+          "off": "ВЫКЛ",
           "controls": "Статистика производительности и управление"
         },
         "media": {
@@ -63817,11 +63817,11 @@
           "links": [
             {
               "link": "/",
-              "page": "Home"
+              "page": "Главная"
             },
             {
               "link": "/privacy-policy",
-              "page": "Privacy Policy"
+              "page": "Политика конфиденциальности"
             },
             {
               "link": "/gdpr",
@@ -63829,7 +63829,7 @@
             },
             {
               "link": "/terms-of-use",
-              "page": "Terms of Use"
+              "page": "Условия использования"
             },
             {
               "link": "/ru/litsenziya",
@@ -63849,62 +63849,62 @@
             {
               "featured": true,
               "link": "metcha",
-              "page": "Metcha"
+              "page": "Метча"
             },
             {
               "featured": false,
               "link": "transa",
-              "page": "Transa"
+              "page": "Транса"
             },
             {
               "featured": true,
               "link": "brazilian-leather",
-              "page": "Brazilian Leather"
+              "page": "Бразилиан Лезер"
             },
             {
               "featured": false,
               "link": "mor",
-              "page": "Mor"
+              "page": "Мор"
             },
             {
               "featured": false,
               "link": "coza",
-              "page": "Coza"
+              "page": "Коза"
             },
             {
               "featured": true,
               "link": "melissa",
-              "page": "Melissa"
+              "page": "Мелисса"
             },
             {
               "featured": false,
               "link": "minimelissa",
-              "page": "Minimelissa"
+              "page": "Минимелисса"
             },
             {
               "featured": false,
               "link": "aboutmarco",
-              "page": "Marco Almeida"
+              "page": "Марко Алмейда"
             },
             {
               "featured": false,
               "link": "clinica-de-desenvolvimento-nathalia-bond",
-              "page": "Nathalia Bond"
+              "page": "Наталия Бонд"
             },
             {
               "featured": false,
               "link": "cecerele",
-              "page": "Cecerelê"
+              "page": "Сесереле"
             },
             {
               "featured": false,
               "link": "vibra",
-              "page": "Vibra"
+              "page": "Вибра"
             },
             {
               "featured": false,
               "link": "genesysinf-sageweb",
-              "page": "Genesysinf"
+              "page": "Дженесисинф"
             }
           ],
           "title": "Похожее",
@@ -63935,14 +63935,14 @@
           "label": "ИСХОДНЫЙ КОД ПРОЕКТА:",
           "link": "Git",
           "credit": "Разработка, UI и креативный дизайн, производство контента, написание текстов, перевод, инженерия, UX-инженерия, ревью, концептуализация, продакшн, devOps и обслуживание этой платформы — всё сделано самостоятельно Луисом Крётцем.",
-          "rights": "Copyright © {year} Luis Krötz"
+          "rights": "Copyright © {year} Луис Крётц"
         },
         "preferences-modal": {
           "title": "Настройки",
           "close": "Закрыть настройки"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
+          "title": "Подробная документация проектов",
           "description": "Доступно только на английском",
           "copyToast": "Эта страница не позволяет копировать — скачайте исходный код на github или свяжитесь с администратором страницы."
         }
@@ -63951,7 +63951,7 @@
         "HOME": {
           "archive": "Смотреть ещё",
           "explore": "Открыть",
-          "featured": "Selected work",
+          "featured": "Избранные работы",
           "message": "Избранные работы",
           "portfoliolist": [
             {
@@ -63961,7 +63961,7 @@
                 "793"
               ],
               "image": "dell-design-system",
-              "label": "Dell Design System",
+              "label": "Делл Дизайн Систем",
               "link": "dell-design-system",
               "width": [
                 "1230",
@@ -63976,7 +63976,7 @@
                 "301"
               ],
               "image": "metcha",
-              "label": "Metcha",
+              "label": "Метча",
               "link": "metcha",
               "width": [
                 "1915",
@@ -63991,7 +63991,7 @@
                 "320"
               ],
               "image": "melissa",
-              "label": "Melissa",
+              "label": "Мелисса",
               "link": "melissa",
               "width": [
                 "1920",
@@ -64006,7 +64006,7 @@
                 "322"
               ],
               "image": "minimelissa-cropped",
-              "label": "Mini Melissa",
+              "label": "Мини Мелисса",
               "link": "mini-melissa",
               "width": [
                 "1905",
@@ -64021,7 +64021,7 @@
                 "340"
               ],
               "image": "brazilian-leather",
-              "label": "Brazilian Leather",
+              "label": "Бразилиан Лезер",
               "link": "cicb",
               "width": [
                 "1920",
@@ -64036,7 +64036,7 @@
                 "319"
               ],
               "image": "mor",
-              "label": "Mor",
+              "label": "Мор",
               "link": "mor",
               "width": [
                 "1920",
@@ -64051,7 +64051,7 @@
                 "318"
               ],
               "image": "coza",
-              "label": "Coza",
+              "label": "Коза",
               "link": "coza",
               "width": [
                 "1920",
@@ -64066,7 +64066,7 @@
                 "406"
               ],
               "image": "aboutmarco",
-              "label": "Marco Almeida",
+              "label": "Марко Алмейда",
               "link": "aboutmarco",
               "width": [
                 "1920",
@@ -64081,7 +64081,7 @@
                 "320"
               ],
               "image": "clinica-nathalia-bond-v3",
-              "label": "Nathalia Bond",
+              "label": "Наталия Бонд",
               "link": "nathalia-bond",
               "width": [
                 "1920",
@@ -64096,7 +64096,7 @@
                 "256"
               ],
               "image": "cecerele",
-              "label": "Cecerelê",
+              "label": "Сесереле",
               "link": "cecerele",
               "width": [
                 "1920",
@@ -64111,7 +64111,7 @@
                 "369"
               ],
               "image": "transa",
-              "label": "Transa",
+              "label": "Транса",
               "link": "transa",
               "width": [
                 "1920",
@@ -64126,7 +64126,7 @@
                 "340"
               ],
               "image": "vibra",
-              "label": "Vibra",
+              "label": "Вибра",
               "link": "vibra",
               "width": [
                 "1920",
@@ -64141,7 +64141,7 @@
                 "369"
               ],
               "image": "sageweb",
-              "label": "Sageweb",
+              "label": "Сейджвеб",
               "link": "sage",
               "width": [
                 "1350",
@@ -64694,7 +64694,7 @@
                 },
                 {
                   "canExpand": true,
-                  "label": "aboutmarco.com, melissa insider",
+                  "label": "aboutmarco.com, мелисса инсайдер",
                   "size": [
                     1920,
                     10094
@@ -64703,7 +64703,7 @@
                 },
                 {
                   "canExpand": true,
-                  "label": "aboutmarco.com, melissa",
+                  "label": "aboutmarco.com, мелисса",
                   "size": [
                     1920,
                     10229
@@ -64712,7 +64712,7 @@
                 },
                 {
                   "canExpand": true,
-                  "label": "aboutmarco.com, coza",
+                  "label": "aboutmarco.com, коза",
                   "size": [
                     1920,
                     26871
@@ -64721,7 +64721,7 @@
                 },
                 {
                   "canExpand": true,
-                  "label": "aboutmarco.com, brazilian leather",
+                  "label": "aboutmarco.com, бразилиан лезер",
                   "size": [
                     1920,
                     16075
@@ -64730,7 +64730,7 @@
                 },
                 {
                   "canExpand": true,
-                  "label": "aboutmarco.com, обо мне",
+                  "label": "aboutmarco.com, ме",
                   "size": [
                     1920,
                     7137
@@ -64755,7 +64755,7 @@
               [
                 {
                   "class": "landscape",
-                  "label": "aboutmarco.com, admiretheweb",
+                  "label": "aboutmarco.com, адмайрзевеб",
                   "size": [
                     1440,
                     820
@@ -64764,7 +64764,7 @@
                 },
                 {
                   "class": "landscape",
-                  "label": "aboutmarco.com, css awards",
+                  "label": "aboutmarco.com, css авордс",
                   "size": [
                     1440,
                     740
@@ -64791,7 +64791,7 @@
                 },
                 {
                   "class": "landscape",
-                  "label": "aboutmarco.com, ME",
+                  "label": "aboutmarco.com, МИ",
                   "size": [
                     1440,
                     652
@@ -64800,7 +64800,7 @@
                 },
                 {
                   "class": "landscape",
-                  "label": "aboutmarco.com, mindspark",
+                  "label": "aboutmarco.com, майндспарк",
                   "size": [
                     677,
                     722
@@ -64810,7 +64810,7 @@
               ]
             ]
           ],
-          "title": "Marco Almeida"
+          "title": "Марко Алмейда"
         },
         "cecerele": {
           "cover": {
@@ -64955,7 +64955,7 @@
               ]
             ]
           ],
-          "title": "Cecerelê"
+          "title": "Сесереле"
         },
         "cicb": {
           "cover": {
@@ -65299,7 +65299,7 @@
               ]
             ]
           ],
-          "title": "Brazilian Leather"
+          "title": "Бразилиан Лезер"
         },
         "coza": {
           "cover": {
@@ -65407,7 +65407,7 @@
               ]
             ]
           ],
-          "title": "Coza"
+          "title": "Коза"
         },
         "melissa": {
           "cover": {
@@ -66569,7 +66569,7 @@
               ]
             ]
           ],
-          "title": "Melissa"
+          "title": "Мелисса"
         },
         "metcha": {
           "cover": {
@@ -67760,7 +67760,7 @@
               ]
             ]
           ],
-          "title": "METCHA"
+          "title": "МЕТЧА"
         },
         "mini-melissa": {
           "cover": {
@@ -67877,7 +67877,7 @@
                   "canExpand": true,
                   "class": "landscape",
                   "isVideo": true,
-                  "label": "Mini Melissa: Dance Machine",
+                  "label": "Мини Мелисса: Данс Машин",
                   "size": [
                     1928,
                     944
@@ -67905,7 +67905,7 @@
                   "canExpand": true,
                   "class": "landscape",
                   "isVideo": true,
-                  "label": "Mini Melissa: Dreamers",
+                  "label": "Мини Мелисса: Дримерз",
                   "size": [
                     1440,
                     784
@@ -67933,7 +67933,7 @@
                   "canExpand": true,
                   "class": "landscape",
                   "isVideo": true,
-                  "label": "Mini Melissa: Family",
+                  "label": "Мини Мелисса: Фэмили",
                   "size": [
                     1932,
                     944
@@ -67961,7 +67961,7 @@
                   "canExpand": true,
                   "class": "landscape",
                   "isVideo": true,
-                  "label": "Mini Melissa: Flygrl",
+                  "label": "Мини Мелисса: Флайгёрл",
                   "size": [
                     1932,
                     944
@@ -67989,7 +67989,7 @@
                   "canExpand": true,
                   "class": "landscape",
                   "isVideo": true,
-                  "label": "Mini Melissa: Mapping",
+                  "label": "Мини Мелисса: Маппинг",
                   "size": [
                     1932,
                     944
@@ -68017,7 +68017,7 @@
                   "canExpand": true,
                   "class": "landscape",
                   "isVideo": true,
-                  "label": "Mini Melissa: Mashup",
+                  "label": "Мини Мелисса: Мэшап",
                   "size": [
                     1928,
                     944
@@ -68045,7 +68045,7 @@
                   "canExpand": true,
                   "class": "landscape",
                   "isVideo": true,
-                  "label": "Mini Melissa: Mirror",
+                  "label": "Мини Мелисса: Миррор",
                   "size": [
                     1936,
                     944
@@ -68074,7 +68074,7 @@
                   "canExpand": true,
                   "class": "landscape",
                   "isVideo": true,
-                  "label": "Mini Melissa: Open Vibes",
+                  "label": "Мини Мелисса: Оупен Вайбс",
                   "size": [
                     1924,
                     928
@@ -68102,7 +68102,7 @@
                   "canExpand": true,
                   "class": "landscape",
                   "isVideo": true,
-                  "label": "Mini Melissa: Wanna be Carioca",
+                  "label": "Мини Мелисса: Ванна би Кариока",
                   "size": [
                     1928,
                     944
@@ -68122,7 +68122,7 @@
               ]
             ]
           ],
-          "title": "Mini Melissa"
+          "title": "Мини Мелисса"
         },
         "mor": {
           "cover": {
@@ -68250,7 +68250,7 @@
               ]
             ]
           ],
-          "title": "MOR"
+          "title": "МОР"
         },
         "nathalia-bond": {
           "cover": {
@@ -68708,7 +68708,7 @@
               ]
             ]
           ],
-          "title": "Nathalia Bond"
+          "title": "Наталия Бонд"
         },
         "sage": {
           "cover": {
@@ -68851,7 +68851,7 @@
               ]
             ]
           ],
-          "title": "Genesysinf, Sageweb"
+          "title": "Дженесисинф, Сейджвеб"
         },
         "transa": {
           "cover": {
@@ -69387,7 +69387,7 @@
               ]
             ]
           ],
-          "title": "Transa"
+          "title": "Транса"
         },
         "vibra": {
           "cover": {
@@ -69449,7 +69449,7 @@
               ]
             ]
           ],
-          "title": "Vibra"
+          "title": "Вибра"
         },
         "dell-design-system": {
           "cover": {
@@ -70703,7 +70703,7 @@
               ]
             ]
           ],
-          "title": "Dell Design System"
+          "title": "Делл Дизайн Систем"
         }
       },
       "slugs": {
@@ -70746,7 +70746,7 @@
             "title": "Apparence",
             "desc": "Choisis l’apparence du site",
             "system": {
-              "label": "System",
+              "label": "Système",
               "sub": "Suivre le système"
             },
             "dark": {
@@ -70766,7 +70766,7 @@
               "sub": "Mouvement complet"
             },
             "reduced": {
-              "label": "Reduced",
+              "label": "Réduit",
               "sub": "Mouvement réduit"
             }
           },
@@ -70824,7 +70824,7 @@
           "gpu": "Matériel GPU actif",
           "wasm": "Worker WASM actif",
           "on": "ON",
-          "off": "OFF",
+          "off": "ÉTEINT",
           "controls": "Statistiques et contrôles de performance"
         },
         "media": {
@@ -70888,7 +70888,7 @@
           "links": [
             {
               "link": "/fr",
-              "page": "Home"
+              "page": "Accueil"
             },
             {
               "link": "/fr/politique-de-confidentialite",
@@ -71013,7 +71013,7 @@
           "close": "Fermer les préférences"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
+          "title": "Documentation détaillée des projets",
           "description": "Disponible uniquement en anglais",
           "copyToast": "Cette page n'autorise pas la copie — téléchargez le code source sur github ou contactez l'administrateur de la page."
         }
@@ -77806,7 +77806,7 @@
           "refuse": "No, grasie."
         },
         "related": "Ligà",
-        "featured": "Selected work",
+        "featured": "Łaori sełesionà",
         "title": "Luis Krötz",
         "preferences": "Preferense",
         "language": "Léngua",
@@ -77895,7 +77895,7 @@
           "gpu": "Hardware GPU ativo",
           "wasm": "Worker WASM ativo",
           "on": "ON",
-          "off": "OFF",
+          "off": "SPENTO",
           "controls": "Statìsteghe e controi de prestasion"
         },
         "media": {
@@ -77959,11 +77959,11 @@
           "links": [
             {
               "link": "/",
-              "page": "Home"
+              "page": "Pagina prinsipałe"
             },
             {
               "link": "/privacy-policy",
-              "page": "Privacy Policy"
+              "page": "Połìtega de ła Privacy"
             },
             {
               "link": "/gdpr",
@@ -77971,7 +77971,7 @@
             },
             {
               "link": "/terms-of-use",
-              "page": "Terms of Use"
+              "page": "Condision de Uxo"
             },
             {
               "link": "/tln/lisensa",
@@ -78084,16 +78084,16 @@
           "close": "Sara preferense"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
-          "description": "Available only in English",
-          "copyToast": "This page doesn't allow copy, please refer to github to download the sourcecode or contact the page admin."
+          "title": "Documentasion detajada dei projeti",
+          "description": "Disponìbiłe soło in inglexe",
+          "copyToast": "Sta pàgina no ła permete copiar — varda github par descargar el codaxe."
         }
       },
       "pages": {
         "HOME": {
           "archive": "Dà na ociada",
           "explore": "Varda",
-          "featured": "Selected work",
+          "featured": "Łaori sełesionà",
           "message": "Laori sernìi",
           "portfoliolist": [
             {
@@ -78570,7 +78570,7 @@
           "star": "Steła",
           "planet": "Pianeta",
           "dwarfPlanet": "Pianeta Nano",
-          "asteroid": "Asteroid",
+          "asteroid": "Asteroide",
           "comet": "Cometà",
           "moon": "Łuna",
           "blackHole": "Buco Nero",
@@ -78581,28 +78581,28 @@
           "acquired": "Dati acquisìi",
           "translated": "Tradoto",
           "search": "Serca inte’l catalogo…",
-          "exoplanet": "Exoplanet",
-          "dso": "Deep-Sky Object",
-          "catalog": "Deep Catalog",
-          "records": "records",
+          "exoplanet": "Esopianeta",
+          "dso": "Ogeto del çèło profondo",
+          "catalog": "Catałogo profondo",
+          "records": "record",
           "loadMore": "Kagéit aa",
           "searching": "Catalog s’áa a kkwjeit…",
-          "magnitude": "Apparent magnitude",
-          "distance": "Distance",
-          "spectralType": "Spectral type",
-          "constellation": "Constellation",
-          "designation": "Designation",
-          "hostStar": "Host star",
-          "dsoType": "Object type",
-          "discovery": "Discovery",
-          "redshift": "Redshift",
-          "coordinates": "Heliocentric position",
+          "magnitude": "Magnitùdine aparente",
+          "distance": "Distansa",
+          "spectralType": "Tipo spetrałe",
+          "constellation": "Costełasion",
+          "designation": "Designasion",
+          "hostStar": "Steła ospite",
+          "dsoType": "Tipo de ogeto",
+          "discovery": "Scoverta",
+          "redshift": "Spostamento verso el roso",
+          "coordinates": "Posision ełiosentrica",
           "registry_star": "Catalogued kotl’éikw",
-          "registry_star_about": "A real star from the HYG catalogue (Hipparcos/Gliese/Tycho) — position, magnitude and spectral class from published astrometry.",
-          "registry_exoplanet": "Confirmed exoplanet",
-          "registry_exoplanet_about": "A confirmed planet from the NASA Exoplanet Archive, shown at its host star’s measured position.",
-          "registry_dso": "Catalogued deep-sky object",
-          "registry_dso_about": "An NGC/IC deep-sky object from the OpenNGC catalogue — galaxy, cluster or nebula; distance from redshift where available.",
+          "registry_star_about": "Na steła vera del catałogo HYG (Hipparcos/Gliese/Tycho) — posision, magnitùdine e clase spetrałe da ła astrometrìa publegà.",
+          "registry_exoplanet": "Esopianeta confermà",
+          "registry_exoplanet_about": "Un pianeta confermà del NASA Exoplanet Archive, mostrà a ła posision misurà de ła só steła ospite.",
+          "registry_dso": "Ogeto del çèło profondo catalogà",
+          "registry_dso_about": "Un ogeto del çèło profondo NGC/IC del catałogo OpenNGC — gałasia, grupeło o nebułosa; distansa dal redshift quando disponìbiłe.",
           "localGroup": "Grup Local",
           "hierarchy": "Ierarchia Cosmică",
           "dwarfGalaxy": "Gałasia Pitică",
@@ -78633,7 +78633,7 @@
           "bloomStr": "Forza Bloom",
           "bloomRadius": "Raio Bloom",
           "bloomThreshold": "Sója Bloom",
-          "vignette": "Vignette",
+          "vignette": "Viñeta",
           "vigDarkness": "Scurità",
           "vigOffset": "Offset",
           "chromaticAb": "Aberasion Cromàtega",
@@ -84888,7 +84888,7 @@
             "title": "Uiterlijk",
             "desc": "Kies hoe de site eruitziet",
             "system": {
-              "label": "System",
+              "label": "Systeem",
               "sub": "Systeem volgen"
             },
             "dark": {
@@ -84908,7 +84908,7 @@
               "sub": "Volledige beweging"
             },
             "reduced": {
-              "label": "Reduced",
+              "label": "Verminderd",
               "sub": "Minder beweging"
             }
           },
@@ -84966,7 +84966,7 @@
           "gpu": "GPU-hardware actief",
           "wasm": "WASM-worker actief",
           "on": "ON",
-          "off": "OFF",
+          "off": "UIT",
           "controls": "Prestatiestatistieken en bediening"
         },
         "media": {
@@ -85030,7 +85030,7 @@
           "links": [
             {
               "link": "/nl",
-              "page": "Home"
+              "page": "Startpagina"
             },
             {
               "link": "/nl/privacybeleid",
@@ -85155,7 +85155,7 @@
           "close": "Voorkeuren sluiten"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
+          "title": "Uitgebreide projectdocumentatie",
           "description": "Alleen beschikbaar in het Engels",
           "copyToast": "Deze pagina staat kopiëren niet toe — raadpleeg github om de broncode te downloaden of neem contact op met de paginabeheerder."
         }
@@ -85556,7 +85556,7 @@
                 "De site wordt geleverd 'zoals deze is' en 'naar beschikbaarheid', en <strong><a target='_blank' href='/'>luiskr.com</a></strong> en onze leveranciers wijzen uitdrukkelijk alle garanties en voorwaarden van welke aard dan ook af, expliciet, impliciet of wettelijk, waaronder alle garanties van verkoopbaarheid, geschiktheid voor een bepaald doel, eigendom, rustig genot, nauwkeurigheid of niet-inbreuk. Wij en onze leveranciers garanderen niet dat de site aan je eisen voldoet, ononderbroken, tijdig, veilig of foutloos beschikbaar is, noch dat hij nauwkeurig, betrouwbaar, vrij van virussen of andere schadelijke code, volledig, legaal of veilig is. Als toepasselijk recht garanties vereist met betrekking tot de site, worden al die garanties in duur beperkt tot negentig (90) dagen vanaf de datum van eerste gebruik.",
                 "Sommige rechtsgebieden staan de uitsluiting van impliciete garanties niet toe, dus de bovenstaande uitsluiting is mogelijk niet op jou van toepassing. Sommige rechtsgebieden staan geen beperkingen toe op de duur van een impliciete garantie, dus de bovenstaande beperking is mogelijk niet op jou van toepassing."
               ],
-              "title": "Disclaimers"
+              "title": "Vrijwaringen"
             },
             {
               "content": [
@@ -91959,7 +91959,7 @@
             "title": "Aparença",
             "desc": "Tria l’aparença del lloc",
             "system": {
-              "label": "System",
+              "label": "Sistema",
               "sub": "Segueix el sistema"
             },
             "dark": {
@@ -91979,7 +91979,7 @@
               "sub": "Moviment complet"
             },
             "reduced": {
-              "label": "Reduced",
+              "label": "Reduït",
               "sub": "Menys moviment"
             }
           },
@@ -92037,7 +92037,7 @@
           "gpu": "Maquinari GPU actiu",
           "wasm": "Worker WASM actiu",
           "on": "ON",
-          "off": "OFF",
+          "off": "APAGAT",
           "controls": "Estadístiques i controls de rendiment"
         },
         "media": {
@@ -92101,7 +92101,7 @@
           "links": [
             {
               "link": "/ca",
-              "page": "Home"
+              "page": "Inici"
             },
             {
               "link": "/ca/politica-de-privacitat",
@@ -92226,7 +92226,7 @@
           "close": "Tanca les preferències"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
+          "title": "Documentació detallada dels projectes",
           "description": "Disponible només en anglès",
           "copyToast": "Aquesta pàgina no permet copiar — consulta github per descarregar el codi font o contacta amb l'administrador de la pàgina."
         }
@@ -99030,7 +99030,7 @@
             "title": "Aparencia",
             "desc": "Escolle a aparencia do sitio",
             "system": {
-              "label": "System",
+              "label": "Sistema",
               "sub": "Seguir o sistema"
             },
             "dark": {
@@ -99050,7 +99050,7 @@
               "sub": "Movemento completo"
             },
             "reduced": {
-              "label": "Reduced",
+              "label": "Reducido",
               "sub": "Menos movemento"
             }
           },
@@ -99108,7 +99108,7 @@
           "gpu": "Hardware GPU activo",
           "wasm": "Worker WASM activo",
           "on": "ON",
-          "off": "OFF",
+          "off": "APAGADO",
           "controls": "Estatísticas e controis de rendemento"
         },
         "media": {
@@ -99172,7 +99172,7 @@
           "links": [
             {
               "link": "/gl",
-              "page": "Home"
+              "page": "Inicio"
             },
             {
               "link": "/gl/politica-de-privacidade",
@@ -99297,7 +99297,7 @@
           "close": "Pechar as preferencias"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
+          "title": "Documentación detallada dos proxectos",
           "description": "Dispoñible só en inglés",
           "copyToast": "Esta páxina non permite copiar — consulta github para descargar o código fonte ou contacta co administrador da páxina."
         }
@@ -106090,7 +106090,7 @@
           "refuse": "Níor mhaith liom, go raibh maith agat."
         },
         "related": "Gaolmhar",
-        "featured": "Selected work",
+        "featured": "Saothar roghnaithe",
         "title": "Luis Krötz",
         "preferences": "Sainroghanna",
         "language": "Teanga",
@@ -106179,7 +106179,7 @@
           "gpu": "Crua-earraí GPU gníomhach",
           "wasm": "Oibrí WASM gníomhach",
           "on": "ON",
-          "off": "OFF",
+          "off": "MÚCHTA",
           "controls": "Staitisticí feidhmíochta agus rialuithe"
         },
         "media": {
@@ -106243,11 +106243,11 @@
           "links": [
             {
               "link": "/",
-              "page": "Home"
+              "page": "Baile"
             },
             {
               "link": "/privacy-policy",
-              "page": "Privacy Policy"
+              "page": "Polasaí Príobháideachta"
             },
             {
               "link": "/gdpr",
@@ -106255,7 +106255,7 @@
             },
             {
               "link": "/terms-of-use",
-              "page": "Terms of Use"
+              "page": "Téarmaí Úsáide"
             },
             {
               "link": "/ga/ceadunas",
@@ -106368,7 +106368,7 @@
           "close": "Dún na sainroghanna"
         },
         "docs-portal": {
-          "title": "In-depth project docs",
+          "title": "Doiciméadacht dhomhain tionscadal",
           "description": "Ar fáil i mBéarla amháin",
           "copyToast": "Ní cheadaítear cóipeáil ar an leathanach seo — féach github chun an cód foinse a íoslódáil nó déan teagmháil le riarthóir an leathanaigh."
         }
@@ -106377,7 +106377,7 @@
         "HOME": {
           "archive": "Déan iniúchadh breise",
           "explore": "Breathnaigh ar",
-          "featured": "Selected work",
+          "featured": "Saothar roghnaithe",
           "message": "Saothar roghnaithe",
           "portfoliolist": [
             {

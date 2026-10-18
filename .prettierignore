@@ -28,3 +28,9 @@ chrome-headless-shell/
 
 # Hardened third-party packages vendored verbatim — never reformat.
 local-modules/
+
+# Rust workspace — rustfmt owns these (cargo fmt), not prettier.
+rust/
+
+# wasm-pack artifacts.
+website/public/wasm/
