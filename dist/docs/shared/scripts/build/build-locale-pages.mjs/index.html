@@ -1,0 +1,1734 @@
+<!doctype html><html lang="en" class="no-js" itemscope itemtype="https://schema.org/WebSite"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta property="fb:app_id" content="974280449654426"><link rel="preconnect" href="https://storage.googleapis.com" crossorigin><link rel="dns-prefetch" href="https://storage.googleapis.com"><link rel="preconnect" href="https://luiskr-com.firebaseio.com" crossorigin><link rel="dns-prefetch" href="https://luiskr-com.firebaseio.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://gravatar.com"><link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png"><link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png"><link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg"><link rel="manifest" href="/site.webmanifest"><meta name="msapplication-config" content="/browserconfig.xml"><link rel="preload" as="image" href="https://storage.googleapis.com/luiskr.com/public/_v3/covers/metcha.jpg" fetchpriority="high"><script>!function(){var t=/^\/ru(\/|$)/.test(location.pathname),s=document.head,a=function(t){var a=document.createElement("link");a.rel="preload",a.href=t,a.as="font",a.type="font/woff2",a.crossOrigin="anonymous",s.appendChild(a)};if(t){document.documentElement.classList.add("cyrillic-font");var e=document.createElement("link");e.rel="stylesheet",e.href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700&display=swap",s.appendChild(e),a("https://fonts.gstatic.com/s/firasans/v18/va9B4kDNxMZdWfMOD5VnWKneQhf6TF0.woff2"),a("https://fonts.gstatic.com/s/firasans/v18/va9B4kDNxMZdWfMOD5VnWKneRhf6.woff2")}else a("https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyC0ITw.woff2"),a("https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCMIT5lu.woff2")}()</script><style>@font-face{font-family:Raleway;font-style:normal;font-weight:100 900;font-display:swap;src:url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCAIT5lu.woff2) format('woff2');unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}@font-face{font-family:Raleway;font-style:normal;font-weight:100 900;font-display:swap;src:url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCkIT5lu.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}@font-face{font-family:Raleway;font-style:normal;font-weight:100 900;font-display:swap;src:url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCIIT5lu.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:Raleway;font-style:normal;font-weight:100 900;font-display:swap;src:url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCMIT5lu.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:Raleway;font-style:normal;font-weight:100 900;font-display:swap;src:url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyC0ITw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style><title>build-locale-pages.mjs | Luis Krötz</title><meta property="og:title" content="build-locale-pages.mjs | Luis Krötz"><meta name="DC.Title" content="build-locale-pages.mjs | Luis Krötz"><meta name="twitter:title" content="build-locale-pages.mjs | Luis Krötz"><meta name="keywords" content="developer, front end, front-end, portfolio, luis krotz, luis krötz, jacson luis krötz, jacson luis krotz, jacson, luis, krotz, krötz, brazil, web developer"><meta property="og:url" content="https://luiskr.com/docs/shared/scripts/build/build-locale-pages.mjs"><meta name="twitter:url" content="https://luiskr.com/docs/shared/scripts/build/build-locale-pages.mjs"><meta itemprop="name" content="Luis Krötz"><meta itemprop="url" content="https://luiskr.com"><meta itemprop="image" content="https://luiskr.com/assets/icons/share.png"><meta property="og:image" content="https://luiskr.com/assets/icons/share.png"><meta name="twitter:image:src" content="https://luiskr.com/assets/icons/share.png"><meta name="description" content="#!/usr/bin/env node /** * @file build-locale-pages.mjs * @description Emits per-locale, per-route static index.html files into * dist/ so crawlers and no-JS"><meta property="og:image:alt" content="#!/usr/bin/env node /** * @file build-locale-pages.mjs * @description Emits per-locale, per-route static index.html files into * dist/ so crawlers and no-JS"><meta property="og:description" content="#!/usr/bin/env node /** * @file build-locale-pages.mjs * @description Emits per-locale, per-route static index.html files into * dist/ so crawlers and no-JS"><meta name="twitter:description" content="#!/usr/bin/env node /** * @file build-locale-pages.mjs * @description Emits per-locale, per-route static index.html files into * dist/ so crawlers and no-JS"><meta name="DC.Description" content="#!/usr/bin/env node /** * @file build-locale-pages.mjs * @description Emits per-locale, per-route static index.html files into * dist/ so crawlers and no-JS"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:site" content="@LuisKr1906"><meta name="twitter:creator" content="@LuisKr1906"><meta name="twitter:card" content="summary_large_image"><meta property="og:type" content="website"><meta property="og:site_name" content="Luis Krötz"><meta name="DC.Format" content="text/html"><meta name="DC.Language" content="en_us"><meta name="DC.Publisher" content="Luis Krötz"><link rel="canonical" href="https://luiskr.com/docs/shared/scripts/build/build-locale-pages.mjs"><style>.hdn{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.hdn.focusable:active,.hdn.focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}body,html{background-color:#040404;color:#fff;max-width:100%;min-height:100%}</style><script type="application/ld+json" id="jsonld-graph">{"@context":"https://schema.org","@graph":[{"@context":"https://schema.org","@type":"Organization","@id":"https://luiskr.com#organization","legalName":"Jacson Luis Krötz","name":"Luis Krötz","url":"https://luiskr.com","logo":"https://luiskr.com/assets/icons/android-chrome-256x256.png","image":"https://luiskr.com/assets/icons/share.png","sameAs":["https://api.whatsapp.com/send?phone=+5551982274782","https://github.com/LuisKrotz","https://www.linkedin.com/in/luis-kr%C3%B6tz/?locale=en_US","https://www.instagram.com/j_luiskrotz"]},{"@context":"https://schema.org","@type":"WebSite","@id":"https://luiskr.com#website","url":"https://luiskr.com","name":"Luis Krötz","description":"Front-End Software Engineer specializing in performance, design systems, and animations.","image":"https://luiskr.com/assets/icons/share.png","inLanguage":"en","publisher":{"@id":"https://luiskr.com#organization"}},{"@context":"https://schema.org","@type":"WebPage","@id":"https://luiskr.com/docs/shared/scripts/build/build-locale-pages.mjs#webpage","url":"https://luiskr.com/docs/shared/scripts/build/build-locale-pages.mjs","name":"build-locale-pages.mjs","description":"#!/usr/bin/env node /** * @file build-locale-pages.mjs * @description Emits per-locale, per-route static index.html files into * dist/ so crawlers and no-JS","inLanguage":"en","isPartOf":{"@id":"https://luiskr.com#website"},"publisher":{"@id":"https://luiskr.com#organization"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://luiskr.com/assets/icons/share.png"},"breadcrumb":{"@id":"https://luiskr.com/docs/shared/scripts/build/build-locale-pages.mjs#breadcrumbs"}},{"@context":"https://schema.org","@type":"BreadcrumbList","@id":"https://luiskr.com/docs/shared/scripts/build/build-locale-pages.mjs#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Luis Krötz","item":"https://luiskr.com/"},{"@type":"ListItem","position":2,"name":"Docs","item":"https://luiskr.com/docs"},{"@type":"ListItem","position":3,"name":"Docs","item":"https://luiskr.com/docs"},{"@type":"ListItem","position":4,"name":"Shared Module","item":"https://luiskr.com/docs/shared"},{"@type":"ListItem","position":5,"name":"scripts","item":"https://luiskr.com/docs/shared/scripts"},{"@type":"ListItem","position":6,"name":"build","item":"https://luiskr.com/docs/shared/scripts/build"},{"@type":"ListItem","position":7,"name":"build-locale-pages.mjs","item":"https://luiskr.com/docs/shared/scripts/build/build-locale-pages.mjs"}]},{"@context":"https://schema.org","@type":"TechArticle","@id":"https://luiskr.com/docs/shared/scripts/build/build-locale-pages.mjs#article","headline":"build-locale-pages.mjs","description":"#!/usr/bin/env node /** * @file build-locale-pages.mjs * @description Emits per-locale, per-route static index.html files into * dist/ so crawlers and no-JS","inLanguage":"en","mainEntityOfPage":"https://luiskr.com/docs/shared/scripts/build/build-locale-pages.mjs","isPartOf":{"@id":"https://luiskr.com/docs#webpage"}}]}</script><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/index-o0ZijBMn.js"><script>window.__LK={targets:[{name:"esnext",js:"/v/esnext/assets/js/index-C0onIjz3.js",css:"/v/esnext/assets/css/index-Cc24_0g6.css",module:!0,default:!1,tests:["typeof RegExp.escape === 'function'","typeof Set.prototype.union === 'function'","typeof Iterator === 'function'","typeof Float16Array === 'function'","typeof Math.sumPrecise === 'function'"]},{name:"es2026",js:"/v/es2026/assets/js/index-o0ZijBMn.js",css:"/v/es2026/assets/css/index-Cc24_0g6.css",module:!0,default:!0,tests:["typeof RegExp.escape === 'function'","typeof Set.prototype.union === 'function'","typeof Iterator === 'function'"]},{name:"es2025",js:"/v/es2025/assets/js/index-Yiak2lj_.js",css:"/v/es2025/assets/css/index-CMEsdmmg.css",module:!0,default:!1,tests:["typeof Set.prototype.union === 'function'","typeof Object.groupBy === 'function'"]},{name:"es2024",js:"/v/es2024/assets/js/index-BzKCOF1T.js",css:"/v/es2024/assets/css/index-C5njBQ3l.css",module:!0,default:!1,tests:["typeof Object.groupBy === 'function'","typeof Promise.withResolvers === 'function'"]},{name:"es2023",js:"/v/es2023/assets/js/index-yIlI34dg.js",css:"/v/es2023/assets/css/index-C5njBQ3l.css",module:!0,default:!1,tests:["typeof Array.prototype.toSorted === 'function'","typeof Array.prototype.findLast === 'function'"]},{name:"es2022",js:"/v/es2022/assets/js/index-C4WEwOST.js",css:"/v/es2022/assets/css/index-sZj1wYb2.css",module:!0,default:!1,tests:["typeof Object.hasOwn === 'function'","typeof Array.prototype.at === 'function'","(function(){ return (class { #f = 1; g(){ return this.#f } }).prototype.g.call(new (class { #f = 1; g(){ return this.#f } })()) === 1 })()"]},{name:"es2021",js:"/v/es2021/assets/js/index---FBojLu.js",css:"/v/es2021/assets/css/index-BjYzwyJi.css",module:!0,default:!1,tests:["typeof String.prototype.replaceAll === 'function'","typeof Promise.any === 'function'","(function(){ var o = {}; o.x ??= 1; return o.x === 1 })()"]},{name:"es2020",js:"/v/es2020/assets/js/index-JjGe6VDQ.js",css:"/v/es2020/assets/css/index-BjYzwyJi.css",module:!0,default:!1,tests:["(function(){ var o = { a: 1 }; return (o?.a ?? 0) === 1 })()","typeof globalThis === 'object'","typeof Promise.allSettled === 'function'"]},{name:"es2019",js:"/v/es2019/assets/js/index-D6gth1Td.js",css:"/v/es2019/assets/css/index-BjYzwyJi.css",module:!0,default:!1,tests:["typeof Array.prototype.flat === 'function'","typeof Object.fromEntries === 'function'","(function(){ try { throw 0 } catch { return true } })()"]},{name:"es2018",js:"/v/es2018/assets/js/index-BHjqYc5_.js",css:"/v/es2018/assets/css/index-CAi-UogN.css",module:!0,default:!1,tests:["(async function(){ for await (const x of []) { return x } })","typeof Promise.prototype.finally === 'function'","/a(?<=x)a/.test('xa')"]},{name:"es2017",js:"/v/es2017/assets/js/index-Dcc6_hXW.js",css:"/v/es2017/assets/css/index-CuwABlyL.css",module:!0,default:!1,tests:["(async function(){ return await Promise.resolve(1) })","typeof Object.values === 'function'","typeof String.prototype.padStart === 'function'"]},{name:"es2016",js:"/v/es2016/assets/js/index-UPRFBj6N.js",css:"/v/es2016/assets/css/index-f20401aa.css",module:!1,default:!1,tests:["typeof Array.prototype.includes === 'function'","(function(){ return 2 ** 3 === 8 })()"]},{name:"ie",js:"/v/ie/assets/js/index-cfe5369a.js",css:"/v/ie/assets/css/index-f20401aa.css",module:!1,default:!1,tests:[]}],polys:[{name:"es-core",file:"/assets/polyfills/es-core-Nt-G8bsx.js",guard:"typeof Promise === 'function' && typeof Symbol === 'function' && typeof Map === 'function' && typeof Object.assign === 'function'"},{name:"fetch",file:"/assets/polyfills/fetch-D2iAoGq9.js",guard:"typeof fetch === 'function'"},{name:"webcomponents",file:"/assets/polyfills/webcomponents-CnFTDJ0O.js",guard:"typeof customElements === 'object' && typeof Element.prototype.attachShadow === 'function'"},{name:"io",file:"/assets/polyfills/io-CxGa5yC5.js",guard:"typeof IntersectionObserver === 'function'"},{name:"ro",file:"/assets/polyfills/ro-C4j86-wY.js",guard:"typeof ResizeObserver === 'function'"},{name:"dom",file:"/assets/polyfills/dom-aeaYSYHf.js",guard:"typeof queueMicrotask === 'function' && typeof requestIdleCallback === 'function' && typeof structuredClone === 'function' && typeof AbortController === 'function' && typeof Element.prototype.closest === 'function'"},{name:"cssvars",file:"/assets/polyfills/cssvars-CmZ8myDw.js",guard:"typeof CSS !== 'undefined' && typeof CSS.supports === 'function' && CSS.supports('(--a:0)')"}],order:["es-core","fetch","dom","webcomponents","io","ro","cssvars"],browsers:[{name:"samsung",pattern:"SamsungBrowser\\/(\\d+)",quirks:{webgpu:!1,lowGpu:!0}},{name:"edge",pattern:"Edg[eA]?\\/(\\d+)",quirks:{}},{name:"opera",pattern:"OPR\\/(\\d+)",quirks:{}},{name:"firefox",pattern:"Firefox\\/(\\d+)",quirks:{webgpu:!1}},{name:"chrome",pattern:"Chrome\\/(\\d+)",quirks:{}},{name:"safari",pattern:"Version\\/(\\d+)[^\\d].*Safari\\/",quirks:{webgpu:!1}},{name:"ie",pattern:"(?:MSIE |Trident\\/.*rv:)(\\d+)",quirks:{webgpu:!1,lowGpu:!0}}]},function(){"use strict";var e=window.__LK;if(e&&e.targets&&e.targets.length){!function(){var s=function(){var s,t,n=navigator&&navigator.userAgent||"",o=e.browsers||[];for(s=0;s<o.length;s++)if(t=n.match(new RegExp(o[s].pattern)))return{name:o[s].name,major:parseInt(t[1],10)||0,quirks:o[s].quirks||{}};return{name:"other",major:0,quirks:{}}}(),t=document.documentElement;t&&t.setAttribute&&(t.setAttribute("data-browser",s.name),t.setAttribute("data-browser-major",String(s.major)));var n,o={name:s.name,major:s.major},r=s.quirks;for(n in r)Object.prototype.hasOwnProperty.call(r,n)&&(o[n]=r[n]);window.__LK_BROWSER=o}();var s,t=function(){var s,t,o,r,a="noModule"in document.createElement("script")&&function(){try{return new Function('return import("x")'),!0}catch(e){return!1}}();for(s=0;s<e.targets.length;s++)if(!(o=e.targets[s]).module||a){for(r=!0,t=0;t<o.tests.length;t++)if(!n(o.tests[t])){r=!1;break}if(r)return o}return null}();if(!t)return(s=document.createElement("div")).setAttribute("style","font-family:sans-serif;max-width:32em;margin:20vh auto;padding:1em;text-align:center"),s.innerHTML="<h1>Luis Kr\xf6tz</h1><p>This site needs a newer browser \u2014 please update Chrome, Edge, Firefox or Safari.</p>",void(document.getElementById("app")||document.body||document.documentElement).appendChild(s);!function e(s,t){s.length?function(e,s){var t=document.createElement("script");t.src=e,t.async=!1,t.onload=function(){s()},t.onerror=function(){s()},document.head.appendChild(t)}(s[0],function(){e(s.slice(1),t)}):t()}(function(){var s,t={},o=[];for(s=0;s<e.polys.length;s++)t[e.polys[s].name]=!n(e.polys[s].guard);for(s=0;s<e.order.length;s++){var r=e.order[s];if(t[r])for(var a=0;a<e.polys.length;a++)e.polys[a].name===r&&o.push(e.polys[a].file)}return o}(),function(){!function(e){var s,t;e.default||(s=e.css,(t=document.createElement("link")).rel="stylesheet",t.href=s,document.head.appendChild(t));var n=document.createElement("script");e.module?(n.type="module",n.src=e.js):(n.src=e.js,n.defer=!1),document.head.appendChild(n)}(t)})}function n(e){try{return!!new Function("return ("+e+")")()}catch(e){return!1}}}();</script><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/store-BaOyvh6j.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/service-worker-2PJAYeTl.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/theme-ByJb9wfc.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/vendor-b-BHea8f.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/mutations-C_9Vtmtw.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/state-DaLZKwsj.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/Component-CsqIj_kr.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/dimensions-DCvQj409.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/dom-CPIXYnJ8.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/lang-slugs-CqJyDEou.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/translation-keys-S0cI9Tq7.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/ui-text-D5Ip_f5s.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/views-B0nw_i_P.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/preload-helper-CijEQBDN.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/chunk-Y2CYZVJY-DyW28Zxd.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/src-CdWKbemE.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/notify-CZgA4fRn.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/notify-DuyiWJ6F.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/suffixes-FQP9Q-O2.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/navigate-fPNXs57W.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/wasm-Dm4FXe9t.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/db--lzdjf0y.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/wasm-DaY5e7ML.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/gpu-accel-DFzrYKGx.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/wasm-pool-aWHk3UKL.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/wasm-image-decoder-CSui1Enj.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/npu-predict-DH3C_Hy4.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/wasm-layout-CxnKiPbC.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/aria-ompF2i7O.js"><link rel="modulepreload" crossorigin href="/v/es2026/assets/js/form-CIGljpol.js"><link rel="preload" as="style" href="/v/es2026/assets/css/index-Cc24_0g6.css" onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel="stylesheet" href="/v/es2026/assets/css/index-Cc24_0g6.css"></noscript><link rel="manifest" href="/site.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js" defer="defer"></script>  <meta property="og:locale" content="en_US">
+  <link rel="alternate" hreflang="en" href="https://luiskr.com/docs/shared/scripts/build/build-locale-pages.mjs">
+  <link rel="alternate" hreflang="x-default" href="https://luiskr.com/docs/shared/scripts/build/build-locale-pages.mjs">
+</head><body><div id="app"><article class="reader-content"><main><pre class="docs-code"><code class="lang-javascript">#!/usr/bin/env node
+
+/**
+ * @file build-locale-pages.mjs
+ * @description Emits per-locale, per-route static index.html files into
+ * dist/ so crawlers and no-JS visitors get translated &lt;title&gt;, meta
+ * description, canonical, og/twitter cards, hreflang alternates and JSON-LD
+ * — instead of the English shell the catch-all Firebase rewrite serves.
+ *
+ * Route inventory mirrors the runtime router (core/router/parse-path.ts)
+ * and public/meta/sitemap-*.xml: for every locale in LANG_SLUGS the
+ * generator emits home (/&lt;loc&gt;), the localized about/contact/legal/
+ * earthPlayground/starField slugs, the English playground + star-field
+ * alias segments the sitemap also lists, and /&lt;loc&gt;/portfolio/&lt;slug&gt;
+ * project pages. English routes emit straight to dist/&lt;route&gt;/index.html
+ * (exact-match static files beat the `**` SPA catch-all, so no rewrite
+ * entries are needed) — including legacy portfolio aliases (canonical →
+ * real slug) and the media-modal deep links the sitemap lists. Each
+ * document gets a per-route localized title + description, per-route
+ * hreflang alternates pointing at the equivalent route in every locale —
+ * never back to the locale roots — plus a localized WebSite JSON-LD
+ * url + inLanguage. Docs stay English-only (no /&lt;loc&gt;/docs pages) and
+ * dist/cms/ is never touched — the CMS stays unindexed.
+ *
+ * The template is dist/index.html *after* the multi-tier loader injection
+ * (build-targets.mjs step 5), so each page boots the same capability-based
+ * bundle selection as the root document.
+ *
+ * Runnable standalone (`node scripts/build/build-locale-pages.mjs`) or imported
+ * by build-targets.mjs via buildLocalePages(distDir).
+ */
+
+import fs from &#39;node:fs&#39;
+import path from &#39;node:path&#39;
+import zlib from &#39;node:zlib&#39;
+import { Buffer } from &#39;node:buffer&#39;
+import { fileURLToPath } from &#39;node:url&#39;
+
+import { LANG_SLUGS } from &#39;../../../core/locale/lang-slugs.ts&#39;
+import { PROJECT_ALIASES } from &#39;../../../core/tokens/routes/aliases.ts&#39;
+import { LOCALE_TAGS } from &#39;../../../core/tokens/locales.ts&#39;
+import { loadMediaManifest, resolveMediaUrls, resolveCoverThumbKey } from &#39;./media-manifest.mjs&#39;
+import { scanManifest } from &#39;../../build/docs/scan.mjs&#39;
+
+const VALID_LANGS = Object.keys(LANG_SLUGS)
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), &#39;..&#39;, &#39;..&#39;, &#39;..&#39;)
+
+const SITE_URL = &#39;https://luiskr.com&#39;
+const BASE_TITLE = &#39;Luis Krötz&#39;
+const CDN_BASE = &#39;https://storage.googleapis.com/luiskr.com/public/_v3/&#39;
+const SCHEMA_CONTEXT = &#39;https://schema.org&#39;
+const SHARE_IMAGE = `${SITE_URL}/assets/icons/share.png`
+
+/**
+ * Russian Cyrillic → Latin transliteration — Cyrillic media labels would
+ * otherwise slugify to &#39;&#39; and lose their deep-link URL. MUST stay
+ * byte-identical to CYRILLIC_SLUG in core/utils/string.ts.
+ */
+const CYRILLIC_SLUG = {
+  а: &#39;a&#39;,
+  б: &#39;b&#39;,
+  в: &#39;v&#39;,
+  г: &#39;g&#39;,
+  д: &#39;d&#39;,
+  е: &#39;e&#39;,
+  ё: &#39;e&#39;,
+  ж: &#39;zh&#39;,
+  з: &#39;z&#39;,
+  и: &#39;i&#39;,
+  й: &#39;y&#39;,
+  к: &#39;k&#39;,
+  л: &#39;l&#39;,
+  м: &#39;m&#39;,
+  н: &#39;n&#39;,
+  о: &#39;o&#39;,
+  п: &#39;p&#39;,
+  р: &#39;r&#39;,
+  с: &#39;s&#39;,
+  т: &#39;t&#39;,
+  у: &#39;u&#39;,
+  ф: &#39;f&#39;,
+  х: &#39;h&#39;,
+  ц: &#39;c&#39;,
+  ч: &#39;ch&#39;,
+  ш: &#39;sh&#39;,
+  щ: &#39;sch&#39;,
+  ъ: &#39;&#39;,
+  ы: &#39;y&#39;,
+  ь: &#39;&#39;,
+  э: &#39;e&#39;,
+  ю: &#39;yu&#39;,
+  я: &#39;ya&#39;,
+}
+
+/**
+ * Media-slug transform — MUST match generate-sitemap.js&#39;s slugify byte for
+ * byte: emitted /portfolio/&lt;slug&gt;/&lt;media&gt; file names have to line up with
+ * the URLs the sitemap already lists (diacritics fold to ASCII).
+ */
+const slugify = (text) =&gt;
+  (text || &#39;&#39;)
+    .toString()
+    .normalize(&#39;NFD&#39;)
+    .replace(/[\u0300-\u036f]/g, &#39;&#39;)
+    .toLowerCase()
+    .replace(/[а-яё]/g, (ch) =&gt; CYRILLIC_SLUG[ch])
+    .trim()
+    .replace(/[^a-z0-9]+/g, &#39;-&#39;)
+    .replace(/^-+|-+$/g, &#39;&#39;)
+
+/** Escape a string for use inside an HTML attribute or text node. */
+const esc = (s) =&gt;
+  String(s)
+    .replace(/&amp;/g, &#39;&amp;amp;&#39;)
+    .replace(/&lt;/g, &#39;&amp;lt;&#39;)
+    .replace(/&gt;/g, &#39;&amp;gt;&#39;)
+    .replace(/&quot;/g, &#39;&amp;quot;&#39;)
+
+/**
+ * Strips markup from a translated rich-text string and compacts it into a
+ * meta-description-sized plain-text snippet (≤160 chars, cut at a word
+ * boundary). &amp;nbsp; entities decode to regular spaces so the tag can sit
+ * in a content attribute.
+ */
+const toDescription = (html, max = 160) =&gt; {
+  const text = String(html || &#39;&#39;)
+    .replace(/&lt;br\s*\/?&gt;/gi, &#39; &#39;)
+    .replace(/&lt;[^&gt;]+&gt;/g, &#39;&#39;)
+    .replace(/&amp;nbsp;/gi, &#39; &#39;)
+    .replace(/&amp;amp;/gi, &#39;&amp;&#39;)
+    .replace(/&amp;quot;/gi, &#39;&quot;&#39;)
+    .replace(/&amp;#39;|&amp;apos;/gi, &quot;&#39;&quot;)
+    .replace(/&amp;lt;/gi, &#39;&lt;&#39;)
+    .replace(/&amp;gt;/gi, &#39;&gt;&#39;)
+    .replace(/\s+/g, &#39; &#39;)
+    .trim()
+
+  if (text.length &lt;= max) return text
+
+  const cut = text.slice(0, max)
+
+  return cut.slice(0, Math.max(cut.lastIndexOf(&#39; &#39;), 0)).trim()
+}
+
+// ─── CDN media URL grammar — mirrors core/utils/media.ts buildMediaUrls ─────
+// Derivative availability is per-object, so variant resolution runs against
+// the bucket manifest generate-sitemap persists at
+// website/public/meta/media-manifest.json (uncompressed pass preferred,
+// raw originals for legacy items). Without a manifest the historic
+// convention is emitted. Unsuffixed-hypothetical variants (-16x9/-4x3)
+// DO NOT exist on the bucket — never emit them: Google drops image
+// candidates that 404.
+const mediaUrls = (folder, m, manifest) =&gt; {
+  const { source, thumb, isVideo } = resolveMediaUrls(folder, m, manifest)
+
+  return {
+    source: source ? `${CDN_BASE}${source}` : &#39;&#39;,
+    thumb: thumb ? `${CDN_BASE}${thumb}` : &#39;&#39;,
+    isVideo,
+  }
+}
+
+// ─── JSON-LD entity builders — mirrors core/utils/schema.ts (that module is
+// aliased (@core/…) so the standalone Node path can&#39;t import it; the shapes
+// below must stay in step with it). ─────────────────────────────────────────
+const orgEntity = () =&gt; ({
+  &#39;@context&#39;: SCHEMA_CONTEXT,
+  &#39;@type&#39;: &#39;Organization&#39;,
+  &#39;@id&#39;: `${SITE_URL}#organization`,
+  legalName: &#39;Jacson Luis Krötz&#39;,
+  name: BASE_TITLE,
+  url: SITE_URL,
+  logo: `${SITE_URL}/assets/icons/android-chrome-256x256.png`,
+  image: SHARE_IMAGE,
+  sameAs: [
+    &#39;https://api.whatsapp.com/send?phone=+5551982274782&#39;,
+    &#39;https://github.com/LuisKrotz&#39;,
+    &#39;https://www.linkedin.com/in/luis-kr%C3%B6tz/?locale=en_US&#39;,
+    &#39;https://www.instagram.com/j_luiskrotz&#39;,
+  ],
+})
+
+const websiteEntity = (bcp) =&gt; ({
+  &#39;@context&#39;: SCHEMA_CONTEXT,
+  &#39;@type&#39;: &#39;WebSite&#39;,
+  &#39;@id&#39;: `${SITE_URL}#website`,
+  url: SITE_URL,
+  name: BASE_TITLE,
+  description:
+    &#39;Front-End Software Engineer specializing in performance, design systems, and animations.&#39;,
+  image: SHARE_IMAGE,
+  inLanguage: bcp,
+  publisher: { &#39;@id&#39;: `${SITE_URL}#organization` },
+})
+
+/** Ordered crumbs → BreadcrumbList entity (positions are 1-based per spec). */
+const breadcrumbEntity = (items, id) =&gt; ({
+  &#39;@context&#39;: SCHEMA_CONTEXT,
+  &#39;@type&#39;: &#39;BreadcrumbList&#39;,
+  &#39;@id&#39;: id,
+  itemListElement: items.map((item, i) =&gt; ({
+    &#39;@type&#39;: &#39;ListItem&#39;,
+    position: i + 1,
+    name: item.name,
+    item: item.url,
+  })),
+})
+
+/** VideoObject for one media descriptor — mp4 contentUrl + poster thumb. */
+const videoEntity = (folder, m, title, description, manifest) =&gt; {
+  const { source, thumb } = mediaUrls(folder, m, manifest)
+
+  return {
+    &#39;@context&#39;: SCHEMA_CONTEXT,
+    &#39;@type&#39;: &#39;VideoObject&#39;,
+    name: m.label || `${title} Video`,
+    description: description || `Showcase video for ${title}`,
+    thumbnailUrl: [thumb],
+    uploadDate: &#39;2021-01-01T00:00:00+00:00&#39;,
+    duration: &#39;PT1M00S&#39;,
+    contentUrl: source,
+    embedUrl: source,
+  }
+}
+
+/** Recursively yields every sections node that carries a `src`. */
+function* walkMedia(node) {
+  if (Array.isArray(node)) {
+    for (const child of node) yield* walkMedia(child)
+
+    return
+  }
+
+  if (node &amp;&amp; typeof node === &#39;object&#39; &amp;&amp; typeof node.src === &#39;string&#39; &amp;&amp; node.src) yield node
+}
+
+/** Brotil + gzip siblings next to each emitted index.html (Firebase serves them). */
+const writeCompressed = (file, html) =&gt; {
+  const buf = Buffer.from(html, &#39;utf8&#39;)
+
+  fs.writeFileSync(file, html)
+  fs.writeFileSync(
+    `${file}.br`,
+    zlib.brotliCompressSync(buf, { params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 11 } })
+  )
+  fs.writeFileSync(`${file}.gz`, zlib.gzipSync(buf, { level: 9 }))
+}
+
+/**
+ * Rewrites the English shell into a localized document.
+ * @param {string} html - post-loader dist/index.html source
+ * @param {object} o
+ * @param {string} o.bcpLang - BCP-47 tag for &lt;html lang&gt; + og:locale alt
+ * @param {string} o.ogLocale - og:locale value (xx_YY)
+ * @param {string} o.title - document + social title
+ * @param {string} o.description - meta description text
+ * @param {string} o.url - this page&#39;s absolute URL
+ * @param {string} [o.canonicalUrl] - canonical/og:url override for alias pages
+ *   (defaults to `url`); alias slugs point at their canonical project so
+ *   /portfolio/brazilian-leather doesn&#39;t compete with /portfolio/cicb
+ * @param {Array&lt;{bcp:string,url:string}&gt;} o.alternates - hreflang rows
+ * @param {string} [o.image] - route-specific share image (project cover /
+ *   media asset); omitted → the shell&#39;s share.png stays
+ * @param {Array&lt;object&gt;} [o.entities] - extra JSON-LD entities appended to
+ *   the @graph after Organization + WebSite (WebPage, BreadcrumbList,
+ *   Article, ItemList, VideoObject…)
+ * @param {string} [o.content] - prerendered body markup injected into
+ *   `&lt;div id=&quot;app&quot;&gt;` so crawlers and AI agents that never run JavaScript
+ *   still read the full page content — the SPA replaces it on mount via
+ *   `replaceChildren`.
+ */
+export function localize(
+  html,
+  { bcpLang, ogLocale, title, description, url, canonicalUrl, alternates, image, entities, content }
+) {
+  const canon = canonicalUrl || url
+  let out = html
+
+  // Strip any previously injected og:locale + hreflang block — the standalone
+  // path feeds an already-localized dist/index.html back through localize(),
+  // and without this each run appends a duplicate alternates set.
+  out = out.replace(/\s*&lt;link rel=&quot;alternate&quot;[^&gt;]*&gt;/g, &#39;&#39;)
+  out = out.replace(/\s*&lt;meta property=&quot;og:locale(?::alternate)?&quot;[^&gt;]*&gt;/g, &#39;&#39;)
+
+  // &lt;html lang&gt; + document title — Russian documents also carry the
+  // cyrillic-font state class at markup level so --font-primary flips to
+  // Fira Sans even before the head script runs.
+  out = out.replace(/&lt;html lang=&quot;[^&quot;]*&quot;/, `&lt;html lang=&quot;${bcpLang}&quot;`)
+
+  if (bcpLang === &#39;ru&#39;) {
+    out = out.replace(/&lt;html([^&gt;]*)class=&quot;([^&quot;]*)&quot;/, &#39;&lt;html$1class=&quot;$2 cyrillic-font&quot;&#39;)
+  }
+
+  out = out.replace(/&lt;title&gt;[^&lt;]*&lt;\/title&gt;/, `&lt;title&gt;${esc(title)}&lt;/title&gt;`)
+
+  // Title-bearing metas
+  for (const name of [&#39;og:title&#39;, &#39;twitter:title&#39;]) {
+    out = out.replace(
+      new RegExp(`(&lt;meta (?:property|name)=&quot;${name}&quot; content=&quot;)[^&quot;]*(&quot;)`),
+      `$1${esc(title)}$2`
+    )
+  }
+  out = out.replace(/(&lt;meta name=&quot;DC\.Title&quot; content=&quot;)[^&quot;]*(&quot;)/, `$1${esc(title)}$2`)
+
+  // Canonical + social URLs — attribute-targeted so share.png and JSON-LD
+  // image/logo URLs are never rewritten.
+  out = out.replace(/(&lt;link rel=&quot;canonical&quot; href=&quot;)[^&quot;]*(&quot;)/, `$1${canon}$2`)
+  out = out.replace(/(&lt;meta property=&quot;og:url&quot; content=&quot;)[^&quot;]*(&quot;)/, `$1${canon}$2`)
+  out = out.replace(/(&lt;meta name=&quot;twitter:url&quot; content=&quot;)[^&quot;]*(&quot;)/, `$1${canon}$2`)
+
+  // Description metas
+  const d = esc(description)
+
+  out = out.replace(/(&lt;meta name=&quot;description&quot;\s+content=&quot;)[^&quot;]*(&quot;)/, `$1${d}$2`)
+  out = out.replace(/(&lt;meta property=&quot;og:description&quot;\s+content=&quot;)[^&quot;]*(&quot;)/, `$1${d}$2`)
+  out = out.replace(/(&lt;meta name=&quot;twitter:description&quot; content=&quot;)[^&quot;]*(&quot;)/, `$1${d}$2`)
+  out = out.replace(/(&lt;meta name=&quot;DC\.Description&quot;\s+content=&quot;)[^&quot;]*(&quot;)/, `$1${d}$2`)
+  out = out.replace(/(&lt;meta property=&quot;og:image:alt&quot; content=&quot;)[^&quot;]*(&quot;)/, `$1${d}$2`)
+
+  // Route-specific share image — the three image metas swap together so
+  // card crawlers never mix a project cover with share.png. The shell&#39;s
+  // fixed og:image:width/height describe share.png; they are dropped for
+  // custom images since wrong dimensions are worse than none.
+  if (image) {
+    for (const re of [
+      /(&lt;meta itemprop=&quot;image&quot; content=&quot;)[^&quot;]*(&quot;)/,
+      /(&lt;meta property=&quot;og:image&quot; content=&quot;)[^&quot;]*(&quot;)/,
+      /(&lt;meta name=&quot;twitter:image:src&quot; content=&quot;)[^&quot;]*(&quot;)/,
+    ]) {
+      out = out.replace(re, `$1${esc(image)}$2`)
+    }
+
+    out = out.replace(/\s*&lt;meta property=&quot;og:image:(?:width|height)&quot;[^&gt;]*&gt;/g, &#39;&#39;)
+  }
+
+  // Language declarations
+  out = out.replace(
+    /(&lt;meta name=&quot;DC\.Language&quot; content=&quot;)[^&quot;]*(&quot;)/,
+    `$1${ogLocale.toLowerCase()}$2`
+  )
+
+  // JSON-LD: the whole graph is rebuilt per route — Organization + a
+  // localized WebSite plus whatever route entities the caller composed
+  // (WebPage, BreadcrumbList, Article, media ItemList, VideoObjects).
+  // Replacing the script body wholesale keeps re-runs idempotent.
+  const graph = {
+    &#39;@context&#39;: SCHEMA_CONTEXT,
+    &#39;@graph&#39;: [orgEntity(), websiteEntity(bcpLang), ...(entities || [])],
+  }
+
+  const graphJson = JSON.stringify(graph)
+
+  out = out.replace(
+    /(&lt;script type=&quot;application\/ld\+json&quot; id=&quot;jsonld-graph&quot;&gt;)[\s\S]*?(&lt;\/script&gt;)/,
+    (match, open, close) =&gt; `${open}${graphJson}${close}`
+  )
+
+  // og:locale + hreflang alternates + x-default, inserted before &lt;/head&gt;.
+  const alt = alternates
+    .map((a) =&gt; `  &lt;link rel=&quot;alternate&quot; hreflang=&quot;${a.bcp}&quot; href=&quot;${a.url}&quot;&gt;`)
+    .join(&#39;\n&#39;)
+  const inject = [
+    `  &lt;meta property=&quot;og:locale&quot; content=&quot;${ogLocale}&quot;&gt;`,
+    ...alternates
+      .filter((a) =&gt; a.og !== ogLocale)
+      .map((a) =&gt; `  &lt;meta property=&quot;og:locale:alternate&quot; content=&quot;${a.og}&quot;&gt;`),
+    alt,
+    `  &lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;${alternates[0].url}&quot;&gt;`,
+  ].join(&#39;\n&#39;)
+
+  out = out.replace(/\s*&lt;\/head&gt;/, `${inject}\n&lt;/head&gt;`)
+
+  // Prerendered route content — the app container ships populated so the
+  // page is fully readable without JavaScript; mount() hoists it offscreen
+  // (reader modes + AI agents keep reading it) instead of deleting it.
+  // The &lt;article class=&quot;reader-content&quot;&gt; mirrors READER_CLASSES.CONTENT.
+  // The match covers every prior emission state — clean template
+  // (&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;), a previous article-wrapped run, and the legacy
+  // bare-&lt;main&gt; shape — so standalone re-runs never keep stale content.
+  if (content) {
+    out = out.replace(
+      /&lt;div id=&quot;app&quot;&gt;(?:&lt;article class=&quot;reader-content&quot;&gt;[\s\S]*?&lt;\/article&gt;|&lt;main&gt;[\s\S]*?&lt;\/main&gt;)?&lt;\/div&gt;/,
+      `&lt;div id=&quot;app&quot;&gt;&lt;article class=&quot;reader-content&quot;&gt;${content}&lt;/article&gt;&lt;/div&gt;`
+    )
+  }
+
+  return out
+}
+
+/**
+ * Generates all localized pages under `distDir`. When `template` is omitted
+ * the post-loader dist/index.html is read from disk; when provided (the
+ * build orchestrator&#39;s in-memory copy) the localized root document is
+ * returned so the caller can run its own compress/SW-stamp pass.
+ * @param {string} distDir - absolute dist path
+ * @param {string} [template] - shell HTML; defaults to dist/index.html on disk
+ * @returns {{html: string, written: number, locales: number}} localized root html + counts
+ */
+export function buildLocalePages(distDir = path.join(ROOT, &#39;dist&#39;), template) {
+  const indexPath = path.join(distDir, &#39;index.html&#39;)
+
+  if (!template) {
+    if (!fs.existsSync(indexPath)) throw new Error(`build-locale-pages: ${indexPath} not found`)
+
+    template = fs.readFileSync(indexPath, &#39;utf8&#39;)
+  }
+
+  let translations = {}
+  const dbPath = path.join(ROOT, &#39;database.json&#39;)
+
+  if (fs.existsSync(dbPath))
+    translations = JSON.parse(fs.readFileSync(dbPath, &#39;utf8&#39;)).translations || {}
+  else console.warn(&#39;[locale-pages] database.json missing — emitting English fallbacks only&#39;)
+
+  const en = translations.en || {}
+  const legalEn = en.components?.[&#39;legal-footer&#39;]?.links || []
+
+  // CDN media manifest — resolveMediaUrls picks per-item best variants when
+  // the generate-sitemap pass persisted one; falls back to the suffix
+  // convention otherwise.
+  const mediaManifest = loadMediaManifest(path.join(ROOT, &#39;website&#39;, &#39;public&#39;, &#39;meta&#39;))
+
+  /** Per-locale lookup with English fallback (mirrors runtime appText). */
+  const t = (loc, get) =&gt; {
+    const v = get(translations[loc] || {})
+    return v === undefined || v === null || v === &#39;&#39; ? get(en) : v
+  }
+
+  // hreflang alternates — built per route: every emitted page points its
+  // alternates at the *equivalent* route in each locale, never back to the
+  // locale root. `pathOf` returns the canonical path for a locale (&#39;en&#39;
+  // paths are unprefixed); alias pages map to their canonical equivalents
+  // (e.g. /br/earth-playground alternates → /br/&lt;localized-earth-slug&gt;).
+  const enSlugs = LANG_SLUGS.en || {}
+
+  const slugPath = (key) =&gt; (loc) =&gt;
+    loc === &#39;en&#39; ? `/${enSlugs[key]}` : `/${loc}/${LANG_SLUGS[loc]?.[key] || enSlugs[key]}`
+
+  const homePath = (loc) =&gt; (loc === &#39;en&#39; ? &#39;/&#39; : `/${loc}`)
+
+  const alternatesFor = (pathOf) =&gt;
+    VALID_LANGS.filter((loc) =&gt; LOCALE_TAGS[loc])
+      .map((loc) =&gt; {
+        const path = pathOf(loc)
+
+        return path === null
+          ? null
+          : { bcp: LOCALE_TAGS[loc].bcp, og: LOCALE_TAGS[loc].og, url: `${SITE_URL}${path}` }
+      })
+      .filter(Boolean)
+
+  let written = 0
+
+  // ── Per-route description resolvers — one source of truth per page type ──
+  // Home/about share the bio blurb; contact composes its channels; legal
+  // pages take their first paragraph; playgrounds take the authored
+  // `description` field; projects take the first body paragraph. Every
+  // resolver falls back to the about blurb so no page emits empty meta.
+  const aboutDescOf = (loc) =&gt;
+    toDescription(
+      t(loc, (x) =&gt; x.pages?.about?.col1?.[0]) ||
+        &#39;Front-End Developer focused on creating beautiful experiences.&#39;
+    )
+
+  const contactDescOf = (loc) =&gt; {
+    const c = t(loc, (x) =&gt; x.components?.contact)
+
+    const links = (c?.line1 || [])
+      .map((i) =&gt; i?.description)
+      .filter(Boolean)
+      .join(&#39;, &#39;)
+
+    return c?.title ? toDescription(`${c.title} | ${links}`) : aboutDescOf(loc)
+  }
+
+  const legalDescOf = (loc, pageKey) =&gt;
+    toDescription(t(loc, (x) =&gt; x.pages?.[pageKey]?.sections?.[0]?.content?.[0])) ||
+    aboutDescOf(loc)
+
+  /** Recursively finds the first paragraph string inside a nested sections payload. */
+  const firstPara = (node) =&gt; {
+    if (typeof node === &#39;string&#39;) return node
+
+    if (Array.isArray(node)) {
+      for (const item of node) {
+        const found = firstPara(item)
+
+        if (found) return found
+      }
+    }
+
+    return &#39;&#39;
+  }
+
+  const projectDescOf = (loc, slug) =&gt;
+    toDescription(firstPara(t(loc, (x) =&gt; x.projects?.[slug]?.sections))) || aboutDescOf(loc)
+
+  /**
+   * Full rich-media graph for one project page — Article + media
+   * ItemList (entries deep-link to the emitted /portfolio/&lt;p&gt;/&lt;media&gt;
+   * URLs; the SPA serves every labelled media slug) + one VideoObject
+   * per video. Mirrors runtime generateProjectSchema.
+   */
+  const projectEntities = (loc, slug, exclude) =&gt; {
+    const project = t(loc, (x) =&gt; x.projects?.[slug])
+
+    if (!project) return []
+
+    const base = `${SITE_URL}${loc === &#39;en&#39; ? &#39;&#39; : `/${loc}`}/portfolio/${slug}`
+    const bcp = LOCALE_TAGS[loc].bcp
+    const title = toDescription(project.title || slug, 80)
+    const description = projectDescOf(loc, slug)
+    const folder = project.folder || &#39;&#39;
+    const cover = mediaUrls(folder, project.cover, mediaManifest)
+
+    const entities = [
+      {
+        &#39;@context&#39;: SCHEMA_CONTEXT,
+        &#39;@type&#39;: &#39;Article&#39;,
+        &#39;@id&#39;: `${base}#article`,
+        isPartOf: {
+          &#39;@type&#39;: &#39;WebPage&#39;,
+          &#39;@id&#39;: `${base}#webpage`,
+          url: base,
+          name: title,
+          inLanguage: bcp,
+        },
+        headline: title,
+        inLanguage: bcp,
+        mainEntityOfPage: base,
+        datePublished: &#39;2021-01-01T00:00:00+00:00&#39;,
+        dateModified: &#39;2021-01-01T00:00:00+00:00&#39;,
+        author: { &#39;@type&#39;: &#39;Person&#39;, name: BASE_TITLE, url: SITE_URL },
+        publisher: { &#39;@type&#39;: &#39;Person&#39;, name: BASE_TITLE, url: SITE_URL },
+        image: [cover.source ? (cover.isVideo ? cover.thumb : cover.source) : SHARE_IMAGE],
+        description,
+      },
+    ]
+
+    if (project.cover?.isVideo &amp;&amp; project.cover.src) {
+      entities.push(videoEntity(folder, project.cover, title, description, mediaManifest))
+    }
+
+    const media = [...walkMedia(project.sections)]
+    const slugSeen = new Map()
+
+    const listItems = media
+      .map((m) =&gt; {
+        let deepSlug = &#39;&#39;
+
+        if (m.src &amp;&amp; m.label) {
+          const b = slugify(m.label)
+          const ordinal = slugSeen.get(b) ?? 0
+
+          slugSeen.set(b, ordinal + 1)
+
+          deepSlug = ordinal ? `${b}-${ordinal + 1}` : b
+        }
+
+        return { m, deepSlug }
+      })
+      .filter((e) =&gt; e.deepSlug &amp;&amp; e.deepSlug.length &lt;= 200)
+      .map((e, i) =&gt; {
+        const { source, thumb, isVideo } = mediaUrls(folder, e.m, mediaManifest)
+
+        return {
+          &#39;@type&#39;: &#39;ListItem&#39;,
+          position: i + 1,
+          url: `${base}/${e.deepSlug}`,
+          name: e.m.label,
+          image: isVideo ? thumb : source,
+        }
+      })
+
+    if (listItems.length) {
+      entities.push({
+        &#39;@context&#39;: SCHEMA_CONTEXT,
+        &#39;@type&#39;: &#39;ItemList&#39;,
+        itemListElement: listItems,
+      })
+    }
+
+    for (const m of media.filter((x) =&gt; x.isVideo &amp;&amp; x.src &amp;&amp; x !== exclude)) {
+      entities.push(videoEntity(folder, m, title, description, mediaManifest))
+    }
+
+    return entities
+  }
+
+  /** Cover share-image for a project — uncompressed jpg or video poster. */
+  const projectImageOf = (loc, slug) =&gt; {
+    const project = t(loc, (x) =&gt; x.projects?.[slug])
+    const cover = mediaUrls(project?.folder || &#39;&#39;, project?.cover, mediaManifest)
+
+    return cover.source ? (cover.isVideo ? cover.thumb : cover.source) : undefined
+  }
+
+  /** Carousel ItemList for locale home pages — portfolio tiles → covers. */
+  const homeEntities = (loc) =&gt; {
+    const raw = t(loc, (x) =&gt; x.pages?.HOME?.portfoliolist) || []
+    const items = Array.isArray(raw) ? raw : Object.values(raw)
+
+    const base = `${SITE_URL}${loc === &#39;en&#39; ? &#39;&#39; : `/${loc}`}`
+
+    const element = items
+      .filter((i) =&gt; i &amp;&amp; (i.link || i.slug))
+      .map((i, idx) =&gt; ({
+        &#39;@type&#39;: &#39;ListItem&#39;,
+        position: idx + 1,
+        url: `${base}/portfolio/${i.link || i.slug}`,
+        name: i.label || i.title || `Item ${idx + 1}`,
+        ...(i.image ? { image: `${CDN_BASE}covers/${i.image}.jpg` } : {}),
+      }))
+
+    return element.length
+      ? [{ &#39;@context&#39;: SCHEMA_CONTEXT, &#39;@type&#39;: &#39;ItemList&#39;, itemListElement: element }]
+      : []
+  }
+
+  // ── Prerendered body content — everything a no-JS crawler/AI agent reads ──
+  // The markup lands inside &lt;div id=&quot;app&quot;&gt;; mount() swaps it for the live
+  // &lt;app-root&gt;. Authored CMS rich text embeds as-is (it already carries the
+  // site&#39;s own &lt;br&gt;/&lt;a&gt; markup); plain strings escape through esc().
+
+  const locPrefixOf = (loc) =&gt; (loc === &#39;en&#39; ? &#39;&#39; : `/${loc}`)
+
+  /** Authored rich-text array → &lt;p&gt; markup (trusted CMS html). */
+  const richParagraphs = (arr) =&gt;
+    (Array.isArray(arr) ? arr : arr ? [arr] : []).map((p) =&gt; `&lt;p&gt;${p}&lt;/p&gt;`).join(&#39;&#39;)
+
+  /**
+   * Every authored leaf string under a CMS node → &lt;p&gt; markup (trusted CMS
+   * html). Experience pages carry their copy as UI labels rather than a
+   * single description field — walking the whole object guarantees none of
+   * the authored text is left JavaScript-only. `skip` drops keys already
+   * rendered as headings.
+   */
+  const leafParagraphs = (obj, skip = new Set([&#39;title&#39;])) =&gt; {
+    const out = []
+
+    const walk = (o) =&gt; {
+      if (Array.isArray(o)) {
+        for (const item of o) walk(item)
+
+        return
+      }
+
+      for (const [k, v] of Object.entries(o || {})) {
+        if (typeof v === &#39;string&#39;) {
+          if (v.trim() &amp;&amp; !skip.has(k)) out.push(`&lt;p&gt;${v}&lt;/p&gt;`)
+        } else if (v &amp;&amp; typeof v === &#39;object&#39;) {
+          walk(v)
+        }
+      }
+    }
+
+    walk(obj)
+
+    return out.join(&#39;&#39;)
+  }
+
+  /** Contact block — channel links + legal links from components.contact. */
+  const contactBlock = (loc) =&gt; {
+    const c = t(loc, (x) =&gt; x.components?.contact) || {}
+    const heading = t(loc, (x) =&gt; x.APP?.contact) || &#39;&#39;
+    const links = (arr) =&gt;
+      (arr || [])
+        .map((i) =&gt; `&lt;li&gt;&lt;a href=&quot;${esc(i.link || &#39;#&#39;)}&quot;&gt;${i.description || &#39;&#39;}&lt;/a&gt;&lt;/li&gt;`)
+        .join(&#39;&#39;)
+
+    return `&lt;section id=&quot;contact&quot;&gt;&lt;h2&gt;${esc(heading)}&lt;/h2&gt;&lt;ul&gt;${links(c.line1)}&lt;/ul&gt;&lt;ul&gt;${links(c.line2)}&lt;/ul&gt;&lt;/section&gt;`
+  }
+
+  /**
+   * One media item as crawlable markup — the figure shows the light
+   * preview variant (&lt;img&gt; thumb / &lt;video&gt; poster+mp4); the caption links
+   * straight to the best-quality source so the uncompressed asset is a
+   * first-class crawl target. `deepHref` wraps the media in the
+   * /portfolio/&lt;p&gt;/&lt;media&gt; deep link.
+   */
+  const mediaFigure = (folder, m, deepHref) =&gt; {
+    const { source, thumb, isVideo } = mediaUrls(folder, m, mediaManifest)
+
+    if (!source) return &#39;&#39;
+
+    const label = esc(m.label || &#39;&#39;)
+    const wh = m.size?.[0] ? ` width=&quot;${m.size[0]}&quot; height=&quot;${m.size[1]}&quot;` : &#39;&#39;
+
+    // &lt;video&gt;&lt;source&gt; retries the next entry on 404, but &lt;picture&gt;&lt;source&gt;
+    // does not — a missing webp renders as broken. webp is emitted only
+    // when the bucket manifest confirms the sibling was generated.
+    const webm = source.endsWith(&#39;.mp4&#39;) ? `${source.slice(0, -4)}.webm` : &#39;&#39;
+    const webp = (u) =&gt;
+      u.endsWith(&#39;.jpg&#39;) &amp;&amp; mediaManifest?.has(`${u.slice(CDN_BASE.length, -4)}.webp`)
+        ? `${u.slice(0, -4)}.webp`
+        : &#39;&#39;
+
+    const media = isVideo
+      ? `&lt;video${thumb ? ` poster=&quot;${esc(thumb)}&quot;` : &#39;&#39;} controls muted playsinline preload=&quot;none&quot;${wh}&gt;${webm ? `&lt;source src=&quot;${esc(webm)}&quot; type=&quot;video/webm&quot;&gt;` : &#39;&#39;}&lt;source src=&quot;${esc(source)}&quot; type=&quot;video/mp4&quot;&gt;&lt;/video&gt;`
+      : `&lt;picture&gt;${webp(thumb || source) ? `&lt;source srcset=&quot;${esc(webp(thumb || source))}&quot; type=&quot;image/webp&quot;&gt;` : &#39;&#39;}&lt;img src=&quot;${esc(thumb || source)}&quot; alt=&quot;${esc(label)}&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;${wh}&gt;&lt;/picture&gt;`
+
+    return `&lt;figure&gt;${deepHref ? `&lt;a href=&quot;${esc(deepHref)}&quot;&gt;` : &#39;&#39;}${media}${deepHref ? &#39;&lt;/a&gt;&#39; : &#39;&#39;}&lt;figcaption&gt;&lt;a href=&quot;${esc(source)}&quot;&gt;${label || esc(m.src)}&lt;/a&gt;&lt;/figcaption&gt;&lt;/figure&gt;`
+  }
+
+  /** Home page content — about bio + mentions + portfolio mosaic + contact. */
+  const homeContent = (loc) =&gt; {
+    const about = t(loc, (x) =&gt; x.pages?.about) || {}
+    const home = t(loc, (x) =&gt; x.pages?.HOME) || {}
+    const raw = home.portfoliolist || []
+    const items = Array.isArray(raw) ? raw : Object.values(raw)
+    const prefix = locPrefixOf(loc)
+
+    const tiles = items
+      .filter((i) =&gt; i &amp;&amp; (i.link || i.slug))
+      .map((i) =&gt; {
+        const href = `${prefix}/portfolio/${i.link || i.slug}`
+        const coverKey = i.image ? resolveCoverThumbKey(i.image, mediaManifest) : &#39;&#39;
+        const coverSrc = coverKey ? `${CDN_BASE}${coverKey}` : &#39;&#39;
+        const coverWebp = mediaManifest?.has(`${coverKey.slice(0, -4)}.webp`)
+          ? `${CDN_BASE}${coverKey.slice(0, -4)}.webp`
+          : &#39;&#39;
+        const img = coverSrc
+          ? `&lt;figure&gt;&lt;picture&gt;${coverWebp ? `&lt;source srcset=&quot;${esc(coverWebp)}&quot; type=&quot;image/webp&quot;&gt;` : &#39;&#39;}&lt;img src=&quot;${esc(coverSrc)}&quot; alt=&quot;${esc(i.label || &#39;&#39;)}&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/picture&gt;&lt;figcaption&gt;${esc(i.label || &#39;&#39;)}&lt;/figcaption&gt;&lt;/figure&gt;`
+          : &#39;&#39;
+        const desc = i.description ? `&lt;p&gt;${i.description}&lt;/p&gt;` : &#39;&#39;
+
+        return `&lt;li&gt;&lt;a href=&quot;${href}&quot;&gt;${img}&lt;h3&gt;${esc(i.label || &#39;&#39;)}&lt;/h3&gt;${desc}&lt;/a&gt;&lt;/li&gt;`
+      })
+      .join(&#39;&#39;)
+
+    const mentions = (about.mention_items || [])
+      .map((m) =&gt; `&lt;li&gt;&lt;a href=&quot;${esc(m.link || &#39;#&#39;)}&quot;&gt;${m.description || &#39;&#39;}&lt;/a&gt;&lt;/li&gt;`)
+      .join(&#39;&#39;)
+
+    const mentionsBlock = about.mentions
+      ? `&lt;section&gt;&lt;h2&gt;${esc(about.mentions)}&lt;/h2&gt;&lt;ul&gt;${mentions}&lt;/ul&gt;&lt;/section&gt;`
+      : &#39;&#39;
+
+    return `&lt;main&gt;&lt;h1&gt;${esc(BASE_TITLE)}&lt;/h1&gt;&lt;section id=&quot;about&quot;&gt;&lt;h2&gt;${esc(about.title || &#39;&#39;)}&lt;/h2&gt;${richParagraphs(about.col1)}${richParagraphs(about.col2)}${mentionsBlock}&lt;/section&gt;&lt;section id=&quot;portfolio&quot;&gt;&lt;h2&gt;${esc(home.featured || home.message || &#39;&#39;)}&lt;/h2&gt;&lt;ul&gt;${tiles}&lt;/ul&gt;&lt;/section&gt;${contactBlock(loc)}&lt;/main&gt;`
+  }
+
+  /** Legal page content — title + every authored section. */
+  const legalContent = (loc, pageKey) =&gt; {
+    const page = t(loc, (x) =&gt; x.pages?.[pageKey]) || {}
+
+    const sections = (page.sections || [])
+      .map(
+        (s) =&gt;
+          `&lt;section&gt;${s.title ? `&lt;h2&gt;${esc(s.title)}&lt;/h2&gt;` : &#39;&#39;}${richParagraphs(s.content)}&lt;/section&gt;`
+      )
+      .join(&#39;&#39;)
+
+    return `&lt;main&gt;&lt;h1&gt;${esc(page.title || &#39;&#39;)}&lt;/h1&gt;${sections}&lt;/main&gt;`
+  }
+
+  /** Project interna — title, hero cover, all section text + every figure. */
+  const projectContent = (loc, slug) =&gt; {
+    const project = t(loc, (x) =&gt; x.projects?.[slug]) || {}
+    const folder = project.folder || &#39;&#39;
+    const prefix = locPrefixOf(loc)
+    const parts = [`&lt;main&gt;&lt;h1&gt;${esc(project.title || slug)}&lt;/h1&gt;`]
+
+    if (project.cover?.src) parts.push(mediaFigure(folder, project.cover, &#39;&#39;))
+
+    const slugSeen = new Map()
+
+    for (const section of project.sections || []) {
+      for (const group of section) {
+        if (!Array.isArray(group)) continue
+
+        if (typeof group[0] === &#39;string&#39;) {
+          parts.push(group.map((g) =&gt; `&lt;p&gt;${esc(g)}&lt;/p&gt;`).join(&#39;&#39;))
+
+          continue
+        }
+
+        for (const m of group) {
+          if (!m || typeof m !== &#39;object&#39; || !m.src) continue
+
+          let deep = &#39;&#39;
+
+          if (m.label) {
+            const base = slugify(m.label)
+            const ordinal = slugSeen.get(base) ?? 0
+
+            slugSeen.set(base, ordinal + 1)
+
+            const mediaSlug = ordinal ? `${base}-${ordinal + 1}` : base
+
+            if (base &amp;&amp; mediaSlug.length &lt;= 200) deep = `${prefix}/portfolio/${slug}/${mediaSlug}`
+          }
+
+          parts.push(mediaFigure(folder, m, deep))
+        }
+      }
+    }
+
+    parts.push(&#39;&lt;/main&gt;&#39;)
+
+    return parts.join(&#39;&#39;)
+  }
+
+  /** Media-modal deep link — the single asset + its caption + project context. */
+  const mediaContent = (loc, slug, label) =&gt; {
+    const project = t(loc, (x) =&gt; x.projects?.[slug]) || {}
+
+    return `&lt;main&gt;&lt;p&gt;&lt;a href=&quot;${locPrefixOf(loc)}/portfolio/${slug}&quot;&gt;${esc(project.title || slug)}&lt;/a&gt;&lt;/p&gt;&lt;h1&gt;${esc(label || slug)}&lt;/h1&gt;&lt;/main&gt;`
+  }
+
+  /** Experience page content — title + every authored label/copy leaf. */
+  const experienceContent = (loc, pageKey) =&gt; {
+    const page = t(loc, (x) =&gt; x.pages?.[pageKey]) || {}
+
+    return `&lt;main&gt;&lt;h1&gt;${esc(page.title || &#39;&#39;)}&lt;/h1&gt;${leafParagraphs(page)}&lt;/main&gt;`
+  }
+
+  /** Star-field body dossier JSON — locale file with English fallback. */
+  const readStarBody = (loc, bodyId) =&gt; {
+    for (const l of [loc, &#39;en&#39;]) {
+      try {
+        return JSON.parse(
+          fs.readFileSync(
+            path.join(ROOT, &#39;experiments&#39;, &#39;star-field&#39;, &#39;public&#39;, &#39;data&#39;, l, `${bodyId}.json`),
+            &#39;utf8&#39;
+          )
+        )
+      } catch {
+        // locale file missing → try the English dossier
+      }
+    }
+
+    return null
+  }
+
+  /** Star-field body page — dossier text, facts table, credited media. */
+  const starBodyContent = (loc, bodyId) =&gt; {
+    const b = readStarBody(loc, bodyId)
+
+    if (!b) return `&lt;main&gt;&lt;h1&gt;${esc(bodyId)}&lt;/h1&gt;&lt;/main&gt;`
+
+    const facts = (b.facts || [])
+      .map((f) =&gt; `&lt;dt&gt;${esc(f.label)}&lt;/dt&gt;&lt;dd&gt;${esc(f.value)}&lt;/dd&gt;`)
+      .join(&#39;&#39;)
+
+    const images = (b.media?.images || [])
+      .map(
+        (img) =&gt;
+          `&lt;figure&gt;&lt;img src=&quot;${esc(img.src)}&quot; alt=&quot;${esc(img.caption || &#39;&#39;)}&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;figcaption&gt;${esc(img.caption || &#39;&#39;)}${img.credit ? ` — ${esc(img.credit)}` : &#39;&#39;}&lt;/figcaption&gt;&lt;/figure&gt;`
+      )
+      .join(&#39;&#39;)
+
+    const audio = (b.media?.audio || [])
+      .map(
+        (a) =&gt;
+          `&lt;figure&gt;&lt;audio src=&quot;${esc(a.src)}&quot; controls preload=&quot;none&quot;&gt;&lt;/audio&gt;&lt;figcaption&gt;${esc(a.caption || &#39;&#39;)}${a.credit ? ` — ${esc(a.credit)}` : &#39;&#39;}&lt;/figcaption&gt;&lt;/figure&gt;`
+      )
+      .join(&#39;&#39;)
+
+    const refs = (b.meta?.refs || []).map((r) =&gt; `&lt;li&gt;${esc(r)}&lt;/li&gt;`).join(&#39;&#39;)
+
+    return `&lt;main&gt;&lt;h1&gt;${esc(b.name || bodyId)}&lt;/h1&gt;&lt;p&gt;&lt;em&gt;${esc(b.kind || &#39;&#39;)}&lt;/em&gt; — ${esc(b.tagline || &#39;&#39;)}&lt;/p&gt;${facts ? `&lt;dl&gt;${facts}&lt;/dl&gt;` : &#39;&#39;}&lt;p&gt;${esc(b.history || &#39;&#39;)}&lt;/p&gt;${images}${audio}${b.source ? `&lt;p&gt;&lt;a href=&quot;${esc(b.source)}&quot;&gt;${esc(b.source)}&lt;/a&gt;&lt;/p&gt;` : &#39;&#39;}${refs ? `&lt;ul&gt;${refs}&lt;/ul&gt;` : &#39;&#39;}&lt;/main&gt;`
+  }
+
+  /** Star-field index — description + the full localized body catalog. */
+  const starIndexContent = (loc, bodyIds) =&gt; {
+    const page = t(loc, (x) =&gt; x.pages?.[&#39;star-field&#39;]) || {}
+    const prefix = `${locPrefixOf(loc)}/${(LANG_SLUGS[loc] || enSlugs).starField}`
+
+    const links = bodyIds
+      .map((id) =&gt; {
+        const b = readStarBody(loc, id)
+
+        return `&lt;li&gt;&lt;a href=&quot;${prefix}/${esc(id)}&quot;&gt;${esc(b?.name || id)}&lt;/a&gt;&lt;/li&gt;`
+      })
+      .join(&#39;&#39;)
+
+    return `&lt;main&gt;&lt;h1&gt;${esc(page.title || &#39;&#39;)}&lt;/h1&gt;${leafParagraphs(page)}&lt;ul&gt;${links}&lt;/ul&gt;&lt;/main&gt;`
+  }
+
+  /**  /** Strips the `Luis Krötz | ` prefix / ` | Luis Krötz` suffix for crumb names. */
+  const pageNameFromTitle = (title) =&gt; {
+    const prefix = `${BASE_TITLE} | `
+    const suffix = ` | ${BASE_TITLE}`
+
+    if (title.startsWith(prefix)) return title.slice(prefix.length)
+
+    if (title.endsWith(suffix)) return title.slice(0, -suffix.length)
+
+    return title
+  }
+
+  const epDescOf = (loc) =&gt;
+    toDescription(t(loc, (x) =&gt; x.pages?.[&#39;earth-playground&#39;]?.description)) || aboutDescOf(loc)
+
+  const sfDescOf = (loc) =&gt;
+    toDescription(t(loc, (x) =&gt; x.pages?.[&#39;star-field&#39;]?.description)) || aboutDescOf(loc)
+
+  /** Labelled-media {slug,label,media} rows of a project — mirrors
+   * generate-sitemap&#39;s walk and the runtime modal: every labelled item with
+   * a src is addressable through /portfolio/&lt;slug&gt;/&lt;media&gt;. */
+  const mediaRowsOf = (project) =&gt; {
+    const out = []
+    const seen = new Map()
+
+    for (const section of project?.sections || []) {
+      const items = Array.isArray(section) ? section : [section]
+
+      for (const item of items) {
+        const media = Array.isArray(item) ? item : [item]
+
+        for (const m of media) {
+          if (m &amp;&amp; typeof m === &#39;object&#39; &amp;&amp; m.label &amp;&amp; m.src) {
+            const base = slugify(m.label)
+
+            if (!base) continue
+
+            // Distinct captions can collapse to the same slug — later
+            // occurrences gain -2, -3… in document order (mediaSlugSeq&#39;s
+            // convention) so every item keeps an indexable URL.
+            const ordinal = seen.get(base) ?? 0
+
+            seen.set(base, ordinal + 1)
+
+            const slug = ordinal ? `${base}-${ordinal + 1}` : base
+
+            // PATH_MAX per segment is 255 — a few monster labels slugify
+            // past it; those URLs stay on the `**` SPA fallback (same as
+            // today) rather than breaking the emit.
+            if (slug.length &lt;= 200) out.push({ slug, label: m.label, media: m })
+          }
+        }
+      }
+    }
+
+    return out
+  }
+
+  // Labelled-media rows per (loc, project) — cached; media identity across
+  // locales is aligned by `src`, which is locale-invariant while labels
+  // (and therefore slugs) are translated.
+  const locRowsCache = new Map()
+
+  const locMediaSlug = (loc2, slug, src) =&gt; {
+    const key = `${loc2}:${slug}`
+
+    if (!locRowsCache.has(key)) {
+      locRowsCache.set(key, mediaRowsOf(t(loc2, (x) =&gt; x.projects?.[slug])))
+    }
+
+    return locRowsCache.get(key).find((r) =&gt; r.media.src === src)?.slug || null
+  }
+
+  const portfolioAlt = (slug) =&gt; (loc2) =&gt; `${loc2 === &#39;en&#39; ? &#39;&#39; : `/${loc2}`}/portfolio/${slug}`
+
+  // Star-field body ids — the en catalog is the canonical id list;
+  // localized dossier JSONs (data/&lt;loc&gt;/&lt;id&gt;.json) fall back to it.
+  const starBodyIds = (() =&gt; {
+    try {
+      return fs
+        .readdirSync(path.join(ROOT, &#39;experiments&#39;, &#39;star-field&#39;, &#39;public&#39;, &#39;data&#39;, &#39;en&#39;))
+        .filter((f) =&gt; f.endsWith(&#39;.json&#39;))
+        .map((f) =&gt; f.replace(/\.json$/, &#39;&#39;))
+        .sort()
+    } catch {
+      return []
+    }
+  })()
+
+  /**
+   * Route table: relative path → title, localized description,
+   * canonical-equivalent alternates path, optional canonical override.
+   * `path` is the emitted file path relative to its base (en → dist/,
+   * others → dist/langs/); en home yields &#39;&#39; — dist/index.html is
+   * already written by the root pass.
+   */
+  const routesFor = (loc) =&gt; {
+    const slugs = LANG_SLUGS[loc]
+    const legal = t(loc, (x) =&gt; x.components?.[&#39;legal-footer&#39;]?.links) || legalEn
+    const pageName = (i) =&gt; legal?.[i]?.page
+    const titleOf = (suffix) =&gt; (suffix ? `${BASE_TITLE} | ${suffix}` : BASE_TITLE)
+    const pgTitle = () =&gt;
+      `${t(loc, (x) =&gt; x.APP?.earthPlayground) || &#39;Earth Playground&#39;} | ${BASE_TITLE}`
+    const sfTitle = () =&gt; `${t(loc, (x) =&gt; x.APP?.starField) || &#39;Star Field&#39;} | ${BASE_TITLE}`
+    const prefix = loc === &#39;en&#39; ? &#39;&#39; : `${loc}/`
+
+    const routes = [
+      {
+        path: loc === &#39;en&#39; ? &#39;&#39; : loc,
+        title: BASE_TITLE,
+        description: aboutDescOf(loc),
+        alt: homePath,
+        isHome: true,
+        entities: homeEntities(loc),
+        content: homeContent(loc),
+      },
+    ]
+
+    if (slugs) {
+      const epCanonical = slugPath(&#39;earthPlayground&#39;)(loc)
+
+      routes.push(
+        {
+          path: `${prefix}${slugs.about}`,
+          title: titleOf(t(loc, (x) =&gt; x.APP?.about?.description)),
+          description: aboutDescOf(loc),
+          alt: slugPath(&#39;about&#39;),
+          content: homeContent(loc),
+        },
+        {
+          path: `${prefix}${slugs.contact}`,
+          title: titleOf(t(loc, (x) =&gt; x.APP?.contact)),
+          description: contactDescOf(loc),
+          alt: slugPath(&#39;contact&#39;),
+          content: homeContent(loc),
+        },
+        {
+          path: `${prefix}${slugs.privacy}`,
+          title: titleOf(pageName(1)),
+          description: legalDescOf(loc, &#39;privacy-policy&#39;),
+          alt: slugPath(&#39;privacy&#39;),
+          content: legalContent(loc, &#39;privacy-policy&#39;),
+        },
+        {
+          path: `${prefix}${slugs.gdpr}`,
+          title: titleOf(pageName(2)),
+          description: legalDescOf(loc, &#39;GDPR&#39;),
+          alt: slugPath(&#39;gdpr&#39;),
+          content: legalContent(loc, &#39;GDPR&#39;),
+        },
+        {
+          path: `${prefix}${slugs.terms}`,
+          title: titleOf(pageName(3)),
+          description: legalDescOf(loc, &#39;terms-of-use&#39;),
+          alt: slugPath(&#39;terms&#39;),
+          content: legalContent(loc, &#39;terms-of-use&#39;),
+        },
+        {
+          path: `${prefix}${slugs.license}`,
+          title: titleOf(pageName(4)),
+          description: legalDescOf(loc, &#39;license&#39;),
+          alt: slugPath(&#39;license&#39;),
+          content: legalContent(loc, &#39;license&#39;),
+        },
+        {
+          path: `${prefix}${slugs.earthPlayground}`,
+          title: pgTitle(),
+          description: epDescOf(loc),
+          alt: slugPath(&#39;earthPlayground&#39;),
+          content: experienceContent(loc, &#39;earth-playground&#39;),
+        },
+        {
+          path: `${prefix}${slugs.starField}`,
+          title: sfTitle(),
+          description: sfDescOf(loc),
+          alt: slugPath(&#39;starField&#39;),
+          content: starIndexContent(loc, starBodyIds),
+        }
+      )
+
+      // English playground alias segments under the locale prefix (sitemap
+      // parity) — alternates resolve to the canonical localized slugs and
+      // the canonical link points at the locale&#39;s canonical slug so the
+      // alias URL never competes with it.
+      if (loc !== &#39;en&#39; || slugs.earthPlayground !== &#39;earth-playground&#39;) {
+        routes.push({
+          path: `${prefix}earth-playground`,
+          title: pgTitle(),
+          description: epDescOf(loc),
+          alt: slugPath(&#39;earthPlayground&#39;),
+          canonical: epCanonical,
+        })
+      }
+
+      routes.push({
+        path: `${prefix}space-playground`,
+        title: pgTitle(),
+        description: epDescOf(loc),
+        alt: slugPath(&#39;earthPlayground&#39;),
+        canonical: epCanonical,
+      })
+
+      if (loc !== &#39;en&#39; || slugs.starField !== &#39;star-field-experiment&#39;) {
+        routes.push({
+          path: `${prefix}star-field-experiment`,
+          title: sfTitle(),
+          description: sfDescOf(loc),
+          alt: slugPath(&#39;starField&#39;),
+          canonical: slugPath(&#39;starField&#39;)(loc),
+        })
+      }
+    }
+
+    // Portfolio — /&lt;loc&gt;/portfolio/&lt;slug&gt; renders the project view
+    // translated; every labelled media item gets its own deep-link page in
+    // EVERY locale (/&lt;loc&gt;/portfolio/&lt;slug&gt;/&lt;media&gt;, canonical to itself).
+    // English additionally emits the legacy alias slugs (canonical → real
+    // slug; firebase 301s them ahead of these files anyway).
+    const locPrefix = loc === &#39;en&#39; ? &#39;&#39; : `/${loc}`
+
+    for (const slug of Object.keys(en.projects || {})) {
+      const pageName = toDescription(t(loc, (x) =&gt; x.projects?.[slug]?.title) || slug, 80)
+      const title = titleOf(pageName)
+
+      const description = projectDescOf(loc, slug)
+
+      routes.push({
+        path: `${prefix}portfolio/${slug}`,
+        title,
+        pageName,
+        description,
+        image: projectImageOf(loc, slug),
+        entities: projectEntities(loc, slug),
+        alt: portfolioAlt(slug),
+        content: projectContent(loc, slug),
+      })
+
+      if (loc === &#39;en&#39;) {
+        for (const [alias, canonical] of Object.entries(PROJECT_ALIASES)) {
+          if (canonical === slug) {
+            routes.push({
+              path: `portfolio/${alias}`,
+              title,
+              pageName,
+              description,
+              image: projectImageOf(loc, slug),
+              entities: projectEntities(loc, slug),
+              alt: portfolioAlt(slug),
+              canonical: portfolioAlt(slug)(&#39;en&#39;),
+              content: projectContent(loc, slug),
+            })
+          }
+        }
+      }
+
+      const project = t(loc, (x) =&gt; x.projects?.[slug])
+      const projectUrl = `${SITE_URL}${locPrefix}/portfolio/${slug}`
+
+      for (const { slug: mediaSlug, label, media } of mediaRowsOf(project)) {
+        const mediaUrl = `${projectUrl}/${mediaSlug}`
+        // hreflang alternates must carry each locale&#39;s OWN media slug —
+        // labels are translated, so the same asset&#39;s deep link differs
+        // per locale (null → locale dropped from alternates).
+        const mediaPath = (l2) =&gt; {
+          const slug2 = locMediaSlug(l2, slug, media.src)
+
+          return slug2 ? `${l2 === &#39;en&#39; ? &#39;&#39; : `/${l2}`}/portfolio/${slug}/${slug2}` : null
+        }
+        const { source, thumb, isVideo } = mediaUrls(project?.folder || &#39;&#39;, media, mediaManifest)
+
+        routes.push({
+          path: `${prefix}portfolio/${slug}/${mediaSlug}`,
+          emitAtPublicPath: loc !== &#39;en&#39;,
+          title,
+          pageName: label,
+          description,
+          image: source ? (isVideo ? thumb : source) : undefined,
+          content: `${mediaContent(loc, slug, label)}${mediaFigure(project?.folder || &#39;&#39;, media, &#39;&#39;)}`,
+          // The media page carries the whole project graph plus its own
+          // media entity (ImageObject for stills, VideoObject for clips)
+          // so Google can index the specific asset at this URL.
+          entities: [
+            ...(isVideo
+              ? [videoEntity(project?.folder || &#39;&#39;, media, pageName, description, mediaManifest)]
+              : source
+                ? [
+                    {
+                      &#39;@context&#39;: SCHEMA_CONTEXT,
+                      &#39;@type&#39;: &#39;ImageObject&#39;,
+                      &#39;@id&#39;: `${mediaUrl}#image`,
+                      url: source,
+                      contentUrl: source,
+                      name: label,
+                    },
+                  ]
+                : []),
+            ...projectEntities(loc, slug, media),
+          ],
+          crumbs: [{ name: pageName, url: projectUrl }],
+          canonical: mediaUrl,
+          alternates: alternatesFor(mediaPath),
+        })
+      }
+    }
+
+    // Star-field bodies — every catalog dossier deep-links at
+    // /&lt;loc&gt;/&lt;starField&gt;/&lt;body&gt;, canonical to itself (the routes are
+    // translated; the localized slug is the canonical form).
+    if (slugs) {
+      const sfIndexUrl = `${SITE_URL}${locPrefix}/${slugs.starField}`
+
+      for (const bodyId of starBodyIds) {
+        const body = readStarBody(loc, bodyId)
+        const bodyPath = (l2) =&gt;
+          `${l2 === &#39;en&#39; ? &#39;&#39; : `/${l2}`}/${(LANG_SLUGS[l2] || enSlugs).starField}/${bodyId}`
+        const bodyUrl = `${SITE_URL}${bodyPath(loc)}`
+        const bodyName = body?.name || bodyId
+
+        routes.push({
+          path: `${prefix}${slugs.starField}/${bodyId}`,
+          emitAtPublicPath: loc !== &#39;en&#39;,
+          title: titleOf(`${bodyName} | ${t(loc, (x) =&gt; x.APP?.starField) || &#39;Star Field&#39;}`),
+          pageName: bodyName,
+          description: toDescription(body?.tagline || &#39;&#39;) || sfDescOf(loc),
+          content: starBodyContent(loc, bodyId),
+          entities: [
+            {
+              &#39;@context&#39;: SCHEMA_CONTEXT,
+              &#39;@type&#39;: &#39;Article&#39;,
+              &#39;@id&#39;: `${bodyUrl}#article`,
+              headline: bodyName,
+              description: body?.tagline || &#39;&#39;,
+              about: body?.kind || &#39;&#39;,
+              inLanguage: LOCALE_TAGS[loc].bcp,
+              mainEntityOfPage: bodyUrl,
+              isPartOf: { &#39;@id&#39;: `${sfIndexUrl}#webpage` },
+              author: { &#39;@type&#39;: &#39;Person&#39;, name: BASE_TITLE, url: SITE_URL },
+            },
+          ],
+          crumbs: [
+            {
+              name: t(loc, (x) =&gt; x.APP?.starField) || &#39;Star Field&#39;,
+              url: sfIndexUrl,
+            },
+          ],
+          canonical: bodyUrl,
+          alternates: alternatesFor(bodyPath),
+        })
+      }
+    }
+
+    return routes
+  }
+
+  // ── Root document: inject the alternate-language block ────────────────────
+  // The English shell keeps its own metas; alternates point crawlers at the
+  // localized variants.
+  const rootDescription = toDescription(
+    en.pages?.about?.col1?.[0] || &#39;Front-End Developer focused on creating beautiful experiences.&#39;
+  )
+
+  const webPageEntity = ({ url, name, description, bcp, image, crumbs }) =&gt; ({
+    &#39;@context&#39;: SCHEMA_CONTEXT,
+    &#39;@type&#39;: &#39;WebPage&#39;,
+    &#39;@id&#39;: `${url}#webpage`,
+    url,
+    name,
+    description,
+    inLanguage: bcp,
+    isPartOf: { &#39;@id&#39;: `${SITE_URL}#website` },
+    publisher: { &#39;@id&#39;: `${SITE_URL}#organization` },
+    primaryImageOfPage: { &#39;@type&#39;: &#39;ImageObject&#39;, url: image || SHARE_IMAGE },
+    ...(crumbs ? { breadcrumb: { &#39;@id&#39;: `${url}#breadcrumbs` } } : {}),
+  })
+
+  const rootHtml = localize(template, {
+    bcpLang: &#39;en&#39;,
+    ogLocale: &#39;en_US&#39;,
+    title: BASE_TITLE,
+    description: rootDescription,
+    url: `${SITE_URL}/`,
+    alternates: alternatesFor(homePath),
+    entities: [
+      webPageEntity({
+        url: `${SITE_URL}/`,
+        name: BASE_TITLE,
+        description: rootDescription,
+        bcp: &#39;en&#39;,
+      }),
+      ...homeEntities(&#39;en&#39;),
+    ],
+    content: homeContent(&#39;en&#39;),
+  })
+
+  // ── Per-route documents ───────────────────────────────────────────────────
+  // English emits straight to dist/&lt;route&gt;/index.html — exact-match static
+  // files win over the `**` SPA rewrite, so no firebase.json entry is
+  // needed. Other locales live under dist/langs/&lt;loc&gt;/… with rewrites.
+  for (const loc of VALID_LANGS) {
+    if (!LOCALE_TAGS[loc]) continue
+
+    const tags = LOCALE_TAGS[loc]
+
+    for (const route of routesFor(loc)) {
+      if (!route.path) continue // en home — dist/index.html written by the root pass
+
+      const pageUrl = route.canonical
+        ? route.canonical.startsWith(&#39;http&#39;)
+          ? route.canonical
+          : `${SITE_URL}${route.canonical}`
+        : `${SITE_URL}/${route.path}`
+
+      const description = route.description || aboutDescOf(loc)
+
+      const pageName = route.pageName || pageNameFromTitle(route.title)
+
+      // Home locales emit no breadcrumb (single page); every other route
+      // gets Home → [project] → page.
+      const crumbs = route.isHome
+        ? null
+        : [
+            { name: BASE_TITLE, url: `${SITE_URL}${loc === &#39;en&#39; ? &#39;/&#39; : `/${loc}`}` },
+            ...(route.crumbs || []),
+            { name: pageName, url: pageUrl },
+          ]
+
+      const entities = [
+        webPageEntity({
+          url: pageUrl,
+          name: pageName,
+          description,
+          bcp: tags.bcp,
+          image: route.image,
+          crumbs,
+        }),
+        ...(crumbs ? [breadcrumbEntity(crumbs, `${pageUrl}#breadcrumbs`)] : []),
+        ...(route.entities || []),
+      ]
+
+      const out = localize(template, {
+        bcpLang: tags.bcp,
+        ogLocale: tags.og,
+        title: route.title,
+        description,
+        url: `${SITE_URL}/${route.path}`,
+        canonicalUrl: route.canonical
+          ? route.canonical.startsWith(&#39;http&#39;)
+            ? route.canonical
+            : `${SITE_URL}${route.canonical}`
+          : undefined,
+        alternates: route.alternates || alternatesFor(route.alt),
+        image: route.image,
+        entities,
+        content: route.content,
+      })
+
+      // en → dist/&lt;route&gt;/; locale base routes → dist/langs/&lt;loc&gt;/… (served
+      // through firebase rewrites); localized media/star-body deep links →
+      // dist/&lt;loc&gt;/… at the public path (exact static files win — too many
+      // routes to enumerate as rewrites).
+      const file =
+        loc === &#39;en&#39; || route.emitAtPublicPath
+          ? path.join(distDir, route.path, &#39;index.html&#39;)
+          : path.join(distDir, &#39;langs&#39;, route.path, &#39;index.html&#39;)
+
+      fs.mkdirSync(path.dirname(file), { recursive: true })
+      writeCompressed(file, out)
+      written++
+    }
+  }
+
+  // ── Docs portal pages — English-only; every manifest node emits a fully
+  // rendered document (files embed their docs-content payload, directories
+  // emit child listings) so the whole docs surface reads without JS.
+  const docsContentDir = path.join(distDir, &#39;docs-content&#39;)
+
+  const emitDocsPages = () =&gt; {
+    const { roots } = scanManifest(ROOT)
+
+    // /docs/&lt;root&gt; — index page per manifest root, then every child node.
+    const writeDocsPage = ({ urlPath, name, description, body, crumbs }) =&gt; {
+      const pageUrl = `${SITE_URL}${urlPath}`
+
+      const entities = [
+        webPageEntity({
+          url: pageUrl,
+          name,
+          description,
+          bcp: &#39;en&#39;,
+          crumbs,
+        }),
+        ...(crumbs ? [breadcrumbEntity(crumbs, `${pageUrl}#breadcrumbs`)] : []),
+        {
+          &#39;@context&#39;: SCHEMA_CONTEXT,
+          &#39;@type&#39;: &#39;TechArticle&#39;,
+          &#39;@id&#39;: `${pageUrl}#article`,
+          headline: name,
+          description,
+          inLanguage: &#39;en&#39;,
+          mainEntityOfPage: pageUrl,
+          isPartOf: { &#39;@id&#39;: `${SITE_URL}/docs#webpage` },
+        },
+      ]
+
+      const out = localize(template, {
+        bcpLang: &#39;en&#39;,
+        ogLocale: &#39;en_US&#39;,
+        title: `${name} | ${BASE_TITLE}`,
+        description,
+        url: pageUrl,
+        alternates: [{ bcp: &#39;en&#39;, og: &#39;en_US&#39;, url: pageUrl }],
+        entities,
+        content: body,
+      })
+
+      // `.html` file nodes (generated sassdoc/jsdoc pages) emit AT their
+      // own path — the URL already maps to that file, and their content
+      // rightly shadows the parent dir&#39;s index page (children write after
+      // parents, so the real document wins the shared path).
+      const rel = urlPath.slice(&#39;/docs/&#39;.length)
+      const file = rel.endsWith(&#39;.html&#39;)
+        ? path.join(distDir, &#39;docs&#39;, rel)
+        : path.join(distDir, &#39;docs&#39;, rel, &#39;index.html&#39;)
+
+      try {
+        fs.mkdirSync(path.dirname(file), { recursive: true })
+        writeCompressed(file, out)
+        written++
+      } catch (err) {
+        console.warn(`[locale-pages] docs page skipped ${urlPath}:`, err?.message || err)
+      }
+    }
+
+    const dirList = (children) =&gt;
+      `&lt;ul&gt;${(children || [])
+        .map(
+          (c) =&gt;
+            `&lt;li&gt;&lt;a href=&quot;/docs/${esc(c.path)}&quot;&gt;${esc(c.name)}${c.type === &#39;dir&#39; ? &#39;/&#39; : &#39;&#39;}&lt;/a&gt;&lt;/li&gt;`
+        )
+        .join(&#39;&#39;)}&lt;/ul&gt;`
+
+    const emit = (node, trail) =&gt; {
+      const urlPath = `/docs/${node.path}`
+      const isDir = node.type === &#39;dir&#39;
+      let body
+      let description
+
+      if (isDir) {
+        body = `&lt;main&gt;&lt;h1&gt;${esc(node.name)}&lt;/h1&gt;${dirList(node.children)}&lt;/main&gt;`
+        description = `${node.name} — docs directory`
+      } else {
+        let doc = {}
+
+        try {
+          doc = JSON.parse(fs.readFileSync(path.join(docsContentDir, `${node.path}.json`), &#39;utf8&#39;))
+        } catch {
+          // payload missing → name-only fallback body
+        }
+
+        body = `&lt;main&gt;${doc.html || `&lt;h1&gt;${esc(node.name)}&lt;/h1&gt;`}&lt;/main&gt;`
+        description =
+          toDescription(String(doc.html || &#39;&#39;).replace(/&lt;[^&gt;]+&gt;/g, &#39; &#39;)) ||
+          `${node.name} — documentation`
+      }
+
+      const crumbItems = [
+        { name: BASE_TITLE, url: `${SITE_URL}/` },
+        { name: &#39;Docs&#39;, url: `${SITE_URL}/docs` },
+        ...trail,
+        { name: node.name, url: `${SITE_URL}${urlPath}` },
+      ]
+
+      writeDocsPage({
+        urlPath,
+        name: node.name,
+        description,
+        body,
+        crumbs: crumbItems,
+      })
+
+      if (isDir) {
+        for (const child of node.children || []) {
+          emit(child, [...trail, { name: node.name, url: `${SITE_URL}${urlPath}` }])
+        }
+      }
+    }
+
+    // /docs itself — index over every manifest root.
+    writeDocsPage({
+      urlPath: &#39;/docs&#39;,
+      name: &#39;Docs&#39;,
+      description: &#39;Documentation portal — source, reports, coverage and module docs.&#39;,
+      body: `&lt;main&gt;&lt;h1&gt;Docs&lt;/h1&gt;&lt;ul&gt;${roots
+        .map((r) =&gt; `&lt;li&gt;&lt;a href=&quot;/docs/${esc(r.root)}&quot;&gt;${esc(r.label || r.root)}&lt;/a&gt;&lt;/li&gt;`)
+        .join(&#39;&#39;)}&lt;/ul&gt;&lt;/main&gt;`,
+      crumbs: [
+        { name: BASE_TITLE, url: `${SITE_URL}/` },
+        { name: &#39;Docs&#39;, url: `${SITE_URL}/docs` },
+      ],
+    })
+
+    for (const root of roots) {
+      const rootTrail = [
+        { name: BASE_TITLE, url: `${SITE_URL}/` },
+        { name: &#39;Docs&#39;, url: `${SITE_URL}/docs` },
+        { name: root.label || root.root, url: `${SITE_URL}/docs/${root.root}` },
+      ]
+
+      writeDocsPage({
+        urlPath: `/docs/${root.root}`,
+        name: root.label || root.root,
+        description: `${root.label || root.root} — documentation index`,
+        body: `&lt;main&gt;&lt;h1&gt;${esc(root.label || root.root)}&lt;/h1&gt;${dirList(root.children)}&lt;/main&gt;`,
+        crumbs: rootTrail,
+      })
+
+      for (const child of root.children || []) {
+        emit(child, rootTrail.slice(1))
+      }
+    }
+  }
+
+  try {
+    emitDocsPages()
+  } catch (err) {
+    console.warn(&#39;[locale-pages] docs emit skipped:&#39;, err?.message || err)
+  }
+
+  syncFirebaseRewrites()
+
+  return { html: rootHtml, written, locales: VALID_LANGS.length - 1 }
+}
+
+/**
+ * Regenerates the `hosting.rewrites` + `hosting.redirects` blocks in
+ * firebase.json. Rewrites keep the public locale URLs (`/br`, `/br/sobre`,
+ * …) serving the pages emitted under `dist/langs/&lt;loc&gt;/…` — destinations
+ * are single files (no glob capture), so the table enumerates every route
+ * the same way `routesFor` does. Redirects 301 every noncanonical alias the
+ * router accepts — legacy project slugs (PROJECT_ALIASES incl. media deep
+ * links), English-segment routes under a locale prefix, `/space-playground`
+ * and `/&lt;loc&gt;/docs` — onto their canonical paths so crawlers consolidate
+ * onto the sitemap surface instead of indexing alias URLs. Preserves every
+ * non-rewrite/non-redirect hosting key and the meta/CMS/SPA-catch-all
+ * entries declared in `STATIC_REWRITES`/`SPA_REWRITES`.
+ */
+export function syncFirebaseRewrites() {
+  const firebasePath = path.join(ROOT, &#39;firebase.json&#39;)
+  const cfg = JSON.parse(fs.readFileSync(firebasePath, &#39;utf8&#39;))
+
+  // Localized portfolio slugs — the /&lt;loc&gt;/portfolio/&lt;slug&gt; pages emitted by
+  // buildLocalePages need explicit rewrites (the `**` catch-all would serve
+  // the English shell instead).
+  const dbPath = path.join(ROOT, &#39;database.json&#39;)
+  const projectSlugs = fs.existsSync(dbPath)
+    ? Object.keys(JSON.parse(fs.readFileSync(dbPath, &#39;utf8&#39;)).translations?.en?.projects || {})
+    : []
+
+  const localeRoutes = []
+
+  for (const loc of VALID_LANGS) {
+    if (loc === &#39;en&#39; || !LOCALE_TAGS[loc]) continue
+
+    const slugs = LANG_SLUGS[loc] || {}
+    const subRoutes = [
+      slugs.about,
+      slugs.contact,
+      slugs.privacy,
+      slugs.gdpr,
+      slugs.terms,
+      slugs.license,
+      slugs.earthPlayground,
+      slugs.starField,
+      &#39;earth-playground&#39;,
+      &#39;space-playground&#39;,
+      &#39;star-field-experiment&#39;,
+      ...projectSlugs.map((slug) =&gt; `portfolio/${slug}`),
+    ].filter(Boolean)
+
+    localeRoutes.push({ source: `/${loc}`, destination: `/langs/${loc}/index.html` })
+
+    for (const sub of subRoutes) {
+      localeRoutes.push({
+        source: `/${loc}/${sub}`,
+        destination: `/langs/${loc}/${sub}/index.html`,
+      })
+    }
+  }
+
+  cfg.hosting.rewrites = [...STATIC_REWRITES, ...localeRoutes, ...SPA_REWRITES]
+
+  // ── 301 redirects for every noncanonical alias the router resolves ────────
+  // Firebase evaluates redirects before static files and rewrites, so these
+  // win over both the prerendered alias pages and the `**` SPA catch-all.
+  const enSlugs = LANG_SLUGS.en || {}
+  const redirects = []
+  const addRedirect = (source, destination) =&gt; {
+    if (source !== destination) redirects.push({ source, destination, type: 301 })
+  }
+
+  // Legacy project slugs — page and media-modal deep links, en + locales.
+  for (const [alias, canonical] of Object.entries(PROJECT_ALIASES)) {
+    addRedirect(`/portfolio/${alias}`, `/portfolio/${canonical}`)
+    addRedirect(`/portfolio/${alias}/**`, `/portfolio/${canonical}/:splat`)
+
+    for (const loc of VALID_LANGS) {
+      if (loc === &#39;en&#39;) continue
+
+      addRedirect(`/${loc}/portfolio/${alias}`, `/${loc}/portfolio/${canonical}`)
+      addRedirect(`/${loc}/portfolio/${alias}/**`, `/${loc}/portfolio/${canonical}/:splat`)
+    }
+  }
+
+  // English legacy legal segments → canonical English slugs.
+  addRedirect(&#39;/privacy&#39;, `/${enSlugs.privacy}`)
+  addRedirect(&#39;/terms&#39;, `/${enSlugs.terms}`)
+
+  // `/space-playground` → the locale&#39;s earthPlayground slug (en included).
+  addRedirect(&#39;/space-playground&#39;, `/${enSlugs.earthPlayground}`)
+
+  for (const loc of VALID_LANGS) {
+    if (loc === &#39;en&#39;) continue
+
+    const slugs = LANG_SLUGS[loc] || {}
+
+    // English-segment + legacy legal aliases under the locale prefix.
+    for (const [aliases, key] of [
+      [[&#39;privacy&#39;, &#39;privacy-policy&#39;], &#39;privacy&#39;],
+      [[&#39;gdpr&#39;], &#39;gdpr&#39;],
+      [[&#39;terms&#39;, &#39;terms-of-use&#39;], &#39;terms&#39;],
+      [[&#39;license&#39;], &#39;license&#39;],
+      [[&#39;about&#39;], &#39;about&#39;],
+      [[&#39;contact&#39;], &#39;contact&#39;],
+    ]) {
+      for (const alias of aliases) {
+        addRedirect(`/${loc}/${alias}`, `/${loc}/${slugs[key] || enSlugs[key]}`)
+      }
+    }
+
+    // English-segment experience aliases → localized canonical slugs.
+    for (const alias of [&#39;earth-playground&#39;, &#39;space-playground&#39;]) {
+      addRedirect(`/${loc}/${alias}`, `/${loc}/${slugs.earthPlayground || enSlugs.earthPlayground}`)
+    }
+
+    const sfTarget = `/${loc}/${slugs.starField || enSlugs.starField}`
+
+    addRedirect(`/${loc}/star-field-experiment`, sfTarget)
+    addRedirect(`/${loc}/star-field-experiment/**`, `${sfTarget}/:splat`)
+
+    // Docs are English-only — a locale-prefixed docs URL canonicalizes to
+    // the unprefixed route, so it redirects rather than rendering.
+    addRedirect(`/${loc}/docs`, &#39;/docs&#39;)
+    addRedirect(`/${loc}/docs/**`, &#39;/docs/:splat&#39;)
+  }
+
+  cfg.hosting.redirects = redirects
+
+  fs.writeFileSync(firebasePath, `${JSON.stringify(cfg, null, 2)}\n`)
+}
+
+/** Rewrites that sit before the locale table — meta files moved into
+ * public/meta/ keep their root URLs through these entries. Per-locale
+ * sitemap files and localized agent-readable files (robots/urllist/llms/
+ * ai-catalog under /meta/&lt;loc&gt;/) keep their `/&lt;loc&gt;/&lt;file&gt;` URLs. */
+const META_FILE_REWRITES = Object.freeze([
+  &#39;robots.txt&#39;,
+  &#39;urllist.txt&#39;,
+  &#39;llms.txt&#39;,
+  &#39;ai-catalog.json&#39;,
+])
+
+const STATIC_REWRITES = Object.freeze([
+  { source: &#39;/robots.txt&#39;, destination: &#39;/meta/robots.txt&#39; },
+  { source: &#39;/sitemap.xml&#39;, destination: &#39;/meta/sitemap.xml&#39; },
+  { source: &#39;/urllist.txt&#39;, destination: &#39;/meta/urllist.txt&#39; },
+  { source: &#39;/llms.txt&#39;, destination: &#39;/meta/llms.txt&#39; },
+  { source: &#39;/ai-catalog.json&#39;, destination: &#39;/meta/ai-catalog.json&#39; },
+  { source: &#39;/.well-known/ai-catalog.json&#39;, destination: &#39;/meta/.well-known/ai-catalog.json&#39; },
+  { source: &#39;/.well-known/api-catalog&#39;, destination: &#39;/meta/.well-known/api-catalog&#39; },
+  { source: &#39;/openapi.json&#39;, destination: &#39;/meta/openapi.json&#39; },
+  { source: &#39;/auth.md&#39;, destination: &#39;/meta/auth.md&#39; },
+  {
+    source: &#39;/.well-known/oauth-authorization-server&#39;,
+    destination: &#39;/meta/.well-known/oauth-authorization-server.json&#39;,
+  },
+  {
+    source: &#39;/.well-known/oauth-protected-resource&#39;,
+    destination: &#39;/meta/.well-known/oauth-protected-resource.json&#39;,
+  },
+  { source: &#39;/.well-known/agent-card.json&#39;, destination: &#39;/meta/.well-known/agent-card.json&#39; },
+  {
+    source: &#39;/.well-known/agent-skills/index.json&#39;,
+    destination: &#39;/meta/.well-known/agent-skills/index.json&#39;,
+  },
+  {
+    source: &#39;/.well-known/mcp/server-card.json&#39;,
+    destination: &#39;/meta/.well-known/mcp/server-card.json&#39;,
+  },
+  {
+    source: &#39;/.well-known/http-message-signatures-directory&#39;,
+    destination: &#39;/meta/.well-known/http-message-signatures-directory.json&#39;,
+  },
+  { source: &#39;/browserconfig.xml&#39;, destination: &#39;/meta/browserconfig.xml&#39; },
+  ...VALID_LANGS.map((loc) =&gt; ({
+    source: `/sitemap-${loc}.xml`,
+    destination: `/meta/sitemap-${loc}.xml`,
+  })),
+  ...VALID_LANGS.filter((loc) =&gt; loc !== &#39;en&#39;).flatMap((loc) =&gt;
+    META_FILE_REWRITES.map((file) =&gt; ({
+      source: `/${loc}/${file}`,
+      destination: `/meta/${loc}/${file}`,
+    }))
+  ),
+])
+
+/** CMS + SPA catch-all — always last. */
+const SPA_REWRITES = Object.freeze([
+  { source: &#39;/admin&#39;, destination: &#39;/cms/index.html&#39; },
+  { source: &#39;/admin/**&#39;, destination: &#39;/cms/index.html&#39; },
+  { source: &#39;/cms&#39;, destination: &#39;/cms/index.html&#39; },
+  { source: &#39;/cms/**&#39;, destination: &#39;/cms/index.html&#39; },
+  { source: &#39;**&#39;, destination: &#39;/index.html&#39; },
+])
+
+// Standalone entry: `node scripts/build/build-locale-pages.mjs` — writes the
+// localized root itself (the orchestrator does it in-memory instead) and
+// re-stamps the service-worker precache revision the same way.
+if (process.argv[1] &amp;&amp; fileURLToPath(import.meta.url) === process.argv[1]) {
+  const DIST = path.join(ROOT, &#39;dist&#39;)
+  const indexPath = path.join(DIST, &#39;index.html&#39;)
+  const { html, written, locales } = buildLocalePages(DIST)
+
+  writeCompressed(indexPath, html)
+
+  const swPath = path.join(DIST, &#39;service-worker.js&#39;)
+
+  if (fs.existsSync(swPath)) {
+    const crypto = await import(&#39;node:crypto&#39;)
+    const htmlHash = crypto.createHash(&#39;md5&#39;).update(html).digest(&#39;hex&#39;)
+    let sw = fs.readFileSync(swPath, &#39;utf8&#39;)
+
+    sw = sw.replace(
+      /\{url:&quot;index\.html&quot;,revision:&quot;[^&quot;]+&quot;\}/,
+      `{url:&quot;index.html&quot;,revision:&quot;${htmlHash}&quot;}`
+    )
+    writeCompressed(swPath, sw)
+  }
+
+  console.log(`[locale-pages] wrote ${written + 1} documents across ${locales} locales`)
+}
+</code></pre></main></article></div><noscript><main><h1>Luis Krötz — Creative Developer</h1><p>This portfolio requires JavaScript to render. Contact: <a href="mailto:luis.krotz@gmail.com">luis.krotz@gmail.com</a></p></main></noscript><script>const analytics="G-T3PW8BFNS6",cookie="cookie",cookieClass="hide-cookie-banner",cookieListener="cookieAction",logoClass="show-logo",isOpera=!!window.opr&&!!opr.addons||!!window.opera||navigator.userAgent.indexOf(" OPR/")>=0,isFirefox="undefined"!=typeof InstallTrigger,isSafari=/constructor/i.test(window.HTMLElement)||"[object SafariRemoteNotification]"===(!window.safari||"undefined"!=typeof safari&&safari.pushNotification).toString(),isIE=!!document.documentMode,isEdge=!isIE&&!!window.StyleMedia,isChrome=!!window.chrome&&(!!window.chrome.webstore||!!window.chrome.runtime)||/Chrome/.test(navigator.userAgent)&&/Google Inc/.test(navigator.vendor),isBlink=(isChrome||isOpera)&&!!window.CSS,browser=isChrome?"chrome":isSafari?"safari":isFirefox?"firefox":isEdge?"edge":isOpera?"opera":isIE?"ie":isBlink?"blink":"unknown";function gtag(){dataLayer.push(arguments)}function getMobileOperatingSystem(){const o=navigator.userAgent||navigator.vendor||window.opera;return/android/i.test(o)?" system-android":/iPad|iPhone|iPod/.test(o)&&!window.MSStream?" system_iOS":" system-other"}function initAnalytics(){if(!window._gtagLoaded){window._gtagLoaded=!0;const o=document.createElement("script");o.src="https://www.googletagmanager.com/gtag/js?id="+analytics,o.async=!0,document.head.appendChild(o),gtag("js",new Date),gtag("config",analytics),console.groupCollapsed("%cGDPR INFO: Loaded Analytics:",globals.styles.title1),console.groupCollapsed("%cGoogle Analytics",globals.styles.title2),console.info("%cINIT: Analytics",globals.styles.info),console.info("%cSENT PAGEVIEW: %s",globals.styles.info,window.location.href),console.groupEnd(),console.groupEnd(),document.body.classList.add(cookieClass)}}function scheduleAnalytics(){const o=()=>{window.removeEventListener("scroll",o),window.removeEventListener("touchstart",o),window.removeEventListener("mousemove",o),initAnalytics()};window.addEventListener("scroll",o,{passive:!0,once:!0}),window.addEventListener("touchstart",o,{passive:!0,once:!0}),window.addEventListener("mousemove",o,{passive:!0,once:!0}),setTimeout(initAnalytics,4e3)}(isIE||isEdge)&&alert("Incompatible browser detected. Your browser don't use modern web standards. Update your browser to enjoy our content."),document.documentElement.className+=" is_"+browser,window.globals={styles:{greeting:"font-size: 55px; letter-spacing: 3px; color: #262626; background-color: #f0f0f0; font-weight: black; padding: 21px 34px; font-family: 'Black Ops One', monospace",warn:"font-size: 13px; line-height: 21px; text-transform: uppercase; color: #f0f0f0; background-color: #262626; padding: 5px 13px; font-family: 'Raleway', serif",title1:"font-size: 13px; text-transform: uppercase; color: #f0f0f0; background-color: #006ca6; font-weight: bold",title2:"font-size: 13px; text-transform: uppercase; color: #f0f0f0; background-color: #006ca6;",info:"font-size: 8px; color: #006ca6; background-color: #FFF; padding: 3px 5px;"}},window.dataLayer=window.dataLayer||[],document.documentElement.className+=getMobileOperatingSystem(),document.addEventListener("DOMContentLoaded",function(){setTimeout(function(){document.body.classList.add(logoClass)},625)}),!0===JSON.parse(localStorage.getItem(cookie))?scheduleAnalytics():document.addEventListener("cookieAction",()=>{!0===JSON.parse(localStorage.getItem(cookie))?scheduleAnalytics():document.body.classList.add(cookieClass)},{passive:!0}),console.info("%cLuis Krötz",globals.styles.greeting),console.info("%cAvoid pasting code from unkown sources here.\nIt may be harmfull to your own security.\nIf you have any issues, send an email to\nluiskrotz@gmail.com.",globals.styles.warn)</script></body></html>
