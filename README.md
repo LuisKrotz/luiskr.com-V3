@@ -34,13 +34,46 @@ live in [`shared/docs/`](shared/docs/README.md); generated per-file API
 documentation is produced by `shared/scripts/docs/gen-docs.mjs` into
 `shared/docs/api/` and browsed through the docs portal.
 
-Quick start:
+## Prerequisites
+
+Everything below is installed or verified by **one command** — `yarn setup` —
+which detects the platform (`darwin`/`linux`/`win32`, `x64`/`arm64`) and
+picks the right package manager (brew / winget / choco / apt / dnf /
+pacman / zypper / apk). Only Node, Yarn, and Git are needed beforehand.
+
+| Tool                                                         | Why                                                                    | Install                                                                                                                                                        |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Git** ≥ 2.34                                               | submodules + versioned hooks                                           | `brew install git` · `winget install -e --id Git.Git` · `apt install git`                                                                                      |
+| **Node.js** ≥ 24                                             | runtime + build (`engines.node`)                                       | via **nvm** — see below                                                                                                                                        |
+| **Yarn** 1.22.x                                              | the only package manager                                               | `corepack enable && corepack prepare yarn@1.22.22 --activate`                                                                                                  |
+| **firebase-tools**                                           | `yarn deploy`, RTDB scripts                                            | `yarn global add firebase-tools` (auto via `yarn setup`)                                                                                                       |
+| **Google Cloud SDK** (`gcloud`, `gsutil`)                    | media upload/size scripts                                              | `brew install --cask google-cloud-sdk` · `winget install -e --id Google.CloudSDK` · [linux](https://cloud.google.com/sdk/docs/install) (auto via `yarn setup`) |
+| **ffmpeg** + **ffprobe**                                     | CMS media conversion                                                   | `brew install ffmpeg` · `winget install -e --id Gyan.FFmpeg` · `apt install ffmpeg`                                                                            |
+| **ImageMagick** (`magick`/`convert`)                         | CMS image conversion (optional)                                        | `brew install imagemagick` · `winget install -e --id ImageMagick.ImageMagick` · `apt install imagemagick`                                                      |
+| **mozjpeg** (`cjpeg`)                                        | sharper JPEG re-encode (optional)                                      | `brew install mozjpeg` · `apt install libjpeg-turbo-progs`                                                                                                     |
+| **C/C++ toolchain**                                          | native deps (`sharp`, `electron`…)                                     | Xcode CLT · `apt install build-essential` · VS Build Tools                                                                                                     |
+| **Rust** (`rustup` + `wasm32-unknown-unknown` + `wasm-pack`) | rebuild `rust/*/` crates — **optional**, prebuilt wasm ships in `pkg/` | `curl https://sh.rustup.rs -sSf \| sh` then `rustup target add wasm32-unknown-unknown && cargo install wasm-pack`                                              |
+
+### Install nvm (all platforms)
+
+- **macOS / Linux** (Intel, Apple Silicon, ARM64):
+  `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | zsh`,
+  then `nvm install` — the repo's `.nvmrc` pins Node 24.
+- **Windows** (x64 + ARM64): install **nvm-windows** —
+  `winget install -e --id CoreyButler.NVMforWindows` or the
+  [GitHub installer](https://github.com/coreybutler/nvm-windows/releases) —
+  then `nvm install 24` + `nvm use 24` in PowerShell.
+
+## Quick start
 
 ```bash
 git clone --recurse-submodules git@github.com:LuisKrotz/luiskr.com-V3.git
-# or, in an existing clone: git submodule update --init
-yarn setup      # guided installer: deps + git hooks + toolchain check (cross-platform)
+cd luiskr.com-V3
+yarn setup      # ONE command: submodules + deps + hooks + all toolchains
 yarn dev        # public site + CMS against real Firebase
+```
+
+```bash
 yarn dev:cms    # CMS with the explicit Firebase mock (no production data)
 yarn verify                       # full quality gate, including 100% coverage
 yarn build                        # production build (verifies first)
@@ -51,13 +84,15 @@ yarn setup:gui                    # open a setup/run/build GUI in an Electron wi
 ```
 
 `yarn setup` replaces the old `yarn install && yarn hooks:install` pair —
-it verifies Node ≥ 24 / yarn / git, installs dependencies, copies the
-versioned hooks via `shared/scripts/install-hooks.mjs` (Node — runs on
-Windows too, unlike the old zsh script), then probes the media-convert
-toolchain (ffmpeg/ImageMagick/mozjpeg) and prints the exact install
-command for your platform. `yarn setup --check` is report-only. The same
-probe powers the CMS media converter's guided setup panel on localhost —
-`GET/POST /api/media-convert/tools*` detects the package manager and can
-run the install (or show the sudo command to paste).
+it verifies Node ≥ 24 / yarn / git, initialises submodules, installs
+dependencies, copies the versioned hooks via
+`shared/scripts/install-hooks.mjs`, then installs firebase-tools
+(`yarn global`), the Google Cloud SDK, and the media-convert toolchain
+(ffmpeg/ImageMagick/mozjpeg) using the platform's package manager —
+brew/winget/choco run unattended; linux `sudo` installs run automatically
+when sudo is passwordless, otherwise the exact command is printed.
+`yarn setup --check` is report-only. The same probe powers the CMS media
+converter's guided setup panel on localhost —
+`GET/POST /api/media-convert/tools*`.
 
 License: [MPL-2.0](LICENSE)
