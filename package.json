@@ -65,6 +65,7 @@
     "test:console": "node shared/scripts/verify/console-scan.mjs",
     "test:security": "node shared/scripts/verify/security-scan.mjs",
     "deploy:info": "node shared/scripts/build/deploy-info.mjs",
+    "media:validate-sizes": "node shared/scripts/media/validate-media-sizes.mjs",
     "test:lighthouse": "yarn build --verify-lighthouse",
     "test:fps": "node shared/scripts/verify/scroll-fps.mjs",
     "lighthouse": "yarn build --verify-lighthouse",
