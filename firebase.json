@@ -642,6 +642,10 @@
         "destination": "/langs/br/experimento-campo-estelar/index.html"
       },
       {
+        "source": "/br/animacoes",
+        "destination": "/langs/br/animacoes/index.html"
+      },
+      {
         "source": "/br/earth-playground",
         "destination": "/langs/br/earth-playground/index.html"
       },
@@ -740,6 +744,10 @@
       {
         "source": "/es/experimento-campo-estelar",
         "destination": "/langs/es/experimento-campo-estelar/index.html"
+      },
+      {
+        "source": "/es/animaciones",
+        "destination": "/langs/es/animaciones/index.html"
       },
       {
         "source": "/es/earth-playground",
@@ -842,6 +850,10 @@
         "destination": "/langs/de/sternenfeld-experiment/index.html"
       },
       {
+        "source": "/de/animationen",
+        "destination": "/langs/de/animationen/index.html"
+      },
+      {
         "source": "/de/earth-playground",
         "destination": "/langs/de/earth-playground/index.html"
       },
@@ -940,6 +952,10 @@
       {
         "source": "/hrk/sternfeld-experiment",
         "destination": "/langs/hrk/sternfeld-experiment/index.html"
+      },
+      {
+        "source": "/hrk/animatsione",
+        "destination": "/langs/hrk/animatsione/index.html"
       },
       {
         "source": "/hrk/earth-playground",
@@ -1042,6 +1058,10 @@
         "destination": "/langs/cas/experimento-campo-estelar/index.html"
       },
       {
+        "source": "/cas/animaciones",
+        "destination": "/langs/cas/animaciones/index.html"
+      },
+      {
         "source": "/cas/earth-playground",
         "destination": "/langs/cas/earth-playground/index.html"
       },
@@ -1140,6 +1160,10 @@
       {
         "source": "/riv/experimento-campo-estelar",
         "destination": "/langs/riv/experimento-campo-estelar/index.html"
+      },
+      {
+        "source": "/riv/animacoes",
+        "destination": "/langs/riv/animacoes/index.html"
       },
       {
         "source": "/riv/earth-playground",
@@ -1242,6 +1266,10 @@
         "destination": "/langs/gn/mbyja-nembosarai/index.html"
       },
       {
+        "source": "/gn/jeguama",
+        "destination": "/langs/gn/jeguama/index.html"
+      },
+      {
         "source": "/gn/earth-playground",
         "destination": "/langs/gn/earth-playground/index.html"
       },
@@ -1340,6 +1368,10 @@
       {
         "source": "/it/esperimento-campo-stellare",
         "destination": "/langs/it/esperimento-campo-stellare/index.html"
+      },
+      {
+        "source": "/it/animazioni",
+        "destination": "/langs/it/animazioni/index.html"
       },
       {
         "source": "/it/earth-playground",
@@ -1442,6 +1474,10 @@
         "destination": "/langs/ru/zvezdnoe-pole/index.html"
       },
       {
+        "source": "/ru/animatsii",
+        "destination": "/langs/ru/animatsii/index.html"
+      },
+      {
         "source": "/ru/earth-playground",
         "destination": "/langs/ru/earth-playground/index.html"
       },
@@ -1540,6 +1576,10 @@
       {
         "source": "/fr/experience-champ-etoile",
         "destination": "/langs/fr/experience-champ-etoile/index.html"
+      },
+      {
+        "source": "/fr/animations",
+        "destination": "/langs/fr/animations/index.html"
       },
       {
         "source": "/fr/earth-playground",
@@ -1642,6 +1682,10 @@
         "destination": "/langs/tln/esperimento-canpo-stelare/index.html"
       },
       {
+        "source": "/tln/animassion",
+        "destination": "/langs/tln/animassion/index.html"
+      },
+      {
         "source": "/tln/earth-playground",
         "destination": "/langs/tln/earth-playground/index.html"
       },
@@ -1740,6 +1784,10 @@
       {
         "source": "/gl/experimento-campo-estelar",
         "destination": "/langs/gl/experimento-campo-estelar/index.html"
+      },
+      {
+        "source": "/gl/animacions",
+        "destination": "/langs/gl/animacions/index.html"
       },
       {
         "source": "/gl/earth-playground",
@@ -1842,6 +1890,10 @@
         "destination": "/langs/ca/experiment-camp-estelar/index.html"
       },
       {
+        "source": "/ca/animacions",
+        "destination": "/langs/ca/animacions/index.html"
+      },
+      {
         "source": "/ca/earth-playground",
         "destination": "/langs/ca/earth-playground/index.html"
       },
@@ -1942,6 +1994,10 @@
         "destination": "/langs/nl/sterrenveld-experiment/index.html"
       },
       {
+        "source": "/nl/animaties",
+        "destination": "/langs/nl/animaties/index.html"
+      },
+      {
         "source": "/nl/earth-playground",
         "destination": "/langs/nl/earth-playground/index.html"
       },
@@ -2040,6 +2096,10 @@
       {
         "source": "/ga/turgnamh-reimse-realta",
         "destination": "/langs/ga/turgnamh-reimse-realta/index.html"
+      },
+      {
+        "source": "/ga/beochan",
+        "destination": "/langs/ga/beochan/index.html"
       },
       {
         "source": "/ga/earth-playground",
@@ -2843,6 +2903,11 @@
         "type": 301
       },
       {
+        "source": "/br/animations",
+        "destination": "/br/animacoes",
+        "type": 301
+      },
+      {
         "source": "/br/docs",
         "destination": "/docs",
         "type": 301
@@ -2910,6 +2975,11 @@
       {
         "source": "/es/star-field-experiment/**",
         "destination": "/es/experimento-campo-estelar/:splat",
+        "type": 301
+      },
+      {
+        "source": "/es/animations",
+        "destination": "/es/animaciones",
         "type": 301
       },
       {
@@ -2983,6 +3053,11 @@
         "type": 301
       },
       {
+        "source": "/de/animations",
+        "destination": "/de/animationen",
+        "type": 301
+      },
+      {
         "source": "/de/docs",
         "destination": "/docs",
         "type": 301
@@ -3050,6 +3125,11 @@
       {
         "source": "/hrk/star-field-experiment/**",
         "destination": "/hrk/sternfeld-experiment/:splat",
+        "type": 301
+      },
+      {
+        "source": "/hrk/animations",
+        "destination": "/hrk/animatsione",
         "type": 301
       },
       {
@@ -3123,6 +3203,11 @@
         "type": 301
       },
       {
+        "source": "/cas/animations",
+        "destination": "/cas/animaciones",
+        "type": 301
+      },
+      {
         "source": "/cas/docs",
         "destination": "/docs",
         "type": 301
@@ -3190,6 +3275,11 @@
       {
         "source": "/riv/star-field-experiment/**",
         "destination": "/riv/experimento-campo-estelar/:splat",
+        "type": 301
+      },
+      {
+        "source": "/riv/animations",
+        "destination": "/riv/animacoes",
         "type": 301
       },
       {
@@ -3263,6 +3353,11 @@
         "type": 301
       },
       {
+        "source": "/gn/animations",
+        "destination": "/gn/jeguama",
+        "type": 301
+      },
+      {
         "source": "/gn/docs",
         "destination": "/docs",
         "type": 301
@@ -3328,6 +3423,11 @@
         "type": 301
       },
       {
+        "source": "/it/animations",
+        "destination": "/it/animazioni",
+        "type": 301
+      },
+      {
         "source": "/it/docs",
         "destination": "/docs",
         "type": 301
@@ -3390,6 +3490,11 @@
       {
         "source": "/ru/star-field-experiment/**",
         "destination": "/ru/zvezdnoe-pole/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ru/animations",
+        "destination": "/ru/animatsii",
         "type": 301
       },
       {
@@ -3523,6 +3628,11 @@
         "type": 301
       },
       {
+        "source": "/tln/animations",
+        "destination": "/tln/animassion",
+        "type": 301
+      },
+      {
         "source": "/tln/docs",
         "destination": "/docs",
         "type": 301
@@ -3590,6 +3700,11 @@
       {
         "source": "/gl/star-field-experiment/**",
         "destination": "/gl/experimento-campo-estelar/:splat",
+        "type": 301
+      },
+      {
+        "source": "/gl/animations",
+        "destination": "/gl/animacions",
         "type": 301
       },
       {
@@ -3663,6 +3778,11 @@
         "type": 301
       },
       {
+        "source": "/ca/animations",
+        "destination": "/ca/animacions",
+        "type": 301
+      },
+      {
         "source": "/ca/docs",
         "destination": "/docs",
         "type": 301
@@ -3728,6 +3848,11 @@
         "type": 301
       },
       {
+        "source": "/nl/animations",
+        "destination": "/nl/animaties",
+        "type": 301
+      },
+      {
         "source": "/nl/docs",
         "destination": "/docs",
         "type": 301
@@ -3790,6 +3915,11 @@
       {
         "source": "/ga/star-field-experiment/**",
         "destination": "/ga/turgnamh-reimse-realta/:splat",
+        "type": 301
+      },
+      {
+        "source": "/ga/animations",
+        "destination": "/ga/beochan",
         "type": 301
       },
       {

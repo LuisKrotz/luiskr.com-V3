@@ -113,7 +113,9 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
 18. **Debug URL Parameters**:
     - `?debug=sendNotificationTest` mounts a real `<site-toast>` test notification.
     - `?debug=webGLMode:active` forces normal WebGL probing; `?debug=webGLMode:fallback` forces every WebGL acquisition to fail → the CSS/2D fallback path.
+    - `?debug=webgpuWidgets:active` opts into the WebGPU widget layer (render-worker `OffscreenCanvas` route → in-page fallback). The layer is OFF by default — `mountWebGpuWidget` returns null and the WebGL/CSS renderers stay authoritative — until the worker route is verified on real hardware.
     - All WebGL `getContext` calls must go through `core/utils/canvas/webgl-mode.ts` (`webglContext`) so the fallback param stays authoritative — never call `canvas.getContext('webgl…')` directly.
+    - WebGPU widget mounts must all funnel through `core/utils/gpu/webgpu-widget.ts` (`mountWebGpuWidget`) so the kill switch and the worker route stay authoritative — never instantiate widget artifacts directly.
 
 19. **Coverage Tails Organization**:
     - Coverage-tail tests live under `<module>/tests/coverage/<domain>/<subdomain>/` mirroring that module's source tree — `core/{component,env,firebase,jsx,loader,schema,store,ui,utils}`, `components/{carousel,dialogs,feedback,footer,home,media}`, `canvas/{infra,loaders,widgets}`, `cms/{deploy,editors,facade}`, `routes/{pages,router}`, `playground/{earth,space}`, `utils/{data,gpu,media,motion,perf,wasm}`, plus `app/`, `legacy-polyfills/`, `safari/`, and `sweep/` (cross-domain grab-bags only) — one file per describe, named after the module under test.
@@ -167,3 +169,13 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Rects/metrics are captured once per gesture/frame, never per pointer event. High-rate input stores scalars and schedules ONE rAF tick per frame; the heavy work (raycast, physics, picking) runs there.
     - Frame loops self-stop when hidden/idle (IntersectionObserver, prefs) and are cancelable on destroy. Batch CPU >1ms routes through the WASM pool (rule 20); canvas hot paths prefer `desynchronized:true`, `alpha:false`, and offscreen double-buffering.
     - Full engineering contract lives in the `perf-animation-frame` agent skill (`.agents/skills/perf-animation-frame/SKILL.md`).
+
+28. **Adopted Stylesheets — Never Inline CSS**:
+    - CSS rules are authored in `.scss` files and reach a root only through a compiled stylesheet. No JS string is a stylesheet — never hand-author CSS rule text in token/util files; JS only transports compiled `?inline` output.
+    - `element.style.cssText = 'decl:val;decl:val'` multi-declaration payloads are forbidden, as is `setAttribute('style', …)` carrying rules. Sole exception: `core/jsx.ts`, the runtime that compiles the JSX `style` prop.
+    - Document/light-DOM rules live in `core/sass/base/structure/` partials imported by `_structure.scss` (the global `<link>` sheet). Rules that must exist in EVERY shadow root are `?inline`-compiled into `BASE_HOST_STYLES` (`core/tokens/styles.ts`), which `BaseComponent._renderInitial` prepends to each component's adopted stylesheet — and to the `<style>`-node fallback on engines without constructable sheets. Component-scoped rules live in the component's own `styles.scss?inline`.
+    - Document stylesheets never cross the shadow boundary — a document-level class rule silently does not apply to shadow-injected nodes; their rules must ride `BASE_HOST_STYLES` or the component sheet.
+    - A helper that adopts a runtime sheet appends it: `root.adoptedStyleSheets = [...root.adoptedStyleSheets, sheet]` — never replace the array — and re-checks `.includes(sheet)` on every call (re-mounts re-assign the array and evict foreign sheets).
+    - Dynamic value plumbing is not stylesheet delivery and stays legal: JSX `style={{…}}` props, `style.setProperty()`, and single-property writes driven by runtime state.
+    - `display:none` is forbidden on accessibility/crawler content — it evicts the node from the accessibility tree; use the clipped-1px visually-hidden pattern (`_a11y.scss` `.sr-only`).
+    - Full contract lives in the `adopted-stylesheets` agent skill (`.agents/skills/adopted-stylesheets/SKILL.md`); enforced by `shared/tests/governance/style-governance.test.js`.

@@ -23,20 +23,17 @@
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="msapplication-config" content="/browserconfig.xml" />
 
-    <link
-      rel="preload"
-      as="image"
-      href="https://storage.googleapis.com/luiskr.com/public/_v3/covers/metcha.jpg"
-      fetchpriority="high"
-    />
-
-    <!-- Locale-conditional font loading: RU renders in Fira Sans
+    <!-- Route-conditional preloads + fonts: the mosaic hero image is
+         preloaded only on home routes (`/` + `/xx/` locale roots) —
+         preloading it site-wide burned a fetch slot on every page and
+         tripped Chrome's unused-preload warning. RU renders in Fira Sans
          (cyrillic), everything else in Raleway — preloads + the Fira
          stylesheet are injected here so neither family ever fetches on
          the wrong locale. The state class flips --font-primary. -->
     <script>
       ;(function () {
         var isRu = /^\/ru(\/|$)/.test(location.pathname)
+        var isHome = /^\/([a-z]{2,3}\/?)?$/.test(location.pathname)
         var head = document.head
         var preload = function (href) {
           var l = document.createElement('link')
@@ -46,6 +43,15 @@
           l.type = 'font/woff2'
           l.crossOrigin = 'anonymous'
           head.appendChild(l)
+        }
+
+        if (isHome) {
+          var hero = document.createElement('link')
+          hero.rel = 'preload'
+          hero.href = 'https://storage.googleapis.com/luiskr.com/public/_v3/covers/metcha.jpg'
+          hero.as = 'image'
+          hero.fetchPriority = 'high'
+          head.appendChild(hero)
         }
 
         if (isRu) {

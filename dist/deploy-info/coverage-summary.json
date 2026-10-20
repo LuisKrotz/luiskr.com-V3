@@ -1,28 +1,28 @@
 {
   "total": {
     "lines": {
-      "covered": 12182,
-      "total": 12182,
+      "covered": 13227,
+      "total": 13401,
       "skipped": 0,
-      "pct": 100
+      "pct": 98.7
     },
     "statements": {
-      "covered": 13559,
-      "total": 13559,
+      "covered": 14658,
+      "total": 14894,
       "skipped": 0,
-      "pct": 100
+      "pct": 98.42
     },
     "functions": {
-      "covered": 2607,
-      "total": 2607,
+      "covered": 2740,
+      "total": 2765,
       "skipped": 0,
-      "pct": 100
+      "pct": 99.1
     },
     "branches": {
-      "covered": 8110,
-      "total": 8110,
+      "covered": 8608,
+      "total": 8860,
       "skipped": 0,
-      "pct": 100
+      "pct": 97.16
     },
     "branchesTrue": {
       "covered": 0,
@@ -66,28 +66,28 @@
     },
     "core": {
       "lines": {
-        "total": 5094,
-        "covered": 5094,
+        "total": 5944,
+        "covered": 5779,
         "skipped": 0,
-        "pct": 100
+        "pct": 97.22
       },
       "statements": {
-        "total": 5576,
-        "covered": 5576,
+        "total": 6506,
+        "covered": 6290,
         "skipped": 0,
-        "pct": 100
+        "pct": 96.67
       },
       "functions": {
-        "total": 848,
-        "covered": 848,
+        "total": 962,
+        "covered": 937,
         "skipped": 0,
-        "pct": 100
+        "pct": 97.4
       },
       "branches": {
-        "total": 3057,
-        "covered": 3057,
+        "total": 3625,
+        "covered": 3401,
         "skipped": 0,
-        "pct": 100
+        "pct": 93.82
       },
       "branchesTrue": {
         "total": 0,
@@ -98,28 +98,28 @@
     },
     "website": {
       "lines": {
-        "total": 3716,
-        "covered": 3716,
+        "total": 4093,
+        "covered": 4084,
         "skipped": 0,
-        "pct": 100
+        "pct": 99.78
       },
       "statements": {
-        "total": 4169,
-        "covered": 4169,
+        "total": 4583,
+        "covered": 4563,
         "skipped": 0,
-        "pct": 100
+        "pct": 99.56
       },
       "functions": {
-        "total": 905,
-        "covered": 905,
+        "total": 950,
+        "covered": 950,
         "skipped": 0,
         "pct": 100
       },
       "branches": {
-        "total": 2823,
-        "covered": 2823,
+        "total": 3003,
+        "covered": 2975,
         "skipped": 0,
-        "pct": 100
+        "pct": 99.06
       },
       "branchesTrue": {
         "total": 0,
@@ -194,26 +194,26 @@
     },
     "experiments/docs": {
       "lines": {
-        "total": 712,
-        "covered": 712,
+        "total": 704,
+        "covered": 704,
         "skipped": 0,
         "pct": 100
       },
       "statements": {
-        "total": 799,
-        "covered": 799,
+        "total": 790,
+        "covered": 790,
         "skipped": 0,
         "pct": 100
       },
       "functions": {
-        "total": 158,
-        "covered": 158,
+        "total": 157,
+        "covered": 157,
         "skipped": 0,
         "pct": 100
       },
       "branches": {
-        "total": 362,
-        "covered": 362,
+        "total": 364,
+        "covered": 364,
         "skipped": 0,
         "pct": 100
       },
