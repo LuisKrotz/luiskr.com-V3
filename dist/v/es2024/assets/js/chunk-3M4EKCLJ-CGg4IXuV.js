@@ -1,2 +1,0 @@
-function e(e=u){const s=f(a(e),c),o=f(n({shared:s}),t,r);return s.ServiceRegistry.register(o),{shared:s,Info:o}}var s,r;import{C as a,S as n,i as o,l as t,o as u,t as i,u as c,w as f,x as l}from"./chunk-NGNAAXSQ-6tTtvQzM.js";s=class extends i{static{l(this,"InfoTokenBuilder")}constructor(){super(["info","showInfo"])}},r={parser:{TokenBuilder:l(()=>new s,"TokenBuilder"),ValueConverter:l(()=>new o,"ValueConverter")}},l(e,"createInfoServices");export{e as n,r as t};
-//# sourceMappingURL=chunk-3M4EKCLJ-CGg4IXuV.js.map

@@ -1,5 +1,10 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "rust-analyzer.cargo.target": "wasm32-unknown-unknown"
+  "rust-analyzer.cargo.target": "wasm32-unknown-unknown",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#994e33",
+    "statusBar.foreground": "#ffffff",
+    "sash.hoverBorder": "#994e33"
+  }
 }

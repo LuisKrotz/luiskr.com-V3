@@ -29,6 +29,7 @@
 
 - [Earth Playground](https://luiskr.com/earth-playground): 3D photorealistic Earth WebGPU simulation engine with atmospheric scattering, dynamic lighting, real-time post-processing and interactive sci-fi controls (available in all languages: `/earth-playground` and localized slugs like `/br/playground-da-terra`).
 - [Star Field](https://luiskr.com/star-field-experiment): three.js cosmic-navigation experiment — a simulated galaxy of 100k+ catalogued stars plus 134 authored bodies (solar system, exoplanet systems, deep-sky objects) with localized dossiers. Deep-link any body via `/star-field-experiment/<body-id>` (e.g. `/star-field-experiment/mars`); localized slugs like `/br/experimento-campo-estelar` also resolve.
+- [Animations Reference](https://luiskr.com/animations): every animation on the site, described — element, motion, trigger, technology and purpose — as static readable markup (no JavaScript required). Localized slugs like `/br/animacoes` resolve; the same records drive runtime `aria-label`/`longdesc`/`aria-describedby` on the animated elements themselves.
 
 ## Documentation Portal
 

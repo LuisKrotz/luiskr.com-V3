@@ -179,3 +179,9 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Dynamic value plumbing is not stylesheet delivery and stays legal: JSX `style={{…}}` props, `style.setProperty()`, and single-property writes driven by runtime state.
     - `display:none` is forbidden on accessibility/crawler content — it evicts the node from the accessibility tree; use the clipped-1px visually-hidden pattern (`_a11y.scss` `.sr-only`).
     - Full contract lives in the `adopted-stylesheets` agent skill (`.agents/skills/adopted-stylesheets/SKILL.md`); enforced by `shared/tests/governance/style-governance.test.js`.
+
+29. **Chunk-Size Budgets — Split for Parallel Delivery**:
+    - Emitted JS chunks are capped at 50 KiB minified; ~10–30 KiB per chunk is the preferred granularity — h2/h3 multiplexing makes that range the best trade between request overhead, compression context, and per-chunk parse cost. CSS files are capped at 32 KiB — stylesheets are atomic cascade units, so the cap guards growth rather than chasing a smaller number.
+    - Splitting is configured in `vite.config.js` via `output.codeSplitting` (`maxSize` is in SOURCE bytes — terser lands minified ≈ ⅓ of source). Groups: `vendor-firebase`, `three`, `i18n-data`, `docs-data`, `vendor` (entriesAware), `app` catch-all. The legacy `ie` tier is exempt — ES5 engines cannot load module chunks.
+    - Module-atomic artifacts that cannot be split (pre-bundled vendor dists like three.webgpu/@firebase, generated per-locale payload modules, virtual:docs-manifest) live in `chunk-budget-exceptions.json` with justification + review date — never blanket-exempt.
+    - Enforced by `shared/scripts/verify/chunk-budget.mjs`, wired into `build-targets.mjs` before the locale-pages fan-out → `experiments/docs/reports/chunk-budget.json` → CMS "Deploy Info" tab.

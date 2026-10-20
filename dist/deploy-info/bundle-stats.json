@@ -1,40 +1,40 @@
 {
-  "generatedAt": "2026-10-18T20:35:01.859Z",
+  "generatedAt": "2026-10-20T22:59:53.313Z",
   "totals": {
     "js": {
-      "files": 2282,
-      "bytes": 156970130,
-      "unminified": 195105542,
-      "gzip": 36581775,
-      "brotli": 30175960
+      "files": 2127,
+      "bytes": 97368272,
+      "unminified": 84859249,
+      "gzip": 21510630,
+      "brotli": 18151948
     },
     "css": {
-      "files": 37,
-      "bytes": 641302,
-      "unminified": 1416212,
-      "gzip": 142293,
-      "brotli": 125942
+      "files": 36,
+      "bytes": 641105,
+      "unminified": 1378416,
+      "gzip": 146893,
+      "brotli": 129614
     },
     "html": {
-      "files": 17926,
-      "bytes": 1023193074,
+      "files": 18566,
+      "bytes": 1119482353,
       "unminified": 0,
-      "gzip": 179413429,
-      "brotli": 146712747
+      "gzip": 191414257,
+      "brotli": 155975547
     },
     "wasm": {
-      "files": 42,
-      "bytes": 580051,
+      "files": 119,
+      "bytes": 1113831,
       "unminified": 0,
-      "gzip": 486,
-      "brotli": 402
+      "gzip": 550,
+      "brotli": 470
     },
     "assets": {
-      "files": 7793,
-      "bytes": 262611919,
+      "files": 8027,
+      "bytes": 278215619,
       "unminified": 0,
-      "gzip": 22125675,
-      "brotli": 16746566
+      "gzip": 23859192,
+      "brotli": 18111259
     }
   },
   "tiers": [
@@ -42,17 +42,17 @@
       "name": "es2016",
       "js": {
         "files": 1,
-        "bytes": 9083949,
-        "unminified": 16241819,
-        "gzip": 2221710,
-        "brotli": 1623313
+        "bytes": 4020691,
+        "unminified": 6936273,
+        "gzip": 827178,
+        "brotli": 592357
       },
       "css": {
-        "files": 2,
-        "bytes": 50940,
-        "unminified": 202316,
-        "gzip": 10899,
-        "brotli": 9653
+        "files": 1,
+        "bytes": 26488,
+        "unminified": 106032,
+        "gzip": 5875,
+        "brotli": 5180
       },
       "misc": {
         "files": 0,
@@ -63,34 +63,30 @@
       },
       "largest": [
         {
-          "file": "v/es2016/assets/js/index-UPRFBj6N.js",
-          "bytes": 9083949
+          "file": "v/es2016/assets/js/index-b9Yeh9vc.js",
+          "bytes": 4020691
         },
         {
-          "file": "v/es2016/assets/css/index-f20401aa.css",
-          "bytes": 25471
-        },
-        {
-          "file": "v/es2016/assets/css/app-f20401aa.css",
-          "bytes": 25469
+          "file": "v/es2016/assets/css/index-35660351.css",
+          "bytes": 26488
         }
       ]
     },
     {
       "name": "es2017",
       "js": {
-        "files": 206,
-        "bytes": 12553564,
-        "unminified": 16110815,
-        "gzip": 3124196,
-        "brotli": 2593948
+        "files": 190,
+        "bytes": 8006015,
+        "unminified": 6932444,
+        "gzip": 1864994,
+        "brotli": 1583294
       },
       "css": {
         "files": 3,
-        "bytes": 52642,
-        "unminified": 101158,
-        "gzip": 11298,
-        "brotli": 9985
+        "bytes": 54678,
+        "unminified": 106032,
+        "gzip": 12150,
+        "brotli": 10689
       },
       "misc": {
         "files": 0,
@@ -101,62 +97,62 @@
       },
       "largest": [
         {
-          "file": "v/es2017/assets/js/elk-276RUBZZ-SHuM8P-Y.js",
-          "bytes": 1502538
+          "file": "v/es2017/assets/js/docs-data-CNlraU8w.js",
+          "bytes": 1371034
         },
         {
-          "file": "v/es2017/assets/js/Docs-CeIejBKI.js",
-          "bytes": 1363674
+          "file": "v/es2017/assets/js/three-CnWgibqu.js",
+          "bytes": 641479
         },
         {
-          "file": "v/es2017/assets/js/three.webgpu-CzB83Wqc.js",
-          "bytes": 634558
+          "file": "v/es2017/assets/js/three-CTpLzMcF.js",
+          "bytes": 378564
         },
         {
-          "file": "v/es2017/assets/js/chunk-NGNAAXSQ-B-Tpw_iC.js",
-          "bytes": 624010
+          "file": "v/es2017/assets/js/i18n-data-O0zgRkUR.js",
+          "bytes": 366647
         },
         {
-          "file": "v/es2017/assets/js/cytoscape.esm-DyvjlpS2.js",
-          "bytes": 430567
+          "file": "v/es2017/assets/js/three-dTeLhKzd.js",
+          "bytes": 365833
         },
         {
-          "file": "v/es2017/assets/js/three.core-CWAE3iSt.js",
-          "bytes": 378348
+          "file": "v/es2017/assets/js/i18n-data-BEoH4Be-.js",
+          "bytes": 289409
         },
         {
-          "file": "v/es2017/assets/js/three.module-DPKAh_qt.js",
-          "bytes": 365765
+          "file": "v/es2017/assets/js/i18n-data-puTIajYv.js",
+          "bytes": 136812
         },
         {
-          "file": "v/es2017/assets/js/core-DtP5Sd1K2.js",
-          "bytes": 295019
+          "file": "v/es2017/assets/js/i18n-data-CEz5afm6.js",
+          "bytes": 132058
         },
         {
-          "file": "v/es2017/assets/js/projects-8y1znaRq2.js",
-          "bytes": 289389
+          "file": "v/es2017/assets/js/i18n-data-D8kQFm04.js",
+          "bytes": 131303
         },
         {
-          "file": "v/es2017/assets/js/katex-hP9jYCP2.js",
-          "bytes": 267084
+          "file": "v/es2017/assets/js/i18n-data-teix-XTX.js",
+          "bytes": 131303
         }
       ]
     },
     {
       "name": "es2018",
       "js": {
-        "files": 205,
-        "bytes": 12537987,
-        "unminified": 16110815,
-        "gzip": 3119574,
-        "brotli": 2590672
+        "files": 188,
+        "bytes": 7990841,
+        "unminified": 6932444,
+        "gzip": 1860873,
+        "brotli": 1579893
       },
       "css": {
         "files": 3,
-        "bytes": 51086,
-        "unminified": 101158,
-        "gzip": 11146,
-        "brotli": 9895
+        "bytes": 53082,
+        "unminified": 106032,
+        "gzip": 11970,
+        "brotli": 10578
       },
       "misc": {
         "files": 0,
@@ -167,62 +163,62 @@
       },
       "largest": [
         {
-          "file": "v/es2018/assets/js/elk-276RUBZZ-CXGK373R.js",
-          "bytes": 1502440
+          "file": "v/es2018/assets/js/docs-data-CNlraU8w.js",
+          "bytes": 1371034
         },
         {
-          "file": "v/es2018/assets/js/Docs-CDlc65JJ.js",
-          "bytes": 1362949
+          "file": "v/es2018/assets/js/three-CHpqE3vx.js",
+          "bytes": 641312
         },
         {
-          "file": "v/es2018/assets/js/three.webgpu-DGhaaT1C.js",
-          "bytes": 635018
+          "file": "v/es2018/assets/js/three-CZYrwujd.js",
+          "bytes": 378487
         },
         {
-          "file": "v/es2018/assets/js/chunk-NGNAAXSQ-BHvQ_6Vs.js",
-          "bytes": 623772
+          "file": "v/es2018/assets/js/i18n-data-O0zgRkUR.js",
+          "bytes": 366647
         },
         {
-          "file": "v/es2018/assets/js/cytoscape.esm-DyvjlpS2.js",
-          "bytes": 430567
+          "file": "v/es2018/assets/js/three-CniCW8od.js",
+          "bytes": 365833
         },
         {
-          "file": "v/es2018/assets/js/three.core-B5fPkQAQ.js",
-          "bytes": 377631
+          "file": "v/es2018/assets/js/i18n-data-BEoH4Be-.js",
+          "bytes": 289409
         },
         {
-          "file": "v/es2018/assets/js/three.module-BIEnN6L9.js",
-          "bytes": 365765
+          "file": "v/es2018/assets/js/i18n-data-puTIajYv.js",
+          "bytes": 136812
         },
         {
-          "file": "v/es2018/assets/js/core-DtP5Sd1K2.js",
-          "bytes": 295019
+          "file": "v/es2018/assets/js/i18n-data-CEz5afm6.js",
+          "bytes": 132058
         },
         {
-          "file": "v/es2018/assets/js/projects-8y1znaRq2.js",
-          "bytes": 289389
+          "file": "v/es2018/assets/js/i18n-data-D8kQFm04.js",
+          "bytes": 131303
         },
         {
-          "file": "v/es2018/assets/js/katex-hP9jYCP2.js",
-          "bytes": 267084
+          "file": "v/es2018/assets/js/i18n-data-teix-XTX.js",
+          "bytes": 131303
         }
       ]
     },
     {
       "name": "es2019",
       "js": {
-        "files": 205,
-        "bytes": 12537698,
-        "unminified": 16110815,
-        "gzip": 3119470,
-        "brotli": 2590265
+        "files": 188,
+        "bytes": 7990511,
+        "unminified": 6932444,
+        "gzip": 1860686,
+        "brotli": 1579779
       },
       "css": {
         "files": 3,
-        "bytes": 51060,
-        "unminified": 101158,
-        "gzip": 11138,
-        "brotli": 9871
+        "bytes": 53056,
+        "unminified": 106032,
+        "gzip": 11963,
+        "brotli": 10562
       },
       "misc": {
         "files": 0,
@@ -233,62 +229,62 @@
       },
       "largest": [
         {
-          "file": "v/es2019/assets/js/elk-276RUBZZ-BD2kTZsa.js",
-          "bytes": 1502440
+          "file": "v/es2019/assets/js/docs-data-CNlraU8w.js",
+          "bytes": 1371034
         },
         {
-          "file": "v/es2019/assets/js/Docs-C6bRWLPC.js",
-          "bytes": 1362937
+          "file": "v/es2019/assets/js/three-CHpqE3vx.js",
+          "bytes": 641312
         },
         {
-          "file": "v/es2019/assets/js/three.webgpu-DGhaaT1C.js",
-          "bytes": 635018
+          "file": "v/es2019/assets/js/three-CZYrwujd.js",
+          "bytes": 378487
         },
         {
-          "file": "v/es2019/assets/js/chunk-NGNAAXSQ-BOSSWtt5.js",
-          "bytes": 623757
+          "file": "v/es2019/assets/js/i18n-data-O0zgRkUR.js",
+          "bytes": 366647
         },
         {
-          "file": "v/es2019/assets/js/cytoscape.esm-DyvjlpS2.js",
-          "bytes": 430567
+          "file": "v/es2019/assets/js/three-CniCW8od.js",
+          "bytes": 365833
         },
         {
-          "file": "v/es2019/assets/js/three.core-B5fPkQAQ.js",
-          "bytes": 377631
+          "file": "v/es2019/assets/js/i18n-data-BEoH4Be-.js",
+          "bytes": 289409
         },
         {
-          "file": "v/es2019/assets/js/three.module-BIEnN6L9.js",
-          "bytes": 365765
+          "file": "v/es2019/assets/js/i18n-data-puTIajYv.js",
+          "bytes": 136812
         },
         {
-          "file": "v/es2019/assets/js/core-DtP5Sd1K2.js",
-          "bytes": 295019
+          "file": "v/es2019/assets/js/i18n-data-CEz5afm6.js",
+          "bytes": 132058
         },
         {
-          "file": "v/es2019/assets/js/projects-8y1znaRq2.js",
-          "bytes": 289389
+          "file": "v/es2019/assets/js/i18n-data-D8kQFm04.js",
+          "bytes": 131303
         },
         {
-          "file": "v/es2019/assets/js/katex-hP9jYCP2.js",
-          "bytes": 267084
+          "file": "v/es2019/assets/js/i18n-data-teix-XTX.js",
+          "bytes": 131303
         }
       ]
     },
     {
       "name": "es2020",
       "js": {
-        "files": 205,
-        "bytes": 12424699,
-        "unminified": 16110815,
-        "gzip": 3091477,
-        "brotli": 2568879
+        "files": 188,
+        "bytes": 7955608,
+        "unminified": 6932444,
+        "gzip": 1850316,
+        "brotli": 1570654
       },
       "css": {
         "files": 3,
-        "bytes": 51060,
-        "unminified": 101158,
-        "gzip": 11138,
-        "brotli": 9871
+        "bytes": 53056,
+        "unminified": 106032,
+        "gzip": 11963,
+        "brotli": 10562
       },
       "misc": {
         "files": 0,
@@ -299,62 +295,62 @@
       },
       "largest": [
         {
-          "file": "v/es2020/assets/js/elk-276RUBZZ-BzgmbNvh.js",
-          "bytes": 1497360
+          "file": "v/es2020/assets/js/docs-data-CNlraU8w.js",
+          "bytes": 1371034
         },
         {
-          "file": "v/es2020/assets/js/Docs-CHc_Bj8K.js",
-          "bytes": 1361704
+          "file": "v/es2020/assets/js/three-CHpqE3vx.js",
+          "bytes": 641312
         },
         {
-          "file": "v/es2020/assets/js/three.webgpu-9iuhIsP3.js",
-          "bytes": 635018
+          "file": "v/es2020/assets/js/three-CZYrwujd.js",
+          "bytes": 378487
         },
         {
-          "file": "v/es2020/assets/js/chunk-NGNAAXSQ-BTIV-PeZ.js",
-          "bytes": 618595
+          "file": "v/es2020/assets/js/i18n-data-O0zgRkUR.js",
+          "bytes": 366647
         },
         {
-          "file": "v/es2020/assets/js/cytoscape.esm-DAuBv-Us.js",
-          "bytes": 430473
+          "file": "v/es2020/assets/js/three-CniCW8od.js",
+          "bytes": 365833
         },
         {
-          "file": "v/es2020/assets/js/three.core-BxpJgxdX.js",
-          "bytes": 377631
+          "file": "v/es2020/assets/js/i18n-data-BEoH4Be-.js",
+          "bytes": 289409
         },
         {
-          "file": "v/es2020/assets/js/three.module-D6tdpJO5.js",
-          "bytes": 365765
+          "file": "v/es2020/assets/js/i18n-data-puTIajYv.js",
+          "bytes": 136812
         },
         {
-          "file": "v/es2020/assets/js/core-DtP5Sd1K2.js",
-          "bytes": 295019
+          "file": "v/es2020/assets/js/i18n-data-CEz5afm6.js",
+          "bytes": 132058
         },
         {
-          "file": "v/es2020/assets/js/projects-8y1znaRq2.js",
-          "bytes": 289389
+          "file": "v/es2020/assets/js/i18n-data-D8kQFm04.js",
+          "bytes": 131303
         },
         {
-          "file": "v/es2020/assets/js/katex-DKDxLziB.js",
-          "bytes": 267084
+          "file": "v/es2020/assets/js/i18n-data-teix-XTX.js",
+          "bytes": 131303
         }
       ]
     },
     {
       "name": "es2021",
       "js": {
-        "files": 205,
-        "bytes": 12424066,
-        "unminified": 16110815,
-        "gzip": 3091236,
-        "brotli": 2568995
+        "files": 188,
+        "bytes": 7955512,
+        "unminified": 6932444,
+        "gzip": 1850211,
+        "brotli": 1570591
       },
       "css": {
         "files": 3,
-        "bytes": 51060,
-        "unminified": 101158,
-        "gzip": 11138,
-        "brotli": 9871
+        "bytes": 53056,
+        "unminified": 106032,
+        "gzip": 11963,
+        "brotli": 10562
       },
       "misc": {
         "files": 0,
@@ -365,62 +361,62 @@
       },
       "largest": [
         {
-          "file": "v/es2021/assets/js/elk-276RUBZZ-B8g2W6zk.js",
-          "bytes": 1497225
+          "file": "v/es2021/assets/js/docs-data-CNlraU8w.js",
+          "bytes": 1371034
         },
         {
-          "file": "v/es2021/assets/js/Docs-Bb7IVu5Y.js",
-          "bytes": 1361704
+          "file": "v/es2021/assets/js/three-CHpqE3vx.js",
+          "bytes": 641312
         },
         {
-          "file": "v/es2021/assets/js/three.webgpu-9iuhIsP3.js",
-          "bytes": 635018
+          "file": "v/es2021/assets/js/three-CZYrwujd.js",
+          "bytes": 378487
         },
         {
-          "file": "v/es2021/assets/js/chunk-NGNAAXSQ-BTIV-PeZ.js",
-          "bytes": 618595
+          "file": "v/es2021/assets/js/i18n-data-O0zgRkUR.js",
+          "bytes": 366647
         },
         {
-          "file": "v/es2021/assets/js/cytoscape.esm-DAuBv-Us.js",
-          "bytes": 430473
+          "file": "v/es2021/assets/js/three-CniCW8od.js",
+          "bytes": 365833
         },
         {
-          "file": "v/es2021/assets/js/three.core-BxpJgxdX.js",
-          "bytes": 377631
+          "file": "v/es2021/assets/js/i18n-data-BEoH4Be-.js",
+          "bytes": 289409
         },
         {
-          "file": "v/es2021/assets/js/three.module-D6tdpJO5.js",
-          "bytes": 365765
+          "file": "v/es2021/assets/js/i18n-data-puTIajYv.js",
+          "bytes": 136812
         },
         {
-          "file": "v/es2021/assets/js/core-DtP5Sd1K2.js",
-          "bytes": 295019
+          "file": "v/es2021/assets/js/i18n-data-CEz5afm6.js",
+          "bytes": 132058
         },
         {
-          "file": "v/es2021/assets/js/projects-8y1znaRq2.js",
-          "bytes": 289389
+          "file": "v/es2021/assets/js/i18n-data-D8kQFm04.js",
+          "bytes": 131303
         },
         {
-          "file": "v/es2021/assets/js/katex-DKDxLziB.js",
-          "bytes": 267084
+          "file": "v/es2021/assets/js/i18n-data-teix-XTX.js",
+          "bytes": 131303
         }
       ]
     },
     {
       "name": "es2022",
       "js": {
-        "files": 204,
-        "bytes": 12400573,
-        "unminified": 16110815,
-        "gzip": 3087011,
-        "brotli": 2565344
+        "files": 188,
+        "bytes": 7932407,
+        "unminified": 6932444,
+        "gzip": 1847482,
+        "brotli": 1568042
       },
       "css": {
         "files": 3,
-        "bytes": 48612,
-        "unminified": 101158,
-        "gzip": 11031,
-        "brotli": 9771
+        "bytes": 50811,
+        "unminified": 106032,
+        "gzip": 11877,
+        "brotli": 10474
       },
       "misc": {
         "files": 0,
@@ -431,62 +427,62 @@
       },
       "largest": [
         {
-          "file": "v/es2022/assets/js/elk-276RUBZZ-1kVgTocS.js",
-          "bytes": 1497225
+          "file": "v/es2022/assets/js/docs-data-CNlraU8w.js",
+          "bytes": 1371034
         },
         {
-          "file": "v/es2022/assets/js/Docs-DRU7nd84.js",
-          "bytes": 1360733
+          "file": "v/es2022/assets/js/three-CffqfNtN.js",
+          "bytes": 641312
         },
         {
-          "file": "v/es2022/assets/js/three.webgpu-iXG4nnUS.js",
-          "bytes": 635018
+          "file": "v/es2022/assets/js/three-MI6glb1I.js",
+          "bytes": 378498
         },
         {
-          "file": "v/es2022/assets/js/chunk-NGNAAXSQ-DyRXAypF.js",
-          "bytes": 617479
+          "file": "v/es2022/assets/js/i18n-data-O0zgRkUR.js",
+          "bytes": 366647
         },
         {
-          "file": "v/es2022/assets/js/cytoscape.esm-FI5Kvryu.js",
-          "bytes": 430473
+          "file": "v/es2022/assets/js/three-BpLoyYY8.js",
+          "bytes": 365833
         },
         {
-          "file": "v/es2022/assets/js/three.core-DucRh3u5.js",
-          "bytes": 377612
+          "file": "v/es2022/assets/js/i18n-data-BEoH4Be-.js",
+          "bytes": 289409
         },
         {
-          "file": "v/es2022/assets/js/three.module-DlVd2ZHZ.js",
-          "bytes": 365765
+          "file": "v/es2022/assets/js/i18n-data-puTIajYv.js",
+          "bytes": 136812
         },
         {
-          "file": "v/es2022/assets/js/core-DtP5Sd1K2.js",
-          "bytes": 295019
+          "file": "v/es2022/assets/js/i18n-data-CEz5afm6.js",
+          "bytes": 132058
         },
         {
-          "file": "v/es2022/assets/js/projects-8y1znaRq2.js",
-          "bytes": 289389
+          "file": "v/es2022/assets/js/i18n-data-D8kQFm04.js",
+          "bytes": 131303
         },
         {
-          "file": "v/es2022/assets/js/katex-C1C-QB7G.js",
-          "bytes": 267084
+          "file": "v/es2022/assets/js/i18n-data-teix-XTX.js",
+          "bytes": 131303
         }
       ]
     },
     {
       "name": "es2023",
       "js": {
-        "files": 204,
-        "bytes": 12396017,
-        "unminified": 16110494,
-        "gzip": 3086759,
-        "brotli": 2564904
+        "files": 188,
+        "bytes": 7927640,
+        "unminified": 6932444,
+        "gzip": 1847231,
+        "brotli": 1567834
       },
       "css": {
         "files": 3,
-        "bytes": 48179,
-        "unminified": 101158,
-        "gzip": 11015,
-        "brotli": 9739
+        "bytes": 50378,
+        "unminified": 106032,
+        "gzip": 11856,
+        "brotli": 10478
       },
       "misc": {
         "files": 0,
@@ -497,62 +493,62 @@
       },
       "largest": [
         {
-          "file": "v/es2023/assets/js/elk-276RUBZZ-SaIE6UK8.js",
-          "bytes": 1497225
+          "file": "v/es2023/assets/js/docs-data-CNlraU8w.js",
+          "bytes": 1371034
         },
         {
-          "file": "v/es2023/assets/js/Docs-C-mehhJl.js",
-          "bytes": 1360436
+          "file": "v/es2023/assets/js/three-CffqfNtN.js",
+          "bytes": 641312
         },
         {
-          "file": "v/es2023/assets/js/three.webgpu-Cz5wkzgc.js",
-          "bytes": 635018
+          "file": "v/es2023/assets/js/three-MI6glb1I.js",
+          "bytes": 378498
         },
         {
-          "file": "v/es2023/assets/js/chunk-NGNAAXSQ-6tTtvQzM.js",
-          "bytes": 617479
+          "file": "v/es2023/assets/js/i18n-data-O0zgRkUR.js",
+          "bytes": 366647
         },
         {
-          "file": "v/es2023/assets/js/cytoscape.esm-JeEUvxIs.js",
-          "bytes": 430473
+          "file": "v/es2023/assets/js/three-BpLoyYY8.js",
+          "bytes": 365833
         },
         {
-          "file": "v/es2023/assets/js/three.core-BPUgt4uA.js",
-          "bytes": 377612
+          "file": "v/es2023/assets/js/i18n-data-BEoH4Be-.js",
+          "bytes": 289409
         },
         {
-          "file": "v/es2023/assets/js/three.module-Du9gGDgn.js",
-          "bytes": 365765
+          "file": "v/es2023/assets/js/i18n-data-puTIajYv.js",
+          "bytes": 136812
         },
         {
-          "file": "v/es2023/assets/js/core-DtP5Sd1K2.js",
-          "bytes": 295019
+          "file": "v/es2023/assets/js/i18n-data-CEz5afm6.js",
+          "bytes": 132058
         },
         {
-          "file": "v/es2023/assets/js/projects-8y1znaRq2.js",
-          "bytes": 289389
+          "file": "v/es2023/assets/js/i18n-data-D8kQFm04.js",
+          "bytes": 131303
         },
         {
-          "file": "v/es2023/assets/js/katex-CeKeluw4.js",
-          "bytes": 267084
+          "file": "v/es2023/assets/js/i18n-data-teix-XTX.js",
+          "bytes": 131303
         }
       ]
     },
     {
       "name": "es2024",
       "js": {
-        "files": 204,
-        "bytes": 12396017,
-        "unminified": 16110494,
-        "gzip": 3086771,
-        "brotli": 2564907
+        "files": 188,
+        "bytes": 7927640,
+        "unminified": 6932444,
+        "gzip": 1847226,
+        "brotli": 1567817
       },
       "css": {
         "files": 3,
-        "bytes": 48179,
-        "unminified": 101158,
-        "gzip": 11015,
-        "brotli": 9739
+        "bytes": 50378,
+        "unminified": 106032,
+        "gzip": 11856,
+        "brotli": 10478
       },
       "misc": {
         "files": 0,
@@ -563,62 +559,62 @@
       },
       "largest": [
         {
-          "file": "v/es2024/assets/js/elk-276RUBZZ-SaIE6UK8.js",
-          "bytes": 1497225
+          "file": "v/es2024/assets/js/docs-data-CNlraU8w.js",
+          "bytes": 1371034
         },
         {
-          "file": "v/es2024/assets/js/Docs-BcQT0JzL.js",
-          "bytes": 1360436
+          "file": "v/es2024/assets/js/three-CffqfNtN.js",
+          "bytes": 641312
         },
         {
-          "file": "v/es2024/assets/js/three.webgpu-Cz5wkzgc.js",
-          "bytes": 635018
+          "file": "v/es2024/assets/js/three-MI6glb1I.js",
+          "bytes": 378498
         },
         {
-          "file": "v/es2024/assets/js/chunk-NGNAAXSQ-6tTtvQzM.js",
-          "bytes": 617479
+          "file": "v/es2024/assets/js/i18n-data-O0zgRkUR.js",
+          "bytes": 366647
         },
         {
-          "file": "v/es2024/assets/js/cytoscape.esm-JeEUvxIs.js",
-          "bytes": 430473
+          "file": "v/es2024/assets/js/three-BpLoyYY8.js",
+          "bytes": 365833
         },
         {
-          "file": "v/es2024/assets/js/three.core-BPUgt4uA.js",
-          "bytes": 377612
+          "file": "v/es2024/assets/js/i18n-data-BEoH4Be-.js",
+          "bytes": 289409
         },
         {
-          "file": "v/es2024/assets/js/three.module-Du9gGDgn.js",
-          "bytes": 365765
+          "file": "v/es2024/assets/js/i18n-data-puTIajYv.js",
+          "bytes": 136812
         },
         {
-          "file": "v/es2024/assets/js/core-DtP5Sd1K2.js",
-          "bytes": 295019
+          "file": "v/es2024/assets/js/i18n-data-CEz5afm6.js",
+          "bytes": 132058
         },
         {
-          "file": "v/es2024/assets/js/projects-8y1znaRq2.js",
-          "bytes": 289389
+          "file": "v/es2024/assets/js/i18n-data-D8kQFm04.js",
+          "bytes": 131303
         },
         {
-          "file": "v/es2024/assets/js/katex-CeKeluw4.js",
-          "bytes": 267084
+          "file": "v/es2024/assets/js/i18n-data-teix-XTX.js",
+          "bytes": 131303
         }
       ]
     },
     {
       "name": "es2025",
       "js": {
-        "files": 204,
-        "bytes": 12393901,
-        "unminified": 16110471,
-        "gzip": 3086567,
-        "brotli": 2565312
+        "files": 188,
+        "bytes": 7925749,
+        "unminified": 6932444,
+        "gzip": 1847608,
+        "brotli": 1568072
       },
       "css": {
         "files": 3,
-        "bytes": 47977,
-        "unminified": 101158,
-        "gzip": 11008,
-        "brotli": 9732
+        "bytes": 50176,
+        "unminified": 106032,
+        "gzip": 11849,
+        "brotli": 10441
       },
       "misc": {
         "files": 0,
@@ -629,44 +625,44 @@
       },
       "largest": [
         {
-          "file": "v/es2025/assets/js/elk-276RUBZZ-D_eWZe98.js",
-          "bytes": 1497225
+          "file": "v/es2025/assets/js/docs-data-CNlraU8w.js",
+          "bytes": 1371034
         },
         {
-          "file": "v/es2025/assets/js/Docs-DXMIId7O.js",
-          "bytes": 1360335
+          "file": "v/es2025/assets/js/three-CffqfNtN.js",
+          "bytes": 641312
         },
         {
-          "file": "v/es2025/assets/js/three.webgpu-Brq3aztA.js",
-          "bytes": 635018
+          "file": "v/es2025/assets/js/three-MI6glb1I.js",
+          "bytes": 378498
         },
         {
-          "file": "v/es2025/assets/js/chunk-NGNAAXSQ-fWZXmxYK.js",
-          "bytes": 617479
+          "file": "v/es2025/assets/js/i18n-data-O0zgRkUR.js",
+          "bytes": 366647
         },
         {
-          "file": "v/es2025/assets/js/cytoscape.esm-JeEUvxIs.js",
-          "bytes": 430473
+          "file": "v/es2025/assets/js/three-BpLoyYY8.js",
+          "bytes": 365833
         },
         {
-          "file": "v/es2025/assets/js/three.core-BPUgt4uA.js",
-          "bytes": 377612
+          "file": "v/es2025/assets/js/i18n-data-BEoH4Be-.js",
+          "bytes": 289409
         },
         {
-          "file": "v/es2025/assets/js/three.module-Du9gGDgn.js",
-          "bytes": 365765
+          "file": "v/es2025/assets/js/i18n-data-puTIajYv.js",
+          "bytes": 136812
         },
         {
-          "file": "v/es2025/assets/js/core-DtP5Sd1K2.js",
-          "bytes": 295019
+          "file": "v/es2025/assets/js/i18n-data-CEz5afm6.js",
+          "bytes": 132058
         },
         {
-          "file": "v/es2025/assets/js/projects-8y1znaRq2.js",
-          "bytes": 289389
+          "file": "v/es2025/assets/js/i18n-data-D8kQFm04.js",
+          "bytes": 131303
         },
         {
-          "file": "v/es2025/assets/js/katex-B_Fkd-0a.js",
-          "bytes": 267084
+          "file": "v/es2025/assets/js/i18n-data-teix-XTX.js",
+          "bytes": 131303
         }
       ]
     },
@@ -674,17 +670,17 @@
       "name": "es2026",
       "js": {
         "files": 213,
-        "bytes": 12833358,
-        "unminified": 17613678,
-        "gzip": 3212416,
-        "brotli": 2671006
+        "bytes": 8390031,
+        "unminified": 8453494,
+        "gzip": 1989238,
+        "brotli": 1690780
       },
       "css": {
         "files": 4,
-        "bytes": 67263,
-        "unminified": 101158,
-        "gzip": 15066,
-        "brotli": 13305
+        "bytes": 69486,
+        "unminified": 106032,
+        "gzip": 15908,
+        "brotli": 14029
       },
       "misc": {
         "files": 0,
@@ -695,62 +691,62 @@
       },
       "largest": [
         {
-          "file": "v/es2026/assets/js/elk-276RUBZZ-1EBKSRFR.js",
-          "bytes": 1497225
+          "file": "v/es2026/assets/js/docs-data-CNlraU8w.js",
+          "bytes": 1371034
         },
         {
-          "file": "v/es2026/assets/js/Docs-6yKgP-Ly.js",
-          "bytes": 1361344
+          "file": "v/es2026/assets/js/three-DS64T73d.js",
+          "bytes": 641381
         },
         {
-          "file": "v/es2026/assets/js/three.webgpu-D13miq6E.js",
-          "bytes": 635018
+          "file": "v/es2026/assets/js/three--6HMgapN.js",
+          "bytes": 378510
         },
         {
-          "file": "v/es2026/assets/js/chunk-NGNAAXSQ-CIDSxAHy.js",
-          "bytes": 617534
+          "file": "v/es2026/assets/js/i18n-data-O0zgRkUR.js",
+          "bytes": 366647
         },
         {
-          "file": "v/es2026/assets/js/cytoscape.esm-CLnDd_mX.js",
-          "bytes": 430544
+          "file": "v/es2026/assets/js/three-BPEz6_iJ.js",
+          "bytes": 365833
         },
         {
-          "file": "v/es2026/assets/js/three.core-BI9Fp345.js",
-          "bytes": 377612
+          "file": "v/es2026/assets/js/i18n-data-BEoH4Be-.js",
+          "bytes": 289409
         },
         {
-          "file": "v/es2026/assets/js/three.module-bEIxgyKd.js",
-          "bytes": 365765
+          "file": "v/es2026/assets/js/vendor-firebase-DmxEYJCD.js",
+          "bytes": 143494
         },
         {
-          "file": "v/es2026/assets/js/vendor-firebase-wjMok2eH.js",
-          "bytes": 315169
+          "file": "v/es2026/assets/js/i18n-data-puTIajYv.js",
+          "bytes": 136812
         },
         {
-          "file": "v/es2026/assets/js/core-DtP5Sd1K.js",
-          "bytes": 295019
+          "file": "v/es2026/assets/js/i18n-data-CEz5afm6.js",
+          "bytes": 132058
         },
         {
-          "file": "v/es2026/assets/js/projects-8y1znaRq.js",
-          "bytes": 289389
+          "file": "v/es2026/assets/js/i18n-data-D8kQFm04.js",
+          "bytes": 131303
         }
       ]
     },
     {
       "name": "esnext",
       "js": {
-        "files": 204,
-        "bytes": 12391724,
-        "unminified": 16105964,
-        "gzip": 3085817,
-        "brotli": 2564511
+        "files": 188,
+        "bytes": 7925304,
+        "unminified": 6932444,
+        "gzip": 1847099,
+        "brotli": 1567627
       },
       "css": {
         "files": 3,
-        "bytes": 47773,
-        "unminified": 101158,
-        "gzip": 10951,
-        "brotli": 9683
+        "bytes": 49972,
+        "unminified": 106032,
+        "gzip": 11788,
+        "brotli": 10401
       },
       "misc": {
         "files": 0,
@@ -761,44 +757,44 @@
       },
       "largest": [
         {
-          "file": "v/esnext/assets/js/elk-276RUBZZ-BRo9lcJJ.js",
-          "bytes": 1497225
+          "file": "v/esnext/assets/js/docs-data-CNlraU8w.js",
+          "bytes": 1371034
         },
         {
-          "file": "v/esnext/assets/js/Docs-CGF5lqCy.js",
-          "bytes": 1360112
+          "file": "v/esnext/assets/js/three-CffqfNtN.js",
+          "bytes": 641312
         },
         {
-          "file": "v/esnext/assets/js/three.webgpu-D1lLG6sm.js",
-          "bytes": 635018
+          "file": "v/esnext/assets/js/three-MI6glb1I.js",
+          "bytes": 378498
         },
         {
-          "file": "v/esnext/assets/js/chunk-NGNAAXSQ-CVe67yw-.js",
-          "bytes": 617479
+          "file": "v/esnext/assets/js/i18n-data-O0zgRkUR.js",
+          "bytes": 366647
         },
         {
-          "file": "v/esnext/assets/js/cytoscape.esm-DAuBv-Us.js",
-          "bytes": 430473
+          "file": "v/esnext/assets/js/three-BpLoyYY8.js",
+          "bytes": 365833
         },
         {
-          "file": "v/esnext/assets/js/three.core-D6PDM9gs.js",
-          "bytes": 377612
+          "file": "v/esnext/assets/js/i18n-data-BEoH4Be-.js",
+          "bytes": 289409
         },
         {
-          "file": "v/esnext/assets/js/three.module-Dg_Jc2mp.js",
-          "bytes": 365765
+          "file": "v/esnext/assets/js/i18n-data-puTIajYv.js",
+          "bytes": 136812
         },
         {
-          "file": "v/esnext/assets/js/core-DtP5Sd1K2.js",
-          "bytes": 295019
+          "file": "v/esnext/assets/js/i18n-data-CEz5afm6.js",
+          "bytes": 132058
         },
         {
-          "file": "v/esnext/assets/js/projects-8y1znaRq2.js",
-          "bytes": 289389
+          "file": "v/esnext/assets/js/i18n-data-D8kQFm04.js",
+          "bytes": 131303
         },
         {
-          "file": "v/esnext/assets/js/katex-B_Fkd-0a.js",
-          "bytes": 267084
+          "file": "v/esnext/assets/js/i18n-data-teix-XTX.js",
+          "bytes": 131303
         }
       ]
     },
@@ -806,17 +802,17 @@
       "name": "ie",
       "js": {
         "files": 1,
-        "bytes": 9755412,
+        "bytes": 4378468,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "css": {
         "files": 1,
-        "bytes": 25471,
-        "unminified": 101158,
-        "gzip": 5450,
-        "brotli": 4827
+        "bytes": 26488,
+        "unminified": 106032,
+        "gzip": 5875,
+        "brotli": 5180
       },
       "misc": {
         "files": 0,
@@ -827,12 +823,12 @@
       },
       "largest": [
         {
-          "file": "v/ie/assets/js/index-cfe5369a.js",
-          "bytes": 9755412
+          "file": "v/ie/assets/js/index-fd395bf1.js",
+          "bytes": 4378468
         },
         {
-          "file": "v/ie/assets/css/index-f20401aa.css",
-          "bytes": 25471
+          "file": "v/ie/assets/css/index-35660351.css",
+          "bytes": 26488
         }
       ]
     }
@@ -840,244 +836,300 @@
   "wasm": [
     {
       "crate": "burger",
-      "files": 4,
-      "wasmBytes": 50101,
-      "jsBytes": 31658,
+      "files": 7,
+      "wasmBytes": 41394,
+      "jsBytes": 26168,
       "jsFiles": 1
     },
     {
       "crate": "burn",
-      "files": 4,
-      "wasmBytes": 53891,
-      "jsBytes": 34847,
+      "files": 7,
+      "wasmBytes": 55740,
+      "jsBytes": 29354,
       "jsFiles": 1
     },
     {
       "crate": "close-button",
-      "files": 4,
-      "wasmBytes": 47487,
-      "jsBytes": 31991,
+      "files": 7,
+      "wasmBytes": 38591,
+      "jsBytes": 26498,
+      "jsFiles": 1
+    },
+    {
+      "crate": "corner-brackets",
+      "files": 6,
+      "wasmBytes": 35075,
+      "jsBytes": 27371,
       "jsFiles": 1
     },
     {
       "crate": "diagram",
-      "files": 4,
-      "wasmBytes": 133199,
+      "files": 7,
+      "wasmBytes": 135431,
       "jsBytes": 8217,
       "jsFiles": 1
     },
     {
+      "crate": "divider-sheen",
+      "files": 6,
+      "wasmBytes": 34274,
+      "jsBytes": 26323,
+      "jsFiles": 1
+    },
+    {
       "crate": "flag",
-      "files": 4,
-      "wasmBytes": 51889,
-      "jsBytes": 36389,
+      "files": 7,
+      "wasmBytes": 43633,
+      "jsBytes": 30560,
+      "jsFiles": 1
+    },
+    {
+      "crate": "genie",
+      "files": 5,
+      "wasmBytes": 41487,
+      "jsBytes": 31197,
+      "jsFiles": 1
+    },
+    {
+      "crate": "glitch",
+      "files": 6,
+      "wasmBytes": 44966,
+      "jsBytes": 31679,
+      "jsFiles": 1
+    },
+    {
+      "crate": "markdown",
+      "files": 6,
+      "wasmBytes": 242269,
+      "jsBytes": 8077,
       "jsFiles": 1
     },
     {
       "crate": "media",
-      "files": 4,
-      "wasmBytes": 46328,
-      "jsBytes": 36100,
+      "files": 7,
+      "wasmBytes": 37781,
+      "jsBytes": 30607,
       "jsFiles": 1
     },
     {
       "crate": "menu-background",
-      "files": 4,
-      "wasmBytes": 47116,
-      "jsBytes": 32023,
+      "files": 7,
+      "wasmBytes": 38184,
+      "jsBytes": 26533,
+      "jsFiles": 1
+    },
+    {
+      "crate": "ring-sheen",
+      "files": 6,
+      "wasmBytes": 37048,
+      "jsBytes": 27412,
+      "jsFiles": 1
+    },
+    {
+      "crate": "scene3d",
+      "files": 6,
+      "wasmBytes": 120611,
+      "jsBytes": 59395,
       "jsFiles": 1
     },
     {
       "crate": "skeleton",
-      "files": 4,
-      "wasmBytes": 48751,
-      "jsBytes": 33337,
+      "files": 7,
+      "wasmBytes": 40128,
+      "jsBytes": 27844,
       "jsFiles": 1
     },
     {
       "crate": "switch-slider",
-      "files": 4,
-      "wasmBytes": 47816,
-      "jsBytes": 32012,
+      "files": 7,
+      "wasmBytes": 39002,
+      "jsBytes": 26522,
+      "jsFiles": 1
+    },
+    {
+      "crate": "text-draw",
+      "files": 6,
+      "wasmBytes": 43445,
+      "jsBytes": 31512,
       "jsFiles": 1
     },
     {
       "crate": "theme-slider",
-      "files": 4,
-      "wasmBytes": 52785,
-      "jsBytes": 32078,
+      "files": 7,
+      "wasmBytes": 43988,
+      "jsBytes": 26585,
       "jsFiles": 1
     }
   ],
   "html": {
-    "files": 17926,
-    "bytes": 1023193074,
+    "files": 18566,
+    "bytes": 1119482353,
     "unminified": 0,
-    "gzip": 179413429,
-    "brotli": 146712747,
+    "gzip": 191414257,
+    "brotli": 155975547,
     "byDir": [
       {
         "dir": "docs",
-        "files": 6922,
-        "bytes": 303395746
+        "files": 7156,
+        "bytes": 341219936
       },
       {
         "dir": "ga",
-        "files": 665,
-        "bytes": 44076879
+        "files": 691,
+        "bytes": 47805162
       },
       {
         "dir": "gn",
-        "files": 665,
-        "bytes": 43685393
+        "files": 691,
+        "bytes": 47393774
       },
       {
         "dir": "tln",
-        "files": 665,
-        "bytes": 43789498
+        "files": 691,
+        "bytes": 47500305
       },
       {
         "dir": "br",
-        "files": 662,
-        "bytes": 43367347
+        "files": 688,
+        "bytes": 47071493
       },
       {
         "dir": "ca",
-        "files": 662,
-        "bytes": 43298384
+        "files": 688,
+        "bytes": 47002261
       },
       {
         "dir": "cas",
-        "files": 662,
-        "bytes": 43562710
+        "files": 688,
+        "bytes": 47270992
       },
       {
         "dir": "de",
-        "files": 662,
-        "bytes": 42878605
+        "files": 688,
+        "bytes": 46571945
       },
       {
         "dir": "es",
-        "files": 662,
-        "bytes": 43504109
+        "files": 688,
+        "bytes": 47210512
       },
       {
         "dir": "fr",
-        "files": 662,
-        "bytes": 43105905
+        "files": 688,
+        "bytes": 46808646
       },
       {
         "dir": "gl",
-        "files": 662,
-        "bytes": 43190211
+        "files": 688,
+        "bytes": 46890274
       },
       {
         "dir": "hrk",
-        "files": 662,
-        "bytes": 42902430
+        "files": 688,
+        "bytes": 46595148
       },
       {
         "dir": "it",
-        "files": 662,
-        "bytes": 43110968
+        "files": 688,
+        "bytes": 46808863
       },
       {
         "dir": "nl",
-        "files": 662,
-        "bytes": 43062986
+        "files": 688,
+        "bytes": 46758298
       },
       {
         "dir": "riv",
-        "files": 662,
-        "bytes": 43441165
+        "files": 688,
+        "bytes": 47146518
       },
       {
         "dir": "ru",
-        "files": 662,
-        "bytes": 44995901
+        "files": 688,
+        "bytes": 48747752
       },
       {
         "dir": "portfolio",
         "files": 535,
-        "bytes": 40275227
+        "bytes": 41968178
       },
       {
         "dir": "langs",
-        "files": 375,
-        "bytes": 23365542
+        "files": 390,
+        "bytes": 24033729
       },
       {
         "dir": "star-field-experiment",
         "files": 145,
-        "bytes": 3869691
+        "bytes": 4331306
       },
       {
         "dir": "about",
         "files": 1,
-        "bytes": 34167
+        "bytes": 37618
       }
     ]
   },
   "largest": [
     {
-      "file": "v/ie/assets/js/index-cfe5369a.js",
-      "bytes": 9755412
+      "file": "v/ie/assets/js/index-fd395bf1.js",
+      "bytes": 4378468
     },
     {
-      "file": "v/es2016/assets/js/index-UPRFBj6N.js",
-      "bytes": 9083949
+      "file": "v/es2016/assets/js/index-b9Yeh9vc.js",
+      "bytes": 4020691
     },
     {
-      "file": "v/es2017/assets/js/elk-276RUBZZ-SHuM8P-Y.js",
-      "bytes": 1502538
+      "file": "v/es2017/assets/js/docs-data-CNlraU8w.js",
+      "bytes": 1371034
     },
     {
-      "file": "v/es2018/assets/js/elk-276RUBZZ-CXGK373R.js",
-      "bytes": 1502440
+      "file": "v/es2018/assets/js/docs-data-CNlraU8w.js",
+      "bytes": 1371034
     },
     {
-      "file": "v/es2019/assets/js/elk-276RUBZZ-BD2kTZsa.js",
-      "bytes": 1502440
+      "file": "v/es2019/assets/js/docs-data-CNlraU8w.js",
+      "bytes": 1371034
     },
     {
-      "file": "v/es2020/assets/js/elk-276RUBZZ-BzgmbNvh.js",
-      "bytes": 1497360
+      "file": "v/es2020/assets/js/docs-data-CNlraU8w.js",
+      "bytes": 1371034
     },
     {
-      "file": "v/es2021/assets/js/elk-276RUBZZ-B8g2W6zk.js",
-      "bytes": 1497225
+      "file": "v/es2021/assets/js/docs-data-CNlraU8w.js",
+      "bytes": 1371034
     },
     {
-      "file": "v/es2022/assets/js/elk-276RUBZZ-1kVgTocS.js",
-      "bytes": 1497225
+      "file": "v/es2022/assets/js/docs-data-CNlraU8w.js",
+      "bytes": 1371034
     },
     {
-      "file": "v/es2023/assets/js/elk-276RUBZZ-SaIE6UK8.js",
-      "bytes": 1497225
+      "file": "v/es2023/assets/js/docs-data-CNlraU8w.js",
+      "bytes": 1371034
     },
     {
-      "file": "v/es2024/assets/js/elk-276RUBZZ-SaIE6UK8.js",
-      "bytes": 1497225
+      "file": "v/es2024/assets/js/docs-data-CNlraU8w.js",
+      "bytes": 1371034
     },
     {
-      "file": "v/es2025/assets/js/elk-276RUBZZ-D_eWZe98.js",
-      "bytes": 1497225
+      "file": "v/es2025/assets/js/docs-data-CNlraU8w.js",
+      "bytes": 1371034
     },
     {
-      "file": "v/es2026/assets/js/elk-276RUBZZ-1EBKSRFR.js",
-      "bytes": 1497225
+      "file": "v/es2026/assets/js/docs-data-CNlraU8w.js",
+      "bytes": 1371034
     },
     {
-      "file": "v/esnext/assets/js/elk-276RUBZZ-BRo9lcJJ.js",
-      "bytes": 1497225
+      "file": "v/esnext/assets/js/docs-data-CNlraU8w.js",
+      "bytes": 1371034
     },
     {
-      "file": "v/es2017/assets/js/Docs-CeIejBKI.js",
-      "bytes": 1363674
+      "file": "v/es2017/assets/js/three-CnWgibqu.js",
+      "bytes": 641479
     },
     {
-      "file": "v/es2018/assets/js/Docs-CDlc65JJ.js",
-      "bytes": 1362949
+      "file": "v/es2026/assets/js/three-DS64T73d.js",
+      "bytes": 641381
     }
   ]
 }

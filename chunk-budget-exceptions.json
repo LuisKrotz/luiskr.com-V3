@@ -1,0 +1,28 @@
+{
+  "exceptions": [
+    {
+      "pattern": "^three",
+      "kind": "js",
+      "reason": "three.js ships pre-bundled single-module artifacts (three.module / three.core / three.webgpu). Chunking is module-granular — a single module cannot be divided. All three chunks are lazy: they load only for playground/scene routes, and the WebGPU widget layer is disabled by default (AGENTS.md rule 18).",
+      "review": "2027-01-20"
+    },
+    {
+      "pattern": "^i18n-data",
+      "kind": "js",
+      "reason": "virtual:i18n-boot/<locale>/<section> generates one atomic payload module per locale section — a chunk IS the fetch unit here, equivalent to one translations JSON. Only the boot locale's ~30KB core section is on the critical path; all other locales/sections lazy-load on demand.",
+      "review": "2027-01-20"
+    },
+    {
+      "pattern": "^docs-data",
+      "kind": "js",
+      "reason": "virtual:docs-manifest emits the full docs tree as one atomic generated module, lazy-loaded only on the /docs route. Splitting requires restructuring the docs-portal manifest generator — tracked as a follow-up.",
+      "review": "2027-01-20"
+    },
+    {
+      "pattern": "^vendor-firebase",
+      "kind": "js",
+      "reason": "@firebase packages ship as pre-bundled dist modules — module-granular splitting cannot divide them. Loaded only by the CMS entry, never on the public site's critical path (the site uses REST).",
+      "review": "2027-01-20"
+    }
+  ]
+}

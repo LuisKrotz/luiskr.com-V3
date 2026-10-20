@@ -1,2 +1,0 @@
-var s,E;import{V as e}from"./store-DI5Oy5TL.js";s=Object.freeze({ERROR:e.ERROR,Jo:"info",aJ:"success"}),E=Object.freeze({Fj:5e3,Dj:4,cJ:2500,CJ:64});export{s as n,E as t};
-//# sourceMappingURL=notify-BIl0VaR-.js.map

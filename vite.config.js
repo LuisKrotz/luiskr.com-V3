@@ -37,6 +37,37 @@ import { hostContextSafeLogger } from './shared/build/vite-lib.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
+/**
+ * Chunk size budgets. The hard caps are enforced on the MINIFIED output by
+ * shared/scripts/verify/chunk-budget.mjs — JS ≤ 50 KiB, CSS ≤ 5 KiB per file
+ * — with ~10 KiB JS / ~3 KiB CSS as the preferred sizes. Rolldown's
+ * codeSplitting sizes measure SOURCE bytes before terser; the 100-pass
+ * mangle+compress lands minified output at roughly a third of source, so a
+ * 32 KiB source cap produces ~10–14 KiB minified chunks — inside the hard
+ * cap and near the preferred size.
+ *
+ * Splitting is module-granular: pre-bundled vendor artifacts shipped as one
+ * file (three.webgpu/three.core/three.module, @firebase dist bundles,
+ * mermaid/cytoscape dists) cannot be divided below module size and remain
+ * larger than the cap. Those are documented exceptions in
+ * chunk-budget-exceptions.json — the gate still fails on every other chunk
+ * that regresses past the cap.
+ */
+const CHUNK_MAX_SOURCE_BYTES = 32 * 1024
+
+/**
+ * Modules that must remain inside their own `index`/`cms` entry chunks —
+ * never captured by the `app` catch-all codeSplitting group. Html inputs
+ * compile each file into an entry module whose code is a bare sequence of
+ * `import` statements; when the catch-all absorbs the entry's script
+ * (shared/src/main, cms/main) the entry chunk degenerates to imports only,
+ * vite's build-html transform inlines every imported chunk as its own
+ * `<script type="module">`, and no `index-*.js` survives for the browser
+ * loader manifest (scripts/build/build-targets.mjs). The `.html` clause
+ * keeps the html entry modules themselves out of the split as well.
+ */
+const ENTRY_MODULE_RE = /\.html(?:[?#]|$)|[\\/](?:shared[\\/]src|cms)[\\/]main\.[jt]s(?:[?#]|$)/
+
 export default defineConfig(({ command }) => {
   // Active tier — default when invoked directly (`vite build` without the
   // orchestrator still produces a working modern build).
@@ -417,9 +448,39 @@ export default defineConfig(({ command }) => {
     },
   }
 
+  // `vite preview` serves index.html for /dir/ but — unlike Firebase
+  // Hosting's clean-URL handling — never redirects /dir → /dir/, so
+  // extension-less prerendered routes (every locale page, project interna,
+  // media deep link) fall through to the English SPA shell. Mirror the
+  // hosting behavior: 301 to the trailing-slash URL when the file exists.
+  const previewCleanUrlsPlugin = {
+    name: 'preview-clean-urls',
+    configurePreviewServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const reqPath = decodeURIComponent((req.url || '').split('?')[0])
+        const last = reqPath.split('/').pop() || ''
+
+        if (reqPath.length > 1 && !reqPath.endsWith('/') && !last.includes('.')) {
+          const indexPath = path.join(__dirname, 'dist', reqPath, 'index.html')
+
+          if (existsSync(indexPath)) {
+            const query = (req.url || '').split('?')[1]
+
+            res.writeHead(301, { Location: `${reqPath}/${query ? `?${query}` : ''}` })
+            res.end()
+            return
+          }
+        }
+
+        next()
+      })
+    },
+  }
+
   const plugins = [
     cmsMockPlugin,
     siteWebmanifestDevPlugin,
+    previewCleanUrlsPlugin,
     ...(process.env.LK_NO_PUBLIC ? [] : [modulePublicPlugin()]),
     i18nFallbackPlugin({ root: __dirname }),
     i18nBootPlugin({ root: __dirname, isLegacy }),
@@ -591,15 +652,76 @@ export default defineConfig(({ command }) => {
         // codeSplitting is already off for iife, so inlineDynamicImports would
         // be redundant (rolldown flags it as ignored).
         ...(isLegacy ? { format: 'iife' } : {}),
-        manualChunks: isLegacy
-          ? undefined
-          : (id) => {
-              if (id.includes('node_modules')) {
-                if (id.includes('firebase')) {
-                  return 'vendor-firebase'
-                }
-              }
-            },
+        // Budget splitting can place a module's dependents in a different
+        // chunk than its dependencies, creating circular CHUNK references on
+        // an acyclic module graph — e.g. `ui-text`/`fallback` in chunk A
+        // importing `store`/`state` in chunk B while `state` imports
+        // `fallback` back in chunk A: whichever chunk evaluates first leaves
+        // the other's bindings hoisted-but-uninitialized, and B's top-level
+        // `new Store()` crashes on `FALLBACK_APP.actions`. Wrap module bodies
+        // so they initialize in dependency order regardless of which chunk a
+        // file lands in (rolldown's designed answer for this hazard class);
+        // legacy is a single iife chunk where the hazard cannot exist.
+        ...(isLegacy ? {} : { strictExecutionOrder: true }),
+        // Budget-driven splitting (module tiers only — the legacy IIFE stays
+        // monolithic because ES5 engines cannot load module chunks). Groups
+        // are checked by priority: firebase/three keep named, cache-stable
+        // chunks; every other node_modules module lands in entriesAware
+        // `vendor` pieces so no entry downloads vendor code it never calls;
+        // the `app` catch-all applies the same cap to first-party code.
+        // Single modules larger than the cap stay whole — the budget gate
+        // (chunk-budget.mjs) enforces the minified cap on the emitted files.
+        ...(isLegacy
+          ? {}
+          : {
+              codeSplitting: {
+                maxSize: CHUNK_MAX_SOURCE_BYTES,
+                groups: [
+                  {
+                    name: 'vendor-firebase',
+                    test: /node_modules[\\/](?:firebase|@firebase)[\\/]/,
+                    maxSize: CHUNK_MAX_SOURCE_BYTES,
+                    priority: 40,
+                  },
+                  {
+                    name: 'three',
+                    test: /node_modules[\\/]three[\\/]/,
+                    maxSize: CHUNK_MAX_SOURCE_BYTES,
+                    priority: 30,
+                  },
+                  // Generated payload modules (virtual:i18n-boot/<loc>/…,
+                  // virtual:docs-manifest) are atomic — one module per
+                  // locale/section, fetched lazily like JSON. Naming them
+                  // keeps their chunk filenames greppable and the budget
+                  // exceptions addressable.
+                  {
+                    name: 'i18n-data',
+                    test: /virtual:i18n-(?:boot|fallback)/,
+                    maxSize: CHUNK_MAX_SOURCE_BYTES,
+                    priority: 25,
+                  },
+                  {
+                    name: 'docs-data',
+                    test: /virtual:docs-|docs-content/,
+                    maxSize: CHUNK_MAX_SOURCE_BYTES,
+                    priority: 24,
+                  },
+                  {
+                    name: 'vendor',
+                    test: /node_modules/,
+                    entriesAware: true,
+                    maxSize: CHUNK_MAX_SOURCE_BYTES,
+                    priority: 10,
+                  },
+                  {
+                    name: 'app',
+                    test: (id) => !ENTRY_MODULE_RE.test(id),
+                    maxSize: CHUNK_MAX_SOURCE_BYTES,
+                    priority: 0,
+                  },
+                ],
+              },
+            }),
       },
     },
   }

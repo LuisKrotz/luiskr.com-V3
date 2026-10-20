@@ -1,17 +1,23 @@
 {
-  "generatedAt": "2026-10-18T16:54:05.266Z",
+  "generatedAt": "2026-10-20T15:11:54.671Z",
   "engine": "axe-core@4.13.0",
   "totals": {
     "violations": 0,
     "criticalOrSerious": 0,
-    "incomplete": 15,
-    "passes": 179
+    "incomplete": 17,
+    "passes": 190
   },
   "surfaces": [
     {
       "surface": "home-composed",
       "violations": [],
       "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "description": "Ensure ARIA attributes are not prohibited for an element's role",
+          "nodes": 2
+        },
         {
           "id": "color-contrast-enhanced",
           "impact": "serious",
@@ -31,7 +37,7 @@
           "nodes": 1
         }
       ],
-      "passes": 32
+      "passes": 33
     },
     {
       "surface": "preferences-modal",
@@ -50,7 +56,7 @@
           "nodes": 1
         }
       ],
-      "passes": 33
+      "passes": 34
     },
     {
       "surface": "lang-dialog",
@@ -69,7 +75,7 @@
           "nodes": 1
         }
       ],
-      "passes": 31
+      "passes": 33
     },
     {
       "surface": "legal-view",
@@ -88,7 +94,7 @@
           "nodes": 1
         }
       ],
-      "passes": 21
+      "passes": 22
     },
     {
       "surface": "not-found-view",
@@ -104,6 +110,12 @@
           "id": "color-contrast",
           "impact": "serious",
           "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "nodes": 1
+        },
+        {
+          "id": "link-in-text-block",
+          "impact": "serious",
+          "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
           "nodes": 1
         }
       ],
@@ -126,7 +138,7 @@
           "nodes": 1
         }
       ],
-      "passes": 18
+      "passes": 24
     },
     {
       "surface": "static-shell",

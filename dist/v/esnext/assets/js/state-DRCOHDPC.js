@@ -1,2 +1,0 @@
-import{Dn as e}from"./store-rrv8STrc.js";var t=Object.freeze({NONE:"none",Wi:"block",La:"auto",p:"smooth",h:"instant",Qa:"true",Ia:"false",bK:"granted",fK:"denied",OPEN:"open",co:"fixed",eh:"absolute",th:"relative",HIDDEN:"hidden",u:"high",SD:"default",al:"landscape",hK:"portrait",tl:"mobile",SYSTEM:e});export{t};
-//# sourceMappingURL=state-DRCOHDPC.js.map

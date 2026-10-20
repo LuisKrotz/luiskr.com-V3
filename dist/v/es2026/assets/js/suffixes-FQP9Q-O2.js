@@ -1,2 +1,0 @@
-var E=Object.freeze({Xs:"-mozjpg",Qs:"3-MSSIM-tuned-kodak",rh:"-50",fp:"-uncompressed",sr:".jpg",ip:".mp4",Zs:".mp4.jpg-thumb.jpg",op:".mp4-scaledown-2x",hp:".webp",rp:".webm"});export{E as t};
-//# sourceMappingURL=suffixes-FQP9Q-O2.js.map

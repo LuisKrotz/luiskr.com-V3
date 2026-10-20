@@ -1,2 +1,0 @@
-var E=Object.freeze({nh:"source-over",Eh:"multiply",ph:"lighter",Rh:"difference",sh:"destination-out",Xf:"destination-in",mh:"source-atop",Ah:"rgb(255, 0, 0)",Th:"rgb(0, 255, 255)",Fh:"rgb(235, 235, 235)",Nh:"black",Ih:"white",hh:"transparent",Lh:"saturate(1.7) brightness(1.12)",Ch:"none",th:"rgb(255, 214, 130)",ih:"rgb(255, 122, 26)",E5:"rgb(198, 44, 10)",ah:"rgba(26, 20, 16, 0.85)",O5:"rgba(255, 96, 18, 0.55)"});export{E as t};
-//# sourceMappingURL=canvas-peNkrmr5.js.map

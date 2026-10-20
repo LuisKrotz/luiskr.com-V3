@@ -251,9 +251,7 @@ self.onmessage = async (e) => {
 
   if (d.type === 'probe') {
     const ok =
-      typeof self !== 'undefined' &&
-      !!self.navigator?.gpu &&
-      typeof OffscreenCanvas !== 'undefined'
+      typeof self !== 'undefined' && !!self.navigator?.gpu && typeof OffscreenCanvas !== 'undefined'
 
     self.postMessage({ type: 'probe-ack', ok })
 
