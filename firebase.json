@@ -46,7 +46,7 @@
           },
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://www.googletagmanager.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://storage.googleapis.com https://flagcdn.com https://gravatar.com https://www.gravatar.com https://secure.gravatar.com https://www.google-analytics.com; connect-src 'self' https://luiskr-com.firebaseio.com wss://luiskr-com.firebaseio.com https://*.googleapis.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://flagcdn.com https://gravatar.com https://www.gravatar.com; media-src 'self' blob: https://storage.googleapis.com; worker-src 'self' blob:; frame-src https://accounts.google.com https://*.firebaseapp.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; manifest-src 'self'; object-src 'none'"
+            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://www.googletagmanager.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://storage.googleapis.com https://flagcdn.com https://gravatar.com https://www.gravatar.com https://secure.gravatar.com https://www.google-analytics.com; connect-src 'self' https://luiskr-com.firebaseio.com wss://luiskr-com.firebaseio.com https://*.googleapis.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://flagcdn.com https://gravatar.com https://www.gravatar.com; media-src 'self' blob: https://storage.googleapis.com; worker-src 'self' blob:; frame-src 'self' https://accounts.google.com https://*.firebaseapp.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; manifest-src 'self'; object-src 'none'"
           }
         ]
       },
@@ -167,6 +167,23 @@
         ]
       },
       {
+        "source": "**/llms.txt",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/markdown; profile=\"urn:air:agent-skills\"; charset=utf-8"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
         "source": "**/auth.md",
         "headers": [
           {
@@ -222,7 +239,7 @@
         "headers": [
           {
             "key": "Link",
-            "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </openapi.json>; rel=\"service-desc\"; type=\"application/vnd.oai.openapi+json\", </docs>; rel=\"service-doc\"; type=\"text/html\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </ai-catalog.json>; rel=\"describedby\"; type=\"application/json\""
+            "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </openapi.json>; rel=\"service-desc\"; type=\"application/vnd.oai.openapi+json\", </docs>; rel=\"service-doc\"; type=\"text/html\", </llms.txt>; rel=\"describedby\"; type=\"text/markdown; profile=\\\"urn:air:agent-skills\\\"\", </ai-catalog.json>; rel=\"describedby\"; type=\"application/json\""
           }
         ]
       },
@@ -231,7 +248,7 @@
         "headers": [
           {
             "key": "Link",
-            "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </openapi.json>; rel=\"service-desc\"; type=\"application/vnd.oai.openapi+json\", </docs>; rel=\"service-doc\"; type=\"text/html\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </ai-catalog.json>; rel=\"describedby\"; type=\"application/json\""
+            "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </openapi.json>; rel=\"service-desc\"; type=\"application/vnd.oai.openapi+json\", </docs>; rel=\"service-doc\"; type=\"text/html\", </llms.txt>; rel=\"describedby\"; type=\"text/markdown; profile=\\\"urn:air:agent-skills\\\"\", </ai-catalog.json>; rel=\"describedby\"; type=\"application/json\""
           }
         ]
       }

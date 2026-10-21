@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-21T00:15:29.669Z",
+  "generatedAt": "2026-10-21T03:14:57.015Z",
   "engine": "axe-core@4.13.0",
   "totals": {
     "violations": 0,
     "criticalOrSerious": 0,
     "incomplete": 17,
-    "passes": 190
+    "passes": 175
   },
   "surfaces": [
     {
@@ -13,9 +13,9 @@
       "violations": [],
       "incomplete": [
         {
-          "id": "aria-prohibited-attr",
-          "impact": "serious",
-          "description": "Ensure ARIA attributes are not prohibited for an element's role",
+          "id": "aria-allowed-role",
+          "impact": "minor",
+          "description": "Ensure role attribute has an appropriate value for the element",
           "nodes": 2
         },
         {
@@ -37,7 +37,7 @@
           "nodes": 1
         }
       ],
-      "passes": 33
+      "passes": 34
     },
     {
       "surface": "preferences-modal",
@@ -81,6 +81,12 @@
       "surface": "legal-view",
       "violations": [],
       "incomplete": [
+        {
+          "id": "aria-allowed-role",
+          "impact": "minor",
+          "description": "Ensure role attribute has an appropriate value for the element",
+          "nodes": 1
+        },
         {
           "id": "color-contrast-enhanced",
           "impact": "serious",
@@ -145,19 +151,13 @@
       "violations": [],
       "incomplete": [
         {
-          "id": "color-contrast-enhanced",
+          "id": "bypass",
           "impact": "serious",
-          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AAA enhanced contrast ratio thresholds",
-          "nodes": 1
-        },
-        {
-          "id": "color-contrast",
-          "impact": "serious",
-          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "description": "Ensure each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
           "nodes": 1
         }
       ],
-      "passes": 23
+      "passes": 7
     }
   ]
 }
