@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js')
+      // The prerendered page ships the intro-loader markup so the designed
+      // boot veil paints before the bundle — but the intro still runs once
+      // per session (CACHE_STORAGE_KEYS.INTRO_SHOWN) and never under reduced
+      // motion. 'intro-skip' mirrors STATE_CLASSES.INTRO_SKIP; the class +
+      // CSS gate keep the veil hidden until JS adoption/removal.
+      try {
+        if (
+          sessionStorage.getItem('lk_intro_shown') ||
+          (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+        )
+          document.documentElement.classList.add('intro-skip')
+      } catch (e) {
+        /* sessionStorage may throw under hard privacy modes — loader still cleans up at mount */
+      }
     </script>
 
     <meta property="fb:app_id" content="974280449654426" />
@@ -256,6 +270,28 @@
 
   <body>
     <div id="app"></div>
+    <!-- Boot loader — mirrors the exact DOM IntroLoader.init() builds
+         (LOADER_CLASSES tokens) so the designed veil paints with the
+         first stylesheet instead of waiting for the JS bundle. On boot,
+         IntroLoader adopts THIS node — one loader, no duplicate. Lives
+         outside #app because mount()'s replaceChildren would otherwise
+         destroy it before it ever painted. Hidden under no-js /
+         intro-skip via intro-loader.scss. Title/msg are localized per
+         locale page by build-locale-pages (APP.loader in database.json). -->
+    <div class="intro-loader">
+      <div class="intro-loader-glow"></div>
+      <div class="intro-loader-grid"></div>
+      <div class="intro-loader-content">
+        <div class="intro-loader-spinner"></div>
+        <div class="intro-loader-spinner-inner"></div>
+        <div class="intro-loader-counter">
+          <div class="intro-loader-percent">0%</div>
+        </div>
+        <div class="intro-loader-title">Luis Krötz</div>
+        <div class="intro-loader-msg">Resolving interface copy</div>
+        <div class="intro-loader-bar"><div class="intro-loader-bar-fill"></div></div>
+      </div>
+    </div>
     <noscript>
       <main>
         <h1>Luis Krötz — Creative Developer</h1>
