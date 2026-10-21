@@ -61,16 +61,20 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
 10. **Logic Blocks Separated by Blank Lines**:
     - Every distinct logical step within a function must be separated from adjacent steps by exactly one blank line.
     - Correct:
+
       ```js
       const dbpath = `${lang?.database || 'translations/'}${locale}/components`
 
       fetchFirebaseDb(dbpath)
       ```
+
     - Incorrect (no blank line between assignment and call):
+
       ```js
       const dbpath = `${lang?.database || 'translations/'}${locale}/components`
       fetchFirebaseDb(dbpath)
       ```
+
     - This applies to: variable declarations followed by function calls, conditionals followed by assignments, loops followed by returns, and any other logical boundary.
 
 11. **Continuous Automated Governance**:
