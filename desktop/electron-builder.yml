@@ -11,6 +11,8 @@ directories:
 files:
   - main.mjs
   - package.json
+  # Window/taskbar icon — loaded by BrowserWindow at runtime.
+  - icon.png
   # The wrapper is pure node builtins + electron — the workspace's prod
   # deps (firebase/three/mermaid…) must not ship inside the asar.
   - '!node_modules/**'
@@ -39,12 +41,16 @@ mac:
 
 win:
   target: nsis
+  icon: icon.ico
 
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
   perMachine: false
+  installerIcon: icon.ico
+  uninstallerIcon: icon.ico
 
 linux:
   category: Utility
   target: AppImage
+  icon: icon.png

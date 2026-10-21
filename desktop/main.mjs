@@ -19,6 +19,15 @@ import fs from 'node:fs'
 import path from 'node:path'
 import url from 'node:url'
 
+// Hardware GPU stays enabled — the site leans on WebGL/WebGPU (three.js
+// scenes, the shader widgets). ignore-gpu-blocklist keeps blocklisted
+// drivers off the software-GL fallback; rasterization + zero-copy keep
+// canvas uploads on the GPU. (The launcher runs under its own app name
+// so the two processes never share a GPUPersistentCache/Dawn dir.)
+app.commandLine.appendSwitch('ignore-gpu-blocklist')
+app.commandLine.appendSwitch('enable-gpu-rasterization')
+app.commandLine.appendSwitch('enable-zero-copy')
+
 const here = path.dirname(url.fileURLToPath(import.meta.url))
 
 // Packaged builds bundle dist/ as an extraResource; dev runs read the
@@ -106,6 +115,7 @@ const createWindow = (port) => {
     minWidth: 360,
     minHeight: 480,
     autoHideMenuBar: true,
+    icon: path.join(here, 'icon.png'),
     webPreferences: {
       // No node integration in the page — it is the plain web build.
       contextIsolation: true,

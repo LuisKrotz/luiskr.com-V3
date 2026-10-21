@@ -73,6 +73,7 @@
     "lint:fix": "eslint shared core website cms experiments --fix --max-warnings=0",
     "format": "prettier --write \"**/*.{js,mjs,cjs,ts,tsx,scss,css,json,md,yml,yaml,html}\" --ignore-unknown",
     "deploy": "firebase deploy",
+    "desktop": "yarn desktop:dev",
     "desktop:dev": "electron desktop",
     "desktop:build": "yarn build && electron-builder --project desktop",
     "typecheck": "tsc --noEmit",

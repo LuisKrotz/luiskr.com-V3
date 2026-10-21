@@ -15,6 +15,12 @@ import url from 'node:url'
 const here = path.dirname(url.fileURLToPath(import.meta.url))
 const root = path.resolve(here, '..')
 
+// Own app name → own userData dir + own single-instance lock. Sharing
+// main.mjs's profile dir makes the two processes collide on the GPU
+// persistent caches (GPUPersistentCache/DawnGraphiteCache lock errors)
+// and lets the launcher's instance lock swallow the app's window.
+app.setName('luiskr-launcher')
+
 const gotLock = app.requestSingleInstanceLock()
 
 if (!gotLock) {
