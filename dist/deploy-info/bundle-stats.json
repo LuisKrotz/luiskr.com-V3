@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-21T18:18:00.922Z",
+  "generatedAt": "2026-10-21T21:07:16.010Z",
   "totals": {
     "js": {
       "files": 2128,
-      "bytes": 99551297,
-      "unminified": 86036319,
-      "gzip": 21616040,
-      "brotli": 18234093
+      "bytes": 99621415,
+      "unminified": 86105463,
+      "gzip": 21630694,
+      "brotli": 18245497
     },
     "css": {
       "files": 36,
@@ -16,11 +16,11 @@
       "brotli": 130238
     },
     "html": {
-      "files": 19258,
-      "bytes": 1174192532,
+      "files": 19261,
+      "bytes": 1174382187,
       "unminified": 0,
-      "gzip": 203139155,
-      "brotli": 165774393
+      "gzip": 203101383,
+      "brotli": 165801411
     },
     "wasm": {
       "files": 77,
@@ -30,11 +30,11 @@
       "brotli": 470
     },
     "assets": {
-      "files": 8476,
-      "bytes": 287494705,
+      "files": 8479,
+      "bytes": 287683997,
       "unminified": 0,
-      "gzip": 23912852,
-      "brotli": 18192994
+      "gzip": 23982511,
+      "brotli": 18259290
     }
   },
   "tiers": [
@@ -42,10 +42,10 @@
       "name": "es2016",
       "js": {
         "files": 1,
-        "bytes": 4187156,
-        "unminified": 7033777,
-        "gzip": 835625,
-        "brotli": 599221
+        "bytes": 4192692,
+        "unminified": 7039539,
+        "gzip": 836971,
+        "brotli": 600023
       },
       "css": {
         "files": 1,
@@ -63,8 +63,8 @@
       },
       "largest": [
         {
-          "file": "v\\es2016\\assets\\js\\index-CUeYrbLr.js",
-          "bytes": 4187156
+          "file": "v\\es2016\\assets\\js\\index-CIF9v1TG.js",
+          "bytes": 4192692
         },
         {
           "file": "v\\es2016\\assets\\css\\index-ad1dd374.css",
@@ -76,10 +76,10 @@
       "name": "es2017",
       "js": {
         "files": 190,
-        "bytes": 8172556,
-        "unminified": 7029831,
-        "gzip": 1873573,
-        "brotli": 1589846
+        "bytes": 8178036,
+        "unminified": 7035593,
+        "gzip": 1874719,
+        "brotli": 1590788
       },
       "css": {
         "files": 3,
@@ -97,8 +97,8 @@
       },
       "largest": [
         {
-          "file": "v\\es2017\\assets\\js\\docs-data-B2DP_Uei.js",
-          "bytes": 1532624
+          "file": "v\\es2017\\assets\\js\\docs-data-DzXkTpKg.js",
+          "bytes": 1533122
         },
         {
           "file": "v\\es2017\\assets\\js\\three-B2DSdhuR.js",
@@ -142,10 +142,10 @@
       "name": "es2018",
       "js": {
         "files": 188,
-        "bytes": 8157419,
-        "unminified": 7029831,
-        "gzip": 1869722,
-        "brotli": 1586528
+        "bytes": 8162839,
+        "unminified": 7035593,
+        "gzip": 1870830,
+        "brotli": 1587469
       },
       "css": {
         "files": 3,
@@ -163,8 +163,8 @@
       },
       "largest": [
         {
-          "file": "v\\es2018\\assets\\js\\docs-data-B2DP_Uei.js",
-          "bytes": 1532624
+          "file": "v\\es2018\\assets\\js\\docs-data-DzXkTpKg.js",
+          "bytes": 1533122
         },
         {
           "file": "v\\es2018\\assets\\js\\three-CHpqE3vx.js",
@@ -208,10 +208,10 @@
       "name": "es2019",
       "js": {
         "files": 188,
-        "bytes": 8157092,
-        "unminified": 7029831,
-        "gzip": 1869587,
-        "brotli": 1586457
+        "bytes": 8162512,
+        "unminified": 7035593,
+        "gzip": 1870765,
+        "brotli": 1587512
       },
       "css": {
         "files": 3,
@@ -229,8 +229,8 @@
       },
       "largest": [
         {
-          "file": "v\\es2019\\assets\\js\\docs-data-B2DP_Uei.js",
-          "bytes": 1532624
+          "file": "v\\es2019\\assets\\js\\docs-data-DzXkTpKg.js",
+          "bytes": 1533122
         },
         {
           "file": "v\\es2019\\assets\\js\\three-CHpqE3vx.js",
@@ -274,10 +274,10 @@
       "name": "es2020",
       "js": {
         "files": 188,
-        "bytes": 8122008,
-        "unminified": 7029831,
-        "gzip": 1858854,
-        "brotli": 1577320
+        "bytes": 8127427,
+        "unminified": 7035593,
+        "gzip": 1860181,
+        "brotli": 1578428
       },
       "css": {
         "files": 3,
@@ -295,8 +295,8 @@
       },
       "largest": [
         {
-          "file": "v\\es2020\\assets\\js\\docs-data-B2DP_Uei.js",
-          "bytes": 1532624
+          "file": "v\\es2020\\assets\\js\\docs-data-DzXkTpKg.js",
+          "bytes": 1533122
         },
         {
           "file": "v\\es2020\\assets\\js\\three-CHpqE3vx.js",
@@ -340,10 +340,10 @@
       "name": "es2021",
       "js": {
         "files": 188,
-        "bytes": 8121912,
-        "unminified": 7029831,
-        "gzip": 1858795,
-        "brotli": 1577272
+        "bytes": 8127352,
+        "unminified": 7035593,
+        "gzip": 1860108,
+        "brotli": 1578165
       },
       "css": {
         "files": 3,
@@ -361,8 +361,8 @@
       },
       "largest": [
         {
-          "file": "v\\es2021\\assets\\js\\docs-data-B2DP_Uei.js",
-          "bytes": 1532624
+          "file": "v\\es2021\\assets\\js\\docs-data-DzXkTpKg.js",
+          "bytes": 1533122
         },
         {
           "file": "v\\es2021\\assets\\js\\three-CHpqE3vx.js",
@@ -406,10 +406,10 @@
       "name": "es2022",
       "js": {
         "files": 188,
-        "bytes": 8098664,
-        "unminified": 7029831,
-        "gzip": 1856206,
-        "brotli": 1574830
+        "bytes": 8103961,
+        "unminified": 7035593,
+        "gzip": 1857322,
+        "brotli": 1575823
       },
       "css": {
         "files": 3,
@@ -427,8 +427,8 @@
       },
       "largest": [
         {
-          "file": "v\\es2022\\assets\\js\\docs-data-B2DP_Uei.js",
-          "bytes": 1532624
+          "file": "v\\es2022\\assets\\js\\docs-data-DzXkTpKg.js",
+          "bytes": 1533122
         },
         {
           "file": "v\\es2022\\assets\\js\\three-CffqfNtN.js",
@@ -472,10 +472,10 @@
       "name": "es2023",
       "js": {
         "files": 188,
-        "bytes": 8093892,
-        "unminified": 7029831,
-        "gzip": 1856120,
-        "brotli": 1574962
+        "bytes": 8099189,
+        "unminified": 7035593,
+        "gzip": 1857376,
+        "brotli": 1575868
       },
       "css": {
         "files": 3,
@@ -493,8 +493,8 @@
       },
       "largest": [
         {
-          "file": "v\\es2023\\assets\\js\\docs-data-B2DP_Uei.js",
-          "bytes": 1532624
+          "file": "v\\es2023\\assets\\js\\docs-data-DzXkTpKg.js",
+          "bytes": 1533122
         },
         {
           "file": "v\\es2023\\assets\\js\\three-CffqfNtN.js",
@@ -538,10 +538,10 @@
       "name": "es2024",
       "js": {
         "files": 188,
-        "bytes": 8093892,
-        "unminified": 7029831,
-        "gzip": 1856113,
-        "brotli": 1574986
+        "bytes": 8099189,
+        "unminified": 7035593,
+        "gzip": 1857376,
+        "brotli": 1575863
       },
       "css": {
         "files": 3,
@@ -559,8 +559,8 @@
       },
       "largest": [
         {
-          "file": "v\\es2024\\assets\\js\\docs-data-B2DP_Uei.js",
-          "bytes": 1532624
+          "file": "v\\es2024\\assets\\js\\docs-data-DzXkTpKg.js",
+          "bytes": 1533122
         },
         {
           "file": "v\\es2024\\assets\\js\\three-CffqfNtN.js",
@@ -604,10 +604,10 @@
       "name": "es2025",
       "js": {
         "files": 188,
-        "bytes": 8092001,
-        "unminified": 7029831,
-        "gzip": 1856277,
-        "brotli": 1574882
+        "bytes": 8097303,
+        "unminified": 7035593,
+        "gzip": 1857531,
+        "brotli": 1575869
       },
       "css": {
         "files": 3,
@@ -625,8 +625,8 @@
       },
       "largest": [
         {
-          "file": "v\\es2025\\assets\\js\\docs-data-B2DP_Uei.js",
-          "bytes": 1532624
+          "file": "v\\es2025\\assets\\js\\docs-data-DzXkTpKg.js",
+          "bytes": 1533122
         },
         {
           "file": "v\\es2025\\assets\\js\\three-CffqfNtN.js",
@@ -670,10 +670,10 @@
       "name": "es2026",
       "js": {
         "files": 213,
-        "bytes": 8556328,
-        "unminified": 8559166,
-        "gzip": 1997818,
-        "brotli": 1697238
+        "bytes": 8561621,
+        "unminified": 8564928,
+        "gzip": 1999055,
+        "brotli": 1698252
       },
       "css": {
         "files": 4,
@@ -691,8 +691,8 @@
       },
       "largest": [
         {
-          "file": "v\\es2026\\assets\\js\\docs-data-B2DP_Uei.js",
-          "bytes": 1532624
+          "file": "v\\es2026\\assets\\js\\docs-data-DzXkTpKg.js",
+          "bytes": 1533122
         },
         {
           "file": "v\\es2026\\assets\\js\\three-DS64T73d.js",
@@ -736,10 +736,10 @@
       "name": "esnext",
       "js": {
         "files": 188,
-        "bytes": 8091556,
-        "unminified": 7029831,
-        "gzip": 1855978,
-        "brotli": 1574621
+        "bytes": 8096853,
+        "unminified": 7035593,
+        "gzip": 1857099,
+        "brotli": 1575523
       },
       "css": {
         "files": 3,
@@ -757,8 +757,8 @@
       },
       "largest": [
         {
-          "file": "v\\esnext\\assets\\js\\docs-data-B2DP_Uei.js",
-          "bytes": 1532624
+          "file": "v\\esnext\\assets\\js\\docs-data-DzXkTpKg.js",
+          "bytes": 1533122
         },
         {
           "file": "v\\esnext\\assets\\js\\three-CffqfNtN.js",
@@ -802,7 +802,7 @@
       "name": "ie",
       "js": {
         "files": 1,
-        "bytes": 4545621,
+        "bytes": 4551241,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
@@ -823,8 +823,8 @@
       },
       "largest": [
         {
-          "file": "v\\ie\\assets\\js\\index-3a9a5153.js",
-          "bytes": 4545621
+          "file": "v\\ie\\assets\\js\\index-ed61912e.js",
+          "bytes": 4551241
         },
         {
           "file": "v\\ie\\assets\\css\\index-ad1dd374.css",
@@ -962,16 +962,16 @@
     }
   ],
   "html": {
-    "files": 19258,
-    "bytes": 1174192532,
+    "files": 19261,
+    "bytes": 1174382187,
     "unminified": 0,
-    "gzip": 203139155,
-    "brotli": 165774393,
+    "gzip": 203101383,
+    "brotli": 165801411,
     "byDir": [
       {
         "dir": "docs",
-        "files": 7793,
-        "bytes": 371501775
+        "files": 7796,
+        "bytes": 371691430
       },
       {
         "dir": "br",
@@ -1072,56 +1072,56 @@
   },
   "largest": [
     {
-      "file": "v\\ie\\assets\\js\\index-3a9a5153.js",
-      "bytes": 4545621
+      "file": "v\\ie\\assets\\js\\index-ed61912e.js",
+      "bytes": 4551241
     },
     {
-      "file": "v\\es2016\\assets\\js\\index-CUeYrbLr.js",
-      "bytes": 4187156
+      "file": "v\\es2016\\assets\\js\\index-CIF9v1TG.js",
+      "bytes": 4192692
     },
     {
-      "file": "v\\es2017\\assets\\js\\docs-data-B2DP_Uei.js",
-      "bytes": 1532624
+      "file": "v\\es2017\\assets\\js\\docs-data-DzXkTpKg.js",
+      "bytes": 1533122
     },
     {
-      "file": "v\\es2018\\assets\\js\\docs-data-B2DP_Uei.js",
-      "bytes": 1532624
+      "file": "v\\es2018\\assets\\js\\docs-data-DzXkTpKg.js",
+      "bytes": 1533122
     },
     {
-      "file": "v\\es2019\\assets\\js\\docs-data-B2DP_Uei.js",
-      "bytes": 1532624
+      "file": "v\\es2019\\assets\\js\\docs-data-DzXkTpKg.js",
+      "bytes": 1533122
     },
     {
-      "file": "v\\es2020\\assets\\js\\docs-data-B2DP_Uei.js",
-      "bytes": 1532624
+      "file": "v\\es2020\\assets\\js\\docs-data-DzXkTpKg.js",
+      "bytes": 1533122
     },
     {
-      "file": "v\\es2021\\assets\\js\\docs-data-B2DP_Uei.js",
-      "bytes": 1532624
+      "file": "v\\es2021\\assets\\js\\docs-data-DzXkTpKg.js",
+      "bytes": 1533122
     },
     {
-      "file": "v\\es2022\\assets\\js\\docs-data-B2DP_Uei.js",
-      "bytes": 1532624
+      "file": "v\\es2022\\assets\\js\\docs-data-DzXkTpKg.js",
+      "bytes": 1533122
     },
     {
-      "file": "v\\es2023\\assets\\js\\docs-data-B2DP_Uei.js",
-      "bytes": 1532624
+      "file": "v\\es2023\\assets\\js\\docs-data-DzXkTpKg.js",
+      "bytes": 1533122
     },
     {
-      "file": "v\\es2024\\assets\\js\\docs-data-B2DP_Uei.js",
-      "bytes": 1532624
+      "file": "v\\es2024\\assets\\js\\docs-data-DzXkTpKg.js",
+      "bytes": 1533122
     },
     {
-      "file": "v\\es2025\\assets\\js\\docs-data-B2DP_Uei.js",
-      "bytes": 1532624
+      "file": "v\\es2025\\assets\\js\\docs-data-DzXkTpKg.js",
+      "bytes": 1533122
     },
     {
-      "file": "v\\es2026\\assets\\js\\docs-data-B2DP_Uei.js",
-      "bytes": 1532624
+      "file": "v\\es2026\\assets\\js\\docs-data-DzXkTpKg.js",
+      "bytes": 1533122
     },
     {
-      "file": "v\\esnext\\assets\\js\\docs-data-B2DP_Uei.js",
-      "bytes": 1532624
+      "file": "v\\esnext\\assets\\js\\docs-data-DzXkTpKg.js",
+      "bytes": 1533122
     },
     {
       "file": "v\\es2017\\assets\\js\\three-B2DSdhuR.js",

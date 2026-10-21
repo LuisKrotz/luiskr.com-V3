@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-21T17:46:50.315Z",
+  "generatedAt": "2026-10-21T20:36:42.903Z",
   "engine": "axe-core@4.13.0",
   "totals": {
     "violations": 0,
     "criticalOrSerious": 0,
-    "incomplete": 19,
-    "passes": 185
+    "incomplete": 18,
+    "passes": 200
   },
   "surfaces": [
     {
@@ -151,12 +151,6 @@
       "violations": [],
       "incomplete": [
         {
-          "id": "bypass",
-          "impact": "serious",
-          "description": "Ensure each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
-          "nodes": 1
-        },
-        {
           "id": "color-contrast-enhanced",
           "impact": "serious",
           "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AAA enhanced contrast ratio thresholds",
@@ -169,7 +163,7 @@
           "nodes": 1
         }
       ],
-      "passes": 17
+      "passes": 32
     }
   ]
 }
