@@ -213,11 +213,14 @@
         min-height: 100%;
       }
 
-      /* Boot veil — static brand splash inside #app, painted before the JS
-         bundle arrives so first paint is never a dead dark frame (and LCP
-         always has a candidate). Hidden without JS so crawlers/readers see
-         the reader-content article unimpeded; mount()'s replaceChildren on
-         #app destroys it the instant the app shell takes over. */
+      /* Boot veil — static brand splash painted before the JS bundle arrives
+         so first paint is never a dead dark frame (and the painted text span
+         is a guaranteed LCP candidate). It lives outside #app because
+         mount()'s replaceChildren would otherwise destroy it before it ever
+         painted; the runtime removes it when the intro loader completes.
+         z-index sits just below the loader's veil (100000) so the handoff is
+         seamless. Hidden without JS so crawlers/readers see the
+         reader-content article unimpeded. */
       .boot-veil {
         display: none;
       }
@@ -229,7 +232,7 @@
         right: 0;
         bottom: 0;
         left: 0;
-        z-index: 2147483647;
+        z-index: 99999;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -309,9 +312,8 @@
   </head>
 
   <body>
-    <div id="app">
-      <div class="boot-veil" aria-hidden="true">Luis&nbsp;Krötz</div>
-    </div>
+    <div id="app"></div>
+    <div class="boot-veil" aria-hidden="true"><span>Luis&nbsp;Krötz</span></div>
     <noscript>
       <main>
         <h1>Luis Krötz — Creative Developer</h1>
