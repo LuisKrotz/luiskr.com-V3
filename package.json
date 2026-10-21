@@ -90,9 +90,11 @@
     "setup:gui": "electron desktop/launcher-main.mjs"
   },
   "dependencies": {
-    "@rolldown/binding-linux-x64-gnu": "^1.2.3",
     "firebase": "^13.0.0",
     "three": "0.184.0"
+  },
+  "optionalDependencies": {
+    "@rolldown/binding-linux-x64-gnu": "^1.2.3"
   },
   "resolutions": {
     "@grpc/grpc-js": "^1.14.5",
