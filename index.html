@@ -212,63 +212,6 @@
         max-width: 100%;
         min-height: 100%;
       }
-
-      /* Boot veil — static brand splash painted before the JS bundle arrives
-         so first paint is never a dead dark frame (and the painted text span
-         is a guaranteed LCP candidate). It lives outside #app because
-         mount()'s replaceChildren would otherwise destroy it before it ever
-         painted; the runtime removes it when the intro loader completes.
-         z-index sits just below the loader's veil (100000) so the handoff is
-         seamless. Hidden without JS so crawlers/readers see the
-         reader-content article unimpeded. */
-      .boot-veil {
-        display: none;
-      }
-
-      html.js .boot-veil {
-        display: flex;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 99999;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: #040404;
-        color: #fff;
-        font-family: Raleway, 'Segoe UI', system-ui, sans-serif;
-        font-weight: 100;
-        font-size: 1.75rem;
-        font-size: clamp(1.75rem, 8vw, 3.5rem);
-        line-height: 1;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-      }
-
-      html.js .boot-veil::before {
-        content: '';
-        width: 44px;
-        height: 44px;
-        margin-bottom: 28px;
-        border: 2px solid rgba(255, 255, 255, 0.16);
-        border-top-color: #fff;
-        border-radius: 50%;
-        animation: boot-veil-spin 0.9s linear infinite;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html.js .boot-veil::before {
-          animation: none;
-        }
-      }
-
-      @keyframes boot-veil-spin {
-        to {
-          transform: rotate(1turn);
-        }
-      }
     </style>
 
     <!-- Static JSON-LD graph — id matches SCHEMA_STRINGS.JSON_LD_SCRIPT_ID so
@@ -313,7 +256,6 @@
 
   <body>
     <div id="app"></div>
-    <div class="boot-veil" aria-hidden="true"><span>Luis&nbsp;Krötz</span></div>
     <noscript>
       <main>
         <h1>Luis Krötz — Creative Developer</h1>
