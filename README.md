@@ -64,6 +64,11 @@ pacman / zypper / apk). Only Node, Yarn, and Git are needed beforehand.
   [GitHub installer](https://github.com/coreybutler/nvm-windows/releases) —
   then `nvm install 24` + `nvm use 24` in PowerShell.
 
+> **Windows note:** run `git config --global core.longpaths true` **before**
+> cloning — tracked prerendered paths reach ~240 chars against the 260-char
+> `MAX_PATH` limit, so a default checkout fails with `invalid path` /
+> `Filename too long`. `yarn setup` also sets it repo-locally afterwards.
+
 ## Quick start
 
 ```bash

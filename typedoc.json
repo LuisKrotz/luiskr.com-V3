@@ -3,6 +3,7 @@
   "name": "luiskr.com",
   "entryPoints": ["shared/src", "core", "website", "cms", "experiments"],
   "entryPointStrategy": "expand",
+  "exclude": ["**/modules.d.ts"],
   "plugin": ["typedoc-plugin-markdown"],
   "out": "shared/docs/typedoc",
   "excludePrivate": true,
