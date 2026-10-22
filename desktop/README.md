@@ -29,6 +29,20 @@ yarn desktop:build    # per-OS installers → release/ (dmg/nsis/AppImage)
 yarn setup:gui        # open the setup/run/build launcher GUI
 ```
 
+## Windows note — EPERM on `win-unpacked`
+
+Windows Search (`SearchProtocolHost`) and Defender hold a directory handle on
+freshly extracted folders, so electron-builder's `win-unpacked.tmp →
+win-unpacked` rename can fail with `EPERM`. Workaround: pre-extract the cached
+Electron zip once, then point `electronDist` at the unpacked dir — the
+packager then copies files instead of renaming:
+
+```bash
+# zip lives under %LOCALAPPDATA%\electron\Cache\<sha>\electron-v<ver>-win32-x64.zip
+node -e "require('extract-zip')('<zip>', {dir: require('path').resolve('release/.electron-dist')})"
+yarn electron-builder --project desktop --win -c.electronDist="$PWD/release/.electron-dist"
+```
+
 ---
 
 Part of [luiskr.com-V3](https://github.com/LuisKrotz/luiskr.com-V3).
