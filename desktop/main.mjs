@@ -78,8 +78,28 @@ const fallbackFor = (p) =>
     ? path.join(DIST, 'cms', 'index.html')
     : path.join(DIST, 'index.html')
 
+// Mirrors firebase.json's isolation headers so the packaged app runs with
+// the same crossOriginIsolated context as the hosted site — SAB-enabled
+// threaded WASM (ORT) works identically. /cms keeps allow-popups +
+// unsafe-none for its auth flow. Constants duplicated from
+// shared/scripts/serve/security-headers.mjs — the packaged asar ships only
+// desktop/ files, so the shared module cannot be imported here.
+const COOP_SITE = 'same-origin'
+const COEP_SITE = 'credentialless'
+const COOP_CMS = 'same-origin-allow-popups'
+const COEP_CMS = 'unsafe-none'
+
 const server = http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://127.0.0.1').pathname)
+
+  if (pathname === '/cms' || pathname.startsWith('/cms/')) {
+    res.setHeader('Cross-Origin-Opener-Policy', COOP_CMS)
+    res.setHeader('Cross-Origin-Embedder-Policy', COEP_CMS)
+  } else {
+    res.setHeader('Cross-Origin-Opener-Policy', COOP_SITE)
+    res.setHeader('Cross-Origin-Embedder-Policy', COEP_SITE)
+  }
+
   const direct = safeJoin(pathname)
   const file =
     direct && fs.existsSync(direct) && fs.statSync(direct).isFile() ? direct : fallbackFor(pathname)

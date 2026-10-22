@@ -34,6 +34,7 @@ import { docsPortalPlugin } from './shared/build/docs-portal.mjs'
 import { i18nBootPlugin, i18nFallbackPlugin } from './shared/build/i18n-virtual.mjs'
 import { jsxInJsPlugin, SHARED_ESBUILD } from './shared/build/jsx-in-js.mjs'
 import { hostContextSafeLogger } from './shared/build/vite-lib.mjs'
+import { siteSecurityHeadersMiddleware } from './shared/scripts/serve/security-headers.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -506,8 +507,22 @@ export default defineConfig(({ command }) => {
     },
   }
 
+  // Mirrors firebase.json's isolation headers in dev + preview so
+  // crossOriginIsolated (SharedArrayBuffer → threaded ORT WASM) behaves
+  // identically everywhere. /cms stays non-isolated for its auth iframes.
+  const securityHeadersPlugin = {
+    name: 'security-headers',
+    configureServer(server) {
+      server.middlewares.use(siteSecurityHeadersMiddleware)
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(siteSecurityHeadersMiddleware)
+    },
+  }
+
   const plugins = [
     cmsMockPlugin,
+    securityHeadersPlugin,
     siteWebmanifestDevPlugin,
     previewCleanUrlsPlugin,
     ortLegacyStubPlugin,
@@ -756,6 +771,13 @@ export default defineConfig(({ command }) => {
     },
   }
 
+  // release/ (electron-builder output) and dist/ (production builds) are pure
+  // artifacts — watching them turns every packaging run or rebuild into
+  // thousands of spurious page-reload events on the dev server.
+  const serverWatch = {
+    ignored: ['**/release/**', '**/dist/**'],
+  }
+
   return {
     customLogger,
     plugins,
@@ -777,8 +799,9 @@ export default defineConfig(({ command }) => {
               secure: true,
             },
           },
+          watch: serverWatch,
         }
-      : undefined,
+      : { watch: serverWatch },
     esbuild: { ...SHARED_ESBUILD },
     optimizeDeps: {
       noDiscovery: true,
