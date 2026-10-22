@@ -1,40 +1,40 @@
 {
-  "generatedAt": "2026-10-21T21:07:16.010Z",
+  "generatedAt": "2026-10-22T10:17:29.196Z",
   "totals": {
     "js": {
-      "files": 2128,
-      "bytes": 99621415,
-      "unminified": 86105463,
-      "gzip": 21630694,
-      "brotli": 18245497
+      "files": 2166,
+      "bytes": 101279924,
+      "unminified": 87933868,
+      "gzip": 22157833,
+      "brotli": 18694687
     },
     "css": {
       "files": 36,
-      "bytes": 643313,
-      "unminified": 1418859,
-      "gzip": 147588,
-      "brotli": 130238
+      "bytes": 656281,
+      "unminified": 1454856,
+      "gzip": 150226,
+      "brotli": 132555
     },
     "html": {
-      "files": 19261,
-      "bytes": 1174382187,
+      "files": 19304,
+      "bytes": 1268087005,
       "unminified": 0,
-      "gzip": 203101383,
-      "brotli": 165801411
+      "gzip": 220041401,
+      "brotli": 176639064
     },
     "wasm": {
-      "files": 77,
-      "bytes": 1113871,
+      "files": 80,
+      "bytes": 70447710,
       "unminified": 0,
       "gzip": 550,
       "brotli": 470
     },
     "assets": {
-      "files": 8479,
-      "bytes": 287683997,
+      "files": 8524,
+      "bytes": 524334247,
       "unminified": 0,
-      "gzip": 23982511,
-      "brotli": 18259290
+      "gzip": 44534930,
+      "brotli": 29929342
     }
   },
   "tiers": [
@@ -42,17 +42,17 @@
       "name": "es2016",
       "js": {
         "files": 1,
-        "bytes": 4192692,
-        "unminified": 7039539,
-        "gzip": 836971,
-        "brotli": 600023
+        "bytes": 4220300,
+        "unminified": 7083640,
+        "gzip": 844316,
+        "brotli": 604532
       },
       "css": {
         "files": 1,
-        "bytes": 26580,
-        "unminified": 109143,
-        "gzip": 5903,
-        "brotli": 5218
+        "bytes": 27107,
+        "unminified": 111912,
+        "gzip": 6007,
+        "brotli": 5294
       },
       "misc": {
         "files": 0,
@@ -63,77 +63,77 @@
       },
       "largest": [
         {
-          "file": "v\\es2016\\assets\\js\\index-CIF9v1TG.js",
-          "bytes": 4192692
+          "file": "v\\es2016\\assets\\js\\index-C7Q5F5Fs.js",
+          "bytes": 4220300
         },
         {
-          "file": "v\\es2016\\assets\\css\\index-ad1dd374.css",
-          "bytes": 26580
+          "file": "v\\es2016\\assets\\css\\index-e0d96e32.css",
+          "bytes": 27107
         }
       ]
     },
     {
       "name": "es2017",
       "js": {
-        "files": 190,
-        "bytes": 8178036,
-        "unminified": 7035593,
-        "gzip": 1874719,
-        "brotli": 1590788
+        "files": 194,
+        "bytes": 8323866,
+        "unminified": 7197426,
+        "gzip": 1921522,
+        "brotli": 1630592
       },
       "css": {
         "files": 3,
-        "bytes": 54862,
-        "unminified": 109143,
-        "gzip": 12207,
-        "brotli": 10727
+        "bytes": 55916,
+        "unminified": 111912,
+        "gzip": 12413,
+        "brotli": 10915
       },
       "misc": {
-        "files": 0,
-        "bytes": 0,
+        "files": 1,
+        "bytes": 26781914,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "largest": [
         {
-          "file": "v\\es2017\\assets\\js\\docs-data-DzXkTpKg.js",
-          "bytes": 1533122
+          "file": "v\\es2017\\assets\\js\\docs-data-izUqya8R.js",
+          "bytes": 1541396
         },
         {
-          "file": "v\\es2017\\assets\\js\\three-B2DSdhuR.js",
+          "file": "v\\es2017\\assets\\js\\three-w5YBBxTS.js",
           "bytes": 641479
         },
         {
-          "file": "v\\es2017\\assets\\js\\three-Cbp6VQWF.js",
+          "file": "v\\es2017\\assets\\js\\three-BIjAVa_a.js",
           "bytes": 378564
         },
         {
-          "file": "v\\es2017\\assets\\js\\i18n-data-O0zgRkUR.js",
-          "bytes": 366647
+          "file": "v\\es2017\\assets\\js\\i18n-data-1wHCYmt9.js",
+          "bytes": 366771
         },
         {
-          "file": "v\\es2017\\assets\\js\\three-Cahbto1-.js",
+          "file": "v\\es2017\\assets\\js\\three-CvQg2ra3.js",
           "bytes": 365833
         },
         {
-          "file": "v\\es2017\\assets\\js\\i18n-data-BEoH4Be-.js",
+          "file": "v\\es2017\\assets\\js\\i18n-data-DH2hRZt7.js",
           "bytes": 289409
         },
         {
-          "file": "v\\es2017\\assets\\js\\i18n-data-puTIajYv.js",
+          "file": "v\\es2017\\assets\\js\\i18n-data-CifeEhyL.js",
           "bytes": 136812
         },
         {
-          "file": "v\\es2017\\assets\\js\\i18n-data-CEz5afm6.js",
+          "file": "v\\es2017\\assets\\js\\i18n-data-D6MbsUq4.js",
           "bytes": 132058
         },
         {
-          "file": "v\\es2017\\assets\\js\\i18n-data-D8kQFm04.js",
+          "file": "v\\es2017\\assets\\js\\i18n-data-CJ-kMsw8.js",
           "bytes": 131303
         },
         {
-          "file": "v\\es2017\\assets\\js\\i18n-data-teix-XTX.js",
+          "file": "v\\es2017\\assets\\js\\i18n-data-Ck4JlotQ.js",
           "bytes": 131303
         }
       ]
@@ -141,65 +141,65 @@
     {
       "name": "es2018",
       "js": {
-        "files": 188,
-        "bytes": 8162839,
-        "unminified": 7035593,
-        "gzip": 1870830,
-        "brotli": 1587469
+        "files": 192,
+        "bytes": 8313709,
+        "unminified": 7197426,
+        "gzip": 1920945,
+        "brotli": 1630597
       },
       "css": {
         "files": 3,
-        "bytes": 53266,
-        "unminified": 109143,
-        "gzip": 12028,
-        "brotli": 10631
+        "bytes": 54352,
+        "unminified": 111912,
+        "gzip": 12247,
+        "brotli": 10821
       },
       "misc": {
-        "files": 0,
-        "bytes": 0,
+        "files": 1,
+        "bytes": 26781914,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "largest": [
         {
-          "file": "v\\es2018\\assets\\js\\docs-data-DzXkTpKg.js",
-          "bytes": 1533122
+          "file": "v\\es2018\\assets\\js\\docs-data-izUqya8R.js",
+          "bytes": 1541396
         },
         {
-          "file": "v\\es2018\\assets\\js\\three-CHpqE3vx.js",
+          "file": "v\\es2018\\assets\\js\\three-w0wOcmPz.js",
           "bytes": 641312
         },
         {
-          "file": "v\\es2018\\assets\\js\\three-CZYrwujd.js",
+          "file": "v\\es2018\\assets\\js\\three-GM6GSlyR.js",
           "bytes": 378487
         },
         {
-          "file": "v\\es2018\\assets\\js\\i18n-data-O0zgRkUR.js",
-          "bytes": 366647
+          "file": "v\\es2018\\assets\\js\\i18n-data-1wHCYmt9.js",
+          "bytes": 366771
         },
         {
-          "file": "v\\es2018\\assets\\js\\three-CniCW8od.js",
+          "file": "v\\es2018\\assets\\js\\three-DWNWtDXn.js",
           "bytes": 365833
         },
         {
-          "file": "v\\es2018\\assets\\js\\i18n-data-BEoH4Be-.js",
+          "file": "v\\es2018\\assets\\js\\i18n-data-DH2hRZt7.js",
           "bytes": 289409
         },
         {
-          "file": "v\\es2018\\assets\\js\\i18n-data-puTIajYv.js",
+          "file": "v\\es2018\\assets\\js\\i18n-data-CifeEhyL.js",
           "bytes": 136812
         },
         {
-          "file": "v\\es2018\\assets\\js\\i18n-data-CEz5afm6.js",
+          "file": "v\\es2018\\assets\\js\\i18n-data-D6MbsUq4.js",
           "bytes": 132058
         },
         {
-          "file": "v\\es2018\\assets\\js\\i18n-data-D8kQFm04.js",
+          "file": "v\\es2018\\assets\\js\\i18n-data-CJ-kMsw8.js",
           "bytes": 131303
         },
         {
-          "file": "v\\es2018\\assets\\js\\i18n-data-teix-XTX.js",
+          "file": "v\\es2018\\assets\\js\\i18n-data-Ck4JlotQ.js",
           "bytes": 131303
         }
       ]
@@ -207,65 +207,65 @@
     {
       "name": "es2019",
       "js": {
-        "files": 188,
-        "bytes": 8162512,
-        "unminified": 7035593,
-        "gzip": 1870765,
-        "brotli": 1587512
+        "files": 192,
+        "bytes": 8313345,
+        "unminified": 7197426,
+        "gzip": 1920926,
+        "brotli": 1630425
       },
       "css": {
         "files": 3,
-        "bytes": 53240,
-        "unminified": 109143,
-        "gzip": 12023,
-        "brotli": 10611
+        "bytes": 54326,
+        "unminified": 111912,
+        "gzip": 12240,
+        "brotli": 10806
       },
       "misc": {
-        "files": 0,
-        "bytes": 0,
+        "files": 1,
+        "bytes": 26781914,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "largest": [
         {
-          "file": "v\\es2019\\assets\\js\\docs-data-DzXkTpKg.js",
-          "bytes": 1533122
+          "file": "v\\es2019\\assets\\js\\docs-data-izUqya8R.js",
+          "bytes": 1541396
         },
         {
-          "file": "v\\es2019\\assets\\js\\three-CHpqE3vx.js",
+          "file": "v\\es2019\\assets\\js\\three-w0wOcmPz.js",
           "bytes": 641312
         },
         {
-          "file": "v\\es2019\\assets\\js\\three-CZYrwujd.js",
+          "file": "v\\es2019\\assets\\js\\three-GM6GSlyR.js",
           "bytes": 378487
         },
         {
-          "file": "v\\es2019\\assets\\js\\i18n-data-O0zgRkUR.js",
-          "bytes": 366647
+          "file": "v\\es2019\\assets\\js\\i18n-data-1wHCYmt9.js",
+          "bytes": 366771
         },
         {
-          "file": "v\\es2019\\assets\\js\\three-CniCW8od.js",
+          "file": "v\\es2019\\assets\\js\\three-DWNWtDXn.js",
           "bytes": 365833
         },
         {
-          "file": "v\\es2019\\assets\\js\\i18n-data-BEoH4Be-.js",
+          "file": "v\\es2019\\assets\\js\\i18n-data-DH2hRZt7.js",
           "bytes": 289409
         },
         {
-          "file": "v\\es2019\\assets\\js\\i18n-data-puTIajYv.js",
+          "file": "v\\es2019\\assets\\js\\i18n-data-CifeEhyL.js",
           "bytes": 136812
         },
         {
-          "file": "v\\es2019\\assets\\js\\i18n-data-CEz5afm6.js",
+          "file": "v\\es2019\\assets\\js\\i18n-data-D6MbsUq4.js",
           "bytes": 132058
         },
         {
-          "file": "v\\es2019\\assets\\js\\i18n-data-D8kQFm04.js",
+          "file": "v\\es2019\\assets\\js\\i18n-data-CJ-kMsw8.js",
           "bytes": 131303
         },
         {
-          "file": "v\\es2019\\assets\\js\\i18n-data-teix-XTX.js",
+          "file": "v\\es2019\\assets\\js\\i18n-data-Ck4JlotQ.js",
           "bytes": 131303
         }
       ]
@@ -273,65 +273,65 @@
     {
       "name": "es2020",
       "js": {
-        "files": 188,
-        "bytes": 8127427,
-        "unminified": 7035593,
-        "gzip": 1860181,
-        "brotli": 1578428
+        "files": 192,
+        "bytes": 8275748,
+        "unminified": 7197426,
+        "gzip": 1909273,
+        "brotli": 1620356
       },
       "css": {
         "files": 3,
-        "bytes": 53240,
-        "unminified": 109143,
-        "gzip": 12023,
-        "brotli": 10611
+        "bytes": 54326,
+        "unminified": 111912,
+        "gzip": 12240,
+        "brotli": 10806
       },
       "misc": {
-        "files": 0,
-        "bytes": 0,
+        "files": 1,
+        "bytes": 26781914,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "largest": [
         {
-          "file": "v\\es2020\\assets\\js\\docs-data-DzXkTpKg.js",
-          "bytes": 1533122
+          "file": "v\\es2020\\assets\\js\\docs-data-izUqya8R.js",
+          "bytes": 1541396
         },
         {
-          "file": "v\\es2020\\assets\\js\\three-CHpqE3vx.js",
+          "file": "v\\es2020\\assets\\js\\three-w0wOcmPz.js",
           "bytes": 641312
         },
         {
-          "file": "v\\es2020\\assets\\js\\three-CZYrwujd.js",
+          "file": "v\\es2020\\assets\\js\\three-GM6GSlyR.js",
           "bytes": 378487
         },
         {
-          "file": "v\\es2020\\assets\\js\\i18n-data-O0zgRkUR.js",
-          "bytes": 366647
+          "file": "v\\es2020\\assets\\js\\i18n-data-1wHCYmt9.js",
+          "bytes": 366771
         },
         {
-          "file": "v\\es2020\\assets\\js\\three-CniCW8od.js",
+          "file": "v\\es2020\\assets\\js\\three-DWNWtDXn.js",
           "bytes": 365833
         },
         {
-          "file": "v\\es2020\\assets\\js\\i18n-data-BEoH4Be-.js",
+          "file": "v\\es2020\\assets\\js\\i18n-data-DH2hRZt7.js",
           "bytes": 289409
         },
         {
-          "file": "v\\es2020\\assets\\js\\i18n-data-puTIajYv.js",
+          "file": "v\\es2020\\assets\\js\\i18n-data-CifeEhyL.js",
           "bytes": 136812
         },
         {
-          "file": "v\\es2020\\assets\\js\\i18n-data-CEz5afm6.js",
+          "file": "v\\es2020\\assets\\js\\i18n-data-D6MbsUq4.js",
           "bytes": 132058
         },
         {
-          "file": "v\\es2020\\assets\\js\\i18n-data-D8kQFm04.js",
+          "file": "v\\es2020\\assets\\js\\i18n-data-CJ-kMsw8.js",
           "bytes": 131303
         },
         {
-          "file": "v\\es2020\\assets\\js\\i18n-data-teix-XTX.js",
+          "file": "v\\es2020\\assets\\js\\i18n-data-Ck4JlotQ.js",
           "bytes": 131303
         }
       ]
@@ -339,65 +339,65 @@
     {
       "name": "es2021",
       "js": {
-        "files": 188,
-        "bytes": 8127352,
-        "unminified": 7035593,
-        "gzip": 1860108,
-        "brotli": 1578165
+        "files": 192,
+        "bytes": 8275642,
+        "unminified": 7197426,
+        "gzip": 1909304,
+        "brotli": 1620338
       },
       "css": {
         "files": 3,
-        "bytes": 53240,
-        "unminified": 109143,
-        "gzip": 12023,
-        "brotli": 10611
+        "bytes": 54326,
+        "unminified": 111912,
+        "gzip": 12240,
+        "brotli": 10806
       },
       "misc": {
-        "files": 0,
-        "bytes": 0,
+        "files": 1,
+        "bytes": 26781914,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "largest": [
         {
-          "file": "v\\es2021\\assets\\js\\docs-data-DzXkTpKg.js",
-          "bytes": 1533122
+          "file": "v\\es2021\\assets\\js\\docs-data-izUqya8R.js",
+          "bytes": 1541396
         },
         {
-          "file": "v\\es2021\\assets\\js\\three-CHpqE3vx.js",
+          "file": "v\\es2021\\assets\\js\\three-w0wOcmPz.js",
           "bytes": 641312
         },
         {
-          "file": "v\\es2021\\assets\\js\\three-CZYrwujd.js",
+          "file": "v\\es2021\\assets\\js\\three-GM6GSlyR.js",
           "bytes": 378487
         },
         {
-          "file": "v\\es2021\\assets\\js\\i18n-data-O0zgRkUR.js",
-          "bytes": 366647
+          "file": "v\\es2021\\assets\\js\\i18n-data-1wHCYmt9.js",
+          "bytes": 366771
         },
         {
-          "file": "v\\es2021\\assets\\js\\three-CniCW8od.js",
+          "file": "v\\es2021\\assets\\js\\three-DWNWtDXn.js",
           "bytes": 365833
         },
         {
-          "file": "v\\es2021\\assets\\js\\i18n-data-BEoH4Be-.js",
+          "file": "v\\es2021\\assets\\js\\i18n-data-DH2hRZt7.js",
           "bytes": 289409
         },
         {
-          "file": "v\\es2021\\assets\\js\\i18n-data-puTIajYv.js",
+          "file": "v\\es2021\\assets\\js\\i18n-data-CifeEhyL.js",
           "bytes": 136812
         },
         {
-          "file": "v\\es2021\\assets\\js\\i18n-data-CEz5afm6.js",
+          "file": "v\\es2021\\assets\\js\\i18n-data-D6MbsUq4.js",
           "bytes": 132058
         },
         {
-          "file": "v\\es2021\\assets\\js\\i18n-data-D8kQFm04.js",
+          "file": "v\\es2021\\assets\\js\\i18n-data-CJ-kMsw8.js",
           "bytes": 131303
         },
         {
-          "file": "v\\es2021\\assets\\js\\i18n-data-teix-XTX.js",
+          "file": "v\\es2021\\assets\\js\\i18n-data-Ck4JlotQ.js",
           "bytes": 131303
         }
       ]
@@ -405,65 +405,65 @@
     {
       "name": "es2022",
       "js": {
-        "files": 188,
-        "bytes": 8103961,
-        "unminified": 7035593,
-        "gzip": 1857322,
-        "brotli": 1575823
+        "files": 191,
+        "bytes": 8246258,
+        "unminified": 7197426,
+        "gzip": 1903122,
+        "brotli": 1615165
       },
       "css": {
         "files": 3,
-        "bytes": 50995,
-        "unminified": 109143,
-        "gzip": 11936,
-        "brotli": 10526
+        "bytes": 52081,
+        "unminified": 111912,
+        "gzip": 12156,
+        "brotli": 10727
       },
       "misc": {
-        "files": 0,
-        "bytes": 0,
+        "files": 1,
+        "bytes": 26781914,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "largest": [
         {
-          "file": "v\\es2022\\assets\\js\\docs-data-DzXkTpKg.js",
-          "bytes": 1533122
+          "file": "v\\es2022\\assets\\js\\docs-data-izUqya8R.js",
+          "bytes": 1541396
         },
         {
-          "file": "v\\es2022\\assets\\js\\three-CffqfNtN.js",
+          "file": "v\\es2022\\assets\\js\\three-CCGMVrl-.js",
           "bytes": 641312
         },
         {
-          "file": "v\\es2022\\assets\\js\\three-MI6glb1I.js",
+          "file": "v\\es2022\\assets\\js\\three-CS2sufPl.js",
           "bytes": 378498
         },
         {
-          "file": "v\\es2022\\assets\\js\\i18n-data-O0zgRkUR.js",
-          "bytes": 366647
+          "file": "v\\es2022\\assets\\js\\i18n-data-1wHCYmt9.js",
+          "bytes": 366771
         },
         {
-          "file": "v\\es2022\\assets\\js\\three-BpLoyYY8.js",
+          "file": "v\\es2022\\assets\\js\\three-B-JMvSp_.js",
           "bytes": 365833
         },
         {
-          "file": "v\\es2022\\assets\\js\\i18n-data-BEoH4Be-.js",
+          "file": "v\\es2022\\assets\\js\\i18n-data-DH2hRZt7.js",
           "bytes": 289409
         },
         {
-          "file": "v\\es2022\\assets\\js\\i18n-data-puTIajYv.js",
+          "file": "v\\es2022\\assets\\js\\i18n-data-CifeEhyL.js",
           "bytes": 136812
         },
         {
-          "file": "v\\es2022\\assets\\js\\i18n-data-CEz5afm6.js",
+          "file": "v\\es2022\\assets\\js\\i18n-data-D6MbsUq4.js",
           "bytes": 132058
         },
         {
-          "file": "v\\es2022\\assets\\js\\i18n-data-D8kQFm04.js",
+          "file": "v\\es2022\\assets\\js\\i18n-data-CJ-kMsw8.js",
           "bytes": 131303
         },
         {
-          "file": "v\\es2022\\assets\\js\\i18n-data-teix-XTX.js",
+          "file": "v\\es2022\\assets\\js\\i18n-data-Ck4JlotQ.js",
           "bytes": 131303
         }
       ]
@@ -471,65 +471,65 @@
     {
       "name": "es2023",
       "js": {
-        "files": 188,
-        "bytes": 8099189,
-        "unminified": 7035593,
-        "gzip": 1857376,
-        "brotli": 1575868
+        "files": 191,
+        "bytes": 8241673,
+        "unminified": 7197426,
+        "gzip": 1903058,
+        "brotli": 1614925
       },
       "css": {
         "files": 3,
-        "bytes": 50562,
-        "unminified": 109143,
-        "gzip": 11914,
-        "brotli": 10523
+        "bytes": 51648,
+        "unminified": 111912,
+        "gzip": 12137,
+        "brotli": 10728
       },
       "misc": {
-        "files": 0,
-        "bytes": 0,
+        "files": 1,
+        "bytes": 26781914,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "largest": [
         {
-          "file": "v\\es2023\\assets\\js\\docs-data-DzXkTpKg.js",
-          "bytes": 1533122
+          "file": "v\\es2023\\assets\\js\\docs-data-izUqya8R.js",
+          "bytes": 1541396
         },
         {
-          "file": "v\\es2023\\assets\\js\\three-CffqfNtN.js",
+          "file": "v\\es2023\\assets\\js\\three-CCGMVrl-.js",
           "bytes": 641312
         },
         {
-          "file": "v\\es2023\\assets\\js\\three-MI6glb1I.js",
+          "file": "v\\es2023\\assets\\js\\three-CS2sufPl.js",
           "bytes": 378498
         },
         {
-          "file": "v\\es2023\\assets\\js\\i18n-data-O0zgRkUR.js",
-          "bytes": 366647
+          "file": "v\\es2023\\assets\\js\\i18n-data-1wHCYmt9.js",
+          "bytes": 366771
         },
         {
-          "file": "v\\es2023\\assets\\js\\three-BpLoyYY8.js",
+          "file": "v\\es2023\\assets\\js\\three-B-JMvSp_.js",
           "bytes": 365833
         },
         {
-          "file": "v\\es2023\\assets\\js\\i18n-data-BEoH4Be-.js",
+          "file": "v\\es2023\\assets\\js\\i18n-data-DH2hRZt7.js",
           "bytes": 289409
         },
         {
-          "file": "v\\es2023\\assets\\js\\i18n-data-puTIajYv.js",
+          "file": "v\\es2023\\assets\\js\\i18n-data-CifeEhyL.js",
           "bytes": 136812
         },
         {
-          "file": "v\\es2023\\assets\\js\\i18n-data-CEz5afm6.js",
+          "file": "v\\es2023\\assets\\js\\i18n-data-D6MbsUq4.js",
           "bytes": 132058
         },
         {
-          "file": "v\\es2023\\assets\\js\\i18n-data-D8kQFm04.js",
+          "file": "v\\es2023\\assets\\js\\i18n-data-CJ-kMsw8.js",
           "bytes": 131303
         },
         {
-          "file": "v\\es2023\\assets\\js\\i18n-data-teix-XTX.js",
+          "file": "v\\es2023\\assets\\js\\i18n-data-Ck4JlotQ.js",
           "bytes": 131303
         }
       ]
@@ -537,65 +537,65 @@
     {
       "name": "es2024",
       "js": {
-        "files": 188,
-        "bytes": 8099189,
-        "unminified": 7035593,
-        "gzip": 1857376,
-        "brotli": 1575863
+        "files": 191,
+        "bytes": 8241673,
+        "unminified": 7197426,
+        "gzip": 1903048,
+        "brotli": 1614891
       },
       "css": {
         "files": 3,
-        "bytes": 50562,
-        "unminified": 109143,
-        "gzip": 11914,
-        "brotli": 10523
+        "bytes": 51648,
+        "unminified": 111912,
+        "gzip": 12137,
+        "brotli": 10728
       },
       "misc": {
-        "files": 0,
-        "bytes": 0,
+        "files": 1,
+        "bytes": 26781914,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "largest": [
         {
-          "file": "v\\es2024\\assets\\js\\docs-data-DzXkTpKg.js",
-          "bytes": 1533122
+          "file": "v\\es2024\\assets\\js\\docs-data-izUqya8R.js",
+          "bytes": 1541396
         },
         {
-          "file": "v\\es2024\\assets\\js\\three-CffqfNtN.js",
+          "file": "v\\es2024\\assets\\js\\three-CCGMVrl-.js",
           "bytes": 641312
         },
         {
-          "file": "v\\es2024\\assets\\js\\three-MI6glb1I.js",
+          "file": "v\\es2024\\assets\\js\\three-CS2sufPl.js",
           "bytes": 378498
         },
         {
-          "file": "v\\es2024\\assets\\js\\i18n-data-O0zgRkUR.js",
-          "bytes": 366647
+          "file": "v\\es2024\\assets\\js\\i18n-data-1wHCYmt9.js",
+          "bytes": 366771
         },
         {
-          "file": "v\\es2024\\assets\\js\\three-BpLoyYY8.js",
+          "file": "v\\es2024\\assets\\js\\three-B-JMvSp_.js",
           "bytes": 365833
         },
         {
-          "file": "v\\es2024\\assets\\js\\i18n-data-BEoH4Be-.js",
+          "file": "v\\es2024\\assets\\js\\i18n-data-DH2hRZt7.js",
           "bytes": 289409
         },
         {
-          "file": "v\\es2024\\assets\\js\\i18n-data-puTIajYv.js",
+          "file": "v\\es2024\\assets\\js\\i18n-data-CifeEhyL.js",
           "bytes": 136812
         },
         {
-          "file": "v\\es2024\\assets\\js\\i18n-data-CEz5afm6.js",
+          "file": "v\\es2024\\assets\\js\\i18n-data-D6MbsUq4.js",
           "bytes": 132058
         },
         {
-          "file": "v\\es2024\\assets\\js\\i18n-data-D8kQFm04.js",
+          "file": "v\\es2024\\assets\\js\\i18n-data-CJ-kMsw8.js",
           "bytes": 131303
         },
         {
-          "file": "v\\es2024\\assets\\js\\i18n-data-teix-XTX.js",
+          "file": "v\\es2024\\assets\\js\\i18n-data-Ck4JlotQ.js",
           "bytes": 131303
         }
       ]
@@ -603,65 +603,65 @@
     {
       "name": "es2025",
       "js": {
-        "files": 188,
-        "bytes": 8097303,
-        "unminified": 7035593,
-        "gzip": 1857531,
-        "brotli": 1575869
+        "files": 191,
+        "bytes": 8239571,
+        "unminified": 7197426,
+        "gzip": 1902971,
+        "brotli": 1614808
       },
       "css": {
         "files": 3,
-        "bytes": 50360,
-        "unminified": 109143,
-        "gzip": 11906,
-        "brotli": 10515
+        "bytes": 51446,
+        "unminified": 111912,
+        "gzip": 12132,
+        "brotli": 10704
       },
       "misc": {
-        "files": 0,
-        "bytes": 0,
+        "files": 1,
+        "bytes": 26781914,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "largest": [
         {
-          "file": "v\\es2025\\assets\\js\\docs-data-DzXkTpKg.js",
-          "bytes": 1533122
+          "file": "v\\es2025\\assets\\js\\docs-data-izUqya8R.js",
+          "bytes": 1541396
         },
         {
-          "file": "v\\es2025\\assets\\js\\three-CffqfNtN.js",
+          "file": "v\\es2025\\assets\\js\\three-CCGMVrl-.js",
           "bytes": 641312
         },
         {
-          "file": "v\\es2025\\assets\\js\\three-MI6glb1I.js",
+          "file": "v\\es2025\\assets\\js\\three-CS2sufPl.js",
           "bytes": 378498
         },
         {
-          "file": "v\\es2025\\assets\\js\\i18n-data-O0zgRkUR.js",
-          "bytes": 366647
+          "file": "v\\es2025\\assets\\js\\i18n-data-1wHCYmt9.js",
+          "bytes": 366771
         },
         {
-          "file": "v\\es2025\\assets\\js\\three-BpLoyYY8.js",
+          "file": "v\\es2025\\assets\\js\\three-B-JMvSp_.js",
           "bytes": 365833
         },
         {
-          "file": "v\\es2025\\assets\\js\\i18n-data-BEoH4Be-.js",
+          "file": "v\\es2025\\assets\\js\\i18n-data-DH2hRZt7.js",
           "bytes": 289409
         },
         {
-          "file": "v\\es2025\\assets\\js\\i18n-data-puTIajYv.js",
+          "file": "v\\es2025\\assets\\js\\i18n-data-CifeEhyL.js",
           "bytes": 136812
         },
         {
-          "file": "v\\es2025\\assets\\js\\i18n-data-CEz5afm6.js",
+          "file": "v\\es2025\\assets\\js\\i18n-data-D6MbsUq4.js",
           "bytes": 132058
         },
         {
-          "file": "v\\es2025\\assets\\js\\i18n-data-D8kQFm04.js",
+          "file": "v\\es2025\\assets\\js\\i18n-data-CJ-kMsw8.js",
           "bytes": 131303
         },
         {
-          "file": "v\\es2025\\assets\\js\\i18n-data-teix-XTX.js",
+          "file": "v\\es2025\\assets\\js\\i18n-data-Ck4JlotQ.js",
           "bytes": 131303
         }
       ]
@@ -669,65 +669,65 @@
     {
       "name": "es2026",
       "js": {
-        "files": 213,
-        "bytes": 8561621,
-        "unminified": 8564928,
-        "gzip": 1999055,
-        "brotli": 1698252
+        "files": 216,
+        "bytes": 8706010,
+        "unminified": 8730550,
+        "gzip": 2045169,
+        "brotli": 1737434
       },
       "css": {
         "files": 4,
-        "bytes": 69670,
-        "unminified": 109143,
-        "gzip": 15964,
-        "brotli": 14076
+        "bytes": 70756,
+        "unminified": 111912,
+        "gzip": 16195,
+        "brotli": 14277
       },
       "misc": {
-        "files": 0,
-        "bytes": 0,
+        "files": 1,
+        "bytes": 26781914,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "largest": [
         {
-          "file": "v\\es2026\\assets\\js\\docs-data-DzXkTpKg.js",
-          "bytes": 1533122
+          "file": "v\\es2026\\assets\\js\\docs-data-izUqya8R.js",
+          "bytes": 1541396
         },
         {
-          "file": "v\\es2026\\assets\\js\\three-DS64T73d.js",
+          "file": "v\\es2026\\assets\\js\\three-iidK3Zj5.js",
           "bytes": 641381
         },
         {
-          "file": "v\\es2026\\assets\\js\\three--6HMgapN.js",
+          "file": "v\\es2026\\assets\\js\\three-n3Gc1W7B.js",
           "bytes": 378510
         },
         {
-          "file": "v\\es2026\\assets\\js\\i18n-data-O0zgRkUR.js",
-          "bytes": 366647
+          "file": "v\\es2026\\assets\\js\\i18n-data-1wHCYmt9.js",
+          "bytes": 366771
         },
         {
-          "file": "v\\es2026\\assets\\js\\three-BPEz6_iJ.js",
+          "file": "v\\es2026\\assets\\js\\three-CtnwB6Oz.js",
           "bytes": 365833
         },
         {
-          "file": "v\\es2026\\assets\\js\\i18n-data-BEoH4Be-.js",
+          "file": "v\\es2026\\assets\\js\\i18n-data-DH2hRZt7.js",
           "bytes": 289409
         },
         {
-          "file": "v\\es2026\\assets\\js\\vendor-firebase-DmxEYJCD.js",
+          "file": "v\\es2026\\assets\\js\\vendor-firebase-DKR-RJs5.js",
           "bytes": 143494
         },
         {
-          "file": "v\\es2026\\assets\\js\\i18n-data-puTIajYv.js",
+          "file": "v\\es2026\\assets\\js\\i18n-data-CifeEhyL.js",
           "bytes": 136812
         },
         {
-          "file": "v\\es2026\\assets\\js\\i18n-data-CEz5afm6.js",
+          "file": "v\\es2026\\assets\\js\\i18n-data-D6MbsUq4.js",
           "bytes": 132058
         },
         {
-          "file": "v\\es2026\\assets\\js\\i18n-data-D8kQFm04.js",
+          "file": "v\\es2026\\assets\\js\\i18n-data-CJ-kMsw8.js",
           "bytes": 131303
         }
       ]
@@ -735,65 +735,65 @@
     {
       "name": "esnext",
       "js": {
-        "files": 188,
-        "bytes": 8096853,
-        "unminified": 7035593,
-        "gzip": 1857099,
-        "brotli": 1575523
+        "files": 191,
+        "bytes": 8239121,
+        "unminified": 7197426,
+        "gzip": 1902718,
+        "brotli": 1614639
       },
       "css": {
         "files": 3,
-        "bytes": 50156,
-        "unminified": 109143,
-        "gzip": 11844,
-        "brotli": 10448
+        "bytes": 51242,
+        "unminified": 111912,
+        "gzip": 12075,
+        "brotli": 10649
       },
       "misc": {
-        "files": 0,
-        "bytes": 0,
+        "files": 1,
+        "bytes": 26781914,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "largest": [
         {
-          "file": "v\\esnext\\assets\\js\\docs-data-DzXkTpKg.js",
-          "bytes": 1533122
+          "file": "v\\esnext\\assets\\js\\docs-data-izUqya8R.js",
+          "bytes": 1541396
         },
         {
-          "file": "v\\esnext\\assets\\js\\three-CffqfNtN.js",
+          "file": "v\\esnext\\assets\\js\\three-CCGMVrl-.js",
           "bytes": 641312
         },
         {
-          "file": "v\\esnext\\assets\\js\\three-MI6glb1I.js",
+          "file": "v\\esnext\\assets\\js\\three-CS2sufPl.js",
           "bytes": 378498
         },
         {
-          "file": "v\\esnext\\assets\\js\\i18n-data-O0zgRkUR.js",
-          "bytes": 366647
+          "file": "v\\esnext\\assets\\js\\i18n-data-1wHCYmt9.js",
+          "bytes": 366771
         },
         {
-          "file": "v\\esnext\\assets\\js\\three-BpLoyYY8.js",
+          "file": "v\\esnext\\assets\\js\\three-B-JMvSp_.js",
           "bytes": 365833
         },
         {
-          "file": "v\\esnext\\assets\\js\\i18n-data-BEoH4Be-.js",
+          "file": "v\\esnext\\assets\\js\\i18n-data-DH2hRZt7.js",
           "bytes": 289409
         },
         {
-          "file": "v\\esnext\\assets\\js\\i18n-data-puTIajYv.js",
+          "file": "v\\esnext\\assets\\js\\i18n-data-CifeEhyL.js",
           "bytes": 136812
         },
         {
-          "file": "v\\esnext\\assets\\js\\i18n-data-CEz5afm6.js",
+          "file": "v\\esnext\\assets\\js\\i18n-data-D6MbsUq4.js",
           "bytes": 132058
         },
         {
-          "file": "v\\esnext\\assets\\js\\i18n-data-D8kQFm04.js",
+          "file": "v\\esnext\\assets\\js\\i18n-data-CJ-kMsw8.js",
           "bytes": 131303
         },
         {
-          "file": "v\\esnext\\assets\\js\\i18n-data-teix-XTX.js",
+          "file": "v\\esnext\\assets\\js\\i18n-data-Ck4JlotQ.js",
           "bytes": 131303
         }
       ]
@@ -802,17 +802,17 @@
       "name": "ie",
       "js": {
         "files": 1,
-        "bytes": 4551241,
+        "bytes": 4581522,
         "unminified": 0,
         "gzip": 0,
         "brotli": 0
       },
       "css": {
         "files": 1,
-        "bytes": 26580,
-        "unminified": 109143,
-        "gzip": 5903,
-        "brotli": 5218
+        "bytes": 27107,
+        "unminified": 111912,
+        "gzip": 6007,
+        "brotli": 5294
       },
       "misc": {
         "files": 0,
@@ -823,12 +823,12 @@
       },
       "largest": [
         {
-          "file": "v\\ie\\assets\\js\\index-ed61912e.js",
-          "bytes": 4551241
+          "file": "v\\ie\\assets\\js\\index-953c03d6.js",
+          "bytes": 4581522
         },
         {
-          "file": "v\\ie\\assets\\css\\index-ad1dd374.css",
-          "bytes": 26580
+          "file": "v\\ie\\assets\\css\\index-e0d96e32.css",
+          "bytes": 27107
         }
       ]
     }
@@ -962,173 +962,173 @@
     }
   ],
   "html": {
-    "files": 19261,
-    "bytes": 1174382187,
+    "files": 19304,
+    "bytes": 1268087005,
     "unminified": 0,
-    "gzip": 203101383,
-    "brotli": 165801411,
+    "gzip": 220041401,
+    "brotli": 176639064,
     "byDir": [
       {
         "dir": "docs",
-        "files": 7796,
-        "bytes": 371691430
+        "files": 7839,
+        "bytes": 461542443
       },
       {
         "dir": "br",
         "files": 692,
-        "bytes": 48628513
+        "bytes": 48805928
       },
       {
         "dir": "ca",
         "files": 692,
-        "bytes": 48561717
+        "bytes": 48740035
       },
       {
         "dir": "cas",
         "files": 692,
-        "bytes": 48833048
+        "bytes": 49011680
       },
       {
         "dir": "de",
         "files": 692,
-        "bytes": 48129075
+        "bytes": 48308207
       },
       {
         "dir": "es",
         "files": 692,
-        "bytes": 48771548
+        "bytes": 48950024
       },
       {
         "dir": "fr",
         "files": 692,
-        "bytes": 48376467
+        "bytes": 48557444
       },
       {
         "dir": "ga",
         "files": 692,
-        "bytes": 48799504
+        "bytes": 48979523
       },
       {
         "dir": "gl",
         "files": 692,
-        "bytes": 48447752
+        "bytes": 48625497
       },
       {
         "dir": "gn",
         "files": 692,
-        "bytes": 48401435
+        "bytes": 48580269
       },
       {
         "dir": "hrk",
         "files": 692,
-        "bytes": 48151290
+        "bytes": 48330163
       },
       {
         "dir": "it",
         "files": 692,
-        "bytes": 48371189
+        "bytes": 48551025
       },
       {
         "dir": "nl",
         "files": 692,
-        "bytes": 48313240
+        "bytes": 48491986
       },
       {
         "dir": "riv",
         "files": 692,
-        "bytes": 48705384
+        "bytes": 48883398
       },
       {
         "dir": "ru",
         "files": 692,
-        "bytes": 50397186
+        "bytes": 50585492
       },
       {
         "dir": "tln",
         "files": 692,
-        "bytes": 48520715
+        "bytes": 48698430
       },
       {
         "dir": "portfolio",
         "files": 539,
-        "bytes": 43330397
+        "bytes": 43501749
       },
       {
         "dir": "langs",
         "files": 390,
-        "bytes": 25076880
+        "bytes": 26041808
       },
       {
         "dir": "star-field-experiment",
         "files": 145,
-        "bytes": 4515456
+        "bytes": 4540396
       },
       {
         "dir": "about",
         "files": 1,
-        "bytes": 38888
+        "bytes": 38940
       }
     ]
   },
   "largest": [
     {
-      "file": "v\\ie\\assets\\js\\index-ed61912e.js",
-      "bytes": 4551241
+      "file": "v\\ie\\assets\\js\\index-953c03d6.js",
+      "bytes": 4581522
     },
     {
-      "file": "v\\es2016\\assets\\js\\index-CIF9v1TG.js",
-      "bytes": 4192692
+      "file": "v\\es2016\\assets\\js\\index-C7Q5F5Fs.js",
+      "bytes": 4220300
     },
     {
-      "file": "v\\es2017\\assets\\js\\docs-data-DzXkTpKg.js",
-      "bytes": 1533122
+      "file": "v\\es2017\\assets\\js\\docs-data-izUqya8R.js",
+      "bytes": 1541396
     },
     {
-      "file": "v\\es2018\\assets\\js\\docs-data-DzXkTpKg.js",
-      "bytes": 1533122
+      "file": "v\\es2018\\assets\\js\\docs-data-izUqya8R.js",
+      "bytes": 1541396
     },
     {
-      "file": "v\\es2019\\assets\\js\\docs-data-DzXkTpKg.js",
-      "bytes": 1533122
+      "file": "v\\es2019\\assets\\js\\docs-data-izUqya8R.js",
+      "bytes": 1541396
     },
     {
-      "file": "v\\es2020\\assets\\js\\docs-data-DzXkTpKg.js",
-      "bytes": 1533122
+      "file": "v\\es2020\\assets\\js\\docs-data-izUqya8R.js",
+      "bytes": 1541396
     },
     {
-      "file": "v\\es2021\\assets\\js\\docs-data-DzXkTpKg.js",
-      "bytes": 1533122
+      "file": "v\\es2021\\assets\\js\\docs-data-izUqya8R.js",
+      "bytes": 1541396
     },
     {
-      "file": "v\\es2022\\assets\\js\\docs-data-DzXkTpKg.js",
-      "bytes": 1533122
+      "file": "v\\es2022\\assets\\js\\docs-data-izUqya8R.js",
+      "bytes": 1541396
     },
     {
-      "file": "v\\es2023\\assets\\js\\docs-data-DzXkTpKg.js",
-      "bytes": 1533122
+      "file": "v\\es2023\\assets\\js\\docs-data-izUqya8R.js",
+      "bytes": 1541396
     },
     {
-      "file": "v\\es2024\\assets\\js\\docs-data-DzXkTpKg.js",
-      "bytes": 1533122
+      "file": "v\\es2024\\assets\\js\\docs-data-izUqya8R.js",
+      "bytes": 1541396
     },
     {
-      "file": "v\\es2025\\assets\\js\\docs-data-DzXkTpKg.js",
-      "bytes": 1533122
+      "file": "v\\es2025\\assets\\js\\docs-data-izUqya8R.js",
+      "bytes": 1541396
     },
     {
-      "file": "v\\es2026\\assets\\js\\docs-data-DzXkTpKg.js",
-      "bytes": 1533122
+      "file": "v\\es2026\\assets\\js\\docs-data-izUqya8R.js",
+      "bytes": 1541396
     },
     {
-      "file": "v\\esnext\\assets\\js\\docs-data-DzXkTpKg.js",
-      "bytes": 1533122
+      "file": "v\\esnext\\assets\\js\\docs-data-izUqya8R.js",
+      "bytes": 1541396
     },
     {
-      "file": "v\\es2017\\assets\\js\\three-B2DSdhuR.js",
+      "file": "v\\es2017\\assets\\js\\three-w5YBBxTS.js",
       "bytes": 641479
     },
     {
-      "file": "v\\es2026\\assets\\js\\three-DS64T73d.js",
+      "file": "v\\es2026\\assets\\js\\three-iidK3Zj5.js",
       "bytes": 641381
     }
   ]

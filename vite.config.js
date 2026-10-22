@@ -477,10 +477,40 @@ export default defineConfig(({ command }) => {
     },
   }
 
+  // Legacy tiers (the es2016 IIFE and its derived ie/ES5 twin) cannot
+  // code-split: a dynamic import() of onnxruntime-web would inline the
+  // ~4MB jsep bundle plus a ~26MB wasm asset into the one classic script
+  // — and preset-env's ES5 pass crashes on that artifact anyway. Engines
+  // on those tiers have neither WebNN nor WebGPU, so the ML layer could
+  // only ever reach the wasm EP there — not worth 26MB on the floor tier.
+  // Alias the lazy specifier to a stub whose InferenceSession.create
+  // rejects: ort-engine's retry+catch resolves null and every ML caller
+  // keeps its non-ML path (this layer is strictly an enhancement).
+  const ortLegacyStubId = '\0virtual:ort-legacy-stub'
+  const ortLegacyStubPlugin = {
+    name: 'ort-legacy-stub',
+    enforce: 'pre',
+    resolveId(source) {
+      if (!isLegacy) return null
+      if (source === 'onnxruntime-web' || source.startsWith('onnxruntime-web/'))
+        return ortLegacyStubId
+      return null
+    },
+    load(id) {
+      if (id !== ortLegacyStubId) return null
+      return [
+        "export const env = { wasm: {}, logLevel: '' }",
+        'export class Tensor { constructor() { this.data = new Float32Array(0) } }',
+        "export const InferenceSession = { create: async () => { throw new Error('ort: unavailable on legacy tier') } }",
+      ].join('\n')
+    },
+  }
+
   const plugins = [
     cmsMockPlugin,
     siteWebmanifestDevPlugin,
     previewCleanUrlsPlugin,
+    ortLegacyStubPlugin,
     ...(process.env.LK_NO_PUBLIC ? [] : [modulePublicPlugin()]),
     i18nFallbackPlugin({ root: __dirname }),
     i18nBootPlugin({ root: __dirname, isLegacy }),

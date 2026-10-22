@@ -1,0 +1,618 @@
+{
+  "generatedAt": "2026-10-22T10:15:42.485Z",
+  "engine": "accessibility-checker (IBM Equal Access)",
+  "policy": "IBM_Accessibility",
+  "gatingLevels": [
+    "violation",
+    "potentialviolation",
+    "recommendation"
+  ],
+  "pages": 56,
+  "totals": {
+    "violation": 0,
+    "potentialviolation": 15893,
+    "recommendation": 112,
+    "manual": 523,
+    "gated": 0,
+    "errors": 0
+  },
+  "rules": [
+    {
+      "level": "potentialviolation",
+      "ruleId": "text_contrast_sufficient",
+      "count": 11018,
+      "message": "Verify the contrast ratio of the text against the lightest and the darkest colors of the background meets the WCAG AA minimum requirements for text of size 55.008px and weight of 100",
+      "pages": 22
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "element_tabbable_unobscured",
+      "count": 2230,
+      "message": "Confirm that when the element receives focus, it is not covered or, if covered by user action, can be uncovered without moving focus",
+      "pages": 56
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "style_focus_visible",
+      "count": 1225,
+      "message": "Check the keyboard focus indicator is visible when using CSS declaration for 'border' or 'outline'",
+      "pages": 56
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "input_label_visible",
+      "count": 482,
+      "message": "The input element does not have an associated visible label",
+      "pages": 40
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "text_block_heading",
+      "count": 413,
+      "message": "Confirm this text 'Check out' is used as a heading and if so, modify to use a heading element or role",
+      "pages": 33
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "caption_track_exists",
+      "count": 244,
+      "message": "Verify that captions are available for any meaningful audio or provide a caption track for the <video> element",
+      "pages": 15
+    },
+    {
+      "level": "manual",
+      "ruleId": "media_keyboard_controllable",
+      "count": 230,
+      "message": "Verify media using <audio> and/or <video> elements have keyboard accessible controls",
+      "pages": 18
+    },
+    {
+      "level": "manual",
+      "ruleId": "canvas_content_described",
+      "count": 169,
+      "message": "Verify accessibility of the <canvas> element",
+      "pages": 56
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "text_sensory_misuse",
+      "count": 88,
+      "message": "Confirm the word(s) 'top' of the user instruction is used to indicate a logical rather than visual position",
+      "pages": 12
+    },
+    {
+      "level": "manual",
+      "ruleId": "img_alt_background",
+      "count": 64,
+      "message": "Verify important background image information has a text alternative in system high contrast mode",
+      "pages": 4
+    },
+    {
+      "level": "manual",
+      "ruleId": "style_highcontrast_visible",
+      "count": 56,
+      "message": "Confirm Windows high contrast mode is supported when using CSS to include, position or alter non-decorative content",
+      "pages": 56
+    },
+    {
+      "level": "recommendation",
+      "ruleId": "element_attribute_deprecated",
+      "count": 56,
+      "message": "The HTML attribute(s) \"http-equiv\" is deprecated for the <meta> element in HTML 5",
+      "pages": 56
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "style_color_misuse",
+      "count": 56,
+      "message": "Verify color is not used as the only visual means of conveying information",
+      "pages": 56
+    },
+    {
+      "level": "recommendation",
+      "ruleId": "aria_complementary_label_visible",
+      "count": 56,
+      "message": "Element with \"complementary\" role does not have a visible label",
+      "pages": 56
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "element_tabbable_visible",
+      "count": 55,
+      "message": "Confirm the element should be tabbable and if so, it becomes visible when it has keyboard focus",
+      "pages": 55
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "text_quoted_correctly",
+      "count": 27,
+      "message": "If the following text is a quotation, mark it as a <q> or <blockquote> element: 'Desenvolvimento de um protótipo ... conhecimento utilizando Lunr.js'",
+      "pages": 17
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "aria_keyboard_handler_exists",
+      "count": 23,
+      "message": "Verify the <ul> element with \"tree\" role has keyboard access",
+      "pages": 23
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "widget_tabbable_single",
+      "count": 23,
+      "message": "Component with \"tree\" role has more than one tabbable element",
+      "pages": 23
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "html_skipnav_exists",
+      "count": 8,
+      "message": "Verify there is a way to bypass blocks of content that are repeated on multiple Web pages",
+      "pages": 8
+    },
+    {
+      "level": "manual",
+      "ruleId": "download_keyboard_controllable",
+      "count": 4,
+      "message": "Verify that the file download mechanism does not cause a keyboard trap",
+      "pages": 4
+    },
+    {
+      "level": "potentialviolation",
+      "ruleId": "element_id_unique",
+      "count": 1,
+      "message": "The <div> element has the id \"app\" that is already in use",
+      "pages": 1
+    }
+  ],
+  "routes": [
+    {
+      "route": "/about/",
+      "violation": 0,
+      "potentialviolation": 91,
+      "recommendation": 2,
+      "manual": 19,
+      "gated": 0
+    },
+    {
+      "route": "/animations/",
+      "violation": 0,
+      "potentialviolation": 30,
+      "recommendation": 2,
+      "manual": 2,
+      "gated": 0
+    },
+    {
+      "route": "/contact/",
+      "violation": 0,
+      "potentialviolation": 92,
+      "recommendation": 2,
+      "manual": 19,
+      "gated": 0
+    },
+    {
+      "route": "/docs/",
+      "violation": 0,
+      "potentialviolation": 54,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/cms/",
+      "violation": 0,
+      "potentialviolation": 58,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/cms/about/",
+      "violation": 0,
+      "potentialviolation": 47,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/cms/about/CmsAboutEditor.tsx/",
+      "violation": 0,
+      "potentialviolation": 66,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/cms/about/data.ts/",
+      "violation": 0,
+      "potentialviolation": 68,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/core/",
+      "violation": 0,
+      "potentialviolation": 59,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/coverage-app/",
+      "violation": 0,
+      "potentialviolation": 46,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/coverage-cms/",
+      "violation": 0,
+      "potentialviolation": 65,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/coverage-core/",
+      "violation": 0,
+      "potentialviolation": 102,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/coverage-docs/",
+      "violation": 0,
+      "potentialviolation": 74,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/coverage-earth/",
+      "violation": 0,
+      "potentialviolation": 57,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/coverage-starfield/",
+      "violation": 0,
+      "potentialviolation": 59,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/coverage-website/",
+      "violation": 0,
+      "potentialviolation": 78,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/desktop/",
+      "violation": 0,
+      "potentialviolation": 43,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/docs/",
+      "violation": 0,
+      "potentialviolation": 44,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/docs-exp/",
+      "violation": 0,
+      "potentialviolation": 57,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/earth/",
+      "violation": 0,
+      "potentialviolation": 49,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/local-modules/",
+      "violation": 0,
+      "potentialviolation": 37,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/reports/",
+      "violation": 0,
+      "potentialviolation": 42,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/shared/",
+      "violation": 0,
+      "potentialviolation": 43,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/src/",
+      "violation": 0,
+      "potentialviolation": 42,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/starfield/",
+      "violation": 0,
+      "potentialviolation": 51,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/docs/website/",
+      "violation": 0,
+      "potentialviolation": 49,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/earth-playground/",
+      "violation": 0,
+      "potentialviolation": 268,
+      "recommendation": 2,
+      "manual": 19,
+      "gated": 0
+    },
+    {
+      "route": "/gdpr/",
+      "violation": 0,
+      "potentialviolation": 36,
+      "recommendation": 2,
+      "manual": 2,
+      "gated": 0
+    },
+    {
+      "route": "/license/",
+      "violation": 0,
+      "potentialviolation": 24,
+      "recommendation": 2,
+      "manual": 2,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/aboutmarco/",
+      "violation": 0,
+      "potentialviolation": 359,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/aboutmarco/aboutmarco-com-admiretheweb/",
+      "violation": 0,
+      "potentialviolation": 383,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/aboutmarco/aboutmarco-com-archive/",
+      "violation": 0,
+      "potentialviolation": 383,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/aboutmarco/aboutmarco-com-brazilian-leather/",
+      "violation": 0,
+      "potentialviolation": 439,
+      "recommendation": 2,
+      "manual": 8,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/brazilian-leather/",
+      "violation": 0,
+      "potentialviolation": 523,
+      "recommendation": 2,
+      "manual": 31,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/cecerele/",
+      "violation": 0,
+      "potentialviolation": 360,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/cicb/",
+      "violation": 0,
+      "potentialviolation": 398,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/clinica-de-desenvolvimento-nathalia-bond/",
+      "violation": 0,
+      "potentialviolation": 525,
+      "recommendation": 2,
+      "manual": 12,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/coza/",
+      "violation": 0,
+      "potentialviolation": 356,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/dell-design-system/",
+      "violation": 0,
+      "potentialviolation": 389,
+      "recommendation": 2,
+      "manual": 3,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/genesysinf-sageweb/",
+      "violation": 0,
+      "potentialviolation": 406,
+      "recommendation": 2,
+      "manual": 4,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/melissa/",
+      "violation": 0,
+      "potentialviolation": 912,
+      "recommendation": 2,
+      "manual": 111,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/metcha/",
+      "violation": 0,
+      "potentialviolation": 879,
+      "recommendation": 2,
+      "manual": 54,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/mini-melissa/",
+      "violation": 0,
+      "potentialviolation": 468,
+      "recommendation": 2,
+      "manual": 28,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/minimelissa/",
+      "violation": 0,
+      "potentialviolation": 1677,
+      "recommendation": 2,
+      "manual": 28,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/mor/",
+      "violation": 0,
+      "potentialviolation": 1730,
+      "recommendation": 2,
+      "manual": 12,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/nathalia-bond/",
+      "violation": 0,
+      "potentialviolation": 2023,
+      "recommendation": 2,
+      "manual": 12,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/sage/",
+      "violation": 0,
+      "potentialviolation": 435,
+      "recommendation": 2,
+      "manual": 4,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/transa/",
+      "violation": 0,
+      "potentialviolation": 587,
+      "recommendation": 2,
+      "manual": 29,
+      "gated": 0
+    },
+    {
+      "route": "/portfolio/vibra/",
+      "violation": 0,
+      "potentialviolation": 387,
+      "recommendation": 2,
+      "manual": 6,
+      "gated": 0
+    },
+    {
+      "route": "/privacy-policy/",
+      "violation": 0,
+      "potentialviolation": 23,
+      "recommendation": 2,
+      "manual": 2,
+      "gated": 0
+    },
+    {
+      "route": "/space-playground/",
+      "violation": 0,
+      "potentialviolation": 269,
+      "recommendation": 2,
+      "manual": 19,
+      "gated": 0
+    },
+    {
+      "route": "/star-field-experiment/",
+      "violation": 0,
+      "potentialviolation": 14,
+      "recommendation": 2,
+      "manual": 2,
+      "gated": 0
+    },
+    {
+      "route": "/star-field-experiment/47-tucanae/",
+      "violation": 0,
+      "potentialviolation": 20,
+      "recommendation": 2,
+      "manual": 2,
+      "gated": 0
+    },
+    {
+      "route": "/star-field-experiment/51-pegasi/",
+      "violation": 0,
+      "potentialviolation": 16,
+      "recommendation": 2,
+      "manual": 2,
+      "gated": 0
+    },
+    {
+      "route": "/star-field-experiment/51-pegasi-b/",
+      "violation": 0,
+      "potentialviolation": 16,
+      "recommendation": 2,
+      "manual": 2,
+      "gated": 0
+    },
+    {
+      "route": "/terms-of-use/",
+      "violation": 0,
+      "potentialviolation": 85,
+      "recommendation": 2,
+      "manual": 2,
+      "gated": 0
+    }
+  ]
+}

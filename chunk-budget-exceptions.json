@@ -23,6 +23,12 @@
       "kind": "js",
       "reason": "@firebase packages ship as pre-bundled dist modules — module-granular splitting cannot divide them. Loaded only by the CMS entry, never on the public site's critical path (the site uses REST).",
       "review": "2027-01-20"
+    },
+    {
+      "pattern": "^vendor~ort",
+      "kind": "js",
+      "reason": "onnxruntime-web ships as one pre-bundled artifact (ort.webgpu.bundle.min) — module-granular splitting cannot divide it. Strictly lazy: reachable only through ort-engine's dynamic import(), fires on first ML inference call, and the whole layer degrades to null when unavailable. Absent from legacy tiers entirely (ort-legacy-stub plugin in vite.config.js).",
+      "review": "2027-01-20"
     }
   ]
 }

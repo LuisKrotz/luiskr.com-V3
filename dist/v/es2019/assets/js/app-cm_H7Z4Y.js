@@ -1,2 +1,0 @@
-function o(){return(o=r(()=>{t=".sr-only{clip-path:inset(50%);white-space:nowrap;border:0;width:1px;height:1px;margin:-1px;padding:0;position:absolute;overflow:hidden}"}))()}import{t as r}from"./rolldown-runtime-Zvkx5QET.js";var t;export{o as n,t};
-//# sourceMappingURL=app-cm_H7Z4Y.js.map
