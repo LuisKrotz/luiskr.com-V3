@@ -92,6 +92,11 @@
         "menu": "Menu",
         "close": "Close",
         "skip": "Skip to content",
+        "a11y": {
+          "section": "Section {index}",
+          "carousel": "Carousel {index}",
+          "paragraph": "Paragraph {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -7276,6 +7281,11 @@
         "menu": "Menu",
         "close": "Fechar",
         "skip": "Pular para o conteúdo",
+        "a11y": {
+          "section": "Seção {index}",
+          "carousel": "Carrossel {index}",
+          "paragraph": "Parágrafo {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -14460,6 +14470,11 @@
         "menu": "Menú",
         "close": "Cerrar",
         "skip": "Saltar al contenido",
+        "a11y": {
+          "section": "Sección {index}",
+          "carousel": "Carrusel {index}",
+          "paragraph": "Párrafo {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -21644,6 +21659,11 @@
         "menu": "Menü",
         "close": "Schließen",
         "skip": "Zum Inhalt springen",
+        "a11y": {
+          "section": "Abschnitt {index}",
+          "carousel": "Karussell {index}",
+          "paragraph": "Absatz {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -28828,6 +28848,11 @@
         "menu": "Menü",
         "close": "Schließen",
         "skip": "Zum Inhalt springa",
+        "a11y": {
+          "section": "Abschnitt {index}",
+          "carousel": "Karussell {index}",
+          "paragraph": "Absotz {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -36012,6 +36037,11 @@
         "menu": "Menú",
         "close": "Cerrar",
         "skip": "Saltar al contenido",
+        "a11y": {
+          "section": "Sección {index}",
+          "carousel": "Carrusel {index}",
+          "paragraph": "Párrafo {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -43196,6 +43226,11 @@
         "menu": "Menu",
         "close": "Fechar",
         "skip": "Pular para o conteúdo",
+        "a11y": {
+          "section": "Seção {index}",
+          "carousel": "Carrossel {index}",
+          "paragraph": "Parágrafo {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -50380,6 +50415,11 @@
         "menu": "Porandurenda",
         "close": "Emboty",
         "skip": "Ehasa pe tetãme",
+        "a11y": {
+          "section": "Vore {index}",
+          "carousel": "Carrusel {index}",
+          "paragraph": "Parrafo {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -57564,6 +57604,11 @@
         "menu": "Menu",
         "close": "Chiudi",
         "skip": "Salta al contenuto",
+        "a11y": {
+          "section": "Sezione {index}",
+          "carousel": "Carosello {index}",
+          "paragraph": "Paragrafo {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -64748,6 +64793,11 @@
         "menu": "Меню",
         "close": "Закрыть",
         "skip": "Перейти к содержимому",
+        "a11y": {
+          "section": "Раздел {index}",
+          "carousel": "Карусель {index}",
+          "paragraph": "Абзац {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] ИНИЦИАЛИЗАЦИЯ АРХИТЕКТУРЫ v3.8",
@@ -71932,6 +71982,11 @@
         "menu": "Menu",
         "close": "Fermer",
         "skip": "Aller au contenu",
+        "a11y": {
+          "section": "Section {index}",
+          "carousel": "Carrousel {index}",
+          "paragraph": "Paragraphe {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -79116,6 +79171,11 @@
         "menu": "Menù",
         "close": "Sara",
         "skip": "Laktawan ang nilalaman",
+        "a11y": {
+          "section": "Seksyon {index}",
+          "carousel": "Carousel {index}",
+          "paragraph": "Talata {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -86300,6 +86360,11 @@
         "menu": "Menu",
         "close": "Sluiten",
         "skip": "Naar inhoud gaan",
+        "a11y": {
+          "section": "Sectie {index}",
+          "carousel": "Carrousel {index}",
+          "paragraph": "Alinea {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -93484,6 +93549,11 @@
         "menu": "Menú",
         "close": "Tanca",
         "skip": "Salta al contingut",
+        "a11y": {
+          "section": "Secció {index}",
+          "carousel": "Carrusel {index}",
+          "paragraph": "Paràgraf {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -100668,6 +100738,11 @@
         "menu": "Menú",
         "close": "Pechar",
         "skip": "Ir ao contido",
+        "a11y": {
+          "section": "Sección {index}",
+          "carousel": "Carrusel {index}",
+          "paragraph": "Parágrafo {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
@@ -107852,6 +107927,11 @@
         "menu": "Roghchlár",
         "close": "Dún",
         "skip": "Léim chuig an ábhar",
+        "a11y": {
+          "section": "Roinn {index}",
+          "carousel": "Carrúséil {index}",
+          "paragraph": "Alt {index}"
+        },
         "loader": {
           "lines": [
             "[SYS_BOOT] INITIALIZING ARCHITECTURE v3.8",
