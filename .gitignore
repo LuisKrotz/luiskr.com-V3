@@ -39,6 +39,11 @@ firebase-debug.log*
 # Local headless Chrome used for Lighthouse audits (not part of the repo)
 chrome-headless-shell/
 
+# Root build output — generated locally for deploy, never committed;
+# only dist/.gitkeep keeps the directory in the repo.
+/dist/*
+!/dist/.gitkeep
+
 # Per-module Vite library builds — verification artifacts, never published.
 core/dist/
 website/dist/

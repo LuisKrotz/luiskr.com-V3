@@ -97,7 +97,7 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - `yarn verify` is the complete prebuild gate: format check → console-scan → typecheck → eslint/stylelint → `links` stored-result validation (module suites run with coverage only when a stamp or coverage summary is absent) → per-file coverage gate → security scan. A failure prevents new `dist` output.
     - Lighthouse runs only after a successful build when explicitly requested with `yarn build --verify-lighthouse`; ordinary builds do not run Lighthouse.
     - Test coverage must be **100% on every file** for statements, branches, functions, and lines — per-module `jest.config.mjs` (shared preset) + `shared/scripts/verify/coverage-gate.mjs` per-file enforcement.
-    - All scan reports land in `reports/` → bundled into `dist/deploy-info/` by `shared/scripts/build/deploy-info.mjs` → shown in the CMS "Deploy Info" tab.
+    - All scan reports land in `reports/` → bundled into `dist/deploy-info/` by `shared/scripts/build/deploy-info.mjs` → shown in the CMS "Build" tab.
 
 15. **Component Self-Containment (Portability)**:
     - A component folder must be copyable (JS/TS + SCSS) into another project and work with different data.
@@ -139,10 +139,11 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Every `.scss` file opens with a header comment block explaining which UI surface/component it styles and whether it is shared.
     - Enforced by `shared/tests/governance/jsdoc-coverage.test.js`.
 
-22. **Yarn + Zsh Are the Toolchain Defaults**:
+22. **Yarn + POSIX Bash Are the Toolchain Defaults**:
     - Yarn is the only package manager — `yarn install`, `yarn add`, `yarn remove`, `yarn <script>`; never `npm`/`npx`/`pnpm` in commands, scripts, hooks, CI, or docs. `yarn.lock` is the sole lockfile — never regenerate `package-lock.json`.
     - Dependency pinning uses the `resolutions` field (yarn 1.x mechanism) — `overrides` is npm-only and ignored by yarn.
-    - Zsh is the default shell — terminal commands, git hooks, and helper scripts run under zsh (`#!/usr/bin/env zsh`); do not introduce bash-only syntax.
+    - Shell code must be POSIX-portable bash (`#!/usr/bin/env bash`) — git hooks and helper scripts must run identically on Windows (Git Bash), macOS, and Linux; never use zsh-only or GNU-only syntax (`print -r`, `${(s: :)…}`, `${arr[@]}`, `readlink -f` without fallback).
+    - WSL must never be used — Windows commands run in Git Bash natively.
     - Mirrors `.agents/rules/default-package-manager.md` and `.agents/rules/default-terminal.md`.
 
 23. **No Automated Codemods or Bulk-Rewrite Scripts**:
@@ -188,4 +189,4 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Emitted JS chunks are capped at 50 KiB minified; ~10–30 KiB per chunk is the preferred granularity — h2/h3 multiplexing makes that range the best trade between request overhead, compression context, and per-chunk parse cost. CSS files are capped at 32 KiB — stylesheets are atomic cascade units, so the cap guards growth rather than chasing a smaller number.
     - Splitting is configured in `vite.config.js` via `output.codeSplitting` (`maxSize` is in SOURCE bytes — terser lands minified ≈ ⅓ of source). Groups: `vendor-firebase`, `three`, `i18n-data`, `docs-data`, `vendor` (entriesAware), `app` catch-all. The legacy `ie` tier is exempt — ES5 engines cannot load module chunks.
     - Module-atomic artifacts that cannot be split (pre-bundled vendor dists like three.webgpu/@firebase, generated per-locale payload modules, virtual:docs-manifest) live in `chunk-budget-exceptions.json` with justification + review date — never blanket-exempt.
-    - Enforced by `shared/scripts/verify/chunk-budget.mjs`, wired into `build-targets.mjs` before the locale-pages fan-out → `experiments/docs/reports/chunk-budget.json` → CMS "Deploy Info" tab.
+    - Enforced by `shared/scripts/verify/chunk-budget.mjs`, wired into `build-targets.mjs` before the locale-pages fan-out → `experiments/docs/reports/chunk-budget.json` → CMS "Build" tab.

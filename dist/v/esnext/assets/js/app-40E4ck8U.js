@@ -1,2 +1,0 @@
-function T(){return(T=E(()=>{O=Object.freeze({Wy:.55,Gy:.85,Py:.6,Ky:.5,Jy:.55,Uy:.035})}))()}import{t as E}from"./rolldown-runtime-CKc5dgUC.js";var O;export{T as n,O as t};
-//# sourceMappingURL=app-40E4ck8U.js.map
