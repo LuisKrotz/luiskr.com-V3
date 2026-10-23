@@ -22,7 +22,7 @@ import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import { compression } from 'vite-plugin-compression2'
 import { fileURLToPath, URL } from 'node:url'
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 import { constants as zlibConstants } from 'node:zlib'
 import { minify as htmlMinify } from 'html-minifier-terser'
@@ -279,6 +279,40 @@ export default defineConfig(({ command }) => {
     },
   }
 
+  // Dev-only deploy-info serving: the build emits its report bundle into
+  // dist/deploy-info/ (bundle stats, coverage, a11y, axe, snyk, console
+  // scan, lighthouse) and the CMS "Build" tab fetches /deploy-info/* — but
+  // `yarn dev` serves source/public, not dist, so the tab was always empty
+  // in dev. Answering from dist/ here gives dev the same contract preview
+  // and production already have. 404s pass through untouched.
+  const deployInfoDevPlugin = {
+    name: 'deploy-info-dev',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const reqPath = decodeURIComponent((req.url || '').split('?')[0])
+
+        if (!reqPath.startsWith('/deploy-info/') || req.method === 'POST') return next()
+
+        const rel = reqPath.slice('/deploy-info/'.length)
+        const file = path.join(__dirname, 'dist', 'deploy-info', rel)
+
+        if (!rel || rel.includes('..') || !existsSync(file) || !statSync(file).isFile()) {
+          return next()
+        }
+
+        const body = readFileSync(file)
+
+        res.statusCode = 200
+        res.setHeader(
+          'Content-Type',
+          rel.endsWith('.json') ? 'application/json' : 'application/octet-stream'
+        )
+        res.setHeader('Content-Length', body.length)
+        res.end(req.method === 'HEAD' ? undefined : body)
+      })
+    },
+  }
+
   // Dev-only offline CMS mode — explicit opt-in via `CMS_MOCK=1`
   // (`yarn dev:cms`): swaps real Firebase SDK calls for the committed
   // database.json snapshot (see cms/dev/firebase-mock.js), and backs
@@ -528,6 +562,7 @@ export default defineConfig(({ command }) => {
     cmsMockPlugin,
     securityHeadersPlugin,
     siteWebmanifestDevPlugin,
+    deployInfoDevPlugin,
     previewCleanUrlsPlugin,
     ortLegacyStubPlugin,
     ...(process.env.LK_NO_PUBLIC ? [] : [modulePublicPlugin()]),

@@ -23,12 +23,20 @@ module.exports = {
     },
     assert: {
       assertions: {
-        // Performance is exempt by policy (heavy WebGL/canvas site) — kept as
-        // a warn so regressions still surface without gating the build.
-        'categories:performance': ['warn', { minScore: 0.95 }],
+        // Category minimums — performance 0.80, every other category 1.00.
+        'categories:performance': ['error', { minScore: 0.8 }],
         'categories:accessibility': ['error', { minScore: 1 }],
         'categories:best-practices': ['error', { minScore: 1 }],
         'categories:seo': ['error', { minScore: 1 }],
+
+        // Image delivery is the one accepted performance finding — kept as
+        // warn so it still surfaces in reports without failing the gate.
+        // Every other performance audit must be fully addressed.
+        'image-delivery': 'warn',
+        'modern-image-formats': 'warn',
+        'uses-optimized-images': 'warn',
+        'uses-responsive-images': 'warn',
+        'efficient-animated-content': 'warn',
       },
     },
     upload: {
