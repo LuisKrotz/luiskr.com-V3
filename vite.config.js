@@ -764,12 +764,20 @@ export default defineConfig(({ command }) => {
                   {
                     name: 'vendor-firebase',
                     test: /node_modules[\\/](?:firebase|@firebase)[\\/]/,
+                    // entriesAware — auth/database/app-check are dynamic-
+                    // import only; without this the wrappers merge into one
+                    // chunk and the static firebase/app import drags ~280kB
+                    // of dead SDK code into every entry's modulepreload set.
+                    entriesAware: true,
                     maxSize: CHUNK_MAX_SOURCE_BYTES,
                     priority: 40,
                   },
                   {
                     name: 'three',
                     test: /node_modules[\\/]three[\\/]/,
+                    // entriesAware — three lands only behind lazy scene
+                    // imports; it must never join an entry's static graph.
+                    entriesAware: true,
                     maxSize: CHUNK_MAX_SOURCE_BYTES,
                     priority: 30,
                   },
