@@ -808,6 +808,12 @@ export default defineConfig(({ command }) => {
                   {
                     name: 'app',
                     test: (id) => !ENTRY_MODULE_RE.test(id),
+                    // entriesAware — without it a bucket holding one static
+                    // module plus five lazy-only modules is emitted whole on
+                    // the entry's static graph: every route-only sheet/code
+                    // gets preloaded + evaluated before first paint (~220KB+
+                    // of ?inline SCSS strings alone measured that way).
+                    entriesAware: true,
                     maxSize: CHUNK_MAX_SOURCE_BYTES,
                     priority: 0,
                   },
