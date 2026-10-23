@@ -42,10 +42,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
  * Chunk size budgets. The hard caps are enforced on the MINIFIED output by
  * shared/scripts/verify/chunk-budget.mjs — JS ≤ 50 KiB, CSS ≤ 5 KiB per file
  * — with ~10 KiB JS / ~3 KiB CSS as the preferred sizes. Rolldown's
- * codeSplitting sizes measure SOURCE bytes before terser; the 100-pass
- * mangle+compress lands minified output at roughly a third of source, so a
- * 32 KiB source cap produces ~10–14 KiB minified chunks — inside the hard
- * cap and near the preferred size.
+ * codeSplitting sizes measure SOURCE bytes before terser; measured minified
+ * output lands at ~0.6–0.95× of source (template/string-heavy modules barely
+ * shrink), so a 48 KiB source cap keeps every chunk under the 50 KiB
+ * minified hard cap. The previous 32 KiB source cap emitted ~90 tiny
+ * `app-*.js` requests; on slow-4G each request costs a full RTT of
+ * handshake+request latency and the critical request chain measured
+ * 3.3–6.4 s, so the budget now trades request count for chunk size inside
+ * the same 50 KiB minified ceiling.
  *
  * Splitting is module-granular: pre-bundled vendor artifacts shipped as one
  * file (three.webgpu/three.core/three.module, @firebase dist bundles,
@@ -54,7 +58,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
  * chunk-budget-exceptions.json — the gate still fails on every other chunk
  * that regresses past the cap.
  */
-const CHUNK_MAX_SOURCE_BYTES = 32 * 1024
+const CHUNK_MAX_SOURCE_BYTES = 48 * 1024
 
 /**
  * Modules that must remain inside their own `index`/`cms` entry chunks —
