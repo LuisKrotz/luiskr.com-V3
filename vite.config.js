@@ -652,7 +652,14 @@ export default defineConfig(({ command }) => {
             let newHtml = html
             if (ctx && ctx.bundle) {
               for (const [fileName] of Object.entries(ctx.bundle)) {
-                if (fileName.endsWith('.css') && fileName.includes('assets/css/index-')) {
+                // Entry-aware chunk names (app~index-*) still name the
+                // entry stylesheet — match by directory + 'index', not
+                // the old literal index-* prefix.
+                if (
+                  fileName.endsWith('.css') &&
+                  fileName.includes('assets/css/') &&
+                  fileName.includes('index')
+                ) {
                   const linkRegex = new RegExp(
                     `<link rel="stylesheet"[^>]*href="[/]${fileName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*>`,
                     'i'

@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js')
+      // Boot-clock stamp (CACHE_STORAGE_KEYS.INTRO_T0): the intro loader's
+      // duration budget measures from parse time, not JS adoption — on
+      // slow engines the veil's ~1.6s is already spent by mount and it
+      // lifts immediately instead of extending the blank-boot window.
+      window.lk_intro_t0 = performance.now()
       // The prerendered page ships the intro-loader markup so the designed
       // boot veil paints before the bundle — but the intro still runs once
       // per session (CACHE_STORAGE_KEYS.INTRO_SHOWN) and never under reduced
