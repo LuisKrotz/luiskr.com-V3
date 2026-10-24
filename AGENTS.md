@@ -195,3 +195,9 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Work is NOT finished until `yarn build` (which runs `yarn verify`) completes green in the current session — committed/pushed code with a failing verification pipeline is unfinished work, regardless of how clean the diff looks.
     - A red gate (coverage-gate, security-scan, typecheck, lint, format, test, console-scan, chunk-budget) is a work item, not a footnote: fix the root cause or add a justified `security-exceptions.json` / `chunk-budget-exceptions.json` entry, then re-run the full `yarn build` and confirm every gate passes before reporting completion.
     - "It passed earlier" or "the failure looks flaky" does not count — re-run and watch it go green. Fresh audit findings (new advisories published against pinned deps) are treated the same: resolve them before calling the task done.
+
+31. **No Lazy Solutions — Never Take Shortcuts**:
+    - Deliver the FULLY-REALIZED form of every request — never ship the cheap stand-in: a requested icon set means distinct designed glyphs per type (not one generic shape + a text label); a requested interaction means the real widget/behavior used elsewhere in the project (not a minimal approximation); a requested visual state means authored artwork for every state (not a single static form).
+    - Reuse the project's established building blocks (canvas widgets, token classes, modals, motion primitives) instead of inventing weaker one-off substitutes — the codebase's patterns are the quality bar, not a suggestion.
+    - If a shortcut is ever genuinely forced (time, missing dependency, platform limit), say so explicitly and flag the gap — never pass a stand-in off as the finished work.
+    - "Good enough to pass tests" is not done: the result must look, behave, and read as designed work to the user, to crawlers, and to assistive tech.
