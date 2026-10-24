@@ -110,7 +110,9 @@
     "**/body-parser": "^1.20.9",
     "**/braces": "file:shared/local-modules/braces",
     "**/extract-zip": "file:shared/local-modules/extract-zip",
-    "**/sprintf-js": "file:shared/local-modules/sprintf-js"
+    "**/sprintf-js": "file:shared/local-modules/sprintf-js",
+    "**/@electron/get/undici": "^7.30.1",
+    "**/node-gyp/undici": "^6.29.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

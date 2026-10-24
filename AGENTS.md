@@ -190,3 +190,8 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Splitting is configured in `vite.config.js` via `output.codeSplitting` (`maxSize` is in SOURCE bytes — terser lands minified ≈ ⅓ of source). Groups: `vendor-firebase`, `three`, `i18n-data`, `docs-data`, `vendor` (entriesAware), `app` catch-all. The legacy `ie` tier is exempt — ES5 engines cannot load module chunks.
     - Module-atomic artifacts that cannot be split (pre-bundled vendor dists like three.webgpu/@firebase, generated per-locale payload modules, virtual:docs-manifest) live in `chunk-budget-exceptions.json` with justification + review date — never blanket-exempt.
     - Enforced by `shared/scripts/verify/chunk-budget.mjs`, wired into `build-targets.mjs` before the locale-pages fan-out → `experiments/docs/reports/chunk-budget.json` → CMS "Build" tab.
+
+30. **Done Means Build Green**:
+    - Work is NOT finished until `yarn build` (which runs `yarn verify`) completes green in the current session — committed/pushed code with a failing verification pipeline is unfinished work, regardless of how clean the diff looks.
+    - A red gate (coverage-gate, security-scan, typecheck, lint, format, test, console-scan, chunk-budget) is a work item, not a footnote: fix the root cause or add a justified `security-exceptions.json` / `chunk-budget-exceptions.json` entry, then re-run the full `yarn build` and confirm every gate passes before reporting completion.
+    - "It passed earlier" or "the failure looks flaky" does not count — re-run and watch it go green. Fresh audit findings (new advisories published against pinned deps) are treated the same: resolve them before calling the task done.

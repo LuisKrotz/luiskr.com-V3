@@ -954,7 +954,13 @@
           "keyClose": "Close the open panel, navigator or dialog",
           "description": "Interactive WebGL star field — fly through the Solar System, nearby stars, nebulae and galaxies.",
           "music": "Ambient Music",
-          "musicDesc": "Ambient soundtrack playlist that advances through the tracks while the experiment is open. Autoplay is disabled under reduced-motion settings — pick a track or press play to listen."
+          "musicDesc": "Ambient soundtrack playlist that advances through the tracks while the experiment is open. Autoplay is disabled under reduced-motion settings — pick a track or press play to listen.",
+          "musicPlay": "Play",
+          "musicPause": "Pause",
+          "musicPrev": "Previous track",
+          "musicNext": "Next track",
+          "musicRepeat": "Repeat track",
+          "hintTouch": "Drag to orbit · Pinch to zoom · Tap a body for its story"
         },
         "earth-playground": {
           "title": "Earth Playground",
@@ -8157,7 +8163,13 @@
           "keyClose": "Fechar o painel, navegador ou diálogo aberto",
           "description": "Campo de estrelas WebGL interativo — voe pelo Sistema Solar, estrelas próximas, nebulosas e galáxias.",
           "music": "Música Ambiente",
-          "musicDesc": "Playlist de trilha sonora ambiente que avança pelas faixas enquanto o experimento está aberto. A reprodução automática fica desativada em configurações de movimento reduzido — escolha uma faixa ou pressione reproduzir para ouvir."
+          "musicDesc": "Playlist de trilha sonora ambiente que avança pelas faixas enquanto o experimento está aberto. A reprodução automática fica desativada em configurações de movimento reduzido — escolha uma faixa ou pressione reproduzir para ouvir.",
+          "musicPlay": "Tocar",
+          "musicPause": "Pausar",
+          "musicPrev": "Faixa anterior",
+          "musicNext": "Próxima faixa",
+          "musicRepeat": "Repetir faixa",
+          "hintTouch": "Arraste para orbitar · Aproxime os dedos para ampliar · Toque em um corpo para sua história"
         },
         "earth-playground": {
           "title": "Playground da Terra",
@@ -15360,7 +15372,13 @@
           "keyClose": "Cerrar el panel, navegador o diálogo abierto",
           "description": "Campo de estrellas WebGL interactivo — vuela por el Sistema Solar, estrellas cercanas, nebulosas y galaxias.",
           "music": "Música Ambiental",
-          "musicDesc": "Lista de reproducción de banda sonora ambiental que avanza por las pistas mientras el experimento está abierto. La reproducción automática está desactivada con movimiento reducido — elige una pista o pulsa reproducir para escuchar."
+          "musicDesc": "Lista de reproducción de banda sonora ambiental que avanza por las pistas mientras el experimento está abierto. La reproducción automática está desactivada con movimiento reducido — elige una pista o pulsa reproducir para escuchar.",
+          "musicPlay": "Reproducir",
+          "musicPause": "Pausar",
+          "musicPrev": "Pista anterior",
+          "musicNext": "Pista siguiente",
+          "musicRepeat": "Repetir pista",
+          "hintTouch": "Arrastra para orbitar · Pellizca para ampliar · Toca un cuerpo para su historia"
         },
         "earth-playground": {
           "title": "Playground de la Tierra",
@@ -22563,7 +22581,13 @@
           "keyClose": "Geöffnetes Panel, Navigator oder Dialog schließen",
           "description": "Interaktives WebGL-Sternenfeld — fliege durch das Sonnensystem, nahe Sterne, Nebel und Galaxien.",
           "music": "Ambient-Musik",
-          "musicDesc": "Ambient-Soundtrack-Playlist, die die Titel durchläuft, solange das Experiment geöffnet ist. Die automatische Wiedergabe ist bei reduzierter Bewegung deaktiviert — Titel wählen oder Wiedergabe drücken, um zu hören."
+          "musicDesc": "Ambient-Soundtrack-Playlist, die die Titel durchläuft, solange das Experiment geöffnet ist. Die automatische Wiedergabe ist bei reduzierter Bewegung deaktiviert — Titel wählen oder Wiedergabe drücken, um zu hören.",
+          "musicPlay": "Abspielen",
+          "musicPause": "Pause",
+          "musicPrev": "Vorheriger Titel",
+          "musicNext": "Nächster Titel",
+          "musicRepeat": "Titel wiederholen",
+          "hintTouch": "Ziehen zum Drehen · Auseinanderziehen zum Zoomen · Körper antippen für seine Geschichte"
         },
         "earth-playground": {
           "title": "Erde-Playground",
@@ -29766,7 +29790,13 @@
           "keyClose": "Geöffnets Panel, Navigator odr Dialog schließe",
           "description": "Interaktives WebGL-Sternfeld — flieg durchs Sonnensystem, nahe Sterne, Nebel un Galaxie.",
           "music": "Ambient-Musik",
-          "musicDesc": "Ambient-Soundtrack-Playlist, die die Titel durchläuft, solange das Experiment geöffnet ist. Die automatische Wiedergabe ist bei reduzierter Bewegung deaktiviert — Titel wählen oder Wiedergabe drücken, um zu hören."
+          "musicDesc": "Ambient-Soundtrack-Playlist, die die Titel durchläuft, solange das Experiment geöffnet ist. Die automatische Wiedergabe ist bei reduzierter Bewegung deaktiviert — Titel wählen oder Wiedergabe drücken, um zu hören.",
+          "musicPlay": "Abspile",
+          "musicPause": "Pause",
+          "musicPrev": "Vorhericher Titel",
+          "musicNext": "Nächster Titel",
+          "musicRepeat": "Titel widderhole",
+          "hintTouch": "Zieh zum Drehe · Auseinanderzieh zum Zoome · Tipp uff en Körper fer sei Geschichte"
         },
         "earth-playground": {
           "title": "Erd-Playground",
@@ -36969,7 +36999,13 @@
           "keyClose": "Cerrar el panel, navegador o diálogo abierto",
           "description": "Campo de estrellas WebGL interactivo — volá por el Sistema Solar, estrellas cercanas, nebulosas y galaxias.",
           "music": "Música Ambiental",
-          "musicDesc": "Lista de reproducción de banda sonora ambiental que avanza por las pistas mientras el experimento está abierto. La reproducción automática está desactivada con movimiento reducido — elige una pista o pulsa reproducir para escuchar."
+          "musicDesc": "Lista de reproducción de banda sonora ambiental que avanza por las pistas mientras el experimento está abierto. La reproducción automática está desactivada con movimiento reducido — elige una pista o pulsa reproducir para escuchar.",
+          "musicPlay": "Reproducir",
+          "musicPause": "Pausar",
+          "musicPrev": "Pista anterior",
+          "musicNext": "Pista siguiente",
+          "musicRepeat": "Repetir pista",
+          "hintTouch": "Arrastra para orbitar · Pellizca para ampliar · Toca un cuerpo para su historia"
         },
         "earth-playground": {
           "title": "Playground de la Tierra",
@@ -44172,7 +44208,13 @@
           "keyClose": "Cerrar el painel, navegador o diálogo abierto",
           "description": "Campo de estrellas WebGL interactivo — volá por el Sistema Solar, estrellas cercanas, nebulosas y galaxias.",
           "music": "Música Ambiente",
-          "musicDesc": "Playlist de trilha sonora ambiente que avança pelas faixas enquanto o experimento está aberto. A reprodução automática fica desativada em configurações de movimento reduzido — escolha uma faixa ou pressione reproduzir para ouvir."
+          "musicDesc": "Playlist de trilha sonora ambiente que avança pelas faixas enquanto o experimento está aberto. A reprodução automática fica desativada em configurações de movimento reduzido — escolha uma faixa ou pressione reproduzir para ouvir.",
+          "musicPlay": "Reproducir",
+          "musicPause": "Pausar",
+          "musicPrev": "Pista anterior",
+          "musicNext": "Pista siguiente",
+          "musicRepeat": "Repetir pista",
+          "hintTouch": "Arrastrá pa orbitar · Pellizcá pa ampliar · Tocá un cuerpo pa su história"
         },
         "earth-playground": {
           "title": "Playground da Terra",
@@ -51375,7 +51417,13 @@
           "keyClose": "Emboty panel, mba'ejereka térã ñe'ẽtãvore",
           "description": "WebGL mbyjaku'i retã — eho Sistema Solar, mbyja ag̃uĩva, nebulosa ha galaxia rupive.",
           "music": "Pypore Ambiente",
-          "musicDesc": "Pypore ambiente lista ohasa umi pista rupi pe experimento ijurujáva hóga. Reproducción automática oñembotýva movimiento mombýva rehe — eiporavo peteĩ pista térã ejopy play ohendu hag̃ua."
+          "musicDesc": "Pypore ambiente lista ohasa umi pista rupi pe experimento ijurujáva hóga. Reproducción automática oñembotýva movimiento mombýva rehe — eiporavo peteĩ pista térã ejopy play ohendu hag̃ua.",
+          "musicPlay": "Embopu",
+          "musicPause": "Epytũ",
+          "musicPrev": "Purarã mboyvegua",
+          "musicNext": "Purarã upeigua",
+          "musicRepeat": "Embojepy purarã",
+          "hintTouch": "Emomýi emondoro hag̃ua · Emomichĩ térã embotuicha · Epovo peteĩ rejeguá"
         },
         "earth-playground": {
           "title": "Yvy Ñembosarái",
@@ -58578,7 +58626,13 @@
           "keyClose": "Chiudi il pannello, il navigatore o la finestra aperta",
           "description": "Campo stellare WebGL interattivo — vola attraverso il Sistema Solare, stelle vicine, nebulose e galassie.",
           "music": "Musica Ambientale",
-          "musicDesc": "Playlist di colonna sonora ambientale che avanza tra le tracce mentre l’esperimento è aperto. La riproduzione automatica è disattivata con movimento ridotto — scegli una traccia o premi play per ascoltare."
+          "musicDesc": "Playlist di colonna sonora ambientale che avanza tra le tracce mentre l’esperimento è aperto. La riproduzione automatica è disattivata con movimento ridotto — scegli una traccia o premi play per ascoltare.",
+          "musicPlay": "Riproduci",
+          "musicPause": "Pausa",
+          "musicPrev": "Brano precedente",
+          "musicNext": "Brano successivo",
+          "musicRepeat": "Ripeti brano",
+          "hintTouch": "Trascina per orbitare · Avvicina le dita per lo zoom · Tocca un corpo per la sua storia"
         },
         "earth-playground": {
           "title": "Playground della Terra",
@@ -65781,7 +65835,13 @@
           "keyClose": "Закрыть открытую панель, навигатор или диалог",
           "description": "Интерактивное звёздное поле WebGL — летайте по Солнечной системе, ближайшим звёздам, туманностям и галактикам.",
           "music": "Фоновая музыка",
-          "musicDesc": "Плейлист атмосферного саундтрека, который проигрывает треки, пока открыт эксперимент. Автовоспроизведение отключено при настройке уменьшенного движения — выберите трек или нажмите «воспроизвести», чтобы слушать."
+          "musicDesc": "Плейлист атмосферного саундтрека, который проигрывает треки, пока открыт эксперимент. Автовоспроизведение отключено при настройке уменьшенного движения — выберите трек или нажмите «воспроизвести», чтобы слушать.",
+          "musicPlay": "Воспроизвести",
+          "musicPause": "Пауза",
+          "musicPrev": "Предыдущий трек",
+          "musicNext": "Следующий трек",
+          "musicRepeat": "Повторять трек",
+          "hintTouch": "Перетаскивайте для обзора · Щипок для масштаба · Коснитесь объекта для его истории"
         },
         "earth-playground": {
           "title": "Земная песочница",
@@ -72984,7 +73044,13 @@
           "keyClose": "Fermer le panneau, le navigateur ou la boîte de dialogue ouverte",
           "description": "Champ d'étoiles WebGL interactif — naviguez dans le Système solaire, les étoiles proches, nébuleuses et galaxies.",
           "music": "Musique d’ambiance",
-          "musicDesc": "Playlist de bande-son d’ambiance qui enchaîne les pistes tant que l’expérience est ouverte. La lecture automatique est désactivée avec le réglage mouvement réduit — choisissez une piste ou appuyez sur lecture pour écouter."
+          "musicDesc": "Playlist de bande-son d’ambiance qui enchaîne les pistes tant que l’expérience est ouverte. La lecture automatique est désactivée avec le réglage mouvement réduit — choisissez une piste ou appuyez sur lecture pour écouter.",
+          "musicPlay": "Lecture",
+          "musicPause": "Pause",
+          "musicPrev": "Piste précédente",
+          "musicNext": "Piste suivante",
+          "musicRepeat": "Répéter la piste",
+          "hintTouch": "Glissez pour orbiter · Pincez pour zoomer · Touchez un corps pour son histoire"
         },
         "earth-playground": {
           "title": "Playground de la Terre",
@@ -80187,7 +80253,13 @@
           "keyClose": "Sara el paneło, el navegador o ła fenèstra verta",
           "description": "Canpo stełare WebGL interativo — voła par el Sistema Sołare, łe stełe visine, nebułose e gałasie.",
           "music": "Mùxica Ambiente",
-          "musicDesc": "Lista de colona sonora ambiente che ła va vanti co łe trase fia che l’esperimento el ze verto. La riprodusion automàtega ła ze disativà co movimento ridoto — siełe na trasa o pisa play par scoltare."
+          "musicDesc": "Lista de colona sonora ambiente che ła va vanti co łe trase fia che l’esperimento el ze verto. La riprodusion automàtega ła ze disativà co movimento ridoto — siełe na trasa o pisa play par scoltare.",
+          "musicPlay": "Scołta",
+          "musicPause": "Pausa",
+          "musicPrev": "Trasa precedente",
+          "musicNext": "Trasa sucesiva",
+          "musicRepeat": "Ripeti ła trasa",
+          "hintTouch": "Strasina par orbitar · Pìnsa par ingrandir · Toca un corpo par ła so storia"
         },
         "earth-playground": {
           "title": "Terałudo",
@@ -87390,7 +87462,13 @@
           "keyClose": "Geopend paneel, navigator of dialoog sluiten",
           "description": "Interactief WebGL-sterrenveld — vlieg door het zonnestelsel, nabije sterren, nevels en sterrenstelsels.",
           "music": "Ambientmuziek",
-          "musicDesc": "Afspeellijst met ambient-soundtrack die de tracks afspeelt zolang het experiment open is. Automatisch afspelen is uitgeschakeld bij de instelling verminderde beweging — kies een track of druk op afspelen om te luisteren."
+          "musicDesc": "Afspeellijst met ambient-soundtrack die de tracks afspeelt zolang het experiment open is. Automatisch afspelen is uitgeschakeld bij de instelling verminderde beweging — kies een track of druk op afspelen om te luisteren.",
+          "musicPlay": "Afspelen",
+          "musicPause": "Pauzeren",
+          "musicPrev": "Vorige track",
+          "musicNext": "Volgende track",
+          "musicRepeat": "Track herhalen",
+          "hintTouch": "Sleep om rond te draaien · Knijp om te zoomen · Tik op een hemellichaam voor zijn verhaal"
         },
         "earth-playground": {
           "title": "Aarde-playground",
@@ -94593,7 +94671,13 @@
           "keyClose": "Tanca el panell, el navegador o el diàleg obert",
           "description": "Camp d'estrelles WebGL interactiu — vola pel Sistema Solar, estrelles properes, nebuloses i galàxies.",
           "music": "Música Ambiental",
-          "musicDesc": "Llista de reproducció de banda sonora ambiental que avança per les pistes mentre l’experiment està obert. La reproducció automàtica està desactivada amb moviment reduït — tria una pista o prem reproduir per escoltar."
+          "musicDesc": "Llista de reproducció de banda sonora ambiental que avança per les pistes mentre l’experiment està obert. La reproducció automàtica està desactivada amb moviment reduït — tria una pista o prem reproduir per escoltar.",
+          "musicPlay": "Reprodueix",
+          "musicPause": "Pausa",
+          "musicPrev": "Pista anterior",
+          "musicNext": "Pista següent",
+          "musicRepeat": "Repeteix la pista",
+          "hintTouch": "Arrossega per orbitar · Pessiga per ampliar · Toca un cos per la seva història"
         },
         "earth-playground": {
           "title": "Playground de la Terra",
@@ -101796,7 +101880,13 @@
           "keyClose": "Pechar o panel, navegador ou diálogo aberto",
           "description": "Campo de estrelas WebGL interactivo — voa polo Sistema Solar, estrelas próximas, nebulosas e galaxias.",
           "music": "Música Ambiental",
-          "musicDesc": "Lista de reprodución de banda sonora ambiental que avanza polas pistas mentres o experimento está aberto. A reprodución automática está desactivada con movemento reducido — escolle unha pista ou preme reproducir para escoitar."
+          "musicDesc": "Lista de reprodución de banda sonora ambiental que avanza polas pistas mentres o experimento está aberto. A reprodución automática está desactivada con movemento reducido — escolle unha pista ou preme reproducir para escoitar.",
+          "musicPlay": "Reproducir",
+          "musicPause": "Pausa",
+          "musicPrev": "Pista anterior",
+          "musicNext": "Pista seguinte",
+          "musicRepeat": "Repetir a pista",
+          "hintTouch": "Arrastra para orbitar · Belisca para ampliar · Toca un corpo para a súa historia"
         },
         "earth-playground": {
           "title": "Playground da Terra",
@@ -108999,7 +109089,13 @@
           "keyClose": "Dún an painéal, an loingseoír nó an dialóg oscailte",
           "description": "Réaltpháirc WebGL idirghníomhach — eitil tríd an gCóras Gréine, réaltaí dlúithe, nealtaí agus réaltraí.",
           "music": "Ceol Timpeallachta",
-          "musicDesc": "Seinmliosta fuaimriain timpeallachta a leanann trí na rianta fad is atá an turgnamh oscailte. Tá uathsheinm díchumasaithe faoi ghluaiseacht laghdaithe — roghnaigh riant nó brúigh seinm le héisteacht."
+          "musicDesc": "Seinmliosta fuaimriain timpeallachta a leanann trí na rianta fad is atá an turgnamh oscailte. Tá uathsheinm díchumasaithe faoi ghluaiseacht laghdaithe — roghnaigh riant nó brúigh seinm le héisteacht.",
+          "musicPlay": "Seinn",
+          "musicPause": "Cuir ar sos",
+          "musicPrev": "An t-amhrán roimhe",
+          "musicNext": "An chéad amhrán eile",
+          "musicRepeat": "Athsheinn an t-amhrán",
+          "hintTouch": "Tarraing chun fithisiú · Cosaing chun súmáil · Tapáil réad lena scéal"
         },
         "earth-playground": {
           "title": "Clós Spraoi an Domhain",
