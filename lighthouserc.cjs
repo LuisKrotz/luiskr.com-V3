@@ -48,7 +48,9 @@ module.exports = {
         // Image delivery is the one accepted performance finding — kept as
         // warn so it still surfaces in reports without failing the gate.
         // Every other performance audit must be fully addressed.
-        'image-delivery': 'warn',
+        // (Lighthouse ≥12 renamed the audit to *-insight; the old id is a
+        // dead reference that logs "not a known audit".)
+        'image-delivery-insight': 'warn',
         'modern-image-formats': 'warn',
         'uses-optimized-images': 'warn',
         'uses-responsive-images': 'warn',
