@@ -25,7 +25,7 @@ The main thread should render and answer input. Batch CPU work belongs in the WA
 ## GPU / WebGPU / WebGL
 
 - `core/utils/gpu/` — `gpu-accel` (WebGPU), `gpu-info`, `npu-predict` (ONNX NPU probe). `core/utils/canvas/` — `webgl-pool`, `webgl-mode`, `gl-lifecycle`, widget canvas pipeline.
-- **WebGPU → WebGL fallback** is automatic; every GPU feature must degrade gracefully (es2016-tier browsers get the WebGL path, no-WebGL gets canvas2d).
+- **WebGPU → WebGL fallback** is automatic; every GPU feature must degrade gracefully (floor-tier browsers get the WebGL path, no-WebGL gets canvas2d).
 - The Chromium warning `powerPreference is currently ignored when calling requestAdapter() on Windows` comes from inside three.js — it is advisory, not a failure; the adapter still initializes. Do not "fix" it from app code. On Windows, GPU compositing is handled by the browser's compositor — `transform`/`opacity` animations and canvas work hit GPU automatically.
 - Per-frame math belongs in shaders or sync local math; uniforms update, geometry stays resident — never re-upload buffers per frame.
 - NPU (`npu-predict`) is probe-gated — keep it behind capability detection and idle-scheduled, never blocking render.

@@ -1,3 +1,10 @@
 {
-  "exceptions": []
+  "exceptions": [
+    {
+      "package": "zod",
+      "advisory": "GHSA-mrhx-c7xc-m3w5",
+      "justification": "Dev-only: reachable only via @lhci/cli > lighthouse > puppeteer-core > chromium-bidi, which declares zod ^3.24.1. No patched 3.x release exists — the fix (>=4.6.6) violates the consumer's peer range, and forcing it would break the lighthouse dev runner, not a shipped surface. Production bundles never include zod. Review when a patched 3.x line ships or @lhci/cli upgrades puppeteer-core.",
+      "reviewDate": "2026-01-23"
+    }
+  ]
 }

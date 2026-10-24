@@ -5,7 +5,7 @@ description: Network-layer performance — critical-path depth, lazy/deferred co
 
 # Network & Delivery Performance
 
-The site is a Firebase Hosting SPA behind a CDN with prerendered locale HTML and 12 browser targets (esnext → es2016). All optimization must work inside that topology — Firebase + Google Cloud Storage only, no third-party edge logic.
+The site is a Firebase Hosting SPA behind a CDN with prerendered locale HTML and 6 browser targets (esnext → es2022, floor = iOS 16). All optimization must work inside that topology — Firebase + Google Cloud Storage only, no third-party edge logic.
 
 ## Critical path discipline
 

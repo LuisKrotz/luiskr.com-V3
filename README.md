@@ -2,7 +2,7 @@
 
 Personal portfolio of Luis Krötz — strict TypeScript custom elements with
 Shadow DOM, a custom JSX runtime, Firebase Realtime Database as CMS backend,
-Three.js WebGPU/WebGL visuals, and a multi-tier ES build (es2016 → esnext).
+Three.js WebGPU/WebGL visuals, and a multi-tier ES build (es2022 → esnext).
 
 **Documentation lives in [`shared/docs/`](shared/docs/README.md)** — architecture,
 routing, i18n, CMS, playground, styling governance, build and testing guides.
@@ -20,7 +20,7 @@ new experiment that self-registers for tests and coverage.
 
 | Module                         | What it is                                                                                                                                    | Read                                                                               |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `shared/`                      | **The operation** — app shell (`<app-root>`), workspace orchestrator, build matrix (es2016→esnext), verify/test/docs pipelines, vendored deps | [`shared/README.md`](shared/README.md)                                             |
+| `shared/`                      | **The operation** — app shell (`<app-root>`), workspace orchestrator, build matrix (es2022→esnext), verify/test/docs pipelines, vendored deps | [`shared/README.md`](shared/README.md)                                             |
 | `core/`                        | **The platform** — JSX runtime, component base, store, router, tokens, i18n, WebGL widgets, WASM pool                                         | [`core/README.md`](core/README.md)                                                 |
 | `website/`                     | **The public site** — home/project/legal/404 views + every component (nav, dialogs, mosaic, media, carousels, effects)                        | [`website/README.md`](website/README.md)                                           |
 | `cms/`                         | **The admin** — Firebase-backed editors for every content node, localhost media converter, deploy-info viewer                                 | [`cms/README.md`](cms/README.md)                                                   |

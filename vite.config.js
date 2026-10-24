@@ -14,9 +14,7 @@
  *     polyfill, zero CSS prefixes.
  *   - other module tiers: JS+CSS assets only (no html, no PWA), CSS
  *     prefixed for that tier's browser floor.
- *   - es2016 (legacy): single self-contained IIFE classic script — no
- *     module/import() needed, i18n bootstrap chunks inlined-stubbed so the
- *     data layer falls back to REST+localStorage.
+ *   - the matrix floor is es2022 (iOS 16) — every tier ships as ES modules.
  */
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
@@ -61,6 +59,15 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const CHUNK_MAX_SOURCE_BYTES = 48 * 1024
 
 /**
+ * Entry modulepreload cap — the number of `<link rel="modulepreload">`
+ * hints emitted per HTML input. The static closure is ~60 chunks; only
+ * the shallowest need a nav-start hint (the intro veil covers the
+ * viewport until mount, so deeper chunks fetch through normal import
+ * discovery inside the same deadline).
+ */
+const MODULEPRELOAD_MAX = 8
+
+/**
  * Modules that must remain inside their own `index`/`cms` entry chunks —
  * never captured by the `app` catch-all codeSplitting group. Html inputs
  * compile each file into an entry module whose code is a bare sequence of
@@ -78,7 +85,6 @@ export default defineConfig(({ command }) => {
   // orchestrator still produces a working modern build).
   const t = ES_TARGETS.find((x) => x.name === process.env.LK_TARGET) || ES_TARGETS[0]
   const isDefault = t.name === 'es2026'
-  const isLegacy = !!t.legacy
 
   const nameCache = {}
 
@@ -516,32 +522,73 @@ export default defineConfig(({ command }) => {
     },
   }
 
-  // Legacy tiers (the es2016 IIFE and its derived ie/ES5 twin) cannot
-  // code-split: a dynamic import() of onnxruntime-web would inline the
-  // ~4MB jsep bundle plus a ~26MB wasm asset into the one classic script
-  // — and preset-env's ES5 pass crashes on that artifact anyway. Engines
-  // on those tiers have neither WebNN nor WebGPU, so the ML layer could
-  // only ever reach the wasm EP there — not worth 26MB on the floor tier.
-  // Alias the lazy specifier to a stub whose InferenceSession.create
-  // rejects: ort-engine's retry+catch resolves null and every ML caller
-  // keeps its non-ML path (this layer is strictly an enhancement).
-  const ortLegacyStubId = '\0virtual:ort-legacy-stub'
-  const ortLegacyStubPlugin = {
-    name: 'ort-legacy-stub',
-    enforce: 'pre',
-    resolveId(source) {
-      if (!isLegacy) return null
-      if (source === 'onnxruntime-web' || source.startsWith('onnxruntime-web/'))
-        return ortLegacyStubId
-      return null
-    },
-    load(id) {
-      if (id !== ortLegacyStubId) return null
-      return [
-        "export const env = { wasm: {}, logLevel: '' }",
-        'export class Tensor { constructor() { this.data = new Float32Array(0) } }',
-        "export const InferenceSession = { create: async () => { throw new Error('ort: unavailable on legacy tier') } }",
-      ].join('\n')
+  // `vite preview` always writes raw bytes — Firebase Hosting negotiates
+  // and serves the build-emitted .br/.gz siblings instead. On throttled
+  // profiles (Lighthouse slow-4G, PSI) the uncompressed wire size inflates
+  // every transfer ~5× vs production. Mirror the hosting contract: when
+  // the client advertises br/gzip and the sibling exists on disk, answer
+  // with it directly. Range requests pass through — a compressed blob has
+  // no byte-range semantics.
+  const PRECOMPRESSED_MIME = {
+    '.css': 'text/css; charset=utf-8',
+    '.html': 'text/html; charset=utf-8',
+    '.ico': 'image/x-icon',
+    '.jpg': 'image/jpeg',
+    '.js': 'text/javascript; charset=utf-8',
+    '.json': 'application/json; charset=utf-8',
+    '.map': 'application/json; charset=utf-8',
+    '.mp4': 'video/mp4',
+    '.png': 'image/png',
+    '.svg': 'image/svg+xml',
+    '.txt': 'text/plain; charset=utf-8',
+    '.wasm': 'application/wasm',
+    '.webm': 'video/webm',
+    '.webmanifest': 'application/manifest+json',
+    '.webp': 'image/webp',
+    '.woff2': 'font/woff2',
+    '.xml': 'application/xml; charset=utf-8',
+  }
+
+  const previewPrecompressedPlugin = {
+    name: 'preview-precompressed',
+    configurePreviewServer(server) {
+      server.middlewares.use((req, res, next) => {
+        if (req.method !== 'GET' && req.method !== 'HEAD') return next()
+        if (req.headers.range) return next()
+
+        const reqPath = decodeURIComponent((req.url || '').split('?')[0])
+        const filePath = path.join(
+          __dirname,
+          'dist',
+          reqPath.endsWith('/') ? `${reqPath}index.html` : reqPath
+        )
+        const ext = path.extname(filePath).toLowerCase()
+        const mime = PRECOMPRESSED_MIME[ext]
+
+        if (!mime || !existsSync(filePath) || !statSync(filePath).isFile()) return next()
+
+        const accept = req.headers['accept-encoding'] || ''
+        const encoding = accept.includes('br') ? 'br' : accept.includes('gzip') ? 'gz' : null
+        const sibling = encoding && `${filePath}.${encoding}`
+
+        if (!sibling || !existsSync(sibling)) return next()
+
+        const size = statSync(sibling).size
+
+        res.writeHead(200, {
+          'Content-Type': mime,
+          'Content-Encoding': encoding === 'gz' ? 'gzip' : 'br',
+          'Content-Length': size,
+          Vary: 'Accept-Encoding',
+        })
+
+        if (req.method === 'HEAD') {
+          res.end()
+          return
+        }
+
+        res.end(readFileSync(sibling))
+      })
     },
   }
 
@@ -564,10 +611,10 @@ export default defineConfig(({ command }) => {
     siteWebmanifestDevPlugin,
     deployInfoDevPlugin,
     previewCleanUrlsPlugin,
-    ortLegacyStubPlugin,
+    previewPrecompressedPlugin,
     ...(process.env.LK_NO_PUBLIC ? [] : [modulePublicPlugin()]),
     i18nFallbackPlugin({ root: __dirname }),
-    i18nBootPlugin({ root: __dirname, isLegacy }),
+    i18nBootPlugin({ root: __dirname }),
     docsPortalPlugin({ root: __dirname, emitAssets: isDefault }),
     mediaConvertPlugin(),
     compression({
@@ -589,8 +636,8 @@ export default defineConfig(({ command }) => {
     jsxInJsPlugin(),
   ]
 
-  // PWA + html post-processing only on the default tier — service workers
-  // don't exist on legacy engines, and non-default builds emit no html.
+  // PWA + html post-processing only on the default tier — non-default
+  // builds emit no html, so there is nothing to post-process.
   if (isDefault) {
     plugins.push(
       VitePWA({
@@ -709,27 +756,35 @@ export default defineConfig(({ command }) => {
       mangle: terserMangle,
       format: terserFormat,
     },
-    modulePreload: isDefault ? { polyfill: true } : false,
-    // Budget per tier: module tiers' largest chunk is the lazy-loaded three.js
-    // vendor (~610kB); the legacy IIFE inlines the whole app (~2.1MB) by design.
-    chunkSizeWarningLimit: isLegacy ? 2200 : 700,
+    // Entry-preload cap: the full static closure fans out to ~60
+    // modulepreload hints, and every one floods the nav-start queue ahead
+    // of the LCP-critical bytes (font, stylesheet, hero) — while the intro
+    // veil covers the viewport until mount anyway, so nothing needs the
+    // tail of the graph EARLY. Keep the first deps (rolldown emits them
+    // shallowest-first) and let the rest resolve through import
+    // discovery; the veil's mount deadline makes the deeper waves free.
+    modulePreload: isDefault
+      ? {
+          polyfill: true,
+          resolveDependencies: (filename, deps, { hostType }) =>
+            hostType === 'html' ? deps.slice(0, MODULEPRELOAD_MAX) : deps,
+        }
+      : false,
+    // Budget per tier: the largest chunk is the lazy-loaded three.js
+    // vendor (~610kB).
+    chunkSizeWarningLimit: 700,
     rollupOptions: {
       checks: {
         // Terser dominating build time is the chosen minification strategy,
         // not a defect — silence the plugin-timing diagnostic.
         pluginTimings: false,
-        // Legacy IIFE intentionally replaces import.meta with {} — rolldown's
-        // EMPTY_IMPORT_META notice is expected, not actionable.
-        ...(isLegacy ? { emptyImportMeta: false } : {}),
       },
-      input: isLegacy
-        ? { index: fileURLToPath(new URL('./shared/src/main.js', import.meta.url)) }
-        : isDefault
-          ? {
-              index: fileURLToPath(new URL('./index.html', import.meta.url)),
-              cms: fileURLToPath(new URL('./cms/index.html', import.meta.url)),
-            }
-          : { index: fileURLToPath(new URL('./shared/src/main.js', import.meta.url)) },
+      input: isDefault
+        ? {
+            index: fileURLToPath(new URL('./index.html', import.meta.url)),
+            cms: fileURLToPath(new URL('./cms/index.html', import.meta.url)),
+          }
+        : { index: fileURLToPath(new URL('./shared/src/main.js', import.meta.url)) },
       output: {
         // Per-tier assets grouped by kind — js/ holds entry + lazy chunks,
         // css/ holds per-tier prefixed stylesheets, misc/ holds any other
@@ -739,10 +794,6 @@ export default defineConfig(({ command }) => {
         chunkFileNames: `${assetBase}/js/[name]-[hash].js`,
         assetFileNames: (info) =>
           `${assetBase}/${info.name && info.name.endsWith('.css') ? 'css' : 'misc'}/[name]-[hash].[ext]`,
-        // Legacy tier: one self-contained classic script — no imports at all.
-        // codeSplitting is already off for iife, so inlineDynamicImports would
-        // be redundant (rolldown flags it as ignored).
-        ...(isLegacy ? { format: 'iife' } : {}),
         // Budget splitting can place a module's dependents in a different
         // chunk than its dependencies, creating circular CHUNK references on
         // an acyclic module graph — e.g. `ui-text`/`fallback` in chunk A
@@ -751,82 +802,76 @@ export default defineConfig(({ command }) => {
         // the other's bindings hoisted-but-uninitialized, and B's top-level
         // `new Store()` crashes on `FALLBACK_APP.actions`. Wrap module bodies
         // so they initialize in dependency order regardless of which chunk a
-        // file lands in (rolldown's designed answer for this hazard class);
-        // legacy is a single iife chunk where the hazard cannot exist.
-        ...(isLegacy ? {} : { strictExecutionOrder: true }),
-        // Budget-driven splitting (module tiers only — the legacy IIFE stays
-        // monolithic because ES5 engines cannot load module chunks). Groups
-        // are checked by priority: firebase/three keep named, cache-stable
-        // chunks; every other node_modules module lands in entriesAware
-        // `vendor` pieces so no entry downloads vendor code it never calls;
-        // the `app` catch-all applies the same cap to first-party code.
-        // Single modules larger than the cap stay whole — the budget gate
-        // (chunk-budget.mjs) enforces the minified cap on the emitted files.
-        ...(isLegacy
-          ? {}
-          : {
-              codeSplitting: {
-                maxSize: CHUNK_MAX_SOURCE_BYTES,
-                groups: [
-                  {
-                    name: 'vendor-firebase',
-                    test: /node_modules[\\/](?:firebase|@firebase)[\\/]/,
-                    // entriesAware — auth/database/app-check are dynamic-
-                    // import only; without this the wrappers merge into one
-                    // chunk and the static firebase/app import drags ~280kB
-                    // of dead SDK code into every entry's modulepreload set.
-                    entriesAware: true,
-                    maxSize: CHUNK_MAX_SOURCE_BYTES,
-                    priority: 40,
-                  },
-                  {
-                    name: 'three',
-                    test: /node_modules[\\/]three[\\/]/,
-                    // entriesAware — three lands only behind lazy scene
-                    // imports; it must never join an entry's static graph.
-                    entriesAware: true,
-                    maxSize: CHUNK_MAX_SOURCE_BYTES,
-                    priority: 30,
-                  },
-                  // Generated payload modules (virtual:i18n-boot/<loc>/…,
-                  // virtual:docs-manifest) are atomic — one module per
-                  // locale/section, fetched lazily like JSON. Naming them
-                  // keeps their chunk filenames greppable and the budget
-                  // exceptions addressable.
-                  {
-                    name: 'i18n-data',
-                    test: /virtual:i18n-(?:boot|fallback)/,
-                    maxSize: CHUNK_MAX_SOURCE_BYTES,
-                    priority: 25,
-                  },
-                  {
-                    name: 'docs-data',
-                    test: /virtual:docs-|docs-content/,
-                    maxSize: CHUNK_MAX_SOURCE_BYTES,
-                    priority: 24,
-                  },
-                  {
-                    name: 'vendor',
-                    test: /node_modules/,
-                    entriesAware: true,
-                    maxSize: CHUNK_MAX_SOURCE_BYTES,
-                    priority: 10,
-                  },
-                  {
-                    name: 'app',
-                    test: (id) => !ENTRY_MODULE_RE.test(id),
-                    // entriesAware — without it a bucket holding one static
-                    // module plus five lazy-only modules is emitted whole on
-                    // the entry's static graph: every route-only sheet/code
-                    // gets preloaded + evaluated before first paint (~220KB+
-                    // of ?inline SCSS strings alone measured that way).
-                    entriesAware: true,
-                    maxSize: CHUNK_MAX_SOURCE_BYTES,
-                    priority: 0,
-                  },
-                ],
-              },
-            }),
+        // file lands in (rolldown's designed answer for this hazard class).
+        strictExecutionOrder: true,
+        // Budget-driven splitting. Groups are checked by priority:
+        // firebase/three keep named, cache-stable chunks; every other
+        // node_modules module lands in entriesAware `vendor` pieces so no
+        // entry downloads vendor code it never calls; the `app` catch-all
+        // applies the same cap to first-party code. Single modules larger
+        // than the cap stay whole — the budget gate (chunk-budget.mjs)
+        // enforces the minified cap on the emitted files.
+        codeSplitting: {
+          maxSize: CHUNK_MAX_SOURCE_BYTES,
+          groups: [
+            {
+              name: 'vendor-firebase',
+              test: /node_modules[\\/](?:firebase|@firebase)[\\/]/,
+              // entriesAware — auth/database/app-check are dynamic-
+              // import only; without this the wrappers merge into one
+              // chunk and the static firebase/app import drags ~280kB
+              // of dead SDK code into every entry's modulepreload set.
+              entriesAware: true,
+              maxSize: CHUNK_MAX_SOURCE_BYTES,
+              priority: 40,
+            },
+            {
+              name: 'three',
+              test: /node_modules[\\/]three[\\/]/,
+              // entriesAware — three lands only behind lazy scene
+              // imports; it must never join an entry's static graph.
+              entriesAware: true,
+              maxSize: CHUNK_MAX_SOURCE_BYTES,
+              priority: 30,
+            },
+            // Generated payload modules (virtual:i18n-boot/<loc>/…,
+            // virtual:docs-manifest) are atomic — one module per
+            // locale/section, fetched lazily like JSON. Naming them
+            // keeps their chunk filenames greppable and the budget
+            // exceptions addressable.
+            {
+              name: 'i18n-data',
+              test: /virtual:i18n-(?:boot|fallback)/,
+              maxSize: CHUNK_MAX_SOURCE_BYTES,
+              priority: 25,
+            },
+            {
+              name: 'docs-data',
+              test: /virtual:docs-|docs-content/,
+              maxSize: CHUNK_MAX_SOURCE_BYTES,
+              priority: 24,
+            },
+            {
+              name: 'vendor',
+              test: /node_modules/,
+              entriesAware: true,
+              maxSize: CHUNK_MAX_SOURCE_BYTES,
+              priority: 10,
+            },
+            {
+              name: 'app',
+              test: (id) => !ENTRY_MODULE_RE.test(id),
+              // entriesAware — without it a bucket holding one static
+              // module plus five lazy-only modules is emitted whole on
+              // the entry's static graph: every route-only sheet/code
+              // gets preloaded + evaluated before first paint (~220KB+
+              // of ?inline SCSS strings alone measured that way).
+              entriesAware: true,
+              maxSize: CHUNK_MAX_SOURCE_BYTES,
+              priority: 0,
+            },
+          ],
+        },
       },
     },
   }

@@ -4,6 +4,17 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!--
+      The app drives light/dark itself via html.dark-mode; `only light`
+      opts the document out of UA forced darkening (Chrome/Edge auto
+      dark inverts CSS surfaces but cannot repaint WebGL/canvas pixels).
+      html.dark-mode still overrides the used scheme to `dark` in CSS.
+    -->
+    <meta name="color-scheme" content="only light" />
+    <!-- Same opt-out for Dark Reader's dynamic theme — it rewrites
+         adoptedStyleSheets inside shadow roots but cannot repaint
+         WebGL/canvas pixels, producing a mixed light/dark paint. -->
+    <meta name="darkreader-lock" />
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js')
       // Boot-clock stamp (CACHE_STORAGE_KEYS.INTRO_T0): the intro loader's
@@ -97,7 +108,7 @@
         font-family: 'Raleway';
         font-style: normal;
         font-weight: 100 900;
-        font-display: swap;
+        font-display: optional;
         src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCAIT5lu.woff2)
           format('woff2');
         unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
@@ -106,7 +117,7 @@
         font-family: 'Raleway';
         font-style: normal;
         font-weight: 100 900;
-        font-display: swap;
+        font-display: optional;
         src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCkIT5lu.woff2)
           format('woff2');
         unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
@@ -115,7 +126,7 @@
         font-family: 'Raleway';
         font-style: normal;
         font-weight: 100 900;
-        font-display: swap;
+        font-display: optional;
         src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCIIT5lu.woff2)
           format('woff2');
         unicode-range:
@@ -126,7 +137,7 @@
         font-family: 'Raleway';
         font-style: normal;
         font-weight: 100 900;
-        font-display: swap;
+        font-display: optional;
         src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCMIT5lu.woff2)
           format('woff2');
         unicode-range:
@@ -138,7 +149,7 @@
         font-family: 'Raleway';
         font-style: normal;
         font-weight: 100 900;
-        font-display: swap;
+        font-display: optional;
         src: url(https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyC0ITw.woff2)
           format('woff2');
         unicode-range:
