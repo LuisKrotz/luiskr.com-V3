@@ -7,9 +7,9 @@
       "review": "2027-01-20"
     },
     {
-      "pattern": "^i18n-data",
+      "pattern": "^i18n-",
       "kind": "js",
-      "reason": "virtual:i18n-boot/<locale>/<section> generates one atomic payload module per locale section — a chunk IS the fetch unit here, equivalent to one translations JSON. Only the boot locale's ~30KB core section is on the critical path; all other locales/sections lazy-load on demand.",
+      "reason": "virtual:i18n-boot/<locale>/<section> generates one atomic payload module per locale section — each i18n-<locale>-<section> chunk IS the fetch unit, equivalent to one translations JSON. Only the active locale's section is ever requested; other locales lazy-load on language switch.",
       "review": "2027-01-20"
     },
     {

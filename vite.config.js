@@ -836,11 +836,23 @@ export default defineConfig(({ command }) => {
             },
             // Generated payload modules (virtual:i18n-boot/<loc>/…,
             // virtual:docs-manifest) are atomic — one module per
-            // locale/section, fetched lazily like JSON. Naming them
-            // keeps their chunk filenames greppable and the budget
-            // exceptions addressable.
+            // locale/section, fetched lazily like JSON. The dynamic name
+            // keeps that per-locale granularity in the emitted files:
+            // without it the whole group coalesces into ONE i18n-data
+            // chunk — and because virtual:i18n-fallback is statically
+            // imported, the merged blob (every locale's core+projects)
+            // then lands in the entry's static graph and downloads at
+            // boot. Per-locale names make each language its own fetch
+            // unit, so only the active locale's section is ever
+            // requested; the fallback/index get their own tiny chunks.
             {
-              name: 'i18n-data',
+              name: (id) => {
+                const boot = /i18n-boot[\\/]([^\\/]+)[\\/](core|projects)/.exec(id)
+
+                if (boot) return `i18n-${boot[1]}-${boot[2]}`
+
+                return id.includes('i18n-fallback') ? 'i18n-fallback' : 'i18n-index'
+              },
               test: /virtual:i18n-(?:boot|fallback)/,
               maxSize: CHUNK_MAX_SOURCE_BYTES,
               priority: 25,
