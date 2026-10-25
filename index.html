@@ -2,7 +2,6 @@
 <html lang="en" class="no-js" itemscope itemtype="https://schema.org/WebSite">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <!--
       The app drives light/dark itself via html.dark-mode; `only light`
@@ -284,6 +283,18 @@
   </head>
 
   <body>
+    <!-- Light-DOM skip-nav — html_skipnav_exists: the in-shadow link inside
+         app-root can't serve the composed document (and crawlers/reader
+         mode never see it). href targets the parked reader article's
+         #reader-content statically; once mounted, main.ts intercepts the
+         activation and redirects focus to the shadow #main-content. Text
+         is localized per locale page by build-locale-pages (APP.skip).
+         The <header> wrapper puts the link inside the banner landmark —
+         bare page-level nodes outside any landmark trip
+         aria_content_in_landmark. -->
+    <header>
+      <a class="skip-link" href="#reader-content">Skip to content</a>
+    </header>
     <div id="app"></div>
     <!-- Boot loader — mirrors the exact DOM IntroLoader.init() builds
          (LOADER_CLASSES tokens) so the designed veil paints with the
