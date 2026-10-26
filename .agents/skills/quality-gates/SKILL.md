@@ -31,6 +31,14 @@ Versioned in `shared/scripts/git-hooks/` — install via `shared/scripts/install
 
 `console.log/debug/trace/table/group*` are forbidden in `shared/src/`; `warn/error/info` allowed only as intentional signal. Enforced by console-scan.
 
+## Istanbul suppressions — HARD RULE, never add them
+
+`istanbul ignore` comments (`next`/`if`/`else`/`file`) are forbidden for agents — uncovered statements/branches/functions get real tests (dispatch synthetic events, mock rejections, drive component state), never a suppression comment. The only permitted occurrences are the grandfathered `ISTANBUL_BASELINE` entries in `shared/tests/fixtures/test-constants.js` — the baseline may only shrink. Enforced by `style-governance.test.js` Rule 32.
+
+## Never stop before full delivery
+
+Do not stop or report completion until every item is green in the current session: code comments placed, docs updated, all Jest gates, all a11y gates, all security gates, the performance gate, all Lighthouse gates, a build with zero errors/warnings, a clean preview, and committed+pushed changes when the task calls for it. A red gate is a work item — fix the root cause and re-run; "passed earlier" or "looks flaky" does not count.
+
 ## DEPLOYMENT — never without asking
 
 Never run `npm run deploy`, `firebase deploy`, or any deploy command unless the user explicitly asks for that specific deploy in the conversation. Verification and builds never deploy.

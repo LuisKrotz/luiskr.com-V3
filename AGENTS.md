@@ -201,3 +201,23 @@ Under NO circumstances may any hardcoded values be introduced into any file in t
     - Reuse the project's established building blocks (canvas widgets, token classes, modals, motion primitives) instead of inventing weaker one-off substitutes — the codebase's patterns are the quality bar, not a suggestion.
     - If a shortcut is ever genuinely forced (time, missing dependency, platform limit), say so explicitly and flag the gap — never pass a stand-in off as the finished work.
     - "Good enough to pass tests" is not done: the result must look, behave, and read as designed work to the user, to crawlers, and to assistive tech.
+
+32. **Zero Istanbul Coverage Suppressions — HARD RULE for ALL Agents**:
+    - Agents must NEVER add `istanbul ignore` comments (`ignore next`, `ignore if`, `ignore else`, `ignore file`) anywhere in the codebase — no exceptions, no "unreachable in jsdom" justifications.
+    - If a statement, branch, or function is uncovered, the fix is a real test that exercises it — dispatch the synthetic event, mock the rejection, drive the state — never a suppression comment.
+    - Suppressions that predate this rule are grandfathered in `ISTANBUL_BASELINE` (`shared/tests/fixtures/test-constants.js`); the baseline may only shrink — never grow.
+    - Enforced by `shared/tests/governance/style-governance.test.js` — any `istanbul ignore` outside the baseline fails the suite.
+    - Mirrors `.agents/rules/no-istanbul-ignore.md`.
+
+33. **Never Stop Before Full Delivery — The Complete-Work Contract**:
+    - An agent must not stop or report completion until ALL of the following are done in the current session: code comments are in place, all necessary docs are updated, every Jest gate passes, all a11y gates pass, all security gates pass, the performance gate passes, all Lighthouse gates pass, the build runs with zero errors and warnings, the preview serves cleanly, and the changes are committed and pushed when the task calls for it.
+    - A red gate, a skipped check, or an unpushed commit is unfinished work — keep going; do not hand a partial result back as done.
+    - Mirrors `.agents/rules/full-delivery-checklist.md`.
+
+34. **SEO Indexation Contract — Canonical URLs Must Serve 200**:
+    - Every declared canonical MUST resolve to a 200 response whose canonical points at itself — never a redirect, never a different URL. The site is slashless-canonical: `firebase.json` MUST keep `hosting.trailingSlash: false` so directory indexes 200 at the slashless URL and the slash variant 301s onto it (the reverse turns every canonical into a redirect and loops the indexation signal).
+    - Sitemaps and `urllist.txt` may only name FINAL canonical indexable URLs — never redirect sources (project aliases, `/<loc>/docs`, legacy segments), never trailing-slash variants, never noindex surfaces.
+    - Internal/agent surfaces carry `X-Robots-Tag: noindex` and are excluded from sitemaps: `/docs`, `/docs/**`, `/docs-content/**`, `/deploy-info/**`, `/langs/**`, `/cms`, `/admin`. `/docs` is crawlable but noindexed — a robots `Disallow: /docs` would hide the header and strand indexed URLs; payload paths (`/docs-content/`, `/deploy-info/`, `/meta/`, `/langs/`) are Disallowed.
+    - Unresolvable routes MUST noindex at runtime through `setRobotsMeta` (`core/utils/schema.ts`): the not-found route, a missing project snapshot, a media deep-link slug that fails to resolve in the active locale, a star-field body segment matching no catalog id. A 200 + self-canonical on an unresolvable slug manufactures duplicates Google must arbitrate.
+    - Never emit prose as `href` — only values verified `^https?://` may be linked (star-body `source` is citation text; `meta.refs` are the URLs). A label/citation string in an `<a href>` becomes a garbage relative URL crawlers chase into soft-404s.
+    - Enforced by `shared/tests/governance/seo-indexation.test.js`; full contract in `.agents/skills/seo-indexation/SKILL.md`.

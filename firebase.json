@@ -5,6 +5,7 @@
   "hosting": {
     "predeploy": "node shared/scripts/build/predeploy.mjs",
     "postdeploy": "node shared/scripts/build/stamp-content-signal.mjs --revert",
+    "trailingSlash": false,
     "public": "dist",
     "ignore": [
       "firebase.json",
@@ -46,7 +47,7 @@
           },
           {
             "key": "Content-Signal",
-            "value": "ai-train=no, search=yes, ai-input=no"
+            "value": "ai-train=yes, search=yes, ai-input=yes"
           },
           {
             "key": "Content-Security-Policy",
@@ -56,6 +57,68 @@
       },
       {
         "source": "/cms/**",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, nofollow"
+          },
+          {
+            "key": "Cross-Origin-Opener-Policy",
+            "value": "same-origin-allow-popups"
+          },
+          {
+            "key": "Cross-Origin-Embedder-Policy",
+            "value": "unsafe-none"
+          }
+        ]
+      },
+      {
+        "source": "/docs",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          }
+        ]
+      },
+      {
+        "source": "/docs/**",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          }
+        ]
+      },
+      {
+        "source": "/docs-content/**",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          }
+        ]
+      },
+      {
+        "source": "/deploy-info/**",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          }
+        ]
+      },
+      {
+        "source": "/langs/**",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          }
+        ]
+      },
+      {
+        "source": "/admin/**",
         "headers": [
           {
             "key": "X-Robots-Tag",
@@ -261,6 +324,78 @@
           {
             "key": "Link",
             "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </openapi.json>; rel=\"service-desc\"; type=\"application/vnd.oai.openapi+json\", </docs>; rel=\"service-doc\"; type=\"text/html\", </llms.txt>; rel=\"describedby\"; type=\"text/markdown; profile=\\\"urn:air:agent-skills\\\"\", </ai-catalog.json>; rel=\"describedby\"; type=\"application/json\""
+          }
+        ]
+      },
+      {
+        "source": "/llm",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "/llm/**",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "/**/*.md",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          },
+          {
+            "key": "Content-Type",
+            "value": "text/markdown; charset=utf-8"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "/**/*.json",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json; charset=utf-8"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
           }
         ]
       }
