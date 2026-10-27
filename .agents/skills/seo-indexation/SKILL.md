@@ -67,7 +67,12 @@ trace back to violating one of these invariants.
 The SPA `**` catch-all serves 200 for anything, so unresolvable
 locations must self-exclude through `setRobotsMeta`
 (`core/utils/schema.ts` — the single authority for `<meta
-name="robots">`):
+name="robots">`). Indexable routes are not left meta-less: the shell
+(index.html) and every indexable navigation carry
+`SCHEMA_STRINGS.INDEX_RICH_DIRECTIVES` (`index, follow,
+max-image-preview:large, max-snippet:-1, max-video-preview:-1`) —
+`max-image-preview:large` is the opt-in Google/Bing require for large
+image cards and Discover previews.
 
 - `syncDocumentHead` (`core/router/navigate.ts`) resets the meta every
   navigation and re-arms it for `ROUTE_NAMES.NOT_FOUND` — a stale

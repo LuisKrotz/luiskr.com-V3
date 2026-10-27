@@ -14,6 +14,18 @@
          adoptedStyleSheets inside shadow roots but cannot repaint
          WebGL/canvas pixels, producing a mixed light/dark paint. -->
     <meta name="darkreader-lock" />
+
+    <!-- Explicit index directives (SCHEMA_STRINGS.INDEX_RICH_DIRECTIVES —
+         keep in sync): max-image-preview:large is the opt-in Google/Bing
+         require for large image cards and Discover previews, and the
+         unlimited snippet/video previews keep every media surface
+         eligible for rich results. setRobotsMeta (core/utils/schema.ts)
+         rewrites this node's content per route — noindex for
+         unresolvable routes, this same directive for indexable ones. -->
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js')
       // Boot-clock stamp (CACHE_STORAGE_KEYS.INTRO_T0): the intro loader's
