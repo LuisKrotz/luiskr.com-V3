@@ -21,7 +21,7 @@ module.exports = {
         'https://localhost:4173/not-found',
         'https://localhost:4173/portfolio/melissa/',
         'https://localhost:4173/portfolio/metcha/',
-        'https://localhost:4173/portfolio/dell-design-sytem/',
+        'https://localhost:4173/portfolio/dell-design-system/',
         'https://localhost:4173/br/',
         'https://localhost:4173/gn/portfolio/metcha/',
         'https://localhost:4173/hrk/portfolio/melissa/',
@@ -38,24 +38,49 @@ module.exports = {
       numberOfRuns: 3,
     },
     assert: {
-      assertions: {
-        // Category minimums — performance 0.80, every other category 1.00.
-        'categories:performance': ['error', { minScore: 0.8 }],
-        'categories:accessibility': ['error', { minScore: 1 }],
-        'categories:best-practices': ['error', { minScore: 1 }],
-        'categories:seo': ['error', { minScore: 1 }],
+      // assertMatrix instead of flat `assertions` so /not-found can be
+      // exempted from categories:seo — it MUST serve noindex by the
+      // indexation contract (soft-404s self-exclude via setRobotsMeta),
+      // which makes `is-crawlable` fail by design and caps the seo
+      // category ~0.66. Every other URL keeps the full assertion set.
+      // (assertMatrix cannot be combined with a top-level `assertions`.)
+      assertMatrix: [
+        {
+          matchingUrlPattern: '/not-found',
+          assertions: {
+            'categories:performance': ['error', { minScore: 0.8 }],
+            'categories:accessibility': ['error', { minScore: 1 }],
+            'categories:best-practices': ['error', { minScore: 1 }],
 
-        // Image delivery is the one accepted performance finding — kept as
-        // warn so it still surfaces in reports without failing the gate.
-        // Every other performance audit must be fully addressed.
-        // (Lighthouse ≥12 renamed the audit to *-insight; the old id is a
-        // dead reference that logs "not a known audit".)
-        'image-delivery-insight': 'warn',
-        'modern-image-formats': 'warn',
-        'uses-optimized-images': 'warn',
-        'uses-responsive-images': 'warn',
-        'efficient-animated-content': 'warn',
-      },
+            'image-delivery-insight': 'warn',
+            'modern-image-formats': 'warn',
+            'uses-optimized-images': 'warn',
+            'uses-responsive-images': 'warn',
+            'efficient-animated-content': 'warn',
+          },
+        },
+        {
+          matchingUrlPattern: '^(?!.*not-found).*$',
+          assertions: {
+            // Category minimums — performance 0.80, every other category 1.00.
+            'categories:performance': ['error', { minScore: 0.8 }],
+            'categories:accessibility': ['error', { minScore: 1 }],
+            'categories:best-practices': ['error', { minScore: 1 }],
+            'categories:seo': ['error', { minScore: 1 }],
+
+            // Image delivery is the one accepted performance finding — kept
+            // as warn so it still surfaces in reports without failing the
+            // gate. Every other performance audit must be fully addressed.
+            // (Lighthouse ≥12 renamed the audit to *-insight; the old id is
+            // a dead reference that logs "not a known audit".)
+            'image-delivery-insight': 'warn',
+            'modern-image-formats': 'warn',
+            'uses-optimized-images': 'warn',
+            'uses-responsive-images': 'warn',
+            'efficient-animated-content': 'warn',
+          },
+        },
+      ],
     },
     upload: {
       target: 'temporary-public-storage',
