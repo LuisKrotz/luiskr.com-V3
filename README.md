@@ -100,4 +100,20 @@ when sudo is passwordless, otherwise the exact command is printed.
 converter's guided setup panel on localhost —
 `GET/POST /api/media-convert/tools*`.
 
+## Search and crawl artifacts
+
+- RSS 2.0 + Media RSS feeds are available at `/feed.xml` and `/rss.xml`;
+  each locale also has `/<locale>/feed.xml`.
+- `searchThemes` are content-derived and localized for every page and
+  project. `node shared/scripts/i18n/patch-all-pages-search-themes.js`
+  refreshes the committed snapshot.
+- `LK_OFFLINE=1 node shared/scripts/build/generate-sitemap.js` regenerates
+  sitemaps, `robots.txt`, localized `llms.txt`, and RSS feeds from
+  `database.json` plus the cached media manifest. The normal generator
+  invocation refreshes its media and English project data from their public
+  sources when network access is available.
+- `yarn build` emits the per-route Markdown/JSON agent replicas;
+  `yarn docs` regenerates the API and source Markdown documentation.
+- `yarn test:fps` checks the 120 FPS mobile and 240 FPS desktop frame floors.
+
 License: [MPL-2.0](LICENSE)

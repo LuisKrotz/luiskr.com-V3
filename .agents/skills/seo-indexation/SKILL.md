@@ -40,12 +40,19 @@ trace back to violating one of these invariants.
   project node in `database.json` holds a content-derived list
   (`patch-all-pages-search-themes.js`) that also feeds
   `<meta name="keywords">` and WebPage JSON-LD `keywords`.
+- The field name is the shared `CMS_KEYS.SEARCH_THEMES` token. Run the
+  patch script to refresh the snapshot; `LK_OFFLINE=1` regenerates crawl
+  artifacts from that snapshot and the cached media manifest without
+  outbound requests.
 
 ## RSS feeds
 
 - `generate-sitemap.js` also emits RSS 2.0 + Media RSS — `meta/feed.xml`
   (en) and `meta/<loc>/feed.xml` per locale — pages + all projects with
-  cover media. Rewrites: `/feed.xml`, `/rss.xml` → `/meta/feed.xml`;
+  cover media. Video items use `<media:thumbnail>` only when a bucket-backed
+  poster exists and keep the source in `<media:content>`; absent derivatives
+  never produce an empty `url` attribute. Rewrites: `/feed.xml`, `/rss.xml`
+  → `/meta/feed.xml`;
   `/<loc>/feed.xml` → `/meta/<loc>/feed.xml` (STATIC_REWRITES /
   META_FILE_REWRITES — adding a feed file means editing both).
 - Every emitted page advertises its locale feed via
