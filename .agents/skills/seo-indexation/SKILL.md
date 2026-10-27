@@ -35,6 +35,22 @@ trace back to violating one of these invariants.
 - Media deep links and star-field body links are real canonical pages in
   every locale and stay listed; their validity is enforced by
   `seo-route-parity.test.js` + `seo-indexation.test.js`.
+- `image:image` / `video:video` extension tags carry the owning page's
+  localized `searchThemes` (caption / `video:tag`) — every page and
+  project node in `database.json` holds a content-derived list
+  (`patch-all-pages-search-themes.js`) that also feeds
+  `<meta name="keywords">` and WebPage JSON-LD `keywords`.
+
+## RSS feeds
+
+- `generate-sitemap.js` also emits RSS 2.0 + Media RSS — `meta/feed.xml`
+  (en) and `meta/<loc>/feed.xml` per locale — pages + all projects with
+  cover media. Rewrites: `/feed.xml`, `/rss.xml` → `/meta/feed.xml`;
+  `/<loc>/feed.xml` → `/meta/<loc>/feed.xml` (STATIC_REWRITES /
+  META_FILE_REWRITES — adding a feed file means editing both).
+- Every emitted page advertises its locale feed via
+  `<link rel="alternate" type="application/rss+xml">` (localize()
+  `feedUrl`); feeds are crawl artifacts, never sitemap entries.
 
 ## Internal surfaces — noindex, don't disallow
 

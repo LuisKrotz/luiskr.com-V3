@@ -422,6 +422,14 @@
         "destination": "/meta/ai-catalog.json"
       },
       {
+        "source": "/feed.xml",
+        "destination": "/meta/feed.xml"
+      },
+      {
+        "source": "/rss.xml",
+        "destination": "/meta/feed.xml"
+      },
+      {
         "source": "/.well-known/ai-catalog.json",
         "destination": "/meta/.well-known/ai-catalog.json"
       },
@@ -546,6 +554,10 @@
         "destination": "/meta/br/ai-catalog.json"
       },
       {
+        "source": "/br/feed.xml",
+        "destination": "/meta/br/feed.xml"
+      },
+      {
         "source": "/es/robots.txt",
         "destination": "/meta/es/robots.txt"
       },
@@ -560,6 +572,10 @@
       {
         "source": "/es/ai-catalog.json",
         "destination": "/meta/es/ai-catalog.json"
+      },
+      {
+        "source": "/es/feed.xml",
+        "destination": "/meta/es/feed.xml"
       },
       {
         "source": "/de/robots.txt",
@@ -578,6 +594,10 @@
         "destination": "/meta/de/ai-catalog.json"
       },
       {
+        "source": "/de/feed.xml",
+        "destination": "/meta/de/feed.xml"
+      },
+      {
         "source": "/hrk/robots.txt",
         "destination": "/meta/hrk/robots.txt"
       },
@@ -592,6 +612,10 @@
       {
         "source": "/hrk/ai-catalog.json",
         "destination": "/meta/hrk/ai-catalog.json"
+      },
+      {
+        "source": "/hrk/feed.xml",
+        "destination": "/meta/hrk/feed.xml"
       },
       {
         "source": "/cas/robots.txt",
@@ -610,6 +634,10 @@
         "destination": "/meta/cas/ai-catalog.json"
       },
       {
+        "source": "/cas/feed.xml",
+        "destination": "/meta/cas/feed.xml"
+      },
+      {
         "source": "/riv/robots.txt",
         "destination": "/meta/riv/robots.txt"
       },
@@ -624,6 +652,10 @@
       {
         "source": "/riv/ai-catalog.json",
         "destination": "/meta/riv/ai-catalog.json"
+      },
+      {
+        "source": "/riv/feed.xml",
+        "destination": "/meta/riv/feed.xml"
       },
       {
         "source": "/gn/robots.txt",
@@ -642,6 +674,10 @@
         "destination": "/meta/gn/ai-catalog.json"
       },
       {
+        "source": "/gn/feed.xml",
+        "destination": "/meta/gn/feed.xml"
+      },
+      {
         "source": "/it/robots.txt",
         "destination": "/meta/it/robots.txt"
       },
@@ -656,6 +692,10 @@
       {
         "source": "/it/ai-catalog.json",
         "destination": "/meta/it/ai-catalog.json"
+      },
+      {
+        "source": "/it/feed.xml",
+        "destination": "/meta/it/feed.xml"
       },
       {
         "source": "/ru/robots.txt",
@@ -674,6 +714,10 @@
         "destination": "/meta/ru/ai-catalog.json"
       },
       {
+        "source": "/ru/feed.xml",
+        "destination": "/meta/ru/feed.xml"
+      },
+      {
         "source": "/fr/robots.txt",
         "destination": "/meta/fr/robots.txt"
       },
@@ -688,6 +732,10 @@
       {
         "source": "/fr/ai-catalog.json",
         "destination": "/meta/fr/ai-catalog.json"
+      },
+      {
+        "source": "/fr/feed.xml",
+        "destination": "/meta/fr/feed.xml"
       },
       {
         "source": "/tln/robots.txt",
@@ -706,6 +754,10 @@
         "destination": "/meta/tln/ai-catalog.json"
       },
       {
+        "source": "/tln/feed.xml",
+        "destination": "/meta/tln/feed.xml"
+      },
+      {
         "source": "/gl/robots.txt",
         "destination": "/meta/gl/robots.txt"
       },
@@ -720,6 +772,10 @@
       {
         "source": "/gl/ai-catalog.json",
         "destination": "/meta/gl/ai-catalog.json"
+      },
+      {
+        "source": "/gl/feed.xml",
+        "destination": "/meta/gl/feed.xml"
       },
       {
         "source": "/ca/robots.txt",
@@ -738,6 +794,10 @@
         "destination": "/meta/ca/ai-catalog.json"
       },
       {
+        "source": "/ca/feed.xml",
+        "destination": "/meta/ca/feed.xml"
+      },
+      {
         "source": "/nl/robots.txt",
         "destination": "/meta/nl/robots.txt"
       },
@@ -754,6 +814,10 @@
         "destination": "/meta/nl/ai-catalog.json"
       },
       {
+        "source": "/nl/feed.xml",
+        "destination": "/meta/nl/feed.xml"
+      },
+      {
         "source": "/ga/robots.txt",
         "destination": "/meta/ga/robots.txt"
       },
@@ -768,6 +832,10 @@
       {
         "source": "/ga/ai-catalog.json",
         "destination": "/meta/ga/ai-catalog.json"
+      },
+      {
+        "source": "/ga/feed.xml",
+        "destination": "/meta/ga/feed.xml"
       },
       {
         "source": "/br",
@@ -822,6 +890,10 @@
         "destination": "/langs/br/star-field-experiment/index.html"
       },
       {
+        "source": "/br/portfolio/dell-design-system",
+        "destination": "/langs/br/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/br/portfolio/aboutmarco",
         "destination": "/langs/br/portfolio/aboutmarco/index.html"
       },
@@ -836,10 +908,6 @@
       {
         "source": "/br/portfolio/coza",
         "destination": "/langs/br/portfolio/coza/index.html"
-      },
-      {
-        "source": "/br/portfolio/dell-design-system",
-        "destination": "/langs/br/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/br/portfolio/melissa",
@@ -926,6 +994,10 @@
         "destination": "/langs/es/star-field-experiment/index.html"
       },
       {
+        "source": "/es/portfolio/dell-design-system",
+        "destination": "/langs/es/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/es/portfolio/aboutmarco",
         "destination": "/langs/es/portfolio/aboutmarco/index.html"
       },
@@ -940,10 +1012,6 @@
       {
         "source": "/es/portfolio/coza",
         "destination": "/langs/es/portfolio/coza/index.html"
-      },
-      {
-        "source": "/es/portfolio/dell-design-system",
-        "destination": "/langs/es/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/es/portfolio/melissa",
@@ -1030,6 +1098,10 @@
         "destination": "/langs/de/star-field-experiment/index.html"
       },
       {
+        "source": "/de/portfolio/dell-design-system",
+        "destination": "/langs/de/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/de/portfolio/aboutmarco",
         "destination": "/langs/de/portfolio/aboutmarco/index.html"
       },
@@ -1044,10 +1116,6 @@
       {
         "source": "/de/portfolio/coza",
         "destination": "/langs/de/portfolio/coza/index.html"
-      },
-      {
-        "source": "/de/portfolio/dell-design-system",
-        "destination": "/langs/de/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/de/portfolio/melissa",
@@ -1134,6 +1202,10 @@
         "destination": "/langs/hrk/star-field-experiment/index.html"
       },
       {
+        "source": "/hrk/portfolio/dell-design-system",
+        "destination": "/langs/hrk/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/hrk/portfolio/aboutmarco",
         "destination": "/langs/hrk/portfolio/aboutmarco/index.html"
       },
@@ -1148,10 +1220,6 @@
       {
         "source": "/hrk/portfolio/coza",
         "destination": "/langs/hrk/portfolio/coza/index.html"
-      },
-      {
-        "source": "/hrk/portfolio/dell-design-system",
-        "destination": "/langs/hrk/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/hrk/portfolio/melissa",
@@ -1238,6 +1306,10 @@
         "destination": "/langs/cas/star-field-experiment/index.html"
       },
       {
+        "source": "/cas/portfolio/dell-design-system",
+        "destination": "/langs/cas/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/cas/portfolio/aboutmarco",
         "destination": "/langs/cas/portfolio/aboutmarco/index.html"
       },
@@ -1252,10 +1324,6 @@
       {
         "source": "/cas/portfolio/coza",
         "destination": "/langs/cas/portfolio/coza/index.html"
-      },
-      {
-        "source": "/cas/portfolio/dell-design-system",
-        "destination": "/langs/cas/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/cas/portfolio/melissa",
@@ -1342,6 +1410,10 @@
         "destination": "/langs/riv/star-field-experiment/index.html"
       },
       {
+        "source": "/riv/portfolio/dell-design-system",
+        "destination": "/langs/riv/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/riv/portfolio/aboutmarco",
         "destination": "/langs/riv/portfolio/aboutmarco/index.html"
       },
@@ -1356,10 +1428,6 @@
       {
         "source": "/riv/portfolio/coza",
         "destination": "/langs/riv/portfolio/coza/index.html"
-      },
-      {
-        "source": "/riv/portfolio/dell-design-system",
-        "destination": "/langs/riv/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/riv/portfolio/melissa",
@@ -1446,6 +1514,10 @@
         "destination": "/langs/gn/star-field-experiment/index.html"
       },
       {
+        "source": "/gn/portfolio/dell-design-system",
+        "destination": "/langs/gn/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/gn/portfolio/aboutmarco",
         "destination": "/langs/gn/portfolio/aboutmarco/index.html"
       },
@@ -1460,10 +1532,6 @@
       {
         "source": "/gn/portfolio/coza",
         "destination": "/langs/gn/portfolio/coza/index.html"
-      },
-      {
-        "source": "/gn/portfolio/dell-design-system",
-        "destination": "/langs/gn/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/gn/portfolio/melissa",
@@ -1550,6 +1618,10 @@
         "destination": "/langs/it/star-field-experiment/index.html"
       },
       {
+        "source": "/it/portfolio/dell-design-system",
+        "destination": "/langs/it/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/it/portfolio/aboutmarco",
         "destination": "/langs/it/portfolio/aboutmarco/index.html"
       },
@@ -1564,10 +1636,6 @@
       {
         "source": "/it/portfolio/coza",
         "destination": "/langs/it/portfolio/coza/index.html"
-      },
-      {
-        "source": "/it/portfolio/dell-design-system",
-        "destination": "/langs/it/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/it/portfolio/melissa",
@@ -1654,6 +1722,10 @@
         "destination": "/langs/ru/star-field-experiment/index.html"
       },
       {
+        "source": "/ru/portfolio/dell-design-system",
+        "destination": "/langs/ru/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/ru/portfolio/aboutmarco",
         "destination": "/langs/ru/portfolio/aboutmarco/index.html"
       },
@@ -1668,10 +1740,6 @@
       {
         "source": "/ru/portfolio/coza",
         "destination": "/langs/ru/portfolio/coza/index.html"
-      },
-      {
-        "source": "/ru/portfolio/dell-design-system",
-        "destination": "/langs/ru/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/ru/portfolio/melissa",
@@ -1758,6 +1826,10 @@
         "destination": "/langs/fr/star-field-experiment/index.html"
       },
       {
+        "source": "/fr/portfolio/dell-design-system",
+        "destination": "/langs/fr/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/fr/portfolio/aboutmarco",
         "destination": "/langs/fr/portfolio/aboutmarco/index.html"
       },
@@ -1772,10 +1844,6 @@
       {
         "source": "/fr/portfolio/coza",
         "destination": "/langs/fr/portfolio/coza/index.html"
-      },
-      {
-        "source": "/fr/portfolio/dell-design-system",
-        "destination": "/langs/fr/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/fr/portfolio/melissa",
@@ -1862,6 +1930,10 @@
         "destination": "/langs/tln/star-field-experiment/index.html"
       },
       {
+        "source": "/tln/portfolio/dell-design-system",
+        "destination": "/langs/tln/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/tln/portfolio/aboutmarco",
         "destination": "/langs/tln/portfolio/aboutmarco/index.html"
       },
@@ -1876,10 +1948,6 @@
       {
         "source": "/tln/portfolio/coza",
         "destination": "/langs/tln/portfolio/coza/index.html"
-      },
-      {
-        "source": "/tln/portfolio/dell-design-system",
-        "destination": "/langs/tln/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/tln/portfolio/melissa",
@@ -1966,6 +2034,10 @@
         "destination": "/langs/gl/star-field-experiment/index.html"
       },
       {
+        "source": "/gl/portfolio/dell-design-system",
+        "destination": "/langs/gl/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/gl/portfolio/aboutmarco",
         "destination": "/langs/gl/portfolio/aboutmarco/index.html"
       },
@@ -1980,10 +2052,6 @@
       {
         "source": "/gl/portfolio/coza",
         "destination": "/langs/gl/portfolio/coza/index.html"
-      },
-      {
-        "source": "/gl/portfolio/dell-design-system",
-        "destination": "/langs/gl/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/gl/portfolio/melissa",
@@ -2070,6 +2138,10 @@
         "destination": "/langs/ca/star-field-experiment/index.html"
       },
       {
+        "source": "/ca/portfolio/dell-design-system",
+        "destination": "/langs/ca/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/ca/portfolio/aboutmarco",
         "destination": "/langs/ca/portfolio/aboutmarco/index.html"
       },
@@ -2084,10 +2156,6 @@
       {
         "source": "/ca/portfolio/coza",
         "destination": "/langs/ca/portfolio/coza/index.html"
-      },
-      {
-        "source": "/ca/portfolio/dell-design-system",
-        "destination": "/langs/ca/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/ca/portfolio/melissa",
@@ -2174,6 +2242,10 @@
         "destination": "/langs/nl/star-field-experiment/index.html"
       },
       {
+        "source": "/nl/portfolio/dell-design-system",
+        "destination": "/langs/nl/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/nl/portfolio/aboutmarco",
         "destination": "/langs/nl/portfolio/aboutmarco/index.html"
       },
@@ -2188,10 +2260,6 @@
       {
         "source": "/nl/portfolio/coza",
         "destination": "/langs/nl/portfolio/coza/index.html"
-      },
-      {
-        "source": "/nl/portfolio/dell-design-system",
-        "destination": "/langs/nl/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/nl/portfolio/melissa",
@@ -2278,6 +2346,10 @@
         "destination": "/langs/ga/star-field-experiment/index.html"
       },
       {
+        "source": "/ga/portfolio/dell-design-system",
+        "destination": "/langs/ga/portfolio/dell-design-system/index.html"
+      },
+      {
         "source": "/ga/portfolio/aboutmarco",
         "destination": "/langs/ga/portfolio/aboutmarco/index.html"
       },
@@ -2292,10 +2364,6 @@
       {
         "source": "/ga/portfolio/coza",
         "destination": "/langs/ga/portfolio/coza/index.html"
-      },
-      {
-        "source": "/ga/portfolio/dell-design-system",
-        "destination": "/langs/ga/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/ga/portfolio/melissa",
