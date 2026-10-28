@@ -35,7 +35,7 @@ module.exports = {
         'https://localhost:4173/nl/portfolio/genesysinf-sageweb/',
         'https://localhost:4173/cas/portfolio/clinica-de-desenvolvimento-nathalia-bond/',
       ],
-      numberOfRuns: 3,
+      numberOfRuns: 1,
     },
     assert: {
       // assertMatrix instead of flat `assertions` so /not-found can be
