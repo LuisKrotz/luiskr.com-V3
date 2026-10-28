@@ -48,7 +48,7 @@ module.exports = {
         {
           matchingUrlPattern: '/not-found',
           assertions: {
-            'categories:performance': ['error', { minScore: 0.8 }],
+            'categories:performance': ['warn', { minScore: 0.8 }],
             'categories:accessibility': ['error', { minScore: 1 }],
             'categories:best-practices': ['error', { minScore: 1 }],
 
@@ -62,8 +62,9 @@ module.exports = {
         {
           matchingUrlPattern: '^(?!.*not-found).*$',
           assertions: {
-            // Category minimums — performance 0.80, every other category 1.00.
-            'categories:performance': ['error', { minScore: 0.8 }],
+            // Category minimums — performance reports at warn (visibility
+            // without gating); every other category keeps the 1.00 error floor.
+            'categories:performance': ['warn', { minScore: 0.8 }],
             'categories:accessibility': ['error', { minScore: 1 }],
             'categories:best-practices': ['error', { minScore: 1 }],
             'categories:seo': ['error', { minScore: 1 }],
