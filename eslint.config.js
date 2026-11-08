@@ -1,3 +1,9 @@
+/**
+ * @file eslint.config.js — flat ESLint config for the whole workspace.
+ * Browser globals for app code, node globals for tooling/tests, jest
+ * globals inside every module's tests/ tree, and the typescript-eslint
+ * recommended set scoped to {shared,core,website,cms,experiments} TS/TSX.
+ */
 import js from '@eslint/js'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'

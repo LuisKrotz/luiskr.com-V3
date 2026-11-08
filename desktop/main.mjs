@@ -28,6 +28,7 @@ app.commandLine.appendSwitch('ignore-gpu-blocklist')
 app.commandLine.appendSwitch('enable-gpu-rasterization')
 app.commandLine.appendSwitch('enable-zero-copy')
 
+// This file's dir — dev runs resolve dist/ as its sibling.
 const here = path.dirname(url.fileURLToPath(import.meta.url))
 
 // Packaged builds bundle dist/ as an extraResource; dev runs read the
@@ -89,6 +90,8 @@ const COEP_SITE = 'credentialless'
 const COOP_CMS = 'same-origin-allow-popups'
 const COEP_CMS = 'unsafe-none'
 
+// The internal static server — applies the isolation headers per route,
+// resolves the file inside dist/ (or its SPA fallback), and streams it.
 const server = http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://127.0.0.1').pathname)
 
@@ -116,6 +119,8 @@ const server = http.createServer((req, res) => {
   fs.createReadStream(file).pipe(res)
 })
 
+// Single-instance guard — a second launch focuses the running window
+// (the `second-instance` handler below) instead of opening a duplicate.
 const gotLock = app.requestSingleInstanceLock()
 if (!gotLock) app.quit()
 

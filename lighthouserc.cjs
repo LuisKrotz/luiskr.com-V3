@@ -1,3 +1,9 @@
+/**
+ * @file lighthouserc.cjs — Lighthouse CI config for `yarn build --verify-lighthouse`.
+ * Boots the preview-h2 server (mirrors Firebase Hosting's h2 + compression +
+ * clean-URL contract), audits the key routes in EN + locale variants, and
+ * enforces 1.00 on every category except performance (warn at 0.8).
+ */
 module.exports = {
   ci: {
     collect: {

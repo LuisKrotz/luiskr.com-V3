@@ -12,6 +12,8 @@ import { spawn } from 'node:child_process'
 import path from 'node:path'
 import url from 'node:url'
 
+// This file's dir + the project root — every spawn runs from root so
+// `yarn …` resolves the workspace package.json.
 const here = path.dirname(url.fileURLToPath(import.meta.url))
 const root = path.resolve(here, '..')
 
@@ -21,12 +23,16 @@ const root = path.resolve(here, '..')
 // and lets the launcher's instance lock swallow the app's window.
 app.setName('luiskr-launcher')
 
+// Single-instance guard — a second launch focuses the existing window
+// instead of spawning a duplicate launcher.
 const gotLock = app.requestSingleInstanceLock()
 
 if (!gotLock) {
   app.quit()
 }
 
+// Shell selection per platform — cmd /c on Windows, sh -c elsewhere so
+// PATH + shell profile resolve yarn identically to a terminal run.
 const isWin = process.platform === 'win32'
 const shell = isWin ? 'cmd.exe' : '/bin/sh'
 
@@ -42,6 +48,8 @@ const scripts = {
   'desktop:dev': 'yarn desktop:dev',
 }
 
+// The currently running spawned command (if any) — killed before a new
+// button press starts a replacement, and on window close.
 let currentProcess = null
 
 /**
@@ -65,6 +73,7 @@ function runCommand(script) {
     env: { ...process.env, FORCE_COLOR: '1' },
   })
 
+  // Forwards one output chunk to every live launcher window.
   const send = (line) => {
     BrowserWindow.getAllWindows().forEach((win) => {
       if (!win.isDestroyed()) win.webContents.send('command-output', line)
@@ -94,6 +103,8 @@ ipcMain.handle('run-command', (_event, script) => {
   runCommand(script)
 })
 
+// Builds the launcher window — fixed-size panel, no menu bar, preload
+// bridge only (contextIsolation on, nodeIntegration off).
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 960,

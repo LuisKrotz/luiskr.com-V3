@@ -120,6 +120,7 @@
     <pre class="log" id="log">Waiting for a command...</pre>
 
     <script>
+      // The output pane — append() writes and pins the scroll to the tail.
       const log = document.getElementById('log')
 
       function append(text) {
@@ -127,11 +128,14 @@
         log.scrollTop = log.scrollHeight
       }
 
+      // Button handler — echoes the script name into the log, then asks
+      // the main process to spawn it via the preload bridge.
       function run(script) {
         append(`\n> ${script}\n`)
         window.electronAPI.run(script)
       }
 
+      // stdout/stderr chunks streamed by the spawned command → the log.
       window.electronAPI.onOutput((line) => {
         append(line)
       })

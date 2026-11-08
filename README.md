@@ -93,7 +93,7 @@ it verifies Node ≥ 24 / yarn / git, initialises submodules, installs
 dependencies, copies the versioned hooks via
 `shared/scripts/install-hooks.mjs`, then installs firebase-tools
 (`yarn global`), the Google Cloud SDK, and the media-convert toolchain
-(ffmpeg/ImageMagick/mozjpeg) using the platform's package manager —
+(ffmpeg/ImageMagick/mozjpeg/poppler) using the platform's package manager —
 brew/winget/choco run unattended; linux `sudo` installs run automatically
 when sudo is passwordless, otherwise the exact command is printed.
 `yarn setup --check` is report-only. The same probe powers the CMS media

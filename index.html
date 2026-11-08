@@ -81,9 +81,13 @@
          the wrong locale. The state class flips --font-primary. -->
     <script>
       ;(function () {
+        // Route sniffing: /ru/* uses Fira Sans (cyrillic coverage);
+        // locale roots + `/` get the mosaic hero preload.
         var isRu = /^\/ru(\/|$)/.test(location.pathname)
         var isHome = /^\/([a-z]{2,3}\/?)?$/.test(location.pathname)
         var head = document.head
+
+        // Emits a cross-origin font preload <link> into <head>.
         var preload = function (href) {
           var l = document.createElement('link')
           l.rel = 'preload'
@@ -94,6 +98,7 @@
           head.appendChild(l)
         }
 
+        // Home routes only — the hero image is the LCP candidate there.
         if (isHome) {
           var hero = document.createElement('link')
           hero.rel = 'preload'
@@ -103,6 +108,9 @@
           head.appendChild(hero)
         }
 
+        // RU: flip --font-primary via the state class, attach the Fira
+        // Sans stylesheet, and preload its two woff2 files. Elsewhere:
+        // preload the latin Poiret One pair that the CSS below declares.
         if (isRu) {
           document.documentElement.classList.add('cyrillic-font')
           var css = document.createElement('link')
@@ -380,6 +388,11 @@
     <script type="module" src="/shared/src/main.js"></script>
 
     <script>
+      // Legacy inline boot block (pre-module era — predates the token
+      // modules, so its literals stay inline): analytics IDs, the
+      // cookie-consent storage key/event/class names, the logo-reveal
+      // class, and a UA-sniffing chain that resolves `browser` to a
+      // single engine name for the `is_<browser>` document class.
       const analytics = 'G-T3PW8BFNS6',
         clarityId = 'z4x46kty5o',
         cookie = 'cookie',
@@ -419,9 +432,11 @@
                     : isBlink
                       ? 'blink'
                       : 'unknown'
+      // gtag shim — queues calls into dataLayer before the real tag loads.
       function gtag() {
         dataLayer.push(arguments)
       }
+      // UA-sniff → ` system-*` class suffix for OS-specific styling.
       function getMobileOperatingSystem() {
         const o = navigator.userAgent || navigator.vendor || window.opera
         return /android/i.test(o)
@@ -430,6 +445,9 @@
             ? ' system_iOS'
             : ' system-other'
       }
+      // One-shot analytics bootstrap — injects gtag.js + the Clarity tag
+      // only after cookie consent (called via scheduleAnalytics), then
+      // hides the banner. _gtagLoaded guards against double injection.
       function initAnalytics() {
         if (!window._gtagLoaded) {
           window._gtagLoaded = !0
@@ -462,6 +480,8 @@
           document.body.classList.add(cookieClass)
         }
       }
+      // Consented-analytics trigger: first scroll/touch/mousemove OR a 4s
+      // fallback — whichever lands first boots the tags exactly once.
       function scheduleAnalytics() {
         const trigger = () => {
           window.removeEventListener('scroll', trigger)
@@ -474,6 +494,12 @@
         window.addEventListener('mousemove', trigger, { passive: !0, once: !0 })
         setTimeout(initAnalytics, 4000)
       }
+      // Boot side-effects as one comma-expression: warn IE/Legacy-Edge
+      // visitors, stamp `is_<browser>` on <html>, publish the console
+      // greeting styles, seed dataLayer, add the OS class, schedule the
+      // logo reveal 625ms after DOMContentLoaded, gate analytics on the
+      // stored consent flag (or wait for the cookieAction event), and
+      // print the console greeting + self-XSS warning.
       ;((isIE || isEdge) &&
         alert(
           "Incompatible browser detected. Your browser don't use modern web standards. Update your browser to enjoy our content."
