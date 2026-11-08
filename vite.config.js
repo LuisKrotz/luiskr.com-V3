@@ -30,6 +30,7 @@ import { ES_TARGETS } from './shared/build/es-targets.mjs'
 import { modulePublicPlugin } from './shared/build/module-public.mjs'
 import { docsPortalPlugin } from './shared/build/docs-portal.mjs'
 import { i18nBootPlugin, i18nFallbackPlugin } from './shared/build/i18n-virtual.mjs'
+import { scssTiersPlugin } from './shared/build/vite-scss-tiers.mjs'
 import { jsxInJsPlugin, SHARED_ESBUILD } from './shared/build/jsx-in-js.mjs'
 import { hostContextSafeLogger } from './shared/build/vite-lib.mjs'
 import { siteSecurityHeadersMiddleware } from './shared/scripts/serve/security-headers.mjs'
@@ -661,6 +662,7 @@ export default defineConfig(({ command }) => {
     ...(process.env.LK_NO_PUBLIC ? [] : [modulePublicPlugin()]),
     i18nFallbackPlugin({ root: __dirname }),
     i18nBootPlugin({ root: __dirname }),
+    scssTiersPlugin(),
     docsPortalPlugin({ root: __dirname, emitAssets: isDefault }),
     mediaConvertPlugin(),
     compression({
@@ -908,6 +910,22 @@ export default defineConfig(({ command }) => {
               test: /virtual:docs-|docs-content/,
               maxSize: CHUNK_MAX_SOURCE_BYTES,
               priority: 24,
+            },
+            // Breakpoint css tiers (`virtual:rcss/<class>/<file>` from the
+            // ?tiers plugin). Grouped per width class + entriesAware so a
+            // route's lazy components share ONE cumulative sheet per class
+            // — a viewport fetches at most the tiers its width class needs,
+            // never the wider classes.
+            {
+              name: (id) => {
+                const cls = /virtual:rcss[\\/]([^\\/]+)[\\/]/.exec(id)
+
+                return cls ? `rcss-${cls[1]}` : 'rcss'
+              },
+              test: /virtual:rcss[\\/]/,
+              entriesAware: true,
+              maxSize: CHUNK_MAX_SOURCE_BYTES,
+              priority: 20,
             },
             {
               name: 'vendor',

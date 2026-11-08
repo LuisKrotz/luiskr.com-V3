@@ -59,6 +59,8 @@
     "verify": "node shared/scripts/verify/verify.mjs",
     "prebuild": "yarn verify",
     "build": "node shared/scripts/build/build.mjs",
+    "build:engine-wasm": "node shared/scripts/build/build-wasm.js",
+    "minify:wasm": "node shared/scripts/build/minify-wasm-glue.mjs",
     "preview": "vite preview",
     "test": "node shared/scripts/test/run-modules.mjs",
     "test:coverage": "node shared/scripts/test/run-modules.mjs --coverage",

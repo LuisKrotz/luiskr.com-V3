@@ -436,6 +436,38 @@
           "card-stack": {
             "alt": "Selected work card deck dealing with drag physics and a border-light countdown",
             "longdesc": "The featured-projects card deck on the home page. Animation: cards deal through a 3D pile/fan — side sheets angle inward with progressive dimming while the active card scales up; a lit arc travels the active card's hairline border over a ten-second countdown mirrored on the play/pause transport, and the project title paper-burns out and knits back in on navigation or when the section scrolls into view. Trigger: drag/swipe gestures, prev/next and index controls, the autoplay timer and scroll entry. Tech: JS-computed poses on CSS 3D transforms, a conic-gradient custom property painted per frame and the shared canvas paper-burn. Purpose: makes featured projects feel like a physical deck you fan, deal and shuffle."
+          },
+          "about-mesh": {
+            "alt": "About portrait halo of dots rippling in a traveling radial wave",
+            "longdesc": "The dotted halo orbiting the About portrait. Animation: a polar lattice of dots displaces outward as a radial wave travels through it, while precessing guide lines rotate slowly behind. Trigger: runs continuously while the About section is on screen. Tech: a 2D canvas rAF loop positions each dot from polar coordinates. Purpose: gives the portrait a living orbital field echoing the site's motion language."
+          },
+          "nav-icon-aura": {
+            "alt": "Nav chip outlines sweeping with a comet-tail ring on hover",
+            "longdesc": "The search and settings chips in the nav strip. Animation: a ring-fill with a comet tail sweeps around the chip outline on hover. Trigger: pointer hover or focus on each chip. Tech: a WebGPU ring-fill pass with a CSS trail fallback. Purpose: signals the chips are interactive without stealing attention from the menu."
+          },
+          "view-transition": {
+            "alt": "Route outlet cross-fading between outgoing and incoming views",
+            "longdesc": "The view outlet container on every route change. Animation: the outgoing view fades out while the incoming view fades in — a clean cross-dissolve. Trigger: each router navigation. Tech: a JS class swap driving a CSS opacity transition. Purpose: makes page changes feel continuous instead of a hard cut."
+          },
+          "route-search": {
+            "alt": "Route-search field spinning its submit glyph while scoring runs",
+            "longdesc": "The route-search field's loading state. Animation: the submit glyph spins and a row of found-dots bounces while the scoring dispatch is in flight. Trigger: typing a query that starts a search pass. Tech: pure CSS keyframes on the field chrome. Purpose: communicates in-flight work so the search feels responsive."
+          },
+          "custom-carousel": {
+            "alt": "Project carousels scrolling with momentum and an autoplay progress dash",
+            "longdesc": "The media carousels on project pages. Animation: the strip scrolls with momentum, arrow nav slides between items and an autoplay progress dash fills along the transport. Trigger: arrow presses, autoplay ticks and drag gestures. Tech: JS-driven scroll positions with CSS transitions — a distinct surface from the awards carousel. Purpose: keeps long media sets explorable at a glance."
+          },
+          "mentions-deck": {
+            "alt": "Contact mentions deck cycling swipeable stacked cards",
+            "longdesc": "The stacked mentions deck on the contact page. Animation: cards cycle on autoplay, respond to drag and flick gestures and dismiss off the stack. Trigger: the autoplay timer plus pointer swipes. Tech: JS gesture handling over CSS keyframes. Purpose: makes endorsements feel like a physical deck you can shuffle."
+          },
+          "expand-modal-loading": {
+            "alt": "Expanded-media lightbox shimmering while the full asset decodes",
+            "longdesc": "The loading state of the expanded-media lightbox. Animation: a shimmer wash travels across the stage while a spinner marks decode progress. Trigger: opening any media item in the lightbox. Tech: pure CSS keyframes. Purpose: keeps the modal feeling instant while full-size assets stream in."
+          },
+          "footer-feed-wave": {
+            "alt": "Awards footer feed links rippling an opacity wave",
+            "longdesc": "The source-feed link row in the awards footer. Animation: an opacity wave ripples across the links in a slow loop. Trigger: runs continuously while the footer is visible. Tech: CSS keyframes staggered per link. Purpose: gives the otherwise static feed row a subtle pulse of life."
           }
         }
       },
@@ -8174,7 +8206,8 @@
         "cookies": {
           "accept": "Aceitar",
           "message": "Uso o Google Analytics para contar visualizações de página. Isso envolve cookies. Você concorda com o rastreamento anônimo de analytics? <small><strong>(Nenhum dado pessoal é coletado.)</strong></small>",
-          "refuse": "Não, obrigado."
+          "refuse": "Não, obrigado.",
+          "region": "Consentimento de cookies"
         },
         "related": "Relacionados",
         "featured": "Trabalhos selecionados",
@@ -8310,7 +8343,8 @@
         "animations": "Referência de Animações",
         "search": "Busca",
         "rssFeed": "Feed RSS",
-        "sitemap": "Mapa do site"
+        "sitemap": "Mapa do site",
+        "featuredTitle": "Projetos em destaque"
       },
       "components": {
         "contact": {
@@ -8346,7 +8380,8 @@
               "link": "/br/termos-de-uso"
             }
           ],
-          "title": "Contato"
+          "title": "Contato",
+          "subtitle": "Vamos criar algo extraordinário"
         },
         "legal-footer": {
           "links": [
@@ -8585,6 +8620,38 @@
           "card-stack": {
             "alt": "Baralho de trabalhos selecionados com física de arrasto e contagem na borda iluminada",
             "longdesc": "O baralho de projetos em destaque da página inicial. Animação: as cartas distribuem-se num leque/pilha 3D — as folhas laterais inclinam-se para dentro com esmaecimento progressivo enquanto a carta ativa cresce; um arco luminoso percorre a borda fina da carta ativa numa contagem de dez segundos espelhada no botão play/pausa, e o título do projeto queima e se recompõe a cada navegação ou quando a seção entra na tela. Gatilho: gestos de arrastar/deslizar, controles anterior/próximo e índice, o temporizador de autoplay e a entrada por rolagem. Técnica: poses calculadas em JS sobre transforms 3D de CSS, uma propriedade customizada de conic-gradient pintada por frame e o paper-burn em canvas compartilhado. Propósito: fazer os projetos em destaque parecerem um baralho físico que você abre, distribui e embaralha."
+          },
+          "about-mesh": {
+            "alt": "Halo de pontos do retrato do Sobre ondulando numa onda radial que viaja",
+            "longdesc": "O halo pontilhado orbitando o retrato do Sobre. Animação: uma malha polar de pontos desloca para fora enquanto uma onda radial a atravessa, com linhas-guia precessionando lentamente atrás. Disparo: roda continuamente enquanto a seção Sobre está na tela. Técnica: um loop rAF em canvas 2D posiciona cada ponto por coordenadas polares. Propósito: dá ao retrato um campo orbital vivo que ecoa a linguagem de movimento do site."
+          },
+          "nav-icon-aura": {
+            "alt": "Contornos dos chips da nav varridos por um anel com cauda de cometa no hover",
+            "longdesc": "Os chips de busca e ajustes da faixa de navegação. Animação: um preenchimento de anel com cauda de cometa varre o contorno do chip ao passar o cursor. Disparo: hover ou foco do ponteiro em cada chip. Técnica: passe de ring-fill em WebGPU com fallback de trilha em CSS. Propósito: sinaliza que os chips são interativos sem roubar atenção do menu."
+          },
+          "view-transition": {
+            "alt": "Outlet de rota em cross-fade entre a view que sai e a que chega",
+            "longdesc": "O contêiner view outlet em cada troca de rota. Animação: a view que sai esmaece enquanto a que chega aparece — um cross-dissolve limpo. Disparo: cada navegação do roteador. Técnica: troca de classe em JS conduzindo uma transição de opacidade em CSS. Propósito: faz as mudanças de página parecerem contínuas em vez de um corte seco."
+          },
+          "route-search": {
+            "alt": "Campo de busca de rotas girando o glifo de envio enquanto a pontuação corre",
+            "longdesc": "O estado de carregamento do campo de busca de rotas. Animação: o glifo de envio gira e uma fileira de pontos encontrados quica enquanto a rodada de pontuação está no ar. Disparo: digitar uma consulta que inicia uma busca. Técnica: keyframes CSS puros no cromado do campo. Propósito: comunica o trabalho em voo para a busca parecer responsiva."
+          },
+          "custom-carousel": {
+            "alt": "Carrosséis de projeto rolando com momentum e um traço de progresso do autoplay",
+            "longdesc": "Os carrosséis de mídia das páginas de projeto. Animação: a faixa rola com momentum, as setas deslizam entre itens e um traço de progresso do autoplay se preenche no transporte. Disparo: toques nas setas, ticks do autoplay e gestos de arraste. Técnica: posições de rolagem via JS com transições CSS — superfície distinta do carrossel de prêmios. Propósito: mantém conjuntos longos de mídia exploráveis num relance."
+          },
+          "mentions-deck": {
+            "alt": "Baralho de menções do contato ciclando cartas empilhadas e deslizáveis",
+            "longdesc": "O baralho empilhado de menções na página de contato. Animação: as cartas ciclam no autoplay, respondem a arrastes e sacudidas e saem da pilha ao descarte. Disparo: o timer do autoplay mais deslizes do ponteiro. Técnica: gestos em JS sobre keyframes CSS. Propósito: faz as recomendações parecerem um baralho físico que dá para embaralhar."
+          },
+          "expand-modal-loading": {
+            "alt": "Lightbox de mídia expandida cintilando enquanto o asset integral decodifica",
+            "longdesc": "O estado de carregamento do lightbox de mídia expandida. Animação: uma onda de shimmer atravessa o palco enquanto um spinner marca o progresso da decodificação. Disparo: abrir qualquer item de mídia no lightbox. Técnica: keyframes CSS puros. Propósito: mantém o modal com sensação de instantâneo enquanto os assets em tamanho real chegam."
+          },
+          "footer-feed-wave": {
+            "alt": "Links do feed do rodapé de prêmios ondulando uma onda de opacidade",
+            "longdesc": "A fileira de links do feed de fontes no rodapé de prêmios. Animação: uma onda de opacidade percorre os links em loop lento. Disparo: roda continuamente enquanto o rodapé está visível. Técnica: keyframes CSS defasados por link. Propósito: dá à fileira estática de feeds um pulso sutil de vida."
           }
         }
       },
@@ -16340,7 +16407,8 @@
         "cookies": {
           "accept": "Aceptar",
           "message": "Uso Google Analytics para contar las visitas a las páginas. Esto implica cookies. ¿Aceptas el seguimiento anónimo de analítica? <small><strong>(No se recogen datos personales.)</strong></small>",
-          "refuse": "No, gracias."
+          "refuse": "No, gracias.",
+          "region": "Consentimiento de cookies"
         },
         "related": "Relacionados",
         "featured": "Trabajo seleccionado",
@@ -16476,7 +16544,8 @@
         "animations": "Referencia de Animaciones",
         "search": "Búsqueda",
         "rssFeed": "Canal RSS",
-        "sitemap": "Mapa del sitio"
+        "sitemap": "Mapa del sitio",
+        "featuredTitle": "Proyectos destacados"
       },
       "components": {
         "contact": {
@@ -16512,7 +16581,8 @@
               "link": "/es/terminos-de-uso"
             }
           ],
-          "title": "Contacto"
+          "title": "Contacto",
+          "subtitle": "Creemos algo extraordinario"
         },
         "legal-footer": {
           "links": [
@@ -16751,6 +16821,38 @@
           "card-stack": {
             "alt": "Baraja de trabajos seleccionados con física de arrastre y cuenta atrás en el borde iluminado",
             "longdesc": "La baraja de proyectos destacados de la página principal. Animación: las cartas se reparten en una pila/abanico 3D — las hojas laterales se inclinan hacia dentro con atenuación progresiva mientras la carta activa crece; un arco luminoso recorre el borde fino de la carta activa durante una cuenta atrás de diez segundos reflejada en el botón play/pausa, y el título del proyecto se quema y se reteje en cada navegación o cuando la sección entra en pantalla. Disparador: gestos de arrastrar/deslizar, controles anterior/siguiente e índice, el temporizador de autoplay y la entrada al hacer scroll. Técnica: poses calculadas en JS sobre transforms 3D de CSS, una propiedad personalizada de conic-gradient pintada por frame y el paper-burn en canvas compartido. Propósito: que los proyectos destacados se sientan como una baraja física que abres, repartes y barajas."
+          },
+          "about-mesh": {
+            "alt": "Halo de puntos del retrato de Sobre mí ondulando en una onda radial viajera",
+            "longdesc": "El halo punteado que orbita el retrato de Sobre mí. Animación: una red polar de puntos se desplaza hacia afuera mientras una onda radial la recorre, con líneas guía precesando lentamente detrás. Disparador: corre continuamente mientras la sección está en pantalla. Técnica: un bucle rAF en canvas 2D posiciona cada punto en coordenadas polares. Propósito: da al retrato un campo orbital vivo que hace eco del lenguaje de movimiento del sitio."
+          },
+          "nav-icon-aura": {
+            "alt": "Contornos de los chips de la nav barridos por un anillo con cola de cometa al hover",
+            "longdesc": "Los chips de búsqueda y ajustes de la barra de navegación. Animación: un relleno de anillo con cola de cometa barre el contorno del chip al pasar el cursor. Disparador: hover o foco del puntero en cada chip. Técnica: pasada de ring-fill en WebGPU con fallback de estela en CSS. Propósito: señala que los chips son interactivos sin robar atención al menú."
+          },
+          "view-transition": {
+            "alt": "Outlet de ruta en cross-fade entre la vista que sale y la que entra",
+            "longdesc": "El contenedor view outlet en cada cambio de ruta. Animación: la vista saliente se desvanece mientras la entrante aparece — un cross-dissolve limpio. Disparador: cada navegación del router. Técnica: un cambio de clase en JS que dirige una transición de opacidad CSS. Propósito: hace que los cambios de página se sientan continuos en vez de un corte seco."
+          },
+          "route-search": {
+            "alt": "Campo de búsqueda de rutas girando el glifo de envío mientras corre la puntuación",
+            "longdesc": "El estado de carga del campo de búsqueda de rutas. Animación: el glifo de envío gira y una fila de puntos encontrados rebota mientras el reparto de puntuación está en vuelo. Disparador: escribir una consulta que inicia una pasada de búsqueda. Técnica: keyframes CSS puros en el cromado del campo. Propósito: comunica el trabajo en curso para que la búsqueda se sienta receptiva."
+          },
+          "custom-carousel": {
+            "alt": "Carruseles de proyecto deslizando con momentum y un trazo de progreso del autoplay",
+            "longdesc": "Los carruseles de medios de las páginas de proyecto. Animación: la tira se desplaza con momentum, las flechas navegan entre ítems y un trazo de progreso del autoplay se rellena en el transporte. Disparador: pulsaciones de flechas, ticks del autoplay y gestos de arrastre. Técnica: posiciones de scroll por JS con transiciones CSS — superficie distinta del carrusel de premios. Propósito: mantiene los conjuntos largos de medios explorables de un vistazo."
+          },
+          "mentions-deck": {
+            "alt": "Mazo de menciones del contacto ciclando cartas apiladas y deslizables",
+            "longdesc": "El mazo apilado de menciones en la página de contacto. Animación: las cartas ciclan en autoplay, responden a gestos de arrastre y sacudida y se descartan fuera de la pila. Disparador: el temporizador del autoplay más deslizamientos del puntero. Técnica: gestos en JS sobre keyframes CSS. Propósito: hace que las recomendaciones se sientan como un mazo físico barajable."
+          },
+          "expand-modal-loading": {
+            "alt": "Lightbox de medio expandido brillando mientras decodifica el asset completo",
+            "longdesc": "El estado de carga del lightbox de medio expandido. Animación: una onda de shimmer recorre el escenario mientras un spinner marca el progreso de decodificación. Disparador: abrir cualquier elemento de medio en el lightbox. Técnica: keyframes CSS puros. Propósito: mantiene el modal con sensación instantánea mientras llegan los assets a tamaño real."
+          },
+          "footer-feed-wave": {
+            "alt": "Enlaces del feed del pie de premios ondeando una ola de opacidad",
+            "longdesc": "La fila de enlaces del feed de fuentes en el pie de premios. Animación: una ola de opacidad recorre los enlaces en un bucle lento. Disparador: corre continuamente mientras el pie está visible. Técnica: keyframes CSS escalonados por enlace. Propósito: da a la fila estática de feeds un pulso sutil de vida."
           }
         }
       },
@@ -24505,7 +24607,8 @@
         "cookies": {
           "accept": "Akzeptieren",
           "message": "Ich nutze Google Analytics, um Seitenaufrufe zu zählen. Dabei werden Cookies verwendet. Stimmst du anonymem Analytics-Tracking zu? <small><strong>(Es werden keine persönlichen Daten gesammelt.)</strong></small>",
-          "refuse": "Nein, danke."
+          "refuse": "Nein, danke.",
+          "region": "Cookie-Einwilligung"
         },
         "related": "Ähnliches",
         "featured": "Ausgewählte Arbeiten",
@@ -24641,7 +24744,8 @@
         "animations": "Animationsreferenz",
         "search": "Suche",
         "rssFeed": "RSS-Feed",
-        "sitemap": "Sitemap"
+        "sitemap": "Sitemap",
+        "featuredTitle": "Ausgewählte Projekte"
       },
       "components": {
         "contact": {
@@ -24677,7 +24781,8 @@
               "link": "/de/nutzungsbedingungen"
             }
           ],
-          "title": "Kontakt"
+          "title": "Kontakt",
+          "subtitle": "Lassen Sie uns etwas Außergewöhnliches schaffen"
         },
         "legal-footer": {
           "links": [
@@ -24916,6 +25021,38 @@
           "card-stack": {
             "alt": "Kartenstapel ausgewählter Arbeiten mit Drag-Physik und Countdown am leuchtenden Rand",
             "longdesc": "Der Kartenstapel der ausgewählten Projekte auf der Startseite. Animation: Karten wandern durch einen 3D-Stapel/Fächer — seitliche Blätter kippen nach innen und dimmen progressiv, während die aktive Karte größer wird; ein leuchtender Bogen wandert in einem Zehn-Sekunden-Countdown über den feinen Rand der aktiven Karte, gespiegelt am Play/Pause-Button, und der Projekttitel verbrennt und webt sich bei jeder Navigation oder beim Hereinscrollen der Sektion neu. Auslöser: Zieh-/Wischgesten, Zurück/Weiter- und Index-Steuerung, der Autoplay-Timer und das Hereinscrollen. Technik: JS-berechnete Posen auf CSS-3D-Transforms, eine pro Frame gemalte conic-gradient-Custom-Property und das geteilte Canvas-Paper-Burn. Zweck: lässt die ausgewählten Projekte wie ein physisches Kartendeck wirken, das man fächert, austeilt und mischt."
+          },
+          "about-mesh": {
+            "alt": "Punkt-Halo des About-Porträts, der in einer wandernden Radialwelle kräuselt",
+            "longdesc": "Der gepunktete Halo, der das About-Porträt umkreist. Animation: ein polares Punktgitter wird nach außen verdrängt, während eine radiale Welle hindurchläuft, mit langsam präzedierenden Führungslinien dahinter. Auslöser: läuft kontinuierlich, solange der About-Bereich sichtbar ist. Technik: eine 2D-Canvas-rAF-Schleife positioniert jeden Punkt über Polarkoordinaten. Zweck: verleiht dem Porträt ein lebendiges Orbitfeld im Bewegungsvokabular der Seite."
+          },
+          "nav-icon-aura": {
+            "alt": "Nav-Chip-Umrisse, die bei Hover von einem Ring mit Kometenschweif überstrichen werden",
+            "longdesc": "Die Such- und Einstellungs-Chips in der Nav-Leiste. Animation: eine Ringfüllung mit Kometenschweif streicht bei Hover um den Chip-Umriss. Auslöser: Zeiger-Hover oder Fokus auf jedem Chip. Technik: ein WebGPU-Ring-Fill-Pass mit CSS-Schweif-Fallback. Zweck: signalisiert Interaktivität, ohne dem Menü die Aufmerksamkeit zu nehmen."
+          },
+          "view-transition": {
+            "alt": "Route-Outlet mit Cross-Fade zwischen aus- und eingehender Ansicht",
+            "longdesc": "Der View-Outlet-Container bei jedem Routenwechsel. Animation: die ausgehende Ansicht blendet aus, während die eingehende einblendet — eine saubere Überblendung. Auslöser: jede Router-Navigation. Technik: ein JS-Klassenwechsel, der eine CSS-Opacity-Transition steuert. Zweck: lässt Seitenwechsel fließend wirken statt wie einen harten Schnitt."
+          },
+          "route-search": {
+            "alt": "Routen-Suchfeld dreht sein Absende-Glyphen, während die Bewertung läuft",
+            "longdesc": "Der Ladezustand des Routen-Suchfelds. Animation: der Absende-Glyph dreht sich und eine Reihe Trefferpunkte hüpft, solange der Scoring-Dispatch unterwegs ist. Auslöser: eine Eingabe, die einen Suchdurchlauf startet. Technik: reine CSS-Keyframes am Feld-Chrome. Zweck: zeigt laufende Arbeit, damit die Suche reaktionsschnell wirkt."
+          },
+          "custom-carousel": {
+            "alt": "Projekt-Karussells scrollen mit Momentum und einem Autoplay-Fortschrittsstrich",
+            "longdesc": "Die Medien-Karussells auf Projektseiten. Animation: der Streifen scrollt mit Momentum, die Pfeile wechseln zwischen Items und ein Autoplay-Fortschrittsstrich füllt sich am Transport. Auslöser: Pfeiltasten, Autoplay-Ticks und Wischgesten. Technik: JS-gesteuerte Scrollpositionen mit CSS-Transitionen — eine eigene Oberfläche neben dem Awards-Karussell. Zweck: hält lange Mediensets auf einen Blick erkundbar."
+          },
+          "mentions-deck": {
+            "alt": "Kontakt-Mentions-Stapel rotiert wischbare gestapelte Karten",
+            "longdesc": "Der gestapelte Mentions-Stapel auf der Kontaktseite. Animation: Karten rotieren per Autoplay, reagieren auf Zieh- und Schnippgesten und werden vom Stapel verworfen. Auslöser: der Autoplay-Timer plus Zeiger-Wischer. Technik: JS-Gestensteuerung über CSS-Keyframes. Zweck: lässt Empfehlungen wie ein physisches, mischbares Kartendeck wirken."
+          },
+          "expand-modal-loading": {
+            "alt": "Erweiterte Media-Lightbox schimmert, während das volle Asset dekodiert",
+            "longdesc": "Der Ladezustand der erweiterten Media-Lightbox. Animation: ein Schimmerschleier wandert über die Bühne, während ein Spinner den Dekodier-Fortschritt markiert. Auslöser: das Öffnen eines beliebigen Media-Items in der Lightbox. Technik: reine CSS-Keyframes. Zweck: lässt das Modal sofort wirken, während die Fullsize-Assets einströmen."
+          },
+          "footer-feed-wave": {
+            "alt": "Feed-Links des Awards-Footers wogen in einer Opacity-Welle",
+            "longdesc": "Die Quell-Feed-Linkzeile im Awards-Footer. Animation: eine Opacity-Welle läuft in langsamer Schleife über die Links. Auslöser: läuft kontinuierlich, solange der Footer sichtbar ist. Technik: pro Link gestaffelte CSS-Keyframes. Zweck: gibt der sonst statischen Feed-Zeile einen feinen Lebenspuls."
           }
         }
       },
@@ -32667,7 +32804,8 @@
         "cookies": {
           "accept": "Akzeptieren",
           "message": "Ich nutze Google Analytics, um Seitenaufrufe zu zähle. Dabei were Cookies verwendt. Stimmst du anonymem Analytics-Tracking zu? <small><strong>(Es were ken persönlichen Daate gesammelt.)</strong></small>",
-          "refuse": "Nein, danke."
+          "refuse": "Nein, danke.",
+          "region": "Cookie-Einwilligung"
         },
         "related": "Ähnliches",
         "featured": "Ausgewählte Arbeiten",
@@ -32803,7 +32941,8 @@
         "animations": "Animatsione Referenz",
         "search": "Suach",
         "rssFeed": "RSS-Feed",
-        "sitemap": "Sitemap"
+        "sitemap": "Sitemap",
+        "featuredTitle": "Ausgewählte Projekte"
       },
       "components": {
         "contact": {
@@ -32839,7 +32978,8 @@
               "link": "/terms-of-use"
             }
           ],
-          "title": "Kontakt"
+          "title": "Kontakt",
+          "subtitle": "Lassen Sie uns etwas Außergewöhnliches schaffen"
         },
         "legal-footer": {
           "links": [
@@ -33078,6 +33218,38 @@
           "card-stack": {
             "alt": "Kartestappel usgewählte Arbeite mit Drag-Physik un Countdown am leuchtend Rand",
             "longdesc": "Der Kartestappel vun de usgewählte Projekte uff de Startseit. Animation: Karte wandere durch en 3D-Stappel/Fächer — seitliche Blätter kippe noch inner un dimme progressiv, während de aktive Kart größer wird; en leuchtende Booge wandert in en Zehn-Sekunde-Countdown über de feine Rand vun de aktive Kart, gespiegelt am Play/Pause-Knopp, un de Projekt-Titel verbrennt un webbt sich bei jeder Navigation oder beim Hereinscrolle vun de Sektion nei. Auslöser: Zieh-/Wischgeste, Zurück/Weiter- un Index-Steuerung, de Autoplay-Timer un's Hereinscrolle. Technik: JS-berechnete Pose uff CSS-3D-Transforms, en pro Frame gemolte conic-gradient-Custom-Property un's geteilte Canvas-Paper-Burn. Zweck: losst de usgewählte Projekte wie en physisches Kartedeck wirke, das mer fächert, austteilt un mischt."
+          },
+          "about-mesh": {
+            "alt": "Punkt-Halo des About-Porträts kräuselt in wandernder Radialwelle",
+            "longdesc": "Des gepunktete Halo, wat des About-Porträt umkreiset. Animatsioon: e polares Punktgitter verschiebt noch ussen, während e radiale Welle dorchlöff, mit langsom präzedierenden Führungslinien dahinner. Usslöser: löff kontinuierlich, solang der About-Bereich sichtbor is. Technik: e 2D-Canvas-rAF-Schleif positiooniert jeden Punkt über Polarkoordinaten. Zweck: gifft dem Porträt e lebendiges Orbitfeld im Bewegungsvokabular der Seite."
+          },
+          "nav-icon-aura": {
+            "alt": "Nav-Chip-Umrisse, bei Hover vun Ring mit Kometenschweif överstrichen",
+            "longdesc": "De Such- un Einstellungs-Chips in der Nav-Leiste. Animatsioon: e Ringfüllung mit Kometenschweif streichet bei Hover um den Chip-Umriss. Usslöser: Zeiger-Hover of Fokus up jeden Chip. Technik: e WebGPU-Ring-Fill-Pass mit CSS-Schweif-Fallback. Zweck: signaalisiert Interaktivität ohn dem Menü de Opmärksomheit to nehmen."
+          },
+          "view-transition": {
+            "alt": "Route-Outlet mit Cross-Fade twüschen uss- un ingehender Ansicht",
+            "longdesc": "De View-Outlet-Container bi jeden Routenwessel. Animatsioon: de ussgehende Ansicht blendet ut, während de ingehende inblendet — e suvere Överblendung. Usslöser: jede Router-Navigatsioon. Technik: e JS-Klassenwessel, de e CSS-Opacity-Transition stüert. Zweck: lett Seitenwessel fleeßend wirken statt as e harten Schnitt."
+          },
+          "route-search": {
+            "alt": "Routen-Suchfeld dreiht sin Absende-Glyphen, während de Bewärtung löff",
+            "longdesc": "De Ladetoestand des Routen-Suchfelds. Animatsioon: de Absende-Glyph dreiht sik un e Reeg Trefferpunkte hüppet, solang de Scoring-Dispatch ünnerwegens is. Usslöser: e Ingaav, de e Suchdörchlöff startet. Technik: reine CSS-Keyframes am Feld-Chrome. Zweck: wiest löpende Arbeit, sodat de Sook reaktivoonswärd wirkt."
+          },
+          "custom-carousel": {
+            "alt": "Projekt-Karussells skrollen mit Momentum un e Autoplay-Fortschrittsstreek",
+            "longdesc": "De Medien-Karussells up Projektseiten. Animatsioon: de Streek skrollet mit Momentum, de Pfeile wesselt twüschen Items un e Autoplay-Fortschrittsstreek füllt sik am Transport. Usslöser: Pfeiltasten, Autoplay-Ticks un Wischgesten. Technik: JS-stüerte Skrollpositsioonen mit CSS-Transitionen — e egene Bovenfläk neven des Awards-Karussell. Zweck: hollt lange Mediensets up e Blikk erkundbor."
+          },
+          "mentions-deck": {
+            "alt": "Kontakt-Mentions-Stapel roteert wischbore gestapelte Korten",
+            "longdesc": "De gestapelte Mentions-Stapel up de Kontaktseite. Animatsioon: Korten roteert per Autoplay, reageert up Tög- un Schnippgesten un warrt vum Stapel verworpen. Usslöser: de Autoplay-Timer plus Zeiger-Wischer. Technik: JS-Gestenstüerung över CSS-Keyframes. Zweck: lett Empfehlungen as e füüsisch, mischbor Kartendeck wirken."
+          },
+          "expand-modal-loading": {
+            "alt": "Verbreedte Media-Lightbox schimmert, während des vulle Asset dekodeert",
+            "longdesc": "De Ladetoestand der verbreedten Media-Lightbox. Animatsioon: e Schimmerslöör wandert över de Bühne, während e Spinner den Dekodeer-Fortschritt markeert. Usslöser: des Öffnen eens Media-Items in de Lightbox. Technik: reine CSS-Keyframes. Zweck: lett des Modal sofort wirken, während de Fullsize-Assets instroomen."
+          },
+          "footer-feed-wave": {
+            "alt": "Feed-Links des Awards-Footers wogen in e Opacity-Welle",
+            "longdesc": "De Quell-Feed-Linkreeg im Awards-Footer. Animatsioon: e Opacity-Welle löff in langsomer Schleif över de Links. Usslöser: löff kontinuierlich, solang de Footer sichtbor is. Technik: per Link staffelte CSS-Keyframes. Zweck: gifft der sunst statischen Feed-Reeg e feen Levenspuls."
           }
         }
       },
@@ -40831,7 +41003,8 @@
         "cookies": {
           "accept": "Aceptar",
           "message": "Uso Google Analytics para contar las visitas a las páginas. Esto implica cookies. ¿Aceptas el seguimiento anónimo de analítica? <small><strong>(No se recogen datos personales.)</strong></small>",
-          "refuse": "No, gracias."
+          "refuse": "No, gracias.",
+          "region": "Consentimiento de cookies"
         },
         "related": "Relacionados",
         "featured": "Trabajo seleccionado",
@@ -40967,7 +41140,8 @@
         "animations": "Referencia de Animaciones",
         "search": "Busca",
         "rssFeed": "Canal RSS",
-        "sitemap": "Mapa del sitio"
+        "sitemap": "Mapa del sitio",
+        "featuredTitle": "Proyectos destacados"
       },
       "components": {
         "contact": {
@@ -41003,7 +41177,8 @@
               "link": "/cas/terminos-de-uso"
             }
           ],
-          "title": "Contacto"
+          "title": "Contacto",
+          "subtitle": "Creemos algo extraordinario"
         },
         "legal-footer": {
           "links": [
@@ -41242,6 +41417,38 @@
           "card-stack": {
             "alt": "Mazo de trabajos seleccionados con física de arrastre y cuenta regresiva en el borde iluminado",
             "longdesc": "El mazo de proyectos destacados de la página principal. Animación: las cartas se reparten en una pila/abanico 3D — las hojas laterales se inclinan hacia adentro con atenuación progresiva mientras la carta activa crece; un arco luminoso recorre el borde fino de la carta activa durante una cuenta regresiva de diez segundos reflejada en el botón play/pausa, y el título del proyecto se quema y se reteje en cada navegación o cuando la sección entra en pantalla. Disparador: gestos de arrastrar/deslizar, controles anterior/siguiente e índice, el temporizador de autoplay y la entrada al scrollear. Técnica: poses calculadas en JS sobre transforms 3D de CSS, una propiedad personalizada de conic-gradient pintada por frame y el paper-burn en canvas compartido. Propósito: que los proyectos destacados se sientan como un mazo físico que abrís, repartís y barajás."
+          },
+          "about-mesh": {
+            "alt": "Halo de puntos del retrato de Sobre mí ondulando en una onda radial viajera",
+            "longdesc": "El halo punteado que orbita el retrato de Sobre mí. Animación: una red polar de puntos se desplaza hacia afuera mientras una onda radial la recorre, con líneas guía precesando lentamente detrás. Disparador: corre continuamente mientras la sección está en pantalla. Técnica: un bucle rAF en canvas 2D posiciona cada punto en coordenadas polares. Propósito: da al retrato un campo orbital vivo que hace eco del lenguaje de movimiento del sitio."
+          },
+          "nav-icon-aura": {
+            "alt": "Contornos de los chips de la nav barridos por un anillo con cola de cometa al hover",
+            "longdesc": "Los chips de búsqueda y ajustes de la barra de navegación. Animación: un relleno de anillo con cola de cometa barre el contorno del chip al pasar el cursor. Disparador: hover o foco del puntero en cada chip. Técnica: pasada de ring-fill en WebGPU con fallback de estela en CSS. Propósito: señala que los chips son interactivos sin robar atención al menú."
+          },
+          "view-transition": {
+            "alt": "Outlet de ruta en cross-fade entre la vista que sale y la que entra",
+            "longdesc": "El contenedor view outlet en cada cambio de ruta. Animación: la vista saliente se desvanece mientras la entrante aparece — un cross-dissolve limpio. Disparador: cada navegación del router. Técnica: un cambio de clase en JS que dirige una transición de opacidad CSS. Propósito: hace que los cambios de página se sientan continuos en vez de un corte seco."
+          },
+          "route-search": {
+            "alt": "Campo de búsqueda de rutas girando el glifo de envío mientras corre la puntuación",
+            "longdesc": "El estado de carga del campo de búsqueda de rutas. Animación: el glifo de envío gira y una fila de puntos encontrados rebota mientras el reparto de puntuación está en vuelo. Disparador: escribir una consulta que inicia una pasada de búsqueda. Técnica: keyframes CSS puros en el cromado del campo. Propósito: comunica el trabajo en curso para que la búsqueda se sienta receptiva."
+          },
+          "custom-carousel": {
+            "alt": "Carruseles de proyecto deslizando con momentum y un trazo de progreso del autoplay",
+            "longdesc": "Los carruseles de medios de las páginas de proyecto. Animación: la tira se desplaza con momentum, las flechas navegan entre ítems y un trazo de progreso del autoplay se rellena en el transporte. Disparador: pulsaciones de flechas, ticks del autoplay y gestos de arrastre. Técnica: posiciones de scroll por JS con transiciones CSS — superficie distinta del carrusel de premios. Propósito: mantiene los conjuntos largos de medios explorables de un vistazo."
+          },
+          "mentions-deck": {
+            "alt": "Mazo de menciones del contacto ciclando cartas apiladas y deslizables",
+            "longdesc": "El mazo apilado de menciones en la página de contacto. Animación: las cartas ciclan en autoplay, responden a gestos de arrastre y sacudida y se descartan fuera de la pila. Disparador: el temporizador del autoplay más deslizamientos del puntero. Técnica: gestos en JS sobre keyframes CSS. Propósito: hace que las recomendaciones se sientan como un mazo físico barajable."
+          },
+          "expand-modal-loading": {
+            "alt": "Lightbox de medio expandido brillando mientras decodifica el asset completo",
+            "longdesc": "El estado de carga del lightbox de medio expandido. Animación: una onda de shimmer recorre el escenario mientras un spinner marca el progreso de decodificación. Disparador: abrir cualquier elemento de medio en el lightbox. Técnica: keyframes CSS puros. Propósito: mantiene el modal con sensación instantánea mientras llegan los assets a tamaño real."
+          },
+          "footer-feed-wave": {
+            "alt": "Enlaces del feed del pie de premios ondeando una ola de opacidad",
+            "longdesc": "La fila de enlaces del feed de fuentes en el pie de premios. Animación: una ola de opacidad recorre los enlaces en un bucle lento. Disparador: corre continuamente mientras el pie está visible. Técnica: keyframes CSS escalonados por enlace. Propósito: da a la fila estática de feeds un pulso sutil de vida."
           }
         }
       },
@@ -48996,7 +49203,8 @@
         "cookies": {
           "accept": "Aceitar",
           "message": "Uso o Google Analytics para contar visualizações de página. Isso envolve cookies. Voce acuerda com o rastreamento anônimo de analytics? <small><strong>(Nenhum dado personal é coletado.)</strong></small>",
-          "refuse": "No, obrigado."
+          "refuse": "No, obrigado.",
+          "region": "Consentimento de cookies"
         },
         "related": "Relacionados",
         "featured": "Trabalhos selecionados",
@@ -49132,7 +49340,8 @@
         "animations": "Referência de Animações",
         "search": "Busca",
         "rssFeed": "Canal RSS",
-        "sitemap": "Mapa do site"
+        "sitemap": "Mapa do site",
+        "featuredTitle": "Projetos em destaque"
       },
       "components": {
         "contact": {
@@ -49168,7 +49377,8 @@
               "link": "/terms-of-use"
             }
           ],
-          "title": "Contato"
+          "title": "Contato",
+          "subtitle": "Vamos criar algo extraordinário"
         },
         "legal-footer": {
           "links": [
@@ -49407,6 +49617,38 @@
           "card-stack": {
             "alt": "Baralho de trabalhos selecionados con física de arrasto y contagem na borda iluminada",
             "longdesc": "O baralho de projetos em destaque de la página inicial. Animação: as cartas repartem-se num leque/pilha 3D — as folhas laterais inclinam-se para dentro con esmaecimento progressivo mientras la carta ativa cresce; un arco luminoso percorre a borda fina de la carta ativa en una contagem de dez segundos espelhada en el botón play/pausa, y el título del proyecto queima y se recompone a cada navegação o cuando la sección entra en la tela. Gatilho: gestos de arrastar/deslizar, controles anterior/próximo e índice, el temporizador de autoplay y la entrada por rolagem. Técnica: poses calculadas en JS sobre transforms 3D de CSS, una propiedad customizada de conic-gradient pintada por frame y el paper-burn en canvas compartilhado. Propósito: hacer los proyectos em destaque parecerem un baralho físico que se abre, reparte y embaralha."
+          },
+          "about-mesh": {
+            "alt": "Halo de puntos del retrato de Sobre mí ondulando en una onda radial viajera",
+            "longdesc": "El halo punteado que orbita el retrato de Sobre mí. Animación: una red polar de puntos se desplaza hacia afuera mientras una onda radial la recorre, con líneas guía precesando lentamente detrás. Disparador: corre continuamente mientras la sección está en pantalla. Técnica: un bucle rAF en canvas 2D posiciona cada punto en coordenadas polares. Propósito: da al retrato un campo orbital vivo que hace eco del lenguaje de movimiento del sitio."
+          },
+          "nav-icon-aura": {
+            "alt": "Contornos de los chips de la nav barridos por un anillo con cola de cometa al hover",
+            "longdesc": "Los chips de búsqueda y ajustes de la barra de navegación. Animación: un relleno de anillo con cola de cometa barre el contorno del chip al pasar el cursor. Disparador: hover o foco del puntero en cada chip. Técnica: pasada de ring-fill en WebGPU con fallback de estela en CSS. Propósito: señala que los chips son interactivos sin robar atención al menú."
+          },
+          "view-transition": {
+            "alt": "Outlet de ruta en cross-fade entre la vista que sale y la que entra",
+            "longdesc": "El contenedor view outlet en cada cambio de ruta. Animación: la vista saliente se desvanece mientras la entrante aparece — un cross-dissolve limpio. Disparador: cada navegación del router. Técnica: un cambio de clase en JS que dirige una transición de opacidad CSS. Propósito: hace que los cambios de página se sientan continuos en vez de un corte seco."
+          },
+          "route-search": {
+            "alt": "Campo de búsqueda de rutas girando el glifo de envío mientras corre la puntuación",
+            "longdesc": "El estado de carga del campo de búsqueda de rutas. Animación: el glifo de envío gira y una fila de puntos encontrados rebota mientras el reparto de puntuación está en vuelo. Disparador: escribir una consulta que inicia una pasada de búsqueda. Técnica: keyframes CSS puros en el cromado del campo. Propósito: comunica el trabajo en curso para que la búsqueda se sienta receptiva."
+          },
+          "custom-carousel": {
+            "alt": "Carruseles de proyecto deslizando con momentum y un trazo de progreso del autoplay",
+            "longdesc": "Los carruseles de medios de las páginas de proyecto. Animación: la tira se desplaza con momentum, las flechas navegan entre ítems y un trazo de progreso del autoplay se rellena en el transporte. Disparador: pulsaciones de flechas, ticks del autoplay y gestos de arrastre. Técnica: posiciones de scroll por JS con transiciones CSS — superficie distinta del carrusel de premios. Propósito: mantiene los conjuntos largos de medios explorables de un vistazo."
+          },
+          "mentions-deck": {
+            "alt": "Mazo de menciones del contacto ciclando cartas apiladas y deslizables",
+            "longdesc": "El mazo apilado de menciones en la página de contacto. Animación: las cartas ciclan en autoplay, responden a gestos de arrastre y sacudida y se descartan fuera de la pila. Disparador: el temporizador del autoplay más deslizamientos del puntero. Técnica: gestos en JS sobre keyframes CSS. Propósito: hace que las recomendaciones se sientan como un mazo físico barajable."
+          },
+          "expand-modal-loading": {
+            "alt": "Lightbox de medio expandido brillando mientras decodifica el asset completo",
+            "longdesc": "El estado de carga del lightbox de medio expandido. Animación: una onda de shimmer recorre el escenario mientras un spinner marca el progreso de decodificación. Disparador: abrir cualquier elemento de medio en el lightbox. Técnica: keyframes CSS puros. Propósito: mantiene el modal con sensación instantánea mientras llegan los assets a tamaño real."
+          },
+          "footer-feed-wave": {
+            "alt": "Enlaces del feed del pie de premios ondeando una ola de opacidad",
+            "longdesc": "La fila de enlaces del feed de fuentes en el pie de premios. Animación: una ola de opacidad recorre los enlaces en un bucle lento. Disparador: corre continuamente mientras el pie está visible. Técnica: keyframes CSS escalonados por enlace. Propósito: da a la fila estática de feeds un pulso sutil de vida."
           }
         }
       },
@@ -57162,7 +57404,8 @@
         "cookies": {
           "accept": "Amoneĩ",
           "message": "Aiporu Google Analytics ajogua hag̃ua kuatiarogue jehechakuéra. Kóva oiporu cookies. ¿Emoneĩpa tapykuehohápe jehechareko oñemomu'ỹva? <small><strong>(Nda'ipóri mba'eichaitéva marandu nemba'etegua oñembyaty.)</strong></small>",
-          "refuse": "Ahána, aguyje."
+          "refuse": "Ahána, aguyje.",
+          "region": "Cookies ñemoneĩ"
         },
         "related": "Joajupegua",
         "featured": "Mba'apopy poravopyre",
@@ -57298,7 +57541,8 @@
         "animations": "Jeguama Momarandu",
         "search": "Jeheka",
         "rssFeed": "RSS rape",
-        "sitemap": "Pe saito mapa"
+        "sitemap": "Pe saito mapa",
+        "featuredTitle": "Tembiapo poravopyre"
       },
       "components": {
         "contact": {
@@ -57334,7 +57578,8 @@
               "link": "/terms-of-use"
             }
           ],
-          "title": "Ñe'ẽme'ẽ"
+          "title": "Ñe'ẽme'ẽ",
+          "subtitle": "Jajogua peteĩ mba'e iporãitereíva"
         },
         "legal-footer": {
           "links": [
@@ -57573,6 +57818,38 @@
           "card-stack": {
             "alt": "Ku'éraa'õ mba'apopy poravopyre ñemongu'e fisica ha morosã ku'éraa'õ ija rehegua",
             "longdesc": "Ku'éraa'õ mba'apopy poravopyre kuatiarogue ñepyrũha-pe. Ñemongue'e: ku'éraa'õ oñemosẽ peteĩ 3D mbojoaju'i/pepa'ũ rupi — yke kuatiarogue oke interior-pe progressive ñemomichĩ rehegua ku'éraa'õ hekoava oñembotuichávo; arco morosã oho ku'éraa'õ hekoava ija'i'i rehegua pa'ũm aravo'ỹ ñe'ẽkane'õ play/pause botón-pe, ha mba'apopy téra ojeiporu ha ojejapo jey peteĩteĩ ñembohape térã sección ojeiporávo. Trigger: arrastre/deslizar gesto, mboyve/upeigua ha índice contro, autoplay timer ha scroll ñepyrũ. Tembiporenda: JS pose CSS 3D transform rehegua, conic-gradient propiedad peteĩteĩ frame-pe ojepéhagué, ha canvas paper-burn oñemosãoporãvéva. Haguã: mba'apopy poravopyre oñeikuaa ku'éraa'õ física emyja, emosẽ ha emojoaju ichaháicha."
+          },
+          "about-mesh": {
+            "alt": "Punto halo About retrato rupã ondula onda radial oñemyasãiva",
+            "longdesc": "Punto halo oñembyatýva About retrato jeré. Ñemongue'e: polar punto red osẽ okape gotyo onda radial ohóvo hóvo rupi, guía línea ojojogua mbegue atrás. Trigger: omba'apo tapere'ỹ About sección jehecharamónte. Tech: 2D canvas rAF loop omoĩ peteĩ punto polar coordenada rupi. Purpose: ome'ẽ retrato pe orbital campo oikóva sitio ñemongue'e ñe'ẽnga rehegua."
+          },
+          "nav-icon-aura": {
+            "alt": "Nav chip contorno ojogua anillo cometa ípua rehe hover pe",
+            "longdesc": "Jeheka ha jajopy chip nav bandeja pegua. Ñemongue'e: anillo myenoihague cometa ípua rehegua ohóvo chip contorno ári hover pe. Trigger: puntero hover térã foco peteĩ chip ári. Tech: WebGPU ring-fill pase CSS ípua fallback rehegua. Purpose: ohechauka chip omba'apokuaa mba'e ndojoguaíri menú ñema'ẽ."
+          },
+          "view-transition": {
+            "alt": "Vista outlet cross-fade osẽva ha oĩvéva mba'ejoajúgui",
+            "longdesc": "View outlet contenedor peteĩteĩ ruta moambue. Ñemongue'e: vista osẽva oñemondýi ha oĩvéva ojehecha — cross-dissolve iporãva. Trigger: peteĩteĩ router ñemboveve. Tech: JS clase moambue CSS opasidad transición oguia. Purpose: ojajogua página moambue tapere'ỹ korte re'ỹgui."
+          },
+          "route-search": {
+            "alt": "Jeheka campo ojopiro'y envío glifo scoring omba'apóvo",
+            "longdesc": "Jeheka campo ñemyenyhẽ rekávo. Ñemongue'e: envío glifo ojopiro'y ha punto juhu jokopy ojumpa scoring ohóvo ári. Trigger: consulta ojehai jeheka oñepyrũvo. Tech: CSS keyframes año campo chrome ári. Purpose: ohechauka mba'e omboguata jeheka omboajúvo."
+          },
+          "custom-carousel": {
+            "alt": "Proyecto carrusel oñemomýi momentum ha autoplay progreso trazo rehegua",
+            "longdesc": "Proyecto kuatiarogue pegua medios carrusel. Ñemongue'e: tira oñemomýi momentum, myasãi ohasa ítem apytépe ha autoplay progreso trazo omyenyhẽ transporte ári. Trigger: myasãi ñeporã, autoplay tick ha drag ñemomýi. Tech: JS scroll posición CSS transición rehegua — premi carrusel-gui ambuéva. Purpose: ojoguerahaa medios aty pukúva ojehecha pya'e."
+          },
+          "mentions-deck": {
+            "alt": "Contacto menciones mazo ojogua carta apilada ha deslizáble",
+            "longdesc": "Mazo apiláva menciones contacto kuatiarogue. Ñemongue'e: carta ojogua autoplay rupi, ombo'e drag ha flick ñemomýi ha osẽ mazo gui. Trigger: autoplay tiempo ha puntero deslizamiento. Tech: JS gesto CSS keyframes ári. Purpose: ojajogua recomendación mazo físico rehásecha."
+          },
+          "expand-modal-loading": {
+            "alt": "Expand-media lightbox ojehusáma full asset odecode hóvo ári",
+            "longdesc": "Expand-media lightbox ñemyenyhẽ rekávo. Ñemongue'e: shimmer onda ohasa escenario rupi spinner decode progreso ohechaukávo. Trigger: ojepe'a peteĩ media ítem lightbox pe. Tech: CSS keyframes año. Purpose: ojoguerahaa modal pya'e ojehúvo full-size asset."
+          },
+          "footer-feed-wave": {
+            "alt": "Premio footer feed enlace ojogua opasidad onda rehegua",
+            "longdesc": "Fuente feed enlace jokopy premio footer pegua. Ñemongue'e: opasidad onda ohasa enlace ári loop imbeguéva. Trigger: omba'apo tapere'ỹ footer jehecharamónte. Tech: CSS keyframes peteĩ enlace ñemoñe'ẽ. Purpose: ome'ẽ feed jokopy tĩmbu'ỹva hó mborayhu michĩmíva."
           }
         }
       },
@@ -65206,7 +65483,8 @@
         "cookies": {
           "accept": "Accetta",
           "message": "Uso Google Analytics per contare le visualizzazioni di pagina. Questo comporta l’uso di cookie. Accetti il tracciamento analitico anonimo? <small><strong>(Nessun dato personale viene raccolto.)</strong></small>",
-          "refuse": "No, grazie."
+          "refuse": "No, grazie.",
+          "region": "Consenso ai cookie"
         },
         "related": "Correlati",
         "featured": "Lavori selezionati",
@@ -65342,7 +65620,8 @@
         "animations": "Riferimento delle Animazioni",
         "search": "Ricerca",
         "rssFeed": "Feed RSS",
-        "sitemap": "Mappa del sito"
+        "sitemap": "Mappa del sito",
+        "featuredTitle": "Progetti in evidenza"
       },
       "components": {
         "contact": {
@@ -65378,7 +65657,8 @@
               "link": "/it/termini-di-utilizzo"
             }
           ],
-          "title": "Contatti"
+          "title": "Contatti",
+          "subtitle": "Creiamo qualcosa di straordinario"
         },
         "legal-footer": {
           "links": [
@@ -65617,6 +65897,38 @@
           "card-stack": {
             "alt": "Mazzo di lavori selezionati con fisica di trascinamento e countdown sul bordo luminoso",
             "longdesc": "Il mazzo dei progetti in evidenza della home page. Animazione: le carte si distribuiscono in una pila/ventaglio 3D — i fogli laterali si inclinano verso l'interno con oscuramento progressivo mentre la carta attiva cresce; un arco luminoso percorre il bordo sottile della carta attiva in un countdown di dieci secondi riflesso sul pulsante play/pausa, e il titolo del progetto brucia e si ritesse a ogni navigazione o quando la sezione entra in vista. Trigger: gesture di trascinamento/swipe, controlli precedente/successivo e indice, il timer di autoplay e l'ingresso con lo scroll. Tecnica: pose calcolate in JS su transform 3D CSS, una custom property conic-gradient dipinta a ogni frame e il paper-burn su canvas condiviso. Scopo: far sembrare i progetti in evidenza un mazzo fisico che si sfoglia, si distribuisce e si mescola."
+          },
+          "about-mesh": {
+            "alt": "Aureola di punti del ritratto About che increspa in un'onda radiale viaggiante",
+            "longdesc": "L'aureola punteggiata che orbita il ritratto About. Animazione: un reticolo polare di punti si sposta verso l'esterno mentre un'onda radiale lo attraversa, con linee guida in precessione lenta dietro. Trigger: gira continuamente finché la sezione About è a schermo. Tecnica: un loop rAF su canvas 2D posiziona ogni punto in coordinate polari. Scopo: dà al ritratto un campo orbitale vivo che riecheggia il linguaggio di movimento del sito."
+          },
+          "nav-icon-aura": {
+            "alt": "Contorni dei chip della nav spazzati da un anello con coda di cometa all'hover",
+            "longdesc": "I chip di ricerca e impostazioni nella barra di navigazione. Animazione: un riempimento ad anello con coda di cometa spazza il contorno del chip all'hover. Trigger: hover o focus del puntatore su ogni chip. Tecnica: passata ring-fill WebGPU con fallback di scia in CSS. Scopo: segnala che i chip sono interattivi senza sottrarre attenzione al menu."
+          },
+          "view-transition": {
+            "alt": "Outlet di rotta in cross-fade tra vista uscente ed entrante",
+            "longdesc": "Il contenitore view outlet a ogni cambio di rotta. Animazione: la vista uscente sfuma mentre quella entrante appare — un cross-dissolve pulito. Trigger: ogni navigazione del router. Tecnica: uno scambio di classe JS che pilota una transizione di opacità CSS. Scopo: rende i cambi pagina continui invece di uno stacco secco."
+          },
+          "route-search": {
+            "alt": "Il campo di ricerca rotte fa girare il glifo di invio mentre lo scoring è in corso",
+            "longdesc": "Lo stato di caricamento del campo di ricerca rotte. Animazione: il glifo di invio ruota e una fila di punti trovati rimbalza mentre il dispatch di scoring è in volo. Trigger: la digitazione di una query che avvia una passata di ricerca. Tecnica: keyframes CSS puri sul chrome del campo. Scopo: comunica il lavoro in corso perché la ricerca risulti reattiva."
+          },
+          "custom-carousel": {
+            "alt": "I caroselli di progetto scorrono con momentum e un trattino di avanzamento dell'autoplay",
+            "longdesc": "I caroselli multimediali delle pagine di progetto. Animazione: la striscia scorre con momentum, le frecce navigano tra gli item e un trattino di avanzamento dell'autoplay si riempie sul trasporto. Trigger: pressioni delle frecce, tick dell'autoplay e gesti di trascinamento. Tecnica: posizioni di scroll via JS con transizioni CSS — superficie distinta dal carosello premi. Scopo: mantiene i lunghi set di media esplorabili a colpo d'occhio."
+          },
+          "mentions-deck": {
+            "alt": "Il mazzo di menzioni del contatto cicla carte impilate e scorrevoli",
+            "longdesc": "Il mazzo impilato di menzioni nella pagina contatti. Animazione: le carte ciclando in autoplay, rispondono a trascinamenti e flick e escono dal mazzo. Trigger: il timer dell'autoplay più gli swipe del puntatore. Tecnica: gestione dei gesti in JS su keyframes CSS. Scopo: rende le raccomandazioni un mazzo fisico da mescolare."
+          },
+          "expand-modal-loading": {
+            "alt": "La lightbox del media espanso luccica mentre decodifica l'asset completo",
+            "longdesc": "Lo stato di caricamento della lightbox del media espanso. Animazione: un'onda di shimmer attraversa la scena mentre uno spinner segna il progresso della decodifica. Trigger: l'apertura di qualsiasi item media nella lightbox. Tecnica: keyframes CSS puri. Scopo: mantiene la modale istantanea mentre gli asset a piena dimensione arrivano."
+          },
+          "footer-feed-wave": {
+            "alt": "I link del feed del footer premi ondeggiano in un'onda di opacità",
+            "longdesc": "La fila di link del feed delle fonti nel footer dei premi. Animazione: un'onda di opacità percorre i link in un loop lento. Trigger: gira continuamente finché il footer è visibile. Tecnica: keyframes CSS sfalsati per link. Scopo: dà alla fila statica dei feed un sottile impulso di vita."
           }
         }
       },
@@ -73368,7 +73680,8 @@
         "cookies": {
           "accept": "Принимаю",
           "message": "Я использую Google Analytics для подсчёта просмотров страниц. Для этого применяются файлы cookie. Согласны ли вы на анонимный сбор статистики? <small><strong>(Личные данные не собираются.)</strong></small>",
-          "refuse": "Нет, спасибо."
+          "refuse": "Нет, спасибо.",
+          "region": "Согласие на файлы cookie"
         },
         "related": "Похожее",
         "featured": "Избранные работы",
@@ -73504,7 +73817,8 @@
         "animations": "Справочник анимаций",
         "search": "Поиск",
         "rssFeed": "RSS-лента",
-        "sitemap": "Карта сайта"
+        "sitemap": "Карта сайта",
+        "featuredTitle": "Избранные проекты"
       },
       "components": {
         "contact": {
@@ -73540,7 +73854,8 @@
               "link": "/terms-of-use"
             }
           ],
-          "title": "Контакты"
+          "title": "Контакты",
+          "subtitle": "Давайте создадим что-то необыкновенное"
         },
         "legal-footer": {
           "links": [
@@ -73779,6 +74094,38 @@
           "card-stack": {
             "alt": "Колода избранных работ с физикой перетаскивания и светящимся обратным отсчётом по краю",
             "longdesc": "Колода избранных проектов на главной странице. Анимация: карты раздаются по 3D-колоде/вееру — боковые листы наклоняются внутрь с прогрессивным затемнением, пока активная карта увеличивается; светящаяся дуга проходит по тонкой рамке активной карты за десять секунд обратного отсчёта, отражаясь на кнопке play/пауза, а название проекта сгорает и сотканется заново при каждой навигации или при появлении секции в окне. Триггер: жесты перетаскивания/свайпа, элементы назад/вперёд и индекс, таймер автопрокрутки и появление при скролле. Техника: позы, вычисляемые на JS поверх CSS 3D-transforms, conic-gradient custom property, рисуемая каждый кадр, и общий canvas paper-burn. Цель: сделать избранные проекты похожими на физическую колоду, которую раскрывают веером, раздают и тасуют."
+          },
+          "about-mesh": {
+            "alt": "Точечный ореол портрета в разделе «Обо мне», рябящий бегущей радиальной волной",
+            "longdesc": "Точечный ореол, облетающий портрет в разделе «Обо мне». Анимация: полярная решётка точек расходится наружу, пока сквозь неё проходит радиальная волна, а направляющие линии медленно прецессируют позади. Триггер: работает непрерывно, пока раздел на экране. Техника: цикл rAF на 2D-канве располагает каждую точку по полярным координатам. Назначение: придаёт портрету живое орбитальное поле в духе моушн-языка сайта."
+          },
+          "nav-icon-aura": {
+            "alt": "Контуры чипов навигации, обводимые кольцом с кометным хвостом при наведении",
+            "longdesc": "Чипы поиска и настроек в панели навигации. Анимация: кольцевая заливка с кометным хвостом обводит контур чипа при наведении. Триггер: наведение указателя или фокус на каждом чипе. Техника: проход ring-fill на WebGPU с CSS-фолбэком шлейфа. Назначение: показывает интерактивность чипов, не отвлекая от меню."
+          },
+          "view-transition": {
+            "alt": "Кросс-фейд контейнера вида между уходящим и входящим экраном",
+            "longdesc": "Контейнер view outlet при каждой смене маршрута. Анимация: уходящий вид затухает, а входящий проявляется — чистый кросс-диссольв. Триггер: каждая навигация роутера. Техника: смена класса в JS, управляющая CSS-переходом прозрачности. Назначение: делает переходы между страницами непрерывными, а не резкой сменой кадра."
+          },
+          "route-search": {
+            "alt": "Поле поиска маршрутов вращает глиф отправки, пока идёт подсчёт",
+            "longdesc": "Состояние загрузки поля поиска маршрутов. Анимация: глиф отправки вращается, а ряд точек-результатов подпрыгивает, пока выполняется подсчёт. Триггер: ввод запроса, запускающий проход поиска. Техника: чистые CSS-кейфреймы на обвязке поля. Назначение: показывает идущую работу, чтобы поиск ощущался отзывчивым."
+          },
+          "custom-carousel": {
+            "alt": "Проектные карусели с инерционной прокруткой и индикатором автоплея",
+            "longdesc": "Медиа-карусели на страницах проектов. Анимация: лента прокручивается с инерцией, стрелки листают элементы, а пунктирный индикатор автоплея заполняется на транспорте. Триггер: нажатия стрелок, тики автоплея и жесты перетаскивания. Техника: JS-позиции прокрутки с CSS-переходами — отдельная поверхность от карусели наград. Назначение: держит длинные наборы медиа обозримыми."
+          },
+          "mentions-deck": {
+            "alt": "Колода упоминаний на странице контактов циклит свайпабельные карточки",
+            "longdesc": "Стопка упоминаний на странице контактов. Анимация: карточки циклятся автоплеем, реагируют на перетаскивание и смахивание и уходят со стопки. Триггер: таймер автоплея плюс свайпы указателем. Техника: JS-обработка жестов поверх CSS-кейфреймов. Назначение: делает рекомендации ощутимыми как физическую колоду."
+          },
+          "expand-modal-loading": {
+            "alt": "Лайтбокс развёрнутого медиа мерцает, пока декодируется полный ассет",
+            "longdesc": "Состояние загрузки лайтбокса развёрнутого медиа. Анимация: волна шиммера проходит по сцене, пока спиннер отмечает прогресс декодирования. Триггер: открытие любого медиа-элемента в лайтбоксе. Техника: чистые CSS-кейфреймы. Назначение: сохраняет ощущение мгновенности, пока подгружаются полноразмерные ассеты."
+          },
+          "footer-feed-wave": {
+            "alt": "Ссылки фида в футере наград колышутся волной прозрачности",
+            "longdesc": "Ряд ссылок фида источников в футере наград. Анимация: волна прозрачности медленно пробегает по ссылкам в цикле. Триггер: работает непрерывно, пока футер виден. Техника: CSS-кейфреймы со сдвигом на каждую ссылку. Назначение: придаёт статичной строке фида лёгкий живой пульс."
           }
         }
       },
@@ -81568,7 +81915,8 @@
         "cookies": {
           "accept": "Accepter",
           "message": "J'utilise Google Analytics pour compter les visites des pages. Cela implique des cookies. Acceptes-tu le suivi analytique anonyme ? <small><strong>(Aucune donnée personnelle n'est collectée.)</strong></small>",
-          "refuse": "Non, merci."
+          "refuse": "Non, merci.",
+          "region": "Consentement aux cookies"
         },
         "related": "Similaires",
         "featured": "Travaux sélectionnés",
@@ -81704,7 +82052,8 @@
         "animations": "Référence des Animations",
         "search": "Recherche",
         "rssFeed": "Flux RSS",
-        "sitemap": "Plan du site"
+        "sitemap": "Plan du site",
+        "featuredTitle": "Projets sélectionnés"
       },
       "components": {
         "contact": {
@@ -81740,7 +82089,8 @@
               "link": "/fr/conditions-utilisation"
             }
           ],
-          "title": "Contact"
+          "title": "Contact",
+          "subtitle": "Créons quelque chose d'extraordinaire"
         },
         "legal-footer": {
           "links": [
@@ -81979,6 +82329,38 @@
           "card-stack": {
             "alt": "Jeu de cartes des travaux sélectionnés avec physique de glisser et compte à rebours lumineux sur le bord",
             "longdesc": "Le jeu de cartes des projets sélectionnés de la page d'accueil. Animation : les cartes se distribuent dans une pile/éventail 3D — les feuillets latéraux basculent vers l'intérieur avec un assombrissement progressif pendant que la carte active grandit ; un arc lumineux parcourt le bord fin de la carte active pendant un compte à rebours de dix secondes reflété sur le bouton lecture/pause, et le titre du projet se consume et se retisse à chaque navigation ou quand la section entre dans l'écran. Déclencheur : gestes glisser/défiler, contrôles précédent/suivant et index, le minuteur autoplay et l'entrée au scroll. Technique : poses calculées en JS sur transforms 3D CSS, une propriété custom conic-gradient peinte à chaque frame et le paper-burn canvas partagé. But : donner aux projets sélectionnés l'allure d'un jeu de cartes physique qu'on éventaille, distribue et mélange."
+          },
+          "about-mesh": {
+            "alt": "Halo de points du portrait About ondulant dans une onde radiale voyageuse",
+            "longdesc": "Le halo pointillé qui orbite le portrait About. Animation : un treillis polaire de points se déplace vers l'extérieur tandis qu'une onde radiale le traverse, avec des lignes guides en précession lente derrière. Déclencheur : tourne en continu tant que la section About est à l'écran. Technique : une boucle rAF en canvas 2D positionne chaque point en coordonnées polaires. Objectif : donne au portrait un champ orbital vivant dans le langage de mouvement du site."
+          },
+          "nav-icon-aura": {
+            "alt": "Contours des puces de la nav balayés par un anneau à queue de comète au survol",
+            "longdesc": "Les puces de recherche et de réglages de la barre de navigation. Animation : un remplissage en anneau à queue de comète balaie le contour de la puce au survol. Déclencheur : survol du pointeur ou focus sur chaque puce. Technique : passe ring-fill WebGPU avec repli de traînée CSS. Objectif : signale l'interactivité des puces sans voler l'attention du menu."
+          },
+          "view-transition": {
+            "alt": "Outlet de route en fondu enchaîné entre la vue sortante et la vue entrante",
+            "longdesc": "Le conteneur view outlet à chaque changement de route. Animation : la vue sortante s'estompe pendant que l'entrante apparaît — un fondu enchaîné propre. Déclencheur : chaque navigation du routeur. Technique : un échange de classe JS pilotant une transition d'opacité CSS. Objectif : rend les changements de page continus plutôt qu'en coupe franche."
+          },
+          "route-search": {
+            "alt": "Le champ de recherche de routes fait tourner son glyphe d'envoi pendant le scoring",
+            "longdesc": "L'état de chargement du champ de recherche de routes. Animation : le glyphe d'envoi tourne et une rangée de points trouvés rebondit pendant le dispatch de scoring. Déclencheur : une saisie qui lance une passe de recherche. Technique : keyframes CSS pures sur le chrome du champ. Objectif : signale le travail en vol pour que la recherche paraisse réactive."
+          },
+          "custom-carousel": {
+            "alt": "Carrousels de projet défilant avec momentum et un tiret de progression d'autoplay",
+            "longdesc": "Les carrousels de médias des pages projet. Animation : la bande défile avec momentum, les flèches naviguent entre les items et un tiret de progression d'autoplay se remplit le long du transport. Déclencheur : flèches, ticks d'autoplay et gestes de glisser. Technique : positions de scroll pilotées en JS avec transitions CSS — surface distincte du carrousel de récompenses. Objectif : garde les longs ensembles de médias explorables d'un coup d'œil."
+          },
+          "mentions-deck": {
+            "alt": "Le deck de mentions du contact fait cycler des cartes empilées et glissables",
+            "longdesc": "Le deck empilé de mentions sur la page contact. Animation : les cartes cyclent en autoplay, répondent aux gestes de glisser et de chiquenaude et quittent la pile. Déclencheur : le minuteur d'autoplay plus les glissés du pointeur. Technique : gestion de gestes JS sur des keyframes CSS. Objectif : donne aux recommandations l'air d'un deck physique qu'on peut battre."
+          },
+          "expand-modal-loading": {
+            "alt": "La lightbox de média agrandi scintille pendant le décodage de l'asset complet",
+            "longdesc": "L'état de chargement de la lightbox de média agrandi. Animation : une vague de shimmer traverse la scène pendant qu'un spinner marque le progrès du décodage. Déclencheur : l'ouverture de tout item média dans la lightbox. Technique : keyframes CSS pures. Objectif : garde la modale instantanée pendant que les assets pleine taille arrivent."
+          },
+          "footer-feed-wave": {
+            "alt": "Les liens du feed du footer de récompenses ondulent en vague d'opacité",
+            "longdesc": "La rangée de liens du feed de sources dans le footer de récompenses. Animation : une vague d'opacité parcourt les liens en boucle lente. Déclencheur : tourne en continu tant que le footer est visible. Technique : keyframes CSS décalées par lien. Objectif : donne à la rangée statique de feeds un léger pouls de vie."
           }
         }
       },
@@ -89730,7 +90112,8 @@
         "cookies": {
           "accept": "Aceta",
           "message": "Dòparo Google Analytics par contar le vixite de le pàxene. Sto chi dòpara cookie. Te se d'acordo co el traciamento anonìmo de le statìsteghe? <small><strong>(No se rancura dati personałi.)</strong></small>",
-          "refuse": "No, grasie."
+          "refuse": "No, grasie.",
+          "region": "Consenso ai cookie"
         },
         "related": "Ligà",
         "featured": "Łaori sełesionà",
@@ -89866,7 +90249,8 @@
         "animations": "Riferimento Animassion",
         "search": "Ricuart",
         "rssFeed": "Feed RSS",
-        "sitemap": "Mapa del sito"
+        "sitemap": "Mapa del sito",
+        "featuredTitle": "Projeti sełesionà"
       },
       "components": {
         "contact": {
@@ -89902,7 +90286,8 @@
               "link": "/terms-of-use"
             }
           ],
-          "title": "Contato"
+          "title": "Contato",
+          "subtitle": "Creemo qualcosa de straordinario"
         },
         "legal-footer": {
           "links": [
@@ -90141,6 +90526,38 @@
           "card-stack": {
             "alt": "Maso de łavori sełesionà co fìxica de strassinamento e countdown sol bordo luminoso",
             "longdesc": "El maso dei projeti sełesionà de ła pàxena prinsipałe. Animasion: łe schede se distribuise in na piła/vintajo 3D — i fogi łaterałi se inclina verso drento co oscuramento progresivo mentre ła scheda ativa cresse; un arco luminoso score el bordo sotiłe de ła scheda ativa in un countdown de diexe segondi riłesso sol boton play/pausa, e el tìtoło del projeto brusa e se retesse a ogni navigasion o cuando ła sesion entra in vista. Trigger: xesti de strassinar/scórer, controłi prima/dopo e index, el timer de l'autoplay e l'entrada co lo scroll. Tecnica: pose calcułà in JS su transform 3D CSS, na custom property conic-gradient depenta a ogni frame e el paper-burn su canvas condiviso. Fin: far parer i projeti sełesionà un maso fìxego che se verxe, se distribuise e se mésoła."
+          },
+          "about-mesh": {
+            "alt": "Aureola de punti del retrato About che increspa in un'onda radiale viaggiante",
+            "longdesc": "L'aureola puntegiada che orbita el retrato About. Animassion: un reticolo polare de punti el se sposta verso fora mentre un'onda radiale la traversa, con linee guida in precession lenta drìo. Trigger: la gira continuamente finche la session About la xe a schermo. Tecnica: un loop rAF su canvas 2D el posissiona ogni punto in coordinate polari. Scopo: el dà al retrato un campo orbitale vivo che riecheggia el linguaggio de movimento del sito."
+          },
+          "nav-icon-aura": {
+            "alt": "Contorni dei chip de la nav spazzà da un anelo co coa de cometa a l'hover",
+            "longdesc": "I chip de riserca e inpostassioni de la bara de navigassion. Animassion: un inpinimento a anelo co coa de cometa el spazza el contorno del chip a l'hover. Trigger: hover o focus del puntatore su ogni chip. Tecnica: passata ring-fill WebGPU con fallback de scia in CSS. Scopo: el segnała che i chip i xe interativi sensa tor via atension al menù."
+          },
+          "view-transition": {
+            "alt": "Outlet de rota in cross-fade tra la vista che esce e quela che entra",
+            "longdesc": "El contenitore view outlet a ogni canbio de rota. Animassion: la vista che esce la sfuma mentre quela che entra la aparisse — un cross-dissolve pulito. Trigger: ogni navigassion del router. Tecnica: un scambio de classe JS che el guida una transission de opasità CSS. Scopo: el fa i canbi pàgina continui invece de un staco seco."
+          },
+          "route-search": {
+            "alt": "El canpo de riserca de le rote el fa zirar el glifo de invio mentre el scoring el xe in corso",
+            "longdesc": "El stato de cargamento del canpo de riserca de le rote. Animassion: el glifo de invio el zira e una fiła de punti catà i rimbalza mentre el dispatch de scoring el xe in voło. Trigger: la digitassion de na query che la invia na passata de riserca. Tecnica: keyframes CSS puri sul chrome del canpo. Scopo: el comunica el laoro in corso parché la riserca la paria reativa."
+          },
+          "custom-carousel": {
+            "alt": "I carosei de progetto i score co momentum e un tratin de avansamento de l'autoplay",
+            "longdesc": "I carosei multimediałi de le pàxene de progetto. Animassion: la strissa la score co momentum, le freece le naviga tra i item e un tratin de avansamento de l'autoplay el se inpinisse sul trasporto. Trigger: pressioni de le freece, tick de l'autoplay e gesti de strissinamento. Tecnica: posissioni de scroll via JS con transissioni CSS — superficie distinta dal caroselo premi. Scopo: el tien i set łonghi de media esplorabiłi a colpo d'ocio."
+          },
+          "mentions-deck": {
+            "alt": "El masso de mensiòn del contato el sicła carte inpieà e scorìvołi",
+            "longdesc": "El masso inpieà de mensiòn teła pàgina contati. Animassion: le carte le sicła in autoplay, le risponde a strissinamenti e flick e le esce dal masso. Trigger: el timer de l'autoplay pì i swipe del puntatore. Tecnica: gestion dei gesti in JS su keyframes CSS. Scopo: el fa le racomandassion un masso fìsico da mesołar."
+          },
+          "expand-modal-loading": {
+            "alt": "La lightbox del media espanso la lusica mentre la decodifica l'asset conpleto",
+            "longdesc": "El stato de cargamento de la lightbox del media espanso. Animassion: n'onda de shimmer la traversa la sena mentre un spinner el segna el progresso de ła decodifica. Trigger: l'avero de qualsiasi item media teła lightbox. Tecnica: keyframes CSS puri. Scopo: el tien ła modałe istantanea mentre i asset a piena dimension i riva."
+          },
+          "footer-feed-wave": {
+            "alt": "I link del feed del footer premi i ondeggia in n'onda de opasità",
+            "longdesc": "La fiła de link del feed de le fonti tel footer dei premi. Animassion: n'onda de opasità ła traversa i link in un loop lento. Trigger: ła gira continuamente finche el footer el xe visìbiłe. Tecnica: keyframes CSS sfasałi per link. Scopo: el dà a ła fiła statìca dei feed un sotil impulso de vita."
           }
         }
       },
@@ -97894,7 +98311,8 @@
         "cookies": {
           "accept": "Accepteren",
           "message": "Ik gebruik Google Analytics om paginaweergaven te tellen. Hiervoor worden cookies gebruikt. Ga je akkoord met anonieme analytische tracking? <small><strong>(Er worden geen persoonlijke gegevens verzameld.)</strong></small>",
-          "refuse": "Nee, bedankt."
+          "refuse": "Nee, bedankt.",
+          "region": "Cookie-toestemming"
         },
         "related": "Vergelijkbaar",
         "featured": "Geselecteerd werk",
@@ -98030,7 +98448,8 @@
         "animations": "Animatie-referentie",
         "search": "Zoeken",
         "rssFeed": "RSS-feed",
-        "sitemap": "Sitemap"
+        "sitemap": "Sitemap",
+        "featuredTitle": "Uitgelichte projecten"
       },
       "components": {
         "contact": {
@@ -98066,7 +98485,8 @@
               "link": "/nl/gebruiksvoorwaarden"
             }
           ],
-          "title": "Contact"
+          "title": "Contact",
+          "subtitle": "Laten we iets bijzonders creëren"
         },
         "legal-footer": {
           "links": [
@@ -98305,6 +98725,38 @@
           "card-stack": {
             "alt": "Kaartspel van geselecteerd werk met sleepfysica en aftellen op de verlichte rand",
             "longdesc": "Het kaartspel van uitgelichte projecten op de homepage. Animatie: kaarten worden gedeeld door een 3D-stapel/waaier — zijbladen kantelen naar binnen met progressieve dimming terwijl de actieve kaart groeit; een verlichte boog loopt over de fijne rand van de actieve kaart in een tien-seconden aftelling die op de play/pauze-knop wordt gespiegeld, en de projecttitel verbrandt en weeft zich opnieuw bij elke navigatie of wanneer de sectie in beeld scrollt. Trigger: sleep-/veeggebaren, vorige/volgende- en indexknoppen, de autoplay-timer en het inscrolven. Techniek: in JS berekende poses op CSS 3D-transforms, een per frame geschilderde conic-gradient custom property en de gedeelde canvas paper-burn. Doel: laat de uitgelichte projecten aanvoelen als een fysiek kaartspel dat je waaieren, deelt en schudt."
+          },
+          "about-mesh": {
+            "alt": "Puntenhalo van het About-portret die rimpelt in een reizende radiale golf",
+            "longdesc": "De gestippelde halo die het About-portret omringt. Animatie: een polair raster van punten verplaatst naar buiten terwijl een radiale golf erdoorheen loopt, met langzaam precesserende hulplijnen erachter. Trigger: draait continu zolang de About-sectie zichtbaar is. Techniek: een 2D-canvas-rAF-loop positioneert elk punt uit poolcoördinaten. Doel: geeft het portret een levend orbitaal veld in de bewegingstaal van de site."
+          },
+          "nav-icon-aura": {
+            "alt": "Nav-chipcontouren vegen met een komeetstaart-ring bij hover",
+            "longdesc": "De zoek- en instellingenchips in de navigatiebalk. Animatie: een ringvulling met komeetstaart veegt bij hover rond de chipcontour. Trigger: aanwijzer-hover of focus op elke chip. Techniek: een WebGPU-ring-fill-pass met een CSS-spoor-fallback. Doel: signaleert dat de chips interactief zijn zonder de aandacht van het menu te stelen."
+          },
+          "view-transition": {
+            "alt": "Route-outlet in cross-fade tussen uit- en inkomende view",
+            "longdesc": "De view-outlet-container bij elke routewissel. Animatie: de uitgaande view vervaagt terwijl de inkomende verschijnt — een nette cross-dissolve. Trigger: elke routernavigatie. Techniek: een JS-klassenwissel die een CSS-opaciteitstransitie stuurt. Doel: laat paginawissels vloeiend aanvoelen in plaats van een harde cut."
+          },
+          "route-search": {
+            "alt": "Routekzoekveld draait zijn verzendglyph terwijl de scoring loopt",
+            "longdesc": "De laadstatus van het routekzoekveld. Animatie: de verzendglyph draait en een rij gevonden-punten stuitert terwijl de scoring-dispatch onderweg is. Trigger: een query typen die een zoekronde start. Techniek: pure CSS-keyframes op het veldchrome. Doel: communiceert lopend werk zodat de zoekopdracht responsief aanvoelt."
+          },
+          "custom-carousel": {
+            "alt": "Projectcarrousels scrollen met momentum en een autoplay-voortgangsstreep",
+            "longdesc": "De mediacarrousels op projectpagina's. Animatie: de strook scrollt met momentum, de pijlen navigeren tussen items en een autoplay-voortgangsstreep vult langs het transport. Trigger: pijltoetsen, autoplay-ticks en sleepgebaren. Techniek: JS-gestuurde scrollposities met CSS-transities — een eigen oppervlak naast de awardscarrousel. Doel: houdt lange mediasets in één oogopslag verkenbaar."
+          },
+          "mentions-deck": {
+            "alt": "Het contact-mentions-deck cyclet veegbare gestapelde kaarten",
+            "longdesc": "Het gestapelde mentions-deck op de contactpagina. Animatie: kaarten cyclen op autoplay, reageren op sleep- en swipegebaren en verdwijnen van de stapel. Trigger: de autoplay-timer plus aanwijzer-vegen. Techniek: JS-gebaarafhandeling over CSS-keyframes. Doel: maakt aanbevelingen aanvoelen als een fysiek deck dat je schudt."
+          },
+          "expand-modal-loading": {
+            "alt": "Uitgebreide-media-lightbox schimmert terwijl het volle asset decodeert",
+            "longdesc": "De laadstatus van de uitgebreide-media-lightbox. Animatie: een shimmer-golf trekt over het podium terwijl een spinner de decodeervooruitgang markeert. Trigger: het openen van elk media-item in de lightbox. Techniek: pure CSS-keyframes. Doel: laat de modal direct aanvoelen terwijl fullsize assets binnenstromen."
+          },
+          "footer-feed-wave": {
+            "alt": "Feed-links van de awards-footer golven in een opaciteitsgolf",
+            "longdesc": "De bron-feed-linkrij in de awards-footer. Animatie: een opaciteitsgolf golft in een trage loop over de links. Trigger: draait continu zolang de footer zichtbaar is. Techniek: per link gespreide CSS-keyframes. Doel: geeft de verder statische feedrij een subtiele levenspuls."
           }
         }
       },
@@ -106055,7 +106507,8 @@
         "cookies": {
           "accept": "Accepta",
           "message": "Faig servir Google Analytics per comptar les visites a les pàgines. Això implica cookies. Acceptes el seguiment analític anònim? <small><strong>(No es recullen dades personals.)</strong></small>",
-          "refuse": "No, gràcies."
+          "refuse": "No, gràcies.",
+          "region": "Consentiment de cookies"
         },
         "related": "Relacionats",
         "featured": "Treball seleccionat",
@@ -106191,7 +106644,8 @@
         "animations": "Referència d'Animacions",
         "search": "Cerca",
         "rssFeed": "Canal RSS",
-        "sitemap": "Mapa del lloc"
+        "sitemap": "Mapa del lloc",
+        "featuredTitle": "Projectes destacats"
       },
       "components": {
         "contact": {
@@ -106227,7 +106681,8 @@
               "link": "/ca/termes-d-us"
             }
           ],
-          "title": "Contacte"
+          "title": "Contacte",
+          "subtitle": "Creem alguna cosa extraordinària"
         },
         "legal-footer": {
           "links": [
@@ -106466,6 +106921,38 @@
           "card-stack": {
             "alt": "Baralla de treballs seleccionats amb física d'arrossegament i compte enrere a la vora il·luminada",
             "longdesc": "La baralla de projectes destacats de la pàgina principal. Animació: les cartes es reparteixen en una pila/ventall 3D — els fulls laterals s'inclinen cap endins amb esmorteïment progressiu mentre la carta activa creix; un arc lluminós recorre la vora fina de la carta activa durant un compte enrere de deu segons reflectit al botó play/pausa, i el títol del projecte crema i es reteix a cada navegació o quan la secció entra a la pantalla. Disparador: gestos d'arrossegar/lliscar, controls anterior/següent i índex, el temporitzador d'autoplay i l'entrada en fer scroll. Tècnica: poses calculades en JS sobre transforms 3D de CSS, una propietat personalitzada de conic-gradient pintada per frame i el paper-burn en canvas compartit. Propòsit: fer que els projectes destacats semblin una baralla física que s'obre, es reparteix i es barreja."
+          },
+          "about-mesh": {
+            "alt": "Halo de punts del retrat d'About onejant en una ona radial viatgera",
+            "longdesc": "L'halo puntejat que orbita el retrat d'About. Animació: una xarxa polar de punts es desplaça cap a fora mentre una ona radial la travessa, amb línies guia precessionant lentament al darrere. Disparador: corre contínuament mentre la secció és a pantalla. Tècnica: un bucle rAF en canvas 2D posiciona cada punt en coordenades polars. Propòsit: dóna al retrat un camp orbital viu que fa ressò del llenguatge de moviment del lloc."
+          },
+          "nav-icon-aura": {
+            "alt": "Contorns dels xips de la nav escombrats per un anell amb cua de cometa a l'hover",
+            "longdesc": "Els xips de cerca i ajustos de la barra de navegació. Animació: un emplenament d'anell amb cua de cometa escombra el contorn del xip en passar el cursor. Disparador: hover o focus del punter sobre cada xip. Tècnica: passada de ring-fill en WebGPU amb fallback d'estela en CSS. Propòsit: senyala que els xips són interactius sense robar atenció al menú."
+          },
+          "view-transition": {
+            "alt": "Outlet de ruta en cross-fade entre la vista que surt i la que entra",
+            "longdesc": "El contenidor view outlet a cada canvi de ruta. Animació: la vista sortint s'esvaeix mentre l'entrant apareix — un cross-dissolve net. Disparador: cada navegació del router. Tècnica: un intercanvi de classe JS que condueix una transició d'opacitat CSS. Propòsit: fa que els canvis de pàgina se sentin continus en lloc d'un tall sec."
+          },
+          "route-search": {
+            "alt": "El camp de cerca de rutes fa girar el glif d'enviament mentre corre la puntuació",
+            "longdesc": "L'estat de càrrega del camp de cerca de rutes. Animació: el glif d'enviament gira i una filera de punts trobats reboten mentre el repartiment de puntuació és en vol. Disparador: escriure una consulta que inicia una passada de cerca. Tècnica: keyframes CSS purs al cromat del camp. Propòsit: comunica la feina en vol perquè la cerca se senti responsiva."
+          },
+          "custom-carousel": {
+            "alt": "Carrusels de projecte desplaçant amb momentum i un traç de progrés de l'autoplay",
+            "longdesc": "Els carrusels de mitjans de les pàgines de projecte. Animació: la tira es desplaça amb momentum, les fletxes naveguen entre ítems i un traç de progrés de l'autoplay s'omple al transport. Disparador: pulsacions de fletxes, ticks de l'autoplay i gestos d'arrossegament. Tècnica: posicions de scroll per JS amb transicions CSS — superfície diferent del carrusel de premis. Propòsit: manté els conjunts llargs de mitjans explorables d'un cop d'ull."
+          },
+          "mentions-deck": {
+            "alt": "La baralla de mencions del contacte cicla cartes apilades i desplaçables",
+            "longdesc": "La baralla apilada de mencions a la pàgina de contacte. Animació: les cartes ciclant en autoplay, responen a gestos d'arrossegada i de cop i surten de la pila. Disparador: el temporitzador de l'autoplay més els lliscaments del punter. Tècnica: gestió de gestos JS sobre keyframes CSS. Propòsit: fa que les recomanacions semblin una baralla física que es pot barrejar."
+          },
+          "expand-modal-loading": {
+            "alt": "El lightbox del medi expandit brillora mentre decodifica l'asset complet",
+            "longdesc": "L'estat de càrrega del lightbox del medi expandit. Animació: una ona de shimmer travessa l'escenari mentre un spinner marca el progrés de la decodificació. Disparador: obrir qualsevol element de medi al lightbox. Tècnica: keyframes CSS purs. Propòsit: manté el modal amb sensació instantània mentre arriben els assets a mida real."
+          },
+          "footer-feed-wave": {
+            "alt": "Els enllaços del feed del peu de premis onegen en una ona d'opacitat",
+            "longdesc": "La filera d'enllaços del feed de fonts al peu de premis. Animació: una ona d'opacitat recorre els enllaços en un bucle lent. Disparador: corre contínuament mentre el peu és visible. Tècnica: keyframes CSS esglaonats per enllaç. Propòsit: dóna a la filera estàtica de feeds un pols subtil de vida."
           }
         }
       },
@@ -114217,7 +114704,8 @@
         "cookies": {
           "accept": "Aceptar",
           "message": "Uso Google Analytics para contar as visitas ás páxinas. Isto implica cookies. Aceptas o seguimento analítico anónimo? <small><strong>(Non se recollen datos persoais.)</strong></small>",
-          "refuse": "Non, grazas."
+          "refuse": "Non, grazas.",
+          "region": "Consentimento de cookies"
         },
         "related": "Relacionados",
         "featured": "Traballo seleccionado",
@@ -114353,7 +114841,8 @@
         "animations": "Referencia de Animacións",
         "search": "Busca",
         "rssFeed": "Canle RSS",
-        "sitemap": "Mapa do sitio"
+        "sitemap": "Mapa do sitio",
+        "featuredTitle": "Proxectos destacados"
       },
       "components": {
         "contact": {
@@ -114389,7 +114878,8 @@
               "link": "/gl/termos-de-uso"
             }
           ],
-          "title": "Contacto"
+          "title": "Contacto",
+          "subtitle": "Imos crear algo extraordinario"
         },
         "legal-footer": {
           "links": [
@@ -114628,6 +115118,38 @@
           "card-stack": {
             "alt": "Baralla de traballos seleccionados con física de arrastre e conta atrás no bordo iluminado",
             "longdesc": "A baralla de proxectos destacados da páxina principal. Animación: as cartas repártense nunha pila/abano 3D — as follas laterais inclínanse cara dentro con esvaecimento progresivo mentres a carta activa crece; un arco luminoso percorre o bordo fino da carta activa durante unha conta atrás de dez segundos reflectida no botón play/pausa, e o título do proxecto queima e recompónse en cada navegación ou cando a sección entra en pantalla. Disparador: xestos de arrastrar/deslizar, controis anterior/seguinte e índice, o temporizador de autoplay e a entrada ao facer scroll. Técnica: poses calculadas en JS sobre transforms 3D de CSS, unha propiedade personalizada de conic-gradient pintada por frame e o paper-burn en canvas compartido. Propósito: que os proxectos destacados parezan unha baralla física que abres, repartes e barallas."
+          },
+          "about-mesh": {
+            "alt": "Halo de puntos do retrato de Sobre min ondulando nunha onda radial viaxeira",
+            "longdesc": "O halo punteado que orbita o retrato de Sobre min. Animación: unha rede polar de puntos desprázase cara a fóra mentres unha onda radial a percorre, con liñas guía precesando lentamente detrás. Disparador: corre continuamente mentres a sección está en pantalla. Técnica: un bucle rAF en canvas 2D posiciona cada punto en coordenadas polares. Propósito: dá ao retrato un campo orbital vivo que fai eco da linguaxe de movemento do sitio."
+          },
+          "nav-icon-aura": {
+            "alt": "Contornos dos chips da nav varridos por un anel con cola de cometa ao hover",
+            "longdesc": "Os chips de busca e axustes da barra de navegación. Animación: un recheo de anel con cola de cometa varre o contorno do chip ao pasar o cursor. Disparador: hover ou foco do punteiro en cada chip. Técnica: pasada de ring-fill en WebGPU con fallback de estela en CSS. Propósito: sinala que os chips son interactivos sen roubar atención ao menú."
+          },
+          "view-transition": {
+            "alt": "Outlet de ruta en cross-fade entre a vista que sae e a que entra",
+            "longdesc": "O contedor view outlet en cada cambio de ruta. Animación: a vista saínte esvaece mentres a entrante aparece — un cross-dissolve limpo. Disparador: cada navegación do router. Técnica: un cambio de clase en JS que guía unha transición de opacidade CSS. Propósito: fai que os cambios de páxina se sintan continuos en vez dun corte seco."
+          },
+          "route-search": {
+            "alt": "O campo de busca de rutas fai xirar o glifo de envío mentres corre a puntuación",
+            "longdesc": "O estado de carga do campo de busca de rutas. Animación: o glifo de envío xira e unha fila de puntos atopados rebotan mentres o reparto de puntuación está en voo. Disparador: escribir unha consulta que inicia unha pasada de busca. Técnica: keyframes CSS puros no cromado do campo. Propósito: comunica o traballo en curso para que a busca se sinta receptiva."
+          },
+          "custom-carousel": {
+            "alt": "Carruseis de proxecto desprazando con momentum e un trazo de progreso do autoplay",
+            "longdesc": "Os carruseis de medios das páxinas de proxecto. Animación: a tira desprázase con momentum, as frechas navegan entre elementos e un trazo de progreso do autoplay enche no transporte. Disparador: pulsacións de frechas, ticks do autoplay e xestos de arrastre. Técnica: posicións de scroll por JS con transicións CSS — superficie distinta do carrusel de premios. Propósito: mantén os conxuntos longos de medios explorables dunha ollada."
+          },
+          "mentions-deck": {
+            "alt": "A baralla de mencións do contacto cicla cartas apiladas e deslizables",
+            "longdesc": "A baralla apilada de mencións na páxina de contacto. Animación: as cartas ciclan en autoplay, responden a xestos de arrastre e sacudida e saen da pila. Disparador: o temporizador do autoplay máis os deslizamentos do punteiro. Técnica: xestos en JS sobre keyframes CSS. Propósito: fai que as recomendacións se sintan como unha baralla física barallable."
+          },
+          "expand-modal-loading": {
+            "alt": "O lightbox do medio expandido brilloa mentres decodifica o asset completo",
+            "longdesc": "O estado de carga do lightbox do medio expandido. Animación: unha onda de shimmer percorre o escenario mentres un spinner marca o progreso da decodificación. Disparador: abrir calquera elemento de medio no lightbox. Técnica: keyframes CSS puros. Propósito: mantén o modal con sensación instantánea mentres chegan os assets a tamaño real."
+          },
+          "footer-feed-wave": {
+            "alt": "As ligazóns do feed do pé de premios ondean nunha onda de opacidade",
+            "longdesc": "A fila de ligazóns do feed de fontes no pé de premios. Animación: unha onda de opacidade percorre as ligazóns nun bucle lento. Disparador: corre continuamente mentres o pé está visíbel. Técnica: keyframes CSS escalonados por ligazón. Propósito: dá á fila estática de feeds un pulso sutil de vida."
           }
         }
       },
@@ -122380,7 +122902,8 @@
         "cookies": {
           "accept": "Glac leis",
           "message": "Bainim úsáid as Google Analytics chun amharc ar leathanaigh a chomhaireamh. Baineann fianáin leis sin. An aontaíonn tú le rianú anailísíochta gan ainm? <small><strong>(Ní bhailítear aon sonraí pearsanta.)</strong></small>",
-          "refuse": "Níor mhaith liom, go raibh maith agat."
+          "refuse": "Níor mhaith liom, go raibh maith agat.",
+          "region": "Toiliú fianán"
         },
         "related": "Gaolmhar",
         "featured": "Saothar roghnaithe",
@@ -122516,7 +123039,8 @@
         "animations": "Tagairt Beochana",
         "search": "Cuardach",
         "rssFeed": "Fotha RSS",
-        "sitemap": "Mapa an tsuímh"
+        "sitemap": "Mapa an tsuímh",
+        "featuredTitle": "Tionscadail roghnaithe"
       },
       "components": {
         "contact": {
@@ -122552,7 +123076,8 @@
               "link": "/terms-of-use"
             }
           ],
-          "title": "Teagmháil"
+          "title": "Teagmháil",
+          "subtitle": "Cruthóimis rud éigin iontach"
         },
         "legal-footer": {
           "links": [
@@ -122791,6 +123316,38 @@
           "card-stack": {
             "alt": "Bearta cártaí saothair roghnaithe le fisic tarraingthe agus comhaireamh síos ar an imeall lonrach",
             "longdesc": "An bearta cártaí de thionscadail roghnaithe ar an leathanach baile. Beochan: déileáiltear cártaí trí chruach/lúchair 3T — claonann na bileoga taobh isteach le maolú forchéimnitheach agus an cárta gníomhach ag fás; taistealaíonn stua lonrach thar imeall tanaí an chárta ghníomhaigh le linn comhaireamh síos deich soicind a chaitear ar an gcnaipe seinn/sos, agus loisceann agus fíonn teideal an tionscadail arís ar gach nascleanúint nó nuair a scrollaíonn an rannóg isteach sa radharc. Spreagtha: comharthaí tarraingthe/svae, rialuithe siar/ar aghaidh agus innéacs, an t-amadóir uathsheinm agus an iontráil scrollaithe. Teicneolaíocht: suímh ríofa in JS ar transforms 3T CSS, airí saincheaptha conic-gradient péinteáilte in aghaidh an fhráma agus an paper-burn canvas comhroinnte. Cuspóir: déanann sé go mbraitheann tionscadail roghnaithe cosúil le bearta cártaí fisiceach a lúchaireann, a dhéileálann agus a mheascann tú."
+          },
+          "about-mesh": {
+            "alt": "Halo pointí an phortráid About ag crith i dtonn radaíoch taistil",
+            "longdesc": "An halo poncaithe a thimpeallaíonn portráid About. Beochain: díshuíonn laitis pholach de phointí amach de réir mar a théann tonn radaíoch tríd, le línte treorach ag réamhchaslann go mall taobh thiar. Spreagthóir: ritheann go leanúnach fad is atá an rannán About ar an scáileán. Teicneolaíocht: cuimsitheoir rAF chanbhás 2D a shuíomhann gach pointe as comhordanáidí polacha. Cuspóir: tugann sé réimse fithiseach beo don phortráid a léiríonn teanga ghluaisne an tsuímh."
+          },
+          "nav-icon-aura": {
+            "alt": "Imlínte shlatanna na loingseoireachta á scuabadh ag fáinne eireaball choméid ar hover",
+            "longdesc": "Na slata cuardaigh agus socruithe i stiall na loingseoireachta. Beochain: scuabann líonadh fáinne le heireaball coméad timpeall imlíne na slata ar hover. Spreagthóir: hover nó fócas an chonsora ar gach slat. Teicneolaíocht: pas ring-fill WebGPU le cúlchaint rian CSS. Cuspóir: léiríonn sé go bhfuil na slata idirghníomhach gan aird a ghoid den roghchlár."
+          },
+          "view-transition": {
+            "alt": "Asraon bealaigh ag cros-dhíothú idir an radharc amach agus an radharc isteach",
+            "longdesc": "Coimeádán view outlet ar gach athrú bealaigh. Beochain: ciallaíonn an radharc amach amach fad is a thagann an radharc isteach chun solais — cros-dhíscaoileadh glan. Spreagthóir: gach loingseoireacht ródaire. Teicneolaíocht: malartú aicme JS a threoraíonn aistriú teimhneachta CSS. Cuspóir: cuireann sé athruithe leathanaigh go leanúnach in ionad gearradh crua."
+          },
+          "route-search": {
+            "alt": "Réimse cuardaigh bealaigh ag rothlú a ghlaife sheolta fad a ritheann an scóráil",
+            "longdesc": "Stádas luchtaithe réimse cuardaigh na mbealaí. Beochain: rothlaíonn an ghaife sheolta agus preabann sraith pointí aimsithe fad is atá an seoladh scórála ar siúl. Spreagthóir: iontráil a thosaíonn pas cuardaigh. Teicneolaíocht: eochairfhrámaí CSS amháin ar chróim an réimse. Cuspóir: insíonn sé an t-obair atá ar siúl ionas go mbraitheann an cuardach freagrach."
+          },
+          "custom-carousel": {
+            "alt": "Meall tionscadal ag scrollú le móiminteam agus dais dul chun cinn uathsheinnte",
+            "longdesc": "Na meall meán ar leathanaigh thionscadal. Beochain: scrollaíonn an stiall le móiminteam, bogann na saigheada idir míreanna agus líontar dais dul chun cinn uathsheinnte feadh an iompair. Spreagthóir: brú saigheada, tic uathsheinnte agus gothaí tarraingthe. Teicneolaíocht: suímh scrollaithe JS le haistrithe CSS — dromchla ar leith ó mheall na ngradam. Cuspóir: coinníonn sé tacair fhada meán in-iniúchta in amharc amháin."
+          },
+          "mentions-deck": {
+            "alt": "Tá deic tagairtí an teagmhála ag timthriallú cártaí cruachta inscuabtha",
+            "longdesc": "An deic cruachta tagairtí ar an leathanach teagmhála. Beochain: timthriallaíonn cártaí ar uathsheinnteoireacht, freagraíonn siad do tharraingt agus do phreabadh agus díbrithear ón gcrú iad. Spreagthóir: an t-amadóir uathsheinnte móide scuabtha consora. Teicneolaíocht: láimhseáil gothaí JS thar eochairfhrámaí CSS. Cuspóir: déanann sé moltaí a bhraitheann mar dheic fisiciúil is féidir a chasadh."
+          },
+          "expand-modal-loading": {
+            "alt": "Bosca solais na meán leathnaithe ag lonradh fad is a dhíchódaítear an tsócmhainn iomlán",
+            "longdesc": "Stádas luchtaithe bhosca solais na meán leathnaithe. Beochain: taistealaíonn niamhras ar fud an stáitse fad is a mharcálann sníomhaire dul chun cinn an díchódaithe. Spreagthóir: aon mhír mheán a oscailt sa bhosca solais. Teicneolaíocht: eochairfhrámaí CSS amháin. Cuspóir: coinníonn sé an mhodail meandarach fad is a shreabhann sócmhainní lánmhéide isteach."
+          },
+          "footer-feed-wave": {
+            "alt": "Naisc fotha bharraíos na ngradam ag tonntú ina dtonn teimhneachta",
+            "longdesc": "Sraith naisc fotha na bhfoinsí i mbarraíos na ngradam. Beochain: taistealaíonn tonn teimhneachta thar na naisc in lúb mhall. Spreagthóir: ritheann go leanúnach fad is atá an barraíos le feiceáil. Teicneolaíocht: eochairfhrámaí CSS idirscartha in aghaidh naisc. Cuspóir: tugann sé béal beo fainne don tsraith fotha statach."
           }
         }
       },

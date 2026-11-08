@@ -29,6 +29,12 @@
       "kind": "js",
       "reason": "onnxruntime-web ships as one pre-bundled artifact (ort.webgpu.bundle.min) — module-granular splitting cannot divide it. Strictly lazy: reachable only through ort-engine's dynamic import(), fires on first ML inference call, and the whole layer degrades to null when unavailable. Absent from legacy tiers entirely (ort-legacy-stub plugin in vite.config.js).",
       "review": "2027-01-20"
+    },
+    {
+      "pattern": "^(app~index|app|index(-wide)?)$",
+      "kind": "css",
+      "reason": "The document stylesheet monolith is one atomic cascade — the cumulative index-<class>-* sheets (all under cap) are the runtime delivery; this file is vite's emitted entry asset, kept on disk for the service-worker precache manifest and the <noscript> full-sheet fallback. It cannot be divided further without reordering the cascade — the cap guards growth on an unsplittable unit.",
+      "review": "2027-01-20"
     }
   ]
 }
