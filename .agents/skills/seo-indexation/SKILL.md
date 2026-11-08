@@ -1,6 +1,6 @@
 ---
 name: seo-indexation
-description: Search-indexation contract — canonical URLs must serve 200 (never redirect), sitemaps list only final indexable URLs, internal/agent surfaces are noindexed, and unresolvable routes noindex at runtime instead of serving duplicate 200s.
+description: Search-indexation contract — canonical URLs must serve 200 (never redirect), sitemaps list only final indexable URLs, payload/agent surfaces are noindexed, and unresolvable routes noindex at runtime instead of serving duplicate 200s.
 ---
 
 # SEO Indexation
@@ -29,9 +29,11 @@ trace back to violating one of these invariants.
 
 - A sitemap lists **final, canonical, indexable** URLs only — never a
   redirect source, a trailing-slash variant, or a noindex surface.
-- `/docs/**` is deliberately absent: it mirrors generated artifacts
-  (typedoc, coverage, source viewers) for humans and AI agents — an
-  `X-Robots-Tag: noindex` surface, not a crawl target.
+- `/docs` and every `/docs/**` manifest route are public indexable pages.
+  `generate-sitemap.js` and `build-locale-pages.mjs` share the same docs
+  scanner so directory listings, generated API docs, source pages, and
+  coverage reports all have a prerendered canonical URL in the sitemap.
+  `/docs-content/**` remains a noindex/disallowed JSON payload surface.
 - Media deep links and star-field body links are real canonical pages in
   every locale and stay listed; their validity is enforced by
   `seo-route-parity.test.js` + `seo-indexation.test.js`.
@@ -44,12 +46,19 @@ trace back to violating one of these invariants.
   patch script to refresh the snapshot; `LK_OFFLINE=1` regenerates crawl
   artifacts from that snapshot and the cached media manifest without
   outbound requests.
+- The search page's list is seeded by `patch-search-page-themes.js` and
+  extended by the all-pages patch with the localized names of every route
+  and project it links — run the seed patch first so re-runs reset the
+  derived tail.
 
 ## RSS feeds
 
 - `generate-sitemap.js` also emits RSS 2.0 + Media RSS — `meta/feed.xml`
-  (en) and `meta/<loc>/feed.xml` per locale — pages + all projects with
-  cover media. Video items use `<media:thumbnail>` only when a bucket-backed
+  (en) and `meta/<loc>/feed.xml` per locale — pages (including the search
+  page) + all projects with cover media + every star-field dossier. Each
+  item carries `<dc:creator>`, a permalink `<guid>`, and up to 12
+  `<category>` elements from the owning node's localized `searchThemes`.
+  Video items use `<media:thumbnail>` only when a bucket-backed
   poster exists and keep the source in `<media:content>`; absent derivatives
   never produce an empty `url` attribute. Rewrites: `/feed.xml`, `/rss.xml`
   → `/meta/feed.xml`;
@@ -58,16 +67,42 @@ trace back to violating one of these invariants.
 - Every emitted page advertises its locale feed via
   `<link rel="alternate" type="application/rss+xml">` (localize()
   `feedUrl`); feeds are crawl artifacts, never sitemap entries.
+- Humans reach the feed through `<legal-footer>`'s RSS link
+  (`feedHrefFor(locale)` → `/<loc>/feed.xml`, label `APP.rssFeed` via
+  `SECTION_UI_KEYS.RSS_FEED`, written by `patch-rss-feed-label.js`). The
+  delegated SPA click handler skips that anchor so the browser fetches
+  the XML. `seo-route-parity.test.js` asserts every locale's footer href
+  is a firebase rewrite.
 
-## Internal surfaces — noindex, don't disallow
+## Payload surfaces — noindex, don't disallow indexable docs
 
-- `X-Robots-Tag: noindex` on `/docs`, `/docs/**`, `/docs-content/**`,
-  `/deploy-info/**`, `/langs/**`, `/cms`, `/admin` (`firebase.json`
-  headers). `/langs/` duplicates the public locale pages byte-for-byte.
+- `X-Robots-Tag: noindex` on `/docs-content/**`, `/deploy-info/**`,
+  `/langs/**`, `/cms`, `/admin`, `/llm/**`, and Markdown/JSON replicas
+  outside `/docs` (`firebase.json` headers). The suffix-matching header
+  patterns must exclude the first `/docs` path segment so `.md` and
+  `.json` documentation pages still receive their prerendered HTML and
+  indexable robots meta.
+- `/docs` and `/docs/**` must remain crawlable and indexable. Locale docs
+  aliases redirect to the English canonical route and never enter a sitemap.
 - `Disallow` only pure payload paths (`/docs-content/`, `/deploy-info/`,
   `/meta/`, `/langs/`). NEVER `Disallow: /docs` — crawlers must be able
-  to fetch it to see the `noindex` header, or already-indexed URLs
-  strand as URL-only results.
+  to fetch canonical pages and follow their internal links.
+
+## IndexNow — real-time submission
+
+- The ownership key lives in `INDEXNOW` (`core/tokens/indexnow.ts`) and is
+  hosted as the root key file `website/public/<key>.txt` — it must 200 at
+  `https://luiskr.com/<key>.txt` and contain exactly the key, or engines
+  403 every submission.
+- `shared/scripts/build/submit-indexnow.mjs` ships the whole canonical
+  surface (`dist/meta/urllist.txt`, fallback `website/public/meta/`) in
+  BOTH protocol forms — JSON `urlList` POSTs (10k/req cap) and per-URL
+  `?url=&key=&keyLocation=` GETs — so the inventory is always the same
+  final-indexable list the sitemaps carry.
+- It is the firebase `hosting.postdeploy` step (after the robots revert):
+  submissions only validate once the new build and the key file are live.
+  `yarn indexnow` reruns it manually; `--json`/`--param` select one form,
+  `--dry-run` writes `reports/indexnow.json` without requests.
 
 ## Runtime indexation — soft-404s must noindex
 
@@ -84,6 +119,8 @@ image cards and Discover previews.
 - `syncDocumentHead` (`core/router/navigate.ts`) resets the meta every
   navigation and re-arms it for `ROUTE_NAMES.NOT_FOUND` — a stale
   noindex can never leak onto an indexable route.
+- An unresolved nonempty docs path (`experiments/docs/Docs.tsx`) must
+  noindex rather than emitting an empty `CollectionPage` as a soft-404.
 - Missing project snapshot (`website/views/project/data.ts`) → noindex.
 - Media deep-link slug that resolves to no item in the active locale
   (`modal.ts`) → noindex. A foreign-locale slug on the wrong prefix is a
@@ -106,7 +143,8 @@ into soft-404s.
   X-Robots-Tag coverage, robots disallows, sitemap cleanliness,
   citation-href guard, runtime-noindex wiring.
 - `shared/tests/governance/seo-route-parity.test.js` — sitemap ↔ router
-  ↔ firebase rewrite/redirect parity, media deep links per locale,
+  ↔ firebase rewrite/redirect parity, complete docs-manifest coverage,
+  media deep links per locale,
   canonical slug tables.
 - Regenerate crawl artifacts after route/slug changes:
   `node shared/scripts/build/generate-sitemap.js` (offline falls back to

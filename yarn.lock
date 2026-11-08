@@ -5111,10 +5111,10 @@ flatted@^3.2.9, flatted@^3.4.2:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.4.4.tgz"
   integrity sha512-5+ybhBZANEJxaH3X5evAFatUxLfEHSr7n6kYJ+1Qd0mUqr4eu9gIf6GDbWHf8RJijHrjjO8G+la14SlL2SeS1Q==
 
-follow-redirects@^1.16.0:
-  version "1.16.1"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.16.1.tgz#6e0efa40a727fb369b98dab15883ec34787d675e"
-  integrity sha512-FNvFGzoMLWmE6Yj9spb/zjd7yiNCHiAW9/Tg9CXrQ8wuu32HtlJOwWO11OJafl5FfY3DxTdQ0vj42zU1kvv5jg==
+follow-redirects@^1.16.0, follow-redirects@^1.16.2:
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.16.2.tgz#a233160dd1bc9b16cbbab43709e6adc7cc941c8c"
+  integrity sha512-/kVP2U8z596Ia0gwFrwyIeo74ta5aVmSeU1FfAUMAmcEP5EP7zydmag3SLiN64NaRKef3lxsq7i/g7ltJQDGow==
 
 for-each@^0.3.3, for-each@^0.3.5:
   version "0.3.5"
@@ -7967,10 +7967,10 @@ raw-body@~2.5.3:
     iconv-lite "~0.4.24"
     unpipe "~1.0.0"
 
-re2js@^2.8.3:
-  version "2.8.6"
-  resolved "https://registry.npmjs.org/re2js/-/re2js-2.8.6.tgz"
-  integrity sha512-xLgQil4kIUCrAzVk9fRSkxkFNwmygLFjVxXrLc65aE1F0+Zsb8rxumFBy4XKyvgMCTL6kilDq3EZ0piE2dP/Dg==
+re2js@2.8.8, re2js@^2.8.3:
+  version "2.8.8"
+  resolved "https://registry.yarnpkg.com/re2js/-/re2js-2.8.8.tgz#f349586775b868c98261b6c78884415fbcd3982f"
+  integrity sha512-E2FVgqD2mzJ+ZmMSHLnkOvZ7PiZ4FgMdfVCA3YsJWs9gtyoaKmUMxyVPCXS1yK209/mz3XkdT7kr3OlMWW2Fww==
 
 read-binary-file-arch@^1.0.6:
   version "1.0.6"

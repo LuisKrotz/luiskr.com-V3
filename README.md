@@ -103,10 +103,16 @@ converter's guided setup panel on localhost —
 ## Search and crawl artifacts
 
 - RSS 2.0 + Media RSS feeds are available at `/feed.xml` and `/rss.xml`;
-  each locale also has `/<locale>/feed.xml`.
+  each locale also has `/<locale>/feed.xml`. Items carry `dc:creator` and
+  their localized `searchThemes` as `<category>` tags, and the legal footer
+  links the visitor's locale feed (`node
+shared/scripts/i18n/patch-rss-feed-label.js` writes its label).
 - `searchThemes` are content-derived and localized for every page and
-  project. `node shared/scripts/i18n/patch-all-pages-search-themes.js`
-  refreshes the committed snapshot.
+  project. Run `node shared/scripts/i18n/patch-search-page-themes.js` then
+  `node shared/scripts/i18n/patch-all-pages-search-themes.js` to refresh
+  the committed snapshot.
+- `node shared/scripts/build/generate-search-index.mjs` (after the sitemap
+  generator) rebuilds the per-locale `search-index-<locale>.json` catalogs.
 - `LK_OFFLINE=1 node shared/scripts/build/generate-sitemap.js` regenerates
   sitemaps, `robots.txt`, localized `llms.txt`, and RSS feeds from
   `database.json` plus the cached media manifest. The normal generator

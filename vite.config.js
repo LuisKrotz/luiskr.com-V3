@@ -319,6 +319,50 @@ export default defineConfig(({ command }) => {
     },
   }
 
+  // Dev-only feed serving: firebase.json rewrites /feed.xml, /rss.xml,
+  // /<locale>/feed.xml and /feed.css onto the generated files under
+  // /meta/, but the dev server has no rewrite layer — /feed.xml fell
+  // through to the SPA shell and the feed's xml-stylesheet PI pointed at
+  // a 404, so the styled+themed feed was unviewable in dev. Mirroring
+  // the map here keeps dev parity (locale feeds only exist for the
+  // locales generate-sitemap emitted — file existence is the gate).
+  const feedDevPlugin = {
+    name: 'feed-dev',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        if (req.method !== 'GET' && req.method !== 'HEAD') return next()
+
+        const reqPath = decodeURIComponent((req.url || '').split('?')[0])
+        const localeMatch = /^\/([a-z]+)\/feed\.xml$/.exec(reqPath)
+        const rel =
+          reqPath === '/feed.css'
+            ? 'feed.css'
+            : reqPath === '/feed.xml' || reqPath === '/rss.xml'
+              ? 'feed.xml'
+              : localeMatch
+                ? `${localeMatch[1]}/feed.xml`
+                : null
+
+        if (!rel) return next()
+
+        const file = path.join(__dirname, 'website', 'public', 'meta', rel)
+
+        if (rel.includes('..') || !existsSync(file) || !statSync(file).isFile()) return next()
+
+        const body = readFileSync(file)
+
+        res.statusCode = 200
+        res.setHeader(
+          'Content-Type',
+          rel.endsWith('.css') ? 'text/css; charset=utf-8' : 'application/xml; charset=utf-8'
+        )
+        res.setHeader('X-Robots-Tag', 'noindex')
+        res.setHeader('Content-Length', body.length)
+        res.end(req.method === 'HEAD' ? undefined : body)
+      })
+    },
+  }
+
   // Dev-only offline CMS mode — explicit opt-in via `CMS_MOCK=1`
   // (`yarn dev:cms`): swaps real Firebase SDK calls for the committed
   // database.json snapshot (see cms/dev/firebase-mock.js), and backs
@@ -547,6 +591,7 @@ export default defineConfig(({ command }) => {
     '.webp': 'image/webp',
     '.woff2': 'font/woff2',
     '.xml': 'application/xml; charset=utf-8',
+    '.xsl': 'text/xsl; charset=utf-8',
   }
 
   const previewPrecompressedPlugin = {
@@ -610,6 +655,7 @@ export default defineConfig(({ command }) => {
     securityHeadersPlugin,
     siteWebmanifestDevPlugin,
     deployInfoDevPlugin,
+    feedDevPlugin,
     previewCleanUrlsPlugin,
     previewPrecompressedPlugin,
     ...(process.env.LK_NO_PUBLIC ? [] : [modulePublicPlugin()]),

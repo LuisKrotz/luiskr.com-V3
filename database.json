@@ -27,8 +27,10 @@
         },
         "related": "Related",
         "featured": "Selected work",
+        "featuredTitle": "Featured projects",
         "title": "Luis Krötz",
         "preferences": "Preferences",
+        "setLanguage": "Set language",
         "language": "Language",
         "pref": {
           "title": "Preferences",
@@ -155,7 +157,10 @@
           "loadFailed": "A section couldn't load",
           "dismiss": "Dismiss notification"
         },
-        "animations": "Animations Reference"
+        "animations": "Animations Reference",
+        "search": "Search",
+        "rssFeed": "RSS feed",
+        "sitemap": "Sitemap"
       },
       "components": {
         "contact": {
@@ -191,7 +196,8 @@
               "link": "/terms-of-use"
             }
           ],
-          "title": "Contact"
+          "subtitle": "Let's create something extraordinary",
+          "title": "Contact / Get in Touch"
         },
         "legal-footer": {
           "links": [
@@ -423,22 +429,30 @@
             "alt": "Related project card lifting and zooming on hover",
             "longdesc": "The related-project cards at the bottom of project pages. Animation: on hover the card lifts, its image zooms gently and title/description slide up — all on damped-spring easing (CSS linear() synthesized springs) so the motion overshoots slightly and settles organically; a border sheen sweeps the frame. Trigger: pointer hover/focus. Tech: CSS transitions on transform/opacity driven by spring easing curves. Purpose: makes the navigation affordance feel physical and inviting."
           },
-          "note-dot": {
-            "alt": "Note marker pulsing softly",
-            "longdesc": "The small note/dot markers used on internals pages (documentation and project internals). Animation: the dot pulses softly — a gentle scale-and-fade breathing loop. Trigger: loops continuously while on screen. Tech: a CSS keyframe (note-dot-pulse). Purpose: marks the element as a live annotation without demanding attention."
-          },
           "body-glow": {
             "alt": "Ambient page glow drifting slowly behind content",
             "longdesc": "The ambient background glow behind the page content. Animation: a large soft radial gradient drifts slowly across the document, shifting position and intensity in a long loop. Trigger: runs continuously on every page. Tech: a CSS keyframe (body-glow-drift) animating a fixed background layer — zero JavaScript. Purpose: gives the dark theme atmosphere and depth instead of a flat background."
+          },
+          "card-stack": {
+            "alt": "Selected work card deck dealing with drag physics and a border-light countdown",
+            "longdesc": "The featured-projects card deck on the home page. Animation: cards deal through a 3D pile/fan — side sheets angle inward with progressive dimming while the active card scales up; a lit arc travels the active card's hairline border over a ten-second countdown mirrored on the play/pause transport, and the project title paper-burns out and knits back in on navigation or when the section scrolls into view. Trigger: drag/swipe gestures, prev/next and index controls, the autoplay timer and scroll entry. Tech: JS-computed poses on CSS 3D transforms, a conic-gradient custom property painted per frame and the shared canvas paper-burn. Purpose: makes featured projects feel like a physical deck you fan, deal and shuffle."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "All projects",
           "archive": "Explore more",
+          "autoplayPlay": "Play autoplay",
+          "autoplayPause": "Pause autoplay",
+          "deckHint": "Drag or swipe cards to explore",
+          "swipeHint": "Swipe",
           "explore": "Check out",
           "featured": "Selected work",
+          "featuredTitle": "Featured projects",
           "message": "Selected work",
+          "projectLabel": "Project",
+          "viewAll": "View all",
           "portfoliolist": [
             {
               "description": "Building and scaling the Dell Design System to serve 500+ enterprise products.<br>Acting as Software Engineer, Agile Champion, Tech Lead, and Support Analyst on cross-functional engineering, accessibility, content, design, and AI spec-driven workflows to achieve seamless multi-framework component creation, parity, support, and maintenance across Vanilla, React, Angular, and Data Visualization for unified design and user experiences.",
@@ -751,7 +765,46 @@
             }
           ],
           "title": "About me",
+          "subtitle": "The person behind the pixels",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "at ufsm, placed among the 40 best works of the 28th jai",
             "cssda special kudos award, awarded to the first version of luiskr.com",
@@ -1166,7 +1219,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Earth Playground",
+          "title": "Earth Playground — Interactive Earth Simulation",
           "experienceSettings": "Experience Settings",
           "systemBoot": "System Boot",
           "camera": "Camera",
@@ -1232,7 +1285,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Interactive WebGL Earth playground — adjust terrain, atmosphere, lighting and post-processing live.",
+          "description": "Interactive WebGL Earth simulation — adjust terrain, atmosphere, lighting and post-processing live in your browser.",
           "shareGallery": "Share captures",
           "shareCapture": "Earth render",
           "searchThemes": [
@@ -1484,6 +1537,98 @@
             "css",
             "webgl"
           ]
+        },
+        "search": {
+          "title": "Search",
+          "description": "Search every page, project and experiment on luiskr.com.",
+          "link": "Search",
+          "search": {
+            "label": "Search",
+            "placeholder": "Search pages, projects, experiments…",
+            "empty": "No routes match — try a different term.",
+            "go": "Open",
+            "results": "Matching routes",
+            "hint": "Type to filter — arrow keys move, Enter opens.",
+            "found": "{n} results found",
+            "groups": {
+              "pages": "Pages",
+              "portfolio": "Portfolio",
+              "experiments": "Experiments",
+              "legal": "Legal"
+            },
+            "pager": "Result pages",
+            "prev": "Previous results page",
+            "next": "Next results page",
+            "page": "Page {a} of {b}"
+          },
+          "searchThemes": [
+            "search",
+            "site search",
+            "find",
+            "portfolio search",
+            "search projects",
+            "catalog",
+            "luis krötz",
+            "luiskr.com",
+            "developer portfolio",
+            "webgl experiments",
+            "matching routes",
+            "about",
+            "contact",
+            "earth playground",
+            "star field",
+            "animations reference",
+            "dell design system",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "luis krotz",
+            "portfolio",
+            "front-end developer",
+            "web developer",
+            "software engineer",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Sitemap",
+          "description": "Every page on this site, in every language — the complete link index.",
+          "intro": "Every page on this site, in every language — the complete link index.",
+          "groups": {
+            "pages": "Pages",
+            "legal": "Legal",
+            "portfolio": "Portfolio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Media"
+          },
+          "searchThemes": [
+            "sitemap",
+            "site map",
+            "link index",
+            "all pages",
+            "page directory",
+            "site navigation",
+            "every page on this site",
+            "luiskr.com",
+            "portfolio",
+            "front-end developer",
+            "web developer",
+            "software engineer",
+            "javascript",
+            "css",
+            "webgl"
+          ]
         }
       },
       "projects": {
@@ -1508,16 +1653,6 @@
                 "Moving away from framework dependencies like Vue to embrace pure vanilla architecture felt deeply refreshing, sharpening my technical precision inside a design-centric team surrounded by brilliant software engineers."
               ],
               [
-                {
-                  "canExpand": true,
-                  "class": "landscape",
-                  "label": "Dell Design System: brand background and layout structure",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
                 {
                   "canExpand": true,
                   "class": "landscape",
@@ -2743,7 +2878,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, website overview",
-            "dell design system: brand background and layout structure",
             "dell design system: foundations overview",
             "dell design system: code architecture and guidelines",
             "dell design system: getting started principles",
@@ -8021,7 +8155,8 @@
         "license": "license",
         "earthPlayground": "earth-playground",
         "starField": "star-field-experiment",
-        "animations": "animations"
+        "animations": "animations",
+        "search": "search"
       }
     },
     "br": {
@@ -8045,6 +8180,7 @@
         "featured": "Trabalhos selecionados",
         "title": "Luis Krötz",
         "preferences": "Preferências",
+        "setLanguage": "Definir idioma",
         "language": "Idioma",
         "pref": {
           "title": "Preferências",
@@ -8171,7 +8307,10 @@
           "loadFailed": "Uma seção não carregou",
           "dismiss": "Dispensar notificação"
         },
-        "animations": "Referência de Animações"
+        "animations": "Referência de Animações",
+        "search": "Busca",
+        "rssFeed": "Feed RSS",
+        "sitemap": "Mapa do site"
       },
       "components": {
         "contact": {
@@ -8439,22 +8578,30 @@
             "alt": "Card de projeto relacionado elevando e dando zoom no hover",
             "longdesc": "Os cards de projetos relacionados no fim das páginas de projeto. Animação: no hover o card se eleva, a imagem dá um zoom suave e título/descrição sobem — tudo em easing de mola amortecida (springs sintetizados em CSS linear()) para o movimento passar levemente e assentar de forma orgânica; um brilho varre a borda do card. Gatilho: hover/foco do ponteiro. Tecnologia: transições CSS em transform/opacity dirigidas por curvas de mola. Propósito: fazer a affordance de navegação parecer física e convidativa."
           },
-          "note-dot": {
-            "alt": "Marcador de nota pulsando suavemente",
-            "longdesc": "Os pequenos marcadores de nota/ponto usados nas páginas de internals (documentação e internas de projeto). Animação: o ponto pulsa suavemente — um loop respirante de escala e fade. Gatilho: faz loop continuamente em tela. Tecnologia: um keyframe CSS (note-dot-pulse). Propósito: marcar o elemento como anotação viva sem exigir atenção."
-          },
           "body-glow": {
             "alt": "Brilho ambiente da página driftando atrás do conteúdo",
             "longdesc": "O brilho de fundo ambiente atrás do conteúdo da página. Animação: um grande gradiente radial suave drifta lentamente pelo documento, mudando posição e intensidade num loop longo. Gatilho: roda continuamente em todas as páginas. Tecnologia: um keyframe CSS (body-glow-drift) animando uma camada de fundo fixa — zero JavaScript. Propósito: dar atmosfera e profundidade ao tema escuro em vez de um fundo chapado."
+          },
+          "card-stack": {
+            "alt": "Baralho de trabalhos selecionados com física de arrasto e contagem na borda iluminada",
+            "longdesc": "O baralho de projetos em destaque da página inicial. Animação: as cartas distribuem-se num leque/pilha 3D — as folhas laterais inclinam-se para dentro com esmaecimento progressivo enquanto a carta ativa cresce; um arco luminoso percorre a borda fina da carta ativa numa contagem de dez segundos espelhada no botão play/pausa, e o título do projeto queima e se recompõe a cada navegação ou quando a seção entra na tela. Gatilho: gestos de arrastar/deslizar, controles anterior/próximo e índice, o temporizador de autoplay e a entrada por rolagem. Técnica: poses calculadas em JS sobre transforms 3D de CSS, uma propriedade customizada de conic-gradient pintada por frame e o paper-burn em canvas compartilhado. Propósito: fazer os projetos em destaque parecerem um baralho físico que você abre, distribui e embaralha."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Todos os projetos",
           "archive": "Explorar mais",
+          "autoplayPlay": "Reproduzir autoplay",
+          "autoplayPause": "Pausar autoplay",
+          "deckHint": "Arraste ou deslize os cartões para explorar",
+          "swipeHint": "Deslize",
           "explore": "Confira",
           "featured": "Trabalhos selecionados",
+          "featuredTitle": "Projetos em destaque",
           "message": "Trabalhos selecionados",
+          "projectLabel": "Projeto",
+          "viewAll": "Ver todos",
           "portfoliolist": [
             {
               "description": "Construindo e escalando o Dell Design System para atender a mais de 500 produtos corporativos.<br>Atuando como Engenheiro de Software, Agile Champion, Tech Lead e Analista de Suporte em fluxos de trabalho interfuncionais de engenharia, acessibilidade, conteúdo, design e orientados a especificações de IA para alcançar criação contínua de componentes multiframework, paridade, suporte e manutenção em Vanilla, React, Angular e Visualização de Dados para um design e experiências de usuário unificados.",
@@ -8768,7 +8915,46 @@
             }
           ],
           "title": "Sobre mim",
+          "subtitle": "A pessoa por trás dos pixels",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "na ufsm, entre os 40 melhores trabalhos da 28ª jai",
             "prêmio cssda special kudos, concedido à primeira versão do luiskr.com",
@@ -9185,7 +9371,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Playground da Terra",
+          "title": "Playground da Terra — Simulação Interativa da Terra",
           "experienceSettings": "Configurações da experiência",
           "systemBoot": "Inicialização do sistema",
           "camera": "Câmera",
@@ -9251,7 +9437,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Playground WebGL interativo da Terra — ajuste terreno, atmosfera, iluminação e pós-processamento ao vivo.",
+          "description": "Simulação WebGL interativa da Terra — ajuste terreno, atmosfera, iluminação e pós-processamento ao vivo no navegador.",
           "shareGallery": "Capturas para compartilhar",
           "shareCapture": "Render da Terra",
           "searchThemes": [
@@ -9496,6 +9682,97 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "portfólio",
+            "portfólio de luis krötz",
+            "desenvolvedor front-end",
+            "desenvolvedor web",
+            "engenheiro de software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Busca",
+          "description": "Busque todas as páginas, projetos e experimentos do luiskr.com.",
+          "link": "Busca",
+          "search": {
+            "label": "Busca",
+            "placeholder": "Buscar páginas, projetos, experimentos…",
+            "empty": "Nenhuma rota encontrada — tente outro termo.",
+            "go": "Abrir",
+            "results": "Rotas correspondentes",
+            "hint": "Digite para filtrar — as setas navegam, Enter abre.",
+            "found": "{n} resultados encontrados",
+            "groups": {
+              "pages": "Páginas",
+              "portfolio": "Portfólio",
+              "experiments": "Experimentos",
+              "legal": "Legal"
+            },
+            "pager": "Páginas de resultados",
+            "prev": "Página anterior de resultados",
+            "next": "Próxima página de resultados",
+            "page": "Página {a} de {b}"
+          },
+          "searchThemes": [
+            "pesquisa",
+            "busca no site",
+            "encontrar",
+            "pesquisa no portfólio",
+            "projetos",
+            "catálogo",
+            "luis krötz",
+            "luiskr.com",
+            "portfólio",
+            "experimentos webgl",
+            "busca",
+            "rotas correspondentes",
+            "sobre",
+            "contato",
+            "playground da terra",
+            "campo estelar",
+            "referência de animações",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "portfólio de luis krötz",
+            "desenvolvedor front-end",
+            "desenvolvedor web",
+            "engenheiro de software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Mapa do site",
+          "description": "Todas as páginas deste site, em todos os idiomas — o índice completo de links.",
+          "intro": "Todas as páginas deste site, em todos os idiomas — o índice completo de links.",
+          "groups": {
+            "pages": "Páginas",
+            "legal": "Legal",
+            "portfolio": "Portfólio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Mídia"
+          },
+          "searchThemes": [
+            "mapa do site",
+            "índice de links",
+            "todas as páginas",
+            "diretório de páginas",
+            "navegação do site",
             "portfólio",
             "portfólio de luis krötz",
             "desenvolvedor front-end",
@@ -14773,16 +15050,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: plano de fundo da marca e estrutura de layout",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: visão geral das fundações",
                   "size": [
                     1980,
@@ -16005,7 +16272,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, visão geral do site",
-            "dell design system: plano de fundo da marca e estrutura de layout",
             "dell design system: visão geral das fundações",
             "dell design system: arquitetura de código e diretrizes",
             "dell design system: princípios para começar",
@@ -16055,7 +16321,8 @@
         "license": "licenca",
         "earthPlayground": "playground-da-terra",
         "starField": "experimento-campo-estelar",
-        "animations": "animacoes"
+        "animations": "animacoes",
+        "search": "pesquisar"
       }
     },
     "es": {
@@ -16079,6 +16346,7 @@
         "featured": "Trabajo seleccionado",
         "title": "Luis Krötz",
         "preferences": "Preferencias",
+        "setLanguage": "Elegir idioma",
         "language": "Idioma",
         "pref": {
           "title": "Preferencias",
@@ -16205,7 +16473,10 @@
           "loadFailed": "Una sección no pudo cargar",
           "dismiss": "Descartar notificación"
         },
-        "animations": "Referencia de Animaciones"
+        "animations": "Referencia de Animaciones",
+        "search": "Búsqueda",
+        "rssFeed": "Canal RSS",
+        "sitemap": "Mapa del sitio"
       },
       "components": {
         "contact": {
@@ -16473,22 +16744,30 @@
             "alt": "Tarjeta de proyecto relacionado elevándose y haciendo zoom en hover",
             "longdesc": "Las tarjetas de proyectos relacionados al final de las páginas de proyecto. Animación: en hover la tarjeta se eleva, la imagen hace un zoom suave y título/descripción suben — todo con easing de resorte amortiguado (springs sintetizados en CSS linear()) para que el movimiento pase ligeramente y se asiente de forma orgánica; un brillo barre el borde de la tarjeta. Disparador: hover/foco del puntero. Tecnología: transiciones CSS en transform/opacity dirigidas por curvas de resorte. Propósito: hacer que la affordance de navegación se sienta física e invitante."
           },
-          "note-dot": {
-            "alt": "Marcador de nota pulsando suavemente",
-            "longdesc": "Los pequeños marcadores de nota/punto usados en las páginas de internals (documentación e internas de proyecto). Animación: el punto pulsa suavemente — un loop respirante de escala y fade. Disparador: hace loop continuamente en pantalla. Tecnología: un keyframe CSS (note-dot-pulse). Propósito: marcar el elemento como anotación viva sin exigir atención."
-          },
           "body-glow": {
             "alt": "Brillo ambiente de la página derivando detrás del contenido",
             "longdesc": "El brillo de fondo ambiente detrás del contenido de la página. Animación: un gran gradiente radial suave deriva lentamente por el documento, cambiando posición e intensidad en un loop largo. Disparador: corre continuamente en todas las páginas. Tecnología: un keyframe CSS (body-glow-drift) animando una capa de fondo fija — cero JavaScript. Propósito: dar atmósfera y profundidad al tema oscuro en lugar de un fondo plano."
+          },
+          "card-stack": {
+            "alt": "Baraja de trabajos seleccionados con física de arrastre y cuenta atrás en el borde iluminado",
+            "longdesc": "La baraja de proyectos destacados de la página principal. Animación: las cartas se reparten en una pila/abanico 3D — las hojas laterales se inclinan hacia dentro con atenuación progresiva mientras la carta activa crece; un arco luminoso recorre el borde fino de la carta activa durante una cuenta atrás de diez segundos reflejada en el botón play/pausa, y el título del proyecto se quema y se reteje en cada navegación o cuando la sección entra en pantalla. Disparador: gestos de arrastrar/deslizar, controles anterior/siguiente e índice, el temporizador de autoplay y la entrada al hacer scroll. Técnica: poses calculadas en JS sobre transforms 3D de CSS, una propiedad personalizada de conic-gradient pintada por frame y el paper-burn en canvas compartido. Propósito: que los proyectos destacados se sientan como una baraja física que abres, repartes y barajas."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Todos los proyectos",
           "archive": "Explorar más",
+          "autoplayPlay": "Reproducir autoplay",
+          "autoplayPause": "Pausar autoplay",
+          "deckHint": "Arrastra o desliza las tarjetas para explorar",
+          "swipeHint": "Desliza",
           "explore": "Mira",
           "featured": "Trabajo seleccionado",
+          "featuredTitle": "Proyectos destacados",
           "message": "Trabajo seleccionado",
+          "projectLabel": "Proyecto",
+          "viewAll": "Ver todos",
           "portfoliolist": [
             {
               "description": "Construcción y escalado de Dell Design System para dar servicio a más de 500 productos empresariales.<br>Desempeñando funciones como Ingeniero de Software, Agile Champion, Tech Lead y Analista de Soporte en flujos de trabajo interfuncionales de ingeniería, accesibilidad, contenido, diseño y desarrollo guiado por especificaciones de IA para lograr la creación fluida de componentes multiframework, paridad, soporte y mantenimiento en Vanilla, React, Angular y Visualización de Datos para un diseño y experiencias de usuario unificadas.",
@@ -16802,7 +17081,46 @@
             }
           ],
           "title": "Acerca de mí",
+          "subtitle": "La persona detrás de los píxeles",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "en la ufsm, entre los 40 mejores trabajos del 28.º jai",
             "premio cssda special kudos, otorgado a la primera versión de luiskr.com",
@@ -17219,7 +17537,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Playground de la Tierra",
+          "title": "Playground de la Tierra — Simulación Interactiva de la Tierra",
           "experienceSettings": "Ajustes de experiencia",
           "systemBoot": "Arranque del sistema",
           "camera": "Cámara",
@@ -17285,7 +17603,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Playground WebGL interactivo de la Tierra — ajusta terreno, atmósfera, iluminación y posprocesado en vivo.",
+          "description": "Simulación WebGL interactiva de la Tierra — ajusta terreno, atmósfera, iluminación y posprocesado en vivo en tu navegador.",
           "shareGallery": "Capturas para compartir",
           "shareCapture": "Render de la Tierra",
           "searchThemes": [
@@ -17530,6 +17848,96 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "portafolio",
+            "portafolio de luis krötz",
+            "desarrollador front-end",
+            "desarrollador web",
+            "ingeniero de software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Búsqueda",
+          "description": "Busca todas las páginas, proyectos y experimentos de luiskr.com.",
+          "link": "Búsqueda",
+          "search": {
+            "label": "Búsqueda",
+            "placeholder": "Buscar páginas, proyectos, experimentos…",
+            "empty": "Ninguna ruta coincide — prueba con otro término.",
+            "go": "Abrir",
+            "results": "Rutas coincidentes",
+            "hint": "Escribe para filtrar — las flechas navegan, Enter abre.",
+            "found": "{n} resultados encontrados",
+            "groups": {
+              "pages": "Páginas",
+              "portfolio": "Portafolio",
+              "experiments": "Experimentos",
+              "legal": "Legal"
+            },
+            "pager": "Páginas de resultados",
+            "prev": "Página anterior de resultados",
+            "next": "Página siguiente de resultados",
+            "page": "Página {a} de {b}"
+          },
+          "searchThemes": [
+            "búsqueda",
+            "búsqueda en el sitio",
+            "encontrar",
+            "búsqueda en el portafolio",
+            "proyectos",
+            "catálogo",
+            "luis krötz",
+            "luiskr.com",
+            "portafolio",
+            "experimentos webgl",
+            "rutas coincidentes",
+            "acerca",
+            "contacto",
+            "playground de la tierra",
+            "campo estelar",
+            "referencia de animaciones",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "portafolio de luis krötz",
+            "desarrollador front-end",
+            "desarrollador web",
+            "ingeniero de software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Mapa del sitio",
+          "description": "Todas las páginas de este sitio, en todos los idiomas — el índice completo de enlaces.",
+          "intro": "Todas las páginas de este sitio, en todos los idiomas — el índice completo de enlaces.",
+          "groups": {
+            "pages": "Páginas",
+            "legal": "Legal",
+            "portfolio": "Portafolio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Medios"
+          },
+          "searchThemes": [
+            "mapa del sitio",
+            "índice de enlaces",
+            "todas las páginas",
+            "directorio de páginas",
+            "navegación del sitio",
             "portafolio",
             "portafolio de luis krötz",
             "desarrollador front-end",
@@ -22807,16 +23215,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: fondo de marca y estructura de layout",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: descripción general de fundamentos",
                   "size": [
                     1980,
@@ -24039,7 +24437,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, descripción general del sitio web",
-            "dell design system: fondo de marca y estructura de layout",
             "dell design system: descripción general de fundamentos",
             "dell design system: arquitectura de código y directrices",
             "dell design system: principios para empezar",
@@ -24089,7 +24486,8 @@
         "license": "licencia",
         "earthPlayground": "playground-de-la-tierra",
         "starField": "experimento-campo-estelar",
-        "animations": "animaciones"
+        "animations": "animaciones",
+        "search": "busqueda"
       }
     },
     "de": {
@@ -24113,6 +24511,7 @@
         "featured": "Ausgewählte Arbeiten",
         "title": "Luis Krötz",
         "preferences": "Einstellungen",
+        "setLanguage": "Sprache festlegen",
         "language": "Sprache",
         "pref": {
           "title": "Einstellungen",
@@ -24239,7 +24638,10 @@
           "loadFailed": "Ein Bereich konnte nicht geladen werden",
           "dismiss": "Benachrichtigung schließen"
         },
-        "animations": "Animationsreferenz"
+        "animations": "Animationsreferenz",
+        "search": "Suche",
+        "rssFeed": "RSS-Feed",
+        "sitemap": "Sitemap"
       },
       "components": {
         "contact": {
@@ -24507,22 +24909,30 @@
             "alt": "Related-Projektkarte hebt und zoomt bei Hover",
             "longdesc": "Die Related-Projekt-Karten am Ende der Projektseiten. Animation: bei Hover hebt die Karte, ihr Bild zoomt sanft und Titel/Beschreibung gleiten hoch — alles auf gedämpftem Feder-Easing (in CSS linear() synthetisierte Federn), sodass die Bewegung leicht überschwingt und organisch einpendelt; ein Schimmer fegt über den Kartenrand. Auslöser: Zeiger-Hover/Fokus. Technik: CSS-Transitions auf transform/opacity mit Feder-Easing-Kurven. Zweck: macht die Navigations-Affordance physisch und einladend."
           },
-          "note-dot": {
-            "alt": "Notizmarker pulsiert sanft",
-            "longdesc": "Die kleinen Notiz-/Punktmarker auf Internals-Seiten (Dokumentation und Projektinterna). Animation: der Punkt pulsiert sanft — ein atmender Skalierungs- und Fade-Loop. Auslöser: läuft kontinuierlich im Bild. Technik: ein CSS-Keyframe (note-dot-pulse). Zweck: markiert das Element als lebendige Anmerkung, ohne Aufmerksamkeit zu fordern."
-          },
           "body-glow": {
             "alt": "Umgebendes Seitenglühen driftet langsam hinter dem Inhalt",
             "longdesc": "Das Umgebungs-Hintergrundglühen hinter dem Seiteninhalt. Animation: ein großer weicher Radialgradient driftet langsam über das Dokument und verschiebt Position und Intensität in langer Schleife. Auslöser: läuft kontinuierlich auf jeder Seite. Technik: ein CSS-Keyframe (body-glow-drift) animiert eine fixe Hintergrundschicht — null JavaScript. Zweck: gibt dem dunklen Theme Atmosphäre und Tiefe statt eines flachen Hintergrunds."
+          },
+          "card-stack": {
+            "alt": "Kartenstapel ausgewählter Arbeiten mit Drag-Physik und Countdown am leuchtenden Rand",
+            "longdesc": "Der Kartenstapel der ausgewählten Projekte auf der Startseite. Animation: Karten wandern durch einen 3D-Stapel/Fächer — seitliche Blätter kippen nach innen und dimmen progressiv, während die aktive Karte größer wird; ein leuchtender Bogen wandert in einem Zehn-Sekunden-Countdown über den feinen Rand der aktiven Karte, gespiegelt am Play/Pause-Button, und der Projekttitel verbrennt und webt sich bei jeder Navigation oder beim Hereinscrollen der Sektion neu. Auslöser: Zieh-/Wischgesten, Zurück/Weiter- und Index-Steuerung, der Autoplay-Timer und das Hereinscrollen. Technik: JS-berechnete Posen auf CSS-3D-Transforms, eine pro Frame gemalte conic-gradient-Custom-Property und das geteilte Canvas-Paper-Burn. Zweck: lässt die ausgewählten Projekte wie ein physisches Kartendeck wirken, das man fächert, austeilt und mischt."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Alle Projekte",
           "archive": "Mehr entdecken",
+          "autoplayPlay": "Autoplay abspielen",
+          "autoplayPause": "Autoplay pausieren",
+          "deckHint": "Ziehe oder wische über die Karten zum Erkunden",
+          "swipeHint": "Wischen",
           "explore": "Schau dir",
           "featured": "Ausgewählte Arbeiten",
+          "featuredTitle": "Ausgewählte Projekte",
           "message": "Ausgewählte Arbeiten",
+          "projectLabel": "Projekt",
+          "viewAll": "Alle ansehen",
           "portfoliolist": [
             {
               "description": "Aufbau und Skalierung des Dell Design Systems für über 500 Unternehmensprodukte.<br>Tätig als Software Engineer, Agile Champion, Tech Lead und Support Analyst in funktionsübergreifenden Workflows für Engineering, Barrierefreiheit, Content, Design und KI-spezifikationsgetriebene Prozesse, um eine nahtlose Multi-Framework-Komponentenerstellung, Parität, Support und Wartung über Vanilla, React, Angular und Datenvisualisierung für einheitliches Design und Nutzererlebnisse zu erreichen.",
@@ -24836,7 +25246,46 @@
             }
           ],
           "title": "Über mich",
+          "subtitle": "Die Person hinter den Pixeln",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "an der ufsm unter den 40 besten arbeiten der 28. jai",
             "cssda special kudos award, verliehen an die erste version von luiskr.com",
@@ -25251,7 +25700,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Erde-Playground",
+          "title": "Erde-Playground — Interaktive Erde-Simulation",
           "experienceSettings": "Erlebniseinstellungen",
           "systemBoot": "Systemstart",
           "camera": "Kamera",
@@ -25317,7 +25766,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Interaktiver WebGL-Erde-Playground — passe Gelände, Atmosphäre, Beleuchtung und Nachbearbeitung live an.",
+          "description": "Interaktive WebGL-Erde-Simulation — passe Gelände, Atmosphäre, Beleuchtung und Nachbearbeitung live im Browser an.",
           "shareGallery": "Aufnahmen zum Teilen",
           "shareCapture": "Erde-Rendering",
           "searchThemes": [
@@ -25561,6 +26010,96 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "portfolio",
+            "luis krötz portfolio",
+            "front-end-entwickler",
+            "webentwickler",
+            "softwareentwickler",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Suche",
+          "description": "Durchsuche alle Seiten, Projekte und Experimente auf luiskr.com.",
+          "link": "Suche",
+          "search": {
+            "label": "Suche",
+            "placeholder": "Seiten, Projekte, Experimente suchen…",
+            "empty": "Keine passende Route — anderen Begriff versuchen.",
+            "go": "Öffnen",
+            "results": "Passende Routen",
+            "hint": "Tippen zum Filtern — Pfeiltasten bewegen, Eingabe öffnet.",
+            "found": "{n} Ergebnisse gefunden",
+            "groups": {
+              "pages": "Seiten",
+              "portfolio": "Portfolio",
+              "experiments": "Experimente",
+              "legal": "Rechtliches"
+            },
+            "pager": "Ergebnisseiten",
+            "prev": "Vorherige Ergebnisseite",
+            "next": "Nächste Ergebnisseite",
+            "page": "Seite {a} von {b}"
+          },
+          "searchThemes": [
+            "suche",
+            "site-suche",
+            "finden",
+            "portfolio-suche",
+            "projekte",
+            "katalog",
+            "luis krötz",
+            "luiskr.com",
+            "portfolio",
+            "webgl-experimente",
+            "passende routen",
+            "über",
+            "kontakt",
+            "erde-playground",
+            "sternenfeld",
+            "animationsreferenz",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "luis krötz portfolio",
+            "front-end-entwickler",
+            "webentwickler",
+            "softwareentwickler",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Sitemap",
+          "description": "Alle Seiten dieser Website in allen Sprachen — das vollständige Link-Verzeichnis.",
+          "intro": "Alle Seiten dieser Website in allen Sprachen — das vollständige Link-Verzeichnis.",
+          "groups": {
+            "pages": "Seiten",
+            "legal": "Rechtliches",
+            "portfolio": "Portfolio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Medien"
+          },
+          "searchThemes": [
+            "sitemap",
+            "link-verzeichnis",
+            "alle seiten",
+            "seitenverzeichnis",
+            "website-navigation",
             "portfolio",
             "luis krötz portfolio",
             "front-end-entwickler",
@@ -30838,16 +31377,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: Markenhintergrund und Layoutstruktur",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: Grundlagen-Übersicht",
                   "size": [
                     1980,
@@ -32070,7 +32599,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, website-übersicht",
-            "dell design system: markenhintergrund und layoutstruktur",
             "dell design system: grundlagen-übersicht",
             "dell design system: codearchitektur und richtlinien",
             "dell design system: erste-schritte-prinzipien",
@@ -32120,7 +32648,8 @@
         "license": "lizenz",
         "earthPlayground": "erde-playground",
         "starField": "sternenfeld-experiment",
-        "animations": "animationen"
+        "animations": "animationen",
+        "search": "suche"
       }
     },
     "hrk": {
@@ -32144,6 +32673,7 @@
         "featured": "Ausgewählte Arbeiten",
         "title": "Luis Krötz",
         "preferences": "Einstellungen",
+        "setLanguage": "Sprooch aastelle",
         "language": "Sprooch",
         "pref": {
           "title": "Einstellungen",
@@ -32270,7 +32800,10 @@
           "loadFailed": "En Bereich kunnt net gelade werde",
           "dismiss": "Meldung schließe"
         },
-        "animations": "Animatsione Referenz"
+        "animations": "Animatsione Referenz",
+        "search": "Suach",
+        "rssFeed": "RSS-Feed",
+        "sitemap": "Sitemap"
       },
       "components": {
         "contact": {
@@ -32538,22 +33071,30 @@
             "alt": "Related-Projektkart hebt un zoomt bei Hover",
             "longdesc": "Die Related-Projekt-Karte am End von de Projektseite. Animatsioon: bei Hover hebt die Kart, ihr Bild zoomt sanft un Titel/Beschreibung gleite hoch — alles uf gedämpftem Feier-Easing (in CSS linear() synthetisiarte Feier), sodass die Bewegung leicht überschwingt un organisch einpendelt; e Schimmer fegt über der Karterand. Usslöser: Zeiger-Hover/Fokus. Technik: CSS-Transitions uf transform/opacity mit Feier-Easing-Kurve. Zweck: macht die Navigations-Affordance physisch un einladend."
           },
-          "note-dot": {
-            "alt": "Notizmarker pulsiert sanft",
-            "longdesc": "Die kleine Notiz-/Punktmarker uf Internals-Seite (Dokumentatsioon un Projektinterna). Animatsioon: der Punkt pulsiert sanft — e atmender Skalierungs- un Fade-Loop. Usslöser: lääft kontinuierlich im Bild. Technik: e CSS-Keyframe (note-dot-pulse). Zweck: markiert des Element als lewendige Anmerkung, ohne Uffmerksamkeit zu fordere."
-          },
           "body-glow": {
             "alt": "Umgebendes Seiteglühe driftet langsom hinner em Inhalt",
             "longdesc": "Des Umgebungs-Hintergrundglühe hinner em Seiteinhalt. Animatsioon: e grosser weicher Radialgradient driftet langsom über des Dokument un verschiebt Positsioon un Intensität in langer Schleif. Usslöser: lääft kontinuierlich uf jedere Seit. Technik: e CSS-Keyframe (body-glow-drift) animiert e fixe Hintergrundschicht — null JavaScript. Zweck: git em dunkle Theme Atmosphäre un Tief statt von em flache Hintergrund."
+          },
+          "card-stack": {
+            "alt": "Kartestappel usgewählte Arbeite mit Drag-Physik un Countdown am leuchtend Rand",
+            "longdesc": "Der Kartestappel vun de usgewählte Projekte uff de Startseit. Animation: Karte wandere durch en 3D-Stappel/Fächer — seitliche Blätter kippe noch inner un dimme progressiv, während de aktive Kart größer wird; en leuchtende Booge wandert in en Zehn-Sekunde-Countdown über de feine Rand vun de aktive Kart, gespiegelt am Play/Pause-Knopp, un de Projekt-Titel verbrennt un webbt sich bei jeder Navigation oder beim Hereinscrolle vun de Sektion nei. Auslöser: Zieh-/Wischgeste, Zurück/Weiter- un Index-Steuerung, de Autoplay-Timer un's Hereinscrolle. Technik: JS-berechnete Pose uff CSS-3D-Transforms, en pro Frame gemolte conic-gradient-Custom-Property un's geteilte Canvas-Paper-Burn. Zweck: losst de usgewählte Projekte wie en physisches Kartedeck wirke, das mer fächert, austteilt un mischt."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Alle Projekte",
           "archive": "Mehr entdecken",
+          "autoplayPlay": "Autoplay abspiele",
+          "autoplayPause": "Autoplay pausiere",
+          "deckHint": "Zieh oder wisch die Karte zum Erkunde",
+          "swipeHint": "Wisch",
           "explore": "Schau dir",
           "featured": "Ausgewählte Arbeiten",
+          "featuredTitle": "Ausgewählte Projekte",
           "message": "Ausgewählte Arbeiten",
+          "projectLabel": "Projekt",
+          "viewAll": "Alle ansehn",
           "portfoliolist": [
             {
               "description": "Aufbau und Skalierung des Dell Design Systems für über 500 Unternehmensprodukte.<br>Tätig als Software Engineer, Agile Champion, Tech Lead und Support Analyst in funktionsübergreifenden Workflows für Engineering, Barrierefreiheit, Content, Design und KI-spezifikationsgetriebene Prozesse, um eine nahtlose Multi-Framework-Komponentenerstellung, Parität, Support und Wartung über Vanilla, React, Angular und Datenvisualisierung für einheitliches Design und Nutzererlebnisse zu erreichen.",
@@ -32867,7 +33408,46 @@
             }
           ],
           "title": "Über mich",
+          "subtitle": "Die Person hinter den Pixeln",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "an der ufsm unner den 40 beschte arbeiten der 28. jai",
             "cssda special kudos award, verliehen an die erschte version fun luiskr.com",
@@ -33282,7 +33862,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Erd-Playground",
+          "title": "Erd-Playground — Interaktive Erd-Simulation",
           "experienceSettings": "Erlebniseinstellungen",
           "systemBoot": "Systemstart",
           "camera": "Kamera",
@@ -33348,7 +33928,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Interaktiver WebGL-Erd-Playground — Gelände, Atmosphär, Belichtung un Nachbearbeitung live apasse.",
+          "description": "Interaktive WebGL-Erd-Simulation — Gelände, Atmosphäre, Beleuchtung und Nachbearbeitung live im Browser anpassen.",
           "shareGallery": "Aufnahmen zum Teilen",
           "shareCapture": "Erde-Rendering",
           "searchThemes": [
@@ -33593,6 +34173,97 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "portfolio",
+            "luis krötz portfolio",
+            "front-end-entwickler",
+            "webentwickler",
+            "softwareentwickler",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Suach",
+          "description": "Durchsuach alle Saiten, Projekte und Experimente uff luiskr.com.",
+          "link": "Suach",
+          "search": {
+            "label": "Suach",
+            "placeholder": "Saite, Projekte, Experimente suche…",
+            "empty": "Kèi passendi Route — probier e andere Begriff.",
+            "go": "Uffmache",
+            "results": "Passendi Route",
+            "hint": "Tippe zum Filtere — Pfailtaste bewege, Eingab macht uff.",
+            "found": "{n} Resultate gfunne",
+            "groups": {
+              "pages": "Saite",
+              "portfolio": "Portfolio",
+              "experiments": "Experimente",
+              "legal": "Rechtliches"
+            },
+            "pager": "Ergebnissaite",
+            "prev": "Vorige Ergebnissait",
+            "next": "Nächste Ergebnissait",
+            "page": "Sait {a} vo {b}"
+          },
+          "searchThemes": [
+            "suche",
+            "site-suche",
+            "finden",
+            "portfolio-suche",
+            "projekte",
+            "katalog",
+            "luis krötz",
+            "luiskr.com",
+            "portfolio",
+            "webgl-experimente",
+            "suach",
+            "passendi route",
+            "über",
+            "kontakt",
+            "erd-playground",
+            "schdernfeld",
+            "animatsione referenz",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "luis krötz portfolio",
+            "front-end-entwickler",
+            "webentwickler",
+            "softwareentwickler",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Sitemap",
+          "description": "Alle Seite vun dëre Websait, in all Schprooche — dat vollständige Link-Verzeichnis.",
+          "intro": "Alle Seite vun dëre Websait, in all Schprooche — dat vollständige Link-Verzeichnis.",
+          "groups": {
+            "pages": "Seite",
+            "legal": "Rechtliches",
+            "portfolio": "Portfolio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Medien"
+          },
+          "searchThemes": [
+            "sitemap",
+            "link-verzeichnis",
+            "alle seite",
+            "seitenverzeichnis",
+            "websait-navigation",
             "portfolio",
             "luis krötz portfolio",
             "front-end-entwickler",
@@ -38870,16 +39541,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: Markenhintergrund und Layoutstruktur",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: Grundlagen-Übersicht",
                   "size": [
                     1980,
@@ -40102,7 +40763,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, website-übersicht",
-            "dell design system: markenhintergrund und layoutstruktur",
             "dell design system: grundlagen-übersicht",
             "dell design system: codearchitektur und richtlinien",
             "dell design system: erste-schritte-prinzipien",
@@ -40152,7 +40812,8 @@
         "license": "lizenz",
         "earthPlayground": "erd-playground",
         "starField": "sternfeld-experiment",
-        "animations": "animatsione"
+        "animations": "animatsione",
+        "search": "suach"
       }
     },
     "cas": {
@@ -40176,6 +40837,7 @@
         "featured": "Trabajo seleccionado",
         "title": "Luis Krötz",
         "preferences": "Preferencias",
+        "setLanguage": "Elegir idioma",
         "language": "Idioma",
         "pref": {
           "title": "Preferencias",
@@ -40302,7 +40964,10 @@
           "loadFailed": "Una sección no pudo cargar",
           "dismiss": "Descartar notificación"
         },
-        "animations": "Referencia de Animaciones"
+        "animations": "Referencia de Animaciones",
+        "search": "Busca",
+        "rssFeed": "Canal RSS",
+        "sitemap": "Mapa del sitio"
       },
       "components": {
         "contact": {
@@ -40570,22 +41235,30 @@
             "alt": "Tarjeta de proyecto relacionado elevándose y haciendo zoom en hover",
             "longdesc": "Las tarjetas de proyectos relacionados al final de las páginas de proyecto. Animación: en hover la tarjeta se eleva, la imagen hace un zoom suave y título/descripción suben — todo con easing de resorte amortiguado (springs sintetizados en CSS linear()) para que el movimiento pase ligeramente y se asiente de forma orgánica; un brillo barre el borde de la tarjeta. Disparador: hover/foco del puntero. Tecnología: transiciones CSS en transform/opacity dirigidas por curvas de resorte. Propósito: hacer que la affordance de navegación se sienta física e invitante."
           },
-          "note-dot": {
-            "alt": "Marcador de nota pulsando suavemente",
-            "longdesc": "Los pequeños marcadores de nota/punto usados en las páginas de internals (documentación e internas de proyecto). Animación: el punto pulsa suavemente — un loop respirante de escala y fade. Disparador: hace loop continuamente en pantalla. Tecnología: un keyframe CSS (note-dot-pulse). Propósito: marcar el elemento como anotación viva sin exigir atención."
-          },
           "body-glow": {
             "alt": "Brillo ambiente de la página derivando atrás del contenido",
             "longdesc": "El brillo de fondo ambiente atrás del contenido de la página. Animación: un gran gradiente radial suave deriva lentamente por el documento, cambiando posición e intensidad en un loop largo. Disparador: corre continuamente en todas las páginas. Tecnología: un keyframe CSS (body-glow-drift) animando una capa de fondo fija — cero JavaScript. Propósito: darle atmósfera y profundidad al tema oscuro en lugar de un fondo plano."
+          },
+          "card-stack": {
+            "alt": "Mazo de trabajos seleccionados con física de arrastre y cuenta regresiva en el borde iluminado",
+            "longdesc": "El mazo de proyectos destacados de la página principal. Animación: las cartas se reparten en una pila/abanico 3D — las hojas laterales se inclinan hacia adentro con atenuación progresiva mientras la carta activa crece; un arco luminoso recorre el borde fino de la carta activa durante una cuenta regresiva de diez segundos reflejada en el botón play/pausa, y el título del proyecto se quema y se reteje en cada navegación o cuando la sección entra en pantalla. Disparador: gestos de arrastrar/deslizar, controles anterior/siguiente e índice, el temporizador de autoplay y la entrada al scrollear. Técnica: poses calculadas en JS sobre transforms 3D de CSS, una propiedad personalizada de conic-gradient pintada por frame y el paper-burn en canvas compartido. Propósito: que los proyectos destacados se sientan como un mazo físico que abrís, repartís y barajás."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Todos los proyectos",
           "archive": "Explorar más",
+          "autoplayPlay": "Reproducir autoplay",
+          "autoplayPause": "Pausar autoplay",
+          "deckHint": "Arrastrá o deslizá las tarjetas para explorar",
+          "swipeHint": "Deslizá",
           "explore": "Mira",
           "featured": "Trabajo seleccionado",
+          "featuredTitle": "Proyectos destacados",
           "message": "Trabajo seleccionado",
+          "projectLabel": "Proyecto",
+          "viewAll": "Ver todos",
           "portfoliolist": [
             {
               "description": "Construcción y escalado de Dell Design System para dar servicio a más de 500 productos empresariales.<br>Desempeñando funciones como Ingeniero de Software, Agile Champion, Tech Lead y Analista de Soporte en flujos de trabajo interfuncionales de ingeniería, accesibilidad, contenido, diseño y desarrollo guiado por especificaciones de IA para lograr la creación fluida de componentes multiframework, paridad, soporte y mantenimiento en Vanilla, React, Angular y Visualización de Datos para un diseño y experiencias de usuario unificadas.",
@@ -40899,7 +41572,46 @@
             }
           ],
           "title": "Acerca de mí",
+          "subtitle": "La persona detrás de los píxeles",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "en la ufsm, entre los 40 mejores trabajos del 28.º jai",
             "premio cssda special kudos, otorgado a la primera versión de luiskr.com",
@@ -41316,7 +42028,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Playground de la Tierra",
+          "title": "Playground de la Tierra — Simulación Interactiva de la Tierra",
           "experienceSettings": "Ajustes de experiencia",
           "systemBoot": "Arranque del sistema",
           "camera": "Cámara",
@@ -41382,7 +42094,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Playground WebGL interactivo de la Tierra — ajustá terreno, atmósfera, iluminación y posprocesado en vivo.",
+          "description": "Simulación WebGL interactiva de la Tierra — ajustá terreno, atmósfera, iluminación y posprocesado en vivo en tu navegador.",
           "shareGallery": "Capturas para compartir",
           "shareCapture": "Render de la Tierra",
           "searchThemes": [
@@ -41627,6 +42339,96 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "portafolio",
+            "portafolio de luis krötz",
+            "desarrollador front-end",
+            "desarrollador web",
+            "ingeniero de software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Busca",
+          "description": "Busca todas as pachinas, prochectos y experimentos de luiskr.com.",
+          "link": "Busca",
+          "search": {
+            "label": "Busca",
+            "placeholder": "Mirar pachinas, prochectos, experimentos…",
+            "empty": "No i hai garra ruta — preba con atra parola.",
+            "go": "Ubrir",
+            "results": "Rutas coincidents",
+            "hint": "Escribe pa filtrar — as flechas mueven, Enter ubre.",
+            "found": "{n} resultados encontrados",
+            "groups": {
+              "pages": "Pachinas",
+              "portfolio": "Prochectos",
+              "experiments": "Experimentos",
+              "legal": "Legal"
+            },
+            "pager": "Pachinas de resultados",
+            "prev": "Pachina anterior de resultados",
+            "next": "Pachina siguient de resultados",
+            "page": "Pachina {a} de {b}"
+          },
+          "searchThemes": [
+            "búsqueda",
+            "búsqueda en el sitio",
+            "encontrar",
+            "búsqueda en el portafolio",
+            "proyectos",
+            "catálogo",
+            "luis krötz",
+            "luiskr.com",
+            "portafolio",
+            "experimentos webgl",
+            "busca",
+            "rutas coincidents",
+            "acerca",
+            "contacto",
+            "playground de la tierra",
+            "campo estelar",
+            "referencia de animaciones",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "portafolio de luis krötz",
+            "desarrollador front-end",
+            "desarrollador web",
+            "ingeniero de software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Mapa del sitio",
+          "description": "Todas las páginas de este sitio, en todos los idiomas — el índice completo de enlaces.",
+          "intro": "Todas las páginas de este sitio, en todos los idiomas — el índice completo de enlaces.",
+          "groups": {
+            "pages": "Páginas",
+            "legal": "Legal",
+            "portfolio": "Portafolio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Medios"
+          },
+          "searchThemes": [
+            "mapa del sitio",
+            "índice de enlaces",
+            "todas las páginas",
+            "navegación del sitio",
             "portafolio",
             "portafolio de luis krötz",
             "desarrollador front-end",
@@ -46904,16 +47706,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: fondo de marca y estructura de layout",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: descripción general de fundamentos",
                   "size": [
                     1980,
@@ -48136,7 +48928,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, descripción general del sitio web",
-            "dell design system: fondo de marca y estructura de layout",
             "dell design system: descripción general de fundamentos",
             "dell design system: arquitectura de código y directrices",
             "dell design system: principios para empezar",
@@ -48186,7 +48977,8 @@
         "license": "licencia",
         "earthPlayground": "playground-de-la-tierra",
         "starField": "experimento-campo-estelar",
-        "animations": "animaciones"
+        "animations": "animaciones",
+        "search": "busca"
       }
     },
     "riv": {
@@ -48210,6 +49002,7 @@
         "featured": "Trabalhos selecionados",
         "title": "Luis Krötz",
         "preferences": "Preferências",
+        "setLanguage": "Definir idioma",
         "language": "Idioma",
         "pref": {
           "title": "Preferências",
@@ -48336,7 +49129,10 @@
           "loadFailed": "Uma secção não carregou",
           "dismiss": "Dispensar notificação"
         },
-        "animations": "Referência de Animações"
+        "animations": "Referência de Animações",
+        "search": "Busca",
+        "rssFeed": "Canal RSS",
+        "sitemap": "Mapa do site"
       },
       "components": {
         "contact": {
@@ -48604,22 +49400,30 @@
             "alt": "Tarjeta de proyecto relacionado elevándose y haciendo zoom en hover",
             "longdesc": "Las tarjetas de proyectos relacionados al final de las páginas de proyecto. Animación: en hover la tarjeta se eleva, la imagen hace un zoom suave y título/descripción suben — todo con easing de resorte amortiguado (springs sintetizados en CSS linear()) para que el movimiento pase ligeramente y se asiente de forma orgánica; un brillo barre el borde de la tarjeta. Disparador: hover/foco del puntero. Tecnología: transiciones CSS en transform/opacity dirigidas por curvas de resorte. Propósito: hacer que la affordance de navegación se sienta física e invitante."
           },
-          "note-dot": {
-            "alt": "Marcador de nota pulsando suavemente",
-            "longdesc": "Los pequeños marcadores de nota/punto usados en las páginas de internals (documentación e internas de proyecto). Animación: el punto pulsa suavemente — un loop respirante de escala y fade. Disparador: hace loop continuamente en pantalla. Tecnología: un keyframe CSS (note-dot-pulse). Propósito: marcar el elemento como anotación viva sin exigir atención."
-          },
           "body-glow": {
             "alt": "Brillo ambiente de la página derivando atrás del contenido",
             "longdesc": "El brillo de fondo ambiente atrás del contenido de la página. Animación: un gran gradiente radial suave deriva lentamente por el documento, cambiando posición e intensidad en un loop largo. Disparador: corre continuamente en todas las páginas. Tecnología: un keyframe CSS (body-glow-drift) animando una capa de fondo fija — cero JavaScript. Propósito: darle atmósfera y profundidad al tema oscuro en lugar de un fondo plano."
+          },
+          "card-stack": {
+            "alt": "Baralho de trabalhos selecionados con física de arrasto y contagem na borda iluminada",
+            "longdesc": "O baralho de projetos em destaque de la página inicial. Animação: as cartas repartem-se num leque/pilha 3D — as folhas laterais inclinam-se para dentro con esmaecimento progressivo mientras la carta ativa cresce; un arco luminoso percorre a borda fina de la carta ativa en una contagem de dez segundos espelhada en el botón play/pausa, y el título del proyecto queima y se recompone a cada navegação o cuando la sección entra en la tela. Gatilho: gestos de arrastar/deslizar, controles anterior/próximo e índice, el temporizador de autoplay y la entrada por rolagem. Técnica: poses calculadas en JS sobre transforms 3D de CSS, una propiedad customizada de conic-gradient pintada por frame y el paper-burn en canvas compartilhado. Propósito: hacer los proyectos em destaque parecerem un baralho físico que se abre, reparte y embaralha."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Todos os projetos",
           "archive": "Explorar más",
+          "autoplayPlay": "Reproduzir autoplay",
+          "autoplayPause": "Pausar autoplay",
+          "deckHint": "Arraste ou deslize os cartões para explorar",
+          "swipeHint": "Deslize",
           "explore": "Confira",
           "featured": "Trabalhos selecionados",
+          "featuredTitle": "Projetos em destaque",
           "message": "Trabalhos selecionados",
+          "projectLabel": "Projeto",
+          "viewAll": "Ver todos",
           "portfoliolist": [
             {
               "description": "Construindo e escalando o Dell Design System para atender a mais de 500 produtos corporativos.<br>Atuando como Engenheiro de Software, Agile Champion, Tech Lead e Analista de Suporte em fluxos de trabalho interfuncionais de engenharia, acessibilidade, conteúdo, design e orientados a especificações de IA para alcançar criação contínua de componentes multiframework, paridade, suporte e manutenção em Vanilla, React, Angular e Visualização de Dados para um design e experiências de usuário unificados.",
@@ -48933,7 +49737,46 @@
             }
           ],
           "title": "Sobre mim",
+          "subtitle": "A pessoa por trás dos pixels",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "na ufsm, entre os 40 melhores trabalhos da 28ª jai",
             "prêmio cssda special kudos, concedido à primera versão do luiskr.com",
@@ -49350,7 +50193,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Playground da Terra",
+          "title": "Playground da Terra — Simulación Interactiva de la Tierra",
           "experienceSettings": "Configurações da experiencia",
           "systemBoot": "Inicialização do sistema",
           "camera": "Câmera",
@@ -49416,7 +50259,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Playground WebGL interactivo de la Tierra — ajustá terreno, atmósfera, iluminación y posprocesamiento en vivo.",
+          "description": "Simulación WebGL interactiva de la Tierra — ajustá terreno, atmósfera, iluminación y posprocesado en vivo en tu navegador.",
           "shareGallery": "Capturas para compartir",
           "shareCapture": "Render de la Tierra",
           "searchThemes": [
@@ -49662,6 +50505,96 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "portafolio",
+            "portafolio de luis krötz",
+            "desarrollador front-end",
+            "desarrollador web",
+            "ingeniero de software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Busca",
+          "description": "Busque todas as páginas, projetos e experimentos do luiskr.com.",
+          "link": "Busca",
+          "search": {
+            "label": "Busca",
+            "placeholder": "Buscar páginas, projetos, experimentos…",
+            "empty": "Nenhuma rota encontrada — tente outro termo.",
+            "go": "Abrir",
+            "results": "Rotas correspondentes",
+            "hint": "Digite para filtrar — as setas navegam, Enter abre.",
+            "found": "{n} resultados encontrados",
+            "groups": {
+              "pages": "Páginas",
+              "portfolio": "Portfólio",
+              "experiments": "Experimentos",
+              "legal": "Legal"
+            },
+            "pager": "Páginas de resultados",
+            "prev": "Página anterior de resultados",
+            "next": "Próxima página de resultados",
+            "page": "Página {a} de {b}"
+          },
+          "searchThemes": [
+            "búsqueda",
+            "búsqueda en el sitio",
+            "encontrar",
+            "búsqueda en el portafolio",
+            "proyectos",
+            "catálogo",
+            "luis krötz",
+            "luiskr.com",
+            "portafolio",
+            "experimentos webgl",
+            "busca",
+            "rotas correspondentes",
+            "sobre",
+            "contato",
+            "playground da terra",
+            "campo estelar",
+            "referência de animações",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "portafolio de luis krötz",
+            "desarrollador front-end",
+            "desarrollador web",
+            "ingeniero de software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Mapa do site",
+          "description": "Todas as páginas deste site, em todos os idiomas — o índice completo de links.",
+          "intro": "Todas as páginas deste site, em todos os idiomas — o índice completo de links.",
+          "groups": {
+            "pages": "Páginas",
+            "legal": "Legal",
+            "portfolio": "Portfólio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Mídia"
+          },
+          "searchThemes": [
+            "mapa do site",
+            "índice de links",
+            "todas as páginas",
+            "navegação do site",
             "portafolio",
             "portafolio de luis krötz",
             "desarrollador front-end",
@@ -54939,16 +55872,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: plano de fundo da marca e estrutura de layout",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: visão geral das fundações",
                   "size": [
                     1980,
@@ -56171,7 +57094,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, visão geral do site",
-            "dell design system: plano de fundo da marca e estrutura de layout",
             "dell design system: visão geral das fundações",
             "dell design system: arquitetura de código e diretrizes",
             "dell design system: princípios para começar",
@@ -56221,7 +57143,8 @@
         "license": "licenca",
         "earthPlayground": "playground-da-terra",
         "starField": "experimento-campo-estelar",
-        "animations": "animacoes"
+        "animations": "animacoes",
+        "search": "busca"
       }
     },
     "gn": {
@@ -56245,6 +57168,7 @@
         "featured": "Mba'apopy poravopyre",
         "title": "Luis Krötz",
         "preferences": "Jeguerohoryvéva",
+        "setLanguage": "Mboguejy ñe'ẽ",
         "language": "Ñe'ẽ",
         "pref": {
           "title": "Jeguerohoryvéva",
@@ -56371,7 +57295,10 @@
           "loadFailed": "Peteĩ voreke ndahupytýiva",
           "dismiss": "Emboty marandu"
         },
-        "animations": "Jeguama Momarandu"
+        "animations": "Jeguama Momarandu",
+        "search": "Jeheka",
+        "rssFeed": "RSS rape",
+        "sitemap": "Pe saito mapa"
       },
       "components": {
         "contact": {
@@ -56639,22 +57566,30 @@
             "alt": "Proyecto relacionado tarjeta oñembotuicha ha zoom hover jave",
             "longdesc": "Proyecto relacionado tarjeta proyecto kuatiarogue opa'ỹvo. Ñemongue'e: hover jave tarjeta oñembotuicha, imagen ojapo zoom mimbuṿ ha título/descrición osẽ yvate — opaite muelle amortiguado easing rehegua (spring sintetizado CSS linear()-pe) movimiento ohasa sa'i ha oñembotṿ orgánicamente; tesa'ỹi ohasa tarjeta borda. Trigger: puntero hover/foco. Tembiporenda: CSS transición transform/opacity muelle curva omboguatareháva. Haguã: ojapo navegación affordance añetegua ha omoṿṿva."
           },
-          "note-dot": {
-            "alt": "Nota marcador oñemongu'e mimbuṿ",
-            "longdesc": "Nota/ponto marcador michĩ internals kuatiarogue-pe (documentación ha proyecto interna). Ñemongue'e: ponto oñemongu'e mimbuṿ — escala ha fade respiración loop. Trigger: oñembo'ajevýva pantalla-pe. Tembiporenda: peteĩ CSS keyframe (note-dot-pulse). Haguã: omomora'i elemento anotación ikove atención jerure'ỹ."
-          },
           "body-glow": {
             "alt": "Kuatiarogue tesa'ỹi ambiente oñemyasãi contenido rupã",
             "longdesc": "Tesa'ỹi fondo ambiente kuatiarogue contenido rupã. Ñemongue'e: radial gradiente tuicha mimbuṿ oñemyasãi mbegue documento rupi, omoambue posición ha intensidad loop ipukúva. Trigger: omba'apo tapere'ỹ opa kuatiaroguépe. Tembiporenda: peteĩ CSS keyframe (body-glow-drift) ojapo fondo capa fijo ñemongue'e — JavaScript zero. Haguã: ome'ẽ tema pytũ atmósfera ha hũgua fondo peteĩha rã."
+          },
+          "card-stack": {
+            "alt": "Ku'éraa'õ mba'apopy poravopyre ñemongu'e fisica ha morosã ku'éraa'õ ija rehegua",
+            "longdesc": "Ku'éraa'õ mba'apopy poravopyre kuatiarogue ñepyrũha-pe. Ñemongue'e: ku'éraa'õ oñemosẽ peteĩ 3D mbojoaju'i/pepa'ũ rupi — yke kuatiarogue oke interior-pe progressive ñemomichĩ rehegua ku'éraa'õ hekoava oñembotuichávo; arco morosã oho ku'éraa'õ hekoava ija'i'i rehegua pa'ũm aravo'ỹ ñe'ẽkane'õ play/pause botón-pe, ha mba'apopy téra ojeiporu ha ojejapo jey peteĩteĩ ñembohape térã sección ojeiporávo. Trigger: arrastre/deslizar gesto, mboyve/upeigua ha índice contro, autoplay timer ha scroll ñepyrũ. Tembiporenda: JS pose CSS 3D transform rehegua, conic-gradient propiedad peteĩteĩ frame-pe ojepéhagué, ha canvas paper-burn oñemosãoporãvéva. Haguã: mba'apopy poravopyre oñeikuaa ku'éraa'õ física emyja, emosẽ ha emojoaju ichaháicha."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Opa mba'apopy",
           "archive": "Ehechave",
+          "autoplayPlay": "Embopu autoplay",
+          "autoplayPause": "Epyta autoplay",
+          "deckHint": "Emongu'e térã emyja tarjeta ejekuaa hag̃ua",
+          "swipeHint": "Emyja",
           "explore": "Ema'ẽ",
           "featured": "Mba'apopy poravopyre",
+          "featuredTitle": "Tembiapo poravopyre",
           "message": "Mba'e poravopyre",
+          "projectLabel": "Mba'apopy",
+          "viewAll": "Ehecha opa",
           "portfoliolist": [
             {
               "description": "Oñemopu'ã ha oñembotuicháva Dell Design System omba'apo haguã hetave 500 tembiapo guasu empresa rehegua ndive.<br>Omba'apóva Software Engineer, Agile Champion, Tech Lead ha Support Analyst ramo tembiapo joaju ingeniería, jeikekuaa (accesibilidad), contenido, diseño ha IA spec-driven workflows rupive, ojehupyty haguã componente multi-framework jegueroguataporã, paridad, pytyvõ ha ñangareko Vanilla, React, Angular ha Data Visualization-pe peteĩ diseño ha experiencia tekoitépe.",
@@ -56962,7 +57897,46 @@
             }
           ],
           "title": "Cherehe",
+          "subtitle": "Pe kuéra píxeles rire",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "ufsm-pe, 40 mba'e porãvéva apytépe 28º jai rehegua",
             "premio especial kudos cssda, ome'ẽmava primer versión luiskr.com-pe",
@@ -57354,7 +58328,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Yvy Ñembosarái",
+          "title": "Yvy Ñembosarái — Simulación Interactiva de la Tierra",
           "experienceSettings": "Experiencia Jeguerohoryvéva",
           "systemBoot": "Sistema Ñepyrũ",
           "camera": "Cámara",
@@ -57420,7 +58394,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "WebGL interactivo Yvy rehegua — terreno, atmósfera, mbarendy ha postprocesado emoĩporã vivo.",
+          "description": "Simulación WebGL interactiva Yvy rehegua — terreno, atmósfera, mbarendy ha postprocesado emoĩporã vivo.",
           "shareGallery": "Yvy ra'angakuéra",
           "shareCapture": "Yvy ra'anga",
           "searchThemes": [
@@ -57642,6 +58616,93 @@
             "luis krötz ñe'ẽveve",
             "mba'apohaguasúi jepikuaau",
             "e-mail",
+            "luis krötz",
+            "luis krotz",
+            "luiskr.com",
+            "luis krötz rembiapokue",
+            "portafolio",
+            "mba'apohaguasúi front-end",
+            "javascript",
+            "webgl tembiporu"
+          ]
+        },
+        "search": {
+          "title": "Jeheka",
+          "description": "Eheka opaite kuatiarogue, apopyre ha jepy’apy luiskr.com-pe.",
+          "link": "Jeheka",
+          "search": {
+            "label": "Jeheka",
+            "placeholder": "Eheka kuatiarogue, apopyre, jepy’apy…",
+            "empty": "Ndaha’ei tape ojokupytýva — eha’ã ambue ñe’ẽ.",
+            "go": "Eike",
+            "results": "Tape ojokupytýva",
+            "hint": "Ehai emomichĩ hag̃ua — ta’yĝ ile, Enter eike hag̃ua.",
+            "found": "{n} juegupyry ojejuhúva",
+            "groups": {
+              "pages": "Kuatiarogue",
+              "portfolio": "Apopyre",
+              "experiments": "Jepy'apy",
+              "legal": "Añetegua"
+            },
+            "pager": "Juegupyry kuatiarogue",
+            "prev": "Kuatiarogue mboyve",
+            "next": "Kuatiarogue upe",
+            "page": "Kuatiarogue {a} {b} mbytépe"
+          },
+          "searchThemes": [
+            "jepáva",
+            "búsqueda en el sitio",
+            "hójua",
+            "búsqueda en el portafolio",
+            "proyectos",
+            "catálogo",
+            "luis krötz",
+            "luiskr.com",
+            "portafolio",
+            "webgl tembiporu",
+            "jeheka",
+            "tape ojokupytýva",
+            "cherehe",
+            "ñe'ẽme'ẽ",
+            "yvy ñembosarái",
+            "mbyja ñembosarái",
+            "jeguama momarandu",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "luis krötz rembiapokue",
+            "mba'apohaguasúi front-end",
+            "javascript"
+          ]
+        },
+        "sitemap": {
+          "title": "Pe saito mapa",
+          "description": "Opa kuatiarenda ko sitio pegua, opa ñeẽme — juajuaha rysýi opavave.",
+          "intro": "Opa kuatiarenda ko sitio pegua, opa ñeẽme — juajuaha rysýi opavave.",
+          "groups": {
+            "pages": "Kuatiarenda",
+            "legal": "Leñeẽ",
+            "portfolio": "Porfolio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Ta’ãngakuéra"
+          },
+          "searchThemes": [
+            "pe saito mapa",
+            "saito mapa",
+            "opaite kuatiarogue",
+            "tenda rape",
+            "link rape",
             "luis krötz",
             "luis krotz",
             "luiskr.com",
@@ -62860,16 +63921,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: marca ra'anga ha layout mohendaha",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: pyendakuéra techakuaa",
                   "size": [
                     1980,
@@ -64092,7 +65143,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, ñanduti renda jehechapa",
-            "dell design system: marca ra'anga ha layout mohendaha",
             "dell design system: pyendakuéra techakuaa",
             "dell design system: código arquitectura ha tekome'ẽ",
             "dell design system: ñepyrũmby pyendakuéra",
@@ -64137,7 +65187,8 @@
         "license": "licencia",
         "earthPlayground": "yvy-nembosarai",
         "starField": "mbyja-nembosarai",
-        "animations": "jeguama"
+        "animations": "jeguama",
+        "search": "jeheka"
       }
     },
     "it": {
@@ -64161,6 +65212,7 @@
         "featured": "Lavori selezionati",
         "title": "Luis Krötz",
         "preferences": "Preferenze",
+        "setLanguage": "Imposta lingua",
         "language": "Lingua",
         "pref": {
           "title": "Preferenze",
@@ -64287,7 +65339,10 @@
           "loadFailed": "Una sezione non è stata caricata",
           "dismiss": "Chiudi notifica"
         },
-        "animations": "Riferimento delle Animazioni"
+        "animations": "Riferimento delle Animazioni",
+        "search": "Ricerca",
+        "rssFeed": "Feed RSS",
+        "sitemap": "Mappa del sito"
       },
       "components": {
         "contact": {
@@ -64555,22 +65610,30 @@
             "alt": "Card progetto correlato che si solleva e zooma su hover",
             "longdesc": "Le card dei progetti correlati in fondo alle pagine di progetto. Animazione: in hover la card si solleva, la sua immagine zooma dolcemente e titolo/descrizione scivolano su — tutto con easing a molla smorzata (springs sintetizzati in CSS linear()) così il movimento supera leggermente e si assesta in modo organico; un bagliore spazza il bordo della card. Trigger: hover/focus del puntatore. Tecnologia: transizioni CSS su transform/opacity guidate da curve a molla. Scopo: rendere l'affordance di navigazione fisica e invitante."
           },
-          "note-dot": {
-            "alt": "Marcatore di nota che pulsa dolcemente",
-            "longdesc": "I piccoli marcatori di nota/punto usati nelle pagine internals (documentazione e interne di progetto). Animazione: il punto pulsa dolcemente — un loop respirante di scala e fade. Trigger: gira in loop continuo sullo schermo. Tecnologia: un keyframe CSS (note-dot-pulse). Scopo: segnare l'elemento come annotazione viva senza esigere attenzione."
-          },
           "body-glow": {
             "alt": "Bagliore ambientale della pagina che deriva dietro il contenuto",
             "longdesc": "Il bagliore di sfondo ambientale dietro il contenuto della pagina. Animazione: un grande gradiente radiale morbido deriva lentamente attraverso il documento, cambiando posizione e intensità in un loop lungo. Trigger: gira continuamente su ogni pagina. Tecnologia: un keyframe CSS (body-glow-drift) che anima un layer di sfondo fisso — zero JavaScript. Scopo: dare atmosfera e profondità al tema scuro invece di uno sfondo piatto."
+          },
+          "card-stack": {
+            "alt": "Mazzo di lavori selezionati con fisica di trascinamento e countdown sul bordo luminoso",
+            "longdesc": "Il mazzo dei progetti in evidenza della home page. Animazione: le carte si distribuiscono in una pila/ventaglio 3D — i fogli laterali si inclinano verso l'interno con oscuramento progressivo mentre la carta attiva cresce; un arco luminoso percorre il bordo sottile della carta attiva in un countdown di dieci secondi riflesso sul pulsante play/pausa, e il titolo del progetto brucia e si ritesse a ogni navigazione o quando la sezione entra in vista. Trigger: gesture di trascinamento/swipe, controlli precedente/successivo e indice, il timer di autoplay e l'ingresso con lo scroll. Tecnica: pose calcolate in JS su transform 3D CSS, una custom property conic-gradient dipinta a ogni frame e il paper-burn su canvas condiviso. Scopo: far sembrare i progetti in evidenza un mazzo fisico che si sfoglia, si distribuisce e si mescola."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Tutti i progetti",
           "archive": "Esplora di più",
+          "autoplayPlay": "Riproduci autoplay",
+          "autoplayPause": "Metti in pausa autoplay",
+          "deckHint": "Trascina o scorri le schede per esplorare",
+          "swipeHint": "Scorri",
           "explore": "Guarda",
           "featured": "Lavori selezionati",
+          "featuredTitle": "Progetti in evidenza",
           "message": "Lavori selezionati",
+          "projectLabel": "Progetto",
+          "viewAll": "Vedi tutti",
           "portfoliolist": [
             {
               "description": "Costruzione e scalabilità del Dell Design System a supporto di oltre 500 prodotti aziendali.<br>Operando come Software Engineer, Agile Champion, Tech Lead e Support Analyst su flussi di lavoro interfunzionali di ingegneria, accessibilità, contenuti, design e sviluppo guidato da specifiche AI per ottenere creazione fluida di componenti multi-framework, parità, supporto e manutenzione su Vanilla, React, Angular e Visualizzazione Dati per un design e un'esperienza utente unificati.",
@@ -64884,7 +65947,46 @@
             }
           ],
           "title": "Chi sono",
+          "subtitle": "La persona dietro i pixel",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "all’ufsm, tra i 40 migliori lavori del 28° jai",
             "premio cssda special kudos, assegnato alla prima versione di luiskr.com",
@@ -65298,7 +66400,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Playground della Terra",
+          "title": "Playground della Terra — Simulazione Interattiva della Terra",
           "experienceSettings": "Impostazioni esperienza",
           "systemBoot": "Avvio del sistema",
           "camera": "Camera",
@@ -65364,7 +66466,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Playground WebGL interattivo della Terra — regola terreno, atmosfera, illuminazione e post-elaborazione dal vivo.",
+          "description": "Simulazione WebGL interattiva della Terra — regola terreno, atmosfera, illuminazione e post-produzione live nel browser.",
           "shareGallery": "Catture da condividere",
           "shareCapture": "Rendering della Terra",
           "searchThemes": [
@@ -65609,6 +66711,96 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "portfolio",
+            "portfolio di luis krötz",
+            "sviluppatore front-end",
+            "sviluppatore web",
+            "ingegnere del software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Ricerca",
+          "description": "Cerca tutte le pagine, i progetti e gli esperimenti di luiskr.com.",
+          "link": "Ricerca",
+          "search": {
+            "label": "Ricerca",
+            "placeholder": "Cerca pagine, progetti, esperimenti…",
+            "empty": "Nessuna rotta corrispondente — prova un altro termine.",
+            "go": "Apri",
+            "results": "Rotte corrispondenti",
+            "hint": "Scrivi per filtrare — le frecce navigano, Invio apre.",
+            "found": "{n} risultati trovati",
+            "groups": {
+              "pages": "Pagine",
+              "portfolio": "Portfolio",
+              "experiments": "Esperimenti",
+              "legal": "Legale"
+            },
+            "pager": "Pagine dei risultati",
+            "prev": "Pagina precedente dei risultati",
+            "next": "Pagina successiva dei risultati",
+            "page": "Pagina {a} di {b}"
+          },
+          "searchThemes": [
+            "ricerca",
+            "ricerca nel sito",
+            "trova",
+            "ricerca nel portfolio",
+            "progetti",
+            "catalogo",
+            "luis krötz",
+            "luiskr.com",
+            "portfolio",
+            "esperimenti webgl",
+            "rotte corrispondenti",
+            "chi sono",
+            "contatti",
+            "playground della terra",
+            "campo stellare",
+            "riferimento delle animazioni",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "portfolio di luis krötz",
+            "sviluppatore front-end",
+            "sviluppatore web",
+            "ingegnere del software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Mappa del sito",
+          "description": "Tutte le pagine di questo sito, in tutte le lingue — l’indice completo dei link.",
+          "intro": "Tutte le pagine di questo sito, in tutte le lingue — l’indice completo dei link.",
+          "groups": {
+            "pages": "Pagine",
+            "legal": "Note legali",
+            "portfolio": "Portfolio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Media"
+          },
+          "searchThemes": [
+            "mappa del sito",
+            "indice dei link",
+            "tutte le pagine",
+            "directory delle pagine",
+            "navigazione del sito",
             "portfolio",
             "portfolio di luis krötz",
             "sviluppatore front-end",
@@ -70886,16 +72078,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: sfondo del brand e struttura di layout",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: panoramica delle basi",
                   "size": [
                     1980,
@@ -72118,7 +73300,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, panoramica del sito web",
-            "dell design system: sfondo del brand e struttura di layout",
             "dell design system: panoramica delle basi",
             "dell design system: architettura del codice e linee guida",
             "dell design system: principi iniziali",
@@ -72168,7 +73349,8 @@
         "license": "licenza",
         "earthPlayground": "playground-della-terra",
         "starField": "esperimento-campo-stellare",
-        "animations": "animazioni"
+        "animations": "animazioni",
+        "search": "ricerca"
       }
     },
     "ru": {
@@ -72192,6 +73374,7 @@
         "featured": "Избранные работы",
         "title": "Луис Крётц",
         "preferences": "Настройки",
+        "setLanguage": "Выбрать язык",
         "language": "Язык",
         "pref": {
           "title": "Настройки",
@@ -72318,7 +73501,10 @@
           "loadFailed": "Раздел не удалось загрузить",
           "dismiss": "Скрыть уведомление"
         },
-        "animations": "Справочник анимаций"
+        "animations": "Справочник анимаций",
+        "search": "Поиск",
+        "rssFeed": "RSS-лента",
+        "sitemap": "Карта сайта"
       },
       "components": {
         "contact": {
@@ -72586,22 +73772,30 @@
             "alt": "Карточка связанного проекта приподнимается и зумируется при ховере",
             "longdesc": "Карточки связанных проектов внизу страниц проектов. Анимация: при ховере карточка приподнимается, её изображение мягко зумируется, а заголовок/описание подъезжают — всё на затухающем пружинном изинге (пружины, синтезированные в CSS linear()), чтобы движение слегка перелетало и органично устанавливалось; блик проносится по краю карточки. Триггер: ховер/фокус указателя. Технология: CSS-транзиции на transform/opacity, ведомые пружинными кривыми. Назначение: делает навигационный намёк физическим и приглашающим."
           },
-          "note-dot": {
-            "alt": "Маркер заметки мягко пульсирует",
-            "longdesc": "Небольшие маркеры-заметки/точки на страницах internals (документация и внутренние страницы проектов). Анимация: точка мягко пульсирует — дышащий цикл масштаба и затухания. Триггер: крутится непрерывно на экране. Технология: один CSS-кейфрейм (note-dot-pulse). Назначение: помечает элемент как живая аннотация, не требуя внимания."
-          },
           "body-glow": {
             "alt": "Окружающее свечение страницы медленно дрейфует за контентом",
             "longdesc": "Окружающее фоновое свечение за содержимым страницы. Анимация: большой мягкий радиальный градиент медленно дрейфует по документу, меняя позицию и интенсивность в длинном цикле. Триггер: работает непрерывно на каждой странице. Технология: один CSS-кейфрейм (body-glow-drift) анимирует фиксированный фоновый слой — ноль JavaScript. Назначение: придаёт тёмной теме атмосферу и глубину вместо плоского фона."
+          },
+          "card-stack": {
+            "alt": "Колода избранных работ с физикой перетаскивания и светящимся обратным отсчётом по краю",
+            "longdesc": "Колода избранных проектов на главной странице. Анимация: карты раздаются по 3D-колоде/вееру — боковые листы наклоняются внутрь с прогрессивным затемнением, пока активная карта увеличивается; светящаяся дуга проходит по тонкой рамке активной карты за десять секунд обратного отсчёта, отражаясь на кнопке play/пауза, а название проекта сгорает и сотканется заново при каждой навигации или при появлении секции в окне. Триггер: жесты перетаскивания/свайпа, элементы назад/вперёд и индекс, таймер автопрокрутки и появление при скролле. Техника: позы, вычисляемые на JS поверх CSS 3D-transforms, conic-gradient custom property, рисуемая каждый кадр, и общий canvas paper-burn. Цель: сделать избранные проекты похожими на физическую колоду, которую раскрывают веером, раздают и тасуют."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Все проекты",
           "archive": "Смотреть ещё",
+          "autoplayPlay": "Запустить автопрокрутку",
+          "autoplayPause": "Пауза автопрокрутки",
+          "deckHint": "Тяни или листай карточки для просмотра",
+          "swipeHint": "Листай",
           "explore": "Открыть",
           "featured": "Избранные работы",
+          "featuredTitle": "Избранные проекты",
           "message": "Избранные работы",
+          "projectLabel": "Проект",
+          "viewAll": "Смотреть все",
           "portfoliolist": [
             {
               "description": "Создание и масштабирование Dell Design System для более чем 500 корпоративных продуктов.<br>Работа в качестве инженера-программиста, Agile-чемпиона, технического лидера и аналитика поддержки в кросс-функциональных рабочих процессах инженерии, доступности, контента, дизайна и процессов, управляемых спецификациями ИИ, для достижения бесшовного создания многофреймворковых компонентов, паритета, поддержки и обслуживания на Vanilla, React, Angular и визуализации данных для единого дизайна и пользовательского опыта.",
@@ -72916,7 +74110,46 @@
             }
           ],
           "title": "Обо мне",
+          "subtitle": "Человек за пикселями",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "в ufsm работа вошла в число 40 лучших на 28-й jai",
             "cssda special kudos award, присуждена первой версии luiskr.com",
@@ -73336,7 +74569,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Земная песочница",
+          "title": "Земная песочница — Интерактивная симуляция Земли",
           "experienceSettings": "Настройки опыта",
           "systemBoot": "Загрузка системы",
           "camera": "Камера",
@@ -73402,7 +74635,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Интерактивная WebGL-Земля — настраивайте рельеф, атмосферу, освещение и постобработку в реальном времени.",
+          "description": "Интерактивная WebGL-симуляция Земли — настраивайте рельеф, атмосферу, освещение и постобработку в реальном времени в браузере.",
           "shareGallery": "Снимки для публикации",
           "shareCapture": "Рендер Земли",
           "searchThemes": [
@@ -73651,6 +74884,97 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "портфолио",
+            "портфолио луиса крётца",
+            "фронтенд-разработчик",
+            "веб-разработчик",
+            "инженер-программист",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Поиск",
+          "description": "Поиск по всем страницам, проектам и экспериментам luiskr.com.",
+          "link": "Поиск",
+          "search": {
+            "label": "Поиск",
+            "placeholder": "Искать страницы, проекты, эксперименты…",
+            "empty": "Подходящих страниц нет — попробуйте другой запрос.",
+            "go": "Открыть",
+            "results": "Подходящие страницы",
+            "hint": "Введите текст для фильтра — стрелки перемещают, Enter открывает.",
+            "found": "Найдено результатов: {n}",
+            "groups": {
+              "pages": "Страницы",
+              "portfolio": "Портфолио",
+              "experiments": "Эксперименты",
+              "legal": "Правовое"
+            },
+            "pager": "Страницы результатов",
+            "prev": "Предыдущая страница результатов",
+            "next": "Следующая страница результатов",
+            "page": "Страница {a} из {b}"
+          },
+          "searchThemes": [
+            "поиск",
+            "поиск по сайту",
+            "найти",
+            "поиск по портфолио",
+            "проекты",
+            "каталог",
+            "луис крётц",
+            "luiskr.com",
+            "портфолио",
+            "webgl-эксперименты",
+            "подходящие страницы",
+            "обо мне",
+            "контакты",
+            "земная песочница",
+            "звёздное поле",
+            "справочник анимаций",
+            "марко алмейда",
+            "сесереле",
+            "бразилиан лезер",
+            "коза",
+            "мелисса",
+            "метча",
+            "мини мелисса",
+            "мор",
+            "наталия бонд",
+            "дженесисинф, сейджвеб",
+            "транса",
+            "вибра",
+            "luis krötz",
+            "luis krotz",
+            "портфолио луиса крётца",
+            "фронтенд-разработчик",
+            "веб-разработчик",
+            "инженер-программист",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Карта сайта",
+          "description": "Все страницы этого сайта на всех языках — полный указатель ссылок.",
+          "intro": "Все страницы этого сайта на всех языках — полный указатель ссылок.",
+          "groups": {
+            "pages": "Страницы",
+            "legal": "Правовая информация",
+            "portfolio": "Портфолио",
+            "playground": "Песочница",
+            "docs": "Документы",
+            "media": "Медиа"
+          },
+          "searchThemes": [
+            "карта сайта",
+            "индекс ссылок",
+            "все страницы",
+            "каталог страниц",
+            "навигация по сайту",
             "портфолио",
             "портфолио луиса крётца",
             "фронтенд-разработчик",
@@ -78952,16 +80276,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: фон бренда и структура макета",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: обзор фундаментальных основ",
                   "size": [
                     1980,
@@ -80185,7 +81499,6 @@
             "делл дизайн систем",
             "dell design system",
             "dell design system, обзор веб-сайта",
-            "dell design system: фон бренда и структура макета",
             "dell design system: обзор фундаментальных основ",
             "dell design system: архитектура кода и рекомендации",
             "dell design system: принципы начала работы",
@@ -80236,7 +81549,8 @@
         "license": "litsenziya",
         "earthPlayground": "zemnaya-pesochnitsa",
         "starField": "zvezdnoe-pole",
-        "animations": "animatsii"
+        "animations": "animatsii",
+        "search": "poisk"
       }
     },
     "fr": {
@@ -80260,6 +81574,7 @@
         "featured": "Travaux sélectionnés",
         "title": "Luis Krötz",
         "preferences": "Préférences",
+        "setLanguage": "Définir la langue",
         "language": "Langue",
         "pref": {
           "title": "Préférences",
@@ -80386,7 +81701,10 @@
           "loadFailed": "Une section n'a pas pu être chargée",
           "dismiss": "Fermer la notification"
         },
-        "animations": "Référence des Animations"
+        "animations": "Référence des Animations",
+        "search": "Recherche",
+        "rssFeed": "Flux RSS",
+        "sitemap": "Plan du site"
       },
       "components": {
         "contact": {
@@ -80654,22 +81972,30 @@
             "alt": "Carte de projet lié se soulevant et zoomant au survol",
             "longdesc": "Les cartes de projets liés en bas des pages de projet. Animation : au survol la carte se soulève, son image zoome doucement et titre/description montent — le tout avec un easing de ressort amorti (springs synthétisés en CSS linear()) pour que le mouvement dépasse légèrement et s'établisse organiquement ; un reflet balaie le bord de la carte. Déclencheur : survol/focus du pointeur. Technologie : transitions CSS sur transform/opacity pilotées par des courbes de ressort. Objectif : rendre l'affordance de navigation physique et invitante."
           },
-          "note-dot": {
-            "alt": "Marqueur de note pulsant doucement",
-            "longdesc": "Les petits marqueurs de note/point utilisés sur les pages internals (documentation et internes de projet). Animation : le point pulse doucement — une boucle respirante d'échelle et de fade. Déclencheur : boucle en continu à l'écran. Technologie : un keyframe CSS (note-dot-pulse). Objectif : marquer l'élément comme annotation vivante sans exiger l'attention."
-          },
           "body-glow": {
             "alt": "Lueur ambiante de la page dérivant derrière le contenu",
             "longdesc": "La lueur de fond ambiante derrière le contenu de la page. Animation : un grand dégradé radial doux dérive lentement à travers le document, changeant de position et d'intensité en une longue boucle. Déclencheur : tourne en continu sur chaque page. Technologie : un keyframe CSS (body-glow-drift) animant un calque de fond fixe — zéro JavaScript. Objectif : donner atmosphère et profondeur au thème sombre plutôt qu'un fond plat."
+          },
+          "card-stack": {
+            "alt": "Jeu de cartes des travaux sélectionnés avec physique de glisser et compte à rebours lumineux sur le bord",
+            "longdesc": "Le jeu de cartes des projets sélectionnés de la page d'accueil. Animation : les cartes se distribuent dans une pile/éventail 3D — les feuillets latéraux basculent vers l'intérieur avec un assombrissement progressif pendant que la carte active grandit ; un arc lumineux parcourt le bord fin de la carte active pendant un compte à rebours de dix secondes reflété sur le bouton lecture/pause, et le titre du projet se consume et se retisse à chaque navigation ou quand la section entre dans l'écran. Déclencheur : gestes glisser/défiler, contrôles précédent/suivant et index, le minuteur autoplay et l'entrée au scroll. Technique : poses calculées en JS sur transforms 3D CSS, une propriété custom conic-gradient peinte à chaque frame et le paper-burn canvas partagé. But : donner aux projets sélectionnés l'allure d'un jeu de cartes physique qu'on éventaille, distribue et mélange."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Tous les projets",
           "archive": "Explorer plus",
+          "autoplayPlay": "Lancer l'autoplay",
+          "autoplayPause": "Suspendre l'autoplay",
+          "deckHint": "Glisse ou fais défiler les cartes pour explorer",
+          "swipeHint": "Glisse",
           "explore": "Découvre",
           "featured": "Travaux sélectionnés",
+          "featuredTitle": "Projets sélectionnés",
           "message": "Travaux sélectionnés",
+          "projectLabel": "Projet",
+          "viewAll": "Tout voir",
           "portfoliolist": [
             {
               "description": "Construction et mise à l'échelle du Dell Design System au service de plus de 500 produits d'entreprise.<br>Intervenant en tant qu'ingénieur logiciel, Agile Champion, Tech Lead et analyste de support sur des flux interfonctionnels d'ingénierie, d'accessibilité, de contenu, de design et de flux guidés par les spécifications de l'IA pour parvenir à une création de composants multi-frameworks fluide, à la parité, au support et à la maintenance sur Vanilla, React, Angular et la visualisation de données pour un design et des expériences utilisateur unifiés.",
@@ -80983,7 +82309,46 @@
             }
           ],
           "title": "À propos de moi",
+          "subtitle": "La personne derrière les pixels",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "à l’ufsm, parmi les 40 meilleurs travaux de la 28e jai",
             "prix cssda special kudos, décerné à la première version de luiskr.com",
@@ -81398,7 +82763,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Playground de la Terre",
+          "title": "Playground de la Terre — Simulation Interactive de la Terre",
           "experienceSettings": "Paramètres d’expérience",
           "systemBoot": "Démarrage du système",
           "camera": "Caméra",
@@ -81464,7 +82829,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Playground WebGL interactif de la Terre — ajustez terrain, atmosphère, éclairage et post-traitement en direct.",
+          "description": "Simulation WebGL interactive de la Terre — ajustez terrain, atmosphère, éclairage et post-traitement en direct dans votre navigateur.",
           "shareGallery": "Captures à partager",
           "shareCapture": "Rendu de la Terre",
           "searchThemes": [
@@ -81708,6 +83073,96 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "portfolio",
+            "portfolio de luis krötz",
+            "développeur front-end",
+            "développeur web",
+            "ingénieur logiciel",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Recherche",
+          "description": "Recherchez toutes les pages, projets et expériences de luiskr.com.",
+          "link": "Recherche",
+          "search": {
+            "label": "Recherche",
+            "placeholder": "Rechercher pages, projets, expériences…",
+            "empty": "Aucune route correspondante — essayez un autre terme.",
+            "go": "Ouvrir",
+            "results": "Routes correspondantes",
+            "hint": "Tapez pour filtrer — les flèches naviguent, Entrée ouvre.",
+            "found": "{n} résultats trouvés",
+            "groups": {
+              "pages": "Pages",
+              "portfolio": "Portfolio",
+              "experiments": "Expériences",
+              "legal": "Mentions légales"
+            },
+            "pager": "Pages de résultats",
+            "prev": "Page de résultats précédente",
+            "next": "Page de résultats suivante",
+            "page": "Page {a} sur {b}"
+          },
+          "searchThemes": [
+            "recherche",
+            "recherche sur le site",
+            "trouver",
+            "recherche dans le portfolio",
+            "projets",
+            "catalogue",
+            "luis krötz",
+            "luiskr.com",
+            "portfolio",
+            "expériences webgl",
+            "routes correspondantes",
+            "à propos",
+            "contact",
+            "playground de la terre",
+            "champ stellaire",
+            "référence des animations",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "portfolio de luis krötz",
+            "développeur front-end",
+            "développeur web",
+            "ingénieur logiciel",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Plan du site",
+          "description": "Toutes les pages de ce site, dans toutes les langues — l’index complet des liens.",
+          "intro": "Toutes les pages de ce site, dans toutes les langues — l’index complet des liens.",
+          "groups": {
+            "pages": "Pages",
+            "legal": "Mentions légales",
+            "portfolio": "Portfolio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Médias"
+          },
+          "searchThemes": [
+            "plan du site",
+            "index des liens",
+            "toutes les pages",
+            "répertoire des pages",
+            "navigation du site",
             "portfolio",
             "portfolio de luis krötz",
             "développeur front-end",
@@ -86985,16 +88440,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: fond de marque et structure de mise en page",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: aperçu des fondations",
                   "size": [
                     1980,
@@ -88217,7 +89662,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, aperçu du site web",
-            "dell design system: fond de marque et structure de mise en page",
             "dell design system: aperçu des fondations",
             "dell design system: architecture de code et lignes directrices",
             "dell design system: principes de démarrage",
@@ -88267,7 +89711,8 @@
         "license": "licence",
         "earthPlayground": "playground-de-la-terre",
         "starField": "experience-champ-etoile",
-        "animations": "animations"
+        "animations": "animations",
+        "search": "recherche"
       }
     },
     "tln": {
@@ -88291,6 +89736,7 @@
         "featured": "Łaori sełesionà",
         "title": "Luis Krötz",
         "preferences": "Preferense",
+        "setLanguage": "Met la lenghe",
         "language": "Léngua",
         "pref": {
           "title": "Preferense",
@@ -88417,7 +89863,10 @@
           "loadFailed": "Una sección no pudo cargar",
           "dismiss": "Descartar notificación"
         },
-        "animations": "Riferimento Animassion"
+        "animations": "Riferimento Animassion",
+        "search": "Ricuart",
+        "rssFeed": "Feed RSS",
+        "sitemap": "Mapa del sito"
       },
       "components": {
         "contact": {
@@ -88685,22 +90134,30 @@
             "alt": "Card progeto corelà che la se sólza e la zooma su hover",
             "longdesc": "Le card dei progetti coreladi in fondo a le pàgine de progeto. Animassion: in hover la card la se sólza, la so imagine la zooma dolcemente e título/descrission i licà su — tuto co easing a moła smorsada (springs sintetissadi in CSS linear()) cussì el movimento el pasa legermente e el se assesta in modo orgànico; un sbarluso el spasa el bordo de la card. Trigger: hover/focus del puntador. Tecnologia: transissioni CSS su transform/opacity guidade da curve a moła. Scopo: render l'affordance de navigassion fìsica e invitante."
           },
-          "note-dot": {
-            "alt": "Marcador de nota che el pulsa dolcemente",
-            "longdesc": "I picenini marcadori de nota/ponto usadi inte le pàgine internals (documentassion e interne de progeto). Animassion: el ponto el pulsa dolcemente — un loop respirante de scala e fade. Trigger: el gira in loop continuo sullo schermo. Tecnologia: un keyframe CSS (note-dot-pulse). Scopo: segnar l'elemento come anotassion viva sensa esiger atension."
-          },
           "body-glow": {
             "alt": "Sbarluso anbientale de la pàgina che el deriva drìo el contenuto",
             "longdesc": "El sbarluso de sfondo anbientale drìo el contenuto de la pàgina. Animassion: un gran gradiente radiale morbido el deriva lentamente travers el documento, canbiando posission e intensità in un loop longo. Trigger: el gira continuamente su ogni pàgina. Tecnologia: un keyframe CSS (body-glow-drift) che el anima un layer de sfondo fiso — zero JavaScript. Scopo: dar atmosfera e profondità al tema scuro invesse de un sfondo piato."
+          },
+          "card-stack": {
+            "alt": "Maso de łavori sełesionà co fìxica de strassinamento e countdown sol bordo luminoso",
+            "longdesc": "El maso dei projeti sełesionà de ła pàxena prinsipałe. Animasion: łe schede se distribuise in na piła/vintajo 3D — i fogi łaterałi se inclina verso drento co oscuramento progresivo mentre ła scheda ativa cresse; un arco luminoso score el bordo sotiłe de ła scheda ativa in un countdown de diexe segondi riłesso sol boton play/pausa, e el tìtoło del projeto brusa e se retesse a ogni navigasion o cuando ła sesion entra in vista. Trigger: xesti de strassinar/scórer, controłi prima/dopo e index, el timer de l'autoplay e l'entrada co lo scroll. Tecnica: pose calcułà in JS su transform 3D CSS, na custom property conic-gradient depenta a ogni frame e el paper-burn su canvas condiviso. Fin: far parer i projeti sełesionà un maso fìxego che se verxe, se distribuise e se mésoła."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Tuti i projeti",
           "archive": "Dà na ociada",
+          "autoplayPlay": "Toca l'autoplay",
+          "autoplayPause": "Ferma l'autoplay",
+          "deckHint": "Strassina o scori łe schede par vardare",
+          "swipeHint": "Scori",
           "explore": "Varda",
           "featured": "Łaori sełesionà",
+          "featuredTitle": "Projeti sełesionà",
           "message": "Laori sernìi",
+          "projectLabel": "Projeto",
+          "viewAll": "Varda tuto",
           "portfoliolist": [
             {
               "description": "Costruzione e scalabilità del Dell Design System a supporto di oltre 500 prodotti aziendali.<br>Operando come Software Engineer, Agile Champion, Tech Lead e Support Analyst su flussi di lavoro interfunzionali di ingegneria, accessibilità, contenuti, design e sviluppo guidato da specifiche AI per ottenere creazione fluida di componenti multi-framework, parità, supporto e manutenzione su Vanilla, React, Angular e Visualizzazione Dati per un design e un'esperienza utente unificati.",
@@ -89014,7 +90471,46 @@
             }
           ],
           "title": "Su de mi",
+          "subtitle": "La persuna darò dels píxeles",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "a ufsm, meso tra i 40 laori mejo del 28º jai",
             "premio speciałe kudos cssda, dà a ła prima version de luiskr.com",
@@ -89428,7 +90924,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Terałudo",
+          "title": "Terałudo — Simulazione Interattiva della Terra",
           "experienceSettings": "Inpostasion Esperiensa",
           "systemBoot": "Avio Sistema",
           "camera": "Càmara",
@@ -89494,7 +90990,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Playground WebGL interativo de ła Tera — regoła teren, atmosfera, łuze e post-ełaborasion dal vivo.",
+          "description": "Simulazione WebGL interattiva della Terra — regola terreno, atmosfera, illuminazione e post-produzione live nel browser.",
           "shareGallery": "Catture da condividere",
           "shareCapture": "Rendering della Terra",
           "searchThemes": [
@@ -89740,6 +91236,96 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "portfolio",
+            "portfolio di luis krötz",
+            "sviluppatore front-end",
+            "sviluppatore web",
+            "ingegnere del software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Ricuart",
+          "description": "Cîr dutis lis pagjinis, i progjets e i esperiments di luiskr.com.",
+          "link": "Ricuart",
+          "search": {
+            "label": "Ricuart",
+            "placeholder": "Cîr pagjinis, progjets, esperimentos…",
+            "empty": "Nissun percors corispuint — prove un altri termin.",
+            "go": "Vierç",
+            "results": "Percors corispuints",
+            "hint": "Scrîf par filtrâ — lis frecis si movin, Invio al vierç.",
+            "found": "{n} risultai catai",
+            "groups": {
+              "pages": "Pagjinis",
+              "portfolio": "Progjet",
+              "experiments": "Esperimentos",
+              "legal": "Lezal"
+            },
+            "pager": "Pagjinis dai risultai",
+            "prev": "Pagjine prime dai risultai",
+            "next": "Pagjine dopo dai risultai",
+            "page": "Pagjine {a} di {b}"
+          },
+          "searchThemes": [
+            "ricerca",
+            "ricerca nel sito",
+            "trova",
+            "ricerca nel portfolio",
+            "progetti",
+            "catalogo",
+            "luis krötz",
+            "luiskr.com",
+            "portfolio",
+            "esperimenti webgl",
+            "ricuart",
+            "percors corispuints",
+            "su de mi",
+            "contato",
+            "terałudo",
+            "canpo stełare",
+            "riferimento animassion",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "portfolio di luis krötz",
+            "sviluppatore front-end",
+            "sviluppatore web",
+            "ingegnere del software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Mapa del sito",
+          "description": "Tute łe pagine de sto sito, in tute łe łengue — l’indice completo dei link.",
+          "intro": "Tute łe pagine de sto sito, in tute łe łengue — l’indice completo dei link.",
+          "groups": {
+            "pages": "Pagine",
+            "legal": "Note legali",
+            "portfolio": "Portfolio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Media"
+          },
+          "searchThemes": [
+            "mapa del sito",
+            "indice dei link",
+            "tute łe pagine",
+            "navigasion del sito",
             "portfolio",
             "portfolio di luis krötz",
             "sviluppatore front-end",
@@ -95018,16 +96604,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: sfondo del brand e struttura di layout",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: panoramica delle basi",
                   "size": [
                     1980,
@@ -96250,7 +97826,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, panoramica del sito web",
-            "dell design system: sfondo del brand e struttura di layout",
             "dell design system: panoramica delle basi",
             "dell design system: architettura del codice e linee guida",
             "dell design system: principi iniziali",
@@ -96300,7 +97875,8 @@
         "license": "lisensa",
         "earthPlayground": "playground-della-terra",
         "starField": "esperimento-canpo-stelare",
-        "animations": "animassion"
+        "animations": "animassion",
+        "search": "cir"
       }
     },
     "nl": {
@@ -96324,6 +97900,7 @@
         "featured": "Geselecteerd werk",
         "title": "Luis Krötz",
         "preferences": "Voorkeuren",
+        "setLanguage": "Taal instellen",
         "language": "Taal",
         "pref": {
           "title": "Voorkeuren",
@@ -96450,7 +98027,10 @@
           "loadFailed": "Een sectie kon niet laden",
           "dismiss": "Melding sluiten"
         },
-        "animations": "Animatie-referentie"
+        "animations": "Animatie-referentie",
+        "search": "Zoeken",
+        "rssFeed": "RSS-feed",
+        "sitemap": "Sitemap"
       },
       "components": {
         "contact": {
@@ -96718,22 +98298,30 @@
             "alt": "Related-projectkaart heft en zoomt bij hover",
             "longdesc": "De related-projectkaarten onderaan de projectpagina's. Animatie: bij hover heft de kaart, zoomt de afbeelding zacht en schuiven titel/beschrijving omhoog — alles op gedempte-veer-easing (in CSS linear() gesynthetiseerde veren) zodat de beweging licht overschiet en organisch stabiliseert; een schimmer veegt over de kaartrand. Trigger: pointer-hover/focus. Technologie: CSS-transitions op transform/opacity gedreven door veerkrommes. Doel: maakt de navigatie-affordance fysiek en uitnodigend."
           },
-          "note-dot": {
-            "alt": "Notitie-markering pulseert zacht",
-            "longdesc": "De kleine notitie-/stipmarkeringen op internals-pagina's (documentatie en projectinterna). Animatie: de stip pulseert zacht — een ademende schaal-en-fade-loop. Trigger: loopt continu in beeld. Technologie: een CSS-keyframe (note-dot-pulse). Doel: markeert het element als levende annotatie zonder aandacht te eisen."
-          },
           "body-glow": {
             "alt": "Omgevende paginagloed drijft traag achter de content",
             "longdesc": "De omgevings-achtergrondgloed achter de pagina-inhoud. Animatie: een grote zachte radiale gradiënt drijft traag over het document en verschuift positie en intensiteit in een lange loop. Trigger: loopt continu op elke pagina. Technologie: een CSS-keyframe (body-glow-drift) animeert een vaste achtergrondlaag — nul JavaScript. Doel: geeft het donkere thema sfeer en diepte in plaats van een vlakke achtergrond."
+          },
+          "card-stack": {
+            "alt": "Kaartspel van geselecteerd werk met sleepfysica en aftellen op de verlichte rand",
+            "longdesc": "Het kaartspel van uitgelichte projecten op de homepage. Animatie: kaarten worden gedeeld door een 3D-stapel/waaier — zijbladen kantelen naar binnen met progressieve dimming terwijl de actieve kaart groeit; een verlichte boog loopt over de fijne rand van de actieve kaart in een tien-seconden aftelling die op de play/pauze-knop wordt gespiegeld, en de projecttitel verbrandt en weeft zich opnieuw bij elke navigatie of wanneer de sectie in beeld scrollt. Trigger: sleep-/veeggebaren, vorige/volgende- en indexknoppen, de autoplay-timer en het inscrolven. Techniek: in JS berekende poses op CSS 3D-transforms, een per frame geschilderde conic-gradient custom property en de gedeelde canvas paper-burn. Doel: laat de uitgelichte projecten aanvoelen als een fysiek kaartspel dat je waaieren, deelt en schudt."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Alle projecten",
           "archive": "Meer ontdekken",
+          "autoplayPlay": "Autoplay afspelen",
+          "autoplayPause": "Autoplay pauzeren",
+          "deckHint": "Sleep of veeg over de kaarten om te verkennen",
+          "swipeHint": "Veeg",
           "explore": "Bekijk",
           "featured": "Geselecteerd werk",
+          "featuredTitle": "Uitgelichte projecten",
           "message": "Geselecteerd werk",
+          "projectLabel": "Project",
+          "viewAll": "Alles bekijken",
           "portfoliolist": [
             {
               "description": "Het bouwen en schalen van het Dell Design System voor meer dan 500 enterprise-producten.<br>Werkzaam als Software Engineer, Agile Champion, Tech Lead en Support Analyst in cross-functionele engineering-, toegankelijkheids-, content-, design- en AI-specificatiegedreven workflows om naadloze multi-framework componentcreatie, pariteit, ondersteuning en onderhoud te realiseren over Vanilla, React, Angular en Datavisualisatie voor een uniform design en consistente gebruikerservaringen.",
@@ -97047,7 +98635,46 @@
             }
           ],
           "title": "Over mij",
+          "subtitle": "De persoon achter de pixels",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "aan de ufsm, bij de 40 beste werken van de 28e jai",
             "cssda special kudos award, toegekend aan de eerste versie van luiskr.com",
@@ -97461,7 +99088,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Aarde-playground",
+          "title": "Aarde-playground — Interactieve Aarde-simulatie",
           "experienceSettings": "Ervaringsinstellingen",
           "systemBoot": "Systeemopstart",
           "camera": "Camera",
@@ -97527,7 +99154,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Interactieve WebGL-aarde-playground — pas terrein, atmosfeer, verlichting en nabewerking live aan.",
+          "description": "Interactieve WebGL-aarde-simulatie — pas terrein, atmosfeer, verlichting en nabewerking live aan in je browser.",
           "shareGallery": "Captures om te delen",
           "shareCapture": "Aarde-rendering",
           "searchThemes": [
@@ -97771,6 +99398,96 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "portfolio",
+            "luis krötz portfolio",
+            "front-end-ontwikkelaar",
+            "webontwikkelaar",
+            "software-ingenieur",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Zoeken",
+          "description": "Zoek alle pagina’s, projecten en experimenten op luiskr.com.",
+          "link": "Zoeken",
+          "search": {
+            "label": "Zoeken",
+            "placeholder": "Zoek pagina’s, projecten, experimenten…",
+            "empty": "Geen passende route — probeer een andere term.",
+            "go": "Openen",
+            "results": "Overeenkomende routes",
+            "hint": "Typ om te filteren — pijltjes bewegen, Enter opent.",
+            "found": "{n} resultaten gevonden",
+            "groups": {
+              "pages": "Pagina's",
+              "portfolio": "Portfolio",
+              "experiments": "Experimenten",
+              "legal": "Juridisch"
+            },
+            "pager": "Resultaatpagina's",
+            "prev": "Vorige resultaatpagina",
+            "next": "Volgende resultaatpagina",
+            "page": "Pagina {a} van {b}"
+          },
+          "searchThemes": [
+            "zoeken",
+            "zoeken op de site",
+            "vinden",
+            "zoeken in portfolio",
+            "projecten",
+            "catalogus",
+            "luis krötz",
+            "luiskr.com",
+            "portfolio",
+            "webgl-experimenten",
+            "overeenkomende routes",
+            "over mij",
+            "contact",
+            "aarde-playground",
+            "sterrenveld",
+            "animatie-referentie",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "luis krötz portfolio",
+            "front-end-ontwikkelaar",
+            "webontwikkelaar",
+            "software-ingenieur",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Sitemap",
+          "description": "Alle pagina’s van deze site, in alle talen — de volledige linklijst.",
+          "intro": "Alle pagina’s van deze site, in alle talen — de volledige linklijst.",
+          "groups": {
+            "pages": "Pagina’s",
+            "legal": "Juridisch",
+            "portfolio": "Portfolio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Media"
+          },
+          "searchThemes": [
+            "sitemap",
+            "linkindex",
+            "alle pagina's",
+            "paginaoverzicht",
+            "sitenavigatie",
             "portfolio",
             "luis krötz portfolio",
             "front-end-ontwikkelaar",
@@ -103048,16 +104765,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: merkachtergrond en lay-outstructuur",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: overzicht van fundamenten",
                   "size": [
                     1980,
@@ -104280,7 +105987,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, website-overzicht",
-            "dell design system: merkachtergrond en lay-outstructuur",
             "dell design system: overzicht van fundamenten",
             "dell design system: codearchitectuur en richtlijnen",
             "dell design system: aan de slag-principes",
@@ -104330,7 +106036,8 @@
         "license": "licentie",
         "earthPlayground": "aarde-playground",
         "starField": "sterrenveld-experiment",
-        "animations": "animaties"
+        "animations": "animaties",
+        "search": "zoeken"
       }
     },
     "ca": {
@@ -104354,6 +106061,7 @@
         "featured": "Treball seleccionat",
         "title": "Luis Krötz",
         "preferences": "Preferències",
+        "setLanguage": "Definir idioma",
         "language": "Idioma",
         "pref": {
           "title": "Preferències",
@@ -104480,7 +106188,10 @@
           "loadFailed": "No s'ha pogut carregar una secció",
           "dismiss": "Descarta la notificació"
         },
-        "animations": "Referència d'Animacions"
+        "animations": "Referència d'Animacions",
+        "search": "Cerca",
+        "rssFeed": "Canal RSS",
+        "sitemap": "Mapa del lloc"
       },
       "components": {
         "contact": {
@@ -104748,22 +106459,30 @@
             "alt": "Targeta de projecte relacionat elevant-se i fent zoom en hover",
             "longdesc": "Les targetes de projectes relacionats al final de les pàgines de projecte. Animació: en hover la targeta s'eleva, la imatge fa un zoom suaument i títol/descripció pugen — tot amb easing de ressort amortit (springs sintetitzats en CSS linear()) perquè el moviment passi lleugerament i s'assenti de forma orgànica; una brillantor escombra la vora de la targeta. Disparador: hover/focus del punter. Tecnologia: transicions CSS en transform/opacity dirigides per corbes de ressort. Propòsit: fer que l'affordance de navegació se senti física i convidant."
           },
-          "note-dot": {
-            "alt": "Marcador de nota pulsant suaument",
-            "longdesc": "Els petits marcadors de nota/punt usats a les pàgines d'internals (documentació i internes de projecte). Animació: el punt pulsa suaument — un loop respirant d'escala i fade. Disparador: fa loop contínuament en pantalla. Tecnologia: un keyframe CSS (note-dot-pulse). Propòsit: marcar l'element com a anotació viva sense exigir atenció."
-          },
           "body-glow": {
             "alt": "Brillantor ambient de la pàgina derivant darrere el contingut",
             "longdesc": "La brillantor de fons ambient darrere el contingut de la pàgina. Animació: un gran degradat radial suau deriva lentament pel document, canviant posició i intensitat en un loop llarg. Disparador: corre contínuament a totes les pàgines. Tecnologia: un keyframe CSS (body-glow-drift) animant una capa de fons fixa — zero JavaScript. Propòsit: donar atmosfera i profunditat al tema fosc en lloc d'un fons pla."
+          },
+          "card-stack": {
+            "alt": "Baralla de treballs seleccionats amb física d'arrossegament i compte enrere a la vora il·luminada",
+            "longdesc": "La baralla de projectes destacats de la pàgina principal. Animació: les cartes es reparteixen en una pila/ventall 3D — els fulls laterals s'inclinen cap endins amb esmorteïment progressiu mentre la carta activa creix; un arc lluminós recorre la vora fina de la carta activa durant un compte enrere de deu segons reflectit al botó play/pausa, i el títol del projecte crema i es reteix a cada navegació o quan la secció entra a la pantalla. Disparador: gestos d'arrossegar/lliscar, controls anterior/següent i índex, el temporitzador d'autoplay i l'entrada en fer scroll. Tècnica: poses calculades en JS sobre transforms 3D de CSS, una propietat personalitzada de conic-gradient pintada per frame i el paper-burn en canvas compartit. Propòsit: fer que els projectes destacats semblin una baralla física que s'obre, es reparteix i es barreja."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Tots els projectes",
           "archive": "Explora més",
+          "autoplayPlay": "Reprodueix l'autoplay",
+          "autoplayPause": "Posa en pausa l'autoplay",
+          "deckHint": "Arrossega o llisca les targetes per explorar",
+          "swipeHint": "Llisca",
           "explore": "Mira",
           "featured": "Treball seleccionat",
+          "featuredTitle": "Projectes destacats",
           "message": "Treball seleccionat",
+          "projectLabel": "Projecte",
+          "viewAll": "Veure-ho tot",
           "portfoliolist": [
             {
               "description": "Construcció i escalat del Dell Design System per donar servei a més de 500 productes empresarials.<br>Actuant com a Enginyer de Software, Agile Champion, Tech Lead i Analista de Suport en fluxos de treball interfuncionals d'enginyeria, accessibilitat, contingut, disseny i especificacions d'IA per assolir la creació fluida de components multiframework, paritat, suport i manteniment a través de Vanilla, React, Angular i Visualització de Dades per a un disseny i experiències d'usuari unificades.",
@@ -105077,7 +106796,46 @@
             }
           ],
           "title": "Quant a mi",
+          "subtitle": "La persona darrere dels píxels",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "a la ufsm, entre els 40 millors treballs del 28è jai",
             "premi cssda special kudos, atorgat a la primera versió de luiskr.com",
@@ -105491,7 +107249,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Playground de la Terra",
+          "title": "Playground de la Terra — Simulació Interactiva de la Terra",
           "experienceSettings": "Configuració de l’experiència",
           "systemBoot": "Arrencada del sistema",
           "camera": "Càmera",
@@ -105557,7 +107315,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Playground WebGL interactiu de la Terra — ajusta terreny, atmosfera, il·luminació i postprocessat en directe.",
+          "description": "Simulació WebGL interactiva de la Terra — ajusta terreny, atmosfera, il·luminació i postprocessat en viu al navegador.",
           "shareGallery": "Captures per compartir",
           "shareCapture": "Render de la Terra",
           "searchThemes": [
@@ -105802,6 +107560,96 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "portafoli",
+            "portafoli de luis krötz",
+            "desenvolupador front-end",
+            "desenvolupador web",
+            "enginyer de programari",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Cerca",
+          "description": "Cerca totes les pàgines, projectes i experiments de luiskr.com.",
+          "link": "Cerca",
+          "search": {
+            "label": "Cerca",
+            "placeholder": "Cerca pàgines, projectes, experiments…",
+            "empty": "Cap ruta coincident — prova un altre terme.",
+            "go": "Obre",
+            "results": "Rutes coincidents",
+            "hint": "Escriu per filtrar — les fletxes naveguen, Enter obre.",
+            "found": "{n} resultats trobats",
+            "groups": {
+              "pages": "Pàgines",
+              "portfolio": "Portafoli",
+              "experiments": "Experiments",
+              "legal": "Legal"
+            },
+            "pager": "Pàgines de resultats",
+            "prev": "Pàgina anterior de resultats",
+            "next": "Pàgina següent de resultats",
+            "page": "Pàgina {a} de {b}"
+          },
+          "searchThemes": [
+            "cerca",
+            "cerca al lloc",
+            "troba",
+            "cerca al portafoli",
+            "projectes",
+            "catàleg",
+            "luis krötz",
+            "luiskr.com",
+            "portafoli",
+            "experiments webgl",
+            "rutes coincidents",
+            "quant a mi",
+            "contacte",
+            "playground de la terra",
+            "camp estel·lar",
+            "referència d'animacions",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "portafoli de luis krötz",
+            "desenvolupador front-end",
+            "desenvolupador web",
+            "enginyer de programari",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Mapa del lloc",
+          "description": "Totes les pàgines d’aquest lloc, en tots els idiomes — l’índex complet d’enllaços.",
+          "intro": "Totes les pàgines d’aquest lloc, en tots els idiomes — l’índex complet d’enllaços.",
+          "groups": {
+            "pages": "Pàgines",
+            "legal": "Avís legal",
+            "portfolio": "Portafoli",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Mèdia"
+          },
+          "searchThemes": [
+            "mapa del lloc",
+            "índex d'enllaços",
+            "totes les pàgines",
+            "directori de pàgines",
+            "navegació del lloc",
             "portafoli",
             "portafoli de luis krötz",
             "desenvolupador front-end",
@@ -111079,16 +112927,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: fons de marca i estructura de layout",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: visió general de fonaments",
                   "size": [
                     1980,
@@ -112311,7 +114149,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, visió general del lloc web",
-            "dell design system: fons de marca i estructura de layout",
             "dell design system: visió general de fonaments",
             "dell design system: arquitectura de codi i directrius",
             "dell design system: principis per començar",
@@ -112361,7 +114198,8 @@
         "license": "llicencia",
         "earthPlayground": "playground-de-la-terra",
         "starField": "experiment-camp-estelar",
-        "animations": "animacions"
+        "animations": "animacions",
+        "search": "cerca"
       }
     },
     "gl": {
@@ -112385,6 +114223,7 @@
         "featured": "Traballo seleccionado",
         "title": "Luis Krötz",
         "preferences": "Preferencias",
+        "setLanguage": "Definir idioma",
         "language": "Idioma",
         "pref": {
           "title": "Preferencias",
@@ -112511,7 +114350,10 @@
           "loadFailed": "Unha sección non se puido cargar",
           "dismiss": "Pechar a notificación"
         },
-        "animations": "Referencia de Animacións"
+        "animations": "Referencia de Animacións",
+        "search": "Busca",
+        "rssFeed": "Canle RSS",
+        "sitemap": "Mapa do sitio"
       },
       "components": {
         "contact": {
@@ -112779,22 +114621,30 @@
             "alt": "Tarxeta de proxecto relacionado elevándose e facendo zoom en hover",
             "longdesc": "As tarxetas de proxectos relacionados ao final das páxinas de proxecto. Animación: en hover a tarxeta elévase, a imaxe fai un zoom suave e título/descrición sobem — todo con easing de resorte amortecido (springs sintetizados en CSS linear()) para que o movemento pase lixeiramente e se asente de forma orgánica; un brillo varre o bordo da tarxeta. Disparador: hover/foco do punteiro. Tecnoloxía: transicións CSS en transform/opacity dirixidas por curvas de resorte. Propósito: facer que a affordance de navegación se sinta física e convidante."
           },
-          "note-dot": {
-            "alt": "Marcador de nota pulsando suavemente",
-            "longdesc": "Os pequenos marcadores de nota/punto usados nas páxinas de internals (documentación e internas de proxecto). Animación: o punto pulsa suavemente — un loop respirante de escala e fade. Disparador: fai loop continuamente en pantalla. Tecnoloxía: un keyframe CSS (note-dot-pulse). Propósito: marcar o elemento como anotación viva sen esixir atención."
-          },
           "body-glow": {
             "alt": "Brillo ambiente da páxina derivando detrás do contido",
             "longdesc": "O brillo de fondo ambiente detrás do contido da páxina. Animación: un gran gradiente radial suave deriva lentamente polo documento, cambiando posición e intensidade nun loop longo. Disparador: corre continuamente en todas as páxinas. Tecnoloxía: un keyframe CSS (body-glow-drift) animando unha capa de fondo fixa — cero JavaScript. Propósito: dar atmosfera e profundidade ao tema escuro no canto dun fondo chá."
+          },
+          "card-stack": {
+            "alt": "Baralla de traballos seleccionados con física de arrastre e conta atrás no bordo iluminado",
+            "longdesc": "A baralla de proxectos destacados da páxina principal. Animación: as cartas repártense nunha pila/abano 3D — as follas laterais inclínanse cara dentro con esvaecimento progresivo mentres a carta activa crece; un arco luminoso percorre o bordo fino da carta activa durante unha conta atrás de dez segundos reflectida no botón play/pausa, e o título do proxecto queima e recompónse en cada navegación ou cando a sección entra en pantalla. Disparador: xestos de arrastrar/deslizar, controis anterior/seguinte e índice, o temporizador de autoplay e a entrada ao facer scroll. Técnica: poses calculadas en JS sobre transforms 3D de CSS, unha propiedade personalizada de conic-gradient pintada por frame e o paper-burn en canvas compartido. Propósito: que os proxectos destacados parezan unha baralla física que abres, repartes e barallas."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Todos os proxectos",
           "archive": "Explora máis",
+          "autoplayPlay": "Reproducir autoplay",
+          "autoplayPause": "Pausar autoplay",
+          "deckHint": "Arrastra ou desliza as tarxetas para explorar",
+          "swipeHint": "Desliza",
           "explore": "Mira",
           "featured": "Traballo seleccionado",
+          "featuredTitle": "Proxectos destacados",
           "message": "Traballo seleccionado",
+          "projectLabel": "Proxecto",
+          "viewAll": "Ver todos",
           "portfoliolist": [
             {
               "description": "Construción e escalado de Dell Design System para dar servizo a máis de 500 produtos empresariais.<br>Actuando como Enxeñeiro de Software, Agile Champion, Tech Lead e Analista de Soporte en fluxos de traballo interfuncionais de enxeñaría, accesibilidade, contido, deseño e especificacións de IA para acadar a creación fluída de compoñentes multiframework, paridade, soporte e mantemento en Vanilla, React, Angular e Visualización de Datos para un deseño e experiencias de usuario unificadas.",
@@ -113108,7 +114958,46 @@
             }
           ],
           "title": "Sobre min",
+          "subtitle": "A persoa detrás dos píxeles",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "na ufsm, entre os 40 mellores traballos do 28º jai",
             "premio cssda special kudos, outorgado á primeira versión de luiskr.com",
@@ -113523,7 +115412,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Playground da Terra",
+          "title": "Playground da Terra — Simulación Interactiva da Terra",
           "experienceSettings": "Configuración da experiencia",
           "systemBoot": "Arranque do sistema",
           "camera": "Cámara",
@@ -113589,7 +115478,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Playground WebGL interactivo da Terra — axusta terreo, atmosfera, iluminación e postprocesado en directo.",
+          "description": "Simulación WebGL interactiva da Terra — axusta terreo, atmosfera, iluminación e posprocesado en vivo no navegador.",
           "shareGallery": "Capturas para compartir",
           "shareCapture": "Render da Terra",
           "searchThemes": [
@@ -113834,6 +115723,96 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "portafolio",
+            "portafolio de luis krötz",
+            "desenvolvedor front-end",
+            "desenvolvedor web",
+            "enxeñeiro de software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Busca",
+          "description": "Busca todas as páxinas, proxectos e experimentos de luiskr.com.",
+          "link": "Busca",
+          "search": {
+            "label": "Busca",
+            "placeholder": "Buscar páxinas, proxectos, experimentos…",
+            "empty": "Ningunha ruta coincide — proba outro termo.",
+            "go": "Abrir",
+            "results": "Rutas coincidentes",
+            "hint": "Escribe para filtrar — as frechas navegan, Enter abre.",
+            "found": "{n} resultados atopados",
+            "groups": {
+              "pages": "Páxinas",
+              "portfolio": "Portafolio",
+              "experiments": "Experimentos",
+              "legal": "Legal"
+            },
+            "pager": "Páxinas de resultados",
+            "prev": "Páxina anterior de resultados",
+            "next": "Páxina seguinte de resultados",
+            "page": "Páxina {a} de {b}"
+          },
+          "searchThemes": [
+            "busca",
+            "busca no sitio",
+            "atopar",
+            "busca no portafolio",
+            "proxectos",
+            "catálogo",
+            "luis krötz",
+            "luiskr.com",
+            "portafolio",
+            "experimentos webgl",
+            "rutas coincidentes",
+            "sobre min",
+            "contacto",
+            "playground da terra",
+            "campo estelar",
+            "referencia de animacións",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "portafolio de luis krötz",
+            "desenvolvedor front-end",
+            "desenvolvedor web",
+            "enxeñeiro de software",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Mapa do sitio",
+          "description": "Todas as páxinas deste sitio, en todos os idiomas — o índice completo de ligazóns.",
+          "intro": "Todas as páxinas deste sitio, en todos os idiomas — o índice completo de ligazóns.",
+          "groups": {
+            "pages": "Páxinas",
+            "legal": "Aviso legal",
+            "portfolio": "Portafolio",
+            "playground": "Playground",
+            "docs": "Docs",
+            "media": "Medios"
+          },
+          "searchThemes": [
+            "mapa do sitio",
+            "índice de ligazóns",
+            "todas as páxinas",
+            "directorio de páxinas",
+            "navegación do sitio",
             "portafolio",
             "portafolio de luis krötz",
             "desenvolvedor front-end",
@@ -119111,16 +121090,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: fondo de marca e estrutura de layout",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: vista xeral de fundamentos",
                   "size": [
                     1980,
@@ -120343,7 +122312,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, vista xeral do sitio web",
-            "dell design system: fondo de marca e estrutura de layout",
             "dell design system: vista xeral de fundamentos",
             "dell design system: arquitectura de código e directrices",
             "dell design system: principios para comezar",
@@ -120393,7 +122361,8 @@
         "license": "licenza",
         "earthPlayground": "playground-da-terra",
         "starField": "experimento-campo-estelar",
-        "animations": "animacions"
+        "animations": "animacions",
+        "search": "busca"
       }
     },
     "ga": {
@@ -120417,6 +122386,7 @@
         "featured": "Saothar roghnaithe",
         "title": "Luis Krötz",
         "preferences": "Sainroghanna",
+        "setLanguage": "Socraigh teanga",
         "language": "Teanga",
         "pref": {
           "title": "Sainroghanna",
@@ -120543,7 +122513,10 @@
           "loadFailed": "Theip ar rannán a lódáil",
           "dismiss": "Dún an fógra"
         },
-        "animations": "Tagairt Beochana"
+        "animations": "Tagairt Beochana",
+        "search": "Cuardach",
+        "rssFeed": "Fotha RSS",
+        "sitemap": "Mapa an tsuímh"
       },
       "components": {
         "contact": {
@@ -120811,22 +122784,30 @@
             "alt": "Cárta tionscadail ghaolmhar ag ardú agus zúmáil ar hover",
             "longdesc": "Na cártaí tionscadail ghaolmhar ag bun na leathanaigh tionscadail. Beochan: ar hover ardaíonn an cárta, zúmálann a íomhá go bog agus sleamhnaíonn teideal/cur síos suas — ar fad ar easing sprionga maolaithe (springs sintéisithe in CSS linear()) ionas go dtéann an ghluaiseacht thar beagán agus go suíonn sé go orgánach; scuabann loinnir imeall an chárta. Spreagthóir: hover/fócas an pointeora. Teicneolaíocht: aistrithe CSS ar transform/opacity faoi threoir cuair sprionga. Cuspóir: déanann sé an affordance nascleanúna fisiciúil agus cuireadhach."
           },
-          "note-dot": {
-            "alt": "Marcálaí nóta ag pulsáil go bog",
-            "longdesc": "Na marcálaithe nóta/pointe beaga a úsáidtear ar leathanaigh internals (doiciméadú agus inmheánacha tionscadail). Beochan: pulsann an pointe go bog — lúb análaithe de scála agus fade. Spreagthóir: lúbaíonn go leanúnach ar an scáileán. Teicneolaíocht: keyframe CSS amháin (note-dot-pulse). Cuspóir: an eilimint a chomharthaíocht mar nóta beo gan aird a éileamh."
-          },
           "body-glow": {
             "alt": "Loinnir chomhthimpeallach an leathanaigh ag sreabhadh taobh thiar den ábhar",
             "longdesc": "An loinnir chúlra chomhthimpeallach taobh thiar d'ábhar an leathanaigh. Beochan: sreabhann grádán radacha mór bog go mall trasna an doiciméid, ag athrú suímh agus déine i lúb fhada. Spreagthóir: ritheann go leanúnach ar gach leathanach. Teicneolaíocht: keyframe CSS amháin (body-glow-drift) ag beochan ciseal chúlra sheasta — nialas JavaScript. Cuspóir: atmaisféar agus doimhneacht a thabhairt don téama dorcha in ionad cúlra álainn."
+          },
+          "card-stack": {
+            "alt": "Bearta cártaí saothair roghnaithe le fisic tarraingthe agus comhaireamh síos ar an imeall lonrach",
+            "longdesc": "An bearta cártaí de thionscadail roghnaithe ar an leathanach baile. Beochan: déileáiltear cártaí trí chruach/lúchair 3T — claonann na bileoga taobh isteach le maolú forchéimnitheach agus an cárta gníomhach ag fás; taistealaíonn stua lonrach thar imeall tanaí an chárta ghníomhaigh le linn comhaireamh síos deich soicind a chaitear ar an gcnaipe seinn/sos, agus loisceann agus fíonn teideal an tionscadail arís ar gach nascleanúint nó nuair a scrollaíonn an rannóg isteach sa radharc. Spreagtha: comharthaí tarraingthe/svae, rialuithe siar/ar aghaidh agus innéacs, an t-amadóir uathsheinm agus an iontráil scrollaithe. Teicneolaíocht: suímh ríofa in JS ar transforms 3T CSS, airí saincheaptha conic-gradient péinteáilte in aghaidh an fhráma agus an paper-burn canvas comhroinnte. Cuspóir: déanann sé go mbraitheann tionscadail roghnaithe cosúil le bearta cártaí fisiceach a lúchaireann, a dhéileálann agus a mheascann tú."
           }
         }
       },
       "pages": {
         "HOME": {
+          "allProjects": "Gach tionscadal",
           "archive": "Déan iniúchadh breise",
+          "autoplayPlay": "Seinn uathsheinm",
+          "autoplayPause": "Cuir uathsheinm ar sos",
+          "deckHint": "Tarraing nó svae na cártaí chun iad a fhiosrú",
+          "swipeHint": "Svae",
           "explore": "Breathnaigh ar",
           "featured": "Saothar roghnaithe",
+          "featuredTitle": "Tionscadail roghnaithe",
           "message": "Saothar roghnaithe",
+          "projectLabel": "Tionscadal",
+          "viewAll": "Féach uile",
           "portfoliolist": [
             {
               "description": "Dell Design System a thógáil agus a scálú chun freastal ar níos mó ná 500 táirge fiontair.<br>Ag gníomhú mar Innealtóir Bogearraí, Curadh Aclaí, Ceannaire Teicniúil agus Anailísí Tacaíochta ar shreafaí oibre trasfheidhmeacha innealtóireachta, inrochtaineachta, ábhair, dearaidh agus sonraíochtaí AI chun comhpháirteanna ilteangacha a chruthú gan stró, comhionannas, tacaíocht agus cothabháil a bhaint amach thar Vanilla, React, Angular agus Amharcléiriú Sonraí le haghaidh dearadh agus eispéiris úsáideora aontaithe.",
@@ -121139,7 +123120,46 @@
             }
           ],
           "title": "Fúmsa",
+          "subtitle": "An duine taobh thiar de na picteilíní",
           "profilePicture": "https://gravatar.com/avatar/6eff24eea3fb805dfa84837e62ae72ab242378ac3b35bd0e763168f6efe15746?v=1786948200000&size=1280",
+          "locations": [
+            {
+              "name": "UFSM Frederico Westphalen",
+              "latitude": "27° 23' 50\" S",
+              "longitude": "53° 25' 39\" W",
+              "altitude": "480 m"
+            },
+            {
+              "name": "Porto Alegre",
+              "latitude": "30° 04' 58\" S",
+              "longitude": "51° 14' 23\" W"
+            },
+            {
+              "name": "Sant'Ana do Livramento",
+              "latitude": "30° 51' 24\" S",
+              "longitude": "55° 29' 45\" W"
+            },
+            {
+              "name": "Dell Eldorado do Sul",
+              "latitude": "29° 59' 11\" S",
+              "longitude": "51° 16' 20\" W"
+            },
+            {
+              "name": "Campina das Missões",
+              "latitude": "27° 59' 20\" S",
+              "longitude": "54° 50' 22\" W"
+            },
+            {
+              "name": "UFSM Santa Maria",
+              "latitude": "29° 42' 58\" S",
+              "longitude": "53° 42' 58\" W"
+            },
+            {
+              "name": "UFAC Rio Branco",
+              "latitude": "9° 58' 16\" S",
+              "longitude": "67° 48' 40\" W"
+            }
+          ],
           "searchThemes": [
             "in ufsm, i measc na 40 saothar is fearr den 28ú jai",
             "duais speisialta kudos cssda, bronnta ar an gcéad leagan de luiskr.com",
@@ -121552,7 +123572,7 @@
           ]
         },
         "earth-playground": {
-          "title": "Clós Spraoi an Domhain",
+          "title": "Clós Spraoi an Domhain — Insamhladh Idirghníomhach an Domhain",
           "experienceSettings": "Socruithe an Eispéiris",
           "systemBoot": "Tosú Córais",
           "camera": "Ceamara",
@@ -121618,7 +123638,7 @@
             "blackLevel": 0.015,
             "resScale": 1
           },
-          "description": "Clós súgartha WebGL idirghníomhach den Domhan — coigeartaigh tír-raon, atmaisféar, soilsiú agus iarphróiseáil beo.",
+          "description": "Insamhladh WebGL idirghníomhach den Domhan — coigeartaigh tír-raon, atmaisféar, soilsiú agus iarphróiseáil beo sa bhrabhsálaí.",
           "shareGallery": "Gabhálacha le roinnt",
           "shareCapture": "Rindreáil an Domhain",
           "searchThemes": [
@@ -121857,6 +123877,96 @@
             "luis krötz",
             "luis krotz",
             "luiskr.com",
+            "punann",
+            "punann luis krötz",
+            "forbróir front-end",
+            "forbróir gréasáin",
+            "innealtóir bogearraí",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "search": {
+          "title": "Cuardach",
+          "description": "Cuardaigh gach leathanach, tionscadal agus turgnamh ar luiskr.com.",
+          "link": "Cuardach",
+          "search": {
+            "label": "Cuardach",
+            "placeholder": "Cuardaigh leathanaigh, tionscadail, turgnaimh…",
+            "empty": "Gan aon ródaire meaitseála — bain triail as téarma eile.",
+            "go": "Oscail",
+            "results": "Ródaire mheaitseála",
+            "hint": "Scríobh chun scagadh — bogann na saighde, osclaíonn Enter.",
+            "found": "{n} toradh aimsithe",
+            "groups": {
+              "pages": "Leathanaigh",
+              "portfolio": "Punann",
+              "experiments": "Turgnaimh",
+              "legal": "Dlí"
+            },
+            "pager": "Leathanaigh torthaí",
+            "prev": "Leathanach torthaí roimhe",
+            "next": "Leathanach torthaí ina dhiaidh",
+            "page": "Leathanach {a} as {b}"
+          },
+          "searchThemes": [
+            "cuardach",
+            "cuardach sa láithreán",
+            "aimsiú",
+            "cuardach sa phunann",
+            "tionscadail",
+            "catalóg",
+            "luis krötz",
+            "luiskr.com",
+            "punann",
+            "turgnaimh webgl",
+            "ródaire mheaitseála",
+            "maidir liom",
+            "teagmháil",
+            "clós spraoi an domhain",
+            "réimse réalta",
+            "tagairt beochana",
+            "marco almeida",
+            "cecerelê",
+            "brazilian leather",
+            "coza",
+            "melissa",
+            "metcha",
+            "mini melissa",
+            "mor",
+            "nathalia bond",
+            "genesysinf, sageweb",
+            "transa",
+            "vibra",
+            "luis krotz",
+            "punann luis krötz",
+            "forbróir front-end",
+            "forbróir gréasáin",
+            "innealtóir bogearraí",
+            "javascript",
+            "css",
+            "webgl"
+          ]
+        },
+        "sitemap": {
+          "title": "Mapa an tsuímh",
+          "description": "Gach leathanach ar an suíomh seo, i ngach teanga — innéacs iomlán na naisc.",
+          "intro": "Gach leathanach ar an suíomh seo, i ngach teanga — innéacs iomlán na naisc.",
+          "groups": {
+            "pages": "Leathanaigh",
+            "legal": "Dlí",
+            "portfolio": "Punann",
+            "playground": "Clós súgartha",
+            "docs": "Docs",
+            "media": "Meáin"
+          },
+          "searchThemes": [
+            "mapa an tsuímh",
+            "inéacs naisc",
+            "gach leathanach",
+            "eolaire leathanaigh",
+            "loingseoireacht an tsuímh",
             "punann",
             "punann luis krötz",
             "forbróir front-end",
@@ -127135,16 +129245,6 @@
                 {
                   "canExpand": true,
                   "class": "landscape",
-                  "label": "Dell Design System: cúlra branda agus struchtúr leagan amach",
-                  "size": [
-                    997,
-                    720
-                  ],
-                  "src": "covers/dell-design-system-brand-background-and-layout-structure-v2"
-                },
-                {
-                  "canExpand": true,
-                  "class": "landscape",
                   "label": "Dell Design System: forbhreathnú ar bhunsraitheanna",
                   "size": [
                     1980,
@@ -128367,7 +130467,6 @@
           "searchThemes": [
             "dell design system",
             "dell design system, forbhreathnú ar an suíomh gréasáin",
-            "dell design system: cúlra branda agus struchtúr leagan amach",
             "dell design system: forbhreathnú ar bhunsraitheanna",
             "dell design system: ailtireacht chóid agus treoirlínte",
             "dell design system: prionsabail tosaigh",
@@ -128417,7 +130516,8 @@
         "license": "ceadunas",
         "earthPlayground": "playground-an-domhain",
         "starField": "turgnamh-reimse-realta",
-        "animations": "beochan"
+        "animations": "beochan",
+        "search": "cuardach"
       }
     }
   }

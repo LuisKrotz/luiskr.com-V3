@@ -4,7 +4,7 @@
   },
   "hosting": {
     "predeploy": "node shared/scripts/build/predeploy.mjs",
-    "postdeploy": "node shared/scripts/build/stamp-content-signal.mjs --revert",
+    "postdeploy": "node shared/scripts/build/stamp-content-signal.mjs --revert && node shared/scripts/build/submit-indexnow.mjs",
     "trailingSlash": false,
     "public": "dist",
     "ignore": [
@@ -51,7 +51,7 @@
           },
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://www.googletagmanager.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://storage.googleapis.com https://flagcdn.com https://gravatar.com https://www.gravatar.com https://secure.gravatar.com https://www.google-analytics.com https://*.google-analytics.com https://www.google.com https://www.google.com.br https://*.google.com.br; connect-src 'self' https://luiskr-com.firebaseio.com wss://luiskr-com.firebaseio.com https://*.googleapis.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://flagcdn.com https://gravatar.com https://www.gravatar.com; media-src 'self' blob: https://storage.googleapis.com; worker-src 'self' blob:; frame-src 'self' https://accounts.google.com https://*.firebaseapp.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; manifest-src 'self'; object-src 'none'"
+            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' https://www.googletagmanager.com https://apis.google.com https://www.clarity.ms https://scripts.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://storage.googleapis.com https://flagcdn.com https://gravatar.com https://www.gravatar.com https://secure.gravatar.com https://www.google-analytics.com https://*.google-analytics.com https://www.google.com https://www.google.com.br https://*.google.com.br https://*.clarity.ms https://c.bing.com; connect-src 'self' https://luiskr-com.firebaseio.com wss://luiskr-com.firebaseio.com https://*.googleapis.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://flagcdn.com https://gravatar.com https://www.gravatar.com https://*.clarity.ms https://c.bing.com; media-src 'self' blob: https://storage.googleapis.com; worker-src 'self' blob:; frame-src 'self' https://accounts.google.com https://*.firebaseapp.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self'; manifest-src 'self'; object-src 'none'"
           }
         ]
       },
@@ -69,24 +69,6 @@
           {
             "key": "Cross-Origin-Embedder-Policy",
             "value": "unsafe-none"
-          }
-        ]
-      },
-      {
-        "source": "/docs",
-        "headers": [
-          {
-            "key": "X-Robots-Tag",
-            "value": "noindex"
-          }
-        ]
-      },
-      {
-        "source": "/docs/**",
-        "headers": [
-          {
-            "key": "X-Robots-Tag",
-            "value": "noindex"
           }
         ]
       },
@@ -225,7 +207,7 @@
         ]
       },
       {
-        "source": "**/*.md",
+        "source": "/!(docs)/**/*.md",
         "headers": [
           {
             "key": "Content-Type",
@@ -242,7 +224,24 @@
         ]
       },
       {
-        "source": "**/*.json",
+        "source": "/*.md",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/markdown; charset=utf-8"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "/!(docs)/**/*.json",
         "headers": [
           {
             "key": "Content-Type",
@@ -251,6 +250,58 @@
           {
             "key": "Access-Control-Allow-Origin",
             "value": "*"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "/*.json",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json; charset=utf-8"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "**/feed.xml",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          }
+        ]
+      },
+      {
+        "source": "/rss.xml",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          }
+        ]
+      },
+      {
+        "source": "/feed.css",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/css; charset=utf-8"
+          },
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
           },
           {
             "key": "Cache-Control",
@@ -293,7 +344,7 @@
         ]
       },
       {
-        "source": "**/auth.md",
+        "source": "/!(docs)/**/auth.md",
         "headers": [
           {
             "key": "Content-Type",
@@ -396,7 +447,7 @@
         ]
       },
       {
-        "source": "/**/*.md",
+        "source": "/!(docs)/**/*.md",
         "headers": [
           {
             "key": "X-Robots-Tag",
@@ -417,7 +468,45 @@
         ]
       },
       {
-        "source": "/**/*.json",
+        "source": "/*.md",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          },
+          {
+            "key": "Content-Type",
+            "value": "text/markdown; charset=utf-8"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "/!(docs)/**/*.json",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json; charset=utf-8"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          }
+        ]
+      },
+      {
+        "source": "/*.json",
         "headers": [
           {
             "key": "X-Robots-Tag",
@@ -462,6 +551,10 @@
       {
         "source": "/rss.xml",
         "destination": "/meta/feed.xml"
+      },
+      {
+        "source": "/feed.css",
+        "destination": "/meta/feed.css"
       },
       {
         "source": "/.well-known/ai-catalog.json",
@@ -912,6 +1005,10 @@
         "destination": "/langs/br/animacoes/index.html"
       },
       {
+        "source": "/br/mapa-do-site",
+        "destination": "/langs/br/mapa-do-site/index.html"
+      },
+      {
         "source": "/br/earth-playground",
         "destination": "/langs/br/earth-playground/index.html"
       },
@@ -922,6 +1019,10 @@
       {
         "source": "/br/star-field-experiment",
         "destination": "/langs/br/star-field-experiment/index.html"
+      },
+      {
+        "source": "/br/portfolio/dell-design-system",
+        "destination": "/langs/br/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/br/portfolio/aboutmarco",
@@ -938,10 +1039,6 @@
       {
         "source": "/br/portfolio/coza",
         "destination": "/langs/br/portfolio/coza/index.html"
-      },
-      {
-        "source": "/br/portfolio/dell-design-system",
-        "destination": "/langs/br/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/br/portfolio/melissa",
@@ -1016,6 +1113,10 @@
         "destination": "/langs/es/animaciones/index.html"
       },
       {
+        "source": "/es/mapa-del-sitio",
+        "destination": "/langs/es/mapa-del-sitio/index.html"
+      },
+      {
         "source": "/es/earth-playground",
         "destination": "/langs/es/earth-playground/index.html"
       },
@@ -1026,6 +1127,10 @@
       {
         "source": "/es/star-field-experiment",
         "destination": "/langs/es/star-field-experiment/index.html"
+      },
+      {
+        "source": "/es/portfolio/dell-design-system",
+        "destination": "/langs/es/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/es/portfolio/aboutmarco",
@@ -1042,10 +1147,6 @@
       {
         "source": "/es/portfolio/coza",
         "destination": "/langs/es/portfolio/coza/index.html"
-      },
-      {
-        "source": "/es/portfolio/dell-design-system",
-        "destination": "/langs/es/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/es/portfolio/melissa",
@@ -1120,6 +1221,10 @@
         "destination": "/langs/de/animationen/index.html"
       },
       {
+        "source": "/de/sitemap",
+        "destination": "/langs/de/sitemap/index.html"
+      },
+      {
         "source": "/de/earth-playground",
         "destination": "/langs/de/earth-playground/index.html"
       },
@@ -1130,6 +1235,10 @@
       {
         "source": "/de/star-field-experiment",
         "destination": "/langs/de/star-field-experiment/index.html"
+      },
+      {
+        "source": "/de/portfolio/dell-design-system",
+        "destination": "/langs/de/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/de/portfolio/aboutmarco",
@@ -1146,10 +1255,6 @@
       {
         "source": "/de/portfolio/coza",
         "destination": "/langs/de/portfolio/coza/index.html"
-      },
-      {
-        "source": "/de/portfolio/dell-design-system",
-        "destination": "/langs/de/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/de/portfolio/melissa",
@@ -1224,6 +1329,10 @@
         "destination": "/langs/hrk/animatsione/index.html"
       },
       {
+        "source": "/hrk/sitemap",
+        "destination": "/langs/hrk/sitemap/index.html"
+      },
+      {
         "source": "/hrk/earth-playground",
         "destination": "/langs/hrk/earth-playground/index.html"
       },
@@ -1234,6 +1343,10 @@
       {
         "source": "/hrk/star-field-experiment",
         "destination": "/langs/hrk/star-field-experiment/index.html"
+      },
+      {
+        "source": "/hrk/portfolio/dell-design-system",
+        "destination": "/langs/hrk/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/hrk/portfolio/aboutmarco",
@@ -1250,10 +1363,6 @@
       {
         "source": "/hrk/portfolio/coza",
         "destination": "/langs/hrk/portfolio/coza/index.html"
-      },
-      {
-        "source": "/hrk/portfolio/dell-design-system",
-        "destination": "/langs/hrk/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/hrk/portfolio/melissa",
@@ -1328,6 +1437,10 @@
         "destination": "/langs/cas/animaciones/index.html"
       },
       {
+        "source": "/cas/mapa-del-sitio",
+        "destination": "/langs/cas/mapa-del-sitio/index.html"
+      },
+      {
         "source": "/cas/earth-playground",
         "destination": "/langs/cas/earth-playground/index.html"
       },
@@ -1338,6 +1451,10 @@
       {
         "source": "/cas/star-field-experiment",
         "destination": "/langs/cas/star-field-experiment/index.html"
+      },
+      {
+        "source": "/cas/portfolio/dell-design-system",
+        "destination": "/langs/cas/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/cas/portfolio/aboutmarco",
@@ -1354,10 +1471,6 @@
       {
         "source": "/cas/portfolio/coza",
         "destination": "/langs/cas/portfolio/coza/index.html"
-      },
-      {
-        "source": "/cas/portfolio/dell-design-system",
-        "destination": "/langs/cas/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/cas/portfolio/melissa",
@@ -1432,6 +1545,10 @@
         "destination": "/langs/riv/animacoes/index.html"
       },
       {
+        "source": "/riv/mapa-do-site",
+        "destination": "/langs/riv/mapa-do-site/index.html"
+      },
+      {
         "source": "/riv/earth-playground",
         "destination": "/langs/riv/earth-playground/index.html"
       },
@@ -1442,6 +1559,10 @@
       {
         "source": "/riv/star-field-experiment",
         "destination": "/langs/riv/star-field-experiment/index.html"
+      },
+      {
+        "source": "/riv/portfolio/dell-design-system",
+        "destination": "/langs/riv/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/riv/portfolio/aboutmarco",
@@ -1458,10 +1579,6 @@
       {
         "source": "/riv/portfolio/coza",
         "destination": "/langs/riv/portfolio/coza/index.html"
-      },
-      {
-        "source": "/riv/portfolio/dell-design-system",
-        "destination": "/langs/riv/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/riv/portfolio/melissa",
@@ -1536,6 +1653,10 @@
         "destination": "/langs/gn/jeguama/index.html"
       },
       {
+        "source": "/gn/pe-saito-mapa",
+        "destination": "/langs/gn/pe-saito-mapa/index.html"
+      },
+      {
         "source": "/gn/earth-playground",
         "destination": "/langs/gn/earth-playground/index.html"
       },
@@ -1546,6 +1667,10 @@
       {
         "source": "/gn/star-field-experiment",
         "destination": "/langs/gn/star-field-experiment/index.html"
+      },
+      {
+        "source": "/gn/portfolio/dell-design-system",
+        "destination": "/langs/gn/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/gn/portfolio/aboutmarco",
@@ -1562,10 +1687,6 @@
       {
         "source": "/gn/portfolio/coza",
         "destination": "/langs/gn/portfolio/coza/index.html"
-      },
-      {
-        "source": "/gn/portfolio/dell-design-system",
-        "destination": "/langs/gn/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/gn/portfolio/melissa",
@@ -1640,6 +1761,10 @@
         "destination": "/langs/it/animazioni/index.html"
       },
       {
+        "source": "/it/mappa-del-sito",
+        "destination": "/langs/it/mappa-del-sito/index.html"
+      },
+      {
         "source": "/it/earth-playground",
         "destination": "/langs/it/earth-playground/index.html"
       },
@@ -1650,6 +1775,10 @@
       {
         "source": "/it/star-field-experiment",
         "destination": "/langs/it/star-field-experiment/index.html"
+      },
+      {
+        "source": "/it/portfolio/dell-design-system",
+        "destination": "/langs/it/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/it/portfolio/aboutmarco",
@@ -1666,10 +1795,6 @@
       {
         "source": "/it/portfolio/coza",
         "destination": "/langs/it/portfolio/coza/index.html"
-      },
-      {
-        "source": "/it/portfolio/dell-design-system",
-        "destination": "/langs/it/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/it/portfolio/melissa",
@@ -1744,6 +1869,10 @@
         "destination": "/langs/ru/animatsii/index.html"
       },
       {
+        "source": "/ru/karta-sajta",
+        "destination": "/langs/ru/karta-sajta/index.html"
+      },
+      {
         "source": "/ru/earth-playground",
         "destination": "/langs/ru/earth-playground/index.html"
       },
@@ -1754,6 +1883,10 @@
       {
         "source": "/ru/star-field-experiment",
         "destination": "/langs/ru/star-field-experiment/index.html"
+      },
+      {
+        "source": "/ru/portfolio/dell-design-system",
+        "destination": "/langs/ru/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/ru/portfolio/aboutmarco",
@@ -1770,10 +1903,6 @@
       {
         "source": "/ru/portfolio/coza",
         "destination": "/langs/ru/portfolio/coza/index.html"
-      },
-      {
-        "source": "/ru/portfolio/dell-design-system",
-        "destination": "/langs/ru/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/ru/portfolio/melissa",
@@ -1848,6 +1977,10 @@
         "destination": "/langs/fr/animations/index.html"
       },
       {
+        "source": "/fr/plan-du-site",
+        "destination": "/langs/fr/plan-du-site/index.html"
+      },
+      {
         "source": "/fr/earth-playground",
         "destination": "/langs/fr/earth-playground/index.html"
       },
@@ -1858,6 +1991,10 @@
       {
         "source": "/fr/star-field-experiment",
         "destination": "/langs/fr/star-field-experiment/index.html"
+      },
+      {
+        "source": "/fr/portfolio/dell-design-system",
+        "destination": "/langs/fr/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/fr/portfolio/aboutmarco",
@@ -1874,10 +2011,6 @@
       {
         "source": "/fr/portfolio/coza",
         "destination": "/langs/fr/portfolio/coza/index.html"
-      },
-      {
-        "source": "/fr/portfolio/dell-design-system",
-        "destination": "/langs/fr/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/fr/portfolio/melissa",
@@ -1952,6 +2085,10 @@
         "destination": "/langs/tln/animassion/index.html"
       },
       {
+        "source": "/tln/mapa-del-sito",
+        "destination": "/langs/tln/mapa-del-sito/index.html"
+      },
+      {
         "source": "/tln/earth-playground",
         "destination": "/langs/tln/earth-playground/index.html"
       },
@@ -1962,6 +2099,10 @@
       {
         "source": "/tln/star-field-experiment",
         "destination": "/langs/tln/star-field-experiment/index.html"
+      },
+      {
+        "source": "/tln/portfolio/dell-design-system",
+        "destination": "/langs/tln/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/tln/portfolio/aboutmarco",
@@ -1978,10 +2119,6 @@
       {
         "source": "/tln/portfolio/coza",
         "destination": "/langs/tln/portfolio/coza/index.html"
-      },
-      {
-        "source": "/tln/portfolio/dell-design-system",
-        "destination": "/langs/tln/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/tln/portfolio/melissa",
@@ -2056,6 +2193,10 @@
         "destination": "/langs/gl/animacions/index.html"
       },
       {
+        "source": "/gl/mapa-do-sitio",
+        "destination": "/langs/gl/mapa-do-sitio/index.html"
+      },
+      {
         "source": "/gl/earth-playground",
         "destination": "/langs/gl/earth-playground/index.html"
       },
@@ -2066,6 +2207,10 @@
       {
         "source": "/gl/star-field-experiment",
         "destination": "/langs/gl/star-field-experiment/index.html"
+      },
+      {
+        "source": "/gl/portfolio/dell-design-system",
+        "destination": "/langs/gl/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/gl/portfolio/aboutmarco",
@@ -2082,10 +2227,6 @@
       {
         "source": "/gl/portfolio/coza",
         "destination": "/langs/gl/portfolio/coza/index.html"
-      },
-      {
-        "source": "/gl/portfolio/dell-design-system",
-        "destination": "/langs/gl/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/gl/portfolio/melissa",
@@ -2160,6 +2301,10 @@
         "destination": "/langs/ca/animacions/index.html"
       },
       {
+        "source": "/ca/mapa-del-lloc",
+        "destination": "/langs/ca/mapa-del-lloc/index.html"
+      },
+      {
         "source": "/ca/earth-playground",
         "destination": "/langs/ca/earth-playground/index.html"
       },
@@ -2170,6 +2315,10 @@
       {
         "source": "/ca/star-field-experiment",
         "destination": "/langs/ca/star-field-experiment/index.html"
+      },
+      {
+        "source": "/ca/portfolio/dell-design-system",
+        "destination": "/langs/ca/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/ca/portfolio/aboutmarco",
@@ -2186,10 +2335,6 @@
       {
         "source": "/ca/portfolio/coza",
         "destination": "/langs/ca/portfolio/coza/index.html"
-      },
-      {
-        "source": "/ca/portfolio/dell-design-system",
-        "destination": "/langs/ca/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/ca/portfolio/melissa",
@@ -2264,6 +2409,10 @@
         "destination": "/langs/nl/animaties/index.html"
       },
       {
+        "source": "/nl/sitemap",
+        "destination": "/langs/nl/sitemap/index.html"
+      },
+      {
         "source": "/nl/earth-playground",
         "destination": "/langs/nl/earth-playground/index.html"
       },
@@ -2274,6 +2423,10 @@
       {
         "source": "/nl/star-field-experiment",
         "destination": "/langs/nl/star-field-experiment/index.html"
+      },
+      {
+        "source": "/nl/portfolio/dell-design-system",
+        "destination": "/langs/nl/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/nl/portfolio/aboutmarco",
@@ -2290,10 +2443,6 @@
       {
         "source": "/nl/portfolio/coza",
         "destination": "/langs/nl/portfolio/coza/index.html"
-      },
-      {
-        "source": "/nl/portfolio/dell-design-system",
-        "destination": "/langs/nl/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/nl/portfolio/melissa",
@@ -2368,6 +2517,10 @@
         "destination": "/langs/ga/beochan/index.html"
       },
       {
+        "source": "/ga/mapa-an-tsuimh",
+        "destination": "/langs/ga/mapa-an-tsuimh/index.html"
+      },
+      {
         "source": "/ga/earth-playground",
         "destination": "/langs/ga/earth-playground/index.html"
       },
@@ -2378,6 +2531,10 @@
       {
         "source": "/ga/star-field-experiment",
         "destination": "/langs/ga/star-field-experiment/index.html"
+      },
+      {
+        "source": "/ga/portfolio/dell-design-system",
+        "destination": "/langs/ga/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/ga/portfolio/aboutmarco",
@@ -2394,10 +2551,6 @@
       {
         "source": "/ga/portfolio/coza",
         "destination": "/langs/ga/portfolio/coza/index.html"
-      },
-      {
-        "source": "/ga/portfolio/dell-design-system",
-        "destination": "/langs/ga/portfolio/dell-design-system/index.html"
       },
       {
         "source": "/ga/portfolio/melissa",
@@ -3174,6 +3327,11 @@
         "type": 301
       },
       {
+        "source": "/br/sitemap",
+        "destination": "/br/mapa-do-site",
+        "type": 301
+      },
+      {
         "source": "/br/docs",
         "destination": "/docs",
         "type": 301
@@ -3246,6 +3404,11 @@
       {
         "source": "/es/animations",
         "destination": "/es/animaciones",
+        "type": 301
+      },
+      {
+        "source": "/es/sitemap",
+        "destination": "/es/mapa-del-sitio",
         "type": 301
       },
       {
@@ -3474,6 +3637,11 @@
         "type": 301
       },
       {
+        "source": "/cas/sitemap",
+        "destination": "/cas/mapa-del-sitio",
+        "type": 301
+      },
+      {
         "source": "/cas/docs",
         "destination": "/docs",
         "type": 301
@@ -3546,6 +3714,11 @@
       {
         "source": "/riv/animations",
         "destination": "/riv/animacoes",
+        "type": 301
+      },
+      {
+        "source": "/riv/sitemap",
+        "destination": "/riv/mapa-do-site",
         "type": 301
       },
       {
@@ -3624,6 +3797,11 @@
         "type": 301
       },
       {
+        "source": "/gn/sitemap",
+        "destination": "/gn/pe-saito-mapa",
+        "type": 301
+      },
+      {
         "source": "/gn/docs",
         "destination": "/docs",
         "type": 301
@@ -3691,6 +3869,11 @@
       {
         "source": "/it/animations",
         "destination": "/it/animazioni",
+        "type": 301
+      },
+      {
+        "source": "/it/sitemap",
+        "destination": "/it/mappa-del-sito",
         "type": 301
       },
       {
@@ -3764,6 +3947,11 @@
         "type": 301
       },
       {
+        "source": "/ru/sitemap",
+        "destination": "/ru/karta-sajta",
+        "type": 301
+      },
+      {
         "source": "/ru/docs",
         "destination": "/docs",
         "type": 301
@@ -3826,6 +4014,11 @@
       {
         "source": "/fr/star-field-experiment/**",
         "destination": "/fr/experience-champ-etoile/:splat",
+        "type": 301
+      },
+      {
+        "source": "/fr/sitemap",
+        "destination": "/fr/plan-du-site",
         "type": 301
       },
       {
@@ -3896,6 +4089,11 @@
       {
         "source": "/tln/animations",
         "destination": "/tln/animassion",
+        "type": 301
+      },
+      {
+        "source": "/tln/sitemap",
+        "destination": "/tln/mapa-del-sito",
         "type": 301
       },
       {
@@ -3974,6 +4172,11 @@
         "type": 301
       },
       {
+        "source": "/gl/sitemap",
+        "destination": "/gl/mapa-do-sitio",
+        "type": 301
+      },
+      {
         "source": "/gl/docs",
         "destination": "/docs",
         "type": 301
@@ -4046,6 +4249,11 @@
       {
         "source": "/ca/animations",
         "destination": "/ca/animacions",
+        "type": 301
+      },
+      {
+        "source": "/ca/sitemap",
+        "destination": "/ca/mapa-del-lloc",
         "type": 301
       },
       {
@@ -4186,6 +4394,11 @@
       {
         "source": "/ga/animations",
         "destination": "/ga/beochan",
+        "type": 301
+      },
+      {
+        "source": "/ga/sitemap",
+        "destination": "/ga/mapa-an-tsuimh",
         "type": 301
       },
       {
