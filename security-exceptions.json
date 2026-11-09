@@ -1,3 +1,25 @@
 {
-  "exceptions": []
+  "exceptions": [
+    {
+      "package": "deepmerge",
+      "advisory": "GHSA-gcqx-w48m-w2h4",
+      "severity": "low",
+      "justification": "No patched release exists (vulnerable >=4.2.0 <=4.3.1, fixed: none). Present only inside dev tooling — jest-config and @rollup/plugin-node-resolve (via workbox-build) — merging our own static config objects at build/test time. Never reaches the production bundle and never processes untrusted input, so prototype poisoning of the returned object has no attacker-controlled path.",
+      "review": "2027-05-09"
+    },
+    {
+      "package": "glob",
+      "advisory": "GHSA-3g3m-2fjr-6pw4",
+      "severity": "moderate",
+      "justification": "AbortSignal cancellation-bypass affects glob >=9 <=14.0.1; only dev tooling traverses it — jest (test-exclude), workbox-build, and @lhci/electron-builder internals — walking our own repository trees during test/build. No glob call site receives an attacker-controlled signal or pattern, and pinning >=14.0.2 would violate the declared ^10/^11 ranges of test-exclude and workbox-build (a blanket **/glob pin additionally breaks glob@7 consumers rimraf and @electron/asar). Re-evaluate when the tooling chain upgrades to glob 14.",
+      "review": "2027-05-09"
+    },
+    {
+      "package": "minimatch",
+      "advisory": "GHSA-g3hv-75wg-m249",
+      "severity": "moderate",
+      "justification": "Globparts amplification DoS affects minimatch >=7 <11.0.1; the flagged copy is the hoisted 10.2.6 consumed by glob@10/11/13 inside dev tooling (jest, workbox-build, vite-plugin-pwa) — matching only our own generated glob patterns, never attacker input. Pinning >=11.0.1 would violate glob@11's declared minimatch@^10 range. Re-evaluate on the next jest/workbox major bump.",
+      "review": "2027-05-09"
+    }
+  ]
 }
