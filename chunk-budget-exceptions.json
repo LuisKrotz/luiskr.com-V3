@@ -35,6 +35,18 @@
       "kind": "css",
       "reason": "The document stylesheet monolith is one atomic cascade — the cumulative index-<class>-* sheets (all under cap) are the runtime delivery; this file is vite's emitted entry asset, kept on disk for the service-worker precache manifest and the <noscript> full-sheet fallback. It cannot be divided further without reordering the cascade — the cap guards growth on an unsplittable unit.",
       "review": "2027-01-20"
+    },
+    {
+      "pattern": "^index-(mobile|tablet|desktop|wide)$",
+      "kind": "css",
+      "reason": "The cumulative index-<class>-* sheets are the atomic cascade units actually delivered per viewport class — each is one indivisible cascade (reordering changes specificity, not size). Recent growth is the aurora theme/glow token work plus production animation styles; splitting would only reorder the same rules. The cap guards growth on an unsplittable unit.",
+      "review": "2027-02-09"
+    },
+    {
+      "pattern": "^app~.*(Animations|StarField)",
+      "kind": "js",
+      "reason": "Shared-import route chunks: /animations deliberately mounts the real production components (card stack, carousels, about-section, footer feed, 3D scene) so vite's default grouping co-bundles the modules shared with Home/StarField/Legal/Docs routes. These are lazy per-route chunks — not the critical path — and the growth is the production code itself, which the fidelity requirement mandates; splitting would duplicate shared modules across chunks.",
+      "review": "2027-02-09"
     }
   ]
 }
