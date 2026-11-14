@@ -155,7 +155,8 @@
           "title": "Notice",
           "error": "Something went wrong",
           "loadFailed": "A section couldn't load",
-          "dismiss": "Dismiss notification"
+          "dismiss": "Dismiss notification",
+          "nothingToPrint": "Nothing to print in {route}"
         },
         "animations": "Animations Reference",
         "search": "Search",
@@ -180,6 +181,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -315,6 +320,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -720,7 +729,7 @@
         },
         "about": {
           "col1": [
-            "Hi, I'm Luis,<br />a Software Engineer focused on UX.<br>Currently working at Dell on the <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Hi, I'm Luis.<br />a Software Engineer focused on UX.<br>Currently working at Dell on the <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "I'm an IT professional with deep expertise in web development, systems analysis, and project management. I specialize in building innovative, efficient digital solutions with a strong focus on SEO, accessibility, and performance. My programming background spans ASP, PHP, C, C#, Pascal, Delphi, JavaScript, and SQL, alongside modern frameworks such as React, Vue, and Angular."
           ],
           "col2": [
@@ -728,7 +737,7 @@
             "My work is always focused on delivering pixel-perfect layouts: code that is easy to use, fast, beautiful, and smooth.",
             "I love CSS animation. I spent years crafting Melissa's seasonal collections almost entirely in CSS, and have since worked with JS-based animations using Vue and Lottie, experimented with Three.js, and recently started exploring spec-driven development and AI."
           ],
-          "frame": "Hi, I'm Luis,<br />a Software Engineer focused on UX.<br>Currently working at Dell on the <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Hi, I'm Luis.<br />a Software Engineer focused on UX.<br>Currently working at Dell on the <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Some mentions:",
           "mention_items": [
             {
@@ -1101,6 +1110,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "Nov. 4th 2026:<br>Making Our Documentation AI-Ready<span class=\"sr-only\"> Applause award presented by Igor Almeida recognizing the DDS-SUPPORT pod (Dan, Juan and Luis) for a deep review of the migration documentation — identifying gaps, inconsistencies, and improvements that raised guidance quality and benefit MCP and AI-powered workflows.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "About me",
@@ -1153,7 +1171,10 @@
             "featured on tcg",
             "cssw star",
             "featured on mindsparkle mag",
-            "published work: desenvolvimento de um protótipo para gestão de conhecimento util",
+            "consistency and alignment on dds bravo award presented by jenn white recognizing",
+            "great arrival with awesome wins! cheers award presented by thiago vasconcelos ho",
+            "so long pivotal tracker - hello jira! shout out from bert grantges to the team f",
+            "strong foundations bravo award presented by leonardo ratzlaff recognizing luis k",
             "about",
             "about luis krötz",
             "bio",
@@ -1376,7 +1397,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Any fork can be done via github, under MIT License, using this link.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Any fork can be done via github, under MIT License, using this link.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Any fork of the previous version of my website can be done using this link.</a>"
               ],
               "title": "Repository"
@@ -1816,8 +1837,7 @@
             "loading skeleton with morphing cells and shimmer animation",
             "intro loader with counter-rotating rings and progress",
             "notification toast sliding in from the corner",
-            "portfolio tile title burning away in embers and reassembling",
-            "portfolio tile sliding to a new slot on a spring + border sheen",
+            "project name letters combusting to ash and knitting back in",
             "media image morphing from blurry low-quality to sharp high-quality",
             "about portrait with vhs glitch corruption animation",
             "footer divider with a traveling light sheen",
@@ -1825,6 +1845,7 @@
             "tile border with a light sheen travelling around the ring",
             "button corner brackets expanding on hover",
             "interactive 3d star-field and earth scene",
+            "expanded media warping open like liquid into the lightbox",
             "animations",
             "web animations",
             "css animations",
@@ -1855,6 +1876,7 @@
             "phone",
             "linkedin",
             "github",
+            "lattes",
             "privacy policy",
             "gdpr",
             "terms of use",
@@ -3230,6 +3252,7 @@
             "dell design system: design tokens architecture",
             "dell design system v2: progress bar component",
             "dell design system v2: horizontal progress tracker component",
+            "dell design system v2: vertical progress tracker component",
             "joining dell on june 6th, 2022, shortly after transainc closed its doors, marked",
             "dell",
             "dell technologies",
@@ -3253,7 +3276,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         },
         "aboutmarco": {
           "cover": {
@@ -3450,7 +3475,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -3630,7 +3657,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -4013,7 +4042,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -4153,7 +4184,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -5354,7 +5387,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -6584,7 +6619,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -6984,7 +7021,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -7145,7 +7184,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -7639,7 +7680,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -7819,7 +7862,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -8393,7 +8438,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -8482,7 +8529,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         }
       },
       "slugs": {
@@ -8645,7 +8694,8 @@
           "title": "Aviso",
           "error": "Algo deu errado",
           "loadFailed": "Uma seção não carregou",
-          "dismiss": "Dispensar notificação"
+          "dismiss": "Dispensar notificação",
+          "nothingToPrint": "Nada para imprimir em {route}"
         },
         "animations": "Referência de Animações",
         "search": "Busca",
@@ -8671,6 +8721,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -8806,6 +8860,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -9212,7 +9270,7 @@
         },
         "about": {
           "col1": [
-            "Oi, eu sou o Luis,<br />engenheiro de software focado em UX.<br>Atualmente trabalho na Dell no <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Oi, eu sou o Luis.<br />engenheiro de software focado em UX.<br>Atualmente trabalho na Dell no <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Sou um profissional de TI com profunda experiência em desenvolvimento web, análise de sistemas e gerenciamento de projetos. Sou especializado em construir soluções digitais inovadoras e eficientes, com forte foco em SEO, acessibilidade e desempenho. Minha bagagem em programação abrange ASP, PHP, C, C#, Pascal, Delphi, JavaScript e SQL, além de frameworks modernos como React, Vue e Angular."
           ],
           "col2": [
@@ -9220,7 +9278,7 @@
             "Meu trabalho é sempre focado em entregar layouts pixel-perfect: código fácil de usar, rápido, bonito e fluido.",
             "Adoro animação em CSS. Passei anos criando as coleções sazonais da Melissa quase inteiramente em CSS e, desde então, trabalhei com animações baseadas em JS usando Vue e Lottie, experimentei Three.js e recentemente comecei a explorar desenvolvimento orientado a especificações e IA."
           ],
-          "frame": "Oi, eu sou o Luis,<br />engenheiro de software focado em UX.<br>Atualmente trabalho na Dell no <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Oi, eu sou o Luis.<br />engenheiro de software focado em UX.<br>Atualmente trabalho na Dell no <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Algumas menções:",
           "mention_items": [
             {
@@ -9593,6 +9651,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 de nov. de 2026:<br>Deixando a Documentação Pronta para IA<span class=\"sr-only\"> Prêmio Applause entregue por Igor Almeida, reconhecendo o pod DDS-SUPPORT (Dan, Juan e Luis) pela revisão profunda da documentação de migração — identificando lacunas, inconsistências e melhorias que elevaram a qualidade da orientação e beneficiam os fluxos MCP e com IA.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Sobre mim",
@@ -9645,7 +9712,10 @@
             "destaque no tcg",
             "cssw star",
             "destaque na mindsparkle mag",
-            "trabalho publicado: desenvolvimento de um protótipo para gestão de conhecimento",
+            "consistência e alinhamento no dds prêmio bravo entregue por jenn white, reconhec",
+            "grande chegada com vitórias incríveis! prêmio cheers entregue por thiago vasconc",
+            "adeus, pivotal tracker – olá, jira! shout out de bert grantges para o time por c",
+            "fundamentos fortes prêmio bravo entregue por leonardo ratzlaff, reconhecendo lui",
             "sobre",
             "sobre luis krötz",
             "biografia",
@@ -9869,7 +9939,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Qualquer fork pode ser feito via GitHub, sob a Licença MIT, usando este link.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Qualquer fork pode ser feito via GitHub, sob a Licença MIT, usando este link.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Qualquer fork da versão anterior do meu site pode ser feito usando este link.</a>"
               ],
               "title": "Repositório"
@@ -10311,8 +10381,7 @@
             "esqueleto de carregamento com células em morph e brilho",
             "loader de introdução com anéis contrarrotativos e progresso",
             "toast de notificação deslizando do canto da tela",
-            "título do tile de portfólio queimando em brasas e remontando",
-            "tile de portfólio deslizando para novo slot com mola + brilho na borda",
+            "nome do projeto queimando em brasas e se reconstituindo no baralho",
             "imagem de mídia indo de borrada em baixa qualidade para nítida em alta",
             "retrato do about com animação de corrupção glitch vhs",
             "divisor do rodapé com brilho de luz viajante",
@@ -10320,6 +10389,7 @@
             "borda de tile com brilho viajando pelo anel",
             "cantos de botão expandindo em colchetes no hover",
             "cena 3d interativa de campo estelar e terra",
+            "mídia expandida abrindo em warp líquido para o lightbox",
             "animações",
             "animações web",
             "animações css",
@@ -10351,6 +10421,7 @@
             "telefone",
             "linkedin",
             "github",
+            "lattes",
             "política de privacidade",
             "lgpd / gdpr",
             "termos de uso",
@@ -10662,7 +10733,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -10843,7 +10916,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -11227,7 +11302,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -11368,7 +11445,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -12570,7 +12649,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -13801,7 +13882,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -14202,7 +14285,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -14364,7 +14449,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -14859,7 +14946,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -15040,7 +15129,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -15615,7 +15706,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -15705,7 +15798,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -16966,6 +17061,7 @@
             "dell design system: arquitetura de design tokens",
             "dell design system v2: progress bar componente",
             "dell design system v2: horizontal progress tracker componente",
+            "dell design system v2: vertical progress tracker componente",
             "entrar na dell em 6 de junho de 2022, pouco depois de a transainc fechar as port",
             "dell",
             "dell technologies",
@@ -16990,7 +17086,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -17153,7 +17251,8 @@
           "title": "Aviso",
           "error": "Algo salió mal",
           "loadFailed": "Una sección no pudo cargar",
-          "dismiss": "Descartar notificación"
+          "dismiss": "Descartar notificación",
+          "nothingToPrint": "Nada que imprimir en {route}"
         },
         "animations": "Referencia de Animaciones",
         "search": "Búsqueda",
@@ -17179,6 +17278,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -17314,6 +17417,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -17720,7 +17827,7 @@
         },
         "about": {
           "col1": [
-            "Hola, soy Luis,<br />ingeniero de software enfocado en UX.<br>Actualmente trabajo en Dell en el <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Hola, soy Luis.<br />ingeniero de software enfocado en UX.<br>Actualmente trabajo en Dell en el <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Soy un profesional de TI con amplia experiencia en desarrollo web, análisis de sistemas y gestión de proyectos. Me especializo en construir soluciones digitales innovadoras y eficientes, con un fuerte enfoque en SEO, accesibilidad y rendimiento. Mi trayectoria en programación abarca ASP, PHP, C, C#, Pascal, Delphi, JavaScript y SQL, además de frameworks modernos como React, Vue y Angular."
           ],
           "col2": [
@@ -17728,7 +17835,7 @@
             "Mi trabajo siempre se enfoca en entregar layouts pixel-perfect: código fácil de usar, rápido, hermoso y fluido.",
             "Me encantan las animaciones en CSS. Pasé años creando las colecciones de temporada de Melissa casi enteramente en CSS y, desde entonces, trabajé con animaciones basadas en JS usando Vue y Lottie, experimenté con Three.js y recientemente empecé a explorar el desarrollo orientado a especificaciones y la IA."
           ],
-          "frame": "Hola, soy Luis,<br />ingeniero de software enfocado en UX.<br>Actualmente trabajo en Dell en el <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Hola, soy Luis.<br />ingeniero de software enfocado en UX.<br>Actualmente trabajo en Dell en el <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Algunas menciones:",
           "mention_items": [
             {
@@ -18101,6 +18208,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 de nov. de 2026:<br>Preparando la Documentación para la IA<span class=\"sr-only\"> Premio Applause entregado por Igor Almeida, reconociendo al pod DDS-SUPPORT (Dan, Juan y Luis) por la revisión profunda de la documentación de migración — identificando lagunas, inconsistencias y mejoras que elevaron la calidad de la guía y benefician los flujos MCP e impulsados por IA.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Acerca de mí",
@@ -18153,7 +18269,10 @@
             "destacado en tcg",
             "cssw star",
             "destacado en mindsparkle mag",
-            "trabajo publicado: desenvolvimento de um protótipo para gestão de conhecimento u",
+            "consistencia y alineación en dds premio bravo entregado por jenn white, reconoci",
+            "¡gran llegada con victorias increíbles! premio cheers entregado por thiago vasco",
+            "adiós, pivotal tracker – ¡hola, jira! shout out de bert grantges para el equipo",
+            "fundamentos sólidos premio bravo entregado por leonardo ratzlaff, reconociendo a",
             "sobre mí",
             "sobre luis krötz",
             "biografía",
@@ -18377,7 +18496,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Cualquier fork puede hacerse vía GitHub, bajo la Licencia MIT, usando este enlace.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Cualquier fork puede hacerse vía GitHub, bajo la Licencia MIT, usando este enlace.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Cualquier fork de la versión anterior de mi sitio web puede hacerse usando este enlace.</a>"
               ],
               "title": "Repositorio"
@@ -18819,8 +18938,7 @@
             "esqueleto de carga con celdas en morph y brillo",
             "loader de introducción con anillos contrarrotativos y progreso",
             "toast de notificación deslizándose desde la esquina",
-            "título del tile de portafolio quemándose en brasas y rearmándose",
-            "tile de portafolio deslizándose a nuevo slot con resorte + brillo en el borde",
+            "nombre del proyecto quemándose en brasas y retejiéndose en el mazo",
             "imagen de medios pasando de borrosa en baja calidad a nítida en alta",
             "retrato del about con animación de corrupción glitch vhs",
             "divisor del pie con un brillo de luz viajero",
@@ -18828,6 +18946,7 @@
             "borde de tile con brillo viajando por el anillo",
             "esquinas de botón expandiéndose en corchetes en hover",
             "escena 3d interactiva de campo estelar y tierra",
+            "medio expandido abriéndose en warp líquido hacia el lightbox",
             "animaciones",
             "animaciones web",
             "animaciones css",
@@ -18859,6 +18978,7 @@
             "teléfono",
             "linkedin",
             "github",
+            "lattes",
             "política de privacidad",
             "gdpr",
             "términos de uso",
@@ -19169,7 +19289,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -19350,7 +19472,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -19734,7 +19858,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -19875,7 +20001,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -21077,7 +21205,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -22308,7 +22438,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -22709,7 +22841,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -22871,7 +23005,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -23366,7 +23502,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -23547,7 +23685,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -24122,7 +24262,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -24212,7 +24354,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -25473,6 +25617,7 @@
             "dell design system: arquitectura de design tokens",
             "dell design system v2: progress bar componente",
             "dell design system v2: horizontal progress tracker componente",
+            "dell design system v2: vertical progress tracker componente",
             "unirme a dell el 6 de junio de 2022, poco después del cierre de transainc, marcó",
             "dell",
             "dell technologies",
@@ -25497,7 +25642,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -25660,7 +25807,8 @@
           "title": "Hinweis",
           "error": "Etwas ist schiefgelaufen",
           "loadFailed": "Ein Bereich konnte nicht geladen werden",
-          "dismiss": "Benachrichtigung schließen"
+          "dismiss": "Benachrichtigung schließen",
+          "nothingToPrint": "In {route} gibt es nichts zu drucken"
         },
         "animations": "Animationsreferenz",
         "search": "Suche",
@@ -25686,6 +25834,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -25821,6 +25973,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -26227,7 +26383,7 @@
         },
         "about": {
           "col1": [
-            "Hallo, ich bin Luis,<br />Software Engineer mit Fokus auf UX.<br>Aktuell arbeite ich bei Dell am <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Hallo, ich bin Luis.<br />Software Engineer mit Fokus auf UX.<br>Aktuell arbeite ich bei Dell am <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Ich bin ein IT-Profi mit tiefer Expertise in Webentwicklung, Systemanalyse und Projektmanagement. Ich bin darauf spezialisiert, innovative, effiziente digitale Lösungen zu bauen, mit starkem Fokus auf SEO, Barrierefreiheit und Performance. Mein Programmierhintergrund umfasst ASP, PHP, C, C#, Pascal, Delphi, JavaScript und SQL sowie moderne Frameworks wie React, Vue und Angular."
           ],
           "col2": [
@@ -26235,7 +26391,7 @@
             "Meine Arbeit konzentriert sich immer auf pixelperfekte Layouts: Code, der einfach zu nutzen, schnell, schön und flüssig ist.",
             "Ich liebe CSS-Animationen. Ich habe Jahre damit verbracht, Melissas saisonale Kollektionen fast vollständig in CSS umzusetzen, arbeite seitdem mit JS-basierten Animationen mit Vue und Lottie, habe mit Three.js experimentiert und erkunde seit Kurzem spezifikationsgetriebene Entwicklung und KI."
           ],
-          "frame": "Hallo, ich bin Luis,<br />Software Engineer mit Fokus auf UX.<br>Aktuell arbeite ich bei Dell am <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Hallo, ich bin Luis.<br />Software Engineer mit Fokus auf UX.<br>Aktuell arbeite ich bei Dell am <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Einige Erwähnungen:",
           "mention_items": [
             {
@@ -26608,6 +26764,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4. Nov. 2026:<br>Unsere Dokumentation KI-bereit machen<span class=\"sr-only\"> Applause-Auszeichnung von Igor Almeida für den DDS-SUPPORT-Pod (Dan, Juan und Luis) für die tiefgehende Prüfung der Migrationsdokumentation — Lücken, Inkonsistenzen und Verbesserungen identifiziert, die die Qualität der Anleitungen steigerten und die MCP- sowie KI-gestützten Workflows verbessern.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Über mich",
@@ -26660,7 +26825,10 @@
             "featured auf tcg",
             "cssw star",
             "featured auf mindsparkle mag",
-            "veröffentlichte arbeit: desenvolvimento de um protótipo para gestão de conhecime",
+            "konsistenz und abstimmung im dds bravo-auszeichnung von jenn white für luis krot",
+            "großartiger start mit tollen erfolgen! cheers-auszeichnung von thiago vasconcelo",
+            "tschüss, pivotal tracker – hallo, jira! shout out von bert grantges an das team",
+            "starke grundlagen bravo-auszeichnung von leonardo ratzlaff für luis krotz, der d",
             "über mich",
             "über luis krötz",
             "biografie",
@@ -26883,7 +27051,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Jeder Fork kann über GitHub unter MIT-Lizenz über diesen Link erstellt werden.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Jeder Fork kann über GitHub unter MIT-Lizenz über diesen Link erstellt werden.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Ein Fork der vorherigen Version meiner Website kann über diesen Link erstellt werden.</a>"
               ],
               "title": "Repository"
@@ -27324,8 +27492,7 @@
             "lade-skelett mit morphenden zellen und schimmer",
             "intro-loader mit gegenläufigen ringen und fortschritt",
             "benachrichtigungs-toast, der aus der ecke gleitet",
-            "portfolio-kacheltitel, der in glut verbrennt und sich neu aufbaut",
-            "portfolio-kachel gleitet per feder in neuen slot + randschimmer",
+            "projektname, der im kartenstapel in glut verbrennt und sich neu einstrickt",
             "medienbild morpht von verschwommener niedrig- zu scharfer hochqualität",
             "about-porträt mit vhs-glitch-korruptionsanimation",
             "footer-trennlinie mit wanderndem lichtschimmer",
@@ -27333,6 +27500,7 @@
             "kachelrand mit um den ring wanderndem lichtschimmer",
             "button-eckklammern expandieren bei hover",
             "interaktive 3d-sternenfeld- und erdszene",
+            "erweiterte medien warpen flüssig in die lightbox",
             "animationen",
             "web-animationen",
             "css-animationen",
@@ -27364,6 +27532,7 @@
             "telefon",
             "linkedin",
             "github",
+            "lattes",
             "datenschutzrichtlinie",
             "gdpr",
             "nutzungsbedingungen",
@@ -27673,7 +27842,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -27854,7 +28025,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -28238,7 +28411,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -28379,7 +28554,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -29581,7 +29758,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -30812,7 +30991,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -31213,7 +31394,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -31375,7 +31558,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -31870,7 +32055,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -32051,7 +32238,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -32626,7 +32815,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -32716,7 +32907,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -33977,6 +34170,7 @@
             "dell design system: design tokens architektur",
             "dell design system v2: progress bar komponente",
             "dell design system v2: horizontal progress tracker komponente",
+            "dell design system v2: vertical progress tracker komponente",
             "mein eintritt bei dell am 6. juni 2022, kurz nachdem transainc seine türen schlo",
             "dell",
             "dell technologies",
@@ -34001,7 +34195,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -34164,7 +34360,8 @@
           "title": "Hinweis",
           "error": "Ebbes is schiefjange",
           "loadFailed": "En Bereich kunnt net gelade werde",
-          "dismiss": "Meldung schließe"
+          "dismiss": "Meldung schließe",
+          "nothingToPrint": "In {route} gebts nix zu drucke"
         },
         "animations": "Animatsione Referenz",
         "search": "Suach",
@@ -34190,6 +34387,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -34325,6 +34526,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -34731,7 +34936,7 @@
         },
         "about": {
           "col1": [
-            "Hallo, ich sin Luis,<br />Software Engineer mit Fokus uff UX.<br>Aktuell schaff ich bei Dell am <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Hallo, ich sin Luis.<br />Software Engineer mit Fokus uff UX.<br>Aktuell schaff ich bei Dell am <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Ich sin ein IT-Profi mit tiefer Expertise in Webentwicklung, Systemanalyse un Projektmanagement. Ich sin darauf spezialisiert, innovative, effiziente digitale Lösungen zu baue, mit starkem Fokus uff SEO, Barrierefreiheit un Performance. Mei Programmierhintergrund umfasst ASP, PHP, C, C#, Pascal, Delphi, JavaScript un SQL sowie moderne Frameworks wie React, Vue un Angular."
           ],
           "col2": [
@@ -34739,7 +34944,7 @@
             "Mea Schaff konzentriert sich immer uff pixelperfekte Layouts: Code, der einfach zu nutze, schnell, schee un flüssig isch.",
             "Ich liebe CSS-Animationen. Ich hab Joor damit verbracht, Melissas saisonale Kollektionen fascht vollständig in CSS umzusetzen, schaff seitdem mit JS-basierten Animationen mit Vue un Lottie, hab mit Three.js experimentiert un erkunde seit Kurzem spezifikationsgetriebene Entwicklung un KI."
           ],
-          "frame": "Hallo, ich sin Luis,<br />Software Engineer mit Fokus uff UX.<br>Aktuell schaff ich bei Dell am <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Hallo, ich sin Luis.<br />Software Engineer mit Fokus uff UX.<br>Aktuell schaff ich bei Dell am <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Einige Erwähnungen:",
           "mention_items": [
             {
@@ -35112,6 +35317,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4. Nov. 2026:<br>Unsere Dokumentation KI-bereit mache<span class=\"sr-only\"> Applause-Auszeichnung fun Igor Almeida für den DDS-SUPPORT-Pod (Dan, Juan un Luis) für die tiefgehende Prüfung der Migrationsdokumentation — Lücke, Inkonsistenze un Verbesserunge identifiziert, die die Qualität der Anleitunge steigerte un die MCP- sowie KI-gestützte Workflows verbessert.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Über mich",
@@ -35164,7 +35378,10 @@
             "featured uff tcg",
             "cssw star",
             "featured uff mindsparkle mag",
-            "veröffentlichte schaff: desenvolvimento de um protótipo para gestão de conhecime",
+            "konsistenz un abstimmung im dds bravo-auszeichnung fun jenn white für luis krotz",
+            "großartiger start mit tolle erfolge! cheers-auszeichnung fun thiago vasconcelos",
+            "tschüss, pivotal tracker – hallo, jira! shout out fun bert grantges ans team für",
+            "starke grundlagen bravo-auszeichnung fun leonardo ratzlaff für luis krotz, der d",
             "über mich",
             "über luis krötz",
             "biografie",
@@ -35387,7 +35604,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Jeder Fork kann iwer GitHub unner MIT-Lizenz iwer diese Link erstellt wore.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Jeder Fork kann iwer GitHub unner MIT-Lizenz iwer diese Link erstellt wore.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Ein Fork der vorherije Version meiner Websitt kann iwer diese Link erstellt wore.</a>"
               ],
               "title": "Repositorium"
@@ -35829,8 +36046,7 @@
             "lade-skelett mit morphende zelle un schimmer",
             "intro-loader mit gegenläufige ring un fortschritt",
             "benachrichtigungs-toast, der uss der eck gleitet",
-            "portfolio-kacheltitel, der in glut verbrennt un sich neu uffbaut",
-            "portfolio-kachel gleitet per feier in neuen slot + randschimmer",
+            "projektname, der im kartestappel in glut verbrennt un sich neu enstrickt",
             "mediebild morpht von verschwommener niedrig- zu scharfer hochqualität",
             "about-porträt mit vhs-glitch-korruptsiounsanimatsioon",
             "footer-trennlinie mit wanderndem lichtschimmer",
@@ -35838,6 +36054,7 @@
             "kachelrand mit um der ring wanderndem lichtschimmer",
             "knopf-eckklammere expandiere bei hover",
             "interaktive 3d-sternefeld- un erdszene",
+            "erweiterte medie warpe flissig in die lightbox",
             "animationen",
             "web-animationen",
             "css-animationen",
@@ -35869,6 +36086,7 @@
             "telefon",
             "linkedin",
             "github",
+            "lattes",
             "datenschutzrichtlinie",
             "gdpr",
             "nutzungsbedingungen",
@@ -36179,7 +36397,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -36360,7 +36580,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -36744,7 +36966,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -36885,7 +37109,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -38087,7 +38313,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -39318,7 +39546,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -39719,7 +39949,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -39881,7 +40113,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -40376,7 +40610,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -40557,7 +40793,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -41132,7 +41370,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -41222,7 +41462,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -42483,6 +42725,7 @@
             "dell design system: design tokens architektur",
             "dell design system v2: progress bar komponente",
             "dell design system v2: horizontal progress tracker komponente",
+            "dell design system v2: vertical progress tracker komponente",
             "mein eintritt bei dell am 6. juni 2022, kurz nachdem transainc seine türen schlo",
             "dell",
             "dell technologies",
@@ -42507,7 +42750,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -42670,7 +42915,8 @@
           "title": "Aviso",
           "error": "Algo salió mal",
           "loadFailed": "Una sección no pudo cargar",
-          "dismiss": "Descartar notificación"
+          "dismiss": "Descartar notificación",
+          "nothingToPrint": "Nada que imprimir en {route}"
         },
         "animations": "Referencia de Animaciones",
         "search": "Busca",
@@ -42696,6 +42942,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -42831,6 +43081,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -43237,7 +43491,7 @@
         },
         "about": {
           "col1": [
-            "Hola, soy Luis,<br />ingeniero de software enfocado en UX.<br>Actualmente trabajo en Dell en el <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Hola, soy Luis.<br />ingeniero de software enfocado en UX.<br>Actualmente trabajo en Dell en el <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Soy un profesional de TI con amplia experiencia en desarrollo web, análisis de sistemas y gestión de proyectos. Me especializo en construir soluciones digitales innovadoras y eficientes, con un fuerte enfoque en SEO, accesibilidad y rendimiento. Mi trayectoria en programación abarca ASP, PHP, C, C#, Pascal, Delphi, JavaScript y SQL, además de frameworks modernos como React, Vue y Angular."
           ],
           "col2": [
@@ -43245,7 +43499,7 @@
             "Mi trabajo siempre se enfoca en entregar layouts pixel-perfect: código fácil de usar, rápido, hermoso y fluido.",
             "Me encantan las animaciones en CSS. Pasé años creando las colecciones de temporada de Melissa casi enteramente en CSS y, desde entonces, trabajé con animaciones basadas en JS usando Vue y Lottie, experimenté con Three.js y recientemente empecé a explorar el desarrollo orientado a especificaciones y la IA."
           ],
-          "frame": "Hola, soy Luis,<br />ingeniero de software enfocado en UX.<br>Actualmente trabajo en Dell en el <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Hola, soy Luis.<br />ingeniero de software enfocado en UX.<br>Actualmente trabajo en Dell en el <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Algunas menciones:",
           "mention_items": [
             {
@@ -43618,6 +43872,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 de nov. de 2026:<br>Preparando la Documentación para la IA<span class=\"sr-only\"> Premio Applause entregado por Igor Almeida, reconociendo al pod DDS-SUPPORT (Dan, Juan y Luis) por la revisión profunda de la documentación de migración — identificando lagunas, inconsistencias y mejoras que elevaron la calidad de la guía y benefician los flujos MCP e impulsados por IA.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Acerca de mí",
@@ -43670,7 +43933,10 @@
             "destacado en tcg",
             "cssw star",
             "destacado en mindsparkle mag",
-            "trabajo publicado: desenvolvimento de um protótipo para gestão de conhecimento u",
+            "consistencia y alineación en dds premio bravo entregado por jenn white, reconoci",
+            "¡gran llegada con victorias increíbles! premio cheers entregado por thiago vasco",
+            "adiós, pivotal tracker – ¡hola, jira! shout out de bert grantges para el equipo",
+            "fundamentos sólidos premio bravo entregado por leonardo ratzlaff, reconociendo a",
             "sobre mí",
             "sobre luis krötz",
             "biografía",
@@ -43894,7 +44160,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Cualquier fork puede hacerse vía GitHub, bajo la Licencia MIT, usando este enlace.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Cualquier fork puede hacerse vía GitHub, bajo la Licencia MIT, usando este enlace.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Cualquier fork de la versión anterior de mi sitio web puede hacerse usando este enlace.</a>"
               ],
               "title": "Repositorio"
@@ -44336,8 +44602,7 @@
             "esqueleto de carga con celdas en morph y brillo",
             "loader de introducción con anillos contrarrotativos y progreso",
             "toast de notificación deslizándose desde la esquina",
-            "título del tile de portafolio quemándose en brasas y rearmándose",
-            "tile de portafolio deslizándose a nuevo slot con resorte + brillo en el borde",
+            "nombre del proyecto quemándose en brasas y retejiéndose en el mazo",
             "imagen de medios pasando de borrosa en baja calidad a nítida en alta",
             "retrato del about con animación de corrupción glitch vhs",
             "divisor del pie con un brillo de luz viajero",
@@ -44345,6 +44610,7 @@
             "borde de tile con brillo viajando por el anillo",
             "esquinas de botón expandiéndose en corchetes en hover",
             "escena 3d interactiva de campo estelar y tierra",
+            "medio expandido abriéndose en warp líquido hacia el lightbox",
             "animaciones",
             "animaciones web",
             "animaciones css",
@@ -44376,6 +44642,7 @@
             "teléfono",
             "linkedin",
             "github",
+            "lattes",
             "política de privacidad",
             "gdpr",
             "términos de uso",
@@ -44686,7 +44953,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -44867,7 +45136,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -45251,7 +45522,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -45392,7 +45665,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -46594,7 +46869,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -47825,7 +48102,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -48226,7 +48505,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -48388,7 +48669,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -48883,7 +49166,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -49064,7 +49349,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -49639,7 +49926,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -49729,7 +50018,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -50990,6 +51281,7 @@
             "dell design system: arquitectura de design tokens",
             "dell design system v2: progress bar componente",
             "dell design system v2: horizontal progress tracker componente",
+            "dell design system v2: vertical progress tracker componente",
             "unirme a dell el 6 de junio de 2022, poco después del cierre de transainc, marcó",
             "dell",
             "dell technologies",
@@ -51014,7 +51306,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -51177,7 +51471,8 @@
           "title": "Aviso",
           "error": "Algo correu mal",
           "loadFailed": "Uma secção não carregou",
-          "dismiss": "Dispensar notificação"
+          "dismiss": "Dispensar notificação",
+          "nothingToPrint": "Nada para imprimir em {route}"
         },
         "animations": "Referência de Animações",
         "search": "Busca",
@@ -51203,6 +51498,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -51338,6 +51637,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -51744,7 +52047,7 @@
         },
         "about": {
           "col1": [
-            "Oi, eu sou o Luis,<br />engenheiro de software focado em UX.<br>Atualmente trabajo na Dell no <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Oi, eu sou o Luis.<br />engenheiro de software focado em UX.<br>Atualmente trabajo na Dell no <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Sou um profissional de TI com profunda experiencia em desarrollo web, análisis de sistemas e gerenciamento de proyectos. Sou especializado em construir soluções digitais inovadoras e eficientes, com forte foco em SEO, acessibilidade e desempenho. Minha bagagem em programação abrange ASP, PHP, C, C#, Pascal, Delphi, JavaScript e SQL, além de frameworks modernos como React, Vue e Angular."
           ],
           "col2": [
@@ -51752,7 +52055,7 @@
             "Meu trabajo é sempre focado em entregar layouts pixel-perfect: código fácil de usar, rápido, bonito e fluido.",
             "Adoro animação em CSS. Passei años criando as colecciones sazonais da Melissa quase inteiramente em CSS e, desde entonces, trabalhei com animações baseadas em JS usando Vue e Lottie, experimentei Three.js e recentemente comecei a explorar desarrollo orientado a especificações e IA."
           ],
-          "frame": "Oi, eu sou o Luis,<br />engenheiro de software focado em UX.<br>Atualmente trabajo na Dell no <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Oi, eu sou o Luis.<br />engenheiro de software focado em UX.<br>Atualmente trabajo na Dell no <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Algumas menções:",
           "mention_items": [
             {
@@ -52125,6 +52428,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 de nov. de 2026:<br>Deixando a Documentação Pronta para IA<span class=\"sr-only\"> Prêmio Applause entregue por Igor Almeida, reconhecendo o pod DDS-SUPPORT (Dan, Juan e Luis) pela revisão profunda da documentação de migração — identificando lacunas, inconsistências e melhorias que elevaram a qualidade da orientação e beneficiam os fluxos MCP e com IA.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Sobre mim",
@@ -52177,7 +52489,10 @@
             "destaque no tcg",
             "cssw star",
             "destaque na mindsparkle mag",
-            "trabalho publicado: desenvolvimento de um protótipo para gestão de conhecimento",
+            "consistência e alinhamento no dds prêmio bravo entregue por jenn white, reconhec",
+            "grande chegada com vitórias incríveis! prêmio cheers entregue por thiago vasconc",
+            "adeus, pivotal tracker – olá, jira! shout out de bert grantges para o time por c",
+            "fundamentos fortes prêmio bravo entregue por leonardo ratzlaff, reconhecendo lui",
             "sobre mí",
             "sobre luis krötz",
             "biografía",
@@ -52401,7 +52716,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Qualquer fork puede ser feito via GitHub, sob a Licença MIT, usando este link.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Qualquer fork puede ser feito via GitHub, sob a Licença MIT, usando este link.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Qualquer fork da versão anterior do meu site puede ser feito usando este link.</a>"
               ],
               "title": "Repositório"
@@ -52844,8 +53159,7 @@
             "esqueleto de carga con celdas en morph y brillo",
             "loader de introducción con anillos contrarrotativos y progreso",
             "toast de notificación deslizándose desde el rincón",
-            "título del tile de portafolio quemándose en brasas y rearmándose",
-            "tile de portafolio deslizándose a nuevo slot con resorte + brillo en el borde",
+            "nombre del proyecto quemándose en brasas y retejiéndose en el mazo",
             "imagen de medios pasando de borrosa en baja calidad a nítida en alta",
             "retrato del about con animación de corrupción glitch vhs",
             "divisor del pie con un brillo de luz viajero",
@@ -52853,6 +53167,7 @@
             "borde de tile con brillo viajando por el anillo",
             "esquinas de botón expandiéndose en corchetes en hover",
             "escena 3d interactiva de campo estelar y tierra",
+            "medio expandido abriéndose en warp líquido hacia el lightbox",
             "animaciones",
             "animaciones web",
             "animaciones css",
@@ -52884,6 +53199,7 @@
             "telefone",
             "linkedin",
             "github",
+            "lattes",
             "política de privacidad",
             "lgpd / gdpr",
             "termos de uso",
@@ -53194,7 +53510,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -53375,7 +53693,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -53759,7 +54079,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -53900,7 +54222,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -55102,7 +55426,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -56333,7 +56659,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -56734,7 +57062,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -56896,7 +57226,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -57391,7 +57723,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -57572,7 +57906,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -58147,7 +58483,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -58237,7 +58575,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -59498,6 +59838,7 @@
             "dell design system: arquitetura de design tokens",
             "dell design system v2: progress bar componente",
             "dell design system v2: horizontal progress tracker componente",
+            "dell design system v2: vertical progress tracker componente",
             "entrar na dell em 6 de junho de 2022, pouco depois de a transainc fechar as port",
             "dell",
             "dell technologies",
@@ -59522,7 +59863,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -59685,7 +60028,8 @@
           "title": "Jekuaaua",
           "error": "Oĩ mba'e oha'ãrõva",
           "loadFailed": "Peteĩ voreke ndahupytýiva",
-          "dismiss": "Emboty marandu"
+          "dismiss": "Emboty marandu",
+          "nothingToPrint": "Ndaipóri mba'e emoimprimi hag̃ua {route}-pe"
         },
         "animations": "Jeguama Momarandu",
         "search": "Jeheka",
@@ -59711,6 +60055,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -59846,6 +60194,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -60246,7 +60598,7 @@
         },
         "about": {
           "col1": [
-            "Mba'éichapa, che ha'e Luis,<br />peteĩ Ingeniero de Software oñeñamindu'úva UX-pe.<br>Kóva aha'ỹ Dell-pe <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>-pe.",
+            "Mba'éichapa, che ha'e Luis.<br />peteĩ Ingeniero de Software oñeñamindu'úva UX-pe.<br>Kóva aha'ỹ Dell-pe <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>-pe.",
             "Che ha'e peteĩ profesional de TI experiencia tuicháva desarrollo web, análisis de sistemas ha gestión de proyectos-pe. Che especialización che aha sistemas digitales innovadores ha eficientes, enfoque tuicháva SEO, accesibilidad ha rendimiento-pe. Che experiencia programación oguereko ASP, PHP, C, C#, Pascal, Delphi, JavaScript ha SQL, ha frameworks modernos React, Vue ha Angular rehegua."
           ],
           "col2": [
@@ -60254,7 +60606,7 @@
             "Che tembi'u oñeñamindu'u tapia ley pixel-perfect-pe: código hasy'ỹva ojeporu, ipya'e, iporã ha imbarete'ỹva.",
             "Aména animación CSS. Ahasa ary añejapo colecciones de temporada Melissa rehegua haimete opa CSS-pe, ha upéi aha animaciones JS-base Vue ha Lottie ndive, aproba Three.js, ha ko'ág̃a añepyrũ ama'ẽ desarrollo oguia especificación-pe ha IA."
           ],
-          "frame": "Mba'éichapa, che ha'e Luis,<br />peteĩ Ingeniero de Software oñeñamindu'úva UX-pe.<br>Kóva aha'ỹ Dell-pe <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>-pe.",
+          "frame": "Mba'éichapa, che ha'e Luis.<br />peteĩ Ingeniero de Software oñeñamindu'úva UX-pe.<br>Kóva aha'ỹ Dell-pe <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>-pe.",
           "mentions": "Heta je'epy rehegua:",
           "mention_items": [
             {
@@ -60627,6 +60979,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 Jasypateĩramo 2026:<br>Ñande Documentación AI-Ready Jajapo<span class=\"sr-only\"> Applause premio Igor Almeida ome’ẽva DDS-SUPPORT pod-pe (Dan, Juan ha Luis) migración documentación revisión hoko’óva rehe — ojuhu gaps, inconsistencias ha mejoras omoporãva guía calidad ha opu’ãva MCP ha AI workflows-pe.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Cherehe",
@@ -60679,7 +61040,10 @@
             "ojehechauka tcg-pe",
             "mbyja cssw",
             "ojehechauka mindsparkle mag-pe",
-            "tembi'u publicado: desenvolvimento de um protótipo para gestão de conhecimento u",
+            "consistencia ha alineación dds-pe bravo premio jenn white ome'ẽva, ojomba'e porã",
+            "¡jeike porã jey’asãi guasúndi! cheers premio thiago vasconcelos ome’ẽva luis kro",
+            "¡jajói pivotal tracker – ¡maitei jira! shout out bert grantges gui equipo-pe oim",
+            "fundamentos imbaretéva bravo premio leonardo ratzlaff ome’ẽva luis krotz-pe ombo",
             "luis krötz rehegua",
             "tembiasakue",
             "mba'apohaguasúi",
@@ -60890,7 +61254,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Oimeraẽva fork ikatu ojejapo github rupive, Licencia MIT rehegua, oiporúvo ko enlace.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Oimeraẽva fork ikatu ojejapo github rupive, Licencia MIT rehegua, oiporúvo ko enlace.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Oimeraẽva fork versión mboyve che sitio web rehegua ikatu ojejapo oiporúvo ko enlace.</a>"
               ],
               "title": "Repositorio"
@@ -61311,8 +61675,7 @@
             "carga esqueleto cela morph ha tesa'ỹi rehegua",
             "intro loader anillo oñemongu'e opaite ha progreso rehegua",
             "notificación toast oñemosẽ esquina guive",
-            "portfolio tile título oka'y tatápe ha ojapo jey",
-            "portfolio tile oñemosẽ slot pyahu muelle + borda tesa'ỹi rehegua",
+            "proyecto réra oka'y tatápe ha ojapo jey card-stack-pe",
             "media imagen ohasa ojehecha'ỹ baja calidad gui nitida alta calidad-pe",
             "about retrato vhs glitch corrupción ñemongue'e rehegua",
             "footer divisor tesa'ỹi mba'e'a ohóva",
@@ -61320,6 +61683,7 @@
             "tile borda tesa'ỹi ohóva anillo rupi",
             "votõ canto corchete oñembotuicha hover jave",
             "3d escena interactiva mbyja campo ha yvy rehegua",
+            "media expandido ijurúva warp líquido lightbox-pe",
             "animación",
             "animación web",
             "animación css",
@@ -61342,6 +61706,7 @@
             "pumbyry",
             "linkedin",
             "github",
+            "lattes",
             "ñemigua política",
             "gdpr",
             "jeporu py'apy",
@@ -61640,7 +62005,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -61816,7 +62183,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -62195,7 +62564,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -62331,7 +62702,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -63528,7 +63901,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -64754,7 +65129,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -65150,7 +65527,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -65307,7 +65686,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -65797,7 +66178,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -65973,7 +66356,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -66543,7 +66928,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -66628,7 +67015,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -67889,6 +68278,7 @@
             "dell design system: design tokens arquitectura",
             "dell design system v2: progress bar componente",
             "dell design system v2: horizontal progress tracker componente",
+            "dell design system v2: vertical progress tracker componente",
             "che jeike dell-pe 6 jasypoteĩ 2022-pe, transainc omboty riremi hokẽ, ha'e akue p",
             "dell",
             "dell technologies",
@@ -67908,7 +68298,9 @@
             "mba'apohaguasúi front-end",
             "javascript",
             "webgl tembiporu"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -68071,7 +68463,8 @@
           "title": "Avviso",
           "error": "Qualcosa è andato storto",
           "loadFailed": "Una sezione non è stata caricata",
-          "dismiss": "Chiudi notifica"
+          "dismiss": "Chiudi notifica",
+          "nothingToPrint": "Niente da stampare in {route}"
         },
         "animations": "Riferimento delle Animazioni",
         "search": "Ricerca",
@@ -68097,6 +68490,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -68232,6 +68629,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -68638,7 +69039,7 @@
         },
         "about": {
           "col1": [
-            "Ciao, sono Luis,<br />un ingegnere del software focalizzato sull’UX.<br>Attualmente lavoro in Dell sul <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Ciao, sono Luis.<br />un ingegnere del software focalizzato sull’UX.<br>Attualmente lavoro in Dell sul <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Sono un professionista IT con una profonda esperienza nello sviluppo web, nell’analisi dei sistemi e nella gestione dei progetti. Mi specializzo nella creazione di soluzioni digitali innovative ed efficienti, con forte attenzione a SEO, accessibilità e prestazioni. Il mio background nella programmazione spazia da ASP, PHP, C, C#, Pascal, Delphi, JavaScript e SQL a framework moderni come React, Vue e Angular."
           ],
           "col2": [
@@ -68646,7 +69047,7 @@
             "Il mio lavoro è sempre concentrato su layout pixel-perfect: codice facile da usare, veloce, bello e fluido.",
             "Amo le animazioni CSS. Ho passato anni a creare le collezioni stagionali di Melissa quasi interamente in CSS, e da allora ho lavorato con animazioni basate su JS usando Vue e Lottie, sperimentato con Three.js e recentemente iniziato a esplorare lo sviluppo guidato da specifiche e l’IA."
           ],
-          "frame": "Ciao, sono Luis,<br />un ingegnere del software focalizzato sull’UX.<br>Attualmente lavoro in Dell sul <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Ciao, sono Luis.<br />un ingegnere del software focalizzato sull’UX.<br>Attualmente lavoro in Dell sul <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Alcune menzioni:",
           "mention_items": [
             {
@@ -69019,6 +69420,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 nov. 2026:<br>Rendere la Documentazione Pronta per l'IA<span class=\"sr-only\"> Premio Applause consegnato da Igor Almeida al pod DDS-SUPPORT (Dan, Juan e Luis) per la revisione approfondita della documentazione di migrazione — individuando lacune, incongruenze e miglioramenti che hanno alzato la qualità della guida e beneficiano i flussi MCP e basati sull'IA.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Chi sono",
@@ -69071,7 +69481,10 @@
             "in evidenza su tcg",
             "cssw star",
             "in evidenza su mindsparkle mag",
-            "lavoro pubblicato: desenvolvimento de um protótipo para gestão de conhecimento u",
+            "coerenza e allineamento su dds premio bravo consegnato da jenn white a luis krot",
+            "grande arrivo con vittorie fantastiche! premio cheers consegnato da thiago vasco",
+            "addio, pivotal tracker – ciao, jira! shout out di bert grantges al team per aver",
+            "fondamenta solide premio bravo consegnato da leonardo ratzlaff a luis krotz per",
             "chi sono",
             "su luis krötz",
             "biografia",
@@ -69293,7 +69706,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Qualsiasi fork può essere fatto via GitHub, sotto Licenza MIT, usando questo link.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Qualsiasi fork può essere fatto via GitHub, sotto Licenza MIT, usando questo link.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Qualsiasi fork della versione precedente del mio sito web può essere fatto usando questo link.</a>"
               ],
               "title": "Repository"
@@ -69734,8 +70147,7 @@
             "scheletro di caricamento con celle in morph e shimmer",
             "loader di introduzione con anelli controrotanti e progresso",
             "toast di notifica che scivola dall'angolo",
-            "titolo del tile portfolio che brucia in braci e si ricompone",
-            "tile portfolio che scivola in nuovo slot a molla + bagliore sul bordo",
+            "nome del progetto che brucia in braci e si ritaglia nel mazzo",
             "immagine media che passa da sfocata a bassa qualità a nitida in alta",
             "ritratto about con animazione di corruzione glitch vhs",
             "divisore del footer con un bagliore di luce viaggiante",
@@ -69743,6 +70155,7 @@
             "bordo tile con bagliore che viaggia attorno all'anello",
             "angoli di pulsante che espandono in parentesi su hover",
             "scena 3d interattiva di campo stellare e terra",
+            "media espanso che si apre in warp liquido verso il lightbox",
             "animazioni",
             "animazioni web",
             "animazioni css",
@@ -69774,6 +70187,7 @@
             "telefono",
             "linkedin",
             "github",
+            "lattes",
             "informativa sulla privacy",
             "gdpr",
             "termini di utilizzo",
@@ -70084,7 +70498,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -70265,7 +70681,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -70649,7 +71067,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -70760,7 +71180,7 @@
           "title": "Coza",
           "searchThemes": [
             "coza",
-            "coza: homepage full tour",
+            "coza: tour completo della homepage",
             "coza: tour completo mobile",
             "coza: pagina intera screenshot",
             "coza: homepage inglese",
@@ -70790,7 +71210,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -71992,7 +72414,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -73223,7 +73647,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -73624,7 +74050,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -73786,7 +74214,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -74281,7 +74711,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -74428,7 +74860,7 @@
           "searchThemes": [
             "genesysinf, sageweb",
             "sage",
-            "sageweb: shortcuts screenshot",
+            "sageweb: screenshot delle scorciatoie",
             "sageweb: 'cadastros' screenshot",
             "sageweb: screenshot del selettore colore",
             "sageweb: screenshot dei filtri",
@@ -74462,7 +74894,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -75037,7 +75471,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -75127,7 +75563,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -76388,6 +76826,7 @@
             "dell design system: architettura dei design token",
             "dell design system v2: progress bar componente",
             "dell design system v2: horizontal progress tracker componente",
+            "dell design system v2: vertical progress tracker componente",
             "l'ingresso in dell il 6 giugno 2022, poco dopo la chiusura di transainc, ha rapp",
             "dell",
             "dell technologies",
@@ -76412,7 +76851,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -76575,7 +77016,8 @@
           "title": "Уведомление",
           "error": "Что-то пошло не так",
           "loadFailed": "Раздел не удалось загрузить",
-          "dismiss": "Скрыть уведомление"
+          "dismiss": "Скрыть уведомление",
+          "nothingToPrint": "На странице {route} нечего печатать"
         },
         "animations": "Справочник анимаций",
         "search": "Поиск",
@@ -76601,6 +77043,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -76736,6 +77182,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -77143,7 +77593,7 @@
         },
         "about": {
           "col1": [
-            "Привет, я Луис,<br />инженер-программист, специализирующийся на UX.<br>Сейчас работаю в Dell над <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Привет, я Луис.<br />инженер-программист, специализирующийся на UX.<br>Сейчас работаю в Dell над <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Я ИТ-специалист с глубокой экспертизой в веб-разработке, системном анализе и управлении проектами. Я специализируюсь на создании инновационных и эффективных цифровых решений с сильным упором на SEO, доступность и производительность. Мой опыт программирования охватывает ASP, PHP, C, C#, Pascal, Delphi, JavaScript и SQL, а также современные фреймворки вроде React, Vue и Angular."
           ],
           "col2": [
@@ -77151,7 +77601,7 @@
             "Моя работа всегда сосредоточена на создании пиксельно-точных макетов: код, который прост в использовании, быстр, красив и плавен.",
             "Я люблю CSS-анимацию. Я годами создавал сезонные коллекции Melissa почти полностью на CSS, после чего работал с анимациями на JS с использованием Vue и Lottie, экспериментировал с Three.js и недавно начал изучать spec-driven разработку и ИИ."
           ],
-          "frame": "Привет, я Луис,<br />инженер-программист, специализирующийся на UX.<br>Сейчас работаю в Dell над <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Привет, я Луис.<br />инженер-программист, специализирующийся на UX.<br>Сейчас работаю в Dell над <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Некоторые упоминания:",
           "mention_items": [
             {
@@ -77524,6 +77974,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 ноября 2026:<br>Подготовка нашей документации к работе с ИИ<span class=\"sr-only\"> Награда Applause от Igor Almeida команде DDS-SUPPORT (Dan, Juan и Luis) за глубокий разбор миграционной документации — выявлены пробелы, несоответствия и улучшения, повысившие качество руководств и полезные для MCP и ИИ-процессов.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Обо мне",
@@ -77576,7 +78035,10 @@
             "публикация на tcg",
             "cssw star",
             "публикация в mindsparkle mag",
-            "опубликованная работа: desenvolvimento de um protótipo para gestão de conhecimen",
+            "согласованность и единообразие в dds награда bravo от jenn white за устранение р",
+            "отличный старт с потрясающими победами! награда cheers от thiago vasconcelos за",
+            "прощай, pivotal tracker — привет, jira! благодарность от bert grantges команде з",
+            "прочный фундамент награда bravo от leonardo ratzlaff за лидерство луиса кротца в",
             "обо мне",
             "о луисе крётце",
             "биография",
@@ -77801,7 +78263,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Форк можно сделать на GitHub по лицензии MIT, используя эту ссылку.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Форк можно сделать на GitHub по лицензии MIT, используя эту ссылку.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Форк предыдущей версии моего сайта можно сделать по этой ссылке.</a>"
               ],
               "title": "Репозиторий"
@@ -78247,8 +78709,7 @@
             "скелет загрузки с морфящимися ячейками и бликом",
             "вступительный загрузчик с встречно вращающимися кольцами и прогрессом",
             "уведомление-тост, выскальзывающее из угла",
-            "заголовок плитки портфолио сгорает в углях и собирается заново",
-            "плитка портфолио скользит на пружине в новый слот + блик по краю",
+            "имя проекта сгорает в углях и сплетается заново в колоде",
             "медиаизображение морфит из размытого низкого в чёткое высокое качество",
             "портрет about с анимацией vhs-глитч-искажений",
             "разделитель подвала с бегущим световым бликом",
@@ -78256,6 +78717,7 @@
             "край плитки с бликом, бегущим по кольцу",
             "угловые скобки кнопки расширяются при ховере",
             "интерактивная 3d-сцена звёздного поля и земли",
+            "расширенная медиа жидко варпируется в lightbox",
             "анимации",
             "веб-анимации",
             "css-анимации",
@@ -78288,6 +78750,7 @@
             "телефон",
             "linkedin",
             "github",
+            "lattes",
             "политика конфиденциальности",
             "gdpr",
             "условия использования",
@@ -78603,7 +79066,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -78786,7 +79251,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -79172,7 +79639,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -79315,7 +79784,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -80519,7 +80990,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -81752,7 +82225,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -82155,7 +82630,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -82319,7 +82796,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -82816,7 +83295,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -82998,7 +83479,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -83575,7 +84058,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -83667,7 +84152,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -84929,6 +85416,7 @@
             "dell design system: архитектура дизайн-токенов",
             "dell design system v2: progress bar компонент",
             "dell design system v2: horizontal progress tracker компонент",
+            "dell design system v2: vertical progress tracker компонент",
             "приход в dell 6 июня 2022 года, вскоре после закрытия transainc, стал ключевым п",
             "dell",
             "dell technologies",
@@ -84954,7 +85442,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -85117,7 +85607,8 @@
           "title": "Notification",
           "error": "Une erreur est survenue",
           "loadFailed": "Une section n'a pas pu être chargée",
-          "dismiss": "Fermer la notification"
+          "dismiss": "Fermer la notification",
+          "nothingToPrint": "Rien à imprimer dans {route}"
         },
         "animations": "Référence des Animations",
         "search": "Recherche",
@@ -85143,6 +85634,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -85278,6 +85773,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -85684,7 +86183,7 @@
         },
         "about": {
           "col1": [
-            "Salut, je suis Luis,<br />ingénieur logiciel axé sur l’UX.<br>Je travaille actuellement chez Dell sur le <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Salut, je suis Luis.<br />ingénieur logiciel axé sur l’UX.<br>Je travaille actuellement chez Dell sur le <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Je suis un professionnel de l’informatique avec une expertise approfondie en développement web, analyse de systèmes et gestion de projets. Je me spécialise dans la création de solutions numériques innovantes et efficaces, avec un fort accent sur le SEO, l’accessibilité et la performance. Mon parcours en programmation couvre ASP, PHP, C, C#, Pascal, Delphi, JavaScript et SQL, ainsi que des frameworks modernes comme React, Vue et Angular."
           ],
           "col2": [
@@ -85692,7 +86191,7 @@
             "Mon travail se concentre toujours sur des mises en page pixel-perfect : un code facile à utiliser, rapide, beau et fluide.",
             "J’adore les animations CSS. J’ai passé des années à créer les collections saisonnières de Melissa presque entièrement en CSS, et j’ai depuis travaillé avec des animations basées sur JS utilisant Vue et Lottie, expérimenté avec Three.js et récemment commencé à explorer le développement piloté par spécifications et l’IA."
           ],
-          "frame": "Salut, je suis Luis,<br />ingénieur logiciel axé sur l’UX.<br>Je travaille actuellement chez Dell sur le <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Salut, je suis Luis.<br />ingénieur logiciel axé sur l’UX.<br>Je travaille actuellement chez Dell sur le <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Quelques mentions :",
           "mention_items": [
             {
@@ -86065,6 +86564,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 nov. 2026 :<br>Rendre notre documentation compatible avec l'IA<span class=\"sr-only\"> Prix Applause remis par Igor Almeida au pod DDS-SUPPORT (Dan, Juan et Luis) pour la revue approfondie de la documentation de migration — identifiant lacunes, incohérences et améliorations qui ont rehaussé la qualité des guides et profitent aux flux MCP et basés sur l'IA.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "À propos de moi",
@@ -86117,7 +86625,10 @@
             "présenté sur tcg",
             "cssw star",
             "présenté sur mindsparkle mag",
-            "travail publié : desenvolvimento de um protótipo para gestão de conhecimento uti",
+            "cohérence et alignement sur dds prix bravo remis par jenn white à luis krotz pou",
+            "arrivée en force avec de belles victoires ! prix cheers remis par thiago vasconc",
+            "adieu, pivotal tracker – bonjour, jira ! shout out de bert grantges à l’équipe p",
+            "fondations solides prix bravo remis par leonardo ratzlaff à luis krotz pour avoi",
             "à propos",
             "à propos de luis krötz",
             "biographie",
@@ -86339,7 +86850,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Tout fork peut être fait via GitHub, sous licence MIT, en utilisant ce lien.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Tout fork peut être fait via GitHub, sous licence MIT, en utilisant ce lien.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Tout fork de la version précédente de mon site web peut être fait en utilisant ce lien.</a>"
               ],
               "title": "Dépôt"
@@ -86781,8 +87292,7 @@
             "squelette de chargement avec cellules en morph et shimmer",
             "loader d'introduction avec anneaux contrarotatifs et progression",
             "toast de notification glissant depuis le coin",
-            "titre de tuile portfolio brûlant en braises et se reformant",
-            "tuile portfolio glissant vers un nouveau slot à ressort + reflet sur le bord",
+            "le nom du projet brûlant en braises et se retricotant dans le paquet",
             "image média passant de floue en basse qualité à nette en haute",
             "portrait about avec animation de corruption glitch vhs",
             "séparateur de pied de page avec un reflet de lumière voyageur",
@@ -86790,6 +87300,7 @@
             "bord de tuile avec reflet voyageant autour de l'anneau",
             "coins de bouton s'expandant en crochets au survol",
             "scène 3d interactive de champ d'étoiles et de terre",
+            "média étendu s'ouvrant en warp liquide vers le lightbox",
             "animations",
             "animations web",
             "animations css",
@@ -86821,6 +87332,7 @@
             "téléphone",
             "linkedin",
             "github",
+            "lattes",
             "politique de confidentialité",
             "gdpr",
             "conditions d’utilisation",
@@ -87130,7 +87642,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -87311,7 +87825,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -87695,7 +88211,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -87836,7 +88354,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -89038,7 +89558,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -90269,7 +90791,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -90670,7 +91194,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -90832,7 +91358,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -91327,7 +91855,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -91508,7 +92038,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -92083,7 +92615,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -92152,7 +92686,7 @@
             "vibra: a empresa mais inovadora do segmento no brasil /tour mobile",
             "vibra: a empresa mais inovadora do segmento no brasil/ production and distributi",
             "vibra: a empresa mais inovadora do segmento no brasil /our brands page complète",
-            "vibra: a empresa mais inovadora do segmento no brasil, plus de cinq décennies d'expérience et de tradition en aviculture, page à propos complète",
+            "vibra: a empresa mais inovadora do segmento no brasil, plus de cinq décennies d'",
             "vibra était un site développé chez transa en 2016 et resté en ligne jusqu’en 202",
             "vibra agilize",
             "brand portal",
@@ -92173,7 +92707,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -93434,6 +93970,7 @@
             "dell design system: architecture des design tokens",
             "dell design system v2: progress bar composant",
             "dell design system v2: horizontal progress tracker composant",
+            "dell design system v2: vertical progress tracker composant",
             "rejoindre dell le 6 juin 2022, peu après la fermeture de transainc, a marqué un",
             "dell",
             "dell technologies",
@@ -93458,7 +93995,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -93621,7 +94160,8 @@
           "title": "Aviso",
           "error": "Algo salió mal",
           "loadFailed": "Una sección no pudo cargar",
-          "dismiss": "Descartar notificación"
+          "dismiss": "Descartar notificación",
+          "nothingToPrint": "Gnente da stanpar in {route}"
         },
         "animations": "Riferimento Animassion",
         "search": "Ricuart",
@@ -93647,6 +94187,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -93782,6 +94326,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -94188,7 +94736,7 @@
         },
         "about": {
           "col1": [
-            "Ciao, mi son Luis,<br />'n Ingegner Software drio ła UX.<br>Ancóra laoro a Dell so'l <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Ciao, mi son Luis.<br />'n Ingegner Software drio ła UX.<br>Ancóra laoro a Dell so'l <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Mi son 'n professionista IT co esperiensa fonda inte'l sviłupo web, l'anałisi de sistemas e ła gestion de progetti. Me speciałizo a far sołusion dixitałi inovative e efisienti co 'n fort fogo so SEO, acesibiłità e prestasion. El me sfondo de programasion ciapa ASP, PHP, C, C#, Pascal, Delphi, JavaScript e SQL, insieme a framework moderni come React, Vue e Angular."
           ],
           "col2": [
@@ -94196,7 +94744,7 @@
             "El me laoro el xe sempe drio a dar łeayout pixel-perfect: codixe fasiłe da dòparar, vełose, beło e morbido.",
             "M'incanta łe animasion CSS. Go pasà ani a far łe cołesion de stajon de Melissa cuaxi tute in CSS, e da alora go laorà co animasion base JS doparando Vue e Lottie, go proà Three.js, e de recent go tacà a vardar sviłupo guidà da specìfeghe e IA."
           ],
-          "frame": "Ciao, mi son Luis,<br />'n Ingegner Software drio ła UX.<br>Ancóra laoro a Dell so'l <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Ciao, mi son Luis.<br />'n Ingegner Software drio ła UX.<br>Ancóra laoro a Dell so'l <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Varghe mensión:",
           "mention_items": [
             {
@@ -94569,6 +95117,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 Novenbre 2026:<br>Render ła Nostra Documentasion Pronta par l'IA<span class=\"sr-only\"> Premio Applause dà da Igor Almeida al pod DDS-SUPPORT (Dan, Juan e Luis) par ła revision profonda de ła documentasion de migrazion — catando łacune, incongruense e meiori che ga alsà ła cuałità de ła guida e i ghe va ben ai flusi MCP e basài su l'IA.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Su de mi",
@@ -94621,7 +95178,10 @@
             "mostrà so tcg",
             "steła cssw",
             "mostrà so mindsparkle mag",
-            "laoro publicà: desenvolvimento de um protótipo para gestão de conhecimento utili",
+            "consistensa e alineamento so dds premio bravo dà da jenn white a luis krotz par",
+            "gran arivo co vitorie bełe! premio cheers dà da thiago vasconcelos par el gran a",
+            "ciao, pivotal tracker – bao, jira! shout out de bert grantges al team par aver c",
+            "fondamente solide premio bravo dà da leonardo ratzlaff a luis krotz par aver gui",
             "chi sono",
             "su luis krötz",
             "biografia",
@@ -94843,7 +95403,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Vargun fork podarìa èsar fato via github, soto Łicensa MIT, doparando sto łink.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Vargun fork podarìa èsar fato via github, soto Łicensa MIT, doparando sto łink.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Vargun fork de ła version precedente del me sito web podarìa èsar fato doparando sto łink.</a>"
               ],
               "title": "Repoxitorio"
@@ -95285,8 +95845,7 @@
             "schèletro de caricamento co sele in morph e shimmer",
             "loader de introdussion co anei contrarotanti e progresso",
             "toast de notifega che el licà dal canton",
-            "titolo del tile portfolio che el brusa in brase e el se ricompone",
-            "tile portfolio che el licà in novo slot a moła + sbarluso sul bordo",
+            "el nome del projeto che el brusa in brase e el se retess inte el masso",
             "imagine media che la pasa da sfocada in basa qualità a nitida in alta",
             "retrato about co animassion de corussion glitch vhs",
             "divisor del footer co un sbarluso de luse viajante",
@@ -95294,6 +95853,7 @@
             "bordo tile co sbarluso che el viaja atorno a l'anelo",
             "àngui de boton che i espande in parentesi su hover",
             "sena 3d interativa de canpo stelare e tera",
+            "media espanso che el se verze in warp liquido verso el lightbox",
             "animazioni",
             "animazioni web",
             "animazioni css",
@@ -95325,6 +95885,7 @@
             "tełefono",
             "linkedin",
             "github",
+            "lattes",
             "połìtega de ła privacy",
             "gdpr",
             "condision de uxo",
@@ -95636,7 +96197,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -95817,7 +96380,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -96201,7 +96766,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -96342,7 +96909,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -97544,7 +98113,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -98775,7 +99346,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -99176,7 +99749,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -99338,7 +99913,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -99833,7 +100410,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -100014,7 +100593,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -100561,7 +101142,7 @@
             "transa: video of mini melissa's caso inside transa's sito.",
             "transa: video of coza's caso inside transa's sito.",
             "transa: tour del feed",
-            "transa: tour del feed mobile",
+            "transa: feed tour mobile",
             "transa: category, brazilian leather, tour",
             "transa: category, coza, tour",
             "transa: category, melissa, tour",
@@ -100589,7 +101170,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -100679,7 +101262,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -101940,6 +102525,7 @@
             "dell design system: architettura dei design token",
             "dell design system v2: progress bar componente",
             "dell design system v2: horizontal progress tracker componente",
+            "dell design system v2: vertical progress tracker componente",
             "l'ingresso in dell il 6 giugno 2022, poco dopo la chiusura di transainc, ha rapp",
             "dell",
             "dell technologies",
@@ -101964,7 +102550,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -102127,7 +102715,8 @@
           "title": "Melding",
           "error": "Er is iets misgegaan",
           "loadFailed": "Een sectie kon niet laden",
-          "dismiss": "Melding sluiten"
+          "dismiss": "Melding sluiten",
+          "nothingToPrint": "Niets om af te drukken in {route}"
         },
         "animations": "Animatie-referentie",
         "search": "Zoeken",
@@ -102153,6 +102742,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -102288,6 +102881,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -102694,7 +103291,7 @@
         },
         "about": {
           "col1": [
-            "Hoi, ik ben Luis,<br />een software engineer met focus op UX.<br>Momenteel werk ik bij Dell aan het <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Hoi, ik ben Luis.<br />een software engineer met focus op UX.<br>Momenteel werk ik bij Dell aan het <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Ik ben een IT-professional met diepgaande expertise in webontwikkeling, systeemanalyse en projectmanagement. Ik ben gespecialiseerd in het bouwen van innovatieve, efficiënte digitale oplossingen met een sterke focus op SEO, toegankelijkheid en prestaties. Mijn programmeerachtergrond omvat ASP, PHP, C, C#, Pascal, Delphi, JavaScript en SQL, naast moderne frameworks zoals React, Vue en Angular."
           ],
           "col2": [
@@ -102702,7 +103299,7 @@
             "Mijn werk is altijd gericht op het leveren van pixel-perfecte layouts: code die eenvoudig te gebruiken, snel, mooi en vloeiend is.",
             "Ik houd van CSS-animaties. Ik heb jaren besteed aan het maken van de seizoenscollecties van Melissa bijna volledig in CSS, heb sindsdien gewerkt met JS-gebaseerde animaties met Vue en Lottie, geëxperimenteerd met Three.js en ben onlangs begonnen met het verkennen van spec-gedreven ontwikkeling en AI."
           ],
-          "frame": "Hoi, ik ben Luis,<br />een software engineer met focus op UX.<br>Momenteel werk ik bij Dell aan het <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Hoi, ik ben Luis.<br />een software engineer met focus op UX.<br>Momenteel werk ik bij Dell aan het <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Enkele vermeldingen:",
           "mention_items": [
             {
@@ -103075,6 +103672,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 nov. 2026:<br>Onze documentatie AI-ready maken<span class=\"sr-only\"> Applause-award uitgereikt door Igor Almeida aan de DDS-SUPPORT-pod (Dan, Juan en Luis) voor de diepgaande review van de migratiedocumentatie — waarbij hiaten, inconsistenties en verbeteringen werden vastgesteld die de kwaliteit van de begeleiding verhoogden en de MCP- en AI-gestuurde workflows ten goede komen.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Over mij",
@@ -103127,7 +103733,10 @@
             "uitgelicht op tcg",
             "cssw star",
             "uitgelicht op mindsparkle mag",
-            "gepubliceerd werk: desenvolvimento de um protótipo para gestão de conhecimento u",
+            "consistentie en afstemming op dds bravo-award uitgereikt door jenn white aan lui",
+            "geweldige start met fantastische overwinningen! cheers-award uitgereikt door thi",
+            "vaarwel, pivotal tracker – hallo, jira! shout out van bert grantges aan het team",
+            "sterke fundamenten bravo-award uitgereikt door leonardo ratzlaff aan luis krotz",
             "over mij",
             "over luis krötz",
             "biografie",
@@ -103349,7 +103958,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Elke fork kan via GitHub worden gemaakt, onder MIT-licentie, via deze link.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Elke fork kan via GitHub worden gemaakt, onder MIT-licentie, via deze link.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Elke fork van de vorige versie van mijn website kan via deze link worden gemaakt.</a>"
               ],
               "title": "Repository"
@@ -103790,8 +104399,7 @@
             "laadskelet met morfende cellen en shimmer",
             "intro-loader met tegenroterende ringen en voortgang",
             "notificatie-toast die uit de hoek schuift",
-            "portfolio-tegeltitel die in gloed wegbrandt en zich heropbouwt",
-            "portfolio-tegel schuift op een veer naar nieuw slot + randschimmer",
+            "projectnaam die in gloed wegbrandt en zich weer in het deck weeft",
             "mediabeeld morft van wazige lage naar scherpe hoge kwaliteit",
             "about-portret met vhs-glitch-corruptie-animatie",
             "footer-scheidingslijn met een reizende lichtschimmer",
@@ -103799,6 +104407,7 @@
             "tegelrand met schimmer die rond de ring reist",
             "knop-hoekhaakjes expanderen bij hover",
             "interactieve 3d-sterrenveld- en aardescène",
+            "uitgebreide media warpt vloeibaar de lightbox in",
             "animaties",
             "webanimaties",
             "css-animaties",
@@ -103830,6 +104439,7 @@
             "telefoon",
             "linkedin",
             "github",
+            "lattes",
             "privacybeleid",
             "gdpr",
             "gebruiksvoorwaarden",
@@ -104139,7 +104749,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -104320,7 +104932,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -104704,7 +105318,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -104815,10 +105431,10 @@
           "title": "Coza",
           "searchThemes": [
             "coza",
-            "coza: homepage full tour",
+            "coza: volledige tour van de homepage",
             "coza: volledige mobiele tour",
             "coza: volledige pagina screenshot",
-            "coza: Engelse homepage",
+            "coza: engelse homepage",
             "coza: artikel, organização com as dicas da maysa.",
             "coza: image galerij, a cada instante da rotina. mais coza + pantone.",
             "coza: artikel, seu banheiro cheio de beleza.",
@@ -104845,7 +105461,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -106047,7 +106665,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -107278,7 +107898,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -107679,7 +108301,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -107841,7 +108465,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -108336,7 +108962,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -108483,7 +109111,7 @@
           "searchThemes": [
             "genesysinf, sageweb",
             "sage",
-            "sageweb: shortcuts screenshot",
+            "sageweb: screenshot van snelkoppelingen",
             "sageweb: 'cadastros' screenshot",
             "sageweb: screenshot van de kleurkiezer",
             "sageweb: screenshot van de filters",
@@ -108517,7 +109145,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -109092,7 +109722,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -109182,7 +109814,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -110443,6 +111077,7 @@
             "dell design system: architectuur van design tokens",
             "dell design system v2: progress bar component",
             "dell design system v2: horizontal progress tracker component",
+            "dell design system v2: vertical progress tracker component",
             "mijn start bij dell op 6 juni 2022, kort nadat transainc zijn deuren sloot, mark",
             "dell",
             "dell technologies",
@@ -110467,7 +111102,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -110630,7 +111267,8 @@
           "title": "Avís",
           "error": "Alguna cosa ha anat malament",
           "loadFailed": "No s'ha pogut carregar una secció",
-          "dismiss": "Descarta la notificació"
+          "dismiss": "Descarta la notificació",
+          "nothingToPrint": "Res per imprimir a {route}"
         },
         "animations": "Referència d'Animacions",
         "search": "Cerca",
@@ -110656,6 +111294,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -110791,6 +111433,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -111197,7 +111843,7 @@
         },
         "about": {
           "col1": [
-            "Hola, sóc en Luis,<br />un enginyer de programari centrat en UX.<br>Actualment treballo a Dell en el <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Hola, sóc en Luis.<br />un enginyer de programari centrat en UX.<br>Actualment treballo a Dell en el <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Sóc un professional de TI amb amplia experiència en desenvolupament web, anàlisi de sistemes i gestió de projectes. M’especialitzo en la construcció de solucions digitals innovadores i eficients, amb un fort focus en SEO, accessibilitat i rendiment. La meva trajectòria en programació abasta ASP, PHP, C, C#, Pascal, Delphi, JavaScript i SQL, a més de frameworks moderns com React, Vue i Angular."
           ],
           "col2": [
@@ -111205,7 +111851,7 @@
             "El meu treball sempre se centra a lliurar layouts pixel-perfect: codi fàcil d’usar, ràpid, bonic i fluït.",
             "M’encanten les animacions en CSS. Vaig passar anys creant les col·leccions de temporada de Melissa gairebé íntegrament en CSS i, des de llavors, he treballat amb animacions basades en JS usant Vue i Lottie, he experimentat amb Three.js i recentment he començat a explorar el desenvolupament guiado per especificacions i la IA."
           ],
-          "frame": "Hola, sóc en Luis,<br />un enginyer de programari centrat en UX.<br>Actualment treballo a Dell en el <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Hola, sóc en Luis.<br />un enginyer de programari centrat en UX.<br>Actualment treballo a Dell en el <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Algunes mencions:",
           "mention_items": [
             {
@@ -111578,6 +112224,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 de nov. de 2026:<br>Fent la Nostra Documentació Apta per a la IA<span class=\"sr-only\"> Premi Applause lliurat per Igor Almeida al pod DDS-SUPPORT (Dan, Juan i Luis) per la revisió en profunditat de la documentació de migració — identificant llacunes, inconsistències i millores que van elevar la qualitat de la guia i beneficien els fluxos MCP i basats en IA.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Quant a mi",
@@ -111630,7 +112285,10 @@
             "destacat a tcg",
             "cssw star",
             "destacat a mindsparkle mag",
-            "treball publicat: desenvolvimento de um protótipo para gestão de conhecimento ut",
+            "coherència i alineació a dds premi bravo lliurat per jenn white a luis krotz per",
+            "gran arribada amb victòries increïbles! premi cheers lliurat per thiago vasconce",
+            "adéu, pivotal tracker – hola, jira! shout out de bert grantges a l’equip per com",
+            "fonaments sòlids premi bravo lliurat per leonardo ratzlaff a luis krotz per lide",
             "sobre mi",
             "sobre luis krötz",
             "biografia",
@@ -111852,7 +112510,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Qualsevol fork es pot fer via GitHub, sota llicència MIT, usant aquest enllaç.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Qualsevol fork es pot fer via GitHub, sota llicència MIT, usant aquest enllaç.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Qualsevol fork de la versió anterior del meu lloc web es pot fer usant aquest enllaç.</a>"
               ],
               "title": "Repositori"
@@ -112293,8 +112951,7 @@
             "esquelet de càrrega amb cel·les en morph i brillantor",
             "loader d'introducció amb anells contrarrotatius i progrés",
             "toast de notificació lliscant des de la cantonada",
-            "títol del tile de portafoli cremant-se en brases i rearmant-se",
-            "tile de portafoli lliscant a nou slot amb ressort + brillantor a la vora",
+            "nom del projecte cremant-se en brases i reteixint-se a la baralla",
             "imatge de mitjans passant de borrosa en baixa qualitat a nítida en alta",
             "retrat de l'about amb animació de corrupció glitch vhs",
             "divisor del peu amb una brillantor de llum viatgera",
@@ -112302,6 +112959,7 @@
             "vora de tile amb brillantor viatjant per l'anell",
             "cantonades de botó expandint-se en claudàtors en hover",
             "escena 3d interactiva de camp estel·lar i terra",
+            "mitjà expandit obrint-se en warp líquid cap al lightbox",
             "animacions",
             "animacions web",
             "animacions css",
@@ -112333,6 +112991,7 @@
             "telèfon",
             "linkedin",
             "github",
+            "lattes",
             "política de privacitat",
             "gdpr",
             "termes d’ús",
@@ -112643,7 +113302,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -112824,7 +113485,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -113208,7 +113871,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -113349,7 +114014,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -114551,7 +115218,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -115782,7 +116451,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -116183,7 +116854,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -116345,7 +117018,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -116840,7 +117515,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -117021,7 +117698,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -117596,7 +118275,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -117686,7 +118367,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -118947,6 +119630,7 @@
             "dell design system: arquitectura de design tokens",
             "dell design system v2: progress bar component",
             "dell design system v2: horizontal progress tracker component",
+            "dell design system v2: vertical progress tracker component",
             "incorporar-me a dell el 6 de juny de 2022, poc després del tancament de transain",
             "dell",
             "dell technologies",
@@ -118971,7 +119655,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -119134,7 +119820,8 @@
           "title": "Aviso",
           "error": "Algo foi mal",
           "loadFailed": "Unha sección non se puido cargar",
-          "dismiss": "Pechar a notificación"
+          "dismiss": "Pechar a notificación",
+          "nothingToPrint": "Nada que imprimir en {route}"
         },
         "animations": "Referencia de Animacións",
         "search": "Busca",
@@ -119160,6 +119847,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -119295,6 +119986,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -119701,7 +120396,7 @@
         },
         "about": {
           "col1": [
-            "Ola, son Luis,<br />un enxeñeiro de software centrado en UX.<br>Actualmente traballo en Dell no <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Ola, son Luis.<br />un enxeñeiro de software centrado en UX.<br>Actualmente traballo en Dell no <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Son un profesional de TI con ampla experiencia en desenvolvemento web, análise de sistemas e xestión de proxectos. Especialízome na construción de solucións dixitais innovadoras e eficientes, cun forte foco en SEO, accesibilidade e rendemento. A miña traxectoria en programación abarca ASP, PHP, C, C#, Pascal, Delphi, JavaScript e SQL, ademais de frameworks modernos como React, Vue e Angular."
           ],
           "col2": [
@@ -119709,7 +120404,7 @@
             "O meu traballo sempre se centra en entregar layouts pixel-perfect: código fácil de usar, rápido, fermoso e fluído.",
             "Encántanme as animacións en CSS. Pasei anos creando as coleccións de tempada de Melissa case integramente en CSS e, desde entón, traballei con animacións baseadas en JS usando Vue e Lottie, experimentei con Three.js e recentemente comecei a explorar o desenvolvemento guiado por especificacións e a IA."
           ],
-          "frame": "Ola, son Luis,<br />un enxeñeiro de software centrado en UX.<br>Actualmente traballo en Dell no <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Ola, son Luis.<br />un enxeñeiro de software centrado en UX.<br>Actualmente traballo en Dell no <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Algunhas mencións:",
           "mention_items": [
             {
@@ -120082,6 +120777,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 de nov. de 2026:<br>Preparando a Nosa Documentación para a IA<span class=\"sr-only\"> Premio Applause entregado por Igor Almeida ao pod DDS-SUPPORT (Dan, Juan e Luis) pola revisión en profundidade da documentación de migración — identificando lagoas, inconsistencias e melloras que elevaron a calidade da guía e benefician os fluxos MCP e baseados en IA.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Sobre min",
@@ -120134,7 +120838,10 @@
             "destacado en tcg",
             "cssw star",
             "destacado en mindsparkle mag",
-            "traballo publicado: desenvolvimento de um protótipo para gestão de conhecimento",
+            "consistencia e aliñamento en dds premio bravo entregado por jenn white a luis kr",
+            "gran chegada con vitorias incribles! premio cheers entregado por thiago vasconce",
+            "adeus, pivotal tracker – ola, jira! shout out de bert grantges ao equipo por com",
+            "fundamentos sólidos premio bravo entregado por leonardo ratzlaff a luis krotz po",
             "sobre min",
             "sobre luis krötz",
             "biografía",
@@ -120357,7 +121064,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Calquera fork pode facerse via GitHub, baixo licenza MIT, usando esta ligazón.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Calquera fork pode facerse via GitHub, baixo licenza MIT, usando esta ligazón.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Calquera fork da versión anterior do meu sitio web pode facerse usando esta ligazón.</a>"
               ],
               "title": "Repositorio"
@@ -120798,8 +121505,7 @@
             "esqueleto de carga con celas en morph e brillo",
             "loader de introdución con aneis contrarrotativos e progreso",
             "toast de notificación deslizándose desde o canto",
-            "título do tile de portafolio queimándose en brasa e rearmándose",
-            "tile de portafolio deslizándose a novo slot con resorte + brillo no bordo",
+            "nome do proxecto queimándose en brasa e retecéndose na baralla",
             "imaxe de medios pasando de borrosa en baixa calidade a nítida en alta",
             "retrato do about con animación de corrupción glitch vhs",
             "divisor do pé cun brillo de luz viaxeiro",
@@ -120807,6 +121513,7 @@
             "bordo de tile con brillo viaxando polo anel",
             "esquinas de botón expandíndose en corchetes en hover",
             "escena 3d interactiva de campo estelar e terra",
+            "medio expandido abríndose en warp líquido cara ao lightbox",
             "animacións",
             "animacións web",
             "animacións css",
@@ -120838,6 +121545,7 @@
             "teléfono",
             "linkedin",
             "github",
+            "lattes",
             "política de privacidade",
             "gdpr",
             "termos de uso",
@@ -121148,7 +121856,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -121329,7 +122039,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -121713,7 +122425,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -121854,7 +122568,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -123056,7 +123772,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -124287,7 +125005,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -124688,7 +125408,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -124850,7 +125572,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -125345,7 +126069,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -125526,7 +126252,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -126101,7 +126829,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -126191,7 +126921,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -127452,6 +128184,7 @@
             "dell design system: arquitectura de design tokens",
             "dell design system v2: progress bar compoñente",
             "dell design system v2: horizontal progress tracker compoñente",
+            "dell design system v2: vertical progress tracker compoñente",
             "unirme a dell o 6 de xuño de 2022, pouco despois do peche de transainc, marcou u",
             "dell",
             "dell technologies",
@@ -127476,7 +128209,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
@@ -127639,7 +128374,8 @@
           "title": "Fógra",
           "error": "Chuaigh rud éigin mícheart",
           "loadFailed": "Theip ar rannán a lódáil",
-          "dismiss": "Dún an fógra"
+          "dismiss": "Dún an fógra",
+          "nothingToPrint": "Níl aon rud le priontáil i {route}"
         },
         "animations": "Tagairt Beochana",
         "search": "Cuardach",
@@ -127665,6 +128401,10 @@
             {
               "description": "Github",
               "link": "https://github.com/LuisKrotz"
+            },
+            {
+              "description": "Lattes",
+              "link": "http://lattes.cnpq.br/9485721962607600"
             }
           ],
           "line2": [
@@ -127800,6 +128540,10 @@
             {
               "link": "https://github.com/LuisKrotz",
               "network": "Github"
+            },
+            {
+              "link": "http://lattes.cnpq.br/9485721962607600",
+              "network": "Lattes"
             }
           ]
         },
@@ -128205,7 +128949,7 @@
         },
         "about": {
           "col1": [
-            "Dia duit, mise Luis,<br />Innealtóir Bogearraí dírithe ar UX.<br>Faoi láthair ag obair ag Dell ar an <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+            "Dia duit, mise Luis.<br />Innealtóir Bogearraí dírithe ar UX.<br>Faoi láthair ag obair ag Dell ar an <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
             "Is gairmi TF mé le saineolas domhain i bhforbairt gréasáin, in anailís córas agus i mbainistíocht tionscadail. Tá speisialtacht agam i réitigh dhigiteacha nuálacha agus éifeachtúla a thógáil le béim láidir ar SEO, ar inrochtaineacht agus ar fheidhmíocht. Cuimsíonn mo chúlra ríomhchlárúcháin ASP, PHP, C, C#, Pascal, Delphi, JavaScript agus SQL, mar aon le creatlacha nua-aimseartha ar nós React, Vue agus Angular."
           ],
           "col2": [
@@ -128213,7 +128957,7 @@
             "Bíonn m'obair dírithe i gcónaí ar leagan amach foirfe ó thaobh picteilín a sholáthar: cód atá éasca le húsáid, tapa, álainn agus réidh.",
             "Is breá liom beochan CSS. Chaith mé blianta ag cruthú bailiúchán séasúrach Melissa beagnach go hiomlán i CSS, agus d'oibrigh mé ó shin le beochaintí bunaithe ar JS ag baint úsáide as Vue agus Lottie, rinne mé turgnamh le Three.js, agus le déanaí thosaigh mé ag iniúchadh forbairt shonraíochta-treoraithe agus AI."
           ],
-          "frame": "Dia duit, mise Luis,<br />Innealtóir Bogearraí dírithe ar UX.<br>Faoi láthair ag obair ag Dell ar an <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
+          "frame": "Dia duit, mise Luis.<br />Innealtóir Bogearraí dírithe ar UX.<br>Faoi láthair ag obair ag Dell ar an <a href=\"https://www.delldesignsystem.com\" target=\"_blank\">Dell Design System</a>.",
           "mentions": "Cuid de na luaiteachaí:",
           "mention_items": [
             {
@@ -128586,6 +129330,15 @@
                 "width": "385",
                 "height": "512"
               }
+            },
+            {
+              "description": "4 Samhain 2026:<br>Ár nDoiciméadacht a Ullmhú don IA<span class=\"sr-only\"> Gradam Applause bronnta ag Igor Almeida ar an bpod DDS-SUPPORT (Dan, Juan agus Luis) as an athbhreithniú domhain ar an doiciméadacht aistrithe — ag aithint bearnaí, míthreagrachtaí agus feabhsúcháin a ardaigh cáilíocht na dtreoracha agus a chabhraíonn le sreabhadh oibre MCP agus faoi thiomáint IA.</span>",
+              "link": "https://storage.googleapis.com/luiskr.com/public/shared_items/awards/2026/Making%20Our%20Documentation%20AI-Ready.pdf",
+              "media": {
+                "height": "512",
+                "path": "awards/making-our-documentation-ai-ready-2026.png",
+                "width": "681"
+              }
             }
           ],
           "title": "Fúmsa",
@@ -128638,7 +129391,10 @@
             "ar taispeáint ar tcg",
             "realta cssw",
             "ar taispeáint ar mindsparkle mag",
-            "saothar foilsithe: desenvolvimento de um protótipo para gestão de conhecimento u",
+            "comhsheasmhacht agus ailíniú ar dds gradam bravo bronnta ag jenn white ar luis k",
+            "teacht iontach le buanna móra! gradam cheers bronnta ag thiago vasconcelos as te",
+            "slán, pivotal tracker – dia dhuit, jira! shout out ó bert grantges don fhoireann",
+            "bunsraithe láidre gradam bravo bronnta ag leonardo ratzlaff ar luis krotz as cea",
             "fúmsa",
             "faoi luis krötz",
             "beathaisnéis",
@@ -128859,7 +129615,7 @@
             },
             {
               "content": [
-                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V3' rel='noopener'>Is féidir aon forc a dhéanamh trí github, faoi Cheadúnas MIT, ag baint úsáide as an nasc seo.</a>",
+                "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com' rel='noopener'>Is féidir aon forc a dhéanamh trí github, faoi Cheadúnas MIT, ag baint úsáide as an nasc seo.</a>",
                 "<a target='_blank' href='https://github.com/LuisKrotz/luiskr.com-V2' rel='noopener'>Is féidir aon forc den leagan roimhe de mo shuíomh gréasáin a dhéanamh ag baint úsáide as an nasc seo.</a>"
               ],
               "title": "Taisce"
@@ -129299,8 +130055,7 @@
             "cnámharlach lódála le cealla morph agus loinnir",
             "lódálaí iontrála le fáinní contrarothlacha agus dul chun cinn",
             "tósta fógra ag sleamhnú isteach ón choirnéal",
-            "teideal tíle phunainne ag dó in eibhlí agus ag athfhoirmiú",
-            "tíle phunainne ag sleamhnú go sliotán nua ar sprionga + loinnir ar an imeall",
+            "ainm an tionscadail ag dó in eibhlí agus á fhí arís sa phaca",
             "íomhá meáin ag morphú ó dhofa ísealchaighdeáin go géar ardchaighdeán",
             "portráid about le beochan truailliú glitch vhs",
             "deighilteoir an bhoinn le loinnir solais taistil",
@@ -129308,6 +130063,7 @@
             "imeall tíle le loinnir ag taisteal timpeall an fháinne",
             "cúinní cnaipe ag leathnú in lúibíní ar hover",
             "radharc 3d idirghníomhach réilt-earra agus domhan",
+            "meán fairsingthe ag warping go leachtach isteach sa lightbox",
             "beocha",
             "beochana gréasáin",
             "beochana css",
@@ -129335,6 +130091,7 @@
             "fón",
             "linkedin",
             "github",
+            "lattes",
             "polasaí príobháideachta",
             "gdpr",
             "téarmaí úsáide",
@@ -129645,7 +130402,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cecerele": {
           "cover": {
@@ -129826,7 +130585,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "cicb": {
           "cover": {
@@ -130210,7 +130971,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "coza": {
           "cover": {
@@ -130351,7 +131114,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "melissa": {
           "cover": {
@@ -131553,7 +132318,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "metcha": {
           "cover": {
@@ -132784,7 +133551,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mini-melissa": {
           "cover": {
@@ -133185,7 +133954,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "mor": {
           "cover": {
@@ -133347,7 +134118,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "nathalia-bond": {
           "cover": {
@@ -133842,7 +134615,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "sage": {
           "cover": {
@@ -134023,7 +134798,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "transa": {
           "cover": {
@@ -134598,7 +135375,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "vibra": {
           "cover": {
@@ -134688,7 +135467,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-08-11T14:35:01-03:00",
+          "modified": "2026-10-27T00:58:59-03:00"
         },
         "dell-design-system": {
           "cover": {
@@ -135949,6 +136730,7 @@
             "dell design system: ailtireacht comharthaí dearaidh",
             "dell design system v2: progress bar comhpháirt",
             "dell design system v2: horizontal progress tracker comhpháirt",
+            "dell design system v2: vertical progress tracker comhpháirt",
             "ba phointe cinniúnach i mo shaol gairmiúil é dul isteach i dell ar an 6 meitheam",
             "dell",
             "dell technologies",
@@ -135973,7 +136755,9 @@
             "javascript",
             "css",
             "webgl"
-          ]
+          ],
+          "date": "2026-10-11T23:18:16-03:00",
+          "modified": "2026-11-08T15:06:55-03:00"
         }
       },
       "slugs": {
