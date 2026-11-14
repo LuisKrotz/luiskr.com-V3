@@ -1,6 +1,6 @@
 {
   "name": "luiskr.com",
-  "version": "0.2.0",
+  "version": "5.2.0",
   "private": true,
   "workspaces": [
     "shared",
@@ -69,6 +69,7 @@
     "deploy:info": "node shared/scripts/build/deploy-info.mjs",
     "indexnow": "node shared/scripts/build/submit-indexnow.mjs",
     "media:validate-sizes": "node shared/scripts/media/validate-media-sizes.mjs",
+    "media:a11y": "node shared/scripts/media/a11y/run.mjs",
     "test:lighthouse": "yarn build --verify-lighthouse",
     "a11y": "node shared/scripts/verify/a11y-checker.mjs",
     "a11y:en": "node shared/scripts/verify/a11y-checker.mjs --en",
@@ -77,7 +78,11 @@
     "lint": "eslint shared core website cms experiments --max-warnings=0",
     "lint:fix": "eslint shared core website cms experiments --fix --max-warnings=0",
     "format": "prettier --write \"**/*.{js,mjs,cjs,ts,tsx,scss,css,json,md,yml,yaml,html}\" --ignore-unknown",
-    "deploy": "firebase deploy",
+    "release": "yarn version:patch && yarn build",
+    "deploy": "yarn release && firebase deploy",
+    "version:patch": "yarn version --patch --no-git-tag-version && node shared/scripts/build/stamp-version.mjs --sync",
+    "version:minor": "yarn version --minor --no-git-tag-version && node shared/scripts/build/stamp-version.mjs --sync",
+    "version:major": "yarn version --major --no-git-tag-version && node shared/scripts/build/stamp-version.mjs --sync",
     "desktop": "yarn desktop:dev",
     "desktop:dev": "electron desktop",
     "desktop:build": "yarn build && electron-builder --project desktop",

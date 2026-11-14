@@ -1,24 +1,24 @@
 [submodule "core"]
 	path = core
-	url = git@github.com:LuisKrotz/luiskr.com-V3-core.git
+	url = git@github.com:LuisKrotz/luiskr.com-core.git
 [submodule "cms"]
 	path = cms
-	url = git@github.com:LuisKrotz/luiskr.com-V3-cms.git
+	url = git@github.com:LuisKrotz/luiskr.com-cms.git
 [submodule "experiments/docs"]
 	path = experiments/docs
-	url = git@github.com:LuisKrotz/luiskr.com-V3-docs.git
+	url = git@github.com:LuisKrotz/luiskr.com-docs.git
 [submodule "experiments/earth-playground"]
 	path = experiments/earth-playground
-	url = git@github.com:LuisKrotz/luiskr.com-V3-earth-playground.git
+	url = git@github.com:LuisKrotz/luiskr.com-earth-playground.git
 [submodule "shared"]
 	path = shared
-	url = git@github.com:LuisKrotz/luiskr.com-V3-shared.git
+	url = git@github.com:LuisKrotz/luiskr.com-shared.git
 [submodule "website"]
 	path = website
-	url = git@github.com:LuisKrotz/luiskr.com-V3-website.git
+	url = git@github.com:LuisKrotz/luiskr.com-website.git
 [submodule "experiments/star-field"]
 	path = experiments/star-field
-	url = git@github.com:LuisKrotz/luiskr.com-V3-star-field.git
+	url = git@github.com:LuisKrotz/luiskr.com-star-field.git
 [submodule "rust"]
 	path = rust
-	url = git@github.com:LuisKrotz/luiskr.com-V3-rust.git
+	url = git@github.com:LuisKrotz/luiskr.com-rust.git

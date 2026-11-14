@@ -1,4 +1,4 @@
-# luiskr.com V3
+# luiskr.com
 
 Personal portfolio of Luis Krötz — strict TypeScript custom elements with
 Shadow DOM, a custom JSX runtime, Firebase Realtime Database as CMS backend,
@@ -72,8 +72,8 @@ pacman / zypper / apk). Only Node, Yarn, and Git are needed beforehand.
 ## Quick start
 
 ```bash
-git clone --recurse-submodules git@github.com:LuisKrotz/luiskr.com-V3.git
-cd luiskr.com-V3
+git clone --recurse-submodules git@github.com:LuisKrotz/luiskr.com.git
+cd luiskr.com
 yarn setup      # ONE command: submodules + deps + hooks + all toolchains
 yarn dev        # public site + CMS against real Firebase
 ```
@@ -120,6 +120,10 @@ shared/scripts/i18n/patch-rss-feed-label.js` writes its label).
   sources when network access is available.
 - `yarn build` emits the per-route Markdown/JSON agent replicas;
   `yarn docs` regenerates the API and source Markdown documentation.
+- `yarn media:a11y` generates the co-located accessibility artifacts on
+  the media bucket — `<stem>.vtt`/`_<locale>.vtt` description tracks for
+  videos and `_longdesc(.<locale>).txt` long descriptions for images,
+  across all 16 locales (see AGENTS.md §36).
 - `yarn test:fps` checks the 120 FPS mobile and 240 FPS desktop frame floors.
 
 License: [MPL-2.0](LICENSE)

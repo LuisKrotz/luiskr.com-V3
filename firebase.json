@@ -533,6 +533,10 @@
         "destination": "/meta/sitemap.xml"
       },
       {
+        "source": "/sitemap-news.xml",
+        "destination": "/meta/sitemap-news.xml"
+      },
+      {
         "source": "/urllist.txt",
         "destination": "/meta/urllist.txt"
       },

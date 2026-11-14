@@ -1,4 +1,4 @@
-# luiskr.com V3 — desktop
+# luiskr.com — desktop
 
 The Electron shell — wraps the built site+CMS as an installable desktop app.
 
@@ -45,6 +45,6 @@ yarn electron-builder --project desktop --win -c.electronDist="$PWD/release/.ele
 
 ---
 
-Part of [luiskr.com-V3](https://github.com/LuisKrotz/luiskr.com-V3).
+Part of [luiskr.com](https://github.com/LuisKrotz/luiskr.com).
 
-License: [MPL-2.0](https://github.com/LuisKrotz/luiskr.com-V3/blob/development/LICENSE)
+License: [MPL-2.0](https://github.com/LuisKrotz/luiskr.com/blob/development/LICENSE)

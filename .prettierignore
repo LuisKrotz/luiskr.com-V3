@@ -34,3 +34,7 @@ rust/
 
 # wasm-pack artifacts.
 website/public/wasm/
+
+# Agent scratch probes (.tmp-*) — debug artifacts, never authored source.
+.tmp-*/
+.tmp-*

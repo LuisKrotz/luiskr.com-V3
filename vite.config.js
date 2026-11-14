@@ -364,6 +364,41 @@ export default defineConfig(({ command }) => {
     },
   }
 
+  // Dev-only route-shadow guard: extension-less files at the project root
+  // (the repo's LICENSE) collide with same-named SPA routes — Vite's
+  // transform middleware resolves /license onto the file and 500s trying
+  // to import-analyze plain text. Production never sees it: LICENSE isn't
+  // in publicDir and the firebase `**` rewrite wins. Mirror hosting —
+  // ANY request to an extension-less path that collides with a root file
+  // serves the SPA shell instead of the module pipeline: not just HTML
+  // navigations but the predictive-prefetch `<link rel="prefetch">` the
+  // intent layer injects, whose fetch arrives `Accept: */*`. Qualified
+  // requests (?raw/?url) ask for the file itself, not the route — they
+  // pass through to Vite's asset pipeline untouched.
+  const spaShadowGuardDevPlugin = {
+    name: 'spa-shadow-guard-dev',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        if (req.method !== 'GET' && req.method !== 'HEAD') return next()
+
+        const rawUrl = req.url || ''
+        const reqPath = decodeURIComponent(rawUrl.split('?')[0])
+        const last = reqPath.split('/').pop() || ''
+
+        if (!last || last.includes('.')) return next()
+
+        const file = path.join(__dirname, reqPath)
+
+        if (!existsSync(file) || !statSync(file).isFile()) return next()
+
+        if (rawUrl.includes('?')) return next()
+
+        req.url = '/index.html'
+        next()
+      })
+    },
+  }
+
   // Dev-only offline CMS mode — explicit opt-in via `CMS_MOCK=1`
   // (`yarn dev:cms`): swaps real Firebase SDK calls for the committed
   // database.json snapshot (see cms/dev/firebase-mock.js), and backs
@@ -657,6 +692,7 @@ export default defineConfig(({ command }) => {
     siteWebmanifestDevPlugin,
     deployInfoDevPlugin,
     feedDevPlugin,
+    spaShadowGuardDevPlugin,
     previewCleanUrlsPlugin,
     previewPrecompressedPlugin,
     ...(process.env.LK_NO_PUBLIC ? [] : [modulePublicPlugin()]),

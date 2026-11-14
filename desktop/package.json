@@ -1,8 +1,13 @@
 {
   "name": "luiskr-desktop",
-  "version": "0.1.0",
+  "version": "5.2.0",
   "private": true,
   "description": "Electron desktop wrapper for the luiskr.com site + CMS",
   "main": "main.mjs",
+  "scripts": {
+    "version:patch": "yarn version --patch --no-git-tag-version",
+    "version:minor": "yarn version --minor --no-git-tag-version",
+    "version:major": "yarn version --major --no-git-tag-version"
+  },
   "author": "Luis Kr"
 }

@@ -47,6 +47,18 @@
       "kind": "js",
       "reason": "Shared-import route chunks: /animations deliberately mounts the real production components (card stack, carousels, about-section, footer feed, 3D scene) so vite's default grouping co-bundles the modules shared with Home/StarField/Legal/Docs routes. These are lazy per-route chunks — not the critical path — and the growth is the production code itself, which the fidelity requirement mandates; splitting would duplicate shared modules across chunks.",
       "review": "2027-02-09"
+    },
+    {
+      "pattern": "^app~Legal$",
+      "kind": "js",
+      "reason": "The legal route chunk is ~97% one compiled ?inline SCSS module — the shared internal-pages sheet (internal-description/internal-title/awards-footer/legal) delivered through adoptedStyleSheets as a single cascade-ordered module. It cannot be divided without reordering the cascade; it lazy-loads only on the /legal route, off the critical path.",
+      "review": "2027-05-11"
+    },
+    {
+      "pattern": "^app~(index|Home|Sitemap|SpacePlayground|PreferencesModal~LangDialog)(~|$)",
+      "kind": "js",
+      "reason": "Shared-import route chunks whose bulk is the compiled internals ?tiers sheet (internal-title/.project plus the magazine print cascade) — vite co-bundles the cascade-ordered adoptedStylesheet module into whichever route chunks mount internal-page components. None appear in dist/index.html: all are lazy per-route/per-dialog fetches off the critical path, and splitting would only reorder the same cascade (see app~Legal above).",
+      "review": "2027-05-11"
     }
   ]
 }

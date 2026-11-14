@@ -62,3 +62,7 @@ cms/dev/https/
 # electron-builder output — per-OS installers are release artifacts.
 release/
 node_modules
+
+# Agent scratch probes (.tmp-*) — debug artifacts, never authored source (mirrors .prettierignore).
+.tmp-*/
+.tmp-*

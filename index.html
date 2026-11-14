@@ -238,6 +238,13 @@
 
     <link rel="canonical" href="https://luiskr.com" />
 
+    <!-- Print alternate — every route renders a print-optimized form
+         (lazy rcss print tier + print DOM adapter), and this head-level
+         declaration tells crawlers that; syncDocumentHead rewrites the
+         href to the active canonical on each navigation, and the static
+         localized documents emit their own route href. -->
+    <link rel="alternate" media="print" href="https://luiskr.com" />
+
     <style>
       .hdn {
         border: 0;
